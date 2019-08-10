@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TrackR"
 description: "Instructions on how to use TrackR to track devices in Home Assistant."
-date: 2016-12-22 1000
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: trackr.png
 ha_release: 0.36
 ha_category:

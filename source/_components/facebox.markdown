@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Facebox"
 description: "Detect and recognize faces with Facebox."
-date: 2018-05-03 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: machine-box.png
 ha_category:
   - Image Processing

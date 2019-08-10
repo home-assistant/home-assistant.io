@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Seven segments display"
 description: "Instructions on how to use OCR for seven segments displays into Home Assistant."
-date: 2017-05-18 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Image Processing
@@ -19,9 +13,11 @@ redirect_from:
 
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/).
 
-<p class='note'>
+<div class='note'>
+
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-</p>
+
+</div>
 
 `ssocr` needs to be available on your system. Check the installation instruction below:
 

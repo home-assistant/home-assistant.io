@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iRobot Roomba"
 description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
-date: 2017-08-04 20:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: irobot_roomba.png
 ha_category:
   - Vacuum
@@ -17,9 +11,9 @@ redirect_from:
 
 The `roomba` integration allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
 
-<p class='note'>
+<div class='note'>
 This platform has only been tested with an iRobot Roomba 980 but should work fine with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
-</p>
+</div>
 
 ## Configuration
 
@@ -64,9 +58,11 @@ continuous:
   default: true
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
-</p>
+
+</div>
 
 ### Retrieving your credentials
 

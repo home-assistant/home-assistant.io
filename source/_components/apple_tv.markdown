@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Apple TV"
 description: "Instructions on how to integrate Apple TV devices into Home Assistant."
-date: 2017-06-26 20:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apple.png
 ha_category:
   - Multimedia
@@ -26,9 +20,9 @@ There is currently support for the following device types within Home Assistant:
 - Media Player
 - [Remote](#remote)
 
-<p class='note'>
+<div class='note'>
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
-</p>
+</div>
 
 ## Configuration
 
@@ -72,6 +66,7 @@ start_off:
   description: Set to true if the device should start in fake standby.
   required: false
   type: boolean
+  default: false
 credentials:
   description: Credentials used for AirPlay playback.
   required: false
@@ -86,7 +81,7 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 Make sure Home Sharing is enabled on the Apple TV.
 
-To scan for devices and determine the `login_id`, press the icon in the upper left corner and select the leftmost icon according to the image:
+To scan for devices and determine the `login_id`, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -116,7 +111,7 @@ If you, when playing media with `play_url`, get the following error message:
 
 *“This AirPlay connection requires iOS 7.1 or later, OS X 10.10 or later, or iTunes 11.2 or later.”*
 
-then device authentication is required. Press the icon in the upper left corner and select the leftmost icon according to the image below:
+then device authentication is required, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -154,9 +149,9 @@ The first two points are quite obvious. Fake standby is a concept implemented in
 
 To put a device into fake standby when starting Home Assistant, add `start_off: true` to your configuration.
 
-<p class='note warning'>
+<div class='note warning'>
 Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
-</p>
+</div>
 
 ## Services
 

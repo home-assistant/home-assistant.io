@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Customizing entities"
 description: "Simple customization for entities in the frontend."
-date: 2016-04-20 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/customizing-devices/
 ---
 
@@ -25,7 +19,7 @@ By default, all of your devices will be visible and have a default icon determin
 
 ### Customization using the UI
 
-Under the *Configuration* menu you'll find the *Customization* menu. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those, or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)).
+Under the *Configuration* menu you'll find the *Customization* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those, or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)).
 
 #### Possible values
 
@@ -92,9 +86,11 @@ Device class is currently supported by the following components:
 
 ### Manual customization
 
-<p class='note'>
+<div class='note'>
+
 If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
-</p>
+
+</div>
 
 ```yaml
 homeassistant:
@@ -137,6 +133,6 @@ homeassistant:
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant.reload_core_config` and click "CALL SERVICE".
 
-<p class='note warning'>
+<div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.
-</p>
+</div>

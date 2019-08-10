@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Microsoft Face Identify"
 description: "Instructions on how to integrate Microsoft Face Identify into Home Assistant."
-date: 2017-01-25 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: microsoft.png
 ha_category:
   - Image Processing
@@ -26,9 +20,11 @@ how to setup the API key.
 For using the result inside an automation rule,
 take a look at the [Image Processing component](/components/image_processing/) page.
 
-<p class='note'>
+<div class='note'>
+
 The free version of the Microsoft Face identify API limits the number of requests possible per month. Therefore, it is strongly recommended that you limit the `scan_interval` when setting up an instance of this entity as detailed on the main [Image Processing component](/components/image_processing/) page.
-</p>
+
+</div>
 
 ### Configuration
 

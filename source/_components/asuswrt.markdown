@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Asuswrt"
 description: "Instructions on how to integrate Asuswrt into Home Assistant."
-date: 2017-01-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: asus.png
 ha_category:
   - Hub
@@ -89,9 +83,11 @@ sensors:
       description: upload mbit/s sensor
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
-</p>
+
+</div>
 
 ### Example Sensor Configuration
 

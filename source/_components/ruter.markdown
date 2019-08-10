@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ruter Public Transport"
 description: "Instructions on how to integrate departure times from Ruter within Home Assistant."
-date: 2018-11-05 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ruter.png
 ha_category:
   - Transport
@@ -16,10 +10,12 @@ redirect_from:
  - /components/sensor.ruter/
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 The API used for this sensor is shutting down soon, you should consider starting to use the [`entur_public_transport`](/components/sensor.entur_public_transport/) sensor before that happen.
 To read the deprecation warning visit [ruter.no/labs](https://ruter.no/labs/),
-</p>
+
+</div>
 
 The `ruter` sensor will provide you departure information for the larger Oslo area in Norway from the [Ruter][ruter] public transportation service.
 
@@ -58,5 +54,5 @@ name:
   default: Ruter
 {% endconfiguration %}
 
-[ruter]: https://ruter.no/reiseplanlegger/Stoppested
+[ruter]: https://ruter.no/reiseplanlegger/
 [ruter-api]: http://reisapi.ruter.no/Help

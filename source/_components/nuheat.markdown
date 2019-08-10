@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NuHeat"
 description: "Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant."
-date: 2017-11-11 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nuheat.png
 ha_category:
   - Climate
@@ -16,7 +10,7 @@ redirect_from:
   - /components/climate.nuheat/
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature]([NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat)) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
+The `nuheat` integration lets control your connected [NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -54,7 +48,7 @@ password:
 devices:
   description: The serial number/ID of each thermostat you would like to integrate.
   required: true
-  type: [string, int]
+  type: [string, integer]
 {% endconfiguration %}
 
 ## Concepts
@@ -63,11 +57,9 @@ The NuHeat Thermostat supports the following key concepts.
 
 The `target temperature` is the temperature that the device attempts to achieve. The target temperature is either determined by the schedule programmed into the thermostat (`auto mode`) or may be overridden. When the target temperature is set by Home Assistant, the thermostat will hold this temperature until the schedule is resumed.
 
-
 ## Attributes
 
 The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `current_hold_mode`, `current_operation`, `operation_list`, `min_temp` and `max_temp`.
-
 
 ### Attribute `name`
 
@@ -102,7 +94,7 @@ not in auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### Attribute `current_hold_mode`
+### Attribute `preset_mode`
 
 Returns the current temperature hold, if any.
 
@@ -110,21 +102,21 @@ Returns the current temperature hold, if any.
 | ---------------| ----------- |
 | String | 'temperature', 'temporary_temperature', 'auto', etc.
 
-### Attribute `current_operation`
+### Attribute `hvac_action`
 
-Returns the current operation of the thermostat.
+Returns the current HVAC mode of the thermostat.
 
 | Attribute type | Description |
 | ---------------| ----------- |
 | String | 'heat', 'idle'
 
-### Attribute `operation_list`
+### Attribute `preset_modes`
 
-Returns the list of available operation modes.
+Returns the list of available preset modes.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| List of String | Available operation modes
+| List of String | Available preset modes
 
 ### Attribute `min_temp`
 
@@ -142,12 +134,11 @@ Returns the maximum supported temperature by the thermostat
 | ---------------| ----------- |
 | Integer | Maximum supported temperature
 
-
 ## Services
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hold_mode`, `nuheat_resume_program`.
+The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`, `resume_program`.
 
-The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
+The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_humidity`, `set_fan_mode`, and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
 
 ### Service `set_temperature`
 
@@ -161,16 +152,16 @@ Puts the thermostat into an indefinite hold at the given temperature.
 Only the target temperatures relevant for the current operation mode need to
 be provided.
 
-### Service `set_hold_mode`
+### Service `set_preset_mode`
 
-Sets the thermostat's hold mode. The NuHeat thermostat supports "auto" (to run the thermostat's programmed schedule), "temperature" (to indefinitely hold the thermostat's current target temperature), or "temporary_temperature" (to hold the thermostat's current target temperature until the thermostat's next scheduled event).
+Sets the thermostat's preset mode. Without a preset mode set it run the thermostat's programmed schedule, "temperature" (to indefinitely hold the thermostat's current target temperature), or "temporary_temperature" (to hold the thermostat's current target temperature until the thermostat's next scheduled event).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `hold_mode` | no | New value of hold mode.
 
-### Service `nuheat_resume_program`
+### Service `resume_program`
 
 Resumes the currently active schedule.
 

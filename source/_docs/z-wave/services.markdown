@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Services"
 description: "Services exposed by the Z-Wave component."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The `zwave` integration exposes multiple services to help maintain the network. All of these are available through the Z-Wave control panel.
@@ -46,8 +40,10 @@ The `soft_reset` and `heal_network` commands can be used to help keep a Z-Wave n
 - Moving the Controller
 - Removing a Dead Node
 
-<p class='note'>
+<div class='note'>
+
 Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang.
-</p>
+
+</div>
 
 To trigger a `heal_network`, one can always use *Settings -> Z-Wave Network Management -> Heal Network* from the GUI whenever one of the above actions took place.

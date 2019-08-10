@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Norway Air Quality"
 description: "Display the current status of Norway air quality."
-date: 2019-02-02 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: metno.png
 ha_category:
   - Health
@@ -37,11 +31,11 @@ forecast:
 latitude:
   description: Manually specify latitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 longitude:
   description: Manually specify longitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 {% endconfiguration %}

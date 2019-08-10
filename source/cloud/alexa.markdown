@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Alexa via Home Assistant Cloud"
 description: "Enable the Alexa integration via Home Assistant Cloud integration."
-date: 2017-11-17 20:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 redirect_from:
   - /components/cloud.alexa/
 ---

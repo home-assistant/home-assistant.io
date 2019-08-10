@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Static website"
 description: "Serving a static website with Home Assistant."
 date: 2016-04-07 06:28:00
 date_formatted: "April 7, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2016-04-display/ha-display.png
 ---

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SendGrid"
 description: "Instructions on how to add email notifications via SendGrid to Home Assistant."
-date: 2016-02-27 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sendgrid.png
 ha_category:
   - Notifications

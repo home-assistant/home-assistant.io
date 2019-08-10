@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Insteon"
 description: "Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant."
-date:  2018-08-20 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: insteon.png
 ha_category:
   - Hub
@@ -101,28 +95,28 @@ insteon:
 
 {% configuration %}
 port:
-  description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`.
-  required: Required for PLM setup
+  description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`. Required for PLM setup.
+  required: false
   type: string
 host:
-  description: The host name or IP address of the Hub.
-  required: Required for Hub setup
+  description: The host name or IP address of the Hub. Required with Hub.
+  required: false
   type: string
 ip_port:
-  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub.
-  required: Optional for Hub setup
+  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  required: true
   type: integer
 username:
-  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app.
-  required: Required for Hub version 2 setup
+  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
   type: string
 password:
-  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app.
-  required: Required for Hub version 2 setup
+  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
   type: string
 hub_version:
-  description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2.
-  required: Required for Hub version 1 setup
+  description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2. Required for Hub version 1 setup.
+  required: false
   default: 2
   type: integer
 device_override:
@@ -258,6 +252,25 @@ light:
     address: 1a2b3c
 ```
 
+### INSTEON Scenes
+
+Trigger an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
+
+- **insteon.scene_on**
+  - **group**: (required) The INSTEON scene number to trigger.
+- **insteon.scene_off**
+  - **group**: (required) The INSTEON scene to turn off
+
+```yaml
+automation:
+  # Trigger an INSTEON scene 25
+  - id: trigger_scene_25_on
+    alias: Turn on scene 25
+    action:
+      - service: insteon.scene_on
+        group: 25
+```
+
 ### Events and Mini-Remotes
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
@@ -265,7 +278,7 @@ Mini-Remote devices do not appear as Home Assistant entities, they generate even
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
-- **insteon.button_of**
+- **insteon.button_off**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
 
@@ -274,33 +287,37 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 ```yaml
 automation:
   # 4 or 8 button remote with button c pressed
-  trigger:
-    platform: event
-    event_type: insteon.button_on
+  - id: light_on
+    alias: Turn a light on
+    trigger:
+      - platform: event
+        event_type: insteon.button_on
     event_data:
       address: 1a2b3c
       button: c
-  condition:
-    - condition: state
-      entity_id: light.some_light
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: light.some_light
 
   # single button remote
-  trigger:
-    platform: event
-    event_type: insteon.button_on
+  - id: light_off
+    alias: Turn a light off
+    trigger:
+      - platform: event
+        event_type: insteon.button_on
     event_data:
       address: 1a2b3c
-  condition:
-    - condition: state
-      entity_id: light.some_light
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: light.some_light
 ```
 
 ### Known Issues with the INSTEON Hub

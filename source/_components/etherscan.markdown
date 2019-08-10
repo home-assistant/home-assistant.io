@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Etherscan"
 description: "Instructions on how to integrate Etherscan.io data within Home Assistant."
-date: 2017-06-01 16:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: etherscan.png
 ha_category:
   - Finance

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Threshold Binary Sensor"
 description: "Instructions on how to integrate threshold binary sensors into Home Assistant."
-date: 2016-11-26 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -45,7 +39,7 @@ binary_sensor:
 entity_id:
   description: "The entity to monitor. Only [sensors](/components/sensor/) are supported."
   required: true
-  type: entity_id
+  type: string
 lower:
   description: The lower threshold which the observed value is compared against.
   required: false

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Notifications"
 description: "Instructions on how to add MQTT notifications to Home Assistant."
-date: 2016-02-01 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category: Notifications
 ha_iot_class: Configurable

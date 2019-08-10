@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors"
 description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -93,9 +87,9 @@ mysensors:
     default: true
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 Not all features of MySensors 2.x are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
-</p>
+</div>
 
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
@@ -110,9 +104,9 @@ mqtt:
   client_id: home-assistant-1
 ```
 
-<p class='note'>
+<div class='note'>
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</p>
+</div>
 
 ### Extended configuration example
 

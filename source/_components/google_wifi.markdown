@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Wifi"
 description: "Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant."
-date: 2017-07-15 21:22
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
 logo: google_wifi.png
@@ -43,7 +37,7 @@ name:
 monitored_conditions:
   description: Defines the data to monitor as sensors. Defaults to all of the listed options below.
   required: false
-  type: map
+  type: list
   keys:
     current_version:
       description: Current firmware version of the router.

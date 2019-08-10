@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "World Air Quality Index"
 description: "Instructions on how to setup World Air Quality Index sensor in Home Assistant."
-date: 2016-11-17 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: waqi.png
 ha_category:
   - Health

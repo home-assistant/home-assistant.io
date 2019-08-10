@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sytadin Sensor"
 description: "Instructions on how to integrate Sytadin sensors into Home Assistant."
-date: 2017-10-05 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sytadin.png
 ha_release: 0.57
 ha_category:
@@ -17,6 +11,14 @@ redirect_from:
 ---
 
 The `sytadin` sensor platform allows you to monitor traffic details from [Sytadin](http://www.sytadin.fr).
+
+<div class="note warning">
+
+This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+</div>
 
 ## Configuration
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.36: ISS, USPS, Image processing, Insteon"
 description: "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes"
 date: 2017-01-14 08:04:05 +0000
 date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-01-0.36/social.png
 ---
@@ -44,7 +42,7 @@ The new [image processing component][image] currently works with [number plates]
 - Switch: [BeagleBone Black][beaglebone] GPIO are supported now ([@MatoKafkac])
 - Light: New support for [Tikteck][tik] Bluetooth bulbs ([@mjg59])
 - Switch: Support for customised [Kankun SP3 Wifi][kankun] switches ([@webworxshop])
-- Insteon local: Local [insteon][insteon] support([@wardcraigj])
+- Insteon local: Local [insteon][insteon] support([@craigjmidwinter])
 - `rest_command`: Support for using [REST][rest] ([@pvizeli])
 - Sensor: Show details of the [Dublin RTPI][dublin] information ([@ttroy50])
 - Light: [Zengge Bluetooth][zengge] bulbs ([@mjg59])
@@ -158,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@webworxshop]: https://github.com/webworxshop
 [@Zac-HD]: https://github.com/Zac-HD
 
@@ -166,7 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [beaglebone]: /components/bbb_gpio/
 [bl-switch]: /components/switch.broadlink/
 [bom]: /components/weather.bom/
-[dublin]: /components/sensor.dublin_public_transport/
+[dublin]: /components/dublin_bus_transport/
 [facebook]: /components/notify.facebook/
 [image]: /components/image_processing/
 [influx]: /components/influxdb/

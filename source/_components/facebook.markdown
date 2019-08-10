@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Facebook Messenger"
 description: "Instructions on how to add Facebook user notifications to Home Assistant."
-date: 2016-12-31 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: facebook.png
 ha_category:
   - Notifications

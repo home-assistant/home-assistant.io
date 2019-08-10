@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zone"
 description: "Instructions on how to set up zones within Home Assistant."
-date: 2015-10-04 09:23
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Organization
@@ -74,9 +68,11 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
 
-<p class='note'>
+<div class='note'>
+
 Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI.
-</p>
+
+</div>
 
 ## Icons
 

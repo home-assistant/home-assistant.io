@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SABnzbd"
 description: "Instructions on how to integrate SABnzbd with Home Assistant."
-date: 2018-03-03 19:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sabnzbd.png
 ha_category:
   - Downloading

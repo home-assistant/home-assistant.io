@@ -1,11 +1,6 @@
 ---
-layout: page
 title: "My integration does not show up"
 description: "My integration does not show up"
-date: 2017-06-18 09:00
-comments: false
-sharing: true
-footer: true
 ha_category: Configuration
 ---
 

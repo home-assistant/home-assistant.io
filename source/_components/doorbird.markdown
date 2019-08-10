@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DoorBird"
 description: "Instructions on how to integrate your DoorBird video doorbell with Home Assistant."
-date: 2017-08-06 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: doorbird.png
 ha_category:
   - Doorbell
@@ -116,9 +110,9 @@ Event names will be prefixed by `doorbird_devicename`. For example, the example 
 
 See [Automation Example](#automation_example) section below for details on how to use the event names in an automation.
 
-<p class="note info">
+<div class="note info">
 Events will not be received in Home Assistant until a schedule is defined via the DoorBird app.
-</p>
+</div>
 
 #### Clearing Registered Events
 Events can be cleared from DoorBird devices by visiting a special URL.
@@ -140,9 +134,9 @@ The following keys are available on `event_data`:
 - `rtsp_live_video_url`
 - `html5_viewer_url`
 
-<p class="note">
+<div class="note">
 The URLs on the event will be based on the configuration used to connect to your Doorbird device. Ability to connect from outside your network will depend on your configuration.
-</p>
+</div>
 
 #### Schedules
 

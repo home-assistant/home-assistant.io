@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.73: Preview version new user system, Rachio cloud push and Lovelace goes wild"
 description: "Summer is here and that means fresh new goodies for all of you."
 date: 2018-07-06 00:01:00
 date_formatted: "July 6, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-07-0.73/lovelace-elements.png
 ---

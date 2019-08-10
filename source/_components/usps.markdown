@@ -1,12 +1,6 @@
 ---
-layout: page
 title: USPS
 description: "Interface USPS mail and package information to Home Assistant."
-date: 2017-07-28 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: usps.png
 ha_category:
   - Postal Service
@@ -18,6 +12,14 @@ redirect_from:
   - /components/camera.usps/
   - /components/sensor.usps/
 ---
+
+<div class="note warning">
+
+ This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+ For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+ </div>
 
 The `usps` platform allows one to track deliveries and inbound mail from the [US Postal Service (USPS)](https://www.usps.com/).
 In addition to having a USPS account, you will need to complete the "Opt-In" process for packages by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). You must also "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see inbound mail.
@@ -31,21 +33,21 @@ There is currently support for the following device types within Home Assistant:
 
 This integration requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
-<p class='note warning'>
+<div class='note warning'>
 If you are using a Raspberry Pi, you must use PhantomJS.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this integration on Hass.io.
-</p>
+</div>
 
 ### PhantomJS
 
 Install the latest version of [PhantomJS](http://phantomjs.org/download.html). Ensure the executable is on your `PATH`. `phantomjs --version` should work and report the correct version. This is the default option and requires no further configuration.
 
-<p class='note warning'>
+<div class='note warning'>
   Don't use apt-get to install PhantomJS. This version is not compatible.
-</p>
+</div>
 
 If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` configuration.
 
@@ -94,9 +96,9 @@ name:
   default: usps
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
-</p>
+</div>
 
 ## Camera
 

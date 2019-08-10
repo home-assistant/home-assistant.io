@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Currencylayer"
 description: "Instructions on integrating exchange rates from https://currencylayer.com/ within Home Assistant."
-date: 2016-10-26 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 logo: currencylayer.png
@@ -42,7 +36,7 @@ api_key:
 quote:
   description: The symbol(s) of the quote or target currencies.
   required: false
-  type: string, list
+  type: [string, list]
   default: Exchange rate
 base:
   description: The symbol of the base currency.
@@ -50,4 +44,3 @@ base:
   type: string
   default: USD
 {% endconfiguration %}
-

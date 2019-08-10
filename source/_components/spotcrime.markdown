@@ -1,19 +1,15 @@
 ---
-layout: page
 title: "Spot Crime"
 description: "Instructions on how to integrate spotcrime.com into Home Assistant."
-date: 2018-02-16 9:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.65
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.spotcrime/
 ---
 
-<p class='note warning'>SpotCrime is no longer handing out API keys to integrate their services.</p>
+<div class='note warning'>
+SpotCrime is no longer handing out API keys to integrate their services.
+</div>
 
 The `spotcrime` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Spot Crime](http://spotcrime.com). Your regional emergency services may or may not report data. The sensor defaults to counting incidents within one day, but can be customized via configuration.yaml.
 

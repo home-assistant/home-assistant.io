@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi RF Switch"
 description: "Instructions on how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch."
-date: 2016-05-10 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

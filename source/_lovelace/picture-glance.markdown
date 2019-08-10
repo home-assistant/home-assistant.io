@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "Show an image card and corresponding entity states as icon"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
@@ -46,7 +40,7 @@ camera_view:
 state_image:
   required: false
   description: Background image based on entity state.
-  type: object
+  type: map
   keys:
     state:
       type: string
@@ -63,7 +57,7 @@ entity:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -88,7 +82,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true

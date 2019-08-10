@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.44: Zigbee, OpenCV and DLib"
 description: "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here."
 date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
@@ -109,7 +107,7 @@ influxdb:
 - Upgrade speedtest-cli to 1.0.5 ([@fabaff] - [#7215])
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Upgrade aiohttp_cors to 0.5.3 ([@fabaff] - [#7213])
-- Use consts and string formatting ([@fabaff] - [#7243]) ([notify.instapush docs])
+- Use consts and string formatting ([@fabaff] - [#7243]) (notify.instapush docs)
 - Pushed to version 0.4.0 of denonavr which also includes experimental support for Marantz receivers ([@scarface-4711] - [#7250])
 - Add notice regarding submission of analytics ([@craftyguy] - [#7263])
 - Iterating the dictionary directly ([@fabaff] - [#7251])
@@ -459,10 +457,9 @@ influxdb:
 [media_player.webostv docs]: /components/media_player.webostv/
 [mqtt docs]: /components/mqtt/
 [notify.html5 docs]: /components/notify.html5/
-[notify.instapush docs]: /components/notify.instapush/
 [notify.joaoapps_join docs]: /components/notify.joaoapps_join/
 [notify.mailgun docs]: /components/notify.mailgun/
-[notify.matrix docs]: /components/notify.matrix/
+[notify.matrix docs]: /components/matrix/#notifications
 [notify.smtp docs]: /components/notify.smtp/
 [notify.telegram docs]: /components/notify.telegram/
 [notify.webostv docs]: /components/notify.webostv/

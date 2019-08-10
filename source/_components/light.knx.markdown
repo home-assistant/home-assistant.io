@@ -1,18 +1,18 @@
 ---
-layout: page
 title: "KNX Light"
 description: "Instructions on how to integrate KNX lights with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Light
 ha_release: 0.44
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
+
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
 
 The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
 
@@ -20,8 +20,6 @@ The `knx light` integration is used as an interface to control knx actuators for
 - dimming actuators
 - LED controllers
 - DALI gateways
-
-The `knx` integration must be configured correctly to use this component, see [KNX Component](/components/knx).
 
 ## Configuration
 
@@ -63,6 +61,14 @@ color_state_address:
   description: KNX group address for retrieving the RGB color of the light. *DPT 232.600*
   required: false
   type: string
+rgbw_address:
+  description: KNX group address for setting the RGBW color of the light. *DPT 251.600*
+  required: false
+  type: string
+rgbw_state_address:
+  description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
+  required: false
+  type: string
 color_temperature_address:
   description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
@@ -72,12 +78,7 @@ color_temperature_state_address:
   required: false
   type: string
 color_temperature_mode:
-  description: Color temperature group address data type.
-  keys:
-    absolute:
-      description: color temperature in Kelvin. *color_temperature_address -> DPT 7.600*
-    relative:
-      description: color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute

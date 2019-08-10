@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nuimo controller"
 description: "Instructions on how to setup and use a Nuimo device in Home Assistant."
-date: 2016-08-30 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nuimo.png
 ha_category:
   - Hub

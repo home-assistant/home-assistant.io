@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fido Sensor"
 description: "Instructions on how to integrate Fido data usage within Home Assistant."
-date: 2017-01-01 17:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fido.png
 ha_category:
   - Network

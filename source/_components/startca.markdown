@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Start.ca"
 description: "Instructions on how to integrate Start.ca data usage within Home Assistant."
-date: 2018-02-12 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: startca.png
 ha_category:
   - Network

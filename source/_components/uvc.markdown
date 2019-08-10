@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "UniFi Video Camera"
 description: "Instructions on how to integrate UVC cameras within Home Assistant."
-date: 2016-02-07 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ubiquiti.png
 ha_category:
   - Camera
@@ -65,7 +59,6 @@ ssl:
   default: false
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 When using an API_KEY to access cameras controlled by Ubiquiti's NVR Software, the associated user account MUST have at least Administrator privileges within the NVR Software in order for new cameras to be added into Home Assistant. Once the entities have been created in Home Assistant, privileges for the user account can be lowered.
-</p>
-
+</div>

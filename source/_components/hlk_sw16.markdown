@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HLK-SW16 Relay Module"
 description: "Instructions on how to integrate HLK-SW16 relay into Home Assistant."
-date: 2018-10-29 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hlktech.jpg
 ha_category:
   - DIY
@@ -82,7 +76,7 @@ deviceid:
       type: map
       keys:
         relayid:
-          description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
+          description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labeled relay switch on the HLK-SW16.
           required: false
           type: map
           keys:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Danfoss Air"
 description: "How to integrate Danfoss Air HRV in Home Assistant."
-date: 2019-01-14 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Climate
   - Binary Sensor
@@ -58,7 +52,7 @@ The following sensors are supported.
 - **Supply temperature:** Air temperature of the air supplied to the house.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
-- **Remaining filter lifetime:** Reamining filter lifetime measured in percent.
+- **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
 
 ## Switch
 

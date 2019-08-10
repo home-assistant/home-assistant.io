@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomematicIP Cloud"
 description: "Instructions for integrating HomematicIP into Home Assistant."
-date: 2018-04-02 13:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: homematicip_cloud.png
 ha_category:
   - Hub
@@ -92,6 +86,8 @@ authtoken:
 
 * homematicip_cloud.binary_sensor
   * Window and door contact (*HmIP-SWDO, -I*)
+  * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
+  * Contact Interface (*HmIP-SCI*)
   * Window Rotary Handle Sensor (*HmIP-SRH*)
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
@@ -114,10 +110,12 @@ authtoken:
     * Radiator thermostat (*HmIP-eTRV,-2,-C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
     * Temperature and humidity sensor (*HmIP-STH*)
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
-    
+
 * homematicip_cloud.cover
-  * Shutter actuator brand-mount (*HmIP-BROLL*)
-  * Shutter actuator flush-mount (*HmIP-FROLL*)    
+  * Shutter actuator for brand-mount (*HmIP-BROLL*)
+  * Shutter actuator for flush-mount (*HmIP-FROLL*)
+  * Blind Actuator for brand switches (*HmIP-BBL*)
+  * Blind Actuator for flush-mount (*HmIP-FBL*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -144,13 +142,83 @@ authtoken:
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM, -FSM16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
+  * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
+  * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
+  * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
   * Weather Sensor – plus (*HmIP-SWO-PL*)
   * Weather Sensor – pro (*HmIP-SWO-PR*)
   
-Additional info:
+## Services
+
+- `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
+- `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode with period.
+- `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
+- `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
+- `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
+
+### Service Examples
+
+`accesspoint_id` (SGTIN) is optional for all services and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, service will be called for all configured Homematic IP Access Points.
+The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
+
+Activate eco mode with duration. 
+
+```yaml
+...
+action:
+  service: homematicip_cloud.activate_eco_mode_with_duration
+  data:
+    duration: 60
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
+
+Activate eco mode with period. 
+
+```yaml
+...
+action:
+  service: homematicip_cloud.activate_eco_mode_with_period
+  data:
+    endtime: 2019-09-17 18:00
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
+
+Activates the vacation mode until the given time.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.activate_vacation
+  data:
+    endtime: 2019-09-17 18:00
+    temperature: 18.5
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
+
+Deactivates the eco mode immediately.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.deactivate_eco_mode
+  data:
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
+
+Deactivates the vacation mode immediately.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.deactivate_vacation_mode
+  data:
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
+
+## Additional info
 
 Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
 It's not possible to detect a key press event on these devices at the moment.

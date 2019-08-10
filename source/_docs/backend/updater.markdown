@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Updater"
 description: "Details what the updater integration is reporting about your Home Assistant instance."
-date: 2016-10-22 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /details/updater/
 ---
 

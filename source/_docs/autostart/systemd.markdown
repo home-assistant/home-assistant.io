@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart using systemd"
 description: "Instructions on how to setup Home Assistant to launch on boot using systemd."
-date: 2015-9-1 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-systemd/
 ---
 
@@ -25,7 +19,7 @@ A service file is needed to control Home Assistant with `systemd`. The template 
 - If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@YOUR_USER.service`.  After text entered, press CTRL-X then press Y to save and exit.
 - If you're running Home Assistant in a Python virtual environment or a Docker container, please skip to the appropriate template listed below.
 
-```
+```text
 [Unit]
 Description=Home Assistant
 After=network-online.target
@@ -43,7 +37,7 @@ WantedBy=multi-user.target
 
 If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately. `YOUR_USER` should be replaced by the user account that Home Assistant will run as (e.g `homeassistant`).
 
-```
+```text
 [Unit]
 Description=Home Assistant
 After=network-online.target
@@ -61,7 +55,7 @@ WantedBy=multi-user.target
 
 If you want to use Docker, the following template should work for you.
 
-```
+```text
 [Unit]
 Description=Home Assistant
 Requires=docker.service
@@ -138,7 +132,7 @@ $ sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-
 
 If you want to restart the Home Assistant service automatically after a crash, add the following lines to the `[Service]` section of your unit file:
 
-```
+```text
 Restart=on-failure
 RestartSec=5s
 ```

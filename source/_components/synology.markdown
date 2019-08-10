@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Synology Camera"
 description: "Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant."
-date: 2016-10-13 08:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: synology.png
 ha_category:
   - Camera
@@ -18,10 +12,12 @@ redirect_from:
 
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
 
-<p class='note'>
+<div class='note'>
+
 Synology has disabled the livestreaming API and the integration is currently broken if you are using Surveillance Station version 8.2.3-5828.
 There is an unsupported preview fix available. (8.2.3-5829) - Instructions can be found [here](https://www.vcloudinfo.com/2019/04/how-to-manually-upgrade-your-synology-surveillance-system-firmware.html) for updating manually.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -85,6 +81,8 @@ camera:
     verify_ssl: false
 ```
 
-<p class='note'>
+<div class='note'>
+
 Most users will need to set `verify_ssl` to false unless they have installed a valid SSL/TLS certificate in place of the built in self-signed certificate.
-</p>
+
+</div>

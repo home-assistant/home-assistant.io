@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Discovery"
 description: "Instructions on how to setup Home Assistant to discover new devices."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -47,9 +41,11 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
 
-<p class='note'>
-  Zeroconf discoverable integrations [Axis](/components/axis/)/[ESPHome](/components/esphome/)/[HomeKit](/components/homekit_controller/)/[Tradfri](/components/tradfri/) have been migrated to use [zeroconf](/components/zeroconf) integration to initiate discovery.
-</p>
+<div class='note'>
+
+Zeroconf discoverable integrations [Axis](/components/axis/)/[ESPHome](/components/esphome/)/[HomeKit](/components/homekit_controller/)/[Tradfri](/components/tradfri/) have been migrated to use [zeroconf](/components/zeroconf) integration to initiate discovery.
+
+</div>
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -121,10 +117,6 @@ If running Home Assistant in a [Docker container](/docs/installation/docker/) us
 
 #### 64-bit Python
 There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
-
-#### Python 3.5
-
-If you are on Windows and you're using Python 3.5, download the [Netifaces](http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces) dependency.
 
 ### could not install dependency netdisco
 

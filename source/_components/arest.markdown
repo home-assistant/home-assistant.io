@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "aREST"
 description: "Instructions on how to integrate aREST within Home Assistant."
-date: 2015-11-20 18:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arest.png
 ha_category:
   - DIY
@@ -74,9 +68,9 @@ binary_sensor:
     name: Office
 ```
 
-<p class='note'>
+<div class='note'>
 This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle.
-</p>
+</div>
 
 ## Sensor
 
@@ -220,7 +214,7 @@ resource:
   type: string
 name:
   description: Let you overwrite the name of the device. By default *name* from the device is used.
-  required: optional
+  required: false
   type: string
 pins:
   description: An array with all used pins.

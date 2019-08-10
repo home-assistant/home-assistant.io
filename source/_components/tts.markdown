@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Text-to-Speech (TTS)"
 description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
-date: 2016-12-13 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.35
 ---
 
@@ -22,9 +16,11 @@ tts:
   - platform: google_translate
 ```
 
-<p class='note'>
+<div class='note'>
+
 Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/) or in the parameters of this component.
-</p>
+
+</div>
 
 The following optional parameters can be used with any platform. However, the TTS integration will only look for global settings under the configuration of the first configured platform:
 
@@ -69,9 +65,11 @@ tts:
     service_name: google_say
 ```
 
-<p class='note'>
+<div class='note'>
+
 In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
-</p>
+
+</div>
 
 ## When do you need to set `base_url` here?
 

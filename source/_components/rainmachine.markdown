@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RainMachine"
 description: "Instructions on how to integrate RainMachine units within Home Assistant."
-date: 2018-04-25 20:32
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rainmachine.png
 ha_category:
   - Irrigation
@@ -58,7 +52,7 @@ rainmachine:
 {% configuration %}
 ip_address:
   description: The IP address or hostname of your RainMachine unit.
-  required: optional
+  required: false
   type: string
 password:
   description: Your RainMachine password.

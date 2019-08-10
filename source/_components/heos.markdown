@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Denon HEOS"
 description: "Instructions on how to integrate Denon HEOS into Home Assistant."
-date: 2019-03-06 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: heos.png
 ha_category:
   - Media Player
@@ -39,15 +33,15 @@ host:
   type: string
 {% endconfiguration %}
 
-<p class='note info'>
+<div class='note info'>
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</p>
+</div>
 
 ## Services
 
 ### Service `heos.sign_in`
 
-Use the sign-in service to sign the connected controller into a HEOS account so that it can retreive and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
+Use the sign-in service to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
 
 ```json
 {
@@ -148,7 +142,7 @@ You can play a URL through a HEOS media player using the `media_player.play_medi
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:
@@ -163,4 +157,4 @@ logger:
 If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the service `media_player.play_media` for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
 > IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
 
-To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentails are valid.
+To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.

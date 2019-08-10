@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.48: Snips.ai, Shiftr.io and a massive History query speed up"
 description: "Build your own local voice assistant with the new Snips.ai component, visualize your data with Shiftr.io and enjoy faster history browsing."
 date: 2017-07-02 00:02:05 +0000
 date_formatted: "July 2, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.48/components.png
 ---
@@ -171,7 +169,7 @@ light:
 - Decora light: Fix brightness level in UI ([@titilambert] - [#8139]) ([light.decora docs])
 - Add I2c BME280 temperature, humidity and pressure sensor for Raspberry Pi ([@azogue] - [#7989]) ([sensor.bme280 docs]) (new-platform)
 - Upgrade libsoundtouch to prevent Python3.6 errors with enum. #7733 #8103 ([@CharlesBlonde] - [#8143]) ([media_player.soundtouch docs])
-- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontestl] - [#8093]) ([sensor.glances docs])
+- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontesl] - [#8093]) ([sensor.glances docs])
 - Add I2c HTU21D temperature and humidity sensor for Raspberry Pi ([@azogue] - [#8049]) ([sensor.htu21d docs]) (new-platform)
 - Add new BH1750 light level sensor ([@azogue] - [#8050]) ([sensor.bh1750 docs]) (new-platform)
 - LimitlessLED: Configurable fade-out behavior ([@SmilyOrg] - [#7369]) ([light.limitlessled docs]) (breaking change)
@@ -232,7 +230,7 @@ light:
 - Use constant and update ordering ([@fabaff] - [#8246]) ([arlo docs]) ([camera.arlo docs])
 - Add PlatformNotReady support for Sensibo ([@andrey-git] - [#8252]) ([climate.sensibo docs])
 - verisure component names ([@persandstrom] - [#8251]) ([binary_sensor.verisure docs]) ([camera.verisure docs]) ([lock.verisure docs]) ([switch.verisure docs])
-- further document add_node_secure ([@kentcalero] - [#8229])
+- further document add_node_secure ([@JudgeDreddKLC] - [#8229])
 - Upgrade libnacl to 1.5.1 ([@fabaff] - [#8259]) ([device_tracker.owntracks docs])
 - Docker cleanup. ([@michaelarnauts] - [#8226])
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
@@ -389,10 +387,10 @@ light:
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@jawilson]: https://github.com/jawilson
 [@jeanregisser]: https://github.com/jeanregisser
-[@jjmontestl]: https://github.com/jjmontestl
+[@jjmontesl]: https://github.com/jjmontesl
 [@jshore1296]: https://github.com/jshore1296
 [@karlw00t]: https://github.com/karlw00t
-[@kentcalero]: https://github.com/kentcalero
+[@JudgeDreddKLC]: https://github.com/JudgeDreddKLC
 [@lrmate]: https://github.com/lrmate
 [@lunar-consultancy]: https://github.com/lunar-consultancy
 [@madpilot]: https://github.com/madpilot
@@ -454,7 +452,7 @@ light:
 [group docs]: /components/group/
 [image_processing.opencv docs]: /components/image_processing.opencv/
 [influxdb docs]: /components/influxdb/
-[insteon_hub docs]: /components/insteon_hub/
+[insteon_hub docs]: /components/insteon/
 [insteon_local docs]: /components/insteon_local/
 [knx docs]: /components/knx/
 [light.decora docs]: /components/light.decora/

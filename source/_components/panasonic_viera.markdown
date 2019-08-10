@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Panasonic Viera TV"
 description: "Instructions on how to integrate a Panasonic Viera TV into Home Assistant."
-date: 2016-03-17 13:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: panasonic.png
 ha_category:
   - Media Player
@@ -35,7 +29,7 @@ Currently known supported models:
 - TX-42AS650
 - TX55ASW654
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_viera.markdown).
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_components/panasonic_viera.markdown).
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
 

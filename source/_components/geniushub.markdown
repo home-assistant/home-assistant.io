@@ -1,25 +1,21 @@
 ---
-layout: page
 title: "Genius Hub"
 description: "Instructions on how to integrate Genius Hub with Home Assistant."
-date: 2019-03-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geniushub.png
 ha_category:
   - Climate
-  - Water heater
+  - Water Heater
   - Sensor
-  - Binary sensor
+  - Binary Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices, and visibility of any Issues. Currently, there is no support for Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
-It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
+Currently, there is no support for Zone schedules.
+
+It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library.
 
 ### Zones
 
@@ -30,9 +26,16 @@ Each Zone controlled by your Genius hub will be exposed as either a:
 
 Other Zone types, such as **On / Off** Zones, are not currently supported.
 
-Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below).
+Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below). The Zone's mode can changed as below.
 
-In addition, the entity's mode and setpoint can be changed. The entity's `operating_mode` can be set to one of `off`, `timer`, `on` (i.e. **Override** mode) or `eco`. The `eco` mode is a proxy for the **Footprint** mode and so is only available to **Radiator** Zones that have room sensors.
+GH mode | HA Operation | HA Preset
+:---: | :---: | :---:
+**Off** | Off | N/A
+**Timer** | Heat | None
+**Override** | Heat | Boost
+**Footprint** | Heat | Activity
+
+Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
 
 ### Devices
 
@@ -102,7 +105,7 @@ value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
 
 ## Configuration
 
-To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
+To set up this integration, add one of the following to your **configuration.yaml** file.
 
 ### Option 1: hub token only
 
@@ -122,6 +125,8 @@ geniushub:
  - uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
  - polls the hub directly (so is faster, say ~1s response time)
 
+The hub does not have to be in the same network as HA.
+
 ```yaml
 # Example configuration.yaml entry, directly polling the Hub
 geniushub:
@@ -129,8 +134,6 @@ geniushub:
   username: GENIUS_HUB_USERNAME
   password: GENIUS_HUB_PASSWORD
 ```
-
-Note that if a `host` is used instead of `token`, then the `username` and `password` are also required.
 
 {% configuration %}
 token:
@@ -150,3 +153,5 @@ password:
   required: false
   type: string
 {% endconfiguration %}
+
+Note that if a `host` is used instead of `token`, then the `username` and `password` are also required.

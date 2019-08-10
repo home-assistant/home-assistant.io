@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi BLE Temperature and Humidity sensor"
 description: "Instructions on how to integrate MiTemp BLE temperature and humidity sensor with Home Assistant."
-date: 2018-04-22 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - DIY
@@ -87,10 +81,12 @@ name:
 force_update:
   description: Sends update events even if the value hasn't changed.
   required: false
+  default: false
   type: boolean
 median:
   description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
   required: false
+  default: 3
   type: integer
 timeout:
   description: Define the timeout value in seconds when polling.
@@ -127,8 +123,8 @@ sensor:
   - platform: mitemp_bt
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Kids Room Temp
-    force_update: false
-    median: 3
+    force_update: true
+    median: 1
     monitored_conditions:
       - temperature
       - humidity

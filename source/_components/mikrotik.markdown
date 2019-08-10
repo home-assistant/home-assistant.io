@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "MikroTik"
 description: "Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant."
-date: 2017-04-28 16:03
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mikrotik.png
 ha_category:
+  - Hub
   - Presence Detection
 ha_release: 0.44
 redirect_from:
@@ -17,7 +12,11 @@ redirect_from:
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
-## Configuring `mikrotik` device tracker
+There is currently support for the following device types within Home Assistant:
+
+- Presence Detection
+
+## Configuring `mikrotik` hub
 
 You have to enable accessing the RouterOS API on your router to use this platform.
 
@@ -39,9 +38,8 @@ To use a MikroTik router in your installation, add the following to your `config
 
 ```yaml
 # Example configuration.yaml entry
-device_tracker:
-  - platform: mikrotik
-    host: IP_ADDRESS
+mikrotik:
+  - host: IP_ADDRESS
     username: ROUTEROS_USERNAME
     password: ROUTEROS_PASSWORD
 ```
@@ -59,6 +57,12 @@ password:
   description: The password of the given user account on the MikroTik device.
   required: true
   type: string
+login_method:
+  description: The login method to use on the MikroTik device. The `plain` method is used by default, if you have an older RouterOS Version than 6.43, use `token` as the login method.
+  required: false
+  type: string
+  options: plain, token
+  default: plain
 port:
   description: RouterOS API port.
   required: false
@@ -70,10 +74,24 @@ ssl:
   default: false
   type: boolean
 method:
-  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `ip` for DHCP leases.
+  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `dhcp` for DHCP leases.
   required: false
   type: string
+arp_ping:
+  description: Use ARP ping with DHCP method for device scanning.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
+
+<div class='note info'>
+  
+  As of version 6.43 of RouterOS Mikrotik introduced a new login method (plain) in addition to the old login method (token). With Version 6.45.1 the old token login method got deprecated.
+  In order to support both login mechanisms, the new config option `login_method` has been introduced. If this option is not set, the component will try to login with the plain method first and the token method if that fails.
+  That can cause log entries on the router like `login failure for user homeassistant from 192.168.23.10 via api` but doesn't keep the component from working. 
+  To get rid of these entries, set the `login_method` to `plain` for Routers with OS versions > 6.43 or `token` for routers with OS versions < 6.43.
+
+</div>
 
 ## Use a certificate
 
@@ -104,17 +122,25 @@ To use this device tracker you need restricted privileges only. To enhance the s
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-## Using the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file:
+## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file:
 
 ```yaml
-device_tracker:
-  - platform: mikrotik
-    host: 192.168.88.1
+mikrotik:
+  - host: 192.168.88.1
+    username: homeassistant
+    password: YOUR_PASSWORD
+    ssl: true
+    arp_ping: true
+    method: dhcp
+    track_devices: true
+
+  - host: 192.168.88.2
     username: homeassistant
     password: YOUR_PASSWORD
     ssl: true
     port: 8729
     method: capsman
+    track_devices: true
 ```
 
 See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

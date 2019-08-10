@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lannouncer"
 description: "Instructions on how to add Lannouncer notifications to Home Assistant."
-date: 2017-01-06 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lannouncer.png
 ha_category:
   - Notifications
@@ -86,8 +80,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<p class='note info'>
-  The free version only supports one additional soundfile. 
-</p>
+<div class='note info'>
+The free version only supports one additional soundfile.
+</div>
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

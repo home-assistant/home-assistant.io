@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mopar"
 description: "Instructions on how to integrate Mopar vehicles into Home Assistant."
-date: 2017-08-30 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mopar.png
 ha_category:
   - Car

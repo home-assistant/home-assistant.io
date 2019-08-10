@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dovado"
 description: "How to integrate Dovado within Home Assistant."
-date: 2019-01-26 15:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
   - Notifications

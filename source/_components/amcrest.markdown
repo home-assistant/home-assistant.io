@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amcrest IP Camera"
 description: "Instructions on how to integrate Amcrest IP cameras within Home Assistant."
-date: 2017-06-24 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amcrest.png
 ha_category:
   - Hub
@@ -265,6 +259,6 @@ amcrest:
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
 
-<p class='note warning'>
+<div class='note warning'>
 In previous versions, switch devices in setups with multiple cameras, would not have specific entity ID causing them to change randomly after each Home Assistant restart. The current version adds the name of the camera at the end of the switch entity ID, making it more specific and consistent and causes the name option to be required in a multi-camera system. This behavior matches the sensor behavior of the Amcrest component. Because of this, older automations may require updates to the entity ID.
-</p>
+</div>

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Denon AVR Network Receivers"
 description: "Instructions on how to integrate Denon AVR Network Receivers into Home Assistant."
-date: 2015-09-08 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: denon.png
 ha_category:
   - Media Player
@@ -41,9 +35,9 @@ Supported devices:
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
-<pre class='note warning'>
+<div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
-</pre>
+</div>
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 

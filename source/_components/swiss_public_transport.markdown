@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Swiss Public Transport"
 description: "Instructions on how to integrate timetable data for traveling in Switzerland within Home Assistant."
-date: 2015-06-02 21:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport

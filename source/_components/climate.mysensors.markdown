@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors HVAC"
 description: "Instructions on how to integrate MySensors climate into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -29,10 +23,10 @@ V_HVAC_FLOW_STATE is mapped to the state of the Climate integration in Home Assi
 
 Home Assistant State | MySensors State
 ---------------------|----------------
-STATE_COOL           | CoolOn
-STATE_HEAT           | HeatOn
-STATE_AUTO           | AutoChangeOver
-STATE_OFF            | Off
+HVAC_MODE_COOL       | CoolOn
+HVAC_MODE_HEAT       | HeatOn
+HVAC_MODE_AUTO       | AutoChangeOver
+HVAC_MODE_OFF        | Off
 
 Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
 
@@ -45,7 +39,6 @@ You can use V_TEMP to send the current temperature from the node to Home Assista
 For more information, visit the [serial api] of MySensors.
 
 ### Example sketch for MySensors 2.x
-
 
 ```cpp
 /*

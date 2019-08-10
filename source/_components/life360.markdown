@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Life360"
 description: "Instructions how to use Life360 to track devices in Home Assistant."
-date: 2019-04-24 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: life360.png
 ha_release: 0.95
+ha_config_flow: true
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
@@ -131,7 +126,7 @@ However, in some circumstances, it might be helpful to limit which Life360 Circl
 
 For a particular Member to be tracked, they must be included (or at least not excluded), and must be in at least one of the included Circles. See [example configuration](#circle-and-member-filtering-example) below.
 
-Note that Life360's app and website typically only show Members' first names. However, you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively, you can set the  [`logger`](https://www.home-assistant.io/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
+Note that Life360's app and website typically only show Members' first names. However, you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively, you can set the  [`logger`](/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
 
 ## Home - Home Assistant vs. Life360
 
@@ -139,7 +134,7 @@ Normally Home Assistant device trackers are "Home" when they enter `zone.home`. 
 
 ## Home Assistant Zones & Life360 Places
 
-See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
+See [Zone documentation](/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
 
 ```text
 2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] My Family Circle: will be included, id=xxxxx

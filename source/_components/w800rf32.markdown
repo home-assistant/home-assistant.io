@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "W800rf32"
 description: "Instructions on how to integrate a W800rf32(a) into Home Assistant."
-date: 2018-10-16 10:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: w800rf32.png
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pushover"
 description: "Instructions on how to add Pushover notifications to Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pushover.png
 ha_category:
   - Notifications
@@ -59,9 +53,12 @@ Example Automation:
           url: "https://www.home-assistant.io/"
           sound: pianobar
           priority: 0
+          attachment: "http://example.com/image.png"
 ```
 
 Component specific values in the nested `data` section are optional.
+
+Image attachments can be added using the `attachment` parameter, which can either be a valid URL for an image (ex: `http://example.com/image.png`) or a local file reference (ex: `/tmp/image.png`).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -86,6 +83,7 @@ alexa:
             sound: falling
             device: pixel
             url: "https://www.home-assistant.io/"
+            attachment: "/tmp/image.png"
 ```
 
 {% endraw %}

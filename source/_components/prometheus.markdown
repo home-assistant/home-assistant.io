@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Prometheus"
 description: "Record events in Prometheus."
-date: 2017-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
 logo: prometheus.png
-footer: true
 ha_category:
   - History
 ha_release: 0.49
@@ -25,35 +19,31 @@ prometheus:
 ```
 
 {% configuration %}
-description: Prometheus configuration.
-required: true
-type: map
-keys:
-  namespace:
-    description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
-    required: false
-    type: string
-  filter:
-    description: Filters for entities to be included/excluded from Prometheus.
-    required: false
-    type: map
-    keys:
-      include_domains:
-        description: Domains to be included.
-        required: false
-        type: list
-      include_entities:
-        description: Entities to be included.
-        required: false
-        type: list
-      exclude_domains:
-        description: Domains to be excluded.
-        required: false
-        type: list
-      exclude_entities:
-        description: Entities to be excluded.
-        required: false
-        type: list
+namespace:
+  description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
+  required: false
+  type: string
+filter:
+  description: Filtering directives for the integrations which should be included or excluded from recording.
+  required: false
+  type: list
+  keys:
+    exclude_entities:
+      description: The list of entity ids to be excluded from recording.
+      required: false
+      type: list
+    exclude_domains:
+      description: The list of domains to be excluded from recording.
+      required: false
+      type: list
+    include_entities:
+      description: The list of entity ids to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      required: false
+      type: list
+    include_domains:
+      description: The list of domains to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      required: false
+      type: list
   default_metric:
     type: string
     description: Metric name to use when an entity doesn't have a unit. 

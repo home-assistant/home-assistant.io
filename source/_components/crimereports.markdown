@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Crime Reports"
 description: "Instructions on how to integrate CrimeReports.com into Home Assistant."
-date: 2017-02-16 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Social
 logo: crimereports.png
@@ -41,10 +35,12 @@ radius:
 latitude:
   description: Latitude for sensor.
   required: false
+  type: float
   default: Your home zone latitude defined in your configuration.
 longitude:
   description: Longitude for sensor.
   required: false
+  type: float
   default: Your home zone longitude defined in your configuration.
 include:
   description: List of incident types to include. See below for a list of valid incidents.

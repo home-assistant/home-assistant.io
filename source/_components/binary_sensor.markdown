@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Binary Sensor"
 description: "Instructions on how-to setup binary sensors with Home Assistant."
-date: 2015-11-20 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Binary Sensor

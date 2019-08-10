@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.70: Facebox, SpaceAPI, Konnected Alarm System"
 description: "Complete overhaul of our new frontend. "
 date: 2018-05-27 00:01:00
 date_formatted: "May 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -390,7 +388,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.limitlessled docs]: /components/light.limitlessled/
 [light.mqtt docs]: /components/light.mqtt/
 [light.mysensors docs]: /components/light.mysensors/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
+[light.nanoleaf_aurora docs]: /components/nanoleaf/
 [light.wink docs]: /components/light.wink/
 [media_extractor docs]: /components/media_extractor/
 [media_player.cmus docs]: /components/media_player.cmus/

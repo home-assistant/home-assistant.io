@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dlib Face Identify"
 description: "Instructions on how to integrate Dlib Face Identify into Home Assistant."
-date: 2017-01-25 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dlib.png
 ha_category:
   - Image Processing
@@ -57,6 +51,8 @@ confidence:
   default: 0.6
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`.
-</p>
+
+</div>

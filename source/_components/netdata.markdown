@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netdata"
 description: "Instructions on how to integrate Netdata within Home Assistant."
-date: 2016-12-05 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netdata.png
 ha_category:
   - System Monitor
@@ -98,7 +92,7 @@ port:
 name:
   description: Name of the monitored Netdata instance.
   required: false
-  type: number
+  type: string
   default: Netdata
 resources:
   description: List of details to monitor.

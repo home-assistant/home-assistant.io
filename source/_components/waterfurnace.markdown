@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "WaterFurnace"
 description: "Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant."
-date: 2018-01-19 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: waterfurnace.png
 ha_category:
   - Sensor

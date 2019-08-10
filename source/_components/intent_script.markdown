@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Intent Script"
 description: "Instructions on how to setup scripts to run on intents."
-date: 2016-02-10 17:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Intent

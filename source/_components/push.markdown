@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Push"
 description: "Instructions how to use Push Camera within Home Assistant."
-date: 2018-06-26 23:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: camcorder.png
 ha_category:
   - Camera

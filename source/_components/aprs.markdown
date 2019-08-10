@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "APRS"
 description: "Instructions on how to use APRS to track devices in Home Assistant."
-date: 2018-11-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aprs.png
 ha_release: 0.95
 ha_category: Presence Detection
@@ -23,7 +17,7 @@ To enable APRS tracking in Home Assistant, add the following section to `configu
 # Example configuration.yaml entry
 device_tracker:
   - platform: aprs
-    username: FO0BAR
+    username: FO0BAR  # or FO0BAR-1 to FO0BAR-15
     callsigns:
       - 'XX0FOO*'
       - 'YY0BAR-1'
@@ -31,7 +25,7 @@ device_tracker:
 
 {% configuration %}
 username:
-  description: Your callsign. This is used to connect to the host.
+  description: "Your callsign (or callsign-SSID combination). This is used to connect to the host. Note: Do not use the same callsign or callsign-SSID combination as a device you intend to track: the APRS-IS network will not route the packets to Home Assistant. This is a known limitation of APRS packet routing."
   required: true
   type: string
 password:

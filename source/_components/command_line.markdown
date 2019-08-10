@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command line Binary Sensor"
 description: "Instructions on how to integrate Command binary sensors within Home Assistant."
-date: 2016-01-13 12:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Utility
@@ -28,9 +22,12 @@ binary_sensor:
   - platform: command_line
     command: 'cat /proc/sys/net/ipv4/ip_forward'
 ```
-<p class='note'>
+
+<div class='note'>
+
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
-</p>
+
+</div>
 
 {% configuration %}
 command:
@@ -50,12 +47,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: 'ON'
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: 'OFF'
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   required: false

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LaCrosse Sensor"
 description: "Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant."
-date: 2017-10-29 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - DIY
@@ -60,6 +54,7 @@ sensor:
     description: Activate or deactivate the Jeelink LED.
     required: false
     type: boolean
+    default: false
   frequency:
     description: Initial frequency in 5kHz steps.
     required: false

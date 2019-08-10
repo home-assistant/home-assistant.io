@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Development Tools"
 description: "Description of the Developer Tools."
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The frontend contains a section called "Developer Tools".
@@ -16,13 +10,13 @@ The frontend contains a section called "Developer Tools".
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section | Icon | Description |
-| ------- |------| ----- |
-| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from integrations |
-| States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
-| Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
-| Templates | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Renders templates |
-| Info | <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
+| Section |Description |
+| ------- |----- |
+| Services | Calls services from integrations |
+| States | Sets the representation of an entity |
+| Events | Fires events |
+| Templates | Renders templates |
+| Info | Details about Home Assistant |
 
 ## What can I do with Developer Tools?
 The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, update states, raising events, and publish messages in mqtt…etc.). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the section in detail.
@@ -101,6 +95,3 @@ Even though MQTT in general provides deeper functionality, the developer tools s
 Info
 
 The Information tab simply provides information about the current installed version, additional links and credits. The tab also contains a section that shows `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
-
-The Information tab also allows makes it possible to try out the Lovelace User Interface (UI) by clicking "Try out the new Lovelace UI" or set Lovelace as the default UI, so that when the "Overview" link in the Sidebar is selected, the Lovelace UI will load by default.
-

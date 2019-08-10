@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DuckDNS"
 description: "Keep your computer registered with the DuckDNS dynamic DNS."
-date: 2017-09-23 07:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: duckdns.png
 ha_category:
   - Network
@@ -37,6 +31,8 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this integration is not required. The add-on will keep your IP updated with DuckDNS.
-</p>
+
+</div>

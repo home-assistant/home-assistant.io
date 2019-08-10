@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SCSGate"
 description: "Instructions on how to integrate SCSGate into Home Assistant."
-date: 2016-01-31 19:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bus_scs.png
 ha_category:
   - Hub
@@ -89,9 +83,11 @@ devices:
           type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 **Known limitation:** It is not possible to know the current state of the cover.
-</p>
+
+</div>
 
 ### Light
 

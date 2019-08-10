@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Conversation"
 description: "Instructions on how to have conversations with your Home Assistant."
-date: 2015-03-15 00:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "Voice"

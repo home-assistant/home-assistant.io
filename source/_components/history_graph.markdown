@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "History Graph"
 description: "Instructions for setting up History Graph."
-date: 2017-09-20 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - History
 logo: home-assistant.png

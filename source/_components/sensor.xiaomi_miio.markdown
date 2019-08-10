@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Air Quality Monitor"
 description: "Instructions how to integrate your Xiaomi Mi Air Quality Monitor within Home Assistant."
-date: 2018-02-28 08:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Health

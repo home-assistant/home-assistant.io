@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Logger"
 description: "Instructions on how to enable the logger integration for Home Assistant."
-date: 2015-11-12 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -63,9 +57,9 @@ logger:
 
 {% configuration %}
   default:
-    description: Default log level.
+    description: Default log level. See [log_level](#log-levels).
     required: false
-    type: '[log_level](#log-levels)'
+    type: string
     default: debug
   logs:
     description: List of integrations and their log level.
@@ -73,8 +67,8 @@ logger:
     type: map
     keys:
       '&lt;component_namespace&gt;':
-        description: Logger namespace of the component.
-        type: '[log_level](#log-levels)'
+        description: Logger namespace of the component. See [log_level](#log-levels).
+        type: string
 {% endconfiguration %}
 
 ### Log Levels

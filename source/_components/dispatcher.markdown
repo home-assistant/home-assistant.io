@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dispatcher IP Camera"
 description: "Instructions on how to integrate internal dispatcher cameras within Home Assistant."
-date: 2017-03-08 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 logo: camcorder.png
@@ -16,9 +10,9 @@ redirect_from:
  - /components/camera.dispatcher/
 ---
 
-<p class='note'>
+<div class='note'>
 This platform is meant for developers only.
-</p>
+</div>
 
 The `dispatcher` camera platform allows developers to create virtual camera's.
 

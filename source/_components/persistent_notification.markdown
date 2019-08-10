@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Persistent notification"
 description: "Instructions on how to integrate persistent notifications into Home Assistant."
-date: 2016-06-25 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -14,7 +8,7 @@ ha_release: 0.23
 ha_qa_scale: internal
 ---
 
-The `persistent_notification` can be used to show a message on the frontend that has to be dismissed by the user.
+The `persistent_notification` integration can be used to show a notfication on the frontend that has to be dismissed by the user.
 
 <p class='img'>
   <img src='/images/screenshots/persistent-notification.png' />
@@ -22,7 +16,7 @@ The `persistent_notification` can be used to show a message on the frontend that
 
 ### Service
 
-The service `persistent_notification/create` takes in `message`, `title`, and `notification_id`.
+The service `persistent_notification.create` takes in `message`, `title`, and `notification_id`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -42,7 +36,7 @@ action:
     title: "Custom subject"
 ```
 
-The service `persistent_notification/dismiss` requires a `notification_id`.
+The service `persistent_notification.dismiss` requires a `notification_id`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -95,14 +89,15 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
-<p class="note">
-  `/local/` in this context refers to the `.homeassistant/www/` folder.
-</p>
+<div class="note">
 
+  `/local/` in this context refers to the `.homeassistant/www/` folder.
+
+</div>
 
 ### Create a persistent notification
 
-Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Choose the **Services** tab from the **Developer Tools** sidebar item, then select the `persistent_notification.create` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
 
 ```json
 {

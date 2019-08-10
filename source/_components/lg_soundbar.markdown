@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LG Soundbars"
 description: "Instructions on how to integrate LG Soundbars into Home Assistant."
-date: 2018-10-17 19:55:18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lg.png
 ha_category:
   - Media Player

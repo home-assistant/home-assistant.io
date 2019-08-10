@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "VLC Telnet"
 description: "Instructions on how to integrate VLC media player into Home Assistant using the telnet interface."
-date: 2019-06-02 23:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: videolan.png
 ha_category:
   - Media Player
@@ -14,14 +8,14 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ---
 
-The `vlc-telnet` platform allows you to control a [VLC media player](http://www.videolan.org/vlc/index.html) using the built in telnet interface.
+The `vlc_telnet` platform allows you to control a [VLC media player](http://www.videolan.org/vlc/index.html) using the built in telnet interface.
 
 To add a VLC media player to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: vlc-telnet
+  - platform: vlc_telnet
     host: IP_ADDRESS
     password: PASSWORD
 ```
@@ -59,7 +53,7 @@ A full configuration for VLC could look like the one below:
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: vlc-telnet
+  - platform: vlc_telnet
     name: Remote Player
     host: 192.168.1.48
     port: 4212

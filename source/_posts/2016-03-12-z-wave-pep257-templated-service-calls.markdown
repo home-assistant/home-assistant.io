@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance."
 description: "Home Assistant 0.15 has arrived."
 date: 2016-03-12 10:55:00 -0800
 date_formatted: "March 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -51,7 +49,7 @@ automation:
 `media_content_type` and `media_content_id`, to match the corresponding media
 player state attributes. This change affects automations, scripts and scenes.
 
-[services]: /topics/service_calls/#use-templates-to-decide-which-service-to-call
+[services]: /docs/scripts/service-calls/#use-templates-to-decide-which-service-to-call
 [Hunter Douglas Powerview]: /components/scene.hunterdouglas_powerview/
 [MQTT]: /components/lock.mqtt/
 [OwnTracks]: /components/device_tracker.owntracks/

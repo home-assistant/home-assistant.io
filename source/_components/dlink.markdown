@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "D-Link Switch"
 description: "Instructions on how to integrate D-Link switches into Home Assistant."
-date: 2016-02-21 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dlink.png
 ha_category:
   - Switch

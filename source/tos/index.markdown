@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Terms of Service"
 description: "The Terms of Service that should be accepted to own a Home Assistant account."
-date: 2017-10-19 01:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 The following terms and conditions govern all use of the Home Assistant website and all content, services and products available at or through the website, including, but not limited to, Home Assistant Forum Software, Home Assistant Support Forums and the Home Assistant Hosting service ("Hosting"), (taken together, the Website). The Website is owned and operated by Home Assistant. The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, Home Assistant’s [Privacy Policy](/privacy/) and [Code of Conduct](/code_of_conduct/)) and procedures that may be published from time to time on this Site by Home Assistant (collectively, the "Agreement").
@@ -93,7 +88,7 @@ In no event will Home Assistant, or its suppliers or licensors, be liable with r
 
 ## 16. General Representation and Warranty
 
-You represent and warrant that (i) your use of the Website will be in strict accordance with the Home Assistant [Privacy Policy](/privacy), [Community Guidelines](/guidelines), with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the country in which this website resides or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.
+You represent and warrant that (i) your use of the Website will be in strict accordance with the Home Assistant [Privacy Policy](/privacy), [Community Guidelines](https://community.home-assistant.io/t/how-to-help-us-help-you-or-how-to-ask-a-good-question/114371), with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the country in which this website resides or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.
 
 ## 17. Indemnification
 

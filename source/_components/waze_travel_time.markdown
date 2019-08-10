@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Waze Travel Time"
 description: "Instructions on how to add Waze travel time to Home Assistant."
-date: 2018-01-23 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: waze.png
 ha_category:
   - Transport
@@ -63,6 +57,7 @@ realtime:
   description: If this is set to false, Waze returns the time estimate, not including current conditions, but rather the average travel time for the current time of day. The parameter defaults to true, meaning Waze will return real-time travel time.
   required: false
   type: boolean
+  default: true
 units:
   description: "Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`."
   required: false

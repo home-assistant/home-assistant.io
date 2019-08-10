@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Modbus Sensor
 description: "Instructions on how to integrate Modbus sensors into Home Assistant."
-date: 2015-08-30 23:38
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
 ha_category:
   - Sensor
@@ -81,8 +75,9 @@ registers:
       type: integer
     count:
       description: Number of registers to read.
-      required: integer
+      required: false
       type: integer
+      default: 1
     reverse_order:
       description: Reverse the order of registers when count >1.
       required: false
@@ -115,6 +110,12 @@ registers:
 {% endconfiguration %}
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
+
+<div class='note'>
+
+If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
+
+</div>
 
 ### Full example
 

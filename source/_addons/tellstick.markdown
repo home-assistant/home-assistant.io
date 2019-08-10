@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TellStick"
 description: "Telldus TellStick service enabler and tools."
-date: 2017-12-04 21:31
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
@@ -85,6 +79,7 @@ fade:
   description: Fade is either `true` or `false` and tells a dimmer if it should fade smooth or instant between values (only for IKEA protocol as it seems).
   required: false
   type: boolean
+  default: false
 code:
   description: A number series based on ones and zeroes often used for dip-switch based devices.
   required: false

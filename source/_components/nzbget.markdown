@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NZBGet"
 description: "Instructions on how to integrate NZBGet within Home Assistant."
-date: 2016-04-08 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Downloading
 logo: nzbget.png

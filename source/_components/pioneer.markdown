@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pioneer Network Receivers"
 description: "Instructions on how to integrate a Pioneer Network Receivers into Home Assistant."
-date: 2016-05-07 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pioneer.png
 ha_category:
   - Media Player
@@ -46,9 +40,86 @@ timeout:
   description: Number of seconds (float) to wait for blocking operations like connect, write and read.
   required: false
   type: float
+sources:
+  description: A list of mappings from source friendly name to the source code (e.g. `TV:'05'`). Valid source codes depend on the receiver (some known codes can be found below). Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
+  required: false
+  default: Empty list (i.e. no source selection will be possible)
+  type: list
 {% endconfiguration %}
 
 Notes:
 
 - Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
 - `timeout` is a socket level option and should only be configured if you know what you are doing.
+
+### Source codes
+
+Under these lines, you can find some sample `sources` lists per receiver model. Here we use the source names as shown on the remote as key for each code. However these are for display purposes only, so you could rename inputs to better match your set-up (e.g. `HDMI: '19'` to `Kodi: '19'`.
+
+Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
+
+#### VSX-921
+
+```yaml
+sources:
+  'PHONO': '00'
+  'CD': '01'
+  'CD-R/TAPE': '03'
+  'DVD': '04'
+  'TV/SAT': '05'
+  'VIDEO 1(VIDEO)': '10'
+  'VIDEO 2': '14'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'HDMI1': '19'
+  'HDMI2': '20'
+  'HDMI3': '21'
+  'HDMI4': '22'
+  'HDMI5': '23'
+  'HDMI6': '24'
+  'BD': '25'
+  'HOME MEDIA GALLERY(Internet Radio)': '26'
+```
+
+#### VSX-822-K
+
+```yaml
+sources:
+  'CD': '01'
+  'Tuner': '02'
+  'DVD': '04'
+  'TV': '05'
+  'Sat/Cbl': '06'
+  'Video': '10'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'BD': '25'
+  'Adapter': '33'
+  'Netradio': '38'
+  'Pandora': '41'
+  'Media Server': '44'
+  'Favorites': '45'
+  'Game': '49'
+```
+
+#### VSX-824
+
+```yaml
+sources:
+  'CD': '01'
+  'Tuner': '02'
+  'DVD': '04'
+  'TV': '05'
+  'Sat/Cbl': '06'
+  'Video': '10'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'HDMI': '19'
+  'BD': '25'
+  'Adapter': '33'
+  'Netradio': '38'
+  'Media Server': '44'
+  'Favorites': '45'
+  'MHL': '48'
+  'Game': '49'
+```

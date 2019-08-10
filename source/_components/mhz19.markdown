@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MH-Z19 CO2 Sensor"
 description: "Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant."
-date: 2016-08-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mhz19_logo.png
 ha_category:
   - DIY
@@ -66,4 +60,4 @@ Then (after a reboot): you can setup the sensor using:
 
 ## Calibration
 
-The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the integration does not allow turning this functionaly off.
+The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the integration does not allow turning this functionality off.

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.87: SmartThings, Areas and Entity Registry UI."
 description: "Integrate SmartThings with ease, place devices in areas and manage entities via the UI in yet another awesome Home Assistant release."
 date: 2019-02-06 00:01:03
 date_formatted: "February 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-02-release-87/components.png
 ---
@@ -39,7 +37,7 @@ If you prefer a podcast over release notes, check out [the Hass Podcast](https:/
 - Utility meter ([@dgomes] - [#19718]) ([utility_meter docs]) (new-platform)
 - Add Co2signal sensor ([@danielsjf] - [#19204]) ([sensor.co2signal docs]) (new-platform)
 - Add nilu air_quality platform ([@hfurubotten] - [#19674]) ([air_pollutants docs]) (new-platform)
-- Add Iliad Italy (Mobile Telephony Provider) Sensor ([@eliseomartelli] - [#19645]) ([sensor.iliad_italy docs]) (new-platform)
+- Add Iliad Italy (Mobile Telephony Provider) Sensor ([@eliseomartelli] - [#19645]) (new-platform)
 - Add support for HomeKit motion sensor devices ([@Jc2k] - [#20555]) ([homekit_controller docs]) (new-platform)
 - Add an Integration sensor ([@dgomes] - [#19703]) ([sensor.integration docs]) (new-platform)
 - Add Synology SRM device tracker ([@aerialls] - [#20320]) ([device_tracker docs]) (new-platform)
@@ -638,7 +636,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.filter docs]: /components/sensor.filter/
 [sensor.fritzbox docs]: /components/sensor.fritzbox/
 [sensor.history_stats docs]: /components/sensor.history_stats/
-[sensor.iliad_italy docs]: /components/sensor.iliad_italy/
 [sensor.imap docs]: /components/sensor.imap/
 [sensor.influxdb docs]: /components/sensor.influxdb/
 [sensor.integration docs]: /components/sensor.integration/

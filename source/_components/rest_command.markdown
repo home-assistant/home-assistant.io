@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Command"
 description: "Instructions on how to integrate REST commands into Home Assistant."
-date: 2018-02-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Automation
@@ -30,7 +24,7 @@ rest_command:
 
 {% configuration %}
 service_name:
-  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.service_name'.
+  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.example_request'.
   required: true
   type: map
   keys:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zigbee"
 description: "Instructions on how to integrate a Zigbee network with Home Assistant."
-date: 2016-01-27 17:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zigbee.png
 ha_category:
   - Binary Sensor
@@ -61,9 +55,9 @@ To find the possible serial port names of your device, run:
 ls /dev/ttyUSB*
 ```
 
-<p class='note'>
+<div class='note'>
 The port may also appear as /dev/ttyACM* if you're communicating with the Zigbee device through an Arduino.
-</p>
+</div>
 
 ### Example
 

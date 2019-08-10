@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Camera Proxy"
 description: "Instructions on how to integrate a camera proxy within Home Assistant."
-date: 2018-03-08 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 ha_release: 0.65
@@ -91,10 +85,12 @@ force_resize:
   description: Resize the image even if the resulting image would take up more bandwidth than the original.
   required: false
   type: boolean
+  default: false
 cache_images:
   description: Preserve the last image and re-send in the case the camera is not responding.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Examples

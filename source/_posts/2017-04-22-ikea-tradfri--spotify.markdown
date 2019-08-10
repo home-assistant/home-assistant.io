@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.43: IKEA Trådfri, Spotify and our iOS app is live"
 description: "Another packed release. Three major cool new features and a ton of small ones."
 date: 2017-04-22 01:04:05 +0000
 date_formatted: "April 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-04-0.43/components.png
 ---
@@ -91,7 +89,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Release 0.43.1 - April 25
 
-- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) ([zwave.workaround docs])
+- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) (zwave.workaround docs)
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
@@ -173,7 +171,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
 - Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - Better thread safety in zwave node_entity ([@andrey-git] - [#7087])
-- Uber version bump ([@armills] - [#7100]) ([sensor.uber docs])
+- Uber version bump ([@armills] - [#7100]) (sensor.uber docs)
 - No product ids configured should fetch all ids ([@armills] - [#7091])
 - Upgrade aiohttp to 2.0.7 ([@fabaff] - [#7106])
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
@@ -464,12 +462,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fido docs]: /components/sensor.fido/
 [sensor.modbus docs]: /components/sensor.modbus/
 [sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.opensky docs]: /components/sensor.opensky/
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.ups docs]: /components/sensor.ups/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
@@ -502,7 +499,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [telegram_bot docs]: /components/telegram_bot/
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [wemo docs]: /components/wemo/
-[zwave.workaround docs]: /components/zwave.workaround/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290

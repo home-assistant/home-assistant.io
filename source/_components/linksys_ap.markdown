@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Linksys Access Points"
 description: "Instructions on how to integrate Linksys Access Points into Home Assistant."
-date: 2016-12-16 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: linksys.png
@@ -14,6 +8,14 @@ ha_release: 0.37
 redirect_from:
  - /components/device_tracker.linksys_ap/
 ---
+
+<div class="note warning">
+
+This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+</div>
 
 The `linksys_ap` platform offers presence detection by looking at connected devices to a Linksys based access point.
 

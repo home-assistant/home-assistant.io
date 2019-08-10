@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Caddy Server reverse proxy"
 description: "Configure Caddy Server as a reverse proxy to Home Assistant."
-date: 2017-08-22 22:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 [Caddy Server](https://caddyserver.com/) is a powerful HTTP/2 server, that enables HTTPS by default with automatically generated Let's Encrypt certificates, which allows a simple configuration procces.
 
@@ -20,9 +14,9 @@ Chances are, you have a dynamic IP address (your ISP changes your address period
 
 This will vary depending on your OS. Caddy has a [nice utillity](https://caddyserver.com/download) that generates an installer script.
 
-<p class='note'>
+<div class='note'>
     Make sure you include the `hook.service` plugin if you want to run Caddy as a service
-</p>
+</div>
 
 ### 3. Port forwarding.
 
@@ -32,7 +26,7 @@ Forward ports 443 and 80 to your server on your router. Do not forward port 8123
 
 Use this as your Caddyfile, change the domain name to match yours.
 
-```
+```text
 example.com {
     proxy / localhost:8123 {
         websocket

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Piglow"
 description: "Instructions on how to setup Piglow LED's within Home Assistant."
-date: 2017-01-13 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

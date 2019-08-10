@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi TV"
 description: "Instructions on how to integrate a Xiaomi TV into Home Assistant."
-date: 2018-02-12 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Media Player
@@ -28,9 +22,9 @@ media_player:
   - platform: xiaomi_tv
 ```
 
-<p class='note warning'>
+<div class='note warning'>
 When starting or restarting Home Assistant make sure your TV is off. This is a flaw in the TV itself.
-</p>
+</div>
 
 {% configuration %}
 host:
@@ -56,6 +50,6 @@ media_player:
     name: YOUR_TV_NAME
 ```
 
-<p class='note info'>
+<div class='note info'>
 The platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful, because the selected source of the TV will remain the same. It will essentially turn your TV into a dumb TV.
-</p>
+</div>

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Installation of the Z-Wave component."
-date: 2017-09-21 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
@@ -55,7 +49,7 @@ autoheal:
 device_config / device_config_domain / device_config_glob:
   description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
   required: false
-  type: string, list
+  type: [string, list]
   keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
@@ -128,7 +122,7 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
-The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+If you did an alternative install on Linux then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`.
 
 ### Docker
 
@@ -162,15 +156,14 @@ $ ls -1tr /dev/tty*|tail -n 1
 
 #### Raspberry Pi specific
 
-On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
 #### Linux (except Hassbian)
 
-On Debian Linux platforms there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
-$ sudo apt-get install libopenzwave1.5-dev
 ```
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.

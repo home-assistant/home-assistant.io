@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "iBeacons: How to track things that can’t track themselves (part II)"
 description: A step by step guide how to tracking dumb devices by using iBeacons.
 date: 2016-05-26 12:06:12 +0100
 date_formatted: "May 26, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
-comments: true
 categories: iBeacons Device-Tracking OwnTracks
 og_image: /images/blog/2016-05-ibeacons/keys_device.png
 ---
@@ -36,7 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<p class='note warning'>OwnTracks currently only supports mobile beacons on iOS.</p>
+<div class='note warning'>
+OwnTracks currently only supports mobile beacons on iOS.
+</div>
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 

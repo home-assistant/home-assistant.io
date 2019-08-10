@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation in Python virtual environment"
 description: "How to install Home Assistant in a Python virtual environment."
-date: 2016-4-16 16:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-virtualenv/
 ---
 
@@ -14,9 +8,11 @@ If you already have Python 3.6 or later installed (we suggest 3.7 or later), you
 
 It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
-<p class='note'>
+<div class='note'>
+
 This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
-</p>
+
+</div>
 
 {% comment %}
 This page describes installation instructions for a pure Python installation.
@@ -84,9 +80,9 @@ $ pip3 install --pre --upgrade homeassistant
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
-<p class='note warning'>
+<div class='note warning'>
   The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
-</p>
+</div>
 
 For example:
 
@@ -102,9 +98,11 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 - It's recommended to run Home Assistant as a dedicated user.
 - If you want Home Assistant to automatically start at boot, check the [autostart docs](/docs/autostart/)
 
-<p class='info'>
+<div class='info'>
+ 
 Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
-</p>
+
+</div>
 
 ### After upgrading Python
 

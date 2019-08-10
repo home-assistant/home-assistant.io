@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Cast"
 description: "Instructions on how to integrate Google Cast into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_cast.png
 ha_category:
   - Media Player
@@ -17,7 +11,7 @@ redirect_from: /components/media_player.cast/
 ---
 
 Google Cast devices like Android TVs and Chromecasts will be automatically
-discovered if you enable [the discovery integration(/components/discovery/). If
+discovered if you enable [the discovery integration](/components/discovery/). If
 you don't have the discovery integration enabled, you can enable the Cast
 integration by going to the Integrations page inside the config panel.
 
@@ -38,9 +32,9 @@ cast:
     - host: 192.168.1.10
 ```
 
-<p class='note'>
+<div class='note'>
 You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
-</p>
+</div>
 
 {% configuration %}
 media_player:

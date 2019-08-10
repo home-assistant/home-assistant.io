@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ness Alarm"
 description: "Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant."
-date: 2018-11-25 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ness.png
 ha_category:
   - Alarm

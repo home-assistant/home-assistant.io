@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NO-IP.com"
 description: "Keep your computer registered with the NO-IP.com dynamic DNS."
-date: 2017-10-27 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: noip.png
 ha_category:
   - Network
@@ -43,6 +37,6 @@ no_ip:
   timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
-    type: number
+    type: integer
     default: 10
 {% endconfiguration %}

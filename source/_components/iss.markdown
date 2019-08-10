@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "International Space Station"
 description: "Know if or when ISS will be above your home location"
-date: 2016-12-18 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nasa.png
 ha_category:
   - Binary Sensor
@@ -43,15 +37,17 @@ name:
   default: ISS
 show_on_map:
   description: Option to show the position of the ISS on the map.
-  required: optional
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you set `show_on_map: true` then the location attributes are named `latitude` and `longitude`.
 The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
-</p>
+
+</div>
 
 ### Show position on map with camera platform
 

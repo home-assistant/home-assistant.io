@@ -1,15 +1,9 @@
 ---
-layout: page
 title: "Config"
 description: "Instructions on how to setup the configuration panel for Home Assistant."
-date: 2017-02-24 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.39
 ha_qa_scale: internal
 ---

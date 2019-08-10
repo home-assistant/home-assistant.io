@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IQVIA"
 description: "Instructions on how to use IQVIA data within Home Assistant"
-date: 2018-01-10 19:20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: iqvia.png
 ha_category:
   - Health
@@ -74,10 +68,10 @@ monitored_conditions:
       description: "The cold/flu index for today."
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
 ZIP codes that start with 0 will cause errors.
-</p>
+</div>
 
 ## Understanding the Indices
 

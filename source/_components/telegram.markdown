@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram"
 description: "Instructions on how to add Telegram notifications to Home Assistant."
-date: 2015-10-09 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Notifications
@@ -26,9 +20,7 @@ The requirements are:
 - You need to configure a [Telegram bot in Home Assistant](/components/telegram_bot) and define there your API key and the allowed chat ids to interact with.
 - The `chat_id` of an allowed user.
 
-To retrieve your `chat_id`, contact any of the Telegram bots created for this purpose (@myidbot, @get_id_bot)
-
-The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates`. Replace `YOUR_API_TOKEN` with your actual token.
+The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 
@@ -70,9 +62,9 @@ $ python3
 123456789
 ```
 
-<p class='note'>
+<div class='note'>
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</p>
+</div>
 
 ## Configuration
 
@@ -204,7 +196,8 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
 
 ```yaml
@@ -215,7 +208,8 @@ homeassistant:
     - /tmp
     - /home/kenji/data
 ```
-</p>
+
+</div>
 
 ### Video support
 

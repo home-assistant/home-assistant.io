@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Using Fedora Atomic with Home Assistant"
 description: "Running Home Assistant on a Fedora Atomic host."
 date: 2018-03-29 22:00:00
 date_formatted: "March 29, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-03-fedora-atomic/social.png
 ---

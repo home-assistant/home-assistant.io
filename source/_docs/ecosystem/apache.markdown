@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Apache Proxy"
 description: "Configure Apache to work with Home Assistant as a subdomain"
-date: 2016-06-20 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/apache_configuration/
 ---
 
@@ -58,10 +52,10 @@ Include conf/extra/hass.conf
 
 If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *:80>` or better consider redirecting all HTTP to HTTPS.
 
-
-<p class='note'>
+<div class='note'>
 In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") or HTTP 502 messages ("Bad Gateway") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
-</p>
+</div>
+
 ```text
 <VirtualHost *:443>
   [...]

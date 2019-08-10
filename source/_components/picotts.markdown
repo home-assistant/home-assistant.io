@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pico Text-to-Speech"
 description: "Instructions on how to setup Pico Text-to-Speech with Home Assistant."
-date: 2017-01-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Text-to-speech

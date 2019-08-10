@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant."
-date: 2016-08-30 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -47,7 +41,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+      description: The port numbers ([BCM mode pin numbers](https://pinout.xyz/resources/raspberry-pi-pinout.png)) and corresponding names.
       required: true
       type: string
 bouncetime:
@@ -193,9 +187,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector) about the Raspberry Pi.
 
-<p class='note warning'>
+<div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
+</div>
 
 A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

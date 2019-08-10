@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.30: More Async, HASSbian, Digital Ocean, statistics, REST"
 description: "More asynchronous, HASSbian image, Support for Digital Ocean, statistics, Västtrafik public transport, and Hacktoberfest."
 date: 2016-10-08 03:04:05 +0000
 date_formatted: "October 08, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Travis-CI Sensor"
 description: "Instructions on how to integrate the test build results reported by Travis-CI within Home Assistant."
-date: 2017-09-04 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: travisci.svg
 ha_category:
   - Sensor

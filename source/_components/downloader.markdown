@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Downloader"
 description: "Instructions on how to setup the downloader integration with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Downloading

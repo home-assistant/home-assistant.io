@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fibaro"
 description: "Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant."
-date: 2019-01-10 20:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fibaro.png
 ha_category:
   - Hub
@@ -70,7 +64,7 @@ gateways:
 url:
   description: The URL for your Fibaro HomeCenter device.
   required: true
-  type: url
+  type: string
 username:
   description: The username for your Fibaro account.
   required: true
@@ -82,7 +76,7 @@ password:
 plugins:
   description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc.
   required: false
-  type: bool
+  type: boolean
   default: false
 device_config:
   description: Lists device specific parameter or behaviour overrides.
@@ -91,9 +85,11 @@ device_config:
   default: None
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
-</p>
+
+</div>
 
 ### Using Z-Wave devices in automation
 

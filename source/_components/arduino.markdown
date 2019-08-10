@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Arduino"
 description: "Instructions on how to setup an Arduino boards within Home Assistant."
-date: 2015-06-27 10:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arduino.png
 ha_category:
   - DIY
@@ -59,9 +53,9 @@ $ ls /dev/ttyACM*
 
 If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g., `/dev/ttyUSB*`).
 
-<p class='note warning'>
+<div class='note warning'>
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
-</p>
+</div>
 
 Add the user who is used to run Home Assistant to the groups to allow access to the serial port.
 
@@ -98,7 +92,7 @@ pins:
       type: map
       keys:
         name:
-          default: Name that will be used in the frontend for the pin.
+          description: Name that will be used in the frontend for the pin.
           type: string
 {% endconfiguration %}
 
@@ -135,16 +129,16 @@ pins:
       type: map
       keys:
         name:
-          default: Name that will be used in the frontend for the pin.
+          description: Name that will be used in the frontend for the pin.
           type: string
           required: false
         initial:
-          default: The initial value for this port.
+          description: The initial value for this port.
           type: boolean
           required: false
           default: false
         negate:
-          default: If this pin should be inverted.
+          description: If this pin should be inverted.
           type: boolean
           required: false
           default: false

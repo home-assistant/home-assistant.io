@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HaveIBeenPwned Sensor"
 description: "Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant."
-date: 2016-09-29 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: haveibeenpwned.png
 ha_category:
   - Sensor
@@ -49,8 +43,8 @@ account has been breached as well as the added date of the breach data. This dat
   <img src='/images/components/haveibeenpwned/sensor.png' />
 </p>
 
-<p class='note warning'>
+<div class='note warning'>
   The sensor will scan all email addresses specified with a 5 second delay between all breach data requests on Home Assistant startup.
   After this initial startup scanning, the sensor will only scan one email account per 15 minutes to prevent abuse, and not hammer "the
   Have I been Pwned" service, as this breach data almost never changes.
-</p>
+</div>

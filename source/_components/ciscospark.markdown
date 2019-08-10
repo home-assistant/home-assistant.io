@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cisco Spark"
 description: "Instructions on how to add CiscoSpark notifications to Home Assistant."
-date: 2017-02-20 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ciscospark.png
 ha_category:
   - Notifications

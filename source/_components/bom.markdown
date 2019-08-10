@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BOM Australia"
 description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bom.png
 ha_category:
   - Weather
@@ -39,19 +33,21 @@ weather:
 {% configuration %}
 name:
   description:  The name you would like to give to the weather station.
-  required: optional
+  required: false
   type: string
 station:
   description: "The station ID string. See the [`sensor.bom` docs](#sensor) for details on how to find the ID of a station."
-  required: optional
+  required: false
   type: string
   default: The closest station
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`bom`](#sensor) sensor.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>
 
 ## Camera
 
@@ -283,7 +279,9 @@ monitored_conditions:
       description: Wind speed in kt.
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This sensor is an alternative to the [`bom`](#configuration) weather platform.
 The weather platform is easier to configure but less customisable.
-</p>
+
+</div>

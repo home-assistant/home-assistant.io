@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FFmpeg Motion Binary Sensor"
 description: "Instructions on how to integrate an FFmpeg-based motion binary sensor"
-date: 2016-08-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ffmpeg.png
 ha_category:
   - Image Processing
@@ -18,9 +12,11 @@ redirect_from:
 
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
-<p class='note'>
+<div class='note'>
+
 If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
-</p>
+
+</div>
 
 ## Motion
 

@@ -1,17 +1,10 @@
 ---
-layout: page
 title: Repetier-Server Component
 description: "Instructions how to add Repetier-Server sensors to Home Assistant."
-date: 2019-05-01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: repetier.png
 ha_category:
   - Hub
   - Sensor
-featured: false
 ha_release: 0.94
 ha_iot_class: Local Polling
 ---
@@ -33,6 +26,7 @@ repetier:
 
 {% configuration %}
 repetier:
+  description: Repetier integration
   type: list
   required: true
   keys:

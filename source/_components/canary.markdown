@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Canary"
 description: "Instructions on how to integrate your Canary devices into Home Assistant."
-date: 2017-12-07 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: canary.png
 ha_category:
   - Alarm

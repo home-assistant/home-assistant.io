@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic MJPEG IP Camera"
 description: "Instructions on how to integrate IP cameras within Home Assistant."
-date: 2015-11-09 08:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Camera

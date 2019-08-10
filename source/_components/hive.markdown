@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hive"
 description: "Instructions on how to integrate Hive devices with Home Assistant."
-date: 2017-09-24 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hive.png
 ha_category:
   - Hub
@@ -31,11 +25,12 @@ This integration uses the unofficial API used in the official Hive website [http
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Climate](#climate)
-- [Light](#light)
-- [Sensor](#sensor)
-- [Switch](#switch)
+- [Binary Sensor](#Binary-Sensor)
+- [Climate](#Climate)
+- [Light](#Light)
+- [Sensor](#Sensor)
+- [Switch](#Switch)
+- [Water Heater](#Water-Heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -73,15 +68,14 @@ The platform supports the following Hive products:
 
 ## Climate
 
-The `hive` climate platform integrates your Hive thermostat and hot water into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
+The `hive` climate platform integrates your Hive thermostat into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
-A short boost for Hive Heating or Hive Hot water can be set by using the **Aux Heat** function, this will turn on the boost feature for Hive Heating or Hive Hot water for 30 minutes at 0.5 degrees higher than the current temperature.
+A short boost for Hive Heating can be set by using the **Boost** preset, this will turn on the boost feature for 30 minutes at 0.5 degrees higher than the current temperature.
 
 The platform supports the following Hive products:
 
 - Hive Active Heating
 - Hive Multizone
-- Hot water control
 
 ## Light
 
@@ -109,3 +103,11 @@ The `hive` switch platform integrates your Hive plugs into Home Assistant, enabl
 The platform supports the following Hive products:
 
 - Hive Active Plug
+
+## Water Heater
+
+The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
+
+The platform supports the following Hive products:
+
+- Hot Water Control

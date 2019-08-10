@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QR Code Recognition"
 description: "Instructions on how to integrate QR Code Recognition into Home Assistant."
-date: 2019-01-18 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Image Processing

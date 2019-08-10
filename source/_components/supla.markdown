@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Supla"
 description: "Instructions for integration with Supla Cloud's Web API"
-date: 2019-03-14 20:05
-sidebar: true
-comments: true
-sharing: true
-footer: true
 logo: supla.png
 ha_release: 0.92
 ha_category:

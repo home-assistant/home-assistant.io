@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Cover"
 description: "Instructions on how to integrate RFLink Somfy RTS Cover into Home Assistant."
-date: 2017-08-08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Cover

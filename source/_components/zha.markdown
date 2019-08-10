@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zigbee Home Automation"
 description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
-date: 2017-02-22 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zigbee.png
 ha_category:
   - Hub
@@ -62,6 +56,8 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
   - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
+  - ZiGate USB modules (require firmware 3.1a or later)
 
 ## Configuration
 

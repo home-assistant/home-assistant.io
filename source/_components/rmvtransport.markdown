@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RMV"
 description: "Instructions on how to integrate Rhein-Main public transport departure times into Home Assistant."
-date: 2018-08-02 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: RMV.png
 ha_category:
   - Transport
@@ -65,7 +59,7 @@ next_departure:
     lines:
       description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
       required: false
-      type: [string, int]
+      type: [string, integer]
     products:
       description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false

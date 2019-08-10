@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ONVIF Camera"
 description: "Instructions on how to integrate a ONVIF camera within Home Assistant."
-date: 2017-06-09 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: onvif.png
 ha_category:
   - Camera

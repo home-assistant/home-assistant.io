@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Vacuum"
 description: "Instructions on how to integrate your MQTT enabled Vacuum within Home Assistant."
-date: 2017-09-11 20:26
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Vacuum
@@ -48,7 +42,7 @@ schema:
 supported_features:
   description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
-  type: string list
+  type: [string, list]
   default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
@@ -154,7 +148,7 @@ set_fan_speed_topic:
 fan_speed_list:
   description: List of possible fan speeds for the vacuum.
   required: false
-  type: string list
+  type: [string, list]
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -279,7 +273,7 @@ schema:
 supported_features:
   description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
-  type: string list
+  type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
@@ -340,7 +334,7 @@ set_fan_speed_topic:
 fan_speed_list:
   description: List of possible fan speeds for the vacuum.
   required: false
-  type: string list
+  type: [string, list]
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false

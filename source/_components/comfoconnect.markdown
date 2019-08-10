@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zehnder ComfoAir Q Ventilation"
 description: "Instructions on how to integrate Zehnder ComfoAir Q350/450/600 ventilation systems into Home Assistant."
-date: 2017-06-28 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zehnder.png
 ha_category:
   - Fan
@@ -74,6 +68,6 @@ sensor:
       - air_flow_exhaust
 ```
 
-<p class='note'>
+<div class='note'>
 Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
-</p>
+</div>

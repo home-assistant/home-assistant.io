@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HASS Configurator"
 description: "Instructions on how to install and use the HASS Configurator"
-release_date: 2017-03-10 00:50:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/hass-configurator/
 ---
 
@@ -33,9 +27,10 @@ Screenshot of the HASS Configurator.
 - Execute shell commands
 - Runs on pretty much any machine Home Assistant can run on
 
-<p class='note warning'>
+<div class='note warning'>
 This tool allows you to browse your filesystem and modify files. So be careful which files you edit, or you might break critical parts of your system.<br />
-Consider running the configurator as a user with limited privileges to limit possible damage.</p>
+Consider running the configurator as a user with limited privileges to limit possible damage.
+</div>
 
 ### Installation (Linux, macOS)
 There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn't work when you're offline).
@@ -101,8 +96,10 @@ panel_iframe:
     icon: mdi:wrench
     url: http://123.123.132.132:3218
 ```
-<p class='note warning'>
-Be careful when setting up port forwarding to the configurator while embedding it into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!</p>
+
+<div class='note warning'>
+Be careful when setting up port forwarding to the configurator while embedding it into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!
+</div>
 
 ### Daemonizing / Keeping the configurator running
 Since the configurator script on its own is no service, you will have to take some extra steps to keep it running. Here are five options (for Linux), but there are more, depending on your usecase.
@@ -111,7 +108,7 @@ Since the configurator script on its own is no service, you will have to take so
 `nohup sudo ./configurator.py &`
 2. If your system is using systemd (that's usually what you'll find on a Raspberry Pi), there's a [template file](https://github.com/danielperna84/hass-configurator/blob/master/hass-configurator.systemd) you can use and then apply the same process to integrate it as mentioned in the [Home Assistant documentation](/docs/autostart/systemd/). If you use this method you have to set the `BASEPATH` variable according to your environment.
 3. If you have [supervisor](http://supervisord.org/) running on your system, [hass-poc-configurator.supervisor](https://github.com/danielperna84/hass-configurator/blob/master/hass-configurator.supervisor) would be an example configuration you could use to control the configurator.
-4. A tool called [tmux](https://tmux.github.io/), which should be pre-installed with [HASSbian](/docs/hassbian/).
+4. A tool called [tmux](https://tmux.github.io/), which should be pre-installed with [HASSbian](/docs/installation/hassbian/).
 5. A tool called [screen](http://ss64.com/bash/screen.html) (alternative to tmux). If it's not already installed on your system, you can do `sudo apt-get install screen` or `sudo yum install screen` to get it. When it's installed, start a screen session by executing `screen`. Then navigate to your Home Assistant directory and start the configurator like described above. Put the screen session into the background by pressing `CTRL+A` and then `CTRL+D`. It is now safe to disconnect from your SSH session.
 To resume the screen session, log in to your machine and execute `screen -r`.
 

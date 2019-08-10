@@ -1,15 +1,9 @@
 ---
-layout: page
 title: "Panel Custom"
 description: "Instructions on how to add customized panels to the frontend of Home Assistant."
-date: 2015-08-08 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.26
 ha_qa_scale: internal
 ---
@@ -30,9 +24,11 @@ panel_custom:
       who: world
 ```
 
-<p class='note'>
+<div class='note'>
+
 Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
-</p>
+
+</div>
 
 {% configuration %}
 name:
@@ -68,6 +64,7 @@ require_admin:
   description: If admin access is required to see this panel.
   required: false
   type: boolean
+  default: false
 embed_iframe:
   description: Set to `true` to embed panel in iframe. This is necessary if the panel is using the React framework or if it contains conflicting web components.
   required: false
@@ -79,7 +76,7 @@ trust_external_script:
   default: false
   type: boolean
 webcomponent_path:
-  description: The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html`  This is exclusive to `js_url` and `module_url`.
-  required: exclusive *DEPRECATED*
+  description: "*DEPRECATED* The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html` This is exclusive to `js_url` and `module_url`."
+  required: exclusive
   type: string
 {% endconfiguration %}

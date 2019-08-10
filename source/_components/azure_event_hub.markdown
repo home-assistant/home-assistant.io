@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Azure Event Hub"
 description: "Setup for Azure Event Hub integration"
-date: 2019-05-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: azure_event_hub.svg
 ha_category:
   - History
@@ -62,7 +56,7 @@ event_hub_sas_key:
   type: string
 filter:
   description: Filter domains and entities for Event Hub.
-  required: false
+  required: true
   type: map
   default: Includes all entities from all domains
   keys:
@@ -84,13 +78,13 @@ filter:
       type: list
 {% endconfiguration %}
 
-<p class='note warning'>
-  Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space. 
-</p>
+<div class='note warning'>
+Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space. 
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
-</p>
+</div>
 
 ### Using the data in Azure
 

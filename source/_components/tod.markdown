@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Times of the Day Binary Sensor"
 description: "Instructions on how to integrate Times of the Day binary sensors within Home Assistant."
-date: 2019-01-14 23:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Binary Sensor
 ha_release: 0.89
@@ -50,7 +44,7 @@ name:
 before:
   description: The absolute local time value or sun event for beginning of the time range.
   required: true
-  type: string or time
+  type: [string, time]
 before_offset:
   description: The time offset of the beginning time range.
   required: false
@@ -58,7 +52,7 @@ before_offset:
 after:
   description: The absolute local time value or sun event for ending of the time range.
   required: true
-  type: string or time
+  type: [string, time]
 after_offset:
   description: The time offset of the beginning time range.
   type: time

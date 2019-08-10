@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tahoma"
 description: "Instructions on how to integrate Somfy Tahoma devices with Home Assistant."
-date: 2017-07-18 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tahoma.png
 ha_category:
   - Hub

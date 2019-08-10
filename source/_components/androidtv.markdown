@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Android TV"
 description: "Instructions on how to integrate Android TV and Fire TV devices into Home Assistant."
-date: 2015-10-23 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: androidtv.png
 ha_category:
   - Media Player
@@ -82,7 +76,7 @@ adb_server_port:
   description: The port for the ADB server.
   required: false
   default: 5037
-  type: port
+  type: integer
 get_sources:
   description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
   required: false
@@ -92,12 +86,17 @@ apps:
   description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
   required: false
   default: {}
-  type: dict
+  type: map
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
   default: auto
   type: string
+state_detection_rules:
+  description: A dictionary whose keys are app IDs and whose values are lists of state detection rules; see the section [Custom State Detection](#custom-state-detection) for more info.
+  required: false
+  default: {}
+  type: map
 turn_on_command:
   description: An ADB shell command that will override the default `turn_on` command.
   required: false
@@ -114,7 +113,8 @@ turn_off_command:
 # Example configuration.yaml entry
 media_player:
   # Use an ADB server to setup an Android TV device, provide
-  # an app name, and override the default turn on/off commands
+  # an app name, override the default turn on/off commands,
+  # and provide custom state detection rules
   - platform: androidtv
     name: Android TV
     device_class: androidtv
@@ -124,6 +124,21 @@ media_player:
       com.amazon.tv.launcher: "Fire TV"
     turn_on_command: "input keyevent 3"
     turn_off_command: "input keyevent 223"
+    state_detection_rules:
+      'com.amazon.tv.launcher':
+        - 'standby'
+      'com.netflix.ninja':
+        - 'media_session_state'
+      'com.ellation.vrv':
+        - 'audio_state'
+      'com.plexapp.android':
+        - 'playing':
+            'media_session_state': 3  # this indentation is important!
+            'wake_lock_size': 3       # this indentation is important!
+        - 'paused':
+            'media_session_state': 3  # this indentation is important!
+            'wake_lock_size': 1       # this indentation is important!
+        - 'standby'
 
   # Use the Python ADB implementation with authentication
   # to setup a Fire TV device and don't get the running apps
@@ -155,9 +170,9 @@ If your device requires ADB authentication, you will need to follow the instruct
 
 If you get a "Device authentication required, no keys available" error when trying to set up your Android TV or Fire TV, then you'll need to create an adbkey and add its path to your configuration. Follow the instructions on this page to connect to your device from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).
 
-<p class='note warning'>
+<div class='note warning'>
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
-</p>
+</div>
 
 Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
@@ -238,6 +253,21 @@ Available key commands include:
 - `BACK`
 - `MENU`
 
-The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/e1c07176efc9216cdcff8245c920224c0234ea56/androidtv/constants.py#L115-L155).
+The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/bf1058a2f746535921b3f5247801469c4567e51a/androidtv/constants.py#L143-L186).
 
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level, this information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
+
+## Custom State Detection
+
+The `state_detection_rules` configuration parameter allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
+
+* `'standby'`, `'playing'`, `'paused'`, `'idle'`, `'stopped'`, or `'off'`
+  * If this is not a map, then this state will always be reported when this app is the current app
+  * If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+    1. ``'media_session_state'``
+    2. ``'audio_state'``
+    3. ``'wake_lock_size'``
+* `'media_session_state'` = try to use the `media_session_state` property to determine the state
+* `'audio_state'` = try to use the `audio_state` property to determine the state
+
+To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.

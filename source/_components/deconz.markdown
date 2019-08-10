@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "deCONZ"
 description: "Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant."
-date: 2017-11-12 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: deconz.jpeg
 ha_category:
   - Hub
@@ -371,6 +365,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue White Ambiance A19
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
+- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
 
 ## Scene
 

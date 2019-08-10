@@ -1,22 +1,20 @@
 ---
-layout: page
 title: "KNX Switch"
 description: "Instructions on how to integrate KNX switches with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Switch
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
 
-The `knx` switch integration is used as in interface to switching actuators.
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
-The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
+</div>
+
+The `knx` switch platform is used as an interface to switching actuators.
 
 ## Configuration
 

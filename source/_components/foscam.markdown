@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Foscam IP Camera"
 description: "Instructions on how to integrate Foscam IP cameras within Home Assistant."
-date: 2015-09-17 08:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: foscam.png
 ha_category:
   - Camera
@@ -60,9 +54,9 @@ name:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-</p>
+</div>
 
 ### Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away
 

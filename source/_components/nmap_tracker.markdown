@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nmap"
 description: "Instructions on how to integrate Nmap into Home Assistant."
-date: 2018-09-21 18:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nmap.png
 ha_category:
   - Presence Detection
@@ -18,15 +12,17 @@ redirect_from:
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-<p class='note'>
+<div class='note'>
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</p>
+</div>
 
 You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
 
-<p class='note'>
+<div class='note'>
+
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-</p>
+
+</div>
 
 Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
 

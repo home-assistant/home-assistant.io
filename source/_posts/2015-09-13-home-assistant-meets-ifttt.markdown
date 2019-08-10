@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant meets IFTTT"
 description: "Announcing new integration with IFTTT and some samples to get started."
 date: 2015-09-13 09:28 -0700
 date_formatted: "September 13, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To Release-Notes
 og_image: /images/blog/2015-09-ifttt/og_facebook.png
 ---
