@@ -136,8 +136,8 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
 
-| Service data attribute | Optional | Example                      | Description                           |
-| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
+| Service data attribute | Optional | Example | Description |
+| ---------------------- | -------- | ------- | ----------- |
 | `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4.
 | `command`              | No       | `ps`                         | The command you want to send.         
 
@@ -145,8 +145,8 @@ Emulate button press on PlayStation 4. This emulates the commands available for 
 
 Full list of supported commands.
 
-| Command  | Button Emulated  |
-| -------- | ---------------- |
+| Command  | Button Emulated |
+| -------- | --------------- |
 | `ps`     | PS (PlayStation)
 | `option` | Option
 | `enter`  | Enter
@@ -185,10 +185,10 @@ Full list of supported commands.
 
 | Field | Value | Description |
 | ----- | ----- | ----------- |
-| `locked` | boolean | Must be `true` or `false`
-| `media_content_type` | string | Must be `game` or `app`
-| `media_image_url` | string | Any valid url for an image
-| `media_title` | string | The title of the game or app
+| `locked`             | boolean | Must be `true` or `false`
+| `media_content_type` | string  | Must be `game` or `app`
+| `media_image_url`    | string  | Any valid url for an image
+| `media_title`        | string  | The title of the game or app
 
   The data in the example shows 2 entries.
 
@@ -215,8 +215,8 @@ Full list of supported commands.
 
 ### Media Data Service Attributes
 
-| Service data attribute | Example     | Description |
-| ---------------------- | ----------- | ----------- |
+| Service data attribute | Example | Description |
+| ---------------------- | ------- | ----------- |
 | `entity_id`            | `media_player.playstation_4`            | The entity which is currently playing media.
 | `media_content_id`     | `CUSA00123`                             | The SKU ID of the media.
 | `media_title`          | `A Title: The Name`                     | The title of the media.
@@ -260,7 +260,7 @@ Unlock the attributes of the media which is currently playing. Media data will b
 
 ### Service `media_edit`
 
-Edit or correct media data attributes. Media data will be locked and not be updated automatically. You can simply lock the data by leaving optional fields blank.
+Edit or correct media data attributes. Media data will be locked and not be updated automatically. To simply lock the data, leave optional fields blank.
 
 | Service data attribute | Optional |
 | ---------------------- | -------- |
@@ -271,7 +271,7 @@ Edit or correct media data attributes. Media data will be locked and not be upda
 
 ### Service `media_edit_playing`
 
-Edit or correct the attributes of the media which is currently playing. Media data will be locked and not be updated automatically. You can simply lock the data by leaving optional fields blank.
+Edit or correct the attributes of the media which is currently playing. Media data will be locked and not be updated automatically. To simply lock the data, leave optional fields blank.
 
 | Service data attribute | Optional |
 | ---------------------- | -------- |
