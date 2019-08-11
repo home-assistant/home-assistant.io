@@ -275,7 +275,7 @@ Edit or correct the attributes of the media which is currently playing. Media da
 
 | Service data attribute | Optional |
 | ---------------------- | -------- |
-| `media_content_id`     | No
+| `entity_id`            | No
 | `media_title`          | Yes
 | `media_image_url`      | Yes
 | `media_content_type`   | Yes
