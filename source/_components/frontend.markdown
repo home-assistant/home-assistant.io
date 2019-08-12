@@ -86,7 +86,6 @@ Set a theme at the startup of Home Assistant:
 ```yaml
 automation:
   - alias: 'Set theme at startup'
-    initial_state: 'on'
     trigger:
      - platform: homeassistant
        event: start
@@ -101,7 +100,6 @@ To enable "night mode":
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: true
     trigger:
       - platform: time
         at: '21:00:00'
