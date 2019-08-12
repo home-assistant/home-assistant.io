@@ -10,11 +10,15 @@ redirect_from:
  - /components/device_tracker.traccar/
 ---
 
-`Traccar` uses GPS for tracking and has support for over 1500 different types of devices.
+`Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Hass.io addon.
 
-## Configuration
+## Traccar Client
 
-To integrate Traccar GPS tracker in Home Assistant, add the following section to your `configuration.yaml` file:
+To configure Traccar Client, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration. This URL has to be set in the Traccar app.
+
+## Traccar Server
+
+To integrate Traccar Server in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
