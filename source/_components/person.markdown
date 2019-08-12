@@ -93,8 +93,8 @@ You can customize the picture used for a person entity in the `customize:` secti
 
 ```yaml
 customize:
-  person.ada6789
-    entity_picture: "/local/ada.JPG"
+  person.ada6789:
+    entity_picture: "/local/ada.jpg"
 ```
 
 See the documentation about [hosting files](/components/http/#hosting-files) for more information about the `www` folder. 
