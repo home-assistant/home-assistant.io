@@ -50,19 +50,20 @@ We will need a few things to get started with installing Home Assistant. The lat
 ### Installing Hass.io
 
 1. Put the SD card in your SD card reader.
-1. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
-1. Unmount the SD card and remove it from your SD card reader.
-1. Only if you want to configure WiFi or a Static IP (requires USB stick):
+2. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
+3. Unmount the SD card and remove it from your SD card reader.
+4. Only if you want to configure WiFi or a Static IP (requires USB stick):
    - Format a USB-Stick to FAT32 with volume-name `CONFIG`.
    - Create a folder named `network` in the root of the newly formatted USB-stick.
    - Within that folder create a file named `my-network` without extension.
    - Copy one of [the examples] to the `my-network` file and adjust accordingly.
    - Plug the USB-stick into the Raspberry Pi 3.
 
-1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
-1. Connect your Raspberry Pi to the power supply, so it turns on.
-1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
-1. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
+5. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
+6. Connect your Raspberry Pi to the power supply, so it turns on.
+7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
+8. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
+9. If you have used a USB-stick for configuring the network, it can now be removed.
 
 [local]: http://hassio.local:8123
 [host]: http://hassio:8123
@@ -71,3 +72,5 @@ We will need a few things to get started with installing Home Assistant. The lat
 ### [Next step: Onboarding &raquo;][next-step]
 
 [next-step]: /getting-started/onboarding/
+
+_As an Amazon Associate Home Assistant earns from qualifying purchases._

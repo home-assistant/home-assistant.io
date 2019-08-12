@@ -24,7 +24,7 @@ redirect_from:
   - /components/sensor.homekit_controller/
 ---
 
-[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This integration should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
+[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This integration should not be confused with the [HomeKit](/components/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -35,8 +35,8 @@ There is currently support for the following device types within Home Assistant:
 - Lock (HomeKit lock)
 - Switch (HomeKit switches)
 - Binary Sensor (HomeKit motion sensors and contact sensors)
-- Sensor (HomeKit humidity, temperature, and light level sensors)
+- Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 
 The integration will be automatically configured if the [`discovery`](/components/discovery/) integration is enabled.
 
-For each detected HomeKit accessory, a configuration prompt will appear in the web front end. Use this to provide the HomeKit PIN. Note that HomeKit accessories can only be paired to one device at once. If your device is currently paired with Siri, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri with the [`HomeKit`](/components/homekit/) component.
+For each detected HomeKit accessory, a configuration prompt will appear in the web front end. Use this to provide the HomeKit PIN. Note that HomeKit accessories can only be paired to one device at once. If your device is currently paired with Siri, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri with the [`HomeKit`](/components/homekit/) integration.

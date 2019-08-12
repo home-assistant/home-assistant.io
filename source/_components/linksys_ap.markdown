@@ -9,6 +9,14 @@ redirect_from:
  - /components/device_tracker.linksys_ap/
 ---
 
+<div class="note warning">
+
+This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+</div>
+
 The `linksys_ap` platform offers presence detection by looking at connected devices to a Linksys based access point.
 
 It was tested with a LAPAC1750 AC1750 Dual Band Access Point.

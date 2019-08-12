@@ -18,6 +18,13 @@ The following device types and data are supported:
 - [Sensor](#sensor) - Current conditions and alerts
 - [Camera](#camera) - Radar imagery
 
+<p class='note'>
+
+  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7`
+
+</p>
+
 ## Location Selection
 
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
@@ -98,8 +105,10 @@ sensor:
     - `wind_bearing` - The current wind direction in degrees.
     - `high_temp` - The next forecast high temperature, in ºC.
     - `low_temp` - The next forecast low temperature, in ºC.
+    - `uv_index` - The next forecast UV index.
     - `pop` - The next forecast probability of precipitation, in %.
     - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
+    - `precip_yesterday` - The total amount of precipitation that fell the previous day.
     - `warnings` - Current warning alerts.
     - `watches` - Current watch alerts.
     - `advisories` - Current advisory alerts.

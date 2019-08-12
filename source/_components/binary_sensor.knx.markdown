@@ -5,10 +5,18 @@ logo: knx.png
 ha_category:
   - Binary Sensor
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
 
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
+
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
+
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 ## Configuration
 
@@ -18,11 +26,11 @@ The `knx` integration must be configured correctly, see [KNX Integration](/compo
 # Example configuration.yaml entry
 binary_sensor:
   - platform: knx
-    address: '6/0/2'
+    state_address: '6/0/2'
 ```
 
 {% configuration %}
-address:
+state_address:
   description: KNX group address of the binary sensor.
   required: true
   type: string
@@ -30,6 +38,11 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+sync_state:
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  required: false
+  type: boolean
+  default: True
 device_class:
   description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
@@ -54,7 +67,7 @@ You can also attach actions to binary sensors (e.g., to switch on a light when a
 binary_sensor:
   - platform: knx
     name: Livingroom.3Switch3
-    address: '5/0/26'
+    state_address: '5/0/26'
     automation:
       - counter: 1
         hook: 'on'

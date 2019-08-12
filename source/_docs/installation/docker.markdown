@@ -4,6 +4,8 @@ description: "Instructions to install Home Assistant on a Docker."
 redirect_from: /getting-started/installation-docker/
 ---
 
+## Platform Installation
+
 Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
 
 ### Linux
@@ -176,14 +178,14 @@ device_tracker:
   - platform: bluetooth_tracker
 ```
 
-### Restart
+## Restart
 
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
  2. Or you can restart it from a terminal by running `docker restart home-assistant`
 
-### Docker Compose
+## Docker Compose
 
 As the docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
@@ -212,7 +214,7 @@ To restart Home Assistant when you have changed configuration:
 $ docker-compose restart
 ```
 
-### Exposing Devices
+## Exposing Devices
 
 In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 

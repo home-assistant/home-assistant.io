@@ -60,7 +60,7 @@ password:
   required: true
   type: string
 discovery:
-  description: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add.
+  description: Whether to discover Netatmo devices automatically. Set it to False, if you want to choose which Netatmo device you want to add. Do not use discovery and manual configuration at the same time.
   required: false
   type: boolean
   default: true

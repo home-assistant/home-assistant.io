@@ -165,7 +165,7 @@ sensor:
 
 ### BOM Weather
 
-The Australian Bureau of Meterology website returns an error if the User Agent header is not sent.
+The Australian Bureau of Meteorology website returns an error if the User Agent header is not sent.
 
 {% raw %}
 ```yaml

@@ -29,19 +29,23 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
+There are 2 options in configuring the velbus integration:
+
+- Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
+- Via the Home Assistant `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry for a USB or serial interface
 velbus:
-  port: '/dev/ttyUSB00'
+  port: 'PORT_STRING'
 ```
 
-```yaml
-# Example configuration.yaml entry for a TCP/IP interface
-velbus:
-  port: '127.0.0.1:3678'
-```
+## Port Sstring
+
+The port string used in the user interface or the configuration file can have 2 formats:
+
+- For a serial device: /dev/ttyUSB00
+- For a tcp/ip device: 127.0.0.1:3678
 
 {% configuration %}
 port:

@@ -53,6 +53,10 @@ input_datetime:
         required: false
         type: boolean
         default: false
+      icon:
+        description: Icon to display in the frontend.
+        required: false
+        type: icon
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
@@ -69,8 +73,9 @@ automations and templates.
 | ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>If `has_
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>(only available if `has_time: true`)
+
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home

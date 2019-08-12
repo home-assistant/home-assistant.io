@@ -8,11 +8,11 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/components/history/).
 
 Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
-The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
+The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in HassIO) and called `home-assistant_v2.db`.
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,7 +23,7 @@ recorder:
 
 {% configuration %}
 recorder:
-  description: Enables the recorder component. Only allowed once.
+  description: Enables the recorder integration. Only allowed once.
   required: true
   type: map
   keys:
@@ -115,7 +115,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from your history, take a look at the [`history` component](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` component. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your history, take a look at the [`history` integration](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### Service `purge`
 

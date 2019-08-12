@@ -18,9 +18,12 @@ The `mystrom` light platform allows you to control your [myStrom](https://mystro
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
 - [Light](#light)
+- [Binary Sensor](#binary-sensor)
+  - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
 - [Switch](#switch)
+  - [Setup](#setup)
+  - [Get the current power consumption](#get-the-current-power-consumption)
 
 ## Light
 
@@ -159,7 +162,7 @@ The `mystrom` switch platform allows you to control the state of your [myStrom](
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 <p class='img'>
-  <img src='{{site_root}}/images/components/mystrom/mystrom-advanced.png' />
+  <img src='{{site_root}}/images/components/mystrom/switch-advanced.png' />
 </p>
 
 To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:

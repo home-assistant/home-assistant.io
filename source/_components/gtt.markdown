@@ -28,7 +28,7 @@ stop:
   required: true
   type: string
 bus_name:
-  description: The name of the choosen bus.
+  description: The name of the chosen bus.
   required: false
   type: string
 {% endconfiguration %}

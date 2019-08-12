@@ -5,6 +5,7 @@ logo: ps4.png
 ha_category:
   - Media Player
 ha_release: 0.89
+ha_config_flow: true
 ha_iot_class: Local Polling
 ---
 
@@ -26,7 +27,7 @@ The `ps4` integration allows you to control a
   Read the section "Granting Port Access" below before continuing.
 </div>
 
-2. Navigate to `Configuration -> Integrations` and select `Configure` for `PlayStation 4`.
+2. Navigate to `Configuration -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
@@ -71,7 +72,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page ("http://yourhomeassistanturl/dev-info"). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
 
   ```bash
   whereis python<version>

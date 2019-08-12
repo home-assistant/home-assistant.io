@@ -693,7 +693,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.miflora docs]: /components/sensor.miflora/
 [sensor.mqtt docs]: /components/sensor.mqtt/
 [sensor.mqtt_room docs]: /components/sensor.mqtt_room/
-[sensor.netatmo_public docs]: /components/sensor.netatmo_public/
+[sensor.netatmo_public docs]: /components/netatmo/#sensor
 [sensor.openweathermap docs]: /components/sensor.openweathermap/
 [sensor.scrape docs]: /components/sensor.scrape/
 [sensor.tibber docs]: /components/sensor.tibber/

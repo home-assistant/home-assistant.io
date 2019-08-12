@@ -86,7 +86,7 @@ Each Point exposes the following binary sensors:
 
 <div class="note">
 
-The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
+The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a brief moment and are then switched back to `Off`.
 
 </div>
 

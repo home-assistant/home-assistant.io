@@ -122,7 +122,7 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
-The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+If you did an alternative install on Linux then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`.
 
 ### Docker
 
@@ -160,11 +160,10 @@ On the Raspberry Pi you will need to enable the serial interface in the `raspi-c
 
 #### Linux (except Hassbian)
 
-On Debian Linux platforms there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
-$ sudo apt-get install libopenzwave1.5-dev
 ```
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.

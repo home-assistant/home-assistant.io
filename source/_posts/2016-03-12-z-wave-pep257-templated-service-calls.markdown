@@ -49,7 +49,7 @@ automation:
 `media_content_type` and `media_content_id`, to match the corresponding media
 player state attributes. This change affects automations, scripts and scenes.
 
-[services]: /topics/service_calls/#use-templates-to-decide-which-service-to-call
+[services]: /docs/scripts/service-calls/#use-templates-to-decide-which-service-to-call
 [Hunter Douglas Powerview]: /components/scene.hunterdouglas_powerview/
 [MQTT]: /components/lock.mqtt/
 [OwnTracks]: /components/device_tracker.owntracks/

@@ -44,7 +44,7 @@ region:
   required: true
   type: string
 nissan_connect:
-  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
+  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be acquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
   required: false
   type: boolean
   default: true

@@ -4,9 +4,9 @@ description: "Instructions on how to integrate Genius Hub with Home Assistant."
 logo: geniushub.png
 ha_category:
   - Climate
-  - Water heater
+  - Water Heater
   - Sensor
-  - Binary sensor
+  - Binary Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---
