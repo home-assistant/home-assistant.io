@@ -9,6 +9,7 @@ redirect_from:
  - /components/device_tracker.icloud/
 ---
 
+Be aware that cUrrently, this integration is broken: https://github.com/home-assistant/home-assistant/issues/24476
 
 The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
 
