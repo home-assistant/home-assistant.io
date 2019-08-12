@@ -19,6 +19,7 @@ To enable Template Covers in your installation,
 add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -33,7 +34,12 @@ cover:
           service: script.close_garage_door
         stop_cover:
           service: script.stop_garage_door
-```
+        availability_template: >-
+          {%- if not is_state('dependant_device.state', 'unavailable') %}
+            true
+          {% endif %}
+``
+
 {% endraw %}
 
 {% configuration %}
@@ -62,7 +68,12 @@ cover:
         description: Defines a template to specify which icon to use.
         required: false
         type: template
-      device_class:
+      availability_template:
+        description: "Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`"
+        required: false
+        type: template
+        default: the device is always `available`
+     device_class:
         description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
         required: false
         type: string
@@ -136,6 +147,7 @@ This example converts a garage door with a controllable switch and position
 sensor into a cover.
 
 {% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -162,6 +174,7 @@ cover:
             mdi:garage
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Multiple Covers
@@ -169,6 +182,7 @@ cover:
 This example allows you to control two or more covers at once.
 
 {% raw %}
+
 ```yaml
 homeassistant:
   customize:
@@ -249,6 +263,7 @@ automation:
           entity_id: cover.cover_group
           position: 25
 ```
+
 {% endraw %}
 
 ### Change The Icon
@@ -256,6 +271,7 @@ automation:
 This example shows how to change the icon based on the cover state.
 
 {% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -282,6 +298,7 @@ cover:
             mdi:window-closed
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change The Entity Picture
@@ -289,6 +306,7 @@ cover:
 This example shows how to change the entity picture based on the cover state.
 
 {% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -315,4 +333,5 @@ cover:
             /local/cover-closed.png
           {% endif %}
 ```
+
 {% endraw %}

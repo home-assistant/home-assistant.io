@@ -15,6 +15,8 @@ return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 To enable Template Vacuums in your installation, add the following to your
 `configuration.yaml` file:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -22,8 +24,14 @@ vacuum:
     vacuums:
       living_room_vacuum:
         start:
-            service: script.vacuum_start
+          service: script.vacuum_start
+        availability_template: >-
+          {%- if not is_state('dependant_device.state', 'unavailable') %}
+            true
+          {% endif %}
 ```
+
+{% endraw %}
 
 {% configuration %}
   vacuums:
@@ -47,6 +55,11 @@ vacuum:
         description: Defines a template to get the fan speed of the vacuum.
         required: false
         type: template
+      availability_template:
+        description: "Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`"
+        required: false
+        type: template
+        default: the device is always `available`
       start:
         description: Defines an action to run when the vacuum is started.
         required: true
@@ -117,6 +130,7 @@ vacuum:
 This example shows how to use templates to specify the state of the vacuum.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -144,4 +158,5 @@ vacuum:
             - Medium
             - High
 ```
+
 {% endraw %}

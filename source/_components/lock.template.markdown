@@ -22,6 +22,7 @@ In optimistic mode, the lock will immediately change state after every command. 
 To enable Template Locks in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 lock:
@@ -36,7 +37,12 @@ lock:
       service: switch.turn_off
       data:
         entity_id: switch.door
+    availability_template: >-
+      {%- if not is_state('dependant_device.state', 'unavailable') %}
+        true
+      {% endif %}
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -49,7 +55,12 @@ lock:
     description: Defines a template to set the state of the lock.
     required: true
     type: template
-  lock:
+  availability_template:
+    description: "Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`"
+    required: false
+    type: template
+    default: the device is always `available`
+ lock:
     description: Defines an action to run when the lock is locked.
     required: true
     type: action
@@ -77,6 +88,7 @@ In this section, you find some real-life examples of how to use this lock.
 This example shows a lock that copies data from a switch.
 
 {% raw %}
+
 ```yaml
 lock:
   - platform: template
@@ -91,6 +103,7 @@ lock:
       data:
         entity_id: switch.source
 ```
+
 {% endraw %}
 
 ### Optimistic Mode
@@ -98,6 +111,7 @@ lock:
 This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
 
 {% raw %}
+
 ```yaml
 lock:
   - platform: template
@@ -113,6 +127,7 @@ lock:
       data:
         entity_id: switch.source
 ```
+
 {% endraw %}
 
 ### Sensor and Two Switches
@@ -120,6 +135,7 @@ lock:
 This example shows a lock that takes its state from a sensor, and uses two momentary switches to control a device.
 
 {% raw %}
+
 ```yaml
 lock:
   - platform: template
@@ -134,4 +150,5 @@ lock:
       data:
         entity_id: switch.skylight_close
 ```
+
 {% endraw %}
