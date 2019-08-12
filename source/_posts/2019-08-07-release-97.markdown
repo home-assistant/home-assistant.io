@@ -101,6 +101,38 @@ A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeen
 [haveibeenpwned docs]: /components/haveibeenpwned/
 [unifi docs]: /components/unifi/
 
+## Release 0.97.2 - August 11
+
+- Fix eco preset for Wink Air Conditioner ([@cameronrmorris] - [#25763]) ([wink docs])
+- Update pyvera to 0.3.3 ([@brandond] - [#25820]) ([vera docs])
+- Fix Netatmo climate issue ([@cgtobi] - [#25830]) ([netatmo docs])
+- Fix KNX Climate mode change callback ([@tombbo] - [#25851]) ([knx docs])
+- Always populate hvac_modes in SmartThings climate platform ([@andrewsayre] - [#25859]) ([smartthings docs])
+- UniFi - Use state to know if device is online ([@Kane610] - [#25876]) ([unifi docs])
+- Fix issue with nuki new available state ([@pvizeli] - [#25881]) ([nuki docs])
+
+[#25763]: https://github.com/home-assistant/home-assistant/pull/25763
+[#25820]: https://github.com/home-assistant/home-assistant/pull/25820
+[#25830]: https://github.com/home-assistant/home-assistant/pull/25830
+[#25851]: https://github.com/home-assistant/home-assistant/pull/25851
+[#25859]: https://github.com/home-assistant/home-assistant/pull/25859
+[#25876]: https://github.com/home-assistant/home-assistant/pull/25876
+[#25881]: https://github.com/home-assistant/home-assistant/pull/25881
+[@Kane610]: https://github.com/Kane610
+[@andrewsayre]: https://github.com/andrewsayre
+[@brandond]: https://github.com/brandond
+[@cameronrmorris]: https://github.com/cameronrmorris
+[@cgtobi]: https://github.com/cgtobi
+[@pvizeli]: https://github.com/pvizeli
+[@tombbo]: https://github.com/tombbo
+[knx docs]: /components/knx/
+[netatmo docs]: /components/netatmo/
+[nuki docs]: /components/nuki/
+[smartthings docs]: /components/smartthings/
+[unifi docs]: /components/unifi/
+[vera docs]: /components/vera/
+[wink docs]: /components/wink/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
