@@ -20,7 +20,7 @@ To enable the sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: uptimerobot
-    api_key: YOUR_API_KEY
+      api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
