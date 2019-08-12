@@ -12,8 +12,6 @@ ha_iot_class: Local Polling
 The `ps4` integration allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This integration supports controlling multiple PlayStation 4 consoles for your instance. You can add another console by setting up the integration again. You may also have multiple entities for the same PlayStation 4 console if you would like to use additional PSN (PlayStation Network) accounts. To do this, login to the additional account in the PS4 Second Screen app, and complete the setup of the integration again.
-
 ## Requirements
 
 - Android or iOS device
@@ -33,6 +31,8 @@ The `ps4` integration allows you to control a
 
 4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
 - **Note:** To find your correct region refer to the section [Regions](#regions)
+
+- This integration supports controlling multiple PlayStation 4 consoles for your instance. You can add another console by setting up the integration again. You may also have multiple entities for the same PlayStation 4 console if you would like to use additional PSN (PlayStation Network) accounts. To do this, login to the additional account in the PS4 Second Screen app, and complete the setup of the integration again.
 
 ## Granting Port Access
 
