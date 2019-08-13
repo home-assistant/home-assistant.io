@@ -38,7 +38,7 @@ cover:
           {%- if not is_state('dependant_device.state', 'unavailable') %}
             true
           {% endif %}
-``
+```
 
 {% endraw %}
 
@@ -73,7 +73,7 @@ cover:
         required: false
         type: template
         default: the device is always `available`
-     device_class:
+      device_class:
         description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
         required: false
         type: string
