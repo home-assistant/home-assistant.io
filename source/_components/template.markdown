@@ -68,6 +68,10 @@ sensor:
         description: Defines a template for the entity picture of the sensor.
         required: false
         type: template
+      available_template:
+        description: "Defines a template for the availability status of the sensor. When the availability status is False, the sensor always returns None."
+        required: false
+        type: template
       device_class:
         description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
