@@ -138,7 +138,6 @@ sensor:
   - If the state is not a zone, it will look for the longitude and latitude attributes
 - **zone**
   - Uses the longitude and latitude attributes
-  - Can also be referenced by just the zone's friendly name found in the attributes.
 - **sensor**
   - If the state is a zone, then will use the zone location
   - All other states will be passed directly into the HERE API
