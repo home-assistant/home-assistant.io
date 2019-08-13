@@ -42,6 +42,16 @@ host:
   description: List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
   required: false
   type: list
+away_temperature_heat:
+  description: Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 60
+  type: float
+away_temperature_cool:
+  description: Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 85
+  type: float
 hold_temp:
   description: Boolean to control if Home Assistant temperature adjustments hold (`true`) or are temporary (`false`).
   required: false
@@ -50,6 +60,8 @@ hold_temp:
 {% endconfiguration %}
 
 Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
+
+The "away" preset mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.
 
 Multiple thermostats can be assigned by using `host:` if auto-detection is not used.
 
