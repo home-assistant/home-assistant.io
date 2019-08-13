@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ha_release: 0.96
 ---
 
-The `fronius` sensor will poll a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors (or attributes of sensors) in Home Assistant.
+The `fronius` sensor polls a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
 
 ## Configuration
 
@@ -33,7 +33,7 @@ monitored_conditions:
   required: true
   type: list
   keys:
-    type:
+    sensor_type:
       description: "The kind of device, can be one of \"inverter\", \"storage\", \"meter\", or \"power_flow\""
       required: true
       type: string
@@ -47,6 +47,44 @@ monitored_conditions:
       required: false
       default: "\"1\" for inverters and \"0\" for other devices such as storages in compliance with Fronius Specs"
 {% endconfiguration %}
+
+## Monitored data
+
+Each sensor type chosen as monitored condition adds a set of sensors to Home Assistant.
+
+- `power_flow`
+
+    Cumulative data such as the energy produced in the current day or year and overall produced energy.
+    Also, live values such as:
+    
+    - Power fed to the grid (if positive) or taken from the grid (if negative).
+    - Power load as a generator (if positive) or consumer (if negative).
+    - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode.
+    - Photovoltaic production.
+    - Current relative self-consumption of produced energy.
+    - Current relative autonomy.
+
+- `inverter`
+
+    Cumulative data such as the energy produced in the current day or year and overall produced energy.
+    Also, live values about AC/DC power, current, voltage and frequency.
+    The data is only shown when choosing device scope.
+
+- `meter`
+
+    Detailed information about power, current and voltage, if supported split among the phases.
+    The data is only shown when choosing device scope.
+    
+- `storage`
+
+    Detailed information about current, voltage, state, cycle count, capacity and more about installed batteries.
+
+Note that some data (like photovoltaic production) is only provided by the Fronius device when non-zero.
+The corresponding sensors are added to Home Assistant as entities as soon as they are available.
+This means for example that when Home Assistant is started at night,
+there might be no sensor providing photovoltaic related data.
+This does not need to be problematic as the values will be added on sunrise,
+when the Fronius devices begins providing the needed data.
 
 ## Examples
 
@@ -68,31 +106,3 @@ sensor:
       device: 0
     - sensor_type: power_flow
 ```
-
-## Sensors configuration
-
-To extract more detailed values from the state of each integrated sensor and to circumvent undefined values,
-it is recommended to use template sensors as an interface:
-
-{% raw %}
-```yaml
-- platform: template
-  sensors:
-    electricity_inverter1_power_netto:
-      unit_of_measurement: 'W'
-      value_template: >-
-        {% if states.sensor.fronius_1921684247_inverter_1.attributes.power_ac is defined -%}
-          {{ states_attr('sensor.fronius_1921684247_inverter_1', 'power_ac') | float | round(2) }}
-        {%- else -%}
-          0
-        {%- endif %}
-    electricity_autonomy:
-      unit_of_measurement: '%'
-      value_template: >-
-        {% if states.sensor.fronius_1921684247_power_flow.attributes.relative_autonomy is defined -%}
-          {{ states_attr('sensor.fronius_1921684247_power_flow', 'relative_autonomy') | float | round(2) }}
-        {%- else -%}
-          0
-        {%- endif %}
-```
-{% endraw %}
