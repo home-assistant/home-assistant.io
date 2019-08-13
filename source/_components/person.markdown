@@ -89,7 +89,7 @@ person:
 
 ### Customizing the picture for a person
 
-You can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
+By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
 
 ```yaml
 customize:
