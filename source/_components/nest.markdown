@@ -313,7 +313,7 @@ The following conditions are available by device:
   - preset\_mode
   - temperature
   - target
-  - hvac\_mode: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
+  - hvac\_state: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
 - Nest Protect:
   - co\_status: `Ok`, `Warning` or `Emergency`
   - smoke\_status: `Ok`, `Warning` or `Emergency`
