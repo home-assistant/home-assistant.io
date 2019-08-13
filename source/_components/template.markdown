@@ -77,6 +77,10 @@ sensor:
             description: The attribute and corresponding template.
             required: true
             type: template
+      available_template:
+        description: "Defines a template for the availability status of the sensor. When the availability status is False, the sensor always returns None."
+        required: false
+        type: template
       device_class:
         description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
@@ -252,38 +256,6 @@ sensor:
           {% endif %}
         value_template: "{{ states('sensor.power_consumption') }}"
         unit_of_measurement: 'kW'
-```
-{% endraw %}
-
-### Add Custom Attributes
-
-This example shows how to add custom attributes.
-
-{% raw %}
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      my_device:
-        value_template: >-
-          {% if is_state('device_tracker.my_device_nmap','home') %}
-            Home
-          {% else %}
-            {{ states('device_tracker.my_device_gps') }}
-          {% endif %}
-        attribute_templates:
-          latitude: >-
-            {% if is_state('device_tracker.my_device_nmap','home') %}
-              {{ state_attr('zone.home','latitude') }}
-            {% else %}
-              state_attr('device_tracker.my_device_gps','latitude')
-            {% endif %}
-          longitude: >-
-            {% if is_state('device_tracker.my_device_nmap','home') %}
-              {{ state_attr('zone.home','longitude') }}
-            {% else %}
-              {{ state_attr('device_tracker.my_device_gps','longitude') }}
-            {% endif %}
 ```
 {% endraw %}
 
