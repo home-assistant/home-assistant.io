@@ -6,7 +6,7 @@ ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.95
+ha_release: 0.98
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
@@ -29,8 +29,10 @@ sensor:
   - platform: here_travel_time
     app_id: "YOUR_APP_ID"
     app_code: "YOUR_APP_CODE"
-    origin: "51.222975,9.267577"
-    destination: "51.257430,9.335892"
+    origin_latitude: "51.222975"
+    origin_longitude: "9.267577"
+    destination_latitude: "51.257430"
+    destination_longitude: "9.335892"
 ```
 
 {% configuration %}
@@ -42,13 +44,29 @@ app_code:
   description: "Your application's API code (get one by following the instructions above)."
   required: true
   type: string
-origin:
-  description: "The starting point for calculating travel distance and time."
-  required: true
+origin_latitude:
+  description: "The starting latitude for calculating travel distance and time. Must be used in combination with origin_longitude. Cannot be used in combination with origin_entity_id"
+  required: exclusive
+  type: float
+origin_longitude:
+  description: "The starting longitude for calculating travel distance and time. Must be used in combination with origin_latitude. Cannot be used in combination with origin_entity_id"
+  required: exclusive
+  type: float
+destination_latitude:
+  description: "The finishing latitude for calculating travel distance and time. Must be used in combination with destination_longitude. Cannot be used in combination with destination_entity_id"
+  required: exclusive
+  type: float
+destination_longitude:
+  description: "The finishing longitude for calculating travel distance and time. Must be used in combination with destination_latitude. Cannot be used in combination with destination_entity_id"
+  required: exclusive
+  type: float
+origin_entity_id:
+  description: "The entity_id holding the starting point for calculating travel distance and time. Cannot be used in combination with origin_latitude / origin_longitude"
+  required: exclusive
   type: string
-destination:
-  description: "The finishing point for calculating travel distance and time."
-  required: true
+destination_entity_id:
+  description: "The entity_id holding the finishing point for calculating travel distance and time. Cannot be used in combination with destination_latitude / destination_longitude"
+  required: exclusive
   type: string
 name:
   description: A name to display on the sensor. The default is "HERE Travel Time".
@@ -94,16 +112,23 @@ sensor:
     app_id: "YOUR_APP_ID"
     app_code: "YOUR_APP_CODE"
     name: Phone To Home
-    origin: device_tracker.mobile_phone
-    destination: zone.home
-
-  # Tracking entity to zone friendly name
+    origin_entity_id: device_tracker.mobile_phone
+    destination_entity_id: zone.home
+  # Full config
   - platform: here_travel_time
     app_id: "YOUR_APP_ID"
     app_code: "YOUR_APP_CODE"
-    name: Home To Eddie's House
-    origin: zone.home
-    destination: Eddies House    # Friendly name of a zone
+    name: Work to Home By Bike
+    origin_entity_id: zone.work
+    destination_latitude: 59.2842
+    destination_longitude: 59.2642
+    mode: bicycle
+    route_mode: fastest
+    traffic_mode: false
+    unit_system: imperial
+    scan_interval: 2678400 # 1 month
+    
+
 ```
 
 ## Entity Tracking
@@ -115,7 +140,7 @@ sensor:
   - Uses the longitude and latitude attributes
   - Can also be referenced by just the zone's friendly name found in the attributes.
 - **sensor**
-  - If the state is a zone or zone friendly name, then will use the zone location
+  - If the state is a zone, then will use the zone location
   - All other states will be passed directly into the HERE API
     - This includes all valid locations listed in the *Configuration Variables*
 
