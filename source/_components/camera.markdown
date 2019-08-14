@@ -26,7 +26,23 @@ This option will keep the stream alive, and preload the feed on Home Assistant s
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
-Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
+Available services: `enable_motion_detection`, `disable_motion_detection`, `play_stream`, `record`, `snapshot`, `turn_off` and `turn_on`.
+
+#### Service `enable_motion_detection`
+
+Enable the motion detection in a camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
+
+#### Service `disable_motion_detection`
+
+Disable the motion detection in a camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
 #### Service `play_stream`
 
@@ -47,61 +63,6 @@ action:
     entity_id: camera.yourcamera
     media_player: media_player.chromecast
 ```
-
-#### Service `turn_on`
-
-Turn on camera. Not all camera models support this service, please consult individual camera page.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
-
-#### Service `turn_off`
-
-Turn off camera. Not all camera models support this service, please consult individual camera page.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
-
-#### Service `enable_motion_detection`
-
-Enable the motion detection in a camera.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
-
-#### Service `disable_motion_detection`
-
-Disable the motion detection in a camera.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
-
-#### Service `snapshot`
-
-Take a snapshot from a camera.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
-
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
-
-For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
-
-{% raw %}
-```yaml
-action:
-  service: camera.snapshot
-  data:
-    entity_id: camera.yourcamera
-    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
-```
-{% endraw %}
 
 #### Service `record`
 
@@ -129,6 +90,45 @@ action:
     filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 {% endraw %}
+
+#### Service `snapshot`
+
+Take a snapshot from a camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
+| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
+
+The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
+
+{% raw %}
+```yaml
+action:
+  service: camera.snapshot
+  data:
+    entity_id: camera.yourcamera
+    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
+
+#### Service `turn_off`
+
+Turn off camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
+
+#### Service `turn_on`
+
+Turn on camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
 
 ### Test if it works
 
