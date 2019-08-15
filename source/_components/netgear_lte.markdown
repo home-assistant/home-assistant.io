@@ -40,6 +40,7 @@ netgear_lte:
       monitored_conditions:
         - usage
         - sms
+        - wwan.signalstrength.bars
     binary_sensor:
       monitored_conditions:
         - wire_connected
@@ -75,7 +76,7 @@ sensor:
   type: map
   keys:
     monitored_conditions:
-      description: Sensor types to create.
+      description: Sensor types to create. Each modem provides a huge number of possible values to monitor. To see all that your modem provides, set the logging level to `debug` and watch `homeassistant.components.netgear_lte.sensor` debug entries. The names below are shorthands for a few common values.
       required: false
       default: usage
       type: list
