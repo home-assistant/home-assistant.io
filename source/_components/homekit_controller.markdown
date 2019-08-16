@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 HomeKit IP accessories for these device types may work with some caveats:
 
 - If the device is WiFi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your WiFi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your WiFi. Then Home Assistant can find it and pair with it.
-- You need to know the HomeKit PIN. There is no way to recover this if you do not have it - you will need to contact the manufacturer to see what options you have.
+- You need to know the HomeKit PIN. There is no way to recover this if you do not have it. You will need to contact the manufacturer to see what options you have.
 
 Home Assistant does not currently support HomeKit BLE.
 
@@ -76,7 +76,7 @@ Home Assistant can only find accessories that aren't already paired. Even if you
 
 This is completely normal. Unlike many other commercial IoT offerings the HomeKit protocol is a local and offline protocol that does not rely on the Apple ecosystem to function. You do not need an Apple online account to use a "Works with HomeKit" device. Some WiFi devices may need an iOS briefly to get them onto your WiFi but other than that you do not need any Apple hardware on your network either.
 
-Many IoT devices are getting a post-launch HomeKit upgrade. This might mean your device starts showing in HomeAssistant as a homekit_controller device even though when you bought it without HomeKit support. If maybe this is a better choice for you than a native integration - for example, a lot of climate devices have an online-only API and a HomeKit API. The HomeKit one might not expose all of the settings and controls you are used to but won't break if your internet connection goes down or the cloud service goes away.
+Many IoT devices are getting a post-launch HomeKit upgrade. This might mean your device starts showing in Home Assistant as a `homekit_controller` device even though when you bought it without HomeKit support. If maybe this is a better choice for you than a native integration. For example, a lot of climate devices have an online-only API and a HomeKit API. The HomeKit one might not expose all of the settings and controls you are used to but won't break if your internet connection goes down or the cloud service goes away.
 
 ### I have a warning in my logs about HomeKit controller skipping updates
 
