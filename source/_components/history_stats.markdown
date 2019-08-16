@@ -119,6 +119,12 @@ duration:
   minutes: 30
 ```
 
+<div class='note'>
+
+  If the duration exceeds the number of days of history stored by the `recorder` component (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+
+</div>
+
 ### Examples
 
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
