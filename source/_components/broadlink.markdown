@@ -150,9 +150,10 @@ timeout:
   required: false
   type: integer
 retry:
-  description: Retry times for fetch data if failed. The default value is 2.
+  description: Retry times for fetch data if failed.
   required: false
   type: integer
+  default: 2
 friendly_name:
   description: The name used to display the switch in the frontend.
   required: false
