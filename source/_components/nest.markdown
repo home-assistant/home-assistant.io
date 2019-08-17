@@ -195,7 +195,7 @@ script:
 
 You must have the [Nest component](/components/nest/) configured to use the platforms below.
 
-<div>
+</div>
 
 ## Binary Sensor
 
