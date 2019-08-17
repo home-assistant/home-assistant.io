@@ -96,3 +96,9 @@ It is possible to [customize entities](/docs/configuration/customizing-devices/)
 homeassistant:
   customize:
 ```
+In newer versions of Home Assistant the homeassistant: configuration has been moved and default_config: is now at the top of your configuration.yaml. The new enteries should look like this.
+
+```yaml
+default_config:
+  packages:
+```
