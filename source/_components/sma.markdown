@@ -69,11 +69,10 @@ group:
   default: user
   type: string
 sensors:
-  description: A list of sensors that will be added. 
+  description: A list of sensors that will be added. Refer to the table in the Sensors section below. If not specified all sensors in the library will be added.
   required: false
   default: All sensors
   type: list
-  keys: Refer to the table in the Sensors section below.
 custom:
   description: A dictionary of custom sensor key values and units.
   required: false
