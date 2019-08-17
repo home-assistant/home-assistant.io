@@ -12,12 +12,6 @@ redirect_from:
   - /components/device_tracker.googlehome/
 ---
 
-<div class='note warning'>
-
-  This integration is currently not working as Google have disabled access to their unofficial API. A workaround may be in progress, but for now, this integration should not be included in your setup.
-
-</div>
-
 The `googlehome` integration allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
 This integration will provide:
