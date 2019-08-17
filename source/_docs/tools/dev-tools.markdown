@@ -10,13 +10,13 @@ The frontend contains a section called "Developer Tools".
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section | Icon | Description |
-| ------- |------| ----- |
-| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from integrations |
-| States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
-| Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
-| Templates | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Renders templates |
-| Info | <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
+| Section |Description |
+| ------- |----- |
+| Services | Calls services from integrations |
+| States | Sets the representation of an entity |
+| Events | Fires events |
+| Templates | Renders templates |
+| Info | Details about Home Assistant |
 
 ## What can I do with Developer Tools?
 The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, update states, raising events, and publish messages in mqtt…etc.). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the section in detail.

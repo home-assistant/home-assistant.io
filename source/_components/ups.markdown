@@ -10,6 +10,14 @@ redirect_from:
  - /components/sensor.ups/
 ---
 
+<div class="note warning">
+
+This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+</div>
+
 The `ups` platform allows one to track deliveries by the [UPS](https://www.ups.com/). To use this sensor, you need a [My UPS Account](https://www.ups.com/mychoice).
 
 ## Configuration

@@ -41,7 +41,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+      description: The port numbers ([BCM mode pin numbers](https://pinout.xyz/resources/raspberry-pi-pinout.png)) and corresponding names.
       required: true
       type: string
 bouncetime:

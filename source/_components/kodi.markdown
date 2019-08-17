@@ -86,7 +86,7 @@ timeout:
 
 ### Services
 
-#### Service `kodi_add_to_playlist`
+#### Service `kodi.add_to_playlist`
 
 Add music to the default playlist (i.e. playlistid=0).
 
@@ -98,14 +98,7 @@ Add music to the default playlist (i.e. playlistid=0).
 | `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
 | `artist_name` | no | Optional artist name for filtering media. |
 
-#### Service `media_player/kodi_set_shuffle`
-
-| Service data attribute | Optional | Description |
-|------------------------|----------|-------------|
-| `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
-| `shuffle_on`           | no       | True/false for shuffle on/off. |
-
-#### Service `kodi_call_method`
+#### Service `kodi.call_method`
 
 Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
@@ -117,7 +110,7 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 
 ### Event triggering
 
-When calling the `kodi_call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
+When calling the `kodi.call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
@@ -156,7 +149,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_off_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: Application.Quit
@@ -169,7 +162,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_off_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: System.Hibernate
@@ -182,7 +175,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_off_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: System.Suspend
@@ -195,7 +188,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_off_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: System.Reboot
@@ -208,7 +201,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_off_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: System.Shutdown
@@ -223,7 +216,7 @@ media_player:
   - platform: kodi
     host: 192.168.0.123
     turn_on_action:
-      service: media_player.kodi_call_method
+      service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: Addons.ExecuteAddon
@@ -234,7 +227,7 @@ media_player:
     - service: media_player.media_stop
       data:
         entity_id: media_player.kodi
-    - service: media_player.kodi_call_method
+    - service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: Addons.ExecuteAddon
@@ -293,7 +286,7 @@ script:
     alias: Update Kodi Library
     sequence:
       - alias: Call Kodi update
-        service: media_player.kodi_call_method
+        service: kodi.call_method
         data:
           entity_id: media_player.kodi
           method: VideoLibrary.Scan
