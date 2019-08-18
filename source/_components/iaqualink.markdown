@@ -30,18 +30,18 @@ You can also configure the component via `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 iaqualink:
-  username: email@example.com
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
 username:
-  description: Same address as relevant config entry, needed to identify config entry
+  description: The username for accessing your iAqualink account
   type: string
   required: true
   default: None
 password:
-  description: Same site as relevant config entry, needed to identify config entry
+  description: The password for accessing your iAqualink account
   type: string
   required: true
   default: None
