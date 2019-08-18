@@ -137,7 +137,7 @@ The following configuration example shows how to use the `type` property:
 ```yaml
 # Example configuration.yaml entry that shows how to
 # use the type property.
-cover rflink:
+cover:
   - platform: rflink
     device_defaults:
       fire_event: false
