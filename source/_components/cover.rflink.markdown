@@ -136,8 +136,8 @@ In RFLink, the ON and DOWN command are used to close the cover and the OFF and U
 
 The RFLink cover device has a property named `type` that takes 2 values:
 
-- standard: Do not invert the on/off commands sent to the RFLink device.
-- inverted: Invert the on/off commands sent to the RFLink device.
+- `standard`: Do not invert the on/off commands sent to the RFLink device.
+- `inverted`: Invert the on/off commands sent to the RFLink device.
 
 The following configuration example shows how to use the `type` property:
 
