@@ -53,7 +53,10 @@ fields:
       keys:
         description:
           description: A description of PARAMETER_NAME.
-          example: An example value for PARAMETER_NAME.      
+          type: string
+        example:
+          description: An example value for PARAMETER_NAME.
+          type: string
 sequence:
   description: The sequence of actions to be performed in the script.
   required: true
