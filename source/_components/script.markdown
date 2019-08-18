@@ -34,6 +34,7 @@ script: 
   # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
+    description: 'Turns on the bedroom lights and then the living room lights 1 minute later'
     sequence:
       # This is Home Assistant Script Syntax
       - event: LOGBOOK_ENTRY
@@ -102,6 +103,14 @@ Using the variables in the script requires the use of `data_template`:
 # Example configuration.yaml entry
 script:
   notify_pushover:
+    description: 'Send a pushover notification'
+    fields:
+      title:
+        description: 'The title of the notification'
+        example: 'State change'
+      message:
+        description: 'The message content'
+        example: 'The light is on!'
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
