@@ -77,7 +77,7 @@ initial_hvac_mode:
   required: false
   type: string
 away_temp:
-  description: Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available.
+  description: "Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available."
   required: false
   type: float
 precision:
