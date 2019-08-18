@@ -188,13 +188,11 @@ sensor:
     sensors:
       daily_power:
         friendly_name: Daily Power
-        icon: mdi:counter
         unit_of_measurement: kWh
-        value_template: {{ states('sensor.daily_power_offpeak')|float + states('sensor.daily_power_peak')|float }}
+        value_template: "{{ states('sensor.daily_power_offpeak')|float + states('sensor.daily_power_peak')|float }}"
       monthly_power:
         friendly_name: Monthly Power
-        icon: mdi:counter
         unit_of_measurement: kWh
-        value_template: {{ states('sensor.monthly_power_offpeak')|float + states('sensor.monthly_power_peak')|float }}
+        value_template: "{{ states('sensor.monthly_power_offpeak')|float + states('sensor.monthly_power_peak')|float }}"
 ```
 {% endraw %}
