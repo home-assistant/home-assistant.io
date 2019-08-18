@@ -7,9 +7,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_release: 0.99 # TBD
-ha_iot_class: Local Polling
-ha_qa_scale: platinum # TBD
+ha_release: 0.97
+ha_iot_class: Cloud Polling
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.
