@@ -67,6 +67,7 @@ cover:
       bofumotor_455201_0f: {}
 ```
 
+
 {% configuration %}
 device_defaults:
   description: The defaults for the devices.
@@ -124,7 +125,13 @@ devices:
           description: The `aliases` which do not respond to group commands.
           required: false
           type: [list, string]
+        type:
+          description: Set to 'standard' or 'inverted'. 'inverted' will invert the on/off commands sent to the RFLink device, 'standard' will not invert the on/off commands sent to the RFLink device. When omitted, the commands to the RFLink device will be inverted if the ID of the device starts with 'newkaku'.
+          required: false
+          default: 
+          type: string
 {% endconfiguration %}
+
 
 ### Setting up a KAKU ASUN-650 device
 
