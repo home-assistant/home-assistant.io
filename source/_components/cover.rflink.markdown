@@ -128,7 +128,9 @@ devices:
 
 ### Setting up a KAKU ASUN-650 device
 
-In RFLink, the ON and DOWN command are used to close the cover and the OFF and UP command are used to open the cover. The KAKU (COCO) ASUN-650 works the other way around, it uses the ON command to open the cover and the OFF command to close the cover. The RFLink cover component has an extra property named `type` that takes 2 values:
+In RFLink, the ON and DOWN command are used to close the cover and the OFF and UP command are used to open the cover. The KAKU (COCO) ASUN-650 works the other way around, it uses the ON command to open the cover and the OFF command to close the cover.
+
+The RFLink cover device has a property named `type` that takes 2 values:
 - standard: Do not invert the on/off commands sent to the RFLink device.
 - inverted: Invert the on/off commands sent to the RFLink device.
 
@@ -139,8 +141,6 @@ The following configuration example shows how to use the `type` property:
 # use the type property.
 cover:
   - platform: rflink
-    device_defaults:
-      fire_event: false
     devices:
       newkaku_xxxxxxxx_x:
         name: kaku_inverted_by_type
