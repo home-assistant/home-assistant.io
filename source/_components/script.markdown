@@ -31,7 +31,6 @@ Script names (e.g., `message_temperature` in the example above) are not allowed 
 
 ```yaml
 script: 
-  # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
     description: 'Turns on the bedroom lights and then the living room lights 1 minute later'
