@@ -1,6 +1,6 @@
 ---
 title: "RFLink Cover"
-description: "Instructions on how to integrate RFLink Somfy RTS Cover into Home Assistant."
+description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-650 covers into Home Assistant."
 logo: rflink.png
 ha_category:
   - Cover
@@ -125,6 +125,41 @@ devices:
           required: false
           type: [list, string]
 {% endconfiguration %}
+
+### Setting up a KAKU ASUN-650 device
+
+In RFLink, the ON and DOWN command are used to close the cover and the OFF and UP command are used to open the cover. The KAKU (COCO) ASUN-650 works the other way around, it uses the ON command to open the cover and the OFF command to close the cover. The RFLink cover component has an extra property named `type` that takes 2 values:
+- standard: Do not invert the on/off commands sent to the RFLink device.
+- inverted: Invert the on/off commands sent to the RFLink device.
+
+The following configuration example shows how to use the `type` property:
+
+```yaml
+# Example configuration.yaml entry that shows how to
+# use the type property.
+cover rflink:
+  - platform: rflink
+    device_defaults:
+      fire_event: false
+    devices:
+      newkaku_xxxxxxxx_x:
+        name: kaku_inverted_by_type
+        type: inverted
+      newkaku_xxxxxxxx_y:
+        name: kaku_not_inverted_by_type
+        type: standard
+      newkaku_xxxxxxxx_z:
+        name: kaku_inverted_by_default
+      nonkaku_yyyyyyyy_x:
+        name: non_kaku_inverted_by_type
+        type: inverted
+      nonkaku_yyyyyyyy_y:
+        name: non_kaku_not_inverted_by_type
+        type: standard
+      nonkaku_yyyyyyyy_z:
+        name: non_kaku_not_inverted_by_default
+```
+The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted. 
 
 ### Device support
 
