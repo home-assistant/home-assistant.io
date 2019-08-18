@@ -124,7 +124,7 @@ devices:
           required: false
           type: [list, string]
         type:
-          description: Set to `standard` or `inverted`. `inverted` will invert the on/off commands sent to the RFLink device, `standard` will not invert the on/off commands sent to the RFLink device. When omitted, the commands to the RFLink device will be inverted if the ID of the device starts with 'newkaku'.
+          description: Set to `inverted` to invert the on/off command and set to `standard` to not invert the on/off command sent to the RFLink device.
           required: false
           default: 
           type: string
