@@ -160,9 +160,10 @@ If you are using Docker and can't connect, you most likely need to forward your 
 
 #### Docker Compose
 
-Install docker-compose for your platform (linux - `sudo apt-get install docker-compose`).
+Install Docker-Compose for your platform (linux - `sudo apt-get install docker-compose`).
 
-Create a docker-compose.yml with the following data:
+Create a `docker-compose.yml` with the following data:
+
 ```yaml
 version: '2'
 services:
