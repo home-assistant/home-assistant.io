@@ -14,6 +14,8 @@ redirect_from:
 
 The `googlehome` integration allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
+## Warning: This integration is probably getting removed according to [this pull](https://github.com/home-assistant/home-assistant/pull/26035)
+
 This integration will provide:
 - [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices;
 - [sensor](/components/sensor/) platform to track the alarms and the timers.
