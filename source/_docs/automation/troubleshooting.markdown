@@ -28,16 +28,17 @@ The Logbook integration will show a line entry when an automation is triggered. 
 ### {% linkable_title Testing your automation %}
 
 It is generally a difficult task to test an automation, especially if it includes several triggers and some conditions.
-Please note that if you click on an automation name in your frontend and click Trigger, **only `action` part is executed** by Home Assistant.  
-That means you **cannot** test your trigger or condition part that way.
-It also means that if your automation uses some data from triggers, it won't work properly as well just because `trigger` is not defined in this scenario.  
+
+Please note that if you click on **Trigger** of an automation in the frontend, **only the `action` part will be executed** by Home Assistant. That means you **can't** test your trigger or condition part that way. It also means that if your automation uses some data from triggers, it won't work properly as well just because `trigger` is not defined in this scenario.
 
 All this makes that Trigger feature pretty limited and nearly useless for debugging purposes so you need to find another way.
 Make sure you check and adapt to your circumstances appropriate examples from Automation Trigger, Conditions and Actions.
-It is also useful to go to Configuration -> General and click on Check Config button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant.  
+
+It is also useful to go to **Configuration** -> **Server Control** and click on **Check Config** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant.
 
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
-1. Go to Developer tools -> Templates
+
+1. Go to **Developer tools** -> **Template** tab.
 2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.
