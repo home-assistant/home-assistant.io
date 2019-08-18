@@ -22,6 +22,14 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 ## Configuration
+<div class='note warning'>
+
+As of 0.94 `known_devices.yaml` has being phased out, and no longer used by all trackers.
+If you have previously configured UniFi in your `configuration.yaml` file, it is recommended to remove it from your `configuration.yaml` file and setup again within **Integrations**
+Your existing `known_devices.yaml` will be imported into the new configuration area. However, it is recommend reviewing and updating within **Configuration** -> **Integrations** -> **UniFi Controller**. Once the new configuration is in place, you can delete your existing `known_devices.yaml` file.
+
+For more information, see release notes [here](https://www.home-assistant.io/blog/2019/06/05/release-94/#modernizing-the-device-tracker)
+</div>
 
 Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**. For legacy support old device_tracker configurations are imported and set up as new integrations.
 
