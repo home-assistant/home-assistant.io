@@ -77,7 +77,7 @@ initial_hvac_mode:
   required: false
   type: string
 away_temp:
-  description: Set the temperature used by "away_mode". If this is not specified, away_mode feature will not get activated.
+  description: Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available.
   required: false
   type: float
 precision:
@@ -91,7 +91,7 @@ A full configuration example looks like the one below. `min_cycle_duration` and 
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
-Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off.
+Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ```yaml
 # Full example configuration.yaml entry
