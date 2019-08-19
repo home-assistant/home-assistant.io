@@ -124,7 +124,7 @@ devices:
           required: false
           type: [list, string]
         type:
-          description: Set to `inverted` to invert the on/off command and set to `standard` to not invert the on/off command sent to the RFLink device.
+          description: The option to invert (`inverted`) on/off commands sent to the RFLink device or not (`standard`).
           required: false
           default: 
           type: string
