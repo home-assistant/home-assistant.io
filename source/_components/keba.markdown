@@ -12,7 +12,7 @@ ha_category:
   - Binary Sensor
   - Lock
   - Sensor
-ha_release: 0.96
+ha_release: 0.98
 ---
 
 The `keba` integrates your Keba charging station (wallbox) into your home assistant instance. It was tested with a BMW Wallbox but should also work with a Keba P20/P30 according to the developers [manual](https://www.keba.com/web/downloads/e-mobility/KeContact_P20_P30_UDP_ProgrGuide_en.pdf){:target="_blank"}. The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app.
