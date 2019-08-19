@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Minio"
 description: "Integration for interacting with Minio object storage."
-date: 2019-08-19 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: minio.png
 ha_category: Utility
 ha_iot_class: Cloud Push
@@ -22,7 +16,6 @@ To download or upload files, folders must be added to [whitelist_external_dirs](
 
 To enable the Minio integration in your installation, add the following to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 minio:
   host: localhost
@@ -31,7 +24,6 @@ minio:
   secret_key: SECRET_KEY
   secure: false
 ```
-{% endraw %}
 
 {% configuration %}
 host:
@@ -41,7 +33,7 @@ host:
 port:
   description: Minio server port
   required: true
-  type: number
+  type: integer
 access_key:
   description: Minio server access key
   required: true
