@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Keba Charging Station"
 description: "Instructions on how to setup your Keba charging station with Home Assistant."
-date: 2019-07-06 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: keba.png
 ha_category:
   - Binary Sensor
