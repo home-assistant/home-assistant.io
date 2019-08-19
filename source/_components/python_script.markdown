@@ -46,7 +46,6 @@ The following example shows how to call a service from `python_script`. This scr
 
 ```python
 # turn_on_light.py
-
 entity_id = data.get('entity_id')
 rgb_color = data.get('rgb_color', [255, 255, 255])
 if entity_id is not None:
@@ -65,7 +64,6 @@ You can add descriptions for your Python scripts that will be shown in the Call 
 
 ```yaml
 # services.yaml
-
 turn_on_light:
   description: Turn on a light and set its color. 
   fields:
