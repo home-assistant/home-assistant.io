@@ -51,8 +51,9 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - On the top right, where is written "Try it now...", write, or say, the phrase you have previously defined and hit enter
 - Dialogflow has send a request to your Home Assistant server
 
-**NOTE:**
-*The V1 api will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. **No changes to your intents yaml configuration need to take place after upgrading to the V2 API.*** Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
+<div class='note warning'>
+  The V1 api will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents yaml configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button <a href="https://console.dialogflow.com/">here</a> and then select the V2 API.
+</div>
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 
