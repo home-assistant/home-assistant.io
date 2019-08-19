@@ -114,7 +114,7 @@ The service `keba.request_data` sends data update requests to the charging stati
 
 ### Request New Data `keba.set_failsafe`
 
-The service `keba.set_failsafe` set the failsafe mode of the charging station. Payload example:
+The service `keba.set_failsafe` sets the failsafe mode of the charging station. Payload example:
 ```json
 {
   "failsafe_timeout": 30,
