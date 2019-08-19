@@ -109,7 +109,7 @@ The service `keba.set_curr` sets the maximum current to the given current attrib
 
 ### Request New Data `keba.request_data`
 
-The service `keba.request_data` send data update requests to the charging station.
+The service `keba.request_data` sends data update requests to the charging station.
 
 
 ### Request New Data `keba.set_failsafe`
