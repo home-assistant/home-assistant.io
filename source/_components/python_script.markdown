@@ -45,6 +45,8 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 
 ```python
+# turn_on_light.py
+
 entity_id = data.get('entity_id')
 rgb_color = data.get('rgb_color', [255, 255, 255])
 if entity_id is not None:
@@ -55,6 +57,24 @@ The above `python_script` can be called using the following JSON as an input.
 
 ```json
 {"entity_id": "light.bedroom", "rgb_color": [255, 0, 0] }
+```
+
+## Documenting your Python scripts
+
+You can add descriptions for your Python scripts that will be shown in the Call Services tab of the Developer Options page. To do so, simply create a `services.yaml` file in your `<config>/python_scripts` folder. Using the above Python script as an example, the `services.yaml` file would look like:
+
+```yaml
+# services.yaml
+
+turn_on_light:
+  description: Turn on a light and set its color. 
+  fields:
+    entity_id:
+      description: The light that will be turned on.
+      example: light.bedroom
+    rgb_color:
+      description: The color to which the light will be set.
+      example: [255, 0, 0]
 ```
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
