@@ -1,38 +1,35 @@
 ---
 layout: page
 title: "Minio"
-description: "Component for interacting with Minio object storage."
-date: 2019-04-21 12:00
+description: "Integration for interacting with Minio object storage."
+date: 2019-08-19 12:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: System Monitor
+logo: minio.png
+ha_category: Utility
 ha_iot_class: Cloud Push
-ha_release: 0.92
-ha_qa_scale: internal
+ha_release: 0.98
 ---
 
-This component adds interaction with [Minio](https://min.io).
+This integration adds interaction with [Minio](https://min.io).
 Also enables to listen for bucket notifications: [watch docs](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
 
 To download or upload files, folders must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
 ## {% linkable_title Configuration %}
 
-To enable the Minio component in your installation, add the following to your `configuration.yaml` file:
+To enable the Minio integration in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
 minio:
   host: localhost
   port: 9000
-  access_key: SO9KNO6YT9OGE39PQCZW
-  secret_key: EzH5iGs3qbJr1MwIMf2AUyfqzewgd2qgrk9+i+vU
+  access_key: ACCESS_KEY
+  secret_key: SECRET_KEY
   secure: false
-  listen:
-    - bucket: test
 ```
 {% endraw %}
 
