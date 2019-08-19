@@ -65,7 +65,7 @@ track_new_calendar:
 
 The next steps will require you to have Home Assistant running.
 
-After you have it running complete the Google authentication that pops up in notification (the little bell icon in the upper right corner).
+After you have it running complete the Google authentication that pops up in notification (the little bell icon in the lower left corner).
 
 It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
