@@ -20,8 +20,7 @@ This component provides the following platforms:
 
 ## Configuration
 
-To enable this component in your installation, add at least the following to your
-`configuration.yaml` file:
+To enable this component in your installation, add at least the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -86,6 +85,7 @@ The service `keba.start` and `keba.stop` controls the charging process if the ca
 ### Set Target Energy `keba.set_energy`
 
 The service `keba.set_energy` sets the target energy for the current session to the given energy attribute in kWh. Payload example:
+
 ```json
 {
   "energy": 10.0
@@ -95,6 +95,7 @@ The service `keba.set_energy` sets the target energy for the current session to 
 ### Maximum Current `keba.set_curr`
 
 The service `keba.set_curr` sets the maximum current to the given current attribute in Ampere. Payload example:
+
 ```json
 {
   "current": 16.0
@@ -105,10 +106,10 @@ The service `keba.set_curr` sets the maximum current to the given current attrib
 
 The service `keba.request_data` sends data update requests to the charging station.
 
-
 ### Request New Data `keba.set_failsafe`
 
 The service `keba.set_failsafe` sets the failsafe mode of the charging station. Payload example:
+
 ```json
 {
   "failsafe_timeout": 30,
