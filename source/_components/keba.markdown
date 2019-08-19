@@ -83,7 +83,7 @@ The `keba` component offers several services. Using these services will change t
 
 ### Authorizing and Deauthorizing `keba.authorize` and `keba.deauthorize`
 
-The charging station can be authorize and deauthorize vai service calls (`keba.authorize` and `keba.deauthorize`) or via the lock component that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
+The charging station can be authorized and deauthorized via service calls (`keba.authorize` and `keba.deauthorize`) or via the lock component that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
 
 ### Start and Stop `keba.start` and `keba.stop`
 
