@@ -6,8 +6,6 @@ ha_category:
 logo: vivotek.jpg
 ha_release: 0.97
 ha_iot_class: Configurable
-redirect_from:
- - /components/camera.vivotek/
 ---
 
 The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
@@ -22,8 +20,7 @@ To enable this camera in your installation, add the following to your `configura
 # Example configuration.yaml entry
 camera:
   - platform: vivotek
-    name: Front door camera
-    ip_address: 192.168.1.2
+    ip_address: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -34,10 +31,12 @@ ip_address:
 stream_source:
   description: "Enables the camera stream when set to `true`."
   required: false
+  default: None
   type: boolean
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
+  default: Vivotek Camera
   type: string
 username:
   description: The username for accessing your camera.
@@ -65,6 +64,7 @@ content_type:
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
+  default: 2
   type: integer
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
