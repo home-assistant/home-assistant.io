@@ -54,9 +54,7 @@ body_off:
 body_state:
   description: "Allow for data in the body of the status get.  Some IoT devices don't return data when the end point is hit.  They require some query in the body of the get.  This value can be a [template](/topics/templating/)."
   required: false
-  type: string
-  default: None
-  
+  type: string  
 is_on_template:
   description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
   required: false
