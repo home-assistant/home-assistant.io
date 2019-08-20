@@ -17,7 +17,7 @@ Supported devices:
 - Denon DRA-N5
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
-- Denon AVR receivers with integrated Network support (partial support)
+- Denon AVR receivers with integrated Network support (partial support, fully tested on AVR-X1500H)
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -48,5 +48,6 @@ A few notes for platform: denon
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
+- "Night Mode" uses Denon's Dynamic Volume setting "Heavy" to reduce loud sounds while keepin dialog balanced.
 
 [Denon AVR]: /components/media_player.denonavr/
