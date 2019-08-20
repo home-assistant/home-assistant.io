@@ -12,7 +12,7 @@ Also enables to listen for bucket notifications: [watch docs](https://docs.min.i
 
 To download or upload files, folders must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Minio integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -115,7 +115,7 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Platform Services %}
+## Platform Services
 
 These services are provided:
 
@@ -123,7 +123,7 @@ These services are provided:
 - `put`
 - `remove`
 
-### {% linkable_title Service `minio.get` %}
+### Service `minio.get`
 
 Download file.
 
@@ -133,7 +133,7 @@ Download file.
 | `key`                     |      yes | Object key of the file                            |
 | `file_path`               |      yes | File path on the local file system                |
 
-### {% linkable_title Service `minio.put` %}
+### Service `minio.put`
 
 Upload file.
 
@@ -143,7 +143,7 @@ Upload file.
 | `key`                     |      yes | Object key of the file                            |
 | `file_path`               |      yes | File path on the local file system                |
 
-### {% linkable_title Service `minio.remove` %}
+### Service `minio.remove`
 
 Delete file.
 
