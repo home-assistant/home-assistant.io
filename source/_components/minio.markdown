@@ -50,7 +50,7 @@ secure:
 listen:
   description: List of configurations to listen for events to
   required: false
-  default: "*"
+  default: []
   type: list
   keys:
     bucket:
@@ -61,17 +61,17 @@ listen:
       description: What prefix to use to filter file events
       required: false
       type: string
-      default: ''
+      default: ""
     suffix:
       description: What file suffix to use to filter file events
       required: false
       type: string
-      default: '.*'
+      default: ".*"
     events:
       description: What file
       required: false
       type: string
-      default: 's3:ObjectCreated:*'
+      default: "s3:ObjectCreated:*"
 {% endconfiguration %}
 
 ## Automations
