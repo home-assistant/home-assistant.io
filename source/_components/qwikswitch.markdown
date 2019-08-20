@@ -22,12 +22,12 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Light
-- Sensor
-- Switch
+- [Sensor](#qwikswitch-sensors)
+- [Switch](#switch)
 
-The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are [lights](/components/light.qwikswitch/) by default, and can be configured as [switches](/components/switch.qwikswitch/).
+The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are lights by default, and can be configured as [switches](#switch).
 
-Configuration
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry

@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: 0.95
 ha_iot_class: Local Polling
+redirect_from:
+  - /components/vlc-telnet
 ---
 
 The `vlc_telnet` platform allows you to control a [VLC media player](http://www.videolan.org/vlc/index.html) using the built in telnet interface.
