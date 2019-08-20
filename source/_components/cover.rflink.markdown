@@ -163,6 +163,7 @@ cover:
       nonkaku_yyyyyyyy_z:
         name: non_kaku_not_inverted_by_default
 ```
+
 The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted. 
 
 ### Device support
