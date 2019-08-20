@@ -10,7 +10,7 @@ redirect_from:
  - /components/sensor.recollect_waste/
 ---
 
-The `Recollect Waste` platform allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.
+The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.
 
 1. In Chrome open developer tools and go to the network tab.
 2. Go to your city's Recollect collection calendar.
