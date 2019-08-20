@@ -12,6 +12,12 @@ redirect_from:
   - /components/device_tracker.googlehome/
 ---
 
+<div class='note warning'>
+
+  For a couple of weeks / months this integration is broken, therefore it will be removed in the future according to [this pull request](https://github.com/home-assistant/home-assistant/pull/26035).
+
+</div>
+
 The `googlehome` integration allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
 This integration will provide:
