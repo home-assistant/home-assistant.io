@@ -72,3 +72,18 @@ verify_ssl:
   default: true
   type: boolean
 {% endconfiguration %}
+
+### Advanced configuration
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: vivotek
+    name: Front door camera
+    ip_address: 192.168.1.2
+    authentication: basic
+    username: !secret fd_camera_username
+    password: !secret fd_camera_pwd
+    verify_ssl: false
+    stream_source: true
+```
