@@ -46,6 +46,7 @@ secure:
   description: Whether to use http or https connection
   required: true
   type: boolean
+  default: false
 listen:
   description: List of configurations to listen for events to
   required: false
