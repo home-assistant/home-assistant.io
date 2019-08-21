@@ -57,9 +57,6 @@ Replace x.y.z with the desired version like `--version=0.74.2`
 You can get a better description of the CLI capabilities by typing `hassio help`:
 
 ```bash
-The Hass.io CLI is a small and simple command line utility that allows you to
-control and configure different aspects of Hass.io
-
 Usage:
   hassio [command]
 
