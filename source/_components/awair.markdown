@@ -60,6 +60,6 @@ The platform will fetch all available sensors from each Awair device linked to y
   * Humidity
   * CO2
   * VOC
-  * Dust, PM2.5, PM10: varies according to Awair model
+  * Dust, PM2.5, PM10, decibels, illuminance: varies according to Awair model
 
 This platform refreshes at an interval based on a 300 API call per-day quota, and the number of devices you have configured.
