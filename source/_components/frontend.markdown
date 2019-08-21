@@ -17,7 +17,7 @@ frontend:
 
 {% configuration %}
   javascript_version:
-    description: "Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
+    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
     required: false
     type: string
     default: auto
@@ -86,7 +86,6 @@ Set a theme at the startup of Home Assistant:
 ```yaml
 automation:
   - alias: 'Set theme at startup'
-    initial_state: 'on'
     trigger:
      - platform: homeassistant
        event: start
@@ -101,7 +100,6 @@ To enable "night mode":
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: true
     trigger:
       - platform: time
         at: '21:00:00'

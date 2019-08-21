@@ -20,14 +20,14 @@ To enable OpenGarage Covers in your installation, add the following to your `con
 cover:
   platform: opengarage
   covers:
-      garage:
-        host:  192.168.1.12
-        device_key: opendoor
-        name:  Left Garage Door
-      garage2:
-        host:  192.168.1.13
-        device_key: opendoor
-        name:  Right Garage Door
+    garage:
+      host: 192.168.1.12
+      device_key: opendoor
+      name: Left Garage Door
+    garage2:
+      host: 192.168.1.13
+      device_key: opendoor
+      name: Right Garage Door
 ```
 
 {% configuration %}

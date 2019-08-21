@@ -10,9 +10,9 @@ ha_iot_class: Local Push
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The integration requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The integration requires a local KNX/IP interface or a KNX/IP router. Through this, it will send and receive commands to and from other devices to the KNX bus.
 
-<div class='note warning'>
+<div class='note'>
 Please note, the `knx` platform does not support Windows.
 </div>
 

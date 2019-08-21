@@ -41,7 +41,7 @@ devices:
       type: string
 {% endconfiguration %}
 
-The password can be obtained from an Android device using an app like [aLogcat](https://play.google.com/store/apps/details?id=org.jtb.alogcat&hl=en) or the `adb logcat` command for phones in developer mode. Look for a line like:
+The password can be obtained from an Android device using an app like [aLogcat](https://play.google.com/store/apps/details?id=rs.pedjaapps.alogcatroot.app&hl=en) or the `adb logcat` command for phones in developer mode. Look for a line like:
 
 ```
 E LedoBleSDK: login =skName=======[Smart Light]=======skPw==[password]

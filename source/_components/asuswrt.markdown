@@ -85,7 +85,7 @@ sensors:
 
 <div class='note warning'>
 
-You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
+You need to enable telnet on your router if you choose to use `protocol: telnet`.
 
 </div>
 

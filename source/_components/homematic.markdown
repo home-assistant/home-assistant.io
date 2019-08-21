@@ -70,6 +70,7 @@ local_ip:
   description: IP of device running Home Assistant. Override auto-detected value for exotic network setups.
   required: false
   type: string
+  default: 0.0.0.0
 local_port:
   description: Port for connection with Home Assistant. By default it is randomly assigned.
   required: false
