@@ -25,7 +25,7 @@ The Logbook integration will show a line entry when an automation is triggered. 
 
 [template]: /topics/templating/
 
-### {% linkable_title Testing your automation %}
+### Testing your automation
 
 It is generally a difficult task to test an automation, especially if it includes several triggers and some conditions.
 
