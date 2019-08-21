@@ -44,3 +44,7 @@ The following information is displayed in separate sensors, if it is available:
  - Black, cyan, magenta and yellow drum state
  - First to fifth paper input tray state
  - First to sixth paper output tray state
+
+<div class="note warning">
+Note that this component or parts thereof may not work if the language of your printer is not configured to be English.
+</div>

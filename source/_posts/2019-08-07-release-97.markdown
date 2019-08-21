@@ -79,6 +79,60 @@ We wrote about how we use Azure DevOps to automate the development of Home Assis
 - Add De Lijn (Flemish Public Transport) component ([@bollewolle] - [#24265]) ([delijn docs]) (new-integration) (new-platform)
 - Add Support for VeSync Devices - Outlets and Switches ([@webdjoe] - [#24953]) ([vesync docs]) (new-platform)
 
+## Release 0.97.1 - August 9
+
+A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeenPwned shutting down v2 of their API on August 18. The integration has been migrated to using v3.
+
+- Update HIBP sensor to use API v3 and API Key ([@aetaric] - [#25699]) ([haveibeenpwned docs]) (breaking change)
+- Update Cisco Mobility Express module version ([@fbradyirl] - [#25770]) ([cisco_mobility_express docs])
+- Don't track unstable attributes ([@jjlawren] - [#25787]) ([unifi docs]) (breaking change)
+- Fix deconz allow_clip_sensor and allow_deconz_groups options ([@Anonym-tsk] - [#25811]) ([deconz docs])
+
+[#25699]: https://github.com/home-assistant/home-assistant/pull/25699
+[#25770]: https://github.com/home-assistant/home-assistant/pull/25770
+[#25787]: https://github.com/home-assistant/home-assistant/pull/25787
+[#25811]: https://github.com/home-assistant/home-assistant/pull/25811
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@aetaric]: https://github.com/aetaric
+[@fbradyirl]: https://github.com/fbradyirl
+[@jjlawren]: https://github.com/jjlawren
+[cisco_mobility_express docs]: /components/cisco_mobility_express/
+[deconz docs]: /components/deconz/
+[haveibeenpwned docs]: /components/haveibeenpwned/
+[unifi docs]: /components/unifi/
+
+## Release 0.97.2 - August 11
+
+- Fix eco preset for Wink Air Conditioner ([@cameronrmorris] - [#25763]) ([wink docs])
+- Update pyvera to 0.3.3 ([@brandond] - [#25820]) ([vera docs])
+- Fix Netatmo climate issue ([@cgtobi] - [#25830]) ([netatmo docs])
+- Fix KNX Climate mode change callback ([@tombbo] - [#25851]) ([knx docs])
+- Always populate hvac_modes in SmartThings climate platform ([@andrewsayre] - [#25859]) ([smartthings docs])
+- UniFi - Use state to know if device is online ([@Kane610] - [#25876]) ([unifi docs])
+- Fix issue with nuki new available state ([@pvizeli] - [#25881]) ([nuki docs])
+
+[#25763]: https://github.com/home-assistant/home-assistant/pull/25763
+[#25820]: https://github.com/home-assistant/home-assistant/pull/25820
+[#25830]: https://github.com/home-assistant/home-assistant/pull/25830
+[#25851]: https://github.com/home-assistant/home-assistant/pull/25851
+[#25859]: https://github.com/home-assistant/home-assistant/pull/25859
+[#25876]: https://github.com/home-assistant/home-assistant/pull/25876
+[#25881]: https://github.com/home-assistant/home-assistant/pull/25881
+[@Kane610]: https://github.com/Kane610
+[@andrewsayre]: https://github.com/andrewsayre
+[@brandond]: https://github.com/brandond
+[@cameronrmorris]: https://github.com/cameronrmorris
+[@cgtobi]: https://github.com/cgtobi
+[@pvizeli]: https://github.com/pvizeli
+[@tombbo]: https://github.com/tombbo
+[knx docs]: /components/knx/
+[netatmo docs]: /components/netatmo/
+[nuki docs]: /components/nuki/
+[smartthings docs]: /components/smartthings/
+[unifi docs]: /components/unifi/
+[vera docs]: /components/vera/
+[wink docs]: /components/wink/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -95,7 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Z-Wave** - Improve handling of Z-Wave config entry vs yaml config. If a Z-Wave `network_key` is specified in configuration.yaml it will override a `network_key` specified in the Z-Wave config entry. ([@cgarwood] - [#25112]) ([zwave docs])
 - **Unifi** - Unifi Device tracker is now part of config entry. After initial import the unifi device tracker configuration is no longer needed. If configuring SSID filter or detection time you will need to use the new configuration from UniFi. See UniFi component documentation for details. ([@Kane610] - [#24367]) ([unifi docs])
 - **Ecobee** - Ecobee presets now represent the different Ecobee comfort settings. Selectable by name instead of unknown ID. ([@balloob] - PR link todo)
-- **Calendar** - Rewrite calendar component - The calendar integration has been rewritten to follow our current standards and is mostly non breaking. The reset (clean up) of state attributes upon an event time passing has been removed, though. Attributes are no longer set to an arbitrary default value, and will now keep the attributes representing the last event. With this change, automations that rely on state attributes getting reset will need to be updated. All platforms have been converted. - ([@MartinHjelmare] - [#24950]) ([caldav docs]) ([calendar docs]) ([demo docs]) ([google docs]) ([todoist docs])
+- **Calendar** - Rewrite calendar component - The calendar integration has been rewritten to follow our current standards and is mostly non breaking. The reset (clean up) of state attributes upon an event time passing has been removed, though. Attributes are no longer set to an arbitrary default value, and will now keep the attributes representing the last event. With this change, automations that rely on state attributes getting reset will need to be updated. All platforms have been converted. - ([@MartinHjelmare] - [#24950]) ([caldav docs]) ([calendar docs]) ([demo docs]) ([google cal docs]) ([todoist docs])
 - **SyncThru** - The monitored_conditions configuration option has been removed. All available monitored conditions will be used by default. Users that have been using the monitored_conditions option need to remove it from the syncthru section in configuration.yaml. ([@nielstron] - [#25052]) ([syncthru docs])
 - **KNX** - Updates the knx component to use xknx 0.11.1 . This introduces several new features and bugfixes. For a complete list see: https://github.com/XKNX/xknx/releases/tag/0.11.0  ([@farmio] - [#24738]) ([knx docs])
   - `scene:` `scene_number` is now 1 indexed according to KNX standards. Previously it was 0 based. Please add 1 to your already configured scene numbers (`scene_number: 5` becomes `scene_number: 6`).
@@ -145,6 +199,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - Direction -> direction
   - Due in -> due_in
   - Due at -> due_at
+
+- **haveibeenpwned** - the v2 API is now replaced with the v3 API, which requires an API key. v2 of the API will stop working on August 18.
 
 ## Beta Fixes
 
@@ -695,7 +751,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fortigate docs]: /components/fortigate/
 [fortios docs]: /components/fortios/
 [geniushub docs]: /components/geniushub/
-[google docs]: /components/google/
+[google cal docs]: /components/calendar.google/
 [google_assistant docs]: /components/google_assistant/
 [google_maps docs]: /components/google_maps/
 [google_travel_time docs]: /components/google_travel_time/

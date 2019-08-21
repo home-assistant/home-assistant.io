@@ -107,19 +107,13 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>Synology</div>
   </a>
-  <a class='option-card' href='/docs/installation/vagrant/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/vagrant.png' />
-    </div>
-    <div class='title'>Vagrant</div>
-  </a>
   <a class='option-card' href='/docs/installation/freenas/'>
     <div class='img-container'>
       <img src='/images/supported_brands/freenas.png' />
     </div>
     <div class='title'>FreeNAS</div>
   </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
+  <a class='option-card' href='/hassio/installation/#alternative-install-on-a-generic-linux-host'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
     </div>

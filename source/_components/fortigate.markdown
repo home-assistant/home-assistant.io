@@ -43,7 +43,7 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 fortigate:
   host: HOST_IP
-  username: YPUR_USERNAME
+  username: YOUR_USERNAME
   api_key: YOUR_API_KEY
 ```
 
