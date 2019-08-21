@@ -10,6 +10,8 @@ ha_release: 0.7
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script integration will create an entity for each script and allow them to be controlled via services.
 
+## Configuration
+
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 ```yaml
@@ -29,11 +31,49 @@ Script names (e.g., `message_temperature` in the example above) are not allowed 
 
 </div>
 
+{% configuration %}
+alias:
+  description: Friendly name for the script.
+  required: false
+  type: string
+description:
+  description: A description of the script that will be displayed in the Services tab under Developer Tools.
+  required: false
+  default: ''
+  type: string
+fields:
+  description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: A parameter used by this script.
+      type: map
+      keys:
+        description:
+          description: A description of PARAMETER_NAME.
+          type: string
+        example:
+          description: An example value for PARAMETER_NAME.
+          type: string
+sequence:
+  description: The sequence of actions to be performed in the script.
+  required: true
+  type: list
+{% endconfiguration %}
+
+### Full Configuration
+
 ```yaml
 script: 
-  # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
+    description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    fields:
+      minutes:
+        description: 'The amount of time to wait before turning on the living room lights'
+        example: 1
     sequence:
       # This is Home Assistant Script Syntax
       - event: LOGBOOK_ENTRY
@@ -49,7 +89,7 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: 1
+          minutes: {{ minutes }}
       - alias: Living room lights on
         service: light.turn_on
         data:
@@ -102,6 +142,14 @@ Using the variables in the script requires the use of `data_template`:
 # Example configuration.yaml entry
 script:
   notify_pushover:
+    description: 'Send a pushover notification'
+    fields:
+      title:
+        description: 'The title of the notification'
+        example: 'State change'
+      message:
+        description: 'The message content'
+        example: 'The light is on!'
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
