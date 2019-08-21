@@ -87,3 +87,68 @@ camera:
     verify_ssl: false
     stream_source: true
 ```
+
+### Services
+
+Once loaded, the `camera` platform will expose services that can be called to perform various actions.
+
+Available services: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
+
+#### Service `play_stream`
+
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) integration to be set up.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.front_door_camera`. |
+| `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
+| `format`               |      yes | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
+
+For example, the following action in an automation would send an `hls` live stream to your chromecast.
+
+```yaml
+action:
+  service: camera.play_stream
+  data:
+    entity_id: camera.yourcamera
+    media_player: media_player.chromecast
+```
+
+#### Service `enable_motion_detection`
+
+Enable the motion detection in a camera. Currently, this will enable the first event configured on the camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.front_door_camera`. |
+
+#### Service `disable_motion_detection`
+
+Disable the motion detection in a camera. Currently, this will disable the first event configured on the camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.front_door_camera`. |
+
+#### Service `snapshot`
+
+Take a snapshot from a camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`. |
+| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
+
+The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
+
+{% raw %}
+```yaml
+action:
+  service: camera.snapshot
+  data:
+    entity_id: camera.front_door_camera
+    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
