@@ -46,3 +46,25 @@ content: >
 
   Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the **Lovelace UI**.
 ```
+
+## Template variables
+
+A special template variable - `config` is set up for the `content` of the card. It contains the configuration of the card.
+
+E.g.
+```yaml
+type: entity-filter
+entities:
+  - light.bed_light
+  - light.ceiling_lights
+  - light.kitchen_lights
+card:
+  type: markdown
+  content: |
+    The lights that are on are:
+    {% for l in config.entities %}
+      - {{ l.entity }}
+    {%- endfor %}
+
+    And the door is {% if is_state('binary_sensor.door', 'on' %} open {% else %} closed {% endif %}.
+```
