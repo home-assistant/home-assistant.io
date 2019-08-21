@@ -86,3 +86,15 @@ person:
       - device_tracker.stacey
       - device_tracker.beacon
 ```
+
+### Customizing the picture for a person
+
+By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
+
+```yaml
+customize:
+  person.ada6789:
+    entity_picture: "/local/ada.jpg"
+```
+
+See the documentation about [hosting files](/components/http/#hosting-files) for more information about the `www` folder. 

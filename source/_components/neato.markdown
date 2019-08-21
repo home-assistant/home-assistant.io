@@ -64,7 +64,7 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
-- `spot_clean`
+- `clean_spot`
 
 And a specific Platform Service:
 

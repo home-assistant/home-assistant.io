@@ -268,6 +268,10 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - `sin(value)` will return the sine of the input. Can be used as a filter.
 - `cos(value)` will return the cosine of the input. Can be used as a filter.
 - `tan(value)` will return the tangent of the input. Can be used as a filter.
+- `asin(value)` will return the arcus sine of the input. Can be used as a filter.
+- `acos(value)` will return the arcus cosine of the input. Can be used as a filter.
+- `atan(value)` will return the arcus tangent of the input. Can be used as a filter.
+- `atan2(y, x)` will return the four quadrant arcus tangent of y / x. Can be used as a filter.
 - `sqrt(value)` will return the square root of the input. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.

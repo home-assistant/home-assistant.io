@@ -142,7 +142,7 @@ This integration is tested to work with the following models. If you have a diff
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
-
+| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 
 ## Platform Services
 
@@ -154,7 +154,6 @@ Set an operation mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific lights.                                                              |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
-
 
 ### Service `yeelight.start_flow`
 

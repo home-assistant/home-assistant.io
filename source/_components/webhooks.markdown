@@ -63,7 +63,7 @@ trusted_networks:
   description: Telegram server access ACL as list.
   required: false
   type: string
-  default: 149.154.167.197-233
+  default: 149.154.160.0/20, 91.108.4.0/22
 {% endconfiguration %}
 
 To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
@@ -81,12 +81,8 @@ telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
     trusted_networks:
-      - 149.154.167.197/32
-      - 149.154.167.198/31
-      - 149.154.167.200/29
-      - 149.154.167.208/28
-      - 149.154.167.224/29
-      - 149.154.167.232/31
+      - 149.154.160.0/20
+      - 91.108.4.0/22
     allowed_chat_ids:
       - 12345
       - 67890

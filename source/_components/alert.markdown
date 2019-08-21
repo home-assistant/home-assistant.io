@@ -153,7 +153,7 @@ binary_sensor:
   - platform: template
     sensors:
       motion_battery_low:
-        value_template: '{{ state_attr('sensor.motion', 'battery') < 15 }}'
+        value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
         friendly_name: 'Motion battery is low'
 
 alert:

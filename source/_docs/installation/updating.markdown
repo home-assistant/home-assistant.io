@@ -6,7 +6,7 @@ redirect_from: /getting-started/updating/
 
 <div class='note warning'>
 
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [Hassbian](/docs/installation/hassbian/common-tasks/#update-home-assistant), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [Hassbian](/docs/installation/hassbian/common-tasks/#update-home-assistant), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 
 </div>
 
@@ -14,7 +14,7 @@ Check what's new in the latest version and potentially impacts your system in [H
 
 <div class='note'>
 
-To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [Hassbian](/docs/hassbian/installation/), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv).
+To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [Hassbian](/docs/hassbian/installation/), or [Virtualenv](/docs/installation/virtualenv).
 
 </div>
 
@@ -75,6 +75,6 @@ Best practice for updating a Hass.io installation:
 
 1. Backup your installation, using the snapshot functionality Hass.io offers.
 2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on. 
+3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Update Home Assistant.

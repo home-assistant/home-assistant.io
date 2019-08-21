@@ -8,9 +8,13 @@ ha_release: 0.53
 ha_iot_class: Local Push
 ---
 
-The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
-The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
+</div>
+
+The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
 
 ## Configuration
 

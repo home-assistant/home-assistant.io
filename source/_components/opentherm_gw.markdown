@@ -108,6 +108,19 @@ Please read [this information](http://otgw.tclcode.com/standalone.html) from the
 
 </div>
 
+### Service `opentherm_gw.set_hot_water_ovrd`
+
+Set the domestic hot water enable option on the OpenTherm Gateway.
+Control the domestic hot water enable option. If the boiler has
+been configured to let the room unit control when to keep a
+small amount of water preheated, this command can influence
+that.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `dhw_override` | no | The domestic hot water override state. Value should be 0 or 1 to enable the override in off or on state, or "A" to disable the override.
+
 ### Service `opentherm_gw.set_gpio_mode`
 
 Configure the GPIO behavior on the OpenTherm Gateway.

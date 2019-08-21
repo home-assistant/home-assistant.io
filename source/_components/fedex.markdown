@@ -10,6 +10,14 @@ redirect_from:
  - /components/sensor.fedex/
 ---
 
+<div class="note warning">
+
+This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+</div>
+
 The `fedex` platform allows one to track deliveries by [FedEx](http://www.fedex.com/). To use this sensor, you need a [FedEx Delivery Manager](https://www.fedex.com/us/delivery/) account.
 
 ## Configuration

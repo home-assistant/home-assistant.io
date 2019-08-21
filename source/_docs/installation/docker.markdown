@@ -11,19 +11,19 @@ Installation with Docker is straightforward. Adjust the following command so tha
 ### Linux
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant
 ```
 
 ### Raspberry Pi 3 (Raspbian)
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi3-homeassistant
 ```
 
 You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
  
 ```bash
-$ docker run --init -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/pi/homeassistant:/config --net=host homeassistant/raspberrypi3-homeassistant
 ```
 
 ### macOS
@@ -33,7 +33,7 @@ When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the lo
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant
 ```
 
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
@@ -41,7 +41,7 @@ Alternatively, `docker-compose` works with any recent release of `docker-ce` on 
 ### Windows
 
 ```powershell
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" --net=host homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant
 ```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
@@ -197,7 +197,8 @@ As the docker command becomes more complex, switching to `docker-compose` can be
       image: homeassistant/home-assistant
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
+      environment:
+        - TZ=America/New_York
       restart: always
       network_mode: host
 ```
@@ -220,7 +221,7 @@ In order to use Z-Wave, Zigbee or other integrations that require access to devi
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
-   -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
+   -e "TZ=Australia/Melbourne" --device /dev/ttyUSB0:/dev/ttyUSB0 \
    --net=host homeassistant/home-assistant
 ```
 
@@ -234,11 +235,12 @@ or in a `docker-compose.yml` file:
       image: homeassistant/home-assistant
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
       devices:
         - /dev/ttyUSB0:/dev/ttyUSB0
         - /dev/ttyUSB1:/dev/ttyUSB1
         - /dev/ttyACM0:/dev/ttyACM0
+      environment:
+        - TZ=America/New_York
       restart: always
       network_mode: host
 ```

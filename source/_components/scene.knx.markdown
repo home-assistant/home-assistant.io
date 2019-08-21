@@ -7,9 +7,13 @@ ha_category:
 ha_release: 0.63
 ---
 
-The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
-The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
+</div>
+
+The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
 
 ## Configuration
 
@@ -26,11 +30,11 @@ scene:
 
 {% configuration %}
 address:
-  description: KNX group address of the binary sensor.
+  description: KNX group address for the scene.
   required: true
   type: string
 scene_number:
-  description: Zero-indexed KNX scene number to be activated.
+  description: KNX scene number to be activated. ( 1 ... 64 )
   required: true
   type: integer
 name:
