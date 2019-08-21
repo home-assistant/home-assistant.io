@@ -52,6 +52,7 @@ content: >
 A special template variable - `config` is set up for the `content` of the card. It contains the configuration of the card.
 
 E.g.
+{% raw %}
 ```yaml
 type: entity-filter
 entities:
@@ -68,3 +69,4 @@ card:
 
     And the door is {% if is_state('binary_sensor.door', 'on' %} open {% else %} closed {% endif %}.
 ```
+{% endraw %}
