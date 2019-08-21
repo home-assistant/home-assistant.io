@@ -1,29 +1,22 @@
 source "https://rubygems.org"
 
-ruby "> 2.3.0"
+ruby "> 2.5.0"
 
 group :development do
-  gem 'rake', '~> 10.0'
-  # 3.8.5 throws errors on unfinished liquid tags in excerpts
-  # Wait with upgrade until release https://github.com/jekyll/jekyll/pull/7382
-  gem 'jekyll', '3.8.4'
-  gem 'compass', '~> 0.12'
-  gem 'sass-globbing', '~> 1.0'
-  gem 'stringex', '~> 1.4'
-  gem 'pry'
-
-  # See https://github.com/home-assistant/home-assistant.github.io/pull/3904
-  gem 'rb-inotify', '< 0.9.9'
+  gem 'rake', '12.3.2'
+  gem 'jekyll', '3.8.6'
+  gem 'compass', '1.0.3'
+  gem 'sass-globbing', '1.1.5'
+  gem 'stringex', '2.8.5'
 end
 
 group :jekyll_plugins do
-  gem 'jekyll-paginate'
-  gem 'jekyll-redirect-from'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-time-to-read'
-  gem 'octopress', '~> 3.0'
-  gem 'octopress-include-tag'
+  gem 'jekyll-paginate', '1.1.0'
+  gem 'jekyll-redirect-from', '0.15.0'
+  gem 'jekyll-sitemap', '1.3.1'
+  gem 'jekyll-time-to-read', '0.1.2'
+  gem 'jekyll-commonmark-ghpages', '0.1.6'
 end
 
-gem 'sinatra', '~> 1.4.2'
-gem 'nokogiri'
+gem 'sinatra', '2.0.5'
+gem 'nokogiri', '1.10.4'

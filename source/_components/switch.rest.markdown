@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "RESTful Switch"
 description: "Instructions on how to integrate REST switches into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ---
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -71,7 +66,7 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: list, string
+  type: [string, list]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -79,13 +74,13 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
-</p>
+</div>
 
-## {% linkable_title Example %}
+## Example
 
-### {% linkable_title Switch with templated value %}
+### Switch with templated value
 
 This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 
@@ -107,4 +102,4 @@ switch:
 ```
 {% endraw %}
 
-`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'{% endraw %}`.
+`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.

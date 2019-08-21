@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "Show an image card and corresponding entity states as icon"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
@@ -38,10 +32,15 @@ camera_image:
   required: false
   description: Camera entity as Background image.
   type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
 state_image:
   required: false
   description: Background image based on entity state.
-  type: object
+  type: map
   keys:
     state:
       type: string
@@ -58,7 +57,7 @@ entity:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -83,7 +82,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -107,7 +106,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -122,7 +121,7 @@ icon:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 type: picture-glance

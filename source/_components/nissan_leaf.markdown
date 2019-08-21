@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Nissan Leaf"
 description: "Instructions for how to integrate Nissan Leaf(s) into Home Assistant."
-date: 2019-01-05 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nissan.png
-ha_category: Car
+ha_category:
+  - Car
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -17,14 +12,14 @@ redirect_from:
  - /components/switch.nissan_leaf/
 ---
 
-The `nissan_leaf` component offers integration with the [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
+The `nissan_leaf` integration offers integration with the [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control
 * a device tracker to locate the car (only on later Leaf models)
 * services to request updates from the car and to request the car starts charging.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Nissan Leaf in your installation, add the following to your `configuration.yaml` file:
 
@@ -49,9 +44,10 @@ region:
   required: true
   type: string
 nissan_connect:
-  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
+  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be acquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
   required: false
   type: boolean
+  default: true
 update_interval:
   description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
   required: false
@@ -69,7 +65,7 @@ update_interval_climate:
   type: time
 {% endconfiguration %}
 
-## {% linkable_title Full configuration sample %}
+## Full configuration sample
 
 A more advanced example for setting the update interval:
 
@@ -89,7 +85,7 @@ nissan_leaf:
   force_miles: true
 ```
 
-## {% linkable_title Starting a Charge %}
+## Starting a Charge
 
 You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component, except the device_tracker.
 
@@ -99,9 +95,9 @@ You can use the `nissan_leaf.start_charge` service to send a request to the Niss
     vin: '1HGBH41JXMN109186'             # replace
 ```
 
-## {% linkable_title Updating on-demand using Automation %}
+## Updating on-demand using Automation
 
-You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the component configuration.  The service requests the VIN number as described above.
+You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.  The service requests the VIN number as described above.
 
 ```yaml
 - id: update_when_driver_not_home
@@ -120,11 +116,11 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
         vin: '1HGBH41JXMN109186'             # replace
 ```
 
-## {% linkable_title Hints %}
+## Hints
 
 * The update interval has a minimum of two minutes.
 * Requesting updates uses a small amount of power from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
-* This component communicates with the Nissan Servers which then communicate with the car. The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
+* This integration communicates with the Nissan Servers which then communicate with the car. The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
 * Responses from the Nissan servers are received separately for the battery/range, climate control and location. The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled, and to indicate if `update_in_progress`. The `nissan_leaf.update` service will reset the `next_update` attribute.
 * The Nissan APIs do not allow charging to be stopped remotely.
 * The Nissan servers have a history of being unstable, therefore please confirm that the official Nissan Leaf app/website is working correctly before reporting bugs.

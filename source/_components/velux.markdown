@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Velux"
-description: "Instructions on how to integrate Velux KLF 200 component with Home Assistant."
-date: 2017-07-09 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate Velux KLF 200 integration with Home Assistant."
 logo: velux.png
 ha_category:
   - Scene
@@ -27,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Scene
 
-## {% linkable_title Configuration %}
+## Configuration
 
 A `velux` section must be present in the `configuration.yaml` file and contain the following options as required:
 

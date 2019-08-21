@@ -1,23 +1,18 @@
 ---
-layout: page
 title: "System Log"
 description: "Summary of errors and warnings in Home Assistant during runtime."
-date: 2017-11-11 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.58
 ha_qa_scale: internal
 ---
 
-The `system_log` component stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
+The `system_log` integration stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-This component is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file:
+This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file:
 
 ```yaml
 system_log:
@@ -37,13 +32,23 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `clear` %}
+### Service `clear`
 
 To manually clear the system log, call this service.
 
-## {% linkable_title Events %}
+### Service `write`
+
+Write a log entry
+
+| Service data attribute | Optional | Description                                                                     |
+| ---------------------- | -------- | ------------------------------------------------------------------------------- |
+| `message`              | no       | Message to log                                                                  |
+| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.          |
+| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'.  |
+
+## Events
 
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
@@ -58,20 +63,20 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
 
 ```text
-2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find component system_healt
+2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find integration system_healt
 2019-02-14 16:20:36 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform google_maps
 Traceback (most recent call last):
   File "/home/fab/Documents/repos/ha/home-assistant/homeassistant/components/device_tracker/__init__.py", line 184, in
 [...]
 ```
 
-The message ("Unable to find component system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
+The message ("Unable to find integration system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
 
-## {% linkable_title Examples  %}
+## Examples 
 
 Here are some examples using the events posted by `system_log`. `fire_event` must be set to `true` for these to work.
 
-### {% linkable_title Counting Number of Warnings %}
+### Counting Number of Warnings
 
 This will create a `counter` that increases every time a warning is logged:
 
@@ -93,7 +98,7 @@ automation:
       entity_id: counter.warning_counter
 ```
 
-### {% linkable_title Conditional Messages %}
+### Conditional Messages
 
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
@@ -114,3 +119,25 @@ automation:
         message: '{{ trigger.event.data.message }}'
 ```
 {% endraw %}
+
+### Writing to log
+
+This automation will create a new log entry when the door is opened:
+
+{% raw %}
+```yaml
+automation:
+  - alias: Log door opened
+    trigger:
+      platform: state
+      entity_id: binary_sensor.door
+      from: 'off'
+      to: 'on'
+    action:
+      service: system_log.write
+      data_template:
+        message: 'Door opened!'
+        level: info
+```
+{% endraw %}
+

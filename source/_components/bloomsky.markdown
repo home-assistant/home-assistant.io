@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BloomSky"
 description: "Instructions on how to integrate the BloomSky within Home Assistant."
-date: 2016-02-03 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bloomsky.png
 ha_category:
   - Environment
@@ -19,7 +13,7 @@ redirect_from:
   - /components/binary_sensor.bloomsky/
 ---
 
-The `bloomsky` component allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
+The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,11 +21,11 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Setup %}
+## Setup
 
 Obtain your API key from your [BloomSky dashboard](https://dashboard.bloomsky.com). Click `developers` in the bottom left of the screen.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate your BloomSky hub with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -48,13 +42,13 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 
 To get your BloomSky binary sensors working with Home Assistant, follow the instructions above first.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use your BloomSky binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -79,13 +73,13 @@ monitored_conditions:
       description: Rain
 {% endconfiguration %}
 
-## {% linkable_title Camera %}
+## Camera
 
-The `bloomsky` camera component allows you to view the current photo created by the camera in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with [BloomSky sensors](#sensor).
+The `bloomsky` camera integration allows you to view the current photo created by the camera in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with [BloomSky sensors](#sensor).
 
-### {% linkable_title Configuration %}
+### Configuration
 
-To enable this camera in your installation, set up the BloomSky component with your API key and add the following to your `configuration.yaml` file:
+To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,13 +87,13 @@ camera:
   - platform: bloomsky
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
-The `bloomsky` sensor component allows you to view the measurements made by sensors in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with the [BloomSky camera](#camera).
+The `bloomsky` sensor integration allows you to view the measurements made by sensors in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with the [BloomSky camera](#camera).
 
-### {% linkable_title Configuration %}
+### Configuration
 
-To enable these sensors in your installation, set up the BloomSky component with your API key add the following to your `configuration.yaml` file:
+To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: USPS
 description: "Interface USPS mail and package information to Home Assistant."
-date: 2017-07-28 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: usps.png
 ha_category:
   - Postal Service
@@ -19,6 +13,14 @@ redirect_from:
   - /components/sensor.usps/
 ---
 
+<div class="note warning">
+
+ This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+ For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+ </div>
+
 The `usps` platform allows one to track deliveries and inbound mail from the [US Postal Service (USPS)](https://www.usps.com/).
 In addition to having a USPS account, you will need to complete the "Opt-In" process for packages by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). You must also "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see inbound mail.
 
@@ -27,29 +29,29 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
-This component requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
+This integration requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
-<p class='note warning'>
+<div class='note warning'>
 If you are using a Raspberry Pi, you must use PhantomJS.
-</p>
+</div>
 
-<p class='note warning'>
-Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io.
-</p>
+<div class='note warning'>
+Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this integration on Hass.io.
+</div>
 
-### {% linkable_title PhantomJS %}
+### PhantomJS
 
 Install the latest version of [PhantomJS](http://phantomjs.org/download.html). Ensure the executable is on your `PATH`. `phantomjs --version` should work and report the correct version. This is the default option and requires no further configuration.
 
-<p class='note warning'>
+<div class='note warning'>
   Don't use apt-get to install PhantomJS. This version is not compatible.
-</p>
+</div>
 
 If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` configuration.
 
-### {% linkable_title Chrome %}
+### Chrome
 
 Install Chrome 59 or greater (preferably the most recent). Install the latest [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads). Ensure both executables are on your `PATH`. `google-chrome --version` and `chromedriver --version` should work and report the correct version.
 
@@ -60,7 +62,7 @@ OS-specific instructions:
 
 If you use the Chrome option, specify `driver: chrome` in your `usps` configuration.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml`:
 
@@ -94,15 +96,15 @@ name:
   default: usps
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
-</p>
+</div>
 
-## {% linkable_title Camera %}
+## Camera
 
-The `usps` camera component allows you to view the mail piece images made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS sensors](#sensor).
+The `usps` camera integration allows you to view the mail piece images made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS sensors](#sensor).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To customize the interval that mail images are rotated in the mail camera you can edit your `configuration.yaml` file with the following settings:
 
@@ -113,10 +115,10 @@ camera:
     scan_interval: 5
 ```
 
-To enable this camera in your installation, set up the USPS component first.
+To enable this camera in your installation, set up the USPS integration first.
 
-## {% linkable_title Sensor %}
+## Sensor
 
-The `usps` sensor component allows you to view statistics on incoming mail and packages made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS camera](#camera).
+The `usps` sensor integration allows you to view statistics on incoming mail and packages made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS camera](#camera).
 
-To enable this sensor in your installation, set up the USPS component first.
+To enable this sensor in your installation, set up the USPS integration first.

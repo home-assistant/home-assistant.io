@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "Downloader"
-description: "Instructions on how to setup the downloader component with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to setup the downloader integration with Home Assistant."
 logo: home-assistant.png
-ha_category: Downloading
+ha_category:
+  - Downloading
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
 
 To enable it, add the following lines to your `configuration.yaml` file:
 
@@ -30,7 +25,7 @@ download_dir:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Go to the "Developer Tools", then to "Call Service", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
 
@@ -47,7 +42,7 @@ This will download the file from the given URL.
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
-### {% linkable_title Download Status Events %}
+### Download Status Events
 
 When a download finished successfully, Home Assistant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
 In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successfully.

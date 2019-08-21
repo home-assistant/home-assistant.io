@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Markdown Card"
 sidebar_label: Markdown
 description: "Markdown card is used to render markdown"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Markdown card is used to render [markdown](http://commonmark.org/help/).
@@ -24,16 +18,26 @@ type:
   type: string
 content:
   required: true
-  description: "Content to render as [markdown](http://commonmark.org/help/)."
+  description: "Content to render as [markdown](http://commonmark.org/help/). May contain [templates](/configuration/templating/)."
   type: string
 title:
   required: false
   description: The card title.
   type: string
   default: none
+card_size:
+  required: false
+  type: integer
+  default: none
+  description: The algorithm for placing cards aesthetically in lovelace may have problems with the markdown card if it contains templates. You can use this value to help it estimate the height of the card in units of 50 pixels (approximately 3 lines of text in default size). (e.g., `4`)
+entity_id:
+  required: false
+  type: [string, list]
+  default: none
+  description: "A list of entity IDs so a template in `content:` only reacts to the state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities."
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: markdown

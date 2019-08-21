@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
-description: "Instructions on how to integrate Hive devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
 logo: daikin.png
 ha_category:
   - Climate
@@ -20,7 +14,7 @@ redirect_from:
   - /components/sensor.daikin/
 ---
 
-The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
+The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,15 +22,19 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Supported hardware %}
+## Supported hardware
 
-This component supports the European versions of Daikin AC (BRP069A[41,42,43,45]) and AU AirBase units (BRP15B61).
-Some models do not support setting of fan speed or fan swing mode althogh it might show up in Home Assistant.
-Please note that some AC devices may report outside temperature only when they are turned on.
+- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application.
+- The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [DAIKIN Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android version](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)) application.
+- The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is powered by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To automatically add all your Daikin devices (ACs and associated sensors) into your Home Assistant installation, add the following to your `configuration.yaml` file:
+The Daikin integration can be configured in three ways.
+
+- Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
+- Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
+- Or via the `configuration.yaml` file by adding the following:
 
 ```yaml
 # Full manual example configuration.yaml entry
@@ -53,24 +51,54 @@ hosts:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Climate %}
+## Climate
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- **mode** (cool, heat, dry, fan only or auto)
-- **fan speed** (on supported models)
-- **target temperature**
-- **swing mode** (on supported models)
+- [**set_hvac_mode**](/components/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
+- [**target temperature**](https://www.home-assistant.io/components/climate#service-climateset_temperature)
+- [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
+- [**fan mode**](https://www.home-assistant.io/components/climate#service-climateset_fan_mode) (speed)
+- [**swing mode**](https://www.home-assistant.io/components/climate#service-climateset_swing_mode)
+- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_preset_mode) (away, none)
 
-Current temperature is displayed.
+Current inside temperature is displayed.
 
-## {% linkable_title Sensor %}
+<div class='note'>
+  
+Some models do not support setting of **fan speed** or **swing mode**.
+  
+</div>
+
+<div class='note'>
+
+Preset mode **away** translates to Daikin's "Holiday Mode":<br/>
+<br>
+_"Holiday mode" is used when you want to turn off your units when you leave you home for a longer time._<br>
+<br>
+_When "Holiday mode" is enabled, the following action take place:_
+ - _All connected units are turned OFF._
+ - _All schedule timers are disabled._
+
+</div>
+
+## Sensor
 
 The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
 - Inside temperature
 - Outside temperature
 
-## {% linkable_title Switch %}
+<div class='note'>
+Some models only report outside temperature when they are turned on.
+</div>
+
+## Switch
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
+
+<div class='note'>
+
+Zones with the name `-` will be ignored, just as the AirBase application is working.
+
+</div>

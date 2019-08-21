@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NGINX Configuration"
 description: "Configure Nginx to work with Home Assistant as a subdomain"
-date: 2016-06-20 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This example demonstrates how you can configure NGINX to act as a proxy for Home Assistant.
@@ -17,7 +11,7 @@ This is useful if you want to have:
  * several subdomain for several instance
  * HTTPS redirection
 
-#### {% linkable_title Subdomain %}
+#### Subdomain
 
 So you already have a working NGINX server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
@@ -56,7 +50,7 @@ server {
 
 If you don't want HTTPS, you can change `listen 443 ssl` to `listen 80` or better, consider redirecting all HTTP to HTTPS. See further down.
 
-#### {% linkable_title Multiple Instance %}
+#### Multiple Instance
 
 You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`.
 
@@ -64,7 +58,7 @@ You want another instance available at https://countryside.example.org
 
 You can either :
  * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run Home Assistant as this new user
- * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
+ * Create another configuration directory in `/home/alice/.homeassistant2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
 
 In both solution, change port number used by modifying `configuration.yaml` file.
 
@@ -105,7 +99,7 @@ server {
 }
 ```
 
-#### {% linkable_title HTTP to HTTPS redirection %}
+#### HTTP to HTTPS redirection
 
 Add to your `/etc/nginx/sites-enabled/default`
 

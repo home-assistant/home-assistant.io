@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant."
-date: 2016-08-30 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -21,13 +15,13 @@ redirect_from:
   - /components/switch.rpi_gpio/
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -47,7 +41,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+      description: The port numbers ([BCM mode pin numbers](https://pinout.xyz/resources/raspberry-pi-pinout.png)) and corresponding names.
       required: true
       type: string
 bouncetime:
@@ -71,7 +65,7 @@ pull_mode:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-## {% linkable_title Cover %}
+## Cover
 
 The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.
 
@@ -82,7 +76,7 @@ It uses two pins on the Raspberry Pi.
 
 Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -135,7 +129,7 @@ covers:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry
@@ -153,15 +147,15 @@ cover:
         name: 'Right door'
 ```
 
-## {% linkable_title Remote Raspberry Pi Cover %}
+## Remote Raspberry Pi Cover
 
 If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/components/cover.mqtt/). Follow the Github instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -191,11 +185,11 @@ invert_logic:
   type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector) about the Raspberry Pi.
 
-<p class='note warning'>
+<div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
+</div>
 
 A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

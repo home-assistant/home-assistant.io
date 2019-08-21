@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Joaoapps Join"
 description: "Instructions for how to integrate the Join by Joaoapps service within Home Assistant."
-date: 2016-07-12 10:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: joaoapps_join.png
 ha_category:
   - Hub
@@ -16,11 +10,11 @@ redirect_from:
   - /components/notify.joaoapps_join/
 ---
 
-The `joaoapps_join` component exposes services from
+The `joaoapps_join` integration exposes services from
 [Join](http://joaoapps.com/join). In Home Assistant, the Join features are
 divided up in two locations, the Join component, and the Join notify platform.
 The notify platform allows us to send messages to Join devices, the component
-allows us to access the other special features that Join offers.
+allows us to access the other special features that Join offers. When in doubt, you can reference the [API documentation](https://joaoapps.com/join/api/) this this is based on.
 
 In the `configuration.yaml` file you need to provide the api key and device id
 or name of the target device. You can find your device id and api key
@@ -34,8 +28,8 @@ notify:
   - platform: joaoapps_join
     api_key: YOUR_API_KEY
     device_id: DEVICE_ID
-    device_ids: DEVICE_ID_1, DEVICE_ID_2
-    device_names: DEVICE_1_NAME, DEVICE_2_NAME
+    device_ids: DEVICE_ID_1,DEVICE_ID_2
+    device_names: DEVICE_1_NAME,DEVICE_2_NAME
     name: NAME
 joaoapps_join:
   - name: NAME_OF_GROUP
@@ -49,20 +43,39 @@ api_key:
   required: true
   type: string
 device_id:
-  description: The id of your device.
+  description: The id of your device or group
   required: false
   type: string
 device_ids:
-  description: Comma separated list of device ids.
+  description: Comma separated list of device ids or groups.
   required: false
   type: string
 device_names:
   description: Comma separated list of device names.
   required: false
   type: string
+name:
+  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will defailt to `notify` if not supplied. See the [Notifications Component](http://www.home-assistant.io/components/notify) for more details.
+  required: false
+  type: string
 {% endconfiguration %}
 
-The notify service has two optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
+Use only one of `device_id`, `device_ids`, or `device_names`, this will determine the notification recipient(s).
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - platform: joaoapps_join
+    api_key: YOUR_API_KEY
+    device_id: DEVICE_ID1
+    name: NAME1
+  - platform: joaoapps_join
+    api_key: YOUR_API_KEY
+    device_id: DEVICE_ID2
+    name: NAME2
+```
+
+The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
 ```json
@@ -83,7 +96,7 @@ You can use them like so:
 }
 ```
 
-The services exposed in the `joaoapps_join` component can be used with the
+The services exposed in the `joaoapps_join` integration can be used with the
 service data described below:
 
 | Service                       | Data                                                              |

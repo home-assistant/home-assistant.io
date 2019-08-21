@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Ring"
 description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
-date: 2017-04-01 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ring.png
 ha_category:
   - Doorbell
   - Binary Sensor
   - Camera
   - Sensor
+  - Switch
+  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -26,12 +22,17 @@ The `ring` implementation allows you to integrate your [Ring.com](https://ring.c
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
-- [Camera](#camera) - downloading and playing Ring video will require a Ring Protect plan.
+- [Camera](#camera)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 Currently only doorbells are supported by this sensor.
 
-## {% linkable_title Configuration %}
+<p class='note'>
+This component does NOT allow for live viewing of your Ring camera within Home Assistant.
+</p>
+
+## Configuration
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 
@@ -51,11 +52,16 @@ password:
   description: The password for accessing your Ring account.
   required: true
   type: string
+scan_interval:
+  description: How frequently to query for new video, or current sensor values in seconds
+  required: false
+  type: integer
+  default: 10
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,13 +83,13 @@ monitored_conditions:
 
 Currently it supports doorbell, external chimes and stickup cameras.
 
-## {% linkable_title Camera %}
+## Camera
 
-<p class='note'>
+<div class='note'>
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</p>
+</div>
 
-Once you have enabled the [Ring component](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,20 +102,15 @@ ffmpeg_arguments:
   description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
   required: false
   type: string
-scan_interval:
-  description: How frequently to query for new video in seconds.
-  required: false
-  type: integer
-  default: 90
 {% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
 
 Currently it supports doorbell and stickup cameras.
 
-## {% linkable_title Saving the videos captured by your Ring Door Bell %}
+## Saving the videos captured by your Ring Door Bell
 
-You can save locally the latest video captured by your Ring Door Bell using the [downloader](/components/downloader) along with either an [automation](/components/automation) or [python_script](/components/python_script). First, enable the [downloader](/components/downloader) component in your configuration by adding the following to your `configuration.yaml`.
+You can save locally the latest video captured by your Ring Door Bell using the [downloader](/components/downloader) along with either an [automation](/components/automation) or [python_script](/components/python_script). First, enable the [downloader](/components/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
 ```yaml
 downloader:
@@ -118,14 +119,16 @@ downloader:
 
 Then you can use the following `action` in your automation (this will save the video file under `<config>/downloads/ring_<camera_name>/`):
 
+{% raw %}
 ```yaml
 action:
   - service: downloader.download_file
     data_template:
-      url: "{{ states.camera.front_door.attributes.video_url }}"
-      subdir: "{{states.camera.front_door.attributes.friendly_name}}"
-      filename: "{{states.camera.front_door.attributes.friendly_name}}"
+      url: "{{ state_attr('camera.front_door', 'video_url') }}"
+      subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
+      filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
 ```
+{% endraw %}
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:
 
@@ -149,13 +152,13 @@ data = {
     'filename': ring_cam.attributes.get('friendly_name')
 }
 
-# call downloader component to save the video
+# call downloader integration to save the video
 hass.services.call('downloader', 'download_file', data)
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -186,3 +189,27 @@ monitored_conditions:
 {% endconfiguration %}
 
 Currently it supports doorbell, external chimes and stickup cameras.
+
+## Switch
+
+Once you have enabled the [Ring integration](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: ring
+```
+
+This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+
+## Light
+
+Once you have enabled the [Ring integration](/components/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: ring
+```
+
+This will add a light for every camera that supports a light (such as a flood light).

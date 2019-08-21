@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Roku"
 description: "Instructions how to integrate Roku devices into Home Assistant."
-date: 2018-10-17 20:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: roku.png
 ha_category:
   - Hub
@@ -19,14 +13,14 @@ redirect_from:
   - /components/media_player.roku/
 ---
 
-The [Roku](http://www.roku.com/) component allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
+The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
 
-The `roku` component can also be forced to load by adding the following lines to your `configuration.yaml`:
+The `roku` integration can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,13 +35,13 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `roku_scan` %}
+### Service `roku_scan`
 
 Scans the local network for Rokus. All found devices are presented as a persistent notification.
 
-## {% linkable_title Remote %}
+## Remote
 
 The `roku` remote platform allows you to send remote control buttons to a Roku device. It is automatically set up when a Roku is configured.
 
@@ -93,4 +87,27 @@ data:
     - left
     - left
     - select
+```
+
+## Media Player
+
+When the Home Assistant Roku integration is enabled and has found a Roku device, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+
+The api calls are like this:
+
+```
+GET http:// ROKU_IP:8060/query/apps
+POST http://ROKU_IP:8060/launch/APP_ID
+```
+
+More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/discovery/external-control-api.md)
+
+To use this in Home Assistant, for instance in an automation, the format is as follows. Note that ```source: ``` is the appID you discovered in the API call:
+
+```
+  action:
+  - data:
+      entity_id: media_player.roku
+      source: 20197
+    service: media_player.select_source
 ```

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rain Bird"
 description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
-date: 2017-12-07 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rainbird.png
 ha_category:
   - Irrigation
@@ -19,14 +13,14 @@ redirect_from:
   - /components/switch.rainbird/
 ---
 
-This `rainbird` component allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` integration allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following to your `configuration.yaml` file:
 
@@ -48,11 +42,11 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-</p>
+</div>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
@@ -69,12 +63,13 @@ sensor:
 {% configuration %}
 monitored_conditions:
   description: Conditions to be monitored.
+  type: list
   keys:
     rainsensor:
       description: Returns the sensor level.
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
@@ -106,11 +101,11 @@ friendly_name:
   required: false
   type: string
 trigger_time:
-  description: The default duration to sprinkle the zone.
+  description: The default duration to sprinkle the zone in minutes.
   required: true
   type: integer
 scan_interval:
-  description: How fast to refresh the switch.
+  description: How fast to refresh the switch in minutes.
   required: false
   type: integer
 {% endconfiguration %}

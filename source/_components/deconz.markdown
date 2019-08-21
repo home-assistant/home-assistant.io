@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "deCONZ"
 description: "Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant."
-date: 2017-11-12 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: deconz.jpeg
 ha_category:
   - Hub
@@ -44,16 +38,16 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Recommended way of running deCONZ %}
+## Recommended way of running deCONZ
 
 If you are running Hass.io, an official add-on for Deconz is available in the add-on store.
 Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
-### {% linkable_title Supported devices %}
+### Supported devices
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
@@ -61,9 +55,9 @@ If you don't have the API key, you can generate an API key for deCONZ by using t
 
 You can manually add deCONZ by going to the integrations page.
 
-## {% linkable_title Debugging component %}
+## Debugging integration
 
-If you have problems with deCONZ or the component you can add debug prints to the log.
+If you have problems with deCONZ or the integration you can add debug prints to the log.
 
 ```yaml
 logger:
@@ -73,11 +67,11 @@ logger:
     homeassistant.components.deconz: debug
 ```
 
-## {% linkable_title Device services %}
+## Device services
 
-Available services: `configure` and `deconz.refresh_devices`.
+Available services: `configure` and `deconz.device_refresh`.
 
-### {% linkable_title Service `deconz.configure` %}
+### Service `deconz.configure`
 
 Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
@@ -97,13 +91,13 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
-#### {% linkable_title Service `deconz.refresh_devices` %}
+#### Service `deconz.device_refresh`
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
-## {% linkable_title Remote control devices %}
+## Remote control devices
 
 Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
@@ -120,11 +114,11 @@ Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up butt
 
 For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title YAML %}
+### YAML
 
-#### {% linkable_title Step up and step down input number with wireless dimmer %}
+#### Step up and step down input number with wireless dimmer
 
 {% raw %}
 
@@ -155,7 +149,7 @@ automation:
         data_template:
           entity_id: light.lamp
           brightness: >
-            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri+30, 249] | min }}
 
   - alias: 'Decrease brightness of lamp from dimmer'
@@ -171,15 +165,15 @@ automation:
         data_template:
           entity_id: light.lamp
           brightness: >
-            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
 ```
 
 {% endraw %}
 
-### {% linkable_title Appdaemon %}
+### Appdaemon
 
-#### {% linkable_title Appdaemon event helper %}
+#### Appdaemon event helper
 
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
@@ -216,7 +210,7 @@ class DeconzHelper(hass.Hass):
 
 Note: the event will not be visible before one event gets sent.
 
-#### {% linkable_title Appdaemon remote template %}
+#### Appdaemon remote template
 
 {% raw %}
 
@@ -252,7 +246,7 @@ class RemoteControl(hass.Hass):
 
 {% endraw %}
 
-#### {% linkable_title Appdaemon remote template %}
+#### Appdaemon remote template
 
 Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
@@ -306,7 +300,7 @@ class SonosRemote(hass.Hass):
 
 {% endraw %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The following sensor types are supported:
 
@@ -317,7 +311,7 @@ The following sensor types are supported:
 
 The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is defined in deCONZ.
 
-### {% linkable_title Verified supported binary sensors %}
+### Verified supported binary sensors
 
 - Open/Close Detection
   - Xiaomi Smart Home Security Door & Window Contact Sensor
@@ -327,9 +321,9 @@ The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is
   - Xiaomi Motion Sensor
   - Xiaomi Smart Home Aqara Human Body Sensor
 
-## {% linkable_title Climate %}
+## Climate
 
-See the [deCONZ main component](/components/deconz/) for configuration instructions.
+See the [deCONZ main integration](/components/deconz/) for configuration instructions.
 
 Climate currently represent thermostats.
 
@@ -337,12 +331,12 @@ Note that devices in the climate platform identify as sensors, so there is a man
 
 The `entity_id` name will be `climate.device_name`, where `device_name` is defined in deCONZ.
 
-#### {% linkable_title Verified supported climate devices %}
+#### Verified supported climate devices
 
 - Bitron Thermostat 902010/32
 - Eurotronic SPZB0001
 
-## {% linkable_title Cover %}
+## Cover
 
 Covers are devices like ventilation dampers or smart window covers.
 
@@ -350,16 +344,16 @@ Note that devices in the cover platform identify as lights, so there is a manual
 
 The `entity_id` name will be `cover.device_name`, where `device_name` is defined in deCONZ.
 
-### {% linkable_title Verified supported covers %}
+### Verified supported covers
 
 - Keen vents
 - Xiaomi Aqara Curtain controller
 
-## {% linkable_title Light %}
+## Light
 
 The `entity_id` names will be `light.device_name`, where `device_name` is defined in deCONZ. Light groups created in deCONZ will be created in Home Assistant as lights named `light.group_name_in_deconz`, allowing the user to control groups of lights with only a single API call to deCONZ.
 
-### {% linkable_title Verified supported lights %}
+### Verified supported lights
 
 - IKEA Trådfri bulb E14 WS opal 400lm
 - IKEA Trådfri Bulb E27 WS Opal 980lm
@@ -371,12 +365,13 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue White Ambiance A19
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
+- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
 
-## {% linkable_title Scene %}
+## Scene
 
 The `entity_id` name will be `scene.group_scene_name`, where `group` is which group the scene belongs to and the name of the scene, both group and name are defined in deCONZ.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The following sensor types are supported:
 
@@ -386,9 +381,9 @@ The following sensor types are supported:
 - Switches
 - Temperature sensor
 
-The `entity_id` name will be `sensor.device_name`, where `device_name` is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main component](/components/deconz/) for more details.
+The `entity_id` name will be `sensor.device_name`, where `device_name` is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main integration](/components/deconz/) for more details.
 
-### {% linkable_title Verified to be supported sensors %}
+### Verified to be supported sensors
 
 - Humidity Sensor
   - Xiaomi Aqara Humidity/Temperature Sensor
@@ -407,7 +402,7 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
 - Temperature Sensor
   - Xiaomi Temperature/Humidity Sensor
 
-### {% linkable_title deCONZ Daylight Sensor %}
+### deCONZ Daylight Sensor
 
 The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from https://github.com/mourner/suncalc, on which the deCONZ implementation is based):
 
@@ -432,7 +427,7 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
 
-## {% linkable_title Switch %}
+## Switch
 
 Switches are devices like power plugs and sirens.
 
@@ -440,7 +435,7 @@ Note that devices in the switch platform identify as lights, so there is a manua
 
 The `entity_id` name will be `switch.device_name`, where `device_name` is defined in deCONZ.
 
-### {% linkable_title Verified supported switches %}
+### Verified supported switches
 
 - Innr SP120
 - Osram Outdoor plug

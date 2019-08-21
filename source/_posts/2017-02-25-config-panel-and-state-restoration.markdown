@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.39: Configuration panel, state restoration and improved docs"
 description: "0.39 is by far our best release yet."
 date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.39/social.png
 ---
@@ -193,17 +191,17 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
-### {% linkable_title Release 0.39.1 - February 27 %}
+### Release 0.39.1 - February 27
 
  - Add workaround for Paho out of memory issues ([@pvizeli])
  - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
 
-### {% linkable_title Release 0.39.2 - March 1 %}
+### Release 0.39.2 - March 1
 
  - Move Zigbee from eventbus to dispatcher ([@pvizeli])
  - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
 
-### {% linkable_title Release 0.39.3 - March 4 %}
+### Release 0.39.3 - March 4
 
  - Prevent discovered services and devices to be handled twice (@colinodell)
 
@@ -285,7 +283,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /componet/telegram_webhooks/
+[telegram]: /components/webhooks/
 [pushsafer]: /components/notify.pushsafer/
 [openhome]: /components/media_player.openhome/
 [ups]: /components/sensor.ups/

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.75: Spider, Tuya, Brunt, Magicseaweed API"
 description: "You're now able to change entity IDs on the fly."
 date: 2018-08-03 00:01:00
 date_formatted: "August 3, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-08-0.75/components.png
 ---
@@ -24,7 +22,7 @@ Screenshot of the new user interface to change entity IDs.
 
 This release also includes a bunch more Tuya integrations thanks to [@huangyupeng]. And thanks to [@peternijssen] we're now also able to talk with Spider thermostats and plugs.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Tuya climate platform ([@huangyupeng] - [#15500]) ([tuya docs]) ([climate.tuya docs]) (new-platform)
 - Add Tuya fan support ([@huangyupeng] - [#15525]) ([tuya docs]) ([fan.tuya docs]) (new-platform)
@@ -38,18 +36,18 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 - Add a component for Sisyphus Kinetic Art Tables ([@jkeljo] - [#14472]) ([sisyphus docs]) ([light.sisyphus docs]) ([media_player.sisyphus docs]) (new-platform)
 - Add Genie Aladdin Connect cover component ([@shoejosh] - [#15699]) ([cover.aladdin_connect docs]) (new-platform)
 
-## {% linkable_title Release 0.75.1 - August 4 %}
+## Release 0.75.1 - August 4
 
 - Upgrade Adafruit-DHT to 1.3.3 ([@superpuffin] - [#15706]) ([sensor.dht docs])
 - Fix rfxtrx device id matching ([@Danielhiversen] - [#15819]) ([rfxtrx docs])
 - Fix custom panel and Hass.io panel ([@balloob])
 
-## {% linkable_title Release 0.75.2 - August 6 %}
+## Release 0.75.2 - August 6
 
 - Upgrade voluptuous to 0.11.5 ([@fabaff] - [#15830])
 - Fix envisalink reconnect ([@Cinntax] - [#15832]) ([envisalink docs])
 
-## {% linkable_title Release 0.75.3 - August 9 %}
+## Release 0.75.3 - August 9
 
 - Fix downgrade hassio cannot get refresh_token issue ([@awarecan] - [#15874]) ([hassio docs])
 
@@ -57,29 +55,29 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 [@awarecan]: https://github.com/awarecan
 [hassio docs]: /components/hassio/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Moon sensor states are now lowercase with underscores instead of spaces, allowing it to be translated in the frontend. ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
 - Insteon Mini-Remote now emit events instead of show as a binary sensor ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - Simplisafe to use new API: co, fire, flood, and last_event are no longer part of the SimpliSafe alarm object in the new API and are not available in this upgrade, making this a breaking change for anyone using those. They will be added back in some fashion at a later date (probably exposed as individual sensors) ([@w1ll1am23] - [#15542]) ([alarm_control_panel.simplisafe docs]) (breaking change)
 - Smappee: The updated library shows the temperature as degrees Celsius instead of centi degrees Celsius. ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Fix Min/Max Kelvin color temp attribute for Google ([@bryanyork] - [#15697]) ([google_assistant docs]) (beta fix)
 - Only report color temp when in the correct color mode ([@Kane610] - [#15791]) ([light.deconz docs]) (beta fix)
 - Allow Nest to setup without configuration.yaml entry ([@balloob] - [#15797]) ([nest docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Delay setup of waze travel time component ([@squirtbrnr] - [#15455]) ([sensor.waze_travel_time docs])
 - Bump pyarlo==0.2.0, fixes #15486 ([@lukiffer] - [#15503]) ([arlo docs])

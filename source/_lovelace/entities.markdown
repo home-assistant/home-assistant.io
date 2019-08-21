@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entities Card"
 sidebar_label: Entities
 description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
@@ -36,7 +30,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
@@ -67,9 +61,9 @@ format:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Special Row Elements %}
+## Special Row Elements
 
-### {% linkable_title Call Service %}
+### Call Service
 
 {% configuration %}
 type:
@@ -97,10 +91,40 @@ action_name:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 {% endconfiguration %}
 
-### {% linkable_title Divider %}
+### Cast
+
+Special row to start Home Assistant Cast.
+
+{% configuration %}
+type:
+  required: true
+  description: cast
+  type: string
+view:
+  required: true
+  description: Path to the view that needs to be shown.
+  type: string
+name:
+  required: false
+  description: Name to show in the row
+  type: string
+  default: Home Assistant Cast
+icon:
+  required: false
+  description: Icon to use
+  type: string
+  default: "`hass:television`"
+hide_if_unavailable:
+  required: false
+  description: Hide this row if casting is not available in the browser.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Divider
 
 {% configuration %}
 type:
@@ -110,11 +134,11 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: object
+  type: string
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
-### {% linkable_title Section %}
+### Section
 
 {% configuration %}
 type:
@@ -127,7 +151,7 @@ label:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Weblink %}
+### Weblink
 
 {% configuration %}
 type:
@@ -150,7 +174,7 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Entity rows:
 

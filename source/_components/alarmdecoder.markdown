@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AlarmDecoder Alarm"
 description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device."
-date: 2017-04-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: alarmdecoder.png
 ha_category:
   - Alarm
@@ -20,7 +14,7 @@ redirect_from:
   - /components/sensor.alarmdecoder/
 ---
 
-The `alarmdecoder` component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
+The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
 
 Please visit the [AlarmDecoder website](https://www.alarmdecoder.com/) for further information about the AlarmDecoder devices.
 
@@ -32,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 An `alarmdecoder` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -91,7 +85,7 @@ panel_display:
   default: false
   type: boolean
 zones:
-  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
   type: list
   keys:
@@ -122,7 +116,7 @@ zones:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Alarm Control Panel %}
+## Alarm Control Panel
 
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
@@ -136,9 +130,9 @@ There are several attributes available on the alarm panel to give you more infor
 - `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 
-## {% linkable_title Services %}
+## Services
 
-The Alarm Decoder component gives you access to several services for you to control your alarm with.
+The Alarm Decoder integration gives you access to several services for you to control your alarm with.
 
 - `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
@@ -146,15 +140,17 @@ The Alarm Decoder component gives you access to several services for you to cont
 - `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
 - `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
 
-<p class='note'>
-`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
-</p>
+<div class='note'>
 
-### {% linkable_title Examples %}
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
+
+</div>
+
+### Examples
 
 Using a combination of the available services and attributes, you can create switch templates.
 
-### {% linkable_title Chime Status and Control %}
+### Chime Status and Control
 
 {% raw %}
 ```yaml

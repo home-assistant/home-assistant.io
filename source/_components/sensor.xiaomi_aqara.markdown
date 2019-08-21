@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Xiaomi Sensor"
 description: "Instructions on how to setup the Xiaomi sensor within Home Assistant."
-date: 2017-07-21 16:34
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: "0.50"
 ha_iot_class: Local Push
 ---

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.25: Custom frontend panels, Jupyter notebooks, DirecTV."
 description: "Frontend became blazing fast and extensible. DirecTV support added."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 
@@ -38,7 +36,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Template: New [filters] (`timestamp_local` and `timestamp_utc`) ([@fabaff])
 - Binary sensor - Wink: Water leak sensor support added ([@w1ll1am23])
 - Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor ([@PetitCircuitLab])
-- Switch - RPi GPIO: Fix when inverted logic ([@zeroDenial])
+- Switch - RPi GPIO: Fix when inverted logic (@zeroDenial)
 - Z-Wave: Rollershutter update ([@turbokongen])
 - RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
 - Core: Add [type][typing] checking using mypy to the core ([@fabianhjr])
@@ -57,18 +55,18 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Qwikswitch: Stability fixes ([@kellerza])
 - Light: [Hyperion] keeps now track of active color ([@schneefux])
 
-### {% linkable_title Hotfix 0.25.1 - August 1 %}
+### Hotfix 0.25.1 - August 1
 
 - Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
 - Recorder: Properly close session after execute ([@kellerza])
 - Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
 - Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
 
-### {% linkable_title Hotfix 0.25.2 - August 2 %}
+### Hotfix 0.25.2 - August 2
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Google Voice SMS notification support was removed.
 
@@ -99,7 +97,6 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [@usul27]: https://github.com/usul27
 [@vladonemo]: https://github.com/vladonemo
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@zeroDenial]: https://github.com/zeroDenial
 [@jnewland]: https://github.com/jnewland
 [@shoekstra]: https://github.com/shoekstra
 
@@ -124,7 +121,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [MPC-HC]: /components/media_player.mpchc/
 [Telegram]: /components/notify.telegram/
 [react-panel]: /cookbook/custom_panel_using_react/
-[KNX]: /components/thermostat.knx/
-[Nest]: /components/thermostat.nest/
+[KNX]: /components/climate.knx/
+[Nest]: /components/nest/#climate
 [filters]: /topics/templating/#home-assistant-template-extensions
 [Hyperion]: /components/light.hyperion/

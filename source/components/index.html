@@ -1,12 +1,7 @@
 ---
-layout: page
-title: "Components"
-description: "List of the built-in components of Home Assistant."
-date: 2014-12-21 13:35
+title: "Integrations"
+description: "List of the built-in integrations of Home Assistant."
 sidebar: false
-comments: false
-sharing: true
-footer: true
 is_homepage: true
 hide_github_edit: true
 body_id: components-page
@@ -30,7 +25,7 @@ regenerate: false
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 
 <p class='note'>
-Support for these components is provided by the Home Assistant community.
+Support for these integrations is provided by the Home Assistant community.
 </p>
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
@@ -61,21 +56,12 @@ Support for these components is provided by the Home Assistant community.
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" class="search" placeholder="Search components...">
+        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
       </form>
     </div>
     <div class="hass-option-cards" id="componentContainer"> </div>
   </div>
 </div>
-
-{% comment %}
-## Pages without categories
-{%- for component in components -%}
-  {% unless component.ha_category %}
-<p>{{ component.title }}</p>
-  {% endunless %}
-{%- endfor -%}
-{% endcomment %}
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
@@ -156,7 +142,7 @@ allComponents.pop(); // remove placeholder element at the end
     var data = {
       components: [],
       image: function () {
-        if(this.logo === '') {
+        if (this.logo === '') {
           return '';
         } else {
           return '<img data-src="/images/supported_brands/' + this.logo + '">';
@@ -225,8 +211,8 @@ allComponents.pop(); // remove placeholder element at the end
    * update the browser location hash. This enables users to use the browser-history
    */
   function updateHash(newHash) {
-    if ('replaceState' in history) {
-      history.replaceState('', '', newHash);
+    if ('pushState' in history) {
+      history.pushState('', '', newHash);
     } else {
       location.hash = newHash;
     }
@@ -274,9 +260,11 @@ allComponents.pop(); // remove placeholder element at the end
   $('.component-search input').keyup(debounce(function() {
     var text = $(this).val();
     // sanitize input
-    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '');
-    updateHash('#search/' + text);
-    applyFilter();
+    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
+    if (typeof text === "string" && text.length !== 0) {
+        updateHash('#search/' + text);
+        applyFilter();
+    }
   }, 500));
 
   window.addEventListener('hashchange', applyFilter);

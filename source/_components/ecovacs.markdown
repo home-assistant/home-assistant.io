@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ecovacs"
 description: "Instructions on how to integrate Ecovacs vacuums within Home Assistant."
-date: 2018-07-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ecovacs.png
 ha_category:
   - Hub
@@ -17,13 +11,13 @@ redirect_from:
   - /components/vacuum.ecovacs/
 ---
 
-The `ecovacs` component is the main component to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Vacuum](#vacuum)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -56,13 +50,13 @@ continent:
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
-### {% linkable_title Stability and Reporting Bugs %}
+### Stability and Reporting Bugs
 
 The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
 
 Please see the [sucks library documentation](https://github.com/wpietri/sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
 
-If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs component and the underlying `sucks` library, place this in your `configuration.yaml` file:
+If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
 
 ```yaml
 logger:
@@ -75,11 +69,11 @@ logger:
 Warning: doing this will cause your authentication token to visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
 
 
-## {% linkable_title Vacuum %}
+## Vacuum
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### {% linkable_title Component Lifespans %}
+### Component Lifespans
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 
@@ -113,7 +107,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Handling Errors %}
+### Handling Errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
 

@@ -1,13 +1,8 @@
 ---
-layout: page
 title: "History Graph"
 description: "Instructions for setting up History Graph."
-date: 2017-09-20 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: History
+ha_category:
+  - History
 logo: home-assistant.png
 ha_release: 0.55
 ha_qa_scale: internal
@@ -17,9 +12,9 @@ ha_qa_scale: internal
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
 </p>
 
-The `history_graph` component will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel. If you want to add history graphs to the Lovelace UI, please check the [History Graph Card](/lovelace/history-graph/) configuration as it slightly differs from the component.
+The `history_graph` integration will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel. If you want to add history graphs to the Lovelace UI, please check the [History Graph Card](/lovelace/history-graph/) configuration as it slightly differs from the component.
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry
@@ -52,7 +47,7 @@ refresh:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Full Example %}
+### Full Example
 
 ```yaml
 # Full configuration.yaml entry

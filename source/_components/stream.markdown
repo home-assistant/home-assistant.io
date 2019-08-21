@@ -1,23 +1,17 @@
 ---
-layout: page
 title: "Stream"
 description: "Instructions on how to integrate live streams within Home Assistant."
-date: 2019-02-06 13:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: 
+ha_category:
   - Other
 ha_release: "0.90"
 ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 
-The `stream` component provides a way to proxy live streams through Home Assistant. The component currently only supports the HLS format.
+The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml` file:
 
@@ -26,11 +20,11 @@ To enable this component, add the following lines to your `configuration.yaml` f
 stream:
 ```
 
-### {% linkable_title Services %}
+### Services
 
 Once loaded, the `stream` platform will expose services that can be called to perform various actions.
 
-#### {% linkable_title Service `record` %}
+#### Service `record`
 
 Make a `.mp4` recording from a provided stream.  While this service can be called directly, it is used internally by the [`camera.record`](/components/camera#service-record) service.
 
@@ -45,17 +39,23 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/tmp`.
+For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/config/www`.
 
 ```yaml
 action:
   service: camera.record
   data:
-    stream_source: rtsp://my.stream.feed:554
-    filename: '/tmp/my_stream.mp4'
+    entity_id: camera.quintal
+    filename: '/config/www/my_stream.mp4'
+    duration: 30
 ```
 
-## {% linkable_title Troubleshooting %}
+## Streaming in Lovelace
+
+As of Homeassistant version 0.92 you can now live-stream a camera feed directly in lovelace.
+To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your lovelace views.
+
+## Troubleshooting
 
 Some users on manual installs may see the following error in their logs after restarting:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IHC"
-description: "Instructions on how to integrate the IHC components with Home Assistant"
-date: 2017-11-11 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the IHC integrations with Home Assistant"
 logo: ihc.png
 ha_category:
   - Hub
@@ -67,17 +61,18 @@ info:
   description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
-## {% linkable_title Auto setup of IHC products %}
+## Auto setup of IHC products
 
-If the auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant. To disable this set auto_setup to false. See the individual device types for a list of IHC products to be recognized automatically.
+If the auto setup is enabled, the `ihc` integration will automatically find IHC products and insert these as devices in Home Assistant. To disable this set auto_setup to false. See the individual device types for a list of IHC products to be recognized automatically.
 
 Components will get a default name that is a combination of the IHC group and IHC resource id. If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/).
 
-## {% linkable_title Manual setup %}
+## Manual setup
 
-Each device is associated with an IHC resource id. To manually setup components you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
+Each device is associated with an IHC resource id. To manually setup integrations you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
 
 The project file is an XML file and you can view it with any text/XML editor. You can rename it to have the XML extension and use a browser like Chrome or Internet Explorer. The resources are the \<airlink_xxx> or \<dataline_xxx> elements. Shown as inputs or outputs of products in the IHC application. You can also use inputs and outputs from function blocks. These are the \<resource_input> and \<resource_output> elements from the project file.
 
@@ -87,7 +82,7 @@ If you want an easier way to get the IHC resource ids, you can download the [Alt
 
 See the manual of each device type for configuration options.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Before you can use the IHC Binary Sensor platform, you must setup the IHC Component.
 
@@ -101,7 +96,7 @@ When auto setup is enabled the following products will be found in the IHC proje
 - Dataline gas detector
 - Dataline light sensor
 
-## {% linkable_title Manual configuration %}
+## Manual configuration
 
 To manually configure IHC Binary Sensors insert the "binary_sensor" section in your IHC configuration:
 
@@ -156,7 +151,7 @@ binary_sensor:
 
 The resource id should be an id of a boolean IHC resource. For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Before you can use the IHC Sensor platform, you must setup the IHC Component.
 
@@ -214,7 +209,7 @@ sensor:
 
 The resource id should be a IHC float resource. For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
-## {% linkable_title Light %}
+## Light
 
 Before you can use the IHC Light platform, you must setup the IHC Component.
 
@@ -281,7 +276,7 @@ light:
 
 In the example above 12345 is ihc resource id and "tablelight" is the name. The IHC resource id can be a light level for dimmers or a boolean output of a relay. For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
-## {% linkable_title Switch %}
+## Switch
 
 Before you can use the IHC Switch platform, you must setup the IHC Component.
 

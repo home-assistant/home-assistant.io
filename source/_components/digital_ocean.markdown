@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Digital Ocean"
 description: "Instructions on how to integrate the Digital Ocean within Home Assistant."
-date: 2016-09-24 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
   - Binary Sensor
@@ -19,18 +13,18 @@ redirect_from:
   - /components/switch.digital_ocean/
 ---
 
-The `digital_ocean` component allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
+The `digital_ocean` integration allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/components/digital_ocean/#binary-sensor)
 - [Switch](/components/digital_ocean/#switch)
 
-## {% linkable_title Setup %}
+## Setup
 
 Obtain your API key from your [Digital Ocean dashboard](https://cloud.digitalocean.com/settings/api/tokens).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate your Digital Ocean droplets with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -47,11 +41,11 @@ access_token:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `digital_ocean` binary sensor platform allows you to monitor your Digital Ocean droplets.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
 
@@ -71,11 +65,11 @@ droplets:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `digital_ocean` switch platform allows you to control (start/stop) your Digital Ocean droplets.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
 

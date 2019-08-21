@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "WirelessTag"
 description: "Instructions on how to integrate your Wireless Tags sensors within Home Assistant."
-date: 2018-03-26 21:32
-comments: false
-sidebar: true
-sharing: true
-footer: true
 logo: wirelesstag.png
 ha_category:
   - Hub
@@ -29,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
 
@@ -51,16 +45,20 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into whitelist in `http` component; i.e., add it to `trusted_networks`. See the [HTTP](/components/http/) for details.
   Additionally, you need add at least one [WirelessTag binary sensor](#binary-sensor) in config to start receiving local push notifications.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
   Tags Manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
-</p>
 
-## {% linkable_title Binary Sensor %}
+</div>
+
+## Binary Sensor
 
 To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 
@@ -102,7 +100,7 @@ monitored_conditions:
       description: On means tag battery is low, Off means normal.
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To enable the sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 
@@ -131,7 +129,7 @@ monitored_conditions:
       description: Brightness in lux (if supported by tag).
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 To enable the switch platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 

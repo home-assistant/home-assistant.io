@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zabbix"
 description: "Instructions on how to integrate Zabbix into Home Assistant."
-date: 2016-12-13 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zabbix.png
 ha_category:
   - System Monitor
@@ -17,15 +11,15 @@ redirect_from:
   - /components/sensor.zabbix/
 ---
 
-The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
+The `zabbix` integration is the main integration to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To set the Zabbix component up, add the following information to your `configuration.yaml` file:
+To set the Zabbix integration up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +52,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,13 +64,13 @@ zabbix:
   password: PASSWORD
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](http://www.zabbix.com/) monitoring instance.
 
-<p class='note'>
+<div class='note'>
 You must have the <a href="#configuration">Zabbix component</a> configured to use those sensors.
-</p>
+</div>
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -107,4 +101,5 @@ individual:
   description: A 'true'/'false' to specify whether we should show individual sensors when a list of hostids is provided. If false, the sensor state will be the count of all triggers for the specified hosts (or all hosts within the Zabbix instance, if hostids isn't provided).
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}

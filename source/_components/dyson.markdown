@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dyson"
 description: "Instructions on how to integrate Dyson into Home Assistant."
-date: 2017-05-27 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dyson.png
 ha_category:
   - Hub
@@ -23,7 +17,7 @@ redirect_from:
   - /components/sensor.dyson/
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
+The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,8 +25,9 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 - Vacuum
+- Air Quality
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml`:
 
@@ -79,9 +74,11 @@ devices:
 
 The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 
-<p class='note warning'>
+<div class='note warning'>
+
 Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For these devices, you will need to provide them in the `devices` list.
-</p>
+
+</div>
 
 To find a devices IP address, you can use your router or `nmap`:
 
@@ -100,13 +97,13 @@ For example:
 $ nmap -p 1883 192.168.0.0/24 -- open
 ```
 
-## {% linkable_title Vacuum %}
+## Vacuum
 
 The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuum.
 
-### {% linkable_title Component services %}
+### Component services
 
-This component support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
+This integration support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
 
 - [`turn_on`](/components/vacuum/#service-vacuumturn_on)
 - [`turn_off`](/components/vacuum/#service-vacuumturn_off)
@@ -117,43 +114,63 @@ This component support the following services (see [Vacuum Cleaner Robots](/comp
   - `Quiet`
   - `Max`
 
-## {% linkable_title Climate %}
+## Climate
 
 The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan thermal control. For controlling the fan functionality, see the Dyson fan part on this page.
 
-### {% linkable_title Component services %}
+### Component services
 
-This component supports the following services (see [Climate](/components/climate/)):
+This integration supports the following services (see [Climate](/components/climate/)):
 
 - [`turn_on`](/components/climate/#service-climateturn_on)
 - [`turn_off`](/components/climate/#service-climateturn_off)
 - [`set_temperature`](/components/climate/#service-climateset_temperature)
 - [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
-- [`set_operation_mode`](/components/climate/#service-climateset_operation_mode)
+- [`set_hvac_mode`](/components/climate/#service-climateset_hvac_mode)
 
-## {% linkable_title Fan %}
+## Fan
 
 The `dyson` fan platform allows you to control your Dyson Purifier fans.
 
-### {% linkable_title Supported fan devices %}
+### Supported fan devices
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 (DP04 and TP04)
 
-### {% linkable_title Attributes %}
+### Attributes
 
 There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `is_night_mode` | A boolean that indicates if the night mode of the fan device is on.
-| `is_auto_mode` | A boolean that indicates if the auto mode of the fan device is on.
+| `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
+| `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
+| `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
+| `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
+| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
+| `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
+| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
+| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
 
-## {% linkable_title Sensor %}
+## Sensor
 
-The `dyson` sensor platform allows you to control your Dyson Purifier's filter life time.
+The `dyson` sensor platform provides temperature and humidity sensors.
 
-### {% linkable_title Supported fan devices %}
+## Air Quality
+
+The `dyson` air quality platform provides the following levels:
+
+- Particulate matter 2.5 (<= 2.5 μm) level.
+- Particulate matter 10 (<= 10 μm) level.
+- Air Quality Index (AQI).
+- NO2 (nitrogen dioxide) level.
+- VOC (Volatile organic compounds) level.
+
+Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
+
+### Supported fan devices
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 Models (TP04 and DP04)

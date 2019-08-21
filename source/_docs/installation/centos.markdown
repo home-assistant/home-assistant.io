@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Installation on CentOS/RHEL"
 description: "Installation of Home Assistant on your CentOS/RHEL computer."
-date: 2017-03-01 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL (Red Hat Enterprise Linux), [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python36/) needs to be activated first.
 
-### {% linkable_title Using Software Collections %}
+### Using Software Collections
 
 First of all install the software collection repository as root and [scl utils](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/1/html-single/Software_Collections_Guide/). For example, on CentOS:
 
@@ -39,7 +33,7 @@ This is part of the slight change when trying to install Python 3.6 and running 
 $ yum install rh-python36
 ```
 
-### {% linkable_title Start using software collections %}
+### Start using software collections
 
 ```bash
 $ scl enable rh-python36 bash
@@ -56,7 +50,7 @@ You will be in a command shell set up with Python 3.6 as your default version. T
 
 You will need to enable the software collection each time you log on before you activate your virtual environment.
 
-### {% linkable_title Systemd with Software Collections %}
+### Systemd with Software Collections
 
 To autostart Home Assistant using systemd follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
 

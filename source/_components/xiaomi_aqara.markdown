@@ -1,22 +1,19 @@
 ---
-layout: page
 title: "Xiaomi Gateway (Aqara)"
 description: "Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant."
-date: 2017-07-21 16:34
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.57
 ha_iot_class: Local Push
 redirect_from: /components/xiaomi/
 ---
 
-The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
+The `xiaomi_aqara` integration allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
-## {% linkable_title Supported Devices %}
+Please note, there are two versions of the hub: v1 and v2. v1 can be used with Home Assistant without any problems, however, v2 might be less straight forward when it comes to enabling the local API, and might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline.
+
+## Supported Devices
 
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
@@ -43,7 +40,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Water Leak Sensor
 - Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 
-## {% linkable_title Unsupported Devices %}
+## Unsupported Devices
 
 - Xiaomi Aqara Gateway (lumi.gateway.aqhm01), as it is not possible to activate dev mode in the Mi Home App.
 - Gateway Radio
@@ -53,13 +50,13 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-## {% linkable_title Setup %}
+## Setup
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
 To enable {{ page.title }} in your installation, add the following to your `configuration.yaml` file:
 
-### {% linkable_title One Gateway %}
+### One Gateway
 
 ```yaml
 # You can leave MAC empty if you only have one gateway.
@@ -69,7 +66,7 @@ xiaomi_aqara:
     - key: xxxxxxxxxxxxxxxx
 ```
 
-### {% linkable_title Multiple Gateways %}
+### Multiple Gateways
 
 ```yaml
 # 12 characters MAC can be obtained from the gateway.
@@ -81,7 +78,7 @@ xiaomi_aqara:
       key: xxxxxxxxxxxxxxxx
 ```
 
-### {% linkable_title Search for gateways on specific interface %}
+### Search for gateways on specific interface
 
 ```yaml
 # 12 characters MAC can be obtained from the gateway.
@@ -127,11 +124,11 @@ interface:
   default: any
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
 The gateway provides the following services:
 
-#### {% linkable_title Service `xiaomi_aqara.play_ringtone` %}
+#### Service `xiaomi_aqara.play_ringtone`
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
@@ -171,7 +168,7 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### {% linkable_title Service `xiaomi_aqara.stop_ringtone` %}
+#### Service `xiaomi_aqara.stop_ringtone`
 
 Stops a playing ringtone immediately.
 
@@ -179,7 +176,7 @@ Stops a playing ringtone immediately.
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service `xiaomi_aqara.add_device` %}
+#### Service `xiaomi_aqara.add_device`
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
@@ -187,7 +184,7 @@ Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new de
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service `xiaomi_aqara.remove_device` %}
+#### Service `xiaomi_aqara.remove_device`
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
@@ -196,9 +193,9 @@ Removes a specific device. The removal is required if a device shall be paired w
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 | `device_id`               |       no | Hardware address of the device to remove              |
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Long Press on Smart Button 1st Generation %}
+### Long Press on Smart Button 1st Generation
 
 This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once. Only works for the round button of the 1st generation.
 
@@ -232,7 +229,7 @@ This example plays the sound of a dog barking when the button is held down and s
       gw_mac: xxxxxxxxxxxx
 ```
 
-### {% linkable_title Double Click on Smart Button %}
+### Double Click on Smart Button
 
 This example toggles the living room lamp on a double click of the button.
 
@@ -250,13 +247,13 @@ This example toggles the living room lamp on a double click of the button.
       entity_id: light.living_room_lamp
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Initial setup problem %}
+### Initial setup problem
 
 If you run into trouble initializing the gateway with your app, try another smartphone. E.g., it didn't work on an OnePlus 3, but it worked with a Nexus 5.
 
-### {% linkable_title Connection problem %}
+### Connection problem
 
 ```bash
 2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
@@ -277,3 +274,14 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
   - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances, there is an issue with keys being generated using the iOS application.
   - You need to make sure to have multicast support on your network. If you are running Home Assistant in a virtual machine (like Proxmox), try `echo 0 >/sys/class/net/vmbr0/bridge/multicast_snooping` on the host and restart the service or reboot the host.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
+- If your gateway's MAC address starts with `04:CF:8C`, there is a good chance that the required port `9898` is closed on your gateway (you can check it with the Nmap utility, using the command `sudo nmap - sU {gateway_ip} -p 9898`). To fix that issue, you need to do these steps:
+  - Find a specific screw bit (like a fork) to open the gateway case.
+  - Find a USB-UART cable/module and connect it to your computer.
+  - Solder 3 wires - RX, TX and GND like [here](http://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).
+  - Turn on the gateway (220V).
+  - Open a serial terminal application (e.g. PuTTY) and connect to the serial port assigned to the USB-UART module (baudrate: 115200).
+  - Wait until the gateway is booted up, connect the RX, TX and GND wires to the UART module (don't connect the Vcc (power) wire!).
+  - You will see all the messages from the gateway.
+  - Send the command `psm-set network open_pf 3` (the command has to end with a `CR` newline character).
+  - Check your settings executing the command `psm-get network open_pf` to be sure it's OK.
+  - Restart the gateway.

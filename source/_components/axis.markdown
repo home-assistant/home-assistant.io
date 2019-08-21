@@ -1,16 +1,11 @@
 ---
-layout: page
 title: "Axis"
 description: "Integration between network devices from Axis Communications with Home Assistant."
-date: 2017-04-30 23:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: axis.png
 ha_category:
   - Camera
   - Binary Sensor
+  - Switch
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
@@ -23,19 +18,19 @@ redirect_from:
 
 Home Assistant will automatically discover their presence on your network.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 For configuration go to the `Integrations pane` on your Home Assistant instance.
 
-<p class='note'>
+<div class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
-</p>
+</div>
 
-## {% linkable_title Troubleshooting discovery %}
+## Troubleshooting discovery
 
 If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The following sensor types are supported:
 
@@ -43,3 +38,11 @@ The following sensor types are supported:
 - Passive IR motion detection
 - Sound detection
 - Day/night mode
+- Inputs and Supervised Inputs
+
+## Switch
+
+The following controllable port types are supported:
+
+- Output
+- Relay

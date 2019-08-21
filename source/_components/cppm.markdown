@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Aruba ClearPass"
 description: "Instructions on how to integrate Aruba ClearPass into Home Assistant."
-date: 2019-03-05 10:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aruba.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: "0.90"
 ha_iot_class: Local Polling
 ---
@@ -19,9 +14,11 @@ Supported platforms (tested):
 
 - Aruba ClearPass 6.7.5
 
-<p class='note warning'>
-You must first create an API client [here](https://clearpass.server.com/guest/api_clients.php).
-</p>
+<div class='note warning'>
+
+You must first create an API client [here](https://www.arubanetworks.com/techdocs/ClearPass/6.6/Guest/Content/AdministrationTasks1/CreateEditAPIclient.htm).
+
+</div>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -49,4 +46,4 @@ api_key:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

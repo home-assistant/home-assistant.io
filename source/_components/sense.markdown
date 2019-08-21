@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Sense
 description: "Instructions on how to integrate Sense within Home Assistant."
-date: 2018-10-22 22:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sense.png
 ha_category:
   - Energy
@@ -26,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Sensor
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

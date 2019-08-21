@@ -1,15 +1,10 @@
 ---
-layout: page
 title: "ESPHome"
 description: "Support for ESPHome devices using the native ESPHome API."
-date: 2018-12-16 14:20
-sidebar: true
-comments: false
-sharing: true
 featured: true
-footer: true
 logo: esphome.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.85
 ha_iot_class: Local Push
 redirect_from:
@@ -20,9 +15,9 @@ redirect_from:
  - /components/switch.esphome/
 ---
 
-This component allows you to connect your [ESPHome](https://esphome.io) devices directly into Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
+This integration allows you to connect your [ESPHome](https://esphome.io) devices directly into Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
-## {% linkable_title Setup the component via the integrations screen %}
+## Setup the integration via the integrations screen
 
 Menu: *Configuration* -> *Integrations*
 

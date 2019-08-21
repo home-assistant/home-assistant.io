@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "RFXtrx Light"
 description: "Instructions on how to integrate RFXtrx lights into Home Assistant."
-date: 2015-10-08 10:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.7.5
 ha_iot_class: Assumed State
 ---
@@ -80,7 +75,7 @@ signal_repetitions:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</p>
+</div>

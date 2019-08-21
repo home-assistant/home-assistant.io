@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LaMetric"
 description: "Instructions on how to integrate LaMetric with Home Assistant."
-date: 2017-04-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lametric.png
 ha_category:
   - Hub
@@ -31,7 +25,7 @@ lametric:
   client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## {% linkable_title Setup Steps %}
+## Setup Steps
 
 LaMetric needs an OAuth2 `client_id` and `client_secret` from the LaMetric developer portal to use it with Home Assistant.
 These are the steps to take:
@@ -48,7 +42,7 @@ These are the steps to take:
 5. Set up some notifications in Home Assistant by following the instructions on the [Lametric Notify](/components/notify.lametric) page.
 6. Save all configuration files and restart Home Assistant.
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `lametric` notification platform allows to send notification to a LaMetric device. It needs the LaMetric platform to be configured first.
 
@@ -90,9 +84,9 @@ priority:
 
 Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration example %}
+### Full configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,7 +99,7 @@ notify:
   priority: info
 ```
 
-### {% linkable_title Changing sounds and icons %}
+### Changing sounds and icons
 
 To add a notification sound, icon, cycles, or priority override, it has to be done via service data.
 
@@ -127,7 +121,7 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
         priority: 'critical'
 ```
 
-### {% linkable_title Only notify specific device %}
+### Only notify specific device
 
 If you have more than one La Metric device, you can specify which will receive the message by adding `target:` to the service data:
 

@@ -1,20 +1,15 @@
 ---
-layout: page
 title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
-date: 2016-05-18 20:32
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.46
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform creates lights that combine components and provides the
+The `template` platform creates lights that combine integrations and provides the
 ability to run scripts or invoke services for each of the on, off, and
 brightness commands of a light.
 
@@ -66,6 +61,10 @@ light:
         required: false
         type: template
         default: optimistic
+      icon_template:
+        description: Defines a template for an icon or picture, e.g. showing a different icon for different states.
+        required: false
+        type: template        
       turn_on:
         description: Defines an action to run when the light is turned on.
         required: true
@@ -80,23 +79,23 @@ light:
         type: action
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
 Template Light may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real-life examples of how to use this light.
 
-### {% linkable_title Theater Volume Control %}
+### Theater Volume Control
 
 This example shows a light that is actually a home theater's volume. This
 component gives you the flexibility to provide whatever you'd like to send as
@@ -113,7 +112,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -138,14 +137,14 @@ light:
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {{ (states.media_player.receiver.attributes.volume_level|float * 255)|int }}
+            {{ (state_attr('media_player.receiver', 'volume_level')|float * 255)|int }}
           {% else %}
             0
           {% endif %}
 ```
 {% endraw %}
 
-### {% linkable_title Change The Icon %}
+### Change The Icon
 
 This example shows how to change the icon based on the light state.
 
@@ -158,7 +157,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -168,7 +167,7 @@ light:
           {% endif %}
         icon_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               mdi:lightbulb-off
             {% else %}
               mdi:lightbulb-on
@@ -189,7 +188,7 @@ light:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Entity Picture %}
+### Change The Entity Picture
 
 This example shows how to change the entity picture based on the light state.
 
@@ -202,7 +201,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -212,7 +211,7 @@ light:
           {% endif %}
         icon_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               /local/lightbulb-off.png
             {% else %}
               /local/lightbulb-on.png

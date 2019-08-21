@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "Buienradar Sensor"
 description: "Instructions on how to integrate buienradar.nl sensor within Home Assistant."
-date: 2017-05-15 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: buienradar.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ---
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
 The selected weather station will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weather station).
 
@@ -37,15 +32,15 @@ name:
   required: false
   type: string
 latitude:
-  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this integration to select a different location for buienradar.nl.
   required: false
   type: float
 longitude:
-  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this integration to select a different location for buienradar.nl.
   required: false
   type: float
 timeframe:
-  description: "Minutes to look ahead for precipitation forecast (min: 5 / max: 120)."
+  description: Minutes to look ahead for precipitation forecast (minimum 5, maximum 120).
   required: false
   default: 60
   type: integer
@@ -56,8 +51,12 @@ monitored_conditions:
   keys:
     stationname:
       description: The name of the selected meteo-station.
+    barometerfc:
+      description: A numeric barametric forecast (1 to 7)
+    barometerfcname:
+      description: "A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)."
     conditioncode:
-      description: A symbol and a unique code identifying the current weather condition ([a..z]).
+      description: "A symbol and a unique code identifying the current weather condition ([a..z])."
     condition:
       description: A symbol and the current weather condition (`clear`, `cloudy`, `fog`, `rainy`, `snowy` or `lightning`).
     conditiondetailed:
@@ -66,6 +65,8 @@ monitored_conditions:
       description: A symbol with the full current weather condition (in English).
     symbol:
       description: A symbol for the current weather with the full current condition (in Dutch).
+    feeltemperature:
+      description: "The current feel temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     humidity:
       description: The relative humidity (%).
     temperature:
@@ -77,7 +78,7 @@ monitored_conditions:
     windforce:
       description: "The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)."
     winddirection:
-      description: "Where the wind is coming from: N (North),Z (south), NO (North-East), etc."
+      description: "Where the wind is coming from: N (North), Z (south), NO (North-East), etc."
     windazimuth:
       description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
     pressure:
@@ -94,6 +95,10 @@ monitored_conditions:
       description: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
     irradiance:
       description: "Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))."
+    rainlast24hour:
+      description: The rail over the last 24 hours (in mm).
+    rainlasthour:
+      description: The rail over the last hour (in mm). 
     temperature_1d:
       description: "The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     mintemp_1d:
@@ -103,11 +108,21 @@ monitored_conditions:
     sunchance_1d:
       description: The forecasted chance for sun (%).
     rain_1d:
-      description: "The forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
+      description: "The forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre); the average of minrain_1d and maxrain_1d."
+    minrain_1d: 
+      description: "The minimum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
+    maxrain_1d:
+      description: "The maximum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
     snow_1d:
       description: "The forecasted amount of snow in [cm](https://en.wikipedia.org/wiki/Centimetre)."
+    windazimuth_1d:
+      description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise. (derived from winddirection_1d)
+    winddirection_1d:
+      description: "Where the wind will be coming from: N (North), Z (south), NO (North-East), etc."
     windforce_1d:
       description: "The expected windforce in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)."
+    windspeed_1d:
+      description: "The expected windspeed in [m/s](https://en.wikipedia.org/wiki/M/s) (derived from windforce_1d)."
     conditioncode_1d:
       description: Symbol and condition code of the expected condition.
     condition_1d:
@@ -120,7 +135,7 @@ monitored_conditions:
       description: Symbol and full expected condition (in Dutch).
 {% endconfiguration %}
 
-## {% linkable_title The `Name` Variable %}
+## The `Name` Variable
 
 If you specify a name, the sensors will get an entity name of `sensor.[name]_[default sensor display name]`, for example:
 
@@ -132,12 +147,12 @@ If no name is specified the sensors will be called `sensor.br_[default sensor di
 - `sensor.br_wind_speed`, since no name has been set for the sensor and the default display name for monitored condition `windspeed` is `Wind speed`.
 - `sensor.br_ground_temperature`, since no name has been set for the sensor and the default display name for monitored condition `groundtemperature` is `Ground Temperature`.
 
-## {% linkable_title Daily forecasts %}
+## Daily forecasts
 
 Conditions above marked with `1d` are daily forecasts. To get forecast for different day, replace the number
 in `_1d` part of the sensor name. Valid values are from `1` to `5`.
 
-## {% linkable_title Configuration examples %}
+## Configuration examples
 
 Full configuration example (excluding forecasted conditions) where location is manually specified:
 
@@ -150,11 +165,14 @@ Full configuration example (excluding forecasted conditions) where location is m
     longitude: 5.70
     monitored_conditions:
       - stationname
+      - barometerfc
+      - barometerfcname
       - conditioncode
       - condition
       - conditiondetailed
       - conditionexact
       - symbol
+      - feeltemperature
       - humidity
       - temperature
       - groundtemperature
@@ -169,6 +187,8 @@ Full configuration example (excluding forecasted conditions) where location is m
       - irradiance
       - precipitation_forecast_average
       - precipitation_forecast_total
+      - rainlast24hour
+      - rainlasthour
 ```
 
 Configuration example with current condition and (some) forecasted values:
@@ -195,21 +215,23 @@ sensor:
       - temperature_3d
       - temperature_4d
       - temperature_5d
+      - mintemp_1d
       - rainchance_1d
       - rainchance_2d
-      - rainchance_3d
-      - rainchance_4d
-      - rainchance_5d
       - sunchance_1d
       - sunchance_2d
-      - sunchance_3d
-      - sunchance_4d
-      - sunchance_5d
       - rain_1d
       - rain_2d
-      - rain_3d
-      - rain_4d
-      - rain_5d
+      - minrain_1d
+      - maxrain_1d
+      - windforce_1d
+      - windforce_2d
+      - windspeed_1d
+      - windspeed_2d
+      - winddirection_1d
+      - winddirection_2d
+      - windazimuth_1d
+      - windazimuth_2d
 ```
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)

@@ -1,15 +1,10 @@
 ---
-layout: page
 title: "Home Assistant Cloud"
 description: "Enable the Home Assistant Cloud integration."
-date: 2017-11-17 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nabu-casa.svg
 ha_release: "0.60"
-ha_category: Voice
+ha_category:
+  - Voice
 ha_iot_class: Cloud Push
 ---
 

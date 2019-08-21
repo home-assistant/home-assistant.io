@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ISY994 Controller"
 description: "Instructions on how to setup the ISY994 controller within Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: universal_devices.png
 ha_category:
   - Hub
@@ -42,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-### {% linkable_title Basic Configuration %}
+### Basic Configuration
 
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.
 
@@ -92,7 +86,7 @@ tls:
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
 
-### {% linkable_title Sensors %}
+### Sensors
 
 An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY994 admin panel. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
@@ -100,7 +94,7 @@ Each Insteon leak sensor will also show up as a single Binary Sensor as opposed 
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
-### {% linkable_title Handling Insteon Control Events %}
+### Handling Insteon Control Events
 
 A Home Assistant `isy994_control` event is emitted for every "control" event in the Insteon network. This allows you to write automations that trigger based on Insteon button presses. You can also trigger off of the unique Insteon events, such as double-presses, long-holds etc.
 
@@ -130,11 +124,11 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 - `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light.
 - `DIM`: "Dim", from controllers that issue a single command to slightly dim a light.
 
-### {% linkable_title Insteon Scenes %}
+### Insteon Scenes
 
 All Insteon scenes configured in the ISY994 will show up as switches in Home Assistant.
 
-### {% linkable_title Creating Custom Devices %}
+### Creating Custom Devices
 
 Using the Programs tab in the controller's Administrative Console, custom devices can be created that will appear natively inside of Home Assistant. Home Assistant will scan the following folders and build the device to the associated domains:
 

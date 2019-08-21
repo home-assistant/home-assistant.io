@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Sonos say script to speak with text-to-speech"
 description: "Sonos say script to use text-to-speech with Sonos"
-date: 2017-01-18 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Sonos say script to speak with text-to-speech %}
+#### Sonos say script to speak with text-to-speech
 
 This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
 
@@ -19,10 +13,10 @@ script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
-     - service: media_player.sonos_snapshot
+     - service: sonos.snapshot
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-     - service: media_player.sonos_unjoin
+     - service: sonos.unjoin
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
      - service: media_player.volume_set
@@ -34,7 +28,7 @@ script:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
          message: {% raw %}"{{ message }}"{% endraw %}
      - delay: {% raw %}"{{ delay }}"{% endraw %}
-     - service: media_player.sonos_restore
+     - service: sonos.restore
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
 ```

@@ -1,25 +1,20 @@
 ---
-layout: page
 title: "RFLink Cover"
 description: "Instructions on how to integrate RFLink Somfy RTS Cover into Home Assistant."
-date: 2017-08-08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.55
 ---
 
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
-### {% linkable_title Setting up a Somfy RTS device %}
+### Setting up a Somfy RTS device
 
 You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows only).
 
@@ -131,11 +126,11 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support).
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple covers with custom names and aliases
 

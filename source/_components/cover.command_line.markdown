@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Command Line Cover"
 description: "How to control a cover with the command line."
-date: 2016-06-28 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.14
 ha_iot_class: Local Polling
 ---
@@ -69,11 +64,11 @@ covers:
           type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry

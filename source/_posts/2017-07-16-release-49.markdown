@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "0.49: Themes 🎨, kiosk mode and Prometheus.io"
 description: "Style the frontend the way you want it and present it in Kiosk mode without tabs."
 date: 2017-07-15 00:02:05 +0000
 date_formatted: "July 15, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.49/components.png
 ---
 
 <a href='/components/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
 
-# {% linkable_title WE HAVE THEMES 🎨👩‍🎨 %}
+# WE HAVE THEMES 🎨👩‍🎨
 
 Our already amazing frontend just got even more amazing thanks to [@andrey-git]. With the new theme support you can be in control of the primary color, accent color and a whole bunch more.
 
@@ -35,7 +33,7 @@ Screenshot of a green dashboard
 
 Not all parts of the user interface are themable yet. Expect improvements in future releases.
 
-## {% linkable_title Kiosk mode %}
+## Kiosk mode
 
 Another great new improvement for the frontend is the addition of a kiosk mode. When the frontend is viewed in kiosk mode, the tab bar will be hidden.
 
@@ -43,7 +41,7 @@ To activate kiosk mode, navigate to `https://hass.example.com:8123/kiosk/group.l
 
 This feature has also been brought to you by [@Andrey-git]! Big shout out to him for his continuous efforts to bring Home Assistant to the next level.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add london_underground ([@robmarkcole] - [#8272]) ([sensor.london_underground docs]) (new-platform)
 - Add citybikes platform ([@aronsky] - [#8202]) ([sensor.citybikes docs]) (new-platform)
@@ -57,7 +55,7 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - Added media_extractor service ([@minchik] - [#8369]) ([media_extractor docs]) (new-platform)
 - Vizio SmartCast support ([@vkorn] - [#8260]) ([media_player.vizio docs]) (new-platform)
 
-## {% linkable_title Release 0.49.1 - July 24 %}
+## Release 0.49.1 - July 24
 
 - Fix TP-Link device tracker regression since 0.49 ([@maikelwever] - [#8497]) ([device_tracker.tplink docs])
 - prometheus: Convert fahrenheit to celsius ([@rcloran] - [#8511]) ([prometheus docs])
@@ -76,14 +74,14 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - ubus: Make multiple instances work again ([@glance-] - [#8571]) ([device_tracker.ubus docs])
 - Properly slugify switch.flux update service name ([@jawilson] - [#8545]) ([switch.flux docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - UPC Connect component no longer needs a password passed into the configuration. ([@Flavien] - [#8335]) ([device_tracker.upc_connect docs]) (breaking change)
 - The Apple TV platform has been upgraded to a component and a remote platform has been added. This requires your Apple TV configuration to be moved to the new `apple_tv` component. ([@postlund] - [#8122]) ([media_player.apple_tv docs]) (breaking change)
@@ -112,7 +110,7 @@ amcrest:
       - ptz_preset
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Version bump to 0.49.0.dev0 ([@fabaff] - [#8266])
 - Upgrade pyowm to 2.7.1 ([@fabaff] - [#8274]) ([sensor.openweathermap docs]) ([weather.openweathermap docs])
@@ -146,7 +144,7 @@ amcrest:
 - Mqtt client_id fix for #8315 ([@heinemml] - [#8366]) ([mqtt docs])
 - Allow all panel urls ([@balloob] - [#8368])
 - Update pyHik to catch XML errors ([@mezz64] - [#8384]) ([binary_sensor.hikvision docs])
-- update version ([@wardcraigj] - [#8380]) ([alarm_control_panel.totalconnect docs])
+- update version ([@craigjmidwinter] - [#8380]) ([alarm_control_panel.totalconnect docs])
 - Add One-Time Password sensor (OTP) ([@postlund] - [#8332]) ([sensor.otp docs]) (new-platform)
 - buienradar==0.7, fix winddirection/azimuth, logging ([@mjj4791] - [#8281]) ([sensor.buienradar docs]) ([weather.buienradar docs])
 - Add component for xiaomi robot vacuum (switch.xiaomi_vacuum) ([@rytilahti] - [#7913]) ([switch.xiaomi_vacuum docs]) (new-platform)
@@ -184,8 +182,8 @@ amcrest:
 - Make gzips reproducible by excluding timestamp ([@armills] - [#8420])
 - Do not overwrite a custom hyperion light name with the hostname of the server. ([@doctorjames] - [#8391]) ([light.hyperion docs])
 - Fixed link to documentation ([@Julius2342] - [#8424]) ([velux docs]) ([scene.velux docs])
-- Fix KeyError (fixes #3721, fixes #7241) ([@fabaff] - [#8428]) ([sensor.uber docs])
-- Use HA lat/long for the start (fixes #3971) ([@fabaff] - [#8429]) ([sensor.uber docs])
+- Fix KeyError (fixes #3721, fixes #7241) ([@fabaff] - [#8428]) (sensor.uber docs)
+- Use HA lat/long for the start (fixes #3971) ([@fabaff] - [#8429]) (sensor.uber docs)
 - bump python-mirobo requirement to support newer firmwares and more ([@rytilahti] - [#8431]) ([switch.xiaomi_vacuum docs])
 - New service `send_magic_packet` with new component `wake_on_lan` ([@azogue] - [#8397]) ([wake_on_lan docs]) (new-platform)
 - Integrate utility functions into restricted Python environment ([@open-homeautomation] - [#8427]) ([python_script docs])
@@ -199,7 +197,7 @@ amcrest:
 - Updated pyvera ([@alanfischer] - [#8437]) ([vera docs])
 - Upgrade phue to 1.0 (fixes #7749) ([@fabaff] - [#8444]) ([light.hue docs])
 - Add effects ([@fabaff] - [#8442]) ([light.mystrom docs])
-- Exclude 'TAXI' product (fixes #8401) ([@fabaff] - [#8438]) ([sensor.uber docs])
+- Exclude 'TAXI' product (fixes #8401) ([@fabaff] - [#8438]) (sensor.uber docs)
 - Switch pyW215 to pypi ([@andrey-git] - [#8445]) ([switch.dlink docs])
 - Vizio SmartCast support ([@vkorn] - [#8260]) ([media_player.vizio docs]) (new-platform)
 - DHT support for humidity and temperature offset ([@gitmopp] - [#8238]) ([sensor.dht docs])
@@ -373,7 +371,7 @@ amcrest:
 [@viswa-swami]: https://github.com/viswa-swami
 [@vkorn]: https://github.com/vkorn
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
 [amcrest docs]: /components/amcrest/
@@ -450,7 +448,6 @@ amcrest:
 [sensor.openweathermap docs]: /components/sensor.openweathermap/
 [sensor.otp docs]: /components/sensor.otp/
 [sensor.rflink docs]: /components/sensor.rflink/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.waqi docs]: /components/sensor.waqi/
 [sensor.yweather docs]: /components/sensor.yweather/
 [sensor.zha docs]: /components/sensor.zha/
@@ -460,7 +457,7 @@ amcrest:
 [switch.modbus docs]: /components/switch.modbus/
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rflink docs]: /components/switch.rflink/
-[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
+[switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
 [tado docs]: /components/tado/
 [tts docs]: /components/tts/
 [tts.amazon_polly docs]: /components/tts.amazon_polly/

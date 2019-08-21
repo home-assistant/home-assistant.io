@@ -1,20 +1,15 @@
 ---
-layout: page
 title: "Alert"
 description: "Instructions on how to setup automatic alerts within Home Assistant."
-date: 2017-01-15 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.38
 ha_qa_scale: internal
 ---
 
-The `alert` component is designed to notify you when problematic issues arise.
-For example, if the garage door is left open, the `alert` component can be used
+The `alert` integration is designed to notify you when problematic issues arise.
+For example, if the garage door is left open, the `alert` integration can be used
 remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
@@ -22,15 +17,10 @@ water leak sensors, or any condition that may need your attention.
 Alerts will add an entity to the front end only when they are firing.
 This entity allows you to silence an alert until it is resolved.
 
-<p class='note warning'>
-When using the `alert` component, it is important that the time zone used for Home Assistant and the underlying operating system match.
-Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` time zone but the operating system uses `UTC`).
-</P>
+### Basic Example
 
-### {% linkable_title Basic Example %}
-
-The `alert` component makes use of any of the `notifications` components. To
-setup the `alert` component, first, you must setup a `notification` component.
+The `alert` integration makes use of any of the `notifications` integrations. To
+setup the `alert` integration, first, you must setup a `notification` integration.
 Then, add the following to your configuration file:
 
 ```yaml
@@ -74,7 +64,7 @@ repeat:
     Number of minutes before the notification should be repeated.
     Can be either a number or a list of numbers.
   required: true
-  type: [int, list]
+  type: [integer, list]
 can_acknowledge:
   description: Allows the alert to be unacknowledgeable.
   required: false
@@ -101,7 +91,7 @@ done_message:
   required: false
   type: template
 notifiers:
-  description: "List of `notification` components to use for alerts."
+  description: "List of `notification` integrations to use for alerts."
   required: true
   type: list
 data:
@@ -147,9 +137,9 @@ alert:
       - john_phone_sms
 ```
 
-### {% linkable_title Complex Alert Criteria %}
+### Complex Alert Criteria
 
-By design, the `alert` component only handles very simple criteria for firing.
+By design, the `alert` integration only handles very simple criteria for firing.
 That is, it only checks if a single entity's state is equal to a value. At some
 point, it may be desirable to have an alert with a more complex criteria.
 Possibly, when a battery percentage falls below a threshold. Maybe you want to
@@ -163,7 +153,7 @@ binary_sensor:
   - platform: template
     sensors:
       motion_battery_low:
-        value_template: '{{ states.sensor.motion.attributes.battery < 15 }}'
+        value_template: '{{ state_attr('sensor.motion', 'battery') < 15 }}'
         friendly_name: 'Motion battery is low'
 
 alert:
@@ -181,7 +171,7 @@ This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
 raises above 15 or the alert is acknowledged on the frontend.
 
-### {% linkable_title Dynamic Notification Delay Times %}
+### Dynamic Notification Delay Times
 
 It may be desirable to have the delays between alert notifications dynamically
 change as the alert continues to fire. This can be done by setting the `repeat`
@@ -212,7 +202,7 @@ following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 
-### {% linkable_title Message Templates %}
+### Message Templates
 
 It may be desirable to have the alert notifications include information
 about the state of the entity. [Templates](/docs/configuration/templating/)
@@ -241,30 +231,7 @@ alert:
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
-The next example uses a template for the alert name.
-
-{% raw %}
-```yaml
-alert:
-  garage_door:
-    name: Garage has been open for {{ relative_time(states.binary_sensor.garage.last_changed) }}
-    done_message: Garage is closed
-    entity_id: binary_sensor.garage
-    state: 'on'
-    repeat:
-      - 30
-      - 60
-      - 120
-    can_acknowledge: true
-    skip_first: true
-    notifiers:
-      - ryans_phone
-```
-{% endraw %}
-
-The resulting title of the alert could be `Garage has been open for 30 min`.
-
-### {% linkable_title Additional parameters for notifiers  %}
+### Additional parameters for notifiers 
 
 Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` parameter:

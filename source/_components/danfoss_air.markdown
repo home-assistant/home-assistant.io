@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Danfoss Air"
 description: "How to integrate Danfoss Air HRV in Home Assistant."
-date: 2019-01-14 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Climate
   - Binary Sensor
@@ -21,9 +15,9 @@ redirect_from:
   - /components/switch.danfoss_air/
 ---
 
-The `danfoss_air` component allows you to access information from your Danfoss Air HRV unit.
+The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.
 
-*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the component will not work while you have the HRV PC-Tool open.
+*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the integration will not work while you have the HRV PC-Tool open.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,13 +38,13 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary sensor %}
+## Binary sensor
 
 The following binary sensor is supported.
 
 - **Bypass active:** Indicator if heat recovery is currrently bypassed.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The following sensors are supported.
 
@@ -58,10 +52,12 @@ The following sensors are supported.
 - **Supply temperature:** Air temperature of the air supplied to the house.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
-- **Remaining filter lifetime:** Reamining filter lifetime measured in percent.
+- **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
 
-## {% linkable_title Switch %}
+## Switch
 
 The following switches are supported.
 
 - **Boost:** Switch to manually activate boost.
+- **Bypass:** Switch to manually activate bypass.
+- **Automatic bypass:** Switch to enable automatic bypass.

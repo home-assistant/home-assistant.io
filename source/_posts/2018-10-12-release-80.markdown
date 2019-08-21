@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.80: Lovelace updates, webhooks, TRÅDFRI switches"
 description: "Hacktoberfest is in full swing and we got a whole boat of new features."
 date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
@@ -29,7 +27,7 @@ Configuring IFTTT via th integrations panel.
 
 On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Honeywell evohome controllers (EU-based) and if you want to control your pool, you can now do that with the new AquaLogic integration.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - GitLab-CI sensor integration addition. ([@DanielWinks] - [#16561]) ([sensor.gitlab_ci docs]) (new-platform)
 - Add support for Opple light ([@jedmeng] - [#16765]) ([light.opple docs]) (new-platform)
@@ -42,7 +40,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 - Add new component fritzbox binary_sensor ([@hthiery] - [#17057]) ([fritzbox docs]) ([binary_sensor.fritzbox docs]) (new-platform)
 - Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
 
-## {% linkable_title Release 0.80.1 - October 15 %}
+## Release 0.80.1 - October 15
 
 - Fix automation editor ([@armills])
 - Fix arm/disarm calls. ([@mbrrg] - [#17381]) ([alarm_control_panel.spc docs])
@@ -63,7 +61,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [hangouts docs]: /components/hangouts/
 [websocket_api docs]: /components/websocket_api/
 
-## {% linkable_title Release 0.80.2 - October 17 %}
+## Release 0.80.2 - October 17
 
 - Lovelace: Fix glance icon not updating
 - Fix: Connection pool of Request object is smaller than optimal value (8) ([@Anonym-tsk] - [#17483]) ([telegram_bot docs])
@@ -84,7 +82,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [sensor.blink docs]: /components/sensor.blink/
 [telegram_bot docs]: /components/telegram_bot/
 
-## {% linkable_title Release 0.80.3 - October 18 %}
+## Release 0.80.3 - October 18
 
 - Update hangups to 0.4.6 and fix Issue #16593 hangouts reconnects. ([@hobbypunk90] - [#17518]) ([hangouts docs])
 - Update to async-upnp-client==0.12.5 ([@StevenLooman] - [#17401]) ([upnp docs]) ([media_player.dlna_dmr docs])
@@ -98,26 +96,26 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@StevenLooman]: https://github.com/StevenLooman
 [@balloob]: https://github.com/balloob
 [@hobbypunk90]: https://github.com/hobbypunk90
-[hangouts docs]: https://www.home-assistant.io/components/hangouts/
-[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
-[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
-[upnp docs]: https://www.home-assistant.io/components/upnp/
+[hangouts docs]: /components/hangouts/
+[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
+[media_player.snapcast docs]: /components/media_player.snapcast/
+[upnp docs]: /components/upnp/
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Add additional Netatmo public data sensors ([@GP8x] - [#16671]) ([netatmo docs]) ([sensor.netatmo_public docs]) (breaking change)
 - Developers only: we have removed all service helpers (like turn_on method in light coponent), as they werent used. ([@cdce8p] - [#16832], [#16879], [#16863], [#16892], [#16920], [#17038], [#17055], [#16917])
@@ -137,7 +135,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber has moved from sensor configuration to component configuration ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
 - A manually configured Hue component will no longer run a discovery. Set up via config entry if you want to rely on discovery.  ([@balloob] - [#17070]) ([hue docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Fix incorrect yaml in hangouts ([@balloob] - [#17169]) (beta fix)
 - Fix data used for logbook ([@balloob] - [#17172]) ([logbook docs]) (beta fix)
@@ -166,7 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix auth for hass.io ([@pvizeli] - [#17318]) ([hassio docs]) (beta fix)
 - Hass.io auth/sso part2 ([@pvizeli] - [#17324]) ([hassio docs]) (beta fix) (new-platform)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add mode (daily/hourly) to darksky ([@randellhodges] - [#16719]) ([weather docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
 - Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs])
@@ -287,7 +285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs])
 - Keep the repeat mode when setting Sonos shuffle mode ([@amelchio] - [#17083]) ([media_player.sonos docs])
 - Smaller steps for Sonos volume up/down ([@amelchio] - [#17080]) ([media_player.sonos docs])
-- Add weather condition code to OpenWeatherMap sensor ([@dbilay] - [#17093]) ([sensor.openweathermap docs])
+- Add weather condition code to OpenWeatherMap sensor ([@dYalib] - [#17093]) ([sensor.openweathermap docs])
 - Adding myself as blink codeowner ([@fronzbot] - [#17096])
 - Change Tile icon to view-grid ([@no2chem] - [#17098]) ([device_tracker docs])
 - Fix jewish calendar sensor with language set to english ([@tsvi] - [#17104]) ([sensor.jewish_calendar docs])
@@ -554,7 +552,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
 [@danielperna84]: https://github.com/danielperna84
-[@dbilay]: https://github.com/dbilay
+[@dYalib]: https://github.com/dYalib
 [@dippysan]: https://github.com/dippysan
 [@emontnemery]: https://github.com/emontnemery
 [@exxamalte]: https://github.com/exxamalte
@@ -695,7 +693,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.miflora docs]: /components/sensor.miflora/
 [sensor.mqtt docs]: /components/sensor.mqtt/
 [sensor.mqtt_room docs]: /components/sensor.mqtt_room/
-[sensor.netatmo_public docs]: /components/sensor.netatmo_public/
+[sensor.netatmo_public docs]: /components/netatmo/#sensor
 [sensor.openweathermap docs]: /components/sensor.openweathermap/
 [sensor.scrape docs]: /components/sensor.scrape/
 [sensor.tibber docs]: /components/sensor.tibber/

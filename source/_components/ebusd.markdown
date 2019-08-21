@@ -1,13 +1,8 @@
 ---
-layout: page
 title: "ebusd"
-description: "The ebusd component allows the integration between eBUS heating system and Home Assistant."
-date: 2018-12-27 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Sensor
+description: "The ebusd integration allows the integration between eBUS heating system and Home Assistant."
+ha_category:
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.88
 redirect_from:
@@ -16,7 +11,7 @@ redirect_from:
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
 
@@ -112,7 +107,7 @@ monitored_conditions:
     Zone1OperativeMode:
       description: Heating circuit operative mode (on/off/day/night).
     ContinuosHeating:
-      description: Continuos heating.
+      description: Continuous heating.
     PowerEnergyConsumptionLastMonth:
       description: Power energy consumption from last month.
     PowerEnergyConsumptionThisMonth:

@@ -1,13 +1,8 @@
 ---
-layout: page
 title: "Light Group"
 description: "Instructions for how to setup light groups within Home Assistant."
-date: 2018-02-23 11:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.65
 ha_iot_class: Local Push
 logo: home-assistant.png
@@ -38,7 +33,7 @@ light:
   entities:
     description: A list of entities to be included in the light group.
     required: true
-    type: string list
+    type: [string, list]
 {% endconfiguration %}
 
 <p class='img'>
@@ -48,7 +43,7 @@ Example of the light group "Kitchen Lights".
 
 The supported features of all lights will be added together. For example, if you have one RGB light in a group of otherwise brightness-only lights, the light group will be shown with a color picker.
 
-## {% linkable_title Script Example %}
+## Script Example
 
 Here's an example of a script using the above light group.
 

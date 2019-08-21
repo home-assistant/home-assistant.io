@@ -1,20 +1,16 @@
 ---
-layout: page
 title: "Samba"
 description: "Manage your Home Assistant and custom add-ons over Samba."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
 This add-on allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Be careful when setting up port forwarding for remote access. If you don't restrict access by setting a username and strong password, your configuration could be exposed to the entire Internet!
-</p>
+
+</div>
 
 ```json
 {

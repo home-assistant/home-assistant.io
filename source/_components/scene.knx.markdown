@@ -1,22 +1,21 @@
 ---
-layout: page
 title: "KNX Scene"
 description: "Instructions on how to integrate KNX Scenes into Home Assistant."
-date: 2018-02-03 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
-ha_category: Scene
+ha_category:
+  - Scene
 ha_release: 0.63
 ---
 
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
+
 The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
-
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX scence in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,11 +30,11 @@ scene:
 
 {% configuration %}
 address:
-  description: KNX group address of the binary sensor.
+  description: KNX group address for the scene.
   required: true
   type: string
 scene_number:
-  description: Zero-indexed KNX scene number to be activated.
+  description: KNX scene number to be activated. ( 1 ... 64 )
   required: true
   type: integer
 name:

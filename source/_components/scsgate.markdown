@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SCSGate"
 description: "Instructions on how to integrate SCSGate into Home Assistant."
-date: 2016-01-31 19:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bus_scs.png
 ha_category:
   - Hub
@@ -21,7 +15,7 @@ redirect_from:
   - /components/switch.scsgate/
 ---
 
-The SCSGate component support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
+The SCSGate integration support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,15 +38,15 @@ device:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title How to find the scs_id for your devices %}
+### How to find the scs_id for your devices
 
-The SCSGate component relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
+The SCSGate integration relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
 
 This module provides also a command line tool called `scs-monitor`. This program can be used to find the IDs of your lights, switches and roller shutters and produce the YAML snippet to insert into your `configuration.yaml` file.
 
 For more information checkout [this](http://scsgate.readthedocs.org/en/latest/?badge=latest#creation-of-a-home-assistant-configuration-file) section of `scsgate`'s documentation.
 
-### {% linkable_title Cover %}
+### Cover
 
 The SCSGate devices can control motorized covers connected to the BTicino MyHome system.
 
@@ -89,11 +83,13 @@ devices:
           type: string
 {% endconfiguration %}
 
-<p class='note'>
-**Known limitation:** It is not possible to know the current state of the cover.
-</p>
+<div class='note'>
 
-### {% linkable_title Light %}
+**Known limitation:** It is not possible to know the current state of the cover.
+
+</div>
+
+### Light
 
 The SCSGate device can control lights of the BTicino MyHome system.
 
@@ -116,7 +112,7 @@ devices:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Switch %}
+### Switch
 
 The SCSGate device can control switches of the BTicino MyHome system.
 

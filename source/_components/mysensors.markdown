@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "MySensors"
 description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_iot_class: Local Push
 ha_release: 0.73
 ---
 
-The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
+The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway by adding the following to your `configuration.yaml` file:
 
@@ -76,7 +71,7 @@ mysensors:
     type: integer
     default: true
   version:
-    description: Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.
+    description: Specifies the MySensors protocol version to use. Supports versions 1.4 to 2.3.
     required: false
     type: string
     default: '1.4'
@@ -92,9 +87,9 @@ mysensors:
     default: true
 {% endconfiguration %}
 
-<p class='note'>
-Not all features of MySensors 2.0 are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
-</p>
+<div class='note'>
+Not all features of MySensors 2.x are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
+</div>
 
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
@@ -109,11 +104,11 @@ mqtt:
   client_id: home-assistant-1
 ```
 
-<p class='note'>
-The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway is supported.
-</p>
+<div class='note'>
+The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
+</div>
 
-### {% linkable_title Extended configuration example %}
+### Extended configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -143,17 +138,17 @@ mysensors:
   version: '2.0'
 ```
 
-### {% linkable_title Presentation %}
+### Presentation
 
 Present a MySensors sensor or actuator, by following these steps:
 
 1. Connect the serial gateway to your computer or the Ethernet or MQTT gateway to your network.
-2. Configure the MySensors component in `configuration.yaml`.
+2. Configure the MySensors integration in `configuration.yaml`.
 3. Start Home Assistant.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
     - Send sketch name.
     - Present the sensor's `S_TYPE`.
-    - Send at least one initial value per `V_TYPE`. In version 2.0 of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
+    - Send at least one initial value per `V_TYPE`. In version 2.x of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
 5. Start the sensor.
 
 ```cpp
@@ -236,17 +231,23 @@ void receive(const MyMessage &message) {
 }
 ```
 
-### {% linkable_title SmartSleep %}
+### SmartSleep
 
 Sending a heartbeat, `I_HEARTBEAT_RESPONSE`, from the MySensors device to Home Assistant, using MySensors version 2.0 - 2.1, activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands. See the MySensors library API for information on how to send heartbeats and sleep the device.
 
 In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE` to signal SmartSleep, to using `I_PRE_SLEEP_NOTIFICATION` and `I_POST_SLEEP_NOTIFICATION`. Home Assistant has been upgraded to support the new message types and will activate SmartSleep when receiving a message of type `I_PRE_SLEEP_NOTIFICATION`, if using MySensors version 2.2.x or higher. If Home Assistant is configured to use MySensors version 2.0 - 2.1 the old SmartSleep behavior is retained.
 
-### {% linkable_title Message validation %}
+### Message validation
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
-If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` component and the `mysensors` package.
+The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g. one required value type for a platform has been received, but other required value types are missing.
+
+Message validation was introduced in version 0.52 of Home Assistant.
+
+### Debug logging
+
+If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our github issue tracker.
 ```yaml
 logger:
   default: info
@@ -254,9 +255,6 @@ logger:
     homeassistant.components.mysensors: debug
     mysensors: debug
 ```
-The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. e.g., the `S_BARO` child type supports both `V_PRESSURE` and `V_FORECAST` value types. If you only send a `V_PRESSURE` value, an `S_BARO` entity with `V_PRESSURE` value will be set up for the sensor platform. However, the log will inform of a sensor platform that failed validation due to missing `V_FORECAST` value type for the `S_BARO` child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
-
-Message validation was introduced in version 0.52 of Home Assistant.
 
 
 Visit the [library API][MySensors library api] of MySensors for more information.

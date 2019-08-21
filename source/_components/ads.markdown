@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ADS"
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
-date: 2017-12-05 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: beckhoff.png
 ha_category:
   - Hub
@@ -14,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Cover
 ha_release: "0.60"
 ha_iot_class: Local Push
 redirect_from:
@@ -31,8 +26,9 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Cover](#cover)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable ADS, add the following lines to your `configuration.yaml` file:
 
@@ -58,9 +54,9 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
-The ADS component will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
+The ADS integration will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
 
 ```json
 {
@@ -76,11 +72,11 @@ Service parameters:
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -100,16 +96,16 @@ name:
   required: false
   type: string
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Light %}
+## Light
 
 The `ads` light platform allows you to control your connecte ADS lights.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -128,18 +124,18 @@ adsvar:
 adsvar_brightness:
   required: false
   description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
-  type: integer
+  type: string
 name:
   required: false
   description: An identifier for the Light in the frontend
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -174,11 +170,11 @@ factor:
 
 The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 if you want to display a fixed decimal value with two decimals. A variable value of `123` will be displayed as `1.23`.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -197,4 +193,57 @@ name:
   required: false
   description: An identifier for the switch in the frontend.
   type: string
+{% endconfiguration %}
+
+## Cover
+
+The `ads` cover platform allows you to control your connected ADS covers.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: ads
+    name: Curtain master bed room
+    adsvar_open: covers.master_bed_room_open
+    adsvar_close: covers.master_bed_room_close
+    adsvar_stop: covers.master_bed_room_stop
+    device_class: curtain
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the boolean variable that returns the current status of the cover (`True` = closed)
+  type: string
+adsvar_position:
+  required: false
+  description: The name of the variable that returns the current cover position, use a byte variable on the PLC side
+  type: string
+adsvar_set_position:
+  required: false
+  description: The name of the variable that sets the new cover position, use a byte variable on the PLC side
+  type: string
+adsvar_open:
+  required: false
+  description: The name of the boolean variable that triggers the cover to open
+  type: string
+adsvar_close:
+  required: false
+  description: The name of the boolean variable that triggers the cover to close
+  type: string
+adsvar_stop:
+  required: false
+  description: The name of the boolean variable that triggers the cover to stop
+  type: string
+name:
+  required: false
+  description: An identifier for the Cover in the frontend
+  type: string
+device_class:
+  required: false
+  description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
+  type: device_class
 {% endconfiguration %}

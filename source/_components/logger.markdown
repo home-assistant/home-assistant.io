@@ -1,22 +1,17 @@
 ---
-layout: page
 title: "Logger"
-description: "Instructions on how to enable the logger component for Home Assistant."
-date: 2015-11-12 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to enable the logger integration for Home Assistant."
 logo: home-assistant.png
-ha_category: "Utility"
+ha_category:
+  - Utility
 ha_qa_scale: internal
 ha_release: 0.8
 ---
 
-The `logger` component lets you define the level of logging activities in Home
+The `logger` integration lets you define the level of logging activities in Home
 Assistant.
 
-To enable the `logger` component in your installation,
+To enable the `logger` integration in your installation,
 add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -32,8 +27,8 @@ components:
 logger:
   default: info
   logs:
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+    homeassistant.components.yamaha: critical
+    custom_components.my_integration: critical
 ```
 
 To ignore all messages lower than critical and log event for specified
@@ -44,29 +39,39 @@ components:
 logger:
   default: critical
   logs:
-    homeassistant.components: info
-    homeassistant.components.rfxtrx: debug
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+    # log level for HA core
+    homeassistant.core: fatal
+    
+    # log level for MQTT integration
+    homeassistant.components.mqtt: warning
+    
+    # log level for SmartThings lights
+    homeassistant.components.smartthings.light: info
+
+    # log level for a custom component
+    custom_components.my_integration: debug
+
+    # log level for the `aiohttp` Python package
+    aiohttp: error
 ```
 
 {% configuration %}
   default:
-    description: Default log level.
+    description: Default log level. See [log_level](#log-levels).
     required: false
-    type: '[log_level](#log-levels)'
+    type: string
     default: debug
   logs:
-    description: List of components and their log level.
+    description: List of integrations and their log level.
     required: false
     type: map
     keys:
       '&lt;component_namespace&gt;':
-        description: Logger namespace of the component.
-        type: '[log_level](#log-levels)'
+        description: Logger namespace of the component. See [log_level](#log-levels).
+        type: string
 {% endconfiguration %}
 
-### {% linkable_title Log Levels %}
+### Log Levels
 
 Possible log severity levels, listed in order from most severe to least severe, are:
 
@@ -79,11 +84,11 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - debug
 - notset
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `set_default_level` %}
+### Service `set_default_level`
 
-You can alter the default log level (for components without a specified log
+You can alter the default log level (for integrations without a specified log
 level) using the service `logger.set_default_level`.
 
 An example call might look like this:
@@ -94,9 +99,9 @@ data:
   level: info
 ```
 
-### {% linkable_title Service `set_level` %}
+### Service `set_level`
 
-You can alter log level for one or several components using the service
+You can alter log level for one or several integrations using the service
 `logger.set_level`. It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:
@@ -104,8 +109,11 @@ An example call might look like this:
 ```yaml
 service: logger.set_level
 data:
-  homeassistant.components: warning
-  homeassistant.components.media_player.yamaha: debug
+  homeassistant.core: fatal
+  homeassistant.components.mqtt: warning
+  homeassistant.components.smartthings.light: info
+  custom_components.my_integration: debug
+  aiohttp: error
 ```
 
 The log information are stored in the

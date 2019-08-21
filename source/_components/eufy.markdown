@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Eufy"
 description: "Instructions on how to integrate Eufy devices into Home Assistant."
-date: 2018-04-09 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: eufy.png
 ha_category:
   - Hub
@@ -19,14 +13,14 @@ redirect_from:
   - /components/switch.eufy/
 ---
 
-The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
+The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Light
 - Switch
 
-Supported devices will be discovered after the `eufy` component is configured:
+Supported devices will be discovered after the `eufy` integration is configured:
 
 ```yaml
 # Example configuration.yaml entry

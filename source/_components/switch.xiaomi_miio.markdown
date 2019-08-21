@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Xiaomi Smart WiFi Socket and Smart Power Strip"
 description: "Instructions on how to integrate your Xiaomi Smart WiFi Socket aka Plug or Xiaomi Smart Power Strip within Home Assistant."
-date: 2017-08-26 10:18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.56
 ---
@@ -17,9 +12,9 @@ The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi
 
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
-## {% linkable_title Features %}
+## Features
 
-### {% linkable_title Xiaomi Smart WiFi Socket %}
+### Xiaomi Smart WiFi Socket
 
 Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`
 
@@ -27,7 +22,7 @@ Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `c
 - Attributes
   - Temperature
 
-### {% linkable_title Xiaomi Chuangmi Plug V1 %}
+### Xiaomi Chuangmi Plug V1
 
 Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`
 
@@ -36,7 +31,7 @@ Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`
 - Attributes
   - Temperature
 
-### {% linkable_title Xiaomi Smart Power Strip %}
+### Xiaomi Smart Power Strip
 
 Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
 
@@ -51,7 +46,7 @@ Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
   - Wifi LED
   - Mode (Power Strip V1 only)
 
-### {% linkable_title Xiaomi Air Conditioning Companion V3 %}
+### Xiaomi Air Conditioning Companion V3
 
 Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
 
@@ -59,7 +54,7 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 * Attributes
   - Load power
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a plug to your installation, add the following to your `configuration.yaml` file:
 
@@ -91,9 +86,9 @@ model:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Platform Services %}
+## Platform Services
 
-### {% linkable_title Service `switch.xiaomi_miio_set_wifi_led_on` %} (Power Strip only)
+### Service `switch.xiaomi_miio_set_wifi_led_on` (Power Strip only)
 
 Turn the wifi led on.
 
@@ -101,7 +96,7 @@ Turn the wifi led on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 
-### {% linkable_title Service `switch.xiaomi_miio_set_wifi_led_off` %} (Power Strip only)
+### Service `switch.xiaomi_miio_set_wifi_led_off` (Power Strip only)
 
 Turn the wifi led off.
 
@@ -109,7 +104,7 @@ Turn the wifi led off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 
-### {% linkable_title Service `switch.xiaomi_miio_set_power_price` %} (Power Strip)
+### Service `switch.xiaomi_miio_set_power_price` (Power Strip)
 
 Set the power price.
 
@@ -118,7 +113,7 @@ Set the power price.
 | `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 | `price`                   |       no | Power price, between 0 and 999.                         |
 
-### {% linkable_title Service `switch.xiaomi_miio_set_power_mode` %} (Power Strip V1 only)
+### Service `switch.xiaomi_miio_set_power_mode` (Power Strip V1 only)
 
 Set the power mode.
 

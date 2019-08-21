@@ -1,36 +1,35 @@
 ---
-layout: page
 title: "Emulated Roku"
 description: "Instructions on how to set up Emulated Roku within Home Assistant."
-date: 2019-01-10 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.86
 ha_iot_class: Local Push
 ---
 
-This component integrates an emulated Roku API into Home Assistant,
+This integration integrates an emulated Roku API into Home Assistant,
 so remotes such as Harmony and Android apps can connect to it through WiFi as if it were a Roku player.
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
 
-<p class='note'>
-Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
-</p>
+<div class='note'>
 
-<p class='note warning'>
-This component opens an unauthenticated API on the host, allowing anything on the local network to access
+Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
+
+</div>
+
+<div class='note warning'>
+
+This integration opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
-</p>
 
-## {% linkable_title Configuration %}
+</div>
 
-The component is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
+## Configuration
+
+The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
 
 If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
 
@@ -52,7 +51,7 @@ listen_port:
   required: true
   type: integer
 host_ip:
-  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
+  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the integration will attempt to determine the IP address on its own.
   required: false
   type: string
 advertise_ip:
@@ -72,9 +71,9 @@ upnp_bind_multicast:
 
 After starting up, you can check if the emulated Roku is reachable at the specified ports on your Home Assistant instance (eg.: `http://192.168.1.101:8060/`).
 
-## {% linkable_title Events %}
+## Events
 
-### {% linkable_title Event `roku_command` %}
+### Event `roku_command`
 
 All Roku commands are sent as `roku_command` events.
 
@@ -88,7 +87,7 @@ Field | Description
 The available keys are listed here:
 [Roku key codes](https://sdkdocs.roku.com/display/sdkdoc/External+Control+API#ExternalControlAPI-KeypressKeyValues)
 
-## {% linkable_title Automations %}
+## Automations
 
 The following is an example implementation of an automation:
 ```yaml
@@ -107,7 +106,7 @@ The following is an example implementation of an automation:
     entity_id: media_player.amplifier
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
 When using Harmony, the app should auto-discover any changes via UPnP discovery (if `name` is unchanged) once it detects that the device is unreachable.

@@ -1,33 +1,36 @@
 ---
-layout: page
 title: "KNX Binary Sensor"
 description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
-date: 2016-07-13 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
+
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
 
-## {% linkable_title Configuration %}
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+## Configuration
+
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   - platform: knx
-    address: '6/0/2'
+    state_address: '6/0/2'
 ```
 
 {% configuration %}
-address:
+state_address:
   description: KNX group address of the binary sensor.
   required: true
   type: string
@@ -35,8 +38,13 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+sync_state:
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  required: false
+  type: boolean
+  default: True
 device_class:
-  description: HASS device class e.g., "motion".
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 significant_bit:
@@ -50,7 +58,7 @@ reset_after:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Automation actions %}
+### Automation actions
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 
@@ -59,7 +67,7 @@ You can also attach actions to binary sensors (e.g., to switch on a light when a
 binary_sensor:
   - platform: knx
     name: Livingroom.3Switch3
-    address: '5/0/26'
+    state_address: '5/0/26'
     automation:
       - counter: 1
         hook: 'on'

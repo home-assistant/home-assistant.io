@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Owlet"
 description: "Instructions on how to integrate Owlet baby monitor into Home Assistant."
-date: 2019-01-19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: owlet.svg
 ha_category:
   - Health
@@ -18,21 +12,21 @@ ha_iot_class: Cloud Polling
 
 [Owlet Care](https://owletcare.com/) baby monitors check your baby's oxygen level and heart rate while sleeping.
 
-Configuring this component will enable tracking of heart rate, oxygen level, motion and base station connection status. Battery status is available as an attribute on oxygen and heart rate sensors.
+Configuring this integration will enable tracking of heart rate, oxygen level, motion and base station connection status. Battery status is available as an attribute on oxygen and heart rate sensors.
 
-This component enables the following platforms automatically:
+This integration enables the following platforms automatically:
 
-#### {% linkable_title Binary Sensors %}
+#### Binary Sensors
 
 - Base Station Status
 - Motion
 
-#### {% linkable_title Sensors %}
+#### Sensors
 
 - Heart rate
 - Oxygen level
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -57,5 +51,5 @@ name:
 {% endconfiguration %}
 
 <p class='warning'>
-The intended purpose of this component is to enable data logging and automations such as battery status updates and charging reminders. This component should not replace the Owlet app nor should it be used for life-critical notifications.
+The intended purpose of this integration is to enable data logging and automations such as battery status updates and charging reminders. This integration should not replace the Owlet app nor should it be used for life-critical notifications.
 </p>

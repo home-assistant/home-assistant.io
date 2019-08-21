@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Help"
 description: "If you need help or have a question..."
-date: 2015-06-25 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 There are various ways to get in touch with the Home Assistant community. It doesn't matter if you have a question, need help, want to request a feature, or just say 'Hi'.
 
-### {% linkable_title Communication channels %}
+### Communication channels
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
@@ -19,7 +13,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
-### {% linkable_title Bugs, Feature requests, and alike %}
+### Bugs, Feature requests, and alike
 
 Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
 
@@ -29,7 +23,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Hass.io](https://github.com/home-assistant/hassio/issues)
 - [Feature requests Home Assistant](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks.)
 
-### {% linkable_title Videos, talks, workshops and alike %}
+### Videos, talks, workshops and alike
 
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
@@ -43,16 +37,17 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Home Assistant - Erweiterungen (Platforms/Components)](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
 - [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
-- [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) ([Slides](https://docs.google.com/presentation/d/1PUnOpeFZxNj4LEjaohGqH_1hOGQGuS5yRHD1ThHr6nk/edit?usp=sharing)) - June 2016
+- [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) (Slides) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
 - [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
-### {% linkable_title Media coverage %}
+### Media coverage
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Magical Smart Home Upgrade Lets Muggles Control Their Homes With a Wand Too](https://gizmodo.com/magical-smart-home-upgrade-lets-muggles-control-their-h-1833941228) - April 2019
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
 - [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018
 - [DINAcon begeistert 200 Teilnehmende und die Award-Gewinner 2018](https://dinacon.ch/wp-content/uploads/sites/4/2018/10/2018-10-19_DINAcon2018_Medienmitteilung.pdf) - October 2018
@@ -73,10 +68,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Smart Home Home Assistant Konfiguration mit YAML](http://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
 - [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
 - [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
-- [Integrating Snips with Home Assistant](https://medium.com/snips-ai/integrating-snips-with-home-assistant-314723645c77) - June 2017
 - [Jupiter Broadcasting - No Privacy Compromise Home Automation](http://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
-- [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017
+- [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
 - [Zammad, Home Assistant and Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
 - [10 open source software tools for developing IoT applications](http://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017

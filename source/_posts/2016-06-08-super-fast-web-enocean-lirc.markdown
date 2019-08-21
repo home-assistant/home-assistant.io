@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify"
 description: "This new release of Home Assistant is lightning fast with the new web stack and progressive web application. On top of that a handful of new components and platforms for EnOcean, LIRC and Osram Lightify support."
 date: 2016-06-08 01:06:00 +0000
 date_formatted: "June 8, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -89,7 +87,7 @@ We released two hotfixes to address some issues that couldn't wait till the next
 [en-switches]: /components/switch.enocean/
 [Feedreader]: /components/feedreader/
 [Flux like switch platform]: /components/switch.flux/
-[Insteon Hub]: /components/insteon_hub/
+[Insteon Hub]: /components/insteon/
 [Kodi]: /components/media_player.kodi/
 [LIRC component]: /components/lirc/
 [Osram Lightify]: /components/light.osramlightify/

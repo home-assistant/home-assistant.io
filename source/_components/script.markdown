@@ -1,19 +1,16 @@
 ---
-layout: page
 title: "Scripts"
 description: "Instructions on how to setup scripts within Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
+The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script integration will create an entity for each script and allow them to be controlled via services.
+
+## Configuration
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
@@ -25,17 +22,58 @@ script:
       # This is Home Assistant Script Syntax
       - service: notify.notify
         data_template:
-          message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
+          message: Current temperature is {% raw %}{{ states('sensor.temperature') }}{% endraw %}
 ```
-<p class='note'>
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters. 
-</p>
+
+<div class='note'>
+
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+
+</div>
+
+{% configuration %}
+alias:
+  description: Friendly name for the script.
+  required: false
+  type: string
+description:
+  description: A description of the script that will be displayed in the Services tab under Developer Tools.
+  required: false
+  default: ''
+  type: string
+fields:
+  description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: A parameter used by this script.
+      type: map
+      keys:
+        description:
+          description: A description of PARAMETER_NAME.
+          type: string
+        example:
+          description: An example value for PARAMETER_NAME.
+          type: string
+sequence:
+  description: The sequence of actions to be performed in the script.
+  required: true
+  type: list
+{% endconfiguration %}
+
+### Full Configuration
 
 ```yaml
 script: 
-  # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
+    description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    fields:
+      minutes:
+        description: 'The amount of time to wait before turning on the living room lights'
+        example: 1
     sequence:
       # This is Home Assistant Script Syntax
       - event: LOGBOOK_ENTRY
@@ -51,14 +89,14 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: 1
+          minutes: {{ minutes }}
       - alias: Living room lights on
         service: light.turn_on
         data:
           entity_id: group.living_room
 ```
 
-### {% linkable_title Passing variables to scripts %}
+### Passing variables to scripts
 
 As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
@@ -104,6 +142,14 @@ Using the variables in the script requires the use of `data_template`:
 # Example configuration.yaml entry
 script:
   notify_pushover:
+    description: 'Send a pushover notification'
+    fields:
+      title:
+        description: 'The title of the notification'
+        example: 'State change'
+      message:
+        description: 'The message content'
+        example: 'The light is on!'
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
@@ -114,7 +160,7 @@ script:
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
 
-### {% linkable_title In the Overview %}
+### In the Overview
 
 Scripts in the Overview panel will be displayed with an **EXECUTE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
 
