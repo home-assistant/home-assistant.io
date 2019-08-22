@@ -27,7 +27,7 @@ network_key:
   type: string
   default: None
 config_path:
-  description: "The path to the Python OpenZWave configuration files.
+  description: The path to the Python OpenZWave configuration files.
   required: false
   type: string
   default: the 'config' that is installed by python-openzwave
