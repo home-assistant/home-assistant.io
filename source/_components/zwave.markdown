@@ -83,10 +83,10 @@ automation:
       - platform: time
         at: "20:00:00"
     action:
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          operation_mode: Heat
+          hvac_mode: Heat
       - service: climate.set_temperature
         data:
           entity_id: climate.remotec_zxt120_heating_1_39
@@ -102,10 +102,10 @@ automation:
       - platform: time
         at: "21:00:00"
     action:
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          operation_mode: 'Off'
+          hvac_mode: 'Off'
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.
@@ -117,7 +117,7 @@ A simple way to test if your Z-Wave climate device is working is to use <img src
 ```json
 {
   "entity_id": "climate.remotec_zxt120_heating_1_id",
-  "operation_mode": "Heat"
+  "hvac_mode": "Heat"
 }
 ```
 

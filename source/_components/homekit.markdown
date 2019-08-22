@@ -248,7 +248,7 @@ In some cases it might be desirable to check that all entities are available bef
 ```yaml
 # Example checking specific entities to be available before start
 homekit:
-  auto_start: False
+  auto_start: false
 
 automation:
   - alias: 'Start HomeKit'

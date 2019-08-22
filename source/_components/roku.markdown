@@ -30,8 +30,8 @@ roku:
 
 {% configuration %}
 host:
-  description: Set the IP address of the Roku device. Use only if you don't want to autodiscover devices.
-  required: false
+  description: Set the IP address of the Roku device.
+  required: true
   type: string
 {% endconfiguration %}
 

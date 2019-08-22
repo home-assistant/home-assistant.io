@@ -57,33 +57,32 @@ Replace x.y.z with the desired version like `--version=0.74.2`
 You can get a better description of the CLI capabilities by typing `hassio help`:
 
 ```bash
-NAME:
-   hassio - Commandline tool to allow interaction with hass.io
+Usage:
+  hassio [command]
 
-USAGE:
-   hassio [global options] command [command options] [arguments...]
+Available Commands:
+  addons        Install, update, remove and configure Hass.io add-ons
+  dns           Get information, update or configure the Hass.io DNS server
+  hardware      Provides hardware information about your system
+  hassos        HassOS specific for updating, info and configuration imports
+  help          Help about any command
+  homeassistant Provides control of Home Assistant running on Hass.io
+  host          Control the host/system that Hass.io is running on
+  info          Provides a general Hass.io information overview
+  snapshots     Create, restore and remove snapshot backups
+  supervisor    Monitor, control and configure the Hass.io Supervisor
 
-VERSION:
-   1.3.1
+Flags:
+      --api-token string   Hass.io API token
+      --config string      Optional config file (default is $HOME/.homeassistant.yaml)
+      --endpoint string    Endpoint for Hass.io Supervisor ( default is 'hassio' )
+  -h, --help               help for hassio
+      --log-level string   Log level (defaults to Warn)
+      --no-progress        Disable the progress spinner
+      --raw-json           Output raw JSON from the API
 
-AUTHOR:
-   Home-Assistant <hello@home-assistant.io>
+Use "hassio [command] --help" for more information about a command.
 
-COMMANDS:
-     homeassistant, ha  info, logs, check, restart, start, stop, update
-     supervisor, su     info, logs, reload, update
-     host, ho           reboot, shutdown, update
-     hardware, hw       info, audio
-     network, ne        info, options
-     snapshots, sn      list, info, reload, new, restore, remove
-     addons, ad         list, info, logo, changelog, logs, stats,
- reload, start, stop, install, uninstall, update
-     help, h  Shows a list of commands or help for one command
-
-GLOBAL OPTIONS:
-   --debug, -d    Prints Debug information
-   --help, -h     show help
-   --version, -v  print the version
 ```
 
 ## Console access

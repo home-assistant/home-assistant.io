@@ -168,7 +168,7 @@ automation:
 
 ### Service `climate.set_swing_mode`
 
-Set operation mode for climate device
+Set swing operation mode for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -4541,7 +4541,7 @@ This page contains a list of people who have contributed in one way or another t
 - [jaminh (@jaminh)](https://github.com/jaminh "1 total commits to the Home Assistant orga:
 1 commit to open-zwave
 ")
-- [JammyDodger231 (@JammyDodger231)](https://github.com/JammyDodger231 "6 total commits to the Home Assistant orga:
+- [JamesMcClelland (@JamesMcClelland)](https://github.com/JamesMcClelland "6 total commits to the Home Assistant orga:
 6 commits to home-assistant.io
 ")
 - [Jan Almeroth (@jalmeroth)](https://github.com/jalmeroth "8 total commits to the Home Assistant orga:
@@ -7698,7 +7698,7 @@ This page contains a list of people who have contributed in one way or another t
 12 commits to home-assistant
 9 commits to home-assistant.io
 ")
-- [Nick Zelei (@zelein)](https://github.com/zelein "1 total commits to the Home Assistant orga:
+- [Nick Zelei (@nickzelei)](https://github.com/nickzelei "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Nicko van Someren (@nickovs)](https://github.com/nickovs "9 total commits to the Home Assistant orga:
@@ -8350,7 +8350,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Peter Tisovčík (@mienkofax)](https://github.com/mienkofax "1 total commits to the Home Assistant orga:
 1 commit to open-zwave
 ")
-- [Peter Weidenkaff (@hansgans)](https://github.com/hansgans "1 total commits to the Home Assistant orga:
+- [Peter Weidenkaff (@weidenka)](https://github.com/weidenka "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Peter Zsak (@wroadd)](https://github.com/wroadd "1 total commits to the Home Assistant orga:

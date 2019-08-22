@@ -229,7 +229,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always set latest pin ([@balloob] - [#23328]) ([cloud docs]) (beta fix)
 - Add sensor and binary senseor to default expose ([@balloob] - [#23332]) ([google_assistant docs]) (beta fix)
 - Support unicode in configuration migration ([@awarecan] - [#23335]) (beta fix)
-- Remove ghost folder ([@awarecan] - [#23350]) (aws_lambda docs) ([aws_sns docs]) ([aws_sqs docs]) (beta fix)
+- Remove ghost folder ([@awarecan] - [#23350]) (aws_lambda docs) (aws_sns docs) (aws_sqs docs) (beta fix)
 
 ## All changes
 
@@ -301,7 +301,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Google Assistant: Add support for open/close binary sensors ([@balloob] - [#22674]) ([binary_sensor docs]) ([google_assistant docs])
 - Update light/services.yaml ([@emontnemery] - [#22662])
 - Fix connection loss issues for Harmony ([@ehendrix23] - [#22687]) ([harmony docs])
-- Remove aws_* notify platforms ([@awarecan] - [#22698]) (aws_lambda docs) ([aws_sns docs]) ([aws_sqs docs])
+- Remove aws_* notify platforms ([@awarecan] - [#22698]) (aws_lambda docs) (aws_sns docs) (aws_sqs docs)
 - Add manifests ([@balloob] - [#22699])
 - Add a .codecov.yml to control coverage statuses and enable notifications ([@robbiet480] - [#22707])
 - Raise ConfigEntryNotReady for MQTT connection exception ([@aav7fl] - [#22540])
@@ -542,7 +542,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always set latest pin ([@balloob] - [#23328]) ([cloud docs]) (beta fix)
 - Add sensor and binary senseor to default expose ([@balloob] - [#23332]) ([google_assistant docs]) (beta fix)
 - Support unicode in configuration migration ([@awarecan] - [#23335]) (beta fix)
-- Remove ghost folder ([@awarecan] - [#23350]) (aws_lambda docs) ([aws_sns docs]) ([aws_sqs docs]) (beta fix)
+- Remove ghost folder ([@awarecan] - [#23350]) (aws_lambda docs) (aws_sns docs) (aws_sqs docs) (beta fix)
 
 [#19590]: https://github.com/home-assistant/home-assistant/pull/19590
 [#20256]: https://github.com/home-assistant/home-assistant/pull/20256
@@ -966,8 +966,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /components/automation/
 [awair docs]: /components/awair/
 [aws docs]: /components/aws/
-[aws_sns docs]: /components/aws_sns/
-[aws_sqs docs]: /components/aws_sqs/
 [axis docs]: /components/axis/
 [binary_sensor docs]: /components/binary_sensor/
 [bloomsky docs]: /components/bloomsky/
