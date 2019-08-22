@@ -3,8 +3,8 @@ source "https://rubygems.org"
 ruby "> 2.5.0"
 
 group :development do
-  gem 'rake', '12.3.2'
-  gem 'jekyll', '3.8.6'
+  gem 'rake', '12.3.3'
+  gem 'jekyll', '4.0.0'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.5'
@@ -18,5 +18,5 @@ group :jekyll_plugins do
   gem 'jekyll-commonmark-ghpages', '0.1.6'
 end
 
-gem 'sinatra', '2.0.5'
-gem 'nokogiri', '1.10.4'
+gem 'sinatra', '2.0.6'
+gem 'nokogiri', '1.10.3'
