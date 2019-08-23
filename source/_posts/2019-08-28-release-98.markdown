@@ -37,6 +37,8 @@ Config entries also work great with people who prefer configuration.yaml. At sta
 
 With this release [@kane610] added a new possibility for integrations to offer options in the UI. Options that previously required you to edit configuration.yaml can now be offered via the interface.
 
+This release adds config entry options to [Deconz][deconz docs] and [Unifi][unifi docs] integrations with many more to come.
+
 <p class='img'>
 <img src='/images/blog/2019-08-0.98/options_flow.png' alt='Screenshot of Unifi config options.'>
 Screenshot of Unifi config options
