@@ -44,7 +44,7 @@ This release adds config entry options to [Deconz][deconz docs] and [Unifi][unif
 Screenshot of Unifi config options
 </p>
 
-## Alerts
+## Home Assistant Alerts
 
 Devices and services can receive updates that can cause integrations to break. This is frustrating and sometimes the cause can be hard to track down. Usually the users on forums/chat are aware and can help redirect people in the right direction, but that's not a scalable solution!
 
