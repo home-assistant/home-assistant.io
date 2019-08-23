@@ -42,6 +42,26 @@ With this release [@kane610] added a new possibility for integrations to offer o
 Screenshot of Unifi config options
 </p>
 
+## Docker base image change
+
+If you run Home Assistant via Docker (not Hass.io) and are using the `homeassistant/home-assistant` container, the images are now using the same images as hass.io, which are using Alpine Linux instead of Debian.
+
+The hass.io images are a third of the size of the old images and are heavily optimized thanks to the hard work by [@pvizeli].
+
+This change will only impact you if you were extending or customizing the image with Debian packages. If you want to continue to use the Debian based images, you can find the Dockerfile for the old images [here](https://github.com/home-assistant/home-assistant/blob/0.97.2/Dockerfile).
+
+For more background on this decision, see [ADR-006](https://github.com/home-assistant/architecture/blob/master/adr/0006-docker-images.md).
+
+## Webscraping
+
+With this release we have deprecated integrations that rely on webscraping. These will be removed from Home Assistant in a future release. Our [scrape](/components/scrape/) integration will remain part of Home Assistant.
+
+Webscraping is fragile, breaks often requires frequent updates and there have been occassions where websites have banned our users.
+
+Users that rely on these integrations can continue using them as custom components.
+
+For more background on this decision, see [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
 ## In Other News
 
 [Mason Made](https://www.youtube.com/channel/UCI_ONUzb4QCVuR57IL7C8rw) created a great video walking through her Lovelace UI with a fancy custom sidebar. Check it out:
