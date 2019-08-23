@@ -9,7 +9,7 @@ sharing: true
 footer: true
 featured: false
 ha_category: Weather
-ha_release: 0.98
+ha_release: 0.99
 ha_iot_class: Cloud Polling
 ---
 
