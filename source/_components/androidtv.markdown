@@ -261,7 +261,7 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 The `state_detection_rules` configuration parameter allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
-* `'standby'`, `'playing'`, `'paused'`, `'idle'`, `'stopped'`, or `'off'`
+* `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
   * If this is not a map, then this state will always be reported when this app is the current app
   * If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
     1. ``'media_session_state'``
