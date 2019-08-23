@@ -44,6 +44,14 @@ This release adds config entry options to [Deconz][deconz docs] and [Unifi][unif
 Screenshot of Unifi config options
 </p>
 
+## Alerts
+
+Devices and services can receive updates that can cause integrations to break. This is frustrating and sometimes the cause can be hard to track down. Usually the users on forums/chat are aware and can help redirect people in the right direction, but that's not a scalable solution!
+
+So to combat this, we're launching [Home Assistant Alerts](https://alerts.home-assistant.io/). Home Assistant Alerts is a website that will track known issues and explains in user friendly language what is going on. Alerts can be tagged with applicable Home Assistant versions, integrations and Python packages.
+
+In the future we're planning on integrating this directly in Home Assistant, so that users can be pro-actively notified of issue related to their configuration.
+
 ## Docker base image change
 
 If you run Home Assistant via Docker (not Hass.io) and are using the `homeassistant/home-assistant` container, the images are now using the same images as hass.io, which are using Alpine Linux instead of Debian.
@@ -63,14 +71,6 @@ Webscraping is fragile, breaks often requires frequent updates and there have be
 Users that rely on these integrations can continue using them as custom components.
 
 For more background on this decision, see [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
-
-## Alerts
-
-Devices and services can receive updates that can cause integrations to break. This is frustrating and sometimes the cause can be hard to track down. Usually the users on forums/chat are aware and can help redirect people in the right direction, but that's not a scalable solution!
-
-So to combat this, we're launching [Home Assistant Alerts](https://alerts.home-assistant.io/). Home Assistant Alerts is a website that will track known issues and explains in user friendly language what is going on. Alerts can be tagged with applicable Home Assistant versions, integrations and Python packages.
-
-In the future we're planning on integrating this directly in Home Assistant, so that we can pro-actively notify users when an issue related to their configuration pops up.
 
 ## In Other News
 
