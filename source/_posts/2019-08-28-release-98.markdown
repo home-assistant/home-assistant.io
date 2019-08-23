@@ -44,11 +44,19 @@ Screenshot of Unifi config options
 
 ## In Other News
 
-Mason Made created a great video walking through her Lovelace UI with a fancy custom sidebar. Check it out:
+[Mason Made](https://www.youtube.com/channel/UCI_ONUzb4QCVuR57IL7C8rw) created a great video walking through her Lovelace UI with a fancy custom sidebar. Check it out:
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/MUrD0CrU-vQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+
+Reddit user [Skyfox2k](https://www.reddit.com/user/Skyfox2k) has built [a batcave for his robo vacuum](https://www.reddit.com/r/homeautomation/comments/ctnq54/it_works_hidden_alexa_routines_powered_zone/). Once the vacuum starts, Home Assistant will open the door and the vacuum can come out to clean!
+
+
+<p class='img'>
+<a href="https://www.reddit.com/r/homeautomation/comments/ctnq54/it_works_hidden_alexa_routines_powered_zone/"><img src='/images/blog/2019-08-0.98/batcave.png' alt='Photo of a robovacuum driving out of a tiny hole in the wall.'></a>
+Screencap of the batcave video.
+</p>
 
 ## New Integrations
 
