@@ -30,16 +30,22 @@ password:
   description: Your password for the ViCare App
   required: true
   type: string
+name:
+  description: The friendly_name for the climate devices, will be appended with *Heating* or *Water*
+  required: false
+  default: ViCare
+  type: string
 circuit:
   description: Heating circuit of your heating device if multiple exist 
   required: false
-  default: defaults to the first heating circuit of your installation
+  default: -1
   type: integer
 {% endconfiguration %}
 
 This component opens a TCP connection with the ViCare API to receive temperature and status updates, and to issue commands.
 
 Two climate components will be created: `climate.vicare_heating` and `climate.vicare_water` (for domestic hot water).
+Unless you specify a `circuit` parameter it will pick up the first heating circuit of your installation.
 
 It is not possible to turn on/off water heating via the climate.vicare_water component since this would conflict with the operation modes of the heating component. Therefore the hvac modes of that component are *information only* and only the temperature can be set.
 
