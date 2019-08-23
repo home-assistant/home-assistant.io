@@ -64,6 +64,14 @@ Users that rely on these integrations can continue using them as custom componen
 
 For more background on this decision, see [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
 
+## Alerts
+
+Devices and services can receive updates that can cause integrations to break. This is frustrating and sometimes the cause can be hard to track down. Usually the users on forums/chat are aware and can help redirect people in the right direction, but that's not a scalable solution!
+
+So to combat this, we're launching [Home Assistant Alerts](https://alerts.home-assistant.io/). Home Assistant Alerts is a website that will track known issues and explains in user friendly language what is going on. Alerts can be tagged with applicable Home Assistant versions, integrations and Python packages.
+
+In the future we're planning on integrating this directly in Home Assistant, so that we can pro-actively notify users when an issue related to their configuration pops up.
+
 ## In Other News
 
 [Mason Made](https://www.youtube.com/channel/UCI_ONUzb4QCVuR57IL7C8rw) created a great video walking through her Lovelace UI with a fancy custom sidebar. Check it out:
