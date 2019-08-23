@@ -13,6 +13,43 @@ og_image: /images/blog/2019-08-0.98/components.png
 
 <a href='/components/#version/0.98'><img src='/images/blog/2019-08-0.98/components.png' style='border: 0;box-shadow: none;'></a>
 
+It's time for the 0.98 release. As Home Assistant grows, some features will sometimes be left partially implemented, leaving things to be desired. In this release we've been focusing on tieing up these loose ends, sometimes with new features. Getting better all the time!
+
+## Entity Management
+
+One of the things that we've been improving in this release is entity management. Historically we've let this up to integrations, but that caused users to learn multiple ways and more work for integration developers.
+
+Generally entity management is not that important, you want all the entities created by your integrations! However this was less the case when we started migrating over device trackers. This became clear when we migrated over Unifi.
+
+So in this release we're introducing a couple of new features that are available for all entities in the entity registry and integrations that are set up via config entries.
+
+The first feature is that it's now possible to disable entities. If an entity is disabled, it will not be added to Home Assistant when an integration adds it. So now it will be easy to manage which entities will show up. This option is accessible from the entity registry
+
+The second feature is a new option to automatically disable any new entities that an integration discovers. In the case of a device tracker, newly connected devices to the network won't be added anymore. This option is accessible from the config entry page.
+
+With these two features we are now at feature parity with the filtering features that are available in the device tracker integration. Next step will be polishing of the person integration to get all those shiny new device tracker entities under one roof.
+
+## Config Entry Options
+
+We introduced config entries last year as our way as a generic way for integrations to store authentication and configuration. By allowing integrations to define the storage format, there are no more breaking changes for anything stored inside config entries!
+
+Config entries also work great with people who prefer configuration.yaml. At startup a config entry is created/updated with the configuration.
+
+With this release [@kane610] added a new possibility for integrations to offer options in the UI. Options that previously required you to edit configuration.yaml can now be offered via the interface.
+
+<p class='img'>
+<img src='/images/blog/2019-08-0.98/options_flow.png' alt='Screenshot of Unifi config options.'>
+Screenshot of Unifi config options
+</p>
+
+## In Other News
+
+Mason Made created a great video walking through her Lovelace UI with a fancy custom sidebar. Check it out:
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/MUrD0CrU-vQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
 ## New Integrations
 
 - Add Plugwise component ([@CoMPaTech] - [#25533]) ([plugwise docs]) (new-integration)
@@ -55,6 +92,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Sonos playlists play media ([@ahertz] - [#26054]) ([sonos docs]) (breaking change)
 - Remove the googlehome integration ([@ludeeus] - [#26035]) ([googlehome docs]) (breaking change)
 - Statistics sensors repect given name ([@frenck] - [#26119]) ([statistics docs]) (breaking change)
+- Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
+
+## Beta Fixes
+
+- Load user-provided descriptions for python_scripts ([@JeffLIrion] - [#26069]) ([python_script docs]) (beta fix)
+- Splitt device_state_attributes between device and group for Homematic IP Cloud ([@SukramJ] - [#26137]) ([homematicip_cloud docs]) (beta fix)
+- Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
+- Log warning if disabled entities receive updates. ([@balloob] - [#26143]) (beta fix)
+- Fix tuya switch state ([@PaulAnnekov] - [#26145]) ([tuya docs]) (beta fix)
 
 ## All changes
 
@@ -233,6 +279,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add descriptive fields to script config ([@JeffLIrion] - [#26056]) ([script docs])
 - Fix tests leaving files behind ([@balloob] - [#26121])
 - Statistics sensors repect given name ([@frenck] - [#26119]) ([statistics docs]) (breaking change)
+- Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#26128])
+- Load user-provided descriptions for python_scripts ([@JeffLIrion] - [#26069]) ([python_script docs]) (beta fix)
+- Splitt device_state_attributes between device and group for Homematic IP Cloud ([@SukramJ] - [#26137]) ([homematicip_cloud docs]) (beta fix)
+- Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
+- Log warning if disabled entities receive updates. ([@balloob] - [#26143]) (beta fix)
+- Fix tuya switch state ([@PaulAnnekov] - [#26145]) ([tuya docs]) (beta fix)
 
 [#22664]: https://github.com/home-assistant/home-assistant/pull/22664
 [#23567]: https://github.com/home-assistant/home-assistant/pull/23567
@@ -385,6 +437,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#26065]: https://github.com/home-assistant/home-assistant/pull/26065
 [#26066]: https://github.com/home-assistant/home-assistant/pull/26066
 [#26068]: https://github.com/home-assistant/home-assistant/pull/26068
+[#26069]: https://github.com/home-assistant/home-assistant/pull/26069
 [#26075]: https://github.com/home-assistant/home-assistant/pull/26075
 [#26077]: https://github.com/home-assistant/home-assistant/pull/26077
 [#26082]: https://github.com/home-assistant/home-assistant/pull/26082
@@ -409,6 +462,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#26117]: https://github.com/home-assistant/home-assistant/pull/26117
 [#26119]: https://github.com/home-assistant/home-assistant/pull/26119
 [#26121]: https://github.com/home-assistant/home-assistant/pull/26121
+[#26128]: https://github.com/home-assistant/home-assistant/pull/26128
+[#26137]: https://github.com/home-assistant/home-assistant/pull/26137
+[#26139]: https://github.com/home-assistant/home-assistant/pull/26139
+[#26143]: https://github.com/home-assistant/home-assistant/pull/26143
+[#26145]: https://github.com/home-assistant/home-assistant/pull/26145
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -419,6 +477,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KptnKMan]: https://github.com/KptnKMan
 [@MatsNl]: https://github.com/MatsNl
 [@OliverRepo]: https://github.com/OliverRepo
+[@PaulAnnekov]: https://github.com/PaulAnnekov
 [@Quentame]: https://github.com/Quentame
 [@Santobert]: https://github.com/Santobert
 [@SukramJ]: https://github.com/SukramJ
@@ -445,6 +504,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@eyager1]: https://github.com/eyager1
 [@fabaff]: https://github.com/fabaff
 [@farmio]: https://github.com/farmio
+[@filcole]: https://github.com/filcole
 [@flebourse]: https://github.com/flebourse
 [@fredrike]: https://github.com/fredrike
 [@frenck]: https://github.com/frenck
@@ -540,6 +600,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [modbus docs]: /components/modbus/
 [mqtt docs]: /components/mqtt/
 [netgear_lte docs]: /components/netgear_lte/
+[nissan_leaf docs]: /components/nissan_leaf/
 [opencv docs]: /components/opencv/
 [opentherm_gw docs]: /components/opentherm_gw/
 [pi_hole docs]: /components/pi_hole/
@@ -578,6 +639,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tile docs]: /components/tile/
 [traccar docs]: /components/traccar/
 [trend docs]: /components/trend/
+[tuya docs]: /components/tuya/
 [twentemilieu docs]: /components/twentemilieu/
 [unifi docs]: /components/unifi/
 [updater docs]: /components/updater/
