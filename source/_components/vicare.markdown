@@ -3,12 +3,12 @@ title: "Viessmann climate controller"
 description: "Instructions how to integrate Viessmann heating devices with Home Assistant"
 logo: viessmann.png
 ha_category: Climate
-ha_release: 0.97
+ha_release: 0.99
 ha_iot_class: Cloud Push
 ---
 
 The `ViCare` climate platform lets you control [Viessmann](https://www.viessmann.com) devices via the ViCare cloud.
-All Viessmann gas boilers with WiFi or Ethernet connection should be supported.
+All Viessmann heating devices (e.g. gas boilers) th WiFi or Ethernet connection should be supported.
 
 ## Configuration
 
@@ -17,8 +17,8 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 climate:
   - platform: vicare
-    username: [VICARE_EMAIL]
-    password: [VICARE_PASSWORD]
+    username: VICARE_EMAIL
+    password: VICARE_PASSWORD
 ```
 
 {% configuration %}
@@ -30,23 +30,70 @@ password:
   description: Your password for the ViCare App
   required: true
   type: string
+circuit:
+  description: Heating circuit of your heating device if multiple exist 
+  required: false
+  default: defaults to the first heating circuit of your installation
+  type: integer
 {% endconfiguration %}
 
 This component opens a TCP connection with the ViCare API to receive temperature and status updates, and to issue commands.
 
-Two climate components will be created: climate.vicare_heating and climate.vicare_water (for domestic hot water).
+Two climate components will be created: `climate.vicare_heating` and `climate.vicare_water` (for domestic hot water).
 
-The climate.vicare_heating component has the following mapping of hvac modes to Viessmann operation modes:
- - HVAC_OFF - ForcedReduced
- - HVAC_AUTO - DHWandHeating
- - HVAC_HEAT - ForcedNormal
-The presets eco and comfort are a 1:1 mapping to the respective Viessmann programs.
+It is not possible to turn on/off water heating via the climate.vicare_water component since this would conflict with the operation modes of the heating component. Therefore the hvac modes of that component are *information only* and only the temperature can be set.
 
-It is not possible to turn on/off water heating via the climate.vicare_water component since this would conflict with the operation modes of the heating component. Therefore the hvac modes are *information only* and only the temperature can be set.
+## Supported services `climate.vicare_heating`
 
-### Supported services
+The following services of the [Climate component](/components/climate/) are provided by the Vicare Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
 
-Available services:
+### Service `set_temperature`
 
-- `climate.set_temperature`
-- `climate.set_hvac_mode`
+Sets the target temperature to the given temperature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `temperature` | no | Desired target temperature
+
+Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e. Viessman program like eco or comfort).
+
+### Service `climate.set_hvac_mode`
+
+Set HVAC mode for the climate device. The following modes are supported:
+
+The `climate.vicare_heating` component has the following mapping of hvac modes to Viessmann operation modes:
+| HVAC mode | Viessmann mode | Description |
+| ---------------------- | -------- | ----------- |
+| `off` | `ForcedReduced` | Permanently set heating to reduced temperature. Note: This will also deactivate domestic hot water
+| `heat` | `ForcedNormal` | Permanently set heating to normal temperature.
+| `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device 
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `hvac_mode` | no | New value of HVAC mode
+
+### Service `set_preset_mode`
+
+Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only temporary. Please consult your heating device manual for more information.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `hold_mode` | no | New value of hold mode.
+
+## Supported services `climate.vicare_water`
+
+The following services of the [Climate component](/components/climate/) are provided by the Vicare Thermostat: `set_temperature`
+
+### Service `set_temperature`
+
+Sets the target temperature of domestic hot water to the given temperature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `temperature` | no | Desired target temperature
+
+
