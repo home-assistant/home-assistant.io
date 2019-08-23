@@ -25,9 +25,14 @@ So in this release we're introducing a couple of new features that are available
 
 The first feature is that it's now possible to disable entities. If an entity is disabled, it will not be added to Home Assistant when an integration adds it. So now it will be easy to manage which entities will show up. This option is accessible from the entity registry
 
-The second feature is a new option to automatically disable any new entities that an integration discovers. In the case of a device tracker, newly connected devices to the network won't be added anymore. This option is accessible from the config entry page.
+The second feature is a new option to automatically disable any new entities that an integration discovers. In the case of a device tracker, newly connected devices to the network won't be added anymore. This option is accessible from the integration details page via a button on the toolbar at the top.
 
 With these two features we are now at feature parity with the filtering features that are available in the device tracker integration. Next step will be polishing of the person integration to get all those shiny new device tracker entities under one roof.
+
+<p class='img'>
+<img src='/images/blog/2019-08-0.98/system_options.png' alt='Screenshot of integration system options.'>
+Screenshot of integration system options
+</p>
 
 ## Config Entry Options
 
