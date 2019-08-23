@@ -20,11 +20,11 @@ For Fire TV devices, the instructions are as follows:
 
 - Turn on ADB Debugging on your Amazon Fire TV:
   - From the main (Launcher) screen, select Settings.
-  - Select System > Developer Options.
+  - Select My Fire TV > Developer Options.
   - Select ADB Debugging.
 - Find Amazon Fire TV device IP address:
   - From the main (Launcher) screen, select Settings.
-  - Select System > About > Network.
+  - Select My Fire TV > About > Network.
 
 ## Configuration
 
