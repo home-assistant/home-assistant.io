@@ -26,7 +26,7 @@ action:
   - service: media_player.play_media
     data_template:
       entity_id:
-        - media_player.linn_223637
+        - media_player.linn_bedroom
       media_content_id: "http://172.24.32.13/Doorbell.mp3"
       media_content_type: audio/mp4
 ```
@@ -37,7 +37,7 @@ action:
   - service: media_player.play_media
     data_template:
       entity_id:
-        - media_player.linn_223637
+        - media_player.linn_bedroom
       media_content_id: "http://media-ice.musicradio.com:80/ClassicFMMP3"
       media_content_type: audio/mp4
 ```
