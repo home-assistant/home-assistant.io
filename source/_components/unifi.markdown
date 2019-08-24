@@ -54,7 +54,7 @@ site:
   required: true
   default: None
 block_client:
-  description: Clients that can be blocked from the network
+  description: A list of Clients MAC Addresses that can be blocked from the network
   type: list
   required: false
   default: None
@@ -96,7 +96,7 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in `configuration.yaml`
+Allow control of network access to clients configured in `configuration.yaml` by adding a list of the MAC addresses. Items in this list will have a Home Assistant Switch created, using the Unifi Device name, allowing for blocking and unblocking.
 
 ### Control clients powered by POE
 
