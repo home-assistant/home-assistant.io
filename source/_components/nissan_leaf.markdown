@@ -16,7 +16,6 @@ The `nissan_leaf` integration offers integration with the [NissanConnect EV](htt
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control
-* a device tracker to locate the car (only on later Leaf models)
 * services to request updates from the car and to request the car starts charging.
 
 ## Configuration
@@ -43,11 +42,6 @@ region:
   description: The region where the NissanConnect EV account is registered. Should be one of the following, NE (for Europe), NNA (USA), NCI (Canada), NMA (Australia), NML (Japan).
   required: true
   type: string
-nissan_connect:
-  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be acquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
-  required: false
-  type: boolean
-  default: true
 update_interval:
   description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
   required: false
@@ -75,7 +69,6 @@ nissan_leaf:
   username: "YOUR_USERNAME"
   password: "YOUR_PASSWORD"
   region: "YOUR_REGION"
-  nissan_connect: true
   update_interval:
     hours: 1
   update_interval_charging:
@@ -87,7 +80,7 @@ nissan_leaf:
 
 ## Starting a Charge
 
-You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component, except the device_tracker.
+You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component.
 
 ```yaml
 - service: nissan_leaf.start_charge
@@ -125,6 +118,7 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
 * The Nissan APIs do not allow charging to be stopped remotely.
 * The Nissan servers have a history of being unstable, therefore please confirm that the official Nissan Leaf app/website is working correctly before reporting bugs.
 * In the UK the cut-off for Carwings was the 16 plate 24 kWh and the 65 plate 30 kWh. Cars after this have NissanConnect.
+* As of 25 July 2019 the MyCarFinder API is not longer available, hence the device_tracker support has been removed.
 
 Please report bugs using the following logger configuration.
 
@@ -133,7 +127,6 @@ logger:
   default: critical
   logs:
     homeassistant.components.nissan_leaf: debug
-    homeassistant.components.device_tracker.nissan_leaf: debug
     homeassistant.components.sensor.nissan_leaf: debug
     homeassistant.components.switch.nissan_leaf: debug
 ```
