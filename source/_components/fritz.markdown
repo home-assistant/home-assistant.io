@@ -14,11 +14,7 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 ## Setup
 
-### Hass.io
-
-No additional steps are required.
-
-### Docker
+### Hass.io and Docker
 
 No additional steps are required.
 
@@ -41,11 +37,7 @@ Ensure that the following packages, or their equivalent, are installed:
 python3-lxml libxslt-dev libxml2-dev zlib1g-dev
 ```
 
-Activate the venv and then install the `lxml` Python package:
-
-```
-$ pip install lxml
-```
+Activate the venv and then install the `lxml` Python package: `pip install lxml`
 
 ## Configuration
 
