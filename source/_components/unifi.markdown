@@ -44,17 +44,17 @@ unifi:
 
 {% configuration %}
 host:
-  description: Same address as relevant config entry, needed to identify config entry
+  description: Same address as relevant config entry, needed to identify config entry.
   type: string
   required: true
   default: None
 site:
-  description: Same site as relevant config entry, needed to identify config entry
+  description: Same site as relevant config entry, needed to identify config entry.
   type: string
   required: true
   default: None
 block_client:
-  description: Clients that can be blocked from the network
+  description: A list of Clients MAC Addresses that can be blocked from the network.
   type: list
   required: false
   default: None
@@ -96,7 +96,7 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in `configuration.yaml`
+Allow control of network access to clients configured in the `configuration.yaml` file by adding a list of the MAC addresses. Items in this list will have a Home Assistant switch created, using the Unifi Device name, allowing for blocking and unblocking.
 
 ### Control clients powered by POE
 
