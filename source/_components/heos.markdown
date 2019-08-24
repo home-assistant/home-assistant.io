@@ -76,7 +76,7 @@ You can play a HEOS favorite by number or name with the `media_player.play_media
 | Attribute              | Description
 | ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
-| `media_content_type`   | Set to the value `playlist`
+| `media_content_type`   | Set to the value `favorite`
 | `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
 
 #### Play Playlist
@@ -157,4 +157,4 @@ logger:
 If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the service `media_player.play_media` for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
 > IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
 
-To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.
+To resolve this issue, use the `heos.sign_in` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.
