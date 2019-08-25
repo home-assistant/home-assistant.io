@@ -34,6 +34,8 @@ The simplest way to run Glances on Windows without installing python or other c+
 
 [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
 
+Set docker to run in Linux container mode.
+
 [Pull the Glances docker container](https://hub.docker.com/r/nicolargo/glances/) (E.G. `docker pull nicolargo/glances`) 
 
 Run the Glances container in Web server mode I.E
@@ -41,6 +43,9 @@ Run the Glances container in Web server mode I.E
 ```
 docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host docker.io/nicolargo/glances
 ```
+<div class='note'>
+Note: Running Glances in Docker on Windows will make Glances report back on the Linux docker image hard drives and not the Windows system hadr drives.
+</div>
 
 
 ### Test connection
