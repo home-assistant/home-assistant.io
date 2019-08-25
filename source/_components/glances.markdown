@@ -19,7 +19,7 @@ This sensors needs a running instance of `glances` on the device you wish to mon
 
 ### Linux
 
-In Linux simply install via pip `pip install glances` or via one of the other documented install processes listed on [nicolargo/glances](https://github.com/nicolargo/glances#installation)
+Install via pip `pip install glances` or via one of the other documented install processes listed on [nicolargo/glances](https://github.com/nicolargo/glances#installation). Python and pip must be installed if not already part of your Linux distribution. 
 
 Then to start a Glances RESTful API server on its default port 61208, the following command can be used:
 
@@ -29,34 +29,37 @@ Glances web server started on http://0.0.0.0:61208/
 ```
 
 ### Windows
+Tested on Windows Server 2019, Python 3.7.4 32bit, Glances 3.1.
 
-The simplest way to run Glances on Windows without installing python or other c++ dependencies is to use their docker image.
-
-[Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
-
-Set docker to run in Linux container mode.
-
-[Pull the Glances docker container](https://hub.docker.com/r/nicolargo/glances/) (E.G. `docker pull nicolargo/glances`) 
-
-Run the Glances container in Web server mode I.E
-
-```
-docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host docker.io/nicolargo/glances
-```
 <div class='note'>
-Note: Running Glances in Docker on Windows will make Glances report back on the Linux docker image hard drives and not the Windows system hadr drives.
+Note: Glances 3.1.1 exits on running, so downgrade to Glances 3.1
 </div>
+
+#### Install Python
+On the device you wish to monitor, ensure you have Python installed, if not [download](https://www.python.org/downloads/) and install  it. During installation select "Customize installation", in the advanced install options ensure the following are selected: "Install for all users", "Add Python to environment variables", "Precompile standard library", "Download debugging symbols", "Download debug binaries".
+
+#### Install Glances
+
+Open PowerShell or CMD, run command `pip install Glances==3.1`
+
+Then to start a Glances RESTful API server on its default port 61208, the following command can be used:
+
+`glances -w`
 
 
 ### Test connection
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3` (Change api/3 to api/2 if you use Glances 2.x E.G> `http://IP_ADRRESS:61208/api/2`) . Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3` (Change api/3 to api/2 if you use Glances 2.x E.G. `http://IP_ADRRESS:61208/api/2`).
+
+<div class='note'>
+Note: Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+</div>
 
 <div class='note'>
 Note: The webpage `http://IP_ADRRESS:61208/api/3` may simply show a "Error: 404 Not Found" page. This is normal.
 </div>
 
-Test the connection by accessing `http://IP_ADRRESS:61208/api/3/mem` in a web browser, which should return the details about your memory usage as a JSON response. If so, you are good to proceed.
+Test the connection by accessing `http://IP_ADRRESS:61208/api/3/mem` in a web browser, which should return the details about your memory usage as a JSON response. If so, you are good to proceed. If this doesn't work, try changing the `3` for `2`, if you have installed the an older version of Glances (I.E. Glances 2.x).
 
 Alternative you can do the same via a bash command in Linux.
 
@@ -64,8 +67,6 @@ Alternative you can do the same via a bash command in Linux.
 $ curl -X GET http://IP_ADDRESS:61208/api/3/mem
 {"free": 203943936}
 ```
-
-If this doesn't work, try changing the `3` for `2`, if you have installed the an older version of Glances (I.E. Glances 2.x).
 
 To view all avalaible infomation, open `http://IP_ADRRESS:61208/api/3/all/views` in a web browser. Details of the full [The Glances RESTFULL JSON API
 ](https://github.com/nicolargo/glances/wiki/The-Glances-RESTFULL-JSON-API).
