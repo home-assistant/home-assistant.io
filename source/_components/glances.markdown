@@ -89,7 +89,7 @@ To auto-start `glances` in Windows, one option is to use the built in Task Sched
 8. Add start in location to `"YOUR_PYTHON_LOCATION\Scripts"` (E.G. `"C:\Program Files (x86)\Python37-32\Scripts"`)
 9. Click finish. 
 
-Within the Task Scheduler Library, open the newly created task and click the Settings tab, un-check the box for "Stop the task if it runs longer that:". Also check on the General tab that the task is set to "Run whether user is logged on or not".
+Within the Task Scheduler Library, open the newly created task and click the Settings tab, un-check the box for "Stop the task if it runs longer that:". Also check on the General tab that the task is set to "Run whether user is logged on or not". To test the task, right-click on the test and select "run".
 
 ## Configuration
 
