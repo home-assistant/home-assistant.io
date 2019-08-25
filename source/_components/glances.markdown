@@ -70,7 +70,26 @@ $ curl -X GET http://IP_ADDRESS:61208/api/3/mem
 To view all avalaible infomation, open `http://IP_ADRRESS:61208/api/3/all/views` in a web browser. Details of the full [The Glances RESTFULL JSON API
 ](https://github.com/nicolargo/glances/wiki/The-Glances-RESTFULL-JSON-API).
 
+## Auto Start Glances
+
+### Linux
+
 For details about auto-starting `glances` in Linux, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
+
+### Windows
+
+To auto-start `glances` in Windows, one option is to use the built in Task Scheduler.
+1. Open Task Scheduler.
+2. Create a new basic task
+3. Enter a sutable name, such as Glances.
+4. Set the task trigger to start when the computer starts.
+5. Set the action to start a program.
+6. Set the program to `"YOUR_PYTHON_LOCATION\Scripts\glances.exe"` (E.G. `"C:\Program Files (x86)\Python37-32\Scripts\glances.exe"`)
+7. Add arguments `-w` to start webserver
+8. Add start in location to `"YOUR_PYTHON_LOCATION\Scripts"` (E.G. `"C:\Program Files (x86)\Python37-32\Scripts"`)
+9. Click finish. 
+
+Within the Task Scheduler Libary, open the newly created task and click the Settings tab, uncheck the box for "Stop the task if it runs longer that:". Also check on the General tab that the task is set to "Run whether user is logged on or not".
 
 ## Configuration
 
