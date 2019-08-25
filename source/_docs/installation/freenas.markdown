@@ -10,24 +10,24 @@ This has been tested on FreeNAS 11.2 and should also work on FreeBSD 11.x as wel
 Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
 
 ```bash
-# pw groupadd -n homeassistant -g 8123
-# echo 'homeassistant:8123:8123::::::/bin/csh:' | adduser -f -
+pw groupadd -n homeassistant -g 8123
+echo 'homeassistant:8123:8123::::::/bin/csh:' | adduser -f -
 ```
 
 Install the necessary Python packages:
 
 ```bash
-# pkg update
-# pkg upgrade
-# pkg install -y python37 py37-sqlite3 ca_root_nss
-# python3.7 -m ensurepip
+pkg update
+pkg upgrade
+pkg install -y python37 py37-sqlite3 ca_root_nss
+python3.7 -m ensurepip
 ```
 
 Create the configuration directory:
 
 ```bash
-# mkdir -p /usr/local/homeassistant
-# chown -R homeassistant:homeassistant /usr/local/homeassistant
+mkdir -p /usr/local/homeassistant
+chown -R homeassistant:homeassistant /usr/local/homeassistant
 ```
 
 Create the installation directory:
@@ -40,13 +40,13 @@ chown -R homeassistant:homeassistant /usr/local/share/homeassistant
 Install Home Assistant itself:
 
 ```bash
-# su homeassistant
-% cd /usr/local/share/homeassistant
-% virtualenv -p python3.7 .
-% source ./bin/activate.csh
-% pip3 install homeassistant
-% deactivate
-% exit
+su homeassistant
+cd /usr/local/share/homeassistant
+virtualenv -p python3.7 .
+source ./bin/activate.csh
+pip3 install homeassistant
+deactivate
+exit
 ```
 
 Create an `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts. Create a file at `/usr/local/etc/rc.d/homeassistant` with the following contents:
@@ -133,8 +133,8 @@ Make the `rc.d` script executable:
 Configure the service to start on boot and start the Home Assistant service:
 
 ```bash
-# sysrc homeassistant_enable="YES"
-# service homeassistant start
+sysrc homeassistant_enable="YES"
+service homeassistant start
 ```
 
 You can also restart the jail to ensure that Home Assistant starts on boot.
