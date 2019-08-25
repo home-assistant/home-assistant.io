@@ -44,8 +44,8 @@ supported_modes:
       description: Heat mode.
     cool:
       description: Cool mode.
-    auto:
-      description: Auto mode.
+    heat_cool:
+      description: Heat/Cool mode (CoolMasterNet refers to it as Auto).
     dry:
       description: Dry mode.
     fan_only:
