@@ -32,7 +32,7 @@ Glances web server started on http://0.0.0.0:61208/
 Tested on Windows Server 2019, Python 3.7.4 32bit, Glances 3.1.
 
 <div class='note'>
-Note: Glances 3.1.1 exits on running, so downgrade to Glances 3.1
+Note: Glances 3.1.1 exits on running, Glances 3.1 is tested to work. 
 </div>
 
 #### Install Python
@@ -45,7 +45,6 @@ Open PowerShell or CMD, run command `pip install Glances==3.1`
 Then to start a Glances RESTful API server on its default port 61208, the following command can be used:
 
 `glances -w`
-
 
 ### Test connection
 
