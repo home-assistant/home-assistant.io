@@ -62,6 +62,9 @@ $ curl -X GET http://IP_ADDRESS:61208/api/3/mem
 
 If this doesn't work, try changing the `3` for `2`, if you have installed the an older version of Glances (I.E. Glances 2.x).
 
+To view all avalaible infomation, open `http://IP_ADRRESS:61208/api/3/all/views` in a web browser. Details of the full [The Glances RESTFULL JSON API
+](https://github.com/nicolargo/glances/wiki/The-Glances-RESTFULL-JSON-API).
+
 For details about auto-starting `glances` in Linux, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
 ## Configuration
