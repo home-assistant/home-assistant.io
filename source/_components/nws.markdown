@@ -1,13 +1,6 @@
 ---
-layout: page
 title: "NWS"
 description: "Instructions on how to integrate National Weather Service data within Home Assistant."
-date: 2019-05-02 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-featured: false
 ha_category: Weather
 ha_release: 0.99
 ha_iot_class: Cloud Polling
@@ -15,7 +8,7 @@ ha_iot_class: Cloud Polling
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web api as a source for meteorological data for your location.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 
