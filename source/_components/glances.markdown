@@ -15,26 +15,54 @@ The `glances` sensor platform is consuming the system information provided by th
 
 ## Setup
 
-This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
-To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:
+This sensors needs a running instance of `glances` on the device you wish to monitor. The minimal supported version of `glances` is 2.3.
+
+### Linux
+
+In Linux simply install via pip `pip install glances` or via one of the other documented install processes listed on [nicolargo/glances](https://github.com/nicolargo/glances#installation)
+
+Then to start a Glances RESTful API server on its default port 61208, the following command can be used:
 
 ```bash
 $ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/2`. Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+### Windows
 
-The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
+The simplest way to run Glances on Windows without installing python or other c++ dependencies is to use their docker image.
+
+[Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+[Pull the Glances docker container](https://hub.docker.com/r/nicolargo/glances/) (E.G. `docker pull nicolargo/glances`) 
+
+Run the Glances container in Web server mode I.E
+
+```
+docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host docker.io/nicolargo/glances
+```
+
+
+### Test connection
+
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3` (Change api/3 to api/2 if you use Glances 2.x E.G> `http://IP_ADRRESS:61208/api/2`) . Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+
+<div class='note'>
+Note: The webpage `http://IP_ADRRESS:61208/api/3` may simply show a "Error: 404 Not Found" page. This is normal.
+</div>
+
+Test the connection by accessing `http://IP_ADRRESS:61208/api/3/mem` in a web browser, which should return the details about your memory usage as a JSON response. If so, you are good to proceed.
+
+Alternative you can do the same via a bash command in Linux.
 
 ```bash
-$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
+$ curl -X GET http://IP_ADDRESS:61208/api/3/mem
 {"free": 203943936}
 ```
 
-If this doesn't work, try changing the `2` for `3`, if you have installed the latest version of Glances.
+If this doesn't work, try changing the `3` for `2`, if you have installed the an older version of Glances (I.E. Glances 2.x).
 
-For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
+For details about auto-starting `glances` in Linux, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
 ## Configuration
 
