@@ -57,5 +57,5 @@ Note that this example uses the `voicerss` text-to-speech platform. There are ma
 
 If you want to use this TTS engine, change the line in the example provided to:
 ```
-- service: tts.google_say
+- service: tts.google_translate_say
 ```
