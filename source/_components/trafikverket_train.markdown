@@ -92,7 +92,7 @@ Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure
 
 ```yaml
 sensor:
-- platform: trafikverket
+- platform: trafikverket_train
   api_key: !secret trafikverket_api_key
   trains:
   - name: "Train to work"
