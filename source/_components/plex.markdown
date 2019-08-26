@@ -42,9 +42,11 @@ Port:
 Use SSL:
   description: Enable to use HTTPS connections to the server.
   type: boolean
+  default: false
 verify:
   description: Perform a verification of the certificate. Uncheck to allow invalid or self-signed certificates.
   type: boolean
+  default: true
 Token:
   description: Provide if authentication is required. Also known as `X-Plex-Token`.
   type: string
