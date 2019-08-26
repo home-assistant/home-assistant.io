@@ -138,7 +138,7 @@ The Alarm Decoder integration gives you access to several services for you to co
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
 - `alarm_arm_night`: Arms the alarm in instant mode; all faults will trigger the alarm. Additionally, the entry delay is turned off on the doors.
 - `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
-- `alarmdecoder_alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
+- `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
 - `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
 
 <div class='note'>
