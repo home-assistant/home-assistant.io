@@ -153,6 +153,14 @@ trained medical professional.
 
 Perform an on-demand update of OpenUV data.
 
+### `openuv.update_sensor_data`
+
+Perform an on-demand update of OpenUV sensor data, but not the `uv_protection_window`, saving an API call.
+
+### `openuv.update_protection_data`
+
+Perform an on-demand update of OpenUV `uv_protection_window` data, but not the sensors, saving an API call.
+
 ## Examples of Updating Data
 
 One method to retrieve data every 30 minutes and still leave plenty of API key
@@ -173,6 +181,34 @@ automation:
           before: sunset
     action:
       service: openuv.update_data
+```
+
+Update only the sensors every 20 minutes while the sun is at least 10 degrees above the horizon:
+
+```yaml
+automation:
+  - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
+    trigger:
+      platform: time_pattern
+      minutes: '/20'
+    condition:
+      condition: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      above: 10
+    action:
+      service: openuv.update_sensor_data
+```
+
+Update the protection window once a day:
+```yaml
+automation:
+  - alias: Update OpenUV protection window once a day
+    trigger:
+      platform: time
+      at: "02:12:00"
+    action:
+      service: openuv.update_protection_data
 ```
 
 Another method (useful when monitoring locations other than the HASS latitude
