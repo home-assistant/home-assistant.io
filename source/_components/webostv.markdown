@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
-Once basic configuration is added to your `configuration.yaml` *Configuration* card should prompt on your Home Assistants's states. Follow the instructions and accept pairing request on your TV.
+Once basic configuration is added to your `configuration.yaml` A notification should be visible in Lovelace, Follow the instructions and accept pairing request on your TV.
 
 Pairing information will be saved to the `filename:` provided in configuration. This process is IP sensitive, in case the IP address of your TV would change in future.
 
