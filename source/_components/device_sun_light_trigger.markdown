@@ -14,7 +14,7 @@ Home Assistant has a built-in integration called `device_sun_light_trigger` to h
  * Turn on the lights when people get home after the sun has set
  * Turn off the lights when all people leave the house
 
-This integration requires the integrations [sun](/components/sun/), [device_tracker](/components/device_tracker/) and [light](/components/light/) to be enabled.
+This integration requires the integrations [sun](/components/sun/), [device_tracker](/components/device_tracker/), [person](/components/person/) and [light](/components/light/) to be enabled.
 
 To enable this integration, add the following lines to your `configuration.yaml` file:
 
@@ -34,7 +34,7 @@ light_profile:
   default: relax
   type: string
 device_group:
-  description: Specify which group of devices to track.
+  description: Specify which group to track. The group can contain device_trackers or persons
   required: false
   type: string
 disable_turn_off:
