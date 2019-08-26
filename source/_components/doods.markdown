@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Image Processing
 ha_iot_class: Local Polling
-ha_release: 0.82
+ha_release: 0.99
 redirect_from:
  - /components/image_processing.doods/
 ---
