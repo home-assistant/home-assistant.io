@@ -37,7 +37,6 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 </div>
 
-
 ## Configuration
 
 To integrate the GeoNet New Zealand Quakes feed use the "Integrations" feature 
@@ -77,7 +76,6 @@ longitude:
   default: Longitude defined in your configuration.
 {% endconfiguration %}
 
-
 ## State Attributes
 
 The following state attributes are available for each entity in addition to 
@@ -101,7 +99,6 @@ Please note that the reported MMI may be lower than the minimum requested MMI.
 This integration is passing the requested MMI value to the feed source and 
 displays all entries retrieved without further filtering by MMI.
 
-
 ## Sensor
 
 This integration automatically creates a sensor that shows how many entities
@@ -122,7 +119,6 @@ from the feed.
 | created                | Number of entities that were created during last update (optional).  |
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
-
 
 ## Full Configuration
 
