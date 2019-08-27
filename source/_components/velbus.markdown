@@ -9,7 +9,6 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_qa_scale: gold
 ha_release: "0.50"
 redirect_from:
   - /components/climate.velbus/
