@@ -17,7 +17,7 @@ redirect_from:
   - /components/switch.zoneminder/
 ---
 
-The ZoneMinder component sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
+The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
 
 There is currently support for the following device types within Home Assistant:
 
