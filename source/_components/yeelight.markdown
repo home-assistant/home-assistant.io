@@ -73,6 +73,10 @@ devices:
           required: false
           type: boolean
           default: false
+        nightlight_switch_type:
+          description: Adds another entity, to control nightlight mode (for models that supports it). Currently only `light` is supported. It will create 2 light entities, one for normal light mode and second for nightlight mode. They are mutually exclusive.
+          required: false
+          type: string
         model:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
