@@ -45,6 +45,7 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
+    name: 'Bus Stop Name'
     stop_id: 'YOUR_STOP_ID'
 ```
 
@@ -53,6 +54,11 @@ stop_id:
   description: The ID of the public transport stop.
   required: true
   type: string
+name:
+  description: The name of the sensor. Entity ID for the sensor will be created based on this name. Example - Glostrup St becomes sensor.glostrup_st. It is optional but recommended if you define more than one sensor
+  required: false
+  type: string
+  default: next_departure
 route:
   description: List of route names.
   required: false
@@ -105,6 +111,7 @@ A more extensive example on how to use this sensor:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
+    name:'Elmegade 350S'
     stop_id: '000045740'
     route: 'Bus 350S'
     direction:
