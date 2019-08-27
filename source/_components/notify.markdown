@@ -50,7 +50,7 @@ The automation equivalent would be:
 ```yaml
 action:
   service: notify.notify
-  data:
+  data_template:
     message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
 ```
 
