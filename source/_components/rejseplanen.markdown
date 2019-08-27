@@ -45,7 +45,6 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
-    name: 'Bus Stop Name'
     stop_id: 'YOUR_STOP_ID'
 ```
 
