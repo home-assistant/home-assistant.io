@@ -14,7 +14,7 @@ redirect_from:
 
 <div class='note warning'>
 
-  For a couple of weeks / months this integration is broken, therefore it will be removed in the future according to [this pull request](https://github.com/home-assistant/home-assistant/pull/26035).
+  This integration is currently broken and will be removed in a future version of home assistant. See [this pull request](https://github.com/home-assistant/home-assistant/pull/26035) for more information. As an alternative to the device tracking features of this component check out [this thread in the home assistant community forums](https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505). No alternatives for the alarm tracking features of this component are known at this time.
 
 </div>
 
