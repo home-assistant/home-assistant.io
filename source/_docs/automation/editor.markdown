@@ -87,7 +87,7 @@ For example, the below automation will be triggered when the sun goes from below
     from: below_horizon
     to: above_horizon
   condition:
-  - condition: numeric state
+  - condition: numeric_state
     entity_id: sensor.temperature
     above: 17
     below: 25
