@@ -54,10 +54,10 @@ stop_id:
   required: true
   type: string
 name:
-  description: The name of the sensor. Entity ID for the sensor will be created based on this name. Example - Glostrup St becomes sensor.glostrup_st. It's optional but recommended if you define more than one sensor.
+  description: "The name of the sensor. Entity ID for the sensor will be created based on this name. E.g., Glostrup St becomes `sensor.glostrup_st`. It's optional but recommended if you define more than one sensor."
   required: false
   type: string
-  default: next_departure
+  default: "Next departure"
 route:
   description: List of route names.
   required: false
