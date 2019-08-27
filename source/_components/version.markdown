@@ -28,7 +28,7 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: "`Current Version` in case of `source: local`, `Latest Version` otherwise"
+  default: "`Current Version` in case of `source: local`, `Latest Version` otherwise."
 beta:
   description: Flag to indicate that it will check for beta versions, only supported for the sources `pypi`, `hassio` and `docker`.
   required: false
@@ -40,13 +40,13 @@ image:
   type: string
   default: default
 source:
-  description: The source you want to check against, possible values are `local`, `pypi`, `hassio` and `docker`.
+  description: The source you want to check against, possible values are `local`, `pypi`, `hassio`, `haio` and `docker`.
   required: false
   type: string
   default: local
 {% endconfiguration %}
 
-### Supported images for Hassio and Docker
+### Supported images for Hass.io and Docker
 
 `default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
 
