@@ -153,9 +153,9 @@ trained medical professional.
 
 Perform an on-demand update of OpenUV data.
 
-### `openuv.update_sensor_data`
+### `openuv.update_uv_index_data`
 
-Perform an on-demand update of OpenUV sensor data, but not the `uv_protection_window`, saving an API call.
+Perform an on-demand update of OpenUV sensor data including current UV index, but not the `uv_protection_window`, saving an API call over `update_data`.
 
 ### `openuv.update_protection_data`
 
@@ -197,7 +197,7 @@ automation:
       value_template: '{{ state.attributes.elevation }}'
       above: 10
     action:
-      service: openuv.update_sensor_data
+      service: openuv.update_uv_index_data
 ```
 
 Update the protection window once a day:
