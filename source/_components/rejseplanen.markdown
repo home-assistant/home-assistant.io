@@ -110,7 +110,7 @@ A more extensive example on how to use this sensor:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
-    name:'Elmegade 350S'
+    name: 'Elmegade 350S'
     stop_id: '000045740'
     route: 'Bus 350S'
     direction:
