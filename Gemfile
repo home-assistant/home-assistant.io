@@ -19,4 +19,4 @@ group :jekyll_plugins do
 end
 
 gem 'sinatra', '2.0.6'
-gem 'nokogiri', '1.10.3'
+gem 'nokogiri', '1.10.4'

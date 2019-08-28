@@ -56,6 +56,8 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
   - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
+  - ZiGate USB modules (require firmware 3.1a or later)
 
 ## Configuration
 
@@ -72,7 +74,7 @@ zha:
 
 {% configuration %}
 radio_type:
-  description: One of `ezsp`, `xbee` or `deconz`.
+  description: One of `ezsp`, `xbee`, `deconz` or `zigate`.
   required: false
   type: string
   default: ezsp
