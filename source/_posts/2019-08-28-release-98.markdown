@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.98: TBD - UPDATE DATE"
-description: "TBD"
-date: 2019-08-21 01:11:03
+title: "0.98: Improved entity management, options and Home Assistant Alerts"
+description: "Lots of small tweaks left and right to streamline the experience."
+date: 2019-08-28 01:11:03
 date_formatted: "August 28, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
