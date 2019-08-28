@@ -119,7 +119,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - **Deprecated**
-   
+
    Integrations which make use of web scraping and are pending for removal in Home Assistant 0.100.0 [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md):
    - **USPS** - ([@frenck] - [#25743]) ([usps docs])
    - **SYTADIN** - ([@frenck] - [#25742]) ([sytadin docs])
@@ -127,14 +127,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
    - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
    - **SRP Energy** - ([@frenck] - [#25754]) ([srp_energy docs])
    - **Linksys AP** - ([@frenck] - [#25804]) ([linksys_ap docs])
-   
+
 - **Ruter** - *Removed* - Ruter Labs which hosted the API has shut down the service. As an alternative, see the Entur public transport integration. - ([@ludeeus] - [#26041]) ([ruter docs])
 - **Googlehome** - *Removed* - In recent months this integration was broken when Google changed the port they serve this information on, in addition to requiring a token header in the request. That method requires the user to have a rooted android device, and even then then the "result" was not the best, since you often need to get that token. As an alternative to the device tracker, users can look into https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505 - ([@ludeeus] - [#26035]) ([googlehome docs])
 - **EDP Ready** - *Removed* - The service has moved to a new portal and the previous API does not work
 anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 - **Zwave** - `zwave.update_config` service call has been removed. - ([@kpine] - [#25959]) ([zwave docs])
 - **Nissanleaf** - Nissan leaf European API no longer supports location control. The `nissan_connect:` element from the homeassistant `nissan_leaf:` configuration must be removed. - ([@filcole] - [#26139]) ([nissan_leaf docs])
-   
+
 - **ZHA** - This change has the unique_id use the ieee address instead of the nwk address. The ieee address is static and therefore the unique_id will be stable now. - ([@dmulcahey] - [#25707]) ([zha docs])
 
    Previous format:
@@ -160,7 +160,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
     ssl: true
     ```
 - **Prometheus** - Previously, the integration would create too many metrics based on `entity_id` name which would pollute and fill the database. The naming of metrics has been changed and doesn't use the `entity_id` anymore. Any consumers of the prometheus data will need to be changed to use the new names. The user can now also use the new `component_config_glob` to remap the metrics any way the user sees fit. - ([@perosb] - [#24103]) ([prometheus docs])
- 
+
    Example configuration entry:
    ```yaml
    prometheus:
@@ -178,11 +178,11 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
         - sensor
         - lock
     ```
-    
+
 - **Kodi** - Kodi services are now their own domain and the `media_player.kodi_*` services are now `kodi.*` - ([@JeffLIrion] - [#25753]) ([kodi docs])
   - `media_player.kodi_add_to_playlist` is now `kodi.add_to_playlist`
   - `media_player.kodi_call_method` is now `kodi.call_method`
-  
+
 - **Sonos** - This change rejects previously accepted calls using content_types (image, tvshow, video, episode or channel) when using `media_player.play_media`, and changes the behavior of a content_type of "playlist" to play a Sonos playlist, rather than a URL. - ([@ahertz] - [#26054]) ([sonos docs])
 
 - **Statistics** -  The names of statistics sensor no longer get `mean` or `count` appended automatically, respecting the name configured by the user. If you use this integration, this name change will affect the name of the entity. - ([@frenck] - [#26119]) ([statistics docs])
@@ -201,6 +201,16 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 - Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
 - Log warning if disabled entities receive updates. ([@balloob] - [#26143]) (beta fix)
 - Fix tuya switch state ([@PaulAnnekov] - [#26145]) ([tuya docs]) (beta fix)
+- Reload config entry when entity enabled in entity registry, remove entity if disabled. ([@balloob] - [#26120]) (beta fix)
+- CoolMaster: Change auto to heat_cool ([@OnFreund] - [#26144]) ([coolmaster docs]) (breaking change) (beta fix)
+- Bump androidtv to 0.0.24 ([@JeffLIrion] - [#26158]) ([androidtv docs]) (beta fix)
+- fix issue setting scan_interval ([@chaoranxie] - [#26165]) ([google_maps docs]) (beta fix)
+- Fix possible KeyError in SimpliSafe ([@bachya] - [#26190]) ([simplisafe docs]) (beta fix)
+- Update pyheos to 0.6.0 ([@andrewsayre] - [#26191]) ([heos docs]) (beta fix)
+- bump quirks version ([@dmulcahey] - [#26198]) ([zha docs]) (beta fix)
+- luci device-tracker dependency fix ([@flowolf] - [#26215]) ([luci docs]) (beta fix)
+- deCONZ normalizes cover values to follow zigbee spec ([@Kane610] - [#26240]) ([deconz docs]) (beta fix)
+- SMA beta fix #26225 ([@kellerza] - [#26244]) ([sma docs]) (beta fix)
 
 ## All changes
 
@@ -385,6 +395,17 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 - Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
 - Log warning if disabled entities receive updates. ([@balloob] - [#26143]) (beta fix)
 - Fix tuya switch state ([@PaulAnnekov] - [#26145]) ([tuya docs]) (beta fix)
+- Reload config entry when entity enabled in entity registry, remove entity if disabled. ([@balloob] - [#26120]) (beta fix)
+- CoolMaster: Change auto to heat_cool ([@OnFreund] - [#26144]) ([coolmaster docs]) (breaking change) (beta fix)
+- Bump androidtv to 0.0.24 ([@JeffLIrion] - [#26158]) ([androidtv docs]) (beta fix)
+- fix issue setting scan_interval ([@chaoranxie] - [#26165]) ([google_maps docs]) (beta fix)
+- Fix possible KeyError in SimpliSafe ([@bachya] - [#26190]) ([simplisafe docs]) (beta fix)
+- Update pyheos to 0.6.0 ([@andrewsayre] - [#26191]) ([heos docs]) (beta fix)
+- bump quirks version ([@dmulcahey] - [#26198]) ([zha docs]) (beta fix)
+- Nightly builds ([@pvizeli] - [#26204])
+- luci device-tracker dependency fix ([@flowolf] - [#26215]) ([luci docs]) (beta fix)
+- deCONZ normalizes cover values to follow zigbee spec ([@Kane610] - [#26240]) ([deconz docs]) (beta fix)
+- SMA beta fix #26225 ([@kellerza] - [#26244]) ([sma docs]) (beta fix)
 
 [#22664]: https://github.com/home-assistant/home-assistant/pull/22664
 [#23567]: https://github.com/home-assistant/home-assistant/pull/23567
@@ -561,12 +582,23 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [#26115]: https://github.com/home-assistant/home-assistant/pull/26115
 [#26117]: https://github.com/home-assistant/home-assistant/pull/26117
 [#26119]: https://github.com/home-assistant/home-assistant/pull/26119
+[#26120]: https://github.com/home-assistant/home-assistant/pull/26120
 [#26121]: https://github.com/home-assistant/home-assistant/pull/26121
 [#26128]: https://github.com/home-assistant/home-assistant/pull/26128
 [#26137]: https://github.com/home-assistant/home-assistant/pull/26137
 [#26139]: https://github.com/home-assistant/home-assistant/pull/26139
 [#26143]: https://github.com/home-assistant/home-assistant/pull/26143
+[#26144]: https://github.com/home-assistant/home-assistant/pull/26144
 [#26145]: https://github.com/home-assistant/home-assistant/pull/26145
+[#26158]: https://github.com/home-assistant/home-assistant/pull/26158
+[#26165]: https://github.com/home-assistant/home-assistant/pull/26165
+[#26190]: https://github.com/home-assistant/home-assistant/pull/26190
+[#26191]: https://github.com/home-assistant/home-assistant/pull/26191
+[#26198]: https://github.com/home-assistant/home-assistant/pull/26198
+[#26204]: https://github.com/home-assistant/home-assistant/pull/26204
+[#26215]: https://github.com/home-assistant/home-assistant/pull/26215
+[#26240]: https://github.com/home-assistant/home-assistant/pull/26240
+[#26244]: https://github.com/home-assistant/home-assistant/pull/26244
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -577,6 +609,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [@KptnKMan]: https://github.com/KptnKMan
 [@MatsNl]: https://github.com/MatsNl
 [@OliverRepo]: https://github.com/OliverRepo
+[@OnFreund]: https://github.com/OnFreund
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@Quentame]: https://github.com/Quentame
 [@Santobert]: https://github.com/Santobert
@@ -588,9 +621,11 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [@achatham]: https://github.com/achatham
 [@ahertz]: https://github.com/ahertz
 [@amelchio]: https://github.com/amelchio
+[@andrewsayre]: https://github.com/andrewsayre
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@cgarwood]: https://github.com/cgarwood
+[@chaoranxie]: https://github.com/chaoranxie
 [@cj-thornton]: https://github.com/cj-thornton
 [@croghostrider]: https://github.com/croghostrider
 [@dannerph]: https://github.com/dannerph
@@ -606,6 +641,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [@farmio]: https://github.com/farmio
 [@filcole]: https://github.com/filcole
 [@flebourse]: https://github.com/flebourse
+[@flowolf]: https://github.com/flowolf
 [@fredrike]: https://github.com/fredrike
 [@frenck]: https://github.com/frenck
 [@gadgetchnnel]: https://github.com/gadgetchnnel
@@ -654,6 +690,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [climate docs]: /components/climate/
 [cloud docs]: /components/cloud/
 [config docs]: /components/config/
+[coolmaster docs]: /components/coolmaster/
 [deconz docs]: /components/deconz/
 [demo docs]: /components/demo/
 [dialogflow docs]: /components/dialogflow/
@@ -671,6 +708,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [fronius docs]: /components/fronius/
 [geniushub docs]: /components/geniushub/
 [geonetnz_quakes docs]: /components/geonetnz_quakes/
+[google_maps docs]: /components/google_maps/
 [googlehome docs]: /components/googlehome/
 [group docs]: /components/group/
 [heos docs]: /components/heos/
@@ -687,6 +725,7 @@ anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
 [lacrosse docs]: /components/lacrosse/
 [life360 docs]: /components/life360/
 [linksys_ap docs]: /components/linksys_ap/
+[luci docs]: /components/luci/
 [luftdaten docs]: /components/luftdaten/
 [lutron docs]: /components/lutron/
 [lw12wifi docs]: /components/lw12wifi/
