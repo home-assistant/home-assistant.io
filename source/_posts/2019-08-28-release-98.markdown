@@ -118,24 +118,81 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- fix unique id in cluster channels ([@dmulcahey] - [#25707]) ([zha docs]) (breaking change)
-- Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) ([usps docs]) (breaking change)
-- Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) ([sytadin docs]) (breaking change)
-- Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) ([ups docs]) (breaking change)
-- Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
-- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) ([srp_energy docs]) (breaking change)
-- Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
-- Add Mikrotik hub and rework device tracker ([@slackr31337] - [#25664]) ([mikrotik docs]) (breaking change)
-- Deprecates linksys_ap integration (ADR-0004) ([@frenck] - [#25804]) ([linksys_ap docs]) (breaking change)
-- Prometheus metrics naming based on device_class and unit_of_measurement ([@perosb] - [#24103]) ([prometheus docs]) (breaking change)
-- Move Kodi services from 'media_player' domain to 'kodi' ([@JeffLIrion] - [#25753]) ([kodi docs]) (breaking change)
-- Remove zwave.update_config service call ([@kpine] - [#25959]) ([zwave docs]) (breaking change)
-- edp_redy: remove component ([@abmantis] - [#25971]) ([edp_redy docs]) (breaking change)
-- Remove the ruter integration ([@ludeeus] - [#26041]) ([ruter docs]) (breaking change)
-- Sonos playlists play media ([@ahertz] - [#26054]) ([sonos docs]) (breaking change)
-- Remove the googlehome integration ([@ludeeus] - [#26035]) ([googlehome docs]) (breaking change)
-- Statistics sensors repect given name ([@frenck] - [#26119]) ([statistics docs]) (breaking change)
-- Nissanleaf login fix ([@filcole] - [#26139]) ([nissan_leaf docs]) (breaking change) (beta fix)
+- **Deprecated**
+   
+   Integrations which make use of web scraping and are pending for removal in Home Assistant 0.100.0 (ADR-0004):
+   - **USPS** - ([@frenck] - [#25743]) ([usps docs])
+   - **SYTADIN** - ([@frenck] - [#25742]) ([sytadin docs])
+   - **UPS** - ([@frenck] - [#25746]) ([ups docs])
+   - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
+   - **SRP Energy** - ([@frenck] - [#25754]) ([srp_energy docs])
+   - **Linksys AP** - ([@frenck] - [#25804]) ([linksys_ap docs])
+   
+- **Ruter** - *Removed* - Ruter Labs which hosted the API has shut down the service. As an alternative, see the Entur public transport integration. - ([@ludeeus] - [#26041]) ([ruter docs])
+- **Googlehome** - *Removed* - In recent months this integration was broken when Google changed the port they serve this information on, in addition to requiring a token header in the request. That method requires the user to have a rooted android device, and even then then the "result" was not the best, since you often need to get that token. As an alternative to the device tracker, users can look into https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505 ([@ludeeus] - [#26035]) ([googlehome docs])
+- **EDP Ready** - *Removed* - The service has moved to a new portal and the previous API does not work
+anymore. - ([@abmantis] - [#25971]) ([edp_redy docs])
+- **Zwave** - `zwave.update_config` service call has been removed. - ([@kpine] - [#25959]) ([zwave docs])
+- **Nissanleaf** - Nissan leaf European API no longer supports location control. The `nissan_connect:` element from the homeassistant `nissan_leaf:` configuration must be removed. - ([@filcole] - [#26139]) ([nissan_leaf docs])
+   
+- **ZHA** - This change has the unique_id use the ieee address instead of the nwk address. The ieee address is static and therefore the unique_id will be stable now. - ([@dmulcahey] - [#25707]) ([zha docs])
+
+   Previous format:
+`unique_id=0x0b64:1:0x0006`
+
+   New format:
+`unique_id=00:0d:6f:00:0e:c8:d4:e7:1:0x0006`
+
+- **Updater** - The updater component is now a binary sensor that is always available. The entity ID is `binary_sensor.updater`. The state is on/off depending on whether an update is available or not. The latest version as well as the release notes are attributes of this binary sensor. Automations that are listening for the existence of `updater.updater` should now trigger when `binary_sensor.updater` changes to on. This makes the component more transparent and understandable for the user. Additionally, it is visible if there is an error or the source (https://updater.home-assistant.io/) is outdated. - ([@Santobert] - [#25418]) ([updater docs])
+- **Mikrotik** - The Mikrotik device tracker integration is now a component (hub) with a device tracker platform. If you have a device_tracker section where `mikrotik` is a platform in your configuration.yaml you will need to move it to the hub config section for `mikrotik` and make sure you follow the new config format. - ([@slackr31337] - [#25664]) ([mikrotik docs])
+
+   Example configuration entry:
+   ```yaml
+   mikrotik:
+  - host: 192.168.88.1
+    username: !secret router_user
+    password: !secret router_pass
+    ssl: true
+
+  - host: 192.168.88.2
+    username: !secret capsman_user
+    password: !secret capsman_pass
+    ssl: true
+    ```
+- **Prometheus** - Previously, the integration would create too many metrics based on `entity_id` name which would pollute and fill the database. The naming of metrics has been changed and doesn't use the `entity_id` anymore. Any consumers of the prometheus data will need to be changed to use the new names. The user can now also use the new `component_config_glob` to remap the metrics any way the user sees fit. - ([@perosb] - [#24103]) ([prometheus docs])
+ 
+   Example configuration entry:
+   ```yaml
+   prometheus:
+     namespace: hass
+     component_config_glob:
+       # override metric for RFLink devices
+       sensor.*_hum:
+         override_metric: humidity_percent
+       sensor.*_temp:
+         override_metric: temperature_c
+       sensor.*_bat:
+         override_metric: battery_percent
+    filter:
+      include_domains:
+        - sensor
+        - lock
+    ```
+    
+- **Kodi** - Kodi services are now their own domain and the `media_player.kodi_*` services are now `kodi.*` - ([@JeffLIrion] - [#25753]) ([kodi docs])
+  - `media_player.kodi_add_to_playlist` is now `kodi.add_to_playlist`
+  - `media_player.kodi_call_method` is now `kodi.call_method`
+  
+- **Sonos** - This change rejects previously accepted calls using content_types (image, tvshow, video, episode or channel) when using `media_player.play_media`, and changes the behavior of a content_type of "playlist" to play a Sonos playlist, rather than a URL. - ([@ahertz] - [#26054]) ([sonos docs])
+
+- **Statistics** -  The names of statistics sensor no longer get `mean` or `count` appended automatically, respecting the name configured by the user. If you use this integration, this name change will affect the name of the entity. - ([@frenck] - [#26119]) ([statistics docs])
+
+  Example configuration entry:
+  ```yaml
+  - platform: statistics
+    name: 'MiAP2 PSI Stat'
+    entity_id: sensor.mi_ap2_aqi
+  ```
 
 ## Beta Fixes
 
