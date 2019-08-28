@@ -1,7 +1,6 @@
 ---
 title: "DOODS"
 description: "Detect and recognize objects with DOODS."
-logo: home-assistant.png
 ha_category:
   - Image Processing
 ha_iot_class: Local Polling
@@ -26,14 +25,8 @@ The configuration loosely follows the tensorflow configuration. To enable this p
 image_processing:
   - platform: doods
     url: "http://<my doods server>:8080"
-    detector: default
     source:
       - entity_id: camera.front_yard
-    confidence: 50
-    labels:
-      - person
-      - car
-      - truck
 ```
 
 {% configuration %}
