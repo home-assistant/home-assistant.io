@@ -108,19 +108,31 @@ Screencap of the batcave video.
 
 ## Release 0.98.1 - August 29
 
-- Fix empty translations ([@balloob])
-- Fix QBitTorrent doing I/O in eventloop ([@eliseomartelli] - [#26209]) ([qbittorrent docs])
-- Don't update disabled entities (Homematic IP Cloud) ([@SukramJ] - [#26236]) ([homematicip_cloud docs])
+- Update sensor.py ([@eliseomartelli] - [#26209]) ([qbittorrent docs])
+- Fix for 0.98: Don't update disabled entities (Homematic IP Cloud) ([@SukramJ] - [#26236]) ([homematicip_cloud docs])
 - Fix ZHA state restore by always restoring last seen on devices ([@dmulcahey] - [#26271]) ([zha docs])
+- Fix missing DarkSky mdi icon ([@mbo18] - [#26274]) ([darksky docs])
+- Fix partly cloudy ([@balloob] - [#26277]) ([buienradar docs]) ([mysensors docs])
+- UniFi - dont schedule updates on disabled entities ([@Kane610] - [#26278]) ([unifi docs])
 
 [#26209]: https://github.com/home-assistant/home-assistant/pull/26209
 [#26236]: https://github.com/home-assistant/home-assistant/pull/26236
 [#26271]: https://github.com/home-assistant/home-assistant/pull/26271
+[#26274]: https://github.com/home-assistant/home-assistant/pull/26274
+[#26277]: https://github.com/home-assistant/home-assistant/pull/26277
+[#26278]: https://github.com/home-assistant/home-assistant/pull/26278
+[@Kane610]: https://github.com/Kane610
 [@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
 [@dmulcahey]: https://github.com/dmulcahey
 [@eliseomartelli]: https://github.com/eliseomartelli
+[@mbo18]: https://github.com/mbo18
+[buienradar docs]: /components/buienradar/
+[darksky docs]: /components/darksky/
 [homematicip_cloud docs]: /components/homematicip_cloud/
+[mysensors docs]: /components/mysensors/
 [qbittorrent docs]: /components/qbittorrent/
+[unifi docs]: /components/unifi/
 [zha docs]: /components/zha/
 
 ## If you need help...
