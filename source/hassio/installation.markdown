@@ -143,6 +143,8 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 </div>
 
+### Preparation
+
 To prepare your machine for the Hass.io installation, run the following commands:
 
 ```bash
