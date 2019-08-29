@@ -18,7 +18,7 @@ type:
   type: string
 content:
   required: true
-  description: "Content to render as [markdown](http://commonmark.org/help/). May contain [templates](/configuration/templating/)."
+  description: "Content to render as [markdown](http://commonmark.org/help/). May contain [templates](/docs/configuration/templating/)."
   type: string
 title:
   required: false
