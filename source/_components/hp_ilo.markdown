@@ -85,7 +85,7 @@ Valid sensor_types:
 - **server_oa_info**: Get information about the Onboard Administrator of the enclosing chassis.
 - **server_power_status**: Whether the server is powered on or not.
 - **server_power_readings**: Get current, min, max and average power readings.
-- **server_power_on_time**: How many minutes ago has the server been powered on. (Non-resetting counter, akin to hours-used)
+- **server_power_on_time**: How many minutes ago has the server been powered on (Non-resetting counter, akin to hours used).
 - **server_asset_tag**: Gets the server asset tag.
 - **server_uid_status**: Get the status of the UID light.
 - **server_health**: Get server health information.
