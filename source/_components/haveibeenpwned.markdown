@@ -12,16 +12,19 @@ redirect_from:
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
+## Configuration
+
 <div class='note warning'>
 
-  The HaveIBeenPwned API is no longer a free API. In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase an API key. For more information about this change read the HIBP creator's [blogpost regarding the change](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/)
+  The HaveIBeenPwned API is no longer a free API. For more information about this change read the HIBP creator's [blogpost regarding the change](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/).
 
 </div>
 
+In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
+
 ## Configuration
 
-To enable this sensor, purchase an API key from the [HIBP website](https://haveibeenpwned.com/API/Key) add then following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing
-the number of breaches on that email account.
+To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing the number of breaches on that email account.
 
 ```yaml
 # Example configuration.yaml entry using cloud based emoncms
