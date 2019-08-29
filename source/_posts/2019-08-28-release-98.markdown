@@ -106,6 +106,23 @@ Screencap of the batcave video.
 - Add ring light platform ([@rossdargan] - [#25733]) ([ring docs]) (new-platform)
 - Expose Lutron RA2 occupancy sensors ([@achatham] - [#25854]) ([lutron docs]) (new-platform)
 
+## Release 0.98.1 - August 29
+
+- Fix empty translations ([@balloob])
+- Fix QBitTorrent doing I/O in eventloop ([@eliseomartelli] - [#26209]) ([qbittorrent docs])
+- Don't update disabled entities (Homematic IP Cloud) ([@SukramJ] - [#26236]) ([homematicip_cloud docs])
+- Fix ZHA state restore by always restoring last seen on devices ([@dmulcahey] - [#26271]) ([zha docs])
+
+[#26209]: https://github.com/home-assistant/home-assistant/pull/26209
+[#26236]: https://github.com/home-assistant/home-assistant/pull/26236
+[#26271]: https://github.com/home-assistant/home-assistant/pull/26271
+[@SukramJ]: https://github.com/SukramJ
+[@dmulcahey]: https://github.com/dmulcahey
+[@eliseomartelli]: https://github.com/eliseomartelli
+[homematicip_cloud docs]: /components/homematicip_cloud/
+[qbittorrent docs]: /components/qbittorrent/
+[zha docs]: /components/zha/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
