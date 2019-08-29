@@ -18,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuring `mikrotik` hub
 
-You have to enable accessing the RouterOS API on your router to use this platform.
+As of version 0.98 the Mikrotik component uses a Hub component. To use you have to enable accessing the RouterOS API on your router to use this platform.
 
 Terminal:
 
@@ -80,7 +80,7 @@ method:
 arp_ping:
   description: Use ARP ping with DHCP method for device scanning.
   required: false
-  default: false
+  default: true
   type: boolean
 {% endconfiguration %}
 
