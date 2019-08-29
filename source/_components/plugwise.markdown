@@ -67,7 +67,7 @@ max_temp:
 
 ```yaml
 climate:
-  - platform: anna
+  - platform: plugwise
     name: YOUR_THERMOSTAT_NAME
     password: YOUR_SHORT_ID
     host: YOUR_SMILE_LOCAL_IP
