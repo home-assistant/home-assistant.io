@@ -13,7 +13,9 @@ redirect_from:
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 
 <div class='note'>
-The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
+
+  The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
+
 </div>
 
 ## Configuration
@@ -24,8 +26,10 @@ There are 2 options in configuring the SolarEdge integration:
 - Via the Home Assistant `configuration.yaml` file.
 
 <div class='note'>
-If the integration is enabled via the user interface all monitored conditions are enabled by default.
+
+  If the integration is enabled via the user interface all monitored conditions are enabled by default.
 When configuring via configuration.yaml you can select the monitored conditions to be translated to a sensor.
+
 </div>
 
 {% raw %}
