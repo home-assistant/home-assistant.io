@@ -68,5 +68,5 @@ automation:
   action:
     - service: notify.notify
       data:
-        message: 'Update for Home Assistant is available.'
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
