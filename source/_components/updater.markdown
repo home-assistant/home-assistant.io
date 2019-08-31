@@ -56,6 +56,7 @@ It is possible to report the integrations that you are using to the Home Assista
 
 For an added bonus, an automation integration can be created to send a message with a notifier when that state of this component's entity changes.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -68,5 +69,6 @@ automation:
   action:
     - service: notify.notify
       data:
-        message: 'Update for Home Assistant is available.'
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
+{% endraw %}
