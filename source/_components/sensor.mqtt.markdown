@@ -73,7 +73,7 @@ payload_not_available:
   type: string
   default: offline
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes.
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
   required: false
   type: string
 json_attributes_template:
@@ -170,6 +170,8 @@ sensor:
     json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 {% endraw %}
+
+The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message.  An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes.  Such automations will be triggered twice if both the state and the attributes change.  Please use a [MQTT Trigger](/docs/automation/trigger/#mqtt-trigger) and process the json in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [Trigger Data](/docs/automation/templating/#mqtttrigger) for automations that must synchronously handle multiple json values within the same MQTT message.
 
 ### Get battery level
 
