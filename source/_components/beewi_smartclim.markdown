@@ -58,18 +58,6 @@ mac:
   description: The MAC address of your sensor.
   required: true
   type: string
-monitored_conditions:
-  description: The parameters that should be monitored.
-  required: false
-  default: [temperature, humidity, battery]
-  type: list
-  keys:
-    temperature:
-      description: Temperature in C at the sensor's location.
-    humidity:
-      description: Humidity level in % at the sensor's location.
-    battery:
-      description: Battery details (in %).
 name:
   description: The name displayed in the frontend.
   required: false
@@ -86,8 +74,4 @@ sensor:
   - platform: beewi_smartclim
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Garden
-    monitored_conditions:
-      - temperature
-      - humidity
-      - battery
 ```
