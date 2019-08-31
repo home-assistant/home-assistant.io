@@ -6,7 +6,7 @@ ha_category:
   - Network
   - Presence Detection
   - Sensor
-ha_release: 0.97.2
+ha_release: 0.98.2
 ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.livebox/
@@ -83,6 +83,8 @@ Only the routers with Livebox OS are supported:
 
 This platform offers presence detection by keeping track of the
 devices connected to a [Livebox](http://www.orange.fr/) router.
+
+Ability to disable this option by integration options
 
 ### Notes
 
