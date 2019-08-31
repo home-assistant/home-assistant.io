@@ -101,8 +101,8 @@ automation:
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.select_option
+        entity_id: input_select.who_cooks
         data:
-          entity_id: input_select.who_cooks
           option: Paulus
 ```
 
@@ -117,8 +117,8 @@ automation:
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.set_options
+        entity_id: input_select.who_cooks
         data:
-          entity_id: input_select.who_cooks
           options: ["Item A", "Item B", "Item C"]
 ```
 
@@ -149,9 +149,9 @@ input_select:
    # entity_id: input_select.thermostat_mode
   action:
      service: input_select.select_option
+     entity_id: input_select.thermostat_mode
      data_template:
-      entity_id: input_select.thermostat_mode
-      option: "{{ trigger.payload }}"
+       option: "{{ trigger.payload }}"
 
  # This automation script runs when the thermostat mode selector is changed.
  # It publishes its value to the same MQTT topic it is also subscribed to.
