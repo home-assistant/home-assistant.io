@@ -34,15 +34,5 @@ scan_interval:
   required: false
   default: 30 seconds
   type: integer
-timeout:
-  description: "How long in seconds to wait for a response from the service before giving up and disconnecting."
-  required: false
-  default: 30 seconds
-  type: integer
-retry:
-  description: "Interval between retries if the Slide Cloud API is down during startup."
-  required: false
-  default: 120 seconds
-  type: integer
 {% endconfiguration %}
 
