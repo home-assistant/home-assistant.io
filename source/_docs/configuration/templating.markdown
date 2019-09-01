@@ -61,7 +61,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 <div class='note warning'>
 
-  Avoid using `states.sensor.temperature`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+  Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
 
@@ -74,7 +74,7 @@ The next two statements result in the same value if the state exists. The second
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus }}
+{{ states.device_tracker.paulus.state }}
 ```
 {% endraw %}
 
