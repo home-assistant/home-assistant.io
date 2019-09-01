@@ -6,7 +6,7 @@ ha_category:
   - Hub
   - Cover
 ha_iot_class: Cloud Polling
-ha_release: 0.98
+ha_release: 0.99
 ---
 
 The `slide` implementation allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the [official API](https://documenter.getpostman.com/view/6223391/S1Lu2pSf?version=latest).
