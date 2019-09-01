@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_release: 0.99
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/device_tracker.livebox/
-  - /components/sensor.livebox/
 ---
 
 The `livebox` integration allows you to observe and control [Livebox router](http://www.orange.fr/).
