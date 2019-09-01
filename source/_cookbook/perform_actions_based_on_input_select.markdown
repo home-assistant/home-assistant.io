@@ -38,7 +38,7 @@ automation:
       data:
         entity_id: media_player.nursery
         media_content_id: http://fileserver/rain.mp3
-        media_content_type: audio/mp4
+        media_content_type: music
 
 
   # If you select "Babbling Brook", play the "babbling_brook.mp3" file
@@ -54,7 +54,7 @@ automation:
       data:
         entity_id: media_player.nursery
         media_content_id: http://fileserver/babbling_brook.mp3
-        media_content_type: audio/mp4
+        media_content_type: music
 
   # If you select "None, turn the Chromecast off
   - alias: Stop the Lullaby
@@ -160,5 +160,5 @@ automation:
             {% else %}{% endraw %}
               none{% raw %}
             {% endif %}{% endraw %}
-          media_content_type: 'audio/mp4'
+          media_content_type: 'music'
 ```
