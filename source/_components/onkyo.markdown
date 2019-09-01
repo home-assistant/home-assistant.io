@@ -39,7 +39,7 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume. Defaults to 80.
+  description: Maximum volume. Defaults to 200. Set to 80 for older Onkyo receivers.
   required: false
   type: integer
 sources:
