@@ -34,7 +34,7 @@ livebox:
   host: 192.168.1.1
   port: 80
   username: 'admin'
-  password: 'xxxxxx'
+  password: 'PASSWORD'
 ```
 
 {% configuration %}
