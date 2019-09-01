@@ -171,7 +171,7 @@ sensor:
 ```
 {% endraw %}
 
-The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message.  An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes.  Such automations will be triggered twice if both the state and the attributes change.  Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the json in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple json values within the same MQTT message.
+The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message. An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes. Such automations will be triggered twice if both the state and the attributes change. Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the json in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple json values within the same MQTT message.
 
 ### Get battery level
 
