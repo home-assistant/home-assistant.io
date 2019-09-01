@@ -32,7 +32,7 @@ up manually in your `configuration.yaml` file:
 ```yaml
 livebox:
   host: 192.168.1.1
-  port: 80
+  port: PORT
   username: 'admin'
   password: 'PASSWORD'
 ```
