@@ -31,7 +31,7 @@ up manually in your `configuration.yaml` file:
 
 ```yaml
 livebox:
-  host: 192.168.1.1
+  host: IP_ADDRESS
   port: PORT
   username: 'USERNAME'
   password: 'PASSWORD'
