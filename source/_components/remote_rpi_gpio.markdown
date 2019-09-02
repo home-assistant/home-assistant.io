@@ -121,4 +121,4 @@ switch:
 
 ### Troubleshooting
 
-If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the pinfactory from "pigpio" to "mock", this adresses a [known issue](https://www.raspberrypi.org/forums/viewtopic.php?p=1417922).
+If you receive an error such as `gpiozero.exc.BadPinFactory: Unable to load any default pin factory!` try changing the pinfactory from `pigpio` to `mock`, this adresses a [known issue](https://www.raspberrypi.org/forums/viewtopic.php?p=1417922).
