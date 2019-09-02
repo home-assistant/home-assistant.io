@@ -12,8 +12,8 @@ Most recent network-connected Viessmann heating devices (e.g. gas boilers) shoul
 
 There is currently support for the following device types within Home Assistant:
 
-- Climate (Heating)
-- Water Heater (Domestic Hot Water)
+- [Climate](#climate) (Heating)
+- [Water Heater](#water-heater) (Domestic Hot Water)
 
 ## Configuration
 
@@ -50,6 +50,7 @@ Two components will be created: `climate.vicare_heating` and `water_heater.vicar
 Unless you specify a `circuit` parameter it will pick up the first heating circuit of your installation.
 
 ## Climate
+
 A note about the current temperature attribute: Viessmann devices with room temperature sensing will shown the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 
 ### Supported services `climate.vicare_heating`
