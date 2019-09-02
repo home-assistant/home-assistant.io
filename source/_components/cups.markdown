@@ -58,7 +58,7 @@ is_cups_server:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Default configuration for an IPP printer:
 
