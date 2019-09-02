@@ -29,7 +29,7 @@ For example, set the body of the IFTTT webhook to:
 { "action": "call_service", "service": "light.turn_on", "entity_id": "light.living_room" }
 ```
 
-You then need to consume that incoming information with the following automation, to be added in configuration.yaml not automation.yaml, you may have to rename automation: as automation old: if you are also using the automation.yaml and the online editor:
+You then need to consume that incoming information with the following automation. It need to be added to the `configuration.yaml` file and not `automation.yaml` file. You may want to rename `automation:` to `automation old:` if you are also using the `automation.yaml` file and the online editor:
 
 ```yaml
 automation:
