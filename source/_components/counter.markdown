@@ -24,7 +24,7 @@ counter:
 
 {% configuration %}
 "[alias]":
-  description: Alias for the counter. Multiple entries are allowed. 'alias' should be replaced by the user for their actual value.
+  description: Alias for the counter. Multiple entries are allowed. `alias` should be replaced by the user for their actual value.
   required: true
   type: map
   keys:
