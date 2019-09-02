@@ -13,10 +13,9 @@ redirect_from:
 
 The [Supla](http://supla.org) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, it's own firmware and commercially available devices (produced for example by [Zamel](https://supla.zamel.pl/))
 
-Currently only covers (shutters in Supla's lingo) are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
+Currently only covers (shutters in Supla's lingo) and switches are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
 
-Right now it's impossible to add single devices -- all of them are discovered from
-Supla Cloud's servers.
+Right now it's impossible to add single devices -- all of them are discovered from Supla Cloud's servers or yours.
 
 ## Configuration
 
@@ -24,9 +23,9 @@ To use Supla devices in your installation, add the following to your `configurat
 
 ```yaml
 supla:
-    servers:
-        - server: svr1.supla.org
-          access_token: your_really_long_access_token
+  servers:
+    - server: svr1.supla.org
+      access_token: your_really_long_access_token
 ```
 
 {% configuration %}
