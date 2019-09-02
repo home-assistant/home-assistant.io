@@ -135,6 +135,29 @@ Screencap of the batcave video.
 [unifi docs]: /components/unifi/
 [zha docs]: /components/zha/
 
+## Release 0.98.2 - September 1
+
+- Expose current direction properly on state machine ([@balloob] - [#26298]) ([demo docs]) ([fan docs])
+- bump tuyaha 0.0.4 ([@PaulAnnekov] - [#26303]) ([tuya docs])
+- Fix Alexa Report State ([@balloob] - [#26305]) ([alexa docs]) ([cloud docs])
+- Fix alexa bad temp sensors ([@balloob] - [#26307]) ([alexa docs])
+- Fix google_maps scan interval ([@tyjtyj] - [#26328]) ([google_maps docs])
+
+[#26298]: https://github.com/home-assistant/home-assistant/pull/26298
+[#26303]: https://github.com/home-assistant/home-assistant/pull/26303
+[#26305]: https://github.com/home-assistant/home-assistant/pull/26305
+[#26307]: https://github.com/home-assistant/home-assistant/pull/26307
+[#26328]: https://github.com/home-assistant/home-assistant/pull/26328
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@balloob]: https://github.com/balloob
+[@tyjtyj]: https://github.com/tyjtyj
+[alexa docs]: /components/alexa/
+[cloud docs]: /components/cloud/
+[demo docs]: /components/demo/
+[fan docs]: /components/fan/
+[google_maps docs]: /components/google_maps/
+[tuya docs]: /components/tuya/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
