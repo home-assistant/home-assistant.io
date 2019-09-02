@@ -101,8 +101,6 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 
 <div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-  
-If you receive an error such as "gpiozero.exc.BadPinFactory: Unable to load any default pin factory!" try changing the pinfactory from "pigpio" to "mock", this adresses a known issue see: https://www.raspberrypi.org/forums/viewtopic.php?p=1417922
 </div>
 
 A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
@@ -116,3 +114,7 @@ switch:
     ports:
       17: Speaker Relay
 ```
+
+### Troubleshooting
+
+If you receive an error such as "gpiozero.exc.BadPinFactory: Unable to load any default pin factory!" try changing the pinfactory from "pigpio" to "mock", this adresses a known issue see: https://www.raspberrypi.org/forums/viewtopic.php?p=1417922
