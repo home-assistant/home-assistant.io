@@ -23,9 +23,8 @@ counter:
 ```
 
 {% configuration %}
-# 'alias' should be replaced by the user for their actual value.
 "[alias]":
-  description: Alias for the counter. Multiple entries are allowed.
+  description: Alias for the counter. Multiple entries are allowed. 'alias' should be replaced by the user for their actual value.
   required: true
   type: map
   keys:
@@ -120,6 +119,8 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
   "entity_id": "counter.my_custom_counter"
 }
 ```
+
+## Examples
 
 ### Counting Home Assistant errors
 
