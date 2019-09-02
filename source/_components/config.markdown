@@ -27,15 +27,27 @@ This section enables you to manage your Home Assistant users.
 
 ### General
 
+This section enables you to manage the name, location, and unit system of your Home Assistant installation.
+
+### Server Control
+
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/server-management.png' />
 </p>
 
-### Customization
+### Persons
 
-This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
+This section enables you to associate users with their device tracker entities using the person component.
+
+### Entity Registry
+
+This section enables you to override the name, change the entity ID or disable an entity in Home Assistant.
+
+### Area Registry
+
+This section enables you to organize entities to physical areas of your home.
 
 ### Automation
 
@@ -48,3 +60,8 @@ Similar to the automation editor, this section enables you to create and modify 
 ### Z-Wave
 
 This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
+
+### Customization
+
+This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
+
