@@ -38,16 +38,11 @@ resources:
   - url: /local/my-webfont.css
     type: css
 
-# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/background.png") fixed
-
 views:
     # View tab title.
   - title: Example
     # Unique path for direct access /lovelace/${path}
     path: example
-    # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
     theme: dark-mode
     # The cards to show on this view.
