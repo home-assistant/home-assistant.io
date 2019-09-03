@@ -5,8 +5,8 @@ logo: withings.png
 ha_category: 
   - Health
   - Sensor
-ha_release: 0.97
-ha_iot_class: "Cloud Polling"
+ha_release: 0.99
+ha_iot_class: Cloud Polling
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
