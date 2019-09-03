@@ -212,7 +212,7 @@ Certain devices are considered secure, including anything in the `lock` domain, 
 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing and locking these devices does not require a pin.
 
-For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to False the system will arm without prompting for the pin.
+For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
 
 ### Media Player Sources
 
