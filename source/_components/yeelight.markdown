@@ -74,7 +74,7 @@ devices:
           type: boolean
           default: false
         nightlight_switch_type:
-          description: Adds another entity, to control nightlight mode (for models that supports it). Currently only `light` is supported. It will create 2 light entities, one for normal light mode and second for nightlight mode. They are mutually exclusive.
+          description: Adds another entity, to control nightlight mode (for models that supports it). Currently, only `light` is supported. It will create 2 light entities, one for normal light mode and second for nightlight mode. They are mutually exclusive.
           required: false
           type: string
         model:
