@@ -14,7 +14,7 @@ The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solared
 
 <div class='note'>
 
-  The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
+The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
 
 </div>
 
@@ -27,7 +27,7 @@ There are 2 options in configuring the SolarEdge integration:
 
 <div class='note'>
 
-  If the integration is enabled via the user interface all monitored conditions are enabled by default.
+If the integration is enabled via the user interface all monitored conditions are enabled by default.
 When configuring via configuration.yaml you can select the monitored conditions to be translated to a sensor.
 
 </div>
@@ -97,7 +97,7 @@ monitored_conditions:
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
 
-#### Full configuration sample
+## Full configuration example
 
 A full configuration entry would look like the sample below.
 
