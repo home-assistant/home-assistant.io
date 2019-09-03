@@ -57,15 +57,13 @@ password:
 You can find out your Livebox host and port by opening the address livebox.home/ws in your browser. The
 returned json should contain an api_domain (`host`) and a http_port (`port`).
 
-
 ### Initial setup
 
 <div class='note warning'>
 You must have set a password for your Livebox router web administration page. 
 </div>
 
-The first time Home Assistant will connect to your Livebox, you will need to specify the password of livebox
-
+The first time Home Assistant will connect to your Livebox, you will need to specify the password of livebox.
 
 ### Supported routers
 
