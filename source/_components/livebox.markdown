@@ -42,7 +42,7 @@ host:
   default: '192.168.1.1'
 port:
   description: The http port the Livebox is listening on.
-  required: true
+  required: false
   type: integer
   default: 80
 userename:
