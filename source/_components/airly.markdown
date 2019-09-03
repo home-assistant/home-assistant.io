@@ -3,7 +3,7 @@ title: "Airly"
 description: "Instructions on how to integrate Airly within Home Assistant."
 logo: airly.png
 ha_category:
-  - Weather
+  - Health
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 redirect_from:
