@@ -34,7 +34,7 @@ light_profile:
   default: relax
   type: string
 device_group:
-  description: Specify which group to track. The group can contain device_trackers or persons
+  description: Specify which group to track. The group can contain device_trackers or persons.
   required: false
   type: string
 disable_turn_off:
