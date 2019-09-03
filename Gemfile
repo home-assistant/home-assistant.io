@@ -15,8 +15,8 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from', '0.15.0'
   gem 'jekyll-sitemap', '1.3.1'
   gem 'jekyll-time-to-read', '0.1.2'
-  gem 'jekyll-commonmark-ghpages', '0.1.6'
+  gem 'jekyll-commonmark', '1.3.1'
 end
 
-gem 'sinatra', '2.0.6'
+gem 'sinatra', '2.0.7'
 gem 'nokogiri', '1.10.4'

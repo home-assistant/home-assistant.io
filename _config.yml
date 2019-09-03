@@ -39,8 +39,10 @@ liquid:
   error_mode: strict
 
 commonmark:
-  options: ["SMART", "FOOTNOTES"]
+  options: ["SMART", "FOOTNOTES", "UNSAFE"]
   extensions: ["strikethrough", "autolink", "table"]
+
+highlighter: none
 
 plugins:
   - jekyll-redirect-from
