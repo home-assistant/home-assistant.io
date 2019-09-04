@@ -38,7 +38,7 @@ logo:
   description: URL which is publicly accessible of the logo.
   required: true
   type: string
-logo:
+url:
   description: URL of the hackerspace's web site.
   required: true
   type: string
