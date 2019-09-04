@@ -8,7 +8,7 @@ ha_release: 0.23
 ha_qa_scale: internal
 ---
 
-The `persistent_notification` integration can be used to show a notfication on the frontend that has to be dismissed by the user.
+The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.
 
 <p class='img'>
   <img src='/images/screenshots/persistent-notification.png' />
