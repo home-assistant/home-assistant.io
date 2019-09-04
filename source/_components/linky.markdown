@@ -17,13 +17,11 @@ The `linky` sensor platform is retrieving the consumption of your home from the 
 
 You need to create an Enedis account [here](https://espace-client-connexion.enedis.fr/auth/UI/Login?realm=particuliers) if you don't have one already.
 
-
 ### Via the frontend
 
 Menu: *Configuration* -> *Integrations*
 
 Search for "Linky", add your credentials, click submit, you are done !
-
 
 ### Via the configuration file
 
