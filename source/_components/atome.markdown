@@ -1,8 +1,8 @@
 ---
 title: "Atome Linky Sensor"
-description: "Instructions on how to integrate Atome Linky consumption data within Home Assistant."
-logo: enedis.png
-ha_release: 0.97
+description: "Integrate Atome Linky consumption data within Home Assistant."
+logo: total_direct_energie.png
+ha_release: 0.99
 ha_category:
   - Energy
   - Sensor
@@ -17,7 +17,7 @@ As there is no official documentation for the API, the component retrieves data 
 
 ## Configuration
 
-To use it, you need to order the device directly from "Total Direct Energie" Mobile App. Then you need to follow up the installation (covered inthe Atome App).
+To use it, you need to order the device directly from "Total Direct Energie" Mobile App. Then you need to follow up the installation (covered in the Atome App).
 The configuration (see below) needs your Atome username & password you created during the initialisation of the Atome device.
 
 And then, add the Atome sensor to your `configuration.yaml` file like below:
@@ -39,9 +39,4 @@ password:
   description: The Atome account password.
   required: true
   type: string
-timeout:
-  description: Timeout to wait for the API connection.
-  required: false
-  type: integer
-  default: 10
 {% endconfiguration %}
