@@ -135,7 +135,7 @@ Screencap of the batcave video.
 [unifi docs]: /components/unifi/
 [zha docs]: /components/zha/
 
-## Release 0.98.2 - September 1
+## Release 0.98.2 - September 2
 
 - Expose current direction properly on state machine ([@balloob] - [#26298]) ([demo docs]) ([fan docs])
 - bump tuyaha 0.0.4 ([@PaulAnnekov] - [#26303]) ([tuya docs])
@@ -157,6 +157,41 @@ Screencap of the batcave video.
 [fan docs]: /components/fan/
 [google_maps docs]: /components/google_maps/
 [tuya docs]: /components/tuya/
+
+## Release 0.98.3 - September 4
+
+- Upgrade pyhaversion to 3.1.0 ([@fabaff] - [#26232]) ([version docs])
+- String has nothing to do with class method naming ([@Kane610] - [#26368]) ([deconz docs])
+- Fix race during initial Sonos group construction ([@amelchio] - [#26371]) ([sonos docs])
+- Allow core config updated ([@balloob] - [#26398]) ([websocket_api docs])
+- Met, check for existing location ([@Danielhiversen] - [#26400]) ([met docs])
+- Update Harmony to 0.1.13 ([@ehendrix23] - [#26402]) ([harmony docs])
+- Fix state report ([@balloob] - [#26406]) ([alexa docs])
+- Bump ISY994's PyISY dependency to 1.1.2 ([@OverloadUT] - [#26413]) ([isy994 docs])
+
+[#26232]: https://github.com/home-assistant/home-assistant/pull/26232
+[#26368]: https://github.com/home-assistant/home-assistant/pull/26368
+[#26371]: https://github.com/home-assistant/home-assistant/pull/26371
+[#26398]: https://github.com/home-assistant/home-assistant/pull/26398
+[#26400]: https://github.com/home-assistant/home-assistant/pull/26400
+[#26402]: https://github.com/home-assistant/home-assistant/pull/26402
+[#26406]: https://github.com/home-assistant/home-assistant/pull/26406
+[#26413]: https://github.com/home-assistant/home-assistant/pull/26413
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Kane610]: https://github.com/Kane610
+[@OverloadUT]: https://github.com/OverloadUT
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@ehendrix23]: https://github.com/ehendrix23
+[@fabaff]: https://github.com/fabaff
+[alexa docs]: https://www.home-assistant.io/components/alexa/
+[deconz docs]: https://www.home-assistant.io/components/deconz/
+[harmony docs]: https://www.home-assistant.io/components/harmony/
+[isy994 docs]: https://www.home-assistant.io/components/isy994/
+[met docs]: https://www.home-assistant.io/components/met/
+[sonos docs]: https://www.home-assistant.io/components/sonos/
+[version docs]: https://www.home-assistant.io/components/version/
+[websocket_api docs]: https://www.home-assistant.io/components/websocket_api/
 
 ## If you need help...
 
