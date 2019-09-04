@@ -61,10 +61,10 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
 3. Once back on-line, return to `Configuration > Integrations` and select configure next to `MQTT`.
 
 ```text
-  Broker: YOUR_HASSIO_IP_ADDRESS
-  Port: 1883
-  Username: MQTT_USERNAME
-  Password: MQTT_PASSWORD
+  broker: YOUR_HASSIO_IP_ADDRESS
+  port: 1883
+  username: MQTT_USERNAME
+  password: MQTT_PASSWORD
 ```
 
 Note: .yaml modifications are not required. 
