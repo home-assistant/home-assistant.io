@@ -44,7 +44,7 @@ url:
   type: string
 location:
   description: Location of the Hackerspace.
-  required: true
+  required: false
   type: map
   keys:
     address:
