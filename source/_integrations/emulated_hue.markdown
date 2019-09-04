@@ -55,6 +55,9 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
+# listen_port set to 80 is required since 2019-08 when new Firmware for Echo and Echo Dot v1 was pushed out by Amazon
+# See note below about "setcap" as port 80 is not available to non-root users under Linux/Unix.
+# host_ip is optional
   host_ip: YOUR.HASSIO.IP.ADDRESS
   listen_port: 80
   # Alexa stopped working on different ports. Search for "Philipps Hue Bridge V1 (round)" in the Alexa App to discover devices.
