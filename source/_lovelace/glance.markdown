@@ -66,6 +66,11 @@ icon:
   required: false
   description: Overwrites icon or entity picture.
   type: string
+show_last_changed:
+  required: false
+  description: Overwrites the state display with the relative time since last changed.
+  type: boolean
+  default: false
 tap_action:
   required: false
   description: Action to take on tap
