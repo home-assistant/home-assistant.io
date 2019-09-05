@@ -13,7 +13,7 @@ redirect_from:
   - /components/switch.upcloud/
 ---
 
-The `upcloud` integration allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
+The `upcloud` integration allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-Set up your API user credentials in your [UpCloud control panel](https://my.upcloud.com/).
+Set up your API user credentials in your [UpCloud control panel](https://hub.upcloud.com/).
 
 ## Configuration
 
