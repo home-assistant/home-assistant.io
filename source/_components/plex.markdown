@@ -48,55 +48,36 @@ You can also enable the plex platform directly by adding the following lines to 
 # Example configuration.yaml entry
 media_player:
   - platform: plex
-```
-
-In the event that [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can manually create a `plex.conf` file manually and place it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io. The following is an example of `plex.conf`:
-
-```json
-{"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
+    host: 192.168.1.10
+    use_episode_art: true
+    remove_unavailable_clients: true
 ```
 
 {% configuration %}
-IP_ADDRESS:
-  description: IP address of the Plex Media Server.
-  required: true
+host:
+  description: The IP address or hostname of your Plex server.
+  required: false
+  default: localhost
   type: string
-PORT:
-  description: Port where Plex is listening.
-  required: true
+port:
+  description: The port of your Plex Server.
+  required: false
   default: 32400
   type: integer
-TOKEN:
-  description: Only if authentication is required. Set to `null` (without quotes) otherwise.
+token:
+  description: A valid X-Plex-Token for your Plex server.
   required: false
   type: string
 ssl:
-  description: Whether to use SSL/TLS or not.
+  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
   required: false
-  default: "`false`"
+  default: false
   type: boolean
-verify:
-  description: Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`.
+verify_ssl:
+  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
   required: false
-  default: "`true`"
+  default: true
   type: boolean
-{% endconfiguration %}
-
-### Customization
-
-You can customize the Plex integration by adding any of the variables below to your configuration:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: plex
-    show_all_controls: false
-    use_episode_art: true
-    remove_unavailable_clients: true
-    client_remove_interval: 600
-```
-
-{% configuration %}
 show_all_controls:
   description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
   required: false
@@ -195,7 +176,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The IP address of your Plex server.
+  description: The IP address or hostname of your Plex server.
   required: false
   default: localhost
   type: string
@@ -210,7 +191,7 @@ name:
   default: Plex
   type: string
 token:
-  description: X-Plex-Token of your remote Plex server.
+  description: A valid X-Plex-Token for your Plex server.
   required: false
   type: string
 ssl:
