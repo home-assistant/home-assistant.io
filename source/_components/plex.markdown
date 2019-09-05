@@ -185,8 +185,6 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
 
-If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
-
 If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
