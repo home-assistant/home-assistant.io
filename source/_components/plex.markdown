@@ -50,25 +50,71 @@ media_player:
   - platform: plex
 ```
 
+In the event that [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can manually create a `plex.conf` file manually and place it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io. The following is an example of `plex.conf`:
+
+```json
+{"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
+```
+
+{% configuration %}
+IP_ADDRESS:
+  description: IP address of the Plex Media Server.
+  required: true
+  type: string
+PORT:
+  description: Port where Plex is listening.
+  required: true
+  default: 32400
+  type: integer
+TOKEN:
+  description: Only if authentication is required. Set to `null` (without quotes) otherwise.
+  required: false
+  type: string
+ssl:
+  description: Whether to use SSL/TLS or not.
+  required: false
+  default: "`false`"
+  type: boolean
+verify:
+  description: Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`.
+  required: false
+  default: "`true`"
+  type: boolean
+{% endconfiguration %}
+
 ### Customization
 
 You can customize the Plex integration by adding any of the variables below to your configuration:
 
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: plex
+    show_all_controls: false
+    use_episode_art: true
+    remove_unavailable_clients: true
+    client_remove_interval: 600
+```
+
 {% configuration %}
-use_episode_art:
-  description: Display TV episode art instead of TV show art.
-  default: false
-  type: boolean
 show_all_controls:
   description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+  required: false
+  default: false
+  type: boolean
+use_episode_art:
+  description: Display TV episode art instead of TV show art.
+  required: false
   default: false
   type: boolean
 remove_unavailable_clients:
   description: Remove stale Plex clients from UI after interval.
+  required: false
   default: true
   type: boolean
 client_remove_interval:
-  description: How long a client is to be unavailable for before it is removed. Measured in seconds.
+  description: How long a client is to be unavailable for before it is cleaned up in seconds.
+  required: false
   default: 600
   type: integer
 {% endconfiguration %}
