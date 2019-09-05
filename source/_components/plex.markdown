@@ -26,13 +26,33 @@ If your Plex server has been claimed by a Plex account via the [claim interface]
 
 ## Media Player
 
+The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
+
+If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/plex-configure.png' />
+</p>
+
+To authorize your device, you'll first need to [click here to claim a token](https://plex.tv/claim).
+
+If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/plex-token.png' />
+</p>
+
+You can also enable the plex platform directly by adding the following lines to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: plex
 ```
 
-In the event that [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can manually set the configuration options as shown below.
+### Customization
+
+You can customize the Plex integration by adding any of the variables below to your configuration:
 
 {% configuration %}
 use_episode_art:
