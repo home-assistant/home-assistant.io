@@ -193,6 +193,10 @@ Screencap of the batcave video.
 [version docs]: https://www.home-assistant.io/components/version/
 [websocket_api docs]: https://www.home-assistant.io/components/websocket_api/
 
+## Release 0.98.3 - September 4
+
+ - Fix Tuya switches ([@balloob])
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
