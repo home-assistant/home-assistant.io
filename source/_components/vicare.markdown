@@ -42,7 +42,6 @@ name:
 circuit:
   description: Heating circuit of your heating device if multiple exist 
   required: false
-  default: -1
   type: integer
 {% endconfiguration %}
 
@@ -63,7 +62,7 @@ Sets the target temperature to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | Desired target temperature
 
 Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e. Viessman program like eco or comfort).
@@ -81,7 +80,7 @@ The `climate.vicare_heating` component has the following mapping of hvac modes t
  
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `hvac_mode` | no | New value of HVAC mode
 
 #### Service `set_preset_mode`
@@ -90,7 +89,7 @@ Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `preset_mode` | no | New value of hold mode.
 
 ## Water Heater
