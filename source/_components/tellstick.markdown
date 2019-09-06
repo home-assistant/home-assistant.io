@@ -118,6 +118,14 @@ only_named:
       description: Specify the name of the selected sensor.
       required: true
       type: string
+    protocol:
+      description: The protocol that the sensor uses. Can be used if id isn't unique enough.
+      required: false
+      type: string
+    model:
+      description: The model that the sensor uses. Can be used if id and protocol isn't unique enough.
+      required: false
+      type: string
 temperature_scale:
   description: The scale of the temperature value.
   required: false
@@ -147,6 +155,11 @@ sensor:
         name: Outside
       - id: 21
         name: Inside
+        protocol: mandolyn
+      - id: 44
+        name: In between
+        protocol: fineoffset
+        model: temperaturehumidity
 ```
 
 ## Switch
