@@ -4,7 +4,7 @@ description: "Instructions how to integrate Viessmann heating devices with Home 
 logo: viessmann.png
 ha_category: Climate
 ha_release: 0.99
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -51,7 +51,7 @@ Unless you specify a `circuit` parameter it will pick up the first heating circu
 
 ## Climate
 
-A note about the current temperature attribute: Viessmann devices with room temperature sensing will shown the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
+A note about the current temperature attribute: Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 
 ### Supported services `climate.vicare_heating`
 
@@ -91,7 +91,7 @@ Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `hold_mode` | no | New value of hold mode.
+| `preset_mode` | no | New value of hold mode.
 
 ## Water Heater
 
