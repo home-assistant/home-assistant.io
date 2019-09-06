@@ -258,7 +258,7 @@ sensor:
   - platform: template
     sensors:
       nonsmoker:
-        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        value_template: "{{ (( as_timestamp(now()) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
         entity_id: sensor.date
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
@@ -275,7 +275,7 @@ sensor:
   - platform: template
     sensors:
       nonsmoker:
-        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        value_template: "{{ (( as_timestamp(now()) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
         entity_id: []
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
