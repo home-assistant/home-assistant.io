@@ -7,7 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_release: 0.98
+ha_release: 0.99
 ha_iot_class: Cloud Polling
 ---
 
