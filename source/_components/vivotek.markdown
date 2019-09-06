@@ -21,6 +21,8 @@ To enable this camera in your installation, add the following to your `configura
 camera:
   - platform: vivotek
     ip_address: IP_ADDRESS
+    username: ada
+    password: purple
 ```
 
 {% configuration %}
@@ -28,11 +30,6 @@ ip_address:
   description: "The IP address of your camera , e.g., `192.168.1.2`."
   required: true
   type: string
-stream_source:
-  description: "Enables the camera stream when set to `true`."
-  required: false
-  default: None
-  type: boolean
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
@@ -40,27 +37,12 @@ name:
   type: string
 username:
   description: The username for accessing your camera.
-  required: false
+  required: true
   type: string
 password:
   description: The password for accessing your camera.
-  required: false
+  required: true
   type: string
-limit_refetch_to_url_change:
-  description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
-  required: false
-  default: false
-  type: boolean
-content_type:
-  description: Set the content type for the IP camera if it is not a jpg file. Use `image/svg+xml` to add a dynamic SVG file.
-  required: false
-  default: image/jpeg
-  type: string
-framerate:
-  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-  required: false
-  default: 2
-  type: integer
 ssl:
   description: Enable or disable SSL. Set to false to use an http-only camera.
   required: false
@@ -71,6 +53,10 @@ verify_ssl:
   required: false
   default: true
   type: boolean
+framerate:
+  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ### Advanced configuration
@@ -85,7 +71,7 @@ camera:
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
     verify_ssl: false
-    stream_source: true
+    framerate: 5
 ```
 
 ### Services
