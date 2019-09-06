@@ -46,11 +46,6 @@ password:
   description: The password for accessing your camera.
   required: false
   type: string
-authentication:
-  description: "Type for authenticating the requests `basic` or `digest`."
-  required: false
-  default: basic
-  type: string
 limit_refetch_to_url_change:
   description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
   required: false
@@ -66,6 +61,11 @@ framerate:
   required: false
   default: 2
   type: integer
+ssl:
+  description: Enable or disable SSL. Set to false to use an http-only camera.
+  required: false
+  default: false
+  type: boolean
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
   required: false
@@ -81,7 +81,7 @@ camera:
   - platform: vivotek
     name: Front door camera
     ip_address: 192.168.1.2
-    authentication: basic
+    ssl: true
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
     verify_ssl: false
