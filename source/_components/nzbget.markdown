@@ -16,7 +16,7 @@ To use NZBGet with your installation, add the following to your `configuration.y
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+nzbget:
   platform: nzbget
   host: YOUR_NZBGET_HOST
   monitored_variables:
