@@ -106,7 +106,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | New target temperature for water heater
 
 
