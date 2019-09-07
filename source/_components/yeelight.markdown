@@ -198,7 +198,7 @@ Changes the light to the specified color temperature. If the light is off, it wi
 
 ### Service `yeelight.set_color_flow_scene`
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses set_scene api. If light was off it will be turned on. There might be some firmware differences, in handling complex flows etc.
+Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different yeelight api call. If light was off it will be turned on. There might be some firmware differences, in handling complex flows etc.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
