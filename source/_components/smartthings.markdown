@@ -110,7 +110,7 @@ See the [troubleshooting](#troubleshooting) if you are having issues setting up 
 
 The SmartThings integration supports the following options (configured through the integration options screen):
 
-1. `Raise events for push updates`: This is an advanced feature which provides access to the raw data received from SmartThings during a push update. When enabled, the integraiton will raise events through the event bus for all push updates--not just button presses. The default is to raise events only for buttons.
+1. `Raise events for push updates`: This is an advanced feature which provides access to the raw data received from SmartThings during a push update. When enabled, the integration will raise events through the event bus for all push updates--not just button presses. The default is to raise events only for buttons.
 
 ## Events
 
@@ -166,7 +166,7 @@ The integration can be configured to raise events for push updates received. `Ra
 `capability`                | The SmartThings capability that was updated.
 `attribute`                 | The attribute of the capability that was updated.
 `value`                     | The new value of the attribute.
-`data`                      | Data assocaited with the event update.
+`data`                      | Data associated with the event update.
 
 Event data payloads are logged at the debug level, see [debugging](#debugging) for more information.
 
