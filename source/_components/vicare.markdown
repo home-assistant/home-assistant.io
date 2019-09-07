@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
-Most recent network-connected Viessmann heating devices (e.g. gas boilers) should be supported.
+Most recent network-connected Viessmann heating devices (e.g., gas boilers) should be supported.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -46,7 +46,7 @@ circuit:
 {% endconfiguration %}
 
 Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
-Unless you specify a `circuit` parameter it will pick up the first heating circuit of your installation.
+Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
 
 ## Climate
 
@@ -65,13 +65,14 @@ Sets the target temperature to the given temperature.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | Desired target temperature
 
-Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e. Viessman program like eco or comfort).
+Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
 
 #### Service `climate.set_hvac_mode`
 
 Set HVAC mode for the climate device. The following modes are supported:
 
-The `climate.vicare_heating` component has the following mapping of hvac modes to Viessmann operation modes:
+The `climate.vicare_heating` component has the following mapping of HVAC modes to Viessmann operation modes:
+
 | HVAC mode | Viessmann mode | Description |
 | ---------------------- | -------- | ----------- |
 | `off` | `ForcedReduced` | Permanently set heating to reduced temperature. Note: This will also deactivate domestic hot water
@@ -100,7 +101,7 @@ It is not possible to turn on/off water heating via the Water Heater component s
 
 The following services of the [Water Heater component](/components/water_heater/) are provided by the ViCare integration: `set_temperature`
 
-##### Service `set_temperature`
+#### Service `set_temperature`
 
 Sets the target temperature of domestic hot water to the given temperature.
 
