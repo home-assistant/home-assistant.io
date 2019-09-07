@@ -193,9 +193,15 @@ Screencap of the batcave video.
 [version docs]: https://www.home-assistant.io/components/version/
 [websocket_api docs]: https://www.home-assistant.io/components/websocket_api/
 
-## Release 0.98.3 - September 4
+## Release 0.98.4 - September 4
 
  - Fix Tuya switches ([@balloob])
+
+## Release 0.98.5 - September 6
+
+We have been notified by Gregor Godbersen that our markdown renderer was vulnerable for an XSS attack if exposed to specially crafted markdown. This was introduced in the Home Assistant 0.98 release. We have verified that Home Assistant 0.98.0 does not render unsafe markdown, yet still wanted to make sure to issue an update as soon as possible.
+
+More information in this [frontend pull request](https://github.com/home-assistant/home-assistant-polymer/pull/3640).
 
 ## If you need help...
 
