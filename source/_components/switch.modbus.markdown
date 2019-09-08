@@ -18,7 +18,7 @@ To use your Modbus switches in your installation, add the following to your `con
 # Example configuration.yaml entry
 switch:
   platform: modbus
-  slave: 1
+  scan_interval: 10
   coils:
     - name: Switch1
       hub: hub1
@@ -115,3 +115,5 @@ register:
       default: same as command_off
       type: integer
 {% endconfiguration %}
+
+It's possible to change the default 30 seconds scan interval for the switch state updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
