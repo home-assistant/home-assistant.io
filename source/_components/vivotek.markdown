@@ -4,8 +4,8 @@ description: "Instructions on how to integrate Vivotek cameras within Home Assis
 ha_category:
   - Camera
 logo: vivotek.jpg
-ha_release: 0.97
-ha_iot_class: Configurable
+ha_release: 0.99
+ha_iot_class: Local Polling
 ---
 
 The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
@@ -56,6 +56,7 @@ verify_ssl:
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
+  default: 2
   type: integer
 {% endconfiguration %}
 
