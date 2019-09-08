@@ -17,6 +17,7 @@ To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 fan:
@@ -28,6 +29,10 @@ fan:
         speed_template: "{{ states('input_select.speed') }}"
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
+        availability_template: >-
+          {%- if not is_state('dependant_device.state', 'unavailable') %}
+            true
+          {% endif %}
         turn_on:
           service: script.fan_on
         turn_off:
@@ -49,6 +54,7 @@ fan:
           - '2'
           - '3'
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -77,6 +83,11 @@ fan:
         description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
         required: false
         type: template
+      availability_template:
+        description: "Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`"
+        required: false
+        type: template
+        default: the device is always `available`
       turn_on:
         description: Defines an action to run when the fan is turned on.
         required: true
