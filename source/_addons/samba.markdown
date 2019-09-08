@@ -4,7 +4,7 @@ description: "Manage your Home Assistant and custom add-ons over Samba."
 featured: true
 ---
 
-This add-on allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
+This add-on allows you to set up a [Samba](https://www.samba.org) server to access Hass.io folders using Windows network shares.
 
 <div class='note warning'>
 

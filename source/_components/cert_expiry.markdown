@@ -14,7 +14,11 @@ The `cert_expiry` sensor fetches information from a configured URL and displays 
 
 ## Configuration
 
-To add the Certificate Expiry sensor to your installation, add these options to `configuration.yaml` file:
+There are 2 options in configuring the `cert_expiry` sensor:
+
+- Via the Home Assistant user interface where it will let you enter a name, host and port for the certificate to check.
+- Via the Home Assistant configuration.yaml file.
+
 
 ```yaml
 # Example configuration.yaml entry

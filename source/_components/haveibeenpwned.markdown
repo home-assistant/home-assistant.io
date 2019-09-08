@@ -14,8 +14,17 @@ The `haveibeenpwned` sensor platform creates sensors that check for breached ema
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing
-the number of breaches on that email account.
+<div class='note warning'>
+
+  The HaveIBeenPwned API is no longer a free API. For more information about this change read the HIBP creator's [blogpost regarding the change](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/).
+
+</div>
+
+In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
+
+## Configuration
+
+To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing the number of breaches on that email account.
 
 ```yaml
 # Example configuration.yaml entry using cloud based emoncms
@@ -24,6 +33,7 @@ sensor:
     email:
       - your_email1@domain.com
       - your_email2@domain.com
+    api_key: API_KEY
 ```
 
 {% configuration %}
@@ -31,6 +41,10 @@ email:
   description: List of email addresses.
   required: true
   type: list
+api_key:
+  description: HaveIBeenPwned API Key
+  required: true
+  type: string
 {% endconfiguration %}
 
 ## Breach meta data

@@ -129,7 +129,7 @@ longitude:
   required: inclusive
   type: float
 station:
-  description: The station code of a specific weather station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. 
+  description: The station code of a specific weather station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code.
   required: false
   type: string
 language:
@@ -144,7 +144,7 @@ scan_interval:
   default: 600
 {% endconfiguration %}
 
-###Alert TTS Script
+### Alert TTS Script
 
 If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
 
@@ -177,7 +177,7 @@ camera:
 
 - If no name is given, the camera entity will be named `camera.<station_name>_radar`.
 - The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars) (remove the leading `C`, e.g. `XFT` or `ASBV`), or
+    - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal.
     - A specific latitude/longitude
 
 {% configuration %}
@@ -190,7 +190,7 @@ longitude:
   required: inclusive
   type: float
 station: 
-  description: The station code of a specific radar station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored.
+  description: The station code of a specific radar station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Must be in the form `XXX` or `CXXXX`.
   required: false
   type: string
 name:

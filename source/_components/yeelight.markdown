@@ -73,6 +73,10 @@ devices:
           required: false
           type: boolean
           default: false
+        nightlight_switch_type:
+          description: Adds another entity, to control nightlight mode (for models that supports it). Currently, only `light` is supported. It will create 2 light entities, one for normal light mode and second for nightlight mode. They are mutually exclusive.
+          required: false
+          type: string
         model:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
@@ -142,7 +146,7 @@ This integration is tested to work with the following models. If you have a diff
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
-
+| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 
 ## Platform Services
 
@@ -154,7 +158,6 @@ Set an operation mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific lights.                                                              |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
-
 
 ### Service `yeelight.start_flow`
 

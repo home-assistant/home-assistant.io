@@ -39,8 +39,6 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Click on "Create Agent"
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
-- Go to project settings (cog symbol in left menu)
-- under "API VERSION" click on "V1 API"
 - Now go to "Fulfillment" (in the left menu)
 - Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
@@ -52,6 +50,12 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Click "Save"
 - On the top right, where is written "Try it now...", write, or say, the phrase you have previously defined and hit enter
 - Dialogflow has send a request to your Home Assistant server
+
+<div class='note warning'>
+
+  The V1 api will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents yaml configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
+
+</div>
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 

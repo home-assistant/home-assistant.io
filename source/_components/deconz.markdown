@@ -320,6 +320,8 @@ The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is
   - Philips Hue Motion Sensor
   - Xiaomi Motion Sensor
   - Xiaomi Smart Home Aqara Human Body Sensor
+- Water leakage detection
+  - Xiaomi Aqara water leak Sensor
 
 ## Climate
 
@@ -340,7 +342,7 @@ The `entity_id` name will be `climate.device_name`, where `device_name` is defin
 
 Covers are devices like ventilation dampers or smart window covers.
 
-Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers.
+Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers. You therefore add a cover device as a light device in deCONZ (phoscon app).
 
 The `entity_id` name will be `cover.device_name`, where `device_name` is defined in deCONZ.
 

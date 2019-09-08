@@ -143,6 +143,8 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 </div>
 
+### Preparation
+
 To prepare your machine for the Hass.io installation, run the following commands:
 
 ```bash
@@ -192,8 +194,8 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-3.3.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-64-3.3.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.4/hassos_rpi4-3.4.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.4/hassos_rpi4-64-3.4.img.gz
 [tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz

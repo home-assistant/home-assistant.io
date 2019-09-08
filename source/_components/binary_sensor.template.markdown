@@ -77,6 +77,15 @@ sensors:
           description: Defines a template for the entity picture of the sensor.
           required: false
           type: template
+        attribute_templates:
+          description: Defines templates for attributes of the sensor.
+          required: false
+          type: map
+          keys:
+            "attribute: template":
+              description: The attribute and corresponding template.
+              required: true
+              type: template
         delay_on:
           description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
           required: false
@@ -229,6 +238,35 @@ binary_sensor:
              or is_state('binary_sensor.family_room_144', 'on') }}
 ```
 
+{% endraw %}
+
+### Device Tracker sensor with Latitude and Longitude Attributes
+
+This example shows how to combine an non-GPS (e.g. NMAP) and GPS device tracker while still including latitude and longitude attributes
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      my_device:
+        value_template: >-
+          {{ is_state('device_tracker.my_device_nmap','home') or is_state('device_tracker.my_device_gps','home') }}
+        device_class: 'presence'
+        attribute_templates:
+          latitude: >-
+            {% if is_state('device_tracker.my_device_nmap','home') %}
+              {{ state_attr('zone.home','latitude') }}
+            {% else %}
+              {{ state_attr('device_tracker.my_device_gps','latitude') }}
+            {% endif %}
+          longitude: >-
+            {% if is_state('device_tracker.my_device_nmap','home') %}
+              {{ state_attr('zone.home','longitude') }}
+            {% else %}
+              {{ state_attr('device_tracker.my_device_gps','longitude') }}
+            {% endif %}
+```
 {% endraw %}
 
 ### Change the icon when state changes

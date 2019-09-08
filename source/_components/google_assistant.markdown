@@ -79,11 +79,12 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
-
-3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
-5. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
-6. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+3. Under `Build your Action` click `Add Action(s)`.
+    1. Under `Fulfillment` fill in this URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`.
+4. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
+5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+6. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
+7. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 
 <div class='note'>
 

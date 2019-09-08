@@ -23,9 +23,8 @@ counter:
 ```
 
 {% configuration %}
-# 'alias' should be replaced by the user for their actual value.
 "[alias]":
-  description: Alias for the counter. Multiple entries are allowed.
+  description: Alias for the counter. Multiple entries are allowed. `alias` should be replaced by the user for their actual value.
   required: true
   type: map
   keys:
@@ -119,4 +118,38 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 {
   "entity_id": "counter.my_custom_counter"
 }
+```
+
+## Examples
+
+### Counting Home Assistant errors
+
+To use a counter to count errors as caught by Home Assistant, you need to add `fire_event: true` to your `configuration.yaml`, like so:
+
+```yaml
+# Example configuration.yaml entry
+system_log:
+  fire_event: true
+```
+
+### Error counting - example configuration
+
+```yaml
+# Example configuration.yaml entry
+automation:
+- id: 'errorcounterautomation'
+  alias: Error Counting Automation
+  trigger:
+    platform: event
+    event_type: system_log_event
+    event_data:
+      level: ERROR
+  action:
+    service: counter.increment
+    entity_id: counter.error_counter
+    
+counter:
+  error_counter:
+    name: Errors
+    icon: mdi:alert  
 ```

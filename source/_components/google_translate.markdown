@@ -55,5 +55,5 @@ If you are using SSL certificate or Docker, you may need to add the `base_url` c
 ```yaml
 #Example configuration.yaml entry
 http:
-  base_url: example.duckdns.org
+  base_url: https://example.duckdns.org
 ```

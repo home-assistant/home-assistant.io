@@ -61,7 +61,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 <div class='note warning'>
 
-  Avoid using `states.sensor.temperature`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+  Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
 
@@ -74,7 +74,7 @@ The next two statements result in the same value if the state exists. The second
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus }}
+{{ states.device_tracker.paulus.state }}
 ```
 {% endraw %}
 
@@ -268,6 +268,10 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - `sin(value)` will return the sine of the input. Can be used as a filter.
 - `cos(value)` will return the cosine of the input. Can be used as a filter.
 - `tan(value)` will return the tangent of the input. Can be used as a filter.
+- `asin(value)` will return the arcus sine of the input. Can be used as a filter.
+- `acos(value)` will return the arcus cosine of the input. Can be used as a filter.
+- `atan(value)` will return the arcus tangent of the input. Can be used as a filter.
+- `atan2(y, x)` will return the four quadrant arcus tangent of y / x. Can be used as a filter.
 - `sqrt(value)` will return the square root of the input. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.

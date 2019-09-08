@@ -13,17 +13,24 @@ redirect_from:
 
 The `linky` sensor platform is retrieving the consumption of your home from the [Linky electric meter](https://www.enedis.fr/linky-compteur-communicant).
 
-## Configuration
+## Setup the integration
 
-First, you need to create an Enedis account [here](https://espace-client-connexion.enedis.fr/auth/UI/Login?realm=particuliers), if you don't have already one.
+You need to create an Enedis account [here](https://espace-client-connexion.enedis.fr/auth/UI/Login?realm=particuliers) if you don't have one already.
 
-And then, add the Linky sensor to your `configuration.yaml` file like below:
+### Via the frontend
+
+Menu: *Configuration* -> *Integrations*
+
+Search for "Linky", add your credentials, click submit, you are done !
+
+### Via the configuration file
+
+Add the Linky sensor to your `configuration.yaml` file like below:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: linky
-    username: YOUR_LINKY_USERNAME
+linky:
+  - username: YOUR_LINKY_USERNAME
     password: YOUR_LINKY_PASSWORD
 ```
 

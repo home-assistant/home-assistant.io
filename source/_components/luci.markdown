@@ -9,7 +9,7 @@ redirect_from:
  - /components/device_tracker.luci/
 ---
 
-_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/openwrt/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 

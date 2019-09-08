@@ -98,12 +98,12 @@ i2c_address:
   required: false
   type: integer
   default: "`0x20`"
-ports:
+pins:
   description: Array of used pins.
   required: true
   type: list
   keys:
-    port:
+    pin:
       description: The pin numbers (from 0 to 15) and corresponding names.
       required: true
       type: [integer, string]

@@ -103,17 +103,6 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## Background
-
-Style the background of views using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
-
-### Example
-
-```yaml
-- title: Living room
-  background: center / cover no-repeat url("/local/background.png") fixed
-```
-
 ## Themes
 
 Set a separate [theme](/components/frontend/#themes) for the view and its cards.
@@ -123,4 +112,18 @@ Set a separate [theme](/components/frontend/#themes) for the view and its cards.
 ```yaml
 - title: Home
   theme: happy
+```
+
+### Background
+
+You can style the background of your views with a [theme](/components/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+
+#### Example
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  themes:
+    example:
+      lovelace-background: center / cover no-repeat url("/local/background.png") fixed
 ```

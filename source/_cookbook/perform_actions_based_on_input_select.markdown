@@ -4,7 +4,7 @@ description: "Example playing media to Chromecast based on input select element"
 ha_category: Automation Examples
 ---
 
-This example uses an [`input_select`](/components/input_select/) element to pick which mp3 file to play on a [Chromecast](components/media_player.cast/).
+This example uses an [`input_select`](/components/input_select/) element to pick which mp3 file to play on a [Chromecast](/components/cast/).
 
 ```yaml
 # Define our dropdown list
@@ -38,7 +38,7 @@ automation:
       data:
         entity_id: media_player.nursery
         media_content_id: http://fileserver/rain.mp3
-        media_content_type: audio/mp4
+        media_content_type: music
 
 
   # If you select "Babbling Brook", play the "babbling_brook.mp3" file
@@ -54,7 +54,7 @@ automation:
       data:
         entity_id: media_player.nursery
         media_content_id: http://fileserver/babbling_brook.mp3
-        media_content_type: audio/mp4
+        media_content_type: music
 
   # If you select "None, turn the Chromecast off
   - alias: Stop the Lullaby
@@ -160,5 +160,5 @@ automation:
             {% else %}{% endraw %}
               none{% raw %}
             {% endif %}{% endraw %}
-          media_content_type: 'audio/mp4'
+          media_content_type: 'music'
 ```

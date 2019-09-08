@@ -37,7 +37,7 @@ port:
 
 The snapcast components provides a few services registered under the media_player component.
 
-### Service `media_player.snapcast_snapshot`
+### Service `snapcast.snapshot`
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
@@ -45,7 +45,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | The speakers to snapshot.
 
-### Service `media_player.snapcast_restore`
+### Service `snapcast.restore`
 
 Restore a previously taken snapshot of one or more speakers.
 
@@ -53,7 +53,7 @@ Restore a previously taken snapshot of one or more speakers.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored.
 
-### Service `media_player.snapcast_join`
+### Service `snapcast.join`
 
 Group players together under a single group.
 
@@ -62,7 +62,7 @@ Group players together under a single group.
 | `master` | no | Entity ID of the player to synchronize to.
 | `entity_id` | yes | String or list of `entity_id`s to join to the master.
 
-### Service `media_player.snapcast_unjoin`
+### Service `snapcast.unjoin`
 
 Remove one or more speakers from their group of speakers.
 

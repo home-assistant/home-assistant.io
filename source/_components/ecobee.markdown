@@ -140,6 +140,17 @@ The _HVAC mode_ of the device is the currently active operational
 modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
 auto, and off.
 
+## Attributes
+
+The Ecobee climate entity has some extra attributes to represent the state of the thermostat.
+
+| Name | Description |
+| ---- | ----------- |
+| `fan` | If the fan is currently on or off: `on` / `off`.
+| `climate_mode` | This is the climate mode that is active, or would be active if no override is active.
+| `equipment_running` | This is a comma seperated list of equipment that is currently running.
+| `fan_min_on_time` | The minimum amount of minutes that the fan will be on when it's turned on.
+
 ## Services
 
 Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra service is provided by the Ecobee Thermostat: `resume_program`.

@@ -148,6 +148,14 @@ This service asks the modem to establish its LTE connection, useful if the modem
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
 
+### Service `netgear_lte.disconnect_lte`
+
+This service asks the modem to close its LTE connection.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | yes      | The modem that should disconnect (optional when just one modem is configured).
+
 ### Service `netgear_lte.delete_sms`
 
 The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
