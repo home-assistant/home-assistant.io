@@ -12,12 +12,19 @@ redirect_from:
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria and the Netherlands (under Ziggo).
 
+<div class='note'>
+
+Since mid 2019 the UPC ConnectBox requres a passwort to retrieve connected devices.
+
+</div>
+
 To use a Connect Box in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
   - platform: upc_connect
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 {% configuration %}
@@ -25,6 +32,10 @@ host:
   description: The IP address of your router.
   required: false
   default: 192.168.0.1
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
   type: string
 {% endconfiguration %}
 
