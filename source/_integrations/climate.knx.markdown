@@ -172,7 +172,7 @@ on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false
   type: string
-on_off_inverted:
+on_off_invert:
   description: Value for switching the climate device on/off is inverted.
   required: false
   default: false
