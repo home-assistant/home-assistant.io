@@ -75,10 +75,10 @@ sensor:
         required: false
         type: template
       availability_template:
-        description: "Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`"
+        description: Defines a template to get the `available` state of the component. If the template returns `true` the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`
         required: false
         type: template
-        default: the device is always `available`
+        default: true
       device_class:
         description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
