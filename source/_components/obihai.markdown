@@ -10,7 +10,7 @@ redirect_from:
   - /components/sensor.obihai/
 ---
 
-The `obihai` integration allows you to view the call status for your [Obihai devies](https://www.obitalk.com/info/products#home_section).
+The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
 
 To enable `obihai` in your installation, add the following to your `configuration.yaml` file:
 
