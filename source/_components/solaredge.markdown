@@ -25,13 +25,6 @@ There are 2 options in configuring the SolarEdge integration:
 - Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
 - Via the Home Assistant `configuration.yaml` file.
 
-<div class='note'>
-
-If the integration is enabled via the user interface all monitored conditions are enabled by default.
-When configuring via configuration.yaml you can select the monitored conditions to be translated to a sensor.
-
-</div>
-
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
