@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Thank You"
 description: "Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome."
 date: 2016-12-19 21:04:05 UTC
 date_formatted: "December 19, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community
 og_image:
 ---
@@ -29,7 +27,7 @@ We're taking a well deserved break and we will be back again in 2017 with more a
 
 – Paulus
 
-[0.10]: https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/
+[0.10]: /blog/2015/12/22/amazon-echo-icloud-and-templates/
 [AppFolio]: http://www.appfolioinc.com/
 [GitHub]: https://GitHub.com
 [TravisCI]: https://Travis-ci.org

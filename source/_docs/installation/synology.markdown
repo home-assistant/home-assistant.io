@@ -1,14 +1,14 @@
 ---
-layout: page
 title: "Installation on a Synology NAS"
 description: "Instructions to install Home Assistant on a Synology NAS."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-synology/
 ---
+
+<div class='note warning'>
+
+Synology only provide Python 3.5.1, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3`
+
+</div>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
 1. using Docker
@@ -51,21 +51,21 @@ Install PIP (Python's package management system)
 # ./python3 -m ensurepip
 ```
 
-Use PIP to install Homeassistant package
+Use PIP to install Homeassistant package 0.64.3
 
 ```bash
-# ./python3 -m pip install homeassistant
+# ./python3 -m pip install homeassistant==0.64.3
 ```
 
 Create homeassistant config directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
-# chown /volume1/homeassistant homeassistant
+# chown homeassistant /volume1/homeassistant 
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```
-Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g. via "File Station") - this has the advantage that the folder is visible via "File Station".
+Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station".
 
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
 

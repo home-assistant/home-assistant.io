@@ -1,17 +1,12 @@
 ---
-layout: page
 title: "MySensors Device Tracker"
-description: "Instructions how to use MySensors to track devices in Home Assistant."
-date: 2017-02-06 15:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to use MySensors to track devices in Home Assistant."
 logo: mysensors.png
-ha_category: Presence Detection
-featured: false
-ha_release: "0.38"
-ha_iot_class: "Local Push"
+ha_category:
+  - DIY
+  - Presence Detection
+ha_release: 0.38
+ha_iot_class: Local Push
 ---
 
 Integrates MySensors device trackers into Home Assistant. See the [main component] for configuration instructions.
@@ -26,7 +21,7 @@ S_GPS             | V_POSITION
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /**

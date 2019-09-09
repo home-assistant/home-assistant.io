@@ -1,20 +1,14 @@
 ---
-layout: page
 title: Foursquare
-description: "Instructions how to the Foursquare API into Home Assistant."
-date: 2016-08-08 17:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to the Foursquare API into Home Assistant."
 logo: foursquare.png
-featured: false
-ha_category: Social
+ha_category:
+  - Social
 ha_release: 0.26
-ha_iot_class: "Cloud Polling and Cloud Push"
+ha_iot_class: Cloud Polling and Cloud Push
 ---
 
-The `foursquare` component accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
 
 ```yaml
 # Example configuration.yaml entry
@@ -23,28 +17,34 @@ foursquare:
   push_secret: "<foursquare push secret>"
 ```
 
-Configuration variables:
-
-- **access_token** (*Required*): A Foursquare API access token.
-- **push_secret** (*Required*): The push secret that Foursquare provides to you in the app dashboard.
+{% configuration %}
+access_token:
+  description: A Foursquare API access token.
+  required: true
+  type: string
+push_secret:
+  description: The push secret that Foursquare provides to you in the app dashboard.
+  required: true
+  type: string
+{% endconfiguration %}
 
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
-`REDIRECT_URL` which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
+`REDIRECT_URL` which can be any URL you like, but since it will get your access token via an HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant.
 Visit the following URL in your browser:
 
 ```
 https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
 ```
 
-and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values. 
+and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values.
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
-After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as a HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
+After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
 
-### {% linkable_title Real-Time API %}
+### Real-Time API
 
-The component accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
+The integration accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
 
 Foursquare check-in events can be used out of the box to trigger automation actions, e.g.:
 
@@ -59,7 +59,7 @@ automation:
       entity_id: script.my_action
 ```
 
-### {% linkable_title Check ins %}
+### Check ins
 
 To check a user in, use the `foursquare/checkin` service.
 

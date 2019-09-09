@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Serial analog sensor"
 description: "Using a Digispark with Home Assistant."
 date: 2017-10-23 08:00:00 +0200
 date_formatted: "October 23, 2017"
 author: Fabian Affolter
-comments: true
 categories: How-To
 og_image: /images/blog/2017-10-analog-sensor/analog-sensor.png
 ---

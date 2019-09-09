@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.48: Snips.ai, Shiftr.io and a massive History query speed up"
 description: "Build your own local voice assistant with the new Snips.ai component, visualize your data with Shiftr.io and enjoy faster history browsing."
 date: 2017-07-02 00:02:05 +0000
 date_formatted: "July 2, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.48/components.png
 ---
@@ -26,19 +24,19 @@ zwave:
   new_entity_ids: false
 ```
 
-## {% linkable_title Big speed up in querying the history %}
+## Big speed up in querying the history
 
-Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️ 
+Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️
 
-## {% linkable_title Snips.ai component %}
+## Snips.ai component
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
-Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and once again reducing the file size 👍 
+Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and once again reducing the file size 👍
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
-## {% linkable_title Release 0.48.1 - July 5 %}
+## Release 0.48.1 - July 5
 
 - Fix arlo sensors. ([@bergemalm] - [#8333]) ([sensor.arlo docs])
 - API POST no longer marks the number zero as invalid ([@azogue] - [#8324]) ([api docs])
@@ -48,7 +46,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Fix Arlo startup crash (fixes #8288) ([@fabaff] - [#8290]) ([camera.arlo docs])
 - Temporary fix for the client_id generation (fixes #8315) ([@fabaff] - [#8336]) ([mqtt docs])
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Upnp properties ([@dgomes] - [#8067]) ([upnp docs]) ([sensor.upnp docs]) (new-platform)
@@ -67,15 +65,15 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
 - Snips ASR and NLU component ([@michaelfester] - [#8156]) ([snips docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 
@@ -120,7 +118,7 @@ light:
         fade: none
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
 - No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])
@@ -171,7 +169,7 @@ light:
 - Decora light: Fix brightness level in UI ([@titilambert] - [#8139]) ([light.decora docs])
 - Add I2c BME280 temperature, humidity and pressure sensor for Raspberry Pi ([@azogue] - [#7989]) ([sensor.bme280 docs]) (new-platform)
 - Upgrade libsoundtouch to prevent Python3.6 errors with enum. #7733 #8103 ([@CharlesBlonde] - [#8143]) ([media_player.soundtouch docs])
-- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontestl] - [#8093]) ([sensor.glances docs])
+- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontesl] - [#8093]) ([sensor.glances docs])
 - Add I2c HTU21D temperature and humidity sensor for Raspberry Pi ([@azogue] - [#8049]) ([sensor.htu21d docs]) (new-platform)
 - Add new BH1750 light level sensor ([@azogue] - [#8050]) ([sensor.bh1750 docs]) (new-platform)
 - LimitlessLED: Configurable fade-out behavior ([@SmilyOrg] - [#7369]) ([light.limitlessled docs]) (breaking change)
@@ -232,7 +230,7 @@ light:
 - Use constant and update ordering ([@fabaff] - [#8246]) ([arlo docs]) ([camera.arlo docs])
 - Add PlatformNotReady support for Sensibo ([@andrey-git] - [#8252]) ([climate.sensibo docs])
 - verisure component names ([@persandstrom] - [#8251]) ([binary_sensor.verisure docs]) ([camera.verisure docs]) ([lock.verisure docs]) ([switch.verisure docs])
-- further document add_node_secure ([@kentcalero] - [#8229])
+- further document add_node_secure ([@JudgeDreddKLC] - [#8229])
 - Upgrade libnacl to 1.5.1 ([@fabaff] - [#8259]) ([device_tracker.owntracks docs])
 - Docker cleanup. ([@michaelarnauts] - [#8226])
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
@@ -389,10 +387,10 @@ light:
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@jawilson]: https://github.com/jawilson
 [@jeanregisser]: https://github.com/jeanregisser
-[@jjmontestl]: https://github.com/jjmontestl
+[@jjmontesl]: https://github.com/jjmontesl
 [@jshore1296]: https://github.com/jshore1296
 [@karlw00t]: https://github.com/karlw00t
-[@kentcalero]: https://github.com/kentcalero
+[@JudgeDreddKLC]: https://github.com/JudgeDreddKLC
 [@lrmate]: https://github.com/lrmate
 [@lunar-consultancy]: https://github.com/lunar-consultancy
 [@madpilot]: https://github.com/madpilot
@@ -454,7 +452,7 @@ light:
 [group docs]: /components/group/
 [image_processing.opencv docs]: /components/image_processing.opencv/
 [influxdb docs]: /components/influxdb/
-[insteon_hub docs]: /components/insteon_hub/
+[insteon_hub docs]: /components/insteon/
 [insteon_local docs]: /components/insteon_local/
 [knx docs]: /components/knx/
 [light.decora docs]: /components/light.decora/
@@ -530,9 +528,9 @@ light:
 [#8336]: https://github.com/home-assistant/home-assistant/pull/8336
 [@adrienball]: https://github.com/adrienball
 [@bergemalm]: https://github.com/bergemalm
-[api docs]: https://home-assistant.io/components/api/
-[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
-[snips docs]: https://home-assistant.io/components/snips/
+[api docs]: /components/api/
+[camera.arlo docs]: /components/camera.arlo/
+[mqtt docs]: /components/mqtt/
+[remote.harmony docs]: /components/remote.harmony/
+[sensor.arlo docs]: /components/sensor.arlo/
+[snips docs]: /components/snips/

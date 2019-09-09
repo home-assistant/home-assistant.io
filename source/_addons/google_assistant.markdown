@@ -1,18 +1,20 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Enhance your Hass.io installation with Google Assistant."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
-<p class='note'>
-  If you want to integrate your Google Home, or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
-</p>
+<div class='note warning'>
+
+These instructions are outdated - the add-on has been updated and these are no longer accurate or complete.
+
+</div>
+
+<div class='note'>
+
+If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
+
+</div>
 
 [Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact via the [DialogFlow][comp] integration with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
 
@@ -64,12 +66,18 @@ Configuration example that uses the USB microphone and the built-in headset audi
 }
 ```
 
-Configuration variables:
+{% configuration %}
+mic:
+  description: This is the hardware address of your microphone. Look at the add-on output.
+  required: true
+  type: float
+speaker:
+  description: This is the hardware address of your speakers. Look at the add-on output.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **mic**: This is the hardware address of your microphone. Look at the add-on output 
-- **speaker**: This is the hardware address of your speakers. Look at the add-on output
-
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 

@@ -1,19 +1,18 @@
 ---
-layout: page
 title: "Updater"
 description: "Detecting when Home Assistant updates are available."
-date: 2015-11-15 20:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category:
+  - binary_sensor
+ha_qa_scale: internal
+ha_release: 0.8
 ---
 
-The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version is found. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this component on Hass.io.
+The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this binary sensor on Hass.io.
 
-The updater component will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91). For further information about the Updater's data, please check the [detailed overview](/docs/backend/updater/).
+The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater).
+
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -21,9 +20,22 @@ To integrate this into Home Assistant, add the following section to your `config
 updater:
 ```
 
-If you choose not to share any information when checking for updates, you can add `reporting: False`.
+{% configuration %}
+reporting:
+  description: Whether or not to share system information when checking for updates.
+  required: false
+  type: boolean
+  default: true
+include_used_components:
+  description: Whether or not to report the integrations that you are using in Home Assistant.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
-It is possible to report the components that you are using to the Home Assistant developers. This will help them focus on improving the popular ones. To enable this option, you have to add `include_used_components: True`. 
+For further information about the Updater's data, please check the [detailed overview](/docs/backend/updater/). If you choose not to share any information when checking for updates, you can set `reporting: false`.
+
+It is possible to report the integrations that you are using to the Home Assistant developers. This will help them focus on improving the popular ones. To enable this option, you have to add `include_used_components: true`.
 
 ```json
 "components": [
@@ -40,20 +52,23 @@ It is possible to report the components that you are using to the Home Assistant
 ]
 ```
 
-### {% linkable_title Notification %}
+## Notification
 
-For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.
+For an added bonus, an automation integration can be created to send a message with a notifier when that state of this component's entity changes.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
-  alias: 'Update Available Notifications'
+  alias: Update Available Notification
   trigger:
-    platform: state
-    entity_id: updater.updater
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: 'off'
+      to: 'on'
   action:
-    service: notify.notify
-    data:
-      message: 'Update for Home Assistant is available.'
+    - service: notify.notify
+      data_template:
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
-
+{% endraw %}

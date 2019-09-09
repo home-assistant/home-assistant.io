@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "hass"
 description: "Description of hass."
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The command-line part of Home Assistant is `hass`.
@@ -39,6 +33,7 @@ optional arguments:
                         specified days
   --log-file LOG_FILE   Log file to write to. If not set, CONFIG/home-
                         assistant.log is used
+  --log-no-color        Disable color logs
   --runner              On restart exit with code 100
   --script ...          Run one of the embedded scripts
   --daemon              Run Home Assistant as daemon

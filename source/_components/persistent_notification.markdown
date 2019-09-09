@@ -1,26 +1,22 @@
 ---
-layout: page
 title: "Persistent notification"
 description: "Instructions on how to integrate persistent notifications into Home Assistant."
-date: 2016-06-25 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.23
+ha_qa_scale: internal
 ---
 
-The `persistent_notification` can be used to show a message on the frontend that has to be dismissed by the user.
+The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.
 
 <p class='img'>
   <img src='/images/screenshots/persistent-notification.png' />
 </p>
 
-### {% linkable_title Service %}
+### Service
 
-The service `persistent_notification/create` takes in `message`, `title`, and `notification_id`.
+The service `persistent_notification.create` takes in `message`, `title`, and `notification_id`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -28,9 +24,9 @@ The service `persistent_notification/create` takes in `message`, `title`, and `n
 | `title`                |      yes | Title of the notification.
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
-The `persistent_notification` component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
+The `persistent_notification` integration supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:
@@ -40,7 +36,7 @@ action:
     title: "Custom subject"
 ```
 
-The service `persistent_notification/dismiss` requires a `notification_id`.
+The service `persistent_notification.dismiss` requires a `notification_id`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -55,9 +51,53 @@ action:
     notification_id: "1234"
 ```
 
-### {% linkable_title Create a persistent notification %}
+This automation example shows a notification when the Z-Wave network is starting and removes it when the network is ready.
 
-Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+```yaml
+- alias: 'Z-Wave network is starting'
+  trigger:
+    - platform: event
+      event_type: zwave.network_start
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Z-Wave"
+        message: "Z-Wave network is starting..."
+        notification_id: zwave
+
+- alias: 'Z-Wave network is ready'
+  trigger:
+    - platform: event
+      event_type: zwave.network_ready
+  action:
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: zwave
+```
+
+### Markdown support
+
+The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
+
+| Type | Message |
+| ---- | ------- |
+| Headline 1 | `# Headline` |
+| Headline 2 | `## Headline` |
+| Newline | `\n` |
+| Bold | `**My bold text**` |
+| Cursive | `*My cursive text*` |
+| Link | `[Link](https://home-assistant.io/)` |
+| Image | `![image](/local/my_image.jpg)` |
+
+<div class="note">
+
+  `/local/` in this context refers to the `.homeassistant/www/` folder.
+
+</div>
+
+### Create a persistent notification
+
+Choose the **Services** tab from the **Developer Tools** sidebar item, then select the `persistent_notification.create` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
 
 ```json
 {
@@ -67,5 +107,3 @@ Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 This will create the notification entry shown above.
-
-NOTE: if you have defined a ```default_view:``` in your ```Groups:``` configuration you will need to include ```persistent_notification.<notification_id>``` e.g. ```persistent_notification.1234``` as per the example above, to your Groups configuration, in order to see the notification after creating it. 

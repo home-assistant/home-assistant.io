@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart using Upstart"
-description: "Instructions how to setup Home Assistant to launch on boot using Upstart."
-date: 2015-9-1 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to setup Home Assistant to launch on boot using Upstart."
 ---
 
 Many linux distributions use the Upstart system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04. If you are unsure if your system is using Upstart, you may check with the following command:

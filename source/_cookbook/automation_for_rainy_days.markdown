@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation for rainy days"
 description: "Basic example how to use weather conditions to set states"
-date: 2015-10-08 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
@@ -44,7 +38,7 @@ And then of course turn off the lamp when it stops raining but only if it's with
     condition:
       - condition: sun
         after: 'sunset'
-        offset: '-01:00:00'
+        after_offset: '-01:00:00'
     action:
       service: light.turn_off
       entity_id: light.couch_lamp

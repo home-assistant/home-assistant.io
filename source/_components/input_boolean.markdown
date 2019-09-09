@@ -1,17 +1,14 @@
 ---
-layout: page
 title: "Input Boolean"
-description: "Instructions how to integrate the Input Boolean component into Home Assistant."
-date: 2016-01-17 16:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Boolean integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
+ha_qa_scale: internal
+ha_release: 0.11
 ---
 
-The `input_boolean` component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
+The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
 
 To enable input booleans in your installation, add the following lines to your `configuration.yaml`:
 
@@ -33,23 +30,23 @@ input_boolean:
       name:
         description: Friendly name of the input.
         required: false
-        type: String
+        type: string
       initial:
         description: Initial value when Home Assistant starts.
         required: false
         type: boolean
         default: false
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 

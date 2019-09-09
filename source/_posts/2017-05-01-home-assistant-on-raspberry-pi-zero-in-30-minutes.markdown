@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant on a Pi Zero W in 30 minutes"
 description: "Installing Home Assistant (Hassbian) on a Pi Zero W"
 date: 2017-05-01 09:00:00
 date_formatted: "May 1, 2017"
 author: Avraham David Gelbfish
 author_twitter: adgelbfish
-comments: true
 categories: How-To
 og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png
 ---
@@ -15,9 +13,15 @@ og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.
   <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
 </p>
 
-Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited? 
+<div class='note warning'>
 
-Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
+  ***This article is very outdated*** guide. If you follow it you will be installing a very outdated version of Hassbian, on a hardware platform only suitable for testing.  ***We strongly recommend you do not follow this article***.
+
+</div>
+
+Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited?
+
+Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero/).
 **With an added bonus** that besides for an USB cable for power, there's no need for any cables!
 
 What you'll need:
@@ -33,9 +37,9 @@ First, download the HASSbian 1.21 image from [here](https://github.com/home-assi
 
 Unzip it.
 
-Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/) 
+Flash it to the microSD card. If you need a flash tool, try [balenaEtcher](https://www.balena.io/etcher)
 
-When the flashing finishes, remove it and plug it back in. You should see a drive called "boot". 
+When the flashing finishes, remove it and plug it back in. You should see a drive called "boot".
 
 Right in there, not in any folders, create a file called `wpa_supplicant.conf`.
 
@@ -67,5 +71,5 @@ Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspber
 
 To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac.
 
-For further details about HASSbian, take a look at the [documentation](https://home-assistant.io/docs/hassbian/).
+For further details about HASSbian, take a look at the [documentation](/docs/installation/hassbian/).
 

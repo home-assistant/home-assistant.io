@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.39: Configuration panel, state restoration and improved docs"
 description: "0.39 is by far our best release yet."
 date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.39/social.png
 ---
@@ -193,17 +191,17 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
-### {% linkable_title Release 0.39.1 - February 27 %}
+### Release 0.39.1 - February 27
 
  - Add workaround for Paho out of memory issues ([@pvizeli])
  - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
 
-### {% linkable_title Release 0.39.2 - March 1 %}
+### Release 0.39.2 - March 1
 
  - Move Zigbee from eventbus to dispatcher ([@pvizeli])
  - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
 
-### {% linkable_title Release 0.39.3 - March 4 %}
+### Release 0.39.3 - March 4
 
  - Prevent discovered services and devices to be handled twice (@colinodell)
 
@@ -285,33 +283,33 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: https://home-assistant.io/componet/telegram_webhooks/
-[pushsafer]: https://home-assistant.io/components/notify.pushsafer/
-[openhome]: https://home-assistant.io/components/media_player.openhome/
-[ups]: https://home-assistant.io/components/sensor.ups/
-[fedex]: https://home-assistant.io/components/sensor.fedex/
-[fido]: https://home-assistant.io/components/sensor.fido/
-[gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
-[clementine]: https://home-assistant.io/components/media_player.clementine/
-[ebox]: https://home-assistant.io/components/sensor.ebox/
-[aurora]: https://home-assistant.io/components/binary_sensor.aurora/
-[netmonitor]: https://home-assistant.io/components/sensor.fritzbox_netmonitor/
-[itach]: https://home-assistant.io/components/remote.itach/
-[sunflowers]: https://home-assistant.io/components/light.yeelightsunflower/
-[kodi]: https://home-assistant.io/components/media_player.kodi/
-[myq]: https://home-assistant.io/components/cover.myq/
-[oemt]: https://home-assistant.io/components/climate.oem/
-[volvo]: https://home-assistant.io/components/volvooncall/
-[pocket]: https://home-assistant.io/components/sensor.pocketcasts/
-[config]: https://home-assistant.io/components/config/
-[history_stats]: https://home-assistant.io/components/sensor.history_stats/
+[telegram]: /components/webhooks/
+[pushsafer]: /components/notify.pushsafer/
+[openhome]: /components/media_player.openhome/
+[ups]: /components/sensor.ups/
+[fedex]: /components/sensor.fedex/
+[fido]: /components/sensor.fido/
+[gstreamer]: /components/media_player.gstreamer/
+[clementine]: /components/media_player.clementine/
+[ebox]: /components/sensor.ebox/
+[aurora]: /components/binary_sensor.aurora/
+[netmonitor]: /components/sensor.fritzbox_netmonitor/
+[itach]: /components/remote.itach/
+[sunflowers]: /components/light.yeelightsunflower/
+[kodi]: /components/media_player.kodi/
+[myq]: /components/cover.myq/
+[oemt]: /components/climate.oem/
+[volvo]: /components/volvooncall/
+[pocket]: /components/sensor.pocketcasts/
+[config]: /components/config/
+[history_stats]: /components/sensor.history_stats/
 
 
-[docs]: https://home-assistant.io/docs/
-[getting-started]: https://home-assistant.io/getting-started/
+[docs]: /docs/
+[getting-started]: /getting-started/
 [docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[t-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[t-shirt]: /blog/2017/02/22/home-assistant-tshirts-have-arrived/
 [discord]: https://discord.gg/c5DvZ4e

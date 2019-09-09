@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hass.io Add-ons"
 description: "List of the built-in add-ons of Hass.io."
-date: 2017-04-30 13:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 regenerate: false
 ---
 
@@ -16,9 +10,13 @@ regenerate: false
   Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
 </p>
 
+<p class='note'>
+Add-ons are only available if you've used the Hass.io installer. If you installed Home Assistant using any other method then you cannot use add-ons (but you can achieve the same result manually).
+</p>
+
 {% assign addons = site.addons | sort: 'title' %}
 
-<h3>{% linkable_title Featured add-ons %}</h3>
+<h3>Featured add-ons</h3>
 
 <ul>
 {% for addon in addons %}{% if addon.featured %}
@@ -29,7 +27,7 @@ regenerate: false
 {% endif %}{% endfor %}
 </ul>
 
-<h3>{% linkable_title Other add-ons %}</h3>
+<h3>Other add-ons</h3>
 
 <ul>
 {% for addon in addons %}{% if addon.featured != true %}

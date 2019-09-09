@@ -1,19 +1,16 @@
 ---
-layout: page
 title: "MQTT Fan"
-description: "Instructions how to integrate MQTT fans into Home Assistant."
-date: 2016-08-27 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate MQTT fans into Home Assistant."
 logo: mqtt.png
-ha_category: Fan
+ha_category:
+  - Fan
 ha_release: 0.27
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.
+
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
@@ -24,22 +21,22 @@ Optimistic mode can be forced even if a `state_topic` is available. Try to enabl
 To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     command_topic: "bedroom_fan/on/set"
 ```
 
 {% configuration %}
+command_topic:
+  description: The MQTT topic to publish commands to change the fan state.
+  required: true
+  type: string
 name:
   description: The name of the fan.
   required: false
   type: string
   default: MQTT Fan
-command_topic:
-  description: The MQTT topic to publish commands to change the fan state.
-  required: true
-  type: string
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -48,12 +45,12 @@ payload_on:
   description: The payload that represents the running state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents the stop state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
   required: false
@@ -123,9 +120,9 @@ speed_value_template:
   required: false
   type: string
 speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium`, and `high`."
+  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
   required: false
-  type: string list
+  type: [string, list]
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -140,22 +137,65 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+unique_id:
+  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+device:
+  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: [string, list]
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: [list, map]
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<dkv class='note warning'>
+
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
 
-## {% linkable_title Examples %}
+</dkv>
 
-In this section you find some real life examples of how to use this fan.
+## Examples
 
-### {% linkable_title Full configuration %}
+In this section you find some real-life examples of how to use this fan.
+
+### Full configuration
 
 The example below shows a full configuration for a MQTT fan.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     name: "Bedroom Fan"

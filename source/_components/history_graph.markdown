@@ -1,23 +1,20 @@
 ---
-layout: page
 title: "History Graph"
 description: "Instructions for setting up History Graph."
-date: 2017-09-20 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: History
+ha_category:
+  - History
 logo: home-assistant.png
-ha_release: "0.55"
+ha_release: 0.55
+ha_qa_scale: internal
 ---
+
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
 </p>
 
-The `history_graph` component will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel.
+The `history_graph` integration will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel. If you want to add history graphs to the Lovelace UI, please check the [History Graph Card](/lovelace/history-graph/) configuration as it slightly differs from the component.
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry
@@ -25,19 +22,32 @@ history_graph:
   gr1:
     entities:
       - light.ceiling.lights
-  
+
 ```
 
-### {% linkable_title Configuration variables %}
+{% configuration %}
+entities:
+  description: List of entities whose history to show as a graph.
+  required: true
+  type: string
+name:
+  description: Name to display.
+  required: false
+  default: ID
+  type: string
+hours_to_show:
+  description: Number of hours to show in the graph.
+  required: false
+  default: 24
+  type: integer
+refresh:
+  description: Number of seconds between graph refreshes. 0 to disable refreshing.
+  required: false
+  default: 0
+  type: integer
+{% endconfiguration %}
 
-| Attribute                 | Optional | Default | Description                                 |
-|---------------------------|----------|-------------------------------------------------------|
-| `entities`                |   no     |         | List of entities whose history to show as a graph.  |
-| `name`                    |   yes    |  ID     | Name to display. |
-| `hours_to_show`           |   yes    |  24     | Number of hours to show. |
-| `refresh`                 |   yes    |   0     | Number of seconds between graph refreshes. 0 for no refreshes. |
-
-### {% linkable_title Full Example %}
+### Full Example
 
 ```yaml
 # Full configuration.yaml entry
@@ -56,7 +66,6 @@ history_graph:
       - sensor.inside_temperature
     hours_to_show: 120
     # refresh: 0
-
 ```
 
-
+For sensors to automatically be combined into one graph they need to have exactly the same unit of measurement. This is important if you have, e.g., a unit-less temperature `state_topic` MQTT sensor and you want to combine this with a weather sensor. `unit_of_measurement:` of the MQTT sensor then needs to be set to `°C`.

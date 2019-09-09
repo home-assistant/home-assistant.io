@@ -1,23 +1,21 @@
 ---
-layout: page
 title: "Input Number"
-description: "Instructions how to integrate the Input Number component into Home Assistant."
-date: 2017-09-19 03:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Number integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.55
 redirect_from: /components/input_slider/
+ha_qa_scale: internal
 ---
 
-<p class='note'>
-Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
-</p>
+<div class='note'>
 
-The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+Before version 0.55 this integration was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
+
+</div>
+
+The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 To enable this input number in your installation, add the following lines to your `configuration.yaml`:
 
@@ -70,23 +68,23 @@ input_number:
       mode:
         description: Can specify `box` or `slider`.
         required: false
-        type: box | slider
+        type: string
         default: slider
       unit_of_measurement:
         description: Unit of measurement in which the value of the slider is expressed in.
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend.
         required: false
         type: icon
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
@@ -179,9 +177,8 @@ automation:
         entity_id: input_number.target_temp
         value: "{{ trigger.payload }}"
 
-# This automation script runs when the target temperature slider is moved.
+# This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-automation:
   - alias: Temp slider moved
     trigger:
       platform: state
@@ -192,5 +189,40 @@ automation:
         topic: 'setTemperature'
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
+```
+{% endraw %}
+
+Here's an example of `input_number` being used as a delay in an automation.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry using 'input_number' as a delay in an automation
+input_number:
+  minutes:
+    name: minutes
+    icon: mdi:clock-start
+    initial: 3
+    min: 0
+    max: 6
+    step: 1
+    
+  seconds:
+    name: seconds
+    icon: mdi:clock-start
+    initial: 30
+    min: 0
+    max: 60
+    step: 10
+    
+automation:
+ - alias: turn something off after x time after turning it on
+   trigger:
+     platform: state
+     entity_id: switch.something
+     to: 'on'
+   action:
+     - delay: '00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}'
+     - service: switch.turn_off
+       entity_id: switch.something
 ```
 {% endraw %}

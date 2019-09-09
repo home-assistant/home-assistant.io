@@ -1,14 +1,11 @@
 ---
-layout: page
 title: "Frontend"
 description: "Offers a frontend to Home Assistant."
-date: 2015-12-06 21:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category:
+  - Other
+ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 This offers the official frontend to control Home Assistant.
@@ -20,7 +17,7 @@ frontend:
 
 {% configuration %}
   javascript_version:
-    description: "Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
+    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
     required: false
     type: string
     default: auto
@@ -42,8 +39,12 @@ frontend:
     description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
     required: false
     type: list
-  extra_html_url_es5:
-    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `es5` javascript mode."
+  extra_module_url:
+    description: "List of additional javascript modules to load."
+    required: false
+    type: list
+  extra_js_url_es5:
+    description: "List of additional javascript code to load in `es5` javascript mode."
     required: false
     type: list
   development_repo:
@@ -53,11 +54,9 @@ frontend:
 {% endconfiguration %}
 
 
-## {% linkable_title Themes %}
+## Defining Themes
 
 Starting with version 0.49 you can define themes:
-
-Example:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,12 +68,16 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.html](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+
+Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+
+### Theme automation
 
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -83,7 +86,6 @@ Set a theme at the startup of Home Assistant:
 ```yaml
 automation:
   - alias: 'Set theme at startup'
-    initial_state: 'on'
     trigger:
      - platform: homeassistant
        event: start
@@ -93,33 +95,32 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
     trigger:
       - platform: time
-        at: '21:00'
+        at: '21:00:00'
     action:
       - service: frontend.set_theme
         data:
           name: darkred
 ```
 
-### {% linkable_title Manual Theme Selection %}
+### Manual Theme Selection
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under **General**  called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (accessed by clicking your user account initials at the top of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
 <p class='img'>
-  <img src='/images/frontend/choose-theme.png' />
+  <img src='/images/frontend/user-theme.png' />
   Set a theme
 </p>
 
-## {% linkable_title Loading extra HTML %}
+## Loading extra HTML
 
-Starting with version 0.53 you can specify extra HTML files to load.
+Starting with version 0.53 you can specify extra HTML files to load, and starting with version 0.95 extra JS modules.
 
 Example:
 
@@ -128,16 +129,18 @@ Example:
 frontend:
   extra_html_url:
     - https://example.com/file1.html
-    - /file2.html
+    - /local/file2.html
+  extra_module_url:
+    - /local/my_module.js
 ```
 
-Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels).
+HTML will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
 
-### {% linkable_title Manual Language Selection %}
+### Manual Language Selection
 
-The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select a one from "Choose a Language". It will be applied immediately.
+The browser language is automatically detected. To use a different language, go to the user profile menu (accessed by clicking your user account initials at the top of the sidebar) and select one. It will be applied immediately.
 
 <p class='img'>
-  <img src='/images/frontend/choose-language.png' />
+  <img src='/images/frontend/user-language.png' />
   Choose a Language
 </p>

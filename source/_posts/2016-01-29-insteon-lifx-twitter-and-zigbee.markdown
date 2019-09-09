@@ -1,12 +1,10 @@
 ---
-layout: post
-title: "0.12: Insteon, LIFX, Twitter and ZigBee"
+title: "0.12: Insteon, LIFX, Twitter and Zigbee"
 description: "Home Assistant 0.12 brings improved organizational tools and makes writing automation in Python easier."
 date: 2016-01-30 00:22:00 -0800
 date_formatted: "January 30, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-01-release-12/social.png
 ---
@@ -22,7 +20,7 @@ This release includes a very frequent requested feature: the ability to organize
 Example of the new views in the frontend. <a href='/components/group/'>Learn more.</a>
 </p>
 
-<img src='/images/supported_brands/insteon.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lifx.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/twitter.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/zigbee.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/google_voice.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/insteon.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lifx.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/twitter.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/zigbee.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
  - Binary sensor: [command sensor] added ([@Bart274])
  - [Nest] support extended to include sensors and binary sensors ([@joshughes])
@@ -37,7 +35,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
  - Sensor: [onewire] support added ([@deisi])
  - [Zigbee] support added ([@flyte])
  - Device Tracker: [OwnTracks] can now track iBeacons ([@pavoni])
- - Notify: [Google Voice SMS] platform added ([@w1ll1am23])
+ - Notify: Google Voice SMS platform added ([@w1ll1am23])
  - Toggle service added to `homeassistant`, `switch`, `light` and `media_player` ([@rmkraus])
  - [Thermostat] services added to control fans ([@auchter])
  - Improved Python automation: Event helpers are now also available as decorators for custom components ([@rmkraus])
@@ -46,8 +44,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 
 [the demo]: /demo/
 [command sensor]: /components/binary_sensor.command/
-[Google Voice SMS]: /components/notify.google_voice/
-[Insteon hub]: /components/insteon_hub/
+[Insteon hub]: /components/insteon/
 [LIFX]: /components/light.lifx/
 [Nest]: /components/nest/
 [onewire]: /components/sensor.onewire/
@@ -55,7 +52,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 [Rfxtrx]: /components/light.rfxtrx/
 [Statsd]: /components/statsd/
 [Template]: /components/sensor.template/
-[Thermostat]: /components/thermostat/
+[Thermostat]: /components/climate/
 [time automation]: /getting-started/automation-trigger/#time-trigger
 [Twitter]: /components/notify.twitter/
 [Wink]: /components/wink/
@@ -87,6 +84,6 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zmrow]: https://github.com/zmrow
 
-### {% linkable_title Backwards incompatible changes %}
+### Backwards incompatible changes
  - Nest config has moved from thermostat to the [Nest component][Nest].
  - Entity IDs for Z-Wave devices are now generated in a deterministic way causing all IDs to change starting this release. This is a one time change. [(Changed again in 0.31)](/blog/2016/10/22/flash-briefing-updater-hacktoberfest/)

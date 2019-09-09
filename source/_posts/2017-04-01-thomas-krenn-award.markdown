@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Thomas Krenn award 2017"
 description: "Thomas Krenn award 2017"
 date: 2017-04-01 06:00:00 +0000
 date_formatted: "April 01, 2017"
 author: Fabian Affolter
-comments: true
 categories: Community
 og_image: /images/blog/2017-04-award/social.png
 ---
@@ -23,7 +21,7 @@ As a raffle would be to easy, we make a contest out of it. This means that we ar
 Create an entry in our [Forum][forum]. Be creative and use your imagination.
 
 
-### {% linkable_title The details %}
+### The details
 
 - Jury: The Home Assistant community
 - Dead line: April, 23 2017 - 23.59 UTC

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.43: IKEA Trådfri, Spotify and our iOS app is live"
 description: "Another packed release. Three major cool new features and a ton of small ones."
 date: 2017-04-22 01:04:05 +0000
 date_formatted: "April 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-04-0.43/components.png
 ---
@@ -34,7 +32,7 @@ Also note that you have till the end of the weekend to [submit an application][a
 [krenn]: /blog/2017/04/01/thomas-krenn-award/
 [application]: https://community.home-assistant.io/c/contest-2017
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - MaryTTS platform ([@johanpalmqvist] - [#6988]) ([tts.marytts docs]) (new-platform)
 - Telegram bot component (incl. webhook and polling platform) ([@sander76] - [#6913]) ([telegram_bot docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs]) (breaking change) (new-platform)
@@ -49,7 +47,7 @@ Also note that you have till the end of the weekend to [submit an application][a
 - myStrom Wifi Bulbs ([@fabaff] - [#7161]) ([light.mystrom docs]) (new-platform)
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Remove deprecated classes from `homeassistant.remote` ([@balloob] - [#7011])
 - min_max sensor has a different default name and will ignore states that are unknown ([@micw] - [#6786])
@@ -89,16 +87,16 @@ sensor:
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Release 0.43.1 - April 25 %}
+## Release 0.43.1 - April 25
 
-- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) ([zwave.workaround docs])
+- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) (zwave.workaround docs)
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
 - Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
-## {% linkable_title Release 0.43.2 - April 27 %}
+## Release 0.43.2 - April 27
 
 - Frontend: Fix default date on history/logbook (@amelchio)
 - Frontend: Fix logbook ui (@balloob)
@@ -109,7 +107,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update kodi for aiohttp2 ([@armills] - [#6967]) ([media_player.kodi docs]) ([notify.kodi docs])
 - Fix current_temperature is rounded ([@aufano] - [#6960]) ([climate docs])
@@ -173,7 +171,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
 - Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - Better thread safety in zwave node_entity ([@andrey-git] - [#7087])
-- Uber version bump ([@armills] - [#7100]) ([sensor.uber docs])
+- Uber version bump ([@armills] - [#7100]) (sensor.uber docs)
 - No product ids configured should fetch all ids ([@armills] - [#7091])
 - Upgrade aiohttp to 2.0.7 ([@fabaff] - [#7106])
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
@@ -464,12 +462,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fido docs]: /components/sensor.fido/
 [sensor.modbus docs]: /components/sensor.modbus/
 [sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.opensky docs]: /components/sensor.opensky/
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.ups docs]: /components/sensor.ups/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
@@ -495,14 +492,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7267]: https://github.com/home-assistant/home-assistant/pull/7267
 [#7287]: https://github.com/home-assistant/home-assistant/pull/7287
 [@KlaasH]: https://github.com/KlaasH
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[switch.hook docs]: https://home-assistant.io/components/switch.hook/
-[switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[wemo docs]: https://home-assistant.io/components/wemo/
-[zwave.workaround docs]: https://home-assistant.io/components/zwave.workaround/
+[cover.zwave docs]: /components/cover.zwave/
+[recorder docs]: /components/recorder/
+[switch.hook docs]: /components/switch.hook/
+[switch.wemo docs]: /components/switch.wemo/
+[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[wemo docs]: /components/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290
@@ -513,9 +509,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[hassio docs]: /components/hassio/
+[notify.html5 docs]: /components/notify.html5/
+[notify.telegram docs]: /components/notify.telegram/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
 [discord]: https://discord.gg/c5DvZ4e

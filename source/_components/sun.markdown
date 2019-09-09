@@ -1,38 +1,45 @@
 ---
-layout: page
 title: "Sun"
-description: "Instructions how to track the sun within Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to track the sun within Home Assistant."
 logo: home-assistant.png
-ha_category: Weather
+ha_category:
+  - Environment
+ha_qa_scale: internal
+ha_release: pre 0.7
 ---
 
-The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
+The sun integration will use your current location to track if the sun is above or
+below the horizon. The sun can be used within automation as
+[a trigger with an optional offset to simulate dawn/dusk][sun_trigger] or as [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
-[automation-trigger]: /getting-started/automation-trigger/#sun-trigger
+[sun_trigger]: /docs/automation/trigger/#sun-trigger
+[sun_condition]: /docs/scripts/conditions/#sun-condition
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
 sun:
 ```
 
-Configuration variables:
-
-- **elevation** (*Optional*): The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
+{% configuration %}
+elevation:
+  description: "The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set."
+  required: false
+  type: integer
+{% endconfiguration %}
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
-### {% linkable_title Implementation Details %}
+## Implementation Details
 
-The sun's event listener will call the service when the sun rises or sets with an offset.
+The sun's event listener will call the service when the sun rises or sets with
+an offset.
 
-The sun event need to have the type 'sun', which service to call, which event (sunset or sunrise) and the offset.
+The sun event need to have the type 'sun', which service to call,
+which event (sunset or sunrise) and the offset.
 
 ```json
 {
@@ -43,14 +50,12 @@ The sun event need to have the type 'sun', which service to call, which event (s
 }
 ```
 
-#### {% linkable_title Maintains entity `sun.sun` %}
+### Maintains entity `sun.sun`
 
 | Possible state | Description |
 | --------- | ----------- |
 | `above_horizon` | When the sun is above the horizon.
 | `below_horizon` | When the sun is below the horizon.
-
-
 
 | State Attributes | Description |
 | --------- | ----------- |
@@ -62,3 +67,4 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
+| `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.

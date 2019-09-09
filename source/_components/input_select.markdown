@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Input Select"
-description: "Instructions how to integrate the Input Select component into Home Assistant."
-date: 2016-02-02 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Select integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.13
+ha_qa_scale: internal
 ---
 
-The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 To enable this platform in your installation, add the following lines to your `configuration.yaml`:
 
@@ -22,8 +18,8 @@ input_select:
   who_cooks:
     name: Who cooks today
     options:
-     - Paulus
-     - Anne Therese
+      - Paulus
+      - Anne Therese
     initial: Anne Therese
     icon: mdi:panda
   living_room_preset:
@@ -39,36 +35,38 @@ input_select:
     required: true
     type: map
     keys:
-      name:
-        description: Friendly name of the input.
-        required: false
-        type: String
       options:
         description: List of options to choose from.
         required: true
-        type: Array
+        type: list
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: string
       initial:
         description: Initial value when Home Assistant starts.
         required: false
-        type: Element of options
+        type: map
         default: First element of options
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
-</p>
 
-### {% linkable_title Restore State %}
+</div>
 
-This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+### Restore State
 
-### {% linkable_title Services %}
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-This components provide three services to modify the state of the `input_select`.
+### Services
+
+This integrations provide three services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -77,7 +75,7 @@ This components provide three services to modify the state of the `input_select`
 | `select_previous` | | Select the previous option.
 | `select_next` | | Select the next option.
 
-### {% linkable_title Scenes %}
+### Scenes
 
 To specify a target option in a [Scene](/components/scene/) you have to specify the target as `option` attribute:
 
@@ -90,7 +88,7 @@ scene:
         option: Paulus
 ```
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 The following example shows the usage of the `input_select.select_option` service in an automation:
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "OpenSourceCraft interviews our founder Paulus Schoutsen"
 description: "Gregg Pollack from OpenSourceCraft sat down with our founder Paulus Schoutsen to talk about community building."
 date: 2017-03-23 08:04:05 +0000
 date_formatted: "March 23, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Media
 og_image: /images/blog/2017-03-opensourcecraft/social.jpg
 ---

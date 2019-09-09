@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans"
 description: "Another great new release with a major focus on bugfixes."
 date: 2017-06-04 01:04:05 +0000
 date_formatted: "June 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-06-0.46/components.png
 ---
@@ -15,14 +13,14 @@ og_image: /images/blog/2017-06-0.46/components.png
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
-## {% linkable_title New platforms %}
+## New platforms
 
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Support for GE Zwave fan controller ([@armills] - [#7767]) ([zwave docs]) ([fan.zwave docs]) (new-platform)
 - Rachio (Sprinklers) ([@Klikini] - [#7600]) ([switch.rachio docs]) (new-platform)
 - Introduced support to Netgear Arlo Cameras ([@tchellomello] - [#7826]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs]) (new-platform)
 
-## {% linkable_title Release 0.46.1 - June 9 %}
+## Release 0.46.1 - June 9
 
 - Support for renaming ZWave values ([@armills] - [#7780]) ([zwave docs])
 - Dsmr5 revert ([@aequitas] - [#7900]) ([sensor.dsmr docs])
@@ -32,7 +30,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
@@ -54,14 +52,14 @@ sensor:
 - Broadlink switches: Entity ids will change for switches that don't have a default name set. In this case the object_id is now used. ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both `xy_color` and `rgb_color`. ([@amelchio] - [#7765]) (breaking change)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title All changes %}
+## All changes
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
@@ -150,7 +148,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - don't use default for switch name, so that the object id is used ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema ([@amelchio] - [#7765]) (breaking change)
 - Make monkey patch work in Python 3.6 ([@balloob] - [#7848])
-- fix permissions issue for Insteon Local #6558 ([@wardcraigj] - [#7860]) ([insteon_local docs])
+- fix permissions issue for Insteon Local #6558 ([@craigjmidwinter] - [#7860]) ([insteon_local docs])
 - Start of migration framework, to allow moving of files in the config … ([@infamy] - [#7740]) ([ios docs]) ([notify.ios docs]) (breaking change)
 - Spotify aliases ([@Teagan42] - [#7702]) ([media_player.spotify docs])
 - Query in InfluxDB sensor is now templatable ([@titilambert] - [#7634]) ([sensor.influxdb docs])
@@ -306,81 +304,81 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tobygray]: https://github.com/tobygray
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
-[alarm_control_panel.concord232 docs]: https://home-assistant.io/components/alarm_control_panel.concord232/
-[apcupsd docs]: https://home-assistant.io/components/apcupsd/
-[arlo docs]: https://home-assistant.io/components/arlo/
-[automation.state docs]: https://home-assistant.io/docs/automation/trigger/#state-trigger
-[automation.time docs]: https://home-assistant.io/docs/automation/trigger/#time-trigger
-[calendar.demo docs]: https://home-assistant.io/components/calendar.demo/
-[calendar.google docs]: https://home-assistant.io/components/calendar.google/
-[camera.amcrest docs]: https://home-assistant.io/components/camera.amcrest/
-[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
-[camera.synology docs]: https://home-assistant.io/components/camera.synology/
-[climate.tado docs]: https://home-assistant.io/components/climate.tado/
-[cover.myq docs]: https://home-assistant.io/components/cover.myq/
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[device_tracker.__init__ docs]: https://home-assistant.io/components/device_tracker.__init__/
-[device_tracker.asuswrt docs]: https://home-assistant.io/components/device_tracker.asuswrt/
-[device_tracker.mikrotik docs]: https://home-assistant.io/components/device_tracker.mikrotik/
-[device_tracker.snmp docs]: https://home-assistant.io/components/device_tracker.snmp/
-[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
-[eight_sleep docs]: https://home-assistant.io/components/eight_sleep/
-[envisalink docs]: https://home-assistant.io/components/envisalink/
-[fan.zwave docs]: https://home-assistant.io/components/fan.zwave/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[image_processing.seven_segments docs]: https://home-assistant.io/components/image_processing.seven_segments/
-[insteon_local docs]: https://home-assistant.io/components/insteon_local/
-[ios docs]: https://home-assistant.io/components/ios/
-[light.__init__ docs]: https://home-assistant.io/components/light.__init__/
-[light.flux_led docs]: https://home-assistant.io/components/light.flux_led/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.template docs]: https://home-assistant.io/components/light.template/
-[light.wink docs]: https://home-assistant.io/components/light.wink/
-[lock.zwave docs]: https://home-assistant.io/components/lock.zwave/
-[lutron docs]: https://home-assistant.io/components/lutron/
-[media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
-[media_player.openhome docs]: https://home-assistant.io/components/media_player.openhome/
-[media_player.services.yaml docs]: https://home-assistant.io/components/media_player.services.yaml/
-[media_player.snapcast docs]: https://home-assistant.io/components/media_player.snapcast/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[media_player.spotify docs]: https://home-assistant.io/components/media_player.spotify/
-[media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
-[modbus docs]: https://home-assistant.io/components/modbus/
-[mqtt.discovery docs]: https://home-assistant.io/components/mqtt.discovery/
-[notify.ios docs]: https://home-assistant.io/components/notify.ios/
-[notify.rest docs]: https://home-assistant.io/components/notify.rest/
-[notify.slack docs]: https://home-assistant.io/components/notify.slack/
-[notify.smtp docs]: https://home-assistant.io/components/notify.smtp/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[recorder.__init__ docs]: https://home-assistant.io/components/recorder.__init__/
-[remote docs]: https://home-assistant.io/components/remote/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[remote.services.yaml docs]: https://home-assistant.io/components/remote.services.yaml/
-[scene.hunterdouglas_powerview docs]: https://home-assistant.io/components/scene.hunterdouglas_powerview/
-[sensor.amcrest docs]: https://home-assistant.io/components/sensor.amcrest/
-[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
-[sensor.dsmr docs]: https://home-assistant.io/components/sensor.dsmr/
-[sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
-[sensor.history_stats docs]: https://home-assistant.io/components/sensor.history_stats/
-[sensor.hp_ilo docs]: https://home-assistant.io/components/sensor.hp_ilo/
-[sensor.influxdb docs]: https://home-assistant.io/components/sensor.influxdb/
-[sensor.mvglive docs]: https://home-assistant.io/components/sensor.mvglive/
-[sensor.snmp docs]: https://home-assistant.io/components/sensor.snmp/
-[sensor.synologydsm docs]: https://home-assistant.io/components/sensor.synologydsm/
-[sensor.time_date docs]: https://home-assistant.io/components/sensor.time_date/
-[sensor.usps docs]: https://home-assistant.io/components/sensor.usps/
-[switch.broadlink docs]: https://home-assistant.io/components/switch.broadlink/
-[switch.rachio docs]: https://home-assistant.io/components/switch.rachio/
-[switch.rflink docs]: https://home-assistant.io/components/switch.rflink/
-[telegram_bot.__init__ docs]: https://home-assistant.io/components/telegram_bot.__init__/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[tellduslive docs]: https://home-assistant.io/components/tellduslive/
-[upnp docs]: https://home-assistant.io/components/upnp/
-[zoneminder docs]: https://home-assistant.io/components/zoneminder/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[@craigjmidwinter]: https://github.com/craigjmidwinter
+[alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
+[apcupsd docs]: /components/apcupsd/
+[arlo docs]: /components/arlo/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[calendar.demo docs]: /components/calendar/
+[calendar.google docs]: /components/calendar.google/
+[camera.amcrest docs]: /components/camera.amcrest/
+[camera.arlo docs]: /components/camera.arlo/
+[camera.synology docs]: /components/camera.synology/
+[climate.tado docs]: /components/climate.tado/
+[cover.myq docs]: /components/cover.myq/
+[cover.zwave docs]: /components/cover.zwave/
+[device_tracker.__init__ docs]: /components/device_tracker.__init__/
+[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
+[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
+[device_tracker.snmp docs]: /components/device_tracker.snmp/
+[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[eight_sleep docs]: /components/eight_sleep/
+[envisalink docs]: /components/envisalink/
+[fan.zwave docs]: /components/fan.zwave/
+[hassio docs]: /components/hassio/
+[homematic docs]: /components/homematic/
+[image_processing.seven_segments docs]: /components/image_processing.seven_segments/
+[insteon_local docs]: /components/insteon_local/
+[ios docs]: /components/ios/
+[light.__init__ docs]: /components/light.__init__/
+[light.flux_led docs]: /components/light.flux_led/
+[light.lifx docs]: /components/light.lifx/
+[light.template docs]: /components/light.template/
+[light.wink docs]: /components/light.wink/
+[lock.zwave docs]: /components/lock.zwave/
+[lutron docs]: /components/lutron/
+[media_player.denonavr docs]: /components/media_player.denonavr/
+[media_player.openhome docs]: /components/media_player.openhome/
+[media_player.services.yaml docs]: /components/media_player/#services
+[media_player.snapcast docs]: /components/media_player.snapcast/
+[media_player.sonos docs]: /components/media_player.sonos/
+[media_player.spotify docs]: /components/media_player.spotify/
+[media_player.volumio docs]: /components/media_player.volumio/
+[modbus docs]: /components/modbus/
+[mqtt.discovery docs]: /components/mqtt.discovery/
+[notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
+[notify.rest docs]: /components/notify.rest/
+[notify.slack docs]: /components/notify.slack/
+[notify.smtp docs]: /components/notify.smtp/
+[notify.telegram docs]: /components/notify.telegram/
+[recorder.__init__ docs]: /components/recorder.__init__/
+[remote docs]: /components/remote/
+[remote.harmony docs]: /components/remote.harmony/
+[remote.services.yaml docs]: /components/remote.services.yaml/
+[scene.hunterdouglas_powerview docs]: /components/scene.hunterdouglas_powerview/
+[sensor.amcrest docs]: /components/sensor.amcrest/
+[sensor.arlo docs]: /components/sensor.arlo/
+[sensor.dsmr docs]: /components/sensor.dsmr/
+[sensor.fedex docs]: /components/sensor.fedex/
+[sensor.history_stats docs]: /components/sensor.history_stats/
+[sensor.hp_ilo docs]: /components/sensor.hp_ilo/
+[sensor.influxdb docs]: /components/sensor.influxdb/
+[sensor.mvglive docs]: /components/sensor.mvglive/
+[sensor.snmp docs]: /components/sensor.snmp/
+[sensor.synologydsm docs]: /components/sensor.synologydsm/
+[sensor.time_date docs]: /components/sensor.time_date/
+[sensor.usps docs]: /components/sensor.usps/
+[switch.broadlink docs]: /components/switch.broadlink/
+[switch.rachio docs]: /components/switch.rachio/
+[switch.rflink docs]: /components/switch.rflink/
+[telegram_bot.__init__ docs]: /components/telegram_bot/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[tellduslive docs]: /components/tellduslive/
+[upnp docs]: /components/upnp/
+[zoneminder docs]: /components/zoneminder/
+[zwave docs]: /components/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7780]: https://github.com/home-assistant/home-assistant/pull/7780
@@ -392,8 +390,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7969]: https://github.com/home-assistant/home-assistant/pull/7969
 [@cyberjacob]: https://github.com/cyberjacob
 [@mje-nz]: https://github.com/mje-nz
-[cover.mqtt docs]: https://home-assistant.io/components/cover.mqtt/
-[sensor.metoffice docs]: https://home-assistant.io/components/sensor.metoffice/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
-[media_player.roku docs]: https://home-assistant.io/components/media_player.roku/
+[cover.mqtt docs]: /components/cover.mqtt/
+[sensor.metoffice docs]: /components/sensor.metoffice/
+[sensor.wunderground docs]: /components/sensor.wunderground/
+[media_player.roku docs]: /components/media_player.roku/
 [discord]: https://discord.gg/c5DvZ4e

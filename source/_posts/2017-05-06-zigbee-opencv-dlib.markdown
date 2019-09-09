@@ -1,19 +1,17 @@
 ---
-layout: post
-title: "Home Assistant 0.44: ZigBee, OpenCV and DLib"
+title: "Home Assistant 0.44: Zigbee, OpenCV and DLib"
 description: "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here."
 date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
 <a href='/components/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
-This release brings some great new integrations. The biggest one is the [native ZigBee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
+This release brings some great new integrations. The biggest one is the [native Zigbee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
 Another great new addition is [OpenCV][opencv docs] by [Teagan Glenn][@teagan42]. So now you'll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new [DLib integration][image_processing.dlib_face_identify docs] added by [Pascal Vizeli][@pvizeli] in this release.
 
@@ -23,13 +21,13 @@ And finally, for users of the config panel in the UI, we have fixed the issue wi
 
 Enjoy!
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title New integrations %}
+## New integrations
 
 - Pushbullet notification sensor ([@jotunacorn] - [#7182]) ([sensor.pushbullet docs])
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
@@ -45,11 +43,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
-## {% linkable_title Release 0.44.2 - May 8 %}
+## Release 0.44.2 - May 8
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 
-## {% linkable_title Release 0.44.1 - May 7 %}
+## Release 0.44.1 - May 7
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 - sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
@@ -60,7 +58,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)
@@ -84,7 +82,7 @@ influxdb:
 - The LimitlessLED color temperatures have been turned around to work like other lights. To maintain previous colors you must adjust the color_temp value in your light.turn_on calls to 654 minus your old value (for example, 280 becomes 374). ([@amelchio] - [#7359]) (breaking change)
 - Joao apps will now require an API key to be set for all commands. ([@nkgilley] - [#7443]) ([joaoapps_join docs]) ([notify.joaoapps_join docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - LIFX light effects ([@amelchio] - [#7145]) ([light.lifx docs])
 - HassIO API v2 ([@pvizeli] - [#7201])
@@ -109,7 +107,7 @@ influxdb:
 - Upgrade speedtest-cli to 1.0.5 ([@fabaff] - [#7215])
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Upgrade aiohttp_cors to 0.5.3 ([@fabaff] - [#7213])
-- Use consts and string formatting ([@fabaff] - [#7243]) ([notify.instapush docs])
+- Use consts and string formatting ([@fabaff] - [#7243]) (notify.instapush docs)
 - Pushed to version 0.4.0 of denonavr which also includes experimental support for Marantz receivers ([@scarface-4711] - [#7250])
 - Add notice regarding submission of analytics ([@craftyguy] - [#7263])
 - Iterating the dictionary directly ([@fabaff] - [#7251])
@@ -413,91 +411,90 @@ influxdb:
 [@wokar]: https://github.com/wokar
 [@wuub]: https://github.com/wuub
 [@zeltom]: https://github.com/zeltom
-[binary_sensor.alarmdecoder docs]: https://home-assistant.io/components/binary_sensor.alarmdecoder/
-[binary_sensor.eight_sleep docs]: https://home-assistant.io/components/binary_sensor.eight_sleep/
-[binary_sensor.maxcube docs]: https://home-assistant.io/components/binary_sensor.maxcube/
-[binary_sensor.octoprint docs]: https://home-assistant.io/components/binary_sensor.octoprint/
-[binary_sensor.pilight docs]: https://home-assistant.io/components/binary_sensor.pilight/
-[binary_sensor.ping docs]: https://home-assistant.io/components/binary_sensor.ping/
-[binary_sensor.workday docs]: https://home-assistant.io/components/binary_sensor.workday/
-[binary_sensor.zha docs]: https://home-assistant.io/components/binary_sensor.zha/
-[camera.netatmo docs]: https://home-assistant.io/components/camera.netatmo/
-[climate docs]: https://home-assistant.io/components/climate/
-[climate.ecobee docs]: https://home-assistant.io/components/climate.ecobee/
-[climate.maxcube docs]: https://home-assistant.io/components/climate.maxcube/
-[climate.zwave docs]: https://home-assistant.io/components/climate.zwave/
-[cover.garadget docs]: https://home-assistant.io/components/cover.garadget/
-[cover.opengarage docs]: https://home-assistant.io/components/cover.opengarage/
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[device_tracker.zha docs]: https://home-assistant.io/components/device_tracker.zha/
-[ecobee docs]: https://home-assistant.io/components/ecobee/
-[eight_sleep docs]: https://home-assistant.io/components/eight_sleep/
-[enocean docs]: https://home-assistant.io/components/enocean/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[image_processing.dlib_face_detect docs]: https://home-assistant.io/components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
-[image_processing.microsoft_face_detect docs]: https://home-assistant.io/components/image_processing.microsoft_face_detect/
-[image_processing.opencv docs]: https://home-assistant.io/components/image_processing.opencv/
-[joaoapps_join docs]: https://home-assistant.io/components/joaoapps_join/
-[light docs]: https://home-assistant.io/components/light/
-[light.avion docs]: https://home-assistant.io/components/light.avion/
-[light.blinkt docs]: https://home-assistant.io/components/light.blinkt/
-[light.decora docs]: https://home-assistant.io/components/light.decora/
-[light.flux_led docs]: https://home-assistant.io/components/light.flux_led/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.osramlightify docs]: https://home-assistant.io/components/light.osramlightify/
-[light.piglow docs]: https://home-assistant.io/components/light.piglow/
-[light.sensehat docs]: https://home-assistant.io/components/light.sensehat/
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[light.zha docs]: https://home-assistant.io/components/light.zha/
-[light.zwave docs]: https://home-assistant.io/components/light.zwave/
-[maxcube docs]: https://home-assistant.io/components/maxcube/
-[media_player docs]: https://home-assistant.io/components/media_player/
-[media_player.spotify docs]: https://home-assistant.io/components/media_player.spotify/
-[media_player.webostv docs]: https://home-assistant.io/components/media_player.webostv/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.instapush docs]: https://home-assistant.io/components/notify.instapush/
-[notify.joaoapps_join docs]: https://home-assistant.io/components/notify.joaoapps_join/
-[notify.mailgun docs]: https://home-assistant.io/components/notify.mailgun/
-[notify.matrix docs]: https://home-assistant.io/components/notify.matrix/
-[notify.smtp docs]: https://home-assistant.io/components/notify.smtp/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[notify.webostv docs]: https://home-assistant.io/components/notify.webostv/
-[nuimo_controller docs]: https://home-assistant.io/components/nuimo_controller/
-[octoprint docs]: https://home-assistant.io/components/octoprint/
-[opencv docs]: https://home-assistant.io/components/opencv/
-[plant docs]: https://home-assistant.io/components/plant/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[rfxtrx docs]: https://home-assistant.io/components/rfxtrx/
-[rss_feed_template docs]: https://home-assistant.io/components/rss_feed_template/
-[sensor.cert_expiry docs]: https://home-assistant.io/components/sensor.cert_expiry/
-[sensor.dht docs]: https://home-assistant.io/components/sensor.dht/
-[sensor.eight_sleep docs]: https://home-assistant.io/components/sensor.eight_sleep/
-[sensor.envirophat docs]: https://home-assistant.io/components/sensor.envirophat/
-[sensor.ios docs]: https://home-assistant.io/components/sensor.ios/
-[sensor.lyft docs]: https://home-assistant.io/components/sensor.lyft/
-[sensor.pushbullet docs]: https://home-assistant.io/components/sensor.pushbullet/
-[sensor.speedtest docs]: https://home-assistant.io/components/sensor.speedtest/
-[sensor.thinkingcleaner docs]: https://home-assistant.io/components/sensor.thinkingcleaner/
-[sensor.vera docs]: https://home-assistant.io/components/sensor.vera/
-[sensor.zamg docs]: https://home-assistant.io/components/sensor.zamg/
-[sensor.zha docs]: https://home-assistant.io/components/sensor.zha/
-[switch.flux docs]: https://home-assistant.io/components/switch.flux/
-[switch.hook docs]: https://home-assistant.io/components/switch.hook/
-[switch.thinkingcleaner docs]: https://home-assistant.io/components/switch.thinkingcleaner/
-[switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
-[switch.zha docs]: https://home-assistant.io/components/switch.zha/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[updater docs]: https://home-assistant.io/components/updater/
-[vera docs]: https://home-assistant.io/components/vera/
-[wemo docs]: https://home-assistant.io/components/wemo/
-[wink docs]: https://home-assistant.io/components/wink/
-[zha docs]: https://home-assistant.io/components/zha/
+[binary_sensor.alarmdecoder docs]: /components/binary_sensor.alarmdecoder/
+[binary_sensor.eight_sleep docs]: /components/binary_sensor.eight_sleep/
+[binary_sensor.maxcube docs]: /components/binary_sensor.maxcube/
+[binary_sensor.octoprint docs]: /components/binary_sensor.octoprint/
+[binary_sensor.pilight docs]: /components/binary_sensor.pilight/
+[binary_sensor.ping docs]: /components/binary_sensor.ping/
+[binary_sensor.workday docs]: /components/binary_sensor.workday/
+[binary_sensor.zha docs]: /components/binary_sensor.zha/
+[camera.netatmo docs]: /components/camera.netatmo/
+[climate docs]: /components/climate/
+[climate.ecobee docs]: /components/climate.ecobee/
+[climate.maxcube docs]: /components/climate.maxcube/
+[climate.zwave docs]: /components/climate.zwave/
+[cover.garadget docs]: /components/cover.garadget/
+[cover.opengarage docs]: /components/cover.opengarage/
+[cover.zwave docs]: /components/cover.zwave/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[device_tracker.zha docs]: /components/device_tracker.zha/
+[ecobee docs]: /components/ecobee/
+[eight_sleep docs]: /components/eight_sleep/
+[enocean docs]: /components/enocean/
+[homematic docs]: /components/homematic/
+[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
+[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
+[image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
+[image_processing.opencv docs]: /components/image_processing.opencv/
+[joaoapps_join docs]: /components/joaoapps_join/
+[light docs]: /components/light/
+[light.avion docs]: /components/light.avion/
+[light.blinkt docs]: /components/light.blinkt/
+[light.decora docs]: /components/light.decora/
+[light.flux_led docs]: /components/light.flux_led/
+[light.hue docs]: /components/light.hue/
+[light.lifx docs]: /components/light.lifx/
+[light.osramlightify docs]: /components/light.osramlightify/
+[light.piglow docs]: /components/light.piglow/
+[light.sensehat docs]: /components/light.sensehat/
+[light.tradfri docs]: /components/light.tradfri/
+[light.zha docs]: /components/light.zha/
+[light.zwave docs]: /components/light.zwave/
+[maxcube docs]: /components/maxcube/
+[media_player docs]: /components/media_player/
+[media_player.spotify docs]: /components/media_player.spotify/
+[media_player.webostv docs]: /components/media_player.webostv/
+[mqtt docs]: /components/mqtt/
+[notify.html5 docs]: /components/notify.html5/
+[notify.joaoapps_join docs]: /components/notify.joaoapps_join/
+[notify.mailgun docs]: /components/notify.mailgun/
+[notify.matrix docs]: /components/matrix/#notifications
+[notify.smtp docs]: /components/notify.smtp/
+[notify.telegram docs]: /components/notify.telegram/
+[notify.webostv docs]: /components/notify.webostv/
+[nuimo_controller docs]: /components/nuimo_controller/
+[octoprint docs]: /components/octoprint/
+[opencv docs]: /components/opencv/
+[plant docs]: /components/plant/
+[recorder docs]: /components/recorder/
+[rfxtrx docs]: /components/rfxtrx/
+[rss_feed_template docs]: /components/rss_feed_template/
+[sensor.cert_expiry docs]: /components/sensor.cert_expiry/
+[sensor.dht docs]: /components/sensor.dht/
+[sensor.eight_sleep docs]: /components/sensor.eight_sleep/
+[sensor.envirophat docs]: /components/sensor.envirophat/
+[sensor.ios docs]: /components/sensor.ios/
+[sensor.lyft docs]: /components/sensor.lyft/
+[sensor.pushbullet docs]: /components/sensor.pushbullet/
+[sensor.speedtest docs]: /components/sensor.speedtest/
+[sensor.thinkingcleaner docs]: /components/sensor.thinkingcleaner/
+[sensor.vera docs]: /components/sensor.vera/
+[sensor.zamg docs]: /components/sensor.zamg/
+[sensor.zha docs]: /components/sensor.zha/
+[switch.flux docs]: /components/switch.flux/
+[switch.hook docs]: /components/switch.hook/
+[switch.thinkingcleaner docs]: /components/switch.thinkingcleaner/
+[switch.wemo docs]: /components/switch.wemo/
+[switch.zha docs]: /components/switch.zha/
+[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[updater docs]: /components/updater/
+[vera docs]: /components/vera/
+[wemo docs]: /components/wemo/
+[wink docs]: /components/wink/
+[zha docs]: /components/zha/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
@@ -507,6 +504,6 @@ influxdb:
 [@finish06]: https://github.com/finish06
 [@frog32]: https://github.com/frog32
 [@pezinek]: https://github.com/pezinek
-[device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
+[device_tracker.unifi docs]: /components/device_tracker.unifi/
+[sensor.wunderground docs]: /components/sensor.wunderground/
 [discord]: https://discord.gg/c5DvZ4e

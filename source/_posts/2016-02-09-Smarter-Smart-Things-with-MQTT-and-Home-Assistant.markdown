@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Smarter SmartThings with MQTT and Home Assistant"
 description: "Jer and St. John describe how they connected SmartThings with Home Assistant."
 date: 2016-02-09 0:44 -0700
 date_formatted: "February 09, 2016"
 author: Jeremiah Wuenschel and St. John Johnson
-comments: true
 categories: How-To MQTT
 og_image: /images/blog/2016-02-smartthings/social.png
 ---
@@ -169,7 +167,7 @@ homeassistant:
         - mqtt
 ```
 
-This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g. mqtt for the broker host in Home Assistant).
+This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g., mqtt for the broker host in Home Assistant).
 
 ### How it works
 

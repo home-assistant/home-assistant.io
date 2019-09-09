@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant at PyCon 2016"
 description: "A wrap up of what our developers were up to during PyCon 2016."
 date: 2016-06-13 01:06:00 +0000
 date_formatted: "June 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Video
 og_image: /images/blog/2016-06-pycon/crew.jpg
 ---
@@ -31,9 +29,9 @@ PyCon has a few great concepts that I haven't seen at other conferences: open sp
 
 My talk had limited time for Q&A so open spaces offered a great opportunity to get all pending questions answered and connect with the commmunity. There was more interest after the first day so we ended up hosting another open space on the second day.
 
-<blockquote markdown="0" class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/anschoen">@anschoen</a> <a href="https://twitter.com/home_assistant">@home_assistant</a> I&#39;m located in Detroit. I could facilitate a workshop. What are we talking (group, potential dates, etc)?</p>&mdash; Jonathan Baginski (@jbags81) <a href="https://twitter.com/jbags81/status/739057625636167680">June 4, 2016</a></blockquote>
+<blockquote markdown="0" class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/anschoen">@anschoen</a> <a href="https://twitter.com/home_assistant">@home_assistant</a> I&#39;m located in Detroit. I could facilitate a workshop. What are we talking (group, potential dates, etc)?</p>&mdash; Jonathan Baginski (@patchedsoul) <a href="https://twitter.com/jbags81/status/739057625636167680">June 4, 2016</a></blockquote>
 
-We've had such positive reception on our open spaces that [Jonathan Baginski][@jbags81] decided to repeat it online. We will be hosting a free online webinar [Home Assistant Support 101 - Getting around in Home Assistant][webinar] later this month. Make sure to RSVP.
+We've had such positive reception on our open spaces that [Jonathan Baginski][@patchedsoul] decided to repeat it online. We will be hosting a free online webinar [Home Assistant Support 101 - Getting around in Home Assistant][webinar] later this month. Make sure to RSVP.
 
 After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.
 
@@ -48,6 +46,6 @@ I've had a really great time at PyCon. It was awesome to meet everyone in person
 [Paulus (@balloob)]: https://github.com/balloob/
 [Alex (@infamy)]: https://github.com/infamy/
 [Ryan (@rmkraus)]: https://github.com/rmkraus/
-[@jbags81]: https://github.com/jbags81/
+[@patchedsoul]: https://github.com/patchedsoul/
 [slides]: https://docs.google.com/presentation/d/1F1pGOoSf0dD79Dl5dgys0ll7xiuIA4XiQeNeJ-xlqMg/edit
 [webinar]: https://www.eventbrite.com/e/home-assistant-support-101-getting-around-in-home-assistant-tickets-25943868810

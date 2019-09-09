@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on Fedora"
 description: "Installation of Home Assistant on your Fedora computer."
-date: 2017-03-01 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 [Fedora](https://fedoraproject.org) is an operating system based on the Linux kernel, developed by the community-supported Fedora Project. There are releases for x86 and x86_64 including ARM and other architectures. 
@@ -23,15 +17,17 @@ and Home Assistant itself.
 $ pip3 install homeassistant
 ```
 
-To isolate the Home Assistant installation a [venv](https://docs.python.org/3/library/venv.html) is handy. First create a new directory to store the installation and adjust the permissions.
+To isolate the Home Assistant installation a [`venv`](https://docs.python.org/3/library/venv.html) is handy. First create a new directory to store the installation and adjust the permissions.
 
 ```bash
 $ sudo mkdir -p /opt/homeassistant
-$ sudo chown -R user:group /opt/homeassistant
+$ sudo useradd -rm homeassistant -G dialout
+$ sudo chown -R homeassistant:homeassistant /opt/homeassistant
 ```
-Now switch to the new directory, setup the venv, and activate it.
+Now switch to the new directory, setup the `venv`, and activate it.
 
 ```bash
+$ sudo -u homeassistant -H -s
 $ cd /opt/homeassistant
 $ python3.6 -m venv .
 $ source bin/activate

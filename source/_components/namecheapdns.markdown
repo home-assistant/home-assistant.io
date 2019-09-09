@@ -1,25 +1,21 @@
 ---
-layout: page
 title: "NamecheapDNS"
 description: "Keep your namecheap dynamic DNS up to date"
-date: 2017-10-11 20:16
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: namecheap.png
-ha_category: Utility
-featured: false
+ha_category:
+  - Network
 ha_release: 0.56
 ---
 
-With the `namecheapdns` component you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).
+With the `namecheapdns` integration you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).
 
-<p class='note warning'>
+<div class='note warning'>
 Namecheap only supports IPv4 addresses to update.
-</p>
+</div>
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+## Configuration
+
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

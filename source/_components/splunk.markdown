@@ -1,31 +1,73 @@
 ---
-layout: page
 title: "Splunk"
 description: "Record events in Splunk."
-date: 2016-02-05 15:31
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: splunk.png
-ha_category: "History"
+ha_category:
+  - History
 ha_release: 0.13
 ---
 
-The `splunk` component makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
+The `splunk` integration makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
-To use the `splunk` component in your installation, add the following to your `configuration.yaml` file:
+## Configuration
+
+To use the `splunk` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 splunk:
-  token: B4415DFF-683C-5C6C-3994-4F6D4A5DB03A
+  token: YOUR_SPLUNK_TOKEN
 ```
 
-Configuration variables:
-
-- **token** (*Required*): The HTTP Event Collector Token already created in your Splunk instance.
-- **host** (*Optional*): IP address or host name of your Splunk host, eg. 192.168.1.10. Will default to `localhost` if not supplied.
-- **port** (*Optional*): Port to use. Defaults to 8088.
-- **ssl** (*Optional*): Use https instead of http to connect. Defaults to False.
-- **name** (*Optional*): This parameter allows you to specify a friendly to send to Splunk as the host, instead of using the name of the HEC. Defaults to HASS
+{% configuration %}
+token:
+  description: The HTTP Event Collector Token already created in your Splunk instance.
+  required: true
+  type: string
+host:
+  description: "IP address or host name of your Splunk host, e.g., 192.168.1.10."
+  required: false
+  default: localhost
+  type: string
+port:
+  description: Port to use.
+  required: false
+  default: 8080
+  type: integer
+ssl:
+  description: Use HTTPS instead of HTTP to connect.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Allows you do disable checking of the SSL certificate.
+  required: false
+  default: false
+  type: boolean
+name:
+  description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
+  required: false
+  default: HASS
+  type: string
+filter:
+  description: Filters for entities to be included/excluded from Splunk. Default is to include all entities.
+  required: false
+  type: map
+  keys:
+    include_domains:
+      description: Domains to be included.
+      required: false
+      type: list
+    include_entities:
+      description: Entities to be included.
+      required: false
+      type: list
+    exclude_domains:
+      description: Domains to be excluded.
+      required: false
+      type: list
+    exclude_entities:
+      description: Entities to be excluded.
+      required: false
+      type: list
+{% endconfiguration %}

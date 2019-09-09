@@ -1,20 +1,17 @@
 ---
-layout: page
 title: "NO-IP.com"
 description: "Keep your computer registered with the NO-IP.com dynamic DNS."
-date: 2017-10-27 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: noip.png
-ha_category: Utility
+ha_category:
+  - Network
 ha_release: 0.57
 ---
 
-With the `no_ip` component you can keep your [NO-IP.com](https://www.noip.com) record up to date.
+With the `no_ip` integration you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+Note that it does not confirm your hostname (as is required periodically for free domain names); you will still need to do that manually.
+
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,7 +23,7 @@ no_ip:
 
 {% configuration %}
   domain:
-    description: Your FQDN.
+    description: Your fully qualified domain name (FQDN).
     required: true
     type: string
   username:
@@ -40,6 +37,6 @@ no_ip:
   timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
-    type: number
+    type: integer
     default: 10
 {% endconfiguration %}
