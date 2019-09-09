@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 
-The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) or report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,18 +23,9 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-
-## Media Player
-
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
-If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
-
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-configure.png' />
-</p>
-
-To authorize your device, you'll first need to [click here to claim a token](https://plex.tv/claim).
+If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. You will be prompted with a notification to complete configuration if discovery is enabled.
 
 If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
 
@@ -46,8 +37,20 @@ You can also enable the plex platform directly by adding the following lines to 
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: plex
+plex:
+```
+
+```yaml
+# Complete configuration.yaml entry
+plex:
+   host: 192.168.1.100
+   port: 32400
+   token: mysecrettoken
+   ssl: true
+   verify_ssl: true
+   media_player:
+     use_episode_art: true
+     show_all_controls: false
 ```
 
 {% configuration %}
@@ -75,27 +78,26 @@ verify_ssl:
   required: false
   default: true
   type: boolean
-show_all_controls:
-  description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+media_player:
+  description: Options to customize behavior of `media_player` entities.
   required: false
-  default: false
-  type: boolean
-use_episode_art:
-  description: Display TV episode art instead of TV show art.
-  required: false
-  default: false
-  type: boolean
-remove_unavailable_clients:
-  description: Remove stale Plex clients from UI after interval.
-  required: false
-  default: true
-  type: boolean
-client_remove_interval:
-  description: How long a client is to be unavailable for before it is cleaned up in seconds.
-  required: false
-  default: 600
-  type: integer
+  type: map
+  keys:
+    show_all_controls:
+      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+      required: false
+      default: false
+      type: boolean
+    use_episode_art:
+      description: Display TV episode art instead of TV show art.
+      required: false
+      default: false
+      type: boolean
 {% endconfiguration %}
+
+## Media Player
+
+The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
 
 ### Service `play_media`
 
@@ -162,43 +164,3 @@ Plays a song, playlist, TV episode, or video on a connected client.
 ## Sensor
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
-
-If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: plex
-```
-
-{% configuration %}
-host:
-  description: The IP address or hostname of your Plex server.
-  required: false
-  default: localhost
-  type: string
-port:
-  description: The port of your Plex Server.
-  required: false
-  default: 32400
-  type: integer
-name:
-  description: Name of the Plex server.
-  required: false
-  default: Plex
-  type: string
-token:
-  description: A valid X-Plex-Token for your Plex server.
-  required: false
-  type: string
-ssl:
-  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
