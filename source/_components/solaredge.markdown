@@ -52,18 +52,6 @@ name:
 
 ## Full configuration example
 
-A full configuration entry would look like the sample below.
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-solaredge:
-  api_key: API_KEY
-  site_id: SITE_ID
-  name: SolarEdge
-```
-{% endraw %}
-
 In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/sensor.template/).
 
 {% raw %}
