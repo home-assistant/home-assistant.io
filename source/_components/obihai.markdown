@@ -6,8 +6,6 @@ ha_iot_class: "Local Polling"
 ha_category:
   - Sensor
 ha_release: 0.99
-redirect_from:
-  - /components/sensor.obihai/
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
@@ -19,8 +17,6 @@ To enable `obihai` in your installation, add the following to your `configuratio
 sensor:
   - platform: obihai
     host: 192.168.1.x
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
