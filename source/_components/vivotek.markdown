@@ -21,8 +21,8 @@ To enable this camera in your installation, add the following to your `configura
 camera:
   - platform: vivotek
     ip_address: IP_ADDRESS
-    username: ada
-    password: purple
+    username: USERNAME
+    password: PASSWORD
 ```
 
 {% configuration %}
