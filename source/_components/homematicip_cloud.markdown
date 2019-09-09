@@ -135,6 +135,7 @@ authtoken:
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
   * Light Sensor - outdoor (*HmIP-SLO*)
+  * Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
