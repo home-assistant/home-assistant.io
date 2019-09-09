@@ -48,9 +48,6 @@ You can also enable the plex platform directly by adding the following lines to 
 # Example configuration.yaml entry
 media_player:
   - platform: plex
-    host: 192.168.1.10
-    use_episode_art: true
-    remove_unavailable_clients: true
 ```
 
 {% configuration %}
