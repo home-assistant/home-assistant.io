@@ -43,16 +43,16 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 ### Step 3 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool.
-- Restart home assistant.
-- Goto the integrations page.
+- Restart Home Assistant.
+- Go to the integrations page.
 - Add a Withings integration.
 - Select the profile you intend to pull data. This will take you to the Withings site.
 - On the Withings site, choose the profile you selected in the previous step (if prompted).
-  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home assistant displaying data for profile 2, but it will be labeled as profile 1.
-- Authorize the application. Your browser will redirect you to your home assistant URL.
+  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying data for profile 2, but it will be labeled as profile 1.
+- Authorize the application. Your browser will redirect you to your Home Assistant URL.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the 
-  `http://domain` portion of the URL to something you know is accessible, locally or publically. For example `http://localhost:8123`.
-  This occurs when the base URL provided by home assistant to Withings is not accessible to the outside world.
+  `http://domain` portion of the URL to something you know is accessible, locally or publically. For example, `http://localhost:8123`.
+  This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
   Changing the domain will not affect how data is synchronized.
 - Data will synchronize immediately and update every 5 minutes.
 
@@ -76,12 +76,12 @@ client_secret:
   required: true
   type: string
 profiles:
-  description: Withings supports multiple profiles per account. Provide the person's name whom you want home assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
+  description: Withings supports multiple profiles per account. Provide the person's name whom you want Home Assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
   required: true
   type: map
 base_url:
-  description: Overrides home assistant's default base URL to use when authorizing with Withings.
+  description: Overrides Home Assistant's default base URL to use when authorizing with Withings.
   required: false
   type: string
-  default: The base URL provided in the home assistant `api` component.
+  default: The base URL provided in the Home Assistant `api` component.
 {% endconfiguration %}
