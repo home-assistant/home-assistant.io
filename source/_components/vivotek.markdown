@@ -27,7 +27,7 @@ camera:
 
 {% configuration %}
 ip_address:
-  description: "The IP address of your camera , e.g., `192.168.1.2`."
+  description: "The IP address of your camera, e.g., `192.168.1.2`."
   required: true
   type: string
 name:
@@ -44,12 +44,12 @@ password:
   required: true
   type: string
 ssl:
-  description: Enable or disable SSL. Set to false to use an http-only camera.
+  description: Enable or disable SSL. Set to false to use an HTTP-only camera.
   required: false
   default: false
   type: boolean
 verify_ssl:
-  description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+  description: Enable or disable SSL certificate verification. Set to false to use an HTTP-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
   required: false
   default: true
   type: boolean
@@ -103,7 +103,7 @@ action:
 
 #### Service `enable_motion_detection`
 
-Enable the motion detection in a camera. Currently, this will enable the first event configured on the camera.
+Enable motion detection in a camera. Currently, this will enable the first event configured on the camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
