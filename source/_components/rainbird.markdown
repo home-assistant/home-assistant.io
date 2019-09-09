@@ -81,19 +81,19 @@ password:
 trigger_time:
   description: Irrigation time.
   required: false
-  type: int
+  type: integer
 scan_interval:
   description: Interval to scan for zone state.
   required: false
-  type: int
+  type: integer
 zones:
   description: Dictionary of zone configurations
   required: false
-  type: dict
+  type: map
   keys:
     1:
       description: Zone ID
-      type: dict
+      type: map
       keys:
         friendly_name:
           description: Friendly name to see in GUI
@@ -102,11 +102,11 @@ zones:
         trigger_time:
           description: Irrigation time.
           required: false
-          type: int
+          type: integer
         scan_interval:
           description: Interval to scan for zone state.
           required: false
-          type: int
+          type: integer
 {% endconfiguration %}
 
 <div class='note'>
