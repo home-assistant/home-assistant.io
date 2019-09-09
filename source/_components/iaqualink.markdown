@@ -5,8 +5,6 @@ logo: iaqualink.png
 ha_category:
   - Climate
   - Light
-  - Sensor
-  - Switch
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ---
@@ -17,8 +15,6 @@ There is currently support for the following device types within Home Assistant:
 
 - Climate
 - Light
-- Sensor
-- Switch
 
 ## Configuration
 
@@ -38,12 +34,10 @@ username:
   description: The username for accessing your iAqualink account
   type: string
   required: true
-  default: None
 password:
   description: The password for accessing your iAqualink account
   type: string
   required: true
-  default: None
 {% endconfiguration %}
 
 ## Known limitations
@@ -61,8 +55,4 @@ logger:
   logs:
     iaqualink: debug
     homeassistant.components.iaqualink: debug
-    homeassistant.components.climate.unifi: debug
-    homeassistant.components.light.unifi: debug
-    homeassistant.components.sensor.unifi: debug
-    homeassistant.components.switch.unifi: debug
 ```
