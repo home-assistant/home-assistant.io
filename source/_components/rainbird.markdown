@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 To enable it, add the following to your `configuration.yaml` file:
 
-```yaml
+```
 # Example configuration.yaml entry
 rainbird:
   host: IP_ADDRESS_OF_MODULE
@@ -40,7 +40,7 @@ rainbird:
 
 or multiple controllers variant:
 
-```yaml
+```
 # Example configuration.yaml entry
 rainbird:
   - host: IP_ADDRESS_OF_MODULE
@@ -48,10 +48,10 @@ rainbird:
     trigger_time: 6
     scan_interval: 5
     zones:
-      "1":
+      1:
         friendly_name: My zone 1
         trigger_time: 6
-      "2":
+      2:
         friendly_name: My zone 2
         trigger_time: 2
         scan_interval: 1
@@ -60,10 +60,10 @@ rainbird:
     trigger_time: 6
     scan_interval: 5
     zones:
-      "1":
+      1:
         friendly_name: My zone 1
         trigger_time: 6
-      "3":
+      3:
         friendly_name: My zone 3
         trigger_time: 5
         scan_interval: 3
