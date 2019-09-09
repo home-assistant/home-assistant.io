@@ -30,12 +30,12 @@ host:
   type: string
 username:
   description: Username for the Obihai device.
-  required: true
+  required: false
   type: string
   default: admin
 password:
   description: Password for the Obihai device.
-  required: true
+  required: false
   type: string
   default: admin
 {% endconfiguration %}
