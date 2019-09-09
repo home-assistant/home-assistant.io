@@ -24,23 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 To enable it, add the following to your `configuration.yaml` file:
 
-```
-# Example configuration.yaml entry
-rainbird:
-  host: IP_ADDRESS_OF_MODULE
-  password: YOUR_PASSWORD
-  trigger_time: 6
-  scan_interval: 5
-  zones:
-    1:
-      friendly_name: My zone 1
-      trigger_time: 6
-      scan_interval: 5
-```
-
-or multiple controllers variant:
-
-```
+```yaml
 # Example configuration.yaml entry
 rainbird:
   - host: IP_ADDRESS_OF_MODULE
@@ -91,7 +75,7 @@ zones:
   required: false
   type: map
   keys:
-    1:
+    ZONE_NUMBER:
       description: Zone ID
       type: map
       keys:
@@ -123,5 +107,5 @@ The component adds `rainsensor` and `raindelay` sensors and their `binary_sensor
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-Switches are automatically added for all available zones of configured controllers-
+Switches are automatically added for all available zones of configured controllers.
 
