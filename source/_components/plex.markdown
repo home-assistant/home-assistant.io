@@ -45,7 +45,7 @@ plex:
 plex:
    host: 192.168.1.100
    port: 32400
-   token: mysecrettoken
+   token: MY_SECRET_TOKEN
    ssl: true
    verify_ssl: true
    media_player:
