@@ -64,7 +64,11 @@ name:
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Overwrites icon.
+  type: string
+image:
+  required: false
+  description: Overwrites entity picture.
   type: string
 show_last_changed:
   required: false
