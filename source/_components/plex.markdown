@@ -14,14 +14,17 @@ redirect_from:
 ---
 
 
-The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) in Home Assistant. It will allow you to control media playback and see the current playing item.
+The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) or report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#setup---media-player)
+- [Media Player](#media-player)
 - [Sensor](#sensor)
 
-## Setup - Media Player
+If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+
+
+## Media Player
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
@@ -95,7 +98,7 @@ media_player:
 
 {% configuration %}
 show_all_controls:
-  description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
+  description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
   required: false
   default: false
   type: boolean
@@ -105,7 +108,7 @@ use_episode_art:
   default: false
   type: boolean
 remove_unavailable_clients:
-  description: Remove stale plex clients from UI after interval.
+  description: Remove stale Plex clients from UI after interval.
   required: false
   default: true
   type: boolean
@@ -175,16 +178,12 @@ Plays a song, playlist, TV episode, or video on a connected client.
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans to, respectively, `true` and `false`.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
 ## Sensor
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
-
-If your Plex server is on the same local network as Home Assistant, all you need to provide in the `configuration.yaml` is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed. If you use the username and password, all servers in that account are monitored.
-
-If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
 If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
 
@@ -209,18 +208,6 @@ name:
   description: Name of the Plex server.
   required: false
   default: Plex
-  type: string
-username:
-  description: The username for the remote Plex server.
-  required: false
-  type: string
-password:
-  description: The password for your given account on the remote Plex server.
-  required: false
-  type: string
-server:
-  description: The name of your remote Plex server.
-  required: false
   type: string
 token:
   description: X-Plex-Token of your remote Plex server.
