@@ -5,15 +5,13 @@ logo: growatt.png
 ha_category:
   - Sensor
   - Energy
-ha_release: 0.98
+ha_release: 0.99
 ha_iot_class: Cloud Polling
 ---
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).
 
-This will log into your Growatt account and grab the first "Plant", after which it collects the inverters on this plant and creates sensors for these inverters as well as a total sensor.
-
-In the case of two inverters, it will create 3 sensors. One for inverter 1, one for inverter 2 and one for the total of these. The state of these sensors all contain the current power delivered to the net in `W`. There is a lot more information available in the attributes of the inverter sensors like individual power of the different inputs of the inverters (if applicable, otherwise it'll return 0).
+This will log into your Growatt account and grab the first "Plant", after which it collects the inverters on this plant and creates sensors for these inverters as well as total sensors.
 
 ## Configuration
 
