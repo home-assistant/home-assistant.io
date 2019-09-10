@@ -5,6 +5,7 @@ logo: iaqualink.png
 ha_category:
   - Climate
   - Light
+  - Sensor
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ---
@@ -15,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Climate
 - Light
+- Sensor
 
 ## Configuration
 
