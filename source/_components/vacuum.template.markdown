@@ -25,10 +25,6 @@ vacuum:
       living_room_vacuum:
         start:
           service: script.vacuum_start
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 ```
 
 {% endraw %}
