@@ -35,10 +35,6 @@ light:
           service: script.theater_lights_level
           data_template:
             brightness: "{{ brightness }}"
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 ```
 
 {% endraw %}
