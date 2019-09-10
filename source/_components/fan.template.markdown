@@ -29,10 +29,6 @@ fan:
         speed_template: "{{ states('input_select.speed') }}"
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
         turn_on:
           service: script.fan_on
         turn_off:
