@@ -28,10 +28,6 @@ sensor:
         friendly_name: "Sun angle"
         unit_of_measurement: 'degrees'
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 
       sunrise:
         value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
