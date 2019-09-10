@@ -40,19 +40,6 @@ You can also enable the plex platform directly by adding the following lines to 
 plex:
 ```
 
-```yaml
-# Complete configuration.yaml entry
-plex:
-   host: 192.168.1.100
-   port: 32400
-   token: MY_SECRET_TOKEN
-   ssl: true
-   verify_ssl: true
-   media_player:
-     use_episode_art: true
-     show_all_controls: false
-```
-
 {% configuration %}
 host:
   description: The IP address or hostname of your Plex server.
@@ -94,6 +81,19 @@ media_player:
       default: false
       type: boolean
 {% endconfiguration %}
+
+```yaml
+# Complete configuration.yaml entry
+plex:
+   host: 192.168.1.100
+   port: 32400
+   token: MY_SECRET_TOKEN
+   ssl: true
+   verify_ssl: true
+   media_player:
+     use_episode_art: true
+     show_all_controls: false
+```
 
 ## Media Player
 
@@ -163,4 +163,4 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ## Sensor
 
-The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
+The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details, it will show you who is watching what.
