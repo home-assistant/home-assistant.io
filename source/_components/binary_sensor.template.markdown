@@ -28,10 +28,6 @@ binary_sensor:
         friendly_name: "Sun is up"
         value_template: >-
           {{ state_attr('sun.sun', 'elevation')|float > 0 }}
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 ```
 
 {% endraw %}
@@ -60,7 +56,7 @@ sensors:
           required: false
           type: device_class
           default: None
-        value_template: 
+        value_template:
           description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
           required: true
           type: template
