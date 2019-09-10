@@ -34,10 +34,6 @@ cover:
           service: script.close_garage_door
         stop_cover:
           service: script.stop_garage_door
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 ```
 
 {% endraw %}
