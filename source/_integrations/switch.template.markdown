@@ -36,10 +36,6 @@ switch:
           service: switch.turn_off
           data:
             entity_id: switch.skylight_close
-        availability_template: >-
-          {%- if not is_state('dependant_device.state', 'unavailable') %}
-            true
-          {% endif %}
 ```
 
 {% endraw %}
