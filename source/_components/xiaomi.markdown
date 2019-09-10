@@ -65,7 +65,7 @@ name:
 host:
   description: The IP address or hostname of the camera.
   required: true
-  type: string
+  type: template
 model:
   description: The model of Xiaomi Camera, currently supporting yi and xiaofang.
   required: true
@@ -111,4 +111,17 @@ camera:
     password: YOUR_PASSWORD
     path: /home/camera/feed
     ffmpeg_arguments: '-vf scale=800:450'
+```
+## Hostname template
+
+The hostname/ip address can be provided either a value or from the existing entity attributes.
+
+```yaml
+camera:
+  - platform: xiaomi
+    name: Front Camera
+    host: "{{ states.device_tracker.front_camera.attributes.ip }}"
+    model: 'yi'
+    password: 1234
+    path: /tmp/sd/record
 ```
