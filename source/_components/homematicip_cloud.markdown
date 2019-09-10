@@ -51,7 +51,7 @@ The authentification token will be generated and stored internally.
 
 Generate the authentication token:
 
-`generate_auth_token.py`
+`hmip_generate_auth_token.py`
 
 Add the information to your `configuration.yaml` file:
 
