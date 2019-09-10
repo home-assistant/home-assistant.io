@@ -70,6 +70,11 @@ brightness_scale:
   required: false
   type: integer
   default: 255
+brightness_scale_min:
+  description: "Defines the minimum brightness value (i.e. 0%) of the MQTT device."
+  required: false
+  type: integer
+  default: 0
 brightness_state_topic:
   description: The MQTT topic subscribed to receive brightness state updates.
   required: false
