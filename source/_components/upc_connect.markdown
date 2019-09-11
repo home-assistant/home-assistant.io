@@ -22,7 +22,7 @@ device_tracker:
 ```
 
 {% configuration %}
-host:
+password:
   description: The password of your router.
   required: true
   type: string
