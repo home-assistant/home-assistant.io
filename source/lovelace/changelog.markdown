@@ -8,6 +8,8 @@ description: "Changelog of the Lovelace UI."
 - 📣 [views]: New config `name` for `badges`
 - 📣 [glance card]: New config `show_last_changed` for `entities`
 - 📣 [glance card]: New config `image` for `entities`
+- 📣 Unused entities: Rewritten into a table view
+- 📣 Unused entities: Add entities to Lovelace cards
 - 📣 Lovelace background settings moved to theme `--lovelace-background`
 - 📣 Haptic feedback support added
 - 📣 Vibrate support added
@@ -15,12 +17,12 @@ description: "Changelog of the Lovelace UI."
 - ⚠️ Only allow admins to edit UI config
 - 🔧 [alarm panel card]: Handle keyboard input
 - 🔧 [map card]: Update preview when config changes
-- 🔧 [light card]: Move brightness below icon
 - 🔧 [entities card]: Properly show "unavailable" timestamps
 - 🔧 [entity filter card]: Throttle updates for performance
 - 🔧 [markdown card]: Don't allow SVG by default
 - 🔧 [alarm panel card]: Show `friendly_name` if set
-- 🔧 [light card]: Fix unclickable icon
+- 🔧 [light card]: Replace jQuery sliders
+- 🔧 [light card]: Move brightness below icon
 - 🔧 Filter null badges
 - 🔧 Render an overlay on light cards when the light is unavailable
 - 🔧 Break long strings in notifications
