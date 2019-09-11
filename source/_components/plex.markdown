@@ -38,7 +38,6 @@ You can also enable the plex platform directly by adding the following lines to 
 ```yaml
 # Example configuration.yaml entry
 plex:
-    token: MYSECRETTOKEN
 ```
 
 {% configuration %}
