@@ -21,12 +21,14 @@ redirect_from:
   - /components/switch.hive/
 ---
 
-The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all    Hive devices into Home Assistant, including support for multizone heating.
+The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all    Hive devices into Home Assistant, including support for multi zone heating.
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and P    you use on the Hive website to configure this Hive integration in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
+- [Service - Boost Heating](#service---boost-heating)
+- [Service - Boost Hotwater](#service---boost-hotwater)
 - [Platforms](#platforms)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -60,8 +62,7 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
-
-### Service `boost_heating`
+## Service - Boost Heating
 
 You can use the service `hive/boost_heating` to set your heating to boost for a period of time at a certain target temperature".
 
@@ -69,12 +70,12 @@ You can use the service `hive/boost_heating` to set your heating to boost for a 
 | ---------------------- | -------- | --------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                  |
 | `minutes`              | no       | Integer, Number of minutes the boost should last for e.g. `90`. |
-| `termperature`         | no       | String, The required target temperature e.g. `20.5`             |
+| `temperature`          | no       | String, The required target temperature e.g. `20.5`             |
 
 Examples:
 
 ```yaml
-# Example script to boost heating, boost peroid and target temperature specified.
+# Example script to boost heating, boost period and target temperature specified.
 script:
   boost_heating:
     sequence:
@@ -85,7 +86,7 @@ script:
           temperature: "20.5"
 ```
 
-### Service `boost_hotwarer`
+## Service - Boost Hotwater
 
 You can use the service `hive/boost_hotwater` to set your hotwater to boost for a period of time.
 
@@ -115,7 +116,6 @@ You must have the [Hive component](/components/hive/) configured to use the plat
 
 </div>
 
-
 ## Binary Sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
@@ -134,7 +134,7 @@ A short boost for Hive Heating can be set by using the **Boost** preset, this wi
 The platform supports the following Hive products:
 
 - Hive Active Heating
-- Hive Multizone
+- Hive Multi zone
 
 ## Light
 
