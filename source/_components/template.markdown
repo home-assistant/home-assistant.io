@@ -72,6 +72,7 @@ sensor:
         type: template
       attribute_templates:
         description: Defines templates for attributes of the sensor.
+        required: false
         type: map
         keys:
           "attribute: template":
