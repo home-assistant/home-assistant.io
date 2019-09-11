@@ -36,8 +36,17 @@ If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use S
 You can also enable the plex platform directly by adding the following lines to your `configuration.yaml`:
 
 ```yaml
-# Example configuration.yaml entry
+# Example using host & port
 plex:
+    host: 192.168.1.10
+    port: 32400
+    token: MYSECRETTOKEN
+```
+or
+```yaml
+# Example using token
+plex:
+    token: MYSECRETTOKEN
 ```
 
 {% configuration %}
