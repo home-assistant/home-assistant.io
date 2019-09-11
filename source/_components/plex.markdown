@@ -27,7 +27,7 @@ The preferred way to setup the Plex platform is by enabling the [discovery compo
 
 If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. You will be prompted with a notification to complete configuration if discovery is enabled.
 
-If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
+If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use SSL, write "`off`" or "`false`" in the _"Verify SSL"_ field as well.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/plex-token.png' />
@@ -38,13 +38,13 @@ You can also enable the plex platform directly by adding the following lines to 
 ```yaml
 # Example configuration.yaml entry
 plex:
+    token: MYSECRETTOKEN
 ```
 
 {% configuration %}
 host:
   description: The IP address or hostname of your Plex server.
   required: false
-  default: localhost
   type: string
 port:
   description: The port of your Plex Server.
@@ -52,7 +52,11 @@ port:
   default: 32400
   type: integer
 token:
-  description: A valid X-Plex-Token for your Plex server.
+  description: A valid X-Plex-Token for your Plex server. If provided without `host` and `port`, a connection URL will be retreived from Plex.
+  required: false
+  type: string
+server:
+  description: Name of Plex server to use if multiple servers are associated with the token's Plex account. Only used if `token` is provided without `host` and `port`.
   required: false
   type: string
 ssl:
