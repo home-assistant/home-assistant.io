@@ -2,6 +2,33 @@
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
+## Changes in 0.99.0
+- 📣 [glance card]: New config `image` for `entities`
+- 📣 Vibrate support added
+- ⚠️ Only allow admins to edit UI config
+- 🔧 [light card]: Fix unclickable icon
+- 🔧 Filter null badges
+
+## Changes in 0.98.5
+- 📣 [views]: New config `image` for `badges`
+- 📣 [views]: New config `icon` for `badges`
+- 📣 [views]: New config `name` for `badges`
+- 📣 [glance card]: New config `show_last_changed` for `entities`
+- 📣 Lovelace background settings moved to theme `--lovelace-background`
+- 📣 Haptic feedback support added
+- 📣 MDI icons updated to [4.3.95](https://cdn.materialdesignicons.com/4.3.95/)
+- 🔧 [alarm panel card]: Handle keyboard input
+- 🔧 [map card]: Update preview when config changes
+- 🔧 [light card]: Move brightness below icon
+- 🔧 [entities card]: Properly show "unavailable" timestamps
+- 🔧 [entity filter card]: Throttle updates for performance
+- 🔧 [markdown card]: Don't allow SVG by default
+- 🔧 Render an overlay on light cards when the light is unavailable
+
+## Changes in 0.98.4
+- 🔧 [alarm panel card]: Show `friendly_name` if set
+- 🔧 Break long strings in notifications
+
 ## Changes in 0.88.0
 - 📣 Disable toast notifications for successful operations ([#2700](https://github.com/home-assistant/home-assistant-polymer/pull/2822))
 - 📣 Color Picker: Toggleable between segmented and continuous ([#2806](https://github.com/home-assistant/home-assistant-polymer/pull/2806))
@@ -21,7 +48,7 @@ description: "Changelog of the Lovelace UI."
 - 📣 [thermostat card]: more-info button added
 - 📣 [light card]: more-info button added
 - 🔧 [thermostat card]: Fix slider
-- 🔧 groups are now togglable
+- 🔧 Groups are now togglable
 
 ## Changes in 0.86.0
 - 📣 Lovelace is now the default UI for Home Assistant!
