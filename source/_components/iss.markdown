@@ -61,6 +61,6 @@ camera:
   - platform: generic
     name: ISS
     still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }}&zoom=4&size=865x512&maptype=mapnik&markers={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }},lightblue
-     limit_refetch_to_url_change: true
+    limit_refetch_to_url_change: true
 ```
 {% endraw %}
