@@ -305,7 +305,9 @@ sensor:
             {% else %}
               {{ state_attr('device_tracker.my_device_gps','longitude') }}
             {% endif %}
-```{% endraw %}
+```
+
+{% endraw %}
 
 ### Working without entities
 
