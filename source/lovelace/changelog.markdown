@@ -3,11 +3,11 @@ title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
 ## Changes in 0.99.0
+- 📣 [glance card]: New config `show_last_changed` for `entities`
+- 📣 [glance card]: New config `image` for `entities`
 - 📣 [views]: New config `image` for `badges`
 - 📣 [views]: New config `icon` for `badges`
 - 📣 [views]: New config `name` for `badges`
-- 📣 [glance card]: New config `show_last_changed` for `entities`
-- 📣 [glance card]: New config `image` for `entities`
 - 📣 Unused entities: Rewritten into a table view
 - 📣 Unused entities: Add entities to Lovelace cards
 - 📣 Lovelace background settings moved to theme `--lovelace-background`
@@ -16,13 +16,13 @@ description: "Changelog of the Lovelace UI."
 - 📣 MDI icons updated to [4.3.95](https://cdn.materialdesignicons.com/4.3.95/)
 - ⚠️ Only allow admins to edit UI config
 - 🔧 [alarm panel card]: Handle keyboard input
-- 🔧 [map card]: Update preview when config changes
+- 🔧 [alarm panel card]: Show `friendly_name` if set
 - 🔧 [entities card]: Properly show "unavailable" timestamps
 - 🔧 [entity filter card]: Throttle updates for performance
-- 🔧 [markdown card]: Don't allow SVG by default
-- 🔧 [alarm panel card]: Show `friendly_name` if set
 - 🔧 [light card]: Replace jQuery sliders
 - 🔧 [light card]: Move brightness below icon
+- 🔧 [map card]: Update preview when config changes
+- 🔧 [markdown card]: Don't allow SVG by default
 - 🔧 Filter null badges
 - 🔧 Render an overlay on light cards when the light is unavailable
 - 🔧 Break long strings in notifications
