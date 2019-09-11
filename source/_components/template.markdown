@@ -70,6 +70,14 @@ sensor:
         description: Defines a template for the entity picture of the sensor.
         required: false
         type: template
+      attribute_templates:
+        description: Defines templates for attributes of the sensor.
+        type: map
+        keys:
+          "attribute: template":
+            description: The attribute and corresponding template.
+            required: true
+            type: template        
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
@@ -266,6 +274,37 @@ sensor:
 ```
 
 {% endraw %}
+
+### Add Custom Attributes
+
+This example shows how to add custom attributes.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      my_device:
+        value_template: >-
+          {% if is_state('device_tracker.my_device_nmap','home') %}
+            Home
+          {% else %}
+            {{ states('device_tracker.my_device_gps') }}
+          {% endif %}
+        attribute_templates:
+          latitude: >-
+            {% if is_state('device_tracker.my_device_nmap','home') %}
+              {{ state_attr('zone.home','latitude') }}
+            {% else %}
+              state_attr('device_tracker.my_device_gps','latitude')
+            {% endif %}
+          longitude: >-
+            {% if is_state('device_tracker.my_device_nmap','home') %}
+              {{ state_attr('zone.home','longitude') }}
+            {% else %}
+              {{ state_attr('device_tracker.my_device_gps','longitude') }}
+            {% endif %}
+```{% endraw %}
 
 ### Working without entities
 
