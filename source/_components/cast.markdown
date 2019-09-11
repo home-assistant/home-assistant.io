@@ -15,6 +15,17 @@ discovered if you enable [the discovery integration](/components/discovery/). If
 you don't have the discovery integration enabled, you can enable the Cast
 integration by going to the Integrations page inside the config panel.
 
+## Home Assistant Cast
+
+The Cast integration allows you to start Home Assistant Cast on any Chromecast device. This is done via the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+
+```json
+{
+  "entity_id": "media_player.office_display_4",
+  "view_path": "lights"
+}
+```
+
 ## Advanced use
 
 The Cast integration has some extra configuration options available for advanced
@@ -38,20 +49,20 @@ You may need to enable Multicast DNS (MDNS) on your router if you are on a diffe
 
 {% configuration %}
 media_player:
-  description: A list that contains all Cast devices.
-  required: true
-  type: list
-  keys:
-    host:
-      description: Use only if you don't want to scan for devices.
-      required: false
-      type: string
-    ignore_cec:
-      description: >
-        A list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
-      required: false
-      type: list
+description: A list that contains all Cast devices.
+required: true
+type: list
+keys:
+host:
+description: Use only if you don't want to scan for devices.
+required: false
+type: string
+ignore_cec:
+description: >
+A list of Chromecasts that should ignore CEC data for determining the
+active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
+required: false
+type: list
 {% endconfiguration %}
 
 If you want to manually configure multiple Cast media players, you can define
