@@ -18,7 +18,7 @@ To use a Connect Box in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 device_tracker:
   - platform: upc_connect
-    password: !secret connect_box
+    password: PASSWORD
 ```
 
 {% configuration %}
