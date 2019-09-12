@@ -3,9 +3,15 @@ title: "NGINX SSL proxy"
 description: "NGINX Home Assistant SSL proxy."
 ---
 
-Sets up an SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on.
+Sets up an SSL proxy with NGINX and redirect port 80 to 443. 
+Make sure you have generated a certificate before you start this add-on. If you are using the [Let's Encrypt](https://www.home-assistant.io/addons/lets_encrypt/) addon you can use these certifates.
+By using this addon, we remove the webhosting from the home assistant 
 
-In the `http` section of the `configuration.yaml` file remove `ssl_certificate`, `ssl_key` and `server_port` and don't enter the port in the `base_url` to avoid an HTTP 502 error.
+In the `http` section of the `configuration.yaml` file remove:
+- `ssl_certificate`
+- `ssl_key` and 
+- `server_port` 
+Don't enter the TCP port in the `base_url` to avoid an HTTP 502 error.
 
 ```json
 {
