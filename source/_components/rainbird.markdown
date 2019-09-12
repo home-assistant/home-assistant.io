@@ -44,7 +44,7 @@ password:
   type: string
 trigger_time:
   description: Irrigation time.
-  required: false
+  required: true
   type: integer
 scan_interval:
   description: Interval to scan for zone state.
