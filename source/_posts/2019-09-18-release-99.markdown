@@ -52,6 +52,10 @@ Nabu Casa employee - Bram
 
 Home Assistant Cast Python backend
 
+## Hass.io
+
+We going a step closer to Home Assistant and have one secrets store over the platform. You can now use `!secret my_value` also inside Add-on Options like you known from your YAML configuration.
+
 ## New Integrations
 
 - Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration) (new-platform)
