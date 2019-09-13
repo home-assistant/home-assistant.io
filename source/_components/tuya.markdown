@@ -45,7 +45,7 @@ tuya:
 
 {% configuration %}
 username:
-  description: Your username to log in to Tuya. This may be your phone number which needs to be in inverted commas as this is a string.
+  description: Your username to log in to Tuya. This may be your phone number which needs to be enquoted as this is a string.
   required: true
   type: string
 password:
@@ -53,7 +53,7 @@ password:
   required: true
   type: string
 country_code:
-  description: "Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China." Again in inverted commas.
+  description: "Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China, again enquoted."
   required: true
   type: string
 platform:
