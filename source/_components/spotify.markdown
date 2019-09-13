@@ -128,6 +128,7 @@ Play a Spotify playlist with an option to start on a random position of the play
 | ---------------------- | -------- | ----------- |
 | `media_content_id`     | no       | Spotify URI of playlist. Must be playlist kind of URI.
 | `random_song`          | yes      | True to select random song at start, False to start from beginning.
+| `device_id`            | yes      | Spotify device id to play on.
 
 
 The above playlist example is a URI link to the "Reggae Infusions" playlist.
