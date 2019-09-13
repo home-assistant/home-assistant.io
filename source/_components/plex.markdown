@@ -41,7 +41,9 @@ plex:
     token: MYSECRETTOKEN
 ```
 
-_Note_: At least one of `host` or `token` must be provided.
+<div class='note warning'>
+  At least one of `host` or `token` must be provided.
+</div>
 
 {% configuration %}
 host:
