@@ -33,13 +33,19 @@ If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use S
   <img src='{{site_root}}/images/screenshots/plex-token.png' />
 </p>
 
-You can also enable the plex platform directly by adding the following lines to your `configuration.yaml`:
+You can also enable the `plex` platform directly by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 plex:
     token: MYSECRETTOKEN
 ```
+
+<div class='note warning'>
+  
+At least one of `host` or `token` must be provided.
+
+</div>
 
 {% configuration %}
 host:
