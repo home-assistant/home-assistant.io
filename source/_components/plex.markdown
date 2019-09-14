@@ -42,7 +42,9 @@ plex:
 ```
 
 <div class='note warning'>
-  At least one of `host` or `token` must be provided.
+  
+At least one of `host` or `token` must be provided.
+
 </div>
 
 {% configuration %}
