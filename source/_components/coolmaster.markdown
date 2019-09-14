@@ -22,6 +22,7 @@ climate:
       - heat
       - cool
       - dry
+      - off
 ```
 
 {% configuration %}
@@ -50,4 +51,6 @@ supported_modes:
       description: Dry mode.
     fan_only:
       description: Fan only mode.
+    off:
+      description: Turn device off.
 {% endconfiguration %}
