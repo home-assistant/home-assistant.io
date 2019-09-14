@@ -180,7 +180,7 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi3-64`
  - `odroid-c2`
  - `odroid-cu2`
- - `odriod-xu`
+ - `odroid-xu`
  - `orangepi-prime`
 
 <div class='note'>
