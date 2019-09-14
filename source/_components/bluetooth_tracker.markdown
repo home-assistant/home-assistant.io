@@ -21,6 +21,11 @@ device_tracker:
 ```
 
 {% configuration %}
+discover_new_devices:
+  description: Whether to discover new Bluetooth devices.
+  required: false
+  type: boolean
+  default: true
 request_rssi:
   description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device.
   required: false
