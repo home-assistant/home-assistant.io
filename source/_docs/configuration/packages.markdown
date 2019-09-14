@@ -16,7 +16,7 @@ homeassistant:
       ...package configuration here...
 ```
 
-The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant integrations including hardware platforms.
+The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant integrations including hardware platforms. Be aware though, that automations contained inside packages can not be reloaded using the service `automation.reload`, instead Home Assistant must be restarted.
 
 It can be specified inline or in a separate YAML file using `!include`.
 
