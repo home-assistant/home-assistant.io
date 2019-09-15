@@ -26,6 +26,7 @@ sensor:
 # Example configuration.yaml entry, limiting the metrics to production only
 sensor:
   - platform: enphase_envoy
+    name: Optional_name
     ip_address: LOCAL_IP_FOR_ENVOY
     monitored_conditions:
       - production
@@ -35,6 +36,10 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  required: false
+  type: string
+  description: An optional name that will be prepended to the sensor type
 ip_address:
   description: The local IP address of your Envoy. Leave blank to use the default host name 'envoy', but this may not always be reliable. You should be able to just browse to this IP address.
   required: false
