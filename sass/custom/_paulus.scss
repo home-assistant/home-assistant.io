@@ -6,6 +6,8 @@ $primary-color: #049cdb;
   position: relative;
 
   .site-title {
+    display: flex;
+    align-items: center;
     font-weight: normal;
   }
 }
@@ -221,12 +223,14 @@ dt:hover a.title-link {
 }
 
 .ha-title {
+  display: inline-flex;
+  height: 100%;
   white-space: nowrap;
 
   img {
     border-radius: 4px;
     width: 36px;
-    margin-right: 4px;
+    margin-right: 10px;
   }
 
   a > * {
