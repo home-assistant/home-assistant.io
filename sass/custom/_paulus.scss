@@ -224,7 +224,9 @@ dt:hover a.title-link {
   white-space: nowrap;
 
   img {
-    width: 40px;
+    border-radius: 4px;
+    width: 36px;
+    margin-right: 4px;
   }
 
   a > * {
