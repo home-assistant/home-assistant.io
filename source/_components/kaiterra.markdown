@@ -32,7 +32,7 @@ api_key:
   required: true
   type: string
 aqi_standard:
-  description: The standard of Air Quality Index. Available values: `us`, `in`, `cn`.
+  description: The standard of Air Quality Index. Available values `us`, `in`, `cn`.
   required: false
   type: string
   default: us
@@ -42,10 +42,9 @@ scan_interval:
   type: integer
   default: 30
 preferred_units:
-  description: The list of prefered units. Available values in the list: `x`, `%`, `C`, `F`, `mg/m³`, `µg/m³`, `ppm`, `ppb`.
+  description: The list of prefered units. Available values in the list `x`, `%`, `C`, `F`, `mg/m³`, `µg/m³`, `ppm`, `ppb`.
   required: false
   type: list
-  default: []
 devices:
   description: The devices you want to get reading from.
   required: true
@@ -56,7 +55,7 @@ devices:
       required: true
       type: string
     type:
-      description: The device type. Available values: `laseregg` and `sensedge`.
+      description: The device type. Available values `laseregg` and `sensedge`.
       required: true
       type: string
     name:
