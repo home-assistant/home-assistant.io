@@ -1,6 +1,12 @@
 ---
+layout: page
 title: "Enphase Envoy"
 description: "Instructions on how to setup Enphase Envoy with Home Assistant."
+date: 2018-06-30 12:30
+sidebar: true
+comments: false
+sharing: true
+footer: true
 logo: enphase-logo.svg
 ha_category:
   - Energy
@@ -10,9 +16,9 @@ redirect_from:
  - /components/sensor.enphase_envoy/
 ---
 
-A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-### Configuration
+### {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -26,6 +32,7 @@ sensor:
 # Example configuration.yaml entry, limiting the metrics to production only
 sensor:
   - platform: enphase_envoy
+    name: Optional_name
     ip_address: LOCAL_IP_FOR_ENVOY
     monitored_conditions:
       - production
@@ -35,6 +42,10 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  required: false
+  type: string
+  description: Optional name that will be prepended to the sensor type (ie name: Optional_name will result in a sensor named "sensor.Optional_nameenvoy_current_energy_production"
 ip_address:
   description: The local IP address of your Envoy. Leave blank to use the default host name 'envoy', but this may not always be reliable. You should be able to just browse to this IP address.
   required: false
