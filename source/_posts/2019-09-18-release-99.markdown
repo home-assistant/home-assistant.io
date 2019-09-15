@@ -50,11 +50,19 @@ Nabu Casa employee - Bram
 
 ## Home Assistant Cast from Python
 
-Home Assistant Cast Python backend
+Home Assistant Cast Python backend.
 
 ## Hass.io
 
-We going a step closer to Home Assistant and have one secrets store over the platform. You can now use `!secret my_value` also inside Add-on Options like you known from your YAML configuration.
+RPi 4 support is live.
+
+Hass.io is now able to work with your secrets stored in Home Assistant. So now you are able to use `!secret my_value` inside add-on options like you can do inside `configuration.yaml`. For more info about how to define secrets, [check the docs](/docs/secrets/url/to/be/done).
+
+## In other news
+
+Timmo has released Home Panel 2.0. - https://twitter.com/timmo001/status/1172958335982850052?s=09
+
+We were at CEDIA. - https://twitter.com/home_assistant/status/1172559987979292673
 
 ## New Integrations
 
