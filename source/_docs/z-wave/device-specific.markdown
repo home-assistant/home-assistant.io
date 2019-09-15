@@ -49,6 +49,24 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 
 ### Razberry Board
 
+<div class='note warning'>
+
+If you are using hass.io on a Raspberry Pi please note that the `/boot/`-folder is located in a FAT32-partition on the SD-card and will not be accessible from a mac/linux machine. To access the folder from a mac with the SD-card connected:
+List disks:
+`$ diskutil list`
+
+Find the Microsoft Reserved partition on SD card, `diskXsY (e.g. disk2s1)`
+
+Create a mountable area:
+`$ mkdir /fat_mount`
+
+Mount the disk to that area:
+`$ mount -t msdos /dev/diskXsY /fat_mount`
+
+Edit the config.txt and add `dtoverlay=pi3-disable-bt` to the end of the file.
+
+</div>
+
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
 ```text
