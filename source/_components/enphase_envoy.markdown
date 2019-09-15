@@ -12,7 +12,7 @@ redirect_from:
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-### Configuration
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -20,19 +20,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: enphase_envoy
-```
-
-```yaml
-# Example configuration.yaml entry, limiting the metrics to production only
-sensor:
-  - platform: enphase_envoy
-    name: Optional_name
-    ip_address: LOCAL_IP_FOR_ENVOY
-    monitored_conditions:
-      - production
-      - daily_production
-      - seven_days_production
-      - lifetime_production
 ```
 
 {% configuration %}
@@ -68,3 +55,18 @@ monitored_conditions:
     inverters:
       description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API.
 {% endconfiguration %}
+
+## Full example
+
+```yaml
+# Example configuration.yaml entry, limiting the metrics to production only
+sensor:
+  - platform: enphase_envoy
+    name: Optional_name
+    ip_address: LOCAL_IP_FOR_ENVOY
+    monitored_conditions:
+      - production
+      - daily_production
+      - seven_days_production
+      - lifetime_production
+```
