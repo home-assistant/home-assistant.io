@@ -5,8 +5,6 @@ logo: yandex.png
 ha_category:
   - Transport
 ha_release: 0.99
-redirect_from:
- - /components/sensor.yandex_tranport/
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
