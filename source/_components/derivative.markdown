@@ -8,8 +8,6 @@ ha_release: 0.99
 ha_iot_class: Local Push
 logo: derivative.png
 ha_qa_scale: internal
-redirect_from:
- - /components/sensor.derivative/
 ---
 
 The `derivative` platform provides the numerical derivative or numerical differentiation of the values provided by a source sensor. The derivative sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. 
