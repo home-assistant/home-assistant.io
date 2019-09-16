@@ -3,8 +3,9 @@ title: "Yandex transport"
 description: "Instructions on how to setup Yandex transport with Home Assistant."
 logo: yandex.png
 ha_category:
+  - Sensor
   - Transport
-ha_release: 0.99
+ha_release: "0.100"
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
@@ -63,8 +64,10 @@ sensor:
 ```
 
 ## Options For Entities
+
 You can configure view information about next bus using lovelace card.
 To enable displaying the relative time in your `default_vew` add the following lines:
+
 ```yaml
 # Example default_view entry
 title: Home Assistant
