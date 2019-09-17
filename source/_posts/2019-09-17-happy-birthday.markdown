@@ -23,6 +23,8 @@ Thanks to all the people working on the Home Assistant frontend.
 
 Thanks to all the people working on Hass.io.
 
+Thanks to all the people workin on the mobile apps.
+
 Thanks to all the people working on Hass.io add-ons.
 
 Thanks to all the people who help with design and user stories.
