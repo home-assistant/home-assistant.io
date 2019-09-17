@@ -19,10 +19,10 @@ This doesn’t mean that we are not having some bad ass new features in this rel
 
 ## Device Automations
 
-With device automations we took a step back, looked at Home Assistant, and thought about how we could make it easier to automate. We realized that there was room for improvement. We identified the following issues:
+With device automations we took a step back, looked at Home Assistant, and thought about how we could make it easier for users to create automations. We realized that there was room for improvement. We identified the following issues:
 
-- Learn Home Assistant concepts like events, entities and services.
-- Difficult to discover what can be automated. For example, if you’re automating a long press on the on button on a Zigbee remote, you need to know to listen to the event “zha_event” and match against the Zigbee device identifier of your remote and the long press type.
+- Users need to learn Home Assistant concepts like events, entities and services.
+- It's difficult to discover what can be automated. For example, if you’re automating a long press on the on button on a Zigbee remote, you need to know to listen to the event “zha_event” and match against the Zigbee device identifier of your remote and the long press type.
 
 Today we’re officially introducing device automations. With device automations users can configure automations based on devices. Now when a user starts configuring an automation trigger, it can pick device automation as a type. The user starts by picking a device. A second dropdown will now appear that contains all the possible triggers for this device. This list is populated based on the integrations that are linked to this device (ie. Hue, Light). Examples of possible triggers in the list for a simple on-off remote: On button pressed, On button long pressed, Off button pressed, Off button long pressed.
 
@@ -31,6 +31,10 @@ Today we’re officially introducing device automations. With device automations
 Device automations are available for triggers, conditions and actions. Today’s release supports lights, switches and Deconz. More to come in future releases as integration developers adopt it.
 
 Big thanks to [@emontomery] for driving this effort. He added Initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
+
+## Welcome Bram!
+
+Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will focus on Home Assistant frontend. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
 
 ## Frontend
 
@@ -44,25 +48,47 @@ There is a lot to talk here. Buckle up.
 
 Shout out to [@SeanPM5] who has been bringing UX bugs and improvements to our attention.
 
-## Bram is in
+Some highlights of new things in the frontend:
 
-Nabu Casa employee - Bram
+- Unused entities [@bramkragten]
+- Allow subscribing to an MQTT topic inside the MQTT dev tools [@bramkragten]
+- Option to display last changed in glance-card [@iantrich]
+- Add image option to glance card entities [@iantrich]
+- Create more-for timer with action buttons [@iantrich]
+- Fill example data in dev tools [@bramkragten]
+- Stop effect in more-info-light [@iantrich]
+- Add vibration [@bramkragten]
+- Update Home Assistant logs when activating the info developer tool tab [@bramkragten]
 
-## Home Assistant Cast from Python
+## Launch Home Assistant Cast from Python
 
-Home Assistant Cast Python backend.
+Home Assistant now supports opening [Home Assistant Cast](/blog/2019/08/06/home-assistant-cast/) from the backend. It is available as the service `cast.show_lovelace_view`. This allows you to open a view on your Chromecast as part of an automation. For example, show the frontdoor and who is home when your doorbell rings.
+
+Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4KMJDOWa_ao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 ## Hass.io
 
-RPi 4 support is live.
+We have published a release candidate of HassOS that is compatible with the new Raspberry Pi 4. [Download it here](https://github.com/home-assistant/hassos/releases/tag/3.5).
 
-Hass.io is now able to work with your secrets stored in Home Assistant. So now you are able to use `!secret my_value` inside add-on options like you can do inside `configuration.yaml`. For more info about how to define secrets, [check the docs](/docs/secrets/url/to/be/done).
+Hass.io is now able to work with your secrets stored in Home Assistant. So now you are able to use `!secret my_value` inside add-on options like you can do inside `configuration.yaml`. For more info about how to define secrets, [check the docs](/docs/configuration/secrets/).
 
 ## In other news
 
-Timmo has released Home Panel 2.0. - https://twitter.com/timmo001/status/1172958335982850052?s=09
+Home Assistant had a booth this year at the [CEDIA home tech trade show](https://www.cediaexpo.com/). We spend a lot of time talking to manufacturers about local APIs, official integrations and better support for open source systems.
 
-We were at CEDIA. - https://twitter.com/home_assistant/status/1172559987979292673
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+[@timmo] has released version 2.0 of his Home Panel. This is an alternative user interface for Home Assistant.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are breaking changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
+</blockquote>
+
+[@cogneato]: https://github.com/cogneato
+[@timmo]: https://github.com/timmo001
 
 ## New Integrations
 
