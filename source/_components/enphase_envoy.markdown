@@ -56,7 +56,7 @@ monitored_conditions:
       description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API.
 {% endconfiguration %}
 
-## Full example
+### Full example
 
 ```yaml
 # Example configuration.yaml entry, limiting the metrics to production only
