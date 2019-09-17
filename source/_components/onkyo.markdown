@@ -10,8 +10,8 @@ redirect_from:
  - /components/media_player.onkyo/
 ---
 
-
-The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/) and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
+The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
+ and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
 
