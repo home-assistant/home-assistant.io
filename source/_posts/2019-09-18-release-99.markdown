@@ -82,6 +82,11 @@ Home Assistant had a booth this year at the [CEDIA home tech trade show](https:/
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/components/konnected) and [Senic](/components/nuimo_controller/).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Beers after CEDIA with <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a> from Home Assistant and teams from Senic and Neeo. <a href="https://t.co/c6Ag4DeEtU">pic.twitter.com/c6Ag4DeEtU</a></p>&mdash; Konnected.io (@Konnected_io) <a href="https://twitter.com/Konnected_io/status/1172689994059661318?ref_src=twsrc%5Etfw">September 14, 2019</a>
+</blockquote>
+
 [@timmo] has released version 2.0 of his Home Panel. This is an alternative user interface for Home Assistant.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are breaking changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
