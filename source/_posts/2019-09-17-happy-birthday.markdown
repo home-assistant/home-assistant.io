@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Happy 6th Birthday"
-description: "Home Assistant is turning 6 years old."
-date: 2019-09-16 01:11:03
+description: "Thank you community for making Home Assistant a special place."
+date: 2019-09-17 01:11:03
 date_formatted: "September 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
