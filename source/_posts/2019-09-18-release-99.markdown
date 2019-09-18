@@ -170,7 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     language: hebrew
     diaspora: False
   ```
-- **Homeatic IP** - Unify device_state_attributes handling for Homematic IP Cloud. The naming of entity attributes has been corrected (missing underscore) to follow the standards:
+- **Homematic IP** - Unify device_state_attributes handling for Homematic IP Cloud. The naming of entity attributes has been corrected (missing underscore) to follow the standards:
 
   * moisture detected --> moisture_detected
   * motion detected --> motion_detected
