@@ -42,7 +42,7 @@ scan_interval:
   type: integer
   default: 30
 preferred_units:
-  description: The list of prefered units. Available values in the list `x`, `%`, `C`, `F`, `mg/m³`, `µg/m³`, `ppm`, `ppb`.
+  description: The list of preferred units. Available values in the list `x`, `%`, `C`, `F`, `mg/m³`, `µg/m³`, `ppm`, `ppb`.
   required: false
   type: list
 devices:
@@ -51,7 +51,7 @@ devices:
   type: list
   keys:
     device_id:
-      description: The uuid of the device you want to monitor. You can take it from Kaiterra Dashboard.
+      description: The UUID of the device you want to monitor. You can take it from Kaiterra Dashboard.
       required: true
       type: string
     type:
