@@ -130,18 +130,78 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Remove deprecated SMA config ([@balloob] - [#26306]) ([sma docs]) (breaking change)
-- Refactor pihole integration ([@johnluetke] - [#25837]) ([pi_hole docs]) (breaking change)
-- Add config flow to linky ([@Quentame] - [#26076]) ([linky docs]) (breaking change)
-- Standardize Plex server connections ([@jjlawren] - [#26444]) ([plex docs]) (breaking change)
-- Jewish calendar binary sensor ([@tsvi] - [#26200]) ([jewish_calendar docs]) (breaking change) (new-platform)
-- Unify device_state_attributes handling for Homematic IP Cloud ([@SukramJ] - [#26449]) ([homematicip_cloud docs]) (breaking change)
-- Update radiotherm climate attributes ([@dieselrabbit] - [#26465]) ([radiotherm docs]) (breaking change)
-- Enable SolarEdge config entries ([@Cereal2nd] - [#26282]) ([solaredge docs]) (breaking change)
-- Move config and connections to Plex component ([@jjlawren] - [#26488]) ([discovery docs]) ([plex docs]) (breaking change)
-- Remove default host for Plex config ([@jjlawren] - [#26583]) ([plex docs]) (breaking change)
-- Remove support of UniFi device tracker configuration import ([@Kane610] - [#26587]) ([unifi docs]) (breaking change)
+- **Unifi** - Removes support of the UniFi platform for device tracker as it is now implemented using the `unifi:` integration. Extra configuration through config entry options from the GUI (see release notes 0.98 for example) and through unifi configuration in configuration.yaml will continue to work.- ([@Kane610] - [#26587]) ([unifi docs])
 
+  This will no longer work:
+  ```yaml
+  device_tracker:
+    - platform: unifi
+  ``` 
+- **Plex**
+  * Configuration is moved from the media_player and sensor platforms to the plex component. Existing configurations will need to be updated. The remove_unavailable_clients and client_remove_interval options for media_player entities have been removed as the functionality has limited value now that the entity registry exists. - ([@jjlawren] - [#26488]) ([discovery docs]) ([plex docs])
+  * Logins using a username/password/servername are no longer supported on the Plex sensor platform. This functionality will be partially restored in followup PRs which add a configuration flow and external authentication. - ([@jjlawren] - [#26444]) ([plex docs])
+  * Remove default host for Plex config. - ([@jjlawren] - [#26583]) ([plex docs])
+      * Removes default value of host config parameter.
+      * Requires one of host or token in the configuration.
+      
+   New example configuration entry:
+  ```yaml
+  plex:
+    host: 192.168.1.5
+    token: mysecrettoken
+    media_player:
+      use_episode_art: false
+  ```
+
+- **PiHole** - This change requires existing configurations for the `pi_hole` integration to be moved from sensor platform key to a `pi_hole` top level key. This allows services, switches, and possibly other entities to be added to the integration in a future pull request. - ([@johnluetke] - [#25837]) ([pi_hole docs])
+  * `monitored_conditions` is removed
+  * `pi_hole` configuration block defines host, port, location and ssl options
+
+  New example configuration entry:
+  ```yaml
+  pi_hole:
+    host: pi.hole
+  ```
+- **Jewish calendar** - This platform has been moved to an integration. Automations based on `sensor.issur_melacha_in_effect` comparison to `True/False` need to be updated to use `binary_sensor.issur_melacha_in_effect` on and off states. - ([@tsvi] - [#26200]) ([jewish_calendar docs])
+
+    New example configuration entry:
+  ```yaml
+  jewish_calender:
+    language: hebrew
+    diaspora: False
+  ```
+- **Homeatic IP** - Unify device_state_attributes handling for Homematic IP Cloud. The naming of entity attributes has been corrected (missing underscore) to follow the standards:
+
+  * moisture detected --> moisture_detected
+  * motion detected --> motion_detected
+  * power mains failure --> power_mains_failure
+  * presence detected --> presence_detected
+  * smoke detector alarm --> smoke_detector_alarm
+  * water level detected --> water_level_detected
+  * window state --> window_state
+  
+  ([@SukramJ] - [#26449]) ([homematicip_cloud docs])
+
+- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076]) ([linky docs])
+
+    New example configuration entry:
+  ```yaml
+  linky:
+    - username: email_address
+      password: password
+  ```
+
+
+
+- **Radiotherm** -  Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
+  * The old "mode" attribute is now supported via "hvac_action" attribute.
+  * The old "fan" attribute now called "fan_action" to follow "hvac_action" .
+
+- **SolarEdge** -  Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
+
+
+
+- **SMA** - Removes deprecated SMA config - ([@balloob] - [#26306]) ([sma docs])  
 ## All changes
 
 - Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#26128])
