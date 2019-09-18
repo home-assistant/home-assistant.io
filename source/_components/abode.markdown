@@ -14,6 +14,7 @@ ha_category:
   - Switch
 ha_release: 0.52
 ha_iot_class: Cloud Push
+ha_config_flow: true
 redirect_from:
   - /components/alarm_control_panel.abode/
   - /components/binary_sensor.abode/
@@ -42,8 +43,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use Abode devices in your installation,
-add the following `abode` section to your `configuration.yaml` file:
+To use Abode devices in your installation, add your Abode account from the integrations page. Two factor authenticaion must be disabled on your Abode account. Alternatively, Abode can be configured by adding the following `abode` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
