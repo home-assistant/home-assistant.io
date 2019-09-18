@@ -125,7 +125,7 @@ We also had some great drinks in the evenings with companies that integrate with
 - Add Withings support ([@vangorra] - [#25154]) ([withings docs]) (new-integration)
 - Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration)
 - Add BeeWi SmartClim BLE sensors ([@alemuro] - [#26174]) ([beewi_smartclim docs]) (new-integration)
-- Add support Slide cover ([@ualex73] - [#25913]) ([goslide docs]) (new-integration)
+- Add support Slide cover ([@ualex73] - [#25913]) ([slide docs]) (new-integration)
 - Add atome sensor platform ([@BaQs] - [#26197]) ([atome docs]) (new-integration)
 - Add Viessmann ViCare Climate platform ([@oischinger] - [#26151]) ([vicare docs]) (new-integration)
 - Add new integration for Jandy iAqualink pool control ([@flz] - [#26034]) ([iaqualink docs]) (new-integration)
@@ -319,7 +319,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - GeoNet NZ Quakes Sensor ([@exxamalte] - [#26078]) ([geonetnz_quakes docs]) (new-platform)
 - Use literal string interpolation in integrations H-J (f-strings) ([@frenck] - [#26380])
 - Removes executable but from hassfest codeowners ([@frenck] - [#26381])
-- Add support Slide cover ([@ualex73] - [#25913]) ([goslide docs]) (new-integration)
+- Add support Slide cover ([@ualex73] - [#25913]) ([slide docs]) (new-integration)
 - Use literal string interpolation in integrations N-Q (f-strings) ([@frenck] - [#26391])
 - Update OpenCV 4.1.1 / Numpy 1.17.1 ([@pvizeli] - [#26387]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
 - Use literal string interpolation in integrations T-W (f-strings) ([@frenck] - [#26394])
@@ -702,7 +702,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geonetnz_quakes docs]: /components/geonetnz_quakes/
 [glances docs]: /components/glances/
 [google_maps docs]: /components/google_maps/
-[goslide docs]: /components/goslide/
+[slide docs]: /components/slide/
 [growatt_server docs]: /components/growatt_server/
 [gtfs docs]: /components/gtfs/
 [heos docs]: /components/heos/
