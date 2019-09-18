@@ -17,7 +17,7 @@ integration by going to the Integrations page inside the config panel.
 
 ## Home Assistant Cast
 
-The Cast integration allows you to start Home Assistant Cast on any Chromecast device. This is done via the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+The Cast integration allows you to start Home Assistant Cast on any Chromecast device, using the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
 
 ```json
 {
