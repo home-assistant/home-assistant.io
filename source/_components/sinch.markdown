@@ -25,18 +25,6 @@ notify:
     api_key: SINCH_API_KEY
 ```
 
-### Full configuration example
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: sinch
-    name: Sinch
-    service_plan_id: SINCH_SERVICE_PLAN_ID
-    api_key: SINCH_API_KEY
-    default_recipient: [PHONE_NO1, PHONE_NO2]
-    sender: Home assistant
-```
-
 {% configuration %}
 name:
   description: "Setting the optional parameter name allows multiple notifiers to be created. The default value is `Sinch`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
@@ -62,3 +50,16 @@ sender:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### Full configuration example
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - platform: sinch
+    name: Sinch
+    service_plan_id: SINCH_SERVICE_PLAN_ID
+    api_key: SINCH_API_KEY
+    default_recipient: [PHONE_NO1, PHONE_NO2]
+    sender: Home assistant
+```
