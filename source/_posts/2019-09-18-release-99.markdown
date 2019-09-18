@@ -13,7 +13,7 @@ og_image: /images/blog/2019-09-0.99/components.png
 
 <a href='/components/#version/0.99'><img src='/images/blog/2019-09-0.99/components.png' style='border: 0;box-shadow: none;'></a>
 
-[Happy 6th birthday to us!](/blog/2019/09/17/happy-birthday/) Yep, it's been 6 years since the first commit, 6 years since we started our quest for a local and privacy foucsed home automation hub. And I think that we're not doing a bad job 😏
+[Happy 6th birthday to us!](/blog/2019/09/17/happy-birthday/) Yep, it's been 6 years since the first commit, 6 years since we started our quest for a local and privacy foucsed home automation hub. And I think that we're doing a pretty ok job 😏
 
 It’s time for Home Assistant release 99. And this release is adding a bunch of new great features all over the place.
 
