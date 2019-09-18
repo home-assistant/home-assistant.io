@@ -35,3 +35,12 @@ password:
   type: string
   default: admin
 {% endconfiguration %}
+
+The following is a list of expected sensors and their expected states:
+
+- Obihai service status (`Normal`, `Down` or other states from Obihais network)
+- Sensors for each phone port in use (`On Hook`, `Off Hook` and `Ringing`)
+- Sensors for last caller name and number (this is also the current incoming call, will also show `--` if no data provided)
+- Sensor if the device requires a reboot (`True` or `False`)
+- Sensor for each configured service (`0` for no calls, `1` for a call and `2` for call waiting/3way calling)
+- Sensor for the last reboot date
