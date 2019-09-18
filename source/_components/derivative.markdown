@@ -10,7 +10,7 @@ logo: derivative.png
 ha_qa_scale: internal
 ---
 
-The `derivative` platform provides the numerical derivative or numerical differentiation of the values provided by a source sensor. The derivative sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. 
+The `derivative` platform provides the numerical derivative or numerical differentiation of the values provided by a source sensor. Derivative sensors are updated upon changes of the **source**. Fast sampling source sensors provide better results. 
 
 ## Configuration
 
