@@ -19,29 +19,29 @@ It’s time for Home Assistant release 99. And this release is adding a bunch of
 
 ## Welcome Bram!
 
-Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will work on the Home Assistant frontend. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
+Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will work on the Home Assistant frontend full-time. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
 
-This is possible thanks to all the people who subscribe to Home Assistant Cloud ❤️.
+This is possible thanks to all the people who subscribe to Home Assistant Cloud ❤️
 
 ## Device Automations
 
 We took a step back, looked at Home Assistant, and thought about how we could make it easier for users to create automations. We realized that there was room for improvement. We identified the following issues:
 
 - To write automations, users need to learn Home Assistant concepts like events, entities and services.
-- It's difficult to discover what can be automated. For example, if you’re automating a long press on the on button on a Zigbee remote, you need to know to listen to the event “zha_event” and match against the Zigbee device identifier of your remote and the long press type.
+- It's difficult to discover what can be automated. For example, if you’re automating a long press on the "turn on" button on a Zigbee remote, you need to know to listen to the event “zha_event” and match against the Zigbee device identifier of your remote and the long press type.
 
-So we put our R&D hat on and have come up with a solution that allows users to create automations in the concepts that they already know: devices. Now when a user starts configuring an automation trigger, it can pick device automation as a new type.
+So we put our inventor hat on and have come up with a solution that allows users to create automations in the concepts that they already know: devices. Now when a user starts configuring an automation trigger, it can pick device automation as a new type.
 
 <p class='img'>
 <img src='/images/blog/2019-09-0.99/device-automation-trigger.png' alt="Screenshot of defining a device trigger.">
 Screenshot of defining a device trigger in the UI.
 </p>
 
-The user starts by picking a device. A second dropdown will now appear that contains all the possible triggers for this device. This list is populated based on the integrations that are linked to this device (ie. Hue & Light).
+The user starts by picking one of their devices that is integrated into Home Assistant. A second dropdown will now appear that contains all the possible triggers for this device. This list is populated based on the integrations that are linked to this device (ie. Hue & Light).
 
 Device automations are available for triggers, conditions and actions. Today’s release supports lights, switches and Deconz. More to come in future releases as integration developers adopt it.
 
-Big thanks to [@emontomery] for driving this effort. He added Initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
+Big thanks to [@emontomery] for driving this effort. He added initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
 
 ## Frontend
 
@@ -53,9 +53,9 @@ There is a lot to talk here. Buckle up.
 <img src='/images/blog/2019-09-0.99/round-slider.png' alt="Screenshot of a light card showing a round slider.">
 </p>
 
-[@iantrich] has been on fire in recent weeks squashing a ton of bugs and adding some nice features to improve the Lovelace experience. And a shout out to [@SeanPM5] who has been bringing UX bugs and improvements to our attention. Our frontend team is seriously awesome.
+Shout out to [@iantrich] who has been on fire in recent weeks squashing a ton of bugs and adding some nice features to improve the Lovelace experience. And a shout out to [@SeanPM5] who has been bringing UX bugs and improvements to our attention. Our frontend team is seriously awesome.
 
-Unused entities has been moved into the configure UI section and completely revamped by [@bramkragten]. It's now a table, you can see a lot more info, you can sort it. If you are using Lovelace storage mode, you can select entities and add them.
+Unused entities has been moved into the configure UI section and completely revamped by [@bramkragten]. It's now a table, you can see a lot more info, you can sort it. If you are using Lovelace storage mode, you can select entities and add them to your UI directly from that screen.
 
 <p class='img'>
 <img src='/images/blog/2019-09-0.99/unused-entities.png' alt="Screenshot of the new unused entities page.">
@@ -69,7 +69,7 @@ Now that we have a data table component, Bram also went ahead and used it in a n
 Screenshot of the new devices page.
 </p>
 
-And there is a ton more, here are some of the highlights:
+And there is a ton more, here are some of the other highlights:
 
 - Allow subscribing to an MQTT topic inside the MQTT dev tools [@bramkragten]
 - Option to display last changed in glance-card [@iantrich]
