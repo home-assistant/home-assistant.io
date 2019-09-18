@@ -19,7 +19,7 @@ It’s time for Home Assistant release 99. And this release is adding a bunch of
 
 ## Welcome Bram!
 
-Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will work on the Home Assistant frontend full-time. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
+[Nabu Casa](https://www.nabucasa.com/) has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will work on the Home Assistant frontend full-time. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
 
 This is possible thanks to all the people who subscribe to Home Assistant Cloud ❤️
 
