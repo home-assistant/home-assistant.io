@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.99: TBD"
-description: "TBD"
-date: 2019-09-11 01:11:03
+title: "0.99: Withings, Device Automations, launch Home Assistant Cast from Python."
+description: "11 new integrations, many tweaks/features for the frontend and easier automations for everyone."
+date: 2019-09-18 01:11:03
 date_formatted: "September 18, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -13,68 +13,93 @@ og_image: /images/blog/2019-09-0.99/components.png
 
 <a href='/components/#version/0.99'><img src='/images/blog/2019-09-0.99/components.png' style='border: 0;box-shadow: none;'></a>
 
-It’s time for Home Assistant release 99. And just to manage expectations: no, this is not the last release before 1.0. I was hoping we could wrap it all up so we could release 1.0 on our birthday, but we didn’t make it 🤷‍♀️. And that’s okay. It’s better to release something that is satisfying instead of releasing something because it’s our birthday.
+[Happy 6th birthday to us!](/blog/2019/09/17/happy-birthday/) Yep, it's been 6 years since the first commit, 6 years since we started our quest for a local and privacy foucsed home automation hub. And I think that we're not doing a bad job 😏
 
-This doesn’t mean that we are not having some bad ass new features in this release. Quite the opposite…
+It’s time for Home Assistant release 99. And this release is adding a bunch of new great features all over the place.
+
+## Welcome Bram!
+
+Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will work on the Home Assistant frontend. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
+
+This is possible thanks to all the people who subscribe to Home Assistant Cloud ❤️.
 
 ## Device Automations
 
-With device automations we took a step back, looked at Home Assistant, and thought about how we could make it easier for users to create automations. We realized that there was room for improvement. We identified the following issues:
+We took a step back, looked at Home Assistant, and thought about how we could make it easier for users to create automations. We realized that there was room for improvement. We identified the following issues:
 
-- Users need to learn Home Assistant concepts like events, entities and services.
+- To write automations, users need to learn Home Assistant concepts like events, entities and services.
 - It's difficult to discover what can be automated. For example, if you’re automating a long press on the on button on a Zigbee remote, you need to know to listen to the event “zha_event” and match against the Zigbee device identifier of your remote and the long press type.
 
-Today we’re officially introducing device automations. With device automations users can configure automations based on devices. Now when a user starts configuring an automation trigger, it can pick device automation as a type. The user starts by picking a device. A second dropdown will now appear that contains all the possible triggers for this device. This list is populated based on the integrations that are linked to this device (ie. Hue, Light). Examples of possible triggers in the list for a simple on-off remote: On button pressed, On button long pressed, Off button pressed, Off button long pressed.
+So we put our R&D hat on and have come up with a solution that allows users to create automations in the concepts that they already know: devices. Now when a user starts configuring an automation trigger, it can pick device automation as a new type.
 
-<SCREENSHOT OF TRIGGER IN AUTOMATION EDITOR>
+<p class='img'>
+<img src='/images/blog/2019-09-0.99/device-automation-trigger.png' alt="Screenshot of defining a device trigger.">
+Screenshot of defining a device trigger in the UI.
+</p>
+
+The user starts by picking a device. A second dropdown will now appear that contains all the possible triggers for this device. This list is populated based on the integrations that are linked to this device (ie. Hue & Light).
 
 Device automations are available for triggers, conditions and actions. Today’s release supports lights, switches and Deconz. More to come in future releases as integration developers adopt it.
 
 Big thanks to [@emontomery] for driving this effort. He added Initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
 
-## Welcome Bram!
-
-Nabu Casa has hired [Bram Kragten][@bramkragten]. Bram has been active in the Home Assistant community for a while and is one of the driving forces behind the Lovelace UI. He will focus on Home Assistant frontend. He will focus on making it easier to manage your Home Assistant installation, make sure all of the frontend is translatable and drive our efforts on making the frontend accessible for visually impaired people.
-
 ## Frontend
 
 There is a lot to talk here. Buckle up.
 
-[@thomasloven] has built a brand new round slider from scratch for use in Home Assistant. It is using modern technologies to create a great experience. This component was so useful standalone that he has decided to release it as a standalone web component that anyone can use in their websites.
+[@thomasloven] has built a brand new round slider from scratch for use in Home Assistant. It is using modern technologies to create a great experience. This component was so useful standalone that he has decided to release it as [a standalone web component](https://github.com/thomasloven/round-slider/) that anyone can use in their websites.
 
-<SCREENSHOT OF ROUND SLIDER>
+<p class='img'>
+<img src='/images/blog/2019-09-0.99/round-slider.png' alt="Screenshot of a light card showing a round slider.">
+</p>
 
-[@iantrich] has been on fire in recent weeks squashing a ton of bugs and adding some nice features to improve the Lovelace experience.
+[@iantrich] has been on fire in recent weeks squashing a ton of bugs and adding some nice features to improve the Lovelace experience. And a shout out to [@SeanPM5] who has been bringing UX bugs and improvements to our attention. Our frontend team is seriously awesome.
 
-Shout out to [@SeanPM5] who has been bringing UX bugs and improvements to our attention.
+Unused entities has been moved into the configure UI section and completely revamped by [@bramkragten]. It's now a table, you can see a lot more info, you can sort it. If you are using Lovelace storage mode, you can select entities and add them.
 
-Some highlights of new things in the frontend:
+<p class='img'>
+<img src='/images/blog/2019-09-0.99/unused-entities.png' alt="Screenshot of the new unused entities page.">
+Screenshot of the new unused entities page.
+</p>
 
-- Unused entities [@bramkragten]
+Now that we have a data table component, Bram also went ahead and used it in a new devices page. This page, still experimental, will allow users to see a list of all their devices and sort them by manufacturer, area or battery %. The goal is to create a one stop shop for device management.
+
+<p class='img'>
+<img src='/images/blog/2019-09-0.99/devices.png' alt="Screenshot of the new devices page.">
+Screenshot of the new devices page.
+</p>
+
+And there is a ton more, here are some of the highlights:
+
 - Allow subscribing to an MQTT topic inside the MQTT dev tools [@bramkragten]
 - Option to display last changed in glance-card [@iantrich]
 - Add image option to glance card entities [@iantrich]
-- Create more-for timer with action buttons [@iantrich]
+- Allow controlling timer entities from the more info dialog [@iantrich]
 - Fill example data in dev tools [@bramkragten]
 - Stop effect in more-info-light [@iantrich]
-- Add vibration [@bramkragten]
+- Add vibration on mobile when controlling entities [@bramkragten]
 - Update Home Assistant logs when activating the info developer tool tab [@bramkragten]
+
+[@thomasloven]: https://github.com/thomasloven
+[@iantrich]: https://github.com/iantrich
+[@emontomery]: https://github.com/emontomery
+[@seanpm5]: https://github.com/SeanPM5
 
 ## Launch Home Assistant Cast from Python
 
 Home Assistant now supports opening [Home Assistant Cast](/blog/2019/08/06/home-assistant-cast/) from the backend. It is available as the service `cast.show_lovelace_view`. This allows you to open a view on your Chromecast as part of an automation. For example, show the frontdoor and who is home when your doorbell rings.
 
-Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
-
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4KMJDOWa_ao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
+Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
+
 ## Hass.io
 
-We have published a release candidate of HassOS that is compatible with the new Raspberry Pi 4. [Download it here](https://github.com/home-assistant/hassos/releases/tag/3.5).
-
 Hass.io is now able to work with your secrets stored in Home Assistant. So now you are able to use `!secret my_value` inside add-on options like you can do inside `configuration.yaml`. For more info about how to define secrets, [check the docs](/docs/configuration/secrets/).
+
+We have published a release candidate of HassOS that is compatible with the new Raspberry Pi 4. [Download it here](https://github.com/home-assistant/hassos/releases/tag/3.5).
 
 ## In other news
 
@@ -97,8 +122,8 @@ We also had some great drinks in the evenings with companies that integrate with
 
 ## New Integrations
 
-- Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration) (new-platform)
 - Add Withings support ([@vangorra] - [#25154]) ([withings docs]) (new-integration)
+- Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration)
 - Add BeeWi SmartClim BLE sensors ([@alemuro] - [#26174]) ([beewi_smartclim docs]) (new-integration)
 - Add support Slide cover ([@ualex73] - [#25913]) ([goslide docs]) (new-integration)
 - Add atome sensor platform ([@BaQs] - [#26197]) ([atome docs]) (new-integration)
@@ -110,7 +135,6 @@ We also had some great drinks in the evenings with companies that integrate with
 
 ## New Platforms
 
-- Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration) (new-platform)
 - Add support for Supla switches ([@Rocik] - [#26188]) ([supla docs]) (new-platform)
 - GeoNet NZ Quakes Sensor ([@exxamalte] - [#26078]) ([geonetnz_quakes docs]) (new-platform)
 - Jewish calendar binary sensor ([@tsvi] - [#26200]) ([jewish_calendar docs]) (breaking change) (new-platform)
@@ -130,21 +154,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- **Unifi** - Removes support of the UniFi platform for device tracker as it is now implemented using the `unifi:` integration. Extra configuration through config entry options from the GUI (see release notes 0.98 for example) and through unifi configuration in configuration.yaml will continue to work.- ([@Kane610] - [#26587]) ([unifi docs])
+- **Unifi** - Removes support of directly configuring the UniFi platform for device trackers. Use `unifi:` instead. Extra configuration through config entry options from the GUI (see release notes 0.98 for example) and through unifi configuration in configuration.yaml will continue to work.- ([@Kane610] - [#26587]) ([unifi docs])
 
-  This will no longer work:
   ```yaml
+  # This will no longer work
   device_tracker:
     - platform: unifi
-  ``` 
+
+  # This does
+  unifi:
+  ```
+
 - **Plex**
-  * Configuration is moved from the media_player and sensor platforms to the plex component. Existing configurations will need to be updated. The remove_unavailable_clients and client_remove_interval options for media_player entities have been removed as the functionality has limited value now that the entity registry exists. - ([@jjlawren] - [#26488]) ([discovery docs]) ([plex docs])
-  * Logins using a username/password/servername are no longer supported on the Plex sensor platform. This functionality will be partially restored in followup PRs which add a configuration flow and external authentication. - ([@jjlawren] - [#26444]) ([plex docs])
-  * Remove default host for Plex config. - ([@jjlawren] - [#26583]) ([plex docs])
-      * Removes default value of host config parameter.
-      * Requires one of host or token in the configuration.
-      
-   New example configuration entry:
+
+  - Configuration is moved from the media_player and sensor platforms to the plex component. Existing configurations will need to be updated. The `remove_unavailable_clients` and `client_remove_interval` options for media_player entities have been removed as the functionality has limited value now that the entity registry exists. - ([@jjlawren] - [#26488]) ([discovery docs]) ([plex docs])
+  - Logins using a username/password/servername are no longer supported on the Plex sensor platform. This functionality will be partially restored in followup PRs which add a configuration flow and external authentication. - ([@jjlawren] - [#26444]) ([plex docs])
+  - Remove default host for Plex config. - ([@jjlawren] - [#26583]) ([plex docs])
+    - Removes default value of host config parameter.
+    - Requires one of host or token in the configuration.
+
+  New example configuration entry:
+
   ```yaml
   plex:
     host: 192.168.1.5
@@ -154,61 +184,83 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```
 
 - **PiHole** - This change requires existing configurations for the `pi_hole` integration to be moved from sensor platform key to a `pi_hole` top level key. This allows services, switches, and possibly other entities to be added to the integration in a future pull request. - ([@johnluetke] - [#25837]) ([pi_hole docs])
-  * `monitored_conditions` is removed
-  * `pi_hole` configuration block defines host, port, location and ssl options
+
+  - `monitored_conditions` is removed
+  - `pi_hole` configuration block defines host, port, location and ssl options
 
   New example configuration entry:
+
   ```yaml
   pi_hole:
     host: pi.hole
   ```
+
 - **Jewish calendar** - This platform has been moved to an integration. Automations based on `sensor.issur_melacha_in_effect` comparison to `True/False` need to be updated to use `binary_sensor.issur_melacha_in_effect` on and off states. - ([@tsvi] - [#26200]) ([jewish_calendar docs])
 
-    New example configuration entry:
+  New example configuration entry:
+
   ```yaml
   jewish_calender:
     language: hebrew
     diaspora: False
   ```
+
 - **Homematic IP** - Unify device_state_attributes handling for Homematic IP Cloud. The naming of entity attributes has been corrected (missing underscore) to follow the standards:
 
-  * moisture detected --> moisture_detected
-  * motion detected --> motion_detected
-  * power mains failure --> power_mains_failure
-  * presence detected --> presence_detected
-  * smoke detector alarm --> smoke_detector_alarm
-  * water level detected --> water_level_detected
-  * window state --> window_state
-  
+  - moisture detected --> moisture_detected
+  - motion detected --> motion_detected
+  - power mains failure --> power_mains_failure
+  - presence detected --> presence_detected
+  - smoke detector alarm --> smoke_detector_alarm
+  - water level detected --> water_level_detected
+  - window state --> window_state
+
   ([@SukramJ] - [#26449]) ([homematicip_cloud docs])
 
 - **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076]) ([linky docs])
 
-    New example configuration entry:
+  New example configuration entry:
+
   ```yaml
   linky:
     - username: email_address
       password: password
   ```
 
+* **Radiotherm** - Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
 
+  - The old "mode" attribute is now supported via "hvac_action" attribute.
+  - The old "fan" attribute now called "fan_action" to follow "hvac_action" .
 
-- **Radiotherm** -  Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
-  * The old "mode" attribute is now supported via "hvac_action" attribute.
-  * The old "fan" attribute now called "fan_action" to follow "hvac_action" .
+* **SolarEdge** - Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
 
-- **SolarEdge** -  Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
+- **SMA** - Removes deprecated SMA config - ([@balloob] - [#26306]) ([sma docs])
 
+## Beta Fixes
 
+- Fix CCM messages ([@gerard33] - [#26589]) ([bmw_connected_drive docs]) (beta fix)
+- Update PyChromecast ([@balloob] - [#26594]) ([cast docs]) (beta fix)
+- Use Nabu Casa url if no https url set ([@balloob] - [#26682]) ([cast docs]) (beta fix)
+- Updated frontend to 20190917.0 ([@bramkragten] - [#26686]) ([frontend docs]) (beta fix)
+- Fix Nuki issues ([@pvizeli] - [#26689]) ([nuki docs]) (breaking change) (beta fix)
+- Bump connect-box library to fix logging ([@pvizeli] - [#26690]) ([upc_connect docs]) (beta fix)
+- Updated frontend to 20190917.1 ([@bramkragten] - [#26691]) ([frontend docs]) (beta fix)
+- Rename MockToggleDevice to MockToggleEntity ([@emontnemery] - [#26644]) (beta fix)
+- Fix translation, adjust trigger names ([@emontnemery] - [#26635]) ([device_automation docs]) ([light docs]) ([switch docs]) (beta fix)
+- Fix cert expiry config flow check and update ([@Cereal2nd] - [#26638]) ([cert_expiry docs]) (beta fix)
+- Fix release access for bram ([@pvizeli] - [#26693]) (beta fix)
+- Updated frontend to 20190917.2 ([@bramkragten] - [#26696]) ([frontend docs]) (beta fix)
+- Verify withings config ([@balloob] - [#26698]) ([withings docs]) (beta fix)
+- Updated frontend to 20190918.0 ([@bramkragten] - [#26704]) ([frontend docs]) (beta fix)
+- Fix yeelight inheritance order ([@zewelor] - [#26706]) ([yeelight docs]) (beta fix)
 
-- **SMA** - Removes deprecated SMA config - ([@balloob] - [#26306]) ([sma docs])  
 ## All changes
 
 - Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#26128])
 - Add myself as codeowner to HmIP Cloud ([@SukramJ] - [#26140]) ([homematicip_cloud docs])
 - DuckDNS setup backoff ([@kellerza] - [#25899]) ([duckdns docs])
 - Venstar: define success for all branches of set_temperature() ([@iamtpage] - [#26148]) ([venstar docs])
-- Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration) (new-platform)
+- Add NWS weather ([@MatthewFlamm] - [#23647]) ([nws docs]) (new-integration)
 - Use literal string interpolation in core (f-strings) ([@frenck] - [#26166])
 - Allow bumping version for nightly builds ([@balloob] - [#26167])
 - Update ambiclimate library ([@Danielhiversen] - [#26182]) ([ambiclimate docs])
@@ -363,6 +415,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Deprecate Python 3.6.0 ([@pvizeli] - [#26575])
 - Check if git is dirty before committing ([@balloob] - [#26588])
 - Remove support of UniFi device tracker configuration import ([@Kane610] - [#26587]) ([unifi docs]) (breaking change)
+- Fix CCM messages ([@gerard33] - [#26589]) ([bmw_connected_drive docs]) (beta fix)
+- Update PyChromecast ([@balloob] - [#26594]) ([cast docs]) (beta fix)
+- Use Nabu Casa url if no https url set ([@balloob] - [#26682]) ([cast docs]) (beta fix)
+- Updated frontend to 20190917.0 ([@bramkragten] - [#26686]) ([frontend docs]) (beta fix)
+- Fix Nuki issues ([@pvizeli] - [#26689]) ([nuki docs]) (breaking change) (beta fix)
+- Bump connect-box library to fix logging ([@pvizeli] - [#26690]) ([upc_connect docs]) (beta fix)
+- Updated frontend to 20190917.1 ([@bramkragten] - [#26691]) ([frontend docs]) (beta fix)
+- Rename MockToggleDevice to MockToggleEntity ([@emontnemery] - [#26644]) (beta fix)
+- Fix translation, adjust trigger names ([@emontnemery] - [#26635]) ([device_automation docs]) ([light docs]) ([switch docs]) (beta fix)
+- Fix cert expiry config flow check and update ([@Cereal2nd] - [#26638]) ([cert_expiry docs]) (beta fix)
+- Fix release access for bram ([@pvizeli] - [#26693]) (beta fix)
+- Updated frontend to 20190917.2 ([@bramkragten] - [#26696]) ([frontend docs]) (beta fix)
+- Verify withings config ([@balloob] - [#26698]) ([withings docs]) (beta fix)
+- Updated frontend to 20190918.0 ([@bramkragten] - [#26704]) ([frontend docs]) (beta fix)
+- Fix yeelight inheritance order ([@zewelor] - [#26706]) ([yeelight docs]) (beta fix)
 
 [#23647]: https://github.com/home-assistant/home-assistant/pull/23647
 [#23881]: https://github.com/home-assistant/home-assistant/pull/23881
@@ -523,6 +590,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#26583]: https://github.com/home-assistant/home-assistant/pull/26583
 [#26587]: https://github.com/home-assistant/home-assistant/pull/26587
 [#26588]: https://github.com/home-assistant/home-assistant/pull/26588
+[#26589]: https://github.com/home-assistant/home-assistant/pull/26589
+[#26594]: https://github.com/home-assistant/home-assistant/pull/26594
+[#26635]: https://github.com/home-assistant/home-assistant/pull/26635
+[#26638]: https://github.com/home-assistant/home-assistant/pull/26638
+[#26644]: https://github.com/home-assistant/home-assistant/pull/26644
+[#26682]: https://github.com/home-assistant/home-assistant/pull/26682
+[#26686]: https://github.com/home-assistant/home-assistant/pull/26686
+[#26689]: https://github.com/home-assistant/home-assistant/pull/26689
+[#26690]: https://github.com/home-assistant/home-assistant/pull/26690
+[#26691]: https://github.com/home-assistant/home-assistant/pull/26691
+[#26693]: https://github.com/home-assistant/home-assistant/pull/26693
+[#26696]: https://github.com/home-assistant/home-assistant/pull/26696
+[#26698]: https://github.com/home-assistant/home-assistant/pull/26698
+[#26704]: https://github.com/home-assistant/home-assistant/pull/26704
+[#26706]: https://github.com/home-assistant/home-assistant/pull/26706
 [@5mauggy]: https://github.com/5mauggy
 [@adminiuga]: https://github.com/Adminiuga
 [@bkpepe]: https://github.com/BKPepe
@@ -565,6 +647,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fmartens]: https://github.com/fmartens
 [@frenck]: https://github.com/frenck
 [@gadgetchnnel]: https://github.com/gadgetchnnel
+[@gerard33]: https://github.com/gerard33
 [@iamtpage]: https://github.com/iamtpage
 [@indykoning]: https://github.com/indykoning
 [@jjlawren]: https://github.com/jjlawren
@@ -598,6 +681,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /components/automation/
 [axis docs]: /components/axis/
 [beewi_smartclim docs]: /components/beewi_smartclim/
+[bmw_connected_drive docs]: /components/bmw_connected_drive/
 [cast docs]: /components/cast/
 [cert_expiry docs]: /components/cert_expiry/
 [darksky docs]: /components/darksky/
