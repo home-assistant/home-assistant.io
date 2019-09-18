@@ -49,20 +49,20 @@ You may need to enable Multicast DNS (MDNS) on your router if you are on a diffe
 
 {% configuration %}
 media_player:
-description: A list that contains all Cast devices.
-required: true
-type: list
-keys:
-host:
-description: Use only if you don't want to scan for devices.
-required: false
-type: string
-ignore_cec:
-description: >
-A list of Chromecasts that should ignore CEC data for determining the
-active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
-required: false
-type: list
+  description: A list that contains all Cast devices.
+  required: true
+  type: list
+  keys:
+    host:
+      description: Use only if you don't want to scan for devices.
+      required: false
+      type: string
+    ignore_cec:
+      description: >
+        A list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
+      required: false
+      type: list
 {% endconfiguration %}
 
 If you want to manually configure multiple Cast media players, you can define
