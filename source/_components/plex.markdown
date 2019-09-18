@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 
-The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The `plex` component allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,17 +23,17 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
+The preferred way to enable the Plex component is via `Configuration`>`Integrations`. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
 
-If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. You will be prompted with a notification to complete configuration if discovery is enabled.
+<div class='note info'>
 
-If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use SSL, write "`off`" or "`false`" in the _"Verify SSL"_ field as well.
+Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-token.png' />
-</p>
+</div>
 
-You can also enable the `plex` platform directly by adding the following lines to your `configuration.yaml`:
+If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under `Settings`>`(Server Name)`>`Settings`>`Network` and choosing "Enable local network discovery (GDM)".
+
+The `plex` component can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,8 +42,13 @@ plex:
 ```
 
 <div class='note warning'>
-  
+
 At least one of `host` or `token` must be provided.
+
+</div>
+<div class='note warning'>
+
+Only one Plex server can be configured when using `configuration.yaml`. To add more servers, set up via `Configuration`>`Integrations`.
 
 </div>
 
@@ -160,15 +165,15 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ### Notes
 
-* At this moment, the Plex platform only supports one Plex Media Server.
-* It is possible to get errors that look like the following.
+* The `plex` component supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
+* When setting up a server via `configuration.yaml`, it is possible to get errors that look like the following.
 
   ```
   ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans to, respectively, `true` and `false`.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify_ssl` configuration options to, respectively, `true` and `false`.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
 ## Sensor
