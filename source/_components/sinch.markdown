@@ -4,9 +4,7 @@ description: "Instructions on how to add Sinch notifications to Home Assistant."
 logo: sinch.png
 ha_category:
   - Notifications
-ha_release: "0.100"
-redirect_from:
- - /components/notify.sinch/
+ha_release: 0.100
 ---
 
 The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.
@@ -23,20 +21,22 @@ To add Sinch to your installation, add the following to your Home Assistant `con
 # Example configuration.yaml entry
 notify:
   - platform: sinch
-    name: Sinch
     service_plan_id: SINCH_SERVICE_PLAN_ID
     api_key: SINCH_API_KEY
+```
 
-# Using default recipients
+### Full configuration example
+```yaml
+# Example configuration.yaml entry
 notify:
   - platform: sinch
     name: Sinch
     service_plan_id: SINCH_SERVICE_PLAN_ID
     api_key: SINCH_API_KEY
     default_recipient: [PHONE_NO1, PHONE_NO2]
+    sender: Home assistant
 ```
 
-```
 {% configuration %}
 name:
   description: "Setting the optional parameter name allows multiple notifiers to be created. The default value is `Sinch`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
@@ -60,5 +60,5 @@ sender:
   type: string
   default: 'Home Assistant'
 {% endconfiguration %}
-```
+
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
