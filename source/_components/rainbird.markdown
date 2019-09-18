@@ -46,10 +46,6 @@ trigger_time:
   description: Irrigation time.
   required: true
   type: integer
-scan_interval:
-  description: Interval to scan for zone state.
-  required: false
-  type: integer
 zones:
   description: Dictionary of zone configurations
   required: false
@@ -67,10 +63,6 @@ zones:
           description: Irrigation time.
           required: false
           type: integer
-        scan_interval:
-          description: Interval to scan for zone state.
-          required: false
-          type: integer
 {% endconfiguration %}
 
 
@@ -81,7 +73,6 @@ rainbird:
   - host: IP_ADDRESS_OF_MODULE
     password: YOUR_PASSWORD
     trigger_time: 6
-    scan_interval: 5
     zones:
       1:
         friendly_name: My zone 1
@@ -89,11 +80,9 @@ rainbird:
       2:
         friendly_name: My zone 2
         trigger_time: 2
-        scan_interval: 1
   - host: IP_ADDRESS_OF_ANOTHER_MODULE
     password: YOUR_ANOTHER_PASSWORD
     trigger_time: 6
-    scan_interval: 5
     zones:
       1:
         friendly_name: My zone 1
@@ -101,7 +90,6 @@ rainbird:
       3:
         friendly_name: My zone 3
         trigger_time: 5
-        scan_interval: 3
 ```
 <div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
