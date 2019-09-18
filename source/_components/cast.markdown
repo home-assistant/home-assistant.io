@@ -10,13 +10,20 @@ ha_iot_class: Local Polling
 redirect_from: /components/media_player.cast/
 ---
 
-Home Assistant integrates with Chromecast devices like Chromecasts, Google Nest hubs and Android TVs. When integrated, it will allow you to see what is currently playing and control playback.
-
 You can enable the Cast integration by going to the Integrations page inside the config panel.
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI. You can load it on your Chromecast by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI or by using the `cast.show_lovelace_ui` service.
+Home Assistant has its own Cast application to show the Home Assistant UI. You can load it on your Chromecast by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI or by using the `cast.show_lovelace_ui` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+
+```json
+{
+  "entity_id": "media_player.office_display_4",
+  "view_path": "lights"
+}
+```
+
+## Advanced use
 
 Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
 
