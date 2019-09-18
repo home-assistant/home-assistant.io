@@ -4,7 +4,7 @@ description: "Instructions on how to add Sinch notifications to Home Assistant."
 logo: sinch.png
 ha_category:
   - Notifications
-ha_release: 0.99.1
+ha_release: "0.100"
 redirect_from:
  - /components/notify.sinch/
 ---
