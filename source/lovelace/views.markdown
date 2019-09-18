@@ -56,7 +56,7 @@ views:
 
 If you define badges as objects instead of strings (by adding `entity:` before entity ID), allowing you to add more customizations:
 
-{% configuration %}
+{% configuration badges %}
 entity:
   required: true
   description: Home Assistant entity ID.
