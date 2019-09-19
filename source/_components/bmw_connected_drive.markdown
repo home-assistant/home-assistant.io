@@ -9,6 +9,7 @@ ha_category:
   - Lock
   - Sensor
 ha_release: 0.64
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.bmw_connected_drive/
   - /components/device_tracker.bmw_connected_drive/
