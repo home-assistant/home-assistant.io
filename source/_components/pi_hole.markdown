@@ -23,7 +23,7 @@ pi_hole:
 
 {% configuration %}
 host:
-  description: IP address of the host where Pi-hole is running.
+  description: IP address and Port of the host where Pi-hole is running. Pi-hole uses port 4865 by default.
   required: false
   type: string
   default: pi.hole
@@ -49,7 +49,7 @@ verify_ssl:
 ```yaml
 # Example configuration.yaml entry
 pi_hole:
-  host: IP_ADDRESS
+  host: IP_ADDRESS:PORT
 
 sensor:
   - platform: pi_hole
