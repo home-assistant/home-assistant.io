@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 
-The `plex` component allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-The preferred way to enable the Plex component is via `Configuration`>`Integrations`. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
+The preferred way to enable the Plex integration is via `Configuration`>`Integrations`. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
 
 <div class='note info'>
 
@@ -33,7 +33,7 @@ Local and secure connections are preferred when setting up an Integration. After
 
 If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under `Settings`>`(Server Name)`>`Settings`>`Network` and choosing "Enable local network discovery (GDM)".
 
-The `plex` component can also be configured via `configuration.yaml`:
+The `plex` integration can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -165,7 +165,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ### Notes
 
-* The `plex` component supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
+* The `plex` integration supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
 * When setting up a server via `configuration.yaml`, it is possible to get errors that look like the following.
 
   ```
