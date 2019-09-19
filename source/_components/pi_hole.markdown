@@ -27,6 +27,11 @@ host:
   required: false
   type: string
   default: pi.hole
+port:
+  description: TCP/IP port of Pi-hole.
+  required: false
+  type: int
+  default: 80
 location:
   description: The installation location of the Pi-hole API.
   required: false
