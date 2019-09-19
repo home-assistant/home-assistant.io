@@ -48,6 +48,12 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
+      key_actions:
+        arrow_right:
+          service: logbook.log
+          data:
+            name: homekit
+            message: 'right key pressed'
     switch.bedroom_outlet:
       type: outlet
 ```
@@ -140,6 +146,43 @@ homekit:
                     description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
+              key_actions:
+                description: Only for `media_player` entities. Dictionary of scripts to run when the corresponding key is pressed in the Remote app.
+                type: map
+                keys:
+                 rewind:
+                    description: Defines an action to run when the rewind button is pressed in the Remote app.
+                    type: action
+                 fast_forward:
+                    description: Defines an action to run when the fast forward button is pressed in the Remote app.
+                    type: action
+                 next_track:
+                    description: Defines an action to run when the next track button is pressed in the Remote app.
+                    type: action
+                 previous_track:
+                    description: Defines an action to run when the previous track button is pressed in the Remote app.
+                    type: action
+                 arrow_up:
+                    description: Defines an action to run when the up arrow button is pressed in the Remote app.
+                    type: action
+                 arrow_down:
+                    description: Defines an action to run when the down arrow button is pressed in the Remote app.
+                    type: action
+                 arrow_left:
+                    description: Defines an action to run when the left arrow button is pressed in the Remote app.
+                    type: action
+                 arrow_right:
+                    description: Defines an action to run when the right arrow button is pressed in the Remote app.
+                    type: action
+                 select:
+                    description: Defines an action to run when the select button is pressed in the Remote app.
+                    type: action
+                 back:
+                    description: Defines an action to run when the back button is pressed in the Remote app.
+                    type: action
+                 exit:
+                    description: Defines an action to run when the exit button is pressed in the Remote app.
+                    type: action
               type:
                 description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
