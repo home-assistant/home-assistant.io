@@ -37,7 +37,7 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 
 <div class='note'>
 
-<a href="https://www.sleepcycle.com" target="_blank">Sleep Cycle</a> and <a href="https://sleep.urbandroid.org" target="_blank"> Sleep as Android</a>: smart alarm clock app can use emulated_hue to turn on and off enitites. Sleep Cycle only has it implemented in the iOS app, see <a href="https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-" target="_blank">Sleep Cycle support</a>. The app requires the same configuration as Google Home and does not work if type is defined as alexa in configuration.
+[Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off enitites. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if type is defined as alexa in configuration.
 
 </div>
 
