@@ -22,7 +22,6 @@ To enable this sensor in your installation, add the following to your `configura
 sensor:
   - platform: worldclock
     time_zone: America/New_York
-    time_format: "%-I:%M %p"
 ```
 
 {% configuration %}
