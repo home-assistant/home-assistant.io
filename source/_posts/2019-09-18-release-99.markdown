@@ -142,6 +142,22 @@ We also had some great drinks in the evenings with companies that integrate with
 - Add sensor platform to iaqualink component ([@flz] - [#26544]) ([iaqualink docs]) (new-platform)
 - Add switch platform to iaqualink integration ([@flz] - [#26545]) ([iaqualink docs]) (new-platform)
 
+## Release 0.99.1 - September 19
+
+- Encode prometheus metric names per the prom spec ([@growse] - [#26639]) ([prometheus docs])
+- Bump TRADFRI ([@balloob] - [#26731]) ([tradfri docs])
+- Bump pyobihai to fix issue with user account ([@dshokouhi] - [#26736]) ([obihai docs])
+
+[#26639]: https://github.com/home-assistant/home-assistant/pull/26639
+[#26731]: https://github.com/home-assistant/home-assistant/pull/26731
+[#26736]: https://github.com/home-assistant/home-assistant/pull/26736
+[@balloob]: https://github.com/balloob
+[@dshokouhi]: https://github.com/dshokouhi
+[@growse]: https://github.com/growse
+[obihai docs]: /components/obihai/
+[prometheus docs]: /components/prometheus/
+[tradfri docs]: /components/tradfri/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
