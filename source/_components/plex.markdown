@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-The preferred way to enable the Plex integration is via `Configuration`>`Integrations`. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
 
 <div class='note info'>
 
@@ -31,7 +31,7 @@ Local and secure connections are preferred when setting up an Integration. After
 
 </div>
 
-If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under `Settings`>`(Server Name)`>`Settings`>`Network` and choosing "Enable local network discovery (GDM)".
+If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
@@ -48,7 +48,7 @@ At least one of `host` or `token` must be provided.
 </div>
 <div class='note warning'>
 
-Only one Plex server can be configured when using `configuration.yaml`. To add more servers, set up via `Configuration`>`Integrations`.
+Only one Plex server can be configured when using `configuration.yaml`. To add more servers, set up via **Configuration** -> **Integrations**.
 
 </div>
 
