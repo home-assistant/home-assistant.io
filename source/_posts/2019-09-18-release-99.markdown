@@ -158,6 +158,14 @@ We also had some great drinks in the evenings with companies that integrate with
 [prometheus docs]: /components/prometheus/
 [tradfri docs]: /components/tradfri/
 
+## Release 0.99.2 - September 19
+
+Forgot to include frontend update 99.1.
+
+- fix continue integration flow ([#3766](https://github.com/home-assistant/home-assistant-polymer/pull/3766)) [@bramkragten]
+- Show toast on success save entity settings ([#3763](https://github.com/home-assistant/home-assistant-polymer/pull/3763)) [@bramkragten]
+- Align behaviour state badge ([#3767](https://github.com/home-assistant/home-assistant-polymer/pull/3767)) [@bramkragten]
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
