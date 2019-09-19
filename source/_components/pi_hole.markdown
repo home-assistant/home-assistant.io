@@ -30,7 +30,7 @@ host:
 port:
   description: TCP/IP port of Pi-hole.
   required: false
-  type: int
+  type: integer
   default: 80
 location:
   description: The installation location of the Pi-hole API.
