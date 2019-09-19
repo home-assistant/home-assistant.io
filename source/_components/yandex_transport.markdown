@@ -16,7 +16,7 @@ The [Yandex Maps](https://maps.yandex.ru/) website can help to determine the id 
 https://yandex.ru/maps/213/moscow/?ll=37.722565%2C55.806662&masstransit%5BstopId%5D=stop__9642962&mode=masstransit&z=16.52
 where stop id is: **9642962**
 
-if you want to look only specific routes, you can add them in routes section.
+If you want to track only specific routes, you can add them in the routes section.
 
 ## Configuration
 
