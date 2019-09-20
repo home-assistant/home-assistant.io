@@ -41,8 +41,8 @@ port:
   required: false
   default: 5000
   type: integer
-path:
-  description: The Base Url path of your Ombi instance.
+urlbase:
+  description: The Base URL path of your Ombi instance.
   required: false
   type: string
 ssl:
@@ -82,7 +82,7 @@ sensor:
     api_key: OMBI_API_KEY
     host: OMBI_HOST
     port: OMBI_PORT
-    path: ombi/
+    urlbase: ombi/
     ssl: true
     scan_interval: 10
     monitored_conditions:
