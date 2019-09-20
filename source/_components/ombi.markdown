@@ -50,27 +50,6 @@ ssl:
   required: false
   default: false
   type: boolean
-scan_interval:
-  description: Polling rate in seconds.
-  required: false
-  default: 60
-  type: integer
-monitored_conditions:
-  description: A list of conditions to monitor.
-  required: false
-  type: list
-  keys:
-    movies:
-      description: Total number of movie requests.
-    tv:
-      description: Total number of TV show requests.
-    pending:
-      description: Number of pending requests.
-    approved:
-      description: Number of approved requests. *Note* Only includes approved requests that are yet to be available.
-    available:
-      description: Number of requests that are available.
-  default: all
 {% endconfiguration %}
 
 ## Full example for the configuration
@@ -84,8 +63,4 @@ sensor:
     port: OMBI_PORT
     urlbase: ombi/
     ssl: true
-    scan_interval: 10
-    monitored_conditions:
-      - movies
-      - tv
 ```
