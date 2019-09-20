@@ -12,7 +12,7 @@ The `Ombi` sensor platform pulls data from your [Ombi](https://ombi.io) instance
 
 ## Setup
 
-To find your `api_key` open the Ombi web interface and navigate to `Settings` and then to `Ombi`, the `api_key` should then be visible.
+To find your `api_key` open the Ombi web interface and navigate to **Settings** and then to **Ombi**, the `api_key` should then be visible.
 
 ## Configuration
 
