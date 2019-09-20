@@ -4,7 +4,7 @@ description: "Instructions on how to set up Ombi sensors in Home Assistant."
 logo: ombi.png
 ha_category:
   - Sensor
-ha_release: 1.00
+ha_release: "0.100"
 ha_iot_class: Local Polling
 ---
 
