@@ -122,7 +122,7 @@ modes:
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
 action_topic:
-  description: The MQTT topic on which to listen for the current action state of the HVAC. Expects `idle`, `cool`, or `heat`.
+  description: The MQTT topic on which to listen for the current action state of the HVAC. Expects `idle`, `cooling`, `heating`, `drying`, or `off`.
   required: false
   type: string
 action_template:
