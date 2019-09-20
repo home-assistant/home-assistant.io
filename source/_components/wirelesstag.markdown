@@ -47,7 +47,10 @@ password:
 
 <div class='note'>
 
-  To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into whitelist in `http` component; i.e., add it to `trusted_networks`. See the [HTTP](/components/http/) for details.
+  To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into `trusted_networks` under Authentication Providers. See the [Authentication Providers](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks) for details.
+  
+  Note: if you are using a version prior to v0.89 you can do the whitelisting under the [HTTP](/components/http) component.
+  
   Additionally, you need add at least one [WirelessTag binary sensor](#binary-sensor) in config to start receiving local push notifications.
 
 </div>
