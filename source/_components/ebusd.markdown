@@ -28,7 +28,7 @@ host:
   required: true
   type: string
 circuit:
-  description: The heating circuit name to monitor, e.g., 700 or bai.
+  description: The heating circuit name to monitor, e.g., '700', 'ehp' or 'bai'.
   required: true
   type: string
 port:
@@ -42,7 +42,7 @@ name:
   required: false
   default: ebusd
 monitored_conditions:
-  description: List of condition to monitor. Refer to [sources](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/ebusd/const.py) for device/sensor support table.
+  description: List of condition to monitor. Note that not all monitored_conditions listed here can be supported by your circuit. This integration maps limited set of keys to circuit specific ebusd values.
   type: list
   required: false
   keys:
