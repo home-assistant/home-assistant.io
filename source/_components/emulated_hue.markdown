@@ -65,7 +65,7 @@ host_ip:
   required: false
   type: string
 listen_port:
-  description: The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80. 
+  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80." 
   required: false
   type: integer
   default: 8300
