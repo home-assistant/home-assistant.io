@@ -35,11 +35,13 @@ name:
   type: string
   default: Worldclock Sensor
 time_format:
-  description: The format of the time
+  description: The format of the time.
   required: false
   type: string
-  defaul: "%H:%M"
+  default: "%H:%M"
 {% endconfiguration %}
+
+For valid time format codes along with examples, check out the **Directive** column in the [Python documentation](https://docs.python.org/3.8/library/datetime.html#strftime-strptime-behavior).
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
 
