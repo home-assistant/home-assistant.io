@@ -82,6 +82,14 @@ homekit:
         required: false
         type: boolean
         default: false
+      advertise_ip:
+        description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
+        required: false
+        type: string
+      advertise_mac:
+        description: If you need to override the MAC address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
+        required: false
+        type: string
       filter:
         description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
@@ -324,6 +332,20 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 </div>
 
+## Docker Network Isolation
+
+The `advertise_ip` and `advertise_mac` options can be used to run this integration even inside a ephemeral Docker container with network isolation enabled, e.g. not using the host network.
+
+To use `advertise_ip` and `advertise_mac`, add the options to your `homekit` config:
+
+```yaml
+homekit:
+  advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+  advertise_mac: "STATIC_MAC_OF_YOUR_DOCKER_HOST_OR_RANDOM_MAC"
+```
+
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g. `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during bridge setup.
+
 ## Supported Components
 
 The following integrations are currently supported:
@@ -402,6 +424,8 @@ Remember that the iOS device needs to be in the same local network as the Home A
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 
 Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+
+You can also try to use `avahi-daemon` in reflector mode together with the options `advertise_ip` and `advertise_mac`, see above.
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox
 
