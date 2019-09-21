@@ -134,9 +134,9 @@ entities:
   - sensor.outside_temp
   - entity: sensor.humidity_and_temp
     state_filter:
-      operator: ">"
-      value: 50
-      attribute: humidity
+      - operator: ">"
+        value: 50
+        attribute: humidity
 ```
 
 <p class='img'>
