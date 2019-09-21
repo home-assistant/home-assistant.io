@@ -7,7 +7,7 @@ ha_release: "0.100"
 ha_iot_class: Local Push
 ---
 
-The `iZone` component allows access of control of local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 ## Supported hardware
 
@@ -40,7 +40,7 @@ exclude:
 
 ## Network settings
 
-The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. In order for this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration curently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
+The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. For this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
 
 ## Master controller
 
@@ -56,7 +56,7 @@ If you're trying to track down issues with the component, set up logging for it:
 
 
 ```yaml
-# Example configuration.yaml with logging for izone
+# Example configuration.yaml with logging for iZone
 logger:
   default: warning
   logs:
