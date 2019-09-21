@@ -32,6 +32,8 @@ Local and secure connections are preferred when setting up an Integration. After
 
 </div>
 
+Alternatively, you can manually configure a Plex server connection by selecting the "Manual setup" option when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are similar to the **Configuration Variables** section below.
+
 If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
