@@ -93,9 +93,8 @@ havdalah_minutes_after_sunset:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: jewish_calendar
-    language: english
-    diaspora: true
-    havdalah_minutes_after_sunset: 50
+jewish_calendar:
+  language: english
+  diaspora: true
+  havdalah_minutes_after_sunset: 50
 ```
