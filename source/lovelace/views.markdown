@@ -22,7 +22,7 @@ views:
       type: string
     badges:
       required: false
-      description: List of entities IDs to display as badge.
+      description: List of entities IDs or `badge` objects to display as badges.
       type: list
     cards:
       required: false
@@ -51,6 +51,44 @@ views:
       description: Themes view and cards, more info below.
       type: string
 {% endconfiguration %}
+
+## Options For Badges
+
+If you define badges as objects instead of strings (by adding `entity:` before entity ID), allowing you to add more customizations:
+
+{% configuration badges %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+icon:
+  required: false
+  description: Overwrites icon or entity picture.
+  type: string
+image:
+  required: false
+  description: The URL of an image.
+  type: string
+{% endconfiguration %}
+
+### Example
+
+View config:
+
+```yaml
+- title: Living room
+  badges:
+    - device_tracker.demo_paulus
+    - entity: light.ceiling_lights
+      name: Ceiling Lights
+      icon: mdi:bulb
+    - entity: switch.decorative_lights
+      image: /local/lights.png
+```
 
 ## Paths
 

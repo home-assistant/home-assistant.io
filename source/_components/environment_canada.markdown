@@ -99,6 +99,7 @@ sensor:
     - `humidity` - The current humidity, in %.
     - `visibility` - The current visibility, in km.
     - `condition` - A brief text statement of the current weather conditions, e.g. "Sunny".
+    - `icon_code` - A two-digit number corresponding to a condition icon, as specified in these [image to description](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) and [code to description](https://dd.weather.gc.ca/citypage_weather/docs/current_conditions_icon_code_descriptions_e.csv) mappings.
     - `wind_speed` - The current sustained wind speed, in km/h.
     - `wind_gust` - The current wind gust, in km/h.
     - `wind_dir` - The current cardinal wind direction, e.g. "SSW".

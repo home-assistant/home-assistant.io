@@ -8,113 +8,112 @@ ha_category:
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+ha_config_flow: true
 redirect_from:
   - /components/media_player.plex/
   - /components/sensor.plex/
 ---
 
 
-The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) in Home Assistant. It will allow you to control media playback and see the current playing item.
+The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) and report playback status via a [Sensor](/components/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#setup---media-player)
+- [Media Player](#media-player)
 - [Sensor](#sensor)
 
-## Setup - Media Player
+If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
 
-If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
+<div class='note info'>
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-configure.png' />
-</p>
+Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
-To authorize your device, you'll first need to [click here to claim a token](https://plex.tv/claim).
+</div>
 
-If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
+If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-token.png' />
-</p>
-
-You can also enable the plex platform directly by adding the following lines to your `configuration.yaml`:
+The `plex` integration can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: plex
+plex:
+    token: MYSECRETTOKEN
 ```
 
-In the event that [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can manually create a `plex.conf` file manually and place it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io. The following is an example of `plex.conf`:
+<div class='note warning'>
 
-```json
-{"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
-```
+At least one of `host` or `token` must be provided.
+
+</div>
+<div class='note warning'>
+
+Only one Plex server can be configured when using `configuration.yaml`. To add more servers, set up via **Configuration** -> **Integrations**.
+
+</div>
 
 {% configuration %}
-IP_ADDRESS:
-  description: IP address of the Plex Media Server.
-  required: true
+host:
+  description: The IP address or hostname of your Plex server.
+  required: false
   type: string
-PORT:
-  description: Port where Plex is listening.
-  required: true
+port:
+  description: The port of your Plex Server.
+  required: false
   default: 32400
   type: integer
-TOKEN:
-  description: Only if authentication is required. Set to `null` (without quotes) otherwise.
+token:
+  description: A valid X-Plex-Token for your Plex server. If provided without `host` and `port`, a connection URL will be retreived from Plex.
+  required: false
+  type: string
+server:
+  description: Name of Plex server to use if multiple servers are associated with the token's Plex account. Only used if `token` is provided without `host` and `port`.
   required: false
   type: string
 ssl:
-  description: Whether to use SSL/TLS or not.
-  required: false
-  default: "`false`"
-  type: boolean
-verify:
-  description: Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`.
-  required: false
-  default: "`true`"
-  type: boolean
-{% endconfiguration %}
-
-### Customization
-
-You can customize the Plex integration by adding any of the variables below to your configuration:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: plex
-    show_all_controls: false
-    use_episode_art: true
-    remove_unavailable_clients: true
-    client_remove_interval: 600
-```
-
-{% configuration %}
-show_all_controls:
-  description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
+  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
   required: false
   default: false
   type: boolean
-use_episode_art:
-  description: Display TV episode art instead of TV show art.
-  required: false
-  default: false
-  type: boolean
-remove_unavailable_clients:
-  description: Remove stale plex clients from UI after interval.
+verify_ssl:
+  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
   required: false
   default: true
   type: boolean
-client_remove_interval:
-  description: How long a client is to be unavailable for before it is cleaned up in seconds.
+media_player:
+  description: Options to customize behavior of `media_player` entities.
   required: false
-  default: 600
-  type: integer
+  type: map
+  keys:
+    show_all_controls:
+      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+      required: false
+      default: false
+      type: boolean
+    use_episode_art:
+      description: Display TV episode art instead of TV show art.
+      required: false
+      default: false
+      type: boolean
 {% endconfiguration %}
+
+```yaml
+# Complete configuration.yaml entry
+plex:
+   host: 192.168.1.100
+   port: 32400
+   token: MY_SECRET_TOKEN
+   ssl: true
+   verify_ssl: true
+   media_player:
+     use_episode_art: true
+     show_all_controls: false
+```
+
+## Media Player
+
+The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
 
 ### Service `play_media`
 
@@ -167,73 +166,17 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ### Notes
 
-* At this moment, the Plex platform only supports one Plex Media Server.
-* It is possible to get errors that look like the following.
+* The `plex` integration supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
+* When setting up a server via `configuration.yaml`, it is possible to get errors that look like the following.
 
   ```
   ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify_ssl` configuration options to, respectively, `true` and `false`.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
 ## Sensor
 
-The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
-
-If your Plex server is on the same local network as Home Assistant, all you need to provide in the `configuration.yaml` is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed. If you use the username and password, all servers in that account are monitored.
-
-If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
-
-If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: plex
-```
-
-{% configuration %}
-host:
-  description: The IP address of your Plex server.
-  required: false
-  default: localhost
-  type: string
-port:
-  description: The port of your Plex Server.
-  required: false
-  default: 32400
-  type: integer
-name:
-  description: Name of the Plex server.
-  required: false
-  default: Plex
-  type: string
-username:
-  description: The username for the remote Plex server.
-  required: false
-  type: string
-password:
-  description: The password for your given account on the remote Plex server.
-  required: false
-  type: string
-server:
-  description: The name of your remote Plex server.
-  required: false
-  type: string
-token:
-  description: X-Plex-Token of your remote Plex server.
-  required: false
-  type: string
-ssl:
-  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
+The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details, it will show you who is watching what.
