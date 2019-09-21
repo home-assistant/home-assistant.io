@@ -33,7 +33,7 @@ izone:
 
 {% configuration %}
 exclude:
-  description: Exclude particular units from integration with home assistant.
+  description: Exclude particular units from integration with Home Assistant.
   required: false
   type: list
 {% endconfiguration %}
@@ -48,7 +48,7 @@ Unit modes off, heat, cool, dry, and fan only are supported. For units fitted wi
 
 ## Zones
 
-Zones have three modes available, closed, open, and auto. These are mapped to home assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
 ## Debugging
 
