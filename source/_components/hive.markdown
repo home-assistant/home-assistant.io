@@ -64,7 +64,7 @@ scan_interval:
 
 ## Service - Boost Heating
 
-You can use the service `hive/boost_heating` to set your heating to boost for a period of time at a certain target temperature".
+You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
 
 | Service data attribute | Optional | Description                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------- |
@@ -88,12 +88,13 @@ script:
 
 ## Service - Boost Hotwater
 
-You can use the service `hive/boost_hotwater` to set your hotwater to boost for a period of time.
+You can use the service `hive.boost.hotwater` to set your hot water to boost for a period of time.
 
 | Service data attribute | Optional | Description                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g. `water_heater.hotwater`.            |
-| `minutes`              | no       | Integer, Number of minutes the boost should last for e.g. `90`. |
+| `entity_id`            | no       | String, Name of entity e.g. `water_heater.hot_water`.           |
+| `minutes`              | yes      | Integer, Number of minutes the boost should last for e.g. `90`. |
+| `on_off`               | no       | String, The mode to set the boost to on or odd e.g `on`         |
 
 Examples:
 
@@ -104,8 +105,9 @@ script:
     sequence:
       - service: "hive.boost_hotwater"
         data:
-          entity_id: "water_heater.hotwater"
+          entity_id: "water_heater.hot_water"
           minutes: 90
+          on_off: 'on
 ```
 
 ## Platforms
