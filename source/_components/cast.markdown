@@ -15,6 +15,17 @@ discovered if you enable [the discovery integration](/components/discovery/). If
 you don't have the discovery integration enabled, you can enable the Cast
 integration by going to the Integrations page inside the config panel.
 
+## Home Assistant Cast
+
+The Cast integration allows you to start Home Assistant Cast on any Chromecast device, using the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+
+```json
+{
+  "entity_id": "media_player.office_display_4",
+  "view_path": "lights"
+}
+```
+
 ## Advanced use
 
 The Cast integration has some extra configuration options available for advanced

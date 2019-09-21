@@ -51,7 +51,7 @@ The authentification token will be generated and stored internally.
 
 Generate the authentication token:
 
-`generate_auth_token.py`
+`hmip_generate_auth_token.py`
 
 Add the information to your `configuration.yaml` file:
 
@@ -135,6 +135,7 @@ authtoken:
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
   * Light Sensor - outdoor (*HmIP-SLO*)
+  * Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
