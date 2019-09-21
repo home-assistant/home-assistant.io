@@ -1,6 +1,6 @@
 ---
 title: "Yesss SMS"
-description: "Instructions on how to add user notifications to Home Assistant."
+description: "Instructions on how to add Yesss-SMS notifications to Home Assistant."
 logo: yesssat.png
 ha_category:
   - Notifications
@@ -9,7 +9,23 @@ redirect_from:
  - /components/notify.yessssms/
 ---
 
-The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) to send SMS via its web-site.
+The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.
+
+Currenty some MVNOs (mobile virtual network operators), in the A1 network, that use the kontomanager.at interface work. These are currently  (as of version 0.4.0 of [YesssSMS](https://pypi.org/project/YesssSMS/)): 
+* YESSS
+* billitel
+* EDUCOM
+* fenercell
+* georg
+* goood
+* kronemobile
+* kuriermobil
+* SIMfonie
+* teleplanet
+* WOWWW
+* yooopi
+
+![supported providers](/images/screenshots/yessssms_brands.png)
 
 <div class='note warning'>
 Regular charges apply and a contract or prepaid plan is needed.
@@ -31,6 +47,7 @@ notify:
     username: YOUR_PHONE_NUMBER
     password: YOUR_PASSWORD
     recipient: PHONE_NUMBER_TO_NOTIFY
+    provider: MVNO_PROVIDER
 ```
 
 {% configuration %}
@@ -46,11 +63,15 @@ recipient:
   description: This is the phone number you want to send the SMS notification to.
   required: true
   type: string
+provider:
+  description: Possible values are `yesss` (default), `billitel`, `EDUCOM`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `SIMfonie`, `teleplanet`, `WOWWW`, and `yooopi`.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note warning'>
 
-Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you suspended for one hour.
+Verify that your credentials work on the website of your provider. Using the wrong credentials three times in a row will get you suspended for one hour.
 Home Assistant will not try to login after the account has been suspended.
 Re-check the credentials and restart Home Assistant.
 
