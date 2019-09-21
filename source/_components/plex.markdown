@@ -39,7 +39,7 @@ The `plex` integration can also be configured via `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 plex:
-    token: MYSECRETTOKEN
+  token: MYSECRETTOKEN
 ```
 
 <div class='note warning'>
@@ -101,14 +101,14 @@ media_player:
 ```yaml
 # Complete configuration.yaml entry
 plex:
-   host: 192.168.1.100
-   port: 32400
-   token: MY_SECRET_TOKEN
-   ssl: true
-   verify_ssl: true
-   media_player:
-     use_episode_art: true
-     show_all_controls: false
+  host: 192.168.1.100
+  port: 32400
+  token: MY_SECRET_TOKEN
+  ssl: true
+  verify_ssl: true
+  media_player:
+    use_episode_art: true
+    show_all_controls: false
 ```
 
 ## Media Player
