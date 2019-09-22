@@ -156,3 +156,45 @@ The Hue API doesn't activate scenes directly, only on a Hue Group (typically roo
 Neither group names or scene names are guaranteed unique in Hue. If you are getting non deterministic behavior, adjust your Hue scenes via the App to be more identifying.
 
 The Hue hub has limited spaces for scenes, and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on "Least Recently Used".
+
+### Configure your motion sensors
+
+To do this, use the hue.hue_config_sensor service which can be used by `automation` or `script` components.
+You want to change the sensitivity of the sensor or the darkness threshold
+
+For instance:
+
+```yaml
+script:
+  sensitivity_low:
+    sequence:
+      - service: hue.hue_config_sensor
+        data:
+          entity_id: "binary_sensor.motion_sensor"
+          sensitivity: 1
+```
+
+```yaml
+script:
+  tholddark_high:
+    sequence:
+      - service: hue.hue_config_sensor
+        data:
+          entity_id: "binary_sensor.motion_sensor"
+          tholddark: 16000
+```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `sensitivity` | yes | Set sensitivity for binary sensor motion ( value between 0 and sensitivity max).
+| `tholdoffset` | yes | Set offset for dark mode into binary sensor motion ( value between 0 and 25000).
+| `tholddark` | yes | Set offset to dertermine insufficient level.
+| `sunriseoffset` | yes | Set sunrise offset.
+| `sunsetoffset` | yes | Set sunset offset.
+| `long` | yes | Longitude
+| `lat` | yes | Latitude
+| `on` | yes | Enable/Disable sensor.
+
+
+
+
