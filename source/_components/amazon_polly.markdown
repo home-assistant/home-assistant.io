@@ -71,6 +71,11 @@ sample_rate:
   required: false
   type: string
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
+engine:
+  description: "Override the default engine. Can be either of `standard` or `neural`"
+  required: false
+  type: string
+  default: standard
 {% endconfiguration %}
 
 ## Usage
