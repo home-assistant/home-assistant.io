@@ -65,7 +65,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 </div>
 
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
+Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit. With `state_with_unit`method the state and the unit will be separated by a `NO-BREAK SPACE` Unicode characters.
 
 #### States examples
 
