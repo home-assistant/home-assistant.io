@@ -222,7 +222,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
    - **SYTADIN** - ([@frenck] - [#25742]) ([sytadin docs])
    - **UPS** - ([@frenck] - [#25746]) ([ups docs])
    - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
-   - **SRP Energy** - ([@frenck] - [#25754]) ([srp_energy docs])
+   - **SRP Energy** - ([@frenck] - [#25754])
    - **Linksys AP** - ([@frenck] - [#25804]) ([linksys_ap docs])
 
 - **Ruter** - *Removed* - Ruter Labs which hosted the API has shut down the service. As an alternative, see the Entur public transport integration. - ([@ludeeus] - [#26041])
@@ -351,7 +351,7 @@ anymore. - ([@abmantis] - [#25971])
 - Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) ([sytadin docs]) (breaking change)
 - Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) ([ups docs]) (breaking change)
 - Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
-- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) ([srp_energy docs]) (breaking change)
+- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) (breaking change)
 - Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
 - Integration requirement check refactor ([@elupus] - [#25626])
 - Add Mikrotik hub and rework device tracker ([@slackr31337] - [#25664]) ([mikrotik docs]) (breaking change)
@@ -863,7 +863,6 @@ anymore. - ([@abmantis] - [#25971])
 [snmp docs]: /components/snmp/
 [sonos docs]: /components/sonos/
 [sql docs]: /components/sql/
-[srp_energy docs]: /components/srp_energy/
 [statistics docs]: /components/statistics/
 [stream docs]: /components/stream/
 [syncthru docs]: /components/syncthru/
