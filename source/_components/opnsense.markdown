@@ -5,7 +5,7 @@ logo: opnsense.png
 ha_category:
   - Hub
   - Presence Detection
-ha_release: 0.100
+ha_release: "0.100"
 redirect_from:
   - /components/device_tracker.opensense/
 ---
