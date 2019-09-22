@@ -221,7 +221,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
    - **USPS** - ([@frenck] - [#25743])
    - **SYTADIN** - ([@frenck] - [#25742])
    - **UPS** - ([@frenck] - [#25746])
-   - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
+   - **FEDEX** - ([@frenck] - [#25745])
    - **SRP Energy** - ([@frenck] - [#25754])
    - **Linksys AP** - ([@frenck] - [#25804])
 
@@ -350,7 +350,7 @@ anymore. - ([@abmantis] - [#25971])
 - Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) (breaking change)
 - Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) (breaking change)
 - Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) (breaking change)
-- Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
+- Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) (breaking change)
 - Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) (breaking change)
 - Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
 - Integration requirement check refactor ([@elupus] - [#25626])
@@ -799,7 +799,6 @@ anymore. - ([@abmantis] - [#25971])
 [eq3btsmart docs]: /components/eq3btsmart/
 [essent docs]: /components/essent/
 [evohome docs]: /components/evohome/
-[fedex docs]: /components/fedex/
 [filter docs]: /components/filter/
 [fritz docs]: /components/fritz/
 [fronius docs]: /components/fronius/

@@ -163,7 +163,7 @@ usps:
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 - Support changing the bulb color for tplink smartbulbs, fixes #8766 ([@rytilahti] - [#8780]) ([light.tplink docs])
 - bump snapcast version ([@happyleavesaoc] - [#9100]) ([media_player.snapcast docs])
-- bump fedex version ([@happyleavesaoc] - [#9099]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#9099])
 - Yeelight fix updates on hsv mode ([@rytilahti] - [#9093]) ([light.yeelight docs])
 - Catch exceptions ([@fabaff] - [#9085]) ([notify.discord docs])
 - Fix issue 8894 with uk_transport component if no next_buses or next_trains ([@robmarkcole] - [#9046]) ([sensor.uk_transport docs])
@@ -355,7 +355,6 @@ usps:
 [sensor.buienradar docs]: /components/sensor.buienradar/
 [sensor.cert_expiry docs]: /components/sensor.cert_expiry/
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.fitbit docs]: /components/sensor.fitbit/
 [sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
 [sensor.geizhals docs]: /components/sensor.geizhals/

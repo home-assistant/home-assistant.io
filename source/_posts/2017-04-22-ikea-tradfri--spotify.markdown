@@ -140,7 +140,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Additional ZWave coverage ([@armills] - [#7024]) ([zwave docs])
 - bump ups version ([@happyleavesaoc] - [#7033])
 - update usps version ([@happyleavesaoc] - [#7035])
-- update fedex ([@happyleavesaoc] - [#7034]) ([sensor.fedex docs])
+- update fedex ([@happyleavesaoc] - [#7034])
 - Google TTS can't read percent sign (#6971) ([@pezinek] - [#7030]) ([tts.google docs])
 - Feature/min max improvements ([@micw] - [#6786]) (breaking change)
 - Upgrade psutil to 5.2.2 ([@fabaff] - [#7037]) ([sensor.systemmonitor docs])
@@ -458,7 +458,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [scene.lifx_cloud docs]: /components/scene.lifx_cloud/
 [sensor.cpuspeed docs]: /components/sensor.cpuspeed/
 [sensor.crimereports docs]: /components/sensor.crimereports/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.fido docs]: /components/sensor.fido/
 [sensor.modbus docs]: /components/sensor.modbus/
 [sensor.mvglive docs]: /components/sensor.mvglive/

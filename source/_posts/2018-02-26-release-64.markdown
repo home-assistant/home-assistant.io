@@ -84,7 +84,7 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 
 - updated to bimmer_connected 0.4.1 ([@ChristianKuehnel] - [#12759]) ([bmw_connected_drive docs])
 - Revert optimized logbook SQL ([@amelchio] - [#12762]) ([logbook docs])
-- bump fedex version ([@happyleavesaoc] - [#12764]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#12764])
 - Silence harmless sonos data structure warnings ([@amelchio] - [#12767]) ([media_player.sonos docs])
 - Update samsungctl library to latest version ([@uchagani] - [#12769]) ([media_player.samsungtv docs])
 - Fixed missing optional keyerror data_bits ([@basschipper] - [#12789]) ([binary_sensor.rfxtrx docs])
@@ -164,7 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use the speedometer icon in the fastdotcom sensor ([@d0ugal] - [#12348]) ([sensor.fastdotcom docs])
 - Communication reduced. Setting brightness and/or color temperature will turn on the device. ([@syssi] - [#12343]) ([light.xiaomi_miio docs])
 - Add New Sensor for ISP Start.ca ([@mikeodr] - [#12356]) ([sensor.startca docs]) (new-platform)
-- bump fedex version ([@happyleavesaoc] - [#12362]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#12362])
 - Upgrade alpha_vantage to 1.9.0 ([@fabaff] - [#12352]) ([sensor.alpha_vantage docs])
 - Eq3btsmart more reliable ([@karlkar] - [#11555]) ([climate.eq3btsmart docs])
 - Allow disabling entities in the registry ([@balloob] - [#12360])
@@ -554,7 +554,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.buienradar docs]: /components/sensor.buienradar/
 [sensor.deconz docs]: /components/sensor.deconz/
 [sensor.fastdotcom docs]: /components/sensor.fastdotcom/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.filesize docs]: /components/sensor.filesize/
 [sensor.folder docs]: /components/sensor.folder/
 [sensor.knx docs]: /components/sensor.knx/
@@ -643,7 +642,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.plex docs]: /components/media_player.plex/
 [media_player.samsungtv docs]: /components/media_player.samsungtv/
 [media_player.sonos docs]: /components/media_player.sonos/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.pollen docs]: /components/sensor.pollen/
 [#12810]: https://github.com/home-assistant/home-assistant/pull/12810
 [#12837]: https://github.com/home-assistant/home-assistant/pull/12837
