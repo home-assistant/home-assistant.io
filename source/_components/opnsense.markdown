@@ -6,8 +6,6 @@ ha_category:
   - Hub
   - Presence Detection
 ha_release: "0.100"
-redirect_from:
-  - /components/device_tracker.opensense/
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
@@ -37,7 +35,6 @@ url:
   description: The url for the OPNsense api endpoint of your router
   type: string
   required: true
-  default: None
 api_key:
   description: The API key used to authenticate with your OPNsense API endpoint
   type: string
