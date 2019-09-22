@@ -180,8 +180,9 @@ script:
     sequence:
       - service: hue.hue_config_sensor
         data:
-          entity_id: "binary_sensor.motion_sensor"
+          entity_id: "sensor.motion_sensor_light_level"
           tholddark: 16000
+		 tholdoffset: 7000
 ```
 
 | Service data attribute | Optional | Description |
