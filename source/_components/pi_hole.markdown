@@ -14,7 +14,7 @@ The `pi_hole` integration allows you to retrieve and display statistics from a s
 
 ## Configuration
 
-To enable this platform with the default configuration, add the following lines to your `configuration.yaml` file
+To enable this integration with the default configuration, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
