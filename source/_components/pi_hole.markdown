@@ -10,11 +10,11 @@ redirect_from:
  - /components/sensor.pi_hole/
 ---
 
-The `pi_hole` integration allows you to retrieve and display statistics from a [Pi-hole](https://pi-hole.net/) system.
+The `pi_hole` integration allows you to retrieve and display statistics from a single [Pi-hole](https://pi-hole.net/) system.
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+To enable this platform with the default configuration, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
@@ -23,10 +23,15 @@ pi_hole:
 
 {% configuration %}
 host:
-  description: IP address of the host where Pi-hole is running.
+  description: >
+    Hostname [and port] of the host where Pi-hole is running.
+
+
+    **Note:** If your Pi-Hole instance is the Hass.io add-on, you *must* specify port `4685`
   required: false
   type: string
   default: pi.hole
+
 location:
   description: The installation location of the Pi-hole API.
   required: false
@@ -49,7 +54,10 @@ verify_ssl:
 ```yaml
 # Example configuration.yaml entry
 pi_hole:
-  host: IP_ADDRESS
+  host: 'localhost:4685'
+  location: admin
+  ssl: false
+  verify_ssl: false
 ```
-
+---
 This integration was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
