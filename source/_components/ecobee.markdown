@@ -10,7 +10,7 @@ ha_category:
   - Weather
 featured: true
 ha_release: 0.9
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Poll
 redirect_from:
   - /components/sensor.ecobee/
   - /components/binary_sensor.ecobee/
