@@ -24,10 +24,10 @@ pi_hole:
 {% configuration %}
 host:
   description: >
-    Hostname [and port] of the host where Pi-hole is running.
+    The hostname (and port), e.g. '192.168.0.3:4685' of the host where Pi-hole is running.
 
 
-    **Note:** If your Pi-Hole instance is the Hass.io add-on, you *must* specify port `4685`
+    **Note:** If your Pi-Hole instance is the Hass.io add-on, you *must* specify port `4685`.
   required: false
   type: string
   default: pi.hole
@@ -55,9 +55,8 @@ verify_ssl:
 # Example configuration.yaml entry
 pi_hole:
   host: 'localhost:4685'
-  location: admin
   ssl: false
   verify_ssl: false
 ```
----
+
 This integration was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
