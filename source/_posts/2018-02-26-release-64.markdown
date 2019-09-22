@@ -128,7 +128,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated AirVisual unique IDs to play better with the entity registry. If AirVisual had been configured previously, new entries will be placed into the entity registry, causing there to be two of each sensor type defined. To address, simply alter the `entity_registry.yaml` as desired.  ([@bachya] - [#12319]) ([sensor.airvisual docs]) (breaking change)
 - Custom component devs only: voluptuous now requires default values for config keys to be valid values. ([@balloob] - [#12463]) (breaking change)
 - Fixes `usps` platform. Dependency `myusps` now leverages Selenium webdriver to overcome login issues. This is a breaking change since the user must now have additional dependencies installed - either `google-chrome` and `chromedriver`, or `phantomjs`. There is a new config option `driver` that allows the user to specify their preference, though `phantomjs` is the default. Doc PR forthcoming that will outline choices and make suggestions based on user's OS.
- ([@happyleavesaoc] - [#12465]) ([usps docs]) (breaking change)
+ ([@happyleavesaoc] - [#12465]) (breaking change)
 - LimitlessLED has been converted to assumed state. Will no longer turn the lights off when restarting Home Assistant. Will no longer revert changes made by other controllers. ([@amelchio] - [#12475]) ([light.limitlessled docs]) (breaking change)
 
 ## All changes
@@ -209,7 +209,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added doorbird_last_motion to DoorBird camera platform ([@sjvc] - [#12457]) ([camera.doorbird docs])
 - Fail gracefully with unreachable LaMetric ([@PhilRW] - [#12451]) ([notify.lametric docs])
 - Enable compression when sending json to client ([@elupus] - [#11165]) ([http docs])
-- bump usps version ([@happyleavesaoc] - [#12465]) ([usps docs]) (breaking change)
+- bump usps version ([@happyleavesaoc] - [#12465]) (breaking change)
 - Try deflaking recorder tests ([@balloob] - [#12492])
 - Support for August doorbell ([@snjoetw] - [#11124]) ([august docs]) ([binary_sensor.august docs]) ([camera.august docs]) ([lock.august docs]) (new-platform)
 - Avoid warnings when purging an empty database ([@amelchio] - [#12494])
@@ -578,7 +578,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tahoma docs]: /components/tahoma/
 [telegram_bot docs]: /components/telegram_bot/
-[usps docs]: /components/usps/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [vera docs]: /components/vera/
 [weather.buienradar docs]: /components/weather.buienradar/

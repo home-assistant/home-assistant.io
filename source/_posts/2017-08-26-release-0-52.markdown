@@ -40,7 +40,7 @@ script: !include scripts.yaml
 - Add version sensor ([@fabaff] - [#8912]) ([sensor.version docs]) (new-platform)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
 - Add Abode home security component ([@arsaboo] - [#9030]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) (new-platform)
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
@@ -80,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     retain: true
 ```
 
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 
 ```yaml
 usps:
@@ -123,7 +123,7 @@ usps:
 - Update ffmpeg to 1.7 to fix severals problems ([@pvizeli] - [#9029])
 - Add state_with_unit property to state objects in templates ([@balloob] - [#9014])
 - Fix Geizhals index issue when not 4 prices available ([@celeroll] - [#9035]) ([sensor.geizhals docs])
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Set password after connecting. Fixes #8983 ([@StevenLooman] - [#9039]) ([media_player.mpd docs])
 - Update iOS sensor (battery icon fix and format updates) ([@schmittx] - [#9032])
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
@@ -310,7 +310,6 @@ usps:
 [binary_sensor.abode docs]: /components/binary_sensor.abode/
 [binary_sensor.mysensors docs]: /components/binary_sensor.mysensors/
 [binary_sensor.workday docs]: /components/binary_sensor.workday/
-[camera.usps docs]: /components/camera.usps/
 [climate.mysensors docs]: /components/climate.mysensors/
 [config docs]: /components/config/
 [configurator docs]: /components/configurator/
@@ -368,7 +367,6 @@ usps:
 [sensor.snmp docs]: /components/sensor.snmp/
 [sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
 [sensor.uk_transport docs]: /components/sensor.uk_transport/
-[sensor.usps docs]: /components/sensor.usps/
 [sensor.version docs]: /components/sensor.version/
 [sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
 [switch.mqtt docs]: /components/switch.mqtt/
@@ -376,7 +374,6 @@ usps:
 [switch.pilight docs]: /components/switch.pilight/
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.xiaomi docs]: /components/switch.xiaomi_aqara/
-[usps docs]: /components/usps/
 [weather.buienradar docs]: /components/weather.buienradar/
 [xiaomi docs]: /components/xiaomi/
 [forum]: https://community.home-assistant.io/

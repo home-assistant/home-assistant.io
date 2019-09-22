@@ -75,7 +75,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - flux led lib 0.20 ([@danielhiversen] - [#9533]) ([light.flux_led docs])
 - Update AbodePy to 0.11.8 ([@MisterWil] - [#9537]) ([abode docs])
 - Bump python_openzwave to 0.4.0.35 ([@arsaboo] - [#9542]) ([zwave docs])
-- update usps ([@happyleavesaoc] - [#9540]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs])
+- update usps ([@happyleavesaoc] - [#9540])
 - Bugfix Homematic hub object ([@pvizeli] - [#9544]) ([homematic docs])
 - Fix a bunch of typos ([@mika] - [#9545])
 - Catch no longer existing process in systemmonitor ([@Tommatheussen] - [#9535]) ([sensor.systemmonitor docs])
@@ -83,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add history_graph component ([@andrey-git] - [#9472]) (breaking change)
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Fixed bug with all switch devices being excluded ([@MisterWil] - [#9555]) ([switch.abode docs])
-- fix usps? ([@happyleavesaoc] - [#9557]) ([usps docs]) ([sensor.usps docs])
+- fix usps? ([@happyleavesaoc] - [#9557])
 - Added support for ARM_NIGHT for manual_mqtt alarm ([@snjoetw] - [#9358]) ([alarm_control_panel.manual_mqtt docs])
 - Various AirVisual bugfixes ([@bachya] - [#9554]) ([sensor.airvisual docs])
 - Updated Arlo cameras with new attributes ([@bachya] - [#9565]) ([arlo docs]) ([camera.arlo docs])
@@ -314,7 +314,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.wink docs]: /components/binary_sensor.wink/
 [camera.arlo docs]: /components/camera.arlo/
 [camera.synology docs]: /components/camera.synology/
-[camera.usps docs]: /components/camera.usps/
 [climate.ecobee docs]: /components/climate.ecobee/
 [climate.mqtt docs]: /components/climate.mqtt/
 [cover.mqtt docs]: /components/cover.mqtt/
@@ -369,7 +368,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
 [sensor.thethingsnetwork docs]: /components/sensor.thethingsnetwork/
 [sensor.tibber docs]: /components/sensor.tibber/
-[sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [splunk docs]: /components/splunk/
@@ -380,7 +378,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [thethingsnetwork docs]: /components/thethingsnetwork/
 [tradfri docs]: /components/tradfri/
 [upnp docs]: /components/upnp/
-[usps docs]: /components/usps/
 [vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
 [wink docs]: /components/wink/
 [zwave docs]: /components/zwave/

@@ -271,7 +271,7 @@ automation:
 - Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
 - Fix EntityComponent handle entities without a name ([@balloob] - [#8065])
 - Update pyunifi component to use APIError passed from pyunifi 2.13. Better accommodate login failures with wrapper in pyunifi 2.13. ([@finish06] - [#7899]) ([device_tracker.unifi docs])
-- bump usps version ([@happyleavesaoc] - [#8074]) ([sensor.usps docs])
+- bump usps version ([@happyleavesaoc] - [#8074])
 - bump ups ([@happyleavesaoc] - [#8075])
 
 [#7152]: https://github.com/home-assistant/home-assistant/pull/7152
@@ -538,7 +538,6 @@ automation:
 [sensor.snmp docs]: /components/sensor.snmp/
 [sensor.statistics docs]: /components/sensor.statistics/
 [sensor.template docs]: /components/sensor.template/
-[sensor.usps docs]: /components/sensor.usps/
 [sensor.waqi docs]: /components/sensor.waqi/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [sensor.yweather docs]: /components/sensor.yweather/
