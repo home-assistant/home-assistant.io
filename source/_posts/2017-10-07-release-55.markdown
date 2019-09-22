@@ -105,7 +105,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.6.4 ([@fabaff] - [#9584])
 - Bump pyatv to 0.3.5 ([@postlund] - [#9586]) ([apple_tv docs]) ([media_player.apple_tv docs])
 - New Wink services. pair new device, rename, and delete, add new lock key code. Add water heater support ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
-- Fixes UPS MyChoice exception ([@bachya] - [#9587]) ([sensor.ups docs])
+- Fixes UPS MyChoice exception ([@bachya] - [#9587])
 - FedEx: Adds "packages" as a unit ([@bachya] - [#9588]) ([sensor.fedex docs])
 - Cleanup entity & remove warning ([@pvizeli] - [#9606])
 - Add OwnTracks over HTTP ([@balloob] - [#9582]) ([http docs]) ([device_tracker.owntracks docs]) ([device_tracker.owntracks_http docs]) (new-platform)
@@ -369,7 +369,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
 [sensor.thethingsnetwork docs]: /components/sensor.thethingsnetwork/
 [sensor.tibber docs]: /components/sensor.tibber/
-[sensor.ups docs]: /components/sensor.ups/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
 [sensor.wunderground docs]: /components/sensor.wunderground/
