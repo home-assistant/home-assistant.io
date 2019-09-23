@@ -69,6 +69,25 @@ Each such entity has a state attribute that will contain a list of any such issu
 ```
 {% endraw %}
 
+This alert may be useful to see if the CH is being turned on whilst you're on holidays!
+
+{% raw %}
+```yaml
+- alias: GeniusHub CH State Change Alert
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dual_channel_receiver_2_1
+  action:
+  - service: notify.pushbullet_notifier
+    data_template:
+      title: "Warning: CH State Change!"
+      message: >-
+        {{ trigger.to_state.attributes.friendly_name }} has changed
+        from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
+```
+{% endraw %}
+
+
 ### State Attributes
 
 Other properties are available via each entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
