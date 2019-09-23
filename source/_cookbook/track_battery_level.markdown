@@ -48,8 +48,8 @@ sensor:
 
 #### HTTP
 
-If you have configured Owntracks to send reports to your Homeassistant instance via HTTP you can use a template sensor. 
-Replace deviceid with the set Device ID in Owntracks.
+If you have configured Owntracks to send reports to your Home Assistant instance via HTTP you can use a template sensor. 
+Replace `deviceid` with the set Device ID in Owntracks.
 
 {% raw %}
 ```yaml
