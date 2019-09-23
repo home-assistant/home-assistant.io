@@ -29,7 +29,7 @@ To enable it, add the following to your `configuration.yaml` file:
 rainbird:
   host: IP_ADDRESS_OF_MODULE
   password: YOUR_PASSWORD
-  trigger_time: 6
+  trigger_time: 360
 
 ```
 
@@ -43,9 +43,9 @@ password:
   required: true
   type: string
 trigger_time:
-  description: Irrigation time.
+  description: Irrigation time. Seconds are ignored.
   required: true
-  type: integer
+  type: time
 zones:
   description: Dictionary of zone configurations
   required: false
@@ -60,9 +60,9 @@ zones:
           required: false
           type: string
         trigger_time:
-          description: Irrigation time.
+          description: Irrigation time. Seconds are ignored.
           required: false
-          type: integer
+          type: time
 {% endconfiguration %}
 
 
@@ -76,20 +76,21 @@ rainbird:
     zones:
       1:
         friendly_name: My zone 1
-        trigger_time: 6
+        trigger_time:
+          minutes: 6
       2:
         friendly_name: My zone 2
         trigger_time: 2
   - host: IP_ADDRESS_OF_ANOTHER_MODULE
     password: YOUR_ANOTHER_PASSWORD
-    trigger_time: 6
+    trigger_time: 0:06
     zones:
       1:
         friendly_name: My zone 1
-        trigger_time: 6
+        trigger_time: 0:06
       3:
         friendly_name: My zone 3
-        trigger_time: 5
+        trigger_time: 0:05
 ```
 <div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
