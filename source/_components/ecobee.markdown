@@ -169,7 +169,7 @@ Resumes the currently active schedule.
 
 ### Service `ecobee.set_fan_min_on_time`
 
-Sets the minimum amount of time that the fan will run per hour.
+Sets the minimum amount of time that the fan will run.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
