@@ -39,12 +39,10 @@ api_key:
   description: The API key used to authenticate with your OPNsense API endpoint
   type: string
   required: true
-  default: None
 api_secret:
   description: The API secret used to authenticate with your OPNsense API endpoint
   type: string
   required: true
-  default: None
 verify_ssl:
   description: Set to true to enable the validation of the OPNsense API's SSL
   type: boolean
@@ -54,7 +52,7 @@ tracker_interfaces:
   description: List of the OPNsense router's interfaces to use for tracking devices
   type: list
   required: false
-  default: None
+  default: ['LAN']
 {% endconfiguration %}
 
 
