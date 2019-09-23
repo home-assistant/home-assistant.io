@@ -66,11 +66,11 @@ scan_interval:
 
 You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
 
-| Service data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                  |
-| `minutes`              | no       | Integer, Number of minutes the boost should last for e.g. `90`. |
-| `temperature`          | no       | String, The required target temperature e.g. `20.5`             |
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g. `01:30:00`. |
+| `temperature`          | yes      | String, The required target temperature e.g. `20.5`                    |
 
 Examples:
 
@@ -82,7 +82,7 @@ script:
       - service: hive.boost_heating
         data:
           entity_id: "climate.heating"
-          minutes: 90
+          time_period: '01:30:00'
           temperature: "20.5"
 ```
 
@@ -90,11 +90,11 @@ script:
 
 You can use the service `hive.boost.hotwater` to set your hot water to boost for a period of time.
 
-| Service data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g. `water_heater.hot_water`.           |
-| `minutes`              | yes      | Integer, Number of minutes the boost should last for e.g. `90`. |
-| `on_off`               | no       | String, The mode to set the boost to on or odd e.g `on`         |
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g. `water_heater.hot_water`.                  |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g. `01:30:00`. |
+| `on_off`               | no       | String, The mode to set the boost to on or odd e.g `on`                |
 
 Examples:
 
@@ -106,7 +106,7 @@ script:
       - service: "hive.boost_hotwater"
         data:
           entity_id: "water_heater.hot_water"
-          minutes: 90
+          time_period: '01:30:00'
           on_off: 'on
 ```
 
