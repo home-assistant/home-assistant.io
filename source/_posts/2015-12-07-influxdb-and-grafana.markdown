@@ -1,20 +1,17 @@
 ---
-layout: post
 title: "InfluxDB and Grafana"
 date: 2015-12-07 15:15:13 +0100
 description: "A step by step guide to start recording data from Home Assistant in InfluxDB and visualizing it using Grafana."
-comments: true
 date_formatted: "December 07, 2015"
 author: Fabian Affolter
-comments: true
 categories: How-To
 og_image: /images/blog/2015-12-influxdb/grafana-graph.png
 ---
 
 <img src='/images/supported_brands/influxdb.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' /><img src='/images/supported_brands/grafana.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-The [InfluxDB](https://influxdb.com/) database is a so-called time series database primarly designed to store sensor data and real-time analytics. 
+The [InfluxDB](https://influxdb.com/) database is a so-called time series database primarily designed to store sensor data and real-time analytics.
 
-The `influxdb` component makes it possible to transfer all state changes from Home Assistant to an external [InfluxDB](https://influxdb.com/) database. 
+The `influxdb` component makes it possible to transfer all state changes from Home Assistant to an external [InfluxDB](https://influxdb.com/) database.
 
 <!--more-->
 

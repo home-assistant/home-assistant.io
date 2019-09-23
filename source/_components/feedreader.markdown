@@ -1,14 +1,9 @@
 ---
-layout: page
 title: Feedreader
-description: "Instructions how to integrate RSS feeds into Home Assistant."
-date: 2016-04-18 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate RSS feeds into Home Assistant."
 logo: rss.gif
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.18
 ---
 
@@ -20,13 +15,41 @@ To use RSS feeds in your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 feedreader:
   urls:
-    - https://home-assistant.io/atom.xml
+    - https://www.home-assistant.io/atom.xml
     - https://github.com/blog.atom
+    - https://hasspodcast.io/feed/podcast
 ```
 
-Configuration variables:
+{% configuration %}
+  urls:
+    description: List of URLS for your feeds.
+    required: true
+    type: list
+  scan_interval:
+    description: Defines the update interval of the feeds.
+    required: false
+    default: 1 hour
+    type: time
+  max_entries:
+    description: The maximum number of entries to extract from each feed.
+    required: false
+    default: 20
+    type: integer
+{% endconfiguration %}
 
-- **urls** (*Required*): List of URLS for your feeds.
+The following configuration example shows how to configure update interval and maximum number of entries:
+
+```yaml
+# Example configuration.yaml entry with optional parameters
+feedreader:
+  urls:
+    - https://www.home-assistant.io/atom.xml
+    - https://github.com/blog.atom
+    - https://hasspodcast.io/feed/podcast
+  scan_interval:
+    minutes: 30
+  max_entries: 5
+```
 
 Feedreader events can be used out of the box to trigger automation actions, e.g.:
 
@@ -48,13 +71,16 @@ automation:
       platform: event
       event_type: feedreader
     action:
-      service: notify.notify
-      data_template: "{{ trigger.event.data.title }}"
+      service: persistent_notification.create
+      data_template:
+        title: "New HA Podcast available"
+        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
+        notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}
 ```
 
-*Any field under the `<entry>` tag in the feed can be used for example `tigger.event.data.content` will get the body of the feed entry.
+Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
-For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
+For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
 
 ```python
 EVENT_FEEDREADER = "feedreader"
@@ -62,3 +88,5 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
 To get started developing custom components, please refer to the [developers](/developers) documentation
+
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "IP Cameras, Arduinos, Kodi and Efergy Energy Monitors now supported"
 description: "New support for IP Cameras, Arduinos, Kodi and Efergy monitors"
 date: 2015-07-11 01:37 -0700
 date_formatted: "July 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -15,7 +13,7 @@ Another month has passed and some great new features have landed in Home Assista
 This release includes some architectural changes by me. The first is that the frontend is now based on a [NuclearJS](http://optimizely.github.io/nuclear-js/) JavaScript backend. This has greatly helped to organize and optimize the frontend code. Another change is that Home Assistant will now install dependencies on-demand instead of installing dependencies for all supported devices.
 
 __IP Camera Support__
-James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a url can be integrated.
+James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a URL can be integrated.
 
 Home Assistant will route the requests to your camera via the server allowing you to expose IP camera's inside your network via the Home Assistant app.
 
@@ -29,9 +27,9 @@ camera:
   still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
-<p class='note'>
+<div class='note'>
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</p>
+</div>
 
 <!--more-->
 

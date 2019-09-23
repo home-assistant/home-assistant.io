@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection"
 description: "Example of how to set Foscam to only have Motion Detection Recording while no one is home. When users are home the Foscam will indicate it is not recording by pointing down and away from users"
-date: 2016-03-10 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

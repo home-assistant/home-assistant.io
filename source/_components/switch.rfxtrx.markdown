@@ -1,18 +1,15 @@
 ---
-layout: page
 title: "RFXtrx Switch"
-description: "Instructions how to integrate RFXtrx switches into Home Assistant."
-date: 2015-10-08 10:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
 logo: rfxtrx.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.7.5
 ---
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
+
+## Configuration
 
 First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
@@ -21,10 +18,10 @@ The easiest way to find your switches is to add this to your `configuration.yaml
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: True
+  automatic_add: true
 ```
 
-Launch your homeassistant and go the website.
+Launch your Home Assistant and go to the website.
 Push your remote and your device should be added:
 
 <p class='img'>
@@ -43,12 +40,42 @@ switch:
       name: device_name
 ```
 
-Configuration variables:
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: true
+      type: string
+    fire_event:
+      description: Fires an event even if the state is the same as before, for example, a doorbell switch. Can also be used for automations.
+      required: false
+      default: false
+      type: boolean
+automatic_add:
+  description: To enable the automatic addition of new switches.
+  required: false
+  default: false
+  type: boolean
+signal_repetitions:
+  description: Because the RFXtrx device sends its actions via radio and from most receivers, it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+  required: false
+  type: integer
+{% endconfiguration %}
 
-- **devices** (*Required*): A list of devices with their name to use in the frontend.
-- **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-- **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
-- **fire_event** (*Optional*): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
+<div class='note warning'>
+
+This integration and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+
+</div>
+
+<div class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes.
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</div>
 
 Generate codes:
 
@@ -62,11 +89,11 @@ If you need to generate codes for switches you can use a template (useful for ex
 ```
 
 - Use this code to add a new switch in your configuration.yaml
-- Launch your homeassistant and go the website.
+- Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic configuration with 3 devices:
 
@@ -74,7 +101,7 @@ Basic configuration with 3 devices:
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   signal_repetitions: 2
   devices:
     0b1100ce3213c7f210010f70:
@@ -83,7 +110,7 @@ switch:
       name: Movment2
     0b1111e003af16aa10000060:
       name: Door
-      fire_event: True
+      fire_event: true
 ```
 
 Light hallway if doorbell is pressed (when is sun down):
@@ -92,16 +119,16 @@ Light hallway if doorbell is pressed (when is sun down):
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   devices:
     0710014c440f0160:
       name: Hall
-    0710010244080780:
+    "0710010244080780":
       name: Door
       fire_event: true
-      
+
 automation:
-  - alias: Switch light on when door bell rings if sun is below horizon and light was off
+  - alias: Switch the light on when doorbell rings if the sun is below the horizon and the light was off
     trigger:
       platform: event
       event_type: button_pressed
@@ -126,7 +153,7 @@ Use remote to enable scene (using event_data):
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   devices:
     0b1100ce3213c7f210010f70:
       name: Light1
@@ -140,7 +167,7 @@ scene:
   entities:
     switch.light1: on
     switch.light2: on
-    
+
 automation:
   - alias: Use remote to enable scene
     trigger:

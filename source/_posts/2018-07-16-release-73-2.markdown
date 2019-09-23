@@ -1,0 +1,104 @@
+---
+title: "0.73.2 - Security Incident"
+description: "We have discovered a security issue and have issued a hot fix."
+date: 2018-07-16 00:01:00
+date_formatted: "July 16, 2018"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories: Release-Notes
+---
+
+Today we are releasing 0.73.2 to fix a security incident. We've discovered that 9 months ago, with the release of Home Assistant 0.56, we misconfigured the SSL context that aiohttp used ([PR](https://github.com/home-assistant/home-assistant/pull/9958)). By trying to do the right thing (use an up to date cert store instead of relying on the system certs), we ended up doing the complete opposite: SSL verification was disabled for **outgoing** requests that were done using the shared aiohttp session. This is our fault, and not aiohttp's faults. The impact of this is that certain integrations in Home Assistant have been susceptible to [man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+
+A man in the middle attack is when an attacker is able to inject itself between you and the server you're communicating with, allowing it to read and alter the communication. The odds of this happening at home is very rare, yet we wanted to be transparent about this incident.
+
+After research, the following integrations have been impacted. Although the odds are extremely small, we still suggest that if you use any of these integrations, to create new API keys or change your password.
+
+- [alarm_control_panel.alarmdotcom](/components/alarm_control_panel.alarmdotcom/)
+- [climate.sensibo](/components/climate.sensibo/)
+- [cloud](/components/cloud/) (only short lived tokens impacted)
+- [device_tracker.automatic](/components/device_tracker.automatic/)
+- [duckdns](/components/duckdns/)
+- [freedns](/components/freedns/)
+- [google_assistant](/components/google_assistant/) (manual setup)
+- [google_domains](/components/google_domains/)
+- [homematicip_cloud](/components/homematicip_cloud/)
+- [image_processing.openalpr_cloud](/components/image_processing.openalpr_cloud/)
+- [microsoft_face](/components/microsoft_face/)
+- [namecheapdns](/components/namecheapdns/)
+- [no_ip](/components/no_ip/)
+- [notify.flock](/components/notify.flock/)
+- [notify.prowl](/components/notify.prowl/)
+- [rest_command](/components/rest_command/)
+- [scene.lifx_cloud](/components/scene.lifx_cloud/)
+- [switch.hook](/components/switch.hook/)
+- [switch.rest](/components/switch.rest/)
+- [telegram_bot.polling](/components/telegram_bot.polling/)
+- [tts.voicerss](/components/tts.voicerss/)
+
+Also impacted, but integrations are read only:
+
+- [sensor.airvisual](/components/sensor.airvisual/)
+- [sensor.ebox](/components/sensor.ebox/)
+- [sensor.fido](/components/sensor.fido/)
+- [sensor.foobot](/components/sensor.foobot/)
+- [sensor.hydroquebec](/components/sensor.hydroquebec/)
+- [sensor.startca](/components/sensor.startca/)
+- [sensor.teksavvy](/components/sensor.teksavvy/)
+- [sensor.thethingsnetwork](/components/sensor.thethingsnetwork/)
+- [sensor.tibber](/components/sensor.tibber/)
+- [sensor.waqi](/components/sensor.waqi/)
+
+If you are running Home Assistant on a system with Python 3.4, we've created a new release 0.64.4b0 with the patch applied. We have made it available as a beta. To install the pre-release run `python3 -m pip install homeassistant==0.64.4b0`.
+
+<!--more-->
+
+For complete transparency, the following two sets of integrations also used aiohttp to send or retrieve data. However, they either did not transmit authentication or only communicated with local devices and services.
+
+Affected, but not transmitting authentication:
+
+- [sensor.buienradar](/components/sensor.buienradar/)
+- [sensor.citybikes](/components/sensor.citybikes/)
+- [sensor.comed_hourly_pricing](/components/sensor.comed_hourly_pricing/)
+- [sensor.luftdaten](/components/sensor.luftdaten/)
+- [sensor.pollen](/components/sensor.pollen/)
+- [sensor.sochain](/components/sensor.sochain/)
+- [sensor.swiss_public_transport](/components/sensor.swiss_public_transport/)
+- [sensor.viaggiatreno](/components/sensor.viaggiatreno/)
+- [sensor.wunderground](/components/sensor.wunderground/)
+- [sensor.yr](/components/sensor.yr/)
+- [weather.ipma](/components/weather.ipma/)
+- [tts.google](/components/tts.google/)
+- [tts.yandextts](/components/tts.yandextts/)
+- [updater](/components/updater/)
+
+Local, so cannot be impacted:
+
+- [android_ip_webcam](/components/android_ip_webcam/)
+- [apple_tv](/components/apple_tv/)
+- [camera.amcrest](/components/camera.amcrest/)
+- [camera.doorbird](/components/camera.doorbird/)
+- [camera.familyhub](/components/camera.familyhub/)
+- [camera.generic](/components/camera.generic/)
+- [camera.mjpeg](/components/camera.mjpeg/)
+- [camera.proxy](/components/camera.proxy/)
+- [camera.synology](/components/camera.synology/)
+- [deconz](/components/deconz/)
+- [device_tracker.upc_connect](/components/device_tracker.upc_connect/)
+- [hassio](/components/hassio/)
+- [hue](/components/hue/)
+- [media_player.bluesound](/components/media_player.bluesound/)
+- [media_player.epson](/components/media_player.epson/)
+- [media_player.kodi](/components/media_player.kodi/)
+- [media_player.squeezebox](/components/media_player.squeezebox/)
+- [media_player.volumio](/components/media_player.volumio/)
+- [notify.kodi](/components/notify.kodi/)
+- [qwikswitch](/components/qwikswitch/)
+- [rainmachine](/components/rainmachine/)
+- [scene.hunterdouglas_powerview](/components/scene.hunterdouglas_powerview/)
+- [sensor.netdata](/components/sensor.netdata/)
+- [sensor.pi_hole](/components/sensor.pi_hole/)
+- [sensor.sma](/components/sensor.sma/)
+- [sensor.worxlandroid](/components/sensor.worxlandroid/)
+- [spc](/components/spc/)
+- [tts.marytts](/components/tts.marytts/)

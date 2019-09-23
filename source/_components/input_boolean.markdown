@@ -1,17 +1,16 @@
 ---
-layout: page
 title: "Input Boolean"
-description: "Instructions how to integrate the Input Boolean component into Home Assistant."
-date: 2016-01-17 16:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Boolean integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
+ha_qa_scale: internal
+ha_release: 0.11
 ---
 
-The `input_boolean` component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
+The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
+
+To enable input booleans in your installation, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,16 +21,34 @@ input_boolean:
     icon: mdi:car
 ```
 
-Configuration variables:
+{% configuration %}
+  input_boolean:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: string
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: boolean
+        default: false
+      icon:
+        description: Icon to display for the component.
+        required: false
+        type: icon
+{% endconfiguration %}
 
-- **[alias]** (*Required*): Alias for the input.
-- **name** (*Optional*): Friendly name of the input.
-- **initial** (*Optional*): Initial value when Home Assistant starts.
-- **icon** (*Optional*): Icon for entry.
+### Restore State
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-Here's an example of an automation using the above input_boolean. This action will only occur if the switch is on.
+## Automation Examples
+
+Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 
 ```yaml
 automation:

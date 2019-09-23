@@ -1,16 +1,12 @@
 ---
-layout: page
 title: "MySensors Cover"
-description: "Instructions how to integrate MySensors covers into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate MySensors covers into Home Assistant."
 logo: mysensors.png
-ha_category: Cover
+ha_category:
+  - DIY
+  - Cover
 ha_release: "0.30"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Integrates MySensors covers into Home Assistant. See the [main component] for configuration instructions.
@@ -33,7 +29,7 @@ All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the e
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /*

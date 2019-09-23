@@ -1,5 +1,52 @@
 @charset "UTF-8";
 
+$primary-color: #049cdb;
+
+.site-header {
+  position: relative;
+
+  .site-title {
+    font-weight: normal;
+  }
+}
+
+.search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-top: 19px;
+  padding-right: 15%;
+
+  .search {
+    max-width: 500px;
+    width: 100%;
+    border-bottom: 2px solid $primary-color;
+    float: right;
+
+    .algolia-autocomplete {
+      width: calc(100% - 64px);
+      margin: 0 10px;
+    }
+
+    input {
+      border: 0;
+      width: 100%;
+      outline: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  .search-container {
+    z-index: 20;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
 .hero {
   background-color: #038FC7;
   padding-bottom: 0;
@@ -15,26 +62,9 @@
     display: inline-block;
     font-weight: 500;
   }
-
-  .front-install {
-    border: none;
-    font-size: 1em;
-    background-color: #333;
-    margin-bottom: 16px;
-    display: inline-block;
-    padding: 8px;
-    color: #DDD;
-
-    div:before {
-      content: '$';
-      color: #c82829;
-      margin-right: 6px;
-    }
-  }
 }
 
 .material-card {
-  // display: inline-block;
   background-color: #fefefe;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
@@ -75,21 +105,65 @@
 }
 
 .frontpage {
+  .material-card {
+    margin-bottom: 24px;
+  }
 
   .current-version {
-    margin-bottom: 16px;
-
     .release-date {
       white-space: nowrap;
     }
-
   }
 
   .recent-posts {
-    margin-bottom: 16px;
-
     .blog-date {
       white-space: nowrap;
+    }
+  }
+
+  .highlight-blog-post {
+    font-size: 2.0rem;
+    line-height: 1.15;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    transition: background-color .5s;
+    background-color: #038FC7;
+
+    &.large {
+      font-size: 2.25rem;
+      line-height: 1.33333;
+    }
+
+    &:hover {
+      background-color: lighten(#038FC7, 10%);
+    }
+  }
+
+  .picture-promo {
+    display: block;
+    padding-top: 30%;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+
+    .caption {
+      padding: 16px 12px 12px;
+      background-color: rgba(0, 0, 0, .54);
+      color: white;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
     }
   }
 
@@ -110,6 +184,17 @@
     }
   }
 
+  .seen-press {
+    margin-top: 24px;
+
+    img {
+      border: 0;
+      box-shadow: none;
+      margin: 15px;
+      width: 200px;
+      max-width: 40%;
+    }
+  }
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -119,12 +204,13 @@ h2:hover a.title-link,
 h3:hover a.title-link,
 h4:hover a.title-link,
 h5:hover a.title-link,
-h6:hover a.title-link {
+h6:hover a.title-link,
+dt:hover a.title-link {
   position: relative;
 
   &::before {
     position: absolute;
-    top: 2px;
+    top: 5px;
     left: -25px;
     padding-right: 40px;
     font-family: "FontAwesome";
@@ -154,7 +240,7 @@ h6:hover a.title-link {
   }
 
   .icon i {
-  border: none !important;
+    border: none !important;
   }
 }
 
@@ -203,7 +289,7 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p {
+    & > p:last-child {
       margin-bottom: 0;
     }
 
@@ -227,6 +313,13 @@ article.post, article.page, article.listing {
   h2 {
     font-size: 1.5em;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
+    //
+    // border: 0;
+    // border-top: 1px solid $primary-color;
+    // padding-top: 1.4rem;
   }
 
   h3 {
@@ -234,21 +327,32 @@ article.post, article.page, article.listing {
     letter-spacing: 0.125rem;
     font-size: 1.2rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 2em 0 1rem;
   }
 
   h4 {
     font-size: 1.1rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
   }
 }
 
-p.note {
+p.note, div.note {
   position: relative;
 
   background: #e7f2fa;
 
   padding: 40px 12px 6px 12px;
+  margin-bottom: 24px;
   box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  p {
+    margin-bottom: 0px;
+  }
 
   &::before {
     font-family: "FontAwesome", sans-serif;
@@ -281,159 +385,42 @@ p.note {
 }
 
 .copyright {
-  text-align: center;
+  text-align: left;
 
-  i {
-    font-size: 3em;
-    margin-right: 8px;
-    position: relative;
-    top: -5px;
-  }
-  .credit {
-    text-align: left;
-    display: inline-block;
-    font-size: .8em;
-  }
-}
+  .company {
+    .title {
+      font-size: 1.5em;
+    }
 
-#components-page {
-  .isotope-item {
-      z-index: 2;
-  }
-  .isotope-hidden.isotope-item {
-      pointer-events: none;
-      z-index: 1;
-  }
-  .isotope,
-  .isotope .isotope-item {
-      -webkit-transition-duration: 0.8s;
-      -moz-transition-duration: 0.8s;
-      transition-duration: 0.8s;
-  }
-  .isotope {
-      -webkit-transition-property: height, width;
-      -moz-transition-property: height, width;
-      transition-property: height, width;
-  }
-  .isotope .isotope-item {
-      -webkit-transition-property: -webkit-transform, opacity;
-      -moz-transition-property: -moz-transform, opacity;
-      transition-property: transform, opacity;
-  }
+    img {
+      vertical-align: middle;
+    }
 
-  #componentContainer {
-    a {
-      display: inline-block;
-      width: 202px;
-      height: 142px;
-      background-color: #fefefe;
-      margin-right: 4px;
-      margin-bottom: 8px;
-      border-radius: 2px;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      padding: 8px;
-      text-align: center;
-      text-decoration: none;
-
-      .img-container {
-        height: 50px;
-        margin: 8px 0;
-        font: 0/0 a;
-
-        &:before {    /* create a full-height inline block pseudo=element */
-            content: ' ';
-            display: inline-block;
-            vertical-align: middle;  /* vertical alignment of the inline element */
-            height: 100%;
-        }
-
-        img {
-          max-width: 100%;
-          max-height: 50px;
-          box-shadow: none;
-          border: none;
-          vertical-align: middle;
-        }
-      }
-
-      .title {
-        text-decoration: none;
-        font-size: 18px;
-        color: #000;
-        line-height: 1.3em;
-        height: 2.6em;
-      }
-
-      .category {
-        font-size: 14px;
-        color: #AAA;
-      }
+    i {
+      font-size: 2em;
+      padding: 0 5px;
     }
   }
-}
 
-@media only screen and (max-width: $lap-end) {
-  #components-page {
-    .filter-button-group {
-      margin-bottom: 16px;
-
-      .btn {
-        display: inline-block;
-        margin-right: 8px;
-        margin-bottom: 8px;
-
-        &.current {
-          background-color: #3A5561;
-          background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
-        }
-      }
-    }
+  ul {
+    margin: 0;
+    list-style: none;
   }
 }
-
-@media only screen and (min-width: $desk-start) {
-  #components-page {
-    .filter-button-group {
-      .featured {
-        margin: 12px 0;
-      }
-
-      .added_in_current_version {
-        margin-top: 12px;
-      }
-
-      .added_two_versions_ago {
-        margin-bottom: 12px;
-      }
-
-      .btn {
-        display: block;
-        background: 0;
-        color: black;
-        box-shadow: none;
-        text-shadow: none;
-        padding: 2px;
-
-        &.current {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
-
 
 .aside-module {
   .section {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .brand-logo-container {
     text-align: center;
-    height: 97px;
+    height: 87px;
+    margin-top: 50px;
+    margin-bottom: 25px;
 
     img {
-      max-height: 97px;
+      max-height: 67px;
     }
   }
 }
@@ -457,7 +444,8 @@ p.note {
 }
 
 .edit-github {
-  text-align: right;
+  float: right;
+  margin-left: 8px;
   margin-bottom: 8px;
   font-size: .8em;
 }
@@ -474,10 +462,92 @@ ul.sidebar-menu {
 }
 
 a code {
-  color: #049cdb;
+  color: $primary-color;
 }
 
-twitterwidget {
+twitter-widget {
   margin-left: auto;
   margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.aside-module {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+// Configuration variables
+div.config-vars {
+  // Future re-design
+  // h3 {
+  //   border: 0;
+  //   border-top: 1px solid $primary-color;
+  //   padding-top: 1.4rem;
+  // }
+
+  dl {
+    margin-bottom: 1.5em;
+
+    &.nested {
+      border-left: 1px dotted $primary-color;
+      padding-left: 6px;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    dd {
+      margin: 0 0 0.5em 1em;
+
+      p.desc {
+        margin: 0;
+
+        span.type,
+        span.required {
+          font-style: italic;
+
+          &::after {
+            content: " "
+          }
+        }
+      }
+
+      p.default {
+        font-style: italic;
+        margin: 0;
+      }
+    }
+  }
+}
+
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.8em;
+  color: #1990b8;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  background-color: #fdfdfd;
+  background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+  background-size: 3em 3em;
+  background-origin: content-box;
+  background-attachment: local;
+
+  border: 1px solid #ddd;
+  border-radius: 0.4em;
+  padding: .1em .4em
 }

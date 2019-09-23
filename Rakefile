@@ -16,11 +16,12 @@ deploy_branch  = "master"
 
 ## -- Misc Configs -- ##
 
-public_dir      = "public/"    # compiled site directory
+public_dir      = "public/"   # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
+components_dir  = "_components"    #  directory for component files
 posts_dir       = "_posts"    # directory for blog files
 themes_dir      = ".themes"   # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
@@ -60,6 +61,13 @@ task :generate do
   abort("Generating CSS failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  if ENV["CONTEXT"] != 'production'
+    File.open("#{public_dir}robots.txt", 'w') do |f|
+      f.write "User-agent: *\n"
+      f.write "Disallow: /\n"
+    end
+  end
+  public_dir
 end
 
 desc "Watch the site and regenerate when it changes"
@@ -81,10 +89,11 @@ end
 desc "preview the site in a web browser"
 task :preview, :listen do |t, args|
   listen_addr = args[:listen] || '127.0.0.1'
+  listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch --incremental")
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
@@ -162,18 +171,26 @@ task :new_page, :filename do |t, args|
 end
 
 # usage rake isolate[my-post]
-desc "Move all other posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much more quickly."
+desc "Move all other components and posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much more quickly."
 task :isolate, :filename do |t, args|
   stash_dir = "#{source_dir}/#{stash_dir}"
+  s_posts_dir = "#{stash_dir}/#{posts_dir}"
+  s_components_dir = "#{stash_dir}/#{components_dir}"
   FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
+  FileUtils.mkdir(s_posts_dir) unless File.exist?(s_posts_dir)
+  FileUtils.mkdir(s_components_dir) unless File.exist?(s_components_dir)
   Dir.glob("#{source_dir}/#{posts_dir}/*.*") do |post|
-    FileUtils.mv post, stash_dir unless post.include?(args.filename)
+    FileUtils.mv post, s_posts_dir unless post.include?(args.filename)
+  end
+  Dir.glob("#{source_dir}/#{components_dir}/*.*") do |component|
+    FileUtils.mv component, s_components_dir unless component.include?(args.filename)
   end
 end
 
 desc "Move all stashed posts back into the posts directory, ready for site generation."
 task :integrate do
-  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
+  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{posts_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
+  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{components_dir}/*.*"), "#{source_dir}/#{components_dir}/"
 end
 
 desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache"

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Send a reminder"
 description: "Send a reminder"
-date: 2015-12-16 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
@@ -30,13 +24,9 @@ automation:
   - alias: Send message at a given time
     trigger:
       platform: time
-      hours: 12
-      minutes: 15
-      seconds: 0
+      at: '12:15:00'
     action:
       service: notify.jabber
       data:
         message: 'Time for lunch'
 ```
-
-

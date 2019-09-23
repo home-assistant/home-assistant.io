@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.14: Steam, D-Link smart plugs and Neurio Energy Sensors"
 description: "Home Assistant 0.14 has arrived."
 date: 2016-02-27 14:15:00 -0800
 date_formatted: "February 28, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-02-release-14/social.png
 ---
@@ -69,7 +67,7 @@ It's been another two weeks which means it's time for release: 0.14!
 [rollershutter.command_line]: /components/rollershutter.command_line/
 [Steam]: /components/sensor.steam_online/
 [Wink]: /components/binary_sensor.wink/
-[the cookbook]: https://home-assistant.io/cookbook/python_component_simple_alarm/
+[the cookbook]: /cookbook/python_component_simple_alarm/
 [script]: /components/script/
 [Wemo component]: /components/wemo/
 [switch.cmd]: /components/switch.command_line/

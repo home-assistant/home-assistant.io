@@ -1,22 +1,22 @@
 ---
-layout: page
 title: "RESTful Binary Sensor"
-description: "Instructions how to integrate REST binary sensors into Home Assistant."
-date: 2015-12-17 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate REST binary sensors into Home Assistant."
 logo: restful.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: "0.10"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
+The `rest` binary sensor platform is consuming a given endpoint which is exposed
+by a
+[RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer)
+of a device, an application, or a web service.
+The binary sensor has support for GET and POST requests.
 
-The `rest` binary sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The binary sensor has support for GET and POST requests.
-
-The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, `on`, or `open`. If the value is nested then use a [template](/topics/templating/).
+The JSON messages can contain different values like `1`, `"1"`,
+`TRUE`, `true`, `on`, or `open`. If the value is nested then use a
+[template](/docs/configuration/templating/#processing-incoming-data).
 
 ```json
 {
@@ -28,7 +28,10 @@ The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, 
 }
 ```
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+## Configuration
+
+To enable this sensor,
+add the following lines to your `configuration.yaml` file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -47,32 +50,77 @@ binary_sensor:
     method: POST
 ```
 
-Configuration variables:
+{% configuration %}
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+method:
+  description: The method of the request.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Name of the REST binary sensor.
+  required: false
+  type: string
+  default: REST Binary Sensor
+device_class:
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+value_template:
+  description: >
+    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    to extract the value.
+  required: false
+  type: template
+payload:
+  description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  type: boolean
+  default: true
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: integer
+  default: 10
+authentication:
+  description: "Type of the HTTP authentication. `basic` or `digest`."
+  required: false
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: [list, string]
+{% endconfiguration %}
 
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is GET.
-- **name** (*Optional*): Name of the REST binary sensor.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
-- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the REST endpoint.
-- **password** (*Optional*): The password for accessing the REST endpoint.
-- **headers** (*Optional*): The headers for the requests.
-
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
+## Examples
 
-## {% linkable_title Examples %}
+In this section you find some real-life examples of how to use this sensor.
 
-In this section you find some real life examples of how to use this sensor.
+### aREST sensor
 
-### {% linkable_title aREST sensor %}
-
-Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor, you could retrieve the value of a device supporting aREST directly with a REST binary sensor.
+Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor,
+you could retrieve the value of a device supporting
+aREST directly with a REST binary sensor.
 
 ```yaml
 binary_sensor:
@@ -80,11 +128,11 @@ binary_sensor:
     resource: http://192.168.0.5/digital/9
     method: GET
     name: Light
-    sensor_class: light
+    device_class: light
     value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 
@@ -100,7 +148,8 @@ binary_sensor:
       Content-Type: application/json
 ```
 
-The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
+The headers will contain all relevant details. This will also give
+you the ability to access endpoints that are protected by tokens.
 
 ```bash
 Content-Length: 1024

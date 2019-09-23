@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Report the temperature with ESP8266 to MQTT"
 description: "Step by step tutorial to use ESP8266 and a HDC1008 to ."
 date: 2015-10-11 12:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To MQTT ESP8266
 og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 ---
@@ -15,7 +13,7 @@ og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 
 I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.
 
-For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.
+For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Assistant can pick it up.
 
 <p class='img'>
 <img src='/images/blog/2015-10-esp8266-temp/setup.png' />
@@ -29,7 +27,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <!--more-->
 
-### {% linkable_title Components %}
+### Components
 
 I've been using Adafruit for my shopping:
 
@@ -39,14 +37,14 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-### {% linkable_title Alternatives %}
+### Alternatives
 
 Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
 
  - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
  - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
 
-### {% linkable_title Connections %}
+### Connections
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
 
@@ -59,7 +57,7 @@ On your breadboard, make the following connections from your ESP8266 to the HDC1
 
 _I picked `#2` and `14` myself, you can configure them in the sketch._
 
-### {% linkable_title Preparing your IDE %}
+### Preparing your IDE
 
 Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
@@ -68,7 +66,7 @@ After you're done installing, open the Arduino IDE, in the menu click on `sketch
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
 
-### {% linkable_title Sketch %}
+### Sketch
 
 If you have followed the previous steps, you're all set.
 
@@ -196,7 +194,7 @@ void loop() {
 }
 ```
 
-### {% linkable_title Configuring Home Assistant %}
+### Configuring Home Assistant
 
 The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 

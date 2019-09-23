@@ -1,16 +1,12 @@
 ---
-layout: page
 title: "MySensors Light"
-description: "Instructions how to integrate MySensors lights into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate MySensors lights into Home Assistant."
 logo: mysensors.png
-ha_category: Light
+ha_category:
+  - DIY
+  - Light
 ha_release: 0.13
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Integrates MySensors lights into Home Assistant. See the [main component] for configuration instructions.
@@ -33,11 +29,11 @@ S_RGBW_LIGHT | V_RGBW*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]
 
 V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.
 
-Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.  
+Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 1.x example sketch %}
+### MySensors 1.x example sketch
 
 ```cpp
 /*
@@ -111,7 +107,8 @@ void incomingMessage(const MyMessage &message) {
     }
 }
 ```
-### {% linkable_title MySensors 2.x example sketch %}
+
+### MySensors 2.x example sketch
 
 ```cpp
 /*
@@ -174,7 +171,7 @@ void presentation()
 void receive(const MyMessage &message)
 {
   //When receiving a V_STATUS command, switch the light between OFF
-  //and the last received dimmer value  
+  //and the last received dimmer value
   if ( message.type == V_STATUS ) {
     Serial.println( "V_STATUS command received..." );
 
@@ -201,7 +198,7 @@ void receive(const MyMessage &message)
 
       //Update constroller with dimmer value & status
       send_dimmer_message();
-      send_status_message();      
+      send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
@@ -244,5 +241,6 @@ void send_status_message()
   }
 }
 ```
+
 [main component]: /components/mysensors/
 [serial api]: http://www.mysensors.org/download

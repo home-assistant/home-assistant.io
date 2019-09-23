@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "ESP8266 and MicroPython - Part 1"
 description: "Using MicroPython on ESP8266 based devices and Home Assistant."
 date: 2016-07-28 06:00:00 +0200
 date_formatted: "July 28, 2016"
 author: Fabian Affolter
-comments: true
 categories: How-To ESP8266 Micropython
 og_image: /images/blog/2016-07-micropython/social.png
 ---
@@ -41,7 +39,7 @@ Leaving...
 
 Now reset the device. You should then be able to use the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt). On Linux there is `minicom` or `picocom`, on a Mac you can use `screen` (eg. `screen /dev/tty.SLAB_USBtoUART 115200`), and on Windows there is Putty to open a serial connection and get the REPL prompt.
 
-The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
+The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is necessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
 
 ```bash
 $ sudo minicom -D /dev/ttyUSB0
@@ -56,9 +54,11 @@ Type "help()" for more information.
 >>> 
 ```
 
-<p class='note'>
+<div class='note'>
+
 The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
-</p>
+
+</div>
 
 Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected. 
 
@@ -116,9 +116,11 @@ If you reboot, you should see your current IP address in the terminal.
 
 First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](/developers/rest_api/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
 
-<p class='note'>
+<div class='note'>
+
 If a module is missing then you need to download it from the [MicroPython Library overview](https://github.com/micropython/micropython-lib) and upload it to the ESP8266 with `webrepl_cli.py` manually.
-</p>
+
+</div>
 
 ```python
 # Sample code to request the state of a Home Assistant entity.

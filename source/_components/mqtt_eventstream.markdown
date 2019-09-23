@@ -1,18 +1,16 @@
 ---
-layout: page
 title: "MQTT Eventstream"
-description: "Instructions how to setup MQTT eventstream within Home Assistant."
-date: 2016-01-13 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to setup MQTT eventstream within Home Assistant."
 logo: mqtt.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.11
+ha_iot_class: Configurable
 ---
 
-The `mqtt_eventstream` components connects two Home Assistant instances via MQTT.
+The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.
+
+## Configuration
 
 To integrate MQTT Eventstream into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -23,8 +21,47 @@ mqtt_eventstream:
   subscribe_topic: OtherHaServerName
 ```
 
-Configuration variables:
+{% configuration %}
+publish_topic:
+  description: Topic for publishing local events.
+  required: false
+  type: string
+subscribe_topic:
+  description: Topic to receive events from the remote server.
+  required: false
+  type: string
+ignore_event:
+  description: Ignore sending these [events](/docs/configuration/events/) over mqtt.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **publish_topic** (*Required*): Topic for publishing local events
-- **subscribe_topic** (*Required*): Topic to receive events from the remote server.
+## Multiple Instances
 
+Events from multiple instances can be aggregated to a single master instance by subscribing to a wildcard topic from the master instance.
+
+```yaml
+# Example master instance configuration.yaml entry
+mqtt_eventstream:
+  publish_topic: master/topic
+  subscribe_topic: slaves/#
+  ignore_event:
+    - call_service
+    - state_changed
+```
+
+For a multiple instance setup, each slave would publish to their own topic.
+
+```yaml
+# Example slave instance configuration.yaml entry
+mqtt_eventstream:
+  publish_topic: slaves/upstairs
+  subscribe_topic: master/topic
+```
+
+```yaml
+# Example slave instance configuration.yaml entry
+mqtt_eventstream:
+  publish_topic: slaves/downstairs
+  subscribe_topic: master/topic
+```

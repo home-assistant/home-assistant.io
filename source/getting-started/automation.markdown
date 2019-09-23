@@ -1,54 +1,46 @@
 ---
-layout: page
 title: "Automating Home Assistant"
-description: "Steps to help you get automation setup in Home Assistant."
-date: 2015-09-19 09:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "A quick intro on getting your first automation going."
+redirect_from:
+ - /getting-started/automation-create-first/
+ - /getting-started/automation-2/
 ---
 
-When all your devices are set up, it's time to put the cherry on the pie: automation. Home Assistant offers [a few built-in automations](/components/#automation) – but you'll be using the automation component to set up your own rules, for the most part.
+When your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
 
-Home Assistant offers a wide range of automation configurations. In the next few pages, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][cookbook-config].
+In Home Assistant, open the menu by clicking on the top-left icon and click on configuration. Now click on automations. This is the automation screen from which you can manage all the automations in Home Assistant.
 
-[cookbook-config]: /cookbook/#example-configurationyaml
+Click on the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
 
-### {% linkable_title Automation basics %}
-
-Before you can go ahead and create your own automations, it's important to learn the basics. To explore these, let's have a look at the following example home automation rule:
-
-```text
-(trigger)    When Paulus arrives home
-(condition)  and it is after sunset:
-(action)     Turn the lights in the living room on
-```
-
-The example consists of three different parts: a trigger, a condition and an action.
-
-The first line is the **trigger** of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from 'not_home' to 'home'.
-
-The second line is the **condition**. Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case, we only want to act when the sun has set.
-
-The third part is the **action**, which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
-
-<p class='note'>
-The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on versus a light being on.
+<p class='img'>
+<img src='/images/getting-started/automation-new-blank.png'>
+The automation editor.
 </p>
 
-### {% linkable_title Exploring the internal state %}
+The first thing we will do is to set a name. Enter "Turn Lights On at Sunset".
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. The <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> icon will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+The second step is defining what should trigger our automation to run. In this case we want to use the event of the sun setting to trigger our automation. However, if we would turn on the lights when the sun actually sets, it would be too late as it already gets quite dark while it's setting. So we're going to add an offset.
 
-| Name | Description | Example |
-| ---- | ----- | ---- |
-| Entity ID | Unique identifier for the entity. | `light.kitchen`
-| State | The current state of the device. | `home`
-| Attributes | Extra data related to the device and/or current state. | `brightness`
+In the trigger section, click on the dropdown and change trigger type to "Sun". It allows us to pick between sunrise and sunset, go ahead and pick sunset. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-0:30` to the offset. This indicates that we will trigger 30 minutes before the sun actually sets, neat!
 
-State changes can be used as the source of triggers and the current state can be used in conditions.
+<p class='img'>
+<img src='/images/getting-started/automation-new-name-trigger.png'>
+A new automation with a sun trigger filled in.
+</p>
 
-Actions are all about calling services. To explore the available services open the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
+Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call Service" and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `{ "entity_id": "all" }`.
 
-### [Next step: Your First Automation &raquo;](/getting-started/automation-create-first/)
+<p class='img'>
+<img src='/images/getting-started/automation-new-action.png'>
+A new automation with the action set up to turn on the lights.
+</p>
+
+Click the orange button to save the automation. Now wait till it's 30 minutes until the sun sets and see your automation magic!
+
+Further reading on automations:
+
+- [Triggers](/docs/automation/trigger/)
+- [Conditions](/docs/automation/condition/)
+- [Actions](/docs/automation/action/)
+
+### [Next step: Presence detection &raquo;](/getting-started/presence-detection/)

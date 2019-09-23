@@ -1,13 +1,11 @@
 ---
-layout: post
 title: "New logo for Home Assistant"
 description: "A new logo has arrived for Home Assistant"
 date: 2015-03-08 22:16:10 0000
 date_formatted: March 8, 2015
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
-categories: Organisation
+categories: Organization
 ---
 
 It is well known that you are either a good programmer or a good designer. It's rare you'll meet someone that is both. That's why it wasn't surprising to anyone that the logo that I made was mediocre &mdash; at best. Luckily, [Jeremy Geltman](http://jeremygeltman.com/) has come to the rescue and contributed a brand new logo for Home Assistant.

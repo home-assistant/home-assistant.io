@@ -1,0 +1,39 @@
+---
+title: "Hass.io Add-ons"
+description: "List of the built-in add-ons of Hass.io."
+regenerate: false
+---
+
+<p>Add-ons for Hass.io allow the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
+
+<p>
+  Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
+</p>
+
+<p class='note'>
+Add-ons are only available if you've used the Hass.io installer. If you installed Home Assistant using any other method then you cannot use add-ons (but you can achieve the same result manually).
+</p>
+
+{% assign addons = site.addons | sort: 'title' %}
+
+<h3>Featured add-ons</h3>
+
+<ul>
+{% for addon in addons %}{% if addon.featured %}
+  <li>
+    <a href='{{ addon.url }}'>{{ addon.title }}</a><br>
+    {{ addon.description }}
+  </li>
+{% endif %}{% endfor %}
+</ul>
+
+<h3>Other add-ons</h3>
+
+<ul>
+{% for addon in addons %}{% if addon.featured != true %}
+  <li>
+    <a href='{{ addon.url }}'>{{ addon.title }}</a><br>
+    {{ addon.description }}
+  </li>
+{% endif %}{% endfor %}
+</ul>

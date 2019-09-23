@@ -1,52 +1,76 @@
 ---
-layout: page
-title: "Getting Started"
-description: "Step by step guide to get started with Home Assistant."
-date: 2014-12-18 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
+title: "Install Home Assistant"
+description: "Getting started: How to install Home Assistant."
 ---
 
-Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux-based platform, we suggest you follow the [VirtualEnv Linux instructions] to avoid using root.
+{% comment %}
 
-[Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
+Note for contributors:
 
-Installing and running Home Assistant on your local machine is easy. The only requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows we require at least Python 3.5 and for other operating systems at least Python 3.4.2. Once installed, execute the following code in a console:
+The getting started guide aims at getting new users get Home Assistant  up and
+running as fast as possible. Nothing else. All other things should not be
+written down, as it creates a spaghetti of links and the user will lose focus.
 
-```bash
-$ pip3 install homeassistant
-$ hass --open-ui
-```
+So here are guidelines:
 
-Running these commands will:
+ - Focus on the bare necessities. No remote port, no securing installation. The
+   defaults are good enough to get a system up and running for the first guide.
+ - Avoid or explain technical terms.
+ - Do not talk about YAML if it can be partially/fully done in UI.
+ - Do not tell people about stuff they can do later. This can be added to a
+   2nd tier guide.
+ - The first page of the guide is for installation, hence hass.io specific.
+   Other pages should not refer to it except for the page introducing the last
+   page that introduces `configuration.yaml`.
 
- - Install Home Assistant
- - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
+{% endcomment %}
 
-If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones:
+The goal of this getting started guide is to get Home Assistant running on a Raspberry Pi. The easiest way to do this is by using [Hass.io](/hassio/), which is our own all in one solution that turns Raspberry Pi's and other devices into the ultimate home automation hubs.
 
- - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
- - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
- - [Ubuntu 14.04](https://www.youtube.com/watch?v=SXaAG1lGNH0)
+Follow this guide if you want to get started with Home Assistant easily, or if you have little or no Linux experience. For advanced users or if you don't have a [device that is supported by this guide][supported], check our [alternative installation methods](/docs/installation/). Once you finish your alternative installation, you can continue at the [next step][next-step].
 
-### {% linkable_title Updating %}
+[supported]: /hassio/installation/
 
-To update Home Assistant to the latest release check the [Updating section](/getting-started/updating/).
+### Suggested hardware
 
-### {% linkable_title Troubleshooting %}
+We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below lead to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many commonly encountered issues.
+- [Raspberry Pi 3 Model B+](https://amzn.to/2IAyNl0) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
+- [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. Size 32 GB or bigger recommended.
+- SD Card reader. Part of most laptops, and also available as [standalone USB sticks](https://amzn.to/2WWxntY) (the brand doesn't matter, just pick the cheapest)
+- Ethernet cable (optional, Hass.io can work with WiFi as well)
 
-In addition to this site, check out these sources for additional help:
+### Software requirements
 
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting
+- Download the Hass.io image for [your device](/hassio/installation/)
+- Download [balenaEtcher] to write the image to an SD card
 
-### {% linkable_title What's next? %}
+[balenaEtcher]: https://www.balena.io/etcher
 
-To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
+### Installing Hass.io
 
-### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
+1. Put the SD card in your SD card reader.
+2. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
+3. Unmount the SD card and remove it from your SD card reader.
+4. Only if you want to configure WiFi or a Static IP (requires USB stick):
+   - Format a USB-Stick to FAT32 with volume-name `CONFIG`.
+   - Create a folder named `network` in the root of the newly formatted USB-stick.
+   - Within that folder create a file named `my-network` without extension.
+   - Copy one of [the examples] to the `my-network` file and adjust accordingly.
+   - Plug the USB-stick into the Raspberry Pi 3.
+
+5. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
+6. Connect your Raspberry Pi to the power supply, so it turns on.
+7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
+8. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
+9. If you have used a USB-stick for configuring the network, it can now be removed.
+
+[local]: http://hassio.local:8123
+[host]: http://hassio:8123
+[the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+
+### [Next step: Onboarding &raquo;][next-step]
+
+[next-step]: /getting-started/onboarding/
+
+_As an Amazon Associate Home Assistant earns from qualifying purchases._

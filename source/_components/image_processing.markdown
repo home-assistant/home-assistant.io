@@ -1,24 +1,22 @@
 ---
-layout: page
 title: "Image Processing"
-description: "Instructions how to setup image processing with Home Assistant."
-date: 2017-01-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to setup image processing with Home Assistant."
 ha_release: 0.36
 ---
 
-Image processing enables Home Assistant to process images from [cameras][/components/#camera]. Only camera entities are supported as sources.
+Image processing enables Home Assistant to process images from [cameras](/components/#camera). Only camera entities are supported as sources.
 
-For interval control, use `scan_interval` in platform.
+<div class='note'>
 
-## {% linkable_title ALPR %}
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
 
-Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
+</div>
 
-This event is trigger after OpenALPR found a new licence plate.
+## ALPR
+
+ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.
+
+The `found_plate` event is triggered after OpenALPR has found a new license plate.
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -26,20 +24,20 @@ automation:
 - alias: Open garage door
   trigger:
     platform: event
-    event_type: found_plate
+    event_type: image_processing.found_plate
     event_data:
       entity_id: openalpr.camera_garage_1
       plate: BE2183423
 ...
 ```
 
-The following event attributes will be present: `entity_id`, `plate`, `confidence`
+The following event attributes will be present (platform-dependent): `entity_id`, `plate`, `confidence`
 
-## {% linkable_title Face identify %}
+## Face
 
-Face entities attribute have a face counter `total_faces` and all validated person as `known_faces`.
+Face entities have a face counter attribute `total_faces` and all face data is stored in the `faces` attribute.
 
-This event is trigger after Microsoft Face identify found a known faces.
+The `detect_face` event is triggered after a Face entity has found a face.
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -47,11 +45,34 @@ automation:
 - alias: Known person in front of my door
   trigger:
     platform: event
-    event_type: identify_face
+    event_type: image_processing.detect_face
     event_data:
       entity_id: image_processing.door
       name: 'Hans Maier'
 ...
 ```
 
-The following event attributes will be present: `entity_id`, `name`, `confidence`
+The following event attributes will be present (platform-dependent): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`
+
+## scan_interval and Optimising Resources
+
+Image processing integrations process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+
+```yaml
+# Example configuration.yaml
+sensor:
+- platform: _AN_IMAGE_PROCESSING_PLATFORM_
+  scan_interval: 10000
+...
+automation:
+- alias: Scan for faces when motion detected
+  trigger:
+    - platform: state
+      entity_id: sensor.door_motion_sensor
+      to: 'on'
+  action:
+    - service: image_processing.scan
+      data:
+        entity_id: image_processing.door
+...
+```
