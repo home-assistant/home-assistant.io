@@ -33,9 +33,9 @@ You will need to obtain an API key from ecobee's [developer site](https://www.ec
 
 Now login to the regular consumer portal, and in the hamburger menu there will be a new option **Developer**. Now we can create an Application to link to Home Assistant.
 
-1. Select the Developer option.
+1. Select the **Developer** option from the hamburger menu.
 2. Select **Create New**.
-3. Give your app a name (it must be unique across all ecobee users; try <yournameoralias>-home-assistant) and a summary (neither of these are important as they are not used anywhere in Home Assistant).
+3. Give your app a name (it must be unique across all ecobee users; try your-name-or-alias-home-assistant) and a summary (which need not be unique). Neither of these are important as they are not used anywhere in Home Assistant.
 4. For Authorization method select **ecobee PIN**.
 5. You don't need an Application Icon or Detailed Description.
 6. Click **Create**.
@@ -44,18 +44,18 @@ Now under the Name and Summary Section you will have an API key. Copy this key a
 
 ## Configuring the Integration
 
-To configure the ecobee integration in Home Assistant, you either use the **Configuration** -> **Integrations** menu, or add an entry to `configuration.yaml`.
+To configure the ecobee integration in Home Assistant, you can either use the **Configuration** -> **Integrations** menu, or add an entry to `configuration.yaml`.
 
 ### Setup via the Integrations menu
 
 1. In the **Configuration** -> **Integrations** menu, click **+** and then select `ecobee` from the pop-up menu.
 2. In the pop-up box, enter the API key you obtained from ecobee.com.
-3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, then clicking **Add Application** and entering the PIN code from Home Assistant when prompted.
+3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, and clicking **Validate** and then **Add Application** in the bottom right.
 4. After authorizing the App on ecobee.com, return to Home Assistant and hit **Submit**. If authorization was successful, a config entry will be created and your thermostats and sensors will be available in Home Assistant.
 
 ### Setup via configuration.yaml
 
-If you prefer to initially set up this integration in [`configuration.yaml`](/docs/configuration/), you may do so by adding your API key (and optional parameters) as follows:
+If you prefer to initially set up this integration in [`configuration.yaml`](/docs/configuration/), you may do so by adding your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** menu):
 
 ```yaml
 # Example configuration.yaml entry
@@ -156,9 +156,9 @@ The Ecobee climate entity has some extra attributes to represent the state of th
 
 ## Services
 
-Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra service is provided by the Ecobee Thermostat: `resume_program`.
+Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra services are provided by the Ecobee Thermostat: `ecobee.resume_program` and `ecobee.set_fan_min_on_time`.
 
-### Service `resume_program`
+### Service `ecobee.resume_program`
 
 Resumes the currently active schedule.
 
@@ -166,3 +166,12 @@ Resumes the currently active schedule.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `resume_all` | no | true or false
+
+### Service `ecobee.set_fan_min_on_time`
+
+Sets the minimum amount of time that the fan will run per hour.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `fan_min_on_time` | no | integer (e.g. 5)
