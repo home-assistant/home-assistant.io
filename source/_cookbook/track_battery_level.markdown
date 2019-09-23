@@ -57,7 +57,7 @@ sensor:
 - platform: template
     sensors:
       your_battery_sensor_name:
-        value_template: '{{ states.device_tracker.deviceid.attributes.battery_level }}'
+        value_template: "{{ state_attr('device_tracker.deviceid', 'battery_level') }}"
         unit_of_measurement: '%'
 ```
 {% endraw %}
