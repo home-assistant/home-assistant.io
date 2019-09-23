@@ -13,20 +13,18 @@ ha_iot_class: Local Polling
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
-Currently, there is no support for Zone schedules.
-
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library.
 
 ### Zones
 
-Each Zone controlled by your Genius hub will be exposed as either a:
+Each Zone controlled by your Genius Hub will be exposed as either a:
 
- - `Climate` entity, for **Radiator** Zones, and
- - `Water Heater`, for **Hot Water Temperature** Zones
+ - `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
+ - `Water Heater` entity, for **Hot Water Temperature** Zones
 
-Other Zone types, such as **On / Off** Zones, are not currently supported.
+Other Zone types, such as **On / Off** Zones, are not currently supported (although see `Binary Sensor`s, below).
 
-Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below). The Zone's mode can changed as below.
+Each entity derived from a GH Zone will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below). The Zone's mode can changed as below.
 
 GH mode | HA Operation | HA Preset
 :---: | :---: | :---:
@@ -37,12 +35,14 @@ GH mode | HA Operation | HA Preset
 
 Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
 
+Currently, there is no support for reading/altering Zone schedules, although a Zone can be switched to a mode that utilizes schedules.
+
 ### Devices
 
 If the Hub is directly polled using the v3 API (see below), then each Device controlled by your Genius hub will be exposed as either a:
 
  - `Sensor` entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
- - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. a Smart Plug)
+ - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. Smart Plugs, DCRs)
 
 Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
 
@@ -57,26 +57,27 @@ Each such entity has a state attribute that will contain a list of any such issu
 - alias: GeniusHub Error Alerts
   trigger:
     platform: numeric_state
-    entity_id: sensor.errors
+    entity_id: sensor.geniushub_errors
     above: 0
   action:
   - service: notify.pushbullet_notifier
     data_template:
       title: "Genius Hub has errors"
       message: >-
-        Genius Hub has the following {{ states('sensor.errors') }} errors:
-        {{ state_attr('sensor.errors', 'error_list') }}
+        Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
+        {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 {% endraw %}
 
 ### State Attributes
 
-Other properties are available via each entity's state attributes. For example, in the case of **Radiator** Zones/`Climate` devices:
+Other properties are available via each entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
 
 ```json
 {
   "status": {
     "type": "radiator",
+    "mode": "off",
     "temperature": 19,
     "occupied": False,
     "override": {
@@ -87,11 +88,23 @@ Other properties are available via each entity's state attributes. For example, 
 }
 ```
 
+... and for **Genius Valve**-derived `Sensor` entities (note 'state'):
+
+```json
+{
+  "state": {
+    "set_temperature": 4.0,
+    "measured_temperature": 20.030000686645508,
+    "setback": 3.5,
+    "wakeup_interval": 450
+  }
+}
+```
 This data can be accessed in automations, etc. via a value template. For example:
 
 {% raw %}
 ```yaml
-value_template: "{{ state_attr('water_heater.boiler_h_w', 'status').override.setpoint }}"
+value_template: "{{ state_attr('water_heater.genius_zone_2', 'status').override.setpoint }}"
 ```
 {% endraw %}
 
@@ -99,13 +112,17 @@ In the specific case of **Radiator** zones with room sensors:
 
 {% raw %}
 ```yaml
-value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
+value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 ```
 {% endraw %}
 
 ## Configuration
 
 To set up this integration, add one of the following to your **configuration.yaml** file.
+
+If required, you can switch between one option and the other and, as the `entity_id` remain consistent, state history will be preserved.
+
+Note that only the v3 API will expose Genius Devices in addition to Zones and Issues.
 
 ### Option 1: hub token only
 
