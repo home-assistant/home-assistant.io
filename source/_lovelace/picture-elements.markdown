@@ -30,6 +30,10 @@ title:
   required: false
   description: Card title
   type: string
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
 {% endconfiguration %}
 
 ## Elements
