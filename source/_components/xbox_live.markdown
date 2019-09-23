@@ -14,7 +14,11 @@ The Xbox Live integration is able to track [Xbox](http://xbox.com/) profiles.
 
 To use this sensor you need a free API key from
 [XboxAPI.com](http://xboxapi.com).
-Please also make sure to connect your Xbox account on that site.
+Please also make sure to connect your Xbox account on that site. As of 
+2019-09-23, the **free tier** is limited to 60 requests per hour. The default
+[scan interval](https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval)
+for sensors is 30 seconds, so it's necessary to explicitly set the scan interval 
+to a higher value in order to avoid errors due to rate-limiting.
 
 The configuration requires you to specify XUIDs which are the unique identifiers
 for profiles. These can be determined on [XboxAPI.com](http://xboxapi.com) by
@@ -43,4 +47,8 @@ xuid:
   description: Array of profile XUIDs to be tracked.
   required: true
   type: list
+scan_interval:
+  description: How often Home Assistant should poll [XboxAPI.com](http://xboxapi.com).
+  required: false
+  type: integer
 {% endconfiguration %}
