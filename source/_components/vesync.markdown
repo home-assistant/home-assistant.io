@@ -40,8 +40,8 @@ To use this integration, all devices must be registered with the VeSync App. Onc
 ```yaml
 # Example configuration.yaml entry
 vesync:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
