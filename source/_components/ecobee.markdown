@@ -23,24 +23,24 @@ The `ecobee` integration lets you control thermostats and view sensor data from 
 
 ## Preliminary Step
 
-You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps.
+You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, first, you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
-2. Login with your ecobee credentials.
+2. Log in with your ecobee credentials.
 3. Accept the SDK agreement.
 4. Fill in the fields.
 5. Click **save**.
 
-Now login to the regular consumer portal, and in the hamburger menu there will be a new option **Developer**. Now we can create an Application to link to Home Assistant.
+Now login to the regular consumer portal and in the hamburger menu, there will be a new option **Developer**. Now we can create an Application to link to Home Assistant.
 
 1. Select the **Developer** option from the hamburger menu.
 2. Select **Create New**.
-3. Give your app a name (it must be unique across all ecobee users; try your-name-or-alias-home-assistant) and a summary (which need not be unique). Neither of these are important as they are not used anywhere in Home Assistant.
-4. For Authorization method select **ecobee PIN**.
+3. Give your App a name (it must be unique across all ecobee users; try your-name-or-alias-home-assistant) and a summary (which need not be unique). Neither of these are important as they are not used anywhere in Home Assistant.
+4. For authorization method select **ecobee PIN**.
 5. You don't need an Application Icon or Detailed Description.
 6. Click **Create**.
 
-Now under the Name and Summary Section you will have an API key. Copy this key as you will need it in the steps that follow. Click the **X** to close the Developer section.
+Now under the Name and Summary Section, you will have an API key. Copy this key as you will need it in the steps that follow. Click the **X** to close the Developer section.
 
 ## Configuring the Integration
 
@@ -51,7 +51,7 @@ To configure the ecobee integration in Home Assistant, you can either use the **
 1. In the **Configuration** -> **Integrations** menu, click **+** and then select `ecobee` from the pop-up menu.
 2. In the pop-up box, enter the API key you obtained from ecobee.com.
 3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, and clicking **Validate** and then **Add Application** in the bottom right.
-4. After authorizing the App on ecobee.com, return to Home Assistant and hit **Submit**. If authorization was successful, a config entry will be created and your thermostats and sensors will be available in Home Assistant.
+4. After authorizing the App on ecobee.com, return to Home Assistant and hit **Submit**. If the authorization was successful, a config entry will be created and your thermostats and sensors will be available in Home Assistant.
 
 ### Setup via configuration.yaml
 
@@ -67,7 +67,7 @@ ecobee:
 
 {% configuration %}
 api_key:
-  description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to remove the existing `ecobee` configuration in the **Integrations** menu, update this, and then configure the Integration again.
+  description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal, you will need to remove the existing `ecobee` configuration in the **Integrations** menu, update this, and then configure the Integration again.
   required: false
   type: string
 {% endconfiguration %}
@@ -79,7 +79,7 @@ api_key:
 
 ## Notifications
 
-To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee integration loaded and running. Once you have that configured, you can setup this integration to send messages to your Ecobee device.
+To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee integration loaded and running. Once you have that configured, you can set up this integration to send messages to your Ecobee device.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
