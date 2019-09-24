@@ -47,7 +47,6 @@ notify:
     username: YOUR_PHONE_NUMBER
     password: YOUR_PASSWORD
     recipient: PHONE_NUMBER_TO_NOTIFY
-    provider: MVNO_PROVIDER
 ```
 
 {% configuration %}
