@@ -64,7 +64,7 @@ recipient:
   required: true
   type: string
 provider:
-  description: Possible values are `yesss` (default), `billitel`, `EDUCOM`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `SIMfonie`, `teleplanet`, `WOWWW`, and `yooopi`.
+  description: Possible values are `yesss` (default), `billitel`, `EDUCOM`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `SIMfonie`, `teleplanet`, `WOWWW` and `yooopi`.
   required: false
   type: string
 {% endconfiguration %}
