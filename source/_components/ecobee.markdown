@@ -70,11 +70,6 @@ api_key:
   description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to remove the existing `ecobee` configuration in the **Integrations** menu, update this, and then configure the Integration again.
   required: false
   type: string
-hold_temp:
-  description: Whether or not to hold changes indefinitely (`true`) or until the next scheduled event.
-  required: false
-  default: false
-  type: boolean
 {% endconfiguration %}
 
 <p class='img'>
