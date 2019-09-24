@@ -84,8 +84,23 @@ Field | Description
 `key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
 `app_id` | the id of the app that was launched when command `type` is `launch`.
 
-The available keys are listed here:
-[Roku key codes](https://sdkdocs.roku.com/display/sdkdoc/External+Control+API#ExternalControlAPI-KeypressKeyValues)
+Available key codes |
+------------------- |
+`Home`
+`Rev`
+`Fwd`
+`Play`
+`Select`
+`Left`
+`Right`
+`Down`
+`Up`
+`Back`
+`InstantReplay`
+`Info`
+`Backspace`
+`Search`
+`Enter`
 
 ## Automations
 
