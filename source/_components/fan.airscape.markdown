@@ -17,7 +17,7 @@ The `airscape` fan platform lets you control your network connected Airscape Who
 fan:
   - platform: airscape
     name: "Whole House Fan"
-    host: "192.168.10.100"
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
