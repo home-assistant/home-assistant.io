@@ -10,10 +10,18 @@ ha_iot_class: Local Polling
 redirect_from: /components/media_player.cast/
 ---
 
-Google Cast devices like Android TVs and Chromecasts will be automatically
-discovered if you enable [the discovery integration](/components/discovery/). If
-you don't have the discovery integration enabled, you can enable the Cast
-integration by going to the Integrations page inside the config panel.
+You can enable the Cast integration by going to the Integrations page inside the config panel.
+
+## Home Assistant Cast
+
+Home Assistant has its own Cast application to show the Home Assistant UI. You can load it on your Chromecast by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI or by using the `cast.show_lovelace_ui` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+
+```json
+{
+  "entity_id": "media_player.office_display_4",
+  "view_path": "lights"
+}
+```
 
 ## Home Assistant Cast
 
@@ -28,13 +36,11 @@ The Cast integration allows you to start Home Assistant Cast on any Chromecast d
 
 ## Advanced use
 
-The Cast integration has some extra configuration options available for advanced
-users. You will still need to create a config entry to initialize the Cast
-integration.
+Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
 
-For example, Cast devices can only be discovered if they are on the same subnet
-as Home Assistant. If this is not the case,
-you want to configure the IP address of the Cast device directly:
+## Advanced use
+
+Cast devices can only be discovered if they are on the same subnet as Home Assistant. If this is not the case, you need to configure the IP address of the Cast device directly:
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,10 +48,6 @@ cast:
   media_player:
     - host: 192.168.1.10
 ```
-
-<div class='note'>
-You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
-</div>
 
 {% configuration %}
 media_player:
@@ -64,14 +66,3 @@ media_player:
       required: false
       type: list
 {% endconfiguration %}
-
-If you want to manually configure multiple Cast media players, you can define
-those as follows:
-
-```yaml
-# Example configuration.yaml entry for multiple devices
-cast:
-  media_player:
-    - host: IP_ADDRESS_DEVICE_1
-    - host: IP_ADDRESS_DEVICE_2
-```

@@ -122,3 +122,10 @@ sensor:
     vehicle_type: motorcycle  # vehicle type used for route
 ```
 {% endraw %}
+
+## Using the live map in a iFrame
+
+If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
+in Lovelace [iframe](/lovelace/iframe/) then use
+[https://embed.waze.com/iframe](https://embed.waze.com/iframe) and not the live map URL itself.
+

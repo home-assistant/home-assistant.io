@@ -10,7 +10,7 @@ redirect_from:
  - /components/google/
 ---
 
-The `google_translate` text-to-speech platform uses unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
+The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
 
 <div class='note'>
 

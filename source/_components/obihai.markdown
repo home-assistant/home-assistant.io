@@ -36,6 +36,7 @@ password:
   default: admin
 {% endconfiguration %}
 
+
 The following is a list of expected sensors and their expected states:
 
 - Obihai service status (`Normal`, `Down` or other states from Obihais network)
@@ -44,3 +45,4 @@ The following is a list of expected sensors and their expected states:
 - Sensor if the device requires a reboot (`True` or `False`)
 - Sensor for each configured service (`0` for no calls, `1` for a call and `2` for call waiting/3way calling)
 - Sensor for the last reboot date
+
