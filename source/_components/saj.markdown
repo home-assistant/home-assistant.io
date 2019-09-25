@@ -6,8 +6,6 @@ ha_category:
 logo: saj.png
 ha_iot_class: Local Polling
 ha_release: "0.100"
-redirect_from:
- - /components/sensor.saj/
 ---
 
 The `saj` sensor will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.
@@ -23,10 +21,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: saj
     host: IP_ADDRESS_OF_DEVICE
-    monitored_conditions:
-      - current_power
-      - today_yield
-      - total_yield
 ```
 
 {% configuration %}
