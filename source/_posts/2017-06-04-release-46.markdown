@@ -63,7 +63,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
-- bump fedex version ([@happyleavesaoc] - [#7653]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#7653])
 - bump ups version ([@happyleavesaoc] - [#7654])
 - update usps ([@happyleavesaoc] - [#7655]) (breaking change)
 - Final tweaks for Zwave panel ([@turbokongen] - [#7652]) ([zwave docs])
@@ -360,7 +360,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.amcrest docs]: /components/sensor.amcrest/
 [sensor.arlo docs]: /components/sensor.arlo/
 [sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.history_stats docs]: /components/sensor.history_stats/
 [sensor.hp_ilo docs]: /components/sensor.hp_ilo/
 [sensor.influxdb docs]: /components/sensor.influxdb/
