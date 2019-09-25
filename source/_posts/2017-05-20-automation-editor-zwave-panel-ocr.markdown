@@ -115,7 +115,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - LIFX: avoid out-of-bounds hue aborting the colorloop effect ([@amelchio] - [#7495])
 - Upgrade async_timeout to 1.2.1 ([@fabaff] - [#7490])
 - Prevent printing of packets. ([@aequitas] - [#7492]) ([rflink docs])
-- Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([device_tracker.linksys_ap docs]) ([sensor.scrape docs])
+- Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([sensor.scrape docs])
 - Switch onkyo to pypi ([@andrey-git] - [#7497]) ([media_player.onkyo docs])
 - Fixed potential AttributeError when checking for deleted sources ([@scarface-4711] - [#7502]) ([media_player.denonavr docs])
 - Refactor sun component for correctness ([@armills] - [#7295])
@@ -353,7 +353,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.lutron_caseta docs]: /components/cover.lutron_caseta/
 [datadog docs]: /components/datadog/
 [device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.linksys_ap docs]: /components/device_tracker.linksys_ap/
 [device_tracker.unifi docs]: /components/device_tracker.unifi/
 [dweet docs]: /components/dweet/
 [eight_sleep docs]: /components/eight_sleep/
