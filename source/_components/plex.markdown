@@ -170,6 +170,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
   If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans to, respectively, `true` and `false`.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
+* The `play_media` service is broken and [has been broken for a long time](https://github.com/home-assistant/home-assistant/issues/19623).
 
 ## Sensor
 
