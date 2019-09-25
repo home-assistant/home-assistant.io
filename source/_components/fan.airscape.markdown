@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Airscape Whole House fans into Ho
 logo: airscape.png
 ha_category:
   - Fan
-ha_release: 0.100
+ha_release: "0.100"
 ha_iot_class: Local Polling
 ---
 
