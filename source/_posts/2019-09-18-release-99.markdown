@@ -166,6 +166,18 @@ Forgot to include frontend update 99.1.
 - Show toast on success save entity settings ([#3763](https://github.com/home-assistant/home-assistant-polymer/pull/3763)) [@bramkragten]
 - Align behaviour state badge ([#3767](https://github.com/home-assistant/home-assistant-polymer/pull/3767)) [@bramkragten]
 
+## Release 0.99.3 - September 25
+
+- Bump zigpy-zigate to 0.3.1 ([@doudz] - [#26600]) ([zha docs])
+- HM-CC-TC was not recognized ([@MajestyIV] - [#26623]) ([homematic docs])
+
+[#26600]: https://github.com/home-assistant/home-assistant/pull/26600
+[#26623]: https://github.com/home-assistant/home-assistant/pull/26623
+[@majestyiv]: https://github.com/MajestyIV
+[@doudz]: https://github.com/doudz
+[homematic docs]: /components/homematic/
+[zha docs]: /components/zha/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
