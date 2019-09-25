@@ -220,7 +220,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
    Integrations which make use of web scraping and are pending for removal in Home Assistant 0.100.0 [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md):
    - **USPS** - ([@frenck] - [#25743]) ([usps docs])
    - **SYTADIN** - ([@frenck] - [#25742])
-   - **UPS** - ([@frenck] - [#25746]) ([ups docs])
+   - **UPS** - ([@frenck] - [#25746])
    - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
    - **SRP Energy** - ([@frenck] - [#25754])
    - **Linksys AP** - ([@frenck] - [#25804])
@@ -349,7 +349,7 @@ anymore. - ([@abmantis] - [#25971])
 - Manufacturer specific channel for SmartThings. ([@Adminiuga] - [#25739]) ([zha docs])
 - Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) ([usps docs]) (breaking change)
 - Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) (breaking change)
-- Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) ([ups docs]) (breaking change)
+- Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) (breaking change)
 - Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
 - Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) (breaking change)
 - Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
@@ -877,7 +877,6 @@ anymore. - ([@abmantis] - [#25971])
 [unifi docs]: /components/unifi/
 [updater docs]: /components/updater/
 [upnp docs]: /components/upnp/
-[ups docs]: /components/ups/
 [usps docs]: /components/usps/
 [vacuum docs]: /components/vacuum/
 [velbus docs]: /components/velbus/

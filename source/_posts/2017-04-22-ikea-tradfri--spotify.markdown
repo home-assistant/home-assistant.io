@@ -138,7 +138,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
 - more tests for slugify ([@micw] - [#7027])
 - Additional ZWave coverage ([@armills] - [#7024]) ([zwave docs])
-- bump ups version ([@happyleavesaoc] - [#7033]) ([sensor.ups docs])
+- bump ups version ([@happyleavesaoc] - [#7033])
 - update usps version ([@happyleavesaoc] - [#7035]) ([sensor.usps docs])
 - update fedex ([@happyleavesaoc] - [#7034]) ([sensor.fedex docs])
 - Google TTS can't read percent sign (#6971) ([@pezinek] - [#7030]) ([tts.google docs])
@@ -467,7 +467,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.ups docs]: /components/sensor.ups/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
 [sun docs]: /components/sun/
