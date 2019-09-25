@@ -4,9 +4,7 @@ description: "Instructions on how to add Apprise notifications to Home Assistant
 logo: apprise.png
 ha_category:
   - Notifications
-ha_release: 0.8.0
-redirect_from:
- - /components/notify.apprise/
+ha_release: "0.100"
 ---
 
 The [Apprise service](https://github.com/caronc/apprise/) is a all-in-on solution to open up Home Assistant to _just about_ every Notification platform (such as Amazon SNS, Discord, Telegram, Slack, MSTeams, Twilio etc.
