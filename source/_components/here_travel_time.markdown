@@ -15,7 +15,7 @@ The `here_travel_time` sensor provides travel time from the [HERE Routing API](h
 
 You need to register for an API key by following the instructions [here](https://developer.here.com/documentation/routing/topics/introduction.html?create=Freemium-Basic&keepState=true&step=account).
 
-HERE offers a Freemium Plan which includes 250.000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multistop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
+HERE offers a Freemium Plan which includes 250.000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
 
@@ -45,27 +45,27 @@ app_code:
   required: true
   type: string
 origin_latitude:
-  description: "The starting latitude for calculating travel distance and time. Must be used in combination with origin_longitude. Cannot be used in combination with origin_entity_id"
+  description: "The starting latitude for calculating travel distance and time. Must be used in combination with origin_longitude. Cannot be used in combination with `origin_entity_id`."
   required: exclusive
   type: float
 origin_longitude:
-  description: "The starting longitude for calculating travel distance and time. Must be used in combination with origin_latitude. Cannot be used in combination with origin_entity_id"
+  description: "The starting longitude for calculating travel distance and time. Must be used in combination with origin_latitude. Cannot be used in combination with `origin_entity_id`."
   required: exclusive
   type: float
 destination_latitude:
-  description: "The finishing latitude for calculating travel distance and time. Must be used in combination with destination_longitude. Cannot be used in combination with destination_entity_id"
+  description: "The finishing latitude for calculating travel distance and time. Must be used in combination with destination_longitude. Cannot be used in combination with `destination_entity_id`."
   required: exclusive
   type: float
 destination_longitude:
-  description: "The finishing longitude for calculating travel distance and time. Must be used in combination with destination_latitude. Cannot be used in combination with destination_entity_id"
+  description: "The finishing longitude for calculating travel distance and time. Must be used in combination with destination_latitude. Cannot be used in combination with `destination_entity_id`."
   required: exclusive
   type: float
 origin_entity_id:
-  description: "The entity_id holding the starting point for calculating travel distance and time. Cannot be used in combination with origin_latitude / origin_longitude"
+  description: "The entity_id holding the starting point for calculating travel distance and time. Cannot be used in combination with `origin_latitude`/`origin_longitude`."
   required: exclusive
   type: string
 destination_entity_id:
-  description: "The entity_id holding the finishing point for calculating travel distance and time. Cannot be used in combination with destination_latitude / destination_longitude"
+  description: "The entity_id holding the finishing point for calculating travel distance and time. Cannot be used in combination with `destination_latitude`/`destination_longitude`."
   required: exclusive
   type: string
 name:
@@ -74,7 +74,7 @@ name:
   type: string
   default: "HERE Travel Time"
 mode:
-  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport publicTransportTimetable is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
+  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport `publicTransportTimetable` is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
   required: false
   type: string
   default: "car"
@@ -102,7 +102,7 @@ scan_interval:
 
 ## Dynamic Configuration
 
-Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates, it will use the latest location of that entity.
 
 ```yaml
 # Example entry for configuration.yaml
