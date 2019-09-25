@@ -16,7 +16,7 @@ The `airscape` fan platform lets you control your network connected Airscape Who
 # Example configuration.yaml entry
 fan:
   - platform: airscape
-    name: "Whole House Fan"
+    name: NAME_FOR_ENTITY
     host: IP_ADDRESS
 ```
 
