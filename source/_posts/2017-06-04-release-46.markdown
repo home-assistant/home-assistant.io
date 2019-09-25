@@ -32,7 +32,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 
 ## Breaking changes
 
-- The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+- The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
 - Redesign monitored variables for hp_ilo sensor. `monitored_variables` is now a list of `name` and `sensor_type` values ([@Juggels] - [#7534]) ([sensor.hp_ilo docs]) (breaking change)
 
@@ -65,7 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
 - bump fedex version ([@happyleavesaoc] - [#7653]) ([sensor.fedex docs])
 - bump ups version ([@happyleavesaoc] - [#7654])
-- update usps ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+- update usps ([@happyleavesaoc] - [#7655]) (breaking change)
 - Final tweaks for Zwave panel ([@turbokongen] - [#7652]) ([zwave docs])
 - Add network_key as a config option ([@robbiet480] - [#7637]) ([zwave docs])
 - Bugfix #7586 ([@turbokongen] - [#7661]) ([lock.zwave docs])
@@ -368,7 +368,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.snmp docs]: /components/sensor.snmp/
 [sensor.synologydsm docs]: /components/sensor.synologydsm/
 [sensor.time_date docs]: /components/sensor.time_date/
-[sensor.usps docs]: /components/sensor.usps/
 [switch.broadlink docs]: /components/switch.broadlink/
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rflink docs]: /components/switch.rflink/
