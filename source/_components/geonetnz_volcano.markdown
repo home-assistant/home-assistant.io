@@ -23,6 +23,10 @@ on the default map automatically.
   <img src='{{site_root}}/images/screenshots/geonetnz-volcano-feed-map.png' />
 </p>
 
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/geonetnz-volcano-sensor.png' />
+</p>
+
 The data is updated every 5 minutes.
 
 <div class='note'>
