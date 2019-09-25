@@ -47,8 +47,4 @@ xuid:
   description: Array of profile XUIDs to be tracked.
   required: true
   type: list
-scan_interval:
-  description: How often Home Assistant should poll [XboxAPI.com](http://xboxapi.com).
-  required: false
-  type: integer
 {% endconfiguration %}
