@@ -219,11 +219,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
    Integrations which make use of web scraping and are pending for removal in Home Assistant 0.100.0 [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md):
    - **USPS** - ([@frenck] - [#25743]) ([usps docs])
-   - **SYTADIN** - ([@frenck] - [#25742]) ([sytadin docs])
+   - **SYTADIN** - ([@frenck] - [#25742])
    - **UPS** - ([@frenck] - [#25746])
    - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
-   - **SRP Energy** - ([@frenck] - [#25754]) ([srp_energy docs])
-   - **Linksys AP** - ([@frenck] - [#25804]) ([linksys_ap docs])
+   - **SRP Energy** - ([@frenck] - [#25754])
+   - **Linksys AP** - ([@frenck] - [#25804])
 
 - **Ruter** - *Removed* - Ruter Labs which hosted the API has shut down the service. As an alternative, see the Entur public transport integration. - ([@ludeeus] - [#26041])
 - **Googlehome** - *Removed* - In recent months this integration was broken when Google changed the port they serve this information on, in addition to requiring a token header in the request. That method requires the user to have a rooted android device, and even then then the "result" was not the best, since you often need to get that token. As an alternative to the device tracker, users can look into https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505 - ([@ludeeus] - [#26035])
@@ -348,14 +348,14 @@ anymore. - ([@abmantis] - [#25971])
 - Add test case to identify missing MQTT configuration abbreviations ([@emontnemery] - [#25616]) ([mqtt docs])
 - Manufacturer specific channel for SmartThings. ([@Adminiuga] - [#25739]) ([zha docs])
 - Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) ([usps docs]) (breaking change)
-- Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) ([sytadin docs]) (breaking change)
+- Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) (breaking change)
 - Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) (breaking change)
 - Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
-- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) ([srp_energy docs]) (breaking change)
+- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) (breaking change)
 - Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
 - Integration requirement check refactor ([@elupus] - [#25626])
 - Add Mikrotik hub and rework device tracker ([@slackr31337] - [#25664]) ([mikrotik docs]) (breaking change)
-- Deprecates linksys_ap integration (ADR-0004) ([@frenck] - [#25804]) ([linksys_ap docs]) (breaking change)
+- Deprecates linksys_ap integration (ADR-0004) ([@frenck] - [#25804]) (breaking change)
 - Fix Broadlink MP1 unavailable error ([@miroslawkrol] - [#25806]) ([broadlink docs])
 - Add arcus trigonometry functions to templates ([@tomilehto] - [#25510])
 - Add error handling to !include command in yaml ([@thomasloven] - [#25801])
@@ -418,7 +418,7 @@ anymore. - ([@abmantis] - [#25971])
 - Fix bmw_connected_drive and eq3btsmart components by updating their dependencies ([@OliverRepo] - [#26012]) ([bmw_connected_drive docs]) ([eq3btsmart docs])
 - Upgrade luftdaten to 0.6.3 ([@fabaff] - [#26009]) ([luftdaten docs])
 - Upgrade pysnmp to 4.4.11 ([@fabaff] - [#26010]) ([snmp docs])
-- Upgrade beautifulsoup4 to 4.8.0 ([@fabaff] - [#26006]) ([linksys_ap docs]) ([scrape docs]) ([sytadin docs])
+- Upgrade beautifulsoup4 to 4.8.0 ([@fabaff] - [#26006]) ([scrape docs])
 - Allow entities to indicate they should be disabled by default ([@balloob] - [#26011])
 - Hue tweak registered device type + discovery exception ([@balloob] - [#25977]) ([hue docs])
 - Fix config entry has options check ([@balloob] - [#25976]) ([config docs])
@@ -821,7 +821,6 @@ anymore. - ([@abmantis] - [#25971])
 [kodi docs]: /components/kodi/
 [lacrosse docs]: /components/lacrosse/
 [life360 docs]: /components/life360/
-[linksys_ap docs]: /components/linksys_ap/
 [luci docs]: /components/luci/
 [luftdaten docs]: /components/luftdaten/
 [lutron docs]: /components/lutron/
@@ -863,11 +862,9 @@ anymore. - ([@abmantis] - [#25971])
 [snmp docs]: /components/snmp/
 [sonos docs]: /components/sonos/
 [sql docs]: /components/sql/
-[srp_energy docs]: /components/srp_energy/
 [statistics docs]: /components/statistics/
 [stream docs]: /components/stream/
 [syncthru docs]: /components/syncthru/
-[sytadin docs]: /components/sytadin/
 [tado docs]: /components/tado/
 [tellduslive docs]: /components/tellduslive/
 [template docs]: /components/template/

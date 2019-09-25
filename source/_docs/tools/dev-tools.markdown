@@ -21,7 +21,7 @@ Screenshot of Home Assistant's Developer Tools.
 ## What can I do with Developer Tools?
 The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, update states, raising events, and publish messages in mqtt…etc.). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the section in detail.
 
-Services
+## Services
 
 This section is used to call Services that are available in the ServiceRegistry.
 
@@ -45,7 +45,7 @@ To turn on a light bulb, use the following steps:
   "rgb_color": [255, 0, 0]
 }
 ```
-States
+## States
 
 This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, click on the entity, scroll to the top, and modify the values, and click on “SET STATE” button.
 
@@ -53,7 +53,7 @@ Note that this is the state representation of a device within Home Assistant. Th
 
 For ex: Changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden. In other words, the changes that are made through the “States” section are temporary, and is recommended to use for testing purposes only.
 
-Events
+## Events
 
 This Events section is as basic as it can get. It does only one thing – fires events on the event bus.
 To fire an event, simply type the name of the event, and pass the event data in JSON format.
@@ -75,7 +75,7 @@ If there is an automation that handles that event, it will be automatically trig
         message: "Light is turned {{ trigger.event.data.state }}"
 ```
 
-Template Editor
+## Template Editor
 
 The Template Editor provides a way to test the template code quickly. When the Template Editor page is loaded, it comes with a sample template code that illustrates how the code can be written and tested.
 
@@ -86,12 +86,12 @@ It is a good practice to test the template code in the template editor prior to 
 For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](/topics/templating/)
 
 
-mqtt
+## MQTT
 
 This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/components/mqtt/) component.
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 
-Info
+## Info
 
 The Information tab simply provides information about the current installed version, additional links and credits. The tab also contains a section that shows `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.

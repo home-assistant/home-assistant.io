@@ -37,7 +37,7 @@ device_tracker:
 track_new_devices:
   description: If new discovered devices are tracked by default.
   required: false
-  default: true
+  default: false
   type: boolean
 interval_seconds:
   description: Seconds between each scan for new devices.
