@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.17
 ---
 
-The `nzbget` platform will allow you to monitor your downloads with [NZBGet](http://NZBGet.net) from within Home Assistant and setup automation based on the information.
+The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](http://NZBGet.net) from within Home Assistant and setup automation based on the information.
 
 ## Configuration
 
@@ -65,3 +65,16 @@ This component will create these sensors:
 - `post_paused`: Paused posts
 - `remaining_size`: Remaining size to download
 - `uptime`: Uptime of NZBGet
+
+## Services
+
+Available services: 
+  - `pause`: Pause the download queue.
+  - `resume`: Resume the download queue.
+  - `set_speed`: Set the download queue speed limit.
+
+### Service `nzbget/set_speed`
+
+| Service data attribute | Optional | Description                                                                                                                                                                             |
+|------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `speed`                |      yes | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
