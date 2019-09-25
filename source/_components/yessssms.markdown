@@ -63,16 +63,28 @@ recipient:
   required: true
   type: string
 provider:
-  description: Possible values are `yesss`, `billitel`, `EDUCOM`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `SIMfonie`, `teleplanet`, `WOWWW` and `yooopi`.
+  description: Possible values are `yesss`, `billitel`, `educom`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `simfonie`, `teleplanet`, `wowww` and `yooopi`.
   required: false
   default: "YESSS"
   type: string
 {% endconfiguration %}
 
+For an alternative provider you would set the `provider` option. An example configuration for the `educom` provider with SMS to yourself would be:
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: sms_to_self
+    platform: yessssms
+    username: 06641234567
+    password: tops3cr3tpass0rd
+    recipient: 06641234567
+    provider: educom
+```
+
 <div class='note warning'>
-
-Verify that your credentials work on the website of your provider. Using the wrong credentials three times in a row will get you suspended for one hour.
-Home Assistant will not try to login after the account has been suspended.
-Re-check the credentials and restart Home Assistant.
-
+Verify that your credentials work on the website of your provider.
+Using the wrong credentials three times in a row will get you suspended for one hour.
 </div>
+
+Home Assistant will check your credentials on startup. Check the logs for errors. 
+If the login credentials are not valid, re-check the credentials and restart Home Assistant.
