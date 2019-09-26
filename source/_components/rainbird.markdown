@@ -100,7 +100,7 @@ Please note that due to the implementation of the API within the LNK Module, the
 
 This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-The component adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
+The integration adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
 
 ## Switch
 
