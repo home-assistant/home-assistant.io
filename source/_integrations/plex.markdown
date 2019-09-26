@@ -19,9 +19,9 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Sensor](#sensor)
 
-If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be prompted to enter a Plex token which will query a Plex service to find a server linked to the associated account. If multiple Plex servers are available, you will be prompted to complete the configuration by selecting the desired server on the Integrations page.
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [plex.tv](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
 <div class='note info'>
 
@@ -31,7 +31,7 @@ Local and secure connections are preferred when setting up an Integration. After
 
 Alternatively, you can manually configure a Plex server connection by selecting the "Manual setup" option when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are similar to the **Configuration Variables** section below.
 
-If [discovery](/components/discovery/) is enabled and a local Plex server is found, the server will automatically import an available legacy `media_player` configuration. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
+If [discovery](/components/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
