@@ -151,7 +151,38 @@ The Ecobee climate entity has some extra attributes to represent the state of th
 
 ## Services
 
-Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra services are provided by the Ecobee Thermostat: `ecobee.resume_program` and `ecobee.set_fan_min_on_time`.
+Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra services are provided by the Ecobee integration:
+
+- `ecobee.create_vacation`
+- `ecobee.delete_vacation`
+- `ecobee.resume_program`
+- `ecobee.set_fan_min_on_time`
+
+### Service `ecobee.create_vacation`
+
+Creates a vacation on the selected ecobee thermostat.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | no       | ecobee thermostat on which to create the vacation |
+| `vacation_name`        | no       | Name of the vacation to create; must be unique on the thermostat |
+| `cool_temp`            | no       | Cooling temperature during the vacation |
+| `heat_temp`            | no       | Heating temperature during the vacation |
+| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format |
+| `start_time`           | yes      | Time the vacation starts, in the local time of the thermostat, in the 24-hour format HH:MM:SS |
+| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided) |
+| `end_time`             | yes      | Time the vacation ends, in the local time of the thermostat, in the 24-hour format HH:MM:SS |
+| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided) |
+| `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
+
+### Service `ecobee.delete_vacation`
+
+Delete a vacation on the selected ecobee thermostat.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
+| `vacation_name`        | no       | Name of the vacation to delete |
 
 ### Service `ecobee.resume_program`
 
