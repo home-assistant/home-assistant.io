@@ -79,7 +79,7 @@ verify_ssl:
   default: true
   type: boolean
 media_player:
-  description: Options to customize behavior of `media_player` entities.
+  description: Options to set the default behavior of `media_player` entities for new Integrations. **NOTE:** These options are exposed as Configuration Options (**Integrations** -> **Configured** --> **Plex** --> **Gear Icon**). Configuration Options will take precedence.
   required: false
   type: map
   keys:
