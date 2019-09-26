@@ -66,7 +66,7 @@ zones:
 {% endconfiguration %}
 
 
-More complex configuration using all possibe features could look like tihs example:
+More complex configuration using all possible features could look like this example:
 ```yaml
 # Example configuration.yaml entry
 rainbird:
