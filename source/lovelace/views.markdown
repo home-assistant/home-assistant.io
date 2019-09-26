@@ -50,6 +50,10 @@ views:
       required: false
       description: Themes view and cards, more info below.
       type: string
+    hide:
+      required: false
+      description: "Hide the view from all users or a list of users to hide the view from."
+      type: boolean or list
 {% endconfiguration %}
 
 ## Options For Badges
