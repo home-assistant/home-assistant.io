@@ -43,7 +43,7 @@ password:
   required: true
   type: string
 trigger_time:
-  description: Irrigation time. Seconds are ignored.
+  description: Irrigation time. The time will be rounded down to whole minutes.
   required: true
   type: time
 zones:
