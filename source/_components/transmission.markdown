@@ -31,7 +31,7 @@ If everything is set up correctly, the details will show up in the frontend.
 
 ## Configuration
 
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **Transmission**. For legacy support old transmission configuration is imported and set up as new integration.
+Set up the integration through **Configuration** -> **Integrations** -> **Transmission**. For legacy support old transmission configuration is imported and set up as new integration.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
