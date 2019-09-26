@@ -16,9 +16,11 @@ It shows information of those volcanoes filtered by distance to Home Assistant's
 location.
 
 Entities are generated and updated automatically with each update 
-from the feed. Each entity defines the volcanic alert level as its state. 
-Latitude and longitude of the volcano are included as attributes to show 
-on the default map automatically.
+from the feed. Each entity defines the [volcanic alert level](https://www.geonet.org.nz/about/volcano/val) 
+as its state.  Latitude and longitude of the volcano are included as attributes 
+to show on the default map automatically.
+
+The data is updated every 5 minutes.
 
 <p class='img'>
   <img src='{{site_root}}/images/components/geonetnz_volcano/map.png' />
@@ -27,8 +29,6 @@ on the default map automatically.
 <p class='img'>
   <img src='{{site_root}}/images/components/geonetnz_volcano/sensor.png' />
 </p>
-
-The data is updated every 5 minutes.
 
 <div class='note'>
 
