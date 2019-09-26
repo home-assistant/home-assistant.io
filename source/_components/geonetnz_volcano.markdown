@@ -21,11 +21,11 @@ Latitude and longitude of the volcano are included as attributes to show
 on the default map automatically.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geonetnz-volcano-feed-map.png' />
+  <img src='{{site_root}}/images/components/geonetnz_volcano/map.png' />
 </p>
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geonetnz-volcano-sensor.png' />
+  <img src='{{site_root}}/images/components/geonetnz_volcano/sensor.png' />
 </p>
 
 The data is updated every 5 minutes.
