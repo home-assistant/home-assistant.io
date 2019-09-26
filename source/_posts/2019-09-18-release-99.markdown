@@ -170,6 +170,7 @@ Forgot to include frontend update 99.1.
 
 - Bump zigpy-zigate to 0.3.1 ([@doudz] - [#26600]) ([zha docs])
 - HM-CC-TC was not recognized ([@MajestyIV] - [#26623]) ([homematic docs])
+- Bring back babel for ES5 builds @bramkragten
 
 [#26600]: https://github.com/home-assistant/home-assistant/pull/26600
 [#26623]: https://github.com/home-assistant/home-assistant/pull/26623
