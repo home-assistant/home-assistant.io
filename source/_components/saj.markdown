@@ -28,11 +28,6 @@ host:
   description: The IP address of the SAJ Solar Inverter.
   required: true
   type: string
-monitored_conditions:
-  description: A list of sensors that will be added. Refer to the table in the Sensors section below. If not specified all the sensors in the library will be added.
-  required: false
-  default: All sensors
-  type: list
 {% endconfiguration %}
 
 ## Sensors
