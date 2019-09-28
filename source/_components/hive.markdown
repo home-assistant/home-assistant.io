@@ -62,7 +62,7 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
-## Service - Boost Heating
+### Service `hive.boost_heating`
 
 You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
 
