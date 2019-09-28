@@ -81,9 +81,9 @@ password_file /etc/mosquitto/pwfile
 Create a password for `mosquitto-ext`
  
 ```bash
-$ docker exec -it mosquitto-ext /bin/bash
-$ cd /etc/mosquitto/
-$ mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
+docker exec -it mosquitto-ext /bin/bash
+cd /etc/mosquitto/
+mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
 ```
  
 ### OwnTracks settings for Android

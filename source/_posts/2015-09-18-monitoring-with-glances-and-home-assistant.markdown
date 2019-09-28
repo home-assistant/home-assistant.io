@@ -22,14 +22,14 @@ In this post a default Fedora 22 Workstation installation is used on the host th
 First some extra packages are needed beside Glances, especially the [bottle](http://bottlepy.org/docs/dev/index.html) webserver. I guess that Glances is available for your distribution as well. Otherwise follow those [instructions](https://github.com/nicolargo/glances#installation).
 
 ```bash
-$ sudo dnf -y install glances python-bottle
+sudo dnf -y install glances python-bottle
 ```
 
 On Fedora the Firewall settings are strict. Let's open port 61208 to allow other hosts to connect to that port. This is not needed if you just want to observe your local machine. 
 
 ```bash
-$ sudo firewall-cmd --permanent --add-port=61208/tcp
-$ sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-port=61208/tcp
+sudo firewall-cmd --reload
 ```
 
 Launch `glances` and keep an eye on the output.

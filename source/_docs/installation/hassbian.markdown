@@ -16,6 +16,6 @@ Hassbian is our customized operating system for the Raspberry Pi Zero, 2,3 and 3
 When instructions tell you to activate the virtual environment to install a Python library, or perform some tasks, the following commands will do this:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
 ```

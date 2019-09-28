@@ -63,8 +63,8 @@ It's a good idea to change the password. To do so, use the `passwd` command.
 Next, type the following two commands into the SSH console:
 
 ```bash
-$ sudo systemctl enable install_homeassistant.service
-$ sudo systemctl start install_homeassistant.service
+sudo systemctl enable install_homeassistant.service
+sudo systemctl start install_homeassistant.service
 ```
 
 Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.

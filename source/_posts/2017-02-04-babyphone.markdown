@@ -29,10 +29,10 @@ We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_n
 On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install an [icecast2](http://icecast.org/) server using:
 
 ```bash
-$ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
-$ sudo apt-get update
-$ sudo apt-get -t jessie-backports install ffmpeg
-$ sudo apt-get install icecast2
+sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get -t jessie-backports install ffmpeg
+sudo apt-get install icecast2
 ```
 
 We setup an icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:

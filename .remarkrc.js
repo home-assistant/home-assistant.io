@@ -10,7 +10,8 @@ var remarkrc = {
     },
     plugins: [
         ["frontmatter"],
-        ["lint-fenced-code-flag"]
+        ["lint-fenced-code-flag"],
+        ["lint-no-shell-dollars"]
     ]
 };
 

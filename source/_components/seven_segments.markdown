@@ -22,14 +22,14 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 `ssocr` needs to be available on your system. Check the installation instruction below:
 
 ```bash
-$ sudo dnf -y install imlib2-devel # Fedora
-$ sudo apt install libimlib2-dev # Ubuntu
-$ brew install imlib2 # macOS
-$ git clone https://github.com/auerswal/ssocr.git
-$ cd ssocr
-$ make
-$ sudo make PREFIX=/usr install # On most systems
-$ make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
+sudo dnf -y install imlib2-devel # Fedora
+sudo apt install libimlib2-dev # Ubuntu
+brew install imlib2 # macOS
+git clone https://github.com/auerswal/ssocr.git
+cd ssocr
+make
+sudo make PREFIX=/usr install # On most systems
+make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
 ```
 
 To enable the OCR of a seven segment display in your installation, add the following to your `configuration.yaml` file:
