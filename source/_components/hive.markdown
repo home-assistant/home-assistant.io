@@ -27,8 +27,6 @@ This integration uses the unofficial API used in the official Hive website [http
 
 There is currently support for the following device types within Home Assistant:
 
-- [Service - Boost Heating](#service---boost-heating)
-- [Service - Boost Hotwater](#service---boost-hotwater)
 - [Platforms](#platforms)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -114,7 +112,7 @@ script:
 
 <div class='note'>
 
-You must have the [Hive component](/components/hive/) configured to use the platforms below.
+You must have the [Hive integration](/components/hive/) configured to use the platforms below.
 
 </div>
 
@@ -136,7 +134,7 @@ A short boost for Hive Heating can be set by using the **Boost** preset, this wi
 The platform supports the following Hive products:
 
 - Hive Active Heating
-- Hive Multi zone
+- Hive Multi-zone
 
 ## Light
 
