@@ -86,7 +86,7 @@ script:
           temperature: "20.5"
 ```
 
-## Service - Boost Hotwater
+### Service `hive.boost_hotwater`
 
 You can use the service `hive.boost.hotwater` to set your hot water to boost for a period of time.
 
