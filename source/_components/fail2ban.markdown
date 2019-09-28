@@ -79,7 +79,7 @@ Next, we need to edit the `jail.local` file that is included with the Let's Encr
 
 Edit `/mnt/user/appdata/letsencrypt/fail2ban/jail.local` and append the following to the end of the file:
 
-```
+```txt
 [hass-iptables]
 enabled = true
 filter = hass
@@ -92,7 +92,7 @@ maxretry = 5
 
 Now we need to create a filter for `fail2ban` so that it can properly parse the log.  This is done with a `failregex`.  Create a file called `hass.local` within the `filter.d` directory in `/mnt/user/appdata/letsencrypt/fail2ban` and add the following:
 
-```
+```txt
 [INCLUDES]
 before = common.conf
 
@@ -109,7 +109,7 @@ datepattern = ^%%Y-%%m-%%d %%H:%%M:%%S
 
 First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt docker, you need to add the following argument (adjust paths based on your setup):
 
-```
+```txt
 /mnt/user/appdata/home-assistant:/hass
 ```
 
@@ -117,7 +117,7 @@ This will map the Home Assistant configuration directory to the Let's Encrypt do
 
 Now do the same for the Home Assistant docker, but this time we'll be mapping the `fail2ban` log directory to Home Assistant so that the fail2ban sensor is able to read that log:
 
-```
+```txt
 /mnt/user/appdata/letsencrypt/log/fail2ban:/fail2ban
 ```
 
@@ -191,7 +191,7 @@ If, after following these steps, you're unable to get the `fail2ban` sensor work
 - Add `logencoding = utf-8` to the `[hass-iptables]` entry
 - Ensure the `failregex` you added to `filter.d/hass.local` matches the output within `home-assistant.log`
 - Try changing the datepattern in `filter.d/hass/local` by adding the following entry (change the datepattern to fit your needs). [source](https://github.com/fail2ban/fail2ban/issues/174)
-    ```
+    ```txt
     [Init]
     datepattern = ^%%Y-%%m-%%d %%H:%%M:%%S
     ```

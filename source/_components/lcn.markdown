@@ -339,7 +339,7 @@ Whenever the address of a module or a group has to be specified, it can be addre
 
 Example for modules:
 
-```
+```txt
 connid.s000.m007
 connid.s0.m7
 s0.m7
@@ -348,7 +348,7 @@ s0.m7
 
 Example for groups:
 
-```
+```txt
 connid.s000.g007
 connid.s0.g7
 s0.g7

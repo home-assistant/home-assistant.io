@@ -94,7 +94,7 @@ So let's call the API on `habitica.api_call`.
 Combining all together:
 call `habitica.api_call` with data
 
-```
+```json
 {
   "name": "xxxNotAValidNickxxx",
   "path": ["tasks", "user", "post"],
@@ -108,7 +108,7 @@ This call will create a new todo on `xxxNotAValidNickxxx`'s account with text `U
 
 Also an event `habitica_api_call_success` will be fired with the following data:
 
-```
+```json
 {
   "name": "xxxNotAValidNickxxx",
   "path": ["tasks", "user", "post"],

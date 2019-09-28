@@ -54,7 +54,7 @@ You will need to enable the software collection each time you log on before you 
 
 To autostart Home Assistant using systemd follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
 
-```
+```txt
 [Unit]
 Description=Home Assistant
 After=network.target

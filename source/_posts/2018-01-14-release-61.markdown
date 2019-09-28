@@ -144,7 +144,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - The `climate.set_aux_heat` service is no longer available for the Sensibo climate platform. Now call `climate.turn_on` or `climate.turn_off`. ([@andrey-git] - [#11579]) ([climate.sensibo docs]) (breaking change)
 - Release 0.61.0 introduced a lazy service loading strategy that relied on all components and platforms following our naming convention. After the release we realized that not all services did, which have been addressed by this fix.  This results in certain services changing names:
 
-   ```
+   ```yaml
    todoist.new_task -> calendar.todoist_new_task
 
    snapcast.snapcast_snapshot -> media_player.snapcast_snapshot

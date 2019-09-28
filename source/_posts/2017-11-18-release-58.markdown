@@ -31,7 +31,7 @@ Thanks to [@Andrey-git] we now are able to serve the frontend in modern JavaScri
 
 To try it once, add `?latest` to your Home Assistant bookmark. To make it the default on your installation, update your config to look like this:
 
-```
+```yaml
 frontend:
   javascript_version: latest
 ```

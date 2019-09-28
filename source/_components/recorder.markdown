@@ -174,7 +174,7 @@ $ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 
 and add the service for the database, for example, PostgreSQL:
 
-```
+```txt
 [Unit]
 Description=Home Assistant
 After=network.target postgresql.service

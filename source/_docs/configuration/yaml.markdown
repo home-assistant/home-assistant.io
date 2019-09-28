@@ -96,7 +96,7 @@ More information about this feature can also be found at [splitting configuratio
 
 If you see the following message:
 
-```
+```txt
 found character '\t' that cannot start any token
 ```
 

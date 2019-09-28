@@ -48,7 +48,7 @@ Example output
 
 You will find an example below when the state is "on".
 
-```
+```yaml
 attribution: Information provided by MeteoAlarm
 language: en-GB
 category: Met

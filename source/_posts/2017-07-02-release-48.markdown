@@ -87,7 +87,7 @@ homeassistant:
 - Vera battery levels will no longer have the percent sign appended ([@philhawthorne] - [#8069]) ([vera docs]) (breaking change)
 - Notify - SMTP: Added SMTP SSL/TLS support so now you should specify which encryption to use. ([@sn0oz] - [#7960]) ([notify.smtp docs]) (breaking change)
 
-```
+```yaml
 notify:
   - name: mail
     platform: smtp

@@ -110,7 +110,7 @@ The endpoint that is receiving the data is `http://[IP address Home Assistant]:8
 
 With `api_password:`
 
-```
+```bash
 $ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?api_password%3D[api_password]%26[action]%3D[ID of the button]" \
     http://[IP address of the button]/api/v1/device/[MAC address of the button]
 ```

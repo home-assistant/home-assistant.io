@@ -72,7 +72,7 @@ Normally the `/sys/class/gpio` path is owned by root, so Home Assistant does not
 
 Create a new file in `/etc/udev/rules.d/` named `10-gpio.rules` with the following contents:
 
-```
+```txt
 SUBSYSTEM=="gpio*", PROGRAM="/bin/sh -c 'find -L /sys/class/gpio/ -maxdepth 2 -exec chown root:gpio {} \; -exec chmod 770 {} \; || true'"
 ```
 

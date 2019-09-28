@@ -247,7 +247,7 @@ $ ls -l /dev/ttyAMA0
 
 You should then see something like this:
 
-```
+```txt
 crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
 ```
 
@@ -282,7 +282,7 @@ Then the problem is that you're missing `libudev-dev` (or the equivalent for you
 
 If you're having random failures of the mesh, devices going missing, things randomly not working, check your `OZW_Log.txt` for the following messages:
 
-```
+```txt
 WARNING: 500ms passed without reading the rest of the frame...aborting frame read
 WARNING: Out of frame flow! (0xfe).  Sending NAK
 WARNING: Checksum incorrect - sending NAK

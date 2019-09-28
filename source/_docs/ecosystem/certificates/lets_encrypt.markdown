@@ -304,7 +304,7 @@ Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now
 
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
 
-```
+```bash
 cd ~/.homeassistant
 ```
 

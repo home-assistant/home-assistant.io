@@ -17,7 +17,7 @@ The Snips add-on by default comes with an assistant that allows you to turn on l
 
 If using a USB microphone and speakers plugged into the Raspberry Pi output, Snips will work without any change to the configuration. Trying saying things like:
 
-```
+```txt
 Turn on kitchen light
 Open garage door
 What is on my shopping list
