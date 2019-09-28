@@ -12,7 +12,15 @@ redirect_from:
   - /components/media_player.apple_tv/
   - /components/remote.apple_tv/
 ---
+<div class="note warning">
 
+ Apple TV integration incompatible with tvOS 13
+ Updating your Apple TV to tvOS 13 will cause the Apple TV media player integration for Home Assistant to no longer work.
+
+ For more information see [Apple TV integration incompatible with tvOS 13](https://alerts.home-assistant.io/#apple_tv_tvos13.markdown).
+
+ </div>
+ 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g., arrow keys.
 
 There is currently support for the following device types within Home Assistant:
