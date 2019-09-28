@@ -46,6 +46,11 @@ url:
     description: The URL of the DOODS server
     required: true
     type: string
+timeout:
+    description: Timeout for requests (in seconds)
+    required: false
+    type: integer
+    default: 90
 detector:
     description: The DOODS detector to use
     required: true
@@ -141,6 +146,7 @@ image_processing:
   - platform: doods
     scan_interval: 1000
     url: "http://<my doods server>:8080"
+    timeout: 60
     detector: default
     source:
       - entity_id: camera.front_yard
