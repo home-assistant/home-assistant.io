@@ -54,6 +54,36 @@ confidence:
     description: The default confidence for any detected objects where not explicitly set
     required: false
     type: float
+area:
+    description: Global detection area. Objects in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
+    required: false
+    type: map
+    keys:
+      top:
+        description: Top line defined as % from top of image.
+        required: false
+        type: float
+        default: 0
+      left:
+        description: Left line defined as % from left of image.
+        required: false
+        type: float
+        default: 0
+      bottom:
+        description: Bottom line defined as % from top of image.
+        required: false
+        type: float
+        default: 1
+      right:
+        description: Right line defined as % from left of image.
+        required: false
+        type: float
+        default: 1
+      contains:
+        description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
+        required: false
+        type: boolean
+        default: true
 file_out:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
     required: false
@@ -96,6 +126,11 @@ labels:
             required: false
             type: float
             default: 1
+          contains:
+            description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
+            required: false
+            type: boolean
+            default: true
 
 {% endconfiguration %}
 
@@ -113,6 +148,14 @@ image_processing:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     confidence: 50
+    # This global detection area is required for all labels
+    area:
+      # Exclude top 10% of image
+      top: 0.1
+      # Exclude right 5% of image
+      right: 0.95
+      # The entire detection must be inside this box
+      contains: true
     labels:
       - name: person
         confidence: 40
@@ -121,6 +164,8 @@ image_processing:
           top: 0.1
           # Exclude right 15% of image
           right: 0.85
+          # Any part of the detection inside this area will trigger
+          contains: false
       - car
       - truck
 ```
