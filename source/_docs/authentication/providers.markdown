@@ -165,7 +165,7 @@ homeassistant:
 
 When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
 
-```
+```txt
 name = John Doe
 ```
 

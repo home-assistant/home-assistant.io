@@ -17,7 +17,7 @@ Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Rasp
 2.	Download the [docker-statsd-influxdb-grafana]( https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/) image using the command:
 `docker pull samuelebistoletti/docker-statsd-influxdb-grafana`
 3.	To start the container for the first-time launch:
-    ```
+    ```bash
     docker run -d \
       --name docker-statsd-influxdb-grafana \
       -p 3003:3003 \
@@ -34,7 +34,7 @@ Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Rasp
       <img src='/images/blog/2017-04-influxdb-grafana/create_HA_database.png' />
     </p>
 7.	Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
-    ```
+    ```yaml
     influxdb:
       host: 192.168.2.113
     ```
@@ -45,7 +45,7 @@ Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Rasp
 9.	You should see `Data source is working` if you have configured everything correctly.
 10.	With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.
 11.	To add the Grafana dashboard in HA, use the following config:
-    ```
+    ```yaml
     panel_iframe:
       router:
         title: 'Temperature'

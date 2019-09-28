@@ -73,7 +73,7 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 
 If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
 
-```
+```txt
 [Unit]
 Description=Home Assistant
 After=network.target mosquitto.service

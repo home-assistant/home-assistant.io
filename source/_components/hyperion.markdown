@@ -80,7 +80,7 @@ automation:
 
 To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
 
-```
+```yaml
 - alias: Set hyperion effect after playback
   trigger:
     - platform: state
@@ -101,7 +101,7 @@ To have the lights playing a effect when pausing, idle or turn off a media playe
 
 To capture the screen when playing something of a media_player you can use this example:
 
-```
+```yaml
 - alias: Set hyperion when playback starts
   trigger:
     - platform: state

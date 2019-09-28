@@ -33,7 +33,7 @@ $ pip3 install -I .
 ```
 
 Find your device using the following command:
-```
+```txt
 pyvizio --ip=0 discover
 ```
 

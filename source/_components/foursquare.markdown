@@ -34,7 +34,7 @@ After you have registered your APP on your [My Apps Page](https://foursquare.com
 `REDIRECT_URL` which can be any URL you like, but since it will get your access token via an HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant.
 Visit the following URL in your browser:
 
-```
+```txt
 https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
 ```
 

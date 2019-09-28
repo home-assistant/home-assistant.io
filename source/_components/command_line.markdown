@@ -120,7 +120,7 @@ Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alte
 
 The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
 
-```
+```bash
 $ systemctl is-active home-assistant@rock64.service
 active
 $ sudo service home-assistant@rock64.service stop

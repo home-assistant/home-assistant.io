@@ -419,7 +419,7 @@ Vacuum send_command allows three parameters:
 If params are not provided it sends command as payload to MQTT send_command topic.
 If params are provided service sends json as payload with such structure:
 
-```
+```json
 {
   'command': 'command',
   'param1-key': 'param1-value'
@@ -428,7 +428,7 @@ If params are provided service sends json as payload with such structure:
 
 Service trigger example:
 
-```
+```yaml
 - alias: Push command based on sensor
     trigger:
       - platform: state
@@ -494,7 +494,7 @@ Vacuum send_command allows three parameters:
 If params are not provided it sends command as payload to MQTT send_command topic.
 If params are provided service sends json as payload with such structure:
 
-```
+```json
 {
   'command': 'command',
   'param1-key': 'param1-value'
@@ -503,7 +503,7 @@ If params are provided service sends json as payload with such structure:
 
 Service trigger example:
 
-```
+```yaml
 - alias: Push command based on sensor
     trigger:
       - platform: state

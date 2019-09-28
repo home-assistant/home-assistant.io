@@ -37,7 +37,7 @@ $ sudo apt-get install icecast2
 
 We setup an icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
 
-```
+```xml
 <mount>
     <mount-name>/babyphone.mp3</mount-name>
     <stream-name>Babyphone</stream-name>

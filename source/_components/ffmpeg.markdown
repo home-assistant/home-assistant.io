@@ -48,7 +48,7 @@ $ sudo apt-get -t jessie-backports install ffmpeg
 
 We can use now following in the configuration:
 
-```
+```yaml
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 ```
@@ -59,7 +59,7 @@ In most cases, `ffmpeg` automatically detects all needed options to read a video
 
 First, check that your stream is playable by `ffmpeg` outside of Home Assistant with (use option `-an` or `-vn` to disable video or audio stream):
 
-```
+```bash
 $ ffmpeg -i INPUT -an -f null -
 ```
 

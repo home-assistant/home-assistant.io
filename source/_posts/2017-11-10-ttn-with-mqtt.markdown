@@ -186,7 +186,7 @@ Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will hand
 
 Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
 
-```
+```yaml
 sensor:
   - platform: mqtt_ttn
     name: TTN Sensor

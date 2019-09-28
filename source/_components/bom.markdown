@@ -93,7 +93,7 @@ filename:
 
 ### Valid `location` values
 
-```
+```txt
 Adelaide        Albany          AliceSprings    Bairnsdale      Bowen
 Brisbane        Broome          Cairns          Canberra        Carnarvon
 Ceduna          Dampier         Darwin          Emerald         Esperance

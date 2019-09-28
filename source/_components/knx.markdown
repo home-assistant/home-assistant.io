@@ -120,7 +120,7 @@ state_updater:
 
 In order to directly interact with the KNX bus, you can use the following service:
 
-```
+```txt
 Domain: knx
 Service: send
 Service Data: {"address": "1/0/15", "payload": 0}

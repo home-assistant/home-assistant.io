@@ -46,7 +46,7 @@ Right in there, not in any folders, create a file called `wpa_supplicant.conf`.
 The contents of the configuration file should be something like this:
 (You may have to adjust for your configuration, hints [here](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) )
 
-```
+```txt
 network={
     ssid="YOUR_WIFI_NETWORK_NAME_HERE"
     psk="YOUR_WIFI_PASSWORD_HERE"
@@ -62,7 +62,7 @@ It's a good idea to change the password. To do so, use the `passwd` command.
 
 Next, type the following two commands into the SSH console:
 
-```
+```bash
 $ sudo systemctl enable install_homeassistant.service
 $ sudo systemctl start install_homeassistant.service
 ```

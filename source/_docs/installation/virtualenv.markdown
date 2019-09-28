@@ -22,23 +22,23 @@ It should not contain any OS specific instructions.
 ### Install
 
  1. Create a virtual environment in your current directory:
-    ```
+    ```bash
     $ python3 -m venv homeassistant
     ```
  2. Open the virtual environment:
-    ```
+    ```bash
     $ cd homeassistant
     ```
  3. Activate the virtual environment:
-    ```
+    ```bash
     $ source bin/activate
     ```
  4. Install Home Assistant:
-    ```
+    ```bash
     $ python3 -m pip install homeassistant
     ```    
  5. Run Home Assistant:
-    ```
+    ```bash
     $ hass --open-ui
     ```
  6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take a couple of minutes before the web interface is available. This can take longer if you're using lower-end hardware like a Raspberry Pi Zero.

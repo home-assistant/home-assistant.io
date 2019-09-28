@@ -92,7 +92,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   * `custom_ui_state_card` now specifies the exact element name and not a suffix after `state-card`. So if you had `state_card_custom_ui: custom-ui` in your config, you should change it to `state_card_custom_ui: state-card-custom-ui`
   * `custom_ui_state_card` no longer makes the html fetch, you should make it separately:
 
-```
+```yaml
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-custom-ui.html
