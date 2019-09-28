@@ -138,9 +138,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
 - more tests for slugify ([@micw] - [#7027])
 - Additional ZWave coverage ([@armills] - [#7024]) ([zwave docs])
-- bump ups version ([@happyleavesaoc] - [#7033]) ([sensor.ups docs])
-- update usps version ([@happyleavesaoc] - [#7035]) ([sensor.usps docs])
-- update fedex ([@happyleavesaoc] - [#7034]) ([sensor.fedex docs])
+- bump ups version ([@happyleavesaoc] - [#7033])
+- update usps version ([@happyleavesaoc] - [#7035])
+- update fedex ([@happyleavesaoc] - [#7034])
 - Google TTS can't read percent sign (#6971) ([@pezinek] - [#7030]) ([tts.google docs])
 - Feature/min max improvements ([@micw] - [#6786]) (breaking change)
 - Upgrade psutil to 5.2.2 ([@fabaff] - [#7037]) ([sensor.systemmonitor docs])
@@ -458,7 +458,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [scene.lifx_cloud docs]: /components/scene.lifx_cloud/
 [sensor.cpuspeed docs]: /components/sensor.cpuspeed/
 [sensor.crimereports docs]: /components/sensor.crimereports/
-[sensor.fedex docs]: /components/sensor.fedex/
 [sensor.fido docs]: /components/sensor.fido/
 [sensor.modbus docs]: /components/sensor.modbus/
 [sensor.mvglive docs]: /components/sensor.mvglive/
@@ -467,8 +466,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.ups docs]: /components/sensor.ups/
-[sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/
 [sun docs]: /components/sun/
 [switch.tplink docs]: /components/switch.tplink/

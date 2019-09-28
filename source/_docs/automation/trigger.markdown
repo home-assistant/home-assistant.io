@@ -234,8 +234,8 @@ Although the actual amount of light depends on weather, topography and land cove
 
   This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
 
-- Nautical twilight: 6° > Solar angle > -12°
-- Astronomical twilight: 12° > Solar angle > -18°
+- Nautical twilight: -6° > Solar angle > -12°
+- Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 

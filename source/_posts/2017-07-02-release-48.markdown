@@ -131,8 +131,8 @@ light:
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Add option to set language of openweathermap sensor, and handle updating errors ([@azogue] - [#8046]) ([sensor.openweathermap docs])
 - Bump pyEmby version to account for API changes ([@mezz64] - [#8070]) ([media_player.emby docs])
-- bump ups ([@happyleavesaoc] - [#8075]) ([sensor.ups docs])
-- bump usps version ([@happyleavesaoc] - [#8074]) ([sensor.usps docs])
+- bump ups ([@happyleavesaoc] - [#8075])
+- bump usps version ([@happyleavesaoc] - [#8074])
 - Add to zwave services descriptions ([@andrey-git] - [#8072])
 - Fix attribute entity ([@pvizeli] - [#8066]) (breaking change)
 - Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
@@ -496,8 +496,6 @@ light:
 [sensor.openweathermap docs]: /components/sensor.openweathermap/
 [sensor.pi_hole docs]: /components/sensor.pi_hole/
 [sensor.upnp docs]: /components/sensor.upnp/
-[sensor.ups docs]: /components/sensor.ups/
-[sensor.usps docs]: /components/sensor.usps/
 [sensor.verisure docs]: /components/sensor.verisure/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [shiftr docs]: /components/shiftr/

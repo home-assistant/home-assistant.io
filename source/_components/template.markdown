@@ -18,6 +18,7 @@ The `template` platform supports sensors which get their values from other entit
 The configuration of Template Sensors depends on what you want them to be. Adding the following to your `configuration.yaml` file will create two sensors, one for the current sun angle and one for the time of the next sunrise:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -31,6 +32,7 @@ sensor:
       sunrise:
         value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -76,7 +78,12 @@ sensor:
           "attribute: template":
             description: The attribute and corresponding template.
             required: true
-            type: template
+            type: template        
+      availability_template:
+        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        required: false
+        type: template
+        default: true
       device_class:
         description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
@@ -88,7 +95,7 @@ sensor:
 
 ### Startup
 
-If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.cover.source.state == 'open' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
@@ -105,6 +112,7 @@ In this section, you find some real-life examples of how to use this sensor.
 This example shows the sun angle in the frontend.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -114,6 +122,7 @@ sensor:
         unit_of_measurement: '°'
         value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
+
 {% endraw %}
 
 ### Renaming Sensor Output
@@ -122,6 +131,7 @@ If you don't like the wording of a sensor output, then the Template Sensor can h
 a simple example:
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -135,6 +145,7 @@ sensor:
             down
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Multiline Example With an `if` Test
@@ -142,6 +153,7 @@ sensor:
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -159,6 +171,7 @@ sensor:
             failed
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change The Unit of Measurement
@@ -166,6 +179,7 @@ sensor:
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -180,6 +194,7 @@ sensor:
         unit_of_measurement: 'kB/s'
         value_template: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
 ```
+
 {% endraw %}
 
 ### Change The Icon
@@ -187,6 +202,7 @@ sensor:
 This example shows how to change the icon based on the day/night cycle.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -206,6 +222,7 @@ sensor:
             mdi:weather-night
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change The Entity Picture
@@ -213,6 +230,7 @@ sensor:
 This example shows how to change the entity picture based on the day/night cycle.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -232,6 +250,7 @@ sensor:
             /local/nighttime.png
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change the Friendly Name Used in the Frontend
@@ -239,6 +258,7 @@ sensor:
 This example shows how to change the `friendly_name` based on a state.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -253,6 +273,7 @@ sensor:
         value_template: "{{ states('sensor.power_consumption') }}"
         unit_of_measurement: 'kW'
 ```
+
 {% endraw %}
 
 ### Add Custom Attributes
@@ -285,6 +306,7 @@ sensor:
               {{ state_attr('device_tracker.my_device_gps','longitude') }}
             {% endif %}
 ```
+
 {% endraw %}
 
 ### Working without entities
@@ -294,6 +316,7 @@ The `template` sensors are not limited to use attributes from other entities but
 This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) to get a daily update:
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -304,6 +327,7 @@ sensor:
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
 ```
+
 {% endraw %}
 
 Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
@@ -311,6 +335,7 @@ Useful entities to choose might be `sensor.date` which update once per day or `s
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -330,4 +355,5 @@ automation:
       - service: homeassistant.update_entity
         entity_id: sensor.nonsmoker
 ```
+
 {% endraw %}

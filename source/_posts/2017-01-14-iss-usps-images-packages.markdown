@@ -36,7 +36,7 @@ The new [image processing component][image] currently works with [number plates]
 
 - Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
-- Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
+- Sensor: USPS deliveries tracking ([@happyleavesaoc])
 - Device tracker: New [ping-based][ping] tracker ([@michaelarnauts])
 - TTS: Support for [Pico][pico] ([@doudz])
 - Switch: [BeagleBone Black][beaglebone] GPIO are supported now ([@MatoKafkac])
@@ -184,7 +184,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tik]: /components/light.tikteck/
 [trackr]: /components/device_tracker.trackr/
 [upc]: /components/device_tracker.upc_connect/
-[usps]: /components/sensor.usps/
 [wink-fan]: /components/fan.wink/
 [xiaomi]: /components/device_tracker.xiaomi/
 [yandex]: /components/tts.yandextts/

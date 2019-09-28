@@ -67,6 +67,6 @@ card:
       - {{ l.entity }}
     {%- endfor %}
 
-    And the door is {% if is_state('binary_sensor.door', 'on' %} open {% else %} closed {% endif %}.
+    And the door is {% if is_state('binary_sensor.door', 'on') %} open {% else %} closed {% endif %}.
 ```
 {% endraw %}
