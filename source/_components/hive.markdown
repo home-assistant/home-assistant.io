@@ -70,7 +70,7 @@ You can use the service `hive.boost_heating` to set your heating to boost for a 
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                         |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g. `01:30:00`. |
-| `temperature`          | yes      | String, The required target temperature e.g. `20.5`                    |
+| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                    |
 
 Examples:
 
