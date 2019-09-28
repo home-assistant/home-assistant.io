@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.hive/
 ---
 
-The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all    Hive devices into Home Assistant, including support for multi zone heating.
+The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and P    you use on the Hive website to configure this Hive integration in Home Assistant.
 
