@@ -95,7 +95,7 @@ You can use the service `hive.boost_hot_water` to set your hot water to boost fo
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g. `water_heater.hot_water`.                  |
-| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g. `01:30:00`. |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
 | `on_off`               | no       | String, The mode to set the boost to on or odd e.g `on`                |
 
 Examples:
@@ -116,7 +116,7 @@ script:
 
 <div class='note'>
 
-You must have the [Hive component](/components/hive/) configured to use the platforms below.
+You must have the [Hive integration](/components/hive/) configured to use the platforms below.
 
 </div>
 
@@ -138,7 +138,7 @@ A short boost for Hive Heating can be set by using the **Boost** preset, this wi
 The platform supports the following Hive products:
 
 - Hive Active Heating
-- Hive Multi zone
+- Hive Multi-zone
 
 ## Light
 
