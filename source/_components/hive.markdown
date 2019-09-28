@@ -15,7 +15,6 @@ ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.hive/
   - /components/climate.hive/
-  - /components/water_heater.hive/
   - /components/light.hive/
   - /components/sensor.hive/
   - /components/switch.hive/
@@ -23,12 +22,13 @@ redirect_from:
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
-This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and P    you use on the Hive website to configure this Hive integration in Home Assistant.
+This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Service - Boost Heating](#service---boost-heating)
-- [Service - Boost Hotwater](#service---boost-hotwater)
+- [Services](#services)
+  - [Service `hive.boost_heating`](#service-hiveboostheating)
+  - [Service `hive.boost_hot_water`](#service-hiveboosthotwater)
 - [Platforms](#platforms)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -62,13 +62,15 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
+## Services
+
 ### Service `hive.boost_heating`
 
 You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
 
-| Service data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                         |
+| Service data attribute | Optional | Description                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g. `climate.heating`.                          |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                    |
 
@@ -86,9 +88,9 @@ script:
           temperature: "20.5"
 ```
 
-### Service `hive.boost_hotwater`
+### Service `hive.boost_hot_water`
 
-You can use the service `hive.boost_hotwater` to set your hot water to boost for a period of time.
+You can use the service `hive.boost_hot_water` to set your hot water to boost for a period of time.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -99,11 +101,11 @@ You can use the service `hive.boost_hotwater` to set your hot water to boost for
 Examples:
 
 ```yaml
-# Example script to boost hotwater, boost period specified
+# Example script to boost hot water, boost period specified
 script:
-  boost_hotwater:
+  boost_hot_water:
     sequence:
-      - service: "hive.boost_hotwater"
+      - service: "hive.boost_hot_water"
         data:
           entity_id: "water_heater.hot_water"
           time_period: '01:30:00'
