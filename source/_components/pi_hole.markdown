@@ -47,6 +47,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+api_key:
+  description: API Key for interacting with the Pi-hole. This is not required if you want to just query the Pi-hole for usage statistics.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Full example
@@ -58,5 +63,25 @@ pi_hole:
   ssl: false
   verify_ssl: false
 ```
+
+## Services
+
+The platform provides the following services to interact with your Pi-hole
+
+### pi_hole.disable
+
+Disable your Pi-hole for the specified amount of time.
+
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled | 
+
+_Note: This service requires `api_key` to be specified in configuration._
+
+### pi.hole_enable
+
+Enable your Pi-hole.
+
+_Note: This service requires `api_key` to be specified in configuration._
 
 This integration was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
