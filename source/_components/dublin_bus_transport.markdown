@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.36
-redirect_from:
- - /components/sensor.dublin_bus_transport/
 ---
 
 The `dublin_bus_transport` sensor will give you the time until the next two departures from a Dublin bus stop using the RTPI information.

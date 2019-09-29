@@ -13,14 +13,6 @@ ha_category:
   - Switch
 ha_release: 0.28
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.isy994/
-  - /components/cover.isy994/
-  - /components/fan.isy994/
-  - /components/light.isy994/
-  - /components/lock.isy994/
-  - /components/sensor.isy994/
-  - /components/switch.isy994/
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.

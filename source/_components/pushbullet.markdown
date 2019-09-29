@@ -7,9 +7,6 @@ ha_category:
   - Notifications
 ha_release: 0.44
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.pushbullet/
- - /components/notify.pushbullet/
 ---
 
 There is currently support for the following device types within Home Assistant:

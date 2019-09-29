@@ -6,8 +6,6 @@ ha_category:
   - Switch
 ha_release: 0.16
 ha_iot_class: Local Polling
-redirect_from:
- - /components/switch.pulseaudio_loopback/
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).

@@ -5,8 +5,6 @@ logo: sql.png
 ha_category:
   - Utility
 ha_release: 0.63
-redirect_from:
- - /components/sensor.sql/
 ---
 
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).

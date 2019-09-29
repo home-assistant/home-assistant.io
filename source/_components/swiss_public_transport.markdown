@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
-redirect_from:
- - /components/sensor.swiss_public_transport/
 ---
 
 The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.

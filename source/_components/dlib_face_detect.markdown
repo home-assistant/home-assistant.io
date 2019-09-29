@@ -5,8 +5,6 @@ logo: dlib.png
 ha_category:
   - Image Processing
 ha_release: 0.44
-redirect_from:
- - /components/image_processing.dlib_face_detect/
 ---
 
 The `dlib_face_detect` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform enables face detection from cameras, and can fire events with attributes.

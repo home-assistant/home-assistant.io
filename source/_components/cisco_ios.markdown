@@ -5,8 +5,6 @@ logo: cisco.png
 ha_category:
   - Presence Detection
 ha_release: 0.33
-redirect_from:
- - /components/device_tracker.cisco_ios/
 ---
 
 This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devices.

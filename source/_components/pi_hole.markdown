@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 logo: pi_hole.png
 ha_release: 0.28
-redirect_from:
- - /components/sensor.pi_hole/
 ---
 
 The `pi_hole` integration allows you to retrieve and display statistics from a single [Pi-hole](https://pi-hole.net/) system.

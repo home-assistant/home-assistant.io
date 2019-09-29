@@ -6,8 +6,6 @@ ha_category:
   - Multimedia
 ha_iot_class: Local Polling
 ha_release: 0.89
-redirect_from:
- - /components/switch.sony_projector/
 ---
 
 The `sony_projector` switch platform allows you to control the state of SDCP compatible network-connected projectors from [Sony](http://www.sony.com).

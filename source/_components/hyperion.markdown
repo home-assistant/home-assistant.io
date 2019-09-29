@@ -6,8 +6,6 @@ ha_category:
   - Light
 ha_release: 0.7.6
 ha_iot_class: Local Polling
-redirect_from:
- - /components/light.hyperion/
 ---
 
 The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.

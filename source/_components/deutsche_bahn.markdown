@@ -6,8 +6,6 @@ ha_category:
 logo: db.png
 ha_iot_class: Cloud Polling
 ha_release: 0.14
-redirect_from:
- - /components/sensor.deutsche_bahn/
 ---
 
 

@@ -5,8 +5,6 @@ logo: home-assistant.png
 ha_category:
   - Text-to-speech
 ha_release: 0.36
-redirect_from:
- - /components/tts.picotts/
 ---
 
 The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.

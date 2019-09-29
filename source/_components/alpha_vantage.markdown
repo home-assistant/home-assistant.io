@@ -6,8 +6,6 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: "0.60"
-redirect_from:
- - /components/sensor.alpha_vantage/
 ---
 
 The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.

@@ -12,12 +12,6 @@ ha_category:
   - Camera
 ha_release: "0.20"
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.netatmo/
-  - /components/camera.netatmo/
-  - /components/climate.netatmo/
-  - /components/sensor.netatmo/
-  - /components/public_sensor.netatmo/
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.

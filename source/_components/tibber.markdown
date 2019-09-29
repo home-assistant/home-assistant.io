@@ -9,9 +9,6 @@ ha_category:
 ha_release: 0.80
 ha_qa_scale: silver
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/notify.tibber/
-  - /components/sensor.tibber/
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.

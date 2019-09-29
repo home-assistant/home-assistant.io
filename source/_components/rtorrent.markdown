@@ -6,8 +6,6 @@ ha_category:
   - Downloading
 ha_release: 0.81
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.rtorrent/
 ---
 
 The `rtorrent` platform allows you to monitor your downloads with [rtorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.

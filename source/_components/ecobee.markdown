@@ -11,12 +11,6 @@ ha_category:
 featured: true
 ha_release: 0.9
 ha_iot_class: Cloud Push
-redirect_from:
-  - /components/sensor.ecobee/
-  - /components/binary_sensor.ecobee/
-  - /components/notify.ecobee/
-  - /components/climate.ecobee/
-  - /components/weather.ecobee/
 ---
 
 The `ecobee` integration lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.

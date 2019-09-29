@@ -5,8 +5,6 @@ logo: volumio.png
 ha_category:
   - Media Player
 ha_release: 0.41
-redirect_from:
- - /components/media_player.volumio/
 ---
 
 The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player from Home Assistant.

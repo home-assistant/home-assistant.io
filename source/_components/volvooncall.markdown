@@ -6,12 +6,6 @@ ha_category:
   - Car
 ha_release: 0.39
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/binary_sensor.volvooncall/
- - /components/lock.volvooncall/
- - /components/sensor.volvooncall/
- - /components/switch.volvooncall/
- - /components/device_tracker.volvooncall/
 ---
 
 The `volvooncall` integration offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.

@@ -6,8 +6,6 @@ ha_category:
   - Hub
   - Notifications
 ha_release: 0.69
-redirect_from:
-  - /components/notify.matrix/
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.

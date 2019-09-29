@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_iot_class: Assumed State
 ha_release: 0.44
-redirect_from:
- - /components/light.sensehat/
- - /components/sensor.sensehat/
 ---
 
 There is currently support for the following device types within Home Assistant:

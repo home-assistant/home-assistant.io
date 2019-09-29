@@ -5,8 +5,6 @@ logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
-redirect_from:
- - /components/device_tracker.openwrt/
 ---
 
 There are _multiple_ ways of integrating an OpenWRT router for presence detection. A broad distinction can be made between presence detection methods which actively scan for devices (by default every 12 seconds) and those that are notified by some external service on changes. It is essentially a problem of synchronizing states between two remote machines.

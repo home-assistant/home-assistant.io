@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.43
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/media_player.spotify/
 ---
 
 The `spotify` media player platform allows you to control

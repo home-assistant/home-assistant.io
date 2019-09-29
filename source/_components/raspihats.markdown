@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.45
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.raspihats/
-  - /components/switch.raspihats/
 ---
 
 The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.

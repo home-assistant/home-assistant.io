@@ -6,8 +6,6 @@ ha_category:
   - Binary Sensor
 ha_release: 0.35
 ha_iot_class: Local Push
-redirect_from:
- - /components/binary_sensor.hikvision/
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a

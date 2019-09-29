@@ -6,8 +6,6 @@ ha_release: 0.57
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.sytadin/
 ---
 
 The `sytadin` sensor platform allows you to monitor traffic details from [Sytadin](http://www.sytadin.fr).

@@ -9,9 +9,6 @@ ha_category:
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
-redirect_from:
-  - /components/climate.daikin/
-  - /components/sensor.daikin/
 ---
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.

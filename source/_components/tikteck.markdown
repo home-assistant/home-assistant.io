@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 logo: tikteck.png
 ha_release: 0.36
-redirect_from:
- - /components/light.tikteck/
 ---
 
 Support for the Bluetooth smart bulb from [Tikteck](http://www.tikteck.com). To enable these lights, add the following lines to your `configuration.yaml` file:

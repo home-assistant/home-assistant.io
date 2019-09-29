@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.rpi_gpio/
-  - /components/cover.rpi_gpio/
-  - /components/switch.rpi_gpio/
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.

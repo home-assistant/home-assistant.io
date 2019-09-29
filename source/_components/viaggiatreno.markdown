@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.58
-redirect_from:
- - /components/sensor.viaggiatreno/
 ---
 
 The `viaggiatreno` sensor will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.

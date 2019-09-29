@@ -5,8 +5,6 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: "0.60"
-redirect_from:
- - /components/calendar.caldav/
 ---
 
 The `caldav` platform allows you to connect to your WebDav calendar and generate

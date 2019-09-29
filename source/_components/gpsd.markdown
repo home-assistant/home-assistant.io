@@ -6,8 +6,6 @@ ha_category:
   - Utility
 ha_release: 0.26
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.gpsd/
 ---
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.

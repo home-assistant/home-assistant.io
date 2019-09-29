@@ -13,15 +13,6 @@ ha_category:
   - Switch
   - Climate
 ha_release: pre 0.7
-redirect_from:
-  - /components/binary_sensor.vera/
-  - /components/cover.vera/
-  - /components/light.vera/
-  - /components/lock.vera/
-  - /components/scene.vera/
-  - /components/sensor.vera/
-  - /components/switch.vera/
-  - /components/climate.vera/
 ---
 
 The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.

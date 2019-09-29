@@ -9,10 +9,6 @@ ha_category:
   - Sensor
 ha_release: 0.41
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/climate.tado/
-  - /components/device_tracker.tado/
-  - /components/sensor.tado/
 ---
 
 The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website.

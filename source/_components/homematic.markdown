@@ -14,15 +14,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.23
-redirect_from:
-  - /components/binary_sensor.homematic/
-  - /components/climate.homematic/
-  - /components/cover.homematic/
-  - /components/light.homematic/
-  - /components/lock.homematic/
-  - /components/notify.homematic/
-  - /components/sensor.homematic/
-  - /components/switch.homematic/
 ---
 
 The [Homematic](http://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.

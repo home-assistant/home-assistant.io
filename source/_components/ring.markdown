@@ -11,10 +11,6 @@ ha_category:
   - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.ring/
-  - /components/camera.ring/
-  - /components/sensor.ring/
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.

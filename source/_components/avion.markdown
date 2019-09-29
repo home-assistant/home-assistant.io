@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Assumed State
 logo: avi-on.png
 ha_release: 0.37
-redirect_from:
- - /components/light.avion/
 ---
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).

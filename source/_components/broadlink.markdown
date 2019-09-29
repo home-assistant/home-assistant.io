@@ -7,9 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
-redirect_from:
- - /components/switch.broadlink/
- - /components/sensor.broadlink/
 ---
 
 There is currently support for the following device types within Home Assistant:

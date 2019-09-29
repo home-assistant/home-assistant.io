@@ -7,8 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.78
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/sensor.habitica/
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.

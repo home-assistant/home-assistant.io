@@ -7,8 +7,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.38
 ha_qa_scale: internal
-redirect_from:
- - /components/sensor.moon/
 ---
 
 The `moon` sensor platform is tracking the moon phases.

@@ -6,7 +6,6 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
-redirect_from: /components/light.lifx/
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.

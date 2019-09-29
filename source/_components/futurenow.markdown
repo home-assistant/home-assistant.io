@@ -5,8 +5,6 @@ logo: p5.png
 ha_category:
   - Light
 ha_release: 0.75
-redirect_from:
- - /components/light.futurenow/
 ---
 
 The `futurenow` light platform allows you to use [P5](http://www.p5.hu) FutureNow relay/dimmer units as lights. Currently supported units: 

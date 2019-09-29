@@ -9,10 +9,6 @@ ha_category:
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.opentherm_gw/
-  - /components/climate.opentherm_gw/
-  - /components/sensor.opentherm_gw/
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.

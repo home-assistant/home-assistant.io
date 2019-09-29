@@ -10,11 +10,6 @@ ha_category:
   - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.bmw_connected_drive/
-  - /components/device_tracker.bmw_connected_drive/
-  - /components/lock.bmw_connected_drive/
-  - /components/sensor.bmw_connected_drive/
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.

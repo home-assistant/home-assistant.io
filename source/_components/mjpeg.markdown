@@ -6,8 +6,6 @@ ha_category:
   - Camera
 ha_release: pre 0.7
 ha_iot_class: Configurable
-redirect_from:
- - /components/camera.mjpeg/
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable

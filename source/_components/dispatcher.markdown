@@ -6,8 +6,6 @@ ha_category:
 logo: camcorder.png
 ha_release: "0.40"
 ha_iot_class: Configurable
-redirect_from:
- - /components/camera.dispatcher/
 ---
 
 <div class='note'>

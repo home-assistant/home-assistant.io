@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling and Local Push
 ha_release: 0.68
-redirect_from:
-  - /components/binary_sensor.wirelesstag/
-  - /components/sensor.wirelesstag/
-  - /components/switch.wirelesstag/
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](http://wirelesstag.net) sensors tags in Home Assistant.

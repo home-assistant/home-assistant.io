@@ -9,10 +9,6 @@ ha_category:
   - Presence Detection
 ha_release: 0.89
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/switch.tplink/
-  - /components/light.tplink/
-  - /components/device_tracker.tplink/
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.

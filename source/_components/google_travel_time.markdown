@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.19
-redirect_from:
- - /components/sensor.google_travel_time/
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).

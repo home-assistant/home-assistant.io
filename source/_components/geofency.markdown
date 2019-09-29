@@ -6,8 +6,6 @@ ha_category:
   - Presence Detection
 ha_release: 0.53
 ha_iot_class: Cloud Push
-redirect_from:
-  - /components/device_tracker.geofency/
 ---
 
 This integration sets up integration with [Geofency](http://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.

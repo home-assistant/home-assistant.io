@@ -5,8 +5,6 @@ logo: huawei.svg
 ha_category:
   - Presence Detection
 ha_release: 0.51
-redirect_from:
- - /components/device_tracker.huawei_router/
 ---
 
 The `huawei` device tracker platform offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).

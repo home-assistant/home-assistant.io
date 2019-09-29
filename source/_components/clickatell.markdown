@@ -5,8 +5,6 @@ logo: clickatell.png
 ha_category:
   - Notifications
 ha_release: 0.56
-redirect_from:
- - /components/notify.clickatell/
 ---
 
 The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.

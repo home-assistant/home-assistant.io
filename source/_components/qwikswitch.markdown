@@ -9,11 +9,6 @@ ha_category:
   - Sensor
   - Switch
 ha_release: "0.20"
-redirect_from:
-  - /components/binary_sensor.qwikswitch/
-  - /components/light.qwikswitch/
-  - /components/sensor.qwikswitch/
-  - /components/switch.qwikswitch/
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.

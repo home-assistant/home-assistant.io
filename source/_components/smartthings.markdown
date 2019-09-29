@@ -16,25 +16,6 @@ ha_category:
   - Switch
 ha_release: 0.87
 ha_iot_class: Cloud Push
-redirect_from:
-  - /components/smartthings.binary_sensor/
-  - /components/binary_sensor.smartthings/
-  - /components/smartthings.climate/
-  - /components/climate.smartthings/
-  - /components/smartthings.cover/
-  - /components/cover.smartthings/
-  - /components/smartthings.fan/
-  - /components/fan.smartthings/
-  - /components/smartthings.light/
-  - /components/light.smartthings/
-  - /components/smartthings.lock/
-  - /components/lock.smartthings/
-  - /components/smartthings.sensor/
-  - /components/sensor.smartthings/
-  - /components/smartthings.scene/
-  - /components/scene.smartthings/
-  - /components/smartthings.switch/
-  - /components/switch.smartthings/
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:

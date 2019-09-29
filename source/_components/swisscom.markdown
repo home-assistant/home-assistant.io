@@ -5,8 +5,6 @@ logo: swisscom.png
 ha_category:
   - Presence Detection
 ha_release: 0.32
-redirect_from:
- - /components/device_tracker.swisscom/
 ---
 
 

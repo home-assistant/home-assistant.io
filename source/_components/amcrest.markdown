@@ -10,10 +10,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.49
-redirect_from:
-  - /components/camera.amcrest/
-  - /components/sensor.amcrest/
-  - /components/switch.amcrest/
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.

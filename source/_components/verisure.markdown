@@ -12,13 +12,6 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/alarm_control_panel.verisure/
-  - /components/binary_sensor.verisure/
-  - /components/camera.verisure/
-  - /components/lock.verisure/
-  - /components/sensor.verisure/
-  - /components/switch.verisure/
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.

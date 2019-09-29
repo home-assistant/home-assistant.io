@@ -6,8 +6,6 @@ ha_category:
   - Light
 ha_iot_class: Assumed State
 ha_release: pre 0.7
-redirect_from:
- - /components/light.limitlessled/
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, [MiLight](http://www.milight.com/), LEDme, dekolight, or iLight.

@@ -6,8 +6,6 @@ ha_category:
   - Finance
 ha_release: 0.61
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.sochain/
 ---
 
 The `SoChain` sensor platform displays supported cryptocurrency wallet balances from [SoChain](https://chain.so).

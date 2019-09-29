@@ -6,8 +6,6 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.82
-redirect_from:
- - /components/light.niko_home_control/
 ---
 
 The `niko_home_control` platform allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.

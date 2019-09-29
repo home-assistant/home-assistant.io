@@ -5,8 +5,6 @@ logo: actiontec.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
-redirect_from:
- - /components/device_tracker.actiontec/
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Actiontec](http://www.actiontec.com/) device.

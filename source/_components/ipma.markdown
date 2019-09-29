@@ -6,8 +6,6 @@ ha_category:
   - Weather
 ha_release: 0.72
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/weather.ipma/
 ---
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](http://www.ipma.pt) as a source for current and forecast meteorological data.

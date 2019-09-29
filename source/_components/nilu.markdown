@@ -6,8 +6,6 @@ ha_category:
   - Health
 ha_iot_class: Cloud Polling
 ha_release: 0.87
-redirect_from:
- - /components/air_quality.nilu/
 ---
 
 The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](http://luftkvalitet.info/) and [nilu.no](https://nilu.no/) available in Home Assistant.

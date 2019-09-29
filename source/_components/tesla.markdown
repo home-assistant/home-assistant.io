@@ -12,13 +12,6 @@ ha_category:
   - Switch
 ha_release: 0.53
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.tesla/
-  - /components/device_tracker.tesla/
-  - /components/climate.tesla/
-  - /components/lock.tesla/
-  - /components/sensor.tesla/
-  - /components/switch.tesla/
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.

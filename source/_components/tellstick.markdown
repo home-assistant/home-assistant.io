@@ -10,11 +10,6 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Assumed State
-redirect_from:
-  - /components/cover.tellstick/
-  - /components/light.tellstick/
-  - /components/sensor.tellstick/
-  - /components/switch.tellstick/
 ---
 
 The `tellstick` integration integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).

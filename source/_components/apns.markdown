@@ -5,8 +5,6 @@ logo: apple.png
 ha_category:
   - Notifications
 ha_release: 0.31
-redirect_from:
- - /components/notify.apns/
 ---
 
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.

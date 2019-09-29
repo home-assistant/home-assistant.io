@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.samsungtv/
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).

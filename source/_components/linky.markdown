@@ -7,8 +7,6 @@ ha_category:
   - Energy
   - Sensor
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.linky/
 ---
 
 The `linky` sensor platform is retrieving the consumption of your home from the [Linky electric meter](https://www.enedis.fr/linky-compteur-communicant).

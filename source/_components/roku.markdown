@@ -8,9 +8,6 @@ ha_category:
   - Remote
 ha_iot_class: Local Polling
 ha_release: 0.86
-redirect_from:
-  - /components/remote.roku/
-  - /components/media_player.roku/
 ---
 
 The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).

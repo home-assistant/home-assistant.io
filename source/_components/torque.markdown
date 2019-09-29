@@ -6,8 +6,6 @@ ha_category:
   - Car
 ha_release: "0.10"
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.torque/
 ---
 
 The `torque` platform will allow you to monitor [Torque](http://torque-bhp.com/) data relayed from a Bluetooth OBD2 stick via the Torque mobile application.

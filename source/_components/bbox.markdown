@@ -8,9 +8,6 @@ ha_category:
   - Presence Detection
 ha_release: 0.31
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.bbox/
- - /components/device_tracker.bbox/
 ---
 
 The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
