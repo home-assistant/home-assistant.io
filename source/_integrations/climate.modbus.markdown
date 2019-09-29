@@ -76,7 +76,7 @@ scale:
   type: float
   default: 1
 offset:
-  Final offset (output = scale * value + offset).
+  description: Final offset (output = scale * value + offset).
   required: false
   type: float
   default: 0
