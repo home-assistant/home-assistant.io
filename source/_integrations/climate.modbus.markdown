@@ -95,6 +95,11 @@ temp_step:
   required: false
   type: float
   default: 0.5 
+temperature_unit:
+  description: Temperature unit reported by the current_temp_register. C or F
+  required: false
+  type: string
+  default: C
 {% endconfiguration %}
 
 
