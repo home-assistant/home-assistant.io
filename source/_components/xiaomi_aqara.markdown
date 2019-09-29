@@ -112,6 +112,11 @@ gateways:
       required: false
       type: boolean
       default: false
+    proto:
+      description: Protocol to use for the HA <-> gateway communications. This is only required if the gateway doesn't use 1.0 protocol. 
+      required: false
+      type: string
+      default: 1.0
 discovery_retry:
   description: Number of times that Home Assistant should try to reconnect to the gateway.
   required: false
