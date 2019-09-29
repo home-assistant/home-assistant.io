@@ -16,14 +16,14 @@ All beacons that support the Eddystone protocol, have a temperature sensor and c
 As this platform uses `bluez` to scan for Bluetooth LE devices **a Linux OS with bluez installed** is required. In addition to that, the `libbluetooth` headers need to be installed:
 
 ```bash
-$ sudo apt-get install libbluetooth-dev
+sudo apt-get install libbluetooth-dev
 ```
 
 Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:
 
 ```bash
-$ sudo apt-get install libcap2-bin
-$ sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
+sudo apt-get install libcap2-bin
+sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
 ```
 
 To use your Eddystone beacon in your installation, add the following to your `configuration.yaml` file:

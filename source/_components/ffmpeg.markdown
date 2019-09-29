@@ -41,9 +41,9 @@ ffmpeg_bin:
 To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
 
 ```bash
-$ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
-$ sudo apt-get update
-$ sudo apt-get -t jessie-backports install ffmpeg
+sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get -t jessie-backports install ffmpeg
 ```
 
 We can use now following in the configuration:
@@ -60,7 +60,7 @@ In most cases, `ffmpeg` automatically detects all needed options to read a video
 First, check that your stream is playable by `ffmpeg` outside of Home Assistant with (use option `-an` or `-vn` to disable video or audio stream):
 
 ```bash
-$ ffmpeg -i INPUT -an -f null -
+ffmpeg -i INPUT -an -f null -
 ```
 
 Now you should be able to see what is going wrong. The following list contains some common problems and solutions:

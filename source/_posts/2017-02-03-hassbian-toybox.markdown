@@ -24,12 +24,12 @@ Currently includes:
 All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's cloned on first boot and can be updated to the latest release with ease after.
 To update the hassbian-scripts directory execute the following command as the `pi` user.
 ```bash
-$ cd hassbian-scripts
-$ git pull
+cd hassbian-scripts
+git pull
 ```
 To use any of the hassbian-scripts, execute the following command as the `pi` user. Here we use the libcec script as an example.
 ```bash
-$ sudo ./hassbian-scripts/install_libcec.sh
+sudo ./hassbian-scripts/install_libcec.sh
 ```
 
 For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 

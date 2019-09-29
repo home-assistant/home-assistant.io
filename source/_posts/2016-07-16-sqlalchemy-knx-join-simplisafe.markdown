@@ -15,8 +15,8 @@ It's time for Home Assistant 0.24 and it's full of new integration for your Home
 [Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
 ```bash
-$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
+pip3 install SQLAlchemy
+hass --script db_migrator --config /path/to/config
 ```
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.

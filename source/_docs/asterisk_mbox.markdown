@@ -35,7 +35,7 @@ Before beginning make sure that you have the following:
 2. Install the `asterisk_mbox_server` python module:
 
    ```bash
-   $ pip3 install asterisk_mbox_server
+   pip3 install asterisk_mbox_server
    ```
 
 3. Create a configuration file for the server
@@ -65,13 +65,13 @@ Before beginning make sure that you have the following:
    Once complete, ensure this file is only accessible by the Asterisk user:
 
    ```bash
-   $ sudo chown asterisk:asterisk /etc/asterisk/asterisk_mbox.ini
-   $ sudo chmod 600 /etc/asterisk/asterisk_mbox.ini
+   sudo chown asterisk:asterisk /etc/asterisk/asterisk_mbox.ini
+   sudo chmod 600 /etc/asterisk/asterisk_mbox.ini
    ```
 4. Interactively start the server to verify it is functioning
 
    ```bash
-   $ sudo -u asterisk asterisk_mbox_server -v --cfg /etc/asterisk/asterisk_mbox.ini
+   sudo -u asterisk asterisk_mbox_server -v --cfg /etc/asterisk/asterisk_mbox.ini
    ```
 
    Now complete the [Home Assistant configuration](/components/asterisk_mbox) and verify that Home Assistant can communicate with the server

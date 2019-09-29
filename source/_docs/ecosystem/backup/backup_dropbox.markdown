@@ -22,8 +22,8 @@ In the Python script you can specify which files and directories should be exclu
 ### Step 1: Linking your Dropbox account
 
 ```bash
-$ chmod +x dropbox_uploader.sh
-$ ./dropbox_uploader.sh
+chmod +x dropbox_uploader.sh
+./dropbox_uploader.sh
 ```
 Follow the instructions you see on your screen.
 

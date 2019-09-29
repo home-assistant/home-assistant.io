@@ -146,16 +146,16 @@ No additional actions are required
 You will need to activate the venv and install the websocket library:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install websocket-client
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install websocket-client
 ```
 ### Other install methods
 
 You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
 
 ```bash
-$ pip3 install websocket-client
+pip3 install websocket-client
 ```
 
 Remembering to activate your venv if you're using a venv install.
