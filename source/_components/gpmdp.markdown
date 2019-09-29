@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: "0.20"
-redirect_from:
- - /components/media_player.gpmdp/
 ---
 
 

@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.43
 logo: raspberry-pi.png
-redirect_from:
- - /components/light.rpi_gpio_pwm/
 ---
 
 The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width modulation, for example led strips. It supports one-color, RGB and RGBW LEDs driven by GPIOs of a Raspberry Pi or a PCA9685 controller.

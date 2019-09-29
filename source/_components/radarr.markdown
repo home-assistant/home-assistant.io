@@ -5,8 +5,6 @@ logo: radarr.png
 ha_category:
   - Downloading
 ha_release: 0.47
-redirect_from:
- - /components/sensor.radarr/
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.

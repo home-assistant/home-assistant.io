@@ -7,8 +7,6 @@ ha_category:
 
 ha_release: 0.52
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/lock.nello/
 ---
 
 The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.

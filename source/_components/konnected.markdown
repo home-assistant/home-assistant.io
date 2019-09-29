@@ -8,9 +8,6 @@ ha_category:
   - Switch
   - Sensor
 ha_release: "0.70"
-redirect_from:
-  - /components/binary_sensor.konnected/
-  - /components/switch.konnected/
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.

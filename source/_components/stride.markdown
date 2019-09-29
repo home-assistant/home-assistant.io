@@ -5,8 +5,6 @@ logo: stride.png
 ha_category:
   - Notifications
 ha_release: 0.66
-redirect_from:
- - /components/notify.stride/
 ---
 
 The `stride` platform allows you to send notifications from Home Assistant to [Stride](https://stride.com/).

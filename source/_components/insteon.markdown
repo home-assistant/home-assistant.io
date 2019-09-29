@@ -11,13 +11,6 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.insteon/
-  - /components/cover.insteon/
-  - /components/fan.insteon/
-  - /components/light.insteon/
-  - /components/sensor.insteon/
-  - /components/switch.insteon/
 ha_release: 0.39
 ---
 

@@ -6,8 +6,6 @@ ha_category:
   - Presence Detection
 ha_iot_class: Configurable
 ha_release: 0.44
-redirect_from:
- - /components/device_tracker.mqtt_json/
 ---
 
 The `mqtt_json` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.

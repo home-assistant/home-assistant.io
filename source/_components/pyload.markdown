@@ -6,8 +6,6 @@ ha_category:
   - Downloading
 ha_release: 0.58
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.pyload/
 ---
 
 The `pyload` platform allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.

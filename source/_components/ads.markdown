@@ -11,11 +11,6 @@ ha_category:
   - Cover
 ha_release: "0.60"
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.ads/
-  - /components/light.ads/
-  - /components/sensor.ads/
-  - /components/switch.ads/
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](http://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.

@@ -6,8 +6,6 @@ ha_category:
   - System Monitor
 ha_release: 0.35
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.netdata/
 ---
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).

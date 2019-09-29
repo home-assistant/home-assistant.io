@@ -5,8 +5,6 @@ ha_category:
   - Presence Detection
 logo: linksys.png
 ha_release: 0.37
-redirect_from:
- - /components/device_tracker.linksys_ap/
 ---
 
 <div class="note warning">

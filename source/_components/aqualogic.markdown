@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_release: "0.80"
 ha_iot_class: Local Push
-redirect_from:
-  - /components/sensor.aqualogic/
-  - /components/switch.aqualogic/
 ---
 
 The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.

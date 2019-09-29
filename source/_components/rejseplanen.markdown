@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.88
-redirect_from:
- - /components/sensor.rejseplanen/
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).

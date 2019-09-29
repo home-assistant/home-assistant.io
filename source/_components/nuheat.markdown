@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_release: 0.61
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/climate.nuheat/
 ---
 
 The `nuheat` integration lets control your connected [NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](http://www.nuheat.com/).

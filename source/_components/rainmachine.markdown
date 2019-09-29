@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_release: 0.69
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.rainmachine/
-  - /components/sensor.rainmachine/
-  - /components/switch.rainmachine/
 ---
 
 The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).

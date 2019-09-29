@@ -6,8 +6,6 @@ ha_category:
 ha_release: 0.21
 logo: home-assistant.png
 ha_qa_scale: internal
-redirect_from:
- - /components/switch.flux/
 ---
 
 The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.

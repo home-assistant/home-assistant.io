@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.recollect_waste/
 ---
 
 The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.

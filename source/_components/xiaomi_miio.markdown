@@ -6,8 +6,6 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.67
-redirect_from:
- - /components/device_tracker.xiaomi_miio/
 ---
 
 The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.

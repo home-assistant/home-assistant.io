@@ -9,11 +9,6 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.fritzbox/
-  - /components/switch.fritzbox/
-  - /components/climate.fritzbox/
-  - /components/sensor.fritzbox/
 ---
 
 The [AVM](https://en.avm.de) Fritzbox integration for Home Assistant allows you to integrate the switch and climate devices.

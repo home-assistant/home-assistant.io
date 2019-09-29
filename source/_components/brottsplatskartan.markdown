@@ -6,8 +6,6 @@ ha_category:
 logo: brottsplatskartan.png
 ha_release: 0.85
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.brottsplatskartan/
 ---
 
 The `brottsplatskartan` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Brottsplatskartan](https://brottsplatskartan.se). The sensor only counts incidents from the current day.

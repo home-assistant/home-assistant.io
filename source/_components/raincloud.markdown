@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_release: 0.55
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.raincloud/
-  - /components/sensor.raincloud/
-  - /components/switch.raincloud/
 ---
 
 The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.

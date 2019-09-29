@@ -14,15 +14,6 @@ ha_category:
   - Switch
 ha_release: 0.52
 ha_iot_class: Cloud Push
-redirect_from:
-  - /components/alarm_control_panel.abode/
-  - /components/binary_sensor.abode/
-  - /components/camera.abode/
-  - /components/cover.abode/
-  - /components/lock.abode/
-  - /components/light.abode/
-  - /components/switch.abode/
-  - /components/sensor.abode/
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.

@@ -8,9 +8,6 @@ ha_category:
 logo: dovado.png
 ha_release: 0.87
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/notify.dovado/
-  - /components/sensor.dovado/
 ---
 
 The `dovado` integration manages communication with the [Dovado](http://www.dovado.com/) router.

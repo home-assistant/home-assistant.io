@@ -4,8 +4,6 @@ description: "Controlling your Switcher V2 Water Heater."
 logo: switcher_boiler.png
 ha_category:
   - Switch
-redirect_from:
-  - /components/switch.switcher_kis
 ha_release: 0.93
 ha_iot_class: Local Push
 ---

@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_release: 0.61
 ha_iot_class: Local Polling
-redirect_from:
- - /components/climate.touchline/
 ---
 
 The `touchline` climate platform let you control [ROTH Touchline](http://www.roth-nordic.dk/dk/roth-touchline-tradloes-gulvvarmeregulering-1475.htm) floor heating thermostats from Roth.

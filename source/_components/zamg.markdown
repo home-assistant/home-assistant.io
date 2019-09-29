@@ -7,9 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.35
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.zamg/
- - /components/weather.zamg/
 ---
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).

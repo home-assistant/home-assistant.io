@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_iot_class: Local Polling
 ha_release: 0.7.6
-redirect_from:
- - /components/climate.radiotherm/
 ---
 
 The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/) or [3M Filtrete](http://www.radiothermostat.com/filtrete/products/). Your thermostat must have the Wi-Fi module installed and connected to your network.

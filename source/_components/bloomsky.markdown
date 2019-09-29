@@ -9,8 +9,6 @@ ha_category:
   - Sensor
 ha_release: 0.14
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.bloomsky/
 ---
 
 The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.

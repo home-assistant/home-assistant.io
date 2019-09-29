@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: "0.40"
-redirect_from:
- - /components/sensor.kwb/
 ---
 
 The `kwb` integration integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (https://www.kwb.net/produkte/) into Home Assistant.

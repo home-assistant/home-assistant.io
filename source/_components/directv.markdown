@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.directv/
 ---
 
 Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery integration](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.

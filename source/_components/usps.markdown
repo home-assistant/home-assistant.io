@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_release: 0.52
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/camera.usps/
-  - /components/sensor.usps/
 ---
 
 <div class="note warning">

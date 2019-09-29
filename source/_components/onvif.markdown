@@ -5,8 +5,6 @@ logo: onvif.png
 ha_category:
   - Camera
 ha_release: 0.47
-redirect_from:
- - /components/camera.onvif/
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.

@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_release: 0.56
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.serial/
 ---
 
 The `serial` sensor platform is using the data provided by a device connected to the serial port of the system where Home Assistant is running. With [`ser2net`](http://ser2net.sourceforge.net/) and [`socat`](http://www.dest-unreach.org/socat/) would it also work for sensors connected to a remote system.

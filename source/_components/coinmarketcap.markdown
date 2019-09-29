@@ -6,8 +6,6 @@ ha_category:
   - Finance
 ha_release: 0.28
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.coinmarketcap/
 ---
 
 

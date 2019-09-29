@@ -5,9 +5,6 @@ logo: mqtt.png
 ha_category:
   - Light
 ha_iot_class: Configurable
-redirect_from:
- - /components/light.mqtt_json/
- - /components/light.mqtt_template/
 ha_release: 0.8
 ---
 

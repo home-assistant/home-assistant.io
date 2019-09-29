@@ -6,8 +6,6 @@ ha_category:
   - Alarm
 ha_release: 0.7.6
 ha_qa_scale: internal
-redirect_from:
- - /components/alarm_control_panel.manual/
 ---
 
 The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.

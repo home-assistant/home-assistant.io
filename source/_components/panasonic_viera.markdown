@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.17
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.panasonic_viera/
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.

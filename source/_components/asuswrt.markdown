@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_release: 0.83
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/device_tracker.asuswrt/
-  - /components/sensor.asuswrt/
 ---
 
 The `asuswrt` integration is the main integration to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.

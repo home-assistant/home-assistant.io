@@ -9,10 +9,6 @@ ha_category:
 ha_release: 0.87
 logo: danfoss_air.png
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.danfoss_air/
-  - /components/sensor.danfoss_air/
-  - /components/switch.danfoss_air/
 ---
 
 The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.

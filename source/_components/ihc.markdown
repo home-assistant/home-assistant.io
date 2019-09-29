@@ -10,11 +10,6 @@ ha_category:
   - Switch
 ha_release: 0.62
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.ihc/
-  - /components/light.ihc/
-  - /components/sensor.ihc/
-  - /components/switch.ihc/
 ---
 
 IHC Controller integration for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.

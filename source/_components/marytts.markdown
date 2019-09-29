@@ -5,8 +5,6 @@ logo: marytts.png
 ha_category:
   - Text-to-speech
 ha_release: 0.43
-redirect_from:
- - /components/tts.marytts/
 ---
 
 The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) Text-to-Speech engine to read a text with natural sounding voices.

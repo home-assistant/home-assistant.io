@@ -5,8 +5,6 @@ logo: sky.png
 ha_category:
   - Presence Detection
 ha_release: 0.37
-redirect_from:
- - /components/device_tracker.sky_hub/
 ---
 
 

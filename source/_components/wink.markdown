@@ -18,18 +18,6 @@ ha_category:
 featured: true
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
-redirect_from:
-  - /components/alarm_control_panel.wink/
-  - /components/binary_sensor.wink/
-  - /components/climate.wink/
-  - /components/cover.wink/
-  - /components/fan.wink/
-  - /components/light.wink/
-  - /components/lock.wink/
-  - /components/scene.wink/
-  - /components/sensor.wink/
-  - /components/switch.wink/
-  - /components/water_heater.wink/
 ---
 
 [Wink](http://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:

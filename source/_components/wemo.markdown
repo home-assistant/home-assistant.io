@@ -10,11 +10,6 @@ ha_category:
   - Switch
 featured: true
 ha_release: pre 0.7
-redirect_from:
-  - /components/fan.wemo/
-  - /components/binary_sensor.wemo/
-  - /components/light.wemo/
-  - /components/switch.wemo/
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.

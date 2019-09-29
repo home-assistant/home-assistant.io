@@ -6,8 +6,6 @@ ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.34
-redirect_from:
- - /components/sensor.nut/
 ---
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](http://networkupstools.org/) (Network UPS Tools) server.

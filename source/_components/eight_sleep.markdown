@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_release: 0.44
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.eight_sleep/
-  - /components/sensor.eight_sleep/
 ---
 
 The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.

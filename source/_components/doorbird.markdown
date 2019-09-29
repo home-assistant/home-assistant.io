@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
-redirect_from:
-  - /components/camera.doorbird/
-  - /components/switch.doorbird/
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.

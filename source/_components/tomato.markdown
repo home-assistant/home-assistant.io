@@ -5,8 +5,6 @@ logo: tomato.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
-redirect_from:
- - /components/device_tracker.tomato/
 ---
 
 The `tomato` platform requires an extra config variable called `http_id`. The

@@ -6,8 +6,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: "0.30"
-redirect_from:
- - /components/switch.anel_pwrctrl/
 ---
 
 The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](http://anel-elektronik.de/SITE/produkte/produkte.htm) devices.

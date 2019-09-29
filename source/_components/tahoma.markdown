@@ -11,12 +11,6 @@ ha_category:
   - Sensor
 ha_release: 0.59
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.tahoma/
-  - /components/cover.tahoma/
-  - /components/scene.tahoma/
-  - /components/switch.tahoma/
-  - /components/sensor.tahoma/
 ---
 
 The `Tahoma` integration platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.

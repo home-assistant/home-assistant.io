@@ -6,8 +6,6 @@ ha_category:
   - Downloading
 ha_release: 0.34
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.sonarr/
 ---
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.

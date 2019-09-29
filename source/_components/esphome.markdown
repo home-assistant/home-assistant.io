@@ -7,12 +7,6 @@ ha_category:
   - DIY
 ha_release: 0.85
 ha_iot_class: Local Push
-redirect_from:
- - /components/binary_sensor.esphome/
- - /components/cover.esphome/
- - /components/fan.esphome/
- - /components/light.esphome/
- - /components/switch.esphome/
 ---
 
 This integration allows you to connect your [ESPHome](https://esphome.io) devices directly into Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

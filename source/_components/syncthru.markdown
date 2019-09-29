@@ -6,8 +6,6 @@ ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.66
-redirect_from:
- - /components/sensor.syncthru/
 ---
 
 The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.

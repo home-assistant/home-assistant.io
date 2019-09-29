@@ -5,8 +5,6 @@ logo: mastodon.png
 ha_category:
   - Notifications
 ha_release: 0.67
-redirect_from:
- - /components/notify.mastodon/
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.

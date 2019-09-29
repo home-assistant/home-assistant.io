@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.51
-redirect_from:
- - /components/sensor.geizhals/
 ---
 
 The `geizhals` sensor will give you the best price of a product from [Geizhals](https://geizhals.de) or related site. With this information can be used in e.g., automations to notify you when a price drops.

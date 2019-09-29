@@ -6,8 +6,6 @@ ha_category:
   - Energy
 ha_release: 0.35
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.hydroquebec/
 ---
 
 Integrate your [Hydro-Québec](https://www.hydroquebec.com/portail/) consumption profile information into Home Assistant.

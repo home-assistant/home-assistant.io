@@ -6,7 +6,6 @@ ha_category:
   - Hub
 ha_release: 0.57
 ha_iot_class: Local Push
-redirect_from: /components/xiaomi/
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.

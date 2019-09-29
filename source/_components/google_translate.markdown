@@ -5,9 +5,6 @@ logo: google.png
 ha_category:
   - Text-to-speech
 ha_release: 0.35
-redirect_from:
- - /components/tts.google/
- - /components/google/
 ---
 
 The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.

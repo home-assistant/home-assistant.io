@@ -9,10 +9,6 @@ ha_category:
   - Sensor
 ha_release: 0.79
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/notify.huawei_lte/
-  - /components/device_tracker.huawei_lte/
-  - /components/sensor.huawei_lte/
 ---
 
 The Huawei LTE router integration for Home Assistant allows you to observe and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/).

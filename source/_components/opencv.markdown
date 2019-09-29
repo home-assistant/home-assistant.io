@@ -5,8 +5,6 @@ logo: opencv.png
 ha_category:
   - Image Processing
 ha_release: 0.47
-redirect_from:
- - /components/image_processing.opencv/
 ---
 
 [OpenCV](http://www.opencv.org) is an open source computer vision image and video processing library.

@@ -6,8 +6,6 @@ ha_category:
 ha_release: 0.7
 logo: dht.png
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.dht/
 ---
 
 

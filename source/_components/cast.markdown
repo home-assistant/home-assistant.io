@@ -7,7 +7,6 @@ ha_category:
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-redirect_from: /components/media_player.cast/
 ---
 
 You can enable the Cast integration by going to the Integrations page inside the config panel.

@@ -6,9 +6,6 @@ ha_category:
   - Fan
   - Sensor
 ha_release: 0.48
-redirect_from:
-  - /components/fan.comfoconnect/
-  - /components/sensor.comfoconnect/
 ---
 
 The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-st)/[450](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-st)/[600](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)

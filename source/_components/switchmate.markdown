@@ -6,8 +6,6 @@ ha_category:
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Polling
-redirect_from:
- - /components/switch.switchmate/
 ---
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).

@@ -6,8 +6,6 @@ ha_category:
   - DIY
 ha_release: 0.37
 ha_iot_class: Local Polling
-redirect_from:
- - /components/light.piglow/
 ---
 
 

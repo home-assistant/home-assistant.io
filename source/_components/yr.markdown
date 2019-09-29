@@ -6,8 +6,6 @@ ha_category:
   - Weather
 ha_release: 0.11
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.yr/
 ---
 
 The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current

@@ -7,8 +7,6 @@ ha_category:
   - Climate
 ha_release: 0.63
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/climate.melissa/
 ---
 
 The `melissa` integration is the main integration to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.

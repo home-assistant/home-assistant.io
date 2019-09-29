@@ -5,8 +5,6 @@ logo: vesync.png
 ha_category:
   - Switch
 ha_release: 0.66
-redirect_from:
- - /components/switch.vesync/
 ---
 
 The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.

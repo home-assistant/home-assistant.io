@@ -6,8 +6,6 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.67
-redirect_from:
- - /components/light.nanoleaf/
 ---
 
 ### Configuration Sample

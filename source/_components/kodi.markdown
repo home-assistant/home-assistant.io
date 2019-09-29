@@ -7,9 +7,6 @@ ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Push
-redirect_from:
-  - /components/notify.kodi/
-  - /components/media_player.kodi/
 ---
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.

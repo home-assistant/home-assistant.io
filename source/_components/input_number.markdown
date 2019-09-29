@@ -5,7 +5,6 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
-redirect_from: /components/input_slider/
 ha_qa_scale: internal
 ---
 

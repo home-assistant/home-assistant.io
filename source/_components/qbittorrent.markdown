@@ -6,8 +6,6 @@ ha_category:
   - Downloading
 ha_release: 0.84
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.qbittorrent/
 ---
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.

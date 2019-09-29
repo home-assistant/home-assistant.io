@@ -5,8 +5,6 @@ logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
-redirect_from:
-  - /components/alarm_control_panel.simplisafe/
 ---
 
 The `simplisafe` integration integrates SimpliSafe home security (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.

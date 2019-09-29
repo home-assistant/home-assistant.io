@@ -6,8 +6,6 @@ ha_category:
 logo: gtt.png
 ha_iot_class: Cloud Polling
 ha_release: 0.85
-redirect_from:
- - /components/sensor.gtt/
 ---
 
 

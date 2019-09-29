@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_release: 0.62
 ha_iot_class: Local Polling
-redirect_from:
- - /components/climate.venstar/
 ---
 
 

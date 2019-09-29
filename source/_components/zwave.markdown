@@ -14,15 +14,6 @@ ha_category:
   - Switch
 featured: true
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.zwave/
-  - /components/climate.zwave/
-  - /components/cover.zwave/
-  - /components/fan.zwave/
-  - /components/light.zwave/
-  - /components/lock.zwave/
-  - /components/sensor.zwave/
-  - /components/switch.zwave/
 ha_release: 0.7
 ---
 

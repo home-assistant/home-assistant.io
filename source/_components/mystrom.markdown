@@ -8,10 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
-redirect_from:
- - /components/light.mystrom/
- - /components/binary_sensor.mystrom/
- - /components/switch.mystrom/
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.

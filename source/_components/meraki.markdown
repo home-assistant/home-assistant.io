@@ -5,8 +5,6 @@ logo: meraki.png
 ha_category:
   - Presence Detection
 ha_release: "0.60"
-redirect_from:
- - /components/device_tracker.meraki/
 ---
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.

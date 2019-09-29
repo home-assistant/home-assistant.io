@@ -6,8 +6,6 @@ ha_category:
   - Camera
 ha_release: "0.70"
 ha_iot_class: Local Polling
-redirect_from:
- - /components/camera.familyhub/
 ---
 
 The `familyhub` platform allows you to get images of the inside of your [Samsung Family Hub refrigerator](https://www.samsung.com/us/explore/family-hub-refrigerator/connected-hub/) in Home Assistant.

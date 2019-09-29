@@ -5,8 +5,6 @@ ha_category:
   - Energy
 ha_release: 0.83
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.srp_energy/
 ---
 
 <div class="note warning">
