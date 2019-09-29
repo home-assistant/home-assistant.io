@@ -22,7 +22,7 @@ Under the "Core" section you will find HASS Configurator.
 
  - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
  - Now start the add-on by clicking on START.
- - Open the user interface by clcking on OPEN WEB UI.
+ - Open the user interface by clicking on OPEN WEB UI.
 
 Now let's make a small change using the configurator: we are going to change the name and location of your Home Assistant installation.
 
