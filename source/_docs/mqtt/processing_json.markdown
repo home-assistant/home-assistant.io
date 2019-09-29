@@ -17,13 +17,6 @@ To use this, add the following key to your `configuration.yaml`:
 ```yaml
 switch:
   platform: mqtt
-  state_format: 'json:somekey[0].value'
-```
-It is also possible to extract JSON values by using a value template:
-
-```yaml
-switch:
-  platform: mqtt
   value_template: '{% raw %}{{ value_json.somekey[0].value }}{% endraw %}'
 ```
 
