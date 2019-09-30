@@ -81,7 +81,7 @@ sensors:
     monitored_conditions:
       description: The sensors to activate.
       type: list
-      default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
+      default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`, `Job Filename`, `Job Origin`, `Job User`)
       keys:
         "Current State":
           description: Text of current state.
@@ -93,6 +93,12 @@ sensors:
           description: Time elapsed on current print job, in seconds.
         "Time Remaining":
           description: Time remaining on current print job, in seconds.
+        "Job Filename":
+          description: The filename of the current print job.
+        "Job Origin":
+          description: The origin of the print job. Can be `local` or `sdcard`.
+        "Job User":
+          description: The user who started the current job.
 binary_sensors:
   description: Configuration for the binary sensors.
   required: false
