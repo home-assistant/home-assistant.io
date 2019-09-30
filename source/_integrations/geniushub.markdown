@@ -11,8 +11,6 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-## geniushub
-
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library.
