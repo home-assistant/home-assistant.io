@@ -51,6 +51,11 @@ authentication:
   description: Type of the HTTP authentication. Either `basic` or `digest`.
   required: false
   type: string
+verify_ssl:
+  description: Enables/disables verification of SSL-certificate, for example if it is self-signed.
+  required: false
+  type: boolean
+  default: true
 username:
   description: The username for accessing the website.
   required: false
