@@ -11,6 +11,8 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
+## geniushub
+
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library.
@@ -19,8 +21,8 @@ It uses the [geniushub](https://pypi.org/project/geniushub-client/) client libra
 
 Each Zone controlled by your Genius Hub will be exposed as either a:
 
- - `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
- - `Water Heater` entity, for **Hot Water Temperature** Zones
+- `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
+- `Water Heater` entity, for **Hot Water Temperature** Zones
 
 Other Zone types, such as **On / Off** Zones, are not currently supported (although see `Binary Sensor`s, below).
 
@@ -35,16 +37,16 @@ GH mode | HA Operation | HA Preset
 
 Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
 
-Currently, there is no support for reading/altering Zone schedules, although a Zone can be switched to a mode that utilizes schedules.
+Currently, there is no support for reading/altering Zone schedules, although a Zone can be switched to/from modes that utilize schedules.
 
 ### Devices
 
-If the Hub is directly polled using the v3 API (see below), then each Device controlled by your Genius hub will be exposed as either a:
+Each Device controlled by your Genius hub will be exposed as either a:
 
- - `Sensor` entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
- - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. Smart Plugs, DCRs)
+- `Sensor` entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
+- `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. Smart Plugs, DCRs)
 
-Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
+Each such entity will report back its primary state and `assigned_zone`. If the Hub is directly polled using the v3 API (see below) then some additional attributes such as `last_comms` (last communications time) are also available.
 
 ### Issues
 
@@ -86,7 +88,6 @@ This alert may be useful to see if the CH is being turned on whilst you're on ho
         from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
 {% endraw %}
-
 
 ### State Attributes
 
@@ -145,9 +146,9 @@ Note that only the v3 API will expose Genius Devices in addition to Zones and Is
 
 ### Option 1: hub token only
 
- - requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
- - uses the v1 API - which is well-documented
- - polls Heat Genius' own servers (so is slower, say ~5-10s response time)
+- requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
+- uses the v1 API - which is well-documented
+- polls Heat Genius' own servers (so is slower, say ~5-10s response time)
 
 ```yaml
 # Example configuration.yaml entry, using a Hub Token
@@ -157,9 +158,9 @@ geniushub:
 
 ### Option 2: hub hostname/address with user credentials
 
- - requires your **username** & **password**, as used with [www.geniushub.co.uk/app](https://www.geniushub.co.uk/app)
- - uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
- - polls the hub directly (so is faster, say ~1s response time)
+- requires your **username** & **password**, as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app)
+- uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
+- polls the hub directly (so is faster, say ~1s response time)
 
 The hub does not have to be in the same network as HA.
 
