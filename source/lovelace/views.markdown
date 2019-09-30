@@ -41,7 +41,7 @@ views:
       required: false
       description: Renders the view in panel mode, more info below.
       type: boolean
-      default: "false"
+      default: false
     background:
       required: false
       description: Style the background using CSS, more info below.
