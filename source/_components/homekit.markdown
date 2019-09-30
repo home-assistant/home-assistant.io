@@ -50,6 +50,12 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+    fan.kitchen_fan:
+      turn_on_data:
+        speed: "low"
+    light.misbehaving_light:
+      disable_characteristics:
+        - "Brightness"
 ```
 
 {% configuration %}
@@ -145,6 +151,14 @@ homekit:
                 required: false
                 type: string
                 default: '`switch`'
+              disable_characteristics:
+                description: Only for `light` and `fan` entities. Disables the HomeKit accessory characteristics. Valid characteristics for lights are `Brightness`, `ColorTemperature`, ` Hue` or `Saturation`.  Valid characteristics for fans are `RotationSpeed`, `RotationDirection` or `SwingMode`. 
+                required: false
+                type: list
+              turn_on_data:
+                description: Only for `light` and `fan` entities. The data to be sent to the `light.turn_on` and `fan.turn_on` service. Please see the [light turn on service schema]({{site_root}}/components/light#service-lightturn_on) for valid configurations.
+                required: false
+                type: map
 {% endconfiguration %}
 
 
