@@ -59,6 +59,10 @@ logger:
     homeassistant.components.deconz: debug
 ```
 
+## Troubleshooting
+
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](https://www.dresden-elektronik.de/rpi/deconz-firmware/?C=M;O=D). 
+
 ## Device services
 
 Available services: `configure` and `deconz.device_refresh`.
