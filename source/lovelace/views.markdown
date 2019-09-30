@@ -73,6 +73,29 @@ image:
   required: false
   description: The URL of an image.
   type: string
+state_filter:
+  required: false
+  description: List of strings representing states or `filter` objects, see below.
+  type: list
+{% endconfiguration %}
+
+## Options For state_filter
+
+If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
+
+{% configuration %}
+value:
+  required: true
+  description: String representing the state.
+  type: string
+operator:
+  required: false
+  description: Operator to use in the comparison.
+  type: string
+attribute:
+  required: false
+  description: Attribute of the entity to use instead of the state.
+  type: string
 {% endconfiguration %}
 
 ### Example
@@ -88,6 +111,10 @@ View config:
       icon: mdi:bulb
     - entity: switch.decorative_lights
       image: /local/lights.png
+    - entity: sensor.outside_humidity
+      state_filter:
+        - operator: '>'
+          value: 55
 ```
 
 ## Paths
