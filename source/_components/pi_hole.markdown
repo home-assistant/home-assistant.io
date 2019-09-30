@@ -66,9 +66,9 @@ pi_hole:
 
 ## Services
 
-The platform provides the following services to interact with your Pi-hole
+The platform provides the following services to interact with your Pi-hole.
 
-### pi_hole.disable
+### Service `pi_hole.disable`
 
 Disable your Pi-hole for the specified amount of time.
 
@@ -76,12 +76,12 @@ Disable your Pi-hole for the specified amount of time.
 | ---------------------- | -------- | -------- | ----------- |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled | 
 
-_Note: This service requires `api_key` to be specified in configuration._
+_Note: This service requires `api_key` to be specified in the configuration._
 
-### pi.hole_enable
+### Service `pi.hole_enable`
 
 Enable your Pi-hole.
 
-_Note: This service requires `api_key` to be specified in configuration._
+_Note: This service requires `api_key` to be specified in the configuration._
 
 This integration was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
