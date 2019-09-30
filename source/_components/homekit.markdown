@@ -50,6 +50,8 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+    fan.dining_room:
+      zero_is_turn_off: false
 ```
 
 {% configuration %}
@@ -145,6 +147,11 @@ homekit:
                 required: false
                 type: string
                 default: '`switch`'
+              zero_is_turn_off:
+                description: Only for `light` and `fan` entities. If set, entities will not update homekit accessory when setting `brightness` or `speed` attributes to 0%. Instead, the HomeKit accessory will be turned off. This is useful because some entities will update the state with `brightness` or `speed` set to 0% when turning off the entity, but HomeKit requires that `brightness` or `speed` to be set while off in order to restore to the previous state when turning the accessory back on. Otherwise, HomeKit will issue a command to update `brightness` or `speed` to 100% to prevent the case where an accessory is on but with 0% `brightness` or `speed`. To revert to the old behavior, set this to `false`.     
+                required: false
+                type: boolean
+                default: true
 {% endconfiguration %}
 
 
