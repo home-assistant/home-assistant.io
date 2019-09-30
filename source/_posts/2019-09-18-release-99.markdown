@@ -41,7 +41,7 @@ The user starts by picking one of their devices that is integrated into Home Ass
 
 Device automations are available for triggers, conditions and actions. Today’s release supports lights, switches and Deconz. More to come in future releases as integration developers adopt it.
 
-Big thanks to [@emontomery] for driving this effort. He added initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
+Big thanks to [@emontnemery] for driving this effort. He added initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
 
 ## Frontend
 
