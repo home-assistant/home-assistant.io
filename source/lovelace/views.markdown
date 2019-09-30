@@ -54,7 +54,7 @@ views:
       required: false
       description: "Hide the view from all users or a list of users to hide the view from."
       type: [boolean, list]
-      default: "false"
+      default: false
 {% endconfiguration %}
 
 ## Options For Badges
