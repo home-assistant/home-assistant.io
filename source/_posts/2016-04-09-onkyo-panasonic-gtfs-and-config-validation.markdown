@@ -41,12 +41,12 @@ Another big thing is the addition of GTFS support. You probably don't know it, b
 [@robbiet480]: https://github.com/robbiet480/
 [@srcLurker]: https://github.com/srcLurker/
 [@turbokongen]: https://github.com/turbokongen/
-[GTFS]: /components/sensor.gtfs/
-[Loop Energy]: /components/sensor.loop_energy/
-[NZBGet]: /components/sensor.nzbget/
-[Onkyo receiver]: /components/media_player.onkyo/
-[Panasonic Viera TV]: /components/media_player.panasonic_viera/
-[Raspberry PI]: /components/camera.rpi_camera/
+[GTFS]: /components/gtfs
+[Loop Energy]: /components/loopenergy
+[NZBGet]: /components/nzbget
+[Onkyo receiver]: /components/onkyo
+[Panasonic Viera TV]: /components/panasonic_viera
+[Raspberry PI]: /components/rpi_camera
 [Z-Wave]: /components/zwave/#climate
 
 ### Breaking changes

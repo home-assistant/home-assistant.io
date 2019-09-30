@@ -93,24 +93,24 @@ homeassistant:
 [@fabaff]: https://github.com/fabaff
 
 [Foursquare]: /components/foursquare/
-[OhmConnect]: /components/sensor.ohmconnect/
+[OhmConnect]: /components/ohmconnect
 [FFMPEG]: /components/camera.ffmpeg/
-[SMTP]: /components/notify.smtp/
+[SMTP]: /components/smtp
 [panel_custom]: /components/panel_custom/
-[Verisure]: /components/alarm_control_panel.verisure/
-[Flux LED]: /components/light.flux_led/
+[Verisure]: /components/verisure#alarm-control-panel
+[Flux LED]: /components/flux_led
 [InfluxDB]: /components/influxdb/
-[particulate]: /components/sensor.serial_pm/
-[LG Netcast TV]: /components/media_player.lg_netcast/
-[mqtt_json]: /components/light.mqtt_json/
-[Fast.com]: /components/sensor.fastdotcom/
+[particulate]: /components/serial_pm/
+[LG Netcast TV]: /components/lg_netcast
+[mqtt_json]: /components/light.mqtt
+[Fast.com]: /components/fastdotcom
 [pilight]: /components/pilight/
-[GPSD]: /components/sensor.gpsd/
+[GPSD]: /components/gpsd
 [heat control]: /components/thermostat.heat_control/
 [Proximity]: /components/proximity/
-[Flux]: /components/switch.flux/
+[Flux]: /components/flux
 [Proliphix]: /components/proliphix/
-[Fitbit]: /components/sensor.fitbit/
-[Plex]: /components/media_player.plex/
+[Fitbit]: /components/fitbit
+[Plex]: /components/plex#media-player
 [Honeywell]: /components/honeywell/
 [Secrets]: /topics/secrets/

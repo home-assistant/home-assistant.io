@@ -805,7 +805,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [webhook docs]: /components/webhook/
 [withings docs]: /components/withings/
 [wwlln docs]: /components/wwlln/
-[xiaomi docs]: /components/xiaomi/
+[xiaomi docs]: /components/xiaomi_aqara
 [yeelight docs]: /components/yeelight/
 [zha docs]: /components/zha/
 [zhong_hong docs]: /components/zhong_hong/

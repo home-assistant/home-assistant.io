@@ -284,25 +284,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@andersonshatch]: https://github.com/andersonshatch
 
 [telegram]: /components/webhooks/
-[pushsafer]: /components/notify.pushsafer/
-[openhome]: /components/media_player.openhome/
-[ups]: /components/sensor.ups/
-[fedex]: /components/sensor.fedex/
-[fido]: /components/sensor.fido/
-[gstreamer]: /components/media_player.gstreamer/
-[clementine]: /components/media_player.clementine/
-[ebox]: /components/sensor.ebox/
-[aurora]: /components/binary_sensor.aurora/
-[netmonitor]: /components/sensor.fritzbox_netmonitor/
-[itach]: /components/remote.itach/
-[sunflowers]: /components/light.yeelightsunflower/
-[kodi]: /components/media_player.kodi/
-[myq]: /components/cover.myq/
-[oemt]: /components/climate.oem/
+[pushsafer]: /components/pushsafer
+[openhome]: /components/openhome
+[ups]: /components/ups
+[fedex]: /components/fedex
+[fido]: /components/fido
+[gstreamer]: /components/gstreamer
+[clementine]: /components/clementine
+[ebox]: /components/ebox
+[aurora]: /components/aurora
+[netmonitor]: /components/fritzbox#sensor_netmonitor/
+[itach]: /components/itach
+[sunflowers]: /components/yeelightsunflower/
+[kodi]: /components/kodi
+[myq]: /components/myq
+[oemt]: /components/oem
 [volvo]: /components/volvooncall/
-[pocket]: /components/sensor.pocketcasts/
+[pocket]: /components/pocketcasts
 [config]: /components/config/
-[history_stats]: /components/sensor.history_stats/
+[history_stats]: /components/history_stats
 
 
 [docs]: /docs/

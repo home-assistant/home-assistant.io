@@ -132,7 +132,7 @@ As it currently stands, this is going to be the perfect companion hardware to wo
 [Homebridge]: https://github.com/nfarina/homebridge
 [hb-hass]: https://github.com/home-assistant/homebridge-homeassistant
 [emulated_hue]: /components/emulated_hue/
-[apiai]: /components/apiai/
+[apiai]: /components/dialogflow
 [Haaska]: https://github.com/auchter/haaska
 [great marketing material]: https://i2.wp.com/blog.smartthings.com/wp-content/uploads/2014/06/summer-vacay-683x405-blog.png?fit=683%2C405&ssl=1
 [classification]: /blog/2016/02/12/classifying-the-internet-of-things/

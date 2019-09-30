@@ -30,17 +30,17 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
  - Binary sensor: [REST] platform added ([@fabaff])
  - Sensor: [Torque (OBD2)] platform added ([@happyleavesaoc])
 
-[iCloud]: /components/device_tracker.icloud/
-[Twitch]: /components/sensor.twitch/
+[iCloud]: /components/icloud
+[Twitch]: /components/twitch
 [Template]: /topics/templating/
 [Heatmiser]: /components/heatmiser/
-[Dweet.io]: /components/sensor.dweet/
+[Dweet.io]: /components/dweet#sensor
 [Alexa/Amazon echo]: /components/alexa/
-[FritzBox]: /components/device_tracker.fritz/
-[Wink]: /components/sensor.wink/
-[ELIQ Online]: /components/sensor.eliqonline/
+[FritzBox]: /components/fritz
+[Wink]: /components/wink#sensor
+[ELIQ Online]: /components/eliqonline
 [REST]: /components/binary_sensor.rest/
-[Torque (OBD2)]: /components/sensor.torque/
+[Torque (OBD2)]: /components/torque
 [@andylockran]: https://github.com/andylockran
 [@balloob]: https://github.com/balloob
 [@caiuspb]: https://github.com/caiuspb
@@ -81,9 +81,9 @@ Affected components and platforms:
  - binary_sensor: [MQTT][binary_sensor.mqtt]
  - automation: [numeric_state][automation-numeric-state]
 
-[sensor.arest]: /components/sensor.arest/
+[sensor.arest]: /components/arest#sensor
 [sensor.command]: /components/sensor.command_sensor/
-[sensor.rest]: /components/sensor.rest/
+[sensor.rest]: /components/rest
 [sensor.mqtt]: /components/sensor.mqtt/
 [switch.mqtt]: /components/switch.mqtt/
 [light.mqtt]: /components/light.mqtt/

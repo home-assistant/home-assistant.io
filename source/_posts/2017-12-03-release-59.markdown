@@ -323,29 +323,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@zBart]: https://github.com/zBart
 [@zhujisheng]: https://github.com/zhujisheng
 [alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.arlo docs]: /components/alarm_control_panel.arlo/
+[alarm_control_panel.arlo docs]: /components/arlo
 [alarm_control_panel.demo docs]: /components/demo/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
+[alarm_control_panel.totalconnect docs]: /components/totalconnect
 [amcrest docs]: /components/amcrest/
 [automation.state docs]: /docs/automation/trigger/#state-trigger
 [binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.homematic docs]: /components/binary_sensor.homematic/
-[camera.amcrest docs]: /components/camera.amcrest/
-[camera.ring docs]: /components/camera.ring/
+[binary_sensor.homematic docs]: /components/homematic
+[camera.amcrest docs]: /components/amcrest
+[camera.ring docs]: /components/ring#camera
 [climate docs]: /components/climate/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.hive docs]: /components/climate.hive/
-[climate.honeywell docs]: /components/climate.honeywell/
+[climate.ecobee docs]: /components/ecobee
+[climate.generic_thermostat docs]: /components/generic_thermostat
+[climate.hive docs]: /components/hive#climate
+[climate.honeywell docs]: /components/honeywell
 [climate.mqtt docs]: /components/climate.mqtt/
-[climate.radiotherm docs]: /components/climate.radiotherm/
-[climate.sensibo docs]: /components/climate.sensibo/
+[climate.radiotherm docs]: /components/radiotherm
+[climate.sensibo docs]: /components/sensibo
 [cloud docs]: /components/cloud/
 [config.group docs]: /components/config/
 [configurator docs]: /components/configurator/
 [conversation docs]: /components/conversation/
-[cover.tahoma docs]: /components/cover.tahoma/
-[device_tracker.unifi_direct docs]: /components/device_tracker.unifi_direct/
+[cover.tahoma docs]: /components/tahoma
+[device_tracker.unifi_direct docs]: /components/unifi_direct/
 [dominos docs]: /components/dominos/
 [doorbird docs]: /components/doorbird/
 [ecobee docs]: /components/ecobee/
@@ -357,37 +357,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematic docs]: /components/homematic/
 [influxdb docs]: /components/influxdb/
 [knx docs]: /components/knx/
-[light.blinkt docs]: /components/light.blinkt/
-[light.hive docs]: /components/light.hive/
-[light.hue docs]: /components/light.hue/
-[light.tradfri docs]: /components/light.tradfri/
+[light.blinkt docs]: /components/blinkt
+[light.hive docs]: /components/hive#light
+[light.hue docs]: /components/hue
+[light.tradfri docs]: /components/tradfri
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.yeelight docs]: /components/light.yeelight/
+[light.yeelight docs]: /components/yeelight
 [media_extractor docs]: /components/media_extractor/
-[media_player.cast docs]: /components/media_player.cast/
+[media_player.cast docs]: /components/cast
 [netatmo docs]: /components/netatmo/
-[notify.lametric docs]: /components/notify.lametric/
-[notify.pushbullet docs]: /components/notify.pushbullet/
+[notify.lametric docs]: /components/lametric
+[notify.pushbullet docs]: /components/pushbullet
 [ring docs]: /components/ring/
-[sensor.amcrest docs]: /components/sensor.amcrest/
-[sensor.currencylayer docs]: /components/sensor.currencylayer/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
-[sensor.fritzbox_netmonitor docs]: /components/sensor.fritzbox_netmonitor/
-[sensor.hddtemp docs]: /components/sensor.hddtemp/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
-[sensor.serial docs]: /components/sensor.serial/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.tellduslive docs]: /components/sensor.tellduslive/
-[sensor.tellstick docs]: /components/sensor.tellstick/
-[sensor.whois docs]: /components/sensor.whois/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.yweather docs]: /components/sensor.yweather/
+[sensor.amcrest docs]: /components/amcrest
+[sensor.currencylayer docs]: /components/currencylayer
+[sensor.deutsche_bahn docs]: /components/deutsche_bahn
+[sensor.fastdotcom docs]: /components/fastdotcom
+[sensor.fritzbox_netmonitor docs]: /components/fritzbox#sensor_netmonitor/
+[sensor.hddtemp docs]: /components/hddtemp
+[sensor.hive docs]: /components/hive#sensor
+[sensor.homematic docs]: /components/homematic
+[sensor.sabnzbd docs]: /components/sabnzbd
+[sensor.serial docs]: /components/serial
+[sensor.tahoma docs]: /components/tahoma
+[sensor.tellduslive docs]: /components/tellduslive
+[sensor.tellstick docs]: /components/tellstick#sensor
+[sensor.whois docs]: /components/whois
+[sensor.wunderground docs]: /components/wunderground
+[sensor.yweather docs]: /components/yweather
 [shell_command docs]: /components/shell_command/
 [shopping_list docs]: /components/shopping_list/
-[switch.hive docs]: /components/switch.hive/
+[switch.hive docs]: /components/hive#switch
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [system_log docs]: /components/system_log/
 [tahoma docs]: /components/tahoma/
@@ -395,11 +395,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tellstick docs]: /components/tellstick/
 [tradfri docs]: /components/tradfri/
 [tts docs]: /components/tts/
-[tts.baidu docs]: /components/tts.baidu/
-[tts.microsoft docs]: /components/tts.microsoft/
+[tts.baidu docs]: /components/baidu
+[tts.microsoft docs]: /components/microsoft
 [updater docs]: /components/updater/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[weather.ecobee docs]: /components/weather.ecobee/
+[weather.ecobee docs]: /components/ecobee
 [zwave docs]: /components/zwave/
 [#10798]: https://github.com/home-assistant/home-assistant/pull/10798
 [#10923]: https://github.com/home-assistant/home-assistant/pull/10923
@@ -407,7 +407,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#10935]: https://github.com/home-assistant/home-assistant/pull/10935
 [@NovapaX]: https://github.com/NovapaX
 [@wrboyce]: https://github.com/wrboyce
-[notify.nfandroidtv docs]: /components/notify.nfandroidtv/
+[notify.nfandroidtv docs]: /components/nfandroidtv
 [#10941]: https://github.com/home-assistant/home-assistant/pull/10941
 [#10947]: https://github.com/home-assistant/home-assistant/pull/10947
 [#10950]: https://github.com/home-assistant/home-assistant/pull/10950
@@ -420,8 +420,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@molobrakos]: https://github.com/molobrakos
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
-[device_tracker.linksys_ap docs]: /components/device_tracker.linksys_ap/
+[device_tracker.linksys_ap docs]: /components/linksys_ap
 [dominos docs]: /components/dominos/
-[media_player.cast docs]: /components/media_player.cast/
+[media_player.cast docs]: /components/cast
 [tellduslive docs]: /components/tellduslive/
 [wink docs]: /components/wink/

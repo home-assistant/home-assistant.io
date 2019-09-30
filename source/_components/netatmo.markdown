@@ -87,7 +87,7 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 
 ### Webhooks
 
-The Welcome and Presence cameras can send instant events to Home Assistant by using webhooks. There are different types of events, each with slightly different data attached. To enable the webhooks add `webhooks: true` to your configuration. It is also required to have your camera enabled in Home Assistant. You can do this either by manually setting up the [platform](/components/camera.netatmo/) or by enabeling [discovery](/components/netatmo/#discovery).
+The Welcome and Presence cameras can send instant events to Home Assistant by using webhooks. There are different types of events, each with slightly different data attached. To enable the webhooks add `webhooks: true` to your configuration. It is also required to have your camera enabled in Home Assistant. You can do this either by manually setting up the [platform](/components/netatmo#camera) or by enabeling [discovery](/components/netatmo/#discovery).
 
 To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the base_url configured for the HTTP integration ([docs](/components/http/#base_url)).
 

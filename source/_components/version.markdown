@@ -80,7 +80,7 @@ sensor:
     command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
 ```
 
-You might think that a [`rest` sensor](/components/sensor.rest/) could work,
+You might think that a [`rest` sensor](/components/rest) could work,
 too,
 but it will not as Home Assistant is not ready when the sensor gets initialized.
 

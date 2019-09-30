@@ -47,4 +47,4 @@ A few notes for platform: denon
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
 
-[Denon AVR]: /components/media_player.denonavr/
+[Denon AVR]: /components/denonavr/

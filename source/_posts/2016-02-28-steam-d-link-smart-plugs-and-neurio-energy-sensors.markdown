@@ -50,29 +50,29 @@ It's been another two weeks which means it's time for release: 0.14!
 
 [sensor.rfxtrx]: /components/sensor.rfxtrx/
 [notify.command_line]: /components/notify.command_line/
-[Verisure]: /components/sensor.verisure/
-[binary_sensor.tcp]: /components/binary_sensor.tcp/
-[sensor.tcp]: /components/sensor.tcp/
-[Neurio energy sensor]: /components/sensor.neurio_energy/
-[nx584]: /components/binary_sensor.nx584/
+[Verisure]: /components/verisure
+[binary_sensor.tcp]: /components/tcp#binary-sensor
+[sensor.tcp]: /components/tcp#sensor
+[Neurio energy sensor]: /components/neurio_energy
+[nx584]: /components/nx584#binary-sensor
 [triggers]: /getting-started/automation-trigger/#state-trigger
 [conditions]: /getting-started/automation-condition/#state-condition
-[Nest]: /components/sensor.nest/
-[Ubiquiti Unifi]: /components/device_tracker.unifi/
+[Nest]: /components/nest#sensor
+[Ubiquiti Unifi]: /components/unifi
 [MySensors]: /components/binary_sensor.mysensors/
-[Bloomsky]: /components/binary_sensor.bloomsky/
-[Z-Wave]: /components/binary_sensor.zwave/
-[D-Link smart plugs]: /components/switch.dlink/
-[Wemo]: /components/light.wemo/
+[Bloomsky]: /components/bloomsky#binary-sensor
+[Z-Wave]: /components/zwave
+[D-Link smart plugs]: /components/dlink
+[Wemo]: /components/wemo
 [rollershutter.command_line]: /components/rollershutter.command_line/
-[Steam]: /components/sensor.steam_online/
-[Wink]: /components/binary_sensor.wink/
+[Steam]: /components/steam_online
+[Wink]: /components/wink#binary-sensor
 [the cookbook]: /cookbook/python_component_simple_alarm/
 [script]: /components/script/
 [Wemo component]: /components/wemo/
 [switch.cmd]: /components/switch.command_line/
 [sensor.cmd]: /components/sensor.command_line/
-[binary_sensor.cmd]: /components/binary_sensor.command_line/
+[binary_sensor.cmd]: /components/command_line
 
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@turbokongen]: https://github.com/turbokongen

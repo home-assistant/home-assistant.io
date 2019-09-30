@@ -56,7 +56,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@mbrrg]: https://github.com/mbrrg
 [@pvizeli]: https://github.com/pvizeli
 [@quazzie]: https://github.com/quazzie
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
+[alarm_control_panel.spc docs]: /components/spc
 [api docs]: /components/api/
 [hangouts docs]: /components/hangouts/
 [websocket_api docs]: /components/websocket_api/
@@ -74,12 +74,12 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@balloob]: https://github.com/balloob
 [@fronzbot]: https://github.com/fronzbot
-[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
-[binary_sensor.blink docs]: /components/binary_sensor.blink/
+[alarm_control_panel.blink docs]: /components/blink
+[binary_sensor.blink docs]: /components/blink
 [blink docs]: /components/blink/
-[camera.blink docs]: /components/camera.blink/
+[camera.blink docs]: /components/blink
 [cloud docs]: /components/cloud/
-[sensor.blink docs]: /components/sensor.blink/
+[sensor.blink docs]: /components/blink
 [telegram_bot docs]: /components/telegram_bot/
 
 ## Release 0.80.3 - October 18
@@ -97,8 +97,8 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@balloob]: https://github.com/balloob
 [@hobbypunk90]: https://github.com/hobbypunk90
 [hangouts docs]: /components/hangouts/
-[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
-[media_player.snapcast docs]: /components/media_player.snapcast/
+[media_player.dlna_dmr docs]: /components/dlna_dmr
+[media_player.snapcast docs]: /components/snapcast
 [upnp docs]: /components/upnp/
 
 ## New Features
@@ -589,45 +589,45 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tsvi]: https://github.com/tsvi
 [@zxdavb]: https://github.com/zxdavb
 [alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
+[alarm_control_panel.blink docs]: /components/blink
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
+[alarm_control_panel.simplisafe docs]: /components/simplisafe
+[alarm_control_panel.spc docs]: /components/spc
 [alert docs]: /components/alert/
 [aqualogic docs]: /components/aqualogic/
 [auth docs]: /components/auth/
 [automation docs]: /components/automation/
 [automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
-[binary_sensor.blink docs]: /components/binary_sensor.blink/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.ffmpeg_motion docs]: /components/binary_sensor.ffmpeg_motion/
-[binary_sensor.ffmpeg_noise docs]: /components/binary_sensor.ffmpeg_noise/
-[binary_sensor.fritzbox docs]: /components/binary_sensor.fritzbox/
+[binary_sensor.blink docs]: /components/blink
+[binary_sensor.bmw_connected_drive docs]: /components/bmw_connected_drive
+[binary_sensor.ffmpeg_motion docs]: /components/ffmpeg_motion_motion/
+[binary_sensor.ffmpeg_noise docs]: /components/ffmpeg_motion_noise/
+[binary_sensor.fritzbox docs]: /components/fritzbox
 [binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.openuv docs]: /components/binary_sensor.openuv/
-[binary_sensor.ping docs]: /components/binary_sensor.ping/
-[binary_sensor.rachio docs]: /components/binary_sensor.rachio/
-[binary_sensor.spc docs]: /components/binary_sensor.spc/
+[binary_sensor.openuv docs]: /components/openuv
+[binary_sensor.ping docs]: /components/ping#binary-sensor
+[binary_sensor.rachio docs]: /components/rachio
+[binary_sensor.spc docs]: /components/spc#binary-sensor
 [blink docs]: /components/blink/
 [bmw_connected_drive docs]: /components/bmw_connected_drive/
 [camera docs]: /components/camera/
-[camera.blink docs]: /components/camera.blink/
-[camera.mjpeg docs]: /components/camera.mjpeg/
+[camera.blink docs]: /components/blink
+[camera.mjpeg docs]: /components/mjpeg
 [camera.mqtt docs]: /components/camera.mqtt/
-[camera.onvif docs]: /components/camera.onvif/
+[camera.onvif docs]: /components/onvif
 [climate docs]: /components/climate/
-[climate.evohome docs]: /components/climate.evohome/
-[climate.fritzbox docs]: /components/climate.fritzbox/
-[climate.honeywell docs]: /components/climate.honeywell/
+[climate.evohome docs]: /components/evohome
+[climate.fritzbox docs]: /components/fritzbox
+[climate.honeywell docs]: /components/honeywell
 [climate.mqtt docs]: /components/climate.mqtt/
 [config docs]: /components/config/
 [counter docs]: /components/counter/
 [cover docs]: /components/cover/
 [cover.mqtt docs]: /components/cover.mqtt/
-[cover.myq docs]: /components/cover.myq/
+[cover.myq docs]: /components/myq
 [device_sun_light_trigger docs]: /components/device_sun_light_trigger/
 [device_tracker docs]: /components/device_tracker/
-[device_tracker.tile docs]: /components/device_tracker.tile/
+[device_tracker.tile docs]: /components/tile
 [duckdns docs]: /components/duckdns/
 [emulated_hue docs]: /components/emulated_hue/
 [envisalink docs]: /components/envisalink/
@@ -655,11 +655,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [input_text docs]: /components/input_text/
 [keyboard docs]: /components/keyboard/
 [light docs]: /components/light/
-[light.hue docs]: /components/light.hue/
-[light.lifx docs]: /components/light.lifx/
+[light.hue docs]: /components/hue
+[light.lifx docs]: /components/lifx
 [light.mqtt docs]: /components/light.mqtt/
-[light.mqtt_json docs]: /components/light.mqtt_json/
-[light.opple docs]: /components/light.opple/
+[light.mqtt_json docs]: /components/light.mqtt
+[light.opple docs]: /components/opple
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
 [lock docs]: /components/lock/
 [lock.mqtt docs]: /components/lock.mqtt/
@@ -668,9 +668,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lovelace docs]: /components/lovelace/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.soundtouch docs]: /components/media_player.soundtouch/
+[media_player.samsungtv docs]: /components/samsungtv
+[media_player.sonos docs]: /components/sonos
+[media_player.soundtouch docs]: /components/soundtouch
 [microsoft_face docs]: /components/microsoft_face/
 [mqtt docs]: /components/mqtt/
 [netatmo docs]: /components/netatmo/
@@ -683,31 +683,31 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [scene docs]: /components/scene/
 [script docs]: /components/script/
 [sensor docs]: /components/sensor/
-[sensor.aqualogic docs]: /components/sensor.aqualogic/
-[sensor.blink docs]: /components/sensor.blink/
-[sensor.enphase_envoy docs]: /components/sensor.enphase_envoy/
-[sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
-[sensor.gitlab_ci docs]: /components/sensor.gitlab_ci/
-[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.miflora docs]: /components/sensor.miflora/
+[sensor.aqualogic docs]: /components/aqualogic#sensor
+[sensor.blink docs]: /components/blink
+[sensor.enphase_envoy docs]: /components/enphase_envoy
+[sensor.geo_rss_events docs]: /components/geo_rss_events
+[sensor.gitlab_ci docs]: /components/gitlab_ci
+[sensor.google_travel_time docs]: /components/google_travel_time
+[sensor.jewish_calendar docs]: /components/jewish_calendar
+[sensor.miflora docs]: /components/miflora
 [sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.mqtt_room docs]: /components/sensor.mqtt_room/
+[sensor.mqtt_room docs]: /components/mqtt_room
 [sensor.netatmo_public docs]: /components/netatmo/#sensor
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.tibber docs]: /components/sensor.tibber/
+[sensor.openweathermap docs]: /components/openweathermap#sensor
+[sensor.scrape docs]: /components/scrape
+[sensor.tibber docs]: /components/tibber#sensor
 [sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
 [sonos docs]: /components/sonos/
 [spc docs]: /components/spc/
 [switch docs]: /components/switch/
-[switch.aqualogic docs]: /components/switch.aqualogic/
-[switch.flux docs]: /components/switch.flux/
+[switch.aqualogic docs]: /components/aqualogic#switch
+[switch.flux docs]: /components/flux
 [switch.mqtt docs]: /components/switch.mqtt/
-[switch.rachio docs]: /components/switch.rachio/
+[switch.rachio docs]: /components/rachio#switch
 [switch.rest docs]: /components/switch.rest/
-[switch.tradfri docs]: /components/switch.tradfri/
-[switch.volvooncall docs]: /components/switch.volvooncall/
+[switch.tradfri docs]: /components/tradfri
+[switch.volvooncall docs]: /components/volvooncall
 [switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
 [telegram_bot docs]: /components/telegram_bot/
 [tibber docs]: /components/tibber/
@@ -719,7 +719,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [verisure docs]: /components/verisure/
 [weather docs]: /components/weather/
 [weather.darksky docs]: /components/weather.darksky/
-[weather.openweathermap docs]: /components/weather.openweathermap/
+[weather.openweathermap docs]: /components/openweathermap#weather
 [webhook docs]: /components/webhook/
 [websocket_api docs]: /components/websocket_api/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/

@@ -50,19 +50,19 @@ Rock on.
 [@srcLurker]: https://github.com/srcLurker
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [embedded server]: /components/mqtt/#use-the-embedded-broker
-[Arduino]: /components/switch.arduino/
+[Arduino]: /components/arduino#switch
 [Discovery]: /components/discovery/
-[Growl (GNTP)]: /components/notify.gntp/
-[Hue]: /components/light.hue/
-[input_slider]: /components/input_slider/
-[MessageBird]: /components/notify.message_bird/
-[OwnTracks]: /components/device_tracker.owntracks/
-[PulseAudio loopback]: /components/switch.pulseaudio_loopback/
+[Growl (GNTP)]: /components/gntp
+[Hue]: /components/hue
+[input_slider]: /components/input_number
+[MessageBird]: /components/message_bird
+[OwnTracks]: /components/owntracks
+[PulseAudio loopback]: /components/pulseaudio_loopback
 [Tellstick]: /components/tellstick/
 [Vera]: /components/vera/
-[Wake on LAN]: /components/switch.wake_on_lan/
+[Wake on LAN]: /components/wake_on_lan#switch
 [Z-Wave]: /components/zwave/#services
-[Yamaha receivers]: /components/media_player.yamaha/
+[Yamaha receivers]: /components/yamaha
 
 ### Breaking changes
  - Automation: support for old deprecated config has been removed

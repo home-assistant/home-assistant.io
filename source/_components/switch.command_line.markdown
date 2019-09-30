@@ -79,7 +79,7 @@ In this section you find some real-life examples of how to use this switch.
 ### aREST device
 
 The example below is doing the same as the
-[aREST switch](/components/switch.arest/).
+[aREST switch](/components/arest#switch).
 The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 

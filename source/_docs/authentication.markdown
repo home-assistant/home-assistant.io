@@ -54,7 +54,7 @@ Home Assistant provides several ways to authenticate. See the [Auth Providers](/
 
 ### Authentication failures from `127.0.0.1`
 
-If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/device_tracker.nmap_tracker/#exclude) from being scanned.
+If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/nmap_tracker#exclude) from being scanned.
 
 ### Bearer token warnings
 

@@ -812,7 +812,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [panel_iframe docs]: /components/panel_iframe/
 [picotts docs]: /components/picotts/
 [plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
+[pollen docs]: /components/iqvia
 [prometheus docs]: /components/prometheus/
 [ps4 docs]: /components/ps4/
 [push docs]: /components/push/

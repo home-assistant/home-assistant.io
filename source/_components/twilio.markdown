@@ -36,7 +36,7 @@ auth_token:
 
 ### Usage
 
-After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) integrations to utilize the notification functionality.
+After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/twilio_sms) and [twilio Phone](/components/twilio_call) integrations to utilize the notification functionality.
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).
 

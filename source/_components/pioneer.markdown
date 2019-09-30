@@ -8,7 +8,7 @@ ha_release: 0.19
 ha_iot_class: Local Polling
 ---
 
-The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/components/media_player.onkyo/) platform instead.
+The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/components/onkyo) platform instead.
 
 To add a Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
 
