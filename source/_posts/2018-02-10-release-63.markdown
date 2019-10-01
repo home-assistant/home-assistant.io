@@ -83,10 +83,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Avoid influxdb filling connection pool: The influxdb `retry_queue_limit` configuration variable no longer has any effect and can be removed. ([@amelchio] - [#12182]) ([influxdb docs]) (breaking change)
 - Some spelling mistakes in default entity names have been fixed in ([@OttoWinter] - [#12041]). This is causing these `entity_id` changes:
-   - [Seven segments display](/components/image_processing.seven_segments/):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
-   - [Rain Bird Switch](/components/switch.rainbird/): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
-   - [OpenEVSE Sensor](/components/sensor.openevse/): `sensor.ambient_termperature` → `sensor.ambient_temperature`
-   - [Fido](/components/sensor.fido/): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
+   - [Seven segments display](/components/seven_segments):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
+   - [Rain Bird Switch](/components/rainbird#switch): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
+   - [OpenEVSE Sensor](/components/openevse): `sensor.ambient_termperature` → `sensor.ambient_temperature`
+   - [Fido](/components/fido): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
 - From version 0.64, Home Assistant will by default purge recorded state history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain:
     ```yaml
     recorder:
@@ -502,38 +502,38 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zabuldon]: https://github.com/zabuldon
 [alexa docs]: /components/alexa/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
+[binary_sensor.deconz docs]: /components/deconz#binary-sensor
 [binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
 [binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
 [binary_sensor.template docs]: /components/binary_sensor.template/
-[binary_sensor.threshold docs]: /components/binary_sensor.threshold/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera.canary docs]: /components/camera.canary/
-[camera.uvc docs]: /components/camera.uvc/
-[camera.xeoma docs]: /components/camera.xeoma/
+[binary_sensor.threshold docs]: /components/threshold
+[binary_sensor.zha docs]: /components/zha
+[camera.canary docs]: /components/canary#camera
+[camera.uvc docs]: /components/uvc
+[camera.xeoma docs]: /components/xeoma
 [canary docs]: /components/canary/
 [climate.demo docs]: /components/demo/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.econet docs]: /components/climate.econet/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.heatmiser docs]: /components/climate.heatmiser/
-[climate.melissa docs]: /components/climate.melissa/
-[climate.nest docs]: /components/climate.nest/
-[climate.tado docs]: /components/climate.tado/
-[climate.touchline docs]: /components/climate.touchline/
-[climate.venstar docs]: /components/climate.venstar/
+[climate.ecobee docs]: /components/ecobee
+[climate.econet docs]: /components/econet
+[climate.generic_thermostat docs]: /components/generic_thermostat
+[climate.heatmiser docs]: /components/heatmiser
+[climate.melissa docs]: /components/melissa
+[climate.nest docs]: /components/nest#climate
+[climate.tado docs]: /components/tado
+[climate.touchline docs]: /components/touchline
+[climate.venstar docs]: /components/venstar
 [cloud docs]: /components/cloud/
 [coinbase docs]: /components/coinbase/
 [cover.mqtt docs]: /components/cover.mqtt/
-[cover.tahoma docs]: /components/cover.tahoma/
+[cover.tahoma docs]: /components/tahoma
 [cover.template docs]: /components/cover.template/
 [deconz docs]: /components/deconz/
-[device_tracker.huawei_router docs]: /components/device_tracker.huawei_router/
+[device_tracker.huawei_router docs]: /components/huawei_router
 [device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
-[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
+[device_tracker.mikrotik docs]: /components/mikrotik
 [device_tracker.mqtt docs]: /components/device_tracker.mqtt/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[device_tracker.owntracks docs]: /components/owntracks
+[device_tracker.ubus docs]: /components/ubus
 [doorbird docs]: /components/doorbird/
 [emulated_hue docs]: /components/emulated_hue/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
@@ -544,78 +544,78 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [group docs]: /components/group/
 [homematic docs]: /components/homematic/
 [http docs]: /components/http/
-[image_processing.openalpr_cloud docs]: /components/image_processing.openalpr_cloud/
+[image_processing.openalpr_cloud docs]: /components/openalpr_local_cloud
 [influxdb docs]: /components/influxdb/
 [input_text docs]: /components/input_text/
 [ios docs]: /components/ios/
 [iota docs]: /components/iota/
-[light.deconz docs]: /components/light.deconz/
-[light.greenwave docs]: /components/light.greenwave/
-[light.lifx docs]: /components/light.lifx/
-[light.limitlessled docs]: /components/light.limitlessled/
+[light.deconz docs]: /components/deconz#light
+[light.greenwave docs]: /components/greenwave
+[light.lifx docs]: /components/lifx
+[light.limitlessled docs]: /components/limitlessled
 [light.template docs]: /components/light.template/
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.zha docs]: /components/light.zha/
+[light.zha docs]: /components/zha
 [lock docs]: /components/lock/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.clementine docs]: /components/media_player.clementine/
-[media_player.itunes docs]: /components/media_player.itunes/
-[media_player.mediaroom docs]: /components/media_player.mediaroom/
-[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[media_player.vlc docs]: /components/media_player.vlc/
-[media_player.volumio docs]: /components/media_player.volumio/
-[media_player.webostv docs]: /components/media_player.webostv/
+[media_player.bluesound docs]: /components/bluesound
+[media_player.clementine docs]: /components/clementine
+[media_player.itunes docs]: /components/itunes
+[media_player.mediaroom docs]: /components/mediaroom
+[media_player.panasonic_viera docs]: /components/panasonic_viera
+[media_player.philips_js docs]: /components/philips_js
+[media_player.plex docs]: /components/plex#media-player
+[media_player.samsungtv docs]: /components/samsungtv
+[media_player.squeezebox docs]: /components/squeezebox
+[media_player.vlc docs]: /components/vlc
+[media_player.volumio docs]: /components/volumio
+[media_player.webostv docs]: /components/webostv#media-player
 [melissa docs]: /components/melissa/
 [mercedesme docs]: /components/mercedesme/
 [mochad docs]: /components/mochad/
-[notify.gntp docs]: /components/notify.gntp/
-[notify.kodi docs]: /components/notify.kodi/
-[notify.pushsafer docs]: /components/notify.pushsafer/
-[notify.twitter docs]: /components/notify.twitter/
+[notify.gntp docs]: /components/gntp
+[notify.kodi docs]: /components/kodi
+[notify.pushsafer docs]: /components/pushsafer
+[notify.twitter docs]: /components/twitter
 [panel_iframe docs]: /components/panel_iframe/
 [plant docs]: /components/plant/
 [remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
 [rfxtrx docs]: /components/rfxtrx/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.broadlink docs]: /components/sensor.broadlink/
-[sensor.canary docs]: /components/sensor.canary/
-[sensor.coinbase docs]: /components/sensor.coinbase/
-[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
+[sensor.alpha_vantage docs]: /components/alpha_vantage
+[sensor.broadlink docs]: /components/broadlink#sensor
+[sensor.canary docs]: /components/canary#sensor
+[sensor.coinbase docs]: /components/coinbase
+[sensor.coinmarketcap docs]: /components/coinmarketcap
+[sensor.darksky docs]: /components/darksky
+[sensor.deconz docs]: /components/deconz#sensor
+[sensor.deutsche_bahn docs]: /components/deutsche_bahn
+[sensor.fritzbox_callmonitor docs]: /components/fritzbox#sensor_callmonitor/
 [sensor.melissa docs]: /components/melissa/
 [sensor.mercedesme docs]: /components/sensor.mercedesme/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.onewire docs]: /components/sensor.onewire/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.template docs]: /components/sensor.template/
-[sensor.tesla docs]: /components/sensor.tesla/
+[sensor.miflora docs]: /components/miflora
+[sensor.onewire docs]: /components/onewire
+[sensor.pollen docs]: /components/iqvia
+[sensor.qnap docs]: /components/qnap
+[sensor.radarr docs]: /components/radarr
+[sensor.sonarr docs]: /components/sonarr
+[sensor.sql docs]: /components/sql
+[sensor.statistics docs]: /components/statistics
+[sensor.synologydsm docs]: /components/synologydsm
+[sensor.systemmonitor docs]: /components/systemmonitor
+[sensor.tahoma docs]: /components/tahoma
+[sensor.template docs]: /components/template
+[sensor.tesla docs]: /components/tesla
 [sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.zha docs]: /components/sensor.zha/
+[sensor.zha docs]: /components/zha
 [spc docs]: /components/spc/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.flux docs]: /components/switch.flux/
-[switch.pulseaudio_loopback docs]: /components/switch.pulseaudio_loopback/
+[switch.broadlink docs]: /components/broadlink#switch
+[switch.flux docs]: /components/flux
+[switch.pulseaudio_loopback docs]: /components/pulseaudio_loopback
 [switch.template docs]: /components/switch.template/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
+[switch.tplink docs]: /components/tplink
+[switch.wake_on_lan docs]: /components/wake_on_lan#switch
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [system_log docs]: /components/system_log/
 [tado docs]: /components/tado/
@@ -625,7 +625,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [wake_on_lan docs]: /components/wake_on_lan/
 [waterfurnace docs]: /components/waterfurnace/
-[weather.openweathermap docs]: /components/weather.openweathermap/
+[weather.openweathermap docs]: /components/openweathermap#weather
 [weblink docs]: /components/weblink/
 [websocket_api docs]: /components/websocket_api/
 [zha docs]: /components/zha/
@@ -641,9 +641,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@lucasweb78]: https://github.com/lucasweb78
 [alexa docs]: /components/alexa/
-[binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
-[camera.netatmo docs]: /components/camera.netatmo/
-[sensor.netatmo docs]: /components/sensor.netatmo/
+[binary_sensor.netatmo docs]: /components/netatmo#binary-sensor
+[camera.netatmo docs]: /components/netatmo#camera
+[sensor.netatmo docs]: /components/netatmo#sensor
 [#12342]: https://github.com/home-assistant/home-assistant/pull/12342
 [#12346]: https://github.com/home-assistant/home-assistant/pull/12346
 [#12368]: https://github.com/home-assistant/home-assistant/pull/12368
@@ -656,12 +656,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@sdague]: https://github.com/sdague
 [binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
 [device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
-[light.limitlessled docs]: /components/light.limitlessled/
-[media_player.yamaha docs]: /components/media_player.yamaha/
+[light.limitlessled docs]: /components/limitlessled
+[media_player.yamaha docs]: /components/yamaha
 [mercedesme docs]: /components/mercedesme/
-[sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
+[sensor.eddystone_temperature docs]: /components/eddystone_temperature
 [sensor.mercedesme docs]: /components/sensor.mercedesme/
-[sensor.wunderground docs]: /components/sensor.wunderground/
+[sensor.wunderground docs]: /components/wunderground
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392
 [#12421]: https://github.com/home-assistant/home-assistant/pull/12421
 [#12435]: https://github.com/home-assistant/home-assistant/pull/12435
@@ -680,9 +680,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [isy994 docs]: /components/isy994/
 [light.template docs]: /components/light.template/
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[media_player.plex docs]: /components/media_player.plex/
+[media_player.plex docs]: /components/plex#media-player
 [remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.yr docs]: /components/sensor.yr/
+[sensor.sql docs]: /components/sql
+[sensor.yr docs]: /components/yr
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/

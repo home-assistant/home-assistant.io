@@ -135,5 +135,5 @@ weblink:
 ```
 
 [weblink]: /components/weblink/
-[snapcast]: /components/media_player.snapcast/
-[mpd]: /components/media_player.mpd/
+[snapcast]: /components/snapcast
+[mpd]: /components/mpd

@@ -333,14 +333,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@yeralin]: https://github.com/yeralin
 
 [components]: /components/
-[kodi]: /components/notify.kodi/
-[mpd]: /components/media_player.mpd/
-[emby]: /components/media_player.emby/
+[kodi]: /components/kodi
+[mpd]: /components/mpd
+[emby]: /components/emby
 [mqtt]: /docs/mqtt/
-[plex]: /components/media_player.plex/
-[tado]: /components/climate.tado/
+[plex]: /components/plex#media-player
+[tado]: /components/tado
 [volumio]: /components/volumio/
-[workday]: /components/binary_sensor.workday/
+[workday]: /components/workday
 [android]: /components/android_ip_webcam/
 [shadow]: https://www.w3.org/TR/shadow-dom/
 

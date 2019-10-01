@@ -47,7 +47,7 @@ scan_interval:
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.
 
-Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
+Finish its configuration by visiting the [Arlo sensor page](/components/arlo#sensor) or [Arlo camera page](/components/arlo#camera) or [Arlo control panel page](/components/arlo). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
 
 The Arlo integration also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
@@ -128,7 +128,7 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
 
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.
 
-More examples and configuration options can be found on the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples).
+More examples and configuration options can be found on the [Manual Alarm Control page](/components/manual#examples).
 
 ## Camera
 

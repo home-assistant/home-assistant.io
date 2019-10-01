@@ -128,7 +128,7 @@ sensor:
 
 ### Single value from a local Glances instance
 
-The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
+The [glances](/components/glances) sensor is doing the exact same thing for all exposed values.
 
 ```yaml
 sensor:
@@ -240,7 +240,7 @@ sensor:
 ```
 {% endraw %}
 
-This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
 ```yaml

@@ -1007,7 +1007,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geo_rss_events docs]: /components/geo_rss_events/
 [geofency docs]: /components/geofency/
 [glances docs]: /components/glances/
-[google docs]: /components/google/
+[google docs]: /components/google_translate
 [google_assistant docs]: /components/google_assistant/
 [google_translate docs]: /components/google_translate/
 [gpslogger docs]: /components/gpslogger/

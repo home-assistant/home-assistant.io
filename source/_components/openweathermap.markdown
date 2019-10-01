@@ -58,7 +58,7 @@ longitude:
 
 <div class='note'>
 
-This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor.
+This platform is an alternative to the [`openweathermap`](/components/openweathermap#sensor) sensor.
 
 </div>
 

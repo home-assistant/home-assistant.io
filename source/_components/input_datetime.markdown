@@ -98,7 +98,7 @@ To set both the date and time in the same call, use `date` and `time` together, 
 
 The following example shows the usage of the `input_datetime` as a trigger in an
 automation (note that you will need a
-[time sensor](/components/sensor.time_date/) elsewhere in your configuration):
+[time sensor](/components/time_date) elsewhere in your configuration):
 
 {% raw %}
 ```yaml

@@ -39,7 +39,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
 - Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Notify: Added support for [Android TV/FireTV](/components/nfandroidtv) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 ([@danielperna84])
@@ -159,27 +159,27 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@jnewland]: https://github.com/jnewland
 [@DanielHiversen]: https://github.com/DanielHiversen
 
-[currencylayer]: /components/sensor.currencylayer/
+[currencylayer]: /components/currencylayer
 [mochat]: /components/mochat/
 [firetv]: /components/notify.firetv/
-[Yamaha]: /components/media_player.yamaha/
-[hddtemp-sensor]: /components/sensor.hddtemp/
-[Sonos]: /components/media_player.sonos/
+[Yamaha]: /components/yamaha
+[hddtemp-sensor]: /components/hddtemp
+[Sonos]: /components/sonos
 [weather-sensors]: /components/#weather
-[rpi-camera]: /components/camera.rpi_camera/
+[rpi-camera]: /components/rpi_camera
 [rest-switch]: /components/switch.rest/
-[emby-media]: /components/media_player.emby/
-[random-sensor]: /components/sensor.random/
-[yeelight]: /components/light.yeelight/
-[influx-sensor]: /components/sensor.influxdb/
+[emby-media]: /components/emby
+[random-sensor]: /components/random#sensor
+[yeelight]: /components/yeelight
+[influx-sensor]: /components/influxdb#sensor
 [weather-component]: /components/weather/
-[cups-sensor]: /components/sensor.cups/
+[cups-sensor]: /components/cups
 [litejet]: /components/litejet/
 [garadget]: /components/garadget/
-[philips_player]: /components/media_player.philips_js/
-[icloud]: /components/device_tracker.icloud/
-[synologydsm]: /components/sensor.synologydsm/
-[dovado-sensor]: /components/sensor.dovado/
+[philips_player]: /components/philips_js
+[icloud]: /components/icloud
+[synologydsm]: /components/synologydsm
+[dovado-sensor]: /components/dovado#sensor
 [ios]: /ecosystem/ios/
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811

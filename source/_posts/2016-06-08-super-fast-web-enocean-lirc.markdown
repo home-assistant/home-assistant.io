@@ -81,16 +81,16 @@ We released two hotfixes to address some issues that couldn't wait till the next
 [@rubund]: https://github.com/rubund
 [@shaftoe]: https://github.com/shaftoe
 [@wkonkel]: https://github.com/wkonkel
-[DTE Energy Bridge]: /components/sensor.dte_energy_bridge/
-[en-lights]: /components/light.enocean/
-[en-sensors]: /components/sensor.enocean/
-[en-switches]: /components/switch.enocean/
+[DTE Energy Bridge]: /components/dte_energy_bridge
+[en-lights]: /components/enocean#light
+[en-sensors]: /components/enocean#sensor
+[en-switches]: /components/enocean#switch
 [Feedreader]: /components/feedreader/
-[Flux like switch platform]: /components/switch.flux/
+[Flux like switch platform]: /components/flux
 [Insteon Hub]: /components/insteon/
-[Kodi]: /components/media_player.kodi/
+[Kodi]: /components/kodi
 [LIRC component]: /components/lirc/
-[Osram Lightify]: /components/light.osramlightify/
+[Osram Lightify]: /components/osramlightify
 [RFXTRX]: /components/rfxtrx/
 [Template switches]: /components/switch.template/
 [time condition]: /getting-started/scripts-conditions/#time-condition

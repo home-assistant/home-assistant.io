@@ -19,9 +19,9 @@ Of course most users are running with the [automation](/getting-started/automati
 
 The [Alarm control panels](/components/alarm_control_panel/) and the [camera component](/components/camera/) are both used by around one third of the participants of the survey. It's safe to say that they cover a niche, but they will gain momentum when people discover how they can build alarm systems with Home Assistant.
 
-[Philips Hue](/components/light.hue/) is the "winner" in the light category closely followed by [MQTT lights](components/light.mqtt/). [Google Cast](/components/media_player.cast/) and [ Plex](/components/media_player.plex/) are the top media player platforms. [Pushbullet](/components/notify.pushbullet/) is by far the most-used [notification platform](/components/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
+[Philips Hue](/components/hue) is the "winner" in the light category closely followed by [MQTT lights](components/light.mqtt/). [Google Cast](/components/cast) and [ Plex](/components/plex#media-player) are the top media player platforms. [Pushbullet](/components/pushbullet) is by far the most-used [notification platform](/components/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
 
-It's interesting to see that most of the sensor, switch, and thermostat platforms are used. A lot of people seem to be interested in the weather data provided by the [Forecast sensor](/components/sensor.forecast/). The MQTT sensors and switches are deployed in almost 50% of all Home Assistant setups.
+It's interesting to see that most of the sensor, switch, and thermostat platforms are used. A lot of people seem to be interested in the weather data provided by the [Forecast sensor](/components/darksky). The MQTT sensors and switches are deployed in almost 50% of all Home Assistant setups.
 
 
 <p class='img'>

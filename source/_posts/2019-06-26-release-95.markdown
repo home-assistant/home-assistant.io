@@ -720,7 +720,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geniushub docs]: /components/geniushub/
 [gitlab_ci docs]: /components/gitlab_ci/
 [glances docs]: /components/glances/
-[google docs]: /components/google/
+[google docs]: /components/google_translate
 [google_assistant docs]: /components/google_assistant/
 [google_cloud docs]: /components/google_cloud/
 [heos docs]: /components/heos/
@@ -785,7 +785,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [velbus docs]: /components/velbus/
 [velux docs]: /components/velux/
 [vera docs]: /components/vera/
-[vlc_telnet docs]: /components/vlc-telnet/
+[vlc_telnet docs]: /components/vlc_telnet
 [waze_travel_time docs]: /components/waze_travel_time/
 [webostv docs]: /components/webostv/
 [websocket_api docs]: /components/websocket_api/

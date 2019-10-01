@@ -200,7 +200,7 @@ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 
 ### Get the current power consumption
 
-The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
+The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/template).
 
 {% raw %}
 ```yaml

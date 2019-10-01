@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.7.6
 ---
 
-_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/openwrt)._
 
 This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 

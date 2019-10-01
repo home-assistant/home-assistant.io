@@ -779,7 +779,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geniushub docs]: /components/geniushub/
 [geofency docs]: /components/geofency/
 [glances docs]: /components/glances/
-[google docs]: /components/google/
+[google docs]: /components/google_translate
 [google_assistant docs]: /components/google_assistant/
 [greeneye_monitor docs]: /components/greeneye_monitor/
 [hangouts docs]: /components/hangouts/
@@ -828,7 +828,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [panasonic_bluray docs]: /components/panasonic_bluray/
 [philips_js docs]: /components/philips_js/
 [plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
+[pollen docs]: /components/iqvia
 [ps4 docs]: /components/ps4/
 [ptvsd docs]: /components/ptvsd/
 [rainmachine docs]: /components/rainmachine/

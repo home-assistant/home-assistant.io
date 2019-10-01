@@ -131,7 +131,7 @@ image_processing:
   <img src='{{site_root}}/images/screenshots/ssocr.png' />
 </p>
 
-With the help of a [template sensor](/components/sensor.template/), the value can be shown as badge.
+With the help of a [template sensor](/components/template), the value can be shown as badge.
 
 {% raw %}
 

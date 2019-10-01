@@ -9,9 +9,9 @@ ha_release: 0.31
 ha_qa_scale: internal
 ---
 
-The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last) and the mean of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
+The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last) and the mean of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/components/statistics) first.
 
-This sensor is an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
+This sensor is an alternative to the [template sensor](/components/template)'s `value_template:` to get the average of multiple sensors.
 
 {% raw %}
 ```yaml

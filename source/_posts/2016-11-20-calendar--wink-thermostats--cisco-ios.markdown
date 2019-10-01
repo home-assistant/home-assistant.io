@@ -96,22 +96,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jchapple]: https://github.com/jchapple
 [@Khabi]: https://github.com/Khabi
 
-[api-stream]: /components/sensor.api_stream/
-[cisco]: /components/device_tracker.cisco_ios/
+[api-stream]: /components/sensor.websocket_api
+[cisco]: /components/cisco_ios
 [Command Line]: /components/switch.command_line/
 [Envisalink]: /components/envisalink/
 [google]: /components/calendar.google/
-[Hue]: /components/light.hue/
-[locative]: /components/device_tracker.locative/
-[mqtt-template]: /components/light.mqtt_template/
+[Hue]: /components/hue
+[locative]: /components/locative
+[mqtt-template]: /components/light.mqtt
 [mqtt-will]: /components/mqtt/
-[pvoutput]: /components/sensor.pvoutput/
-[swisscom]: /components/device_tracker.swisscom/
-[TP Link]: /components/switch.tplink/
-[wink-climate]: /components/climate.wink/
+[pvoutput]: /components/pvoutput
+[swisscom]: /components/swisscom
+[TP Link]: /components/tplink
+[wink-climate]: /components/wink#climate
 [neato]: /components/neato/
 [Emulated Hue]: /components/emulated_hue/
-[Wake on Lan switch]: /components/switch.wake_on_lan/
+[Wake on Lan switch]: /components/wake_on_lan#switch
 [template function]: /topics/templating/#home-assistant-template-extensions
 [HTTP]: /components/http/
 [MQTT]: /components/mqtt/

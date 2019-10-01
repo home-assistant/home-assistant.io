@@ -45,16 +45,16 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 [the demo]: /demo/
 [command sensor]: /components/binary_sensor.command/
 [Insteon hub]: /components/insteon/
-[LIFX]: /components/light.lifx/
+[LIFX]: /components/lifx
 [Nest]: /components/nest/
-[onewire]: /components/sensor.onewire/
-[OwnTracks]: /components/device_tracker.owntracks/
+[onewire]: /components/onewire
+[OwnTracks]: /components/owntracks
 [Rfxtrx]: /components/light.rfxtrx/
 [Statsd]: /components/statsd/
-[Template]: /components/sensor.template/
+[Template]: /components/template
 [Thermostat]: /components/climate/
 [time automation]: /getting-started/automation-trigger/#time-trigger
-[Twitter]: /components/notify.twitter/
+[Twitter]: /components/twitter
 [Wink]: /components/wink/
 [Zigbee]: /components/zigbee/
 [group]: /components/group/

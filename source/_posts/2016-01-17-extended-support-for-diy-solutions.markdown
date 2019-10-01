@@ -38,25 +38,25 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
  - Support calling services via [Amazon Echo] ([@balloob])
 
 [MySensors]: /components/mysensors/
-[YR]: /components/sensor.yr/
-[Locative]: /components/device_tracker.locative/
+[YR]: /components/yr
+[Locative]: /components/locative
 [sun condition]: /getting-started/automation-condition/#sun-condition
 [command_switch]: /components/switch.command_switch/
-[wemo]: /components/switch.wemo/
+[wemo]: /components/wemo
 [Telldus Live]: /components/tellduslive/
 [Vera]: /components/vera/
 [template helper method]: /topics/templating/#home-assistant-template-extensions
-[OwnTracks]: /components/device_tracker.owntracks/
-[Philips Hue]: /components/light.hue/
-[Free Mobile]: /components/notify.free_mobile/
+[OwnTracks]: /components/owntracks
+[Philips Hue]: /components/hue
+[Free Mobile]: /components/free_mobile
 [MQTT Eventstream]: /components/mqtt_eventstream/
-[Cast]: /components/media_player.cast/
-[Universal media player]: /components/media_player.universal/
-[Netatmo]: /components/sensor.netatmo/
-[Alarm.com]: /components/alarm_control_panel.alarmdotcom/
+[Cast]: /components/cast
+[Universal media player]: /components/universal
+[Netatmo]: /components/netatmo#sensor
+[Alarm.com]: /components/alarmdotcom
 [Proliphix]: /components/proliphix/
-[rpi-bs]: /components/binary_sensor.rpi_gpio/
-[rpi-s]: /components/switch.rpi_gpio/
+[rpi-bs]: /components/rpi_gpio#binary-sensor
+[rpi-s]: /components/rpi_gpio#switch
 [input_boolean]: /components/input_boolean/
 [MySensors sensor platform]: /components/sensor.mysensors/
 [Amazon Echo]: /components/alexa/

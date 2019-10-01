@@ -71,7 +71,7 @@ devices:
       required: true
       type: string
     binary_sensors:
-      description: A list of binary sensors connected to the device. See [Konnected Binary Sensor](/components/binary_sensor.konnected/) for configuration variables.
+      description: A list of binary sensors connected to the device. See [Konnected Binary Sensor](/components/konnected#binary-sensor) for configuration variables.
       required: false
       type: list
       keys:
@@ -117,7 +117,7 @@ devices:
           required: false
           default: not set (device default is 3 minutes)
     switches:
-      description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
+      description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/konnected#switch) for configuration variables.
       required: false
       type: list
       keys:

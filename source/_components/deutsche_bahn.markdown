@@ -41,7 +41,7 @@ only_direct:
   default: false
 {% endconfiguration %}
 
-This sensor stores a lot of attributes which can be accessed by other sensors, e.g., a [template sensor](/components/sensor.template/).
+This sensor stores a lot of attributes which can be accessed by other sensors, e.g., a [template sensor](/components/template).
 
 ```yaml
 # Example configuration.yaml entry

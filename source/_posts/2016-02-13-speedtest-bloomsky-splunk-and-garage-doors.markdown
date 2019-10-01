@@ -93,18 +93,18 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [graphite]: /components/graphite/
 [SCSGate]: /components/scsgate/
 [weblink]: /components/weblink/
-[mfi.switch]: /components/switch.mfi/
-[mfi.sensor]: /components/sensor.mfi/
-[nx584]: /components/alarm_control_panel.nx584/
-[MJPEG]: /components/camera.mjpeg/
-[unifi]: /components/camera.uvc/
-[Aruba]: /components/device_tracker.aruba/
+[mfi.switch]: /components/mfi#switch
+[mfi.sensor]: /components/mfi#sensor
+[nx584]: /components/nx584
+[MJPEG]: /components/mjpeg
+[unifi]: /components/uvc
+[Aruba]: /components/aruba
 [History]: /components/history/
 [MySensors]: /components/light.mysensors/
-[Verisure]: /components/lock.verisure/
-[Speedtest.net]: /components/sensor.speedtest/
-[Samsung TV]: /components/media_player.samsungtv/
-[Snapcast]: /components/media_player.snapcast/
+[Verisure]: /components/verisure
+[Speedtest.net]: /components/speedtestdotnet
+[Samsung TV]: /components/samsungtv
+[Snapcast]: /components/snapcast
 [mqtt-publish]: /components/mqtt/#publish-service
 [REST]: /components/notify.rest/
 [template]: /components/switch.template/

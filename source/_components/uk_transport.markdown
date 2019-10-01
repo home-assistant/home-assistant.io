@@ -76,7 +76,7 @@ These attributes are available for each departing train:
 
 Refer to the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json) for definitions.
 
-Attributes can be accessed using the [template sensor](/components/sensor.template/) as per this example:
+Attributes can be accessed using the [template sensor](/components/template) as per this example:
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.

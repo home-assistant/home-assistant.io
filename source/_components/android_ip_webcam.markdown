@@ -185,7 +185,7 @@ binary_sensor:
 
 ## Camera
 
-The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
+The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/mjpeg) platform can be used.
 
 ## Configuration
 

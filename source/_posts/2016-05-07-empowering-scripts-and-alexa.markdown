@@ -82,23 +82,23 @@ light:
 [con-and]: /getting-started/scripts-conditions/#and-condition
 [con-or]: /getting-started/scripts-conditions/#or-condition
 [entity namespace]: /topics/platform_options/#entity-namespace
-[rpi-rf]: /components/switch.rpi_rf/
-[Forecast.io]: /components/sensor.forecast/
-[Snapcast]: /components/media_player.snapcast/
+[rpi-rf]: /components/rpi_rf
+[Forecast.io]: /components/darksky
+[Snapcast]: /components/snapcast
 [Command line sensor]: /components/sensor.command_line/
 [allow client key authentication]: /components/mqtt/
-[Pioneer AVR]: /components/media_player.pioneer/
-[Acer Projectors]: /components/switch.acer_projector/
+[Pioneer AVR]: /components/pioneer
+[Acer Projectors]: /components/acer_projector
 [HVAC component]: /components/climate/
 [OctoPrint]: /components/octoprint/
 [Z-Wave]: /components/zwave/
 [lock]: /components/lock/
-[lock.zwave]: /components/lock.zwave/
+[lock.zwave]: /components/zwave#lock
 [Dweet component]: /components/dweet/
 [`as_timestamp`]: /topics/templating/#home-assistant-template-extensions
-[Google Maps travel time]: /components/sensor.google_travel_time/
+[Google Maps travel time]: /components/google_travel_time
 [CORS headers]: /components/http/
-[Fitbit]: /components/sensor.fitbit/
+[Fitbit]: /components/fitbit
 [@balloob]: https://github.com/balloob/
 [@milaq]: https://github.com/milaq/
 [@danieljkemp]: https://github.com/danieljkemp/

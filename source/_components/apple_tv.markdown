@@ -10,7 +10,7 @@ ha_iot_class: Local Push
 ha_release: 0.49
 ---
 
-The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g., arrow keys.
+The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/apple_tv#remote) if you want to send remote control buttons, e.g., arrow keys.
 
 There is currently support for the following device types within Home Assistant:
 

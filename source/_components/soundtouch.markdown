@@ -79,7 +79,7 @@ You can also play HTTP (not HTTPS) URLs:
 
 ### Text-to-Speech services
 
-You can use TTS services like [Google Text-to-Speech](/components/tts.google/) or [Amazon Polly](/components/tts.amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
+You can use TTS services like [Google Text-to-Speech](/components/google_translate) or [Amazon Polly](/components/amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
 
 A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([nginx](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
 

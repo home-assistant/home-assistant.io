@@ -57,21 +57,21 @@ Since the last release we have moved all Home Assistant source code etc into its
 [@TheRealLink]: https://github.com/TheRealLink/
 [@Turbokongen]: https://github.com/Turbokongen/
 [@vmulpuru]: https://github.com/vmulpuru/
-[Bluetooth tracking platform]: /components/device_tracker.bluetooth_tracker/
+[Bluetooth tracking platform]: /components/bluetooth_tracker
 [EQ3 Bluetooth Smart Thermostats]: /components/eq3btsmart/
 [mysensors]: /components/mysensors/
 [Feedreader]: /components/feedreader/
 [Homematic platform]: /components/homematic/
-[media_player.lg]: /components/media_player.webostv/
-[notify.lg]: /components/notify.webostv/
-[MPD]: /components/media_player.mpd/
+[media_player.lg]: /components/webostv#media-player
+[notify.lg]: /components/webostv
+[MPD]: /components/mpd
 [MQTT]: /components/cover.mqtt/
-[Plex]: /components/media_player.plex/
-[Sonos]: /components/media_player.sonos/
-[sensor.Thinkingcleaner]: /components/sensor.thinkingcleaner/
-[switch.Thinkingcleaner]: /components/switch.thinkingcleaner/
+[Plex]: /components/plex#media-player
+[Sonos]: /components/sonos
+[sensor.Thinkingcleaner]: /components/thinkingcleaner#sensor
+[switch.Thinkingcleaner]: /components/thinkingcleaner#switch
 [upnp]: /components/upnp/
-[Wink]: /components/light.wink/
+[Wink]: /components/wink#light
 [Zeroconf]: /components/zeroconf/
 
 ### Breaking changes

@@ -44,7 +44,7 @@ switch:
 </p>
 
 ## `random` platforms
-Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/components/random/#binary-sensor) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/components/random/#binary-sensor) platform in addition to the already available [`random` sensor](/components/random#sensor).
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
 

@@ -24,4 +24,4 @@ camera:
   <img src='/images/components/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
 </p>
 
-[generic camera platform]: /components/camera.generic/
+[generic camera platform]: /components/generic
