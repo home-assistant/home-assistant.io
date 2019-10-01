@@ -66,29 +66,21 @@ scan_interval:
   description: How frequently to query for new data. Defaults to 120 seconds.
   required: false
   type: integer
-monitored_conditions:
-  type: integer
-  description: "List of monitored conditions. Possible values are:"
-  required: false
-  type: list
-  keys:
-    current_status:
-      description: The status of your Transmission daemon.
-    download_speed:
-      description: The current download speed [MB/s].
-    upload_speed:
-      description: The current upload speed [MB/s].
-    active_torrents:
-      description: The current number of active torrents.
-    paused_torrents:
-      description: The current number of paused torrents.
-    total_torrents:
-      description: The total number of torrents present in the client.
-    started_torrents:
-      description: The current number of started torrents (downloading).
-    completed_torrents:
-      description: The current number of completed torrents (seeding)
 {% endconfiguration %}
+
+## Default Sensors
+
+Default sensors are now added with the following schema "sensor.transmission(or name if used)_variable_here"
+- sensor.transmission_active_torrents
+- sensor.transmission_completed_torrents
+- sensor.transmission_down_speed
+- sensor.transmission_paused_torrents
+- sensor.transmission_started_torrents
+- sensor.transmission_status
+- sensor.transmission_total_torrents
+- sensor.transmission_up_speed
+
+*Previous methods used "monitored_conditions", this is no longer valid.*
 
 ## Event Automation
 
