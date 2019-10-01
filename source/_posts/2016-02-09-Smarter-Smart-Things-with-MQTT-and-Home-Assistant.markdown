@@ -211,7 +211,7 @@ There are a lot of stops along the way for these events, but each piece is a sim
 [devicetype]: https://github.com/stjohnjohnson/smartthings-mqtt-bridge/blob/master/devicetypes/stj/mqtt-bridge.src/mqtt-bridge.groovy
 [ide-app]: https://graph.api.smartthings.com/ide/apps
 [smartapp]: https://github.com/stjohnjohnson/smartthings-mqtt-bridge/blob/master/smartapps/stj/mqtt-bridge.src/mqtt-bridge.groovy
-[mqtt-ha]: /components/mqtt/
+[mqtt-ha]: /integrations/mqtt/
 [smartthings]: http://smartthings.com
 [r/homeautomation]: https://www.reddit.com/r/homeautomation
 [mqtt]: https://en.wikipedia.org/wiki/MQTT

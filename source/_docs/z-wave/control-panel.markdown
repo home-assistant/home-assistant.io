@@ -6,7 +6,7 @@ redirect_from: /getting-started/z-wave-panel/
 
 <div class='note'>
 
-  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
+  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/integrations/config/).
 
 </div>
 

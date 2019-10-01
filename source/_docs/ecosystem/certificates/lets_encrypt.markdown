@@ -336,7 +336,7 @@ http:
   base_url: examplehome.duckdns.org
 ```
 
-You may wish to set up other options for the [http](/components/http/) integration at this point, these extra options are beyond the scope of this guide.
+You may wish to set up other options for the [http](/integrations/http/) integration at this point, these extra options are beyond the scope of this guide.
 
 Save the changes to configuration.yaml. Restart Home Assistant.
 
@@ -426,7 +426,7 @@ sensor:
 
 Save the configuration.yaml. Restart Home Assistant.
 
-On your default_view you should now see a sensor badge containing your number of days until expiry. If you've been following this guide from the start and have not taken any breaks in between, this should be 89 or 90. The sensor will update every 3 hours. You can place this reading on a card using groups, or hide it using customize. These topics are outside of the scope of this guide, but information can be found on their respective integrations pages: [Group](/components/group/) and [Customize](/docs/configuration/customizing-devices/)
+On your default_view you should now see a sensor badge containing your number of days until expiry. If you've been following this guide from the start and have not taken any breaks in between, this should be 89 or 90. The sensor will update every 3 hours. You can place this reading on a card using groups, or hide it using customize. These topics are outside of the scope of this guide, but information can be found on their respective integrations pages: [Group](/integrations/group/) and [Customize](/docs/configuration/customizing-devices/)
 
 Got your sensor up and running and where you want it? Top drawer! Nearly there, now move on to the final steps to ensure that you're never without a secure connection in the future.
 

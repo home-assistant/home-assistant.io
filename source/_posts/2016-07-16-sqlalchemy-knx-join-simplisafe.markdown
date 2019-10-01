@@ -73,25 +73,25 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@Danielhiversen]: https://github.com/danielhiversen
 
 
-[apcupsd-sensor]: /components/apcupsd#sensor
-[Brightness]: /components/light/
+[apcupsd-sensor]: /integrations/apcupsd#sensor
+[Brightness]: /integrations/light/
 [CARTO]: https://carto.com/
-[Google Travel]: /components/google_travel_time
+[Google Travel]: /integrations/google_travel_time
 [imap-sensor]: /component/sensor.imap/
-[join-joaoapps]: /components/joaoapps_join/
-[join-notify]: /components/joaoapps_join
-[KNX]: /components/knx/
+[join-joaoapps]: /integrations/joaoapps_join/
+[join-notify]: /integrations/joaoapps_join
+[KNX]: /integrations/knx/
 [MapQuest]: https://www.mapquest.com/
-[Plex]: /components/plex#media-player
-[Radiotherm]: /components/radiotherm/
-[recorder]: /components/recorder/
+[Plex]: /integrations/plex#media-player
+[Radiotherm]: /integrations/radiotherm/
+[recorder]: /integrations/recorder/
 [secrets]: /topics/secrets/
-[simplisafe]: /components/simplisafe
+[simplisafe]: /integrations/simplisafe
 [SQLAlchemy]: http://www.sqlalchemy.org/
-[StatsD]: /components/statsd/
-[Telegram]: /components/telegram
-[TPLink]: /components/tplink
-[Verisure]: /components/verisure
-[yahoo-weather]: /components/yweather
-[Z-Wave]: /components/zwave/
-[RFXtrx]: /components/rfxtrx/
+[StatsD]: /integrations/statsd/
+[Telegram]: /integrations/telegram
+[TPLink]: /integrations/tplink
+[Verisure]: /integrations/verisure
+[yahoo-weather]: /integrations/yweather
+[Z-Wave]: /integrations/zwave/
+[RFXtrx]: /integrations/rfxtrx/

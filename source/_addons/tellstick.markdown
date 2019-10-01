@@ -19,7 +19,7 @@ tellstick:
     port: [50800, 50801]
 ```
 
-To add [lights](/components/tellstick#light), [sensors](/components/tellstick#sensor) and [switches](/components/tellstick#switch) you follow the guidelines for each type individually that is [described for Home Assistant](/components/tellstick/)
+To add [lights](/integrations/tellstick#light), [sensors](/integrations/tellstick#sensor) and [switches](/integrations/tellstick#switch) you follow the guidelines for each type individually that is [described for Home Assistant](/integrations/tellstick/)
 
 The add-on will also enable you to interact with the `tdtool` via a Home Assistant services call, see example below for self-learning device.
 

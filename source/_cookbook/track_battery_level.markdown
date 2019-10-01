@@ -6,7 +6,7 @@ ha_category: Automation Examples
 
 ### iOS Devices
 
-If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/icloud) integration is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/template). You can also use the `battery` [sensor device class](/components/sensor/#device-class) to dynamically change the icon with the battery level.
+If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/integrations/icloud) integration is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/integrations/template). You can also use the `battery` [sensor device class](/integrations/sensor/#device-class) to dynamically change the icon with the battery level.
 
 {% raw %}
 ```yaml
@@ -27,7 +27,7 @@ sensor:
 {% endraw %}
 
 ### Android and iOS Devices
-While running the [Owntracks](/components/owntracks) device tracker you can retrieve the battery level. 
+While running the [Owntracks](/integrations/owntracks) device tracker you can retrieve the battery level. 
 How you achieve this depends on how you have configured your Owntracks instance. 
 
 #### MQTT

@@ -13,21 +13,21 @@
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
 - topic: Discovery
-  description: "[Discovery](/components/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
+  description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Entity
   description: "An [entity](/docs/configuration/platform_options/) is the representation of function a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
-  description: "The [frontend](/components/frontend/) is a necessary component for the UI, it is also where you can define your themes."
+  description: "The [frontend](/integrations/frontend/) is a necessary component for the UI, it is also where you can define your themes."
 - topic: Group
-  description: "[Groups](/components/group/) are a way to organize your entities into a single unit."
+  description: "[Groups](/integrations/group/) are a way to organize your entities into a single unit."
 - topic: hass
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
 - topic: Hass.io
   description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended."
 - topic: Integration
-  description: "[Integrations](/components/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
+  description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
   description: "[Lovelace](/lovelace/) is the name of the current frontend."
 - topic: Packages
@@ -35,7 +35,7 @@
 - topic: Platform
   description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
 - topic: Scene
-  description: "[Scenes](/components/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red." 
+  description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red." 
 - topic: Script
   description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
 - topic: Service
@@ -45,4 +45,4 @@
 - topic: Trigger
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
 - topic: Zone
-  description: "[Zones](/components/zone/) are areas that can be used for presence detection."
+  description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

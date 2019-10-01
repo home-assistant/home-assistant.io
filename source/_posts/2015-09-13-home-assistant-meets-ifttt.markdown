@@ -20,7 +20,7 @@ It is now possible to disable your irregation system if it is going to be cloudy
   <img src='/images/blog/2015-09-ifttt/splash.png'>
 </p>
 
-Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
+Head over to the [setup instructions](/integrations/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
 
 <!--more-->
 

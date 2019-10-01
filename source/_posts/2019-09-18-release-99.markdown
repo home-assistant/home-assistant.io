@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-09-0.99/components.png
 ---
 
-<a href='/components/#version/0.99'><img src='/images/blog/2019-09-0.99/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.99'><img src='/images/blog/2019-09-0.99/components.png' style='border: 0;box-shadow: none;'></a>
 
 [Happy 6th birthday to us!](/blog/2019/09/17/happy-birthday/) Yep, it's been 6 years since the first commit, 6 years since we started our quest for a local and privacy foucsed home automation hub. And I think that we're doing a pretty ok job 😏
 
@@ -93,7 +93,7 @@ Home Assistant now supports opening [Home Assistant Cast](/blog/2019/08/06/home-
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4KMJDOWa_ao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
+Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).
 
 ## Hass.io
 
@@ -107,7 +107,7 @@ Home Assistant had a booth this year at the [CEDIA home tech trade show](https:/
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/components/konnected) and [Senic](/components/nuimo_controller/).
+We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and [Senic](/integrations/nuimo_controller/).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Beers after CEDIA with <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a> from Home Assistant and teams from Senic and Neeo. <a href="https://t.co/c6Ag4DeEtU">pic.twitter.com/c6Ag4DeEtU</a></p>&mdash; Konnected.io (@Konnected_io) <a href="https://twitter.com/Konnected_io/status/1172689994059661318?ref_src=twsrc%5Etfw">September 14, 2019</a>
 </blockquote>
@@ -154,9 +154,9 @@ We also had some great drinks in the evenings with companies that integrate with
 [@balloob]: https://github.com/balloob
 [@dshokouhi]: https://github.com/dshokouhi
 [@growse]: https://github.com/growse
-[obihai docs]: /components/obihai/
-[prometheus docs]: /components/prometheus/
-[tradfri docs]: /components/tradfri/
+[obihai docs]: /integrations/obihai/
+[prometheus docs]: /integrations/prometheus/
+[tradfri docs]: /integrations/tradfri/
 
 ## Release 0.99.2 - September 19
 
@@ -176,8 +176,8 @@ Forgot to include frontend update 99.1.
 [#26623]: https://github.com/home-assistant/home-assistant/pull/26623
 [@majestyiv]: https://github.com/MajestyIV
 [@doudz]: https://github.com/doudz
-[homematic docs]: /components/homematic/
-[zha docs]: /components/zha/
+[homematic docs]: /integrations/homematic/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
@@ -710,103 +710,103 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vangorra]: https://github.com/vangorra
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
-[alarmdecoder docs]: /components/alarmdecoder/
-[ambiclimate docs]: /components/ambiclimate/
-[androidtv docs]: /components/androidtv/
-[apple_tv docs]: /components/apple_tv/
-[atome docs]: /components/atome/
-[automation docs]: /components/automation/
-[axis docs]: /components/axis/
-[beewi_smartclim docs]: /components/beewi_smartclim/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[cast docs]: /components/cast/
-[cert_expiry docs]: /components/cert_expiry/
-[darksky docs]: /components/darksky/
-[deconz docs]: /components/deconz/
-[denonavr docs]: /components/denonavr/
-[device_automation docs]: /components/device_automation/
-[device_sun_light_trigger docs]: /components/device_sun_light_trigger/
-[device_tracker docs]: /components/device_tracker/
-[discovery docs]: /components/discovery/
-[dlna_dmr docs]: /components/dlna_dmr/
-[duckdns docs]: /components/duckdns/
-[emulated_hue docs]: /components/emulated_hue/
-[environment_canada docs]: /components/environment_canada/
-[evohome docs]: /components/evohome/
-[filter docs]: /components/filter/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[geonetnz_quakes docs]: /components/geonetnz_quakes/
-[glances docs]: /components/glances/
-[google_maps docs]: /components/google_maps/
-[slide docs]: /components/slide/
-[growatt_server docs]: /components/growatt_server/
-[gtfs docs]: /components/gtfs/
-[heos docs]: /components/heos/
-[history docs]: /components/history/
-[homekit_controller docs]: /components/homekit_controller/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[honeywell docs]: /components/honeywell/
-[huawei_lte docs]: /components/huawei_lte/
-[iaqualink docs]: /components/iaqualink/
-[ign_sismologia docs]: /components/ign_sismologia/
-[ihc docs]: /components/ihc/
-[input_text docs]: /components/input_text/
-[iqvia docs]: /components/iqvia/
-[isy994 docs]: /components/isy994/
-[jewish_calendar docs]: /components/jewish_calendar/
-[knx docs]: /components/knx/
-[light docs]: /components/light/
-[linky docs]: /components/linky/
-[media_extractor docs]: /components/media_extractor/
-[meteo_france docs]: /components/meteo_france/
-[miflora docs]: /components/miflora/
-[mqtt docs]: /components/mqtt/
-[nsw_rural_fire_service_feed docs]: /components/nsw_rural_fire_service_feed/
-[nuki docs]: /components/nuki/
-[nws docs]: /components/nws/
-[obihai docs]: /components/obihai/
-[onkyo docs]: /components/onkyo/
-[onvif docs]: /components/onvif/
-[opencv docs]: /components/opencv/
-[opengarage docs]: /components/opengarage/
-[openuv docs]: /components/openuv/
-[pi_hole docs]: /components/pi_hole/
-[plex docs]: /components/plex/
-[point docs]: /components/point/
-[qld_bushfire docs]: /components/qld_bushfire/
-[radiotherm docs]: /components/radiotherm/
-[recorder docs]: /components/recorder/
-[rflink docs]: /components/rflink/
-[slide docs]: /components/slide/
-[sma docs]: /components/sma/
-[smartthings docs]: /components/smartthings/
-[solaredge docs]: /components/solaredge/
-[solaredge_local docs]: /components/solaredge_local/
-[solax docs]: /components/solax/
-[sql docs]: /components/sql/
-[supla docs]: /components/supla/
-[switch docs]: /components/switch/
-[tellstick docs]: /components/tellstick/
-[template docs]: /components/template/
-[tensorflow docs]: /components/tensorflow/
-[tibber docs]: /components/tibber/
-[trend docs]: /components/trend/
-[tuya docs]: /components/tuya/
-[uk_transport docs]: /components/uk_transport/
-[unifi docs]: /components/unifi/
-[upc_connect docs]: /components/upc_connect/
-[upnp docs]: /components/upnp/
-[usgs_earthquakes_feed docs]: /components/usgs_earthquakes_feed/
-[velbus docs]: /components/velbus/
-[venstar docs]: /components/venstar/
-[vicare docs]: /components/vicare/
-[vivotek docs]: /components/vivotek/
-[webhook docs]: /components/webhook/
-[withings docs]: /components/withings/
-[wwlln docs]: /components/wwlln/
-[xiaomi docs]: /components/xiaomi_aqara
-[yeelight docs]: /components/yeelight/
-[zha docs]: /components/zha/
-[zhong_hong docs]: /components/zhong_hong/
-[zwave docs]: /components/zwave/
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[ambiclimate docs]: /integrations/ambiclimate/
+[androidtv docs]: /integrations/androidtv/
+[apple_tv docs]: /integrations/apple_tv/
+[atome docs]: /integrations/atome/
+[automation docs]: /integrations/automation/
+[axis docs]: /integrations/axis/
+[beewi_smartclim docs]: /integrations/beewi_smartclim/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[cast docs]: /integrations/cast/
+[cert_expiry docs]: /integrations/cert_expiry/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[denonavr docs]: /integrations/denonavr/
+[device_automation docs]: /integrations/device_automation/
+[device_sun_light_trigger docs]: /integrations/device_sun_light_trigger/
+[device_tracker docs]: /integrations/device_tracker/
+[discovery docs]: /integrations/discovery/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[duckdns docs]: /integrations/duckdns/
+[emulated_hue docs]: /integrations/emulated_hue/
+[environment_canada docs]: /integrations/environment_canada/
+[evohome docs]: /integrations/evohome/
+[filter docs]: /integrations/filter/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[geonetnz_quakes docs]: /integrations/geonetnz_quakes/
+[glances docs]: /integrations/glances/
+[google_maps docs]: /integrations/google_maps/
+[slide docs]: /integrations/slide/
+[growatt_server docs]: /integrations/growatt_server/
+[gtfs docs]: /integrations/gtfs/
+[heos docs]: /integrations/heos/
+[history docs]: /integrations/history/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[huawei_lte docs]: /integrations/huawei_lte/
+[iaqualink docs]: /integrations/iaqualink/
+[ign_sismologia docs]: /integrations/ign_sismologia/
+[ihc docs]: /integrations/ihc/
+[input_text docs]: /integrations/input_text/
+[iqvia docs]: /integrations/iqvia/
+[isy994 docs]: /integrations/isy994/
+[jewish_calendar docs]: /integrations/jewish_calendar/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[linky docs]: /integrations/linky/
+[media_extractor docs]: /integrations/media_extractor/
+[meteo_france docs]: /integrations/meteo_france/
+[miflora docs]: /integrations/miflora/
+[mqtt docs]: /integrations/mqtt/
+[nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
+[nuki docs]: /integrations/nuki/
+[nws docs]: /integrations/nws/
+[obihai docs]: /integrations/obihai/
+[onkyo docs]: /integrations/onkyo/
+[onvif docs]: /integrations/onvif/
+[opencv docs]: /integrations/opencv/
+[opengarage docs]: /integrations/opengarage/
+[openuv docs]: /integrations/openuv/
+[pi_hole docs]: /integrations/pi_hole/
+[plex docs]: /integrations/plex/
+[point docs]: /integrations/point/
+[qld_bushfire docs]: /integrations/qld_bushfire/
+[radiotherm docs]: /integrations/radiotherm/
+[recorder docs]: /integrations/recorder/
+[rflink docs]: /integrations/rflink/
+[slide docs]: /integrations/slide/
+[sma docs]: /integrations/sma/
+[smartthings docs]: /integrations/smartthings/
+[solaredge docs]: /integrations/solaredge/
+[solaredge_local docs]: /integrations/solaredge_local/
+[solax docs]: /integrations/solax/
+[sql docs]: /integrations/sql/
+[supla docs]: /integrations/supla/
+[switch docs]: /integrations/switch/
+[tellstick docs]: /integrations/tellstick/
+[template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
+[tibber docs]: /integrations/tibber/
+[trend docs]: /integrations/trend/
+[tuya docs]: /integrations/tuya/
+[uk_transport docs]: /integrations/uk_transport/
+[unifi docs]: /integrations/unifi/
+[upc_connect docs]: /integrations/upc_connect/
+[upnp docs]: /integrations/upnp/
+[usgs_earthquakes_feed docs]: /integrations/usgs_earthquakes_feed/
+[velbus docs]: /integrations/velbus/
+[venstar docs]: /integrations/venstar/
+[vicare docs]: /integrations/vicare/
+[vivotek docs]: /integrations/vivotek/
+[webhook docs]: /integrations/webhook/
+[withings docs]: /integrations/withings/
+[wwlln docs]: /integrations/wwlln/
+[xiaomi docs]: /integrations/xiaomi_aqara
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
+[zhong_hong docs]: /integrations/zhong_hong/
+[zwave docs]: /integrations/zwave/

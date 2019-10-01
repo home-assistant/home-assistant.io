@@ -82,32 +82,32 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [@Danielhiversen]: https://github.com/Danielhiversen/
 [@roqeer]: https://github.com/roqeer/
 [@jaharkes]: https://github.com/jaharkes/
-[default view]: /components/group/
-[apcupsd]: /components/apcupsd/
-[Splunk]: /components/splunk/
-[garage door]: /components/cover/
-[Wink]: /components/wink/#cover
-[input_select]: /components/input_select/
-[proximity]: /components/proximity/
-[Bloomsky Weather Station]: /components/bloomsky/
-[graphite]: /components/graphite/
-[SCSGate]: /components/scsgate/
-[weblink]: /components/weblink/
-[mfi.switch]: /components/mfi#switch
-[mfi.sensor]: /components/mfi#sensor
-[nx584]: /components/nx584
-[MJPEG]: /components/mjpeg
-[unifi]: /components/uvc
-[Aruba]: /components/aruba
-[History]: /components/history/
-[MySensors]: /components/light.mysensors/
-[Verisure]: /components/verisure
-[Speedtest.net]: /components/speedtestdotnet
-[Samsung TV]: /components/samsungtv
-[Snapcast]: /components/snapcast
-[mqtt-publish]: /components/mqtt/#publish-service
-[REST]: /components/notify.rest/
-[template]: /components/switch.template/
-[Honeywell]: /components/honeywell/
-[zwave-polling]: /components/zwave/#configuration
-[zwave-scene]: /components/zwave/#events
+[default view]: /integrations/group/
+[apcupsd]: /integrations/apcupsd/
+[Splunk]: /integrations/splunk/
+[garage door]: /integrations/cover/
+[Wink]: /integrations/wink/#cover
+[input_select]: /integrations/input_select/
+[proximity]: /integrations/proximity/
+[Bloomsky Weather Station]: /integrations/bloomsky/
+[graphite]: /integrations/graphite/
+[SCSGate]: /integrations/scsgate/
+[weblink]: /integrations/weblink/
+[mfi.switch]: /integrations/mfi#switch
+[mfi.sensor]: /integrations/mfi#sensor
+[nx584]: /integrations/nx584
+[MJPEG]: /integrations/mjpeg
+[unifi]: /integrations/uvc
+[Aruba]: /integrations/aruba
+[History]: /integrations/history/
+[MySensors]: /integrations/light.mysensors/
+[Verisure]: /integrations/verisure
+[Speedtest.net]: /integrations/speedtestdotnet
+[Samsung TV]: /integrations/samsungtv
+[Snapcast]: /integrations/snapcast
+[mqtt-publish]: /integrations/mqtt/#publish-service
+[REST]: /integrations/notify.rest/
+[template]: /integrations/switch.template/
+[Honeywell]: /integrations/honeywell/
+[zwave-polling]: /integrations/zwave/#configuration
+[zwave-scene]: /integrations/zwave/#events

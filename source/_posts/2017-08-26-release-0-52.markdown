@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-08-0.52/components.png
 ---
 
-<a href='/components/#version/0.52'><img src='/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.52'><img src='/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
 
 Although the summer is in full progress, the development hasn't stalled. This release brings bug fixes, clean ups and another 8 new integrations. On top of that we are also introducing a new [script editor](/docs/scripts/editor/)!
 
@@ -301,80 +301,81 @@ usps:
 [@timstanley1985]: https://github.com/timstanley1985
 [@tlyakhov]: https://github.com/tlyakhov
 [@w1ll1am23]: https://github.com/w1ll1am23
-[abode docs]: /components/abode/
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.abode docs]: /components/abode
-[alarm_control_panel.egardia docs]: /components/egardia
-[alarm_control_panel.simplisafe docs]: /components/simplisafe
-[alarm_control_panel.totalconnect docs]: /components/totalconnect
-[binary_sensor.abode docs]: /components/abode#binary-sensor
-[binary_sensor.mysensors docs]: /components/binary_sensor.mysensors/
-[binary_sensor.workday docs]: /components/workday
-[climate.mysensors docs]: /components/climate.mysensors/
-[config docs]: /components/config/
-[configurator docs]: /components/configurator/
-[cover.mysensors docs]: /components/cover.mysensors/
-[cover.template docs]: /components/cover.template/
-[device_tracker.automatic docs]: /components/automatic
-[device_tracker.mysensors docs]: /components/device_tracker.mysensors/
-[ecobee docs]: /components/ecobee/
-[emulated_hue.upnp docs]: /components/emulated_hue.upnp/
-[envisalink docs]: /components/envisalink/
-[fan.isy994 docs]: /components/isy994
-[image_processing.dlib_face_detect docs]: /components/dlib_face_detect
-[image_processing.dlib_face_identify docs]: /components/dlib_face_identify
-[insteon_plm docs]: /components/insteon_plm/
-[light.decora_wifi docs]: /components/decora_wifi/
-[light.flux_led docs]: /components/flux_led
-[light.hue docs]: /components/hue
-[light.lifx docs]: /components/lifx
-[light.mysensors docs]: /components/light.mysensors/
-[light.rpi_gpio_pwm docs]: /components/rpi_gpio_pwm
-[light.tplink docs]: /components/tplink
-[light.yeelight docs]: /components/yeelight
-[lock.nello docs]: /components/nello
-[media_extractor docs]: /components/media_extractor/
-[media_player.mpd docs]: /components/mpd
-[media_player.onkyo docs]: /components/onkyo
-[media_player.snapcast docs]: /components/snapcast
-[media_player.spotify docs]: /components/spotify
-[media_player.squeezebox docs]: /components/squeezebox
-[media_player.webostv docs]: /components/webostv#media-player
-[mysensors docs]: /components/mysensors/
-[notify.discord docs]: /components/discord
-[notify.hipchat docs]: /components/hipchat
-[notify.mysensors docs]: /components/notify.mysensors/
-[notify.prowl docs]: /components/prowl
-[notify.pushbullet docs]: /components/pushbullet
-[notify.pushover docs]: /components/pushover
-[notify.sendgrid docs]: /components/sendgrid
-[notify.slack docs]: /components/slack
-[octoprint docs]: /components/octoprint/
-[prometheus docs]: /components/prometheus/
-[script docs]: /components/script/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.cert_expiry docs]: /components/cert_expiry
-[sensor.eliqonline docs]: /components/eliqonline
-[sensor.fitbit docs]: /components/fitbit
-[sensor.fritzbox_callmonitor docs]: /components/fritzbox#sensor_callmonitor/
-[sensor.geizhals docs]: /components/geizhals
-[sensor.ios docs]: /components/sensor.ios/
-[sensor.london_air docs]: /components/london_air
-[sensor.mysensors docs]: /components/sensor.mysensors/
-[sensor.netdata docs]: /components/netdata
-[sensor.octoprint docs]: /components/octoprint#sensor
-[sensor.snmp docs]: /components/snmp#sensor
-[sensor.swiss_public_transport docs]: /components/swiss_public_transport
-[sensor.uk_transport docs]: /components/uk_transport
-[sensor.version docs]: /components/version
-[sensor.worldtidesinfo docs]: /components/worldtidesinfo
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.mysensors docs]: /components/switch.mysensors/
-[switch.pilight docs]: /components/pilight#switch
-[switch.rainmachine docs]: /components/rainmachine#switch
-[switch.xiaomi docs]: /components/switch.xiaomi_aqara/
-[weather.buienradar docs]: /components/buienradar
-[xiaomi docs]: /components/xiaomi_aqara
+[abode docs]: /integrations/abode/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[binary_sensor.abode docs]: /integrations/abode#binary-sensor
+[binary_sensor.mysensors docs]: /integrations/binary_sensor.mysensors/
+[binary_sensor.workday docs]: /integrations/workday
+[climate.mysensors docs]: /integrations/climate.mysensors/
+[config docs]: /integrations/config/
+[configurator docs]: /integrations/configurator/
+[cover.mysensors docs]: /integrations/cover.mysensors/
+[cover.template docs]: /integrations/cover.template/
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue.upnp docs]: /integrations/emulated_hue.upnp/
+[envisalink docs]: /integrations/envisalink/
+[fan.isy994 docs]: /integrations/isy994
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[insteon_plm docs]: /integrations/insteon_plm/
+[light.decora_wifi docs]: /integrations/decora_wifi/
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.mysensors docs]: /integrations/light.mysensors/
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.tplink docs]: /integrations/tplink
+[light.yeelight docs]: /integrations/yeelight
+[lock.nello docs]: /integrations/nello
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.mpd docs]: /integrations/mpd
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.spotify docs]: /integrations/spotify
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mysensors docs]: /integrations/mysensors/
+[notify.discord docs]: /integrations/discord
+[notify.hipchat docs]: /integrations/hipchat
+[notify.mysensors docs]: /integrations/notify.mysensors/
+[notify.prowl docs]: /integrations/prowl
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.pushover docs]: /integrations/pushover
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.slack docs]: /integrations/slack
+[octoprint docs]: /integrations/octoprint/
+[prometheus docs]: /integrations/prometheus/
+[script docs]: /integrations/script/
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.london_air docs]: /integrations/london_air
+[sensor.mysensors docs]: /integrations/sensor.mysensors/
+[sensor.netdata docs]: /integrations/netdata
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.version docs]: /integrations/version
+[sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.mysensors docs]: /integrations/switch.mysensors/
+[switch.pilight docs]: /integrations/pilight#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
+[usps docs]: /integrations/usps/
+[weather.buienradar docs]: /integrations/buienradar
+[xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -388,6 +389,6 @@ usps:
 [#9191]: https://github.com/home-assistant/home-assistant/pull/9191
 [@foxel]: https://github.com/foxel
 [@sdague]: https://github.com/sdague
-[camera.foscam docs]: /components/foscam
-[climate.ecobee docs]: /components/ecobee
-[device_tracker.icloud docs]: /components/icloud
+[camera.foscam docs]: /integrations/foscam
+[climate.ecobee docs]: /integrations/ecobee
+[device_tracker.icloud docs]: /integrations/icloud
