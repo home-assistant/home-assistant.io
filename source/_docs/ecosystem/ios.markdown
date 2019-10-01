@@ -23,7 +23,7 @@ The app is available on the iOS App Store in every country that Apple supports.
 
 The `ios` integration is the companion integration for the Home Assistant iOS app. While not required, adding the `ios` integration to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.
 
-Loading the `ios` integration will also load the [`device_tracker`](/components/device_tracker), [`zeroconf`](/components/zeroconf) and [`notify`](/components/notify) platforms.
+Loading the `ios` integration will also load the [`device_tracker`](/integrations/device_tracker), [`zeroconf`](/integrations/zeroconf) and [`notify`](/integrations/notify) platforms.
 
 The Home Assistant for iOS app supports the new authentication system introduced in Home Assistant 0.77.
 
@@ -33,7 +33,7 @@ The Home Assistant for iOS app supports the new authentication system introduced
 
 The `ios` integration will automatically be loaded under the following circumstances:
 
-1. The [`discovery`](/components/discovery) integration is enabled.
+1. The [`discovery`](/integrations/discovery) integration is enabled.
 2. You have just installed the app and are at the getting started screen.
 
 Automated discovery and integration loading only happens at first install of the app. You may need to wait a few minutes for the iOS integration to load as the `discovery` integration only scans the network every 5 minutes.

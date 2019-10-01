@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
-<a href='/components/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
 This release brings some great new integrations. The biggest one is the [native Zigbee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
@@ -411,90 +411,90 @@ influxdb:
 [@wokar]: https://github.com/wokar
 [@wuub]: https://github.com/wuub
 [@zeltom]: https://github.com/zeltom
-[binary_sensor.alarmdecoder docs]: /components/alarmdecoder
-[binary_sensor.eight_sleep docs]: /components/eight_sleep
-[binary_sensor.maxcube docs]: /components/maxcube
-[binary_sensor.octoprint docs]: /components/octoprint#binary-sensor
-[binary_sensor.pilight docs]: /components/pilight#binary-sensor
-[binary_sensor.ping docs]: /components/ping#binary-sensor
-[binary_sensor.workday docs]: /components/workday
-[binary_sensor.zha docs]: /components/zha
-[camera.netatmo docs]: /components/netatmo#camera
-[climate docs]: /components/climate/
-[climate.ecobee docs]: /components/ecobee
-[climate.maxcube docs]: /components/maxcube
-[climate.zwave docs]: /components/zwave#climate
-[cover.garadget docs]: /components/garadget
-[cover.opengarage docs]: /components/opengarage
-[cover.zwave docs]: /components/zwave#cover
-[device_tracker.automatic docs]: /components/automatic
-[device_tracker.zha docs]: /components/device_tracker.zha/
-[ecobee docs]: /components/ecobee/
-[eight_sleep docs]: /components/eight_sleep/
-[enocean docs]: /components/enocean/
-[homematic docs]: /components/homematic/
-[image_processing.dlib_face_detect docs]: /components/dlib_face_detect
-[image_processing.dlib_face_identify docs]: /components/dlib_face_identify
-[image_processing.microsoft_face_detect docs]: /components/microsoft_face_detect
-[image_processing.opencv docs]: /components/opencv
-[joaoapps_join docs]: /components/joaoapps_join/
-[light docs]: /components/light/
-[light.avion docs]: /components/avion
-[light.blinkt docs]: /components/blinkt
-[light.decora docs]: /components/decora
-[light.flux_led docs]: /components/flux_led
-[light.hue docs]: /components/hue
-[light.lifx docs]: /components/lifx
-[light.osramlightify docs]: /components/osramlightify
-[light.piglow docs]: /components/piglow
-[light.sensehat docs]: /components/sensehat#light
-[light.tradfri docs]: /components/tradfri
-[light.zha docs]: /components/zha
-[light.zwave docs]: /components/zwave
-[maxcube docs]: /components/maxcube/
-[media_player docs]: /components/media_player/
-[media_player.spotify docs]: /components/spotify
-[media_player.webostv docs]: /components/webostv#media-player
-[mqtt docs]: /components/mqtt/
-[notify.html5 docs]: /components/html5
-[notify.joaoapps_join docs]: /components/joaoapps_join
-[notify.mailgun docs]: /components/mailgun
-[notify.matrix docs]: /components/matrix/#notifications
-[notify.smtp docs]: /components/smtp
-[notify.telegram docs]: /components/telegram
-[notify.webostv docs]: /components/webostv
-[nuimo_controller docs]: /components/nuimo_controller/
-[octoprint docs]: /components/octoprint/
-[opencv docs]: /components/opencv/
-[plant docs]: /components/plant/
-[recorder docs]: /components/recorder/
-[rfxtrx docs]: /components/rfxtrx/
-[rss_feed_template docs]: /components/rss_feed_template/
-[sensor.cert_expiry docs]: /components/cert_expiry
-[sensor.dht docs]: /components/dht
-[sensor.eight_sleep docs]: /components/eight_sleep
-[sensor.envirophat docs]: /components/envirophat
-[sensor.ios docs]: /components/sensor.ios/
-[sensor.lyft docs]: /components/lyft
-[sensor.pushbullet docs]: /components/pushbullet#sensor
-[sensor.speedtest docs]: /components/speedtestdotnet
-[sensor.thinkingcleaner docs]: /components/thinkingcleaner#sensor
-[sensor.vera docs]: /components/vera#sensor
-[sensor.zamg docs]: /components/zamg#sensor
-[sensor.zha docs]: /components/zha
-[switch.flux docs]: /components/flux
-[switch.hook docs]: /components/hook
-[switch.thinkingcleaner docs]: /components/thinkingcleaner#switch
-[switch.wemo docs]: /components/wemo
-[switch.zha docs]: /components/zha
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/polling
-[telegram_bot.webhooks docs]: /components/webhooks
-[updater docs]: /components/updater/
-[vera docs]: /components/vera/
-[wemo docs]: /components/wemo/
-[wink docs]: /components/wink/
-[zha docs]: /components/zha/
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.eight_sleep docs]: /integrations/eight_sleep
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.octoprint docs]: /integrations/octoprint#binary-sensor
+[binary_sensor.pilight docs]: /integrations/pilight#binary-sensor
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.zha docs]: /integrations/zha
+[camera.netatmo docs]: /integrations/netatmo#camera
+[climate docs]: /integrations/climate/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.maxcube docs]: /integrations/maxcube
+[climate.zwave docs]: /integrations/zwave#climate
+[cover.garadget docs]: /integrations/garadget
+[cover.opengarage docs]: /integrations/opengarage
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.zha docs]: /integrations/device_tracker.zha/
+[ecobee docs]: /integrations/ecobee/
+[eight_sleep docs]: /integrations/eight_sleep/
+[enocean docs]: /integrations/enocean/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
+[image_processing.opencv docs]: /integrations/opencv
+[joaoapps_join docs]: /integrations/joaoapps_join/
+[light docs]: /integrations/light/
+[light.avion docs]: /integrations/avion
+[light.blinkt docs]: /integrations/blinkt
+[light.decora docs]: /integrations/decora
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.osramlightify docs]: /integrations/osramlightify
+[light.piglow docs]: /integrations/piglow
+[light.sensehat docs]: /integrations/sensehat#light
+[light.tradfri docs]: /integrations/tradfri
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[maxcube docs]: /integrations/maxcube/
+[media_player docs]: /integrations/media_player/
+[media_player.spotify docs]: /integrations/spotify
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.joaoapps_join docs]: /integrations/joaoapps_join
+[notify.mailgun docs]: /integrations/mailgun
+[notify.matrix docs]: /integrations/matrix/#notifications
+[notify.smtp docs]: /integrations/smtp
+[notify.telegram docs]: /integrations/telegram
+[notify.webostv docs]: /integrations/webostv
+[nuimo_controller docs]: /integrations/nuimo_controller/
+[octoprint docs]: /integrations/octoprint/
+[opencv docs]: /integrations/opencv/
+[plant docs]: /integrations/plant/
+[recorder docs]: /integrations/recorder/
+[rfxtrx docs]: /integrations/rfxtrx/
+[rss_feed_template docs]: /integrations/rss_feed_template/
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.dht docs]: /integrations/dht
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.envirophat docs]: /integrations/envirophat
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.pushbullet docs]: /integrations/pushbullet#sensor
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.thinkingcleaner docs]: /integrations/thinkingcleaner#sensor
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.zamg docs]: /integrations/zamg#sensor
+[sensor.zha docs]: /integrations/zha
+[switch.flux docs]: /integrations/flux
+[switch.hook docs]: /integrations/hook
+[switch.thinkingcleaner docs]: /integrations/thinkingcleaner#switch
+[switch.wemo docs]: /integrations/wemo
+[switch.zha docs]: /integrations/zha
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[updater docs]: /integrations/updater/
+[vera docs]: /integrations/vera/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[zha docs]: /integrations/zha/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
@@ -504,6 +504,6 @@ influxdb:
 [@finish06]: https://github.com/finish06
 [@frog32]: https://github.com/frog32
 [@pezinek]: https://github.com/pezinek
-[device_tracker.unifi docs]: /components/unifi
-[sensor.wunderground docs]: /components/wunderground
+[device_tracker.unifi docs]: /integrations/unifi
+[sensor.wunderground docs]: /integrations/wunderground
 [discord]: https://discord.gg/c5DvZ4e

@@ -2,7 +2,7 @@
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
 redirect_from:
-  - /components/auth/
+  - /integrations/auth/
 ---
 
 Our authentication system secures access to Home Assistant.
@@ -33,7 +33,7 @@ You can:
 
 * Change the language you prefer Home Assistant to use.
 * Change your password. 
-* Select the [theme](/components/frontend/#defining-themes) for the interface of Home Assistant.
+* Select the [theme](/integrations/frontend/#defining-themes) for the interface of Home Assistant.
 * Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
@@ -54,7 +54,7 @@ Home Assistant provides several ways to authenticate. See the [Auth Providers](/
 
 ### Authentication failures from `127.0.0.1`
 
-If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/nmap_tracker#exclude) from being scanned.
+If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/integrations/nmap_tracker#exclude) from being scanned.
 
 ### Bearer token warnings
 
@@ -64,7 +64,7 @@ Under the new authentication system you'll see the following warning logged when
 WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
 ```
 
-If you see this, you need to add an [`api_password`](/components/http/#api_password) to your `http:` configuration.
+If you see this, you need to add an [`api_password`](/integrations/http/#api_password) to your `http:` configuration.
 
 ### Bearer token informational messages
 

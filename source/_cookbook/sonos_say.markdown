@@ -6,7 +6,7 @@ ha_category: Automation Examples
 
 #### Sonos say script to speak with text-to-speech
 
-This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
+This script allows you to use [TTS](/integrations/#text-to-speech) on Sonos.
 
 ```yaml
 script:

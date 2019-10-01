@@ -1,7 +1,7 @@
 ---
 title: "Multi-factor authentication"
 description: "Guide on configuring different multi-factor authentication modules."
-redirect_from: /components/auth/
+redirect_from: /integrations/auth/
 ---
 
 The Multi-factor Authentication (MFA) modules require you to solve a second challenge after you provide your password.
@@ -61,7 +61,7 @@ TOTP is _time based_ so it relies on your Home Assistant clock being accurate. I
 
 ### Notify multi-factor authentication module
 
-The Notify MFA module uses the [notify component](/components/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
+The Notify MFA module uses the [notify component](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
 
 #### Setting up TOTP
 

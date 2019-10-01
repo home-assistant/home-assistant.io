@@ -2,7 +2,7 @@
 title: "Lovelace UI"
 description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
 redirect_from:
-  - /components/lovelace/
+  - /integrations/lovelace/
 ---
 
 Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.

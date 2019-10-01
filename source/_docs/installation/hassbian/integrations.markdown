@@ -10,7 +10,7 @@ Some integrations that are specific for the Raspberry Pi can require some furthe
 
 The Bluetooth tracker will work on a Raspberry Pi 3 with the built-in Bluetooth module or with a USB Bluetooth device on any of the other Raspberry Pi's.
 
-Software needed for the tracker is pre-installed so just follow the [Bluetooth Tracker integration](/components/bluetooth_tracker/) and [Device Tracker page](/components/device_tracker/) pages.
+Software needed for the tracker is pre-installed so just follow the [Bluetooth Tracker integration](/integrations/bluetooth_tracker/) and [Device Tracker page](/integrations/device_tracker/) pages.
 
 ### Raspberry Pi GPIO
 
@@ -20,11 +20,11 @@ For more details about the GPIO layout, visit the [documentation](https://www.ra
 Permission have been given to the `homeassistant` user to use the GPIO pins and all of the following integrations should require no underlying changes to work.
 Just follow the integration pages for each on how to add them to your Home Assistant installation.
 
- - [DHT Sensor](/components/dht/)
- - [Raspberry Pi Cover](/components/rpi_gpio/#cover)
- - [Raspberry Pi GPIO Binary Sensor](/components/rpi_gpio/#binary-sensor)
- - [Raspberry Pi GPIO Switch](/components/rpi_gpio/#switch)
- - [Raspberry Pi RF Switch](/components/rpi_rf/)
+ - [DHT Sensor](/integrations/dht/)
+ - [Raspberry Pi Cover](/integrations/rpi_gpio/#cover)
+ - [Raspberry Pi GPIO Binary Sensor](/integrations/rpi_gpio/#binary-sensor)
+ - [Raspberry Pi GPIO Switch](/integrations/rpi_gpio/#switch)
+ - [Raspberry Pi RF Switch](/integrations/rpi_rf/)
 
 ### Raspberry Pi Camera
 
@@ -38,7 +38,7 @@ $ sudo raspi-config
 
 Go to `Interfacing Options`, select `Enable camera` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-After this follow the [Raspberry Pi Camera integration](/components/rpi_camera/) page.
+After this follow the [Raspberry Pi Camera integration](/integrations/rpi_camera/) page.
 
 ### One wire Sensor
 
@@ -47,4 +47,4 @@ To enable One Wire support add the following line to the end of `/boot/config.tx
 ```yaml
 dtoverlay=w1-gpio
 ```
-After this follow the [One Wire Sensor integration](/components/onewire/) page.
+After this follow the [One Wire Sensor integration](/integrations/onewire/) page.
