@@ -84,55 +84,25 @@ regenerate: false
 {% endraw %}
 
 <script type="text/javascript">
-  // This object contains all components we have
-  var allComponents = [{
-      % -
-      for component in components - %
-    } {
-      % -
-      if component.ha_category - %
-    } {
-      % -assign sliced_version = component.ha_release | split: '.' - %
-    } {
-      % -assign minor_version = sliced_version[1] | plus: 0 - %
-    } {
-      % -assign major_version = sliced_version[0] | plus: 0 - %
-    } {
-      % -assign featured_first = true - %
-    } {
-      % -
-      for ha_category in component.ha_category - %
-    } {
-      url: "{{ component.url }}",
-      title: "{{component.title}}",
-      cat: "{{ha_category | slugify}}",
-      featured: {
-        %
-        if component.featured and featured_first %
-      }
-      true {
-        %
-        else %
-      }
-      false {
-        % endif %
-      },
-      v: "{{major_version}}.{{minor_version}}",
-      logo: "{{component.logo}}"
-    },
-    {
-      % -assign featured_first = false - %
-    } {
-      % -endfor - %
-    } {
-      % endif - %
-    } {
-      % -endfor - %
-    }
-    false
-  ];
-  allComponents.pop(); // remove placeholder element at the end
+// This object contains all components we have
+var allComponents = [
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
+{%- assign sliced_version = component.ha_release | split: '.' -%}
+{%- assign minor_version = sliced_version[1]|plus: 0 -%}
+{%- assign major_version = sliced_version[0]|plus: 0 -%}
+{%- assign featured_first = true -%}
+      {%- for ha_category in component.ha_category -%}
+{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
+      {%- assign featured_first = false -%}
+      {%- endfor -%}
+    {% endif -%}
+  {%- endfor -%}
+  false
+];
+allComponents.pop(); // remove placeholder element at the end
 </script>
+
 <script type="text/javascript">
   (function () {
     var template = $('#component-template').html();
