@@ -644,9 +644,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [switch.zha docs]: /components/switch.zha/
-[telegram_bot.broadcast docs]: /components/telegram_bot.broadcast/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot.broadcast docs]: /components/telegram_broadcast/
+[telegram_bot.polling docs]: /components/telegram_polling/
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [upcloud docs]: /components/upcloud/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [weather docs]: /components/weather/

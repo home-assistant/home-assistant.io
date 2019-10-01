@@ -529,7 +529,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /components/switch.tplink/
 [switch.wink docs]: /components/switch.wink/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tesla docs]: /components/tesla/
 [toon docs]: /components/toon/
 [tradfri docs]: /components/tradfri/

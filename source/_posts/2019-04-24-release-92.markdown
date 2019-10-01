@@ -1077,7 +1077,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [stream docs]: /components/stream/
 [supla docs]: /components/supla/
 [switch docs]: /components/switch/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tellduslive docs]: /components/tellduslive/
 [tplink docs]: /components/tplink/
 [trend docs]: /components/trend/

@@ -487,9 +487,9 @@ influxdb:
 [switch.thinkingcleaner docs]: /components/switch.thinkingcleaner/
 [switch.wemo docs]: /components/switch.wemo/
 [switch.zha docs]: /components/switch.zha/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot docs]: /components/telegram_chatbot/
+[telegram_bot.polling docs]: /components/telegram_polling/
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [updater docs]: /components/updater/
 [vera docs]: /components/vera/
 [wemo docs]: /components/wemo/

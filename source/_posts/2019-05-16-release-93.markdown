@@ -854,7 +854,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [systemmonitor docs]: /components/systemmonitor/
 [tapsaff docs]: /components/tapsaff/
 [ted5000 docs]: /components/ted5000/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tellduslive docs]: /components/tellduslive/
 [tensorflow docs]: /components/tensorflow/
 [thethingsnetwork docs]: /components/thethingsnetwork/

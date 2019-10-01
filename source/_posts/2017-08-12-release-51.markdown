@@ -442,7 +442,7 @@ vacuum:
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.wink docs]: /components/switch.wink/
 [switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [updater docs]: /components/updater/
 [vacuum docs]: /components/vacuum/
 [vacuum.demo docs]: /components/vacuum.demo/

@@ -832,7 +832,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch docs]: /components/switch/
 [switchbot docs]: /components/switchbot/
 [systemmonitor docs]: /components/systemmonitor/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tellduslive docs]: /components/tellduslive/
 [tfiac docs]: /components/tfiac/
 [tibber docs]: /components/tibber/

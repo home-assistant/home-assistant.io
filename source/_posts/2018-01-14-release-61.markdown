@@ -760,7 +760,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [switch.transmission docs]: /components/switch.transmission/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tahoma docs]: /components/tahoma/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [timer docs]: /components/timer/
 [tts.baidu docs]: /components/tts.baidu/
 [tts.marytts docs]: /components/tts.marytts/

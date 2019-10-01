@@ -474,9 +474,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /components/switch.tplink/
 [switch.wake_on_lan docs]: /components/switch.wake_on_lan/
 [switch.wemo docs]: /components/switch.wemo/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot docs]: /components/telegram_chatbot/
+[telegram_bot.polling docs]: /components/telegram_polling/
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [tts.google docs]: /components/tts.google/
 [tts.marytts docs]: /components/tts.marytts/
 [vera docs]: /components/vera/
@@ -496,8 +496,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [recorder docs]: /components/recorder/
 [switch.hook docs]: /components/switch.hook/
 [switch.wemo docs]: /components/switch.wemo/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot docs]: /components/telegram_chatbot/
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [wemo docs]: /components/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
@@ -513,5 +513,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /components/hassio/
 [notify.html5 docs]: /components/notify.html5/
 [notify.telegram docs]: /components/notify.telegram/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot.polling docs]: /components/telegram_polling/
 [discord]: https://discord.gg/c5DvZ4e

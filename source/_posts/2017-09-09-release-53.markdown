@@ -440,7 +440,7 @@ frontend:
 [switch.rest docs]: /components/switch.rest/
 [switch.rfxtrx docs]: /components/switch.rfxtrx/
 [switch.knx docs]: /components/switch.knx/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tesla docs]: /components/tesla/
 [tradfri docs]: /components/tradfri/
 [volvooncall docs]: /components/volvooncall/

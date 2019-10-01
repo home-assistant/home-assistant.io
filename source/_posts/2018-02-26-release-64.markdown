@@ -577,7 +577,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.smappee docs]: /components/switch.smappee/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tahoma docs]: /components/tahoma/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [usps docs]: /components/usps/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [vera docs]: /components/vera/

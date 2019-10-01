@@ -10,9 +10,9 @@ ha_iot_class: Cloud Push
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
 
-This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling/) method or with the [webhooks](/components/telegram_bot.webhooks/) one, and trigger events when receiving messages.
+This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_polling/) method or with the [webhooks](/components/telegram_webhooks/) one, and trigger events when receiving messages.
 
-If you don't need to receive messages, you can use the [broadcast](/components/telegram_bot.broadcast/) platform instead.
+If you don't need to receive messages, you can use the [broadcast](/components/telegram_broadcast/) platform instead.
 
 ## Notification services
 

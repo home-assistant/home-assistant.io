@@ -413,10 +413,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [sun docs]: /components/sun/
 [switch.rpi_pfio docs]: /components/switch.rpi_pfio/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.services.yaml docs]: /components/telegram_bot/#notification-services
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot docs]: /components/telegram_chatbot/
+[telegram_bot.polling docs]: /components/telegram_polling/
+[telegram_bot.services.yaml docs]: /components/telegram_chatbot/#notification-services
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [tradfri docs]: /components/tradfri/
 [vera docs]: /components/vera/
 [websocket_api docs]: /components/websocket_api/
@@ -433,5 +433,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.ubus docs]: /components/device_tracker.ubus/
 [hassio docs]: /components/hassio/
 [media_player.volumio docs]: /components/media_player.volumio/
-[telegram_bot.__init__ docs]: /components/telegram_bot/
+[telegram_bot.__init__ docs]: /components/telegram_chatbot/
 [discord]: https://discord.gg/c5DvZ4e

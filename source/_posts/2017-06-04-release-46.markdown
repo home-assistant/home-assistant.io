@@ -372,9 +372,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.broadlink docs]: /components/switch.broadlink/
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rflink docs]: /components/switch.rflink/
-[telegram_bot.__init__ docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[telegram_bot.__init__ docs]: /components/telegram_chatbot/
+[telegram_bot.polling docs]: /components/telegram_polling/
+[telegram_bot.webhooks docs]: /components/telegram_webhooks/
 [tellduslive docs]: /components/tellduslive/
 [upnp docs]: /components/upnp/
 [zoneminder docs]: /components/zoneminder/

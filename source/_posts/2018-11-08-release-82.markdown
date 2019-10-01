@@ -679,7 +679,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [switch.zigbee docs]: /components/switch.zigbee/
-[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot docs]: /components/telegram_chatbot/
 [tts docs]: /components/tts/
 [twilio docs]: /components/twilio/
 [updater docs]: /components/updater/

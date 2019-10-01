@@ -470,8 +470,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.snmp docs]: /components/switch.snmp/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [system_log docs]: /components/system_log/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot docs]: /components/telegram_chatbot/
+[telegram_bot.polling docs]: /components/telegram_polling/
 [tradfri docs]: /components/tradfri/
 [tts docs]: /components/tts/
 [tts.google docs]: /components/tts.google/
