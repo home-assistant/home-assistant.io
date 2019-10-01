@@ -149,3 +149,9 @@ This sensor will wake up your Synology NAS if it's in hibernation mode.
 Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user it is possible to deny access to all locations and applications. By doing this the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
+
+## Synology DSM Versions
+
+Due to a breaking change in the Synology API from DSM version 5 to version 6, some components of this plugin work on with DSM Version 6. This in particular seems to affect the volume and disk settings. 
+
+[Python module issue](https://github.com/StaticCube/python-synology/issues/3)
