@@ -71,6 +71,7 @@ scan_interval:
 ## Default Sensors
 
 Default sensors are now added with the following schema "sensor.transmission(or name if used)_variable_here"
+
 - sensor.transmission_active_torrents
 - sensor.transmission_completed_torrents
 - sensor.transmission_down_speed
