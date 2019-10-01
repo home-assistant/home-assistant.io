@@ -765,7 +765,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [foscam docs]: /components/foscam/
 [freebox docs]: /components/freebox/
 [frontend docs]: /components/frontend/
-[generic docs]: /components/generic/
+[generic docs]: /components/generic_ip_camera/
 [generic_thermostat docs]: /components/generic_thermostat/
 [google_assistant docs]: /components/google_assistant/
 [group docs]: /components/group/
