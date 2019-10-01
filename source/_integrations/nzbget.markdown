@@ -69,12 +69,13 @@ This component will create these sensors:
 ## Services
 
 Available services: 
+
   - `pause`: Pause the download queue.
   - `resume`: Resume the download queue.
   - `set_speed`: Set the download queue speed limit.
 
 ### Service `nzbget/set_speed`
 
-| Service data attribute | Optional | Description                                                                                                                                                                             |
-|------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Service data attribute | Optional | Description |                                                                                     
+|------------------------|----------|-------------------------------------------------------------------------------------------------|
 | `speed`                |      yes | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
