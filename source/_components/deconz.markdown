@@ -79,13 +79,21 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 
 Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
+```json
 { "field": "/lights/1", "data": {"name": "light2"} }
+```
 
+```json
 { "entity": "light.light1", "data": {"name": "light2"} }
+```
 
+```json
 { "entity": "light.light1", "field: "/state", "data": {"on": true} }
+```
 
+```json
 { "field": "/config", "data": {"permitjoin": 60} }
+```
 
 #### Service `deconz.device_refresh`
 
