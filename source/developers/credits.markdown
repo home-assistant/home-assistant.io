@@ -1800,9 +1800,6 @@ This page contains a list of people who have contributed in one way or another t
 - [Chayoung You (@yous)](https://github.com/yous "3 total commits to the Home Assistant orga:
 3 commits to home-assistant.io
 ")
-- [Check your git settings\! (@invalid-email-address)](https://github.com/invalid-email-address "1 total commits to the Home Assistant orga:
-1 commit to libcoap
-")
 - [Chema García (@sch3m4)](https://github.com/sch3m4 "1 total commits to the Home Assistant orga:
 1 commit to home-assistant
 ")
