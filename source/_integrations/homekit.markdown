@@ -334,7 +334,7 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 ## Docker Network Isolation
 
-The `advertise_ip` and `advertise_mac` options can be used to run this integration even inside a ephemeral Docker container with network isolation enabled, e.g. not using the host network.
+The `advertise_ip` and `advertise_mac` options can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
 To use `advertise_ip` and `advertise_mac`, add the options to your `homekit` config:
 
@@ -344,7 +344,7 @@ homekit:
   advertise_mac: "STATIC_MAC_OF_YOUR_DOCKER_HOST_OR_RANDOM_MAC"
 ```
 
-Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g. `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during bridge setup.
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
 
 ## Supported Components
 
