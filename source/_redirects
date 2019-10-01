@@ -204,6 +204,7 @@
 /components/binary_sensor.zigbee /components/zigbee#binary-sensor
 /components/binary_sensor.zoneminder /components/zoneminder#binary-sensor
 /components/binary_sensor.zwave /components/zwave
+/components/broadcast /components/telegram_broadcast
 /components/calendar.caldav /components/caldav
 /components/calendar.todoist /components/todoist
 /components/camera.abode /components/abode
@@ -610,6 +611,7 @@
 /components/notify.yessssms /components/yessssms
 /components/openalpr /components/openalpr_local
 /components/pollen /components/iqvia
+/components/polling /components/telegram_polling
 /components/public_sensor.netatmo /components/netatmo
 /components/remote.apple_tv /components/apple_tv#remote
 /components/remote.harmony /components/harmony
@@ -1065,9 +1067,10 @@
 /components/switch.zigbee /components/zigbee#switch
 /components/switch.zoneminder /components/zoneminder#switch
 /components/switch.zwave /components/zwave
-/components/telegram_bot.broadcast /components/broadcast
-/components/telegram_bot.polling /components/polling
-/components/telegram_bot.webhooks /components/webhooks
+/components/telegram_bot /components/telegram_chatbot
+/components/telegram_bot.broadcast /components/telegram_broadcast
+/components/telegram_bot.polling /components/telegram_polling
+/components/telegram_bot.webhooks /components/telegram_webhooks
 /components/tts.amazon_polly /components/amazon_polly
 /components/tts.baidu /components/baidu
 /components/tts.google /components/google_translate
@@ -1094,4 +1097,5 @@
 /components/weather.smhi /components/smhi
 /components/weather.yweather /components/yweather
 /components/weather.zamg /components/zamg#weather
+/components/webhooks /components/telegram_webhooks
 /components/xiaomi /components/xiaomi_aqara
