@@ -16,6 +16,8 @@ During the day (in between `start time` and `sunset time`), it will fade the lig
 
 The color temperature is specified kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
 
+You can configure whether the switch should be turned on or off after startup. The default behavior is that the switch restores its last state.
+
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 
 To use the Flux switch in your installation, add the following to your `configuration.yaml` file:
@@ -86,6 +88,11 @@ interval:
   required: false
   default: 30
   type: integer
+initial_state:
+  description: The initial state of the flux switch. Valid values are `state_on`, `state_off` and `state_last`.
+  required: false
+  default: state_last
+  type: integer
 {% endconfiguration %}
 
 Full example:
@@ -108,4 +115,5 @@ switch:
     mode: xy
     transition: 30
     interval: 60
+    initial_state: state_on
 ```
