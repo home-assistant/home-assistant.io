@@ -56,4 +56,4 @@ These attributes are available:
 
 Example screenshot:
 
-<img src="/images/components/zestimate/zestimateexample.png" />
+<img src="/images/integrations/zestimate/zestimateexample.png" />

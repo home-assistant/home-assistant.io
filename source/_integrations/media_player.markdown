@@ -57,7 +57,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 #### Service `media_player.select_sound_mode`
 
-Currently only supported on [Denon AVR](/components/denonavr/) and  [Songpal](/components/songpal).
+Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](/integrations/songpal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
@@ -66,7 +66,7 @@ Currently only supported on [Denon AVR](/components/denonavr/) and  [Songpal](/c
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Spotify](/components/spotify), [MPD](/components/mpd), [Kodi](/components/kodi), [Squeezebox](/components/squeezebox) and [Universal](/components/universal).
+Currently only supported on [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

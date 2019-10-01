@@ -24,7 +24,7 @@ Currently supported services are:
 
 ## Configuration
 
-Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
+Please follow [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
@@ -176,7 +176,7 @@ automation:
 
 ## Attributes
 
-In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
+In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
 (`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`

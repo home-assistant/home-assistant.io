@@ -45,4 +45,4 @@ password:
 It seems that it is not necessary to use the password in current generation Fritz!Box routers because the necessary data can be retrieved anonymously.
 </div>
 
-See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

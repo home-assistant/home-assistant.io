@@ -10,7 +10,7 @@ ha_release: 0.7
 
 The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub](/components/rfxtrx/).
+First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
 The easiest way to find your sensors is to add this to your `configuration.yaml`:
 
 ```yaml
@@ -23,7 +23,7 @@ sensor:
 Then when the sensor emits a signal it will be automatically added:
 
 <p class='img'>
-<img src='/images/components/rfxtrx/sensor.png' />
+<img src='/images/integrations/rfxtrx/sensor.png' />
 </p>
 
 Here the name is `0a52080000301004d240259` or `0a52080000301004d240259_temperature` and you can verify that it works from the frontend.

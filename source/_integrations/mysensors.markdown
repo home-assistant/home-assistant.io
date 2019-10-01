@@ -97,7 +97,7 @@ If you are using an original Arduino as a serial gateway, the port will be named
 $ ls /dev/ttyACM*
 ```
 
-If you are using the MQTT gateway, you also need to have the [MQTT component](/components/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
+If you are using the MQTT gateway, you also need to have the [MQTT component](/integrations/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
 
 ```yaml
 mqtt:

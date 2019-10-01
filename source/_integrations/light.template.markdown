@@ -100,7 +100,7 @@ In this section you will find some real-life examples of how to use this light.
 This example shows a light that is actually a home theater's volume. This
 component gives you the flexibility to provide whatever you'd like to send as
 the payload to the consumer including any scale conversions you may need to
-make; the [Media Player component](/components/media_player/) needs a floating
+make; the [Media Player component](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
 {% raw %}

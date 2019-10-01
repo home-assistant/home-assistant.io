@@ -137,7 +137,7 @@ The path part of `filename` must be an entry in the `whitelist_external_dirs` in
 
 ### Service `logi_circle.livestream_snapshot`
 
-Take a snapshot from a camera's live stream. This differs from the generic [snapshot](/components/camera/#service-snapshot) service in that explicitly requests a fresh image from Logi Circle's API. This will force cameras in a deep sleep state to wake.
+Take a snapshot from a camera's live stream. This differs from the generic [snapshot](/integrations/camera/#service-snapshot) service in that explicitly requests a fresh image from Logi Circle's API. This will force cameras in a deep sleep state to wake.
 
 Please note that new snapshots will only be generated if the cached snapshot is older than 30s. Requesting multiple snapshots in quick succession will likely return the same image. Likewise, requesting a snapshot from a camera that is actively streaming (ie. is not in deep sleep) will return a cached image no older than 30s.
 

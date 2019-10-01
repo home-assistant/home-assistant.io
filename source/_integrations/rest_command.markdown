@@ -10,7 +10,7 @@ ha_iot_class: Local Push
 
 This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
 
-[script]: /components/script/
+[script]: /integrations/script/
 [automation]: /getting-started/automation/
 
 To use this component, add the following lines to your `configuration.yaml` file:

@@ -10,7 +10,7 @@ ha_iot_class: Assumed State
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub](/components/rfxtrx/).
+First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
 
 The easiest way to find your lights is to add this to your `configuration.yaml`:
 
@@ -23,7 +23,7 @@ light:
 Launch your Home Assistant and go the website. Push your remote and your device should be added:
 
 <p class='img'>
-<img src='/images/components/rfxtrx/switch.png' />
+<img src='/images/integrations/rfxtrx/switch.png' />
 </p>
 
 Here the name is `0b11000102ef9f210010f70` and you can verify that it works from the frontend. Then you should update your configuration to:

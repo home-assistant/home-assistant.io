@@ -72,7 +72,7 @@ verify_ssl:
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
-    <img src='/images/components/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
+    <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>
 </p>
@@ -127,7 +127,7 @@ camera:
 
 ### Live stream
 
-To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/components/stream/) component.
+To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) component.
 
 ```yaml
 camera:

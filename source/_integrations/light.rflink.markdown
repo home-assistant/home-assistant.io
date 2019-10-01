@@ -10,7 +10,7 @@ ha_iot_class: Assumed State
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [RFLink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/integrations/rflink/).
 
 After configuring the RFLink hub, lights will be automatically discovered and added.
 
@@ -68,7 +68,7 @@ devices:
           default: RFLink ID
           type: string
         type:
-          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/components/light.rflink/#light-types) below."
+          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/integrations/light.rflink/#light-types) below."
           required: false
           default: switchable
           type: string
@@ -149,11 +149,11 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
-- [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
+- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
 
 ### Device support
 
-See [device support](/components/rflink/#device-support)
+See [device support](/integrations/rflink/#device-support)
 
 ### Additional configuration examples
 

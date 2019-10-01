@@ -47,7 +47,7 @@ name:
   type: string
   default: REST Sensor
 device_class:
-  description: Sets the [class of the device](/components/sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:
@@ -128,7 +128,7 @@ sensor:
 
 ### Single value from a local Glances instance
 
-The [glances](/components/glances) sensor is doing the exact same thing for all exposed values.
+The [glances](/integrations/glances) sensor is doing the exact same thing for all exposed values.
 
 ```yaml
 sensor:
@@ -199,7 +199,7 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 ### Use GitHub to get the latest release of Home Assistant
 
-This sample is very similar to the [`updater`](/components/updater/) integration but the information is received from GitHub.
+This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
 
 ```yaml
 sensor:
@@ -240,7 +240,7 @@ sensor:
 ```
 {% endraw %}
 
-This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/template) sensors that monitor the attributes and present the values in a usable form.
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
 ```yaml

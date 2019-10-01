@@ -36,7 +36,7 @@ The `w800rf32` platform supports X10 RF binary sensors such as Palm Pad remotes,
 
 ## Setting up your devices
 
-Once you have set up your [w800rf32 hub](/components/w800rf32/), add the binary sensors to your `configuration.yaml`:
+Once you have set up your [w800rf32 hub](/integrations/w800rf32/), add the binary sensors to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,7 +60,7 @@ devices:
       required: false
       type: string
     device_class:
-      description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: device_class
     off_delay:

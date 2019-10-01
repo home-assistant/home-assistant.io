@@ -116,7 +116,7 @@ sensor:
 
 ### Renaming Sensor Output
 
-If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as
+If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as
 a simple example:
 
 {% raw %}
@@ -289,7 +289,7 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/time_date) to get a daily update:
+This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/integrations/time_date) to get a daily update:
 
 {% raw %}
 ```yaml

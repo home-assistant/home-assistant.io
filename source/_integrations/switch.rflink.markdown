@@ -9,7 +9,7 @@ ha_release: 0.38
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [RFLink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/integrations/rflink/).
 
 The RFLink integration does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
@@ -122,7 +122,7 @@ Any on/off command from any alias ID updates the current state of the switch. Ho
 
 ## Device support
 
-See [device support](/components/rflink/#device-support)
+See [device support](/integrations/rflink/#device-support)
 
 ### Additional configuration examples
 

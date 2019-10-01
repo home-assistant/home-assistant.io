@@ -52,7 +52,7 @@ account has been breached as well as the added date of the breach data. This dat
 `breach 1` will always contain the last known breach for the specific email account, if there are any breaches detected.
 
 <p class='img'>
-  <img src='/images/components/haveibeenpwned/sensor.png' />
+  <img src='/images/integrations/haveibeenpwned/sensor.png' />
 </p>
 
 <div class='note warning'>

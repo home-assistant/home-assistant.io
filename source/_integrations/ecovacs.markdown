@@ -75,7 +75,7 @@ The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Dee
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 
-Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/components/template):
+Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/integrations/template):
 
 {% raw %}
 ```yaml

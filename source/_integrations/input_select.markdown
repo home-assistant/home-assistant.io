@@ -77,7 +77,7 @@ This integrations provide three services to modify the state of the `input_selec
 
 ### Scenes
 
-To specify a target option in a [Scene](/components/scene/) you have to specify the target as `option` attribute:
+To specify a target option in a [Scene](/integrations/scene/) you have to specify the target as `option` attribute:
 
 ```yaml
 # Example configuration.yaml entry

@@ -47,7 +47,7 @@ scan_interval:
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.
 
-Finish its configuration by visiting the [Arlo sensor page](/components/arlo#sensor) or [Arlo camera page](/components/arlo#camera) or [Arlo control panel page](/components/arlo). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
+Finish its configuration by visiting the [Arlo sensor page](/integrations/arlo#sensor) or [Arlo camera page](/integrations/arlo#camera) or [Arlo control panel page](/integrations/arlo). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
 
 The Arlo integration also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
@@ -67,7 +67,7 @@ The Arlo integration also provides a camera service to enable/disable the motion
 
 ### Configuration
 
-Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
+Once you have enabled the [Arlo component](/integrations/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -128,7 +128,7 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
 
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.
 
-More examples and configuration options can be found on the [Manual Alarm Control page](/components/manual#examples).
+More examples and configuration options can be found on the [Manual Alarm Control page](/integrations/manual#examples).
 
 ## Camera
 
@@ -136,7 +136,7 @@ This integration is not yet able to live stream from your Arlo camera, but it wi
 
 ### Configuration
 
-Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
+Once you have enabled the [Arlo component](/integrations/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -152,17 +152,17 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
+**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/) documentation.
 
 ## Sensor
 
-To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
+To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/integrations/arlo).
 
 This platform does not support Arlo Q.
 
 ### Configuration
 
-Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
+Once you have enabled the [Arlo component](/integrations/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

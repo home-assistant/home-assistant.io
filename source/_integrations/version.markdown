@@ -60,7 +60,7 @@ hass --version
 
 Or go to the <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Info** section of the **Developer Tools**.
 
-A [`command_line`](/components/sensor.command_line/) with
+A [`command_line`](/integrations/sensor.command_line/) with
 [`hass`](/docs/tools/hass/) to display your current version.
 
 ```yaml
@@ -80,7 +80,7 @@ sensor:
     command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
 ```
 
-You might think that a [`rest` sensor](/components/rest) could work,
+You might think that a [`rest` sensor](/integrations/rest) could work,
 too,
 but it will not as Home Assistant is not ready when the sensor gets initialized.
 

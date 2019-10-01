@@ -4,11 +4,11 @@ description: "Instructions on how to setup image processing with Home Assistant.
 ha_release: 0.36
 ---
 
-Image processing enables Home Assistant to process images from [cameras](/components/#camera). Only camera entities are supported as sources.
+Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.
 
 <div class='note'>
 
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/integrations/http/).
 
 </div>
 

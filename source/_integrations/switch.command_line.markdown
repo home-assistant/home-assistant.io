@@ -79,7 +79,7 @@ In this section you find some real-life examples of how to use this switch.
 ### aREST device
 
 The example below is doing the same as the
-[aREST switch](/components/arest#switch).
+[aREST switch](/integrations/arest#switch).
 The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 
@@ -99,7 +99,7 @@ switch:
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
 `entity_id` `switch.arest_pin_four`, which is what one would use in
-[`automation`](/components/automation/) or in [API calls](/developers/).
+[`automation`](/integrations/automation/) or in [API calls](/developers/).
 
 ### Shutdown your local host
 

@@ -11,5 +11,5 @@ ha_iot_class: Local Push
 
 The `xiaomi aqara` cover platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) covers.
 
-The requirement is that you have setup [Xiaomi aqara](/components/xiaomi_aqara/).
+The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
 

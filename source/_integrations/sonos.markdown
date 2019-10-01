@@ -23,7 +23,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 
 <div class='note'>
 
-The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/components/tts/) announcements.
+The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
 
 </div>
 

@@ -12,12 +12,12 @@ The camera integration allows you to use IP cameras with Home Assistant.
 
 ### Streaming Video
 
-If your camera supports it, and the [`stream`](/components/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
+If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 
 This option will keep the stream alive, and preload the feed on Home Assistant startup. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
 <p class='img'>
-  <img src='/images/components/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
+  <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
   Example showing the Preload Stream option in the camera dialog.
 </p>
 
@@ -46,7 +46,7 @@ Disable the motion detection in a camera.
 
 #### Service `play_stream`
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) integration to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

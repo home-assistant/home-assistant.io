@@ -192,7 +192,7 @@ script:
 
 <div class='note'>
 
-You must have the [Nest component](/components/nest/) configured to use the platforms below.
+You must have the [Nest component](/integrations/nest/) configured to use the platforms below.
 
 </div>
 
@@ -202,13 +202,13 @@ The `nest` binary sensor platform lets you monitor various states of your [Nest]
 
 <div class='note'>
 
-You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
+You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
 
 </div>
 
 ## Configuration
 
-To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
+To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
 # Example configuration.yaml entry
@@ -219,7 +219,7 @@ nest:
       - 'target'
 ```
 
-By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/components/nest/).
+By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:
@@ -282,7 +282,7 @@ The sensors will be setup if the `nest` integration is configured and the requir
 
 ## Configuration
 
-To enable sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
+To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
 # Example configuration.yaml entry
@@ -293,7 +293,7 @@ nest:
       - 'target'
 ```
 
-By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/components/nest/).
+By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:

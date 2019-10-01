@@ -19,7 +19,7 @@ Additionally, note that at the time of this writing, your Alexa skill endpoint *
 
   1. In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
   OR
-  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/components/http/) section with the `server_port` entry in your `configuration.yaml` file
+  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/integrations/http/) section with the `server_port` entry in your `configuration.yaml` file
 
 [blog-lets-encrypt]: /blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -74,9 +74,9 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
 [flash-briefing-api-docs]: https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/flash-briefing-skill-api-feed-reference
-[large-icon]: /images/components/alexa/alexa-512x512.png
-[small-icon]: /images/components/alexa/alexa-108x108.png
+[large-icon]: /images/integrations/alexa/alexa-512x512.png
+[small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
 [alexa-settings-site]: http://alexa.amazon.com/
-[emulated-hue-component]: /components/emulated_hue/
+[emulated-hue-component]: /integrations/emulated_hue/

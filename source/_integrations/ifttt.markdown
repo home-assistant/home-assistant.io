@@ -13,7 +13,7 @@ ha_release: 0.80
 
 ## Sending events from IFTTT to Home Assistant
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
 
 ### Setting up the integration
 
@@ -56,7 +56,7 @@ ifttt:
 
 
 <p class='img'>
-<img src='/images/components/ifttt/finding_key.png' />
+<img src='/images/integrations/ifttt/finding_key.png' />
 Property screen of the Maker Channel
 </p>
 
@@ -90,7 +90,7 @@ service | `trigger`
 Service Data | `{"event": "EventName", "value1": "Hello World"}`
 
 <p class='img'>
-<img src='/images/components/ifttt/testing_service.png' />
+<img src='/images/integrations/ifttt/testing_service.png' />
 When your screen looks like this, click the 'call service' button.
 </p>
 
@@ -110,12 +110,12 @@ The `target` field can contain a single key name or a list of key names.
 Press the *New applet* button and search for *Webhooks*.
 
 <p class='img'>
-<img src='/images/components/ifttt/setup_service.png' />
+<img src='/images/integrations/ifttt/setup_service.png' />
 Choose "Webhooks" as service.
 </p>
 
 <p class='img'>
-<img src='/images/components/ifttt/setup_trigger.png' />
+<img src='/images/integrations/ifttt/setup_trigger.png' />
 You need to setup a unique trigger for each event you sent to IFTTT.
 </p>
 
@@ -168,4 +168,4 @@ Additional examples of using IFTTT channels can be found below.
 
 Channel | Description
 ----- | -----
-[Manything](/components/ifttt.manything/) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.
+[Manything](/integrations/ifttt.manything/) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.

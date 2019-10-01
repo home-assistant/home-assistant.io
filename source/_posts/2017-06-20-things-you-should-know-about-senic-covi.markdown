@@ -60,6 +60,6 @@ Core Developer, Home Assistant
 [Hass.io]: /hassio/
 [to Forbes]: https://webcache.googleusercontent.com/search?q=cache:https://www.forbes.com/sites/paularmstrongtech/2017/06/19/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
 [tradfri]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
-[Nuimo]: /components/nuimo_controller/
+[Nuimo]: /integrations/nuimo_controller/
 [developer documentation]: http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview
 [apology]: https://medium.com/@senic/an-open-letter-to-home-assistant-5ccb53ccf722

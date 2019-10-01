@@ -149,7 +149,7 @@ The following are some examples showing how to correctly make service calls usin
 
 ### Snap Picture and Save Locally
 
-This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/components/camera#service-snapshot)
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
 ```yaml
 alias: Blink Snap Picture
@@ -167,9 +167,9 @@ sequence:
 
 ### Arm Blink When Away
 
-This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](/components/camera#service-enable_motion_detection) but pelase note that motion will only be captured if the sync module is armed.
+This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](/integrations/camera#service-enable_motion_detection) but pelase note that motion will only be captured if the sync module is armed.
 
-Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/components/device_tracker) set up for presence detection.
+Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/integrations/device_tracker) set up for presence detection.
 
 ```yaml
 - id: arm_blink_when_away

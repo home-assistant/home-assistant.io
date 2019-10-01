@@ -194,8 +194,8 @@ The following automation shows how to capture the custom event `event_light_stat
 ```
 {% endraw %}
 
-[Script component]: /components/script/
+[Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
-[Alexa/Amazon Echo]: /components/alexa/
+[Alexa/Amazon Echo]: /integrations/alexa/
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/

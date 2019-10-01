@@ -112,7 +112,7 @@ tplink:
 
 ## Extracting Energy Sensor data
 
-In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/components/switch.template/).
+In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/integrations/switch.template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
 
 {% raw %}
@@ -195,6 +195,6 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 5. Type `document.getElementById("login-password").value;` or `document.getElementById("pcPassword").value;`, depending on your firmware version.
 6. Copy the returned value to your Home Assistant configuration as password.
 
-See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
 For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.

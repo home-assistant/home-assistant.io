@@ -74,7 +74,7 @@ zones:
       required: true
       type: string
     type:
-      description: The zone type. Can be any [binary_sensor device class](/components/binary_sensor/#device-class).
+      description: The zone type. Can be any [binary_sensor device class](/integrations/binary_sensor/#device-class).
       required: false
       default: motion
       type: string

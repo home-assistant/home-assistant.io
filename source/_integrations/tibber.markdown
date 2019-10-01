@@ -41,7 +41,7 @@ access_token:
 
 ## Notifications
 
-Tibber can send a notification by calling the [`notify` service](/components/notify/). It will send a notification to all devices registered in the Tibber account.
+Tibber can send a notification by calling the [`notify` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
 The requirement is that you have setup the [`tibber` component](#setup).
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

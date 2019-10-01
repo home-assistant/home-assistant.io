@@ -66,7 +66,7 @@ Live examples of these events can be found in the Home Assistant log file (`home
 2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find integration system_healt
 2019-02-14 16:20:36 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform google_maps
 Traceback (most recent call last):
-  File "/home/fab/Documents/repos/ha/home-assistant/homeassistant/components/device_tracker/__init__.py", line 184, in
+  File "/home/fab/Documents/repos/ha/home-assistant/homeassistant/integrations/device_tracker/__init__.py", line 184, in
 [...]
 ```
 

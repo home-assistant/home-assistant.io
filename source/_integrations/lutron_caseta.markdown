@@ -14,7 +14,7 @@ ha_iot_class: Local Polling
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](http://www.casetawireless.com) product line of dimmers, switches and shades.
 
-This integration only supports the [Caseta](http://www.casetawireless.com) line of products. Both Smart Bridge (L-BDG2-WH) and Smart Bridge PRO (L-BDGPRO2-WH) models are supported. For the RadioRA 2 product line, see the [Lutron component](/components/lutron/).
+This integration only supports the [Caseta](http://www.casetawireless.com) line of products. Both Smart Bridge (L-BDG2-WH) and Smart Bridge PRO (L-BDGPRO2-WH) models are supported. For the RadioRA 2 product line, see the [Lutron component](/integrations/lutron/).
 
 The currently supported Caseta devices are:
 
@@ -71,7 +71,7 @@ To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working 
 
 After setup, shades will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a shade called 'Living Room Window' will appear in Home Assistant as `cover.living_room_window`.
 
-For more information on working with shades in Home Assistant, see the [Covers component](/components/cover/).
+For more information on working with shades in Home Assistant, see the [Covers component](/integrations/cover/).
 
 Available services: `cover.open_cover`, `cover.close_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
@@ -81,7 +81,7 @@ After setup, dimmable lights including wall and plug-in dimmers will appear in H
 
 For non-dimmable lights or switched loads, see the switch section on this page.
 
-For more information on working with lights in Home Assistant, see the [Lights component](/components/light/).
+For more information on working with lights in Home Assistant, see the [Lights component](/integrations/light/).
 
 Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness` and `brightness_pct`.
 
@@ -91,7 +91,7 @@ The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes 
 
 After setup, scenes will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a scene called 'Entertain' will appear in Home Assistant as `scene.entertain`.
 
-For more information on working with scenes in Home Assistant, see the [Scenes component](/components/scene/).
+For more information on working with scenes in Home Assistant, see the [Scenes component](/integrations/scene/).
 
 Available services: `scene.turn_on`.
 
@@ -101,6 +101,6 @@ After setup, switches will appear in Home Assistant using an `entity_id` based o
 
 For dimmable lights including wall and plug-in dimmers, see the light section on this page.
 
-For more information on working with switches in Home Assistant, see the [Switches component](/components/switch/).
+For more information on working with switches in Home Assistant, see the [Switches component](/integrations/switch/).
 
 Available services: `switch.turn_on` and `switch.turn_off`.

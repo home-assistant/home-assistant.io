@@ -50,7 +50,7 @@ name:
 
 ## Full configuration example
 
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/template).
+In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
 
 {% raw %}
 ```yaml

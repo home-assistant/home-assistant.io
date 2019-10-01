@@ -8,7 +8,7 @@ ha_release: "0.50"
 ha_qa_scale: internal
 ---
 
-The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/components/alexa/) (Amazon Echo), [Dialogflow](/components/dialogflow/) (Google Assistant) and [Snips](/components/snips/).
+The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
 
 ```yaml
 # Example configuration.yaml entry

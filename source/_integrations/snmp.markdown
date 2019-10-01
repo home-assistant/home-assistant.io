@@ -25,7 +25,7 @@ This device tracker needs SNMP to be enabled on the router. It could be that you
 
 ## Presence Detection
 
-The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/ping) or [Nmap](/components/nmap_tracker) instead.
+The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
 
 | Brand | Device/Firmware | OID |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ priv_key:
   type: string
 {% endconfiguration %}
 
-See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
 ## Sensor
 

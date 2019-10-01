@@ -10,7 +10,7 @@ ha_iot_class: Local Push
 ha_release: 0.49
 ---
 
-The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/apple_tv#remote) if you want to send remote control buttons, e.g., arrow keys.
+The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/integrations/apple_tv#remote) if you want to send remote control buttons, e.g., arrow keys.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -84,11 +84,11 @@ To scan for devices and determine the `login_id`, open the developer tools by se
 
 Select `apple_tv` as domain and `apple_tv_scan` as service then press the button:
 
-<img src='/images/components/apple_tv/scan_start.jpg' />
+<img src='/images/integrations/apple_tv/scan_start.jpg' />
 
 Scanning will be done for three seconds and notification will be shown in the state view with all found devices:
 
-<img src='/images/components/apple_tv/scan_result.jpg' />
+<img src='/images/integrations/apple_tv/scan_result.jpg' />
 
 Alternatively, you may use the application ``atvremote``. Install it with ``pip3 install --upgrade pyatv`` in your Home Assistant environment (note: do *not* use sudo). Then run ``atvremote scan`` to scan for all devices (try again if a device is missing):
 
@@ -114,11 +114,11 @@ then device authentication is required, open the developer tools by selecting th
 
 Select `apple_tv` as domain, `apple_tv_authenticate` as service and enter `{"entity_id": "XXX"}` into "Service Data", but replace XXX with the entity id of your device (e.g., `media_player.apple_tv`). Press the button and hopefully you are presented with an input dialog asking for a pin code:
 
-<img src='/images/components/apple_tv/auth_start.jpg' />
+<img src='/images/integrations/apple_tv/auth_start.jpg' />
 
 If no dialog appears, go back to the states view and display it from there (press `CONFIGURE` as displayed in the image):
 
-<img src='/images/components/apple_tv/auth_pin.jpg' />
+<img src='/images/integrations/apple_tv/auth_pin.jpg' />
 
 A PIN code should now be visible on your TV, just enter it into the dialog and press "Confirm". You should see if it succeeded in the state view. Copy the credentials and insert it into your configuration (make sure you copy everything, it should be 81 characters) after ``credentials:`` with no line-break:
 

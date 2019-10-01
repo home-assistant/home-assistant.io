@@ -69,7 +69,7 @@ i2c_hats:
           default: false
           type: boolean
         device_class:
-          description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
           default: "None"
           type: string

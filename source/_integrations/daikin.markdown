@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Daikin integration can be configured in three ways.
 
-- Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
+- Automatically via the [discovery]({{site_root}}/integrations/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
 - Or via the `configuration.yaml` file by adding the following:
 
@@ -52,12 +52,12 @@ hosts:
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**set_hvac_mode**](/components/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
-- [**target temperature**](https://www.home-assistant.io/components/climate#service-climateset_temperature)
-- [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
-- [**fan mode**](https://www.home-assistant.io/components/climate#service-climateset_fan_mode) (speed)
-- [**swing mode**](https://www.home-assistant.io/components/climate#service-climateset_swing_mode)
-- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_preset_mode) (away, none)
+- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
+- [**target temperature**](https://www.home-assistant.io/integrations/climate#service-climateset_temperature)
+- [**turn on/off**](https://www.home-assistant.io/integrations/climate#service-climateturn_on)
+- [**fan mode**](https://www.home-assistant.io/integrations/climate#service-climateset_fan_mode) (speed)
+- [**swing mode**](https://www.home-assistant.io/integrations/climate#service-climateset_swing_mode)
+- [**set_preset_mode**](https://www.home-assistant.io/integrations/climate#service-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
 

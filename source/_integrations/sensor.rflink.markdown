@@ -12,7 +12,7 @@ The `rflink` integration supports devices that use [RFLink gateway firmware](htt
 
 ## Configuration
 
-First, you have to set up your [RFLink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/integrations/rflink/).
 
 After configuring the RFLink hub, sensors will be automatically discovered and added.
 
@@ -52,7 +52,7 @@ devices:
           default: RFLink ID
           type: string
         sensor_type:
-          description: Override automatically detected type of sensor. For list of [values](/components/sensor.rflink/#sensors-types) see below.
+          description: Override automatically detected type of sensor. For list of [values](/integrations/sensor.rflink/#sensors-types) see below.
           required: true
           type: string
         unit_of_measurement:
@@ -112,11 +112,11 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
-- [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
+- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
 
 ## Device support
 
-See [device support](/components/rflink/#device-support)
+See [device support](/integrations/rflink/#device-support)
 
 ## Additional configuration examples
 

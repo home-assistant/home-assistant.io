@@ -70,7 +70,7 @@ action:
       urltitle: "Open Home Assistant"
       time2live: "60"
       picture1:
-        url: "https://www.home-assistant.io/images/components/alexa/alexa-512x512.png"
+        url: "https://www.home-assistant.io/images/integrations/alexa/alexa-512x512.png"
 ```
 
 Message to two devices and one device group with formatted text and local image.

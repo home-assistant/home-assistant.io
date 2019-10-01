@@ -14,8 +14,8 @@ The `digital_ocean` integration allows you to access the information about your 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/digital_ocean/#binary-sensor)
-- [Switch](/components/digital_ocean/#switch)
+- [Binary Sensor](/integrations/digital_ocean/#binary-sensor)
+- [Switch](/integrations/digital_ocean/#switch)
 
 ## Setup
 
@@ -44,7 +44,7 @@ The `digital_ocean` binary sensor platform allows you to monitor your Digital Oc
 
 ### Configuration
 
-To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
+To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +68,7 @@ The `digital_ocean` switch platform allows you to control (start/stop) your Digi
 
 ### Configuration
 
-To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
+To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

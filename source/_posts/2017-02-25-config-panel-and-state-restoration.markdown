@@ -11,7 +11,7 @@ og_image: /images/blog/2017-02-0.39/social.png
 
 It's time for 0.39 and this release has some amazing new features!
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
 
 ## T-Shirts
 
@@ -187,7 +187,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Sensor - Darksky: Add 'entity_picture' to Darksky component ([@aronsky])
 - Media Player - Samsungtv: Add support for waking up Samsung TVs over the network ([@justin8])
 - MQTT: Convert MQTT platforms to async ([@pvizeli])
-- tests/components/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
+- tests/integrations/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
@@ -283,26 +283,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /components/webhooks/
-[pushsafer]: /components/pushsafer
-[openhome]: /components/openhome
-[ups]: /components/ups
-[fedex]: /components/fedex
-[fido]: /components/fido
-[gstreamer]: /components/gstreamer
-[clementine]: /components/clementine
-[ebox]: /components/ebox
-[aurora]: /components/aurora
-[netmonitor]: /components/fritzbox#sensor_netmonitor/
-[itach]: /components/itach
-[sunflowers]: /components/yeelightsunflower/
-[kodi]: /components/kodi
-[myq]: /components/myq
-[oemt]: /components/oem
-[volvo]: /components/volvooncall/
-[pocket]: /components/pocketcasts
-[config]: /components/config/
-[history_stats]: /components/history_stats
+[telegram]: /integrations/webhooks/
+[pushsafer]: /integrations/pushsafer
+[openhome]: /integrations/openhome
+[ups]: /integrations/ups
+[fedex]: /integrations/fedex
+[fido]: /integrations/fido
+[gstreamer]: /integrations/gstreamer
+[clementine]: /integrations/clementine
+[ebox]: /integrations/ebox
+[aurora]: /integrations/aurora
+[netmonitor]: /integrations/fritzbox#sensor_netmonitor/
+[itach]: /integrations/itach
+[sunflowers]: /integrations/yeelightsunflower/
+[kodi]: /integrations/kodi
+[myq]: /integrations/myq
+[oemt]: /integrations/oem
+[volvo]: /integrations/volvooncall/
+[pocket]: /integrations/pocketcasts
+[config]: /integrations/config/
+[history_stats]: /integrations/history_stats
 
 
 [docs]: /docs/

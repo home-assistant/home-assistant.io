@@ -59,4 +59,4 @@ sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
 
 A restart of Home Assistant is required.
 
-For additional configuration variables check the [Device tracker page](/components/device_tracker/).
+For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).

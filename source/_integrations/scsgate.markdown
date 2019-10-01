@@ -15,9 +15,9 @@ The SCSGate integration support the [SCSGate](https://translate.google.com/trans
 
 There is currently support for the following device types within Home Assistant:
 
-- [Cover](/components/scsgate/#cover)
-- [Light](/components/scsgate/#light)
-- [Switch](/components/scsgate/#switch)
+- [Cover](/integrations/scsgate/#cover)
+- [Light](/integrations/scsgate/#light)
+- [Switch](/integrations/scsgate/#switch)
 
 To enable SCSGate in your installation, add the following to your `configuration.yaml` file:
 

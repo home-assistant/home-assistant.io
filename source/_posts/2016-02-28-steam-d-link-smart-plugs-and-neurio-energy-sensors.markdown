@@ -48,31 +48,31 @@ It's been another two weeks which means it's time for release: 0.14!
  - Command line platforms for [switch][switch.cmd], [sensor][sensor.cmd] and [binary_sensor][binary_sensor.cmd] have been renamed to `command_line`.
  - The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See [the docs][sensor.rfxtrx] for more details.
 
-[sensor.rfxtrx]: /components/sensor.rfxtrx/
-[notify.command_line]: /components/notify.command_line/
-[Verisure]: /components/verisure
-[binary_sensor.tcp]: /components/tcp#binary-sensor
-[sensor.tcp]: /components/tcp#sensor
-[Neurio energy sensor]: /components/neurio_energy
-[nx584]: /components/nx584#binary-sensor
+[sensor.rfxtrx]: /integrations/sensor.rfxtrx/
+[notify.command_line]: /integrations/notify.command_line/
+[Verisure]: /integrations/verisure
+[binary_sensor.tcp]: /integrations/tcp#binary-sensor
+[sensor.tcp]: /integrations/tcp#sensor
+[Neurio energy sensor]: /integrations/neurio_energy
+[nx584]: /integrations/nx584#binary-sensor
 [triggers]: /getting-started/automation-trigger/#state-trigger
 [conditions]: /getting-started/automation-condition/#state-condition
-[Nest]: /components/nest#sensor
-[Ubiquiti Unifi]: /components/unifi
-[MySensors]: /components/binary_sensor.mysensors/
-[Bloomsky]: /components/bloomsky#binary-sensor
-[Z-Wave]: /components/zwave
-[D-Link smart plugs]: /components/dlink
-[Wemo]: /components/wemo
-[rollershutter.command_line]: /components/rollershutter.command_line/
-[Steam]: /components/steam_online
-[Wink]: /components/wink#binary-sensor
+[Nest]: /integrations/nest#sensor
+[Ubiquiti Unifi]: /integrations/unifi
+[MySensors]: /integrations/binary_sensor.mysensors/
+[Bloomsky]: /integrations/bloomsky#binary-sensor
+[Z-Wave]: /integrations/zwave
+[D-Link smart plugs]: /integrations/dlink
+[Wemo]: /integrations/wemo
+[rollershutter.command_line]: /integrations/rollershutter.command_line/
+[Steam]: /integrations/steam_online
+[Wink]: /integrations/wink#binary-sensor
 [the cookbook]: /cookbook/python_component_simple_alarm/
-[script]: /components/script/
-[Wemo component]: /components/wemo/
-[switch.cmd]: /components/switch.command_line/
-[sensor.cmd]: /components/sensor.command_line/
-[binary_sensor.cmd]: /components/command_line
+[script]: /integrations/script/
+[Wemo component]: /integrations/wemo/
+[switch.cmd]: /integrations/switch.command_line/
+[sensor.cmd]: /integrations/sensor.command_line/
+[binary_sensor.cmd]: /integrations/command_line
 
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@turbokongen]: https://github.com/turbokongen

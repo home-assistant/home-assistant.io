@@ -10,7 +10,7 @@ ha_release: 0.7
 
 The `notify` integration makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
 
-If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/components/persistent_notification/).
+If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
 
 ## Service
 

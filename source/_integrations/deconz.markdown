@@ -329,7 +329,7 @@ The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is
 
 ## Climate
 
-See the [deCONZ main integration](/components/deconz/) for configuration instructions.
+See the [deCONZ main integration](/integrations/deconz/) for configuration instructions.
 
 Climate currently represent thermostats.
 
@@ -387,7 +387,7 @@ The following sensor types are supported:
 - Switches
 - Temperature sensor
 
-The `entity_id` name will be `sensor.device_name`, where `device_name` is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main integration](/components/deconz/) for more details.
+The `entity_id` name will be `sensor.device_name`, where `device_name` is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main integration](/integrations/deconz/) for more details.
 
 ### Verified to be supported sensors
 

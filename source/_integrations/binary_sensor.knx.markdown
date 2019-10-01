@@ -10,17 +10,17 @@ ha_iot_class: Local Push
 
 <div class='note'>
   
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
 
 </div>
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
 
-Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 ## Configuration
 
-The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/integrations/knx).
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,7 +44,7 @@ sync_state:
   type: boolean
   default: True
 device_class:
-  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 significant_bit:

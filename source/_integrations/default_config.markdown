@@ -9,21 +9,21 @@ ha_release: 0.88
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
-- [automation](/components/automation/)
-- [cloud](/components/cloud/)
-- [config](/components/config/)
-- [frontend](/components/frontend/)
-- [history](/components/history/)
-- [logbook](/components/logbook/)
-- [map](/components/map/)
-- [mobile_app](/components/mobile_app/)
-- [person](/components/person/)
-- [script](/components/script/)
-- [ssdp](/components/ssdp/)
-- [sun](/components/sun/)
-- [system_health](/components/system_health/)
-- [updater](/components/updater/)
-- [zeroconf](/components/zeroconf/)
+- [automation](/integrations/automation/)
+- [cloud](/integrations/cloud/)
+- [config](/integrations/config/)
+- [frontend](/integrations/frontend/)
+- [history](/integrations/history/)
+- [logbook](/integrations/logbook/)
+- [map](/integrations/map/)
+- [mobile_app](/integrations/mobile_app/)
+- [person](/integrations/person/)
+- [script](/integrations/script/)
+- [ssdp](/integrations/ssdp/)
+- [sun](/integrations/sun/)
+- [system_health](/integrations/system_health/)
+- [updater](/integrations/updater/)
+- [zeroconf](/integrations/zeroconf/)
 
 ## Configuration
 

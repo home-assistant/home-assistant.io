@@ -47,7 +47,7 @@ See [python-songpal's documentation](https://github.com/rytilahti/python-songpal
 
 ## Services
 
-In addition to the general [media player services](/components/media_player/#services), the following services are provided:
+In addition to the general [media player services](/integrations/media_player/#services), the following services are provided:
 
 ### Service `media_player/songpal_set_sound_setting`
 

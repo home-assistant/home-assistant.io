@@ -36,4 +36,4 @@ host:
   type: string
 {% endconfiguration %}
 
-See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

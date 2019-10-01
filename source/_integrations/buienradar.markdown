@@ -16,7 +16,7 @@ The relevant weather station used will be automatically selected based on the lo
 Besides the weather platform, there is currently support for the following additional device types:
 
 - [Camera](#camera): Radar map
-- [Sensor](/components/sensor.buienradar/): More customizable
+- [Sensor](/integrations/sensor.buienradar/): More customizable
 
 ## Configuration
 
@@ -66,7 +66,7 @@ weather:
 
 <div class='note'>
 
-This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
+This platform is an alternative to the [`buienradar`](/integrations/sensor.buienradar/) sensor.
 The weather platform is easier to configure but less customizable.
 
 </div>

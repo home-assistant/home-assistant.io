@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.7.6
 ---
 
-_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/openwrt)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt)._
 
 This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
@@ -84,7 +84,7 @@ dhcp_software:
   type: string
 {% endconfiguration %}
 
-See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
 ## Troubleshooting
 
@@ -111,11 +111,11 @@ $ tail -f home-assistant.log  | grep device_tracker
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.components.device_tracker] Setting up device_tracker.ubus
 17-04-28 10:43:31 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform ubus
-  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/__init__.py", line 152, in async_setup_platform
-  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 36, in get_scanner
-  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 58, in __init__
-  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 156, in _get_session_id
-  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 147, in _req_json_rpc
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/integrations/device_tracker/__init__.py", line 152, in async_setup_platform
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/integrations/device_tracker/ubus.py", line 36, in get_scanner
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/integrations/device_tracker/ubus.py", line 58, in __init__
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/integrations/device_tracker/ubus.py", line 156, in _get_session_id
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/integrations/device_tracker/ubus.py", line 147, in _req_json_rpc
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling <Event service_registered[L]: domain=device_tracker, service=see>
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling <Event component_loaded[L]: component=device_tracker>
 ```

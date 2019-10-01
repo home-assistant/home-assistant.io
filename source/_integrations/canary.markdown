@@ -57,9 +57,9 @@ Once loaded, your front end will have the following integrations:
 
 ## Camera
 
-The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` integration](/components/ffmpeg/) to be already configured.
+The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
 
-Once you have [Canary integration](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
+Once you have [Canary integration](/integrations/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
 
 ## Configuration
 
@@ -72,7 +72,7 @@ camera:
 
 {% configuration %}
 ffmpeg_arguments:
-  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg integration](/components/ffmpeg).
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg integration](/integrations/ffmpeg).
   required: false
   type: string
 {% endconfiguration %}

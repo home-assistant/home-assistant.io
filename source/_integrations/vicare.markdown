@@ -54,7 +54,7 @@ A note about the current temperature attribute: Viessmann devices with room temp
 
 ### Supported services `climate.vicare_heating`
 
-The following services of the [Climate component](/components/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
+The following services of the [Climate component](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
 
 #### Service `set_temperature`
 
@@ -99,7 +99,7 @@ It is not possible to turn on/off water heating via the Water Heater component s
 
 ### Supported services `water_heater.vicare_water`
 
-The following services of the [Water Heater component](/components/water_heater/) are provided by the ViCare integration: `set_temperature`
+The following services of the [Water Heater component](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
 
 #### Service `set_temperature`
 

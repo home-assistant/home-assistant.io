@@ -66,4 +66,4 @@ automation:
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 
-Check the [type/class](/components/binary_sensor/) list for a possible visualization of your zone. Currently motion, smoke and door sensors are supported.
+Check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zone. Currently motion, smoke and door sensors are supported.

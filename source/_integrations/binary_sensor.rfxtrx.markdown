@@ -19,7 +19,7 @@ some special options for them, while other rfxtrx protocols should work too.
 
 ## Setting up your devices
 
-Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way
+Once you have set up your [rfxtrx hub](/integrations/rfxtrx/), the easiest way
 to find your binary sensors is to add this to your `configuration.yaml`:
 
 ```yaml
@@ -57,7 +57,7 @@ devices:
       required: false
       type: string
     device_class:
-      description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: device_class
     fire_event:
@@ -90,7 +90,7 @@ automatic_add:
 
 <div class='note warning'>
 
-This integration and the [rfxtrx switch](/components/switch.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
+This integration and the [rfxtrx switch](/integrations/switch.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
 Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 
 </div>

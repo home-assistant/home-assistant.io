@@ -58,7 +58,7 @@ device_tracker:
       track_new_devices: true
 ```
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/nmap_tracker/). The state of the device will be determined by the source that reported last.
+Multiple device trackers can be used in parallel, such as [Owntracks](/integrations/owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/integrations/nmap_tracker/). The state of the device will be determined by the source that reported last.
 
 ## `known_devices.yaml`
 
@@ -100,7 +100,7 @@ In the example above, `devicename` refers to the detected name of the device.  F
 
 ## Device states
 
-The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
 ## `device_tracker.see` service
 

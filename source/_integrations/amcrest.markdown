@@ -162,7 +162,7 @@ your camera's configuration manager. If you defined the *stream_source* to
 Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 
 **Note:** If you set the `stream_source` option to `rtsp`,
-make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/)
+make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
 ## Services

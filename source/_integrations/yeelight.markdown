@@ -253,7 +253,7 @@ yeelight:
 
 ### Custom effects
 
-This example shows how you can add your custom effects in your configuration. To turn on the effect you can use [light.turn_on](/components/light/#service-lightturn_on) service.
+This example shows how you can add your custom effects in your configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#service-lightturn_on) service.
 
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 

@@ -101,7 +101,7 @@ action:
 
 The `zoneminder` binary sensor platform lets you monitor the availability of your [ZoneMinder](https://www.zoneminder.com) install.
 
-Each binary_sensor created will be named after the hostname used when configuring the [ZoneMinder component](/components/zoneminder/).
+Each binary_sensor created will be named after the hostname used when configuring the [ZoneMinder component](/integrations/zoneminder/).
 
 ## Camera
 
@@ -159,7 +159,7 @@ The `zoneminder` switch platform allows you to toggle the current function of al
 
 <div class='note'>
 
-You must have the [ZoneMinder component](/components/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the integration configuration must have "Edit" permission for "System".
+You must have the [ZoneMinder component](/integrations/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the integration configuration must have "Edit" permission for "System".
 
 </div>
 

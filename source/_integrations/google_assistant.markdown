@@ -78,7 +78,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
-    <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
+    <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 3. Under `Build your Action` click `Add Action(s)`.
     1. Under `Fulfillment` fill in this URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`.
 4. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.

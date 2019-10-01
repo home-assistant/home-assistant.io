@@ -42,7 +42,7 @@ name:
 
 ## Power consumption sensor
 
-Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/components/template) to extract their values:
+Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/integrations/template) to extract their values:
 
 {% raw %}
 ```yaml

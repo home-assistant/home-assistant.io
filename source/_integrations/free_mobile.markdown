@@ -12,7 +12,7 @@ The `free_mobile` platform is using the French mobile operator [Free Mobile](htt
 Before doing anything, you have to activate the SMS API option in your Free Mobile account (In "Gérer mon compte -> Mes Options"). Activating this option will automatically generate a token which is required in your configuration.
 
 <p class='img'>
-<img src='/images/components/free_mobile/token.png' />
+<img src='/images/integrations/free_mobile/token.png' />
 </p>
 
 This API only send classic SMS and only on the cell phone of the account owner. So you only have to provide a text message in your payload.

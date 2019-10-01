@@ -30,14 +30,14 @@ Visit the [The Things Network Console](https://console.thethingsnetwork.org/) we
 The **Application ID** is used to identify the scope of your data.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/applications.png' />
+<img src='/images/integrations/thethingsnetwork/applications.png' />
 Application overview
 </p>
 
 You need an access key to be able to read the data from your application.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/access_key.png' />
+<img src='/images/integrations/thethingsnetwork/access_key.png' />
 Access keys
 </p>
 
@@ -76,35 +76,35 @@ Visit the [The Things Network Console](https://console.thethingsnetwork.org/) we
 Add a new integration.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/add_integration.png' />
+<img src='/images/integrations/thethingsnetwork/add_integration.png' />
 Add a The Things Network integration
 </p>
 
 Select **Data Storage**.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/choose_integration.png' />
+<img src='/images/integrations/thethingsnetwork/choose_integration.png' />
 Choose a The Things Network integration
 </p>
 
 Click **Add integration** to finish the process.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/confirm_integration.png' />
+<img src='/images/integrations/thethingsnetwork/confirm_integration.png' />
 Add a The Things Network Data Storage integration
 </p>
 
 When done, the status of the integration should be **Running**. You could check the output after clicking on **go to platform** in an interactive web interface.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/storage_integration.png' />
+<img src='/images/integrations/thethingsnetwork/storage_integration.png' />
 Add a The Things Network integration
 </p>
 
 Select **Devices** to get the ID of your device that you want to use.
 
 <p class='img'>
-<img src='/images/components/thethingsnetwork/devices.png' />
+<img src='/images/integrations/thethingsnetwork/devices.png' />
 Devices overview
 </p>
 

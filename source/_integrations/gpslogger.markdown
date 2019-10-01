@@ -21,21 +21,21 @@ Install [GPSLogger for Android](https://play.google.com/store/apps/details?id=co
 After the launch, go to **General Options**. Enable **Start on bootup** and **Start on app launch**.
 
 <p class='img'>
-  <img width='300' src='/images/components/gpslogger/settings.png' />
+  <img width='300' src='/images/integrations/gpslogger/settings.png' />
   GPSLogger Settings
 </p>
 
 Go to **Logging details** and disable **Log to GPX**, **Log to KML** and **Log to NMEA**. Enable **Log to custom URL**.
 
 <p class='img'>
-  <img width='300' src='/images/components/gpslogger/logging-details.png' />
+  <img width='300' src='/images/integrations/gpslogger/logging-details.png' />
   Logging Details
 </p>
 
 Right after enabling, the app will take you to the **Log to custom URL** settings.
 
 <p class='img'>
-  <img width='300' src='/images/components/gpslogger/custom-url.png' />
+  <img width='300' src='/images/integrations/gpslogger/custom-url.png' />
   Log to custom URL details
 </p>
 
@@ -63,7 +63,7 @@ Content-Type: application/x-www-form-urlencoded
 If your battery drains too fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
 
 <p class='img'>
-  <img width='300' src='/images/components/gpslogger/performance.png' />
+  <img width='300' src='/images/integrations/gpslogger/performance.png' />
   Performance
 </p>
 

@@ -38,7 +38,7 @@ name:
   type: string
   default: "*name* from the device"
 device_class:
-  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 payload_on:
@@ -112,7 +112,7 @@ binary_sensor:
     payload_off: "fail"
 ```
 
-Consider to use the [`ping` sensor ](/components/ping#binary-sensor) as an alternative to the samples above.
+Consider to use the [`ping` sensor ](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
 ### Check if a system service is running
 

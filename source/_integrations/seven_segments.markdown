@@ -9,7 +9,7 @@ og_image: /images/screenshots/ssocr.png
 ha_iot_class: Local Polling
 ---
 
-The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/).
+The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
 <div class='note'>
 
@@ -131,7 +131,7 @@ image_processing:
   <img src='{{site_root}}/images/screenshots/ssocr.png' />
 </p>
 
-With the help of a [template sensor](/components/template), the value can be shown as badge.
+With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
 {% raw %}
 

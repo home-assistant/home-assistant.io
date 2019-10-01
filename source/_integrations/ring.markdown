@@ -57,7 +57,7 @@ scan_interval:
 
 ## Binary Sensor
 
-Once you have enabled the [Ring integration](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +85,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 Please note that downloading and playing Ring video will require a Ring Protect plan.
 </div>
 
-Once you have enabled the [Ring integration](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -100,13 +100,13 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
+**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/) documentation.
 
 Currently it supports doorbell and stickup cameras.
 
 ## Saving the videos captured by your Ring Door Bell
 
-You can save locally the latest video captured by your Ring Door Bell using the [downloader](/components/downloader) along with either an [automation](/components/automation) or [python_script](/components/python_script). First, enable the [downloader](/components/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
+You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script). First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
 ```yaml
 downloader:
@@ -154,7 +154,7 @@ hass.services.call('downloader', 'download_file', data)
 
 ## Sensor
 
-Once you have enabled the [Ring integration](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -188,7 +188,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Switch
 
-Once you have enabled the [Ring integration](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -200,7 +200,7 @@ This will add a switch for every camera that supports a siren. Note the siren wi
 
 ## Light
 
-Once you have enabled the [Ring integration](/components/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

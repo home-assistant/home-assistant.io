@@ -34,7 +34,7 @@ intents:
 
 ## Adding custom sentences
 
-By default, it will support turning devices on and off. You can say things like "turn on kitchen lights" or "turn the living room lights off". You can also configure your own sentences to be processed. This works by mapping sentences to intents and then configure the [intent script integration](/components/intent_script/) to handle these intents.
+By default, it will support turning devices on and off. You can say things like "turn on kitchen lights" or "turn the living room lights off". You can also configure your own sentences to be processed. This works by mapping sentences to intents and then configure the [intent script integration](/integrations/intent_script/) to handle these intents.
 
 Here is a simple example to be able to ask what the temperature in the living room is.
 

@@ -96,22 +96,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jchapple]: https://github.com/jchapple
 [@Khabi]: https://github.com/Khabi
 
-[api-stream]: /components/sensor.websocket_api
-[cisco]: /components/cisco_ios
-[Command Line]: /components/switch.command_line/
-[Envisalink]: /components/envisalink/
-[google]: /components/calendar.google/
-[Hue]: /components/hue
-[locative]: /components/locative
-[mqtt-template]: /components/light.mqtt
-[mqtt-will]: /components/mqtt/
-[pvoutput]: /components/pvoutput
-[swisscom]: /components/swisscom
-[TP Link]: /components/tplink
-[wink-climate]: /components/wink#climate
-[neato]: /components/neato/
-[Emulated Hue]: /components/emulated_hue/
-[Wake on Lan switch]: /components/wake_on_lan#switch
+[api-stream]: /integrations/sensor.websocket_api
+[cisco]: /integrations/cisco_ios
+[Command Line]: /integrations/switch.command_line/
+[Envisalink]: /integrations/envisalink/
+[google]: /integrations/calendar.google/
+[Hue]: /integrations/hue
+[locative]: /integrations/locative
+[mqtt-template]: /integrations/light.mqtt
+[mqtt-will]: /integrations/mqtt/
+[pvoutput]: /integrations/pvoutput
+[swisscom]: /integrations/swisscom
+[TP Link]: /integrations/tplink
+[wink-climate]: /integrations/wink#climate
+[neato]: /integrations/neato/
+[Emulated Hue]: /integrations/emulated_hue/
+[Wake on Lan switch]: /integrations/wake_on_lan#switch
 [template function]: /topics/templating/#home-assistant-template-extensions
-[HTTP]: /components/http/
-[MQTT]: /components/mqtt/
+[HTTP]: /integrations/http/
+[MQTT]: /integrations/mqtt/

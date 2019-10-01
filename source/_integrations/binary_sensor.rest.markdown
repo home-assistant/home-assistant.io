@@ -67,7 +67,7 @@ name:
   type: string
   default: REST Binary Sensor
 device_class:
-  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:
@@ -118,7 +118,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### aREST sensor
 
-Instead of using an [aREST](/components/arest#binary-sensor) binary sensor,
+Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 

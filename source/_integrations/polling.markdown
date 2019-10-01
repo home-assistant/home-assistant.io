@@ -49,4 +49,4 @@ proxy_params:
   type: string
 {% endconfiguration %}
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/telegram).
+To get your `chat_id` and `api_key` follow the instructions [here](/integrations/telegram).

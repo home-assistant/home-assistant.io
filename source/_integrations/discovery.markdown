@@ -10,40 +10,40 @@ ha_release: 0.7
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
 
- * [Apple TV](/components/apple_tv/)
- * [Belkin WeMo switches](/components/wemo/)
- * [Bluesound speakers](/components/bluesound)
- * [Bose Soundtouch speakers](/components/soundtouch)
- * [Denon network receivers](/components/denonavr/)
- * [DirecTV receivers](/components/directv)
- * [DLNA DMR enabled devices](/components/dlna_dmr)
- * [Enigma2 media player](/components/enigma2)
- * [Frontier Silicon internet radios](/components/frontier_silicon)
- * [Google Cast](/components/cast)
- * [Linn / Openhome](/components/openhome)
- * [Logitech Harmony Hub](/components/harmony)
- * [Logitech media server (Squeezebox)](/components/squeezebox)
- * [Netgear routers](/components/netgear)
- * [Panasonic Viera](/components/panasonic_viera)
- * [Philips Hue](/components/hue)
- * [Plex media server](/components/plex#media-player)
- * [Roku media player](/components/roku#media-player)
- * [SABnzbd downloader](/components/sabnzbd)
- * [Samsung SyncThru Printer](/components/syncthru)
- * [Samsung TVs](/components/samsungtv)
- * [Sonos speakers](/components/sonos)
- * [Telldus Live](/components/tellduslive/)
- * [Wink](/components/wink/)
- * [Yamaha media player](/components/yamaha)
- * [Yeelight Sunflower bulb](/components/yeelightsunflower/)
- * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
+ * [Apple TV](/integrations/apple_tv/)
+ * [Belkin WeMo switches](/integrations/wemo/)
+ * [Bluesound speakers](/integrations/bluesound)
+ * [Bose Soundtouch speakers](/integrations/soundtouch)
+ * [Denon network receivers](/integrations/denonavr/)
+ * [DirecTV receivers](/integrations/directv)
+ * [DLNA DMR enabled devices](/integrations/dlna_dmr)
+ * [Enigma2 media player](/integrations/enigma2)
+ * [Frontier Silicon internet radios](/integrations/frontier_silicon)
+ * [Google Cast](/integrations/cast)
+ * [Linn / Openhome](/integrations/openhome)
+ * [Logitech Harmony Hub](/integrations/harmony)
+ * [Logitech media server (Squeezebox)](/integrations/squeezebox)
+ * [Netgear routers](/integrations/netgear)
+ * [Panasonic Viera](/integrations/panasonic_viera)
+ * [Philips Hue](/integrations/hue)
+ * [Plex media server](/integrations/plex#media-player)
+ * [Roku media player](/integrations/roku#media-player)
+ * [SABnzbd downloader](/integrations/sabnzbd)
+ * [Samsung SyncThru Printer](/integrations/syncthru)
+ * [Samsung TVs](/integrations/samsungtv)
+ * [Sonos speakers](/integrations/sonos)
+ * [Telldus Live](/integrations/tellduslive/)
+ * [Wink](/integrations/wink/)
+ * [Yamaha media player](/integrations/yamaha)
+ * [Yeelight Sunflower bulb](/integrations/yeelightsunflower/)
+ * [Xiaomi Gateway (Aqara)](/integrations/xiaomi_aqara/)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
 
 <div class='note'>
 
-Zeroconf discoverable integrations [Axis](/components/axis/)/[ESPHome](/components/esphome/)/[HomeKit](/components/homekit_controller/)/[Tradfri](/components/tradfri/) have been migrated to use [zeroconf](/components/zeroconf) integration to initiate discovery.
+Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
 
 </div>
 

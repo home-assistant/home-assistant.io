@@ -10,7 +10,7 @@ ha_iot_class: Local Polling
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 ## Configuring the Platform
 
@@ -56,7 +56,7 @@ commands:
   type: map
   keys:
     command:
-      description: A list of commands as [raw (learned command)](/components/remote.xiaomi_miio/#raw) or [pronto hex code](/components/remote.xiaomi_miio/#pronto-hex-code).
+      description: A list of commands as [raw (learned command)](/integrations/remote.xiaomi_miio/#raw) or [pronto hex code](/integrations/remote.xiaomi_miio/#pronto-hex-code).
       required: true
       type: list
 
@@ -109,7 +109,7 @@ The Xiaomi IR Remote Platform currently supports two different formats for IR co
 
 ### Raw
 
-A raw command is a command learned from [`remote.xiaomi_miio_learn_command`](/components/remote.xiaomi_miio/#remotexiaomi_miio_learn_command).
+A raw command is a command learned from [`remote.xiaomi_miio_learn_command`](/integrations/remote.xiaomi_miio/#remotexiaomi_miio_learn_command).
 
 A raw command is defined as in the following example:
 `raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=`
@@ -131,7 +131,7 @@ The Xiaomi IR Remote Platform registers two services.
 
 ### `remote.send_command`
 
-Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/components/remote.xiaomi_miio/#command-types).
+Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/remote.xiaomi_miio/#command-types).
 
 ### `remote.xiaomi_miio_learn_command`
 
@@ -139,6 +139,6 @@ Used to learn new commands.
 
 Use the entity_id of the Xiaomi IR Remote to start a learning process.
 
-`slot` and `timeout` can be specified, but multiple commands learned to the same slot can still be sent using [`remote.send_command`](/components/remote.xiaomi_miio/#remotesend_command) even if they are overwritten.
+`slot` and `timeout` can be specified, but multiple commands learned to the same slot can still be sent using [`remote.send_command`](/integrations/remote.xiaomi_miio/#remotesend_command) even if they are overwritten.
 
 After learning the command the base64 string can be found as a notification in Overview, the string can be copied by left clicking on the string and choose the copy option.

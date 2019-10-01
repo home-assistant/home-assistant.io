@@ -133,7 +133,7 @@ You can use an automation to receive a notification when you train a face:
 ```
 {% endraw %}
 
-Any errors on teaching will be reported in the logs. If you enable [system_log](/components/system_log/) events:
+Any errors on teaching will be reported in the logs. If you enable [system_log](/integrations/system_log/) events:
 
 ```yaml
 system_log:

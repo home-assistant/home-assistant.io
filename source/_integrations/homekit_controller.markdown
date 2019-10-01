@@ -16,11 +16,11 @@ ha_release: 0.68
 ha_iot_class: Local Polling
 ---
 
-The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to use accessories with the "Works with HomeKit" logo with Home Assistant. This integration should not be confused with the [HomeKit](/components/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
+The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to use accessories with the "Works with HomeKit" logo with Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
-The integration will automatically detect HomeKit compatible devices that are ready to pair if the [`zeroconf`](/components/zeroconf/) integration is enabled. This is enabled by default on new installations via the [`default_config`](/components/default_config/) component.
+The integration will automatically detect HomeKit compatible devices that are ready to pair if the [`zeroconf`](/integrations/zeroconf/) integration is enabled. This is enabled by default on new installations via the [`default_config`](/integrations/default_config/) component.
 
-To see which devices have been discovered see the "Integrations" page in your Home Assistant dashboard. When you click on "Configure" you can enter your HomeKit PIN and the device should be added to your Home Assistant instance. If your device is currently paired with an Apple device via HomeKit, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/components/homekit/) integration.
+To see which devices have been discovered see the "Integrations" page in your Home Assistant dashboard. When you click on "Configure" you can enter your HomeKit PIN and the device should be added to your Home Assistant instance. If your device is currently paired with an Apple device via HomeKit, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri and Apple Home with the [`HomeKit`](/integrations/homekit/) integration.
 
 ## Supported devices
 

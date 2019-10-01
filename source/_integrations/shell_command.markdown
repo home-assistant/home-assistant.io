@@ -11,7 +11,7 @@ ha_release: 0.7.6
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
-[script]: /components/script/
+[script]: /integrations/script/
 [automation]: /getting-started/automation/
 
 ```yaml
@@ -32,7 +32,7 @@ The commands can be dynamic, using templates to insert values for arguments. Whe
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
-`stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/components/logger/) to debug.
+`stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
 ```yaml
 

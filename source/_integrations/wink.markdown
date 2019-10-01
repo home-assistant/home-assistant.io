@@ -375,7 +375,7 @@ script:
 
 The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) Canary all-in-one security camera.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported devices
 
@@ -389,7 +389,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The Wink binary sensor platform allows you to get data from your [Wink](http://www.wink.com/) binary sensors.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported Binary sensor devices
 
@@ -413,7 +413,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats and air conditioners.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported climate devices
 
@@ -433,9 +433,9 @@ The above devices are confirmed to work, but others may work as well.
 
 Wink Cover garage door functionality varies on the product. Home Assistant can open, close, and view state of GoControl/Linear openers. For Chamberlain MyQ-enabled openers, Home Assistant is limited to show current state (open or closed) only using this Wink cover. This restriction was imposed by Chamberlain for third party control. Wink suggests that MyQ customers should contact Chamberlain directly to inquire about expanding permissions.
 
-The [MyQ Cover](/components/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via customize.yaml.
+The [MyQ Cover](/integrations/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via customize.yaml.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported cover devices
 
@@ -453,7 +453,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fans.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported fan devices
 
@@ -468,7 +468,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The `wink` light platform allows you to use your [Wink](http://www.wink.com/) lights.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported light devices
 
@@ -486,7 +486,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported lock devices
 
@@ -621,7 +621,7 @@ If supported by your lock, a binary sensor will be created for each user key cod
 
 The Wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
 
-The requirement is that you have setup [Wink](/components/wink/) from above.
+The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported sensor devices
 
@@ -641,7 +641,7 @@ The above devices are confirmed to work, but others may work as well.
 
 The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
 
-The requirement is that you have set up [Wink](/components/wink/) from above.
+The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
 ## Supported switch devices
 
@@ -656,7 +656,7 @@ The requirement is that you have set up [Wink](/components/wink/) from above.
 
 The Wink water heater platform allows you to get data from your [Wink](http://www.wink.com/) Water Heaters.
 
-The requirement is that you have set up [Wink](/components/wink/) from above.
+The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
 ## Supported water heaters
 

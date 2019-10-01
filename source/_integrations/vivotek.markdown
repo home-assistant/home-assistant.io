@@ -83,7 +83,7 @@ Available services: `enable_motion_detection`, `disable_motion_detection`, `snap
 
 #### Service `play_stream`
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) integration to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -21,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-If you have enabled the [discovery component](/components/discovery/),
+If you have enabled the [discovery component](/integrations/discovery/),
 your Freebox should be detected automatically. Otherwise, you can set it
 up manually in your `configuration.yaml` file:
 

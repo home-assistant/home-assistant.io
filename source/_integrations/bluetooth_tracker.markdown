@@ -33,4 +33,4 @@ device_id:
 
 In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
 
-For additional configuration variables check the [Device tracker page](/components/device_tracker/).
+For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).

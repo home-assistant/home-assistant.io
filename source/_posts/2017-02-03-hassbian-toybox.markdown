@@ -52,7 +52,7 @@ To follow discussions about the development of the HASSbian image or to contribu
  
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
  
-[cec]: /components/hdmi_cec/
+[cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
 [landrash-github]: https://github.com/Landrash

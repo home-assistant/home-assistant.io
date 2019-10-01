@@ -74,11 +74,11 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 
 ## Extracting Attribute data
 
-In order to get the attributes readings from supported devices, such as energy from outlets or fan attributes, you'll have to create a [template sensor](/components/switch.template/).
+In order to get the attributes readings from supported devices, such as energy from outlets or fan attributes, you'll have to create a [template sensor](/integrations/switch.template/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
-Adapted from the [TP-Link integration](https://www.home-assistant.io/components/tplink/#plugs).
+Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
 
 {% raw %}
 

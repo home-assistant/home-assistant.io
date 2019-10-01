@@ -14,8 +14,8 @@ The `dovado` integration manages communication with the [Dovado](http://www.dova
 
 There is currently support for the following device types within Home Assistant:
 
-- [Notifications](/components/dovado/#notifications)
-- [Sensor](/components/dovado/#sensor)
+- [Notifications](/integrations/dovado/#notifications)
+- [Sensor](/integrations/dovado/#sensor)
 
 To add a Dovado integration to your installation, add the following to your `configuration.yaml` file:
 
@@ -61,7 +61,7 @@ notify:
 
 ### Usage
 
-This is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send an SMS notification to a single phone number in the notification **target**.
+This is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send an SMS notification to a single phone number in the notification **target**.
 
 ```yaml
 # Example automation notification entry

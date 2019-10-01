@@ -81,7 +81,7 @@ panel_display:
   default: false
   type: boolean
 zones:
-  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/alarmdecoder) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
+  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
   type: list
   keys:
@@ -90,7 +90,7 @@ zones:
       required: true
       type: string
     type:
-      description: "A type for the zone. Here you can find a list of [Device Classes](/components/binary_sensor/#device-class)."
+      description: "A type for the zone. Here you can find a list of [Device Classes](/integrations/binary_sensor/#device-class)."
       required: false
       default: opening
       type: string

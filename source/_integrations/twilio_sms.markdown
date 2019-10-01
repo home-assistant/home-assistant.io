@@ -9,7 +9,7 @@ ha_release: "0.20"
 
 The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
-The requirement is that you have setup [Twilio](/components/twilio/).
+The requirement is that you have setup [Twilio](/integrations/twilio/).
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -35,7 +35,7 @@ name:
 
 ### Usage
 
-Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
+Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 
 Media can be included with messages by setting the optional `media_url` variable. Only `.gif`, `.png`, or `.jpeg` content are supported, according to the Twilio documentation and this feature is [only supported in the US and Canada.][mms]
 

@@ -38,7 +38,7 @@ To create the required Spotify application:
 
 - Click **Save** after adding the URI.
 
-You will likely also need to set the `base_url` attribute of the [HTTP Component](/components/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
+You will likely also need to set the `base_url` attribute of the [HTTP Component](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
 ## Configuration
 
@@ -111,12 +111,12 @@ The devices won't show up in the dev-console as sources unless they are powered 
 You can send playlists to spotify via the `"media_content_type": "playlist"` and something like (depending on your content ID)
 `"media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF"`
 which are part of the
-[media_player.play_media](/components/media_player/#service-media_playerplay_media)
+[media_player.play_media](/integrations/media_player/#service-media_playerplay_media)
 service. You can test this from the services
 control panel in the Home Assistant frontend.
 
 ## Services
-Extra services besides the default ones in component [Media Player component](/components/media_player/).
+Extra services besides the default ones in component [Media Player component](/integrations/media_player/).
 
 ### Service `play_playlist`
 

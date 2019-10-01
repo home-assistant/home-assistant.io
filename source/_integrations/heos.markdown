@@ -18,7 +18,7 @@ The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capab
 
 ## Configuration
 
-HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) integration is enabled. Alternatively, the integration can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
+HEOS devices are discovered and setup automatically when the [discovery](/integrations/discovery) integration is enabled. Alternatively, the integration can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -26,7 +26,7 @@ Once loaded, the `stream` platform will expose services that can be called to pe
 
 #### Service `record`
 
-Make a `.mp4` recording from a provided stream.  While this service can be called directly, it is used internally by the [`camera.record`](/components/camera#service-record) service.
+Make a `.mp4` recording from a provided stream.  While this service can be called directly, it is used internally by the [`camera.record`](/integrations/camera#service-record) service.
 
 Both `duration` and `lookback` options are suggestions, but should be consistent per stream.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 

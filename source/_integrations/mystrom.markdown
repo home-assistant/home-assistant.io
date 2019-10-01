@@ -102,7 +102,7 @@ The firmware version 2.56 doesn't support TLS/SSL. This means that you are only 
 
 You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns if the button is not charging. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
 
-The endpoint that is receiving the data is `http://[IP address Home Assistant]:8123/api/mystrom`. If you have set an [`api_password`](/components/http/) then this needs to be included in the URL.
+The endpoint that is receiving the data is `http://[IP address Home Assistant]:8123/api/mystrom`. If you have set an [`api_password`](/integrations/http/) then this needs to be included in the URL.
 
 With `api_password:`
 
@@ -147,7 +147,7 @@ curl -d "double=get://192.168.1.3:8123/api/mystrom?api_password%3Dapi_password%2
 
 The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a helper to configure myStrom buttons.
 
-If you have set [`login_attempts_threshold`](/components/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/components/http/#ip-filtering-and-banning) about how to revert the banning.
+If you have set [`login_attempts_threshold`](/integrations/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/integrations/http/#ip-filtering-and-banning) about how to revert the banning.
 
 ## Switch
 
@@ -158,7 +158,7 @@ The `mystrom` switch platform allows you to control the state of your [myStrom](
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 <p class='img'>
-  <img src='{{site_root}}/images/components/mystrom/switch-advanced.png' />
+  <img src='{{site_root}}/images/integrations/mystrom/switch-advanced.png' />
 </p>
 
 To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:
@@ -200,7 +200,7 @@ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 
 ### Get the current power consumption
 
-The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/template).
+The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/integrations/template).
 
 {% raw %}
 ```yaml

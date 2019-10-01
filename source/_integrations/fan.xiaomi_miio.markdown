@@ -271,7 +271,7 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
   - motor_speed
   - extra_features
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
 

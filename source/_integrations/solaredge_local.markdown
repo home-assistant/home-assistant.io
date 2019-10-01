@@ -16,7 +16,7 @@ Only specific models support the local API. The local API is available on the SE
 You can check by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see the SolarEdge logo and a "Commissioning" menu.
 
 <div class='note'>
-If your inveter does not support the local API, you can use the [cloud based version](/components/solaredge/) instead.
+If your inveter does not support the local API, you can use the [cloud based version](/integrations/solaredge/) instead.
 </div>
 
 ## Configuration
@@ -54,7 +54,7 @@ sensor:
     ip_address: 192.168.1.123
 ```
 
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/template).
+In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
 
 {% raw %}
 ```yaml

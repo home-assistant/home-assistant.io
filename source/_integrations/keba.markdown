@@ -16,7 +16,7 @@ This component provides the following platforms:
 - Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Services: authorize, deauthorize, set energy target, set maximum allowed current and manually update the states. More details can be found [here](/components/keba/#services).
+- Services: authorize, deauthorize, set energy target, set maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).
 
 ## Configuration
 

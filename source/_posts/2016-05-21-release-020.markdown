@@ -66,17 +66,17 @@ device_tracker:
 [`!include_dir_merge_list`]: /topics/splitting_configuration/#advanced-usage
 [`!include_dir_merge_named`]: /topics/splitting_configuration/#advanced-usage
 [`relative_time`]: /topics/templating/#home-assistant-template-extensions
-[Asus WRT]: /components/asuswrt
-[Ecobee thermostats]: /components/ecobee
-[Google Play Music Desktop Player]: /components/gpmdp
-[LG Netcast TVs]: /components/lg_netcast
-[Logentries]: /components/logentries/
-[mold indicator]: /components/mold_indicator/
-[Nest Protect]: /components/nest#sensor
-[purge days option]: /components/recorder/
-[Roku]: /components/roku#media-player
-[SNS]: /components/notify.aws_sns/
-[SQS]: /components/notify.aws_sqs/
-[supervisord]: /components/supervisord
-[Twilio SMS]: /components/twilio_sms
-[Last.fm]: /components/lastfm
+[Asus WRT]: /integrations/asuswrt
+[Ecobee thermostats]: /integrations/ecobee
+[Google Play Music Desktop Player]: /integrations/gpmdp
+[LG Netcast TVs]: /integrations/lg_netcast
+[Logentries]: /integrations/logentries/
+[mold indicator]: /integrations/mold_indicator/
+[Nest Protect]: /integrations/nest#sensor
+[purge days option]: /integrations/recorder/
+[Roku]: /integrations/roku#media-player
+[SNS]: /integrations/notify.aws_sns/
+[SQS]: /integrations/notify.aws_sqs/
+[supervisord]: /integrations/supervisord
+[Twilio SMS]: /integrations/twilio_sms
+[Last.fm]: /integrations/lastfm

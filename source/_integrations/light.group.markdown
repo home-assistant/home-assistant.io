@@ -37,7 +37,7 @@ light:
 {% endconfiguration %}
 
 <p class='img'>
-<img src='/images/components/light/group.png'>
+<img src='/images/integrations/light/group.png'>
 Example of the light group "Kitchen Lights".
 </p>
 

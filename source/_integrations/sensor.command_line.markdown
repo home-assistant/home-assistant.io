@@ -108,7 +108,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/components/logger) to monitor the [http component](/components/http/) at least the `warning` level.
+Make sure to configure the [logger component](/integrations/logger) to monitor the [http component](/integrations/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works
@@ -142,7 +142,7 @@ sensor:
 
 ### Use an external script
 
-The example is doing the same as the [aREST sensor](/components/arest#sensor) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
+The example is doing the same as the [aREST sensor](/integrations/arest#sensor) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 

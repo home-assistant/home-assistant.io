@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `api` integration exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/components/http/).
+The `api` integration exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
 
 <div class='note warning'>
 

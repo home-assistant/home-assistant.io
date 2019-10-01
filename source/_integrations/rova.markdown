@@ -76,7 +76,7 @@ sensor:
       - residual
 ```
 
-To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/components/notify/).
+To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/integrations/notify/).
 
 {% raw %}
 ```yaml

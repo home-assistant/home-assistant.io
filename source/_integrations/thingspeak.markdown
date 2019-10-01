@@ -8,7 +8,7 @@ ha_release: 0.32
 ---
 
 The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).
-For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB component](/components/influxdb/).
+For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB component](/integrations/influxdb/).
 
 ## Configuration
 

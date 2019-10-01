@@ -9,7 +9,7 @@ ha_release: 0.55
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [RFLink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/integrations/rflink/).
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
@@ -168,7 +168,7 @@ The configuration above shows that the `type` property may be omitted. When the 
 
 ### Device support
 
-See [device support](/components/rflink/#device-support).
+See [device support](/integrations/rflink/#device-support).
 
 ### Additional configuration examples
 

@@ -23,7 +23,7 @@ Additionally, note that at the time of this writing, your Alexa skill endpoint *
 
   1. In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
   OR
-  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/components/http/) section with the `server_port` entry in your `configuration.yaml` file
+  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/integrations/http/) section with the `server_port` entry in your `configuration.yaml` file
 
 [blog-lets-encrypt]: /blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -83,7 +83,7 @@ This means that we can now ask Alexa things like:
 
 ## Configuring Home Assistant
 
-When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) integration.
+When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/integrations/intent_script) integration.
 
 To enable Alexa, add the following entry to your `configuration.yaml` file:
 
@@ -113,7 +113,7 @@ First, we will configure Alexa. In the Amazon Interaction module add this to the
 Then create a custom slot type called `Scenes` listing every scene you want to control:
 
 <p class='img'>
-<img src='/images/components/alexa/scene_slot.png' />
+<img src='/images/integrations/alexa/scene_slot.png' />
 Custom slot type for scene support.
 </p>
 
@@ -122,7 +122,7 @@ The names must exactly match the scene names (minus underscores - Amazon discard
 In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
 
 <p class='img'>
-<img src='/images/components/alexa/scene_slot_synonyms.png' />
+<img src='/images/integrations/alexa/scene_slot_synonyms.png' />
 Custom slot values with synonyms.
 </p>
 
@@ -170,7 +170,7 @@ We can easily extend the above idea to work with scripts as well. As before, add
 Create a custom slot type called `Scripts` listing every script you want to run:
 
 <p class='img'>
-<img src='/images/components/alexa/script_slot.png' />
+<img src='/images/integrations/alexa/script_slot.png' />
 Custom slot type for script support.
 </p>
 
@@ -263,6 +263,6 @@ Alexa will now respond with a random phrase each time. You can use the include f
 
 
 [amazon-dev-console]: https://developer.amazon.com
-[large-icon]: /images/components/alexa/alexa-512x512.png
-[small-icon]: /images/components/alexa/alexa-108x108.png
+[large-icon]: /images/integrations/alexa/alexa-512x512.png
+[small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /topics/templating/

@@ -65,7 +65,7 @@ hub:
 
 <div class='note'>
 
-This integration requires the [Modbus](/components/modbus/) integration to be set up to work
+This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work
 
 </div>
 

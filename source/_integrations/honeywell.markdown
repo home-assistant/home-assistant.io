@@ -18,7 +18,7 @@ It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library.
 
 There is some potential confusion over this integration because it was previously implemented as a combination of two _distinct_ climate systems, one being US-based, the other EU-based.
 
-These two regions are _not_ interchangeable, and the `eu` region is now deprecated.  Ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
+These two regions are _not_ interchangeable, and the `eu` region is now deprecated.  Ongoing support for such systems is available via the [evohome](/integrations/evohome/) integration.
 
 </div>
 

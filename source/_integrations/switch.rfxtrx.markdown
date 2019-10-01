@@ -11,7 +11,7 @@ The `rfxtrx` platform support switches that communicate in the frequency range o
 
 ## Configuration
 
-First you have to set up your [rfxtrx hub](/components/rfxtrx/).
+First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
 
 ```yaml
@@ -25,7 +25,7 @@ Launch your Home Assistant and go to the website.
 Push your remote and your device should be added:
 
 <p class='img'>
-<img src='/images/components/rfxtrx/switch.png' />
+<img src='/images/integrations/rfxtrx/switch.png' />
 </p>
 
 Here the name is `0b11000102ef9f210010f70` and you can verify that it works from the frontend.
@@ -68,7 +68,7 @@ signal_repetitions:
 
 <div class='note warning'>
 
-This integration and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+This integration and the [rfxtrx binary sensor](/integrations/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 
 </div>
 

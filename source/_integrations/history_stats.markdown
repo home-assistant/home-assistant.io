@@ -9,7 +9,7 @@ ha_release: 0.39
 ha_qa_scale: internal
 ---
 
-The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [history](/components/history/).
+The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [history](/integrations/history/).
 
 It can track how long the integration has been in a specific state, in a custom time period.
 

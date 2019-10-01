@@ -92,5 +92,5 @@ For more information, visit the [api] page of MySensors.
  }
 ```
 
-[main component]: /components/mysensors/
+[main component]: /integrations/mysensors/
 [api]: http://www.mysensors.org/download/

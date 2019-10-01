@@ -148,6 +148,6 @@ modbus:
 
 ## Building on top of Modbus
 
- - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
- - [Modbus Sensor](/components/sensor.modbus/)
- - [Modbus Switch](/components/switch.modbus/)
+ - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
+ - [Modbus Sensor](/integrations/sensor.modbus/)
+ - [Modbus Switch](/integrations/switch.modbus/)

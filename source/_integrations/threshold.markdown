@@ -35,7 +35,7 @@ binary_sensor:
 
 {% configuration %}
 entity_id:
-  description: "The entity to monitor. Only [sensors](/components/sensor/) are supported."
+  description: "The entity to monitor. Only [sensors](/integrations/sensor/) are supported."
   required: true
   type: string
 lower:

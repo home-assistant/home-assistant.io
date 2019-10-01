@@ -131,7 +131,7 @@ binary_sensor:
       required: false
       type: string
     type:
-      description: The binary sensor type. See [Home Assistant binary sensor](/components/binary_sensor/) for available types.
+      description: The binary sensor type. See [Home Assistant binary sensor](/integrations/binary_sensor/) for available types.
       required: false
       type: string
     note:

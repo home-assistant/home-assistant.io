@@ -48,7 +48,7 @@ The default name of the location attributes is `lat` and `long` to avoid showing
 
 ### Show position on map with camera platform
 
-The [generic camera platform](/components/mjpeg) offers
+The [generic camera platform](/integrations/mjpeg) offers
 the possibility to show the location of the ISS on OpenStreetMap.
 
 {% raw %}

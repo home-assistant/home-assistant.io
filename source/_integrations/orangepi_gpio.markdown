@@ -30,7 +30,7 @@ binary_sensor:
 
 {% configuration %}
 pin_mode:
-  description: Type of pin mode to use. This depends on which device you are actually using ([PIN_MODE](/components/orangepi_gpio#pin_mode)).
+  description: Type of pin mode to use. This depends on which device you are actually using ([PIN_MODE](/integrations/orangepi_gpio#pin_mode)).
   required: true
   type: string
 ports:
@@ -49,7 +49,7 @@ invert_logic:
   default: "`false` (ACTIVE HIGH)"
 {% endconfiguration %}
 
-Compared to the [Raspberry Pi GPIO](/components/rpi_gpio/) component, this integration does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
+Compared to the [Raspberry Pi GPIO](/integrations/rpi_gpio/) component, this integration does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
 
 ## Pin_mode
 

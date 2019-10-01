@@ -24,7 +24,7 @@ Home Assistant has its own Cast application to show the Home Assistant UI. You c
 
 ## Advanced use
 
-Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/components/http/).
+Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).
 
 ## Advanced use
 

@@ -17,11 +17,11 @@ The `skybell` implementation allows you to integrate your [Skybell.com](http://w
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/skybell/#binary-sensor)
-- [Camera](/components/skybell/#camera)
-- [Light](/components/skybell/#light)
-- [Sensor](/components/skybell/#sensor)
-- [Switch](/components/skybell/#switch)
+- [Binary Sensor](/integrations/skybell/#binary-sensor)
+- [Camera](/integrations/skybell/#camera)
+- [Light](/integrations/skybell/#light)
+- [Sensor](/integrations/skybell/#sensor)
+- [Switch](/integrations/skybell/#switch)
 
 Currently only the Skybell HD is supported by this platform.
 

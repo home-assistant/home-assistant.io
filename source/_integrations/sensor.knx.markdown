@@ -10,13 +10,13 @@ ha_iot_class: Local Push
 
 <div class='note'>
   
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
 
 </div>
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors. 
 
-Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
+Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 
 ## Configuration

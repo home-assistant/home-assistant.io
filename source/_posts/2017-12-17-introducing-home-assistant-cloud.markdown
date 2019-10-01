@@ -28,7 +28,7 @@ With donations you have to convince people to keep donating and it will be hard 
 
 ## Getting started
 
-Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`](/components/config/) components:
+Upgrade Home Assistant to 0.60 and enable the [`cloud`](/integrations/cloud/) and [`config`](/integrations/config/) components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,7 +42,7 @@ The next step is to configure Alexa. This can be done by enabling the Home Assis
 
 Once you’re done, ask Alexa to discover devices (“Alexa, discover devices”) and you are all set to control them: “Alexa, turn on &lt;device name&gt;”.
 
-See the [Cloud component configuration](/components/cloud/) to learn how to filter which devices get exposed to Alexa.
+See the [Cloud component configuration](/integrations/cloud/) to learn how to filter which devices get exposed to Alexa.
 
 ## FAQ
 
@@ -66,8 +66,8 @@ Yes. Yes. Yes! Home Assistant is the work of hundreds of developers all working 
 
 All messages are processed locally and so the Alexa skill code is part of the Home Assistant code. The Home Assistant Cloud only routes the messages to your local Home Assistant instance. This means that you can audit the source code to check all the things that the cloud can do:
 
- - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py)
- - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py)
+ - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/cloud/iot.py)
+ - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/alexa/smart_home.py)
 
 #### What other features will come to the cloud?
 
@@ -87,7 +87,7 @@ As of February 2018, we are live in all countries that have Alexa except for Jap
 
 #### How is the connection made to the cloud?
 
-The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
+The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/cloud/iot.py).
 
 #### I think that the price is too high for what I get.
 

@@ -11,7 +11,7 @@ ha_iot_class: Local Push
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by enabling the [discovery component](/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by enabling the [discovery component](/integrations/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -122,7 +122,7 @@ With the `turn_on_action` and `turn_off_action` parameters you can run any combi
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/components/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
 media_player:

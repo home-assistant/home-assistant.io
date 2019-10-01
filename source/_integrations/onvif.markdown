@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.47
 ---
 
-The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
+The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) camera in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
 
 ## Configuration
 
@@ -51,7 +51,7 @@ profile:
   type: integer
   default: 0
 extra_arguments:
-  description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/components/ffmpeg)."
+  description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg)."
   required: false
   type: string
   default: -q:v 2
@@ -70,4 +70,4 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE`
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE`
 
-If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
+If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

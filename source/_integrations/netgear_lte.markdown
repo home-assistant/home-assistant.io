@@ -174,7 +174,7 @@ This service can set modem configuration options (otherwise available in the mod
 
 ## Examples
 
-The following automation example processes incoming SMS messages with the [Conversation](/components/conversation/) integration and then deletes the message from the inbox.
+The following automation example processes incoming SMS messages with the [Conversation](/integrations/conversation/) integration and then deletes the message from the inbox.
 
 {% raw %}
 ```yaml

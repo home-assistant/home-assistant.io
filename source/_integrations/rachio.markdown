@@ -61,7 +61,7 @@ Set `manual_run_mins` to a high maximum failsafe value when using scripts to con
 
 ### iFrame
 
-If you would like to see and control more detailed zone information, create an [iFrame](/components/panel_iframe/) that renders the Rachio web app.
+If you would like to see and control more detailed zone information, create an [iFrame](/integrations/panel_iframe/) that renders the Rachio web app.
 
 ```yaml
 panel_iframe:

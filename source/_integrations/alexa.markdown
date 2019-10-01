@@ -18,9 +18,9 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
-- [Build custom commands to use](/components/alexa.intent/)
-- [Create a new Flash Briefing source](/components/alexa.flash_briefings/)
-- [Use the Smart Home API to control lights, etc](/components/alexa.smart_home/)
+- [Build custom commands to use](/integrations/alexa.intent/)
+- [Create a new Flash Briefing source](/integrations/alexa.flash_briefings/)
+- [Use the Smart Home API to control lights, etc](/integrations/alexa.smart_home/)
 - Alternative: use the [Emulated Hue integration][emulated-hue-component] to trick Alexa to thinking Home Assistant is a Philips Hue hub.
 
 ### Requirements
@@ -33,4 +33,4 @@ Manual setup the integration with Amazon Alexa needs several requirements
 - Smart Home API also needs your Home Assistant instance accessible from the Internet.
 
 [amazon-dev-console]: https://developer.amazon.com
-[emulated-hue-component]: /components/emulated_hue/
+[emulated-hue-component]: /integrations/emulated_hue/

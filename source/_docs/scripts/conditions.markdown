@@ -235,13 +235,13 @@ Time condition windows can span across the midnight threshold. In the example ab
 
 <div class='note tip'>
 
-A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
+A better weekday condition could be by using the [Workday Binary Sensor](/integrations/binary_sensor.workday/).
 
 </div>
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/device_tracker.owntracks/) and the [iCloud platform](/integrations/device_tracker.icloud/).
 
 ```yaml
 condition:

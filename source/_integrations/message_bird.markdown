@@ -44,7 +44,7 @@ sender:
 
 ### Usage
 
-MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to the specified mobile phone number(s).
+MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to the specified mobile phone number(s).
 
 #### Example service payload
 

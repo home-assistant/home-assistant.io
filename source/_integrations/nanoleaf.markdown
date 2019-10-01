@@ -12,7 +12,7 @@ ha_release: 0.67
 
 The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant.
 
-The preferred way to set up this platform is by enabling the [discovery component](/components/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
+The preferred way to set up this platform is by enabling the [discovery component](/integrations/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
 
 To configure the Nanoleaf lights manually, add the following lines to your `configuration.yaml` file:
 

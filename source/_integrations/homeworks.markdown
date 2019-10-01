@@ -13,7 +13,7 @@ ha_iot_class: Local Push
 
 Only a subset of the Homeworks system is supported - lights and keypads.
 
-Lutron has created many systems over the years, each with their own unique interfacing protocol.  There are three Homeworks systems - QS, Series 4 & 8, and original.  This platform is only for Series 4 & 8.  There is another integration [lutron](/components/lutron/) which handles Lutron RadioRA 2 systems.
+Lutron has created many systems over the years, each with their own unique interfacing protocol.  There are three Homeworks systems - QS, Series 4 & 8, and original.  This platform is only for Series 4 & 8.  There is another integration [lutron](/integrations/lutron/) which handles Lutron RadioRA 2 systems.
 
 Homeworks keypad buttons are momentary switches.  The button is pressed and released, meaning that there is no "state".  Buttons generate `homeworks_button_press` and `homeworks_button_release` events.  These events contain the "id", "name", and "button" of the button that was pressed.  "id" is derived from "name", and "button" is the number of the button on the keypad (starting at 1).
 

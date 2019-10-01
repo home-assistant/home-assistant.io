@@ -85,7 +85,7 @@ vacuum:
 
 ### Control vacuum with Harmony Hub
 
-This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/components/harmony).
+This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/integrations/harmony).
 
 ```yaml
 vacuum:

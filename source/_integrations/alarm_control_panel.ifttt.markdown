@@ -9,7 +9,7 @@ ha_release: 0.66
 
 The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
 
-This platform depends on the [IFTTT](/components/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
+This platform depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
 <div class='note'>
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.

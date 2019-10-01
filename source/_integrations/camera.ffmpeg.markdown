@@ -12,7 +12,7 @@ The `ffmpeg` platform allows you to use any video feed as a camera in Home Assis
 
 ## Configuration
 
-To enable your FFmpeg feed in your installation you must first configure the [ffmpeg integration](/components/ffmpeg/), then add the following to your `configuration.yaml` file:
+To enable your FFmpeg feed in your installation you must first configure the [ffmpeg integration](/integrations/ffmpeg/), then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,4 +41,4 @@ extra_arguments:
 
 You can control the image quality with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`. Default is lossless.
 
-If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
+If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

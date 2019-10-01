@@ -76,7 +76,7 @@ To experiment with values (changes/100 is the scene value in `ffmpeg`):
 $ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 ```
 
-If you are running into trouble with this sensor, please refer to the [troubleshooting section](/components/ffmpeg/#troubleshooting).
+If you are running into trouble with this sensor, please refer to the [troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
 #### Tips
 

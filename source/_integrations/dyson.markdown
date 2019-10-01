@@ -98,14 +98,14 @@ The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuu
 
 ### Component services
 
-This integration support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
+This integration support the following services (see [Vacuum Cleaner Robots](/integrations/vacuum/)):
 
-- [`turn_on`](/components/vacuum/#service-vacuumturn_on)
-- [`turn_off`](/components/vacuum/#service-vacuumturn_off)
-- [`start_pause`](/components/vacuum/#service-vacuumstart_pause)
-- [`stop`](/components/vacuum/#service-vacuumstop)
-- [`return_to_home`](/components/vacuum/#service-vacuumreturn_to_home)
-- [`set_fan_speed`](/components/vacuum/#service-vacuumset_fanspeed). Fan speed values:
+- [`turn_on`](/integrations/vacuum/#service-vacuumturn_on)
+- [`turn_off`](/integrations/vacuum/#service-vacuumturn_off)
+- [`start_pause`](/integrations/vacuum/#service-vacuumstart_pause)
+- [`stop`](/integrations/vacuum/#service-vacuumstop)
+- [`return_to_home`](/integrations/vacuum/#service-vacuumreturn_to_home)
+- [`set_fan_speed`](/integrations/vacuum/#service-vacuumset_fanspeed). Fan speed values:
   - `Quiet`
   - `Max`
 
@@ -115,13 +115,13 @@ The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan 
 
 ### Component services
 
-This integration supports the following services (see [Climate](/components/climate/)):
+This integration supports the following services (see [Climate](/integrations/climate/)):
 
-- [`turn_on`](/components/climate/#service-climateturn_on)
-- [`turn_off`](/components/climate/#service-climateturn_off)
-- [`set_temperature`](/components/climate/#service-climateset_temperature)
-- [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
-- [`set_hvac_mode`](/components/climate/#service-climateset_hvac_mode)
+- [`turn_on`](/integrations/climate/#service-climateturn_on)
+- [`turn_off`](/integrations/climate/#service-climateturn_off)
+- [`set_temperature`](/integrations/climate/#service-climateset_temperature)
+- [`set_fan_mode`](/integrations/climate/#service-climateset_fan_mode)
+- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
 
 ## Fan
 

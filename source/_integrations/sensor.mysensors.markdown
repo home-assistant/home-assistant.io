@@ -180,5 +180,5 @@ void receive(const MyMessage &message) {
 }
 ```
 
-[main component]: /components/mysensors/
+[main component]: /integrations/mysensors/
 [serial api]: http://www.mysensors.org/download

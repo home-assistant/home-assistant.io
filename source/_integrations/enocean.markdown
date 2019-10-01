@@ -91,7 +91,7 @@ name:
   type: string
   default: EnOcean binary sensor
 device_class:
-  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
 {% endconfiguration %}
@@ -182,7 +182,7 @@ name:
   type: string
   default: EnOcean sensor
 device_class:
-  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
   default: powersensor

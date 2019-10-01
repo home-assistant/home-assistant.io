@@ -148,7 +148,7 @@ timer:
 
 ### Control a timer manually
 
-With the [`script`](/components/script/) integration you would be able to control a timer (see above for a `timer` configuration sample) manually.
+With the [`script`](/integrations/script/) integration you would be able to control a timer (see above for a `timer` configuration sample) manually.
 
 ```yaml
 script:

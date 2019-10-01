@@ -10,7 +10,7 @@ ha_release: 0.37
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
 Passed message will be read by Text-To-Speech service.
 
-The requirement is that you have setup [Twilio](/components/twilio/).
+The requirement is that you have setup [Twilio](/integrations/twilio/).
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,7 +36,7 @@ name:
 
 ### Usage
 
-Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
+Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 
 ```yaml
 # Example automation notification entry

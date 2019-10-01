@@ -19,7 +19,7 @@ Currently, the supported features are:
   - battery
   - time_stat
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
+Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
 ## Configuration
 

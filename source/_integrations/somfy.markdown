@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.95
 ---
 
-The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/components/tahoma/) component.
+The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/integrations/tahoma/) component.
 
 ### Setting up developer account
 
@@ -47,7 +47,7 @@ client_secret:
 
 ### Potential duplicate with the Tahoma integration
 
-If you use the [tahoma](/components/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
+If you use the [tahoma](/integrations/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
 
 ```yaml
 # Example configuration.yaml entry

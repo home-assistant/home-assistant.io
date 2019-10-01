@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.88
 ---
 
-The person integration allows connecting [device tracker](/components/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
+The person integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
 
 1. If there are stationary trackers (non-GPS trackers, i.e., a router or Bluetooth 'device_trackers') presenting the status 'home', the tracker most recently updated will be used.
 2. If there are trackers of type 'gps', then the most recently updated tracker will be used.
@@ -17,7 +17,7 @@ The person integration allows connecting [device tracker](/components/device_tra
 Let's say, for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' and 'tracker_ble'.
 
 1. You're at home, all 3 devices show status 'home' - status of your Person entity will be 'home' with source 'tracker_router' or 'tracker_ble', whichever was most recently updated.
-2. You just left home. 'tracker_gps' shows status 'not_home', but the other two trackers show status 'home' (they may not have yet updated due to their 'consider_home' setting see [device_tracker](/components/device_tracker/#configuring-a-device_tracker-platform)). Since the stationary trackers have priority, you are considered 'home'.
+2. You just left home. 'tracker_gps' shows status 'not_home', but the other two trackers show status 'home' (they may not have yet updated due to their 'consider_home' setting see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)). Since the stationary trackers have priority, you are considered 'home'.
 3. After some time, both stationary trackers show status 'not_home'. Now your Person entity has status 'not_home' with source 'tracker_gps'.
 4. While you are away from home, your Home Assistant is restarted. Until 'tracker_gps' receives an update, your status will be determined by the stationary trackers, since they will have the most recent update after a restart. Obviously, the status will be 'not_home'.
 5. Then you're going into a zone you have defined as 'zone1', 'tracker_gps' sends an update, and now your status is 'zone1' with source 'tracker_gps'.
@@ -26,7 +26,7 @@ Let's say, for example, that you have 3 trackers: 'tracker_gps', 'tracker_router
 
 TL;DR: When you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
 
-**Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](/components/device_tracker/#configuring-a-device_tracker-platform)).
+**Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)).
 
 You can manage persons via the UI from the person page inside the configuration panel or via `YAML` in your `configuration.yaml` file.
 
@@ -97,4 +97,4 @@ customize:
     entity_picture: "/local/ada.jpg"
 ```
 
-See the documentation about [hosting files](/components/http/#hosting-files) for more information about the `www` folder. 
+See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder. 

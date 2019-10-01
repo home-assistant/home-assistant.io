@@ -43,7 +43,7 @@ longitude:
 
 <div class='note'>
 
-This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
+This platform is an alternative to the [`metoffice`](/integrations/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customizable.
 
 </div>

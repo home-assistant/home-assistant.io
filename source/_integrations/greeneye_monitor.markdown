@@ -36,7 +36,7 @@ greeneye_monitor:
           name: back_porch_temperature
 ```
 
-By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/components/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/components/influxdb) integration and exclude the GEM sensors from `recorder`.
+By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/integrations/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/integrations/influxdb) integration and exclude the GEM sensors from `recorder`.
 
 {% configuration %}
 port:

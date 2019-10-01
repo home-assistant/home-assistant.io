@@ -18,7 +18,7 @@ limitations since everything looks like a light bulb.
 
 Amazon provides a Smart Home API for richer home automation control. It takes
 considerable effort to configure. The easy solution is to use
-[Home Assistant Cloud](/components/cloud/).
+[Home Assistant Cloud](/integrations/cloud/).
 
 However, config Amazon Alexa Smart Home Skill is not a easy job, you have to allow
 your Home Assistant accessible from Internet, and you need to create Amazon Developer
@@ -46,7 +46,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
 
-  <img src='/images/components/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
+  <img src='/images/integrations/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
 
 - In next screen, make sure *v3* is selected in `Payload version`.
 - Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
@@ -75,7 +75,7 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
 - Click `Roles` in the left panel, then click `Create role`, select `AWS Service` -> `Lambda` in the first page of the wizard, then click `Next: Permissions`
 - Select `AWSLambdaBasicExecutionRole` policy, then click `Next: Tags`. (Tips: you can use the search box to filter the policy)
 
-  <img src='/images/components/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
+  <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
 
 - You can skip `Add tags` page, click `Next: Review`.
 - Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
@@ -103,7 +103,7 @@ Next you need create a Lambda function.
   * NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   * DEBUG *(optional)*: set to *True* to log the debug message
   * LONG_LIVED_ACCESS_TOKEN *(optional, not recommend)*: you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.) 
-  <img src='/images/components/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
+  <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
 
 - Now scroll up to the top, click `Save` button.
 - You need copy the ARN displayed in the top of the page, which is the identify of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
@@ -178,7 +178,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * `Scope`: input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
-  <img src='/images/components/alexa/account_linking.png' alt='Screenshot: Account Linking'>
+  <img src='/images/integrations/alexa/account_linking.png' alt='Screenshot: Account Linking'>
 
 - Click `Save` button in the top right corner.
 - Next, you will use Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
@@ -236,5 +236,5 @@ The following is a list of regions and the corresponding URL for the web-based A
 * Spain: <https://alexa.amazon.es>
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
-[emulated-hue-component]: /components/emulated_hue/
+[emulated-hue-component]: /integrations/emulated_hue/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token

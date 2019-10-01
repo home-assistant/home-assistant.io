@@ -14,6 +14,6 @@ A Aqara lock cannot be controlled by Home Assistant. The property `changed_by` p
 
 If someone tries to unlock the device but fails more than 3 times the `verified_wrong_times` attribute will be incremented. The counter resets on a successful unlock.
 
-The requirement to use this platform is that you have set up the [Xiaomi Aqara](/components/xiaomi_aqara/) component.
+The requirement to use this platform is that you have set up the [Xiaomi Aqara](/integrations/xiaomi_aqara/) component.
 
 

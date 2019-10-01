@@ -20,7 +20,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [`discovery`](/components/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+This integration uses the [`discovery`](/integrations/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
 
 <div class='note info'>
 
@@ -71,7 +71,7 @@ devices:
       required: true
       type: string
     binary_sensors:
-      description: A list of binary sensors connected to the device. See [Konnected Binary Sensor](/components/konnected#binary-sensor) for configuration variables.
+      description: A list of binary sensors connected to the device. See [Konnected Binary Sensor](/integrations/konnected#binary-sensor) for configuration variables.
       required: false
       type: list
       keys:
@@ -82,7 +82,7 @@ devices:
           description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are `1`, `2`, `3`, `4`, `5` and `6`.
           required: exclusive
         type:
-          description: Any [binary sensor](/components/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
+          description: Any [binary sensor](/integrations/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
           required: true
         name:
           description: The name of the device used in the front end.
@@ -117,7 +117,7 @@ devices:
           required: false
           default: not set (device default is 3 minutes)
     switches:
-      description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/konnected#switch) for configuration variables.
+      description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/integrations/konnected#switch) for configuration variables.
       required: false
       type: list
       keys:
@@ -292,7 +292,7 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-This integration supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
+This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
 
 ### Switch
 

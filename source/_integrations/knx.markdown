@@ -18,14 +18,14 @@ Please note, the `knx` platform does not support Windows.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.knx)
-- [Cover](/components/cover.knx)
-- [Sensor](/components/sensor.knx)
-- [Switch](/components/switch.knx)
-- [Light](/components/light.knx)
-- [Thermostat](/components/climate.knx)
-- [Notify](/components/notify.knx)
-- [Scene](/components/scene.knx)
+- [Binary Sensor](/integrations/binary_sensor.knx)
+- [Cover](/integrations/cover.knx)
+- [Sensor](/integrations/sensor.knx)
+- [Switch](/integrations/switch.knx)
+- [Light](/integrations/light.knx)
+- [Thermostat](/integrations/climate.knx)
+- [Notify](/integrations/notify.knx)
+- [Scene](/integrations/scene.knx)
 
 ## Configuration
 
@@ -160,7 +160,7 @@ knx:
 
 {% configuration %}
 type:
-  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](/integrations/sensor.knx/) (e.g., "temperature" or "humidity").
   type: string
   required: true
 entity_id:

@@ -70,7 +70,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](/integrations/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
 
   ```bash
   whereis python<version>

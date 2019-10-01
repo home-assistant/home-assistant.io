@@ -106,7 +106,7 @@ name:
 
 ### Usage
 
-Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
+Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
 Type | Prefix | Suffix | Example
 ---- | ------ | ------ | -------

@@ -11,7 +11,7 @@ ha_qa_scale: internal
 
 <div class='note warning'>
 
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](/components/cloud) component.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/integrations/google_assistant/) or [Nabu Casa cloud](/integrations/cloud) component.
 
 </div>
 

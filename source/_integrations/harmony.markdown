@@ -17,7 +17,7 @@ Supported units:
 - Harmony Pro
 - Harmony Elite
 
-The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
+The preferred way to setup the Harmony remote is by enabling the [discovery component](/integrations/discovery/).
 
 However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 

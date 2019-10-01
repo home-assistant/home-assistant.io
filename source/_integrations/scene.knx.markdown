@@ -9,7 +9,7 @@ ha_release: 0.63
 
 <div class='note'>
   
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
 
 </div>
 

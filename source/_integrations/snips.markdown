@@ -133,9 +133,9 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 ### Triggering actions
 
-In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
-Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
+Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/integrations/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
 ```yaml
@@ -266,7 +266,7 @@ intent_script:
 
 ##### Weather
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/components/darksky) and the `api_key` in the `secrets.yaml` file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/integrations/darksky) and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky

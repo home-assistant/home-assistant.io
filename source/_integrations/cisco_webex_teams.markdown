@@ -39,7 +39,7 @@ Webex Teams clients can render rich text via a whitelisted set of html tags.
 For example, you could configure automations to display details in an easy to read fashion like so:
 
 <p class='img'>
-<img src='/images/components/cisco_webex_teams/rich_formatting.png' />
+<img src='/images/integrations/cisco_webex_teams/rich_formatting.png' />
 Rich text as displayed in the macOS client.
 </p>
 

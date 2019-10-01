@@ -49,7 +49,7 @@ homebridge_hidden:
   type: boolean
   default: false
 emulated_hue_hidden:
-  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/components/emulated_hue)).
+  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/integrations/emulated_hue)).
   required: false
   type: boolean
   default: false
@@ -86,9 +86,9 @@ initial_state:
 
 Device class is currently supported by the following components:
 
-* [Binary Sensor](/components/binary_sensor/)
-* [Sensor](/components/sensor/)
-* [Cover](/components/cover/)
+* [Binary Sensor](/integrations/binary_sensor/)
+* [Sensor](/integrations/sensor/)
+* [Cover](/integrations/cover/)
 
 ### Manual customization
 

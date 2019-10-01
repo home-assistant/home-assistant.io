@@ -22,7 +22,7 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 
 ## Configuration
 
-You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/components/discovery/) component:
+You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/integrations/discovery/) component:
 
 ```yaml
 # Example configuration.yaml entry

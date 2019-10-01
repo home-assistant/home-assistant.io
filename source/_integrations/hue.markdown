@@ -11,7 +11,7 @@ featured: true
 ha_release: "0.60"
 ---
 
-Philips Hue support is integrated into Home Assistant as a Hub that can drive the light & sensor platforms. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
+Philips Hue support is integrated into Home Assistant as a Hub that can drive the light & sensor platforms. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,7 +24,7 @@ When you configure the Hue bridge from Home Assistant, it writes a token to a fi
 
 Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
 
-If you want to enable the integration without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
+If you want to enable the integration without relying on the [discovery component](/integrations/discovery/), add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
