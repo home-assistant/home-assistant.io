@@ -6,8 +6,6 @@ ha_category:
   - Health
 ha_iot_class: Cloud Polling
 ha_release: 0.52
-redirect_from:
- - /components/sensor.london_air/
 ---
 
 The `london_air` integration [queries](http://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json) the London air quality [data feed](https://www.londonair.org.uk/LondonAir/API/) provided by Kings College London. A single sensor will be added for each `location` ([local authority district or borough](https://en.wikipedia.org/wiki/List_of_London_boroughs)) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.
@@ -58,7 +56,7 @@ locations:
   type: list
 {% endconfiguration %}
 
-To explore the data available within the `data` attribute of a sensor use the `dev-template` tool on the Home-assistant frontend. `data` contains a list of monitored sites, where the number of monitored sites are given by the `sites` attribute. If a sensor has four sites, access the fourth site by indexing the list of sites using data[3]. Each site is a dictionary with multiple fields, with entries for the `latitude` and `longitude` of that site, a `pollution_status`, `site_code`, `site_name` and `site_type`. The field `number_of_pollutants` states how many pollutants are monitored (of the possible six) and the field `pollutants` returns a list with data for each pollutant. To access the first pollutant in the list for site zero use `attributes.data[0].pollutants[0]`. Each entry in `pollutants` is a dictionary with fields for the pollutant `code`, `description`, `index`, `quality` and a `summary`. [Template sensors](/components/sensor.template/) can then be added to display these attributes, for example:
+To explore the data available within the `data` attribute of a sensor use the `dev-template` tool on the Home-assistant frontend. `data` contains a list of monitored sites, where the number of monitored sites are given by the `sites` attribute. If a sensor has four sites, access the fourth site by indexing the list of sites using data[3]. Each site is a dictionary with multiple fields, with entries for the `latitude` and `longitude` of that site, a `pollution_status`, `site_code`, `site_name` and `site_type`. The field `number_of_pollutants` states how many pollutants are monitored (of the possible six) and the field `pollutants` returns a list with data for each pollutant. To access the first pollutant in the list for site zero use `attributes.data[0].pollutants[0]`. Each entry in `pollutants` is a dictionary with fields for the pollutant `code`, `description`, `index`, `quality` and a `summary`. [Template sensors](/components/template) can then be added to display these attributes, for example:
 
 ```yaml
 # Example template sensors

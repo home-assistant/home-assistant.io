@@ -5,9 +5,6 @@ logo: nasa.png
 ha_category:
   - Binary Sensor
 ha_release: 0.36
-redirect_from:
- - /components/sensor.iss/
- - /components/binary_sensor.iss/
 ---
 
 The `iss` platform uses the
@@ -51,7 +48,7 @@ The default name of the location attributes is `lat` and `long` to avoid showing
 
 ### Show position on map with camera platform
 
-The [generic camera platform](/components/camera.mjpeg/) offers
+The [generic camera platform](/components/mjpeg) offers
 the possibility to show the location of the ISS on OpenStreetMap.
 
 {% raw %}

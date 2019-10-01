@@ -189,7 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Doorbird__ -_Refactored_- This change cleans up the code for the component quite a bit. Schedule manipulation has been removed and HTTP views have been consolidated. The configuration changes should result in an overall easier experience for setting up a Doorbird in HA and allow for new Doorbird events to be utilized without having to update the component as often. No changes for switches or camera integrations of this component. ([@oblogic7] - [#23892]) ([doorbird docs])
 
    Example configuration:
-   ```
+   ```yaml
    doorbird:
      devices:
        - host: 10.10.10.10

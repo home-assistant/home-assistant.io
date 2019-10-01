@@ -169,12 +169,12 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
 
 ```bash
-$ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
+sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 ```
 
 and add the service for the database, for example, PostgreSQL:
 
-```
+```txt
 [Unit]
 Description=Home Assistant
 After=network.target postgresql.service
@@ -183,7 +183,7 @@ After=network.target postgresql.service
 Save the file then reload `systemctl`:
 
 ```bash
-$ sudo systemctl daemon-reload
+sudo systemctl daemon-reload
 ```
 
 ## Installation notes
@@ -205,15 +205,15 @@ For MariaDB you may have to install a few dependencies. If you're using MariaDB 
 On the Python side we use the `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmariadbclient-dev libssl-dev
-$ pip3 install mysqlclient
+sudo apt-get install libmariadbclient-dev libssl-dev
+pip3 install mysqlclient
 ```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install default-libmysqlclient-dev libssl-dev
-$ pip3 install mysqlclient
+sudo apt-get install default-libmysqlclient-dev libssl-dev
+pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
@@ -225,8 +225,8 @@ Once Home Assistant finds the database, with the right level of permissions, all
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
-$ sudo apt-get install postgresql-server-dev-X.Y
-$ pip3 install psycopg2
+sudo apt-get install postgresql-server-dev-X.Y
+pip3 install psycopg2
 ```
 
 For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
@@ -250,14 +250,14 @@ A service restart will work as well.
 For MS SQL Server you may have to install a few dependencies:
 
 ```bash
-$ sudo apt-get install freetds-dev
-$ pip3 install pymssql
+sudo apt-get install freetds-dev
+pip3 install pymssql
 ```
 
 If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install pymssql
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install pymssql
 ```

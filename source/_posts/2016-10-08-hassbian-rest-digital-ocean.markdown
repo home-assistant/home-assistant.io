@@ -157,12 +157,12 @@ sensor
 [@Nixon506E]: https://github.com/Nixon506E
 
 [arest]: https://arest.io/
-[arest-sensor]: /components/sensor.arest/
-[arest-switch]: /components/switch.arest/
-[darksky]: /components/sensor.darksky/
-[do-bin-sensor]: /components/binary_sensor.digital_ocean/
-[do-switch]: /components/switch.digital_ocean/
-[forecast]: /components/sensor.forecast/
+[arest-sensor]: /components/arest#sensor
+[arest-switch]: /components/arest#switch
+[darksky]: /components/darksky
+[do-bin-sensor]: /components/digital_ocean#binary-sensor
+[do-switch]: /components/digital_ocean#switch
+[forecast]: /components/darksky
 [forum]: https://community.home-assistant.io/
 [Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
 [hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
@@ -170,13 +170,13 @@ sensor
 [mysensors-cover]: /components/cover.mysensors/
 [notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[pushetta]: /components/notify.pushetta/
-[pwrctrl-switch]: /components/switch.anel_pwrctrl/
-[rest-sensor]: /components/sensor.rest/
-[stats-sensor]: /components/sensor.statistics/
-[ted5000]: /components/sensor.ted5000/
-[template-sensor]: /components/sensor.template/
-[trend-sensor]: /components/binary_sensor.trend/
-[vasttrafik]: /components/sensor.vasttrafik/
-[Volvo]: /components/device_tracker.volvooncall/
+[pushetta]: /components/pushetta
+[pwrctrl-switch]: /components/anel_pwrctrl
+[rest-sensor]: /components/rest
+[stats-sensor]: /components/statistics
+[ted5000]: /components/ted5000
+[template-sensor]: /components/template
+[trend-sensor]: /components/trend
+[vasttrafik]: /components/vasttrafik
+[Volvo]: /components/volvooncall
 

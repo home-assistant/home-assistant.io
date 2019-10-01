@@ -11,9 +11,6 @@ ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_qa_scale: gold
-redirect_from:
-  - /components/binary_sensor.point/
-  - /components/sensor.point/
 ---
 
 The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant `base_url` + `/api/minut`, e.g. `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.

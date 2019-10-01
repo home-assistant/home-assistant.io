@@ -12,13 +12,6 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.74
-redirect_from:
-  - /components/climate.tuya/
-  - /components/cover.tuya/
-  - /components/fan.tuya/
-  - /components/light.tuya/
-  - /components/scene.tuya/
-  - /components/switch.tuya/
 ---
 
 The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.

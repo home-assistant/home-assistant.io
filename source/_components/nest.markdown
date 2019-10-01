@@ -9,11 +9,6 @@ ha_category:
   - Climate
   - Sensor
 ha_iot_class: Cloud Push
-redirect_from:
-  - /components/binary_sensor.nest/
-  - /components/camera.nest/
-  - /components/climate.nest/
-  - /components/sensor.nest/
 ha_release: 0.7
 ---
 

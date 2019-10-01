@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_release: 0.19
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.octoprint/
-  - /components/sensor.octoprint/
 ---
 
 [OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.

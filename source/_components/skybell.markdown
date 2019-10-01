@@ -11,12 +11,6 @@ ha_category:
   - Switch
 ha_release: 0.56
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.skybell/
-  - /components/camera.skybell/
-  - /components/light.skybell/
-  - /components/sensor.skybell/
-  - /components/switch.skybell/
 ---
 
 The `skybell` implementation allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.

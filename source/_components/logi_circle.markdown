@@ -7,9 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.79
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/camera.logi_circle/
-  - /components/sensor.logi_circle/
 ---
 
 The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant. To connect Logi Circle, you will have to [sign up for API access](#requesting-api-access) and get a `client_id`, `client_secret` and `api_key`.

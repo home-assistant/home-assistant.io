@@ -1,8 +1,6 @@
 ---
 title: "Air Quality"
 description: "Instructions on how to add air quality sensors with Home Assistant"
-redirect_from:
-  - /components/air_pollutants/
 ha_release: 0.85
 ---
 

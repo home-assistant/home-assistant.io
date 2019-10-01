@@ -14,14 +14,6 @@ ha_release: 0.61
 ha_iot_class: Local Push
 ha_qa_scale: platinum
 ha_config_flow: true
-redirect_from:
-  - /components/binary_sensor.deconz/
-  - /components/climate.deconz/
-  - /components/cover.deconz/
-  - /components/light.deconz/
-  - /components/scene.deconz/
-  - /components/sensor.deconz/
-  - /components/switch.deconz/
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -67,6 +59,10 @@ logger:
     homeassistant.components.deconz: debug
 ```
 
+## Troubleshooting
+
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](https://www.dresden-elektronik.de/rpi/deconz-firmware/?C=M;O=D). 
+
 ## Device services
 
 Available services: `configure` and `deconz.device_refresh`.
@@ -83,13 +79,21 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 
 Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
+```json
 { "field": "/lights/1", "data": {"name": "light2"} }
+```
 
+```json
 { "entity": "light.light1", "data": {"name": "light2"} }
+```
 
+```json
 { "entity": "light.light1", "field: "/state", "data": {"on": true} }
+```
 
+```json
 { "field": "/config", "data": {"permitjoin": 60} }
+```
 
 #### Service `deconz.device_refresh`
 

@@ -6,8 +6,6 @@ ha_category:
   - System Monitor
 ha_release: 0.48
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.openhardwaremonitor/
 ---
 
 The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as a source for sensors that will display system information.

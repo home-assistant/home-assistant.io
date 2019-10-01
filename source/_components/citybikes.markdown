@@ -5,8 +5,6 @@ logo: citybikes.png
 ha_category:
   - Transport
 ha_release: 0.49
-redirect_from:
- - /components/sensor.citybikes/
 ---
 
 

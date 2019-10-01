@@ -5,8 +5,6 @@ logo: gitter.png
 ha_category:
   - Sensor
 ha_release: 0.47
-redirect_from:
- - /components/sensor.gitter/
 ---
 
 

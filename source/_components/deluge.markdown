@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.57
 ha_iot_class: Local Polling
-redirect_from:
- - /components/switch.deluge/
- - /components/sensor.deluge/
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -5,8 +5,6 @@ logo: sendgrid.png
 ha_category:
   - Notifications
 ha_release: 0.14
-redirect_from:
- - /components/notify.sendgrid/
 ---
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.

@@ -6,8 +6,6 @@ ha_category:
   - Switch
 ha_iot_class: Assumed State
 ha_release: 0.34
-redirect_from:
- - /components/switch.hook/
 ---
 
 The `hook` integration allows you to control the [Hook Smart Home Hub](http://www.hooksmarthome.com/) from within Home Assistant.

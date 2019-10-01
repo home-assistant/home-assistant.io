@@ -141,8 +141,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 -  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
 - __Netatmo__
-   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
-   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
+   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/components/netatmo#climate) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/components/netatmo#climate) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
 This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](/components/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
 - __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
@@ -704,7 +704,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@zemerick1]: https://github.com/zemerick1
 [@zewelor]: https://github.com/zewelor
 [air_quality docs]: /components/air_quality/
-[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
+[alarm_control_panel.manual_mqtt docs]: /components/manual_mqtt/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
 [alarmdecoder docs]: /components/alarmdecoder/
 [alert docs]: /components/alert/
@@ -717,20 +717,20 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [auth docs]: /components/auth/
 [automation docs]: /components/automation/
 [automation.mqtt docs]: /docs/automation/trigger/#mqtt-trigger
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
+[binary_sensor.trend docs]: /components/trend
+[binary_sensor.workday docs]: /components/workday
 [camera docs]: /components/camera/
 [camera.ffmpeg docs]: /components/camera.ffmpeg/
-[camera.generic docs]: /components/camera.generic/
-[camera.onvif docs]: /components/camera.onvif/
-[camera.proxy docs]: /components/camera.proxy/
-[camera.xeoma docs]: /components/camera.xeoma/
+[camera.generic docs]: /components/generic
+[camera.onvif docs]: /components/onvif
+[camera.proxy docs]: /components/proxy
+[camera.xeoma docs]: /components/xeoma
 [cast docs]: /components/cast/
 [cisco_mobility_express docs]: /components/cisco_mobility_express/
-[climate.ephember docs]: /components/climate.ephember/
-[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.netatmo docs]: /components/climate.netatmo/
+[climate.ephember docs]: /components/ephember
+[climate.eq3btsmart docs]: /components/eq3btsmart
+[climate.honeywell docs]: /components/honeywell
+[climate.netatmo docs]: /components/netatmo#climate
 [cloud docs]: /components/cloud/
 [config docs]: /components/config/
 [default_config docs]: /components/default_config/
@@ -749,24 +749,24 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [ifttt docs]: /components/ifttt/
 [ihc docs]: /components/ihc/
 [image_processing docs]: /components/image_processing/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[image_processing.tensorflow docs]: /components/image_processing.tensorflow/
+[image_processing.opencv docs]: /components/opencv
+[image_processing.tensorflow docs]: /components/tensorflow
 [knx docs]: /components/knx/
 [konnected docs]: /components/konnected/
 [lametric docs]: /components/lametric/
 [lifx docs]: /components/lifx/
 [light docs]: /components/light/
-[light.flux_led docs]: /components/light.flux_led/
-[light.ihc docs]: /components/light.ihc/
-[light.mystrom docs]: /components/light.mystrom/
-[light.nanoleaf docs]: /components/light.nanoleaf/
+[light.flux_led docs]: /components/flux_led
+[light.ihc docs]: /components/ihc#light
+[light.mystrom docs]: /components/mystrom#light
+[light.nanoleaf docs]: /components/nanoleaf
 [logbook docs]: /components/logbook/
 [lutron docs]: /components/lutron/
 [media_extractor docs]: /components/media_extractor/
-[media_player.anthemav docs]: /components/media_player.anthemav/
-[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
-[media_player.enigma2 docs]: /components/media_player.enigma2/
-[media_player.firetv docs]: /components/media_player.firetv/
+[media_player.anthemav docs]: /components/anthemav
+[media_player.dlna_dmr docs]: /components/dlna_dmr
+[media_player.enigma2 docs]: /components/enigma2
+[media_player.firetv docs]: /components/androidtv
 [mobile_app docs]: /components/mobile_app/
 [modbus docs]: /components/modbus/
 [mqtt docs]: /components/mqtt/
@@ -774,41 +774,41 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [ness_alarm docs]: /components/ness_alarm/
 [netatmo docs]: /components/netatmo/
 [notify docs]: /components/notify/
-[notify.sendgrid docs]: /components/notify.sendgrid/
+[notify.sendgrid docs]: /components/sendgrid
 [onboarding docs]: /components/onboarding/
 [openuv docs]: /components/openuv/
 [owntracks docs]: /components/owntracks/
 [ps4 docs]: /components/ps4/
 [rainmachine docs]: /components/rainmachine/
 [remote docs]: /components/remote/
-[remote.harmony docs]: /components/remote.harmony/
+[remote.harmony docs]: /components/harmony
 [satel_integra docs]: /components/satel_integra/
 [scene docs]: /components/scene/
 [script docs]: /components/script/
 [sense docs]: /components/sense/
-[sensor.arwn docs]: /components/sensor.arwn/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.discogs docs]: /components/sensor.discogs/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.flunearyou docs]: /components/sensor.flunearyou/
-[sensor.loopenergy docs]: /components/sensor.loopenergy/
-[sensor.mopar docs]: /components/sensor.mopar/
-[sensor.mqtt_room docs]: /components/sensor.mqtt_room/
-[sensor.netdata docs]: /components/sensor.netdata/
-[sensor.nmbs docs]: /components/sensor.nmbs/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.seventeentrack docs]: /components/sensor.seventeentrack/
-[sensor.starlingbank docs]: /components/sensor.starlingbank/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[sensor.whois docs]: /components/sensor.whois/
+[sensor.arwn docs]: /components/arwn
+[sensor.deutsche_bahn docs]: /components/deutsche_bahn
+[sensor.discogs docs]: /components/discogs
+[sensor.dsmr docs]: /components/dsmr
+[sensor.flunearyou docs]: /components/flunearyou
+[sensor.loopenergy docs]: /components/loopenergy
+[sensor.mopar docs]: /components/mopar
+[sensor.mqtt_room docs]: /components/mqtt_room
+[sensor.netdata docs]: /components/netdata
+[sensor.nmbs docs]: /components/nmbs
+[sensor.pollen docs]: /components/iqvia
+[sensor.seventeentrack docs]: /components/seventeentrack
+[sensor.starlingbank docs]: /components/starlingbank
+[sensor.synologydsm docs]: /components/synologydsm
+[sensor.systemmonitor docs]: /components/systemmonitor
+[sensor.waze_travel_time docs]: /components/waze_travel_time
+[sensor.whois docs]: /components/whois
 [smartthings docs]: /components/smartthings/
 [snips docs]: /components/snips/
 [sonos docs]: /components/sonos/
 [stream docs]: /components/stream/
-[switch.mystrom docs]: /components/switch.mystrom/
-[switch.vesync docs]: /components/switch.vesync/
+[switch.mystrom docs]: /components/mystrom#switch
+[switch.vesync docs]: /components/vesync#switches
 [tado docs]: /components/tado/
 [tellstick docs]: /components/tellstick/
 [tesla docs]: /components/tesla/

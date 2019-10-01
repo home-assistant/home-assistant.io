@@ -64,7 +64,7 @@ mode:
 
 <div class='note'>
 
-This platform is an alternative to the [`darksky`](/components/sensor.darksky/) sensor.
+This platform is an alternative to the [`darksky`](/components/darksky) sensor.
 
 </div>
 

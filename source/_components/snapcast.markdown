@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.snapcast/
 ---
 
 The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.

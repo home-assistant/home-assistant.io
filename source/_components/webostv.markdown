@@ -7,9 +7,6 @@ ha_category:
   - Notifications
 ha_iot_class: Local Polling
 ha_release: 0.18
-redirect_from:
- - /components/media_player.webostv/
- - /components/notify.webostv/
 ---
 
 The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Smart TV.

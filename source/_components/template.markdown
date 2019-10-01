@@ -7,8 +7,6 @@ ha_release: 0.12
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
-redirect_from:
- - /components/sensor.template/
 ---
 
 The `template` platform supports sensors which get their values from other entities.
@@ -313,7 +311,7 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) to get a daily update:
+This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/time_date) to get a daily update:
 
 {% raw %}
 

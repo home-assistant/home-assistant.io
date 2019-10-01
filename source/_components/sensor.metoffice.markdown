@@ -85,7 +85,7 @@ monitored_conditions:
 
 <div class='note'>
 
-This sensor is an alternative to the [`metoffice`](/components/weather.metoffice/) weather platform.
+This sensor is an alternative to the [`metoffice`](/components/metoffice/) weather platform.
 The weather platform is easier to configure but less customizable.
 
 </div>

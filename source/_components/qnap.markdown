@@ -6,8 +6,6 @@ ha_category:
   - System Monitor
 ha_release: 0.38
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.qnap/
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).

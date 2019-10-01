@@ -7,10 +7,6 @@ ha_category:
 ha_release: 0.33
 ha_iot_class: Local Push
 ha_qa_scale: internal
-redirect_from: 
-  - /components/sensor.api_stream/
-  - /components/sensor.api_streams/
-
 ---
 
 The `websocket_api` sensor platform shows how many clients are connected to the stream API.

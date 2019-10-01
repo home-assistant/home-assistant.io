@@ -183,7 +183,7 @@ Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.c
 
 As soon as the unit is online, you will get the state of the attached button.
 
-```
+```txt
 home/bathroom/status Connected
 ...
 home/bathroom/switch/button 1

@@ -10,11 +10,6 @@ ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 0.47
-redirect_from:
-  - /components/vacuum.dyson/
-  - /components/climate.dyson/
-  - /components/fan.dyson/
-  - /components/sensor.dyson/
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.

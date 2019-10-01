@@ -21,7 +21,7 @@ If you are going to use this certificate with the iOS app, you need to ensure yo
 * If you are using iOS 10.3 or newer then [additional steps](https://support.apple.com/en-us/HT204477) are needed.
 
 ```bash
-$ openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out certificate.pem
+openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out certificate.pem
 ```
 
 For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. 
@@ -41,8 +41,8 @@ A restart of Home Assistant is required for the changes to take effect.
 If you get any log error about *ssl_key* or *ssl_certificate* that is **not a file for dictionary value** when run Home Assistant, you need to change owner or access permission of the `.pem` files as following:
   
 ```bash
-$ sudo chown homeassistant:homeassistant certificate.pem privkey.pem
-$ sudo chmod 755 certificate.pem privkey.pem
+sudo chown homeassistant:homeassistant certificate.pem privkey.pem
+sudo chmod 755 certificate.pem privkey.pem
 ```
 
 A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)" could give you some insight about special cases.

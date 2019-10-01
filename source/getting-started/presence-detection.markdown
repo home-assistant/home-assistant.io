@@ -34,12 +34,12 @@ The map view will hide all devices that are home.
 </div>
 
 [routers]: /components/#presence-detection
-[nmap]: /components/device_tracker.nmap_tracker/
-[ha-bluetooth]: /components/device_tracker.bluetooth_tracker/
-[ha-bluetooth-le]: /components/device_tracker.bluetooth_le_tracker/
+[nmap]: /components/nmap_tracker
+[ha-bluetooth]: /components/bluetooth_tracker
+[ha-bluetooth-le]: /components/bluetooth_le_tracker
 [ha-owntracks]: /components/owntracks/
-[ha-locative]: /components/device_tracker.locative/
-[ha-gpslogger]: /components/device_tracker.gpslogger/
+[ha-locative]: /components/locative
+[ha-gpslogger]: /components/gpslogger
 [ha-presence]: /components/#presence-detection
 [mqtt-self]: /components/mqtt/#run-your-own
 [mqtt-cloud]: /components/mqtt/#cloudmqtt

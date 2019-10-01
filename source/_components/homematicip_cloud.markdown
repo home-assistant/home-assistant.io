@@ -13,14 +13,6 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.66
-redirect_from:
-  - /components/alarm_control_panel.homematicip_cloud/
-  - /components/binary_sensor.homematicip_cloud/
-  - /components/climate.homematicip_cloud/
-  - /components/cover.homematicip_cloud/
-  - /components/light.homematicip_cloud/
-  - /components/sensor.homematicip_cloud/
-  - /components/switch.homematicip_cloud/
 ---
 
 The [HomematicIP](http://www.homematic-ip.com) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.

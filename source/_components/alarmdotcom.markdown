@@ -5,8 +5,6 @@ logo: alarmdotcom.png
 ha_category:
   - Alarm
 ha_release: 0.11
-redirect_from:
- - /components/alarm_control_panel.alarmdotcom/
 ---
 
 The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).

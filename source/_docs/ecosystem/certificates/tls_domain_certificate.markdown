@@ -15,11 +15,11 @@ If your Home Assistant instance is only accessible from your local network you c
 ### Run certbot
 
 ```bash
-$ mkdir certbot
-$ cd certbot
-$ wget https://dl.eff.org/certbot-auto
-$ chmod a+x certbot-auto
-$ sudo ./certbot-auto --manual certonly --preferred-challenges dns -d "mydomain.com" --email your@email.address
+mkdir certbot
+cd certbot
+wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
+sudo ./certbot-auto --manual certonly --preferred-challenges dns -d "mydomain.com" --email your@email.address
 ```
 
 * Agree to Terms of Service

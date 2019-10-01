@@ -7,8 +7,6 @@ ha_category:
   - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 0.77
-redirect_from:
-  - /components/vacuum.ecovacs/
 ---
 
 The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
@@ -77,7 +75,7 @@ The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Dee
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 
-Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/components/sensor.template/):
+Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/components/template):
 
 {% raw %}
 ```yaml

@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.83
-redirect_from:
- - /components/sensor.launch_library/
 ---
 
 The `launch_library` sensor will provide you with information about the next planned space launch.

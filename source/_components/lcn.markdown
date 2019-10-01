@@ -13,10 +13,6 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Push
-redirect_from:
-  - /components/light.lcn/
-  - /components/switch.lcn/
-  - /components/cover.lcn/
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
@@ -339,7 +335,7 @@ Whenever the address of a module or a group has to be specified, it can be addre
 
 Example for modules:
 
-```
+```txt
 connid.s000.m007
 connid.s0.m7
 s0.m7
@@ -348,7 +344,7 @@ s0.m7
 
 Example for groups:
 
-```
+```txt
 connid.s000.g007
 connid.s0.g7
 s0.g7

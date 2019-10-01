@@ -6,12 +6,10 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.59
-redirect_from:
- - /components/device_tracker.unifi_direct/
 ---
 
 
-This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ubnt.com/products/#unifi). This device tracker differs form [Ubiquiti Unifi WAP](/components/device_tracker.unifi/) because it doesn't require the Unifi controller software.
+This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ubnt.com/products/#unifi). This device tracker differs form [Ubiquiti Unifi WAP](/components/unifi) because it doesn't require the Unifi controller software.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

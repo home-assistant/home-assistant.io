@@ -6,9 +6,6 @@ ha_category:
 logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: Local Push
-redirect_from:
- - /components/media_player.hdmi_cec/
- - /components/switch.hdmi_cec/
 ---
 
 The `hdmi_cec` integration provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -34,8 +31,8 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 Create a symlink to the `cec` installation including the _cec.so file. Keep in mind different installation methods will result in different locations of cec.
 
 ```bash
-$ ln -s /path/to/your/installation/of/cec.py /path/to/your/venv/lib/python*/site-packages
-$ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
+ln -s /path/to/your/installation/of/cec.py /path/to/your/venv/lib/python*/site-packages
+ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
 
 ```
 
@@ -44,9 +41,8 @@ $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/sit
 For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
-$ ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*/site-packages
-$ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
-
+ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*/site-packages
+ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
 ```
 
 <div class='note'>

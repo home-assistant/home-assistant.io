@@ -6,8 +6,6 @@ ha_category:
   - Cover
 ha_release: 0.67
 ha_iot_class: Local Polling
-redirect_from:
- - /components/cover.gogogate2/
 ---
 
 The `gogogate2` cover platform lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.

@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_release: 0.88
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/climate.xs1/
-  - /components/sensor.xs1/
-  - /components/switch.xs1/
 ---
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) integration for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official docs for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).

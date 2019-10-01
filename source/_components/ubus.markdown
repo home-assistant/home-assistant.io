@@ -5,11 +5,9 @@ logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.6
-redirect_from:
- - /components/device_tracker.ubus/
 ---
 
-_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/openwrt)._
 
 This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
@@ -103,11 +101,11 @@ logger:
     homeassistant.components.device_tracker: debug
 ```
 3. In another window, tail the logfile in the configuration directory:
-```
+```bash
 $ tail -f home-assistant.log  | grep device_tracker
 ```
 4. If you see a python stack trace like the following, check your configuration for correct username/password.
-```
+```txt
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker from homeassistant.components.device_tracker
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker.ubus from homeassistant.components.device_tracker.ubus
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
@@ -122,7 +120,7 @@ $ tail -f home-assistant.log  | grep device_tracker
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling <Event component_loaded[L]: component=device_tracker>
 ```
 5. If you see lines like the following repeated at intervals that correspond to the check interval from the config (12 seconds by default), then Home Assistant is correctly polling the router, and you'll need to look at what the router is sending back.
-```
+```txt
 17-04-28 10:50:34 INFO (Thread-7) [homeassistant.components.device_tracker.ubus] Checking ARP
 ```
 
@@ -140,7 +138,7 @@ $ sudo tcpdump -nnvXSs 0 -w /var/tmp/dt.out 'host <router_ip> and port 80'
 6. Transfer `/var/tmp/dt.out` to the machine where you're running Wireshark and either drag/drop it onto the Wireshark window or use File/Open to open the capture file.
 7. In the window that opens, look for the first line that reads `POST /ubus`. Right click on this line, choose Follow and then HTTP Stream to view just the HTTP stream for this connection.
 8. The first `POST` will show Home Assistant logging into ubus and receiving a session identifier back. It will look something like this:
-```
+```txt
 POST /ubus HTTP/1.1
 Host: 10.68.0.1
 Accept: */*
@@ -160,7 +158,7 @@ Connection: keep-alive
 ```
 9. In the response above, the portion that reads `"result":[0,` indicates that ubus accepted the login without issue. If this is not `0`, search online for what ubus status corresponds to the number you're receiving and address any issues that it brings to light.
 10. Otherwise, back in the main Wireshark window click the `x` in the right side of the filter bar where it reads `tcp.stream eq 0`. Scroll down until you find the next `POST /ubus` line and view the HTTP stream again. This request is Home Assistant actually requesting information and will look something like the following:
-```
+```txt
 POST /ubus HTTP/1.1
 Host: 10.68.0.1
 Accept: */*

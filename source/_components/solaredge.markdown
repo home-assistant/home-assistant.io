@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_release: 0.85
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.solaredge/
 ---
 
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
@@ -52,7 +50,7 @@ name:
 
 ## Full configuration example
 
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/sensor.template/).
+In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/template).
 
 {% raw %}
 ```yaml

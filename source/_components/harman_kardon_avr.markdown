@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.85
-redirect_from:
- - /components/media_player.harman_kardon_avr/
 ---
 
 The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.

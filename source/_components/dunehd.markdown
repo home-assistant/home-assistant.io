@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.34
-redirect_from:
- - /components/media_player.dunehd/
 ---
 
 

@@ -5,8 +5,6 @@ logo: home-assistant.png
 ha_category:
   - Image Processing
 ha_release: 0.87
-redirect_from:
- - /components/image_processing.qrcode/
 ---
 
 The `qrcode` image processing platform enables QR code recognition from cameras.

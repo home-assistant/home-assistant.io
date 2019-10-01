@@ -72,7 +72,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
 Supported abbreviations:
-```
+```txt
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
@@ -207,7 +207,7 @@ Supported abbreviations:
 ```
 
 Supported abbreviations for device registry configuration:
-```
+```txt
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',

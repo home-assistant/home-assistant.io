@@ -1,6 +1,6 @@
 ---
 title: "Emulated Hue Bridge"
-description: "Instructions on how to emulated Hue Bridge within Home Assistant."
+description: "Instructions on how to emulate a Hue Bridge within Home Assistant."
 logo: home-assistant.png
 ha_category:
   - Hub
@@ -31,6 +31,8 @@ It is recommended to assign a static IP address to the computer running Home Ass
 
 Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/emulated_hue_ids.json` file, delete the original one and reboot your Home Assistant instance.
 
+If you added or upgraded to a newer Alexa device and devices are not found, you must change to listen_port: 80. If Alexa responds with "value is out of range for device..." it means switches were automatically added as lights in discovery. Remove each device in the Alexa app. Turn on all the switches in Home Assistant. In the Alexa app go to "Add New Device" select "Switch" and then "other" to add them correctly.
+
 </div>
 
 ### Configuration
@@ -47,9 +49,9 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-# Required if there is no older Echo device (Like an Echo Dot 1 or 2) in the same network
   host_ip: YOUR.HASSIO.IP.ADDRESS
   listen_port: 80
+  # Alexa stopped working on different ports. Search for "Philipps Hue Bridge V1 (round)" in the Alexa App to discover devices.
 ```
 
 {% configuration %}
@@ -63,7 +65,7 @@ host_ip:
   required: false
   type: string
 listen_port:
-  description: The port the Hue bridge API web server will run on. This can be any free port on your system.
+  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80." 
   required: false
   type: integer
   default: 8300

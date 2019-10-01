@@ -5,8 +5,6 @@ logo: llamalab_automate.png
 ha_category:
   - Notifications
 ha_release: 0.27
-redirect_from:
- - /components/notify.llamalab_automate/
 ---
 
 The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.

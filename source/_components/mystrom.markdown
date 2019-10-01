@@ -8,10 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
-redirect_from:
- - /components/light.mystrom/
- - /components/binary_sensor.mystrom/
- - /components/switch.mystrom/
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
@@ -110,7 +106,7 @@ The endpoint that is receiving the data is `http://[IP address Home Assistant]:8
 
 With `api_password:`
 
-```
+```bash
 $ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?api_password%3D[api_password]%26[action]%3D[ID of the button]" \
     http://[IP address of the button]/api/v1/device/[MAC address of the button]
 ```
@@ -204,7 +200,7 @@ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 
 ### Get the current power consumption
 
-The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
+The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/template).
 
 {% raw %}
 ```yaml

@@ -10,11 +10,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_release: "0.50"
-redirect_from:
-  - /components/climate.velbus/
-  - /components/sensor.velbus/
-  - /components/binary_sensor.velbus/
-  - /components/switch.velbus/
 ---
 
 The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.

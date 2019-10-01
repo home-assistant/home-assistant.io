@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.36
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.bbb_gpio/
-  - /components/switch.bbb_gpio/
 ---
 
 The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.

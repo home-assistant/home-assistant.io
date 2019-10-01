@@ -8,10 +8,6 @@ ha_category:
   - Sensor
 ha_release: "0.60"
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/alarm_control_panel.canary/
-  - /components/camera.canary/
-  - /components/sensor.canary/
 ---
 
 The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.

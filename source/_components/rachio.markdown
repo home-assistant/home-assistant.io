@@ -8,9 +8,6 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
-redirect_from:
-  - /components/binary_sensor.rachio/
-  - /components/switch.rachio/
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](http://rachio.com/).

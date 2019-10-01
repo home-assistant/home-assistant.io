@@ -5,8 +5,6 @@ ha_category:
   - Presence Detection
 logo: linksys.png
 ha_release: 0.48
-redirect_from:
- - /components/device_tracker.linksys_smart/
 ---
 
 The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based router.

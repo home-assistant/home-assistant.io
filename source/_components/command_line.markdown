@@ -6,8 +6,6 @@ ha_category:
   - Utility
 ha_release: 0.12
 ha_iot_class: Local Polling
-redirect_from:
- - /components/binary_sensor.command_line/
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.
@@ -114,13 +112,13 @@ binary_sensor:
     payload_off: "fail"
 ```
 
-Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
+Consider to use the [`ping` sensor ](/components/ping#binary-sensor) as an alternative to the samples above.
 
 ### Check if a system service is running
 
 The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
 
-```
+```bash
 $ systemctl is-active home-assistant@rock64.service
 active
 $ sudo service home-assistant@rock64.service stop

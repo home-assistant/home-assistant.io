@@ -159,7 +159,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   * The IQVIA component no longer provides historical data for allergen and asthma conditions. Tactically, this means all historical sensors – including "Yesterday" sensors – will no longer appear; users will need to update any automations that previously relied on these sensors. ([@bachya] - [#23258]) ([iqvia docs])
 
     Example configuration:
-    ```
+    ```yaml
     iqvia:
       zip_code: "12345"
     ```
@@ -177,7 +177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Epson Workforce__ - This change adds the option to add photo black cartridge as a setting. It also corrects the spelling of "Inklevel" to "Ink level"([@ThaStealth] - [#23433]) ([epsonworkforce docs])
 
   Example configuration:
-  ```
+  ```yaml
     - platform: epsonworkforce
       host: IP_ADDRESS
       monitored_conditions:
@@ -196,7 +196,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Sesame Smart Lock__ - The Sesame smart lock's 1.0 API uses a username/password pair to authenticate, and may be deprecated in the future. The V3 API uses an API key, so it will require users to update their HA config. ([@zanglang] - [#23621]) ([sesame docs])
 
   Example configuration:
-  ```
+  ```yaml
   lock:
     - platform: sesame
       api_key: !secret sesame_api_key
@@ -779,7 +779,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geniushub docs]: /components/geniushub/
 [geofency docs]: /components/geofency/
 [glances docs]: /components/glances/
-[google docs]: /components/google/
+[google docs]: /components/google_translate
 [google_assistant docs]: /components/google_assistant/
 [greeneye_monitor docs]: /components/greeneye_monitor/
 [hangouts docs]: /components/hangouts/
@@ -828,7 +828,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [panasonic_bluray docs]: /components/panasonic_bluray/
 [philips_js docs]: /components/philips_js/
 [plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
+[pollen docs]: /components/iqvia
 [ps4 docs]: /components/ps4/
 [ptvsd docs]: /components/ptvsd/
 [rainmachine docs]: /components/rainmachine/

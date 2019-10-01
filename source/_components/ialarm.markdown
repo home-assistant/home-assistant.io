@@ -5,8 +5,6 @@ logo: antifurto365-ialarm.png
 ha_category:
   - Alarm
 ha_release: "0.60"
-redirect_from:
- - /components/alarm_control_panel.ialarm/
 ---
 
 The `ialarm` platform provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarm alarm systems.

@@ -5,8 +5,6 @@ logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
-redirect_from:
- - /components/device_tracker.luci/
 ---
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/openwrt/)._

@@ -69,7 +69,7 @@ automation:
       data:
         entity_id: media_player.nursery
 ```
-A little bit more complex example that uses [`input_select`](/components/input_select/) and template to decide what to play, and which [Chromecast](components/media_player.cast/) to play on.
+A little bit more complex example that uses [`input_select`](/components/input_select/) and template to decide what to play, and which [Chromecast](/components/cast/) to play on.
 
 ```yaml
 input_select:

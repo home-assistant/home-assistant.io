@@ -6,8 +6,6 @@ ha_category:
   - Weather
 ha_release: 0.85
 ha_iot_class: Cloud Push
-redirect_from:
- - /components/sensor.ambient_station/
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

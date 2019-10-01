@@ -11,10 +11,6 @@ ha_category:
   - Light
   - Sensor
   - Switch
-redirect_from:
-  - /components/light.tradfri/
-  - /components/sensor.tradfri/
-  - /components/switch.tradfri/
 ---
 
 The `tradfri` integration support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge). The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it and Home Assistant will automatically discover the gateways presence on your local network, if `discovery:` is present in your `configuration.yaml` file.

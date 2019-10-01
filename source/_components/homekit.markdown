@@ -242,7 +242,7 @@ automation:
 ```
 {% endraw %}
 
-In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding and additional `binary_sensor` as follows:
+In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding an additional `binary_sensor` as follows:
 
 {% raw %}
 ```yaml
@@ -307,7 +307,7 @@ Filters are applied as follows:
 
 ## Safe Mode
 
-The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Paring hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
+The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Pairing hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
 
 To use `safe_mode`, add the option to your `homekit` config:
 
@@ -397,7 +397,7 @@ This is often setup and network related. Make sure to check the other issues bel
 - Try with WIFI **and** LAN
 - Change the default [port](#port)
 
-Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
+Remember that the iOS device needs to be in the same local network as the Home Assistant device for pairing.
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 

@@ -6,8 +6,6 @@ ha_category:
   - Binary Sensor
 ha_iot_class: Local Push
 ha_release: 0.35
-redirect_from:
- - /components/binary_sensor.flic/
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
@@ -91,7 +89,7 @@ Event data:
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 
-To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/components/notify.html5/). Visit the [notification integration page](/components/notify/) for more information on setting up notifications.
+To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/components/html5). Visit the [notification integration page](/components/notify/) for more information on setting up notifications.
 
 ```yaml
 automation:

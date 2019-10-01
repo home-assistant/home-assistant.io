@@ -6,8 +6,6 @@ ha_category:
   - Light
 ha_release: 0.7.6
 ha_iot_class: Local Polling
-redirect_from:
- - /components/light.hyperion/
 ---
 
 The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
@@ -80,7 +78,7 @@ automation:
 
 To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
 
-```
+```yaml
 - alias: Set hyperion effect after playback
   trigger:
     - platform: state
@@ -101,7 +99,7 @@ To have the lights playing a effect when pausing, idle or turn off a media playe
 
 To capture the screen when playing something of a media_player you can use this example:
 
-```
+```yaml
 - alias: Set hyperion when playback starts
   trigger:
     - platform: state

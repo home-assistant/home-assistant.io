@@ -9,10 +9,6 @@ ha_category:
 ha_release: 0.58
 logo: vultr.png
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.vultr/
-  - /components/sensor.vultr/
-  - /components/switch.vultr/
 ---
 
 The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.

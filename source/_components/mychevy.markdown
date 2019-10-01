@@ -6,9 +6,6 @@ ha_category:
   - Car
 ha_release: 0.62
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.mychevy/
-  - /components/sensor.mychevy/
 ---
 
 The `mychevy` integration communicates with the [my.chevrolet](https://my.chevrolet.com) website using the javascript API that the website uses (as of Dec 2018). The MyChevy website has been known to be both unstable (interfaces changing somewhat willy nilly) and has substantial outages. So be forwarned in using this component.

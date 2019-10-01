@@ -5,8 +5,6 @@ logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.42
-redirect_from:
- - /components/telegram_bot.webhooks/
 ---
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
@@ -66,7 +64,7 @@ trusted_networks:
   default: 149.154.160.0/20, 91.108.4.0/22
 {% endconfiguration %}
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
+To get your `chat_id` and `api_key` follow the instructions [here](/components/telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
 
 ## Full configuration example
 

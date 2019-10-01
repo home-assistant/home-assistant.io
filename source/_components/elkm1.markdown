@@ -12,13 +12,6 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-redirect_from:
-  - /components/alarm_control_panel.elkm1/
-  - /components/climate.elkm1/
-  - /components/light.elkm1/
-  - /components/scene.elkm1/
-  - /components/sensor.elkm1/
-  - /components/switch.elkm1/
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.

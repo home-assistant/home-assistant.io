@@ -6,8 +6,6 @@ ha_category:
   - Mailbox
 ha_release: 0.25
 ha_iot_class: Cloud Push
-redirect_from:
- - /components/sensor.imap/
 ---
 
 The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.

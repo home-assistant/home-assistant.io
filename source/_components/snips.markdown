@@ -24,18 +24,18 @@ Snips takes voice or text as input and produces *intents* as output, which are e
 The Snips platform can be installed via the Snips APT/Debian repository.
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install -y dirmngr
-$ sudo bash -c  'echo "deb https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
-$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
-$ sudo apt-get update
-$ sudo apt-get install -y snips-platform-voice
+sudo apt-get update
+sudo apt-get install -y dirmngr
+sudo bash -c  'echo "deb https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
+sudo apt-get update
+sudo apt-get install -y snips-platform-voice
 ```
 
 Note that if the keyserver pgp.mit.edu is down then try to use another one in the 4th line, like pgp.surfnet.nl:
 
 ```bash
-$ sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
+sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 ```
 
 ### Creating an assistant
@@ -45,13 +45,13 @@ Head over to the [Snips Console](https://console.snips.ai) to create your assist
 The next step is to get the assistant to work on your device. Unzip and copy the `assistant` folder that you downloaded from the web console to the path. Assuming your downloaded `assistant` folder is on your desktop, just run:
 
 ```bash
-$ scp -r ~/Desktop/assistant pi@<raspi_hostname.local_or_IP>:/home/pi/.
+scp -r ~/Desktop/assistant pi@<raspi_hostname.local_or_IP>:/home/pi/.
 ```
 
 Now ssh into your Raspberry Pi:
 
 ```bash
-$ ssh pi@<raspi_hostname.local_or_IP>
+ssh pi@<raspi_hostname.local_or_IP>
 ```
 
 By default, this command is `ssh pi@raspberrypi.local`, if you are using the default Raspberry Pi hostname.
@@ -76,7 +76,7 @@ Make sure that a microphone is plugged to the Raspberry Pi. If you are having tr
 Start the Snips Voice Platform by starting the `snips-*` services:
 
 ```bash
-$ sudo systemctl start "snips-*"
+sudo systemctl start "snips-*"
 ```
 
 Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say
@@ -266,7 +266,7 @@ intent_script:
 
 ##### Weather
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/components/sensor.darksky/) and the `api_key` in the `secrets.yaml` file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/components/darksky) and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky

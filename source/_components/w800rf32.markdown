@@ -7,8 +7,6 @@ ha_category:
   - Binary Sensor
 ha_release: 0.83
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.w800rf32/
 ---
 
 The `w800rf32` integration supports W800RF32 devices by [WGL Designs](http://www.wgldesigns.com/w800.html) which

@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 logo: tikteck.png
 ha_release: 0.36
-redirect_from:
- - /components/light.tikteck/
 ---
 
 Support for the Bluetooth smart bulb from [Tikteck](http://www.tikteck.com). To enable these lights, add the following lines to your `configuration.yaml` file:
@@ -43,7 +41,7 @@ devices:
 
 The password can be obtained from an Android device using an app like [aLogcat](https://play.google.com/store/apps/details?id=rs.pedjaapps.alogcatroot.app&hl=en) or the `adb logcat` command for phones in developer mode. Look for a line like:
 
-```
+```txt
 E LedoBleSDK: login =skName=======[Smart Light]=======skPw==[password]
 ```
 

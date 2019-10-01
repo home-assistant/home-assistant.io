@@ -14,22 +14,22 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 
 <img src='/images/supported_brands/radiotherm.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/firetv.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' /><img src='/images/supported_brands/locative.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' />
 
- - Device tracker: Newer [TP-Link routers](/components/device_tracker.tplink/) now supported ([@mKeRix](https://github.com/mKeRix))
- - Alarm Control Panel: [Manual alarm](/components/alarm_control_panel.manual/) added ([@sfam](https://github.com/sfam))
+ - Device tracker: Newer [TP-Link routers](/components/tplink) now supported ([@mKeRix](https://github.com/mKeRix))
+ - Alarm Control Panel: [Manual alarm](/components/manual) added ([@sfam](https://github.com/sfam))
  - Thermostat: [Radiotherm](/components/radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
- - Media Player: [Amazon FireTV](/components/media_player.firetv/) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
- - Device Tracker: [Geofancy](/components/device_tracker.locative/) now supported (@wind-rider)
+ - Media Player: [Amazon FireTV](/components/androidtv) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
+ - Device Tracker: [Geofancy](/components/locative) now supported (@wind-rider)
  - New component [Shell Command](/components/shell_command/) can expose shell commands as services ([@balloob](https://github.com/balloob))
  - [Scripts](/components/script/) can now be customized using `customize` key in `configuration.yaml` ([@balloob](https://github.com/balloob))
- - Light: [Hyperion](/components/light.hyperion/) now supported (@MakeMeASandwich)
- - Sensor: [aRest](/components/sensor.arest/) can now also read out pins ([@balloob](https://github.com/balloob))
- - Sensor: [Forecast.io](/components/sensor.forecast/) now supports specifying units in `configuration.yaml` ([@balloob](https://github.com/balloob))
+ - Light: [Hyperion](/components/hyperion) now supported (@MakeMeASandwich)
+ - Sensor: [aRest](/components/arest#sensor) can now also read out pins ([@balloob](https://github.com/balloob))
+ - Sensor: [Forecast.io](/components/darksky) now supports specifying units in `configuration.yaml` ([@balloob](https://github.com/balloob))
  - Thermostat: [Heat Control](/components/thermostat.heat_control/) has been completely rewritten ([@balloob](https://github.com/balloob))
  - Switch: [Rest](/components/switch.rest/) now supported ([@bachp](https://github.com/bachp))
- - Media Player: [Plex](/components/media_player.plex/) can now be auto discovered and configure itself ([@tomduijf](https://github.com/tomduijf))
+ - Media Player: [Plex](/components/plex#media-player) can now be auto discovered and configure itself ([@tomduijf](https://github.com/tomduijf))
  - [Downloader](/components/downloader/) will now treat relative paths based on config dir ([@tomduijf](https://github.com/tomduijf))
  - Line Charts will use interpolation for sensor data and show current and target temperature for thermostats ([@balloob](https://github.com/balloob))
- - Device Tracker: [OpenWRT via ubus](/components/device_tracker.ubus/) now supported ([@krzynio](https://github.com/krzynio))
+ - Device Tracker: [OpenWRT via ubus](/components/ubus) now supported ([@krzynio](https://github.com/krzynio))
 
 <!--more-->
 

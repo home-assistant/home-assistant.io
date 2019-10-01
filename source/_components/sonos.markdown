@@ -7,7 +7,6 @@ ha_category:
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Polling
-redirect_from: /components/media_player.sonos/
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio integrations from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.

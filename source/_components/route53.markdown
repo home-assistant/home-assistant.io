@@ -29,7 +29,7 @@ On the AWS side, you need to do the following;
 
 Here is an IAM Policy sample, don't forget to update your Zone ID on the Resource line.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

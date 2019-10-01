@@ -8,9 +8,6 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.82
-redirect_from:
-  - /components/sensor.sense/
-  - /components/binary_sensor.sense/
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

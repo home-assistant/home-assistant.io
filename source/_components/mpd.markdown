@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.mpd/
 ---
 
 

@@ -9,9 +9,6 @@ ha_category:
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/sensor.arduino/
-  - /components/switch.arduino/
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection.

@@ -46,7 +46,7 @@ homeassistant:
 
 The file `my_package.yaml` contains the "top-level" configuration:
 
-```
+```yaml
 switch:
   - platform: rest
     ...

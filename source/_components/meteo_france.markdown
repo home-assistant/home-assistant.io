@@ -8,9 +8,6 @@ ha_category:
   - Hub
   - Sensor
   - Weather
-redirect_from:
-  - /components/sensor.meteo_france/
-  - /components/weather.meteo_france/
 ---
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.

@@ -6,8 +6,6 @@ ha_category:
   - Energy
 ha_release: 0.85
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.prezzibenzina/
 ---
 
 The `prezzibenzina` platform allows you to monitor the fuel prices with [PrezziBenzina.it](https://www.prezzibenzina.it/) from within Home Assistant and setup automations based on the information.

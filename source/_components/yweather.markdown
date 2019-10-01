@@ -7,14 +7,11 @@ ha_category:
   - Sensor
 ha_release: 0.24
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.yweather/
- - /components/weather.yweather/
 ---
 
 <div class='note warning'>
 
-The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`darksky` sensor](/components/sensor.darksky/).
+The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`darksky` sensor](/components/darksky).
 
 </div>
 

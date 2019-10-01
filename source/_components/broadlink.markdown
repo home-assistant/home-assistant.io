@@ -7,9 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
-redirect_from:
- - /components/switch.broadlink/
- - /components/sensor.broadlink/
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -207,7 +204,7 @@ slots:
       type: string
 {% endconfiguration %}
 
-Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
+Information about how to install on Windows can be found [here](/components/broadlink#sensor#microsoft-windows-installation).
 
 ### How to obtain IR/RF packets?
 

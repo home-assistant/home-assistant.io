@@ -5,8 +5,6 @@ logo: hipchat.png
 ha_category:
   - Notifications
 ha_release: 0.52
-redirect_from:
- - /components/notify.hipchat/
 ---
 
 <div class='note'>

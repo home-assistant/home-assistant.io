@@ -803,7 +803,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rejseplanen docs]: /components/rejseplanen/
 [remote docs]: /components/remote/
 [ring docs]: /components/ring/
-[ritassist docs]: /components/ritassist/
+[ritassist docs]: /components/fleetgo
 [roku docs]: /components/roku/
 [roomba docs]: /components/roomba/
 [samsungtv docs]: /components/samsungtv/

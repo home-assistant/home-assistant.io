@@ -76,30 +76,30 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [@rhooper]: https://github.com/rhooper/
 [@turbokongen]: https://github.com/turbokongen/
 [@w1ll1am23]: https://github.com/w1ll1am23/
-[envi-alarm]: /components/alarm_control_panel.envisalink/
-[envi-binary-sensor]: /components/binary_sensor.envisalink/
-[envi-sensor]: /components/sensor.envisalink/
+[envi-alarm]: /components/envisalink
+[envi-binary-sensor]: /components/envisalink
+[envi-sensor]: /components/envisalink
 [Envisalink]: /components/envisalink/
 [HDMI-CEC]: /components/hdmi_cec/
-[hm-binary-sensor]: /components/binary_sensor.homematic/
-[hm-light]: /components/light.homematic/
+[hm-binary-sensor]: /components/homematic
+[hm-light]: /components/homematic
 [hm-rollershutter]: /components/homematic/
-[hm-sensor]: /components/sensor.homematic/
-[hm-switch]: /components/switch.homematic/
+[hm-sensor]: /components/homematic
+[hm-switch]: /components/homematic
 [Homematic]: /components/homematic/
-[Netatmo]: /components/sensor.netatmo/
-[OneWire]: /components/sensor.onewire/
-[OpenExchangeRates]: /components/sensor.openexchangerates/
-[Pushover]: /components/notify.pushover/
+[Netatmo]: /components/netatmo#sensor
+[OneWire]: /components/onewire
+[OpenExchangeRates]: /components/openexchangerates
+[Pushover]: /components/pushover
 [secrets]: /topics/secrets/
-[Vera]: /components/lock.vera/
+[Vera]: /components/vera
 [Wink]: /components/wink/
 [zwave-garage-door]: /components/zwave/#cover
-[zwave-light]: /components/light.zwave/
+[zwave-light]: /components/zwave
 [zwave-rollershutter]: /components/zwave/#cover
-[Fixer.io]: /components/sensor.fixer/
+[Fixer.io]: /components/fixer
 [persistent notifications]: /components/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
-[Sony Bravia TV]: /components/media_player.braviatv/
+[Sony Bravia TV]: /components/braviatv
 [Raspberry Pi GPIO pins]: /components/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

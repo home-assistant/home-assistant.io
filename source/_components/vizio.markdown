@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.49
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.vizio/
 ---
 
 The `vizio` integration will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
@@ -33,7 +31,7 @@ $ pip3 install -I .
 ```
 
 Find your device using the following command:
-```
+```txt
 pyvizio --ip=0 discover
 ```
 

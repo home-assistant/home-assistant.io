@@ -7,8 +7,6 @@ ha_iot_class: Local Push
 logo: home-assistant.png
 ha_release: 0.52
 ha_qa_scale: internal
-redirect_from:
- - /components/sensor.version/
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.
@@ -82,7 +80,7 @@ sensor:
     command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
 ```
 
-You might think that a [`rest` sensor](/components/sensor.rest/) could work,
+You might think that a [`rest` sensor](/components/rest) could work,
 too,
 but it will not as Home Assistant is not ready when the sensor gets initialized.
 

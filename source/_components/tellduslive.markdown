@@ -13,12 +13,6 @@ ha_release: 0.11
 ha_config_flow: true
 ha_qa_scale: gold
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.tellduslive/
-  - /components/cover.tellduslive/
-  - /components/light.tellduslive/
-  - /components/sensor.tellduslive/
-  - /components/switch.tellduslive/
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.

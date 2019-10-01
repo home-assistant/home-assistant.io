@@ -41,7 +41,7 @@ The user starts by picking one of their devices that is integrated into Home Ass
 
 Device automations are available for triggers, conditions and actions. Today’s release supports lights, switches and Deconz. More to come in future releases as integration developers adopt it.
 
-Big thanks to [@emontomery] for driving this effort. He added initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
+Big thanks to [@emontnemery] for driving this effort. He added initial support for device automations as a YAML-only feature in Home Assistant 0.97 and has worked hard to extend it in this release with UI support and support for conditions, actions and more integrations. Also a big thanks to [@kane610] who added added support for device automations to Deconz which helped squash bugs and improve the design.
 
 ## Frontend
 
@@ -165,6 +165,19 @@ Forgot to include frontend update 99.1.
 - fix continue integration flow ([#3766](https://github.com/home-assistant/home-assistant-polymer/pull/3766)) [@bramkragten]
 - Show toast on success save entity settings ([#3763](https://github.com/home-assistant/home-assistant-polymer/pull/3763)) [@bramkragten]
 - Align behaviour state badge ([#3767](https://github.com/home-assistant/home-assistant-polymer/pull/3767)) [@bramkragten]
+
+## Release 0.99.3 - September 25
+
+- Bump zigpy-zigate to 0.3.1 ([@doudz] - [#26600]) ([zha docs])
+- HM-CC-TC was not recognized ([@MajestyIV] - [#26623]) ([homematic docs])
+- Bring back babel for ES5 builds @bramkragten
+
+[#26600]: https://github.com/home-assistant/home-assistant/pull/26600
+[#26623]: https://github.com/home-assistant/home-assistant/pull/26623
+[@majestyiv]: https://github.com/MajestyIV
+[@doudz]: https://github.com/doudz
+[homematic docs]: /components/homematic/
+[zha docs]: /components/zha/
 
 ## If you need help...
 
@@ -792,7 +805,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [webhook docs]: /components/webhook/
 [withings docs]: /components/withings/
 [wwlln docs]: /components/wwlln/
-[xiaomi docs]: /components/xiaomi/
+[xiaomi docs]: /components/xiaomi_aqara
 [yeelight docs]: /components/yeelight/
 [zha docs]: /components/zha/
 [zhong_hong docs]: /components/zhong_hong/

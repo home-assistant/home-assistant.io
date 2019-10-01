@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.81
-redirect_from:
- - /components/media_player.lg_soundbar/
 ---
 
 The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.com/us/sound-bars) from Home Assistant.

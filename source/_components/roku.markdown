@@ -8,9 +8,6 @@ ha_category:
   - Remote
 ha_iot_class: Local Polling
 ha_release: 0.86
-redirect_from:
-  - /components/remote.roku/
-  - /components/media_player.roku/
 ---
 
 The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
@@ -95,7 +92,7 @@ When the Home Assistant Roku integration is enabled and has found a Roku device,
 
 The api calls are like this:
 
-```
+```txt
 GET http:// ROKU_IP:8060/query/apps
 POST http://ROKU_IP:8060/launch/APP_ID
 ```
@@ -104,10 +101,10 @@ More details can be found on the [Roku dev pages](https://developer.roku.com/doc
 
 To use this in Home Assistant, for instance in an automation, the format is as follows. Note that ```source: ``` is the appID you discovered in the API call:
 
-```
-  action:
-  - data:
-      entity_id: media_player.roku
-      source: 20197
-    service: media_player.select_source
+```yaml
+action:
+- data:
+    entity_id: media_player.roku
+    source: 20197
+  service: media_player.select_source
 ```

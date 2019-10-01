@@ -6,8 +6,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: "0.50"
-redirect_from:
- - /components/sensor.uk_transport/
 ---
 
 The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](http://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](http://www.transportapi.com/plans/) allows 1000 requests daily, which is sufficient for a single sensor refreshing every 87 seconds.
@@ -78,7 +76,7 @@ These attributes are available for each departing train:
 
 Refer to the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json) for definitions.
 
-Attributes can be accessed using the [template sensor](/components/sensor.template/) as per this example:
+Attributes can be accessed using the [template sensor](/components/template) as per this example:
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.

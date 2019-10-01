@@ -6,8 +6,6 @@ ha_category:
   - Hub
   - Notifications
 ha_release: 0.24
-redirect_from:
-  - /components/notify.joaoapps_join/
 ---
 
 The `joaoapps_join` integration exposes services from

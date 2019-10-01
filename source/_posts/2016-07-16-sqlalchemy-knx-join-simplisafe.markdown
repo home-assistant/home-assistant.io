@@ -15,8 +15,8 @@ It's time for Home Assistant 0.24 and it's full of new integration for your Home
 [Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
 ```bash
-$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
+pip3 install SQLAlchemy
+hass --script db_migrator --config /path/to/config
 ```
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
@@ -73,25 +73,25 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@Danielhiversen]: https://github.com/danielhiversen
 
 
-[apcupsd-sensor]: /components/sensor.apcupsd/
+[apcupsd-sensor]: /components/apcupsd#sensor
 [Brightness]: /components/light/
 [CARTO]: https://carto.com/
-[Google Travel]: /components/sensor.google_travel_time/
+[Google Travel]: /components/google_travel_time
 [imap-sensor]: /component/sensor.imap/
 [join-joaoapps]: /components/joaoapps_join/
-[join-notify]: /components/notify.joaoapps_join/
+[join-notify]: /components/joaoapps_join
 [KNX]: /components/knx/
 [MapQuest]: https://www.mapquest.com/
-[Plex]: /components/media_player.plex/
+[Plex]: /components/plex#media-player
 [Radiotherm]: /components/radiotherm/
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
-[simplisafe]: /components/alarm_control_panel.simplisafe/
+[simplisafe]: /components/simplisafe
 [SQLAlchemy]: http://www.sqlalchemy.org/
 [StatsD]: /components/statsd/
-[Telegram]: /components/notify.telegram/
-[TPLink]: /components/switch.tplink/
-[Verisure]: /components/lock.verisure/
-[yahoo-weather]: /components/sensor.yweather/
+[Telegram]: /components/telegram
+[TPLink]: /components/tplink
+[Verisure]: /components/verisure
+[yahoo-weather]: /components/yweather
 [Z-Wave]: /components/zwave/
 [RFXtrx]: /components/rfxtrx/

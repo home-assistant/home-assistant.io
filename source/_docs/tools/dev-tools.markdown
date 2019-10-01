@@ -12,8 +12,9 @@ Screenshot of Home Assistant's Developer Tools.
 
 | Section |Description |
 | ------- |----- |
-| Services | Calls services from integrations |
 | States | Sets the representation of an entity |
+| Services | Calls services from integrations |
+| Logs | Displays contents of Home Assistant log file |
 | Events | Fires events |
 | Templates | Renders templates |
 | Info | Details about Home Assistant |
@@ -92,6 +93,12 @@ This section is only visible if the MQTT integration is configured. To configure
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 
+
+## Logs
+
+This section displays `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
+
+
 ## Info
 
-The Information tab simply provides information about the current installed version, additional links and credits. The tab also contains a section that shows `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
+The Information tab simply provides information about the current installed version, [system health](/components/system_health/) (if enabled), additional links and credits.

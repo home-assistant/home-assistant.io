@@ -9,10 +9,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.9
-redirect_from:
- - /components/binary_sensor.arest/
- - /components/sensor.arest/
- - /components/switch.arest/
 ---
 
 There is currently support for the following device types within Home Assistant:

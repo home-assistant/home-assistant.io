@@ -11,12 +11,6 @@ ha_category:
 featured: true
 ha_release: 0.9
 ha_iot_class: Cloud Poll
-redirect_from:
-  - /components/sensor.ecobee/
-  - /components/binary_sensor.ecobee/
-  - /components/notify.ecobee/
-  - /components/climate.ecobee/
-  - /components/weather.ecobee/
 ---
 
 The `ecobee` integration lets you control thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats and remote sensors.
@@ -142,12 +136,12 @@ auto, and off.
 
 The Ecobee climate entity has some extra attributes to represent the state of the thermostat.
 
-| Name | Description |
-| ---- | ----------- |
-| `fan` | If the fan is currently on or off: `on` / `off`.
-| `climate_mode` | This is the climate mode that is active, or would be active if no override is active.
-| `equipment_running` | This is a comma seperated list of equipment that is currently running.
-| `fan_min_on_time` | The minimum amount of minutes that the fan will be on when it's turned on.
+| Name                | Description                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `fan`               | If the fan is currently on or off: `on` / `off`.                                      |
+| `climate_mode`      | This is the climate mode that is active, or would be active if no override is active. |
+| `equipment_running` | This is a comma seperated list of equipment that is currently running.                |
+| `fan_min_on_time`   | The minimum amount of minutes that the fan will be on when it's turned on.            |
 
 ## Services
 
@@ -162,42 +156,42 @@ Besides the standard services provided by the Home Assistant [Climate](https://w
 
 Creates a vacation on the selected ecobee thermostat.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | no       | ecobee thermostat on which to create the vacation |
-| `vacation_name`        | no       | Name of the vacation to create; must be unique on the thermostat |
-| `cool_temp`            | no       | Cooling temperature during the vacation |
-| `heat_temp`            | no       | Heating temperature during the vacation |
-| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format |
-| `start_time`           | yes      | Time the vacation starts, in the local time of the thermostat, in the 24-hour format HH:MM:SS |
-| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided) |
-| `end_time`             | yes      | Time the vacation ends, in the local time of the thermostat, in the 24-hour format HH:MM:SS |
-| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided) |
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | ecobee thermostat on which to create the vacation                                                    |
+| `vacation_name`        | no       | Name of the vacation to create; must be unique on the thermostat                                     |
+| `cool_temp`            | no       | Cooling temperature during the vacation                                                              |
+| `heat_temp`            | no       | Heating temperature during the vacation                                                              |
+| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
+| `start_time`           | yes      | Time the vacation starts, in the local time of the thermostat, in the 24-hour format HH:MM:SS        |
+| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
+| `end_time`             | yes      | Time the vacation ends, in the local time of the thermostat, in the 24-hour format HH:MM:SS          |
+| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
 | `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
 
 ### Service `ecobee.delete_vacation`
 
 Delete a vacation on the selected ecobee thermostat.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
-| `vacation_name`        | no       | Name of the vacation to delete |
+| `vacation_name`        | no       | Name of the vacation to delete                    |
 
 ### Service `ecobee.resume_program`
 
 Resumes the currently active schedule.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `resume_all` | no | true or false
+| Service data attribute | Optional | Description                                                                                            |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all. |
+| `resume_all`           | no       | true or false                                                                                          |
 
 ### Service `ecobee.set_fan_min_on_time`
 
 Sets the minimum amount of time that the fan will run.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `fan_min_on_time` | no | integer (e.g. 5)
+| Service data attribute | Optional | Description                                                                                            |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all. |
+| `fan_min_on_time`      | no       | integer (e.g. 5)                                                                                       |

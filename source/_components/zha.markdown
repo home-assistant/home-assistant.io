@@ -13,12 +13,6 @@ ha_category:
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
-redirect_from:
-  - /components/binary_sensor.zha/
-  - /components/fan.zha/
-  - /components/light.zha/
-  - /components/sensor.zha/
-  - /components/switch.zha/
 ---
 
 [Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)

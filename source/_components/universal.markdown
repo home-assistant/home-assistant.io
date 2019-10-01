@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_qa_scale: internal
 ha_release: 0.11
-redirect_from:
- - /components/media_player.universal/
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
@@ -135,7 +133,7 @@ media_player:
 
 #### Kodi CEC-TV control
 
-In this example, a [Kodi Media Player](/components/media_player.kodi/) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
+In this example, a [Kodi Media Player](/components/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
 
 We store the state of the attached TV in a hidden [input boolean](/components/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
 

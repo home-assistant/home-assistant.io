@@ -5,8 +5,6 @@ logo: honeywell-tc.png
 ha_category:
   - Alarm
 ha_release: 0.42
-redirect_from:
- - /components/alarm_control_panel.totalconnect/
 ---
 
 The `totalconnect` platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.

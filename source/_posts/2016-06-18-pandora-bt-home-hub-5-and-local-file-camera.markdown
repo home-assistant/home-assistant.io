@@ -73,20 +73,20 @@ netatmo:
 [@philk]: https://github.com/philk/
 [@wind-rider]: https://github.com/wind/
 [@fabaff]: https://github.com/fabaff/
-[AsusWRT]: /components/device_tracker.asuswrt/
-[BT Home Hub 5]: /components/device_tracker.bt_home_hub_5/
-[Cast]: /components/media_player.cast/
+[AsusWRT]: /components/asuswrt
+[BT Home Hub 5]: /components/bt_home_hub_5
+[Cast]: /components/cast
 [IR switch device]: /components/mysensors/
-[local file]: /components/camera.local_file/
+[local file]: /components/local_file
 [Netatmo]: /components/netatmo/
-[Pandora]: /components/media_player.pandora/
+[Pandora]: /components/pandora
 [shell command]: /components/shell_command/
-[Sonos]: /components/media_player.sonos/
+[Sonos]: /components/sonos
 [Wink]: /components/wink/#cover
 [alexa]: /components/alexa/#working-with-scenes
-[Plex sensor]: /components/sensor.plex/
+[Plex sensor]: /components/plex#sensor
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
 [All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
 [Voltage sensor]: /components/bloomsky/#sensor
-[SNMP]: /components/sensor.snmp/
+[SNMP]: /components/snmp#sensor

@@ -54,7 +54,7 @@ sensor:
     ip_address: 192.168.1.123
 ```
 
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/sensor.template/).
+In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/template).
 
 {% raw %}
 ```yaml

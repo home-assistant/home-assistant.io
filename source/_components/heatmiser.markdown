@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_release: "0.10"
 ha_iot_class: Local Polling
-redirect_from:
- - /components/climate.heatmiser/
 ---
 
 The `heatmiser` climate platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](https://www.heatmisershop.co.uk/room-thermostats/) thermostats from Heatmiser. The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.

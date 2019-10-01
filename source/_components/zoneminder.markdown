@@ -10,11 +10,6 @@ ha_category:
   - Switch
 ha_release: 0.31
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.zoneminder/
-  - /components/camera.zoneminder/
-  - /components/sensor.zoneminder/
-  - /components/switch.zoneminder/
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.

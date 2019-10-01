@@ -5,9 +5,6 @@ logo: owntracks.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.4
-redirect_from:
- - /components/device_tracker.owntracks/
- - /components/device_tracker.owntracks_http/
 ---
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
@@ -69,7 +66,7 @@ waypoints:
   default: true
   type: boolean
 waypoint_whitelist:
-  description: "A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/**username**/iPhone)"
+  description: "A list of user names (as defined for [Owntracks](/components/owntracks)) who can export their waypoints from Owntracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/**username**/iPhone)"
   required: false
   default: All users who are connected to Home Assistant via Owntracks.
   type: list

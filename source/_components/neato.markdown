@@ -7,10 +7,6 @@ ha_category:
   - Switch
   - Vacuum
 ha_release: 0.33
-redirect_from:
-  - /components/camera.neato/
-  - /components/switch.neato/
-  - /components/vacuum.neato/
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).

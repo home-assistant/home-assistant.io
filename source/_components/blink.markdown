@@ -10,11 +10,6 @@ ha_category:
   - Sensor
 ha_release: "0.40"
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/alarm_control_panel.blink/
-  - /components/binary_sensor.blink/
-  - /components/camera.blink/
-  - /components/sensor.blink/
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.

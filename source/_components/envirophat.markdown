@@ -6,8 +6,6 @@ ha_category:
   - DIY
 ha_iot_class: Local Polling
 ha_release: 0.44
-redirect_from:
- - /components/sensor.envirophat/
 ---
 
 The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board features a wide range of sensors, such as:
@@ -138,6 +136,6 @@ group:
 
 Since the Enviro pHAT communicates over I2C, you might also need to make sure that the I2C devices are enabled, by adding or uncommenting the following line in `/boot/config.txt` (see the [DT Parameters section](https://www.raspberrypi.org/documentation/configuration/device-tree.md) in the Raspberry Pi documentation):
 
-```
+```txt
 dtparam=i2c_arm=on
 ```

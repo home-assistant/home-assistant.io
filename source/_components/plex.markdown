@@ -9,9 +9,6 @@ featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_config_flow: true
-redirect_from:
-  - /components/media_player.plex/
-  - /components/sensor.plex/
 ---
 
 
@@ -118,40 +115,40 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 #### Music
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `MUSIC` | MUSIC |
+| Service data attribute | Optional | Description                                                                                            | Example                                                                                                                                                       |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                                              | media_player.theater_plex                                                                                                                                     |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `MUSIC`                                                            | MUSIC                                                                                                                                                         |
 
 #### Playlist
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `PLAYLIST` | PLAYLIST |
+| Service data attribute | Optional | Description                                                  | Example                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `entity_id`            | no       | `entity_id` of the client                                    | media_player.theater_plex                                                |
+| `media_content_id`     | no       | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `PLAYLIST`               | PLAYLIST                                                                 |
 
 #### TV Episode
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `EPISODE` | EPISODE |
+| Service data attribute | Optional | Description                                                                                                 | Example                                                                                                                                                    |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                                                   | media_player.theater_plex                                                                                                                                  |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `EPISODE`                                                               | EPISODE                                                                                                                                                    |
 
 #### Video
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `VIDEO` | VIDEO |
+| Service data attribute | Optional | Description                                                               | Example                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                 | media_player.theater_plex                                                                           |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `VIDEO`                               | VIDEO                                                                                               |
 
 ### Compatibility
 
 | Client                           | Limitations                                                                                                                                                     |
-|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
@@ -166,7 +163,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 * The `plex` integration supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
 * When setting up a server via `configuration.yaml`, it is possible to get errors that look like the following.
 
-  ```
+  ```txt
   ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```

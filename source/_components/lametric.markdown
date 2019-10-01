@@ -6,8 +6,6 @@ ha_category:
   - Hub
   - Notifications
 ha_release: 0.49
-redirect_from:
-  - /components/notify.lametric/
 ---
 
 [LaMetric Time](http://lametric.com) is a smart clock that can be used to access applications, listen to web radio and display notifications.
@@ -39,7 +37,7 @@ These are the steps to take:
   * Check all permission boxes
   * Hit Save
 4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources), click on "Home Assistant", copy your client ID and client Secret and paste into the Home Assistant configuration block in the previous section.
-5. Set up some notifications in Home Assistant by following the instructions on the [Lametric Notify](/components/notify.lametric) page.
+5. Set up some notifications in Home Assistant by following the instructions on the [Lametric Notify](/components/lametric) page.
 6. Save all configuration files and restart Home Assistant.
 
 ## Notifications

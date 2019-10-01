@@ -8,9 +8,6 @@ ha_category:
   - Presence Detection
 ha_release: 0.43
 ha_qa_scale: internal
-redirect_from:
- - /components/binary_sensor.ping/
- - /components/device_tracker.ping/
 ---
 
 There is currently support for the following device types within Home Assistant:

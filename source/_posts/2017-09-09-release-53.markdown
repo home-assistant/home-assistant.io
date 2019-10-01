@@ -92,7 +92,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   * `custom_ui_state_card` now specifies the exact element name and not a suffix after `state-card`. So if you had `state_card_custom_ui: custom-ui` in your config, you should change it to `state_card_custom_ui: state-card-custom-ui`
   * `custom_ui_state_card` no longer makes the html fetch, you should make it separately:
 
-```
+```yaml
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-custom-ui.html
@@ -348,20 +348,20 @@ frontend:
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zabuldon]: https://github.com/zabuldon
 [abode docs]: /components/abode/
-[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
-[binary_sensor.abode docs]: /components/binary_sensor.abode/
-[binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
-[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
-[binary_sensor.homematic docs]: /components/binary_sensor.homematic/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[binary_sensor.tesla docs]: /components/binary_sensor.tesla/
+[alarm_control_panel.abode docs]: /components/abode
+[alarm_control_panel.egardia docs]: /components/egardia
+[alarm_control_panel.manual docs]: /components/manual
+[binary_sensor.abode docs]: /components/abode#binary-sensor
+[binary_sensor.bayesian docs]: /components/bayesian
+[binary_sensor.hikvision docs]: /components/hikvision
+[binary_sensor.homematic docs]: /components/homematic
+[binary_sensor.ring docs]: /components/ring#binary-sensor
+[binary_sensor.tesla docs]: /components/tesla
 [binary_sensor.xiaomi docs]: /components/binary_sensor.xiaomi_aqara/
 [binary_sensor.knx docs]: /components/binary_sensor.knx/
-[climate.homematic docs]: /components/climate.homematic/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.tesla docs]: /components/climate.tesla/
+[climate.homematic docs]: /components/homematic
+[climate.honeywell docs]: /components/honeywell
+[climate.tesla docs]: /components/tesla
 [climate.knx docs]: /components/climate.knx/
 [cloud docs]: /components/cloud/
 [cloud.cloud_api docs]: /components/cloud.cloud_api/
@@ -370,73 +370,73 @@ frontend:
 [config docs]: /components/config/
 [config.customize docs]: /components/config.customize/
 [counter docs]: /components/counter/
-[cover.abode docs]: /components/cover.abode/
-[cover.homematic docs]: /components/cover.homematic/
-[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
+[cover.abode docs]: /components/abode
+[cover.homematic docs]: /components/homematic
+[cover.lutron_caseta docs]: /components/lutron_caseta/
 [cover.rfxtrx docs]: /components/cover.rfxtrx/
 [cover.xiaomi docs]: /components/cover.xiaomi_aqara/
 [cover.knx docs]: /components/cover.knx/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.geofency docs]: /components/device_tracker.geofency/
-[device_tracker.tesla docs]: /components/device_tracker.tesla/
-[device_tracker.volvooncall docs]: /components/device_tracker.volvooncall/
+[device_tracker.automatic docs]: /components/automatic
+[device_tracker.geofency docs]: /components/geofency
+[device_tracker.tesla docs]: /components/tesla
+[device_tracker.volvooncall docs]: /components/volvooncall
 [hdmi_cec docs]: /components/hdmi_cec/
 [homematic docs]: /components/homematic/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
+[image_processing.dlib_face_detect docs]: /components/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /components/dlib_face_identify
 [input_text docs]: /components/input_text/
 [insteon_plm docs]: /components/insteon_plm/
-[light.homematic docs]: /components/light.homematic/
-[light.hue docs]: /components/light.hue/
-[light.lutron_caseta docs]: /components/light.lutron_caseta/
+[light.homematic docs]: /components/homematic
+[light.hue docs]: /components/hue
+[light.lutron_caseta docs]: /components/lutron_caseta/
 [light.mqtt docs]: /components/light.mqtt/
 [light.xiaomi_philipslight docs]: /components/light.xiaomi_miio/
 [light.rfxtrx docs]: /components/light.rfxtrx/
-[light.tradfri docs]: /components/light.tradfri/
+[light.tradfri docs]: /components/tradfri
 [light.knx docs]: /components/light.knx/
-[light.zha docs]: /components/light.zha/
-[lock.abode docs]: /components/lock.abode/
-[lock.nello docs]: /components/lock.nello/
-[lock.tesla docs]: /components/lock.tesla/
+[light.zha docs]: /components/zha
+[lock.abode docs]: /components/abode
+[lock.nello docs]: /components/nello
+[lock.tesla docs]: /components/tesla
 [lutron_caseta docs]: /components/lutron_caseta/
 [media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.directv docs]: /components/media_player.directv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
+[media_player.denonavr docs]: /components/denonavr/
+[media_player.directv docs]: /components/directv
+[media_player.sonos docs]: /components/sonos
+[media_player.spotify docs]: /components/spotify
+[media_player.yamaha_musiccast docs]: /components/yamaha_musiccast/
 [mycroft docs]: /components/mycroft/
 [mysensors docs]: /components/mysensors/
-[notify.discord docs]: /components/notify.discord/
-[notify.mycroft docs]: /components/notify.mycroft/
-[notify.pushbullet docs]: /components/notify.pushbullet/
-[notify.sendgrid docs]: /components/notify.sendgrid/
-[notify.twitter docs]: /components/notify.twitter/
-[notify.xmpp docs]: /components/notify.xmpp/
+[notify.discord docs]: /components/discord
+[notify.mycroft docs]: /components/mycroft
+[notify.pushbullet docs]: /components/pushbullet
+[notify.sendgrid docs]: /components/sendgrid
+[notify.twitter docs]: /components/twitter
+[notify.xmpp docs]: /components/xmpp
 [rfxtrx docs]: /components/rfxtrx/
-[sensor.airvisual docs]: /components/sensor.airvisual/
+[sensor.airvisual docs]: /components/airvisual
 [sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.dht docs]: /components/sensor.dht/
+[sensor.dht docs]: /components/dht
 [sensor.dwdwarnapp docs]: /components/dwd_weather_warnings/
-[sensor.fitbit docs]: /components/sensor.fitbit/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.mopar docs]: /components/sensor.mopar/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.season docs]: /components/sensor.season/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tank_utility docs]: /components/sensor.tank_utility/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
+[sensor.fitbit docs]: /components/fitbit
+[sensor.homematic docs]: /components/homematic
+[sensor.mopar docs]: /components/mopar
+[sensor.radarr docs]: /components/radarr
+[sensor.season docs]: /components/season
+[sensor.shodan docs]: /components/shodan
+[sensor.sonarr docs]: /components/sonarr
+[sensor.statistics docs]: /components/statistics
+[sensor.systemmonitor docs]: /components/systemmonitor
+[sensor.tank_utility docs]: /components/tank_utility
+[sensor.tesla docs]: /components/tesla
+[sensor.worldtidesinfo docs]: /components/worldtidesinfo
 [sensor.knx docs]: /components/sensor.knx/
 [snips docs]: /components/snips/
-[switch.abode docs]: /components/switch.abode/
-[switch.digitalloggers docs]: /components/switch.digitalloggers/
-[switch.dlink docs]: /components/switch.dlink/
-[switch.homematic docs]: /components/switch.homematic/
-[switch.lutron_caseta docs]: /components/switch.lutron_caseta/
+[switch.abode docs]: /components/abode#switch
+[switch.digitalloggers docs]: /components/digitalloggers
+[switch.dlink docs]: /components/dlink
+[switch.homematic docs]: /components/homematic
+[switch.lutron_caseta docs]: /components/lutron_caseta/
 [switch.rest docs]: /components/switch.rest/
 [switch.rfxtrx docs]: /components/switch.rfxtrx/
 [switch.knx docs]: /components/switch.knx/
@@ -444,7 +444,7 @@ frontend:
 [tesla docs]: /components/tesla/
 [tradfri docs]: /components/tradfri/
 [volvooncall docs]: /components/volvooncall/
-[xiaomi docs]: /components/xiaomi/
+[xiaomi docs]: /components/xiaomi_aqara
 [knx docs]: /components/knx/
 [zwave docs]: /components/zwave/
 [forum]: https://community.home-assistant.io/
@@ -454,5 +454,5 @@ frontend:
 [#9380]: https://github.com/home-assistant/home-assistant/pull/9380
 [#9387]: https://github.com/home-assistant/home-assistant/pull/9387
 [@viswa-swami]: https://github.com/viswa-swami
-[camera.foscam docs]: /components/camera.foscam/
-[sensor.wunderground docs]: /components/sensor.wunderground/
+[camera.foscam docs]: /components/foscam
+[sensor.wunderground docs]: /components/wunderground

@@ -6,8 +6,6 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.27
-redirect_from:
- - /components/device_tracker.bluetooth_le_tracker/
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
@@ -17,7 +15,7 @@ Devices discovered are stored with 'BLE_' as the prefix for device mac addresses
 This platform requires pybluez to be installed. On Debian based installs, run
 
 ```bash
-$ sudo apt install bluetooth
+sudo apt install bluetooth
 ```
 
 Before you get started with this platform, please note that:
@@ -54,9 +52,9 @@ Some BTLE devices (e.g., fitness trackers) are only visible to the devices that 
 Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
-$ sudo apt-get install libcap2-bin
-$ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
-$ sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
+sudo apt-get install libcap2-bin
+sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
 ```
 
 A restart of Home Assistant is required.

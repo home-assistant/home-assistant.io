@@ -10,11 +10,6 @@ ha_category:
   - Switch
 ha_release: "0.40"
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/binary_sensor.android_ip_webcam/
-  - /components/camera.android_ip_webcam/
-  - /components/sensor.android_ip_webcam/
-  - /components/switch.android_ip_webcam/
 ---
 
 The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.
@@ -190,7 +185,7 @@ binary_sensor:
 
 ## Camera
 
-The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
+The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/mjpeg) platform can be used.
 
 ## Configuration
 

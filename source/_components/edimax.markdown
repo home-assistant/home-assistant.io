@@ -5,8 +5,6 @@ logo: edimax.png
 ha_category:
   - Switch
 ha_release: pre 0.7
-redirect_from:
- - /components/switch.edimax/
 ---
 
 This `edimax` switch platform allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.
@@ -44,7 +42,7 @@ name:
 
 ## Power consumption sensor
 
-Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/components/sensor.template/) to extract their values:
+Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/components/template) to extract their values:
 
 {% raw %}
 ```yaml

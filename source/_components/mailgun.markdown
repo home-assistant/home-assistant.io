@@ -5,8 +5,6 @@ logo: mailgun.png
 ha_category:
   - Notifications
 ha_release: 0.38
-redirect_from:
-  - /components/notify.mailgun/
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).

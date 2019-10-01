@@ -12,12 +12,6 @@ ha_category:
   - Water Heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/binary_sensor.hive/
-  - /components/climate.hive/
-  - /components/light.hive/
-  - /components/sensor.hive/
-  - /components/switch.hive/
 ---
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.

@@ -7,8 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.82
 ha_iot_class: Local Push
-redirect_from:
-  - /components/sensor.greeneye_monitor/
 ---
 
 The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.

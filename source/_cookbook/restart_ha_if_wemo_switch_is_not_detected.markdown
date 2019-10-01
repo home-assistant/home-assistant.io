@@ -6,7 +6,7 @@ ha_category: Automation Examples
 
 ### Restart Home Assistant
 
-This configuration example is restarting Home Assistant if a [WeMo](/components/switch.wemo/) switch is not detected. An additional MQTT switch is present for stopping Home Assistant and can be triggered by [IFTTT](/components/ifttt/). The running batch script will automatically restart Home Assistant if the process isn't found anymore.
+This configuration example is restarting Home Assistant if a [WeMo](/components/wemo) switch is not detected. An additional MQTT switch is present for stopping Home Assistant and can be triggered by [IFTTT](/components/ifttt/). The running batch script will automatically restart Home Assistant if the process isn't found anymore.
 
 ```yaml
 mqtt:

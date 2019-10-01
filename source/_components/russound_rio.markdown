@@ -6,8 +6,6 @@ ha_category:
   - Media Player
 ha_release: 0.49
 ha_iot_class: Local Push
-redirect_from:
- - /components/media_player.russound_rio/
 ---
 
 The `russound_rio` platform allows you to control Russound devices that make use of the RIO protocol.

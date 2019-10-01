@@ -6,8 +6,6 @@ ha_category:
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.rest/
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -130,7 +128,7 @@ sensor:
 
 ### Single value from a local Glances instance
 
-The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
+The [glances](/components/glances) sensor is doing the exact same thing for all exposed values.
 
 ```yaml
 sensor:
@@ -242,7 +240,7 @@ sensor:
 ```
 {% endraw %}
 
-This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
 ```yaml

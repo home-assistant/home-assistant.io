@@ -7,8 +7,6 @@ ha_category:
  - Weather
 ha_release: 0.81
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/weather.smhi/
 ---
 
 The `smhi` integration adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.

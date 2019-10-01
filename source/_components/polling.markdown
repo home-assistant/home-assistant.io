@@ -5,8 +5,6 @@ logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.42
-redirect_from:
- - /components/telegram_bot.polling/
 ---
 
 Telegram chatbot polling implementation.
@@ -51,4 +49,4 @@ proxy_params:
   type: string
 {% endconfiguration %}
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram/).
+To get your `chat_id` and `api_key` follow the instructions [here](/components/telegram).
