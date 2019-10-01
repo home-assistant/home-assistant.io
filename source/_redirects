@@ -218,7 +218,7 @@
 /components/camera.doorbird /components/doorbird#camera
 /components/camera.familyhub /components/familyhub
 /components/camera.foscam /components/foscam
-/components/camera.generic /components/generic
+/components/camera.generic /components/generic_ip_camera
 /components/camera.local_file /components/local_file
 /components/camera.logi_circle /components/logi_circle#camera
 /components/camera.mjpeg /components/mjpeg
