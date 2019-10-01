@@ -112,7 +112,7 @@ The list of sensors can be any sensor, not just temperature or humidity.
 
 ## Sensor specific location
 
-The [SpaceAPI specification](https://spaceapi.net/documentation) requires every sensor to provide a location. 
+The [SpaceAPI specification](http://spaceapi.net/documentation) requires every sensor to provide a location. 
 In order to set a sensor specific location do the following steps: 
 
 1. Go to Configuration -> Customization
