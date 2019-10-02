@@ -11,7 +11,7 @@ The configuration options to call a config are the same between all integrations
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 <div class='note'>
-Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
+Use the "Services" tab under Developer Tools to discover available services.
 </div>
 
 ### The basics
