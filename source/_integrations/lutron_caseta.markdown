@@ -18,10 +18,10 @@ This integration only supports the [Caseta](http://www.casetawireless.com) line 
 
 The currently supported Caseta devices are:
 
-- Wall and plug-in dimmers as Home Assistant
-- Wall switches as Home Assistant
-- Scenes as Home Assistant
-- Lutron shades as Home Assistant
+- Wall and plug-in dimmers as [lights](#light)
+- Wall switches as [switches](#switch)
+- Scenes as [scenes](#scene)
+- Lutron shades as [covers](#cover)
 
 When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
