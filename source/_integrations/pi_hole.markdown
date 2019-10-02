@@ -39,9 +39,7 @@ ssl:
   default: false
 verify_ssl:
   description: >
-    Verify the SSL/TLS certificate of the system.
-
-    **Note:** If your Pi-Hole instance uses a self-signed certificate, you should specify `false`.
+    Verify the SSL/TLS certificate of the system. If your Pi-Hole instance uses a self-signed certificate, you should specify `false`.
   required: false
   type: boolean
   default: true
