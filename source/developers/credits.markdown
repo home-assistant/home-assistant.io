@@ -2119,9 +2119,6 @@ This page contains a list of people who have contributed in one way or another t
 - [Comic Chang (@comicchang)](https://github.com/comicchang "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
-- [ComputerCandy (@ComputerCandy)](https://github.com/ComputerCandy "1 total commits to the Home Assistant orga:
-1 commit to home-assistant.io
-")
 - [Conrad Juhl Andersen (@cnrd)](https://github.com/cnrd "17 total commits to the Home Assistant orga:
 9 commits to home-assistant
 5 commits to home-assistant.io
@@ -9891,7 +9888,7 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
-- [Stephan Grobler (@stephanfx)](https://github.com/stephanfx "1 total commits to the Home Assistant orga:
+- [Stephan Grobler (@stephangrobler)](https://github.com/stephangrobler "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [stephanerosi (@stephanerosi)](https://github.com/stephanerosi "11 total commits to the Home Assistant orga:
