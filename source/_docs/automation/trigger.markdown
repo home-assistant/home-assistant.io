@@ -337,7 +337,7 @@ You could test triggering the above automation by sending a POST HTTP request to
 
 ### Zone trigger
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/device_tracker.gpslogger/), the [OwnTracks platform](/integrations/device_tracker.owntracks/) and the [iCloud platform](/integrations/device_tracker.icloud/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:

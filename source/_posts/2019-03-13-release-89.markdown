@@ -238,7 +238,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enhance SmartThings component subscription ([@andrewsayre] - [#21124]) ([smartthings docs]) (breaking change) (new-feature)
 - Add more ads plc types ([@philipperequile] - [#19801]) ([ads docs])
 - Add note to issue template regarding iOS issues ([@robbiet480] - [#21342])
-- Allow google home component device tracker to be optional ([@dshokouhi] - [#21335]) ([googlehome docs])
+- Allow google home component device tracker to be optional ([@dshokouhi] - [#21335]) (googlehome docs)
 - Add LCN cover platform ([@alengwenus] - [#20288]) ([lcn docs]) ([cover.lcn docs]) (new-platform)
 - Add location to Norway airquality ([@Danielhiversen] - [#21347]) ([air_quality docs]) ([weather.met docs])
 - Updated pyvlx from 0.2.8 to 0.2.9. This version has slightly improved logging ([@Julius2342] - [#21349]) ([velux docs])
@@ -638,7 +638,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [esphome docs]: /integrations/esphome/
 [frontend docs]: /integrations/frontend/
 [google_assistant docs]: /integrations/google_assistant/
-[googlehome docs]: /integrations/googlehome/
 [history docs]: /integrations/history/
 [homekit_controller docs]: /integrations/homekit_controller/
 [homematic docs]: /integrations/homematic/

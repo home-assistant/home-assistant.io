@@ -30,7 +30,7 @@ Have a good weekend everyone!
 - Add Iperf3 client sensor ([@tchellomello] - [#14213]) ([sensor.iperf3 docs]) (new-platform)
 - Add homematicip cloud climate platform ([@mxworm] - [#14388]) ([homematicip_cloud docs]) ([climate.homematicip_cloud docs]) (new-platform)
 - Add Hydrawise component ([@ptcryan] - [#14055]) ([hydrawise docs]) ([binary_sensor.hydrawise docs]) ([sensor.hydrawise docs]) ([switch.hydrawise docs]) (new-platform)
-- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) ([cover.ryobi_gdo docs]) (new-platform)
+- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) (cover.ryobi_gdo docs) (new-platform)
 - Add sensors and services to RainMachine ([@bachya] - [#14326]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs]) (new-platform)
 - Add Flock notification platform ([@fabaff] - [#14533]) ([notify docs]) (new-platform)
 
@@ -107,7 +107,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add homematicip cloud climate platform ([@mxworm] - [#14388]) ([homematicip_cloud docs]) ([climate.homematicip_cloud docs]) (new-platform)
 - Upgrade speedtest-cli to 2.0.2 ([@fabaff] - [#14633]) ([sensor.speedtest docs])
 - Add Hydrawise component ([@ptcryan] - [#14055]) ([hydrawise docs]) ([binary_sensor.hydrawise docs]) ([sensor.hydrawise docs]) ([switch.hydrawise docs]) (new-platform)
-- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) ([cover.ryobi_gdo docs]) (new-platform)
+- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) (cover.ryobi_gdo docs) (new-platform)
 - Add electrical measurement sensor to ZHA ([@dmulcahey] - [#14561]) ([zha docs]) ([sensor.zha docs])
 - Upgrade luftdaten to 0.2.0 ([@fabaff] - [#14620]) ([sensor.luftdaten docs])
 - Upgrade python-nest to 4.0.0 ([@awarecan] - [#14638]) ([nest docs])
@@ -345,7 +345,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [config docs]: /integrations/config/
 [counter docs]: /integrations/counter/
 [cover.myq docs]: /integrations/myq
-[cover.ryobi_gdo docs]: /integrations/cover.ryobi_gdo/
 [device_tracker docs]: /integrations/device_tracker/
 [eufy docs]: /integrations/eufy/
 [frontend docs]: /integrations/frontend/
