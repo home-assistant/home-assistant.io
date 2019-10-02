@@ -79,6 +79,7 @@ type:
 | 9.001   | temperature        | 2            | °C             |
 | 9.004   | illuminance        | 2            | lx             |
 | 9.005   | speed_ms           | 2            | m/s            |
+| 9.006   | pressure_2byte     | 2            | Pa             |
 | 9.007   | humidity           | 2            | %              |
 | 9.008   | ppm                | 2            | ppm            |
 | 9.020   | voltage            | 2            | mV             |
