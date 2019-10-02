@@ -11,20 +11,20 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
+The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
 
-It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ neccessarily match that of the offical Web App.
+It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ necessarily match that of the official Web App.
 
 ### Zones
 
-Each Zone controlled by your Genius Hub will be exposed as either a:
+Each zone controlled by your Genius Hub will be exposed as either a:
 
 - `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
 - `Water Heater` entity, for **Hot Water Temperature** Zones
 
-Other Zone types, such as **On / Off** Zones, are not currently supported (although see `Binary Sensor`s, below).
+Other zone types, such as **On/Off** zones, are not currently supported (although see `Binary Sensor`s, below).
 
-Each entity derived from a GH Zone will report back its mode, setpoint and current temperature; other properties are available via its attributes (see below). The Zone's mode can changed as below.
+Each entity derived from a GH zone will report back its mode, setpoint and current temperature; other properties are available via its attributes (see below). The zone's mode can be changed as below.
 
 GH mode | HA Operation | HA Preset
 :---: | :---: | :---:
@@ -33,18 +33,18 @@ GH mode | HA Operation | HA Preset
 **Override** | Heat | Boost
 **Footprint** | Heat | Activity
 
-Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
+Note that **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
-Currently, there is no support for reading/altering Zone schedules, although a Zone can be switched to/from modes that utilize schedules.
+Currently, there is no support for reading/altering zone schedules, although a zone can be switched to/from modes that utilize schedules.
 
 ### Devices
 
 Each Device controlled by your Genius hub will be exposed as either a:
 
-- `Sensor` entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
-- `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. Smart Plugs, DCRs)
+- `Sensor` entity with a % battery, for any Device with a battery (e.g., a Genius Valve), or
+- `Binary Sensor` entity with on/off state for any Device that is a switch (e.g., Smart Plugs, DCRs)
 
-Each such entity will report back its primary state and `assigned_zone`. If the Hub is directly polled using Option 1 (see below) then some additional attributes such as `last_comms` (last communications time) are also available.
+Each such entity will report back its primary state and `assigned_zone`. If the Hub is directly polled using Option 1 (see below), then some additional attributes such as `last_comms` (last communications time) are also available.
 
 ### Issues
 
@@ -69,7 +69,7 @@ Each such entity has a state attribute that will contain a list of any such issu
 ```
 {% endraw %}
 
-This alert may be useful to see if the CH is being turned on whilst you're on holidays!
+This alert may be useful to see if the CH is being turned on whilst you're on a holiday!
 
 {% raw %}
 ```yaml
@@ -89,7 +89,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on ho
 
 ## State Attributes
 
-Many Zone/Device properties are available via each entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
+Many zone/device properties are available via each entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
 
 ```json
 {
@@ -139,27 +139,27 @@ value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 
 To set up this integration, add one of the following to your **configuration.yaml** file.
 
-If required, you can switch between one Option and the other and, as the `unique_id` remain consistent, state history will be preserved.  This assumes that the correct MAC address is provided for Option 2, below.  If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
+If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved.  This assumes that the correct MAC address is provided for Option 2, below.  If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
 
 ### Option 1: hub hostname/address with user credentials
 
 This is the recommended option.
 
-- requires your **username** & **password**, as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app)
-- uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
-- polls the hub directly (so is faster, say ~1s response time)
-- you have the option of specifying a MAC address
+- Requires your **username** & **password**, as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app).
+- Uses the v3 API - unofficial, but there are additional features (e.g., battery levels).
+- Polls the hub directly (so is faster, say ~1s response time).
+- You have the option of specifying a MAC address.
 
 The hub does not have to be in the same subnet as HA.
 
 ### Option 2: hub token only
 
-This option is recommened only if Option 1 does not work.  The MAC address should match that written on the back of the Hub.
+This option is recommended only if Ootion 1 does not work. The MAC address should match that written on the back of the Hub.
 
-- requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
-- uses the v1 API - which is well-documented
-- polls Heat Genius' own servers (so is slower, say ~5-10s response time)
-- you should use the Hub's MAC address (although any valid MAC will do)
+- Requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens).
+- Uses the v1 API - which is well-documented.
+- Polls Heat Genius' own servers (so is slower, say ~5-10s response time).
+- You should use the Hub's MAC address (although any valid MAC will do).
 
 ```yaml
 # Example configuration.yaml entry, using a Hub Token
@@ -199,6 +199,6 @@ password:
   type: string
 {% endconfiguration %}
 
-Note that `username` and `password` are only required when `host` is used (instead of `token`).
+Note: `username` and `password` are only required when `host` is used (instead of `token`).
 
-Note that `mac` is required if `token` is used (instead of `host`) and is optional otherwise.
+Note: `mac` is required if `token` is used (instead of `host`) and is optional otherwise.
