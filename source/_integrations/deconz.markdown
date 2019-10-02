@@ -118,6 +118,27 @@ Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up butt
 
 For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
 
+### Device triggers
+
+To simplify using remote control devices in automations deCONZ integration exposes them as device triggers. This will expose all possible variations of button presses and rotations. Note that this is a manually curated list and will not initially be as complete as what deCONZ supports.
+
+Currently supported devices as device triggers:
+
+- Hue Dimmer Remote
+- Hue Tap
+- Trådfri On/Off Switch
+- Trådfri Open/Close Remote
+- Trådfri Remote Control
+- Trådfri Wireless Dimmer
+- Aqara Double Wall Switch
+- Aqara Mini Switch
+- Aqara Round Switch
+- Aqara Square Switch
+
+#### Requesting support for new device trigger
+
+Requesting support for additional devices requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
+
 ## Examples
 
 ### YAML

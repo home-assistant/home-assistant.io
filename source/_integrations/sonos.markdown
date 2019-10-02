@@ -6,16 +6,16 @@ ha_category:
   - Media Player
 featured: true
 ha_release: 0.7.3
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio integrations from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
+The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
-If you don't have the discovery integration enabled, you can configure the Sonos integration by going to the integrations page inside the config panel.
+You can configure the Sonos integration by going to the integrations page inside the config panel.
 
 ## Services
 
-Sonos makes various services available to allow configuring groups. They are currently registered under the media player component.
+The Sonos integration makes various custom services available.
 
 ### Service `sonos.snapshot`
 
@@ -123,9 +123,21 @@ Force start playing the queue, allows switching from another stream (such as rad
 
 ## Advanced use
 
-For advanced uses, there are some manual configuration options available.
+For advanced uses, there are some manual configuration options available. These are usually only needed if you have a complex network setup where Home Assistant and Sonos are not on the same subnet.
 
-If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
+You can disable auto-discovery by specifying the Sonos IP addresses:
+
+```yaml
+# Example configuration.yaml entry with manually specified Sonos IP addresses
+sonos:
+  media_player:
+    hosts:
+      - 192.0.2.25
+      - 192.0.2.26
+      - 192.0.2.27
+```
+
+If your Home Assistant server has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
 
 ```yaml
 # Example configuration.yaml entry using Sonos discovery on a specific interface
@@ -134,23 +146,10 @@ sonos:
     interface_addr: 192.0.2.1
 ```
 
-You can also specify one or more hosts to connect to if they cannot be found with Sonos auto-discovery.
-
+The Sonos speakers will attempt to connect back to Home Assistant to deliver change events (using TCP port 1400). You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 ```yaml
-# Example configuration.yaml entry with manually specified addresses
+# Example configuration.yaml entry modifying the advertised host address
 sonos:
   media_player:
-    hosts: 192.0.2.25
-```
-
-or, for multiple hosts:
-
-```yaml
-# Example configuration.yaml entry with manually specified addresses
-sonos:
-  media_player:
-    hosts:
-      - 192.0.2.25
-      - 192.0.2.26
-      - 192.0.2.27
+    advertise_addr: 192.0.2.1
 ```
