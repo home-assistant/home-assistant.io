@@ -118,3 +118,20 @@ Adds a new torrent to download. It can either be a URL (http, https or ftp), mag
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `torrent` | no | Torrent to download
+
+## Templating
+
+### Sensor `torrent_info`
+
+The state attribute contains information about the torrents that are currently downloading.  You can see this information in Developer Tools->States->sensor.transmission_torrent_info->Attributes or by adding a Markdown Card to Lovelace.
+
+```
+content: >
+  {% set payload = state_attr('sensor.transmission_torrent_info',
+  'torrent_info') %}
+
+  {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data =
+  torrent[1] %} {{ name }} is {{ data.percent_done }}% complete, {{ data.eta }}
+  remaining {% endfor %}
+type: markdown
+```
