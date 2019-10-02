@@ -72,7 +72,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com
-[flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
+[flash-briefing-api]: https://developer.amazon.com/docs/flashbriefing/understand-the-flash-briefing-skill-api.html
 [flash-briefing-api-docs]: https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/flash-briefing-skill-api-feed-reference
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
