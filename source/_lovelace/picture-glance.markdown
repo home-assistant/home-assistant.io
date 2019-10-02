@@ -133,6 +133,56 @@ icon:
   required: false
   description: Overwrites default icon.
   type: string
+tap_action:
+  required: false
+  description: Action to take on tap
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
+hold_action:
+  required: false
+  description: Action to take on tap-and-hold
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 {% endconfiguration %}
 
 ## How to use state_filter
