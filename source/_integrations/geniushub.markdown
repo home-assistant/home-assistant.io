@@ -199,6 +199,6 @@ password:
   type: string
 {% endconfiguration %}
 
-Note that if `host` is used (instead of `token`), then `username` and `password` are required.
+Note that `username` and `password` are only required when `host` is used (instead of `token`).
 
-Note that if `token` is used (instead of `host`), then `mac` is required.
+Note that `mac` is required if `token` is used (instead of `host`) and is optional otherwise.
