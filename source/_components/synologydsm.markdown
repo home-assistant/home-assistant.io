@@ -55,6 +55,11 @@ ssl:
   required: false
   default: true
   type: boolean
+scan_interval:
+  description: How often to update the sensor. Defaults to 15 seconds. Unit is seconds.
+  required: false
+  default: 15 seconds
+  type: integer
 volumes:
   description: Array of volumes to monitor. Defaults to all volumes.
   required: false
