@@ -16,6 +16,13 @@ scene:
     token: YOUR_LIFX_TOKEN
 ```
 
+You can then activate each scene with its name from the smartphone app:
+
+```yaml
+  - service: scene.turn_on
+    entity_id: scene.goodnight
+```
+
 {% configuration %}
 token:
   description: The API token for your LIFX Cloud account.
@@ -32,7 +39,7 @@ timeout:
 
 You create your API token on the LIFX website:
 1. Sign in to the [LIFX Cloud](https://cloud.lifx.com/)
-2. Click on your e-mail address and select _Settings_
+2. Click on your e-mail address and select _Personal Access Tokens_
 3. Now click _Generate New Token_
 4. Enter a meaningful label, such as 'Home Assistant'
 5. Click _Generate_
