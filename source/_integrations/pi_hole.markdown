@@ -1,6 +1,6 @@
 ---
-title: "Pi-hole Sensor"
-description: "Instructions on how to integrate Pi-hole sensors into Home Assistant."
+title: "Pi-hole"
+description: "Instructions on how to integrate Pi-hole with Home Assistant."
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
@@ -8,7 +8,7 @@ logo: pi_hole.png
 ha_release: 0.28
 ---
 
-The `pi_hole` integration allows you to retrieve and display statistics from a single [Pi-hole](https://pi-hole.net/) system.
+The `pi_hole` integration allows you to retrieve statistics and interact with a single [Pi-hole](https://pi-hole.net/) system.
 
 ## Configuration
 
@@ -41,7 +41,10 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: Verify the certification of the system.
+  description: >
+    Verify the SSL/TLS certificate of the system.
+
+    **Note:** If your Pi-Hole instance uses a self-signed certificate, you should specify `false`.
   required: false
   type: boolean
   default: true
