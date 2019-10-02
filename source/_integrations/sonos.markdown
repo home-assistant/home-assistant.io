@@ -6,16 +6,16 @@ ha_category:
   - Media Player
 featured: true
 ha_release: 0.7.3
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio integrations from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
+The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
-If you don't have the discovery integration enabled, you can configure the Sonos integration by going to the integrations page inside the config panel.
+You can configure the Sonos integration by going to the integrations page inside the config panel.
 
 ## Services
 
-Sonos makes various services available to allow configuring groups. They are currently registered under the media player component.
+The Sonos integration makes various custom services available.
 
 ### Service `sonos.snapshot`
 
