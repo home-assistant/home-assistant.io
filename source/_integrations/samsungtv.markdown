@@ -116,7 +116,7 @@ Currently tested but not working models:
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on
-[GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/samsungtv.markdown).
+[GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_integrations/samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g., LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these first 4 characters before adding to the list.
 
