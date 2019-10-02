@@ -100,4 +100,4 @@ These incident types are available:
 
 ### Events
 
-The `crimealerts` sensor fires a `crimealerts_incident` event when a new incident is detected, including the type, description, time, location, and coordinates of the incident.
+The `crimereports` sensor fires a `crimereports_incident` event when a new incident is detected, including the type, description, time, location, and coordinates of the incident.
