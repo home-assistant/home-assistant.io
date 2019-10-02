@@ -22,10 +22,7 @@ pi_hole:
 {% configuration %}
 host:
   description: >
-    The hostname (and port), e.g. '192.168.0.3:4865' of the host where Pi-hole is running.
-
-
-    **Note:** If your Pi-Hole instance is the Hass.io add-on, you *must* specify port `4865`.
+    The hostname (and port), e.g., '192.168.0.3:4865' of the host where Pi-hole is running. If your Pi-Hole instance is the Hass.io add-on, you *must* specify port `4865`.
   required: false
   type: string
   default: pi.hole
