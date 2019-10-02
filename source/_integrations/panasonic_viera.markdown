@@ -28,7 +28,7 @@ Currently known supported models:
 - TX-42AS650
 - TX55ASW654
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_components/panasonic_viera.markdown).
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
 

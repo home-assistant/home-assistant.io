@@ -94,6 +94,16 @@ power_command_topic:
   description: The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
   required: false
   type: string
+action_topic:
+  description: >-
+    The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source.
+    Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
+  required: false
+  type: string
+action_template:
+  description: A template to render the value received on the `action_topic` with.
+  required: false
+  type: template
 mode_command_topic:
   description: The MQTT topic to publish commands to change the HVAC operation mode.
   required: false

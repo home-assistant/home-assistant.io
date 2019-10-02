@@ -11,7 +11,7 @@ The configuration options to call a config are the same between all integrations
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 <div class='note'>
-Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
+Use the "Services" tab under Developer Tools to discover available services.
 </div>
 
 ### The basics
@@ -97,6 +97,6 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 * `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [google travel time] sensor, a [template sensor], or a [light]
 
 [templating]: /topics/templating/
-[google travel time]: /integrations/sensor.google_travel_time/
-[template sensor]: /integrations/sensor.template/
+[google travel time]: /integrations/google_travel_time/
+[template sensor]: /integrations/template/
 [light]: /integrations/light/

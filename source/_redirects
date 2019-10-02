@@ -1097,6 +1097,7 @@
 /components/xiaomi /integrations/xiaomi_aqara
 
 # Renaming components to integrations
+/components /integrations
 /components/abode /integrations/abode
 /components/acer_projector /integrations/acer_projector
 /components/actiontec /integrations/actiontec

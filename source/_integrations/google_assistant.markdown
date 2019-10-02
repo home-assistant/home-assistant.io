@@ -35,16 +35,16 @@ If this is the first time setting up your Google Assistant integration, you can 
 
 Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your existing configuration from release 0.79 or below, you need:
 
-1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
+1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/).  Select the `Develop` tab at the top of the page.  Then select `Account linking` from the left side menu.
     - Change `Linking type` to `OAuth` and `Authorization Code`.
-    - In the `Client information` section:
+    - In the `OAuth Client information` section:
         - Change `Client ID` to `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
         - Input any string you like into `Client Secret`, Home Assistant doesn't need this field.
         - Change `Authorization URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize` (replace with your actual URL).
         - Change `Token URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token` (replace with your actual URL).
     - In the `Configure your client` section:
         - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
-    - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
+    - Click `Save` at the top right corner, then click `Test` (also at the top right corner) to generate a new draft version of the Test App.
 2. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
 3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
@@ -81,7 +81,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 3. Under `Build your Action` click `Add Action(s)`.
     1. Under `Fulfillment` fill in this URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`.
-4. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
+4. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App.
 5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
 6. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
 7. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
