@@ -137,7 +137,7 @@ Currently supported devices as device triggers:
 
 #### Requesting support for new device trigger
 
-Requesting support for additional devices require the device model (can be aqcuired from debug logs) together with a mapping of action and button event, e.g. Hue dimmer remote model "RWL021", Short press turn on 1000.
+Requesting support for additional devices requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
 
 ## Examples
 
