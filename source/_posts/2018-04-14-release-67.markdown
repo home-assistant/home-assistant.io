@@ -56,7 +56,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Updates default Pilight port number ([@frenck] - [#13419]) ([pilight docs]) (breaking change)
 - Update to new "b2vapi" of BMW ConnectedDrive ([@ChristianKuehnel] - [#13305]) ([bmw_connected_drive docs]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (breaking change)
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([sensor.mercedesme docs]) (breaking change)
 - Channel up and down for webostv ([@stephanerosi] - [#13624]) ([media_player.webostv docs]) (breaking change)
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
@@ -108,7 +108,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added HassOpenCover and HassCloseCover intents ([@tschmidty69] - [#13372]) ([conversation docs]) ([cover docs])
 - rfxtrx lib 0.22.0 ([@Danielhiversen] - [#13576]) ([rfxtrx docs])
 - xiaomi lib upgrade ([@Danielhiversen] - [#13577]) ([xiaomi_aqara docs])
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([sensor.mercedesme docs]) (breaking change)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
 - Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586]) ([sensor.hydroquebec docs])
@@ -333,7 +333,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [amcrest docs]: /integrations/amcrest/
 [api docs]: /integrations/api/
 [binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
-[binary_sensor.mercedesme docs]: /integrations/binary_sensor.mercedesme/
 [binary_sensor.workday docs]: /integrations/workday
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [camera.mqtt docs]: /integrations/camera.mqtt/

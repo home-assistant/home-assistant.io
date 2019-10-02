@@ -235,7 +235,7 @@ Time condition windows can span across the midnight threshold. In the example ab
 
 <div class='note tip'>
 
-A better weekday condition could be by using the [Workday Binary Sensor](/integrations/binary_sensor.workday/).
+A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 
 </div>
 
