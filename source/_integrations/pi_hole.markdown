@@ -76,7 +76,7 @@ Disable your Pi-hole for the specified amount of time.
 
 _Note: This service requires `api_key` to be specified in the configuration._
 
-### Service `pi.hole_enable`
+### Service `pi_hole.enable`
 
 Enable your Pi-hole.
 
