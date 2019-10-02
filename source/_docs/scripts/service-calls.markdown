@@ -97,6 +97,6 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 * `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [google travel time] sensor, a [template sensor], or a [light]
 
 [templating]: /topics/templating/
-[google travel time]: /integrations/sensor.google_travel_time/
-[template sensor]: /integrations/sensor.template/
+[google travel time]: /integrations/google_travel_time/
+[template sensor]: /integrations/template/
 [light]: /integrations/light/

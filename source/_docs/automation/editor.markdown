@@ -5,7 +5,7 @@ description: "Instructions on how to use the automation editor."
 
 In Home Assistant 0.45 we introduced the first version of our automation editor. If you just created a new configuration with Home Assistant, then you're all set! Go to the UI and enjoy.
 
-From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/integrations/sensor.random/).
+From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/integrations/random/).
 
 Choose a meaningful name for your automation rules.
 
