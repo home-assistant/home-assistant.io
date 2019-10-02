@@ -51,7 +51,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 
 ## Release 0.63.2 - February 14
 
-- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
 - Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
 - Updated beacontools ([@citruz] - [#12368]) ([sensor.eddystone_temperature docs])
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
@@ -226,7 +226,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Canary live stream ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Replace Gitter with Discord ([@fabaff] - [#12199])
 - Upgrade Sphinx to 1.6.7 ([@fabaff] - [#12200])
-- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
 - Binary Sensor Template: Add icon_template and entity_picture_template support ([@hawk259] - [#12158]) ([binary_sensor.template docs])
 - Bump pyeconet version to fix JSONDecodeError ([@w1ll1am23] - [#12204]) ([climate.econet docs])
 - Add support for Alexa.StepSpeaker ([@lucasweb78] - [#12183]) ([alexa docs])
@@ -503,7 +503,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@zabuldon]: https://github.com/zabuldon
 [alexa docs]: /integrations/alexa/
 [binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
-[binary_sensor.mercedesme docs]: /integrations/binary_sensor.mercedesme/
 [binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
 [binary_sensor.template docs]: /integrations/binary_sensor.template/
 [binary_sensor.threshold docs]: /integrations/threshold
@@ -654,7 +653,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
-[binary_sensor.mercedesme docs]: /integrations/binary_sensor.mercedesme/
 [device_tracker.mercedesme docs]: /integrations/device_tracker.mercedesme/
 [light.limitlessled docs]: /integrations/limitlessled
 [media_player.yamaha docs]: /integrations/yamaha
