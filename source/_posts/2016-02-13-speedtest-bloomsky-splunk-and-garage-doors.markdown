@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors"
 description: "Home Assistant 0.13 brings test coverage to a whopping 90% and adds a whole bunch of new components."
 date: 2016-02-13 22:15:00 UTC
 date_formatted: "February 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-02-release-13/social-img.png
 ---
@@ -24,7 +22,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 
  - Core: Add service to restart Home Assistant ([@rmkraus])
  - Core: Allow device to report as unavailable ([@MartinHjelmare])
- - Core: Allow overriding polling interval in platforms and [via config][polling-config] ([@balloob])
+ - Core: Allow overriding polling interval in platforms and via config ([@balloob])
  - Frontend: support for a [default view] have been added to replace the show all view ([@balloob])
  - Component: Added [apcupsd] component ([@flyte])
  - Component: Added component to log values to [Splunk] ([@miniconfig])
@@ -84,33 +82,32 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [@Danielhiversen]: https://github.com/Danielhiversen/
 [@roqeer]: https://github.com/roqeer/
 [@jaharkes]: https://github.com/jaharkes/
-[polling-config]: /cookbook/customize_polling_interval/
-[default view]: /components/group/
-[apcupsd]: /components/apcupsd/
-[Splunk]: /components/splunk/
-[garage door]: /components/garage_door/
-[Wink]: /components/garage_door.wink/
-[input_select]: /components/input_select/
-[proximity]: /components/proximity/
-[Bloomsky Weather Station]: /components/bloomsky/
-[graphite]: /components/graphite/
-[SCSGate]: /components/scsgate/
-[weblink]: /components/weblink/
-[mfi.switch]: /components/switch.mfi/
-[mfi.sensor]: /components/sensor.mfi/
-[nx584]: /components/alarm_control_panel.nx584/
-[MJPEG]: /components/camera.mjpeg/
-[unifi]: /components/camera.uvc/
-[Aruba]: /components/device_tracker.aruba/
-[History]: /components/history/
-[MySensors]: /components/light.mysensors/
-[Verisure]: /components/lock.verisure/
-[Speedtest.net]: /components/sensor.speedtest/
-[Samsung TV]: /components/media_player.samsungtv/
-[Snapcast]: /components/media_player.snapcast/
-[mqtt-publish]: /components/mqtt/#publish-service
-[REST]: /components/notify.rest/
-[template]: /components/switch.template/
-[Honeywell]: /components/thermostat.honeywell/
-[zwave-polling]: /components/zwave/#configuration
-[zwave-scene]: /components/zwave/#events
+[default view]: /integrations/group/
+[apcupsd]: /integrations/apcupsd/
+[Splunk]: /integrations/splunk/
+[garage door]: /integrations/cover/
+[Wink]: /integrations/wink/#cover
+[input_select]: /integrations/input_select/
+[proximity]: /integrations/proximity/
+[Bloomsky Weather Station]: /integrations/bloomsky/
+[graphite]: /integrations/graphite/
+[SCSGate]: /integrations/scsgate/
+[weblink]: /integrations/weblink/
+[mfi.switch]: /integrations/mfi#switch
+[mfi.sensor]: /integrations/mfi#sensor
+[nx584]: /integrations/nx584
+[MJPEG]: /integrations/mjpeg
+[unifi]: /integrations/uvc
+[Aruba]: /integrations/aruba
+[History]: /integrations/history/
+[MySensors]: /integrations/light.mysensors/
+[Verisure]: /integrations/verisure
+[Speedtest.net]: /integrations/speedtestdotnet
+[Samsung TV]: /integrations/samsungtv
+[Snapcast]: /integrations/snapcast
+[mqtt-publish]: /integrations/mqtt/#publish-service
+[REST]: /integrations/notify.rest/
+[template]: /integrations/switch.template/
+[Honeywell]: /integrations/honeywell/
+[zwave-polling]: /integrations/zwave/#configuration
+[zwave-scene]: /integrations/zwave/#events

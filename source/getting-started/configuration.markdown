@@ -1,19 +1,15 @@
 ---
-layout: page
 title: "Advanced Configuration"
 description: "Instructions to get Home Assistant configured."
-date: 2016-09-26 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Until now we have been able to configure Home Assistant purely via the user interface. However, not all options are accessible via the user interface. The other options are accessible via the Home Assistant configuration file called `configuration.yaml`. A default one is created when Home Assistant started for the first time.
 
-<p class='note'>
+<div class='note'>
+
 This final step of the getting started only applies if you've installed Home Assistant via Hass.io. If you've used another installation method, [see here](/docs/configuration/).
-</p>
+
+</div>
 
 We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the HASS Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
 
@@ -26,7 +22,7 @@ Under the "Core" section you will find HASS Configurator.
 
  - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
  - Now start the add-on by clicking on START.
- - Open the user interface by clcking on OPEN WEB UI.
+ - Open the user interface by clicking on OPEN WEB UI.
 
 Now let's make a small change using the configurator: we are going to change the name and location of your Home Assistant installation.
 
@@ -42,7 +38,7 @@ Now let's make a small change using the configurator: we are going to change the
 Screenshot of the "General" page in the configuration panel.
 </p>
 
-### {% linkable_title Editing config via Samba/Windows Networking %}
+### Editing config via Samba/Windows Networking
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Hass.io add-on store. This will make your configuration accessible via the network tab on your computer.
 

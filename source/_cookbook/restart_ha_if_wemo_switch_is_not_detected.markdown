@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Restart Home Assistant if Wemo Switch is not detected"
 description: "Restart Home Assistant if Wemo Switch is not detected."
-date: 2016-01-29 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-### {% linkable_title Restart Home Assistant %}
+### Restart Home Assistant
 
-This configuration example is restarting Home Assistant if a [WeMo](/components/switch.wemo/) switch is not detected. An additional MQTT switch is present for stopping Home Assistant and can be triggered by [IFTTT](/components/ifttt/). The running batch script will automatically restart Home Assistant if the process isn't found anymore.
+This configuration example is restarting Home Assistant if a [WeMo](/integrations/wemo) switch is not detected. An additional MQTT switch is present for stopping Home Assistant and can be triggered by [IFTTT](/integrations/ifttt/). The running batch script will automatically restart Home Assistant if the process isn't found anymore.
 
 ```yaml
 mqtt:

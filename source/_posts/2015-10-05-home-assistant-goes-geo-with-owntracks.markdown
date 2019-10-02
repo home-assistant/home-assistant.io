@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant goes geo with OwnTracks"
 description: "Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing."
 date: 2015-10-05 21:49:00 0000
 date_formatted: "October 5, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/screenshots/map.png
 ---
@@ -19,8 +17,8 @@ A few weeks have past and it is time again for another release: version 0.7.4. T
 
 We have added a new [getting started section][start-presence] to get up and running.
 
-[platform-owntracks]: /components/device_tracker.owntracks/
-[component-zone]: /components/zone/
+[platform-owntracks]: /integrations/owntracks
+[component-zone]: /integrations/zone/
 [zone-automation]: /getting-started/automation-trigger/#zone-trigger
 [start-presence]: /getting-started/presence-detection/
 
@@ -31,15 +29,15 @@ Map in Home Assistant showing two people and three zones (home, school, work)
 
 Ofcourse more things happened in the last three weeks. I'm moving away from my usual long post to a short summary of highlights:
 
-<a href='/components/media_player.plex/'>
+<a href='/integrations/plex#media-player'>
 <img src='/images/supported_brands/plex.png' style='border:none; box-shadow: none; float: right;' height='50' />
 </a>
 
- - Sensor: [rest platform](/components/sensor.rest/) added ([@fabaff](https://github.com/fabaff))
- - Alarm Control Panel: [MQTT platform](/components/alarm_control_panel.mqtt/) added ([@sfam](https://github.com/sfam))
- - Media Player: [Plex platform](/components/media_player.plex/) added ([@miniconfig](https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault))
+ - Sensor: [rest platform](/integrations/rest) added ([@fabaff](https://github.com/fabaff))
+ - Alarm Control Panel: [MQTT platform](/integrations/alarm_control_panel.mqtt/) added ([@sfam](https://github.com/sfam))
+ - Media Player: [Plex platform](/integrations/plex#media-player) added ([@miniconfig](https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault))
  - Dev Tools: services can now show description of fields ([@balloob](https://github.com/balloob))
  - MQTT: Support for certificates and improved error reporting ([@balloob](https://github.com/balloob))
- - Light: [limitlessled platform](/components/light.limitlessled/) extended with white light support ([@auchter](https://github.com/auchter))
+ - Light: [limitlessled platform](/integrations/limitlessled) extended with white light support ([@auchter](https://github.com/auchter))
  - Fuzzy matching for scenes ([@pavoni](https://github.com/pavoni))
  - Scene support for media player ([@maddox](https://github.com/maddox))

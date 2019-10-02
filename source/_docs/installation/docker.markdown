@@ -1,51 +1,47 @@
 ---
-layout: page
 title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 
+## Platform Installation
+
 Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
 
-### {% linkable_title Linux %}
+### Linux
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
 ```
 
-### {% linkable_title Raspberry Pi 3 (Raspbian) %}
+### Raspberry Pi 3 (Raspbian)
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
 ```
 
 You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
  
 ```bash
-$ docker run --init -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/pi/homeassistant:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
 ```
 
-### {% linkable_title macOS %}
+### macOS
 
 When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
-### {% linkable_title Windows %}
+### Windows
 
 ```powershell
-$ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" --net=host homeassistant/home-assistant
+$ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
 ```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
@@ -57,7 +53,7 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
 
 This will let you access your Home Assistant portal from <http://localhost:8123>, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
 
-### {% linkable_title Synology NAS %}
+### Synology NAS
 
 As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/app_packages/Docker>
 
@@ -95,7 +91,7 @@ Adjust the following Terminal command as follows :
 Run it in Terminal.  
 
 ```bash
-sudo docker run --restart always -d --name="homeassistant" -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host homeassistant/home-assistant
+sudo docker run --restart always -d --name="homeassistant" -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host homeassistant/home-assistant:stable
 ```
 
 Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
@@ -114,11 +110,11 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 * Go to the Docker-app and move to "Container"-section
 * Right-click on it and select "Action"->"Restart".
 
-<p class='note'>
-If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne. 
-</p>
+<div class='note'>
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne.
+</div>
 
-### {% linkable_title QNAP NAS %}
+### QNAP NAS
 
 As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
 
@@ -142,7 +138,7 @@ Remark: To update your Home Assistant on your Docker within Qnap NAS, you just r
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assistant on Qnap Docker, follow those steps:
 
-#### {% linkable_title Z-Wave %}
+#### Z-Wave
 
  - Connect to your NAS over SSH
  - Load cdc-acm kernel module(when nas restart need to run this command)
@@ -152,7 +148,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
     The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
     
  - Run Docker command:
-    `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant`
+    `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable`
     
     `-v` is your config path
     `-e` is set timezone
@@ -166,11 +162,11 @@ zwave:
 
 That will tell Home Assistant where to look for our Z-wave radio.
 
-#### {% linkable_title Bluetooth %}
+#### Bluetooth
 
  - Connect to your NAS over SSH
  - Run Docker command:
-    `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant`
+    `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable`
     
     First `-v` is your config path
     `-e` is set timezone
@@ -182,14 +178,14 @@ device_tracker:
   - platform: bluetooth_tracker
 ```
 
-### {% linkable_title Restart %}
+## Restart
 
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
  2. Or you can restart it from a terminal by running `docker restart home-assistant`
 
-### {% linkable_title Docker Compose %}
+## Docker Compose
 
 As the docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
@@ -198,10 +194,11 @@ As the docker command becomes more complex, switching to `docker-compose` can be
   services:
     homeassistant:
       container_name: home-assistant
-      image: homeassistant/home-assistant
+      image: homeassistant/home-assistant:stable
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
+      environment:
+        - TZ=America/New_York
       restart: always
       network_mode: host
 ```
@@ -218,14 +215,14 @@ To restart Home Assistant when you have changed configuration:
 $ docker-compose restart
 ```
 
-### {% linkable_title Exposing Devices %}
+## Exposing Devices
 
 In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
-   -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
-   --net=host homeassistant/home-assistant
+   -e "TZ=Australia/Melbourne" --device /dev/ttyUSB0:/dev/ttyUSB0 \
+   --net=host homeassistant/home-assistant:stable
 ```
 
 or in a `docker-compose.yml` file:
@@ -235,14 +232,15 @@ or in a `docker-compose.yml` file:
   services:
     homeassistant:
       container_name: home-assistant
-      image: homeassistant/home-assistant
+      image: homeassistant/home-assistant:stable
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
       devices:
         - /dev/ttyUSB0:/dev/ttyUSB0
         - /dev/ttyUSB1:/dev/ttyUSB1
         - /dev/ttyACM0:/dev/ttyACM0
+      environment:
+        - TZ=America/New_York
       restart: always
       network_mode: host
 ```

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NGINX SSL proxy"
 description: "NGINX Home Assistant SSL proxy."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Sets up an SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on.
@@ -51,6 +45,8 @@ customize:
   default: false
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 It is possible to deactivate port 80 if you need this for things like `emulated_hue`. Remove the host port from Network option of this add-on.
-</p>
+
+</div>

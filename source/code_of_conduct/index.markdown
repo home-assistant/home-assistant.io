@@ -1,16 +1,11 @@
 ---
-layout: page
 title: "Code of Conduct"
 description: "The Code of Conduct for Home Assistant projects."
-date: 2017-01-21 15:05:00 -0800
 sidebar: false
-comments: false
-sharing: true
-footer: true
 redirect_from: /developers/code_of_conduct/
 ---
 
-## {% linkable_title Our Pledge %}
+## Our Pledge
 
 In the interest of fostering an open and welcoming environment, we as
 contributors and maintainers pledge to making participation in our project and
@@ -19,7 +14,7 @@ size, disability, ethnicity, gender identity and expression, level of experience
 nationality, personal appearance, race, religion, or sexual identity and
 orientation.
 
-## {% linkable_title Our Standards %}
+## Our Standards
 
 Examples of behavior that contributes to creating a positive environment
 include:
@@ -41,7 +36,7 @@ advances
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
-## {% linkable_title Our Responsibilities %}
+## Our Responsibilities
 
 Project maintainers are responsible for clarifying the standards of acceptable
 behavior and are expected to take appropriate and fair corrective action in
@@ -53,7 +48,7 @@ that are not aligned to this Code of Conduct, or to ban temporarily or
 permanently any contributor for other behaviors that they deem inappropriate,
 threatening, offensive, or harmful.
 
-## {% linkable_title Scope %}
+## Scope
 
 This Code of Conduct applies both within project spaces and in public spaces
 when an individual is representing the project or its community. Examples of
@@ -62,7 +57,7 @@ address, posting via an official social media account, or acting as an appointed
 representative at an online or offline event. Representation of a project may be
 further defined and clarified by project maintainers.
 
-## {% linkable_title Enforcement %}
+## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by contacting the project team at [safety@home-assistant.io][email]. All
@@ -75,12 +70,12 @@ Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
 members of the project's leadership.
 
-## {% linkable_title Attribution %}
+## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
 available [here][version].
 
-## {% linkable_title Adoption %}
+## Adoption
 
 This Code of Conduct was first adopted January 21st, 2017 and announced in [this][coc-blog] blog post.
 

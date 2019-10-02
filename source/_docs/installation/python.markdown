@@ -1,24 +1,20 @@
 ---
-layout: page
 title: "Installation on your computer"
 description: "Installation of Home Assistant on your computer."
-date: 2014-12-18 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-python/
 ---
 
-<p class='note'>
+<div class='note'>
+
 If you're running a Linux-based platform, we strongly recommend you follow the instructions for a [virtual environment](/docs/installation/virtualenv/) instead. If you're running on Windows then [see here](/docs/installation/windows/#installing-in-a-python-virtual-environment) instead.
-</p>
+
+</div>
 
 Once Python is installed, execute the following code in a console:
 
 ```bash
-$ pip3 install homeassistant
-$ hass --open-ui
+pip3 install homeassistant
+hass --open-ui
 ```
 
 Running these commands will:

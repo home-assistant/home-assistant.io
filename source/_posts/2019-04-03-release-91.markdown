@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.91: More streaming, better Zigbee, cameras with ESPHome"
 description: "Big update that brings goodies across the board."
 date: 2019-04-03 00:11:03
 date_formatted: "April 3, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-04-release-91/social.png
 ---
@@ -28,17 +26,17 @@ A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI]
 
 And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
-## {% linkable_title Notable breaking change %}
+## Notable breaking change
 
 We finished the great migration. All built-in platforms are now in their own folder. This means that if you had a custom component or platform that had the same name as a built-in one, you have to rename it. If you still have platforms in your `custom_components/` directory in the old file format, `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It still works but it will not be supported in a future release.
 
 Thanks to [@Swamp-Ig], [@robbiet480] and [@cgtobi] for their work on this!
 
-## {% linkable_title Trusted networks now support trusted users %}
+## Trusted networks now support trusted users
 
 Trusted networks has been updated by [@awarecan] to allow specifying specific uses that specific IP addresses are allowed to log into. If a user is logging in with trusted networks and there is only a single user, you can now configure it to skip the login form and automatically login. See [the documentation](/docs/authentication/providers/#trusted-networks) for more info.
 
-## {% linkable_title ESPHome Cameras %}
+## ESPHome Cameras
 
 This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
 
@@ -48,7 +46,7 @@ Check this cool demo, part of [this blog post](https://www.dopebuild.com/i-am-so
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Zigbee ZHA pairing experience %}
+## Zigbee ZHA pairing experience
 
 Every release our Zigbee integration is getting better thanks to the hard work by [@dmulcahey], [@damarco] and [@Adminiuga]. This release introduces a brand new pairing experience. While pairing mode is enabled, any device that is getting paired will instantly show up, allowing users to configure the name and the area.
 
@@ -56,14 +54,14 @@ Every release our Zigbee integration is getting better thanks to the hard work b
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ye-tf2RFfLQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title VSCode hass.io add-on %}
+## VSCode hass.io add-on
 
 If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
 </blockquote>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN sensor platform ([@alengwenus] - [#21440]) ([lcn docs]) (new-platform)
 - Add ESPHome Camera ([@OttoWinter] - [#22107]) ([esphome docs]) (new-platform)
@@ -71,7 +69,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 - Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
 - Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
 
-## {% linkable_title Release 0.91.1 - April 4 %}
+## Release 0.91.1 - April 4
 
 - Change URL handling ([@pvizeli] - [#22713]) ([hassio docs])
 - fix device class lookup for binary sensors ([@dmulcahey] - [#22724]) ([zha docs])
@@ -98,14 +96,14 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@fredrike]: https://github.com/fredrike
 [@hunterjm]: https://github.com/hunterjm
 [@pvizeli]: https://github.com/pvizeli
-[ambient_station docs]: /components/ambient_station/
-[daikin docs]: /components/daikin/
-[foscam docs]: /components/foscam/
-[hassio docs]: /components/hassio/
-[stream docs]: /components/stream/
-[zha docs]: /components/zha/
+[ambient_station docs]: /integrations/ambient_station/
+[daikin docs]: /integrations/daikin/
+[foscam docs]: /integrations/foscam/
+[hassio docs]: /integrations/hassio/
+[stream docs]: /integrations/stream/
+[zha docs]: /integrations/zha/
 
-## {% linkable_title Release 0.91.2 - April 8 %}
+## Release 0.91.2 - April 8
 
 - Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
 - Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
@@ -150,17 +148,17 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@wmalgadey]: https://github.com/wmalgadey
 [@zewelor]: https://github.com/zewelor
-[camera docs]: /components/camera/
-[foscam docs]: /components/foscam/
-[hassio docs]: /components/hassio/
-[konnected docs]: /components/konnected/
-[mobile_app docs]: /components/mobile_app/
-[mopar docs]: /components/mopar/
-[tado docs]: /components/tado/
-[yeelight docs]: /components/yeelight/
-[zha docs]: /components/zha/
+[camera docs]: /integrations/camera/
+[foscam docs]: /integrations/foscam/
+[hassio docs]: /integrations/hassio/
+[konnected docs]: /integrations/konnected/
+[mobile_app docs]: /integrations/mobile_app/
+[mopar docs]: /integrations/mopar/
+[tado docs]: /integrations/tado/
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
 
-## {% linkable_title Release 0.91.3 - April 10 %}
+## Release 0.91.3 - April 10
 
 - Fix position of add_entities of binary sensor ([@AZDane] - [#22866]) ([concord232 docs])
 - More Mobile app sensor fixes ([@robbiet480] - [#22914]) ([mobile_app docs])
@@ -174,37 +172,37 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@AZDane]: https://github.com/AZDane
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
-[concord232 docs]: /components/concord232/
-[hassio docs]: /components/hassio/
-[mobile_app docs]: /components/mobile_app/
+[concord232 docs]: /integrations/concord232/
+[hassio docs]: /integrations/hassio/
+[mobile_app docs]: /integrations/mobile_app/
 
-## {% linkable_title Release 0.91.4 - April 16 %}
+## Release 0.91.4 - April 16
 
 - Fix ingress bug with Firefox ([@pvizeli] - [#23121]) ([hassio docs]) ([http docs])
 
 [#23121]: https://github.com/home-assistant/home-assistant/pull/23121
 [@pvizeli]: https://github.com/pvizeli
-[hassio docs]: /components/hassio/
-[http docs]: /components/http/
+[hassio docs]: /integrations/hassio/
+[http docs]: /integrations/http/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
 
 - __iOS__ - Improves the text description of ATTR_BATTERY_STATE_UNPLUGGED from Unplugged to Not Charging as many new iOS devices now use Wireless charging and there is no concept of "Plugging In". This is potentially a breaking change if you have automations making use of "unplugged". ([@FattusMannus] - [#22152]) ([ios docs])
 - __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping.  ([@eliseomartelli] - [#22175])
-- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](https://www.home-assistant.io/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
-- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](https://www.home-assistant.io/components/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
+- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](/integrations/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
+- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](/integrations/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
 - __Public Transit (GTFS)__
   * The state for this sensor component was a countdown in minutes. If the next departure was in a few hours, this number became quite large and a tad harder to rapidly calculate mentally (463 minutes anyone?). The sensor's state output has been changed from minutes to an ISO 8601 UTC timestamp, which allows the UI to interpret the state as needed. ([@renemarc] - [#21053]) ([gtfs docs])
   * Sensor updates were running many database queries to populate attributes, on top of the bus schedule queries themselves. This is doubled with two sensors. That led to a lot of slowdowns for everything else when using an SD card! Considering that some data never changes (agency, routes...) and that others like departure times are good until invalidated, now we fetch such metadata at first and then only when relevant changes do occur. GTFS sensor attributes are now named using the standard snake_case format. ([@renemarc] - [#20966]) ([gtfs docs])
@@ -216,7 +214,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Fix regression of the xiaomi_aqara config validation ([@syssi] - [#22435]) ([xiaomi_aqara docs]) (breaking change) (beta fix)
 - Fix dev branch ([@awarecan] - [#22493]) ([homekit_controller docs]) (beta fix)
@@ -247,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Return 0 for failed Foscam streams ([@cwhits] - [#22651]) ([foscam docs]) (beta fix)
 - Fix racy homekit_controller platform setup caused by #22368 ([@Jc2k] - [#22655]) ([homekit_controller docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add sense guard clause ([@kbickar] - [#22014]) ([sense docs])
 - Upgrade prefetched tox env to py37 ([@awarecan] - [#22029])
@@ -317,7 +315,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Prometheus casting issues ([@robbiet480] - [#22282]) ([prometheus docs])
 - Update trait to support auto without ranges. ([@Swamp-Ig] - [#21847]) ([google_assistant docs])
 - Sort code owners alphabetically ([@cgtobi] - [#22304])
-- Update srpenergy library ([@robbiet480] - [#22307]) ([srp_energy docs])
+- Update srpenergy library ([@robbiet480] - [#22307])
 - Switch from using Google Maps API for elevation to Open Elevation API ([@robbiet480] - [#22306])
 - Fix for embedded MQTT server configuration ([@robbiet480] - [#22305]) ([mqtt docs])
 - Upgrade pylast to 3.1.0 ([@fabaff] - [#22302]) ([lastfm docs])
@@ -735,119 +733,118 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@thomasloven]: https://github.com/thomasloven
 [@uchagani]: https://github.com/uchagani
 [@zewelor]: https://github.com/zewelor
-[alexa docs]: /components/alexa/
-[amazon_polly docs]: /components/amazon_polly/
-[ambient_station docs]: /components/ambient_station/
-[amcrest docs]: /components/amcrest/
-[androidtv docs]: /components/androidtv/
-[api_streams docs]: /components/api_streams/
-[auth docs]: /components/auth/
-[aws docs]: /components/aws/
-[axis docs]: /components/axis/
-[baidu docs]: /components/baidu/
-[buienradar docs]: /components/buienradar/
-[camera docs]: /components/camera/
-[cisco_mobility_express docs]: /components/cisco_mobility_express/
-[config docs]: /components/config/
-[daikin docs]: /components/daikin/
-[darksky docs]: /components/darksky/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[demo docs]: /components/demo/
-[discovery docs]: /components/discovery/
-[dlib_face_detect docs]: /components/dlib_face_detect/
-[dlib_face_identify docs]: /components/dlib_face_identify/
-[dlna_dmr docs]: /components/dlna_dmr/
-[ecobee docs]: /components/ecobee/
-[enigma2 docs]: /components/enigma2/
-[entur_public_transport docs]: /components/entur_public_transport/
-[esphome docs]: /components/esphome/
-[familyhub docs]: /components/familyhub/
-[ffmpeg docs]: /components/ffmpeg/
-[foscam docs]: /components/foscam/
-[freebox docs]: /components/freebox/
-[frontend docs]: /components/frontend/
-[generic docs]: /components/generic/
-[generic_thermostat docs]: /components/generic_thermostat/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[gtfs docs]: /components/gtfs/
-[hassio docs]: /components/hassio/
-[hlk_sw16 docs]: /components/hlk_sw16/
-[homeassistant docs]: /components/homeassistant/
-[homekit_controller docs]: /components/homekit_controller/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[horizon docs]: /components/horizon/
-[hp_ilo docs]: /components/hp_ilo/
-[http docs]: /components/http/
-[hyperion docs]: /components/hyperion/
-[iliad_italy docs]: /components/iliad_italy/
-[ios docs]: /components/ios/
-[joaoapps_join docs]: /components/joaoapps_join/
-[konnected docs]: /components/konnected/
-[lastfm docs]: /components/lastfm/
-[lcn docs]: /components/lcn/
-[local_file docs]: /components/local_file/
-[logi_circle docs]: /components/logi_circle/
-[manual docs]: /components/manual/
-[manual_mqtt docs]: /components/manual_mqtt/
-[marytts docs]: /components/marytts/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[microsoft docs]: /components/microsoft/
-[mold_indicator docs]: /components/mold_indicator/
-[moon docs]: /components/moon/
-[mopar docs]: /components/mopar/
-[mqtt docs]: /components/mqtt/
-[nanoleaf docs]: /components/nanoleaf/
-[ness_alarm docs]: /components/ness_alarm/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[nmbs docs]: /components/nmbs/
-[notify docs]: /components/notify/
-[onkyo docs]: /components/onkyo/
-[onvif docs]: /components/onvif/
-[opentherm_gw docs]: /components/opentherm_gw/
-[openweathermap docs]: /components/openweathermap/
-[panasonic_viera docs]: /components/panasonic_viera/
-[panel_custom docs]: /components/panel_custom/
-[panel_iframe docs]: /components/panel_iframe/
-[picotts docs]: /components/picotts/
-[plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
-[prometheus docs]: /components/prometheus/
-[ps4 docs]: /components/ps4/
-[push docs]: /components/push/
-[recorder docs]: /components/recorder/
-[reddit docs]: /components/reddit/
-[rest docs]: /components/rest/
-[ring docs]: /components/ring/
-[season docs]: /components/season/
-[sense docs]: /components/sense/
-[sensibo docs]: /components/sensibo/
-[simplisafe docs]: /components/simplisafe/
-[smartthings docs]: /components/smartthings/
-[solaredge docs]: /components/solaredge/
-[sql docs]: /components/sql/
-[srp_energy docs]: /components/srp_energy/
-[stream docs]: /components/stream/
-[switch docs]: /components/switch/
-[switchbot docs]: /components/switchbot/
-[systemmonitor docs]: /components/systemmonitor/
-[telegram_bot docs]: /components/telegram_bot/
-[tellduslive docs]: /components/tellduslive/
-[tfiac docs]: /components/tfiac/
-[tibber docs]: /components/tibber/
-[time_date docs]: /components/time_date/
-[tplink docs]: /components/tplink/
-[traccar docs]: /components/traccar/
-[trafikverket_weatherstation docs]: /components/trafikverket_weatherstation/
-[upnp docs]: /components/upnp/
-[voicerss docs]: /components/voicerss/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[xiaomi_miio docs]: /components/xiaomi_miio/
-[yandextts docs]: /components/yandextts/
-[yeelight docs]: /components/yeelight/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alexa docs]: /integrations/alexa/
+[amazon_polly docs]: /integrations/amazon_polly/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[api_streams docs]: /integrations/api_streams/
+[auth docs]: /integrations/auth/
+[aws docs]: /integrations/aws/
+[axis docs]: /integrations/axis/
+[baidu docs]: /integrations/baidu/
+[buienradar docs]: /integrations/buienradar/
+[camera docs]: /integrations/camera/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[config docs]: /integrations/config/
+[daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[demo docs]: /integrations/demo/
+[discovery docs]: /integrations/discovery/
+[dlib_face_detect docs]: /integrations/dlib_face_detect/
+[dlib_face_identify docs]: /integrations/dlib_face_identify/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[ecobee docs]: /integrations/ecobee/
+[enigma2 docs]: /integrations/enigma2/
+[entur_public_transport docs]: /integrations/entur_public_transport/
+[esphome docs]: /integrations/esphome/
+[familyhub docs]: /integrations/familyhub/
+[ffmpeg docs]: /integrations/ffmpeg/
+[foscam docs]: /integrations/foscam/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[generic docs]: /integrations/generic_ip_camera/
+[generic_thermostat docs]: /integrations/generic_thermostat/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hlk_sw16 docs]: /integrations/hlk_sw16/
+[homeassistant docs]: /integrations/homeassistant/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[horizon docs]: /integrations/horizon/
+[hp_ilo docs]: /integrations/hp_ilo/
+[http docs]: /integrations/http/
+[hyperion docs]: /integrations/hyperion/
+[iliad_italy docs]: /integrations/iliad_italy/
+[ios docs]: /integrations/ios/
+[joaoapps_join docs]: /integrations/joaoapps_join/
+[konnected docs]: /integrations/konnected/
+[lastfm docs]: /integrations/lastfm/
+[lcn docs]: /integrations/lcn/
+[local_file docs]: /integrations/local_file/
+[logi_circle docs]: /integrations/logi_circle/
+[manual docs]: /integrations/manual/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[marytts docs]: /integrations/marytts/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[microsoft docs]: /integrations/microsoft/
+[mold_indicator docs]: /integrations/mold_indicator/
+[moon docs]: /integrations/moon/
+[mopar docs]: /integrations/mopar/
+[mqtt docs]: /integrations/mqtt/
+[nanoleaf docs]: /integrations/nanoleaf/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nmbs docs]: /integrations/nmbs/
+[notify docs]: /integrations/notify/
+[onkyo docs]: /integrations/onkyo/
+[onvif docs]: /integrations/onvif/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[openweathermap docs]: /integrations/openweathermap/
+[panasonic_viera docs]: /integrations/panasonic_viera/
+[panel_custom docs]: /integrations/panel_custom/
+[panel_iframe docs]: /integrations/panel_iframe/
+[picotts docs]: /integrations/picotts/
+[plex docs]: /integrations/plex/
+[pollen docs]: /integrations/iqvia
+[prometheus docs]: /integrations/prometheus/
+[ps4 docs]: /integrations/ps4/
+[push docs]: /integrations/push/
+[recorder docs]: /integrations/recorder/
+[reddit docs]: /integrations/reddit/
+[rest docs]: /integrations/rest/
+[ring docs]: /integrations/ring/
+[season docs]: /integrations/season/
+[sense docs]: /integrations/sense/
+[sensibo docs]: /integrations/sensibo/
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[solaredge docs]: /integrations/solaredge/
+[sql docs]: /integrations/sql/
+[stream docs]: /integrations/stream/
+[switch docs]: /integrations/switch/
+[switchbot docs]: /integrations/switchbot/
+[systemmonitor docs]: /integrations/systemmonitor/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tellduslive docs]: /integrations/tellduslive/
+[tfiac docs]: /integrations/tfiac/
+[tibber docs]: /integrations/tibber/
+[time_date docs]: /integrations/time_date/
+[tplink docs]: /integrations/tplink/
+[traccar docs]: /integrations/traccar/
+[trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
+[upnp docs]: /integrations/upnp/
+[voicerss docs]: /integrations/voicerss/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yandextts docs]: /integrations/yandextts/
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "We have a Raspberry Pi image now"
 description: "Release of the Raspberry Pi Image for Home Assistant"
 date: 2016-10-01 01:00:00 -0400
 date_formatted: "October 1, 2016"
 author: Fredrik Lindqvist
-comments: true
 categories: Technology
 og_image: /images/blog/2016-10-hassbian/social.png
 ---
@@ -20,7 +18,7 @@ To get started, check out the installation instructions in [the getting started 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Under the hood %}
+### Under the hood
 
 It's based on Raspbian Lite and generated with a fork of the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](https://raspberrypi.org/downloads/raspbian/). For installation of HASS it follows the same install instructions as the [Manual installation](/getting-started/installation-raspberry-pi/). Please note that this project has no association with the Raspberry Pi foundation or their projects.
 
@@ -30,5 +28,5 @@ As it is today there is no pre-compiled Z-Wave support but it can be installed b
 
 Happy Automating!
 
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [BRUHAutomation]: https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w

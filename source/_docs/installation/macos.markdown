@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on macOS"
 description: "Installation of Home Assistant on your macOS system."
-date: 2017-03-01 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 [macOS](http://www.apple.com/macos/) is available by default on Apple computer. If you run a different operating system, please refer to the other section of the documentation.
@@ -16,9 +10,9 @@ To run Home Assistant on macOS, you need to install Python first. Download Pytho
 Open a terminal and install Home Assistant in a virtual environment:
 
 ```bash
-$ python3 -m venv homeassistant
-$ source homeassistant/bin/activate
-$ pip3 install homeassistant
+python3 -m venv homeassistant
+source homeassistant/bin/activate
+pip3 install homeassistant
 ```
 
 You can then configure Home Assistant to autostart by following [this guide](/docs/autostart/macos/).

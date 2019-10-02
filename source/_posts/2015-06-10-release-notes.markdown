@@ -1,18 +1,16 @@
 ---
-layout: post
 title: "Release notes for June 10, 2015"
 description: "Polymer 1.0, reviving media player support and the command line switch."
 date: 2015-06-10 18:54 0000
 date_formatted: "June 10, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
 Wow, almost a month has gone by since the last release and this release is *packed*. The biggest part of this release is probably one that you won't notice: the frontend has been upgraded from Polymer 0.5 to the brand new released Polymer 1.0. Polymer has been declared stable by the Google overlords which will allow us to expand functionality that was waiting for this moment to arrive.
 
-This release sets a record for the amount of people involved: 8! [Andythigpen](https://github.com/Andythigpen), [Jamespcole](https://github.com/Jamespcole), [Azelphur](https://github.com/Azelphur), [Fabaff](https://github.com/Fabaff), [Dutchy-](https://github.com/Dutchy-), [Fbradyirl](https://github.com/Fbradyirl), [wind-rider](https://github.com/wind-rider) and [ettisan](https://github.com/ettisan), thanks a lot for your contributions!
+This release sets a record for the amount of people involved: 8! [Andythigpen](https://github.com/Andythigpen), [Jamespcole](https://github.com/Jamespcole), [Azelphur](https://github.com/Azelphur), [Fabaff](https://github.com/Fabaff), [Dutchy-](https://github.com/Dutchy-), [Fbradyirl](https://github.com/Fbradyirl), wind-rider and [ettisan](https://github.com/ettisan), thanks a lot for your contributions!
 
 A big improvement has been brought this release by wind-rider. He took the time to revive the Chromecast support and started improving the media player integration. This triggered other people to join in resulting in a revamped media player experience and support for the Music Player Daemon.
 
@@ -20,9 +18,9 @@ A big improvement has been brought this release by wind-rider. He took the time 
   <img src='/images/screenshots/media_player-card.png' />   Example of the new media player cards
 </p>
 
-<p class='note'>
+<div class='note'>
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</p>
+</div>
 
 <!--more-->
 
@@ -143,7 +141,7 @@ notify:
 
 
 __Swiss Public transport sensor__
-The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/components/sensor.swiss_public_transport/) for more information how to set it up.
+The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/integrations/swiss_public_transport) for more information how to set it up.
 
 
 __Transmission turtle mode switch__

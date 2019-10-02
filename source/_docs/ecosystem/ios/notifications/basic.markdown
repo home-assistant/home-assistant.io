@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Basic Notifications"
 description: "Basic notes about iOS notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/basic/
 ---
 
@@ -23,7 +17,7 @@ Notes:
   A push notification showing all of the basic options `title` and `message` as well as `subtitle` and [actions](/ecosystem/ios/notifications/actions/).
 </p>
 
-### {% linkable_title Enhancing basic notifications %}
+### Enhancing basic notifications
 
 #### Badge
 You can set the icon badge in the payload:
@@ -79,8 +73,8 @@ automation:
 ```
 
 
-### {% linkable_title Sending notifications to multiple phones %}
-To send notifications to multiple phones, create a [notification group](/components/notify.group/):
+### Sending notifications to multiple phones
+To send notifications to multiple phones, create a [notification group](/integrations/notify.group/):
 ```yaml
 notify:
   - name: NOTIFIER_NAME

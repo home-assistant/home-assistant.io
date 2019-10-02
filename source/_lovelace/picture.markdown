@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Card"
 sidebar_label: Picture
 description: "A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
@@ -29,16 +23,21 @@ image:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -54,16 +53,21 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -78,7 +82,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Navigate to another view:
 

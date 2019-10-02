@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Smarter SmartThings with MQTT and Home Assistant"
 description: "Jer and St. John describe how they connected SmartThings with Home Assistant."
 date: 2016-02-09 0:44 -0700
 date_formatted: "February 09, 2016"
 author: Jeremiah Wuenschel and St. John Johnson
-comments: true
 categories: How-To MQTT
 og_image: /images/blog/2016-02-smartthings/social.png
 ---
@@ -213,7 +211,7 @@ There are a lot of stops along the way for these events, but each piece is a sim
 [devicetype]: https://github.com/stjohnjohnson/smartthings-mqtt-bridge/blob/master/devicetypes/stj/mqtt-bridge.src/mqtt-bridge.groovy
 [ide-app]: https://graph.api.smartthings.com/ide/apps
 [smartapp]: https://github.com/stjohnjohnson/smartthings-mqtt-bridge/blob/master/smartapps/stj/mqtt-bridge.src/mqtt-bridge.groovy
-[mqtt-ha]: /components/mqtt/
+[mqtt-ha]: /integrations/mqtt/
 [smartthings]: http://smartthings.com
 [r/homeautomation]: https://www.reddit.com/r/homeautomation
 [mqtt]: https://en.wikipedia.org/wiki/MQTT

@@ -1,33 +1,33 @@
 ---
-layout: page
 title: "Customizing entities"
 description: "Simple customization for entities in the frontend."
-date: 2016-04-20 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/customizing-devices/
 ---
 
-## {% linkable_title Changing the entity_id %}
+## Changing the entity_id
 
 You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
 
-1. Select the entity, either from or from the frontend, or by clicking <img src='/images/frontend/entity_box.png' /> next to the entity in the dev-states menu
+1. Select the entity, either from the frontend or by clicking <img src='/images/frontend/entity_box.png' /> next to the entity in the dev-states menu
 2. Click on the cog in the right corner of the entity's dialog
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 4. Select *Save*
 
-## {% linkable_title Customizing entities %}
+If your entity is not supported, or you cannot customize what you need via this method, please see below for more options:
+
+## Customizing entities
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-### {% linkable_title Customization using the UI %}
+### Customization using the UI
 
-Under the *Configuration* menu you'll find the *Customization* menu. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those, or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)).
+Under the *Configuration* menu you'll find the *Customization* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)). You may also need to add the following to your `configuration.yaml` file, depending when you started using Home Assistant:
 
-#### {% linkable_title Possible values %}
+```yaml
+homeassistant:
+  customize: !include customize.yaml
+```
+#### Possible values
 
 {% configuration customize %}
 friendly_name:
@@ -49,7 +49,7 @@ homebridge_hidden:
   type: boolean
   default: false
 emulated_hue_hidden:
-  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/components/emulated_hue)).
+  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/integrations/emulated_hue)).
   required: false
   type: boolean
   default: false
@@ -58,7 +58,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/3.5.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/4.4.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
   required: false
   type: string
 assumed_state:
@@ -82,19 +82,21 @@ initial_state:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title Device Class %}
+#### Device Class
 
 Device class is currently supported by the following components:
 
-* [Binary Sensor](/components/binary_sensor/)
-* [Sensor](/components/sensor/)
-* [Cover](/components/cover/)
+* [Binary Sensor](/integrations/binary_sensor/)
+* [Sensor](/integrations/sensor/)
+* [Cover](/integrations/cover/)
 
-### {% linkable_title Manual customization %}
+### Manual customization
 
-<p class='note'>
+<div class='note'>
+
 If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
-</p>
+
+</div>
 
 ```yaml
 homeassistant:
@@ -133,10 +135,10 @@ homeassistant:
       homebridge_hidden: true
 ```
 
-### {% linkable_title Reloading customize %}
+### Reloading customize
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant.reload_core_config` and click "CALL SERVICE".
 
-<p class='note warning'>
+<div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.
-</p>
+</div>

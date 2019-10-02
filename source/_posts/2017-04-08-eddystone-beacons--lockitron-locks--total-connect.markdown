@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems"
 description: "Tons of bug fixes, performance increasements and some cool new integrations."
 date: 2017-04-08 08:04:05 +0000
 date_formatted: "April 8, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-04-0.42/social.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-04-0.42/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-04-0.42/social.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.42. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.
 
@@ -28,7 +26,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 
 - Lockitron locks ([@aarya123] - [#6805])
 - Met Office weather and sensor components ([@jacobtomlinson] - [#6742])
-- Total Connect alarm systems ([@wardcraigj] - [#6887])
+- Total Connect alarm systems ([@craigjmidwinter] - [#6887])
 - Eddystone Beacon Temperature Sensor ([@citruz] - [#6789])
 - CrimeReports.com integration shows crimes around a location in the US ([@happyleavesaoc] - [#6966])
 - The Ring doorbell has been integrated further with the inclusion of binary sensors ([@tchellomello] - [#6520])
@@ -90,16 +88,16 @@ sensor:
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Release 0.42.1 - April 9 %}
+## Release 0.42.1 - April 9
 
 - Upgrade aiohttp to 2.0.6
 - Make discovery not cause startup warning
 
-## {% linkable_title Release 0.42.1 - April 9 %}
+## Release 0.42.1 - April 9
 
  - Revert upgrade to aiothttp 2.0.6
 
-## {% linkable_title Release 0.42.3 - April 11 %}
+## Release 0.42.3 - April 11
 
 - Fix Synology camera content type ([@balloob] - [#7010])
 - Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
@@ -108,7 +106,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Plug file leak on LIFX unregister ([@amelchio] - [#7031])
 - Bugfix wait on start event ([@pvizeli] - [#7013])
 
-## {% linkable_title Release 0.42.4 - April 17 %}
+## Release 0.42.4 - April 17
 
 - Version bump to 0.42.4 ([@balloob])
 - Fix mysensors callback ([@MartinHjelmare] - [#7057])
@@ -170,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix configuration setup ([@bdurrer] - [#6853])
 - Add option to disable automatic add for lights and sensors. ([@aequitas] - [#6852])
 - Update aioHTTP to 2.0.5 ([@pvizeli] - [#6856])
-- use change light level to avoid variable ramp speeds ([@wardcraigj] - [#6860])
+- use change light level to avoid variable ramp speeds ([@craigjmidwinter] - [#6860])
 - Handle aiohttp task cancellation better ([@balloob] - [#6862])
 - Introduced Ring binary sensors and refactored Ring component ([@tchellomello] - [#6520]) (breaking change) (new-platform)
 - Upgrade sendgrid to 3.6.5 ([@fabaff] - [#6866])
@@ -204,7 +202,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.5.4 ([@fabaff] - [#6927])
 - Allow token authentication for 'hook' switch component ([@KlaasH] - [#6922])
 - WIP - Fix bug in state handling in Vera Switch and Light ([@pavoni] - [#6931])
-- total connect alarm support ([@wardcraigj] - [#6887]) (new-platform)
+- total connect alarm support ([@craigjmidwinter] - [#6887]) (new-platform)
 - Initial state over restore state ([@balloob] - [#6924]) (breaking change)
 - Eddystone Beacon Temperature Sensor ([@citruz] - [#6789]) (new-platform)
 - Add android ip webcam support for aiohttp2 ([@pvizeli] - [#6940])
@@ -395,7 +393,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues

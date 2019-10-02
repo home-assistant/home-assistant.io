@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "MQTT Publish service"
 description: "Instructions on how to setup the MQTT Publish service within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
 The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
 
-### {% linkable_title Service `mqtt.publish` %}
+### Service `mqtt.publish`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -22,9 +16,9 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `qos` | yes | Quality of Service to use.
 | `retain` | yes | If message should have the retain flag set. (default: false)
 
-<p class='note'>
+<div class='note'>
 You need to include either payload or payload_template, but not both.
-</p>
+</div>
 
 ```json
 {

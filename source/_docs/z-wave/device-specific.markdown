@@ -1,33 +1,27 @@
 ---
-layout: page
 title: "Z-Wave Device Specific Settings"
 description: "Notes for specific Z-Wave devices."
-date: 2016-03-24 08:49 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-device-specific/
 ---
 
-## {% linkable_title Device Categories %}
+## Device Categories
 
-### {% linkable_title Motion or alarm sensors %}
+### Motion or alarm sensors
 
 In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
 You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
-### {% linkable_title Locks and other secure devices %}
+### Locks and other secure devices
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
 Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
 
-### {% linkable_title Specific Devices %}
+### Specific Devices
 
-### {% linkable_title Aeotec Z-Stick %}
+### Aeotec Z-Stick
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
 
@@ -53,7 +47,7 @@ On some systems, such as macOS, you need to pipe the output of the `echo` comman
 echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s 115200
 ```
 
-### {% linkable_title Razberry Board %}
+### Razberry Board
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
@@ -86,11 +80,13 @@ $ sudo usermod -a -G dialout homeassistant
 
 Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
 
-<p class='note'>
-  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
-</p>
+<div class='note'>
 
-### {% linkable_title Aeon Minimote %}
+  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
+
+</div>
+
+### Aeon Minimote
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
 
@@ -161,15 +157,15 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           scene_id: 8
 ```
 
-### {% linkable_title Zooz Toggle Switches %}
+### Zooz Toggle Switches
 
 Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
 
-## {% linkable_title Central Scene configuration %}
+## Central Scene configuration
 
 To provide Central Scene support you need to **shutdown Home Assistant** and modify your `zwcfg_*.xml` file according to the following guides.
 
-### {% linkable_title Inovelli Scene Capable On/Off and Dimmer Wall Switches %}
+### Inovelli Scene Capable On/Off and Dimmer Wall Switches
 
 For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -195,7 +191,162 @@ Triple tap on|2|4
 5x tap off|1|6
 5x tap on|2|6
 
-### {% linkable_title HomeSeer Switches %}
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen26 & Zen27 - Firmware 2.0+)
+
+Many Zooz Zen26/27 switches that have been sold do not have firmware 2.0+. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
+
+Once the firmware is updated, the the new configuration paramters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
+
+Zen26 (On/Off Switch):
+```xml
+<CommandClass id="112" name="COMMAND_CLASS_CONFIGURATION" version="1" request_flags="4" innif="true">
+	<Instance index="1" />
+	<Value type="list" genre="config" instance="1" index="1" label="Paddle Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="0" size="1">
+		<Help>Normal mode: Upper paddle turns the light on, lower paddle turns the light off. Reverse will reverse those functions. Any will toggle the light regardless of which button is pushed.</Help>
+		<Item label="Normal" value="0" />
+		<Item label="Reverse" value="1" />
+		<Item label="Any" value="2" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="2" label="LED Indication Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="3" vindex="0" size="1">
+		<Help>LED Indication light function. Normal has the LED Indication on when the switch is off, off when the switch is on.</Help>
+		<Item label="Normal" value="0" />
+		<Item label="Reverse" value="1" />
+		<Item label="Always Off" value="2" />
+		<Item label="Always On" value="3" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="3" label="Enable Turn-Off Timer" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Help>Enable or disable the auto turn-off timer function.</Help>
+		<Item label="Disabled (Default)" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="int" genre="config" instance="1" index="4" label="Turn-Off Timer Duration" units="minutes" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="65535" value="1">
+		<Help>Time, in seconds, for auto-off timer delay. 60 (default).</Help>
+	</Value>
+	<Value type="list" genre="config" instance="1" index="5" label="Enable Turn-On Timer" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Help>Enable or disable the auto turn-on timer function.</Help>
+		<Item label="Disabled (Default)" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="int" genre="config" instance="1" index="6" label="Turn-On Timer Duration" units="minutes" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="65535" value="55">
+		<Help>Time, in minutes, for auto-on timer delay. 60 (default).</Help>
+	</Value>
+	<Value type="list" genre="config" instance="1" index="8" label="On Off Status After Power Failure" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="2" size="1">
+		<Help>Status after power on after power failure. OFF will always turn light off. ON will always turn light on. Restore will remember the latest state and restore that state.</Help>
+		<Item label="OFF" value="0" />
+		<Item label="ON" value="1" />
+		<Item label="Restore" value="2" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="10" label="Scene Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Help>Enable or disable scene control functionality for quick double tap triggers.</Help>
+		<Item label="Disabled (Default)" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="11" label="Enable/Disable Paddle Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="1" size="1">
+		<Help>Enable or disable local on/off control. If enabled, you&apos;ll only be able to control the connected light via Z-Wave.</Help>
+		<Item label="Disabled" value="0" />
+		<Item label="Enabled (Default)" value="1" />
+	</Value>
+</CommandClass>
+```
+
+Zen27 (Dimmer):
+```xml
+<CommandClass id="112" name="COMMAND_CLASS_CONFIGURATION" version="1" request_flags="4" innif="true">
+	<Instance index="1" />
+	<Value type="list" genre="config" instance="1" index="1" label="Paddle Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="0" size="1">
+		<Help>Normal mode: Upper paddle turns the light on, lower paddle turns the light off. Reverse will reverse those functions. Any will toggle the light regardless of which button is pushed.</Help>
+		<Item label="Normal" value="0" />
+		<Item label="Reverse" value="1" />
+		<Item label="Any" value="2" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="2" label="LED Indication Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="3" vindex="0" size="1">
+		<Help>LED Indication light function. Normal has the LED Indication on when the switch is off, off when the switch is on.</Help>
+		<Item label="Normal" value="0" />
+		<Item label="Reverse" value="1" />
+		<Item label="Always Off" value="2" />
+		<Item label="Always On" value="3" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="3" label="Enable Auto Turn-Off Timer" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Item label="Disabled" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="int" genre="config" instance="1" index="4" label="Auto Turn-Off Timer Duration" units="minutes" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="65535" value="60">
+		<Help>Time, in minutes, for auto-off timer delay.</Help>
+	</Value>
+	<Value type="list" genre="config" instance="1" index="5" label="Enable Auto Turn-On Timer" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Item label="Disabled" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="int" genre="config" instance="1" index="6" label="Auto Turn-On Timer Duration" units="minutes" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="65535" value="60">
+		<Help>Time, in minutes, for auto-off timer delay.</Help>
+	</Value>
+	<Value type="list" genre="config" instance="1" index="8" label="On Off Status After Power Failure" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="2" size="1">
+		<Help>Status after power on after power failure. OFF will always turn light off. ON will always turn light on. Restore will remember the latest state and restore that state.</Help>
+		<Item label="OFF" value="0" />
+		<Item label="ON" value="1" />
+		<Item label="Restore" value="2" />
+	</Value>
+	<Value type="byte" genre="config" instance="1" index="9" label="Ramp Rate Control" units="seconds" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="99" value="3">
+		<Help>Adjust the ramp rate for your dimmer (fade-in / fade-out effect for on / off operation). Values correspond to the number of seconds it take for the dimmer to reach full brightness or turn off when operated manually.</Help>
+	</Value>
+	<Value type="byte" genre="config" instance="1" index="10" label="Minimum Brightness" units="%" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="99" value="99">
+		<Help>Set the minimum brightness level for your dimmer. You won&apos;t be able to dim the light below the set value.</Help>
+	</Value>
+	<Value type="byte" genre="config" instance="1" index="11" label="Maximum Brightness" units="%" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="99" value="99">
+		<Help>Set the maximum brightness level for your dimmer. You won&apos;t be able to add brightness to the light beyond the set value. Note: if Parameter 12 is set to value &quot;Full&quot;, Parameter 11 is automatically disabled.</Help>
+	</Value>
+	<Value type="list" genre="config" instance="1" index="12" label="Double Tap Function Brightness" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Help>Double Tap action. When set to Full, turns light on to 100%. If set to Maximum Level, turns light on to % set in Parameter 11.</Help>
+		<Item label="Full" value="0" />
+		<Item label="Maximum Level" value="1" />
+	</Value>				
+	<Value type="list" genre="config" instance="1" index="13" label="Scene Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="0" size="1">
+		<Help>Enable or disable scene control functionality for quick double tap triggers.</Help>
+		<Item label="Disabled" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="14" label="Enable Double Tap Function" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="0" size="1">
+		<Help>Enable the double tap or disable the double tap function and assign brightness level to single tap.</Help>
+		<Item label="Enabled" value="0" />
+		<Item label="Disabled - Single Tap To Last Brightness" value="1" />
+		<Item label="Disabled - Single Tap To Max Brightness" value="2" />
+	</Value>
+	<Value type="list" genre="config" instance="1" index="15" label="Enable/Disable Paddle Control" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="1" size="1">
+		<Help>Enable or disable local on/off control. If enabled, light will only be able to be controlled via Z-Wave.</Help>
+		<Item label="Disabled" value="0" />
+		<Item label="Enabled" value="1" />
+	</Value>
+</CommandClass>
+```
+
+For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+```xml
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+	<Instance index="1" />
+	<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+	<Value type="int" genre="user" instance="1" index="1" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+	<Value type="int" genre="user" instance="1" index="2" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+</CommandClass>
+```
+
+Go to the Z-Wave Network Management section in the Home Assistant Configuration, select the node which has just been updated and enable the scene support configuration paramter.
+
+Once this is complete, you should see the following `zwave.scene_activated` events:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Single tap off|1|7680
+Single tap on|2|7680
+Double tap off|1|7860
+Double tap on|2|7860
+Triple tap off|1|7920
+Triple tap on|2|7920
+4x tap off|1|7980
+4x tap on|2|7980
+5x tap off|1|8040
+5x tap on|2|8040
+
+### HomeSeer Switches
 
 For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -235,7 +386,7 @@ Hold Button|7740
 5x Tap|8040
 
 
-### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
+### Fibaro Button FGPB-101-6 v3.2
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
 
@@ -259,7 +410,7 @@ Triple tap on|1|4
 
 Tap and hold wakes up the Button.
 
-### {% linkable_title Fibaro Keyfob FGKF-601 %}
+### Fibaro Keyfob FGKF-601
 
 
 For the Fibaro Keyfob, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
@@ -302,7 +453,7 @@ Button six (Triangle) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
-### {% linkable_title Aeotec NanoMote Quad %}
+### Aeotec NanoMote Quad
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
@@ -347,7 +498,7 @@ Example Event:
     }
 ```
 
-### {% linkable_title Aeotec Wallmote %}
+### Aeotec Wallmote
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
 
@@ -382,11 +533,11 @@ Button four single tap|4|0
 Button four hold|4|2
 Button four release|4|1
 
-### {% linkable_title WallC-S Switch %}
+### WallC-S Switch
 
 Use the same configuration as for the Aeotec Wallmote.
 
-### {% linkable_title HANK One-key Scene Controller HKZN-SCN01/HKZW-SCN01 %}
+### HANK One-key Scene Controller HKZN-SCN01/HKZW-SCN01
 
 For the HANK One-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -406,7 +557,7 @@ Button single tap|1|0
 Button hold|1|2
 Button release|1|1
 
-### {% linkable_title HANK Four-key Scene Controller HKZN-SCN04 %}
+### HANK Four-key Scene Controller HKZN-SCN04
 
 For the HANK Four-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -439,7 +590,7 @@ Button four tap|Circle with Line|4|0
 Button four hold|Circle with Line|4|2
 Button four release|Circle with Line|4|1
 
-### {% linkable_title Remotec ZRC-90 Scene Master %}
+### Remotec ZRC-90 Scene Master
 
 To get the ZRC-90 Scene Master working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
 
@@ -502,7 +653,7 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
       entity_id: group.all_lights
 ```
 
-### {% linkable_title RFWDC Cooper 5-button Scene Control Keypad %}
+### RFWDC Cooper 5-button Scene Control Keypad
 
 For the RFWDC Cooper 5-button Scene Control Keypad, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -625,7 +776,7 @@ switch:
             value: "{{ states('sensor.scene_contrl_indicator')|int - 16 }}"
 ```
 
-### {% linkable_title HeatIt/ThermoFloor Z-Push Button 2/8 Wall Switch %}
+### HeatIt/ThermoFloor Z-Push Button 2/8 Wall Switch
 
 To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
 

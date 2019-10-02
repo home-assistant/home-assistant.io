@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Home Assistant moving to YAML"
 description: "Configuration will now be more flexible"
 date: 2015-03-01 20:38:00 +0100
 date_formatted: March 1, 2015
 author: "Theodor Lindquist"
-comments: true
 categories: Release-Notes
 ---
 

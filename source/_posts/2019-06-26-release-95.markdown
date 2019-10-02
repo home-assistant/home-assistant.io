@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.95: AdGuard, Life360, Plaato Airlock"
 description: "Manage Alexa UI, improved RV support, even more icons available."
 date: 2019-06-26 04:11:03
 date_formatted: "June 26, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-06-release-95/social.png
 ---
 
-<a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
 It is time for release 0.95, and guess what? It's good! First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. However, you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
@@ -20,13 +18,13 @@ Talking about Hass.io support, we've received ours and work to add support will 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">LOOK WHAT WE HAVE HERE 😍 <a href="https://t.co/HrEu1a272Y">pic.twitter.com/HrEu1a272Y</a></p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1143808786983006208?ref_src=twsrc%5Etfw">June 26, 2019</a>
 </blockquote>
 
-## {% linkable_title RV Assistant %}
+## RV Assistant
 
 Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant also powers recreational vehicles (RV) ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
 
 With this release, we're making integrating Home Assistant into moving vehicles so much easier. In the last release, we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant.set_location`. With this service, you can automatically change the location that Home Assistant is located. Once updated, it automatically updates all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
 
-## {% linkable_title AdGuard Home - local ad-and-tracker blocking %}
+## AdGuard Home - local ad-and-tracker blocking
 
 Here at Home Assistant, we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard Home is a local DNS server that automatically blocks any device looking up a domain that is used to serve ads, spreads malware, or isn't appropriate for your kids. Thanks to [@frenck], starting release 0.95, it has a top-notch integration with Home Assistant:
 
@@ -43,36 +41,36 @@ One cool new feature: because parental control is now available as a switch, you
 Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the demo.</a>
 </p>
 
-## {% linkable_title Life360 %}
+## Life360
 
 More goodies. Keep paying attention as we're not done yet. Also new in 0.95 is the [Life360 integration][life360 docs] thanks to the hard work by [@pnbruckner]. This integration started its life a little over 360 days ago [on the forums as a custom integration](https://community.home-assistant.io/t/life360-device-tracker-platform/52406) and has now become part of Home Assistant. Life360 is an app to allow friends or family members to share location with each other.
 
 If you are migrating from the custom integration, [please read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077).
 
-## {% linkable_title Improved Alexa integration %}
+## Improved Alexa integration
 
 One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
-However, we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
+However, we didn't stop there. The [manual installations of Alexa](/integrations/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title More icons available %}
+## More icons available
 
 [Austin Andrews](https://twitter.com/templarian), the lead designer of Material Design Icons, informed us that Material Design Icons 3.7.95 has been released. It includes a handful of the top requested Home Assistant icons (and a total of 100 new icons!).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Released `v3.7.95` to NPM/CDN. 100 new icons! 🧙‍♂️ Preview: <a href="https://t.co/N02X3rnQ8N">https://t.co/N02X3rnQ8N</a> Read more: <a href="https://t.co/CHQ3TEdVM2">https://t.co/CHQ3TEdVM2</a> <a href="https://twitter.com/hashtag/MaterialDesign?src=hash&amp;ref_src=twsrc%5Etfw">#MaterialDesign</a> <a href="https://twitter.com/hashtag/OpenSource?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSource</a> <a href="https://t.co/LlWy8RfFVu">pic.twitter.com/LlWy8RfFVu</a></p>&mdash; Material Icons (@MaterialIcons) <a href="https://twitter.com/MaterialIcons/status/1142474126004760576?ref_src=twsrc%5Etfw">June 22, 2019</a>
 </blockquote>
 
-## {% linkable_title Noteworthy breaking changes %}
+## Noteworthy breaking changes
 
 For the last couple of releases, we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
 
 We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. We've fixed it in this release, so now the defaults kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
 
-## {% linkable_title New Integrations %}
+## New Integrations
 
 - Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration)
 - SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration)
@@ -82,7 +80,7 @@ We have also realized that the default database clean up task never automaticall
 - Queensland bushfire alert feed platform ([@exxamalte] - [#24473]) ([qld_bushfire docs]) (new-integration)
 - Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN scene platform ([@alengwenus] - [#24242]) ([lcn docs]) (new-platform)
 - Add Environment Canada weather, sensor, and camera platforms ([@michaeldavie] - [#21110]) ([environment_canada docs]) (new-platform)
@@ -94,7 +92,7 @@ We have also realized that the default database clean up task never automaticall
 - Add incomfort sensor and binary_sensor ([@zxdavb] - [#23812]) ([incomfort docs]) (new-platform)
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
 
-## {% linkable_title Release 0.95.1 - June 26 %}
+## Release 0.95.1 - June 26
 
 - Fix life360 exception when no location provided ([@pnbruckner] - [#24777]) ([life360 docs])
 - Pubnub to 1.0.8 ([@w1ll1am23] - [#24781]) ([wink docs])
@@ -106,11 +104,11 @@ We have also realized that the default database clean up task never automaticall
 [@balloob]: https://github.com/balloob
 [@pnbruckner]: https://github.com/pnbruckner
 [@w1ll1am23]: https://github.com/w1ll1am23
-[cloud docs]: /components/cloud/
-[life360 docs]: /components/life360/
-[wink docs]: /components/wink/
+[cloud docs]: /integrations/cloud/
+[life360 docs]: /integrations/life360/
+[wink docs]: /integrations/wink/
 
-## {% linkable_title Release 0.95.2 - June 28 %}
+## Release 0.95.2 - June 28
 
 - Fix netatmo weatherstation setup error ([@cgtobi] - [#24788]) ([netatmo docs])
 - Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#24800])
@@ -130,21 +128,21 @@ We have also realized that the default database clean up task never automaticall
 [@dmulcahey]: https://github.com/dmulcahey
 [@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
-[google_assistant docs]: /components/google_assistant/
-[life360 docs]: /components/life360/
-[netatmo docs]: /components/netatmo/
-[script docs]: /components/script/
-[zha docs]: /components/zha/
+[google_assistant docs]: /integrations/google_assistant/
+[life360 docs]: /integrations/life360/
+[netatmo docs]: /integrations/netatmo/
+[script docs]: /integrations/script/
+[zha docs]: /integrations/zha/
 
-## {% linkable_title Release 0.95.3 - June 28 %}
+## Release 0.95.3 - June 28
 
 - Alexa sync state report ([@balloob] - [#24835]) ([cloud docs])
 
 [#24835]: https://github.com/home-assistant/home-assistant/pull/24835
 [@balloob]: https://github.com/balloob
-[cloud docs]: /components/cloud/
+[cloud docs]: /integrations/cloud/
 
-## {% linkable_title Release 0.95.4 - June 28 %}
+## Release 0.95.4 - June 28
 
 - Improve autodiscovered yeelights model detection ([@zewelor] - [#24671]) ([yeelight docs])
 - Guard for None entity config ([@balloob] - [#24838]) ([alexa docs]) ([cloud docs])
@@ -153,21 +151,21 @@ We have also realized that the default database clean up task never automaticall
 [#24838]: https://github.com/home-assistant/home-assistant/pull/24838
 [@balloob]: https://github.com/balloob
 [@zewelor]: https://github.com/zewelor
-[alexa docs]: /components/alexa/
-[cloud docs]: /components/cloud/
-[yeelight docs]: /components/yeelight/
+[alexa docs]: /integrations/alexa/
+[cloud docs]: /integrations/cloud/
+[yeelight docs]: /integrations/yeelight/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - No longer allow invalid slugs or extra keys ([@balloob] - [#24176]) (breaking change)
 - Add service for adding event to google component ([@isabellaalstrom] - [#22473]) ([google docs]) (breaking change)
@@ -176,7 +174,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove binary sensors for ZHA remotes and controllers ([@dmulcahey] - [#24370]) ([zha docs]) (breaking change)
 - Restore automation last_triggered with initial_state override ([@frenck] - [#24400]) ([automation docs]) (breaking change)
 - Fix recorder defaults ([@balloob] - [#24399]) ([recorder docs]) (breaking change)
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Add Linky sensors : yesterday + months + years ([@Quentame] - [#23726]) ([linky docs]) (breaking change)
 - Position is reversed for horizontal awnings ([@kbickar] - [#23257]) ([tahoma docs]) (breaking change)
 - Remove conversation from default config ([@balloob] - [#24515]) ([default_config docs]) (breaking change)
@@ -185,7 +183,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added percent to the disk,memory and swap percent labels ([@cliffordwhansen] - [#24575]) ([glances docs]) (breaking change)
 - Save cached logi_circle tokens in config folder ([@evanjd] - [#24726]) ([logi_circle docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 - Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
@@ -215,7 +213,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Ignore duplicate tradfri discovery ([@balloob] - [#24759]) ([tradfri docs]) (beta fix)
 - Return correct name for met.no ([@Danielhiversen] - [#24763]) ([met docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update pysonos to 0.0.14 ([@amelchio] - [#24185]) ([sonos docs])
 - upgrade broadlink library, Use cryptography instead of pycryptodome ([@Danielhiversen] - [#24186]) ([broadlink docs])
@@ -301,7 +299,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Life360: Fix config entry handling for accounts imported from configuration ([@pnbruckner] - [#24455]) ([life360 docs])
 - Add default config to constaint file ([@balloob] - [#24423])
 - Add websock command to query device for triggers ([@emontnemery] - [#24044]) ([automation docs]) ([light docs])
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Use met.no instead of yr.no in default config ([@thomasloven] - [#24470])
 - Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477]) ([ubee docs])
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
@@ -687,113 +685,112 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@z0mbieprocess]: https://github.com/z0mbieprocess
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
-[adguard docs]: /components/adguard/
-[aftership docs]: /components/aftership/
-[alexa docs]: /components/alexa/
-[ambiclimate docs]: /components/ambiclimate/
-[ambient_station docs]: /components/ambient_station/
-[amcrest docs]: /components/amcrest/
-[androidtv docs]: /components/androidtv/
-[aprs docs]: /components/aprs/
-[asuswrt docs]: /components/asuswrt/
-[automation docs]: /components/automation/
-[awair docs]: /components/awair/
-[blink docs]: /components/blink/
-[broadlink docs]: /components/broadlink/
-[buienradar docs]: /components/buienradar/
-[cast docs]: /components/cast/
-[cloud docs]: /components/cloud/
-[cover docs]: /components/cover/
-[ddwrt docs]: /components/ddwrt/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[deluge docs]: /components/deluge/
-[demo docs]: /components/demo/
-[denonavr docs]: /components/denonavr/
-[device_tracker docs]: /components/device_tracker/
-[discord docs]: /components/discord/
-[discovery docs]: /components/discovery/
-[dlib_face_identify docs]: /components/dlib_face_identify/
-[ebusd docs]: /components/ebusd/
-[elv docs]: /components/elv/
-[environment_canada docs]: /components/environment_canada/
-[esphome docs]: /components/esphome/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[gitlab_ci docs]: /components/gitlab_ci/
-[glances docs]: /components/glances/
-[google docs]: /components/google/
-[google_assistant docs]: /components/google_assistant/
-[google_cloud docs]: /components/google_cloud/
-[heos docs]: /components/heos/
-[homeassistant docs]: /components/homeassistant/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[honeywell docs]: /components/honeywell/
-[hue docs]: /components/hue/
-[incomfort docs]: /components/incomfort/
-[integration docs]: /components/integration/
-[itunes docs]: /components/itunes/
-[keenetic_ndms2 docs]: /components/keenetic_ndms2/
-[lcn docs]: /components/lcn/
-[life360 docs]: /components/life360/
-[lifx docs]: /components/lifx/
-[light docs]: /components/light/
-[linky docs]: /components/linky/
-[locative docs]: /components/locative/
-[logi_circle docs]: /components/logi_circle/
-[manual docs]: /components/manual/
-[manual_mqtt docs]: /components/manual_mqtt/
-[mastodon docs]: /components/mastodon/
-[media_extractor docs]: /components/media_extractor/
-[met docs]: /components/met/
-[meteo_france docs]: /components/meteo_france/
-[meteoalarm docs]: /components/meteoalarm/
-[mqtt docs]: /components/mqtt/
-[netatmo docs]: /components/netatmo/
-[nissan_leaf docs]: /components/nissan_leaf/
-[onboarding docs]: /components/onboarding/
-[opencv docs]: /components/opencv/
-[plaato docs]: /components/plaato/
-[ps4 docs]: /components/ps4/
-[qld_bushfire docs]: /components/qld_bushfire/
-[rainmachine docs]: /components/rainmachine/
-[recorder docs]: /components/recorder/
-[remote docs]: /components/remote/
-[rflink docs]: /components/rflink/
-[rtorrent docs]: /components/rtorrent/
-[samsungtv docs]: /components/samsungtv/
-[sense docs]: /components/sense/
-[simplisafe docs]: /components/simplisafe/
-[sisyphus docs]: /components/sisyphus/
-[sma docs]: /components/sma/
-[smartthings docs]: /components/smartthings/
-[smarty docs]: /components/smarty/
-[solaredge_local docs]: /components/solaredge_local/
-[somfy docs]: /components/somfy/
-[somfy_mylink docs]: /components/somfy_mylink/
-[sonos docs]: /components/sonos/
-[streamlabswater docs]: /components/streamlabswater/
-[switcher_kis docs]: /components/switcher_kis/
-[synologydsm docs]: /components/synologydsm/
-[tahoma docs]: /components/tahoma/
-[tibber docs]: /components/tibber/
-[toon docs]: /components/toon/
-[totalconnect docs]: /components/totalconnect/
-[traccar docs]: /components/traccar/
-[tradfri docs]: /components/tradfri/
-[ubee docs]: /components/ubee/
-[uber docs]: /components/uber/
-[unifi docs]: /components/unifi/
-[velbus docs]: /components/velbus/
-[velux docs]: /components/velux/
-[vera docs]: /components/vera/
-[vlc_telnet docs]: /components/vlc_telnet/
-[waze_travel_time docs]: /components/waze_travel_time/
-[webostv docs]: /components/webostv/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[yeelight docs]: /components/yeelight/
-[yr docs]: /components/yr/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[adguard docs]: /integrations/adguard/
+[aftership docs]: /integrations/aftership/
+[alexa docs]: /integrations/alexa/
+[ambiclimate docs]: /integrations/ambiclimate/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[aprs docs]: /integrations/aprs/
+[asuswrt docs]: /integrations/asuswrt/
+[automation docs]: /integrations/automation/
+[awair docs]: /integrations/awair/
+[blink docs]: /integrations/blink/
+[broadlink docs]: /integrations/broadlink/
+[buienradar docs]: /integrations/buienradar/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[cover docs]: /integrations/cover/
+[ddwrt docs]: /integrations/ddwrt/
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[deluge docs]: /integrations/deluge/
+[demo docs]: /integrations/demo/
+[denonavr docs]: /integrations/denonavr/
+[device_tracker docs]: /integrations/device_tracker/
+[discord docs]: /integrations/discord/
+[discovery docs]: /integrations/discovery/
+[dlib_face_identify docs]: /integrations/dlib_face_identify/
+[ebusd docs]: /integrations/ebusd/
+[elv docs]: /integrations/switch.pca/
+[environment_canada docs]: /integrations/environment_canada/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[gitlab_ci docs]: /integrations/gitlab_ci/
+[glances docs]: /integrations/glances/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[google_cloud docs]: /integrations/google_cloud/
+[heos docs]: /integrations/heos/
+[homeassistant docs]: /integrations/homeassistant/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[hue docs]: /integrations/hue/
+[incomfort docs]: /integrations/incomfort/
+[integration docs]: /integrations/integration/
+[itunes docs]: /integrations/itunes/
+[keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
+[lcn docs]: /integrations/lcn/
+[life360 docs]: /integrations/life360/
+[lifx docs]: /integrations/lifx/
+[light docs]: /integrations/light/
+[linky docs]: /integrations/linky/
+[locative docs]: /integrations/locative/
+[logi_circle docs]: /integrations/logi_circle/
+[manual docs]: /integrations/manual/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[mastodon docs]: /integrations/mastodon/
+[media_extractor docs]: /integrations/media_extractor/
+[met docs]: /integrations/met/
+[meteo_france docs]: /integrations/meteo_france/
+[meteoalarm docs]: /integrations/meteoalarm/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[onboarding docs]: /integrations/onboarding/
+[opencv docs]: /integrations/opencv/
+[plaato docs]: /integrations/plaato/
+[ps4 docs]: /integrations/ps4/
+[qld_bushfire docs]: /integrations/qld_bushfire/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[remote docs]: /integrations/remote/
+[rflink docs]: /integrations/rflink/
+[rtorrent docs]: /integrations/rtorrent/
+[samsungtv docs]: /integrations/samsungtv/
+[sense docs]: /integrations/sense/
+[simplisafe docs]: /integrations/simplisafe/
+[sisyphus docs]: /integrations/sisyphus/
+[sma docs]: /integrations/sma/
+[smartthings docs]: /integrations/smartthings/
+[smarty docs]: /integrations/smarty/
+[solaredge_local docs]: /integrations/solaredge_local/
+[somfy docs]: /integrations/somfy/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+[sonos docs]: /integrations/sonos/
+[streamlabswater docs]: /integrations/streamlabswater/
+[switcher_kis docs]: /integrations/switcher_kis/
+[synologydsm docs]: /integrations/synologydsm/
+[tahoma docs]: /integrations/tahoma/
+[tibber docs]: /integrations/tibber/
+[toon docs]: /integrations/toon/
+[totalconnect docs]: /integrations/totalconnect/
+[traccar docs]: /integrations/traccar/
+[tradfri docs]: /integrations/tradfri/
+[ubee docs]: /integrations/ubee/
+[unifi docs]: /integrations/unifi/
+[velbus docs]: /integrations/velbus/
+[velux docs]: /integrations/velux/
+[vera docs]: /integrations/vera/
+[vlc_telnet docs]: /integrations/vlc_telnet
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[webostv docs]: /integrations/webostv/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[yeelight docs]: /integrations/yeelight/
+[yr docs]: /integrations/yr/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

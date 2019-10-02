@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Thinking Big"
 description: "Today we're turning 5 years old. It's time to set some goals."
 date: 2018-09-17 01:01:00
 date_formatted: "September 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-09-thinking-big/social.png
 ---
@@ -22,7 +20,7 @@ I don’t like this trend. I don’t like seeing more and more of our data being
 And so I want to introduce a goal for Home Assistant. A goal that will shape how the platform will evolve in the upcoming years.
 
 <!--more-->
-## {% linkable_title The goal %}
+## The goal
 
 It’s our goal to create a people focused home automation platform. A platform that is open source and which prioritizes privacy and local control.
 
@@ -31,7 +29,7 @@ It’s our goal to create a people focused home automation platform. A platform 
  - **Open source.** The platform is freely available for users and companies alike. The more people that choose a privacy focused platform over a cloud-based one is a win for us.
  - **Interoperability.** The platform implements APIs to easily share the data. We want your data to be available to any other application that you wish.
 
-## {% linkable_title What we’re going to build to achieve this goal %}
+## What we’re going to build to achieve this goal
 
 Many things! However, here is a list of things that I am most enthusiastic about:
 
@@ -44,7 +42,7 @@ Many things! However, here is a list of things that I am most enthusiastic about
  - Cloud Transparency. We want to make it visible what data is being shared with Amazon Alexa and Google Home clouds.
  - Better Z-Wave. Our current integration has room for improvement. The owner of Z-Wave has announced a [public SDK](http://zwavepublic.com/), which we should explore to integrate with Home Assistant.
 
-## {% linkable_title What we need to achieve this goal %}
+## What we need to achieve this goal
 
 Home Assistant has grown beyond what we can expect from people to handle in their spare time. We want to keep the community friendly, our code quality high, our upgrades smooth, our documentation up to date and our platform secure.
 
@@ -64,29 +62,29 @@ More information:
  - [Nabu Casa, Inc homepage][nabu-home]
  - [Manage your Home Assistant Cloud account][nabu-account]
 
-## {% linkable_title FAQ %}
+## FAQ
 
-### {% linkable_title Do I have to pay to use Home Assistant and Hass.io? %}
+### Do I have to pay to use Home Assistant and Hass.io?
 
 No. Home Assistant is open source and free to install and this will not change. Only the cloud service will be part of a paid subscription.
 
-### {% linkable_title Will Home Assistant and Hass.io remain open source? %}
+### Will Home Assistant and Hass.io remain open source?
 
 Yes. Nabu Casa will only be responsible for Home Assistant Cloud and it will contribute resources to help Home Assistant achieve its goals and pay for its infrastructure.
 
-### {% linkable_title Why not take donations? %}
+### Why not take donations?
 
 Relying on donations makes budgeting for employees impossible without exposing them and their families to the risk of not getting a paycheck at the end of the month.
 
-### {% linkable_title Is Home Assistant Cloud open source? %}
+### Is Home Assistant Cloud open source?
 
-The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/google_assistant/smart_home.py) (with manual setup instructions [here](https://www.home-assistant.io/components/google_assistant/)). Our account page and relayer are not open source.
+The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/google_assistant/smart_home.py) (with manual setup instructions [here](/integrations/google_assistant/)). Our account page and relayer are not open source.
 
-### {% linkable_title Will you offer a lifetime plan for a one time fee? %}
+### Will you offer a lifetime plan for a one time fee?
 
 No. A lifetime plan to a cloud service is a pyramid scheme. It means new subscribers pay for the costs of the lifetime customers.
 
-### {% linkable_title I think the price is too high for what I get %}
+### I think the price is too high for what I get
 
 New features will be added in the future without a price increase. The next feature we’re planning to release is encrypted remote access to your instance.
 
