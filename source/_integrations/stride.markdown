@@ -8,11 +8,11 @@ ha_release: 0.66
 ---
 
 <div class='note'>
-This integration will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
-<br>
-<br>
-Stride will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
+
+Slack has taken over Hipchat and Stride and will, therefore, discontinue these platforms. Stride will be discontinued after February 15th, 2019. For more information [read the announcement](https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership).
+
 </div>
+
 The `stride` platform allows you to send notifications from Home Assistant to [Stride](https://stride.com/).
 
 You need to obtain a [Stride API token](https://developer.atlassian.com/cloud/stride/security/authentication/#using-room-tokens) to be able to send notifications. When creating the token, you'll see a section labeled "Use this conversation URL to post messages" - it will look something like "https://api.atlassian.com/site/55872e9f-047e-a619-b32c-19d37fbc6038/conversation/26c98c26-0ffd-a11e-3a55-1b397cb71fe0/message". The first set of numbers and letters (`55872e9f-047e-a619-b32c-19d37fbc6038`) is the Cloud ID, and the second set (`26c98c26-0ffd-a11e-3a55-1b397cb71fe0`) is the Room ID.
