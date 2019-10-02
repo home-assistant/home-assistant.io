@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2019-02-release-87/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.87'><img src='/images/blog/2019-02-release-87/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.87'><img src='/images/blog/2019-02-release-87/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Today we're releasing Home Assistant 0.87, our third release of the year. Besides a bunch of bugs squashing and performance improvements, we got some cool new features too.
 
@@ -70,11 +74,19 @@ If you prefer a podcast over release notes, check out [the Hass Podcast](https:/
 [@balloob]: https://github.com/balloob
 [@jonudewux]: https://github.com/jonudewux
 [@mnoorenberghe]: https://github.com/mnoorenberghe
+<<<<<<< HEAD
 [homekit_controller docs]: /components/homekit_controller/
 [sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
 [transmission docs]: /components/transmission/
 [verisure docs]: /components/verisure/
 [zoneminder docs]: /components/zoneminder/
+=======
+[homekit_controller docs]: /integrations/homekit_controller/
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[transmission docs]: /integrations/transmission/
+[verisure docs]: /integrations/verisure/
+[zoneminder docs]: /integrations/zoneminder/
+>>>>>>> upstream/next
 
 ## New Features
 
@@ -549,6 +561,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zewelor]: https://github.com/zewelor
 [@zhujisheng]: https://github.com/zhujisheng
+<<<<<<< HEAD
 [air_pollutants docs]: /components/air_pollutants/
 [air_quality docs]: /components/air_quality/
 [alarm_control_panel docs]: /components/alarm_control_panel/
@@ -670,3 +683,126 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zone docs]: /components/zone/
 [zoneminder docs]: /components/zoneminder/
+=======
+[air_pollutants docs]: /integrations/air_quality
+[air_quality docs]: /integrations/air_quality/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
+[alarm_control_panel.homematicip_cloud docs]: /integrations/homematicip_cloud
+[alert docs]: /integrations/alert/
+[ambient_station docs]: /integrations/ambient_station/
+[android_ip_webcam docs]: /integrations/android_ip_webcam/
+[asuswrt docs]: /integrations/asuswrt/
+[automation.mqtt docs]: /docs/automation/trigger/#mqtt-trigger
+[binary_sensor.danfoss_air docs]: /integrations/danfoss_air#binary-sensor
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.trend docs]: /integrations/trend
+[blink docs]: /integrations/blink/
+[camera.amcrest docs]: /integrations/amcrest
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.canary docs]: /integrations/canary#camera
+[camera.ffmpeg docs]: /integrations/camera.ffmpeg/
+[camera.foscam docs]: /integrations/foscam
+[camera.onvif docs]: /integrations/onvif
+[camera.ring docs]: /integrations/ring#camera
+[camera.xiaomi docs]: /integrations/xiaomi_aqara
+[camera.yi docs]: /integrations/yi
+[climate.mill docs]: /integrations/mill
+[climate.radiotherm docs]: /integrations/radiotherm
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[danfoss_air docs]: /integrations/danfoss_air/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.gpslogger docs]: /integrations/gpslogger
+[dovado docs]: /integrations/dovado/
+[emulated_hue docs]: /integrations/emulated_hue/
+[emulated_roku docs]: /integrations/emulated_roku/
+[envisalink docs]: /integrations/envisalink/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[ffmpeg docs]: /integrations/ffmpeg/
+[fritzbox docs]: /integrations/fritzbox/
+[geo_location docs]: /integrations/geo_location/
+[geofency docs]: /integrations/geofency/
+[gpslogger docs]: /integrations/gpslogger/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.qrcode docs]: /integrations/qrcode
+[image_processing.tensorflow docs]: /integrations/tensorflow
+[isy994 docs]: /integrations/isy994/
+[lcn docs]: /integrations/lcn/
+[light.everlights docs]: /integrations/everlights
+[light.hyperion docs]: /integrations/hyperion
+[light.lcn docs]: /integrations/lcn#light
+[light.lifx docs]: /integrations/lifx
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.yeelight docs]: /integrations/yeelight
+[locative docs]: /integrations/locative/
+[lock.zwave docs]: /integrations/zwave#lock
+[lovelace docs]: /integrations/lovelace/
+[luftdaten docs]: /integrations/luftdaten/
+[lutron docs]: /integrations/lutron/
+[map docs]: /integrations/map/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.mpd docs]: /integrations/mpd
+[media_player.pjlink docs]: /integrations/pjlink
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.songpal docs]: /integrations/songpal
+[media_player.volumio docs]: /integrations/volumio
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[nest docs]: /integrations/nest/
+[notify docs]: /integrations/notify/
+[rest_command docs]: /integrations/rest_command/
+[sense docs]: /integrations/sense/
+[sensor.ambient_station docs]: /integrations/ambient_station
+[sensor.asuswrt docs]: /integrations/asuswrt
+[sensor.brottsplatskartan docs]: /integrations/brottsplatskartan
+[sensor.co2signal docs]: /integrations/co2signal
+[sensor.danfoss_air docs]: /integrations/danfoss_air#sensor
+[sensor.dovado docs]: /integrations/dovado#sensor
+[sensor.filter docs]: /integrations/filter
+[sensor.fritzbox docs]: /integrations/fritzbox#sensor
+[sensor.history_stats docs]: /integrations/history_stats
+[sensor.imap docs]: /integrations/imap
+[sensor.influxdb docs]: /integrations/influxdb#sensor
+[sensor.integration docs]: /integrations/integration
+[sensor.islamic_prayer_times docs]: /integrations/islamic_prayer_times
+[sensor.lyft docs]: /integrations/lyft
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.recollect_waste docs]: /integrations/recollect_waste
+[sensor.rova docs]: /integrations/rova
+[sensor.solaredge docs]: /integrations/solaredge
+[sensor.sql docs]: /integrations/sql
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.transmission docs]: /integrations/transmission
+[smartthings docs]: /integrations/smartthings/
+[switch.lcn docs]: /integrations/lcn#switch
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.rest docs]: /integrations/switch.rest/
+[switch.smartthings docs]: /integrations/smartthings#switch
+[system_health docs]: /integrations/system_health/
+[tellduslive docs]: /integrations/tellduslive/
+[tibber docs]: /integrations/tibber/
+[transmission docs]: /integrations/transmission/
+[unifi docs]: /integrations/unifi/
+[updater docs]: /integrations/updater/
+[upnp docs]: /integrations/upnp/
+[utility_meter docs]: /integrations/utility_meter/
+[weather.darksky docs]: /integrations/weather.darksky/
+[webhook docs]: /integrations/webhook/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zoneminder docs]: /integrations/zoneminder/
+>>>>>>> upstream/next

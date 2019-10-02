@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 This release brings some great new integrations. The biggest one is the [native Zigbee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
@@ -411,6 +415,7 @@ influxdb:
 [@wokar]: https://github.com/wokar
 [@wuub]: https://github.com/wuub
 [@zeltom]: https://github.com/zeltom
+<<<<<<< HEAD
 [binary_sensor.alarmdecoder docs]: /components/binary_sensor.alarmdecoder/
 [binary_sensor.eight_sleep docs]: /components/binary_sensor.eight_sleep/
 [binary_sensor.maxcube docs]: /components/binary_sensor.maxcube/
@@ -495,6 +500,92 @@ influxdb:
 [wemo docs]: /components/wemo/
 [wink docs]: /components/wink/
 [zha docs]: /components/zha/
+=======
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.eight_sleep docs]: /integrations/eight_sleep
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.octoprint docs]: /integrations/octoprint#binary-sensor
+[binary_sensor.pilight docs]: /integrations/pilight#binary-sensor
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.zha docs]: /integrations/zha
+[camera.netatmo docs]: /integrations/netatmo#camera
+[climate docs]: /integrations/climate/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.maxcube docs]: /integrations/maxcube
+[climate.zwave docs]: /integrations/zwave#climate
+[cover.garadget docs]: /integrations/garadget
+[cover.opengarage docs]: /integrations/opengarage
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.zha docs]: /integrations/device_tracker.zha/
+[ecobee docs]: /integrations/ecobee/
+[eight_sleep docs]: /integrations/eight_sleep/
+[enocean docs]: /integrations/enocean/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
+[image_processing.opencv docs]: /integrations/opencv
+[joaoapps_join docs]: /integrations/joaoapps_join/
+[light docs]: /integrations/light/
+[light.avion docs]: /integrations/avion
+[light.blinkt docs]: /integrations/blinkt
+[light.decora docs]: /integrations/decora
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.osramlightify docs]: /integrations/osramlightify
+[light.piglow docs]: /integrations/piglow
+[light.sensehat docs]: /integrations/sensehat#light
+[light.tradfri docs]: /integrations/tradfri
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[maxcube docs]: /integrations/maxcube/
+[media_player docs]: /integrations/media_player/
+[media_player.spotify docs]: /integrations/spotify
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.joaoapps_join docs]: /integrations/joaoapps_join
+[notify.mailgun docs]: /integrations/mailgun
+[notify.matrix docs]: /integrations/matrix/#notifications
+[notify.smtp docs]: /integrations/smtp
+[notify.telegram docs]: /integrations/telegram
+[notify.webostv docs]: /integrations/webostv
+[nuimo_controller docs]: /integrations/nuimo_controller/
+[octoprint docs]: /integrations/octoprint/
+[opencv docs]: /integrations/opencv/
+[plant docs]: /integrations/plant/
+[recorder docs]: /integrations/recorder/
+[rfxtrx docs]: /integrations/rfxtrx/
+[rss_feed_template docs]: /integrations/rss_feed_template/
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.dht docs]: /integrations/dht
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.envirophat docs]: /integrations/envirophat
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.pushbullet docs]: /integrations/pushbullet#sensor
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.thinkingcleaner docs]: /integrations/thinkingcleaner#sensor
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.zamg docs]: /integrations/zamg#sensor
+[sensor.zha docs]: /integrations/zha
+[switch.flux docs]: /integrations/flux
+[switch.hook docs]: /integrations/hook
+[switch.thinkingcleaner docs]: /integrations/thinkingcleaner#switch
+[switch.wemo docs]: /integrations/wemo
+[switch.zha docs]: /integrations/zha
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[updater docs]: /integrations/updater/
+[vera docs]: /integrations/vera/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
@@ -504,6 +595,11 @@ influxdb:
 [@finish06]: https://github.com/finish06
 [@frog32]: https://github.com/frog32
 [@pezinek]: https://github.com/pezinek
+<<<<<<< HEAD
 [device_tracker.unifi docs]: /components/device_tracker.unifi/
 [sensor.wunderground docs]: /components/sensor.wunderground/
+=======
+[device_tracker.unifi docs]: /integrations/unifi
+[sensor.wunderground docs]: /integrations/wunderground
+>>>>>>> upstream/next
 [discord]: https://discord.gg/c5DvZ4e

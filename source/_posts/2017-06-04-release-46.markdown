@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-06-0.46/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.46'><img src='/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.46'><img src='/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
@@ -32,7 +36,11 @@ It's time for 0.46! This release does not have too many new integrations, instea
 
 ## Breaking changes
 
+<<<<<<< HEAD
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+=======
+- The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) (breaking change)
+>>>>>>> upstream/next
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
 - Redesign monitored variables for hp_ilo sensor. `monitored_variables` is now a list of `name` and `sensor_type` values ([@Juggels] - [#7534]) ([sensor.hp_ilo docs]) (breaking change)
 
@@ -63,9 +71,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
+<<<<<<< HEAD
 - bump fedex version ([@happyleavesaoc] - [#7653]) ([sensor.fedex docs])
 - bump ups version ([@happyleavesaoc] - [#7654])
 - update usps ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+=======
+- bump fedex version ([@happyleavesaoc] - [#7653])
+- bump ups version ([@happyleavesaoc] - [#7654])
+- update usps ([@happyleavesaoc] - [#7655]) (breaking change)
+>>>>>>> upstream/next
 - Final tweaks for Zwave panel ([@turbokongen] - [#7652]) ([zwave docs])
 - Add network_key as a config option ([@robbiet480] - [#7637]) ([zwave docs])
 - Bugfix #7586 ([@turbokongen] - [#7661]) ([lock.zwave docs])
@@ -305,6 +319,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
+<<<<<<< HEAD
 [alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
 [apcupsd docs]: /components/apcupsd/
 [arlo docs]: /components/arlo/
@@ -379,6 +394,80 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [upnp docs]: /components/upnp/
 [zoneminder docs]: /components/zoneminder/
 [zwave docs]: /components/zwave/
+=======
+[alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
+[apcupsd docs]: /integrations/apcupsd/
+[arlo docs]: /integrations/arlo/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[calendar.demo docs]: /integrations/calendar/
+[calendar.google docs]: /integrations/calendar.google/
+[camera.amcrest docs]: /integrations/amcrest
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.synology docs]: /integrations/synology
+[climate.tado docs]: /integrations/tado
+[cover.myq docs]: /integrations/myq
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.__init__ docs]: /integrations/device_tracker.__init__/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.ubus docs]: /integrations/ubus
+[eight_sleep docs]: /integrations/eight_sleep/
+[envisalink docs]: /integrations/envisalink/
+[fan.zwave docs]: /integrations/zwave
+[hassio docs]: /integrations/hassio/
+[homematic docs]: /integrations/homematic/
+[image_processing.seven_segments docs]: /integrations/seven_segments
+[insteon_local docs]: /integrations/insteon_local/
+[ios docs]: /integrations/ios/
+[light.__init__ docs]: /integrations/light.__init__/
+[light.flux_led docs]: /integrations/flux_led
+[light.lifx docs]: /integrations/lifx
+[light.template docs]: /integrations/light.template/
+[light.wink docs]: /integrations/wink#light
+[lock.zwave docs]: /integrations/zwave#lock
+[lutron docs]: /integrations/lutron/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.openhome docs]: /integrations/openhome
+[media_player.services.yaml docs]: /integrations/media_player/#services
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[media_player.volumio docs]: /integrations/volumio
+[modbus docs]: /integrations/modbus/
+[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
+[notify.rest docs]: /integrations/notify.rest/
+[notify.slack docs]: /integrations/slack
+[notify.smtp docs]: /integrations/smtp
+[notify.telegram docs]: /integrations/telegram
+[recorder.__init__ docs]: /integrations/recorder.__init__/
+[remote docs]: /integrations/remote/
+[remote.harmony docs]: /integrations/harmony
+[remote.services.yaml docs]: /integrations/remote.services.yaml/
+[scene.hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview
+[sensor.amcrest docs]: /integrations/amcrest
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.history_stats docs]: /integrations/history_stats
+[sensor.hp_ilo docs]: /integrations/hp_ilo
+[sensor.influxdb docs]: /integrations/influxdb#sensor
+[sensor.mvglive docs]: /integrations/mvglive
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.time_date docs]: /integrations/time_date
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.rflink docs]: /integrations/switch.rflink/
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[tellduslive docs]: /integrations/tellduslive/
+[upnp docs]: /integrations/upnp/
+[zoneminder docs]: /integrations/zoneminder/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7780]: https://github.com/home-assistant/home-assistant/pull/7780
@@ -390,8 +479,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7969]: https://github.com/home-assistant/home-assistant/pull/7969
 [@cyberjacob]: https://github.com/cyberjacob
 [@mje-nz]: https://github.com/mje-nz
+<<<<<<< HEAD
 [cover.mqtt docs]: /components/cover.mqtt/
 [sensor.metoffice docs]: /components/sensor.metoffice/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [media_player.roku docs]: /components/media_player.roku/
+=======
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[sensor.metoffice docs]: /integrations/sensor.metoffice/
+[sensor.wunderground docs]: /integrations/wunderground
+[media_player.roku docs]: /integrations/roku#media-player
+>>>>>>> upstream/next
 [discord]: https://discord.gg/c5DvZ4e

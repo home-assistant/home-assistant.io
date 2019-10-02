@@ -29,13 +29,21 @@ As an add-on developer, you will only have to change one line in your template t
 
 Old:
 
+<<<<<<< HEAD
 ```
+=======
+```dockerfile
+>>>>>>> upstream/next
 FROM %%BASE_IMAGE%%
 ```
 
 New:
 
+<<<<<<< HEAD
 ```
+=======
+```dockerfile
+>>>>>>> upstream/next
 ARG BUILD_FROM
 FROM $BUILD_FROM
 ```

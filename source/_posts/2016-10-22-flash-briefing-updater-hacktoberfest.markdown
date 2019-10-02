@@ -262,6 +262,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
+<<<<<<< HEAD
 [Arduino]: /components/arduino/
 [APNS]: /components/notify.apns/
 [ARWN]: /components/sensor.arwn/
@@ -282,11 +283,34 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [emoncms]: /components/emoncms_history/
 [filtering]: /components/logbook/
 [flash-briefing-docs]: /components/alexa/
+=======
+[Arduino]: /integrations/arduino/
+[APNS]: /integrations/apns
+[ARWN]: /integrations/arwn
+[Concord232]: /integrations/concord232#alarm-control-panel
+[HTTP]: /integrations/http/
+[HaveIBeenPwned]: /integrations/haveibeenpwned
+[Matrix]: /integrations/matrix/#notifications
+[Neato]: /integrations/neato#switch
+[Pilight]: /integrations/pilight#sensor
+[Proximity]: /integrations/proximity/
+[PyPi]: https://pypi.python.org/pypi
+[Synology]: /integrations/synology
+[UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
+[Verisure]: /integrations/verisure
+[WUnderground]: /integrations/wunderground
+[Yamaha]: /integrations/yamaha
+[Zoneminder]: /integrations/zoneminder/
+[emoncms]: /integrations/emoncms_history/
+[filtering]: /integrations/logbook/
+[flash-briefing-docs]: /integrations/alexa/
+>>>>>>> upstream/next
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/
 [hacktoberfest-ha-prs]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
 [hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
 [hacktoberfest-website]: https://hacktoberfest.digitalocean.com/
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
+<<<<<<< HEAD
 [min]: /components/sensor.min_max/
 [netatmo-bin]: /components/binary_sensor.netatmo/
 [netatmo-discovery]: /components/netatmo/
@@ -295,6 +319,16 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [runway]: http://runway.is
 [scrape]: /components/sensor.scrape/
 [updater]: /components/updater/
+=======
+[min]: /integrations/min_max
+[netatmo-bin]: /integrations/netatmo#binary-sensor
+[netatmo-discovery]: /integrations/netatmo/
+[nmap]: /integrations/nmap_tracker
+[pers-notify]: /integrations/persistent_notification/
+[runway]: http://runway.is
+[scrape]: /integrations/scrape
+[updater]: /integrations/updater/
+>>>>>>> upstream/next
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
 [zero-one-two-release]: /blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes
 [zero-two-seven-release]: /blog/2016/08/28/notifications-hue-fake-unification/

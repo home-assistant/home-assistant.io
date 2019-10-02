@@ -38,6 +38,10 @@ entity: weather.dark_sky
 
   This card works only with platforms that define a `weather` entity.
   
+<<<<<<< HEAD
   E.g., it works with [Dark Sky](/components/weather.darksky/) but not [Dark Sky Sensor](/components/sensor.darksky/)
+=======
+  E.g., it works with [Dark Sky](/integrations/weather.darksky/) but not [Dark Sky Sensor](/integrations/darksky)
+>>>>>>> upstream/next
 
 </div>

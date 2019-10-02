@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-07-0.50/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Last Wednesday we released [Hass.io](/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
 
@@ -331,6 +335,7 @@ conversation:
 [@titilambert]: https://github.com/titilambert
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
+<<<<<<< HEAD
 [alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
 [alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
 [alarmdecoder docs]: /components/alarmdecoder/
@@ -401,6 +406,78 @@ conversation:
 [weather.yweather docs]: /components/weather.yweather/
 [wink docs]: /components/wink/
 [xiaomi docs]: /components/xiaomi/
+=======
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa docs]: /integrations/alexa/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.velbus docs]: /integrations/velbus
+[binary_sensor.xiaomi docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera.onvif docs]: /integrations/onvif
+[climate.maxcube docs]: /integrations/maxcube
+[conversation docs]: /integrations/conversation/
+[cover docs]: /integrations/cover/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.wink docs]: /integrations/wink#fan
+[hassio docs]: /hassio/
+[history docs]: /integrations/history/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[intent docs]: /developers/intent/
+[intent_script docs]: /integrations/intent_script/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[light.decora docs]: /integrations/decora
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.tplink docs]: /integrations/tplink
+[light.velbus docs]: /integrations/velbus/
+[light.wink docs]: /integrations/wink#light
+[light.xiaomi docs]: /integrations/light.xiaomi_aqara/
+[light.zha docs]: /integrations/zha
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.twitter docs]: /integrations/twitter
+[python_script docs]: /integrations/python_script/
+[recorder docs]: /integrations/recorder/
+[remote.harmony docs]: /integrations/harmony
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.dht docs]: /integrations/dht
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.google_wifi docs]: /integrations/google_wifi
+[sensor.hydroquebec docs]: /integrations/hydroquebec
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.xiaomi docs]: /integrations/sensor.xiaomi_aqara/
+[shopping_list docs]: /integrations/shopping_list/
+[snips docs]: /integrations/snips/
+[statsd docs]: /integrations/statsd/
+[switch.fritzdect docs]: /integrations/fritzdect
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[weather.yweather docs]: /integrations/yweather
+[wink docs]: /integrations/wink/
+[xiaomi docs]: /integrations/xiaomi_aqara
+>>>>>>> upstream/next
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -416,7 +493,14 @@ conversation:
 [#8754]: https://github.com/home-assistant/home-assistant/pull/8754
 [#8755]: https://github.com/home-assistant/home-assistant/pull/8755
 [@n8henrie]: https://github.com/n8henrie
+<<<<<<< HEAD
 [light.tradfri docs]: /components/light.tradfri/
 [media_player.pioneer docs]: /components/media_player.pioneer/
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [zwave docs]: /components/zwave/
+=======
+[light.tradfri docs]: /integrations/tradfri
+[media_player.pioneer docs]: /integrations/pioneer
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

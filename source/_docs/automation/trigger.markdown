@@ -234,8 +234,13 @@ Although the actual amount of light depends on weather, topography and land cove
 
   This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
 
+<<<<<<< HEAD
 - Nautical twilight: 6° > Solar angle > -12°
 - Astronomical twilight: 12° > Solar angle > -18°
+=======
+- Nautical twilight: -6° > Solar angle > -12°
+- Astronomical twilight: -12° > Solar angle > -18°
+>>>>>>> upstream/next
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
@@ -337,7 +342,11 @@ You could test triggering the above automation by sending a POST HTTP request to
 
 ### Zone trigger
 
+<<<<<<< HEAD
 Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/components/device_tracker.gpslogger/), the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+=======
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/device_tracker.gpslogger/), the [OwnTracks platform](/integrations/device_tracker.owntracks/) and the [iCloud platform](/integrations/device_tracker.icloud/).
+>>>>>>> upstream/next
 
 ```yaml
 automation:
@@ -351,7 +360,11 @@ automation:
 
 ### Geolocation trigger
 
+<<<<<<< HEAD
 Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/components/geo_location/) platform support reporting GPS coordinates.
+=======
+Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
+>>>>>>> upstream/next
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geolocation platforms.
 
 ```yaml

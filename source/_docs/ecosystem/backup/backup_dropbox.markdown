@@ -22,8 +22,13 @@ In the Python script you can specify which files and directories should be exclu
 ### Step 1: Linking your Dropbox account
 
 ```bash
+<<<<<<< HEAD
 $ chmod +x dropbox_uploader.sh
 $ ./dropbox_uploader.sh
+=======
+chmod +x dropbox_uploader.sh
+./dropbox_uploader.sh
+>>>>>>> upstream/next
 ```
 Follow the instructions you see on your screen.
 
@@ -36,11 +41,19 @@ Go to the folder you have placed `dropbox.py`.
 - **Option B:**
   Edit `dropbox.py`:
   Change the following line: 
+<<<<<<< HEAD
   ```
   uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"
   ```
   to where you placed your file: (for example):
   ```
+=======
+  ```txt
+  uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"
+  ```
+  to where you placed your file: (for example):
+  ```txt
+>>>>>>> upstream/next
   uploader = "/home/homeassistant/MyFolder/dropbox_uploader.sh"
   ```
 

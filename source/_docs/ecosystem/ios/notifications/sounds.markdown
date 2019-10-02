@@ -49,7 +49,11 @@ Notes:
 
 ### Preinstalled notification sounds
 
+<<<<<<< HEAD
 ```
+=======
+```txt
+>>>>>>> upstream/next
 US-EN-Alexa-Back-Door-Opened.wav
 US-EN-Alexa-Back-Door-Unlocked.wav
 US-EN-Alexa-Basement-Door-Opened.wav

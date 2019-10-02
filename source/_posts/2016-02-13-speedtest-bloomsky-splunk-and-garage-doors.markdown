@@ -82,6 +82,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [@Danielhiversen]: https://github.com/Danielhiversen/
 [@roqeer]: https://github.com/roqeer/
 [@jaharkes]: https://github.com/jaharkes/
+<<<<<<< HEAD
 [default view]: /components/group/
 [apcupsd]: /components/apcupsd/
 [Splunk]: /components/splunk/
@@ -111,3 +112,34 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [Honeywell]: /components/honeywell/
 [zwave-polling]: /components/zwave/#configuration
 [zwave-scene]: /components/zwave/#events
+=======
+[default view]: /integrations/group/
+[apcupsd]: /integrations/apcupsd/
+[Splunk]: /integrations/splunk/
+[garage door]: /integrations/cover/
+[Wink]: /integrations/wink/#cover
+[input_select]: /integrations/input_select/
+[proximity]: /integrations/proximity/
+[Bloomsky Weather Station]: /integrations/bloomsky/
+[graphite]: /integrations/graphite/
+[SCSGate]: /integrations/scsgate/
+[weblink]: /integrations/weblink/
+[mfi.switch]: /integrations/mfi#switch
+[mfi.sensor]: /integrations/mfi#sensor
+[nx584]: /integrations/nx584
+[MJPEG]: /integrations/mjpeg
+[unifi]: /integrations/uvc
+[Aruba]: /integrations/aruba
+[History]: /integrations/history/
+[MySensors]: /integrations/light.mysensors/
+[Verisure]: /integrations/verisure
+[Speedtest.net]: /integrations/speedtestdotnet
+[Samsung TV]: /integrations/samsungtv
+[Snapcast]: /integrations/snapcast
+[mqtt-publish]: /integrations/mqtt/#publish-service
+[REST]: /integrations/notify.rest/
+[template]: /integrations/switch.template/
+[Honeywell]: /integrations/honeywell/
+[zwave-polling]: /integrations/zwave/#configuration
+[zwave-scene]: /integrations/zwave/#events
+>>>>>>> upstream/next

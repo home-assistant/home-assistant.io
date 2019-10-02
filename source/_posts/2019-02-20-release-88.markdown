@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2019-02-release-88/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Release 0.88 has landed. It's been a busy two weeks with a ton of cool stuff and improvements.
 
@@ -84,12 +88,21 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [@balloob]: https://github.com/balloob
 [@dmulcahey]: https://github.com/dmulcahey
 [@elupus]: https://github.com/elupus
+<<<<<<< HEAD
 [ambient_station docs]: /components/ambient_station/
 [light.yeelight docs]: /components/light.yeelight/
 [media_player.plex docs]: /components/media_player.plex/
 [media_player.samsungtv docs]: /components/media_player.samsungtv/
 [sensor.imap_email_content docs]: /components/sensor.imap_email_content/
 [zha docs]: /components/zha/
+=======
+[ambient_station docs]: /integrations/ambient_station/
+[light.yeelight docs]: /integrations/yeelight
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.samsungtv docs]: /integrations/samsungtv
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 
 ## Release 0.88.2 - February 27
 
@@ -112,11 +125,19 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [@conleydg]: https://github.com/conleydg
 [@syssi]: https://github.com/syssi
 [@yosilevy]: https://github.com/yosilevy
+<<<<<<< HEAD
 [light.flux_led docs]: /components/light.flux_led/
 [person docs]: /components/person/
 [scene docs]: /components/scene/
 [smartthings docs]: /components/smartthings/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
+=======
+[light.flux_led docs]: /integrations/flux_led
+[person docs]: /integrations/person/
+[scene docs]: /integrations/scene/
+[smartthings docs]: /integrations/smartthings/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+>>>>>>> upstream/next
 
 ## If you need help...
 
@@ -181,7 +202,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update synology-srm dependency to 0.0.4 ([@aerialls] - [#20625]) ([device_tracker docs])
 - Add precision parameter to dsmr sensor ([@zumitnl] - [#19873]) ([sensor.dsmr docs])
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
+<<<<<<< HEAD
 - Move mqtt_mock to tests/components/mqtt/conftest.py ([@awarecan] - [#20621])
+=======
+- Move mqtt_mock to tests/integrations/mqtt/conftest.py ([@awarecan] - [#20621])
+>>>>>>> upstream/next
 - Revert #20611: code in Abode alarm panel ([@arsaboo] - [#20629]) ([alarm_control_panel.abode docs])
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
 - Fix xiaomi default gateway in services ([@therve] - [#20623]) ([xiaomi_aqara docs])
@@ -618,6 +643,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wonderslug]: https://github.com/wonderslug
 [@zumitnl]: https://github.com/zumitnl
+<<<<<<< HEAD
 [abode docs]: /components/abode/
 [ads docs]: /components/ads/
 [air_quality docs]: /components/air_quality/
@@ -731,3 +757,118 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xs1 docs]: /components/xs1/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
+=======
+[abode docs]: /integrations/abode/
+[ads docs]: /integrations/ads/
+[air_quality docs]: /integrations/air_quality/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[android_ip_webcam docs]: /integrations/android_ip_webcam/
+[apcupsd docs]: /integrations/apcupsd/
+[apple_tv docs]: /integrations/apple_tv/
+[august docs]: /integrations/august/
+[binary_sensor.bayesian docs]: /integrations/bayesian
+[binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
+[blink docs]: /integrations/blink/
+[cast docs]: /integrations/cast/
+[climate.coolmaster docs]: /integrations/coolmaster
+[climate.flexit docs]: /integrations/flexit
+[climate.modbus docs]: /integrations/climate.modbus/
+[climate.xs1 docs]: /integrations/xs1
+[cover.velux docs]: /integrations/velux
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[device_tracker docs]: /integrations/device_tracker/
+[ebusd docs]: /integrations/ebusd/
+[eight_sleep docs]: /integrations/eight_sleep/
+[emulated_hue docs]: /integrations/emulated_hue/
+[esphome docs]: /integrations/esphome/
+[fastdotcom docs]: /integrations/fastdotcom/
+[feedreader docs]: /integrations/feedreader/
+[freedns docs]: /integrations/freedns/
+[google_pubsub docs]: /integrations/google_pubsub/
+[googlehome docs]: /integrations/googlehome/
+[harmony docs]: /integrations/harmony/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[ipma docs]: /integrations/ipma/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[light.ads docs]: /integrations/ads#light
+[light.flux_led docs]: /integrations/flux_led
+[light.hyperion docs]: /integrations/hyperion
+[light.knx docs]: /integrations/light.knx/
+[light.rflink docs]: /integrations/light.rflink/
+[light.tplink docs]: /integrations/tplink
+[lock docs]: /integrations/lock/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.universal docs]: /integrations/universal
+[media_player.yamaha docs]: /integrations/yamaha
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[mythicbeastsdns docs]: /integrations/mythicbeastsdns/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[norway_air docs]: /integrations/norway_air/
+[notify docs]: /integrations/notify/
+[onboarding docs]: /integrations/onboarding/
+[person docs]: /integrations/person/
+[point docs]: /integrations/point/
+[python_script docs]: /integrations/python_script/
+[rflink docs]: /integrations/rflink/
+[script docs]: /integrations/script/
+[sensor.ambient_station docs]: /integrations/ambient_station
+[sensor.co2signal docs]: /integrations/co2signal
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.darksky docs]: /integrations/darksky
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.ebusd docs]: /integrations/ebusd
+[sensor.fastdotcom docs]: /integrations/fastdotcom
+[sensor.github docs]: /integrations/github
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.imap docs]: /integrations/imap
+[sensor.integration docs]: /integrations/integration
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.miflora docs]: /integrations/miflora
+[sensor.modbus docs]: /integrations/sensor.modbus/
+[sensor.rejseplanen docs]: /integrations/rejseplanen
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.speedtestdotnet docs]: /integrations/speedtestdotnetdotnet/
+[sensor.sql docs]: /integrations/sql
+[sensor.ted5000 docs]: /integrations/ted5000
+[sensor.thermoworks_smoke docs]: /integrations/thermoworks_smoke
+[sensor.xs1 docs]: /integrations/xs1#sensors
+[smartthings docs]: /integrations/smartthings/
+[smhi docs]: /integrations/smhi/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[spider docs]: /integrations/spider/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.modbus docs]: /integrations/switch.modbus/
+[switch.switchmate docs]: /integrations/switchmate
+[switch.tplink docs]: /integrations/tplink
+[switch.xs1 docs]: /integrations/xs1
+[system_health docs]: /integrations/system_health/
+[system_log docs]: /integrations/system_log/
+[thethingsnetwork docs]: /integrations/thethingsnetwork/
+[timer docs]: /integrations/timer/
+[tplink_lte docs]: /integrations/tplink_lte/
+[transmission docs]: /integrations/transmission/
+[unifi docs]: /integrations/unifi/
+[updater docs]: /integrations/updater/
+[utility_meter docs]: /integrations/utility_meter/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velux docs]: /integrations/velux/
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xs1 docs]: /integrations/xs1/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

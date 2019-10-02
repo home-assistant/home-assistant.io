@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-02-0.63/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 ## Date set for dropping Python 3.4 support
 
@@ -83,10 +87,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Avoid influxdb filling connection pool: The influxdb `retry_queue_limit` configuration variable no longer has any effect and can be removed. ([@amelchio] - [#12182]) ([influxdb docs]) (breaking change)
 - Some spelling mistakes in default entity names have been fixed in ([@OttoWinter] - [#12041]). This is causing these `entity_id` changes:
+<<<<<<< HEAD
    - [Seven segments display](/components/image_processing.seven_segments/):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
    - [Rain Bird Switch](/components/switch.rainbird/): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
    - [OpenEVSE Sensor](/components/sensor.openevse/): `sensor.ambient_termperature` → `sensor.ambient_temperature`
    - [Fido](/components/sensor.fido/): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
+=======
+   - [Seven segments display](/integrations/seven_segments):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
+   - [Rain Bird Switch](/integrations/rainbird#switch): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
+   - [OpenEVSE Sensor](/integrations/openevse): `sensor.ambient_termperature` → `sensor.ambient_temperature`
+   - [Fido](/integrations/fido): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
+>>>>>>> upstream/next
 - From version 0.64, Home Assistant will by default purge recorded state history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain:
     ```yaml
     recorder:
@@ -501,6 +512,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zabuldon]: https://github.com/zabuldon
+<<<<<<< HEAD
 [alexa docs]: /components/alexa/
 [binary_sensor.deconz docs]: /components/binary_sensor.deconz/
 [binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
@@ -631,6 +643,138 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zha.const docs]: /components/zha.const/
 [zwave docs]: /components/zwave/
+=======
+[alexa docs]: /integrations/alexa/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.mercedesme docs]: /integrations/binary_sensor.mercedesme/
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.template docs]: /integrations/binary_sensor.template/
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.zha docs]: /integrations/zha
+[camera.canary docs]: /integrations/canary#camera
+[camera.uvc docs]: /integrations/uvc
+[camera.xeoma docs]: /integrations/xeoma
+[canary docs]: /integrations/canary/
+[climate.demo docs]: /integrations/demo/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.econet docs]: /integrations/econet
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.heatmiser docs]: /integrations/heatmiser
+[climate.melissa docs]: /integrations/melissa
+[climate.nest docs]: /integrations/nest#climate
+[climate.tado docs]: /integrations/tado
+[climate.touchline docs]: /integrations/touchline
+[climate.venstar docs]: /integrations/venstar
+[cloud docs]: /integrations/cloud/
+[coinbase docs]: /integrations/coinbase/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.tahoma docs]: /integrations/tahoma
+[cover.template docs]: /integrations/cover.template/
+[deconz docs]: /integrations/deconz/
+[device_tracker.huawei_router docs]: /integrations/huawei_router
+[device_tracker.mercedesme docs]: /integrations/device_tracker.mercedesme/
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.mqtt docs]: /integrations/device_tracker.mqtt/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.ubus docs]: /integrations/ubus
+[doorbird docs]: /integrations/doorbird/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[feedreader docs]: /integrations/feedreader/
+[frontend docs]: /integrations/frontend/
+[goalfeed docs]: /integrations/goalfeed/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_local_cloud
+[influxdb docs]: /integrations/influxdb/
+[input_text docs]: /integrations/input_text/
+[ios docs]: /integrations/ios/
+[iota docs]: /integrations/iota/
+[light.deconz docs]: /integrations/deconz#light
+[light.greenwave docs]: /integrations/greenwave
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.template docs]: /integrations/light.template/
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[lock docs]: /integrations/lock/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.clementine docs]: /integrations/clementine
+[media_player.itunes docs]: /integrations/itunes
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.philips_js docs]: /integrations/philips_js
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.vlc docs]: /integrations/vlc
+[media_player.volumio docs]: /integrations/volumio
+[media_player.webostv docs]: /integrations/webostv#media-player
+[melissa docs]: /integrations/melissa/
+[mercedesme docs]: /integrations/mercedesme/
+[mochad docs]: /integrations/mochad/
+[notify.gntp docs]: /integrations/gntp
+[notify.kodi docs]: /integrations/kodi
+[notify.pushsafer docs]: /integrations/pushsafer
+[notify.twitter docs]: /integrations/twitter
+[panel_iframe docs]: /integrations/panel_iframe/
+[plant docs]: /integrations/plant/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.canary docs]: /integrations/canary#sensor
+[sensor.coinbase docs]: /integrations/coinbase
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.melissa docs]: /integrations/melissa/
+[sensor.mercedesme docs]: /integrations/sensor.mercedesme/
+[sensor.miflora docs]: /integrations/miflora
+[sensor.onewire docs]: /integrations/onewire
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.qnap docs]: /integrations/qnap
+[sensor.radarr docs]: /integrations/radarr
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.sql docs]: /integrations/sql
+[sensor.statistics docs]: /integrations/statistics
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.template docs]: /integrations/template
+[sensor.tesla docs]: /integrations/tesla
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.zha docs]: /integrations/zha
+[spc docs]: /integrations/spc/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.flux docs]: /integrations/flux
+[switch.pulseaudio_loopback docs]: /integrations/pulseaudio_loopback
+[switch.template docs]: /integrations/switch.template/
+[switch.tplink docs]: /integrations/tplink
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[system_log docs]: /integrations/system_log/
+[tado docs]: /integrations/tado/
+[tahoma docs]: /integrations/tahoma/
+[tesla docs]: /integrations/tesla/
+[tts docs]: /integrations/tts/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[wake_on_lan docs]: /integrations/wake_on_lan/
+[waterfurnace docs]: /integrations/waterfurnace/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[weblink docs]: /integrations/weblink/
+[websocket_api docs]: /integrations/websocket_api/
+[zha docs]: /integrations/zha/
+[zha.const docs]: /integrations/zha.const/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next
 [#12292]: https://github.com/home-assistant/home-assistant/pull/12292
 [#12313]: https://github.com/home-assistant/home-assistant/pull/12313
 [#12314]: https://github.com/home-assistant/home-assistant/pull/12314
@@ -640,10 +784,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#12330]: https://github.com/home-assistant/home-assistant/pull/12330
 [@balloob]: https://github.com/balloob
 [@lucasweb78]: https://github.com/lucasweb78
+<<<<<<< HEAD
 [alexa docs]: /components/alexa/
 [binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
 [camera.netatmo docs]: /components/camera.netatmo/
 [sensor.netatmo docs]: /components/sensor.netatmo/
+=======
+[alexa docs]: /integrations/alexa/
+[binary_sensor.netatmo docs]: /integrations/netatmo#binary-sensor
+[camera.netatmo docs]: /integrations/netatmo#camera
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+>>>>>>> upstream/next
 [#12342]: https://github.com/home-assistant/home-assistant/pull/12342
 [#12346]: https://github.com/home-assistant/home-assistant/pull/12346
 [#12368]: https://github.com/home-assistant/home-assistant/pull/12368
@@ -654,6 +805,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
+<<<<<<< HEAD
 [binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
 [device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
 [light.limitlessled docs]: /components/light.limitlessled/
@@ -662,6 +814,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
 [sensor.mercedesme docs]: /components/sensor.mercedesme/
 [sensor.wunderground docs]: /components/sensor.wunderground/
+=======
+[binary_sensor.mercedesme docs]: /integrations/binary_sensor.mercedesme/
+[device_tracker.mercedesme docs]: /integrations/device_tracker.mercedesme/
+[light.limitlessled docs]: /integrations/limitlessled
+[media_player.yamaha docs]: /integrations/yamaha
+[mercedesme docs]: /integrations/mercedesme/
+[sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
+[sensor.mercedesme docs]: /integrations/sensor.mercedesme/
+[sensor.wunderground docs]: /integrations/wunderground
+>>>>>>> upstream/next
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392
 [#12421]: https://github.com/home-assistant/home-assistant/pull/12421
 [#12435]: https://github.com/home-assistant/home-assistant/pull/12435
@@ -676,6 +838,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dgomes]: https://github.com/dgomes
 [@ryanm101]: https://github.com/ryanm101
 [@syssi]: https://github.com/syssi
+<<<<<<< HEAD
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
 [isy994 docs]: /components/isy994/
 [light.template docs]: /components/light.template/
@@ -686,3 +849,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.yr docs]: /components/sensor.yr/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+=======
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[isy994 docs]: /integrations/isy994/
+[light.template docs]: /integrations/light.template/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[media_player.plex docs]: /integrations/plex#media-player
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[sensor.sql docs]: /integrations/sql
+[sensor.yr docs]: /integrations/yr
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+>>>>>>> upstream/next

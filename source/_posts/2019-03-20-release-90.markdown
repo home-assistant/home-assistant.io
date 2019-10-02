@@ -95,10 +95,17 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 [@kkr16]: https://github.com/kkr16
 [@michaelarnauts]: https://github.com/michaelarnauts
 [@pvizeli]: https://github.com/pvizeli
+<<<<<<< HEAD
 [cloud docs]: /components/cloud/
 [smartthings docs]: /components/smartthings/
 [stream docs]: /components/stream/
 [tado docs]: /components/tado/
+=======
+[cloud docs]: /integrations/cloud/
+[smartthings docs]: /integrations/smartthings/
+[stream docs]: /integrations/stream/
+[tado docs]: /integrations/tado/
+>>>>>>> upstream/next
 
 ## Release 0.90.2 - March 26
 
@@ -141,10 +148,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 -  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
 - __Netatmo__
+<<<<<<< HEAD
    * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
    * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
 This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](/components/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
+=======
+   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/integrations/netatmo#climate) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/integrations/netatmo#climate) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
+- __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
+This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](/integrations/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
+>>>>>>> upstream/next
 - __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
    * Connection config can now be configured in xknx.yml.
    * Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
@@ -703,6 +717,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@zeehio]: https://github.com/zeehio
 [@zemerick1]: https://github.com/zemerick1
 [@zewelor]: https://github.com/zewelor
+<<<<<<< HEAD
 [air_quality docs]: /components/air_quality/
 [alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
@@ -825,3 +840,127 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [zeroconf docs]: /components/zeroconf/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
+=======
+[air_quality docs]: /integrations/air_quality/
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alert docs]: /integrations/alert/
+[alexa docs]: /integrations/alexa/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[api docs]: /integrations/api/
+[asuswrt docs]: /integrations/asuswrt/
+[auth docs]: /integrations/auth/
+[automation docs]: /integrations/automation/
+[automation.mqtt docs]: /docs/automation/trigger/#mqtt-trigger
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.workday docs]: /integrations/workday
+[camera docs]: /integrations/camera/
+[camera.ffmpeg docs]: /integrations/camera.ffmpeg/
+[camera.generic docs]: /integrations/generic
+[camera.onvif docs]: /integrations/onvif
+[camera.proxy docs]: /integrations/proxy
+[camera.xeoma docs]: /integrations/xeoma
+[cast docs]: /integrations/cast/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[climate.ephember docs]: /integrations/ephember
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.honeywell docs]: /integrations/honeywell
+[climate.netatmo docs]: /integrations/netatmo#climate
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[default_config docs]: /integrations/default_config/
+[device_tracker docs]: /integrations/device_tracker/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enigma2 docs]: /integrations/enigma2/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[hassio docs]: /integrations/hassio/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[ifttt docs]: /integrations/ifttt/
+[ihc docs]: /integrations/ihc/
+[image_processing docs]: /integrations/image_processing/
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.tensorflow docs]: /integrations/tensorflow
+[knx docs]: /integrations/knx/
+[konnected docs]: /integrations/konnected/
+[lametric docs]: /integrations/lametric/
+[lifx docs]: /integrations/lifx/
+[light docs]: /integrations/light/
+[light.flux_led docs]: /integrations/flux_led
+[light.ihc docs]: /integrations/ihc#light
+[light.mystrom docs]: /integrations/mystrom#light
+[light.nanoleaf docs]: /integrations/nanoleaf
+[logbook docs]: /integrations/logbook/
+[lutron docs]: /integrations/lutron/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.anthemav docs]: /integrations/anthemav
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.enigma2 docs]: /integrations/enigma2
+[media_player.firetv docs]: /integrations/androidtv
+[mobile_app docs]: /integrations/mobile_app/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[mqtt_eventstream docs]: /integrations/mqtt_eventstream/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netatmo docs]: /integrations/netatmo/
+[notify docs]: /integrations/notify/
+[notify.sendgrid docs]: /integrations/sendgrid
+[onboarding docs]: /integrations/onboarding/
+[openuv docs]: /integrations/openuv/
+[owntracks docs]: /integrations/owntracks/
+[ps4 docs]: /integrations/ps4/
+[rainmachine docs]: /integrations/rainmachine/
+[remote docs]: /integrations/remote/
+[remote.harmony docs]: /integrations/harmony
+[satel_integra docs]: /integrations/satel_integra/
+[scene docs]: /integrations/scene/
+[script docs]: /integrations/script/
+[sense docs]: /integrations/sense/
+[sensor.arwn docs]: /integrations/arwn
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.discogs docs]: /integrations/discogs
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.flunearyou docs]: /integrations/flunearyou
+[sensor.loopenergy docs]: /integrations/loopenergy
+[sensor.mopar docs]: /integrations/mopar
+[sensor.mqtt_room docs]: /integrations/mqtt_room
+[sensor.netdata docs]: /integrations/netdata
+[sensor.nmbs docs]: /integrations/nmbs
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.seventeentrack docs]: /integrations/seventeentrack
+[sensor.starlingbank docs]: /integrations/starlingbank
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.whois docs]: /integrations/whois
+[smartthings docs]: /integrations/smartthings/
+[snips docs]: /integrations/snips/
+[sonos docs]: /integrations/sonos/
+[stream docs]: /integrations/stream/
+[switch.mystrom docs]: /integrations/mystrom#switch
+[switch.vesync docs]: /integrations/vesync#switches
+[tado docs]: /integrations/tado/
+[tellstick docs]: /integrations/tellstick/
+[tesla docs]: /integrations/tesla/
+[tof docs]: /integrations/tof/
+[toon docs]: /integrations/toon/
+[totalconnect docs]: /integrations/totalconnect/
+[tplink docs]: /integrations/tplink/
+[tts docs]: /integrations/tts/
+[utility_meter docs]: /integrations/utility_meter/
+[velbus docs]: /integrations/velbus/
+[velux docs]: /integrations/velux/
+[water_heater docs]: /integrations/water_heater/
+[websocket_api docs]: /integrations/websocket_api/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

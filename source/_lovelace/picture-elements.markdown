@@ -30,6 +30,13 @@ title:
   required: false
   description: Card title
   type: string
+<<<<<<< HEAD
+=======
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
+>>>>>>> upstream/next
 {% endconfiguration %}
 
 ## Elements

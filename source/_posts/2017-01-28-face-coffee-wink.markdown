@@ -58,7 +58,11 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Device tracker: [Sky hub][sky] support ([@alexmogavero])
 - Support for [Lutron][lutron] RadioRA 2 ([@thecynic])
 - TTS: Amazon [Polly TTS][polly] platform ([@robbiet480])
+<<<<<<< HEAD
 - Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
+=======
+- Device tracker: Support for Linksys Access Points ([@lukas-hetzenecker])
+>>>>>>> upstream/next
 - Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
 #### Improvements
@@ -226,6 +230,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mKeRix]: https://github.com/mKeRix
 [@fakezeta]: https://github.com/fakezeta
 
+<<<<<<< HEAD
 [amcrest]: /components/amcrest/#binary_sensors
 [discord]: /components/notify.discord/
 [tado]: /components/device_tracker.tado/
@@ -247,14 +252,45 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [roku]: /components/media_player.roku/
 [openalpr]: /components/#image-processing
 [image]: /components/image_processing/
+=======
+[amcrest]: /integrations/amcrest/#binary_sensors
+[discord]: /integrations/discord
+[tado]: /integrations/tado
+[sky]: /integrations/sky_hub
+[zabbix]: /integrations/zabbix/
+[avion]: /integrations/avion
+[anthem]: /integrations/anthemav
+[bb-bin]: /integrations/bbb_gpio#binary-sensor
+[piglow]: /integrations/piglow
+[wsdot]:  /integrations/wsdot
+[skybeacon]: /integrations/skybeacon
+[lutron]: /integrations/lutron/
+[polly]: /integrations/amazon_polly
+[emul-hue]: /integrations/emulated_hue/
+[netatmo]: /integrations/netatmo/
+[face]: /integrations/microsoft_face/
+[iss]: /integrations/iss
+[roku]: /integrations/roku#media-player
+[openalpr]: /integrations/#image-processing
+[image]: /integrations/image_processing/
+>>>>>>> upstream/next
 [emul_hue]: https://github.com/home-assistant/home-assistant/pull/5549
 [coc]: /developers/code_of_conduct/
 [cla]: /developers/cla/
 [gov]: /blog/2017/01/21/home-assistant-governance/
 [license]: /developers/license/
+<<<<<<< HEAD
 [wink]: /components/wink/
 [coffee]: /components/switch.wemo/
 [cec]: /components/hdmi_cec/
 [mysensors]: /components/mysensors/
 [sonos]: /components/media_player.sonos/
 [twilio]: /components/notify.twilio_call/
+=======
+[wink]: /integrations/wink/
+[coffee]: /integrations/wemo
+[cec]: /integrations/hdmi_cec/
+[mysensors]: /integrations/mysensors/
+[sonos]: /integrations/sonos
+[twilio]: /integrations/twilio_call
+>>>>>>> upstream/next

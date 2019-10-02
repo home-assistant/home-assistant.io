@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-03-0.40/social.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to [@pvizeli] for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.
 
@@ -29,7 +33,11 @@ MQTT started causing "Out of Memory" errors for some people on a Raspberry Pi. W
 
 ## Turn any Android phone into an IP Camera
 
+<<<<<<< HEAD
 With the new support for [IP Webcam](/components/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
+=======
+With the new support for [IP Webcam](/integrations/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
+>>>>>>> upstream/next
 
  - Integrate the Android device camera
  - Binary sensor when motion is detected

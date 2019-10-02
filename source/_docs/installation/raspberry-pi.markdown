@@ -28,44 +28,74 @@ $ ssh pi@ipaddress
 Changing the default password is encouraged.
 
 ```bash
+<<<<<<< HEAD
 $ passwd
+=======
+passwd
+>>>>>>> upstream/next
 ```
 
 Update the system.
 
 ```bash
+<<<<<<< HEAD
 $ sudo apt-get update
 $ sudo apt-get upgrade -y
+=======
+sudo apt-get update
+sudo apt-get upgrade -y
+>>>>>>> upstream/next
 ```
 
 Install the dependencies.
 
 ```bash
+<<<<<<< HEAD
 $ sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
+=======
+sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
+>>>>>>> upstream/next
 ```
 
 Add an account for Home Assistant called `homeassistant`.
 Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio,i2c` adds the user to the `dialout`, `gpio` and the `i2c` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
 
 ```bash
+<<<<<<< HEAD
 $ sudo useradd -rm homeassistant -G dialout,gpio,i2c
+=======
+sudo useradd -rm homeassistant -G dialout,gpio,i2c
+>>>>>>> upstream/next
 ```
 
 Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
 
 ```bash
+<<<<<<< HEAD
 $ cd /srv
 $ sudo mkdir homeassistant
 $ sudo chown homeassistant:homeassistant homeassistant
+=======
+cd /srv
+sudo mkdir homeassistant
+sudo chown homeassistant:homeassistant homeassistant
+>>>>>>> upstream/next
 ```
 
 Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ cd /srv/homeassistant
 $ python3 -m venv .
 $ source bin/activate
+=======
+sudo -u homeassistant -H -s
+cd /srv/homeassistant
+python3 -m venv .
+source bin/activate
+>>>>>>> upstream/next
 ```
 Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package.
 
@@ -99,9 +129,15 @@ If you want to setup `hass` as a daemon and autostart it on boot please refer to
 To update to the latest version of Home Assistant follow these simple steps:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade homeassistant
+>>>>>>> upstream/next
 ```
 
 Once the last command executes, restart the Home Assistant service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
@@ -111,9 +147,15 @@ Once the last command executes, restart the Home Assistant service to apply the 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install homeassistant==0.XX.X
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install homeassistant==0.XX.X
+>>>>>>> upstream/next
 ```
 
 ### Run the beta version
@@ -121,9 +163,15 @@ $ pip3 install homeassistant==0.XX.X
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --pre --upgrade homeassistant
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --pre --upgrade homeassistant
+>>>>>>> upstream/next
 ```
 
 ### Run the development version
@@ -137,9 +185,15 @@ If you want to stay on the bleeding-edge Home Assistant development branch, you 
 For example:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+>>>>>>> upstream/next
 ```
 
 ### Activating the virtual environment
@@ -147,6 +201,11 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 When instructions tell you to activate the virtual environment, the following commands will do this:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+>>>>>>> upstream/next
 ```

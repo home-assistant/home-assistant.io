@@ -73,7 +73,11 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 
 If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
 
+<<<<<<< HEAD
 ```
+=======
+```txt
+>>>>>>> upstream/next
 [Unit]
 Description=Home Assistant
 After=network.target mosquitto.service
@@ -105,7 +109,11 @@ mqtt:
 
 ### CloudMQTT
 
+<<<<<<< HEAD
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
+=======
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/device_tracker.owntracks/) and give you a taste of what is possible.
+>>>>>>> upstream/next
 
 <div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.

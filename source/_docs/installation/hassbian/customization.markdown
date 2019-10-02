@@ -52,4 +52,8 @@ To upgrade any of them simply run `sudo hassbian-config upgrade SUITE`.
 For more information about this tool have a look at the [hassbian-scripts repository][hassbian-repo].
 
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
+<<<<<<< HEAD
 [cec]: /components/hdmi_cec/
+=======
+[cec]: /integrations/hdmi_cec/
+>>>>>>> upstream/next

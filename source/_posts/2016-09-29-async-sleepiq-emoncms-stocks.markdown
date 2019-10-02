@@ -160,6 +160,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wokar]: https://github.com/wokar
 
+<<<<<<< HEAD
 [BOM]: /components/sensor.bom/
 [climate]: /components/climate.vera/
 [email]: /components/sensor.imap_email_content/
@@ -184,3 +185,29 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [MySensors]: /components/climate.mysensors/
 [keyboard_remote]: /components/keyboard_remote
 [X10]: /components/light.x10/
+=======
+[BOM]: /integrations/bom#sensor
+[climate]: /integrations/vera
+[email]: /integrations/imap_email_content/
+[Emoncms]: /integrations/emoncms
+[filtering]: /integrations/logbook/
+[InfluxDB]: /integrations/influxdb/
+[ISY]: /integrations/isy994/
+[KNX]: /integrations/sensor.knx/
+[Kodi]: /integrations/kodi
+[Modbus]: /integrations/modbus/
+[Nest]: /integrations/fan.nest/
+[Nuimo]: /integrations/nuimo_controller/
+[OpenALPR]: /integrations/openalpr_local_local
+[passwordless]: /integrations/http/
+[Simplepush]: /integrations/simplepush
+[Slack]: /integrations/slack
+[SleepIQ]: /integrations/sleepiq/
+[timeout]: /integrations/mqtt_room
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[plant]: /integrations/miflora
+[MySensors]: /integrations/climate.mysensors/
+[keyboard_remote]: /integrations/keyboard_remote
+[X10]: /integrations/x10
+>>>>>>> upstream/next

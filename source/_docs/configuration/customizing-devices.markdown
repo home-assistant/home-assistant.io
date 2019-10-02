@@ -49,7 +49,11 @@ homebridge_hidden:
   type: boolean
   default: false
 emulated_hue_hidden:
+<<<<<<< HEAD
   description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/components/emulated_hue)).
+=======
+  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/integrations/emulated_hue)).
+>>>>>>> upstream/next
   required: false
   type: boolean
   default: false
@@ -58,7 +62,11 @@ entity_picture:
   required: false
   type: string
 icon:
+<<<<<<< HEAD
   description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/3.5.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+=======
+  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/4.4.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+>>>>>>> upstream/next
   required: false
   type: string
 assumed_state:
@@ -86,9 +94,15 @@ initial_state:
 
 Device class is currently supported by the following components:
 
+<<<<<<< HEAD
 * [Binary Sensor](/components/binary_sensor/)
 * [Sensor](/components/sensor/)
 * [Cover](/components/cover/)
+=======
+* [Binary Sensor](/integrations/binary_sensor/)
+* [Sensor](/integrations/sensor/)
+* [Cover](/integrations/cover/)
+>>>>>>> upstream/next
 
 ### Manual customization
 

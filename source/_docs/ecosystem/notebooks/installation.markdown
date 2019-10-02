@@ -39,7 +39,11 @@ You will get an empty notebook with one cell. Cells can contain code or text. To
   <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
 </p>
 
+<<<<<<< HEAD
 The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/first-notebook.ipynb).
+=======
+The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/other/first-notebook.ipynb).
+>>>>>>> upstream/next
 
 
 As you can see is the Jupyter notebook workflow is very similar to working directly with a Python shell. One advantage of notebooks is that you can go back and forth between cells as you please and save your work.

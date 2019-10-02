@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-08-0.51/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 <div class='note warning'>
 This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.
@@ -353,6 +357,7 @@ vacuum:
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wickerwaka]: https://github.com/wickerwaka
+<<<<<<< HEAD
 [alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
 [alexa docs]: /components/alexa/
 [asterisk_mbox docs]: /components/asterisk_mbox/
@@ -454,6 +459,109 @@ vacuum:
 [weather.zamg docs]: /components/weather.zamg/
 [wink docs]: /components/wink/
 [zwave docs]: /components/zwave/
+=======
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alexa docs]: /integrations/alexa/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[automation docs]: /integrations/automation/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.command_line docs]: /integrations/command_line
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.zwave docs]: /integrations/zwave
+[camera.foscam docs]: /integrations/foscam
+[climate docs]: /integrations/climate/
+[climate.honeywell docs]: /integrations/honeywell
+[climate.tado docs]: /integrations/tado
+[config.zwave docs]: /integrations/config.zwave/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.rpi_gpio docs]: /integrations/rpi_gpio#cover
+[device_tracker.huawei_router docs]: /integrations/huawei_router
+[dyson docs]: /integrations/dyson/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.dyson docs]: /integrations/dyson#fan
+[group docs]: /integrations/group/
+[history docs]: /integrations/history/
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[insteon_plm docs]: /integrations/insteon_plm/
+[light.decora_wifi docs]: /integrations/decora_wifi/
+[light.flux_led docs]: /integrations/flux_led
+[light.lifx docs]: /integrations/lifx
+[light.mochad docs]: /integrations/mochad#light
+[light.osramlightify docs]: /integrations/osramlightify
+[lock.nuki docs]: /integrations/nuki
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[mailbox.demo docs]: /integrations/demo/
+[mailbox.demo.txt docs]: /integrations/demo/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.cast docs]: /integrations/cast
+[media_player.directv docs]: /integrations/directv
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mpd docs]: /integrations/mpd
+[media_player.russound_rio docs]: /integrations/russound_rio
+[media_player.sonos docs]: /integrations/sonos
+[media_player.squeezebox docs]: /integrations/squeezebox
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.xmpp docs]: /integrations/xmpp
+[recorder docs]: /integrations/recorder/
+[recorder.migration docs]: /integrations/recorder.migration/
+[recorder.models docs]: /integrations/recorder.models/
+[recorder.purge docs]: /integrations/recorder.purge/
+[recorder.util docs]: /integrations/recorder.util/
+[remote docs]: /integrations/remote/
+[remote.apple_tv docs]: /integrations/apple_tv#remote
+[remote.demo docs]: /integrations/remote.demo/
+[remote.harmony docs]: /integrations/harmony
+[remote.itach docs]: /integrations/itach
+[remote.kira docs]: /integrations/kira
+[rflink docs]: /integrations/rflink/
+[scene.lutron_caseta docs]: /integrations/lutron#scene_caseta/
+[sensor.asterisk_mbox docs]: /integrations/sensor.asterisk_mbox/
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.command_line docs]: /integrations/sensor.command_line/
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.efergy docs]: /integrations/efergy
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.google_wifi docs]: /integrations/google_wifi
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.neato docs]: /integrations/neato/
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.pocketcasts docs]: /integrations/pocketcasts
+[sensor.radarr docs]: /integrations/radarr
+[sensor.rest docs]: /integrations/rest
+[sensor.sabnzbd docs]: /integrations/sabnzbd
+[sensor.shodan docs]: /integrations/shodan
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.statistics docs]: /integrations/statistics
+[sensor.supervisord docs]: /integrations/supervisord
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.vasttrafik docs]: /integrations/vasttrafik
+[sensor.yr docs]: /integrations/yr
+[sensor.zamg docs]: /integrations/zamg#sensor
+[switch.command_line docs]: /integrations/switch.command_line/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.neato docs]: /integrations/neato#switch
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[telegram_bot docs]: /integrations/telegram_bot/
+[updater docs]: /integrations/updater/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.demo docs]: /integrations/vacuum.demo/
+[vacuum.dyson docs]: /integrations/dyson#vacuum
+[vacuum.roomba docs]: /integrations/roomba
+[vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
+[weather.buienradar docs]: /integrations/buienradar
+[weather.yweather docs]: /integrations/yweather
+[weather.zamg docs]: /integrations/zamg#weather
+[wink docs]: /integrations/wink/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e

@@ -1,7 +1,11 @@
 ---
 title: "Authentication Providers"
 description: "Guide on configuring different auth providers."
+<<<<<<< HEAD
 redirect_from: /components/auth/
+=======
+redirect_from: /integrations/auth/
+>>>>>>> upstream/next
 ---
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
@@ -165,7 +169,11 @@ homeassistant:
 
 When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
 
+<<<<<<< HEAD
 ```
+=======
+```txt
+>>>>>>> upstream/next
 name = John Doe
 ```
 

@@ -66,6 +66,7 @@ device_tracker:
 [`!include_dir_merge_list`]: /topics/splitting_configuration/#advanced-usage
 [`!include_dir_merge_named`]: /topics/splitting_configuration/#advanced-usage
 [`relative_time`]: /topics/templating/#home-assistant-template-extensions
+<<<<<<< HEAD
 [Asus WRT]: /components/device_tracker.asuswrt/
 [Ecobee thermostats]: /components/notify.ecobee/
 [Google Play Music Desktop Player]: /components/media_player.gpmdp/
@@ -80,3 +81,19 @@ device_tracker:
 [supervisord]: /components/sensor.supervisord/
 [Twilio SMS]: /components/notify.twilio_sms/
 [Last.fm]: /components/sensor.lastfm/
+=======
+[Asus WRT]: /integrations/asuswrt
+[Ecobee thermostats]: /integrations/ecobee
+[Google Play Music Desktop Player]: /integrations/gpmdp
+[LG Netcast TVs]: /integrations/lg_netcast
+[Logentries]: /integrations/logentries/
+[mold indicator]: /integrations/mold_indicator/
+[Nest Protect]: /integrations/nest#sensor
+[purge days option]: /integrations/recorder/
+[Roku]: /integrations/roku#media-player
+[SNS]: /integrations/notify.aws_sns/
+[SQS]: /integrations/notify.aws_sqs/
+[supervisord]: /integrations/supervisord
+[Twilio SMS]: /integrations/twilio_sms
+[Last.fm]: /integrations/lastfm
+>>>>>>> upstream/next

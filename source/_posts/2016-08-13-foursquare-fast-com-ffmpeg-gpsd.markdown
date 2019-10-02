@@ -92,6 +92,7 @@ homeassistant:
 [@turbokongen]: https://github.com/turbokongen
 [@fabaff]: https://github.com/fabaff
 
+<<<<<<< HEAD
 [Foursquare]: /components/foursquare/
 [OhmConnect]: /components/sensor.ohmconnect/
 [FFMPEG]: /components/camera.ffmpeg/
@@ -113,4 +114,27 @@ homeassistant:
 [Fitbit]: /components/sensor.fitbit/
 [Plex]: /components/media_player.plex/
 [Honeywell]: /components/honeywell/
+=======
+[Foursquare]: /integrations/foursquare/
+[OhmConnect]: /integrations/ohmconnect
+[FFMPEG]: /integrations/camera.ffmpeg/
+[SMTP]: /integrations/smtp
+[panel_custom]: /integrations/panel_custom/
+[Verisure]: /integrations/verisure#alarm-control-panel
+[Flux LED]: /integrations/flux_led
+[InfluxDB]: /integrations/influxdb/
+[particulate]: /integrations/serial_pm/
+[LG Netcast TV]: /integrations/lg_netcast
+[mqtt_json]: /integrations/light.mqtt
+[Fast.com]: /integrations/fastdotcom
+[pilight]: /integrations/pilight/
+[GPSD]: /integrations/gpsd
+[heat control]: /integrations/thermostat.heat_control/
+[Proximity]: /integrations/proximity/
+[Flux]: /integrations/flux
+[Proliphix]: /integrations/proliphix/
+[Fitbit]: /integrations/fitbit
+[Plex]: /integrations/plex#media-player
+[Honeywell]: /integrations/honeywell/
+>>>>>>> upstream/next
 [Secrets]: /topics/secrets/

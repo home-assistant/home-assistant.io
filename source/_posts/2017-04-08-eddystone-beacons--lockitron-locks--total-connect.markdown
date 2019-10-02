@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-04-0.42/social.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#added_in_current_version'><img src='/images/blog/2017-04-0.42/social.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-04-0.42/social.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for Home Assistant 0.42. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.
 

@@ -40,7 +40,7 @@ automation:
 
 #### Send sun rise/sun set notifications
 
-Send notifications through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
+Send notifications through [PushBullet](/integrations/pushbullet) when the sun state is changed.
 
 ```yaml
 automation:

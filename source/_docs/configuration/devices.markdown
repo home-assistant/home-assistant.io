@@ -4,9 +4,15 @@ description: "Steps to help you get your devices in Home Assistant."
 redirect_from: /getting-started/devices/
 ---
 
+<<<<<<< HEAD
 Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/components/discovery/) enabled (the default setting).
 
 See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
+=======
+Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/integrations/discovery/) enabled (the default setting).
+
+See the [components overview page](/integrations/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
+>>>>>>> upstream/next
 
 Classification for the available integrations:
 
@@ -76,4 +82,8 @@ group:
       - media_player.nexus_player
 ```
 
+<<<<<<< HEAD
 For more details please check the [Group](/components/group/) page.
+=======
+For more details please check the [Group](/integrations/group/) page.
+>>>>>>> upstream/next

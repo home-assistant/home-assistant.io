@@ -37,6 +37,13 @@ state_image:
   required: false
   description: "Map entity states to images (`state: image URL`, check the example below)."
   type: map
+<<<<<<< HEAD
+=======
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
+>>>>>>> upstream/next
 aspect_ratio:
   required: false
   description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
@@ -117,6 +124,19 @@ hold_action:
       default: none
 {% endconfiguration %}
 
+<<<<<<< HEAD
+=======
+## How to use state_filter
+
+Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
+
+```yaml
+state_filter:
+  "on": brightness(110%) saturate(1.2)
+  "off": brightness(50%) hue-rotate(45deg)
+```
+
+>>>>>>> upstream/next
 ## Examples
 
 Basic example:

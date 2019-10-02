@@ -24,12 +24,21 @@ Currently includes:
 All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's cloned on first boot and can be updated to the latest release with ease after.
 To update the hassbian-scripts directory execute the following command as the `pi` user.
 ```bash
+<<<<<<< HEAD
 $ cd hassbian-scripts
 $ git pull
 ```
 To use any of the hassbian-scripts, execute the following command as the `pi` user. Here we use the libcec script as an example.
 ```bash
 $ sudo ./hassbian-scripts/install_libcec.sh
+=======
+cd hassbian-scripts
+git pull
+```
+To use any of the hassbian-scripts, execute the following command as the `pi` user. Here we use the libcec script as an example.
+```bash
+sudo ./hassbian-scripts/install_libcec.sh
+>>>>>>> upstream/next
 ```
 
 For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 
@@ -52,7 +61,11 @@ To follow discussions about the development of the HASSbian image or to contribu
  
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
  
+<<<<<<< HEAD
 [cec]: /components/hdmi_cec/
+=======
+[cec]: /integrations/hdmi_cec/
+>>>>>>> upstream/next
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
 [landrash-github]: https://github.com/Landrash

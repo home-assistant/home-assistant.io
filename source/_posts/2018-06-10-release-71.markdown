@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-06-0.71/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 0.71 has arrived. My favorite feature in this release is the conversion of the Nest component from cloud poll to cloud push. Sure, it's still through the cloud but changes are now made available in Home Assistant as soon as they happen. Thanks [@awarecan]!
 
@@ -326,6 +330,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tchellomello]: https://github.com/tchellomello
 [@titilambert]: https://github.com/titilambert
 [@treehoof]: https://github.com/treehoof
+<<<<<<< HEAD
 [alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
 [api docs]: /components/api/
@@ -411,6 +416,93 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zone docs]: /components/zone/
 [zwave docs]: /components/zwave/
+=======
+[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[api docs]: /integrations/api/
+[automation docs]: /integrations/automation/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.envisalink docs]: /integrations/envisalink
+[binary_sensor.hydrawise docs]: /integrations/hydrawise#binary-sensor
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.rainmachine docs]: /integrations/rainmachine
+[binary_sensor.random docs]: /integrations/random#binary-sensor
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[climate.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[climate.nest docs]: /integrations/nest#climate
+[climate.sensibo docs]: /integrations/sensibo
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[counter docs]: /integrations/counter/
+[cover.myq docs]: /integrations/myq
+[cover.ryobi_gdo docs]: /integrations/cover.ryobi_gdo/
+[device_tracker docs]: /integrations/device_tracker/
+[eufy docs]: /integrations/eufy/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hydrawise docs]: /integrations/hydrawise/
+[keyboard_remote docs]: /integrations/keyboard_remote/
+[light.lw12wifi docs]: /integrations/lw12wifi
+[light.nanoleaf_aurora docs]: /integrations/nanoleaf/
+[light.osramlightify docs]: /integrations/osramlightify
+[light.zha docs]: /integrations/zha
+[linode docs]: /integrations/linode/
+[lock.xiaomi_aqara docs]: /integrations/lock.xiaomi_aqara/
+[logbook docs]: /integrations/logbook/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.directv docs]: /integrations/directv
+[media_player.kodi docs]: /integrations/kodi
+[media_player.philips_js docs]: /integrations/philips_js
+[nest docs]: /integrations/nest/
+[notify docs]: /integrations/notify/
+[panel_custom docs]: /integrations/panel_custom/
+[python_script docs]: /integrations/python_script/
+[rainbird docs]: /integrations/rainbird/
+[raincloud docs]: /integrations/raincloud/
+[rainmachine docs]: /integrations/rainmachine/
+[sensor.bitcoin docs]: /integrations/bitcoin
+[sensor.bom docs]: /integrations/bom#sensor
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.gitter docs]: /integrations/gitter
+[sensor.glances docs]: /integrations/glances
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.hydrawise docs]: /integrations/hydrawise#sensor
+[sensor.iperf3 docs]: /integrations/iperf3
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.mfi docs]: /integrations/mfi#sensor
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.netdata docs]: /integrations/netdata
+[sensor.onewire docs]: /integrations/onewire
+[sensor.postnl docs]: /integrations/postnl
+[sensor.rainmachine docs]: /integrations/rainmachine
+[sensor.random docs]: /integrations/random#sensor
+[sensor.shodan docs]: /integrations/shodan
+[sensor.simulated docs]: /integrations/simulated
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.transmission docs]: /integrations/transmission
+[sensor.uptime docs]: /integrations/uptime
+[sensor.version docs]: /integrations/version
+[sensor.worldclock docs]: /integrations/worldclock
+[sensor.zha docs]: /integrations/zha
+[shopping_list docs]: /integrations/shopping_list/
+[switch.hydrawise docs]: /integrations/hydrawise#switch
+[switch.raincloud docs]: /integrations/raincloud#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[vera docs]: /integrations/vera/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next
 [@OttoWinter]: https://github.com/OttoWinter
 [esphomeyaml]: https://esphomelib.com/esphomeyaml/index.html
 [@c727]: https://github.com/c727

@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-12-release-84/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Time for the last release of the year. We were hoping to end the year with an enourmous bang and make Lovelace the default UI. However, in our final stretch we realized that to get to the experience that we wanted, we had to make more last minute changes than we felt comfortable making. If you are a Lovelace tester, please read the section for existing testers below.
 
@@ -71,9 +75,15 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [#19220]: https://github.com/home-assistant/home-assistant/pull/19220
 [@balloob]: https://github.com/balloob
 [@hunterjm]: https://github.com/hunterjm
+<<<<<<< HEAD
 [device_tracker docs]: /components/device_tracker/
 [logbook docs]: /components/logbook/
 [owntracks docs]: /components/owntracks/
+=======
+[device_tracker docs]: /integrations/device_tracker/
+[logbook docs]: /integrations/logbook/
+[owntracks docs]: /integrations/owntracks/
+>>>>>>> upstream/next
 
 ## Release 0.84.2 - December 14
 
@@ -104,6 +114,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [@luca-angemi]: https://github.com/luca-angemi
 [@marchingphoenix]: https://github.com/marchingphoenix
 [@syssi]: https://github.com/syssi
+<<<<<<< HEAD
 [asuswrt docs]: /components/asuswrt/
 [binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
 [light.lutron docs]: /components/light.lutron/
@@ -111,6 +122,15 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [owntracks docs]: /components/owntracks/
 [tts docs]: /components/tts/
 [zha docs]: /components/zha/
+=======
+[asuswrt docs]: /integrations/asuswrt/
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[light.lutron docs]: /integrations/lutron
+[logbook docs]: /integrations/logbook/
+[owntracks docs]: /integrations/owntracks/
+[tts docs]: /integrations/tts/
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 
 ## Release 0.84.3 - December 17
 
@@ -128,8 +148,13 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [#19440]: https://github.com/home-assistant/home-assistant/pull/19440
 [@ehendrix23]: https://github.com/ehendrix23
 [@mopolus]: https://github.com/mopolus
+<<<<<<< HEAD
 [ihc docs]: /components/ihc/
 [remote.harmony docs]: /components/remote.harmony/
+=======
+[ihc docs]: /integrations/ihc/
+[remote.harmony docs]: /integrations/harmony
+>>>>>>> upstream/next
 
 ## Release 0.84.5 - December 19
 
@@ -161,9 +186,15 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [@zsarnett]: https://github.com/zsarnett
 [@iantrich]: https://github.com/iantrich
 [@liaanvdm]: https://github.com/liaanvdm
+<<<<<<< HEAD
 [alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
 [config docs]: /components/config/
 [lock.zwave docs]: /components/lock.zwave/
+=======
+[alarm_control_panel.manual docs]: /integrations/manual
+[config docs]: /integrations/config/
+[lock.zwave docs]: /integrations/zwave#lock
+>>>>>>> upstream/next
 
 ## If you need help...
 
@@ -636,6 +667,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@trainman419]: https://github.com/trainman419
 [@yottatsa]: https://github.com/yottatsa
 [@zxdavb]: https://github.com/zxdavb
+<<<<<<< HEAD
 [alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
 [alarm_control_panel.lupusec docs]: /components/alarm_control_panel.lupusec/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
@@ -775,3 +807,144 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: /components/websocket_api/
 [wunderlist docs]: /components/wunderlist/
 [zha docs]: /components/zha/
+=======
+[alarm_control_panel.blink docs]: /integrations/blink
+[alarm_control_panel.lupusec docs]: /integrations/lupusec
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alarm_control_panel.yale_smart_alarm docs]: /integrations/yale_smart_alarm
+[alexa docs]: /integrations/alexa/
+[apple_tv docs]: /integrations/apple_tv/
+[august docs]: /integrations/august/
+[automation docs]: /integrations/automation/
+[binary_sensor.blink docs]: /integrations/blink
+[binary_sensor.fibaro docs]: /integrations/fibaro
+[binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.point docs]: /integrations/point#binary-sensor
+[binary_sensor.sense docs]: /integrations/sense
+[binary_sensor.tahoma docs]: /integrations/tahoma
+[binary_sensor.tellduslive docs]: /integrations/tellduslive
+[binary_sensor.volvooncall docs]: /integrations/volvooncall
+[binary_sensor.zha docs]: /integrations/zha
+[blink docs]: /integrations/blink/
+[camera.blink docs]: /integrations/blink
+[camera.mjpeg docs]: /integrations/mjpeg
+[camera.proxy docs]: /integrations/proxy
+[camera.push docs]: /integrations/push
+[camera.uvc docs]: /integrations/uvc
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.evohome docs]: /integrations/evohome
+[climate.mill docs]: /integrations/mill
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.toon docs]: /integrations/toon#climate
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.tellduslive docs]: /integrations/tellduslive
+[daikin docs]: /integrations/daikin/
+[device_tracker docs]: /integrations/device_tracker/
+[elkm1 docs]: /integrations/elkm1/
+[evohome docs]: /integrations/evohome/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fan.zha docs]: /integrations/zha
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[geo_location docs]: /integrations/geo_location/
+[google_assistant docs]: /integrations/google_assistant/
+[hassio docs]: /integrations/hassio/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[history docs]: /integrations/history/
+[hlk_sw16 docs]: /integrations/hlk_sw16/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[ihc docs]: /integrations/ihc/
+[image_processing docs]: /integrations/image_processing/
+[influxdb docs]: /integrations/influxdb/
+[lifx docs]: /integrations/lifx/
+[light.decora_wifi docs]: /integrations/decora_wifi/
+[light.fibaro docs]: /integrations/fibaro
+[light.ihc docs]: /integrations/ihc#light
+[light.lightwave docs]: /integrations/lightwave
+[light.lutron docs]: /integrations/lutron
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.niko_home_control docs]: /integrations/niko_home_control
+[light.tellduslive docs]: /integrations/tellduslive
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[light.zha docs]: /integrations/zha
+[lightwave docs]: /integrations/lightwave/
+[lock.verisure docs]: /integrations/verisure
+[lock.volvooncall docs]: /integrations/volvooncall
+[logbook docs]: /integrations/logbook/
+[lovelace docs]: /integrations/lovelace/
+[lupusec docs]: /integrations/lupusec/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.demo docs]: /integrations/media_player.demo/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.hdmi_cec docs]: /integrations/hdmi_cec
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.vizio docs]: /integrations/vizio
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[notify docs]: /integrations/notify/
+[onboarding docs]: /integrations/onboarding/
+[owntracks docs]: /integrations/owntracks/
+[point docs]: /integrations/point/
+[rainmachine docs]: /integrations/rainmachine/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[scene.fibaro docs]: /integrations/fibaro
+[script docs]: /integrations/script/
+[sense docs]: /integrations/sense/
+[sensor.awair docs]: /integrations/awair
+[sensor.blink docs]: /integrations/blink
+[sensor.bom docs]: /integrations/bom#sensor
+[sensor.daikin docs]: /integrations/daikin#sensor
+[sensor.dht docs]: /integrations/dht
+[sensor.entur_public_transport docs]: /integrations/entur_public_transport
+[sensor.influxdb docs]: /integrations/influxdb#sensor
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.point docs]: /integrations/point#sensor
+[sensor.qbittorrent docs]: /integrations/qbittorrent
+[sensor.rtorrent docs]: /integrations/rtorrent
+[sensor.sense docs]: /integrations/sense
+[sensor.seventeentrack docs]: /integrations/seventeentrack
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.statistics docs]: /integrations/statistics
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tellduslive docs]: /integrations/tellduslive
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.volvooncall docs]: /integrations/volvooncall
+[sensor.waterfurnace docs]: /integrations/waterfurnace
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[sensor.zha docs]: /integrations/zha
+[shopping_list docs]: /integrations/shopping_list/
+[simplisafe docs]: /integrations/simplisafe/
+[skybell docs]: /integrations/skybell/
+[switch.hdmi_cec docs]: /integrations/hdmi_cec
+[switch.hlk_sw16 docs]: /integrations/hlk_sw16
+[switch.ihc docs]: /integrations/ihc#switch
+[switch.lightwave docs]: /integrations/lightwave
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.switchbot docs]: /integrations/switchbot
+[switch.switchmate docs]: /integrations/switchmate
+[switch.tellduslive docs]: /integrations/tellduslive
+[switch.volvooncall docs]: /integrations/volvooncall
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zha docs]: /integrations/zha
+[tellduslive docs]: /integrations/tellduslive/
+[tibber docs]: /integrations/tibber/
+[tts docs]: /integrations/tts/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[verisure docs]: /integrations/verisure/
+[volvooncall docs]: /integrations/volvooncall/
+[waterfurnace docs]: /integrations/waterfurnace/
+[weather.bom docs]: /integrations/bom
+[weather.ipma docs]: /integrations/ipma
+[websocket_api docs]: /integrations/websocket_api/
+[wunderlist docs]: /integrations/wunderlist/
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next

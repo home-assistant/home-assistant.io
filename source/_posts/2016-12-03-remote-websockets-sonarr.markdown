@@ -203,6 +203,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vemek]: https://github.com/vemek
 [@vkorn]: https://github.com/vkorn
 
+<<<<<<< HEAD
 [amcrest]: /components/camera.amcrest/
 [boradlink]: /components/sensor.broadlink/
 [dsmr]: /components/sensor.dsmr/
@@ -226,4 +227,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [threshold]: /components/binary_sensor.threshold/
 [websockets]: /developers/websocket_api/
 [waqi]: /components/sensor.waqi/
+=======
+[amcrest]: /integrations/amcrest
+[boradlink]: /integrations/broadlink#sensor
+[dsmr]: /integrations/dsmr
+[dunehd]: /integrations/dunehd
+[efergy]: /integrations/efergy
+[filtering]: /integrations/http/
+[gpslogger]: /integrations/gpslogger
+[harmony]: /integrations/harmony
+[homematic]: /integrations/homematic/
+[hook]: /integrations/hook
+[nest-cam]: /integrations/nest#camera
+[nest]: /integrations/nest/
+[nginx]: /ecosystem/nginx/
+[nut]: /integrations/nut
+[philips]: /integrations/philips_js
+[remote]: /integrations/remote/
+[rfxtrx]: /integrations/rfxtrx/
+[sonarr]: /integrations/sonarr
+[tellstick]: /integrations/tellstick/
+[temper]: /integrations/temper
+[threshold]: /integrations/threshold
+[websockets]: /developers/websocket_api/
+[waqi]: /integrations/waqi
+>>>>>>> upstream/next
 

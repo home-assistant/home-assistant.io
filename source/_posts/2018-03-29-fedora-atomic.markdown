@@ -35,8 +35,13 @@ Deployments:
 The release is 27.100. The latest is 27.105. So, let's update the host and reboot it.
 
 ```bash
+<<<<<<< HEAD
 $ sudo atomic host upgrade
 $ sudo systemctl reboot
+=======
+sudo atomic host upgrade
+sudo systemctl reboot
+>>>>>>> upstream/next
 ```
 
 You can also see that Docker is already running. No installation needed.
@@ -54,21 +59,35 @@ Further we will cover how it works for Home Assistant and [Mosquitto](https://mo
 Instead of `docker` we can use the command-line tool [`atomic`](http://www.projectatomic.io/docs/usr-bin-atomic/) to perform a lot of tasks. Download the images for the containers. We are pulling the images from [Docker Hub](https://hub.docker.com/), thus we need to add the registry to use.
 
 ```bash
+<<<<<<< HEAD
 $ sudo atomic install docker.io/​homeassistant/home-assistant
 $ sudo atomic install docker.io/eclipse-mosquitto
+=======
+sudo atomic install docker.io/​homeassistant/home-assistant
+sudo atomic install docker.io/eclipse-mosquitto
+>>>>>>> upstream/next
 ```
 
 Both containers need additional directories for persistent storage.
 
 ```bash
+<<<<<<< HEAD
 $ sudo mkdir -p /opt/home-assistant
 $ sudo mkdir -p /opt/mosquitto/{config,data,log}
+=======
+sudo mkdir -p /opt/home-assistant
+sudo mkdir -p /opt/mosquitto/{config,data,log}
+>>>>>>> upstream/next
 ```
 
 We need a copy of `mosquitto.conf` to run Mosquitto later:
 
 ```bash
+<<<<<<< HEAD
 $ sudo curl -o /opt/mosquitto/config/mosquitto.conf \
+=======
+sudo curl -o /opt/mosquitto/config/mosquitto.conf \
+>>>>>>> upstream/next
   https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf
 ```
 
@@ -125,14 +144,23 @@ Exit to be not longer `root`.
 Reload `systemd` to make it aware of the new configurations.
 
 ```bash
+<<<<<<< HEAD
 $ sudo systemctl daemon-reload
+=======
+sudo systemctl daemon-reload
+>>>>>>> upstream/next
 ```
 
 Now, both container can be controlled by `systemctl`.
 
 ```bash
+<<<<<<< HEAD
 $ sudo systemctl enable home-assistant.service --now
 $ sudo systemctl enable mosquitto.service --now
+=======
+sudo systemctl enable home-assistant.service --now
+sudo systemctl enable mosquitto.service --now
+>>>>>>> upstream/next
 ```
 
 Check with `$ sudo systemctl status [name].service` if there are error or the services are running.

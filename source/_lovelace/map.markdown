@@ -22,7 +22,11 @@ entities:
   type: list
 geo_location_sources:
   required: true
+<<<<<<< HEAD
   description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/components/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+=======
+  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+>>>>>>> upstream/next
   type: list
 title:
   required: false

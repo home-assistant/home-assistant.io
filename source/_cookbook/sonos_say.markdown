@@ -6,7 +6,11 @@ ha_category: Automation Examples
 
 #### Sonos say script to speak with text-to-speech
 
+<<<<<<< HEAD
 This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
+=======
+This script allows you to use [TTS](/integrations/#text-to-speech) on Sonos.
+>>>>>>> upstream/next
 
 ```yaml
 script:
@@ -50,6 +54,7 @@ automation:
 ```
 Note that this example uses the `voicerss` text-to-speech platform. There are many platforms that can be used. The one installed by default with Home Assistant is Google TTS. This appears in your `configuration.yaml` file as:
 
+<<<<<<< HEAD
 ```
   tts:
     - platform: google
@@ -57,5 +62,14 @@ Note that this example uses the `voicerss` text-to-speech platform. There are ma
 
 If you want to use this TTS engine, change the line in the example provided to:
 ```
+=======
+```yaml
+tts:
+  - platform: google
+```
+
+If you want to use this TTS engine, change the line in the example provided to:
+```txt
+>>>>>>> upstream/next
 - service: tts.google_translate_say
 ```

@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-07-0.74/paulus_guido.jpg
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.74'><img src='/images/blog/2018-07-0.74/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.74'><img src='/images/blog/2018-07-0.74/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for Home Assistant 0.74! 🎉
 
@@ -325,6 +329,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tchellomello]: https://github.com/tchellomello
 [@teharris1]: https://github.com/teharris1
 [@w1ll1am23]: https://github.com/w1ll1am23
+<<<<<<< HEAD
 [alarm_control_panel docs]: /components/alarm_control_panel/
 [alarm_control_panel.homematicip_cloud docs]: /components/alarm_control_panel.homematicip_cloud/
 [alexa docs]: /components/alexa/
@@ -406,6 +411,89 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [watson_iot docs]: /components/watson_iot/
 [weather.openweathermap docs]: /components/weather.openweathermap/
 [websocket_api docs]: /components/websocket_api/
+=======
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.homematicip_cloud docs]: /integrations/homematicip_cloud
+[alexa docs]: /integrations/alexa/
+[auth docs]: /integrations/auth/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[calendar.google docs]: /integrations/calendar.google/
+[camera.onvif docs]: /integrations/onvif
+[camera.push docs]: /integrations/push
+[climate.fritzbox docs]: /integrations/fritzbox
+[cloudflare docs]: /integrations/cloudflare/
+[config docs]: /integrations/config/
+[cover.group docs]: /integrations/cover.group/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.rflink docs]: /integrations/cover.rflink/
+[cover.tahoma docs]: /integrations/tahoma
+[cover.template docs]: /integrations/cover.template/
+[cover.velbus docs]: /integrations/cover.velbus/
+[cover.wink docs]: /integrations/wink#cover
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[dialogflow docs]: /integrations/dialogflow/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enocean docs]: /integrations/enocean/
+[eufy docs]: /integrations/eufy/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[image_processing docs]: /integrations/image_processing/
+[image_processing.facebox docs]: /integrations/facebox
+[light.deconz docs]: /integrations/deconz#light
+[light.eufy docs]: /integrations/eufy
+[light.flux_led docs]: /integrations/flux_led
+[light.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mystrom docs]: /integrations/mystrom#light
+[light.tuya docs]: /integrations/tuya
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.zwave docs]: /integrations/zwave
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.lg_netcast docs]: /integrations/lg_netcast
+[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
+[media_player.philips_js docs]: /integrations/philips_js
+[mysensors docs]: /integrations/mysensors/
+[onboarding docs]: /integrations/onboarding/
+[prometheus docs]: /integrations/prometheus/
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.duke_energy docs]: /integrations/duke_energy
+[sensor.efergy docs]: /integrations/efergy
+[sensor.fixer docs]: /integrations/fixer
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.nut docs]: /integrations/nut
+[sensor.sql docs]: /integrations/sql
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.wirelesstag docs]: /integrations/wirelesstag#sensor
+[switch.amcrest docs]: /integrations/amcrest
+[switch.enocean docs]: /integrations/enocean#switch
+[switch.eufy docs]: /integrations/eufy
+[switch.fritzbox docs]: /integrations/fritzbox
+[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.tuya docs]: /integrations/tuya
+[tahoma docs]: /integrations/tahoma/
+[tts docs]: /integrations/tts/
+[tuya docs]: /integrations/tuya/
+[vacuum.roomba docs]: /integrations/roomba
+[watson_iot docs]: /integrations/watson_iot/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+>>>>>>> upstream/next
 [#15600]: https://github.com/home-assistant/home-assistant/pull/15600
 [#15604]: https://github.com/home-assistant/home-assistant/pull/15604
 [#15606]: https://github.com/home-assistant/home-assistant/pull/15606
@@ -414,8 +502,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@awarecan]: https://github.com/awarecan
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
+<<<<<<< HEAD
 [cast docs]: /components/cast/
 [frontend docs]: /components/frontend/
 [homekit docs]: /components/homekit/
 [media_player.sonos docs]: /components/media_player.sonos/
 [sonos docs]: /components/sonos/
+=======
+[cast docs]: /integrations/cast/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[media_player.sonos docs]: /integrations/sonos
+[sonos docs]: /integrations/sonos/
+>>>>>>> upstream/next

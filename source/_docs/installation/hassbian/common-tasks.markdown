@@ -12,7 +12,11 @@ Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is 
 Linux and Mac OS users execute the following command in a terminal.
 
 ```bash
+<<<<<<< HEAD
 $ ssh pi@ip-address-of-pi
+=======
+ssh pi@ip-address-of-pi
+>>>>>>> upstream/next
 ```
 
 Windows users start [Putty][ssh-putty], enter the IP address of the Raspberry Pi in the *Host name* field and port 22 in the *Port* field. Then click *Open* and a terminal window will open. Enter the credentials. Default user name is `pi` and password is `raspberry`.
@@ -24,7 +28,11 @@ Optionally, starting with Windows 10 anniversary update, you can use the built-i
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo systemctl stop home-assistant@homeassistant.service
+=======
+sudo systemctl stop home-assistant@homeassistant.service
+>>>>>>> upstream/next
 ```
 
 Replace `stop` with `start` or `restart` to get the desired functionality.
@@ -41,12 +49,21 @@ You can use `hassbian-config` to automate the process by running `sudo hassbian-
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo systemctl stop home-assistant@homeassistant.service
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 $ exit
 $ sudo systemctl start home-assistant@homeassistant.service
+=======
+sudo systemctl stop home-assistant@homeassistant.service
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade homeassistant
+exit
+sudo systemctl start home-assistant@homeassistant.service
+>>>>>>> upstream/next
 ```
 
 This will in order do the following:
@@ -63,9 +80,15 @@ This will in order do the following:
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ hass
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+hass
+>>>>>>> upstream/next
 ```
 
 This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don't forget to [stop][stop-homeassistant] it first. If you want the log output to be colored, execute `hass --script check_config` first. This will install the `colorlog` module.
@@ -75,9 +98,15 @@ This will start Home Assistant in your shell and output anything that ends up in
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ hass --script check_config
+=======
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+hass --script check_config
+>>>>>>> upstream/next
 ```
 
 This will output any errors in your configuration files to console.
@@ -87,9 +116,15 @@ This will output any errors in your configuration files to console.
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ cd /home/homeassistant/.homeassistant
 $ nano home-assistant.log
+=======
+sudo -u homeassistant -H -s
+cd /home/homeassistant/.homeassistant
+nano home-assistant.log
+>>>>>>> upstream/next
 ```
 
 This will in order do the following:
@@ -102,7 +137,11 @@ Optionally, you can also view the log with `journalctl`.
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo journalctl -fu home-assistant@homeassistant.service
+=======
+sudo journalctl -fu home-assistant@homeassistant.service
+>>>>>>> upstream/next
 ```
 
 ### Edit the Home Assistant configuration
@@ -110,9 +149,15 @@ $ sudo journalctl -fu home-assistant@homeassistant.service
 Log in as the `pi` account and execute the following commands:
 
 ```bash
+<<<<<<< HEAD
 $ sudo -u homeassistant -H -s
 $ cd /home/homeassistant/.homeassistant
 $ nano configuration.yaml
+=======
+sudo -u homeassistant -H -s
+cd /home/homeassistant/.homeassistant
+nano configuration.yaml
+>>>>>>> upstream/next
 ```
 
 This will in order do the following:
@@ -126,7 +171,11 @@ It's generally recommended that you read the [Getting started][configuring-homea
 ### Change locale, timezone and keyboard layout
 
 ```bash
+<<<<<<< HEAD
 $ sudo raspi-config
+=======
+sudo raspi-config
+>>>>>>> upstream/next
 ```
 
 [configuring-homeassistant]: /getting-started/configuration/

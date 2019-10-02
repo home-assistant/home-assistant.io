@@ -74,7 +74,11 @@ automation:
 
 
 ### Sending notifications to multiple phones
+<<<<<<< HEAD
 To send notifications to multiple phones, create a [notification group](/components/notify.group/):
+=======
+To send notifications to multiple phones, create a [notification group](/integrations/notify.group/):
+>>>>>>> upstream/next
 ```yaml
 notify:
   - name: NOTIFIER_NAME

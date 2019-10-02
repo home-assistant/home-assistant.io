@@ -29,4 +29,8 @@ More info:
 
 [pr1]: https://github.com/home-assistant/home-assistant/pull/4708
 [pr2]: https://github.com/home-assistant/home-assistant/pull/5549
+<<<<<<< HEAD
 [eh-conf]: /components/emulated_hue/#configuration
+=======
+[eh-conf]: /integrations/emulated_hue/#configuration
+>>>>>>> upstream/next

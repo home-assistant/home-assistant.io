@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-05-0.45/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.45'><img src='/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.45'><img src='/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!
 
@@ -115,7 +119,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - LIFX: avoid out-of-bounds hue aborting the colorloop effect ([@amelchio] - [#7495])
 - Upgrade async_timeout to 1.2.1 ([@fabaff] - [#7490])
 - Prevent printing of packets. ([@aequitas] - [#7492]) ([rflink docs])
+<<<<<<< HEAD
 - Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([device_tracker.linksys_ap docs]) ([sensor.scrape docs])
+=======
+- Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([sensor.scrape docs])
+>>>>>>> upstream/next
 - Switch onkyo to pypi ([@andrey-git] - [#7497]) ([media_player.onkyo docs])
 - Fixed potential AttributeError when checking for deleted sources ([@scarface-4711] - [#7502]) ([media_player.denonavr docs])
 - Refactor sun component for correctness ([@armills] - [#7295])
@@ -335,6 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tsvi]: https://github.com/tsvi
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+<<<<<<< HEAD
 [alexa docs]: /components/alexa/
 [axis docs]: /components/axis/
 [config.automation docs]: /docs/automation/editor/
@@ -422,6 +431,96 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: /components/websocket_api/
 [zwave docs]: /components/zwave/
 [zwave.api docs]: /components/zwave/
+=======
+[alexa docs]: /integrations/alexa/
+[axis docs]: /integrations/axis/
+[config.automation docs]: /docs/automation/editor/
+[automation.event docs]: /docs/configuration/events/
+[automation.state docs]: /docs/configuration/state_object/
+
+[binary_sensor.mystrom docs]: /integrations/mystrom#binary-sensor
+[binary_sensor.raspihats docs]: /integrations/raspihats#binary-sensor
+[binary_sensor.rpi_pfio docs]: /integrations/rpi_pfio#binary-sensor
+[blink docs]: /integrations/blink/
+[camera.__init__ docs]: /integrations/camera.__init__/
+[camera.uvc docs]: /integrations/uvc
+[camera.zoneminder docs]: /integrations/zoneminder#camera
+[climate.sensibo docs]: /integrations/sensibo
+[config.__init__ docs]: /integrations/config.__init__/
+[configurator docs]: /integrations/configurator/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[datadog docs]: /integrations/datadog/
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.unifi docs]: /integrations/unifi
+[dweet docs]: /integrations/dweet/
+[eight_sleep docs]: /integrations/eight_sleep/
+[homematic docs]: /integrations/homematic/
+[image_processing.__init__ docs]: /integrations/image_processing.__init__/
+[image_processing.demo docs]: /integrations/image_processing.demo/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
+[image_processing.microsoft_face_identify docs]: /integrations/microsoft_face_identify
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_local_cloud
+[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.seven_segments docs]: /integrations/seven_segments
+[kira docs]: /integrations/kira/
+[light.__init__ docs]: /integrations/light.__init__/
+[light.blinksticklight docs]: /integrations/blinksticklight
+[light.enocean docs]: /integrations/enocean#light
+[light.flux_led docs]: /integrations/flux_led
+[light.insteon_local docs]: /integrations/insteon/
+[light.insteon_plm docs]: /integrations/insteon/
+[light.isy994 docs]: /integrations/isy994
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mystrom docs]: /integrations/mystrom#light
+[light.osramlightify docs]: /integrations/osramlightify
+[light.tradfri docs]: /integrations/tradfri
+[logbook docs]: /integrations/logbook/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.kodi docs]: /integrations/kodi
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.roku docs]: /integrations/roku#media-player
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[microsoft_face docs]: /integrations/microsoft_face/
+[notify.html5 docs]: /integrations/html5
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.smtp docs]: /integrations/smtp
+[notify.telegram docs]: /integrations/telegram
+[plant docs]: /integrations/plant/
+[raspihats docs]: /integrations/raspihats/
+[remote.kira docs]: /integrations/kira
+[rflink docs]: /integrations/rflink/
+[rpi_pfio docs]: /integrations/rpi_pfio/
+[sensor.blink docs]: /integrations/blink
+[sensor.dweet docs]: /integrations/dweet#sensor
+[sensor.envirophat docs]: /integrations/envirophat
+[sensor.file docs]: /integrations/file#sensor
+[sensor.influxdb docs]: /integrations/influxdb#sensor
+[sensor.kira docs]: /integrations/kira
+[sensor.miflora docs]: /integrations/miflora
+[sensor.modem_callerid docs]: /integrations/modem_callerid
+[sensor.nzbget docs]: /integrations/nzbget
+[sensor.scrape docs]: /integrations/scrape
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.wunderground docs]: /integrations/wunderground
+[sun docs]: /integrations/sun/
+[switch.rpi_pfio docs]: /integrations/rpi_pfio#switch
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.services.yaml docs]: /integrations/telegram_bot/#notification-services
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[tradfri docs]: /integrations/tradfri/
+[vera docs]: /integrations/vera/
+[websocket_api docs]: /integrations/websocket_api/
+[zwave docs]: /integrations/zwave/
+[zwave.api docs]: /integrations/zwave/
+
+>>>>>>> upstream/next
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7673]: https://github.com/home-assistant/home-assistant/pull/7673
@@ -430,8 +529,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7714]: https://github.com/home-assistant/home-assistant/pull/7714
 [@cgtobi]: https://github.com/cgtobi
 [@tobygray]: https://github.com/tobygray
+<<<<<<< HEAD
 [device_tracker.ubus docs]: /components/device_tracker.ubus/
 [hassio docs]: /components/hassio/
 [media_player.volumio docs]: /components/media_player.volumio/
 [telegram_bot.__init__ docs]: /components/telegram_bot/
+=======
+[device_tracker.ubus docs]: /integrations/ubus
+[hassio docs]: /integrations/hassio/
+[media_player.volumio docs]: /integrations/volumio
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+>>>>>>> upstream/next
 [discord]: https://discord.gg/c5DvZ4e

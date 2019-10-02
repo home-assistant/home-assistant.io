@@ -4,7 +4,11 @@ description: "Instructions on how to process the MQTT payload."
 logo: mqtt.png
 ---
 
+<<<<<<< HEAD
 The MQTT [switch](/components/switch.mqtt/) and [sensor](/components/sensor.mqtt/) platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
+=======
+The MQTT [switch](/integrations/switch.mqtt/) and [sensor](/integrations/sensor.mqtt/) platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
+>>>>>>> upstream/next
 
 | JSONPath query | JSON |
 | -------------- | ---- |

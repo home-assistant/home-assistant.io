@@ -12,6 +12,15 @@ Be careful when setting up port forwarding for remote access. If you don't restr
 
 </div>
 
+<<<<<<< HEAD
+=======
+<div class='note'>
+
+Sometimes shares will not show up under network in Windows. Then you could open the file browser, click the address field where it says "> Network" and type //HASSIO to access Hass.io shares.
+
+</div>
+
+>>>>>>> upstream/next
 ```json
 {
   "workgroup": "WORKGROUP",

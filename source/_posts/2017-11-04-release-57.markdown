@@ -58,7 +58,11 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 
 ## New Platforms
 
+<<<<<<< HEAD
 <a href='/components/#version/0.57'><img src='/images/blog/2017-11-0.57/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.57'><img src='/images/blog/2017-11-0.57/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 - Introducing Ring Door Bell Camera (including StickUp cameras) and WiFi sensors ([@tchellomello] - [#9962]) ([ring docs]) ([binary_sensor.ring docs]) ([camera.ring docs]) ([sensor.ring docs]) (new-platform)
 - add irish rail transport sensor ([@ttroy50] - [#9883]) ([sensor.irish_rail_transport docs]) (new-platform)
@@ -108,7 +112,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - IKEA TRÅDFRI: We no longer support entering the key in the configuration. ([@lwis] - [#10282]) ([tradfri docs]) (breaking change)
+<<<<<<< HEAD
 - API.AI was renamed to [Dialogflow](/components/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
+=======
+- API.AI was renamed to [Dialogflow](/integrations/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
+>>>>>>> upstream/next
 - Wink: Removed support for entering your `username` and `password` in your config. Use the [new authentication method][wink-auth] instead. ([@w1ll1am23] - [#10277]) ([wink docs]) (breaking change)
 - Use feed name assigned in EmonCMS if there is one. This changes the default behavior but still uses configured 'name' if it's set, so it won't break the configuration of people who have customized their feed names in HA config. ([@KlaasH] - [#10021]) ([sensor.emoncms docs]) (breaking change)
 - The `namecheapdns` now uses `password:` instead of `access_token` in the configuration. Also, `host` is now optional which allow people who are not using subdomains to keep their configuration shorter. ([@fabaff] - [#10063]) ([namecheapdns docs]) (breaking change)
@@ -520,6 +528,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@ypollart]: https://github.com/ypollart
 [@zabuldon]: https://github.com/zabuldon
+<<<<<<< HEAD
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
 [alexa.smart_home docs]: /components/alexa.smart_home/
 [api docs]: /components/api/
@@ -644,11 +653,145 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [ikea email]: https://twitter.com/home_assistant/status/925373865802502144
 [wink-auth]: /components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
+=======
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[alexa.smart_home docs]: /integrations/alexa.smart_home/
+[api docs]: /integrations/api/
+[automation.event docs]: /docs/automation/trigger/#event-trigger
+[automation.numeric_state docs]: /docs/automation/trigger/#numeric-state-trigger
+[axis docs]: /integrations/axis/
+[binary_sensor.axis docs]: /integrations/axis#binary-sensor
+[binary_sensor.gc100 docs]: /integrations/gc100#binary-sensor
+[binary_sensor.linode docs]: /integrations/linode#binary-sensor
+[binary_sensor.random docs]: /integrations/random#binary-sensor
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[binary_sensor.tellduslive docs]: /integrations/tellduslive
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera docs]: /integrations/camera/
+[camera.ring docs]: /integrations/ring#camera
+[climate.ephember docs]: /integrations/ephember
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.honeywell docs]: /integrations/honeywell
+[climate.toon docs]: /integrations/toon#climate
+[cloud docs]: /integrations/cloud/
+[cover.template docs]: /integrations/cover.template/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.geofency docs]: /integrations/geofency
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.ubus docs]: /integrations/ubus
+[dialogflow docs]: /integrations/dialogflow/
+[downloader docs]: /integrations/downloader/
+[duckdns docs]: /integrations/duckdns/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[gc100 docs]: /integrations/gc100/
+[google_assistant docs]: /integrations/google_assistant/
+[google_domains docs]: /integrations/google_domains/
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[http docs]: /integrations/http/
+[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[input_number docs]: /integrations/input_number/
+[input_text docs]: /integrations/input_text/
+[introduction docs]: /integrations/introduction/
+[light.hue docs]: /integrations/hue
+[light.hyperion docs]: /integrations/hyperion
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[linode docs]: /integrations/linode/
+[logbook docs]: /integrations/logbook/
+[mailbox docs]: /integrations/mailbox/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
+[media_player.monoprice docs]: /integrations/monoprice
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.russound_rnet docs]: /integrations/russound_rnet
+[media_player.sonos docs]: /integrations/sonos
+[media_player.yamaha docs]: /integrations/yamaha
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[namecheapdns docs]: /integrations/namecheapdns/
+[no_ip docs]: /integrations/no_ip/
+[notify.aws_sns docs]: /integrations/notify.aws_sns/
+[notify.aws_sqs docs]: /integrations/notify.aws_sqs/
+[notify.clickatell docs]: /integrations/clickatell
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.yessssms docs]: /integrations/yessssms
+[panel_custom docs]: /integrations/panel_custom/
+[persistent_notification docs]: /integrations/persistent_notification/
+[plant docs]: /integrations/plant/
+[raincloud docs]: /integrations/raincloud/
+[remember_the_milk docs]: /integrations/remember_the_milk/
+[rfxtrx docs]: /integrations/rfxtrx/
+[ring docs]: /integrations/ring/
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.emoncms docs]: /integrations/emoncms
+[sensor.fail2ban docs]: /integrations/fail2ban
+[sensor.gitter docs]: /integrations/gitter
+[sensor.glances docs]: /integrations/glances
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.hddtemp docs]: /integrations/hddtemp
+[sensor.imap docs]: /integrations/imap
+[sensor.irish_rail_transport docs]: /integrations/irish_rail_transport
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.nederlandse_spoorwegen docs]: /integrations/nederlandse_spoorwegen
+[sensor.radarr docs]: /integrations/radarr
+[sensor.rest docs]: /integrations/rest
+[sensor.ring docs]: /integrations/ring#sensor
+[sensor.scrape docs]: /integrations/scrape
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.sytadin docs]: /integrations/sytadin
+[sensor.toon docs]: /integrations/toon
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.whois docs]: /integrations/whois
+[shopping_list docs]: /integrations/shopping_list/
+[switch.deluge docs]: /integrations/deluge#switch
+[switch.flux docs]: /integrations/flux
+[switch.gc100 docs]: /integrations/gc100#switch
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.template docs]: /integrations/switch.template/
+[switch.toon docs]: /integrations/toon
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tellduslive docs]: /integrations/tellduslive/
+[tellstick docs]: /integrations/tellstick/
+[tesla docs]: /integrations/tesla/
+[timer docs]: /integrations/timer/
+[toon docs]: /integrations/toon/
+[tradfri docs]: /integrations/tradfri/
+[tts.amazon_polly docs]: /integrations/amazon_polly
+[tts.microsoft docs]: /integrations/microsoft
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[vera docs]: /integrations/vera/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[ikea email]: https://twitter.com/home_assistant/status/925373865802502144
+[wink-auth]: /integrations/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
+>>>>>>> upstream/next
 [#10384]: https://github.com/home-assistant/home-assistant/pull/10384
 [#10428]: https://github.com/home-assistant/home-assistant/pull/10428
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@tchellomello]: https://github.com/tchellomello
+<<<<<<< HEAD
 [binary_sensor.ring docs]: /components/binary_sensor.ring/
 [camera.ring docs]: /components/camera.ring/
 [sensor.ring docs]: /components/sensor.ring/
 [tellstick docs]: /components/tellstick/
+=======
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[camera.ring docs]: /integrations/ring#camera
+[sensor.ring docs]: /integrations/ring#sensor
+[tellstick docs]: /integrations/tellstick/
+>>>>>>> upstream/next

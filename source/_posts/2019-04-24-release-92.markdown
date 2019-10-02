@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2019-04-release-92/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.92'><img src='/images/blog/2019-04-release-92/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.92'><img src='/images/blog/2019-04-release-92/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for the 0.92 release. We took a week extra for this release, because we have been very busy in changing how we load everything under the hood. Our new standard for integrations will help us in the future to streamline development, release notes, documentation and updates. If you want to know what we're up to, or if you maintain custom components, check out our developer blog: [Introducing integrations](https://developers.home-assistant.io/blog/2019/04/12/new-integration-structure.html).
 
@@ -91,6 +95,7 @@ Finally, if you are still receiving a message that your configuration contains e
 [@fredrike]: https://github.com/fredrike
 [@frogkind]: https://github.com/frogkind
 [@nudded]: https://github.com/nudded
+<<<<<<< HEAD
 [broadlink docs]: /components/broadlink/
 [daikin docs]: /components/daikin/
 [ecovacs docs]: /components/ecovacs/
@@ -101,6 +106,18 @@ Finally, if you are still receiving a message that your configuration contains e
 [point docs]: /components/point/
 [soundtouch docs]: /components/soundtouch/
 [zestimate docs]: /components/zestimate/
+=======
+[broadlink docs]: /integrations/broadlink/
+[daikin docs]: /integrations/daikin/
+[ecovacs docs]: /integrations/ecovacs/
+[flux docs]: /integrations/flux/
+[heos docs]: /integrations/heos/
+[media_player docs]: /integrations/media_player/
+[netatmo docs]: /integrations/netatmo/
+[point docs]: /integrations/point/
+[soundtouch docs]: /integrations/soundtouch/
+[zestimate docs]: /integrations/zestimate/
+>>>>>>> upstream/next
 
 ## Release 0.92.2 - May 2
 
@@ -141,6 +158,7 @@ Finally, if you are still receiving a message that your configuration contains e
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
 [@zxdavb]: https://github.com/zxdavb
+<<<<<<< HEAD
 [alexa docs]: /components/alexa/
 [auth docs]: /components/auth/
 [cast docs]: /components/cast/
@@ -154,6 +172,21 @@ Finally, if you are still receiving a message that your configuration contains e
 [netatmo_public docs]: /components/netatmo/
 [traccar docs]: /components/traccar/
 [upnp docs]: /components/upnp/
+=======
+[alexa docs]: /integrations/alexa/
+[auth docs]: /integrations/auth/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[geniushub docs]: /integrations/geniushub/
+[google_assistant docs]: /integrations/google_assistant/
+[heos docs]: /integrations/heos/
+[hue docs]: /integrations/hue/
+[mobile_app docs]: /integrations/mobile_app/
+[myq docs]: /integrations/myq/
+[netatmo_public docs]: /integrations/netatmo/
+[traccar docs]: /integrations/traccar/
+[upnp docs]: /integrations/upnp/
+>>>>>>> upstream/next
 
 ## If you need help...
 
@@ -957,6 +990,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@yosilevy]: https://github.com/yosilevy
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
+<<<<<<< HEAD
 [ads docs]: /components/ads/
 [aftership docs]: /components/aftership/
 [air_quality docs]: /components/air_quality/
@@ -1094,3 +1128,142 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zestimate docs]: /components/zestimate/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
+=======
+[ads docs]: /integrations/ads/
+[aftership docs]: /integrations/aftership/
+[air_quality docs]: /integrations/air_quality/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[automation docs]: /integrations/automation/
+[awair docs]: /integrations/awair/
+[aws docs]: /integrations/aws/
+[axis docs]: /integrations/axis/
+[binary_sensor docs]: /integrations/binary_sensor/
+[bloomsky docs]: /integrations/bloomsky/
+[bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
+[bom docs]: /integrations/bom/
+[broadlink docs]: /integrations/broadlink/
+[caldav docs]: /integrations/caldav/
+[camera docs]: /integrations/camera/
+[cast docs]: /integrations/cast/
+[cisco_ios docs]: /integrations/cisco_ios/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[cisco_webex_teams docs]: /integrations/cisco_webex_teams/
+[ciscospark docs]: /integrations/ciscospark/
+[citybikes docs]: /integrations/citybikes/
+[cloud docs]: /integrations/cloud/
+[command_line docs]: /integrations/command_line/
+[concord232 docs]: /integrations/concord232/
+[cover docs]: /integrations/cover/
+[daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[decora_wifi docs]: /integrations/decora_wifi/
+[default_config docs]: /integrations/default_config/
+[demo docs]: /integrations/demo/
+[dialogflow docs]: /integrations/dialogflow/
+[discovery docs]: /integrations/discovery/
+[doorbird docs]: /integrations/doorbird/
+[dyson docs]: /integrations/dyson/
+[eliqonline docs]: /integrations/eliqonline/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enigma2 docs]: /integrations/enigma2/
+[epson docs]: /integrations/epson/
+[epsonworkforce docs]: /integrations/epsonworkforce/
+[esphome docs]: /integrations/esphome/
+[evohome docs]: /integrations/evohome/
+[fibaro docs]: /integrations/fibaro/
+[flux_led docs]: /integrations/flux_led/
+[geniushub docs]: /integrations/geniushub/
+[geo_rss_events docs]: /integrations/geo_rss_events/
+[geofency docs]: /integrations/geofency/
+[glances docs]: /integrations/glances/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[google_translate docs]: /integrations/google_translate/
+[gpslogger docs]: /integrations/gpslogger/
+[gtfs docs]: /integrations/gtfs/
+[hangouts docs]: /integrations/hangouts/
+[harmony docs]: /integrations/harmony/
+[hassio docs]: /integrations/hassio/
+[heos docs]: /integrations/heos/
+[hikvisioncam docs]: /integrations/hikvisioncam/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[html5 docs]: /integrations/html5/
+[hue docs]: /integrations/hue/
+[ifttt docs]: /integrations/ifttt/
+[ign_sismologia docs]: /integrations/ign_sismologia/
+[influxdb docs]: /integrations/influxdb/
+[insteon_local docs]: /integrations/insteon_local/
+[insteon_plm docs]: /integrations/insteon_plm/
+[introduction docs]: /integrations/introduction/
+[lcn docs]: /integrations/lcn/
+[light docs]: /integrations/light/
+[lightwave docs]: /integrations/lightwave/
+[linky docs]: /integrations/linky/
+[locative docs]: /integrations/locative/
+[logi_circle docs]: /integrations/logi_circle/
+[london_underground docs]: /integrations/london_underground/
+[loopenergy docs]: /integrations/loopenergy/
+[luci docs]: /integrations/luci/
+[luftdaten docs]: /integrations/luftdaten/
+[mailgun docs]: /integrations/mailgun/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[mikrotik docs]: /integrations/mikrotik/
+[mobile_app docs]: /integrations/mobile_app/
+[mqtt docs]: /integrations/mqtt/
+[myq docs]: /integrations/myq/
+[mysensors docs]: /integrations/mysensors/
+[n26 docs]: /integrations/n26/
+[nanoleaf docs]: /integrations/nanoleaf/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[niko_home_control docs]: /integrations/niko_home_control/
+[oasa_telematics docs]: /integrations/oasa_telematics/
+[openuv docs]: /integrations/openuv/
+[osramlightify docs]: /integrations/osramlightify/
+[owntracks docs]: /integrations/owntracks/
+[person docs]: /integrations/person/
+[plex docs]: /integrations/plex/
+[python_script docs]: /integrations/python_script/
+[qwikswitch docs]: /integrations/qwikswitch/
+[raincloud docs]: /integrations/raincloud/
+[rainmachine docs]: /integrations/rainmachine/
+[rflink docs]: /integrations/rflink/
+[ring docs]: /integrations/ring/
+[satel_integra docs]: /integrations/satel_integra/
+[script docs]: /integrations/script/
+[sensor docs]: /integrations/sensor/
+[seventeentrack docs]: /integrations/seventeentrack/
+[simplisafe docs]: /integrations/simplisafe/
+[skybell docs]: /integrations/skybell/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+[sonos docs]: /integrations/sonos/
+[stiebel_eltron docs]: /integrations/stiebel_eltron/
+[stream docs]: /integrations/stream/
+[supla docs]: /integrations/supla/
+[switch docs]: /integrations/switch/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tellduslive docs]: /integrations/tellduslive/
+[tplink docs]: /integrations/tplink/
+[trend docs]: /integrations/trend/
+[tts docs]: /integrations/tts/
+[twilio docs]: /integrations/twilio/
+[ubee docs]: /integrations/ubee/
+[version docs]: /integrations/version/
+[water_heater docs]: /integrations/water_heater/
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yeelight docs]: /integrations/yeelight/
+[zengge docs]: /integrations/zengge/
+[zestimate docs]: /integrations/zestimate/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

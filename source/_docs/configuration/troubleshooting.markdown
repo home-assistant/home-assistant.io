@@ -36,9 +36,15 @@ sensor:
     ...
 ```
 
+<<<<<<< HEAD
 Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/components/) for instructions on how to setup the components.
 
 See the [logger](/components/logger/) integration for instructions on how to define the level of logging you require for specific modules.
+=======
+Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the components.
+
+See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
+>>>>>>> upstream/next
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 

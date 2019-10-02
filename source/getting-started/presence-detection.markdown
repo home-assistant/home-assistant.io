@@ -14,11 +14,19 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 </p>
 
 ### Adding presence detection
+<<<<<<< HEAD
 
 There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
 It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. If you're on iOS we suggest to use the [Home Assistant iOS app](/ios/). For Android, we suggest [OwnTracks][ha-owntracks].
 
+=======
+
+There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
+
+It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. If you're on iOS we suggest to use the [Home Assistant iOS app](/ios/). For Android, we suggest [OwnTracks][ha-owntracks].
+
+>>>>>>> upstream/next
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -33,6 +41,7 @@ Zones allow you to name areas on a map. These areas can then be used to name the
 The map view will hide all devices that are home.
 </div>
 
+<<<<<<< HEAD
 [routers]: /components/#presence-detection
 [nmap]: /components/device_tracker.nmap_tracker/
 [ha-bluetooth]: /components/device_tracker.bluetooth_tracker/
@@ -47,5 +56,21 @@ The map view will hide all devices that are home.
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
 [ha-map]: /components/map/
+=======
+[routers]: /integrations/#presence-detection
+[nmap]: /integrations/nmap_tracker
+[ha-bluetooth]: /integrations/bluetooth_tracker
+[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
+[ha-owntracks]: /integrations/owntracks/
+[ha-locative]: /integrations/locative
+[ha-gpslogger]: /integrations/gpslogger
+[ha-presence]: /integrations/#presence-detection
+[mqtt-self]: /integrations/mqtt/#run-your-own
+[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
+[zone]: /integrations/zone/
+[trigger]: /getting-started/automation-trigger/#zone-trigger
+[condition]: /getting-started/automation-condition/#zone-condition
+[ha-map]: /integrations/map/
+>>>>>>> upstream/next
 
 ### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)

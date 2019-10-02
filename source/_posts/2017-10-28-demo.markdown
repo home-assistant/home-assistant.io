@@ -27,7 +27,11 @@ To be safe for your talk, you don't want to depend on an internet connection. Th
 $ hass --demo-mode
 ```
 
+<<<<<<< HEAD
 If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/components/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+=======
+If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/integrations/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+>>>>>>> upstream/next
 
 ```yaml
 sensor:
@@ -44,7 +48,11 @@ switch:
 </p>
 
 ## `random` platforms
+<<<<<<< HEAD
 Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/components/random/#binary-sensor) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+=======
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/integrations/random/#binary-sensor) platform in addition to the already available [`random` sensor](/integrations/random#sensor).
+>>>>>>> upstream/next
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
 
@@ -66,7 +74,11 @@ binary_sensor:
   Demo with `random` platforms
 </p>
 
+<<<<<<< HEAD
 The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+=======
+The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/integrations/#search/template) platforms or the [`input_*`](/integrations/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+>>>>>>> upstream/next
 
 {% raw %}
 ```yaml

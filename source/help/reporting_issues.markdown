@@ -32,8 +32,13 @@ There are many different ways to run Home Assistant. In this section please ment
 
 Please add the link to the documention of the integration/platform in question. E.g.,
 
+<<<<<<< HEAD
 - issue with the `random` sensor: [/components/sensor.random/](/components/sensor.random/)
 - issue with the `hue` integration: [/components/hue/](/components/hue/)
+=======
+- issue with the `random` sensor: [/integrations/random#sensor](/integrations/random#sensor)
+- issue with the `hue` integration: [/integrations/hue/](/integrations/hue/)
+>>>>>>> upstream/next
 
 ### Description of problem
 

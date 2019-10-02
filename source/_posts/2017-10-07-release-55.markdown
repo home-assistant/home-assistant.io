@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-10-0.55/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.55'><img src='/images/blog/2017-10-0.55/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.55'><img src='/images/blog/2017-10-0.55/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Beside the improved Wink support which was contributed by [@w1ll1am23], ships this release a wide variety of new components and platforms. The `input_slider` components has received a makeover by [@BioSehnsucht] and is now [`input_number`][input_number docs]. [@tinloaf] added a feature that allows you to enter dates: [`input_datetime`][input_datetime docs]. Both will help you to improve your automation rules.
 
@@ -75,7 +79,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - flux led lib 0.20 ([@danielhiversen] - [#9533]) ([light.flux_led docs])
 - Update AbodePy to 0.11.8 ([@MisterWil] - [#9537]) ([abode docs])
 - Bump python_openzwave to 0.4.0.35 ([@arsaboo] - [#9542]) ([zwave docs])
+<<<<<<< HEAD
 - update usps ([@happyleavesaoc] - [#9540]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs])
+=======
+- update usps ([@happyleavesaoc] - [#9540])
+>>>>>>> upstream/next
 - Bugfix Homematic hub object ([@pvizeli] - [#9544]) ([homematic docs])
 - Fix a bunch of typos ([@mika] - [#9545])
 - Catch no longer existing process in systemmonitor ([@Tommatheussen] - [#9535]) ([sensor.systemmonitor docs])
@@ -83,7 +91,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add history_graph component ([@andrey-git] - [#9472]) (breaking change)
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Fixed bug with all switch devices being excluded ([@MisterWil] - [#9555]) ([switch.abode docs])
+<<<<<<< HEAD
 - fix usps? ([@happyleavesaoc] - [#9557]) ([usps docs]) ([sensor.usps docs])
+=======
+- fix usps? ([@happyleavesaoc] - [#9557])
+>>>>>>> upstream/next
 - Added support for ARM_NIGHT for manual_mqtt alarm ([@snjoetw] - [#9358]) ([alarm_control_panel.manual_mqtt docs])
 - Various AirVisual bugfixes ([@bachya] - [#9554]) ([sensor.airvisual docs])
 - Updated Arlo cameras with new attributes ([@bachya] - [#9565]) ([arlo docs]) ([camera.arlo docs])
@@ -105,8 +117,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.6.4 ([@fabaff] - [#9584])
 - Bump pyatv to 0.3.5 ([@postlund] - [#9586]) ([apple_tv docs]) ([media_player.apple_tv docs])
 - New Wink services. pair new device, rename, and delete, add new lock key code. Add water heater support ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
+<<<<<<< HEAD
 - Fixes UPS MyChoice exception ([@bachya] - [#9587]) ([sensor.ups docs])
 - FedEx: Adds "packages" as a unit ([@bachya] - [#9588]) ([sensor.fedex docs])
+=======
+- Fixes UPS MyChoice exception ([@bachya] - [#9587])
+- FedEx: Adds "packages" as a unit ([@bachya] - [#9588])
+>>>>>>> upstream/next
 - Cleanup entity & remove warning ([@pvizeli] - [#9606])
 - Add OwnTracks over HTTP ([@balloob] - [#9582]) ([http docs]) ([device_tracker.owntracks docs]) ([device_tracker.owntracks_http docs]) (new-platform)
 - upgrade python-ecobee-api ([@nkgilley] - [#9612]) ([ecobee docs])
@@ -303,6 +320,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tinloaf]: https://github.com/tinloaf
 [@vickyg3]: https://github.com/vickyg3
 [@w1ll1am23]: https://github.com/w1ll1am23
+<<<<<<< HEAD
 [abode docs]: /components/abode/
 [alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
 [alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
@@ -389,6 +407,89 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
 [history_graph docs]: /components/history_graph/
+=======
+[abode docs]: /integrations/abode/
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alexa.smart_home docs]: /integrations/alexa/
+[apple_tv docs]: /integrations/apple_tv/
+[arlo docs]: /integrations/arlo/
+[binary_sensor.raincloud docs]: /integrations/raincloud#binary-sensor
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.wink docs]: /integrations/wink#binary-sensor
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.synology docs]: /integrations/synology
+[climate.ecobee docs]: /integrations/ecobee
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.rflink docs]: /integrations/cover.rflink/
+[demo docs]: /integrations/demo/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.owntracks_http docs]: /integrations/owntracks_http/
+[duckdns docs]: /integrations/duckdns/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue docs]: /integrations/emulated_hue/
+[google docs]: /integrations/calendar.google/
+[group docs]: /integrations/group/
+[hassio docs]: /hassio/
+[history docs]: /integrations/history/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[input_datetime docs]: /integrations/input_datetime/
+[input_number docs]: /integrations/input_number/
+[light.flux_led docs]: /integrations/flux_led
+[light.rflink docs]: /integrations/light.rflink/
+[light.tradfri docs]: /integrations/tradfri
+[light.yeelight docs]: /integrations/yeelight
+[lock.wink docs]: /integrations/wink#lock
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[notify.clicksendaudio docs]: /integrations/clicksendaudio/
+[notify.discord docs]: /integrations/discord
+[notify.facebook docs]: /integrations/facebook
+[notify.simplepush docs]: /integrations/simplepush
+[raincloud docs]: /integrations/raincloud/
+[raspihats docs]: /integrations/raspihats/
+[recorder docs]: /integrations/recorder/
+[remote.itach docs]: /integrations/itach
+[rflink docs]: /integrations/rflink/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.comed_hourly_pricing docs]: /integrations/comed_hourly_pricing
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.geo_rss_events docs]: /integrations/geo_rss_events
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.imap docs]: /integrations/imap
+[sensor.lyft docs]: /integrations/lyft
+[sensor.onewire docs]: /integrations/onewire
+[sensor.pvoutput docs]: /integrations/pvoutput
+[sensor.raincloud docs]: /integrations/raincloud#sensor
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.thethingsnetwork docs]: /integrations/thethingsnetwork#sensor
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.wunderground docs]: /integrations/wunderground
+[splunk docs]: /integrations/splunk/
+[switch.abode docs]: /integrations/abode#switch
+[switch.raincloud docs]: /integrations/raincloud#switch
+[switch.rflink docs]: /integrations/switch.rflink/
+[switch.tplink docs]: /integrations/tplink
+[thethingsnetwork docs]: /integrations/thethingsnetwork/
+[tradfri docs]: /integrations/tradfri/
+[upnp docs]: /integrations/upnp/
+[vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
+[wink docs]: /integrations/wink/
+[zwave docs]: /integrations/zwave/
+[forum]: https://community.home-assistant.io/
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[discord]: https://discord.gg/c5DvZ4e
+[history_graph docs]: /integrations/history_graph/
+>>>>>>> upstream/next
 [#9754]: https://github.com/home-assistant/home-assistant/pull/9754
 [#9776]: https://github.com/home-assistant/home-assistant/pull/9776
 [#9785]: https://github.com/home-assistant/home-assistant/pull/9785
@@ -402,9 +503,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@passie]: https://github.com/passie
 [@pschmitt]: https://github.com/pschmitt
 [@snjoetw]: https://github.com/snjoetw
+<<<<<<< HEAD
 [camera.synology docs]: /components/camera.synology/
 [cover.rflink docs]: /components/cover.rflink/
 [device_tracker.owntracks docs]: /components/device_tracker.owntracks/
 [google docs]: /components/google/
 [light.tradfri docs]: /components/light.tradfri/
 [media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
+=======
+[camera.synology docs]: /integrations/synology
+[cover.rflink docs]: /integrations/cover.rflink/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[google docs]: /integrations/google_translate
+[light.tradfri docs]: /integrations/tradfri
+[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
+>>>>>>> upstream/next

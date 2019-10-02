@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-10-0.56/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.56'><img src='/images/blog/2017-10-0.56/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.56'><img src='/images/blog/2017-10-0.56/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 
 We reached another milestone aka number: 10000. GitHub is assigning numbers to pull requests and issues and the "10000" is a [PR](https://github.com/home-assistant/home-assistant/pull/10000). Our ratio is around 1/3 issues and 2/3 pull requests. To be more precise: 64% pull requests and 36% issues.
@@ -23,7 +27,11 @@ This release includes a new component to integrate Home Assistant with Google As
 [Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still on and so far we have received a lot improvements. We can't make any promises to review everything by the end of October, but we are trying to make sure that you will get your t-shirt.
 
 ## Map
+<<<<<<< HEAD
 The [map][map docs] is now its own component. Similar to [configuration (`config:`)](/components/config/), it will not show up without adding it to your `configuration.yaml` file.
+=======
+The [map][map docs] is now its own component. Similar to [configuration (`config:`)](/integrations/config/), it will not show up without adding it to your `configuration.yaml` file.
+>>>>>>> upstream/next
 
 ```yaml
 map:
@@ -414,6 +422,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@webworxshop]: https://github.com/webworxshop
 [@zabuldon]: https://github.com/zabuldon
 [@ziotibia81]: https://github.com/ziotibia81
+<<<<<<< HEAD
 [__init__ docs]: /components/__init__/
 [abode docs]: /components/abode/
 [alarm_control_panel.arlo docs]: /components/alarm_control_panel.arlo/
@@ -541,6 +550,135 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: /components/wink/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zha docs]: /components/zha/
+=======
+[__init__ docs]: /integrations/__init__/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.arlo docs]: /integrations/arlo
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alexa.smart_home docs]: /integrations/alexa.smart_home/
+[arlo docs]: /integrations/arlo/
+[automation.event docs]: /docs/automation/trigger/#event-trigger
+[automation.numeric_state docs]: /docs/automation/trigger/#numeric-state-trigger
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[binary_sensor.iss docs]: /integrations/iss
+[binary_sensor.netatmo docs]: /integrations/netatmo#binary-sensor
+[binary_sensor.skybell docs]: /integrations/skybell#binary-sensor
+[binary_sensor.template docs]: /integrations/binary_sensor.template/
+[binary_sensor.tesla docs]: /integrations/tesla
+[binary_sensor.wink docs]: /integrations/wink#binary-sensor
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.ffmpeg docs]: /integrations/camera.ffmpeg/
+[camera.onvif docs]: /integrations/onvif
+[camera.skybell docs]: /integrations/skybell#camera
+[camera.synology docs]: /integrations/synology
+[camera.yi docs]: /integrations/yi
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.knx docs]: /integrations/climate.knx/
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.tesla docs]: /integrations/tesla
+[climate.toon docs]: /integrations/toon#climate
+[cloud.iot docs]: /integrations/cloud/
+[cover.rflink docs]: /integrations/cover.rflink/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.fritz docs]: /integrations/fritz
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.netgear docs]: /integrations/netgear
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.unifi docs]: /integrations/unifi
+[device_tracker.upc_connect docs]: /integrations/upc_connect
+[enocean docs]: /integrations/enocean/
+[ffmpeg docs]: /integrations/ffmpeg/
+[google_assistant docs]: /integrations/google_assistant/
+[hassio docs]: /integrations/hassio/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[knx docs]: /integrations/knx/
+[light.hue docs]: /integrations/hue
+[light.mqtt_json docs]: /integrations/light.mqtt
+[light.osramlightify docs]: /integrations/osramlightify
+[light.skybell docs]: /integrations/skybell#light
+[light.template docs]: /integrations/light.template/
+[light.tplink docs]: /integrations/tplink
+[light.tradfri docs]: /integrations/tradfri
+[light.yeelight docs]: /integrations/yeelight
+[lock.tesla docs]: /integrations/tesla
+[map docs]: /integrations/map/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denon docs]: /integrations/denon
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.dunehd docs]: /integrations/dunehd
+[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
+[media_player.monoprice docs]: /integrations/monoprice
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.yamaha docs]: /integrations/yamaha
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[namecheapdns docs]: /integrations/namecheapdns/
+[notify.clicksend_tts docs]: /integrations/clicksend_tts/
+[notify.html5 docs]: /integrations/html5
+[notify.rocketchat docs]: /integrations/rocketchat
+[notify.xmpp docs]: /integrations/xmpp
+[python_script docs]: /integrations/python_script/
+[raincloud docs]: /integrations/raincloud/
+[sensor.abode docs]: /integrations/abode
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.android_ip_webcam docs]: /integrations/android_ip_webcam#sensor
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.arwn docs]: /integrations/arwn
+[sensor.darksky docs]: /integrations/darksky
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.fritzbox_netmonitor docs]: /integrations/fritzbox#sensor_netmonitor/
+[sensor.glances docs]: /integrations/glances
+[sensor.imap docs]: /integrations/imap
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.mqtt_room docs]: /integrations/mqtt_room
+[sensor.netdata docs]: /integrations/netdata
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.raincloud docs]: /integrations/raincloud#sensor
+[sensor.ring docs]: /integrations/ring#sensor
+[sensor.serial docs]: /integrations/serial
+[sensor.skybell docs]: /integrations/skybell#sensor
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.statistics docs]: /integrations/statistics
+[sensor.steam_online docs]: /integrations/steam_online
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tesla docs]: /integrations/tesla
+[sensor.toon docs]: /integrations/toon
+[sensor.tradfri docs]: /integrations/tradfri
+[sensor.transmission docs]: /integrations/transmission
+[sensor.travisci docs]: /integrations/travisci
+[sensor.uptime docs]: /integrations/uptime
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.zha docs]: /integrations/zha
+[shiftr docs]: /integrations/shiftr/
+[skybell docs]: /integrations/skybell/
+[switch.flux docs]: /integrations/flux
+[switch.fritzdect docs]: /integrations/fritzdect
+[switch.hikvisioncam docs]: /integrations/hikvisioncam
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.skybell docs]: /integrations/skybell#switch
+[switch.tesla docs]: /integrations/tesla
+[switch.toon docs]: /integrations/toon
+[switch.tplink docs]: /integrations/tplink
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tesla docs]: /integrations/tesla/
+[toon docs]: /integrations/toon/
+[tradfri docs]: /integrations/tradfri/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.dyson docs]: /integrations/dyson#vacuum
+[vacuum.mqtt docs]: /integrations/vacuum.mqtt/
+[vera docs]: /integrations/vera/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 [#10024]: https://github.com/home-assistant/home-assistant/pull/10024
 [#10029]: https://github.com/home-assistant/home-assistant/pull/10029
 [@bieniu]: https://github.com/bieniu

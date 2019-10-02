@@ -15,8 +15,13 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi 2 Model B][pi2]
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
+<<<<<<< HEAD
      - [(Beta) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
      - [(Beta) Raspberry Pi 4 Model B 64bit][pi4-64]
+=======
+     - [(RC) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
+     - [(RC) Raspberry Pi 4 Model B 64bit][pi4-64]
+>>>>>>> upstream/next
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
      - [Odroid-XU4][odroid-xu4]
@@ -180,7 +185,11 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi3-64`
  - `odroid-c2`
  - `odroid-cu2`
+<<<<<<< HEAD
  - `odriod-xu`
+=======
+ - `odroid-xu`
+>>>>>>> upstream/next
  - `orangepi-prime`
 
 <div class='note'>
@@ -197,8 +206,13 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
+<<<<<<< HEAD
 [pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.4/hassos_rpi4-3.4.img.gz
 [pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.4/hassos_rpi4-64-3.4.img.gz
+=======
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-3.5.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-64-3.5.img.gz
+>>>>>>> upstream/next
 [tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz

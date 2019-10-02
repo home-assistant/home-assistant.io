@@ -37,11 +37,19 @@ Instead of example.com, use your domain. You will need to renew this certificate
 If you do not own your own domain, you may generate a self-signed certificate. This will not work with IFTTT, but it will encrypt all of your Home Assistant traffic.
 
 ```bash
+<<<<<<< HEAD
 $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
 $ openssl rsa -in key.pem -out key.pem
 $ sudo cp key.pem cert.pem /etc/nginx/ssl
 $ sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 $ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+=======
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
+openssl rsa -in key.pem -out key.pem
+sudo cp key.pem cert.pem /etc/nginx/ssl
+sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+>>>>>>> upstream/next
 ```
 
 ### 4. Create dhparams file
@@ -49,8 +57,13 @@ $ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 As a fair warning, this file will take a while to generate.
 
 ```bash
+<<<<<<< HEAD
 $ cd /etc/nginx/ssl
 $ sudo openssl dhparam -out dhparams.pem 2048
+=======
+cd /etc/nginx/ssl
+sudo openssl dhparam -out dhparams.pem 2048
+>>>>>>> upstream/next
 ```
 
 ### 5. Install configuration file in nginx.
@@ -66,9 +79,15 @@ Some Linux distributions (including CentOS and Fedora) will not have the `/etc/n
 ### 6. Enable the Home Assistant configuration.
 
 ```bash
+<<<<<<< HEAD
 $ cd /etc/nginx/sites-enabled
 $ sudo unlink default
 $ sudo ln ../sites-available/hass default
+=======
+cd /etc/nginx/sites-enabled
+sudo unlink default
+sudo ln ../sites-available/hass default
+>>>>>>> upstream/next
 ```
 
 ### 7. Start NGINX.

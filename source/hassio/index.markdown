@@ -1,7 +1,11 @@
 ---
 title: "Hass.io"
 description: "Manage your Home Assistant and custom add-ons."
+<<<<<<< HEAD
 redirect_from: /components/hassio/
+=======
+redirect_from: /integrations/hassio/
+>>>>>>> upstream/next
 ---
 
 Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.

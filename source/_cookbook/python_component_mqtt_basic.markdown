@@ -6,7 +6,11 @@ ha_category: Custom Python Component Examples
 
 <div class='note'>
 
+<<<<<<< HEAD
 This example requires you to have the [MQTT integration](/components/mqtt/) up and running.
+=======
+This example requires you to have the [MQTT integration](/integrations/mqtt/) up and running.
+>>>>>>> upstream/next
 
 </div>
 

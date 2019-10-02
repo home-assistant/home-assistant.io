@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-04-0.68/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.68'><img src='/images/blog/2018-04-0.68/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.68'><img src='/images/blog/2018-04-0.68/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Weekend is around the corner and that means that it's time for the next release of Home Assistant. 0.68 brings a ton of great goodies and bug fixes.
 
@@ -407,6 +411,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@viorels]: https://github.com/viorels
 [@wiuwiu]: https://github.com/wiuwiu
 [@asafbiton96]: https://github.com/asafbiton96
+<<<<<<< HEAD
 [abode docs]: /components/abode/
 [alexa docs]: /components/alexa/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
@@ -509,6 +514,110 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [weather.yweather docs]: /components/weather.yweather/
 [zha docs]: /components/zha/
+=======
+[abode docs]: /integrations/abode/
+[alexa docs]: /integrations/alexa/
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.hive docs]: /integrations/hive#binary-sensor
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.qwikswitch docs]: /integrations/qwikswitch
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[calendar.google docs]: /integrations/calendar.google/
+[calendar.todoist docs]: /integrations/todoist
+[climate.fritzbox docs]: /integrations/fritzbox
+[climate.hive docs]: /integrations/hive#climate
+[climate.honeywell docs]: /integrations/honeywell
+[climate.maxcube docs]: /integrations/maxcube
+[climate.modbus docs]: /integrations/climate.modbus/
+[config docs]: /integrations/config/
+[cover.opengarage docs]: /integrations/opengarage
+[cover.tahoma docs]: /integrations/tahoma
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[ecobee docs]: /integrations/ecobee/
+[eufy docs]: /integrations/eufy/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fritzbox docs]: /integrations/fritzbox/
+[google docs]: /integrations/google_translate
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hive docs]: /integrations/hive/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[light docs]: /integrations/light/
+[light.abode docs]: /integrations/abode#light
+[light.aurora docs]: /integrations/light.aurora/
+[light.eufy docs]: /integrations/eufy
+[light.hive docs]: /integrations/hive#light
+[light.homekit_controller docs]: /integrations/homekit_controller
+[light.hue docs]: /integrations/hue
+[light.yeelight docs]: /integrations/yeelight
+[lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[maxcube docs]: /integrations/maxcube/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.blackbird docs]: /integrations/blackbird
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.mpd docs]: /integrations/mpd
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.webostv docs]: /integrations/webostv#media-player
+[notify docs]: /integrations/notify/
+[notify.facebook docs]: /integrations/facebook
+[prometheus docs]: /integrations/prometheus/
+[qwikswitch docs]: /integrations/qwikswitch/
+[sensor docs]: /integrations/sensor/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.ebox docs]: /integrations/ebox
+[sensor.ecobee docs]: /integrations/ecobee
+[sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
+[sensor.filter docs]: /integrations/filter
+[sensor.folder docs]: /integrations/folder
+[sensor.foobot docs]: /integrations/foobot
+[sensor.fritzbox_netmonitor docs]: /integrations/fritzbox#sensor_netmonitor/
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.hydroquebec docs]: /integrations/hydroquebec
+[sensor.linux_battery docs]: /integrations/linux_battery
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.nut docs]: /integrations/nut
+[sensor.qwikswitch docs]: /integrations/qwikswitch
+[sensor.sht31 docs]: /integrations/sht31
+[sensor.sigfox docs]: /integrations/sigfox
+[sensor.smappee docs]: /integrations/sma#sensorsppee/
+[sensor.sql docs]: /integrations/sql
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation
+[sensor.upnp docs]: /integrations/upnp
+[sensor.uscis docs]: /integrations/uscis
+[skybell docs]: /integrations/skybell/
+[smappee docs]: /integrations/smappee/
+[snips docs]: /integrations/snips/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.edimax docs]: /integrations/edimax
+[switch.eufy docs]: /integrations/eufy
+[switch.fritzbox docs]: /integrations/fritzbox
+[switch.hive docs]: /integrations/hive#switch
+[switch.vesync docs]: /integrations/vesync#switches
+[tts docs]: /integrations/tts/
+[upnp docs]: /integrations/upnp/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.dyson docs]: /integrations/dyson#vacuum
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vacuum.roomba docs]: /integrations/roomba
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[weather.yweather docs]: /integrations/yweather
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 [#14108]: https://github.com/home-assistant/home-assistant/pull/14108
 [#14113]: https://github.com/home-assistant/home-assistant/pull/14113
 [#14154]: https://github.com/home-assistant/home-assistant/pull/14154
@@ -523,9 +632,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
 [@mjg59]: https://github.com/mjg59
+<<<<<<< HEAD
 [google_assistant docs]: /components/google_assistant/
 [homekit docs]: /components/homekit/
 [homekit_controller docs]: /components/homekit_controller/
 [light.hue docs]: /components/light.hue/
 [light.tplink docs]: /components/light.tplink/
 [media_player.cast docs]: /components/media_player.cast/
+=======
+[google_assistant docs]: /integrations/google_assistant/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[light.hue docs]: /integrations/hue
+[light.tplink docs]: /integrations/tplink
+[media_player.cast docs]: /integrations/cast
+>>>>>>> upstream/next

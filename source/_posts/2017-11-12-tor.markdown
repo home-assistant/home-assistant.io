@@ -13,9 +13,15 @@ Routers and gateways provided by broadband internet providers are very often lim
 
 There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:
 
+<<<<<<< HEAD
 - Combination of [DuckDNS](/components/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
 - Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/components/duckdns/) (or similar).
 - [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/components/duckdns/) (or similar).
+=======
+- Combination of [DuckDNS](/integrations/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
+- Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/integrations/duckdns/) (or similar).
+- [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/integrations/duckdns/) (or similar).
+>>>>>>> upstream/next
 
 There is, however, another option available that most people do not realize: [Tor](https://www.torproject.org). [Tor](https://www.torproject.org) offers a capability that they refer to as [Tor's Hidden Services](https://www.torproject.org/docs/hidden-services.html.en), which allows you to securely access your Home Assistant installation *without* the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.
 

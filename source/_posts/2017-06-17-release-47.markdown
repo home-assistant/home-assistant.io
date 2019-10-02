@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2017-06-0.47/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.47'><img src='/images/blog/2017-06-0.47/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.47'><img src='/images/blog/2017-06-0.47/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 In this release a ton of new stuff! And who doesn't like new stuff? This release we're passing the 700 integrations for Home Assistant. As of today [we're 1369 days old][first-commit], which means that roughly every two days a new integration gets added!
 
@@ -271,8 +275,13 @@ automation:
 - Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
 - Fix EntityComponent handle entities without a name ([@balloob] - [#8065])
 - Update pyunifi component to use APIError passed from pyunifi 2.13. Better accommodate login failures with wrapper in pyunifi 2.13. ([@finish06] - [#7899]) ([device_tracker.unifi docs])
+<<<<<<< HEAD
 - bump usps version ([@happyleavesaoc] - [#8074]) ([sensor.usps docs])
 - bump ups ([@happyleavesaoc] - [#8075]) ([sensor.ups docs])
+=======
+- bump usps version ([@happyleavesaoc] - [#8074])
+- bump ups ([@happyleavesaoc] - [#8075])
+>>>>>>> upstream/next
 
 [#7152]: https://github.com/home-assistant/home-assistant/pull/7152
 [#7318]: https://github.com/home-assistant/home-assistant/pull/7318
@@ -446,6 +455,7 @@ automation:
 [@trisk]: https://github.com/trisk
 [@twendt]: https://github.com/twendt
 [@vrs01]: https://github.com/vrs01
+<<<<<<< HEAD
 [alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
 [binary_sensor.enocean docs]: /components/binary_sensor.enocean/
 [binary_sensor.homematic docs]: /components/binary_sensor.homematic/
@@ -558,6 +568,118 @@ automation:
 [weather.buienradar docs]: /components/weather.buienradar/
 [zeroconf docs]: /components/zeroconf/
 [zwave docs]: /components/zwave/
+=======
+[alarm_control_panel.spc docs]: /integrations/spc
+[binary_sensor.enocean docs]: /integrations/enocean#binary-sensor
+[binary_sensor.homematic docs]: /integrations/homematic
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[binary_sensor.tapsaff docs]: /integrations/tapsaff
+[calendar.google docs]: /integrations/calendar.google/
+[climate.flexit docs]: /integrations/flexit
+[climate.wink docs]: /integrations/wink#climate
+[conversation docs]: /integrations/conversation/
+[cover.homematic docs]: /integrations/homematic
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.myq docs]: /integrations/myq
+[device_tracker.__init__ docs]: /integrations/device_tracker.__init__/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.ping docs]: /integrations/ping
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.unifi docs]: /integrations/unifi
+[eight_sleep docs]: /integrations/eight_sleep/
+[fan.__init__ docs]: /integrations/fan.__init__/
+[fan.demo docs]: /integrations/fan.demo/
+[fan.zwave docs]: /integrations/zwave
+[group docs]: /integrations/group/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.seven_segments docs]: /integrations/seven_segments
+[influxdb docs]: /integrations/influxdb/
+[juicenet docs]: /integrations/juicenet/
+[light.lifx docs]: /integrations/lifx
+[light.lutron docs]: /integrations/lutron
+[light.osramlightify docs]: /integrations/osramlightify
+[light.template docs]: /integrations/light.template/
+[light.vera docs]: /integrations/vera
+[light.yeelight docs]: /integrations/yeelight
+[light.zwave docs]: /integrations/zwave
+[lock.sesame docs]: /integrations/sesame
+[lutron docs]: /integrations/lutron/
+[mailgun docs]: /integrations/mailgun/
+[media_player.aquostv docs]: /integrations/aquostv
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.nad docs]: /integrations/nad
+[media_player.nadtcp docs]: /integrations/nad/
+[media_player.openhome docs]: /integrations/openhome
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.roku docs]: /integrations/roku#media-player
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[media_player.squeezebox docs]: /integrations/squeezebox
+[mqtt.__init__ docs]: /integrations/mqtt.__init__/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[notify.html5 docs]: /integrations/html5
+[notify.mailgun docs]: /integrations/mailgun
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.xmpp docs]: /integrations/xmpp
+[opencv docs]: /integrations/opencv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[plant docs]: /integrations/plant/
+[python_script docs]: /integrations/python_script/
+[sensor.bitcoin docs]: /integrations/bitcoin
+[sensor.blockchain docs]: /integrations/blockchain
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.cups docs]: /integrations/cups
+[sensor.currencylayer docs]: /integrations/currencylayer
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.dte_energy_bridge docs]: /integrations/dte_energy_bridge
+[sensor.dublin_bus_transport docs]: /integrations/dublin_bus_transport
+[sensor.dweet docs]: /integrations/dweet#sensor
+[sensor.ebox docs]: /integrations/ebox
+[sensor.ecobee docs]: /integrations/ecobee
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.etherscan docs]: /integrations/etherscan
+[sensor.fixer docs]: /integrations/fixer
+[sensor.gitter docs]: /integrations/gitter
+[sensor.hddtemp docs]: /integrations/hddtemp
+[sensor.homematic docs]: /integrations/homematic
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[sensor.juicenet docs]: /integrations/juicenet#sensor
+[sensor.metoffice docs]: /integrations/sensor.metoffice/
+[sensor.mold_indicator docs]: /integrations/mold_indicator
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.openevse docs]: /integrations/openevse
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.pvoutput docs]: /integrations/pvoutput
+[sensor.radarr docs]: /integrations/radarr
+[sensor.ripple docs]: /integrations/ripple
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.statistics docs]: /integrations/statistics
+[sensor.template docs]: /integrations/template
+[sensor.waqi docs]: /integrations/waqi
+[sensor.wunderground docs]: /integrations/wunderground
+[sensor.yweather docs]: /integrations/yweather
+[spc docs]: /integrations/spc/
+[splunk docs]: /integrations/splunk/
+[switch.homematic docs]: /integrations/homematic
+[switch.raspihats docs]: /integrations/raspihats#switch
+[switch.rest docs]: /integrations/switch.rest/
+[switch.template docs]: /integrations/switch.template/
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.webhooks docs]: /integrations/webhooks
+[updater docs]: /integrations/updater/
+[vera docs]: /integrations/vera/
+[volvooncall docs]: /integrations/volvooncall/
+[weather.buienradar docs]: /integrations/buienradar
+[zeroconf docs]: /integrations/zeroconf/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next
 [zwave blog post]: /blog/2017/06/15/zwave-entity-ids/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
@@ -568,7 +690,13 @@ automation:
 [#8113]: https://github.com/home-assistant/home-assistant/pull/8113
 [#8134]: https://github.com/home-assistant/home-assistant/pull/8134
 [@tsvi]: https://github.com/tsvi
+<<<<<<< HEAD
 [fan.dyson docs]: /components/fan.dyson/
 [remote.itach docs]: /components/remote.itach/
 [sensor.dyson docs]: /components/sensor.dyson/
+=======
+[fan.dyson docs]: /integrations/dyson#fan
+[remote.itach docs]: /integrations/itach
+[sensor.dyson docs]: /integrations/dyson#sensor
+>>>>>>> upstream/next
 [discord]: https://discord.gg/c5DvZ4e

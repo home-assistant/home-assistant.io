@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2018-01-0.61/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.61'><img src='/images/blog/2018-01-0.61/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.61'><img src='/images/blog/2018-01-0.61/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 Almost a 100 contributors to this release 🎉  That's what you get when you skip a release. It's a little late but "Happy New Year" and welcome to 0.61 the first release 2018.
 
@@ -144,7 +148,11 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - The `climate.set_aux_heat` service is no longer available for the Sensibo climate platform. Now call `climate.turn_on` or `climate.turn_off`. ([@andrey-git] - [#11579]) ([climate.sensibo docs]) (breaking change)
 - Release 0.61.0 introduced a lazy service loading strategy that relied on all components and platforms following our naming convention. After the release we realized that not all services did, which have been addressed by this fix.  This results in certain services changing names:
 
+<<<<<<< HEAD
    ```
+=======
+   ```yaml
+>>>>>>> upstream/next
    todoist.new_task -> calendar.todoist_new_task
 
    snapcast.snapcast_snapshot -> media_player.snapcast_snapshot
@@ -610,6 +618,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@veleek]: https://github.com/veleek
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@yienxu]: https://github.com/yienxu
+<<<<<<< HEAD
 [__init__ docs]: /components/__init__/
 [alarm_control_panel.alarmdecoder docs]: /components/alarm_control_panel.alarmdecoder/
 [alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
@@ -772,6 +781,170 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [websocket_api docs]: /components/websocket_api/
 [wemo docs]: /components/wemo/
 [zigbee docs]: /components/zigbee/
+=======
+[__init__ docs]: /integrations/__init__/
+[alarm_control_panel.alarmdecoder docs]: /integrations/alarmdecoder#alarm-control-panel
+[alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa.intent docs]: /integrations/alexa.intent/
+[alexa.smart_home docs]: /integrations/alexa.smart_home/
+[api docs]: /integrations/api/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.concord232 docs]: /integrations/concord232#binary-sensor
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.isy994 docs]: /integrations/isy994
+[binary_sensor.knx docs]: /integrations/binary_sensor.knx/
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.template docs]: /integrations/binary_sensor.template/
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.workday docs]: /integrations/workday
+[camera.doorbird docs]: /integrations/doorbird#camera
+[camera.uvc docs]: /integrations/uvc
+[climate docs]: /integrations/climate/
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.demo docs]: /integrations/demo/
+[climate.econet docs]: /integrations/econet
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.hive docs]: /integrations/hive#climate
+[climate.homematic docs]: /integrations/homematic
+[climate.knx docs]: /integrations/climate.knx/
+[climate.netatmo docs]: /integrations/netatmo#climate
+[climate.sensibo docs]: /integrations/sensibo
+[climate.tado docs]: /integrations/tado
+[climate.touchline docs]: /integrations/touchline
+[cloud docs]: /integrations/cloud/
+[cloud.auth_api docs]: /integrations/cloud/
+[cloud.http_api docs]: /integrations/cloud/
+[cloud.iot docs]: /integrations/cloud/
+[coinbase docs]: /integrations/coinbase/
+[conversation docs]: /integrations/conversation/
+[cover.isy994 docs]: /integrations/isy994
+[cover.knx docs]: /integrations/cover.knx/
+[cover.tahoma docs]: /integrations/tahoma
+[cover.template docs]: /integrations/cover.template/
+[cover.xiaomi_aqara docs]: /integrations/cover.xiaomi_aqara/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker
+[device_tracker.bluetooth_tracker docs]: /integrations/bluetooth_tracker
+[device_tracker.gpslogger docs]: /integrations/gpslogger
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.ping docs]: /integrations/ping
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.tile docs]: /integrations/tile
+[digital_ocean docs]: /integrations/digital_ocean/
+[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.isy994 docs]: /integrations/isy994
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[google_assistant docs]: /integrations/google_assistant/
+[google_assistant.http docs]: /integrations/google_assistant/
+[google_assistant.smart_home docs]: /integrations/google_assistant
+[group docs]: /integrations/group/
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[hive docs]: /integrations/hive/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[input_boolean docs]: /integrations/input_boolean/
+[input_select docs]: /integrations/input_select/
+[insteon_local docs]: /integrations/insteon_local/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[light.deconz docs]: /integrations/deconz#light
+[light.greenwave docs]: /integrations/greenwave
+[light.hive docs]: /integrations/hive#light
+[light.hue docs]: /integrations/hue
+[light.iglo docs]: /integrations/iglo
+[light.insteon_local docs]: /integrations/insteon/
+[light.isy994 docs]: /integrations/isy994
+[light.knx docs]: /integrations/light.knx/
+[light.lifx docs]: /integrations/lifx
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.osramlightify docs]: /integrations/osramlightify
+[light.template docs]: /integrations/light.template/
+[light.tplink docs]: /integrations/tplink
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[lock.isy994 docs]: /integrations/isy994
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[media_player.monoprice docs]: /integrations/monoprice
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.yamaha docs]: /integrations/yamaha
+[modbus docs]: /integrations/modbus/
+[notify.html5 docs]: /integrations/html5
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.webostv docs]: /integrations/webostv
+[octoprint docs]: /integrations/octoprint/
+[prometheus docs]: /integrations/prometheus/
+[python_script docs]: /integrations/python_script/
+[rainbird docs]: /integrations/rainbird/
+[remember_the_milk docs]: /integrations/remember_the_milk/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.bitcoin docs]: /integrations/bitcoin
+[sensor.coinbase docs]: /integrations/coinbase
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.discogs docs]: /integrations/discogs
+[sensor.etherscan docs]: /integrations/etherscan
+[sensor.fido docs]: /integrations/fido
+[sensor.hydroquebec docs]: /integrations/hydroquebec
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[sensor.irish_rail_transport docs]: /integrations/irish_rail_transport
+[sensor.isy994 docs]: /integrations/isy994#sensors
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.metoffice docs]: /integrations/sensor.metoffice/
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.plex docs]: /integrations/plex#sensor
+[sensor.rainbird docs]: /integrations/rainbird#sensor
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.sochain docs]: /integrations/sochain
+[sensor.statistics docs]: /integrations/statistics
+[sensor.steam_online docs]: /integrations/steam_online
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tado docs]: /integrations/tado
+[sensor.template docs]: /integrations/template
+[sensor.transmission docs]: /integrations/transmission
+[sensor.xbox_live docs]: /integrations/xbox_live
+[sensor.zoneminder docs]: /integrations/zoneminder#sensor
+[snips docs]: /integrations/snips/
+[switch.insteon_local docs]: /integrations/insteon/
+[switch.isy994 docs]: /integrations/isy994
+[switch.knx docs]: /integrations/switch.knx/
+[switch.mochad docs]: /integrations/mochad#switch
+[switch.rainbird docs]: /integrations/rainbird#switch
+[switch.rpi_rf docs]: /integrations/rpi_rf
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.template docs]: /integrations/switch.template/
+[switch.tplink docs]: /integrations/tplink
+[switch.transmission docs]: /integrations/transmission
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tahoma docs]: /integrations/tahoma/
+[telegram_bot docs]: /integrations/telegram_bot/
+[timer docs]: /integrations/timer/
+[tts.baidu docs]: /integrations/baidu
+[tts.marytts docs]: /integrations/marytts
+[updater docs]: /integrations/updater/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[weather.darksky docs]: /integrations/weather.darksky/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[weather.yweather docs]: /integrations/yweather
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
+[zigbee docs]: /integrations/zigbee/
+>>>>>>> upstream/next
 [#11670]: https://github.com/home-assistant/home-assistant/pull/11670
 [#11677]: https://github.com/home-assistant/home-assistant/pull/11677
 [#11678]: https://github.com/home-assistant/home-assistant/pull/11678
@@ -782,6 +955,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@rcloran]: https://github.com/rcloran
 [@rwa]: https://github.com/rwa
 [@tinloaf]: https://github.com/tinloaf
+<<<<<<< HEAD
 [binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
 [calendar.todoist docs]: /components/calendar.todoist/
 [history docs]: /components/history/
@@ -793,3 +967,16 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [switch.broadlink docs]: /components/switch.broadlink/
 [switch.scsgate docs]: /components/switch.scsgate/
 [zha docs]: /components/zha/
+=======
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[calendar.todoist docs]: /integrations/todoist
+[history docs]: /integrations/history/
+[light.zha docs]: /integrations/zha
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.soundtouch docs]: /integrations/soundtouch
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.mopar docs]: /integrations/mopar
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.scsgate docs]: /integrations/scsgate#switch
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next

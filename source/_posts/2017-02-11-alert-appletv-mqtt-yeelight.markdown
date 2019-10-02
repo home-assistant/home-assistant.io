@@ -193,6 +193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@Yannic-HAW]: https://github.com/Yannic-HAW
 
+<<<<<<< HEAD
 [alert]: /components/alert/
 [apiai]: /components/apiai/
 [apple-tv]: /components/media_player.apple_tv/
@@ -220,6 +221,35 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [systemmonitor]: /components/sensor.systemmonitor/
 [webostv]: /components/media_player.webostv/
 [yeelight]: /components/light.yeelight/
+=======
+[alert]: /integrations/alert/
+[apiai]: /integrations/dialogflow
+[apple-tv]: /integrations/apple_tv
+[arwn]: /integrations/arwn
+[custom-ui]: /developers/frontend_creating_custom_ui/
+[discovery]: /integrations/discovery/
+[face-detect]: /integrations/microsoft_face_detect
+[ffmpeg-bin]: /integrations/ffmpeg_motion
+[ffmpeg]: /integrations/ffmpeg/
+[filters]: /topics/templating/#home-assistant-template-extensions
+[fritz]: /integrations/fritzdect
+[hue]: /integrations/hue
+[light]: /cookbook/custom_ui_by_andrey-git
+[mailgun]: /integrations/mailgun
+[media-player]: /integrations/media_player/
+[moon]: /integrations/moon
+[mqtt-discovery]: /integrations/mqtt/#discovery
+[nuki]: /integrations/nuki
+[openevse]: /integrations/openevse
+[orange]: /integrations/liveboxplaytv
+[owm]: /integrations/openweathermap#sensor
+[python-yeelight]: https://gitlab.com/stavros/python-yeelight
+[qnap]: /integrations/qnap
+[rflink]: /integrations/rflink/
+[systemmonitor]: /integrations/systemmonitor
+[webostv]: /integrations/webostv#media-player
+[yeelight]: /integrations/yeelight
+>>>>>>> upstream/next
 
 [event-stream-api]: /developers/server_sent_events/
 [forum]: https://community.home-assistant.io/

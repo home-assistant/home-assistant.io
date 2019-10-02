@@ -15,11 +15,19 @@ If your Home Assistant instance is only accessible from your local network you c
 ### Run certbot
 
 ```bash
+<<<<<<< HEAD
 $ mkdir certbot
 $ cd certbot
 $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
 $ sudo ./certbot-auto --manual certonly --preferred-challenges dns -d "mydomain.com" --email your@email.address
+=======
+mkdir certbot
+cd certbot
+wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
+sudo ./certbot-auto --manual certonly --preferred-challenges dns -d "mydomain.com" --email your@email.address
+>>>>>>> upstream/next
 ```
 
 * Agree to Terms of Service
@@ -53,7 +61,11 @@ address=/mydomain.com/<hass ip>
 
 ### Edit your Home Assistant configuration to use your certificates
 
+<<<<<<< HEAD
 The [`http`](/components/http/) section must contain the full path to the needed files. 
+=======
+The [`http`](/integrations/http/) section must contain the full path to the needed files. 
+>>>>>>> upstream/next
 
 ```yaml
 http:

@@ -75,8 +75,13 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@dgomes]: https://github.com/dgomes
 [@eliseomartelli]: https://github.com/eliseomartelli
 [@fronzbot]: https://github.com/fronzbot
+<<<<<<< HEAD
 [blink docs]: /components/blink/
 [sensor.gtt docs]: /components/sensor.gtt/
+=======
+[blink docs]: /integrations/blink/
+[sensor.gtt docs]: /integrations/gtt
+>>>>>>> upstream/next
 
 ## Release 0.86.2 - January 24
 
@@ -87,7 +92,11 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [#20399]: https://github.com/home-assistant/home-assistant/pull/20399
 [@balloob]: https://github.com/balloob
 [@starkillerOG]: https://github.com/starkillerOG
+<<<<<<< HEAD
 [hue docs]: /components/hue/
+=======
+[hue docs]: /integrations/hue/
+>>>>>>> upstream/next
 
 ## Release 0.86.3 - January 26
 
@@ -98,7 +107,11 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [#20478]: https://github.com/home-assistant/home-assistant/pull/20478
 [@balloob]: https://github.com/balloob
 [@starkillerOG]: https://github.com/starkillerOG
+<<<<<<< HEAD
 [hue docs]: /components/hue/
+=======
+[hue docs]: /integrations/hue/
+>>>>>>> upstream/next
 
 ## Release 0.86.4 - January 28
 
@@ -112,8 +125,13 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@fredrike]: https://github.com/fredrike
 [@kennedyshead]: https://github.com/kennedyshead
 [@starkillerOG]: https://github.com/starkillerOG
+<<<<<<< HEAD
 [asuswrt docs]: /components/asuswrt/
 [tellduslive docs]: /components/tellduslive/
+=======
+[asuswrt docs]: /integrations/asuswrt/
+[tellduslive docs]: /integrations/tellduslive/
+>>>>>>> upstream/next
 
 ## If you need help...
 
@@ -593,6 +611,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@vaidyasr]: https://github.com/vaidyasr
 [@vincent-k]: https://github.com/vincent-k
+<<<<<<< HEAD
 [abode docs]: /components/abode/
 [ads docs]: /components/ads/
 [alarm_control_panel docs]: /components/alarm_control_panel/
@@ -716,3 +735,128 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
 [zwave docs]: /components/zwave/
+=======
+[abode docs]: /integrations/abode/
+[ads docs]: /integrations/ads/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
+[alarm_control_panel.arlo docs]: /integrations/arlo
+[alarm_control_panel.elkm1 docs]: /integrations/elkm1
+[alarm_control_panel.homekit_controller docs]: /integrations/homekit_controller
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alexa docs]: /integrations/alexa/
+[automation.geo_location docs]: /docs/automation/trigger/#geo_location-trigger
+[automation.interval docs]: /docs/automation/trigger/#interval-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[binary_sensor.fibaro docs]: /integrations/fibaro
+[binary_sensor.hive docs]: /integrations/hive#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[blink docs]: /integrations/blink/
+[camera.proxy docs]: /integrations/proxy
+[camera.xiaomi docs]: /integrations/xiaomi_aqara
+[camera.zoneminder docs]: /integrations/zoneminder#camera
+[climate.hive docs]: /integrations/hive#climate
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.sensibo docs]: /integrations/sensibo
+[cloud docs]: /integrations/cloud/
+[cover.fibaro docs]: /integrations/fibaro
+[cover.homekit_controller docs]: /integrations/homekit_controller
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[doorbird docs]: /integrations/doorbird/
+[emulated_roku docs]: /integrations/emulated_roku/
+[esphome docs]: /integrations/esphome/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fibaro docs]: /integrations/fibaro/
+[geo_location docs]: /integrations/geo_location/
+[geofency docs]: /integrations/geofency/
+[gpslogger docs]: /integrations/gpslogger/
+[greeneye_monitor docs]: /integrations/greeneye_monitor/
+[hassio docs]: /integrations/hassio/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[ihc docs]: /integrations/ihc/
+[image_processing.tensorflow docs]: /integrations/tensorflow
+[influxdb docs]: /integrations/influxdb/
+[konnected docs]: /integrations/konnected/
+[light.fibaro docs]: /integrations/fibaro
+[light.hive docs]: /integrations/hive#light
+[light.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.tradfri docs]: /integrations/tradfri
+[locative docs]: /integrations/locative/
+[lock.homekit_controller docs]: /integrations/homekit_controller
+[lock.mqtt docs]: /integrations/lock.mqtt/
+[lock.nuki docs]: /integrations/nuki
+[lock.zwave docs]: /integrations/zwave#lock
+[mailgun docs]: /integrations/mailgun/
+[media_player.anthemav docs]: /integrations/anthemav
+[media_player.nad docs]: /integrations/nad
+[media_player.roku docs]: /integrations/roku#media-player
+[media_player.songpal docs]: /integrations/songpal
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[neato docs]: /integrations/neato/
+[notify docs]: /integrations/notify/
+[octoprint docs]: /integrations/octoprint/
+[openuv docs]: /integrations/openuv/
+[plant docs]: /integrations/plant/
+[rainmachine docs]: /integrations/rainmachine/
+[remote.harmony docs]: /integrations/harmony
+[remote.roku docs]: /integrations/roku#remote
+[roku docs]: /integrations/roku/
+[scene.fibaro docs]: /integrations/fibaro
+[scene.hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview
+[sensor.ambient_station docs]: /integrations/ambient_station
+[sensor.blink docs]: /integrations/blink
+[sensor.darksky docs]: /integrations/darksky
+[sensor.dublin_bus_transport docs]: /integrations/dublin_bus_transport
+[sensor.fail2ban docs]: /integrations/fail2ban
+[sensor.fibaro docs]: /integrations/fibaro
+[sensor.flunearyou docs]: /integrations/flunearyou
+[sensor.freebox docs]: /integrations/freebox#sensor
+[sensor.gtt docs]: /integrations/gtt
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[sensor.influxdb docs]: /integrations/influxdb#sensor
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.min_max docs]: /integrations/min_max
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.mychevy docs]: /integrations/mychevy
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.postnl docs]: /integrations/postnl
+[sensor.prezzibenzina docs]: /integrations/prezzibenzina
+[sensor.rest docs]: /integrations/rest
+[sensor.sma docs]: /integrations/sma#sensors
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.tautulli docs]: /integrations/tautulli
+[sensor.vasttrafik docs]: /integrations/vasttrafik
+[sensor.zoneminder docs]: /integrations/zoneminder#sensor
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[switch.fibaro docs]: /integrations/fibaro
+[switch.hive docs]: /integrations/hive#switch
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.tradfri docs]: /integrations/tradfri
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zoneminder docs]: /integrations/zoneminder#switch
+[tahoma docs]: /integrations/tahoma/
+[tellduslive docs]: /integrations/tellduslive/
+[tts docs]: /integrations/tts/
+[unifi docs]: /integrations/unifi/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.mqtt docs]: /integrations/vacuum.mqtt/
+[vacuum.neato docs]: /integrations/neato#vacuum
+[waterfurnace docs]: /integrations/waterfurnace/
+[wink docs]: /integrations/wink/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

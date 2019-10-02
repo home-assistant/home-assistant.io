@@ -15,13 +15,21 @@ Further [details about the fingerprint/server banner](/docs/security/webserver/)
 
 ## Porosity
 
+<<<<<<< HEAD
 The default port of Home Assistant is 8123. This is the port where the [`frontend`](/components/frontend/) and the [`API`](/components/api/) is served. Both are depending on the [`http`](/components/http/) integration which contains the capability to adjust the settings like `server_host` or `server_port`.
+=======
+The default port of Home Assistant is 8123. This is the port where the [`frontend`](/integrations/frontend/) and the [`API`](/integrations/api/) is served. Both are depending on the [`http`](/integrations/http/) integration which contains the capability to adjust the settings like `server_host` or `server_port`.
+>>>>>>> upstream/next
 
 See the [open ports](/docs/security/porosity/) of a Hass.io instance with various add-ons.
 
 ## HTTP SSL/TLS
 
+<<<<<<< HEAD
 Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibilty**, this is configurable in the [`http` integration](/components/http/).
+=======
+Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibilty**, this is configurable in the [`http` integration](/integrations/http/).
+>>>>>>> upstream/next
 
 ## SSH
 

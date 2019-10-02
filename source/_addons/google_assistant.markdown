@@ -12,7 +12,11 @@ These instructions are outdated - the add-on has been updated and these are no l
 
 <div class='note'>
 
+<<<<<<< HEAD
 If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
+=======
+If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/integrations/google_assistant/).
+>>>>>>> upstream/next
 
 </div>
 
@@ -84,7 +88,11 @@ Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into
 [GoogleAssistant]: https://assistant.google.com/
 [GoogleActions]: https://actions.google.com/
 [Samba]: /addons/samba/
+<<<<<<< HEAD
 [comp]: /components/dialogflow/
+=======
+[comp]: /integrations/dialogflow/
+>>>>>>> upstream/next
 [project]: https://console.cloud.google.com/project
 [API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 [oauthclient]: https://console.developers.google.com/apis/credentials/oauthclient

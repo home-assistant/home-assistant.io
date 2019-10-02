@@ -24,6 +24,7 @@ It's been a few weeks but we managed to polish a nice new release of Home Assist
 
 To update, run `pip3 install --upgrade homeassistant`.
 
+<<<<<<< HEAD
 [lock component]: /components/lock/
 [lock.wink]: /components/lock.wink/
 [binary sensor component]: /components/binary_sensor/
@@ -33,6 +34,17 @@ To update, run `pip3 install --upgrade homeassistant`.
 [Ecobee]: /components/ecobee/#thermostat
 [Homematic]: /components/homematic/
 [parsing JSON values]: /components/mqtt/#processing-json
+=======
+[lock component]: /integrations/lock/
+[lock.wink]: /integrations/wink#lock
+[binary sensor component]: /integrations/binary_sensor/
+[binary_sensor.arest]: /integrations/arest#binary-sensor
+[binary_sensor.mqtt]: /integrations/binary_sensor.mqtt/
+[InfluxDB component]: /integrations/influxdb/
+[Ecobee]: /integrations/ecobee/#thermostat
+[Homematic]: /integrations/homematic/
+[parsing JSON values]: /integrations/mqtt/#processing-json
+>>>>>>> upstream/next
 
 [@miniconfig]: https://github.com/miniconfig
 [@fabaff]: https://github.com/fabaff

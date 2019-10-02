@@ -73,7 +73,11 @@ Field | Description
 
 ### Event `platform_discovered`
 
+<<<<<<< HEAD
 Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/components/discovery/) component.
+=======
+Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/integrations/discovery/) component.
+>>>>>>> upstream/next
 
 Field | Description
 ----- | -----------

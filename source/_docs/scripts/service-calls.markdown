@@ -35,7 +35,11 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
+<<<<<<< HEAD
 A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/components/light/#service-lightturn_on).
+=======
+A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
+>>>>>>> upstream/next
 
 ### Use templates to decide which service to call
 
@@ -97,6 +101,12 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 * `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [google travel time] sensor, a [template sensor], or a [light]
 
 [templating]: /topics/templating/
+<<<<<<< HEAD
 [google travel time]: /components/sensor.google_travel_time/
 [template sensor]: /components/sensor.template/
 [light]: /components/light/
+=======
+[google travel time]: /integrations/sensor.google_travel_time/
+[template sensor]: /integrations/sensor.template/
+[light]: /integrations/light/
+>>>>>>> upstream/next

@@ -9,7 +9,11 @@ categories: Release-Notes
 og_image: /images/blog/2019-01-release-85/components.png
 ---
 
+<<<<<<< HEAD
 <a href='/components/#version/0.85'><img src='/images/blog/2019-01-release-85/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.85'><img src='/images/blog/2019-01-release-85/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 <div class='note warning'>
 
@@ -64,7 +68,11 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 [@Adminiuga]: https://github.com/Adminiuga
 [@balloob]: https://github.com/balloob
 [@dmulcahey]: https://github.com/dmulcahey
+<<<<<<< HEAD
 [zha docs]: /components/zha/
+=======
+[zha docs]: /integrations/zha/
+>>>>>>> upstream/next
 
 ## If you need help...
 
@@ -715,6 +723,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@uchagani]: https://github.com/uchagani
 [@wcomartin]: https://github.com/wcomartin
 [@wonderslug]: https://github.com/wonderslug
+<<<<<<< HEAD
 [ads docs]: /components/ads/
 [air_pollutants docs]: /components/air_pollutants/
 [air_quality docs]: /components/air_quality/
@@ -907,3 +916,197 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
 [zwave docs]: /components/zwave/
+=======
+[ads docs]: /integrations/ads/
+[air_pollutants docs]: /integrations/air_quality
+[air_quality docs]: /integrations/air_quality/
+[alarm_control_panel.ialarm docs]: /integrations/ialarm
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alarm_control_panel.ness_alarm docs]: /integrations/ness_alarm
+[alarm_control_panel.nx584 docs]: /integrations/nx584
+[alarm_control_panel.yale_smart_alarm docs]: /integrations/yale_smart_alarm
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa docs]: /integrations/alexa/
+[arlo docs]: /integrations/arlo/
+[asuswrt docs]: /integrations/asuswrt/
+[automation docs]: /integrations/automation/
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.esphome docs]: /integrations/esphome
+[binary_sensor.hikvision docs]: /integrations/hikvision
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.homeworks docs]: /integrations/homeworks
+[binary_sensor.insteon docs]: /integrations/insteon
+[binary_sensor.isy994 docs]: /integrations/isy994
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.ness_alarm docs]: /integrations/ness_alarm
+[binary_sensor.plum_lightpad docs]: /integrations/plum_lightpad
+[binary_sensor.satel_integra docs]: /integrations/satel_integra
+[binary_sensor.tellduslive docs]: /integrations/tellduslive
+[binary_sensor.wemo docs]: /integrations/wemo
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[camera.axis docs]: /integrations/axis
+[camera.mjpeg docs]: /integrations/mjpeg
+[camera.skybell docs]: /integrations/skybell#camera
+[camera.yi docs]: /integrations/yi
+[camera.zoneminder docs]: /integrations/zoneminder#camera
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.homekit_controller docs]: /integrations/homekit_controller
+[climate.knx docs]: /integrations/climate.knx/
+[climate.mill docs]: /integrations/mill
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.radiotherm docs]: /integrations/radiotherm
+[config docs]: /integrations/config/
+[cover.esphome docs]: /integrations/esphome
+[cover.rflink docs]: /integrations/cover.rflink/
+[cover.tellduslive docs]: /integrations/tellduslive
+[cover.xiaomi_aqara docs]: /integrations/cover.xiaomi_aqara/
+[daikin docs]: /integrations/daikin/
+[demo docs]: /integrations/demo/
+[device_tracker docs]: /integrations/device_tracker/
+[doorbird docs]: /integrations/doorbird/
+[edp_redy docs]: /integrations/edp_redy/
+[eight_sleep docs]: /integrations/eight_sleep/
+[envisalink docs]: /integrations/envisalink/
+[esphome docs]: /integrations/esphome/
+[eufy docs]: /integrations/eufy/
+[fan.esphome docs]: /integrations/esphome
+[fan.wemo docs]: /integrations/wemo#fan
+[fan.zha docs]: /integrations/zha
+[freebox docs]: /integrations/freebox/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[homeworks docs]: /integrations/homeworks/
+[huawei_lte docs]: /integrations/huawei_lte/
+[idteck_prox docs]: /integrations/idteck_prox/
+[ihc docs]: /integrations/ihc/
+[image_processing.seven_segments docs]: /integrations/seven_segments
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[light docs]: /integrations/light/
+[light.ads docs]: /integrations/ads#light
+[light.esphome docs]: /integrations/esphome
+[light.homekit_controller docs]: /integrations/homekit_controller
+[light.homeworks docs]: /integrations/homeworks
+[light.hue docs]: /integrations/hue
+[light.lcn docs]: /integrations/lcn#light
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.plum_lightpad docs]: /integrations/plum_lightpad
+[light.rflink docs]: /integrations/light.rflink/
+[light.tellduslive docs]: /integrations/tellduslive
+[light.wemo docs]: /integrations/wemo
+[light.x10 docs]: /integrations/x10
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[lock.mqtt docs]: /integrations/lock.mqtt/
+[lutron docs]: /integrations/lutron/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.directv docs]: /integrations/directv
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.emby docs]: /integrations/emby
+[media_player.gpmdp docs]: /integrations/gpmdp
+[media_player.mpd docs]: /integrations/mpd
+[media_player.songpal docs]: /integrations/songpal
+[media_player.xiaomi_tv docs]: /integrations/xiaomi_tv
+[mqtt docs]: /integrations/mqtt/
+[mychevy docs]: /integrations/mychevy/
+[mythicbeastsdns docs]: /integrations/mythicbeastsdns/
+[namecheapdns docs]: /integrations/namecheapdns/
+[neato docs]: /integrations/neato/
+[ness_alarm docs]: /integrations/ness_alarm/
+[notify docs]: /integrations/notify/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[plant docs]: /integrations/plant/
+[plum_lightpad docs]: /integrations/plum_lightpad/
+[rainmachine docs]: /integrations/rainmachine/
+[remote.harmony docs]: /integrations/harmony
+[rflink docs]: /integrations/rflink/
+[rpi_gpio docs]: /integrations/rpi_gpio/
+[satel_integra docs]: /integrations/satel_integra/
+[scene.lutron docs]: /integrations/lutron#scene
+[sensor.aftership docs]: /integrations/aftership
+[sensor.ambient_station docs]: /integrations/ambient_station
+[sensor.awair docs]: /integrations/awair
+[sensor.bme680 docs]: /integrations/bme680
+[sensor.brottsplatskartan docs]: /integrations/brottsplatskartan
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.daikin docs]: /integrations/daikin#sensor
+[sensor.darksky docs]: /integrations/darksky
+[sensor.dublin_bus_transport docs]: /integrations/dublin_bus_transport
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.entur_public_transport docs]: /integrations/entur_public_transport
+[sensor.esphome docs]: /integrations/esphome/
+[sensor.fail2ban docs]: /integrations/fail2ban
+[sensor.filter docs]: /integrations/filter
+[sensor.flunearyou docs]: /integrations/flunearyou
+[sensor.freebox docs]: /integrations/freebox#sensor
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.geo_rss_events docs]: /integrations/geo_rss_events
+[sensor.glances docs]: /integrations/glances
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.gtt docs]: /integrations/gtt
+[sensor.homematic docs]: /integrations/homematic
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
+[sensor.islamic_prayer_times docs]: /integrations/islamic_prayer_times
+[sensor.launch_library docs]: /integrations/launch_library
+[sensor.london_underground docs]: /integrations/london_underground
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.mychevy docs]: /integrations/mychevy
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.nmbs docs]: /integrations/nmbs
+[sensor.ohmconnect docs]: /integrations/ohmconnect
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.plum_lightpad docs]: /integrations/plum_lightpad
+[sensor.point docs]: /integrations/point#sensor
+[sensor.prezzibenzina docs]: /integrations/prezzibenzina
+[sensor.ruter docs]: /integrations/sensor.ruter/
+[sensor.scrape docs]: /integrations/scrape
+[sensor.seventeentrack docs]: /integrations/seventeentrack
+[sensor.solaredge docs]: /integrations/solaredge
+[sensor.sql docs]: /integrations/sql
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tautulli docs]: /integrations/tautulli
+[sensor.tellduslive docs]: /integrations/tellduslive
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.zha docs]: /integrations/zha
+[sensor.zoneminder docs]: /integrations/zoneminder#sensor
+[skybell docs]: /integrations/skybell/
+[splunk docs]: /integrations/splunk/
+[switch.esphome docs]: /integrations/esphome
+[switch.homekit_controller docs]: /integrations/homekit_controller
+[switch.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[switch.lutron docs]: /integrations/lutron
+[switch.pencom docs]: /integrations/pencom
+[switch.raspyrfm docs]: /integrations/raspyrfm
+[switch.rpi_rf docs]: /integrations/rpi_rf
+[switch.switchbot docs]: /integrations/switchbot
+[switch.tellduslive docs]: /integrations/tellduslive
+[switch.wemo docs]: /integrations/wemo
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zha docs]: /integrations/zha
+[tahoma docs]: /integrations/tahoma/
+[tellduslive docs]: /integrations/tellduslive/
+[tibber docs]: /integrations/tibber/
+[timer docs]: /integrations/timer/
+[tts docs]: /integrations/tts/
+[upnp docs]: /integrations/upnp/
+[vacuum.neato docs]: /integrations/neato#vacuum
+[volvooncall docs]: /integrations/volvooncall/
+[weather docs]: /integrations/weather/
+[weather.ipma docs]: /integrations/ipma
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[weather.smhi docs]: /integrations/smhi
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/
+[zwave docs]: /integrations/zwave/
+>>>>>>> upstream/next

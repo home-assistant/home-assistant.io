@@ -15,7 +15,11 @@ In case you missed it two weeks ago, check [our plans for the future](/blog/2018
 
 </div>
 
+<<<<<<< HEAD
 <a href='/components/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
+=======
+<a href='/integrations/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
+>>>>>>> upstream/next
 
 It's time for another great release and we're introducing a brand new feature: device registry. Thanks to [@Kane610] for driving this effort. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
 
@@ -73,12 +77,21 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [@amelchio]: https://github.com/amelchio
 [@awarecan]: https://github.com/awarecan
 [@rohankapoorcom]: https://github.com/rohankapoorcom
+<<<<<<< HEAD
 [binary_sensor.nest docs]: /components/binary_sensor.nest/
 [binary_sensor.ring docs]: /components/binary_sensor.ring/
 [light.isy994 docs]: /components/light.isy994/
 [sensor.history_stats docs]: /components/sensor.history_stats/
 [sensor.ring docs]: /components/sensor.ring/
 [zoneminder docs]: /components/zoneminder/
+=======
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[light.isy994 docs]: /integrations/isy994
+[sensor.history_stats docs]: /integrations/history_stats
+[sensor.ring docs]: /integrations/ring#sensor
+[zoneminder docs]: /integrations/zoneminder/
+>>>>>>> upstream/next
 
 ## Release 0.79.2 - October 1
 
@@ -89,8 +102,13 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [#17026]: https://github.com/home-assistant/home-assistant/pull/17026
 [@balloob]: https://github.com/balloob
 [@rohankapoorcom]: https://github.com/rohankapoorcom
+<<<<<<< HEAD
 [mqtt docs]: /components/mqtt/
 [switch.zoneminder docs]: /components/switch.zoneminder/
+=======
+[mqtt docs]: /integrations/mqtt/
+[switch.zoneminder docs]: /integrations/zoneminder#switch
+>>>>>>> upstream/next
 
 ## Release 0.79.3 - October 2
 
@@ -453,6 +471,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vikramgorla]: https://github.com/vikramgorla
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zoe1337]: https://github.com/zoe1337
+<<<<<<< HEAD
 [alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
 [alexa docs]: /components/alexa/
 [apple_tv docs]: /components/apple_tv/
@@ -576,3 +595,128 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
+=======
+[alarm_control_panel.spc docs]: /integrations/spc
+[alexa docs]: /integrations/alexa/
+[apple_tv docs]: /integrations/apple_tv/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[binary_sensor.wirelesstag docs]: /integrations/wirelesstag#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.zha docs]: /integrations/zha
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[camera.axis docs]: /integrations/axis
+[camera.logi_circle docs]: /integrations/logi_circle#camera
+[camera.mjpeg docs]: /integrations/mjpeg
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[camera.nest docs]: /integrations/nest#camera
+[camera.ring docs]: /integrations/ring#camera
+[camera.zoneminder docs]: /integrations/zoneminder#camera
+[climate.econet docs]: /integrations/econet
+[climate.opentherm_gw docs]: /integrations/opentherm_gw
+[climate.wink docs]: /integrations/wink#climate
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover docs]: /integrations/cover/
+[cover.deconz docs]: /integrations/deconz#cover
+[cover.isy994 docs]: /integrations/isy994
+[cover.myq docs]: /integrations/myq
+[cover.tuya docs]: /integrations/tuya
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[ecovacs docs]: /integrations/ecovacs/
+[edp_redy docs]: /integrations/edp_redy/
+[fan.zha docs]: /integrations/zha
+[geo_location docs]: /integrations/geo_location/
+[google_assistant docs]: /integrations/google_assistant/
+[hangouts docs]: /integrations/hangouts/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[ios docs]: /integrations/ios/
+[konnected docs]: /integrations/konnected/
+[light.deconz docs]: /integrations/deconz#light
+[light.isy994 docs]: /integrations/isy994
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.yeelight docs]: /integrations/yeelight
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[logi_circle docs]: /integrations/logi_circle/
+[mailbox docs]: /integrations/mailbox/
+[mailbox.asterisk_cdr docs]: /integrations/asterisk_cdr
+[mailbox.asterisk_mbox docs]: /integrations/asterisk_mbox
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.soundtouch docs]: /integrations/soundtouch
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[neato docs]: /integrations/neato/
+[netgear_lte docs]: /integrations/netgear_lte/
+[notify docs]: /integrations/notify/
+[openuv docs]: /integrations/openuv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[python_script docs]: /integrations/python_script/
+[rachio docs]: /integrations/rachio/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.edp_redy docs]: /integrations/sensor.edp_redy/
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.linky docs]: /integrations/linky
+[sensor.logi_circle docs]: /integrations/logi_circle#sensor
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.netdata docs]: /integrations/netdata
+[sensor.netgear_lte docs]: /integrations/netgear_lte
+[sensor.qnap docs]: /integrations/qnap
+[sensor.rest docs]: /integrations/rest
+[sensor.rmvtransport docs]: /integrations/rmvtransport
+[sensor.scrape docs]: /integrations/scrape
+[sensor.shodan docs]: /integrations/shodan
+[sensor.starlingbank docs]: /integrations/starlingbank
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.twitch docs]: /integrations/twitch
+[sensor.velbus docs]: /integrations/velbus
+[sensor.wirelesstag docs]: /integrations/wirelesstag#sensor
+[sensor.yr docs]: /integrations/yr
+[sensor.zha docs]: /integrations/zha
+[shiftr docs]: /integrations/shiftr/
+[sonos docs]: /integrations/sonos/
+[spc docs]: /integrations/spc/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.edp_redy docs]: /integrations/switch.edp_redy/
+[switch.konnected docs]: /integrations/konnected#switch
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.switchmate docs]: /integrations/switchmate
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[switch.wirelesstag docs]: /integrations/wirelesstag#switch
+[switch.zha docs]: /integrations/zha
+[tahoma docs]: /integrations/tahoma/
+[tradfri docs]: /integrations/tradfri/
+[updater docs]: /integrations/updater/
+[vacuum.ecovacs docs]: /integrations/ecovacs#vacuum
+[vacuum.neato docs]: /integrations/neato#vacuum
+[velbus docs]: /integrations/velbus/
+[wake_on_lan docs]: /integrations/wake_on_lan/
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[wirelesstag docs]: /integrations/wirelesstag/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/
+>>>>>>> upstream/next

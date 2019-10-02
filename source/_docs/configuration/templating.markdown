@@ -11,8 +11,13 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
+<<<<<<< HEAD
 - Formatting outgoing messages in, for example, the [notify](/components/notify/) platforms and [alexa](/components/alexa/) component.
 - Process incoming data from sources that provide raw data, like [MQTT](/components/mqtt/), [`rest` sensor](/components/sensor.rest/) or the [`command_line` sensor](/components/sensor.command_line/).
+=======
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [alexa](/integrations/alexa/) component.
+- Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/sensor.rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
+>>>>>>> upstream/next
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
@@ -393,7 +398,11 @@ If your template uses an `entity_id` that begins with a number (example: `states
 
 ### Templates without entities using `now()`
 
+<<<<<<< HEAD
 Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/components/sensor.template/#working-without-entities)
+=======
+Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/integrations/sensor.template/#working-without-entities)
+>>>>>>> upstream/next
 
 ### Priority of operators
 
