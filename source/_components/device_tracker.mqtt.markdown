@@ -22,17 +22,24 @@ device_tracker:
     devices:
       paulus_oneplus: 'location/paulus'
       annetherese_n4: 'location/annetherese'
+    custom_payload:
+      present: home
+      not present: not_home
 ```
 
 {% configuration %}
 devices:
-  description: List of devices with their topic.
+  description: A dictionary where the keys are devices and the values are their corresponding topic.
   required: true
-  type: list
+  type: map
 qos:
   description: The QoS level of the topic.
   required: false
   type: integer
+custom_payload:
+  description: A dictionary where the keys are payloads and the values are the corresponding locations that should be set for the device when the given payload is published to a device topic. This parameter should be used when the device or application that is publishing MQTT device tracker updates is not sending values that HomeAssistant will natively recognize (e.g. `home`, `not_home`, and any custom zones you have defined).
+  required: false
+  type: map
 {% endconfiguration %}
 
 ## Usage
