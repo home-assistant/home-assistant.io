@@ -24,6 +24,12 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Z-Wave</div>
   </a>
+  <a class='option-card' href='/docs/zigbee/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/zigbee.png' />
+    </div>
+    <div class='title'>Zigbee</div>
+  </a>
   <a class='option-card' href='/docs/mqtt/'>
     <div class='img-container'>
       <img src='/images/supported_brands/mqtt.png' />
