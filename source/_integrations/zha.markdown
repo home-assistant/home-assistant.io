@@ -1,6 +1,6 @@
 ---
 title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
+description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant using compatible USB sticks or modules hardware."
 logo: zigbee.png
 ha_category:
   - Hub
@@ -16,7 +16,11 @@ featured: true
 ---
 
 [Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
-integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
+integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices directly to Home Assistant using one of the several available Zigbee radio modules hardware compatible with [zigpy](https://github.com/zigpy/zigpy). 
+
+Zigpy is an open source Python library implementing a Zigbee stack, it functions as a middleware which in turn relies on separate Python libraries which each acts a wrapper to abstract the unique interfaces of Zigbee radio modules from different manufacturer).
+
+This enables native Zigbee functionality inside Home Assistant using only a Zigbee USB dongle, without the need of any other third-party hardware or software application acting as a bridge, gateway or hub.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -51,7 +55,7 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
   - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
 - ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
-  - ZiGate USB modules (require firmware 3.1a or later)
+  - [ZiGate USB modules](https://zigate.fr/) (Note! first requires that ZiGate firmware has been updated to 3.1a or later)
 
 ## Configuration
 
