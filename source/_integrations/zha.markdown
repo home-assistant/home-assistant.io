@@ -1,6 +1,6 @@
 ---
 title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant using compatible USB sticks or modules hardware."
+description: "Instructions for native integration of Zigbee Home Automation (ZHA) devices in Home Assistant."
 logo: zigbee.png
 ha_category:
   - Hub
