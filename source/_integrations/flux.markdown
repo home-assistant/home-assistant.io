@@ -8,15 +8,13 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.
+The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
 The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
 During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
 
 The color temperature is specified kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
-
-You can configure whether the switch should be turned on or off after startup. The default behavior is that the switch restores its last state.
 
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 
@@ -88,11 +86,6 @@ interval:
   required: false
   default: 30
   type: integer
-initial_state:
-  description: The initial state of the flux switch. Valid values are `state_on`, `state_off` and `state_last`.
-  required: false
-  default: state_last
-  type: integer
 {% endconfiguration %}
 
 Full example:
@@ -115,5 +108,4 @@ switch:
     mode: xy
     transition: 30
     interval: 60
-    initial_state: state_on
 ```
