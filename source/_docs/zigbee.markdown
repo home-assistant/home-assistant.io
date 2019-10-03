@@ -8,7 +8,7 @@ redirect_from: /getting-started/zigbee/
 
 There is currently support for Zigbee based lights, locks, sensors, switches, and fans. 
 
-Before buying a Zigbee based home automation device to use with Home Assistant, please be aware that Zigbee is developed as an open global standard, and while the [Zigbee Alliance[(https://zigbee.org/) who governance the specifications have a cerification program for compatiblity it a requirement to certify released products and therefor some devices may require the development of custom ZHA Device Handlers before all their functions to work properly with the [Zigbee Home Automation](/integrations/zha/) integration in Home Assistant.
+Before buying a Zigbee based home automation device to use with Home Assistant, please be aware that Zigbee is developed as an open global standard, and while the [Zigbee Alliance](https://zigbee.org/) who governance the specifications have a cerification program for compatiblity it a requirement to certify released products and therefor some devices may require the development of custom ZHA Device Handlers before all their functions to work properly with the [Zigbee Home Automation](/integrations/zha/) integration in Home Assistant.
 
 ## What is Zigbee
 
