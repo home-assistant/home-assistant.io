@@ -1,7 +1,6 @@
 ---
 title: "Zigbee"
 description: "Using Zigbee with Home Assistant."
-redirect_from: /getting-started/zigbee/
 ---
 
 [Zigbee Home Automation](/integrations/zha/) native integration for Home Assistant allows you to observe and control connected Zigbee devices without the need of a third-party bridge, hub or gateway. This Zigbee Home Automation integration just requires a [supported Zigbee USB stick or radio module](/integrations/zha/), also refer to as a controller or adapter, to be plugged into the Linux-based host which runs Home Assistant (such as for example a Raspberry Pi single-board-computer with [Hass.io](/hassio/) installed).
