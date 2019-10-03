@@ -2,6 +2,24 @@
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
+## Changes in 0.100.0
+- 📣 [picture glance card]: Add tap/hold actions to entities (#3807) @iantrich
+- 📣 [entities card]: add image option (#3832) @iantrich
+- 📣 [picture glance card]: UI Editor (#3709) @iantrich
+- 📣 [entity filter card]: Expand entity-filter options (#3692) @iantrich
+- 📣 [history graph card]: UI Editor (#3782) @iantrich
+- 📣 [light card]: icon option (#3771) @iantrich
+- 📣 [picture entity card]: UI Editor (#3708) @iantrich
+- 📣 Add support for panels to cast (#3796) @bramkragten
+- 📣 Allow for user text selection (Android Chrome not supported) (#3605) @iantrich
+- 📣 add state_filter to picture cards (#3791) @iantrich
+- 📣 Add a setting for vibration (#3813) @bramkragten
+- 📣 Switch paper-toggle-button to mwc-switch (#3683) @iantrich
+- 📣 new action: url (#3773) @iantrich
+- 🔧 [map card]: Align background with tiles (#3858) @bramkragten
+- 🔧 [map card]: Fix dark switch for map card editor (#3856) @bramkragten
+- 🔧 [views]: Guard for null badges (#3841) @bramkragten
+
 ## Changes in 0.99.0
 - 📣 [glance card]: New config `show_last_changed` for `entities`
 - 📣 [glance card]: New config `image` for `entities`
