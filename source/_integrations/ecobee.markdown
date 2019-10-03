@@ -13,7 +13,7 @@ ha_release: 0.9
 ha_iot_class: Cloud Push
 ---
 
-The `ecobee` integration lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
+The `ecobee` integration lets you control a thermostats and view sensor data from [ecobee](https://www.ecobee.com) thermostats.
 
 ## Configuration
 
