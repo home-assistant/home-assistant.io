@@ -84,6 +84,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
 * homematicip_cloud.binary_sensor
+  * Acceleration Sensor (*HMIP-SAM*)
   * Window and door contact (*HmIP-SWDO, -I*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Contact Interface (*HmIP-SCI*)
