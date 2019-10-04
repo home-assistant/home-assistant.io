@@ -16,7 +16,7 @@ To use this notification platform in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
+  - name: notifier_name
     platform: twilio_sms
     from_number: E164_PHONE_NUMBER or SENDER_ID
 ```
@@ -27,7 +27,7 @@ from_number:
   required: true
   type: string
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.notifier_name`. It is important to remember the name must be all lower case. For example `notifier.send_sms`.
   required: false
   default: "`notify`"
   type: string
