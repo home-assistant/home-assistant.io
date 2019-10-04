@@ -43,17 +43,11 @@ id:
   required: false
   type: string
   default: "The slugified `name` of this OpenTherm Gateway."
-precision:
-  description: "The desired precision for this OpenTherm Gateway's climate entity. This can be used to match your actual thermostat's precision."
-  required: false
-  type: float
-  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
-floor_temperature:
-  description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Set this to `true` to override this behavior and round to the lower value according to the configured `precision`."
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
+
+<div class='note'>
+The precision and floor_temperature settings that were supported in configuration.yaml entries have been temporarily removed. The values will be lost upon import of the configuration.yaml entry into the Integrations panel. These features will be re-added soon.
+</div>
 
 
 ## Services
