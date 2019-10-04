@@ -12,7 +12,11 @@ The `updater` binary sensor will check daily for new releases. The state will be
 
 The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/updater).
 
+<div class='note'>
+
 The `updater` binary sensor will wait one hour after startup until it performs the first update. For this period it will be in the state `unavailable`. After that it will check once a day for new releases.
+
+</div>
 
 ## Configuration
 
