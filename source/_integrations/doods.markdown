@@ -84,7 +84,7 @@ area:
         required: false
         type: float
         default: 1
-      contains:
+      covers:
         description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
         required: false
         type: boolean
@@ -131,7 +131,7 @@ labels:
             required: false
             type: float
             default: 1
-          contains:
+          covers:
             description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
             required: false
             type: boolean
@@ -161,7 +161,7 @@ image_processing:
       # Exclude right 5% of image
       right: 0.95
       # The entire detection must be inside this box
-      contains: true
+      covers: true
     labels:
       - name: person
         confidence: 40
@@ -171,7 +171,7 @@ image_processing:
           # Exclude right 15% of image
           right: 0.85
           # Any part of the detection inside this area will trigger
-          contains: false
+          covers: false
       - car
       - truck
 ```
