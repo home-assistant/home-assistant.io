@@ -43,7 +43,7 @@ Example of the new views in the frontend. <a href='/integrations/group/'>Learn m
  - Bugfixes by [@molobrakos], [@MartinHjelmare], [@pavoni], [@trollkarlen], [@zmrow], [@maddox], [@persandstrom], [@happyleavesaoc], [@balloob], [@fabaff], [@stefan-jonasson], [@haraldnagel].
 
 [the demo]: /demo/
-[command sensor]: /integrations/binary_sensor.command/
+[command sensor]: /integrations/command_line/
 [Insteon hub]: /integrations/insteon/
 [LIFX]: /integrations/lifx
 [Nest]: /integrations/nest/
