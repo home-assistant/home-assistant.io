@@ -56,15 +56,17 @@ vera_controller_url:
 
 By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
 
-Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices using the `exclude:` parameter as shown below.
+Vera imports detailed Z-Wave devices and scenes into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices or scenes using the `exclude:` or `exclude_scenes:` parameters as shown below.
 
-You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (under the developer tools).
+You can find the Vera id either via the advanced properties of the device or scene in the Vera UI or by checking the `Vera Device Id` or `Vera Scene Id` attribute on each device or scene imported into Home Assistant (under the developer tools).
 
 ```yaml
 vera:
   vera_controller_url: http://192.168.1.161:3480/
   # Optional to exclude devices - this is a list of vera device ids
-  exclude: [ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
+  exclude: [13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
+  # Optional to exclude scenes - this is a list of vera scene ids
+  exclude_scenes: [5, 6]
   # Optional to import switches as lights - this is a list of vera device ids
   lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
 ```
