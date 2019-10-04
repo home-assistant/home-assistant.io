@@ -53,7 +53,7 @@ address=/mydomain.com/<hass ip>
 
 ### Edit your Home Assistant configuration to use your certificates
 
-The [`http`](/components/http/) section must contain the full path to the needed files. 
+The [`http`](/integrations/http/) section must contain the full path to the needed files. 
 
 ```yaml
 http:

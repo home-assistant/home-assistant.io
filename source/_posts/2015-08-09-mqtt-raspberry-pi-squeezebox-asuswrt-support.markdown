@@ -15,7 +15,7 @@ __MQTT Support__
 
 
 [mqtt-automation]: /getting-started/automation-trigger/#mqtt-trigger
-[mqtt-component]: /components/mqtt/
+[mqtt-component]: /integrations/mqtt/
 
 ```yaml
 # Example configuration.yaml entry

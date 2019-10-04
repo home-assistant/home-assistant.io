@@ -37,29 +37,29 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
  - New component [input_boolean] will allow for customizing automation ([@balloob])
  - Support calling services via [Amazon Echo] ([@balloob])
 
-[MySensors]: /components/mysensors/
-[YR]: /components/yr
-[Locative]: /components/locative
+[MySensors]: /integrations/mysensors/
+[YR]: /integrations/yr
+[Locative]: /integrations/locative
 [sun condition]: /getting-started/automation-condition/#sun-condition
-[command_switch]: /components/switch.command_switch/
-[wemo]: /components/wemo
-[Telldus Live]: /components/tellduslive/
-[Vera]: /components/vera/
+[command_switch]: /integrations/switch.command_switch/
+[wemo]: /integrations/wemo
+[Telldus Live]: /integrations/tellduslive/
+[Vera]: /integrations/vera/
 [template helper method]: /topics/templating/#home-assistant-template-extensions
-[OwnTracks]: /components/owntracks
-[Philips Hue]: /components/hue
-[Free Mobile]: /components/free_mobile
-[MQTT Eventstream]: /components/mqtt_eventstream/
-[Cast]: /components/cast
-[Universal media player]: /components/universal
-[Netatmo]: /components/netatmo#sensor
-[Alarm.com]: /components/alarmdotcom
-[Proliphix]: /components/proliphix/
-[rpi-bs]: /components/rpi_gpio#binary-sensor
-[rpi-s]: /components/rpi_gpio#switch
-[input_boolean]: /components/input_boolean/
-[MySensors sensor platform]: /components/sensor.mysensors/
-[Amazon Echo]: /components/alexa/
+[OwnTracks]: /integrations/owntracks
+[Philips Hue]: /integrations/hue
+[Free Mobile]: /integrations/free_mobile
+[MQTT Eventstream]: /integrations/mqtt_eventstream/
+[Cast]: /integrations/cast
+[Universal media player]: /integrations/universal
+[Netatmo]: /integrations/netatmo#sensor
+[Alarm.com]: /integrations/alarmdotcom
+[Proliphix]: /integrations/proliphix/
+[rpi-bs]: /integrations/rpi_gpio#binary-sensor
+[rpi-s]: /integrations/rpi_gpio#switch
+[input_boolean]: /integrations/input_boolean/
+[MySensors sensor platform]: /integrations/sensor.mysensors/
+[Amazon Echo]: /integrations/alexa/
 
 ### Backwards incompatible changes
  - The [RPi.GPIO sensor platform][rpi-bs] has been moved to the `binary_sensor` component.

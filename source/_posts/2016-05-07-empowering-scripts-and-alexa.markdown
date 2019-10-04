@@ -75,30 +75,30 @@ light:
 
 [script syntax]: /getting-started/scripts/
 [trigger-variable]: /getting-started/automation-templating/#available-trigger-data
-[script service calls]: /components/script/#passing-parameters-in-service-calls
-[expose intent variables]: /components/alexa/#configuring-home-assistant
+[script service calls]: /integrations/script/#passing-parameters-in-service-calls
+[expose intent variables]: /integrations/alexa/#configuring-home-assistant
 [conditions now supported]: /getting-started/scripts-conditions/
 [new condition syntax]: /getting-started/scripts-conditions/
 [con-and]: /getting-started/scripts-conditions/#and-condition
 [con-or]: /getting-started/scripts-conditions/#or-condition
 [entity namespace]: /topics/platform_options/#entity-namespace
-[rpi-rf]: /components/rpi_rf
-[Forecast.io]: /components/darksky
-[Snapcast]: /components/snapcast
-[Command line sensor]: /components/sensor.command_line/
-[allow client key authentication]: /components/mqtt/
-[Pioneer AVR]: /components/pioneer
-[Acer Projectors]: /components/acer_projector
-[HVAC component]: /components/climate/
-[OctoPrint]: /components/octoprint/
-[Z-Wave]: /components/zwave/
-[lock]: /components/lock/
-[lock.zwave]: /components/zwave#lock
-[Dweet component]: /components/dweet/
+[rpi-rf]: /integrations/rpi_rf
+[Forecast.io]: /integrations/darksky
+[Snapcast]: /integrations/snapcast
+[Command line sensor]: /integrations/sensor.command_line/
+[allow client key authentication]: /integrations/mqtt/
+[Pioneer AVR]: /integrations/pioneer
+[Acer Projectors]: /integrations/acer_projector
+[HVAC component]: /integrations/climate/
+[OctoPrint]: /integrations/octoprint/
+[Z-Wave]: /integrations/zwave/
+[lock]: /integrations/lock/
+[lock.zwave]: /integrations/zwave#lock
+[Dweet component]: /integrations/dweet/
 [`as_timestamp`]: /topics/templating/#home-assistant-template-extensions
-[Google Maps travel time]: /components/google_travel_time
-[CORS headers]: /components/http/
-[Fitbit]: /components/fitbit
+[Google Maps travel time]: /integrations/google_travel_time
+[CORS headers]: /integrations/http/
+[Fitbit]: /integrations/fitbit
 [@balloob]: https://github.com/balloob/
 [@milaq]: https://github.com/milaq/
 [@danieljkemp]: https://github.com/danieljkemp/

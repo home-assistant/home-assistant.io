@@ -7,7 +7,7 @@ redirect_from: /getting-started/yaml/
 Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
 
 For each integration that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
-The following example entry specifies that you want to use the [notify component](/components/notify) with the [pushbullet platform](/components/notify.pushbullet).
+The following example entry specifies that you want to use the [notify component](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
 
 ```yaml
@@ -36,7 +36,7 @@ Please pay attention on not storing private data (passwords, API keys, etc.) dir
 
 Text following a `#` are comments and are ignored by the system.
 
-The next example shows an [input_select](/components/input_select) integration that uses a block collection for the options values.
+The next example shows an [input_select](/integrations/input_select) integration that uses a block collection for the options values.
 The other properties (like name) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
 
 ```yaml
@@ -62,7 +62,7 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### Using Environment Variables
+## Using Environment Variables
 
 You can include values from your system's environment variables with `!env_var`.
 
@@ -71,7 +71,7 @@ http:
   api_password: !env_var PASSWORD
 ```
 
-#### Default Value
+### Default Value
 
 If an environment variable is not set, you can fallback to a default value.
 

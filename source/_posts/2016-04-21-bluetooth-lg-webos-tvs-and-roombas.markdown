@@ -57,22 +57,22 @@ Since the last release we have moved all Home Assistant source code etc into its
 [@TheRealLink]: https://github.com/TheRealLink/
 [@Turbokongen]: https://github.com/Turbokongen/
 [@vmulpuru]: https://github.com/vmulpuru/
-[Bluetooth tracking platform]: /components/bluetooth_tracker
-[EQ3 Bluetooth Smart Thermostats]: /components/eq3btsmart/
-[mysensors]: /components/mysensors/
-[Feedreader]: /components/feedreader/
-[Homematic platform]: /components/homematic/
-[media_player.lg]: /components/webostv#media-player
-[notify.lg]: /components/webostv
-[MPD]: /components/mpd
-[MQTT]: /components/cover.mqtt/
-[Plex]: /components/plex#media-player
-[Sonos]: /components/sonos
-[sensor.Thinkingcleaner]: /components/thinkingcleaner#sensor
-[switch.Thinkingcleaner]: /components/thinkingcleaner#switch
-[upnp]: /components/upnp/
-[Wink]: /components/wink#light
-[Zeroconf]: /components/zeroconf/
+[Bluetooth tracking platform]: /integrations/bluetooth_tracker
+[EQ3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart/
+[mysensors]: /integrations/mysensors/
+[Feedreader]: /integrations/feedreader/
+[Homematic platform]: /integrations/homematic/
+[media_player.lg]: /integrations/webostv#media-player
+[notify.lg]: /integrations/webostv
+[MPD]: /integrations/mpd
+[MQTT]: /integrations/cover.mqtt/
+[Plex]: /integrations/plex#media-player
+[Sonos]: /integrations/sonos
+[sensor.Thinkingcleaner]: /integrations/thinkingcleaner#sensor
+[switch.Thinkingcleaner]: /integrations/thinkingcleaner#switch
+[upnp]: /integrations/upnp/
+[Wink]: /integrations/wink#light
+[Zeroconf]: /integrations/zeroconf/
 
 ### Breaking changes
 - We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.

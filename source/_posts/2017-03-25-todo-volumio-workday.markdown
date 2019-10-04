@@ -332,16 +332,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wmalgadey]: https://github.com/wmalgadey
 [@yeralin]: https://github.com/yeralin
 
-[components]: /components/
-[kodi]: /components/kodi
-[mpd]: /components/mpd
-[emby]: /components/emby
+[components]: /integrations/
+[kodi]: /integrations/kodi
+[mpd]: /integrations/mpd
+[emby]: /integrations/emby
 [mqtt]: /docs/mqtt/
-[plex]: /components/plex#media-player
-[tado]: /components/tado
-[volumio]: /components/volumio/
-[workday]: /components/workday
-[android]: /components/android_ip_webcam/
+[plex]: /integrations/plex#media-player
+[tado]: /integrations/tado
+[volumio]: /integrations/volumio/
+[workday]: /integrations/workday
+[android]: /integrations/android_ip_webcam/
 [shadow]: https://www.w3.org/TR/shadow-dom/
 
 [forum]: https://community.home-assistant.io/

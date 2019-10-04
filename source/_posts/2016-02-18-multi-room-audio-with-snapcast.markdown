@@ -134,6 +134,6 @@ weblink:
     url: xxxx
 ```
 
-[weblink]: /components/weblink/
-[snapcast]: /components/snapcast
-[mpd]: /components/mpd
+[weblink]: /integrations/weblink/
+[snapcast]: /integrations/snapcast
+[mpd]: /integrations/mpd

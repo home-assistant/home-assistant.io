@@ -39,7 +39,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
 - Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](/components/nfandroidtv) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Notify: Added support for [Android TV/FireTV](/integrations/nfandroidtv) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 ([@danielperna84])
@@ -159,29 +159,29 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@jnewland]: https://github.com/jnewland
 [@DanielHiversen]: https://github.com/DanielHiversen
 
-[currencylayer]: /components/currencylayer
-[mochat]: /components/mochat/
-[firetv]: /components/notify.firetv/
-[Yamaha]: /components/yamaha
-[hddtemp-sensor]: /components/hddtemp
-[Sonos]: /components/sonos
-[weather-sensors]: /components/#weather
-[rpi-camera]: /components/rpi_camera
-[rest-switch]: /components/switch.rest/
-[emby-media]: /components/emby
-[random-sensor]: /components/random#sensor
-[yeelight]: /components/yeelight
-[influx-sensor]: /components/influxdb#sensor
-[weather-component]: /components/weather/
-[cups-sensor]: /components/cups
-[litejet]: /components/litejet/
-[garadget]: /components/garadget/
-[philips_player]: /components/philips_js
-[icloud]: /components/icloud
-[synologydsm]: /components/synologydsm
-[dovado-sensor]: /components/dovado#sensor
+[currencylayer]: /integrations/currencylayer
+[mochat]: /integrations/mochat/
+[firetv]: /integrations/notify.firetv/
+[Yamaha]: /integrations/yamaha
+[hddtemp-sensor]: /integrations/hddtemp
+[Sonos]: /integrations/sonos
+[weather-sensors]: /integrations/#weather
+[rpi-camera]: /integrations/rpi_camera
+[rest-switch]: /integrations/switch.rest/
+[emby-media]: /integrations/emby
+[random-sensor]: /integrations/random#sensor
+[yeelight]: /integrations/yeelight
+[influx-sensor]: /integrations/influxdb#sensor
+[weather-component]: /integrations/weather/
+[cups-sensor]: /integrations/cups
+[litejet]: /integrations/litejet/
+[garadget]: /integrations/garadget/
+[philips_player]: /integrations/philips_js
+[icloud]: /integrations/icloud
+[synologydsm]: /integrations/synologydsm
+[dovado-sensor]: /integrations/dovado#sensor
 [ios]: /ecosystem/ios/
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811
 [updater]: /blog/2016/10/25/explaining-the-updater/
-[thingspeak]: /components/thingspeak/
+[thingspeak]: /integrations/thingspeak/

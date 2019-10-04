@@ -86,7 +86,7 @@ The way this is implemented works in the following order:
   - No: Return error 420
 
 ### Embedding into Home Assistant
-Home Assistant has the [panel_iframe](/components/panel_iframe/) component. With this it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration through the Home Assistant frontend.
+Home Assistant has the [panel_iframe](/integrations/panel_iframe/) component. With this it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration through the Home Assistant frontend.
 An example configuration would look like this:
 
 ```yaml
