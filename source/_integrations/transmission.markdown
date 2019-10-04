@@ -125,7 +125,8 @@ Adds a new torrent to download. It can either be a URL (http, https or ftp), mag
 
 The state attribute contains information about the torrents that are currently downloading.  You can see this information in Developer Tools->States->sensor.transmission_torrent_info->Attributes or by adding a Markdown Card to Lovelace.
 
-```raw
+{% raw %}
+```jinja2 
 content: >
   {% set payload = state_attr('sensor.transmission_torrent_info',
   'torrent_info') %}
@@ -135,3 +136,4 @@ content: >
   remaining {% endfor %}
 type: markdown
 ```
+{% endraw %}
