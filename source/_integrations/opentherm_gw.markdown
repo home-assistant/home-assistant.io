@@ -39,7 +39,7 @@ path:
   required: true
   type: string
 id:
-  description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services."
+  description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services. The entered value will be slugified."
   required: false
   type: string
   default: "The slugified `name` of this OpenTherm Gateway."
