@@ -8,7 +8,7 @@ ha_release: 0.101
 ha_iot_class: Cloud Polling
 ---
 
-The `Airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location. To generate Airly API key go to [Airly for developers](https://developer.airly.eu/register) page.
+The `Airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location. To generate an Airly API key go to [Airly for developers](https://developer.airly.eu/register) page.
 
 ## Configuration
 
