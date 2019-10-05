@@ -22,11 +22,6 @@ device_tracker:
     devices:
       paulus_oneplus: 'location/paulus'
       annetherese_n4: 'location/annetherese'
-    payload_home: present
-    payload_not_home: not present
-    payload_custom:
-      work1: pauluswork
-      work2: annetheresework
 ```
 
 {% configuration %}
@@ -53,6 +48,20 @@ payload_custom:
   required: false
   type: map
 {% endconfiguration %}
+
+```yaml
+# Complete configuration.yaml entry
+device_tracker:
+  devices:
+      paulus_oneplus: 'location/paulus'
+      annetherese_n4: 'location/annetherese'
+  qos: 1
+  payload_home: present
+  payload_not_home: not present
+  payload_custom:
+    work1: work_paulus
+    work2: work_annetherese
+```
 
 ## Usage
 
