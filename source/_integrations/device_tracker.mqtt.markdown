@@ -28,7 +28,7 @@ device_tracker:
 devices:
   description: A dictionary where the keys are devices and the values are their corresponding topic.
   required: true
-  type: map
+  type: list
 qos:
   description: The QoS level of the topic.
   required: false
@@ -46,7 +46,7 @@ payload_not_home:
 payload_custom:
   description: A dictionary to map payload values to custom zones (e.g. not `home` and `not_home`). The keys are the payloads and the values are the corresponding locations that the payload represents.
   required: false
-  type: map
+  type: list
 {% endconfiguration %}
 
 ## Complete example configuration
