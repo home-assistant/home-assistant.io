@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.
 
-Only specific models support the local API. The local API is available on single phase inverters that do not have a display, tree-phase inverters that end the model number with a 4. Please check the datasheets carefully if in the section "Additional Features", sub-section "Inverter Commissioning" is present the following line "With the SetApp mobile application using built-in Wi-Fi access point for local connection".
+Only specific models support the local API. The local API is available on inverters that do not have a lcd character screen. You can also  check the datasheets if in the section "Additional Features", sub-section "Inverter Commissioning" is present the following line "With the SetApp mobile application using built-in Wi-Fi access point for local connection".
 
 You can check by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu.
 
