@@ -15,9 +15,8 @@ Only specific models support the local API. The local API is available on invert
 
 You can check by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu. If your inveter does not support the local API, you can use the [cloud based version](https://www.home-assistant.io/integrations/solaredge/)
 
-
 <div class='note'>
-SolarEdge has disabled the local polling functionality on newer software versions. The last known software version is: 4.5.41 You can check your software version in the [SolarEdge monitoring website](https://monitoring.solaredge.com)
+SolarEdge has disabled the local polling functionality on newer software versions. The last known software version is: 4.5.41 You can check your software version in the 
 </div>
 
 
