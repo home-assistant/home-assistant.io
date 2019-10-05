@@ -125,7 +125,7 @@ The platform supports the following Hive products:
 
 ### Climate
 
-The `hive` climate platform integrates your Hive thermostat into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
+The `hive` climate platform integrates your Hive thermostat and Hive radiator valves into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
 A short boost for Hive Heating can be set by using the **Boost** preset, this will turn on the boost feature for 30 minutes at 0.5 degrees higher than the current temperature.
 
@@ -133,6 +133,7 @@ The platform supports the following Hive products:
 
 - Hive Active Heating
 - Hive Multi-zone
+- Hive Radiator Valve
 
 ### Light
 
