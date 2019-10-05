@@ -17,7 +17,7 @@ You can check by finding the IP address of your inverter and visiting it in a br
 
 <div class='note'>
 SolarEdge has disabled the local polling functionality in there latesed updates. The last known software version is 4.5.41
-If your inveter does not support the local API, you can use the [cloud based version](/integrations/solaredge/) instead.
+If your inveter does not support the local API, you can use the [cloud based version](https://www.home-assistant.io/integrations/solaredge/)
 </div>
 
 ## Configuration
