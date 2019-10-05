@@ -42,7 +42,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 
 ### Step 3 - Authorize Home Assistant
 
-- Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
+- Confirm your YAML configuration is valid by using the "Check Config" tool (see note).
 - Restart Home Assistant.
 - Go to the integrations page.
 - Add a Withings integration.
@@ -56,7 +56,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
   Changing the domain will not affect how data is synchronized.
 - Data will synchronize immediately and update every 5 minutes.
 
-Note: In order for **Check Config** to be visible, you must enable **Advanced Mode** on your user profile.
+Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 
 ## Configuration
 
