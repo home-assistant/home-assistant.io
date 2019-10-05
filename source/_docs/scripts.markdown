@@ -34,6 +34,14 @@ The most important one is the action to call a service. This can be done in vari
     brightness: 100
 ```
 
+#### Activate a Scene
+
+Scripts may also use a shortcut syntax for activating scenes instead of calling the `scene.turn_on` service.
+
+```yaml
+- scene: scene.morning_living_room
+```
+
 ### Test a Condition
 
 While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
