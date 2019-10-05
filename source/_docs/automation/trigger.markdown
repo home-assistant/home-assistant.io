@@ -58,8 +58,6 @@ automation:
 
 Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -78,16 +76,12 @@ automation:
       seconds: 5
 ```
 
-{% endraw %}
-
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
 In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -104,11 +98,7 @@ automation:
     for: "01:10:05"
 ```
 
-{% endraw %}
-
 You can also use templates in the `for` option.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -127,8 +117,6 @@ automation:
       message: >
         {{ trigger.to_state.name }} too high for {{ trigger.for }}!
 ```
-
-{% endraw %}
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
@@ -152,8 +140,6 @@ automation:
 
 You can also use templates in the `for` option.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -167,8 +153,6 @@ automation:
     service: lock.lock
     entity_id: lock.my_place
 ```
-
-{% endraw %}
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
@@ -208,8 +192,6 @@ automation:
 
 Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things intended to trigger during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
 
-{% raw %}
-
 ```yaml
 automation:
   alias: "Exterior Lighting on when dark outside"
@@ -223,8 +205,6 @@ automation:
     service: switch.turn_on
     entity_id: switch.exterior_lighting
 ```
-
-{% endraw %}
 
 If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
@@ -244,8 +224,6 @@ A very thorough explanation of this is available in the Wikipedia article about 
 Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before it will fire again.
 With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -256,11 +234,7 @@ automation:
     for: "00:01:00"
 ```
 
-{% endraw %}
-
 You can also use templates in the `for` option.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -271,13 +245,23 @@ automation:
       minutes: "{{ states('input_number.minutes')|int(0) }}"
 ```
 
-{% endraw %}
-
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 </div>
+
+
+As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+```
+
+which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
 
 ### Time trigger
 
