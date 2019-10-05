@@ -56,7 +56,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
   Changing the domain will not affect how data is synchronized.
 - Data will synchronize immediately and update every 5 minutes.
 
-Note:  In order for **Check Config** to be visible, you must enable **Advanced Mode** on your user profile.
+Note: In order for **Check Config** to be visible, you must enable **Advanced Mode** on your user profile.
 
 ## Configuration
 
