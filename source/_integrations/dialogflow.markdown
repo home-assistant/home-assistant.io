@@ -63,7 +63,7 @@ When activated, the [`alexa` integration](/integrations/alexa/) will have Home A
 
 ## Examples
 
-Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
+Download [this zip](https://github.com/home-assistant/home-assistant.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
 
 {% raw %}
 ```yaml
