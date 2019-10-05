@@ -3,8 +3,8 @@ title: "Solar-Log Sensor"
 description: "Instructions on how to integrate Solar-Log sensors within Home Assistant."
 logo: solar-log.png
 ha_category: Sensor
-ha_release: "0.101"
-ha_iot_class: "Local Polling"
+ha_release: 0.101
+ha_iot_class: Local Polling
 ---
 
 The `solarlog` platform uses the open JSON interface on Solar-Log PV monitoring systems to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -15,7 +15,9 @@ When activating the interface, a red warning triangle with security information 
 The `solarlog` platform uses the default host address 'http://solar-log' if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 <div class='note warning'>
-The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface. 
+
+  The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
+
 </div>
 
 ## Configuration
@@ -96,5 +98,7 @@ The following sensors are available in the library:
 | usage                 |        | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
+
   The solarlog component is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
+
 </div>
