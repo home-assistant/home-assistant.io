@@ -12,7 +12,7 @@ The `solarlog` platform uses the open JSON interface on Solar-Log PV monitoring 
 Before being able to use the component, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
 When activating the interface, a red warning triangle with security information and risks is displayed.
 
-The `solarlog` platform uses the default host address 'http://solar-log' if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
+The `solarlog` platform uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 <div class='note warning'>
 
