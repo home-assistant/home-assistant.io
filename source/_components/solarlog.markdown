@@ -3,7 +3,7 @@ title: "Solar-Log Sensor"
 description: "Instructions on how to integrate Solar-Log sensors within Home Assistant."
 logo: solar-log.png
 ha_category: Sensor
-ha_release: "0.100"
+ha_release: "0.101"
 ha_iot_class: "Local Polling"
 ---
 
@@ -39,11 +39,6 @@ name:
   required: false
   default: solarlog
   type: string
-scan_interval:
-  description: Let you overwrite the default scan interval (in seconds).
-  required: false
-  default: 60
-  type: integer
 {% endconfiguration %}
 
 ### Full configuration sample
@@ -56,7 +51,6 @@ sensor:
   - platform: solarlog
     name: solarlog
     host: 192.168.1.123
-    scan_interval: 300
 ```
 
 In case you would like to convert the values for example to Wh instead of the default kWh, you can use the [template platform](/components/sensor.template/).
@@ -104,4 +98,3 @@ The following sensors are available in the library:
 <div class='note'>
   The solarlog component is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
 </div>
-
