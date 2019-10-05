@@ -71,4 +71,4 @@ ExecStart=/srv/homeassistant/bin/hass
 WantedBy=multi-user.target
 ```
 
-This works because the Python virtual environment was created using the SCL envionrment, thus there is no need to activate SCL.
+This works because the Python virtual environment was created using the SCL environment, thus there is no need to activate SCL.
