@@ -41,13 +41,7 @@ To use Abode devices in your installation, add your Abode account from the integ
 abode:
   username: abode_username
   password: abode_password
-  name: Abode Alarm System
   polling: false
-  exclude:
-    - 'ZW:0000000034'
-    - 'RF:00000011'
-  lights:
-    - 'ZW:0000000022'
 ```
 
 {% configuration %}
@@ -59,10 +53,6 @@ password:
   description: Password for your Abode account.
   required: true
   type: string
-name:
-  description: The name for your alarm controller.
-  required: false
-  type: string
 polling:
   description: >
     Enable polling if cloud push updating is less reliable.
@@ -70,18 +60,6 @@ polling:
   required: false
   type: boolean
   default: false
-exclude:
-  description: >
-    A list of devices to exclude from Home Assistant by their Abode `device_id`
-    or `automation_id`, found within the integration attributes.
-  required: false
-  type: list
-lights:
-  description: >
-    A list of switch devices that Home Assistant should treat as lights by the
-    switches Abode `device_id`, found within the integration attributes.
-  required: false
-  type: list
 {% endconfiguration %}
 
 ## Events
@@ -150,10 +128,10 @@ This integration will also list all Abode `Quick Actions` that are set up. You c
 
 ### Light
 
-This integration will automatically add `Lights` configured in your Abode account. You can reclassify `Switches` to show up within Home Assistant as lights by listing the Abode device ID in your [configuration](/integrations/abode/#configuration).
+This integration will automatically add `Lights` configured in your Abode account.
 
 ### Switch
 
-This integration will automatically add `Power Switches` configured in your Abode account. You can reclassify switches to show up within Home Assistant as `Lights` by listing the Abode device ID in your [configuration](/integrations/abode/#configuration).
+This integration will automatically add `Power Switches` configured in your Abode account.
 
 This integration will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.
