@@ -52,6 +52,7 @@ invert:
   description: Inverts the value
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Full example
