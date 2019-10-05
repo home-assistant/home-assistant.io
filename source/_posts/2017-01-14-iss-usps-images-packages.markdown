@@ -36,7 +36,7 @@ The new [image processing component][image] currently works with [number plates]
 
 - Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
-- Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
+- Sensor: USPS deliveries tracking ([@happyleavesaoc])
 - Device tracker: New [ping-based][ping] tracker ([@michaelarnauts])
 - TTS: Support for [Pico][pico] ([@doudz])
 - Switch: [BeagleBone Black][beaglebone] GPIO are supported now ([@MatoKafkac])

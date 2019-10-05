@@ -10,7 +10,7 @@ ha_iot_class: Local Polling
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-### Configuration
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -20,19 +20,11 @@ sensor:
   - platform: enphase_envoy
 ```
 
-```yaml
-# Example configuration.yaml entry, limiting the metrics to production only
-sensor:
-  - platform: enphase_envoy
-    ip_address: LOCAL_IP_FOR_ENVOY
-    monitored_conditions:
-      - production
-      - daily_production
-      - seven_days_production
-      - lifetime_production
-```
-
 {% configuration %}
+name:
+  required: false
+  type: string
+  description: An optional name that will be prepended to the sensor type
 ip_address:
   description: The local IP address of your Envoy. Leave blank to use the default host name 'envoy', but this may not always be reliable. You should be able to just browse to this IP address.
   required: false
@@ -61,3 +53,18 @@ monitored_conditions:
     inverters:
       description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API.
 {% endconfiguration %}
+
+### Full example
+
+```yaml
+# Example configuration.yaml entry, limiting the metrics to production only
+sensor:
+  - platform: enphase_envoy
+    name: Optional_name
+    ip_address: LOCAL_IP_FOR_ENVOY
+    monitored_conditions:
+      - production
+      - daily_production
+      - seven_days_production
+      - lifetime_production
+```

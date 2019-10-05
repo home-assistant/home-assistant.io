@@ -27,12 +27,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -52,12 +57,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:

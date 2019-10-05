@@ -45,7 +45,7 @@ Note, this release includes a migration to add an index to speed up the logbook 
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
 - Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
 - W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
-- Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
+- Srpenergy ([@briglx] - [#18036]) (new-platform)
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
 - Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) (new-platform)
 - Readded climate.velbus ([@Cereal2nd] - [#18434]) ([velbus docs]) ([climate.velbus docs]) (new-platform)
@@ -273,7 +273,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Doc fix: a circular dependency does not raise an error. ([@smurfix] - [#18298])
 - Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
 - W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
-- Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
+- Srpenergy ([@briglx] - [#18036]) (new-platform)
 - Restrict recorder query to include max age ([@ehendrix23] - [#18231]) ([sensor.statistics docs])
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
 - Rename sensor.launch to sensor.launch_library ([@ludeeus] - [#18337]) ([sensor.launch_library docs]) (beta fix)
@@ -785,7 +785,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.season docs]: /integrations/season
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.sql docs]: /integrations/sql
-[sensor.srp_energy docs]: /integrations/srp_energy
 [sensor.statistics docs]: /integrations/statistics
 [sensor.swiss_hydrological_data docs]: /integrations/swiss_hydrological_data
 [sensor.tautulli docs]: /integrations/tautulli

@@ -17,6 +17,7 @@ To enable Template Lights in your installation, add the following to your
 `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -35,6 +36,7 @@ light:
           data_template:
             brightness: "{{ brightness }}"
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -64,7 +66,12 @@ light:
       icon_template:
         description: Defines a template for an icon or picture, e.g. showing a different icon for different states.
         required: false
-        type: template        
+        type: template
+      availability_template:
+        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        required: false
+        type: template
+        default: true
       turn_on:
         description: Defines an action to run when the light is turned on.
         required: true
@@ -104,6 +111,7 @@ make; the [Media Player component](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
 {% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -142,6 +150,7 @@ light:
             0
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change The Icon
@@ -149,6 +158,7 @@ light:
 This example shows how to change the icon based on the light state.
 
 {% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -186,6 +196,7 @@ light:
             entity_id: media_player.receiver
             is_volume_muted: true
 ```
+
 {% endraw %}
 
 ### Change The Entity Picture
@@ -193,6 +204,7 @@ light:
 This example shows how to change the entity picture based on the light state.
 
 {% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -230,4 +242,5 @@ light:
             entity_id: media_player.receiver
             is_volume_muted: true
 ```
+
 {% endraw %}

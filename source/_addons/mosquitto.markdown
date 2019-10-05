@@ -42,6 +42,16 @@ customize:
   required: false
   type: [boolean, string]
   default: false
+cafile:
+  description: Path to the CA certificate. If not set, will default to the *certfile* value.
+  required: false
+  default: certfile
+  type: string
+require_certificate:
+  description: Restrict to users with a valid certificate only.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ### Home Assistant user management

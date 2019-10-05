@@ -22,6 +22,17 @@ Home Assistant has its own Cast application to show the Home Assistant UI. You c
 }
 ```
 
+## Home Assistant Cast
+
+The Cast integration allows you to start Home Assistant Cast on any Chromecast device, using the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on.
+
+```json
+{
+  "entity_id": "media_player.office_display_4",
+  "view_path": "lights"
+}
+```
+
 ## Advanced use
 
 Note that Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).

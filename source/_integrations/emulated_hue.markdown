@@ -35,6 +35,12 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 
 </div>
 
+<div class='note'>
+
+[Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off entities. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if the type is defined as Alexa in the configuration.
+
+</div>
+
 ### Configuration
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
