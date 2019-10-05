@@ -53,6 +53,10 @@ input_text:
         required: false
         type: string
         default: empty
+      icon:
+        description: Icon to display in front of the input element in the frontend.
+        required: false
+        type: icon
       pattern:
         description: Regex pattern for client side validation.
         required: false
