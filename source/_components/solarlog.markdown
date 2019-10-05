@@ -55,7 +55,7 @@ sensor:
     host: 192.168.1.123
 ```
 
-In case you would like to convert the values for example to Wh instead of the default kWh, you can use the [template platform](/components/sensor.template/).
+In case you would like to convert the values for example to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
 ```yaml
