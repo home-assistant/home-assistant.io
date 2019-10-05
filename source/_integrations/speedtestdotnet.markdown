@@ -17,7 +17,7 @@ By default, a speed test will be run every hour. The user can change the update 
 
 ## Configuration
 
-For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
+For the `server_id` check the list of [available servers](http://www.speedtestserver.com).
 
 To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 
@@ -43,7 +43,7 @@ monitored_conditions:
       description: "The upload speed (Mbit/s)."
 server_id:
   description: Specify the speed test server to perform the test against.
-  required: false
+  required: true
   type: integer
 scan_interval:
   description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
@@ -94,6 +94,7 @@ Every half hour of every day:
 ```yaml
 # Example configuration.yaml entry
 speedtestdotnet:
+  server_id: 9999
   scan_interval:
     minutes: 30
   monitored_conditions:
