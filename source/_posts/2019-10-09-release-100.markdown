@@ -19,6 +19,40 @@ TBD
 
 TBD
 
+## Frontend
+
+### Lovelace
+
+[@iantrich](https://github.com/iantrich) fire has not been put out yet. This version he has also added many new functions to Lovelace! Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/) for all changes.
+
+#### Some hightlights:
+- There are a lot more option for state filtering
+- We have a bunch of new UI editors
+- A new action `url` to link to external sites
+
+### Automation editor
+
+[@emontnemery](https://github.com/emontnemery) has added a bunch of functions to the automation editor, you can now use `and` and `or` conditions, and give your automation a description so you know why you did what you did.
+
+### Devices
+
+When we are on automations, we have taken that to the last release introduced device page. You can now see all the triggers, conditions and actions the device supports, and create an automation with it in 1 click.
+
+Also the entity registry is added to the device page, so you can change all the settings of the devices entities in one place.
+By default the disabled entities are now hidden, you can show them with the switch on the top.
+
+### We say goodbye to JSON
+
+On the backend we have been using YAML for a long time, but on the frontend, we still used JSON for a lot of things. JSON is harder to write than YAML so we have aligned that. All data inputs on the frontend now accept YAML. You can still use JSON, as JSON is valid YAML.
+
+This includes:
+
+- The automation editor
+- The script editor
+- Services data in dev tools
+- States in dev tools
+- Events in dev tools
+
 ## New Integrations
 
 - Add support for DOODS Image Processing ([@snowzach] - [#26208]) ([doods docs]) (new-integration)
@@ -273,6 +307,50 @@ TBD
 - Fix colorTemperatureInKelvin in Alexa report when light is off ([@ochlocracy] - [#27107]) ([alexa docs])
 - Add device trigger support to sensor entities ([@emontnemery] - [#27133]) ([automation docs]) ([binary_sensor docs]) ([device_automation docs]) ([sensor docs])
 - Add Google Report State ([@balloob] - [#27112]) ([alexa docs]) ([cloud docs]) ([google_assistant docs])
+
+## All frontend changes
+
+* Fix dark switch for map card editor ([#3856](https://github.com/home-assistant/home-assistant-polymer/pull/3856)) [@bramkragten](https://github.com/bramkragten)
+* Align background with tiles ([#3858](https://github.com/home-assistant/home-assistant-polymer/pull/3858)) [@bramkragten](https://github.com/bramkragten)
+* Allow yaml in dev states ([#3859](https://github.com/home-assistant/home-assistant-polymer/pull/3859)) [@bramkragten](https://github.com/bramkragten)
+* Allow yaml in dev services ([#3860](https://github.com/home-assistant/home-assistant-polymer/pull/3860)) [@bramkragten](https://github.com/bramkragten)
+* Allow yaml in dev events ([#3861](https://github.com/home-assistant/home-assistant-polymer/pull/3861)) [@bramkragten](https://github.com/bramkragten)
+* Allow yaml in script and automation ([#3862](https://github.com/home-assistant/home-assistant-polymer/pull/3862)) [@bramkragten](https://github.com/bramkragten)
+* Default hide disabled entities from entity registry ([#3863](https://github.com/home-assistant/home-assistant-polymer/pull/3863)) [@bramkragten](https://github.com/bramkragten)
+* Guard for null badges ([#3841](https://github.com/home-assistant/home-assistant-polymer/pull/3841)) [@bramkragten](https://github.com/bramkragten)
+* Add entity registry functions to device page ([#3843](https://github.com/home-assistant/home-assistant-polymer/pull/3843)) [@bramkragten](https://github.com/bramkragten)
+* Allow user selection of text in Lovelace ([#3605](https://github.com/home-assistant/home-assistant-polymer/pull/3605)) [@iantrich](https://github.com/iantrich)
+* Update documentation link URL for integrations ([#3857](https://github.com/home-assistant/home-assistant-polymer/pull/3857)) [@frenck](https://github.com/frenck)
+* add actions to picture-glance entities ([#3807](https://github.com/home-assistant/home-assistant-polymer/pull/3807)) [@iantrich](https://github.com/iantrich)
+* Fix some styling of ha-switch ([#3842](https://github.com/home-assistant/home-assistant-polymer/pull/3842)) [@bramkragten](https://github.com/bramkragten)
+* Remove local mdc-datatable ([#3840](https://github.com/home-assistant/home-assistant-polymer/pull/3840)) [@bramkragten](https://github.com/bramkragten)
+* Add missing domain icons ([#3836](https://github.com/home-assistant/home-assistant-polymer/pull/3836)) [@SeanPM5](https://github.com/SeanPM5)
+* Use filter worker in data-table ([#3808](https://github.com/home-assistant/home-assistant-polymer/pull/3808)) [@bramkragten](https://github.com/bramkragten)
+* add image option to entities card ([#3832](https://github.com/home-assistant/home-assistant-polymer/pull/3832)) [@iantrich](https://github.com/iantrich)
+* fix alignment of switches positioned absolutely ([#3812](https://github.com/home-assistant/home-assistant-polymer/pull/3812)) [@iantrich](https://github.com/iantrich)
+* add state_filter to picture cards ([#3791](https://github.com/home-assistant/home-assistant-polymer/pull/3791)) [@iantrich](https://github.com/iantrich)
+* Add a setting for vibration ([#3813](https://github.com/home-assistant/home-assistant-polymer/pull/3813)) [@bramkragten](https://github.com/bramkragten)
+* Add hassio supervisor and os update notice ([#3798](https://github.com/home-assistant/home-assistant-polymer/pull/3798)) [@bramkragten](https://github.com/bramkragten)
+* Add name to picture entity struct ([#3809](https://github.com/home-assistant/home-assistant-polymer/pull/3809)) [@bramkragten](https://github.com/bramkragten)
+* UI Editor for picture-glance card ([#3709](https://github.com/home-assistant/home-assistant-polymer/pull/3709)) [@iantrich](https://github.com/iantrich)
+* Fix firefox overflow ([#3806](https://github.com/home-assistant/home-assistant-polymer/pull/3806)) [@bramkragten](https://github.com/bramkragten)
+* Expand entity-filter options ([#3692](https://github.com/home-assistant/home-assistant-polymer/pull/3692)) [@iantrich](https://github.com/iantrich)
+* Green shade in climate history for platforms that don't support `hvac_action` ([#3787](https://github.com/home-assistant/home-assistant-polymer/pull/3787)) [@OnFreund](https://github.com/OnFreund)
+* UI editor for history-graph ([#3782](https://github.com/home-assistant/home-assistant-polymer/pull/3782)) [@iantrich](https://github.com/iantrich)
+* cleanup editors ([#3786](https://github.com/home-assistant/home-assistant-polymer/pull/3786)) [@iantrich](https://github.com/iantrich)
+* Add support for `and` and `or` conditions to the automation editor. ([#3724](https://github.com/home-assistant/home-assistant-polymer/pull/3724)) [@emontnemery](https://github.com/emontnemery)
+* Add support for panels to cast ([#3796](https://github.com/home-assistant/home-assistant-polymer/pull/3796)) [@bramkragten](https://github.com/bramkragten)
+* Move views to own folder + use update vs updated in panel view ([#3761](https://github.com/home-assistant/home-assistant-polymer/pull/3761)) [@bramkragten](https://github.com/bramkragten)
+* Add Language Urdu ([#3750](https://github.com/home-assistant/home-assistant-polymer/pull/3750)) [@bramkragten](https://github.com/bramkragten)
+* Add support for automation description ([#3723](https://github.com/home-assistant/home-assistant-polymer/pull/3723)) [@emontnemery](https://github.com/emontnemery)
+* light-card: icon option ([#3771](https://github.com/home-assistant/home-assistant-polymer/pull/3771)) [@iantrich](https://github.com/iantrich)
+* Switch paper-toggle-button to mwc-switch ([#3683](https://github.com/home-assistant/home-assistant-polymer/pull/3683)) [@iantrich](https://github.com/iantrich)
+* Upgrade some deps ([#3780](https://github.com/home-assistant/home-assistant-polymer/pull/3780)) [@balloob](https://github.com/balloob)
+* UI Editor for picture-entity card ([#3708](https://github.com/home-assistant/home-assistant-polymer/pull/3708)) [@iantrich](https://github.com/iantrich)
+* picture entity editor fix ([#3783](https://github.com/home-assistant/home-assistant-polymer/pull/3783)) [@iantrich](https://github.com/iantrich)
+* new action: url ([#3773](https://github.com/home-assistant/home-assistant-polymer/pull/3773)) [@iantrich](https://github.com/iantrich)
+* Replace all default exports in common/ with named exports ([#3790](https://github.com/home-assistant/home-assistant-polymer/pull/3790)) [@iantrich](https://github.com/iantrich)
+* Add device automation options to device page ([#3776](https://github.com/home-assistant/home-assistant-polymer/pull/3776)) [@bramkragten](https://github.com/bramkragten)
 
 [#22311]: https://github.com/home-assistant/home-assistant/pull/22311
 [#23495]: https://github.com/home-assistant/home-assistant/pull/23495
