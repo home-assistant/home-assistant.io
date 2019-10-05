@@ -284,7 +284,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [flash-briefing-docs]: /integrations/alexa/
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/
 [hacktoberfest-ha-prs]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
-[hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.io/labels/Hacktoberfest
 [hacktoberfest-website]: https://hacktoberfest.digitalocean.com/
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
 [min]: /integrations/min_max
@@ -300,4 +300,4 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [zero-two-seven-release]: /blog/2016/08/28/notifications-hue-fake-unification/
 [twitter]: https://twitter.com/home_assistant
 [robbie-twitter]: https://twitter.com/robbie
-[blog-orig]: https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown
+[blog-orig]: https://github.com/home-assistant/home-assistant.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown

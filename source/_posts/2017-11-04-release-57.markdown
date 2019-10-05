@@ -35,7 +35,7 @@ Hacktoberfest is obviously about the people contributing to open source. Big tha
 Here are our Hacktoberfest 2017 stats. It's a miracle everyone is still alive:
 
 - Main repo: [273 Pull requests](https://github.com/home-assistant/home-assistant/pulls?utf8=%E2%9C%93&q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20) were merged out of 307.
-- Docs repo: [295 Pull requests](https://github.com/home-assistant/home-assistant.github.io/pulls?page=1&q=merged%3A%3E2017-10-01+is%3Apr+label%3AHacktoberfest+is%3Aclosed&utf8=%E2%9C%93) merged out of 310.
+- Docs repo: [295 Pull requests](https://github.com/home-assistant/home-assistant.io/pulls?page=1&q=merged%3A%3E2017-10-01+is%3Apr+label%3AHacktoberfest+is%3Aclosed&utf8=%E2%9C%93) merged out of 310.
 - Frontend: [57 pull requests](https://github.com/home-assistant/home-assistant-polymer/pulls?utf8=%E2%9C%93&q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20) merged.
 
 This means that we processed over 20 Pull requests per day. The result was already visible in 0.56. This release is almost the same. In those releases we were able to add over 40 new integrations.
