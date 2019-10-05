@@ -53,8 +53,8 @@ payload_custom:
 # Complete configuration.yaml entry
 device_tracker:
   devices:
-      paulus_oneplus: 'location/paulus'
-      annetherese_n4: 'location/annetherese'
+    paulus_oneplus: 'location/paulus'
+    annetherese_n4: 'location/annetherese'
   qos: 1
   payload_home: present
   payload_not_home: not present
