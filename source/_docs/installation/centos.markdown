@@ -65,7 +65,7 @@ Type=simple
 # %i means the username is derrived from the filename.
 User=%i
 # a python venv for hass exists in /opt/hass/venv
-ExecStart=/opt/hass/venv/bin/hass
+ExecStart=/srv/homeassistant/bin/hass
 
 [Install]
 WantedBy=multi-user.target
