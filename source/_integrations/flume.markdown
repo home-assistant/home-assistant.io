@@ -15,8 +15,6 @@ Flume monitors real-time status of your home water meter. Allowing the end user 
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://https://portal.flumetech.com/#settings). 
 
-You can find your Device ID using the [Dashboard](https://portal.flumetech.com/#dashboard). Review this page using Chrome inspect Network Tab. Refresh the page and select the "query" that loads. Review the Request URL in the Header field. Copy the Device ID from the URL listed in the Header field: "https://api.flumetech.com/users/'user_id'/devices/'device_id'/query"
-
 The timezone is configure using the 'pytz' library. For a list of available time zones please reference this [StackOverFlow](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones) Article. 
 
 To enable the flume sensor, add the following lines to your `configuration.yaml` file:
@@ -31,7 +29,6 @@ sensor:
     client_id: YOUR_FLUME_CLIENT_ID
     client_secret: YOUR_FLUME_CLIENT_SECRET
     time_zone: YOUR_TIME_ZONE
-    device_id: YOUR_FLUME_DEVICE_ID
 ```
 
 # Configuration Variables
@@ -51,10 +48,6 @@ client_id:
   type: string
 client_secret:
   description: Your flume Client Secret.
-  required: true
-  type: string
-device_id:
-  description: Your flume Device ID.
   required: true
   type: string
 time_zone:
