@@ -56,7 +56,7 @@ name:
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
 </div>
 
-### Service `camera.foscam_ptz`
+### Service `foscam.ptz`
 
 If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 
