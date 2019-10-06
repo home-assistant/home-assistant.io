@@ -37,7 +37,15 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume. Defaults to 80.
+  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far
+too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e.
+ if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set t
+o 50% of it's maximum volume. Defaults to 100%.
+  required: false
+  type: integer
+receiver_max_volume:
+  description: The maximum volume of the receiver. For older Onkyo receivers this was 80. Newer
+ Onkyo receivers use 200. Defaults to 80
   required: false
   type: integer
 sources:
@@ -74,6 +82,13 @@ List of source names:
 - multi-ch
 - xm
 - sirius
+
+To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
+(don't do this whilst playing something!) and run:
+```
+onkyo --host 192.168.0.100 volume=query
+unknown-model: master-volume = 191
+```
 
 ### Service `onkyo_select_hdmi_output`
 
