@@ -23,4 +23,4 @@ In the frontend open the sidebar. At the bottom, under **Developer Tools**, clic
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific switch. Otherwise, it targets all switches.
+| `entity_id`            |      no  | The entity ID of the switch to control. To target all switches, set the entity ID to `all`|
