@@ -69,7 +69,10 @@ name:
 {% endconfiguration %}
 
 # Configuration for Binary Sensor
+
 Following YAML will create a binary sensor. This requires the default sensor to be configured successfully.
+
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -79,5 +82,5 @@ binary_sensor:
         friendly_name: "Flume Flow Status"
         value_template: >-
           {{ states.sensor.flume_sensor.state != "0" }}
-
 ```
+{% endraw %}
