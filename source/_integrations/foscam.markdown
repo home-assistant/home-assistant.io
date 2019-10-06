@@ -66,6 +66,120 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 | `movement` | 	Direction of the movement. Allowed values: `UP`, `DOWN`, `LEFT`, `RIGHT`, `TOP_LEFT`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 
+### Example card with controls
+
+<p class='img'>
+  <img src='/images/integrations/foscam/example-card.png' alt='Screenshot showing a foscam camera using a picture-elements with PTZ controls.'>
+  Example showing a Foscam camera with controls for Pan and Tilt.
+</p>
+
+
+Using the following card code you can achieve a card displaying the live video feed from a Foscam camera with controls for moving the camera at the bottom right corner.
+
+```yaml
+type: picture-elements
+entity: camera.bedroom
+camera_image: camera.bedroom
+camera_view: live
+elements:
+  - type: icon
+    icon: 'mdi:arrow-up'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: UP
+  - type: icon
+    icon: 'mdi:arrow-down'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: DOWN
+  - type: icon
+    icon: 'mdi:arrow-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: LEFT
+  - type: icon
+    icon: 'mdi:arrow-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: RIGHT
+  - type: icon
+    icon: 'mdi:arrow-top-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: TOP_LEFT
+  - type: icon
+    icon: 'mdi:arrow-top-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: TOP_RIGHT
+  - type: icon
+    icon: 'mdi:arrow-bottom-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 50px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: BOTTOM_LEFT
+  - type: icon
+    icon: 'mdi:arrow-bottom-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: foscam.ptz
+      service_data:
+        entity_id: camera.bedroom
+        movement: BOTTOM_RIGHT
+```
+
 ### Extra CGI Commands
 
 Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.
