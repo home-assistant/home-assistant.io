@@ -4,7 +4,7 @@ description: "Documentation about the flume sensor."
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.99.3
+ha_release: 0.101
 ---
 
 The `flume` sensor will show you the current [flume](https://portal.flumetech.com/) status for the given Device ID.
