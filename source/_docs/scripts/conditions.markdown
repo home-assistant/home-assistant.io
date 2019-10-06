@@ -241,7 +241,7 @@ A better weekday condition could be by using the [Workday Binary Sensor](/integr
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/device_tracker.owntracks/) and the [iCloud platform](/integrations/device_tracker.icloud/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 condition:
