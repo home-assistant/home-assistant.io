@@ -9,7 +9,8 @@ ha_iot_class: Local Polling
 ---
 
 The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
- and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
+and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant.
+Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
 
@@ -44,8 +45,7 @@ o 50% of it's maximum volume. Defaults to 100%.
   required: false
   type: integer
 receiver_max_volume:
-  description: The maximum volume of the receiver. For older Onkyo receivers this was 80. Newer
- Onkyo receivers use 200. Defaults to 80
+  description: The maximum volume of the receiver. For older Onkyo receivers this was 80. Newer Onkyo receivers use 200. Defaults to 80
   required: false
   type: integer
 sources:
@@ -85,7 +85,7 @@ List of source names:
 
 To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
-```
+```bash
 onkyo --host 192.168.0.100 volume=query
 unknown-model: master-volume = 191
 ```
