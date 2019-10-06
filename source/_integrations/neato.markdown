@@ -7,6 +7,7 @@ ha_category:
   - Switch
   - Vacuum
 ha_release: 0.33
+ha_config_flow: true
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
