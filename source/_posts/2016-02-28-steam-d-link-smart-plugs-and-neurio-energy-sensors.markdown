@@ -30,7 +30,7 @@ It's been another two weeks which means it's time for release: 0.14!
  - Switch: [D-Link smart plugs] now supported ([@LinuxChristian])
  - Script: Toggle support added ([@Andythigpen])
  - Light: [Wemo] now supported ([@jaharkes])
- - Rollershutter: [Command line platform][rollershutter.command_line] added ([@t30])
+ - Rollershutter: Command line platform added ([@t30])
  - Sensor: [Steam] now supported ([@GreenTurtwig])
  - Binary Sensor: [Wink] now supported ([@w1ll1am23])
  - Demo has been updated ([@kfgoode])
@@ -64,7 +64,6 @@ It's been another two weeks which means it's time for release: 0.14!
 [Z-Wave]: /integrations/zwave
 [D-Link smart plugs]: /integrations/dlink
 [Wemo]: /integrations/wemo
-[rollershutter.command_line]: /integrations/rollershutter.command_line/
 [Steam]: /integrations/steam_online
 [Wink]: /integrations/wink#binary-sensor
 [the cookbook]: /cookbook/python_component_simple_alarm/

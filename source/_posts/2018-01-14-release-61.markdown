@@ -666,7 +666,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [device_tracker.snmp docs]: /integrations/snmp
 [device_tracker.tile docs]: /integrations/tile
 [digital_ocean docs]: /integrations/digital_ocean/
-[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.insteon_local docs]: /integrations/insteon/
 [fan.isy994 docs]: /integrations/isy994
 [fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
 [google_assistant docs]: /integrations/google_assistant/
@@ -681,7 +681,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [image_processing.opencv docs]: /integrations/opencv
 [input_boolean docs]: /integrations/input_boolean/
 [input_select docs]: /integrations/input_select/
-[insteon_local docs]: /integrations/insteon_local/
+[insteon_local docs]: /integrations/insteon/
 [isy994 docs]: /integrations/isy994/
 [knx docs]: /integrations/knx/
 [light.deconz docs]: /integrations/deconz#light
