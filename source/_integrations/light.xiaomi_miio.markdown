@@ -138,7 +138,7 @@ Set one of the 4 available fixed scenes.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 | `scene`                   |       no | Scene, between 1 and 4.                               |
 
 ### Service `light.xiaomi_miio_set_delayed_turn_off`
@@ -147,7 +147,7 @@ Delayed turn off.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 | `time_period`             |       no | Time period for the delayed turn off.                 |
 
 ### Service `light.xiaomi_miio_reminder_on` (Eyecare Smart Lamp 2 only)
@@ -156,7 +156,7 @@ Enable the eye fatigue reminder/notification.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
 ### Service `light.xiaomi_miio_reminder_off` (Eyecare Smart Lamp 2 only)
 
@@ -164,7 +164,7 @@ Disable the eye fatigue reminder/notification.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
 ### Service `light.xiaomi_miio_night_light_mode_on`  (Eyecare Smart Lamp 2 only)
 
@@ -172,7 +172,7 @@ Turn the smart night light mode on.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
 ### Service `light.xiaomi_miio_night_light_mode_off`  (Eyecare Smart Lamp 2 only)
 
@@ -180,7 +180,7 @@ Turn the smart night light mode off.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
 ### Service `light.xiaomi_miio_eyecare_mode_on`  (Eyecare Smart Lamp 2 only)
 
@@ -188,7 +188,7 @@ Turn the eyecare mode on.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
 ### Service `light.xiaomi_miio_eyecare_mode_off`  (Eyecare Smart Lamp 2 only)
 
@@ -196,4 +196,4 @@ Turn the eyecare mode off.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
