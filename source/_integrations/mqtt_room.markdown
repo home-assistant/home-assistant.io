@@ -19,6 +19,9 @@ To use this device tracker in your installation, add the following to your `conf
 sensor:
   - platform: mqtt_room
     device_id: 123testid
+    state_topic: 'Livingroom'
+    away_timeout: 300
+    name: "BleTagSonny"
 ```
 
 {% configuration %}
