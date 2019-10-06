@@ -49,11 +49,6 @@ havdalah_minutes_after_sunset:
   description: Number of minutes after sunset to report as havdalah time. If this is set to 0, uses the time that the sun is 8.5 degrees below the horizon (same as the 'three_stars' sensor). If non-zero, this value is added as an offset to the time of sunset to report havdalah.
   default: 0
   type: integer
-time_format:
-  required: false
-  description: Time format for output of time sensors
-  default: "%H:%M"
-  type: string
 {% endconfiguration %}
 
 ## Sensor list
@@ -69,7 +64,7 @@ time_format:
 
 *Note: Due to the variety of rabbinic opinions on how to calculate the different times, we do not take any responsibility on your religious reliance upon the calculations.*
 
-By default the time sensors are represented as hour:minute. By changing the `time_format` value you can have the sensor display the timestamp in any format you want as described [here](http://strftime.org/).
+Time sensors are represented in ISO8601 format. For easier use in automations, all time sensors have a `timestamp` attribute, which returns the UNIX timestamp.
 - first_light: First light of dawn (Alot Hashachar - עלות השחר).
 - gra_end_shma: Last time for reading of the Shma according to the GR"A.
 - mga_end_shma: Last time for reading of the Shma according to the MG"A.
