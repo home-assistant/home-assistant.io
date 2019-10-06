@@ -7,11 +7,23 @@ ha_category:
   - Switch
   - Vacuum
 ha_release: 0.33
+ha_config_flow: true
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 
-To enable `neato` in your installation, add the following to your `configuration.yaml` file:
+To activate `neato` in your installation, you can set it up from the integration screen or add it to your `configuration.yaml` file.
+
+## Setup the integration via the integrations screen
+
+Menu: *Configuration* -> *Integrations*
+
+Search for or select **Neato** from the list and configure the integration. You will need to enter your username and password and whether you are using a Neato or Vorwerk device.
+After that, all the entities will automatically show up in Home Assistant.
+
+## Setup the integration via configuration.yaml
+
+Add the following to your configuration.yaml:
 
 ```yaml
 # Example configuration.yaml entry
