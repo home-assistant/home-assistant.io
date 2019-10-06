@@ -63,7 +63,7 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all. |
-| `movement` | 	Direction of the movement. Allowed values: `UP`, `DOWN`, `LEFT`, `RIGHT`, `TOP_LEFT`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_RIGHT` |
+| `movement` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right`, `top_left`, `top_right`, `bottom_left`, `bottom_right` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 
 ### Example card with controls
@@ -93,7 +93,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: UP
+        movement: up
   - type: icon
     icon: 'mdi:arrow-down'
     style:
@@ -105,7 +105,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: DOWN
+        movement: down
   - type: icon
     icon: 'mdi:arrow-left'
     style:
@@ -117,7 +117,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: LEFT
+        movement: left
   - type: icon
     icon: 'mdi:arrow-right'
     style:
@@ -129,7 +129,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: RIGHT
+        movement: right
   - type: icon
     icon: 'mdi:arrow-top-left'
     style:
@@ -141,7 +141,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: TOP_LEFT
+        movement: top_left
   - type: icon
     icon: 'mdi:arrow-top-right'
     style:
@@ -153,7 +153,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: TOP_RIGHT
+        movement: top_right
   - type: icon
     icon: 'mdi:arrow-bottom-left'
     style:
@@ -165,7 +165,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: BOTTOM_LEFT
+        movement: bottom_left
   - type: icon
     icon: 'mdi:arrow-bottom-right'
     style:
@@ -177,7 +177,7 @@ elements:
       service: foscam.ptz
       service_data:
         entity_id: camera.bedroom
-        movement: BOTTOM_RIGHT
+        movement: bottom_right
 ```
 
 ### Extra CGI Commands
