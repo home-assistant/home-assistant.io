@@ -714,7 +714,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /integrations/tplink
 [system_log docs]: /integrations/system_log/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tellduslive docs]: /integrations/tellduslive/
 [tibber docs]: /integrations/tibber/
 [toon docs]: /integrations/toon/

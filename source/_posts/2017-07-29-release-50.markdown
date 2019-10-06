@@ -418,5 +418,5 @@ conversation:
 [@n8henrie]: https://github.com/n8henrie
 [light.tradfri docs]: /integrations/tradfri
 [media_player.pioneer docs]: /integrations/pioneer
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [zwave docs]: /integrations/zwave/

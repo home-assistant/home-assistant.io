@@ -843,7 +843,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zwave docs]: /integrations/zwave
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tts docs]: /integrations/tts/
 [twilio docs]: /integrations/twilio/
 [unifi docs]: /integrations/unifi/

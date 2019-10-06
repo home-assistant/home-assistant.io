@@ -488,7 +488,7 @@ amcrest:
 [@maikelwever]: https://github.com/maikelwever
 [@ypollart]: https://github.com/ypollart
 [binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [#8545]: https://github.com/home-assistant/home-assistant/pull/8545
 [#8571]: https://github.com/home-assistant/home-assistant/pull/8571
 [#8601]: https://github.com/home-assistant/home-assistant/pull/8601

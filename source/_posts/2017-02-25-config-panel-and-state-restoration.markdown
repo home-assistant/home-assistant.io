@@ -283,7 +283,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /integrations/webhooks/
+[telegram]: /integrations/telegram_webhooks/
 [pushsafer]: /integrations/pushsafer
 [openhome]: /integrations/openhome
 [ups]: /integrations/ups
