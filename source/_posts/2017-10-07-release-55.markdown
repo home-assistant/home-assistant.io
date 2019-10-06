@@ -321,7 +321,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.rflink docs]: /integrations/cover.rflink/
 [demo docs]: /integrations/demo/
 [device_tracker.owntracks docs]: /integrations/owntracks
-[device_tracker.owntracks_http docs]: /integrations/owntracks_http/
+[device_tracker.owntracks_http docs]: /integrations/owntracks
 [duckdns docs]: /integrations/duckdns/
 [ecobee docs]: /integrations/ecobee/
 [emulated_hue docs]: /integrations/emulated_hue/

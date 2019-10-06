@@ -23,7 +23,7 @@ After research, the following integrations have been impacted. Although the odds
 - [google_assistant](/integrations/google_assistant/) (manual setup)
 - [google_domains](/integrations/google_domains/)
 - [homematicip_cloud](/integrations/homematicip_cloud/)
-- [image_processing.openalpr_cloud](/integrations/openalpr_local_cloud)
+- [image_processing.openalpr_cloud](/integrations/openalpr_cloud)
 - [microsoft_face](/integrations/microsoft_face/)
 - [namecheapdns](/integrations/namecheapdns/)
 - [no_ip](/integrations/no_ip/)
