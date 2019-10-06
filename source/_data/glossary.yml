@@ -2,16 +2,22 @@
   description: "[Actions](/docs/automation/action/) are events that fires once all triggers and conditions have been met."
 - topic: Automation
   description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as a sunset to cause an event, such as a light turning on."
+- topic: Binary sensor
+  description: "A [binary sensor](/integrations/binary_sensor) returns information about things that only have two states - such as on or off."
 - topic: Component
   description: "Integrations (see below) used to be known as components."
 - topic: Condition
   description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."  
 - topic: Cookbook
   description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
+- topic: Cover
+  description: "[Covers](/integrations/cover) are devices such as blinds, garage doors, etc than can be opened and closed and optionally set to a specific position."
 - topic: Customize
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
+- topic: Device tracker
+  description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Entity
@@ -30,6 +36,10 @@
   description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
   description: "[Lovelace](/lovelace/) is the name of the current frontend."
+- topic: Light
+  description: "A [light](/integrations/light) has a brightness you can control, and optionally color temperature or RGB color control."
+- topic: Notification
+  description: "You can use [notifications](/integrations/#notifications) to send messages, pictures, and more, to devices."
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Platform
@@ -38,11 +48,17 @@
   description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red." 
 - topic: Script
   description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
+- topic: Sensor
+  description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
+- topic: Switch
+  description: "[Switches](/integrations/switch) are things that have two states you can select between, such as turning on or off a socket."
 - topic: Template
   description: "A [template](/docs/automation/templating/) is an automation definition that can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
 - topic: Trigger
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
+- topic: TTS
+  description: "TTS ([text to speech](/integrations/tts) allows Home Assistant to talk to you."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

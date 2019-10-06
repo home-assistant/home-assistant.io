@@ -24,7 +24,7 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## Discuss Lovelace
 
-- Suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema)
+- Suggestions are welcome in the [home-assistant-polymer repository](https://github.com/home-assistant/home-assistant-polymer/)
 - For help with Lovelace, join the #lovelace channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
 
 ## Additional Lovelace Resources
