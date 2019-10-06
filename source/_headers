@@ -13,8 +13,8 @@
 /assets/*
   Cache-Control: public, max-age: 0, s-max-age=604800, must-revalidate
 /fonts/*
-  Cache-Control: public, max-age: 0, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
 /images/*
-  Cache-Control: public, max-age: 0, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
 /static/*
-  Cache-Control: public, max-age: 0, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
