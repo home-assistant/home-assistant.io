@@ -426,7 +426,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [hue docs]: /integrations/hue/
 [image_processing.facebox docs]: /integrations/facebox
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [konnected docs]: /integrations/konnected/
 [light.deconz docs]: /integrations/deconz#light
 [light.lifx docs]: /integrations/lifx
@@ -485,7 +485,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
 [sonos docs]: /integrations/sonos/
 [switch.doorbird docs]: /integrations/doorbird#switch
-[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.insteon_plm docs]: /integrations/insteon/
 [switch.linode docs]: /integrations/linode#switch
 [switch.mystrom docs]: /integrations/mystrom#switch
 [switch.neato docs]: /integrations/neato#switch

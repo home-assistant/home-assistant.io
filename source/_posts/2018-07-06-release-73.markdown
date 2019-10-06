@@ -288,7 +288,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /integrations/http/
 [hue docs]: /integrations/hue/
 [image_processing.opencv docs]: /integrations/opencv
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.deconz docs]: /integrations/deconz#light
 [light.flux_led docs]: /integrations/flux_led
 [light.homekit_controller docs]: /integrations/homekit_controller

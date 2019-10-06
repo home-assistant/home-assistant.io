@@ -323,7 +323,7 @@ usps:
 [fan.isy994 docs]: /integrations/isy994
 [image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.decora_wifi docs]: /integrations/decora_wifi/
 [light.flux_led docs]: /integrations/flux_led
 [light.hue docs]: /integrations/hue

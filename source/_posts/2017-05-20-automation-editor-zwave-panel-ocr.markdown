@@ -364,8 +364,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
 [image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
 [image_processing.microsoft_face_identify docs]: /integrations/microsoft_face_identify
-[image_processing.openalpr_cloud docs]: /integrations/openalpr_local_cloud
-[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_cloud
+[image_processing.openalpr_local docs]: /integrations/openalpr_local
 [image_processing.opencv docs]: /integrations/opencv
 [image_processing.seven_segments docs]: /integrations/seven_segments
 [kira docs]: /integrations/kira/

@@ -245,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Clean up RFLink tests and add two tests ([@javicalle] - [#19511])
 - Add ZHA battery sensor ([@dmulcahey] - [#19363]) ([zha docs]) ([sensor.zha docs])
 - Restore state for zha binary_sensors on restart. ([@Adminiuga] - [#19314]) ([binary_sensor.zha docs])
-- Add deprecation warning ([@ludeeus] - [#19515]) ([sensor.ruter docs])
+- Add deprecation warning ([@ludeeus] - [#19515]) (sensor.ruter docs)
 - Update yale smart alarm client to v0.1.6 ([@domwillcode] - [#19495]) ([alarm_control_panel.yale_smart_alarm docs])
 - Add sunrise and sunset to Darksky weather sensor ([@fabaff] - [#19492]) ([sensor.darksky docs])
 - Update ZHA entity state on ZigBee zdo device announce ([@dmulcahey] - [#19208]) ([zha docs])
@@ -864,7 +864,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.plum_lightpad docs]: /integrations/plum_lightpad
 [sensor.point docs]: /integrations/point#sensor
 [sensor.prezzibenzina docs]: /integrations/prezzibenzina
-[sensor.ruter docs]: /integrations/sensor.ruter/
 [sensor.scrape docs]: /integrations/scrape
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.solaredge docs]: /integrations/solaredge

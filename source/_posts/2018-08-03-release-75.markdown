@@ -313,7 +313,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [auth docs]: /integrations/auth/
 [binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
 [binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
-[binary_sensor.insteon_plm docs]: /integrations/insteon_plm/
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
 [binary_sensor.tahoma docs]: /integrations/tahoma
 [binary_sensor.trend docs]: /integrations/trend
 [calendar.todoist docs]: /integrations/todoist
@@ -335,7 +335,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan docs]: /integrations/fan/
 [fan.comfoconnect docs]: /integrations/comfoconnect
 [fan.dyson docs]: /integrations/dyson#fan
-[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.insteon_local docs]: /integrations/insteon/
 [fan.template docs]: /integrations/fan.template/
 [fan.tuya docs]: /integrations/tuya
 [fan.wink docs]: /integrations/wink#fan
@@ -347,7 +347,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /integrations/http/
 [ihc docs]: /integrations/ihc/
 [image_processing.opencv docs]: /integrations/opencv
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light docs]: /integrations/light/
 [light.deconz docs]: /integrations/deconz#light
 [light.futurenow docs]: /integrations/futurenow
@@ -397,7 +397,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [spider docs]: /integrations/spider/
 [switch docs]: /integrations/switch/
 [switch.ihc docs]: /integrations/ihc#switch
-[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.insteon_plm docs]: /integrations/insteon/
 [switch.mqtt docs]: /integrations/switch.mqtt/
 [switch.spider docs]: /integrations/spider
 [switch.tplink docs]: /integrations/tplink
