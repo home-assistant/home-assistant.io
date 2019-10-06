@@ -328,7 +328,7 @@ Turn the buzzer off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       mo | Only act on a specific Xiaomi miIO fan entity.          |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
 ### Service `fan.xiaomi_miio_set_led_on` (Air Purifiers only)
 
