@@ -43,6 +43,11 @@ circuit:
   description: Heating circuit of your heating device if multiple exist 
   required: false
   type: integer
+heating_type:
+  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes specific for the heating system.
+  required: false
+  type: string
+  default: generic
 {% endconfiguration %}
 
 Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
