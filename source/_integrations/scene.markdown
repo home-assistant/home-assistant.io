@@ -50,7 +50,6 @@ Scenes can be activated using the service `scene.turn_on` (there is no 'scene.tu
 
 ```yaml
 # Example automation
----
 automation:
   trigger:
     platform: state
@@ -68,7 +67,6 @@ With the `scene.apply` service you are able to apply a scene without first defin
 
 ```yaml
 # Example automation
----
 automation:
   trigger:
     platform: state
