@@ -4,6 +4,7 @@ description: "Instructions on how to integrate your Neato within Home Assistant.
 logo: neato.png
 ha_category:
   - Camera
+  - Sensor
   - Switch
   - Vacuum
 ha_release: 0.33
@@ -103,6 +104,10 @@ Some information about the capabilities might be found on the [Neato Developer P
 ## Camera
 
 The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
+
+## Sensor
+
+The `neato` sensor platform allows you to view the battery level for your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 
 ## Switch
 
