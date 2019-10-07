@@ -147,6 +147,29 @@ data:
   media_content_type: "channel"
 ```
 
+### Launch application with content
+
+The `play_media` service can be used to launch an application and play content. The `media_content_id` parameter value varies dependent on the application called in the `media_content_type` parameter. The `media_content_type` parameter is the internal application name and seems to vary depending on regions. Netflix and YouTube are shown in examples below.
+
+```yaml
+# Example to launch netflix and begin playing a video.
+# The ID after watch/ can be found when viewing show in a browser or via a 3rd party database. 
+# Unfortunately there is no public Netflix API to look this up on. 
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: "m=http://www.netflix.com/watch/80095697"
+  media_content_type: "netflix"
+
+# Example to launch youtube and being playing a video.
+# media_content_id is the YouTube video ID.
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: "dQw4w9WgXcQ"
+  media_content_type: "youtube.leanback.v4"
+```
+
 ### Next/Previous buttons
 
 The behaviour of the next and previsous buttons is different depending on the active source:
