@@ -128,7 +128,7 @@ This integration will also list all Abode `Quick Actions` that are set up. You c
 
 ### Light
 
-This integration will automatically add `Lights` configured in your Abode account.
+This integration will automatically add lights configured in your Abode account.
 
 ### Switch
 
