@@ -132,6 +132,12 @@ automation:
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
+<div class='note warning'>
+  
+  Template support to template trigger's `for` option was added in 0.96 and won't work in previous versions.
+
+</div>
+
 ### State trigger
 
 Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
