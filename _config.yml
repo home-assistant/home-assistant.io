@@ -134,5 +134,6 @@ defaults:
 
 # Support for files Jekyll will normally exclude
 include:
-  - ".well-known"
+  - "_headers"
   - "_redirects"
+  - ".well-known"
