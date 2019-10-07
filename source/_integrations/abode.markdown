@@ -24,7 +24,7 @@ Please visit the [Abode website](https://goabode.com/) for further information a
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- [**Binary Sensor**](/integrations/abode/#binary-sensor): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- [**Binary Sensor**](/integrations/abode/#binary-sensor): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors. Also lists all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/integrations/abode/#trigger_quick_action).
 - **Camera**: Reports on `Camera` devices and will download and show the latest captured still image.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
@@ -41,7 +41,6 @@ To use Abode devices in your installation, add your Abode account from the integ
 abode:
   username: abode_username
   password: abode_password
-  polling: false
 ```
 
 {% configuration %}
@@ -119,19 +118,3 @@ Trigger a quick action automation on your Abode system.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of binary_sensors that represent your Abode quick actions.
-
-### Binary Sensor
-
-This integration will add `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-
-This integration will also list all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/integrations/abode/#trigger_quick_action).
-
-### Light
-
-This integration will automatically add lights configured in your Abode account.
-
-### Switch
-
-This integration will automatically add power switches configured in your Abode account.
-
-This integration will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.
