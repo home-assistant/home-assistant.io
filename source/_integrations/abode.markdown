@@ -132,6 +132,6 @@ This integration will automatically add lights configured in your Abode account.
 
 ### Switch
 
-This integration will automatically add `Power Switches` configured in your Abode account.
+This integration will automatically add power switches configured in your Abode account.
 
 This integration will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.
