@@ -10,14 +10,14 @@ ha_iot_class: Local Polling
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
 
-<div class='note'>
 After configuring this component, the binary sensors automatically appear.
-</div>
 
 ## Configuration
 
 <div class='note'>
-You should have at least one vm or container entry configured, else this integration won't do anything
+
+  You should have at least one vm or container entry configured, else this integration won't do anything
+
 </div>
 
 To use the `proxmoxve` component, add the following config to your `configuration.yaml` file:
@@ -69,15 +69,15 @@ nodes:
   required: true
   type: map
   keys:
-    "node":
+    node:
       description: Name of the node
       required: true
       type: string
-    "vms":
+    vms:
       description: List of the QEMU VMs to monitor.
       required: false
       type: list
-    "containers":
+    containers:
       description: List of the LXC containers to monitor.
       required: false
       type: list
