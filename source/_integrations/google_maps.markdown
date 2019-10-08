@@ -47,3 +47,6 @@ scan_interval:
   default: 60
   type: integer
 {% endconfiguration %}
+
+<div class='note'>
+As of release 0.97 Google Passwords are no longer required in your config. Users coming from earlier releases should only remove the password entry from their config file (username is still required) and restart Home Assistant. The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated.</div>
