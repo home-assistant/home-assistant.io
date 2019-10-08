@@ -49,31 +49,33 @@ source ./bin/activate.csh
 pip3 install homeassistant
 ```
 
-While still in the venv, start HA to populate the configuration directory.
+While still in the `venv`, start Home Assistant to populate the configuration directory.
 
 ```bash
 hass --open-ui
 ```
 
-Wait until you see 
+Wait until you see:
 
 ```bash
 (MainThread) [homeassistant.core] Starting Home Assistant
 ```
 
-Then escape and exit the venv
+Then escape and exit the `venv`.
 
 ```bash
 deactivate
 exit
 ```
 
-Create the directory and the `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts. 
+Create the directory and the `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts.
+
 ```bash
 mkdir /usr/local/etc/rc.d/
 ```
 
-Then create a file at `/usr/local/etc/rc.d/homeassistant` and insert the content below
+Then create a file at `/usr/local/etc/rc.d/homeassistant` and insert the content below:
+
 ```bash
 vi /usr/local/etc/rc.d/homeassistant
 ```
