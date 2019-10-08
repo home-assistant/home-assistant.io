@@ -166,7 +166,7 @@ frontend:
 - Add Geofency device tracker ([@gunnarhelgason] - [#9106]) ([device_tracker.geofency docs]) (new-platform)
 - flux: fix for when stop_time is after midnight ([@abmantis] - [#8932])
 - Change attribute names ([@emlt] - [#9277]) ([switch.dlink docs]) (breaking change)
-- insteon_plm: fix typo in attributes ([@drkp] - [#9284]) ([insteon_plm docs])
+- insteon: fix typo in attributes ([@drkp] - [#9284]) ([insteon docs])
 - discovery: If unknown NetDisco service discovered, log about it. ([@pfalcon] - [#9280])
 - Upgrade youtube_dl to 2017.9.2 ([@fabaff] - [#9279]) ([media_extractor docs])
 - Upgrade python-telegram-bot to 8.0.0 ([@fabaff] - [#9282]) ([telegram_bot docs]) ([switch.rest docs])
@@ -385,7 +385,7 @@ frontend:
 [image_processing.dlib_face_detect docs]: /components/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /components/dlib_face_identify
 [input_text docs]: /components/input_text/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light.homematic docs]: /components/homematic
 [light.hue docs]: /components/hue
 [light.lutron_caseta docs]: /components/lutron_caseta/

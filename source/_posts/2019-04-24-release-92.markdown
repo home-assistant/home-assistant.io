@@ -1028,7 +1028,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ign_sismologia docs]: /components/ign_sismologia/
 [influxdb docs]: /components/influxdb/
 [insteon_local docs]: /components/insteon_local/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [introduction docs]: /components/introduction/
 [lcn docs]: /components/lcn/
 [light docs]: /components/light/

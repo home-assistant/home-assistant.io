@@ -163,7 +163,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add HomematicIP Cloud dimmer light device ([@mxworm] - [#15456]) ([light.homematicip_cloud docs])
 - Fix ZWave RGBW lights not producing color without explicit white_value ([@jantman] - [#15412]) ([light.zwave docs])
 - Add IPPassageSensor (HmIP-SPDR) ([@danielperna84] - [#15458]) ([homematic docs])
-- Implement is_on ([@teharris1] - [#15459]) ([switch.insteon_plm docs])
+- Implement is_on ([@teharris1] - [#15459]) ([switch.insteon docs])
 - Remove unnecessary executable permissions ([@scop] - [#15469]) ([fritzbox docs]) ([climate.fritzbox docs]) ([cover.group docs]) ([sensor.wirelesstag docs]) ([switch.amcrest docs]) ([switch.fritzbox docs])
 - Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
 - Update homematicip_cloud with enum states ([@mxworm] - [#15460]) ([homematicip_cloud docs]) ([binary_sensor.homematicip_cloud docs]) ([light.homematicip_cloud docs]) ([sensor.homematicip_cloud docs])
@@ -397,7 +397,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.enocean docs]: /components/enocean#switch
 [switch.eufy docs]: /components/eufy
 [switch.fritzbox docs]: /components/fritzbox
-[switch.insteon_plm docs]: /components/insteon_plm/
+[switch.insteon docs]: /components/insteon/
 [switch.tuya docs]: /components/tuya
 [tahoma docs]: /components/tahoma/
 [tts docs]: /components/tts/

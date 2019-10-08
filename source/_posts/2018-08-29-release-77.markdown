@@ -224,7 +224,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Prevent legacy api password with empty password ([@balloob] - [#16127])
 - Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
 - Remove commented out API password from default config ([@balloob] - [#16147])
-- Spelling fixes ([@scop] - [#16150]) ([insteon_local docs]) ([insteon_plm docs])
+- Spelling fixes ([@scop] - [#16150]) ([insteon docs]) ([insteon docs])
 - Update pydocstyle to 2.1.1 and flake8-docstrings to 1.3.0 ([@scop] - [#14557])
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
 - Hangouts localization typo fix ([@armills] - [#16174]) ([hangouts docs])
@@ -449,7 +449,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.opencv docs]: /components/opencv
 [input_datetime docs]: /components/input_datetime/
 [insteon_local docs]: /components/insteon_local/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [konnected docs]: /components/konnected/
 [light.deconz docs]: /components/deconz#light
 [light.wemo docs]: /components/wemo

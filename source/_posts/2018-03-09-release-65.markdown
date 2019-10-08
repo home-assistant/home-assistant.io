@@ -178,7 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## Breaking Changes
 
-- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/components/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Insteon: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon documentation](/components/insteon/). ([@teharris1] - [#12534]) ([insteon docs]) ([binary_sensor.insteon docs]) ([fan.insteon docs]) ([light.insteon docs]) ([sensor.insteon docs]) ([switch.insteon docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
 - TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
@@ -199,7 +199,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Removing asyncio.coroutine syntax from HASS core ([@Julius2342] - [#12509])
 - Synology Chat as a notification platform ([@cmsimike] - [#12596]) ([notify.synology_chat docs]) (new-platform)
 - Enable pytradfri during build, and include in Docker ([@lwis] - [#12662])
-- Upgrade insteonplm to 0.8.2 (required refactoring) ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Upgrade insteonplm to 0.8.2 (required refactoring) ([@teharris1] - [#12534]) ([insteon docs]) ([binary_sensor.insteon docs]) ([fan.insteon docs]) ([light.insteon docs]) ([sensor.insteon docs]) ([switch.insteon docs]) (breaking change)
 - Homekit Update, Support for TempSensor (°F) ([@cdce8p] - [#12676]) ([homekit docs])
 - Fix formatting of minutes for sleep start in the fitbit sensor ([@awkwardDuck] - [#12664]) ([sensor.fitbit docs])
 - KNX Component: Scene support and expose sensor values ([@Julius2342] - [#11978]) ([knx docs]) ([scene docs]) ([binary_sensor.knx docs]) (new-platform)
@@ -549,7 +549,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.concord232 docs]: /components/concord232#binary-sensor
 [binary_sensor.egardia docs]: /components/egardia#binary-sensor
 [binary_sensor.hikvision docs]: /components/hikvision
-[binary_sensor.insteon_plm docs]: /components/insteon_plm/
+[binary_sensor.insteon docs]: /components/insteon/
 [binary_sensor.isy994 docs]: /components/isy994
 [binary_sensor.knx docs]: /components/binary_sensor.knx/
 [binary_sensor.upcloud docs]: /components/upcloud#binary-sensor
@@ -573,7 +573,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.tesla docs]: /components/tesla
 [device_tracker.ubus docs]: /components/ubus
 [egardia docs]: /components/egardia/
-[fan.insteon_plm docs]: /components/insteon/
+[fan.insteon docs]: /components/insteon/
 [frontend docs]: /components/frontend/
 [google_assistant docs]: /components/google_assistant/
 [group docs]: /components/group/
@@ -582,7 +582,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /components/hue/
 [ihc docs]: /components/ihc/
 [influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [knx docs]: /components/knx/
 [light docs]: /components/light/
 [light.demo docs]: /components/light.demo/
@@ -590,7 +590,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.group docs]: /components/light.group/
 [light.hue docs]: /components/hue
 [light.hyperion docs]: /components/hyperion
-[light.insteon_plm docs]: /components/insteon/
+[light.insteon docs]: /components/insteon/
 [light.knx docs]: /components/light.knx/
 [light.lifx docs]: /components/lifx
 [light.limitlessled docs]: /components/limitlessled
@@ -617,7 +617,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.folder docs]: /components/folder
 [sensor.history_stats docs]: /components/history_stats
 [sensor.imap docs]: /components/imap
-[sensor.insteon_plm docs]: /components/insteon/
+[sensor.insteon docs]: /components/insteon/
 [sensor.luftdaten docs]: /components/luftdaten#sensor
 [sensor.netatmo docs]: /components/netatmo#sensor
 [sensor.plex docs]: /components/plex#sensor
@@ -636,7 +636,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.zestimate docs]: /components/zestimate
 [shopping_list docs]: /components/shopping_list/
 [switch.edimax docs]: /components/edimax
-[switch.insteon_plm docs]: /components/insteon_plm/
+[switch.insteon docs]: /components/insteon/
 [switch.rest docs]: /components/switch.rest/
 [switch.tesla docs]: /components/tesla
 [switch.upcloud docs]: /components/upcloud#switch

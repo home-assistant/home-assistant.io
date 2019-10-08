@@ -143,7 +143,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update HAP-python to 1.1.8 ([@cdce8p] - [#13563]) ([homekit docs])
 - Update ha-philips_js to 0.0.3 ([@danielperna84] - [#13702]) ([media_player.philips_js docs])
 - Coverage & Codeowners ([@kellerza] - [#13700])
-- Bump insteonplm to 0.8.6 to fix sensor message handling ([@teharris1] - [#13691]) ([insteon_plm docs])
+- Bump insteonplm to 0.8.6 to fix sensor message handling ([@teharris1] - [#13691]) ([insteon docs])
 - Fix asuswrt ap mode failure ([@shuaiger] - [#13693]) ([device_tracker docs])
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
@@ -355,7 +355,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [freedns docs]: /components/freedns/
 [homekit docs]: /components/homekit/
 [hue docs]: /components/hue/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light docs]: /components/light/
 [light.nanoleaf_aurora docs]: /components/nanoleaf/
 [light.hue docs]: /components/hue

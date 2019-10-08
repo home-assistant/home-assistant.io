@@ -92,7 +92,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added attribute attribution to Digital Ocean component ([@tchellomello] - [#15114]) ([digital_ocean docs]) ([binary_sensor.digital_ocean docs]) ([switch.digital_ocean docs])
 - Make Pollen.com platform async ([@bachya] - [#14963]) ([sensor.pollen docs]) (breaking change)
 - deCONZ small improvements ([@Kane610] - [#15128]) ([deconz docs]) ([light.deconz docs])
-- Bump insteonplm version to 0.11.2 ([@teharris1] - [#15133]) ([insteon_plm docs])
+- Bump insteonplm version to 0.11.2 ([@teharris1] - [#15133]) ([insteon docs])
 - Reorganize mysensors ([@MartinHjelmare] - [#15123])
 - MQTT Alarm Control Panel: add retain option for publishing for cases... ([@b3nj1] - [#15134]) ([alarm_control_panel.mqtt docs])
 - Add discovery support to mqtt climate component. ([@dreizehnelf] - [#15085]) ([mqtt docs]) ([climate.mqtt docs])
@@ -114,7 +114,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade youtube_dl to 2018.06.25 ([@fabaff] - [#15168]) ([media_extractor docs])
 - Upgrade keyring to 13.0.0 ([@fabaff] - [#15167])
 - Upgrade sendgrid to 5.4.1 ([@fabaff] - [#15166]) ([notify docs])
-- Add Mini remote support to insteon_plm ([@teharris1] - [#15152]) ([insteon_plm docs])
+- Add Mini remote support to insteon_plm ([@teharris1] - [#15152]) ([insteon docs])
 - Warn when using custom components ([@balloob] - [#15172])
 - Philips Hue Scene Activation: Simplified scene lookup logic, improved error handling ([@MizterB] - [#15175]) ([hue docs])
 - Finalize BotVac D7 Support And Further Reduce Cloud Calls ([@dshokouhi] - [#15161]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs])
@@ -288,7 +288,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /components/http/
 [hue docs]: /components/hue/
 [image_processing.opencv docs]: /components/opencv
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light.deconz docs]: /components/deconz#light
 [light.flux_led docs]: /components/flux_led
 [light.homekit_controller docs]: /components/homekit_controller

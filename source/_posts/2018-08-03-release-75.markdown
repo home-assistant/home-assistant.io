@@ -67,7 +67,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - Moon sensor states are now lowercase with underscores instead of spaces, allowing it to be translated in the frontend. ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
-- Insteon Mini-Remote now emit events instead of show as a binary sensor ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Insteon Mini-Remote now emit events instead of show as a binary sensor ([@teharris1] - [#15523]) ([insteon docs]) ([binary_sensor.insteon docs]) ([switch.insteon docs]) (breaking change)
 - Simplisafe to use new API: co, fire, flood, and last_event are no longer part of the SimpliSafe alarm object in the new API and are not available in this upgrade, making this a breaking change for anyone using those. They will be added back in some fashion at a later date (probably exposed as individual sensors) ([@w1ll1am23] - [#15542]) ([alarm_control_panel.simplisafe docs]) (breaking change)
 - Smappee: The updated library shows the temperature as degrees Celsius instead of centi degrees Celsius. ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
 
@@ -95,7 +95,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Implement locate service for neato ([@dshokouhi] - [#15467]) ([neato docs]) ([vacuum.neato docs])
 - Make RS room thermostat discoverable ([@turbokongen] - [#15451]) ([zwave docs])
 - Add support for Tahoma Smoke Sensor ([@fucm] - [#15441]) ([tahoma docs]) ([binary_sensor.tahoma docs]) (new-platform)
-- Mini-Remote events ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Mini-Remote events ([@teharris1] - [#15523]) ([insteon docs]) ([binary_sensor.insteon docs]) ([switch.insteon docs]) (breaking change)
 - Update pyatmo ([@gieljnssns] - [#15540]) ([netatmo docs])
 - Update reading when device is added ([@quthla] - [#15548]) ([sensor.bme280 docs])
 - Update config entry id in entity registry ([@balloob] - [#15531])
@@ -313,7 +313,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [auth docs]: /components/auth/
 [binary_sensor.alarmdecoder docs]: /components/alarmdecoder
 [binary_sensor.ihc docs]: /components/ihc#binary-sensor
-[binary_sensor.insteon_plm docs]: /components/insteon_plm/
+[binary_sensor.insteon docs]: /components/insteon/
 [binary_sensor.tahoma docs]: /components/tahoma
 [binary_sensor.trend docs]: /components/trend
 [calendar.todoist docs]: /components/todoist
@@ -347,7 +347,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /components/http/
 [ihc docs]: /components/ihc/
 [image_processing.opencv docs]: /components/opencv
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light docs]: /components/light/
 [light.deconz docs]: /components/deconz#light
 [light.futurenow docs]: /components/futurenow
@@ -398,7 +398,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [spider docs]: /components/spider/
 [switch docs]: /components/switch/
 [switch.ihc docs]: /components/ihc#switch
-[switch.insteon_plm docs]: /components/insteon_plm/
+[switch.insteon docs]: /components/insteon/
 [switch.mqtt docs]: /components/switch.mqtt/
 [switch.spider docs]: /components/spider
 [switch.tplink docs]: /components/tplink

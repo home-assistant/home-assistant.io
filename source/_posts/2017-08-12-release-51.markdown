@@ -102,7 +102,7 @@ vacuum:
 - directv: add configuration glue for Genie slaves ([@sielicki] - [#8713]) ([media_player.directv docs])
 - bump python-telegram-bot to 7.0.1 for fully support Bot API 3.2 ([@azogue] - [#8715]) ([telegram_bot docs])
 - Add proxy support for telegram_bot ([@azogue] - [#8717]) ([telegram_bot docs])
-- python-insteonplm module version bump ([@nugget] - [#8736]) ([insteon_plm docs])
+- python-insteonplm module version bump ([@nugget] - [#8736]) ([insteon docs])
 - New media_player platform for Russound devices using the RIO protocol ([@wickerwaka] - [#8448]) ([media_player.russound_rio docs]) (new-platform)
 - Add toggle to remotes ([@alanfischer] - [#8483]) ([remote docs]) ([remote.apple_tv docs]) ([remote.harmony docs]) ([remote.itach docs])
 - added invert_state optional parameter ([@gwhiteCL] - [#8695]) ([cover.rpi_gpio docs])
@@ -376,7 +376,7 @@ vacuum:
 [history docs]: /components/history/
 [image_processing.opencv docs]: /components/opencv
 [influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light.decora_wifi docs]: /components/decora_wifi/
 [light.flux_led docs]: /components/flux_led
 [light.lifx docs]: /components/lifx

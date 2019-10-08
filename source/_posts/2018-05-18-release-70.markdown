@@ -69,7 +69,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Homekit style cleanup ([@cdce8p] - [#14556]) ([homekit docs]) (beta fix)
 - fix nanoleaf aurora lights min and max temperature ([@Oro] - [#14571]) ([light.nanoleaf_aurora docs]) (beta fix)
 - Fix ISY moisure sensors showing unknown until a leak is detected ([@OverloadUT] - [#14496]) ([binary_sensor.isy994 docs]) (beta fix)
-- Bump insteonplm version to fix device hanging ([@teharris1] - [#14582]) ([insteon_plm docs]) (beta fix)
+- Bump insteonplm version to fix device hanging ([@teharris1] - [#14582]) ([insteon docs]) (beta fix)
 - Fix hue discovery popping up ([@balloob] - [#14614]) (beta fix)
 - Use libsodium18 ([@balloob] - [#14624]) (beta fix)
 - No longer use backports for ffmpeg ([@balloob] - [#14626]) (beta fix)
@@ -180,7 +180,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Homekit style cleanup ([@cdce8p] - [#14556]) ([homekit docs]) (beta fix)
 - fix nanoleaf aurora lights min and max temperature ([@Oro] - [#14571]) ([light.nanoleaf_aurora docs]) (beta fix)
 - Fix ISY moisure sensors showing unknown until a leak is detected ([@OverloadUT] - [#14496]) ([binary_sensor.isy994 docs]) (beta fix)
-- Bump insteonplm version to fix device hanging ([@teharris1] - [#14582]) ([insteon_plm docs]) (beta fix)
+- Bump insteonplm version to fix device hanging ([@teharris1] - [#14582]) ([insteon docs]) (beta fix)
 - Fix hue discovery popping up ([@balloob] - [#14614]) (beta fix)
 - Use libsodium18 ([@balloob] - [#14624]) (beta fix)
 - No longer use backports for ffmpeg ([@balloob] - [#14626]) (beta fix)
@@ -379,7 +379,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematicip_cloud docs]: /components/homematicip_cloud/
 [http docs]: /components/http/
 [image_processing.facebox docs]: /components/facebox
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [iota docs]: /components/iota/
 [isy994 docs]: /components/isy994/
 [konnected docs]: /components/konnected/

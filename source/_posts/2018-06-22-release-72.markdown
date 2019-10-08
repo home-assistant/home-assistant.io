@@ -94,7 +94,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
 - Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
 - Rename experimental UI to lovelace ([@balloob] - [#15065]) ([frontend docs]) (beta fix)
-- X10 ([@teharris1] - [#14741]) ([insteon_plm docs]) ([switch.insteon_plm docs]) (beta fix)
+- X10 ([@teharris1] - [#14741]) ([insteon docs]) ([switch.insteon docs]) (beta fix)
 - Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
 - Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
@@ -207,7 +207,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
 - Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
 - Rename experimental UI to lovelace ([@balloob] - [#15065]) ([frontend docs]) (beta fix)
-- X10 ([@teharris1] - [#14741]) ([insteon_plm docs]) ([switch.insteon_plm docs]) (beta fix)
+- X10 ([@teharris1] - [#14741]) ([insteon docs]) ([switch.insteon docs]) (beta fix)
 - Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
 - Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
@@ -426,7 +426,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /components/hassio/
 [hue docs]: /components/hue/
 [image_processing.facebox docs]: /components/facebox
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [konnected docs]: /components/konnected/
 [light.deconz docs]: /components/deconz#light
 [light.lifx docs]: /components/lifx
@@ -485,7 +485,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
 [sonos docs]: /components/sonos/
 [switch.doorbird docs]: /components/doorbird#switch
-[switch.insteon_plm docs]: /components/insteon_plm/
+[switch.insteon docs]: /components/insteon/
 [switch.linode docs]: /components/linode#switch
 [switch.mystrom docs]: /components/mystrom#switch
 [switch.neato docs]: /components/neato#switch

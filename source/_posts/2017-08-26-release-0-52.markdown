@@ -148,7 +148,7 @@ usps:
 - bump python-ecobee-api version to 0.0.8 ([@nkgilley] - [#9074]) ([ecobee docs])
 - Bump abodepy to 0.7.1 ([@arsaboo] - [#9077]) ([abode docs])
 - async_query returns False if connection to server failed, handle this properly ([@molobrakos] - [#9070]) ([media_player.squeezebox docs])
-- Added insteonplm device_override multiple capabilities ([@teharris1] - [#9078]) ([insteon_plm docs])
+- Added insteonplm device_override multiple capabilities ([@teharris1] - [#9078]) ([insteon docs])
 - Upgrade uber_rides to 0.5.1 ([@fabaff] - [#9080]) (sensor.uber docs)
 - Upgrade discord.py to 0.16.10 ([@fabaff] - [#9082]) ([notify.discord docs])
 - Fix `device` attribute in fritz_callmonitor.py (fixes #9055) ([@max-te] - [#9081]) ([sensor.fritzbox_callmonitor docs])
@@ -324,7 +324,7 @@ usps:
 [fan.isy994 docs]: /components/isy994
 [image_processing.dlib_face_detect docs]: /components/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /components/dlib_face_identify
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light.decora_wifi docs]: /components/decora_wifi/
 [light.flux_led docs]: /components/flux_led
 [light.hue docs]: /components/hue

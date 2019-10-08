@@ -177,7 +177,7 @@ rainmachine:
 - Add support for max_volume ([@relvacode] - [#13822]) ([media_player.onkyo docs])
 - Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
 - Onkyo: SUPPORT_VOLUME_STEP ([@rsmeral] - [#14299]) ([media_player.onkyo docs])
-- Add All-Linking capabilities ([@teharris1] - [#14065]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs])
+- Add All-Linking capabilities ([@teharris1] - [#14065]) ([insteon docs]) ([binary_sensor.insteon docs]) ([fan.insteon docs]) ([light.insteon docs]) ([sensor.insteon docs]) ([switch.insteon docs])
 - Add missing 'sensor' to ABODE_PLATFORMS ([@jloutsenhizer] - [#14313]) ([abode docs]) (beta fix)
 - Add debounce to move_cover ([@cdce8p] - [#14314]) ([homekit docs]) (beta fix)
 - Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
@@ -376,7 +376,7 @@ rainmachine:
 [auth docs]: /components/auth/
 [binary_sensor docs]: /components/binary_sensor/
 [binary_sensor.deconz docs]: /components/deconz#binary-sensor
-[binary_sensor.insteon_plm docs]: /components/insteon_plm/
+[binary_sensor.insteon docs]: /components/insteon/
 [binary_sensor.tapsaff docs]: /components/tapsaff
 [binary_sensor.trend docs]: /components/trend
 [binary_sensor.workday docs]: /components/workday
@@ -390,7 +390,7 @@ rainmachine:
 [device_tracker docs]: /components/device_tracker/
 [eight_sleep docs]: /components/eight_sleep/
 [emulated_hue docs]: /components/emulated_hue/
-[fan.insteon_plm docs]: /components/insteon/
+[fan.insteon docs]: /components/insteon/
 [fan.template docs]: /components/fan.template/
 [frontend docs]: /components/frontend/
 [homekit docs]: /components/homekit/
@@ -405,11 +405,11 @@ rainmachine:
 [image_processing.microsoft_face_identify docs]: /components/microsoft_face_identify
 [image_processing.opencv docs]: /components/opencv
 [influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
+[insteon docs]: /components/insteon/
 [light.deconz docs]: /components/deconz#light
 [light.flux_led docs]: /components/flux_led
 [light.hue docs]: /components/hue
-[light.insteon_plm docs]: /components/insteon/
+[light.insteon docs]: /components/insteon/
 [light.mqtt_json docs]: /components/light.mqtt
 [light.wink docs]: /components/wink#light
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
@@ -448,7 +448,7 @@ rainmachine:
 [sensor.eliqonline docs]: /components/eliqonline
 [sensor.filter docs]: /components/filter
 [sensor.homematicip_cloud docs]: /components/homematicip_cloud/
-[sensor.insteon_plm docs]: /components/insteon/
+[sensor.insteon docs]: /components/insteon/
 [sensor.lastfm docs]: /components/lastfm
 [sensor.mitemp_bt docs]: /components/mitemp_bt
 [sensor.mqtt docs]: /components/sensor.mqtt/
@@ -466,7 +466,7 @@ rainmachine:
 [sensor.yweather docs]: /components/yweather
 [switch.deluge docs]: /components/deluge#switch
 [switch.fritzbox docs]: /components/fritzbox
-[switch.insteon_plm docs]: /components/insteon_plm/
+[switch.insteon docs]: /components/insteon/
 [switch.mqtt docs]: /components/switch.mqtt/
 [switch.rainmachine docs]: /components/rainmachine#switch
 [switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/

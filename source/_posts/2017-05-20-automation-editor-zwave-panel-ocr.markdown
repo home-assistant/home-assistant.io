@@ -132,7 +132,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Don't interact with hass directly ([@fabaff] - [#7099]) ([binary_sensor.mystrom docs]) (new-platform)
 - Support for the PiFace Digital I/O module ([@basschipper] - [#7494]) ([rpi_pfio docs]) ([binary_sensor.rpi_pfio docs]) ([switch.rpi_pfio docs]) (new-platform)
 - Upgrade limitlessled to 1.0.7 ([@corneyl] - [#7525]) ([light.limitlessled docs])
-- Update docstrings and log messages ([@fabaff] - [#7526]) ([light.blinksticklight docs]) ([light.enocean docs]) ([light.flux_led docs]) ([light.insteon_local docs]) ([light.insteon_plm docs]) ([light.isy994 docs]) ([light.limitlessled docs]) ([light.mystrom docs])
+- Update docstrings and log messages ([@fabaff] - [#7526]) ([light.blinksticklight docs]) ([light.enocean docs]) ([light.flux_led docs]) ([light.insteon docs]) ([light.insteon docs]) ([light.isy994 docs]) ([light.limitlessled docs]) ([light.mystrom docs])
 - Try to request current_location Automatic scope ([@armills] - [#7447]) ([device_tracker.automatic docs])
 - Add myStrom binary sensor ([@fabaff] - [#7530])
 - Add not-context-manager ([@fabaff] - [#7523])
@@ -373,8 +373,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.blinksticklight docs]: /components/blinksticklight
 [light.enocean docs]: /components/enocean#light
 [light.flux_led docs]: /components/flux_led
-[light.insteon_local docs]: /components/insteon/
-[light.insteon_plm docs]: /components/insteon/
+[light.insteon docs]: /components/insteon/
+[light.insteon docs]: /components/insteon/
 [light.isy994 docs]: /components/isy994
 [light.lifx docs]: /components/lifx
 [light.limitlessled docs]: /components/limitlessled
