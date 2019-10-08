@@ -44,7 +44,7 @@ payload_not_home:
   type: string
   default: 'not_home'
 payload_custom:
-  description: A dictionary to map payload values to custom zones (e.g. not 'home' and 'not_home'). The keys are the payloads and the values are the corresponding locations that the payload represents.
+  description: A dictionary to map payload values to custom zones. The keys are the payloads and the values are the corresponding locations that the payload represents.
   required: false
   type: list
 {% endconfiguration %}
