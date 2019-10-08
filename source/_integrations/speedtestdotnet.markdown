@@ -43,7 +43,7 @@ monitored_conditions:
       description: "The upload speed (Mbit/s)."
 server_id:
   description: Specify the speed test server to perform the test against.
-  required: true
+  required: false
   type: integer
 scan_interval:
   description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
