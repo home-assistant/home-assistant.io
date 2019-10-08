@@ -39,7 +39,9 @@ TBD
 When we are on automations, we have taken that to the last release introduced device page. You can now see all the triggers, conditions and actions the device supports, and create an automation with it in 1 click.
 
 Also the entity registry is added to the device page, so you can change all the settings of the devices entities in one place.
-By default the disabled entities are now hidden, you can show them with the switch on the top.
+By default the disabled entities are now hidden, you can show them with the switch on the top, this is the same on the general entity registry page.
+
+When you rename a device on the device page, it will now also rename the entities of that device if they contain the device name. When you are in advanced mode, it can also rename the entity id's for you.
 
 ### We say goodbye to JSON
 
@@ -310,6 +312,10 @@ This includes:
 
 ## All frontend changes
 
+* Fix whitespace error in services ([#3880](https://github.com/home-assistant/home-assistant-polymer/pull/3880)) [@bramkragten](https://github.com/bramkragten)
+* Hide empty blocks on device page ([#3950](https://github.com/home-assistant/home-assistant-polymer/pull/3950)) [@bramkragten](https://github.com/bramkragten)
+* Fix updating entity id in entity-registry-dialog ([#3962](https://github.com/home-assistant/home-assistant-polymer/pull/3862)) [@bramkragten](https://github.com/bramkragten)
+* Add report state toggle for Google ([#3855](https://github.com/home-assistant/home-assistant-polymer/pull/3855)) [@bramkragten](https://github.com/bramkragten)
 * Fix dark switch for map card editor ([#3856](https://github.com/home-assistant/home-assistant-polymer/pull/3856)) [@bramkragten](https://github.com/bramkragten)
 * Align background with tiles ([#3858](https://github.com/home-assistant/home-assistant-polymer/pull/3858)) [@bramkragten](https://github.com/bramkragten)
 * Allow yaml in dev states ([#3859](https://github.com/home-assistant/home-assistant-polymer/pull/3859)) [@bramkragten](https://github.com/bramkragten)
