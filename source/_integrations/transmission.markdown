@@ -121,19 +121,18 @@ Adds a new torrent to download. It can either be a URL (http, https or ftp), mag
 
 ## Templating
 
-### Sensor `torrent_info`
+### Sensor `started_torrents`
 
-The state attribute contains information about the torrents that are currently downloading.  You can see this information in Developer Tools->States->sensor.transmission_torrent_info->Attributes or by adding a Markdown Card to Lovelace.
+The state attribute torrent_info contains information about the torrents that are currently downloading.  You can see this information in Developer Tools->States->sensor.transmission_started_torrents->Attributes or by adding a Markdown Card to Lovelace.
 
 {% raw %}
 ```jinja2 
 content: >
-  {% set payload = state_attr('sensor.transmission_torrent_info',
-  'torrent_info') %}
+  {% set payload = state_attr('sensor.transmission_started_torrents', 'torrent_info') %}
 
-  {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data =
-  torrent[1] %} {{ name }} is {{ data.percent_done }}% complete, {{ data.eta }}
-  remaining {% endfor %}
+  {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
+  
+  {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
 {% endraw %}
