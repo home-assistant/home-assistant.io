@@ -94,7 +94,6 @@ Every half hour of every day:
 ```yaml
 # Example configuration.yaml entry
 speedtestdotnet:
-  server_id: 9999
   scan_interval:
     minutes: 30
   monitored_conditions:
