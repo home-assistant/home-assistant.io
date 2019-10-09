@@ -15,9 +15,7 @@ After configuring this component, the binary sensors automatically appear.
 ## Configuration
 
 <div class='note'>
-
-  You should have at least one vm or container entry configured, else this integration won't do anything
-
+You should have at least one VM or container entry configured, else this integration won't do anything.
 </div>
 
 To use the `proxmoxve` component, add the following config to your `configuration.yaml` file:
@@ -52,11 +50,11 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: The username used to authentificate.
+  description: The username used to authenticate.
   required: true
   type: string
 password:
-  description: The password used to authentificate.
+  description: The password used to authenticate.
   required: true
   type: string
 realm:
@@ -83,7 +81,7 @@ nodes:
       type: list
 {% endconfiguration %}
 
-Example with multiple vms and no containers:
+Example with multiple VMs and no containers:
 
 ```yaml
 proxmox:
