@@ -75,24 +75,93 @@ This includes:
 
 ## Breaking Changes
 
-- Refactor nzbget to support future platform changes ([@chriscla] - [#26462]) ([nzbget docs]) (breaking change)
-- Fix spaceapi ([@Bouni] - [#26453]) ([spaceapi docs]) (breaking change)
-- Remove deprecated ups integration (ADR-0004) ([@frenck] - [#26824]) ([ups docs]) (breaking change)
-- Remove deprecated usps integration (ADR-0004) ([@frenck] - [#26823]) ([usps docs]) (breaking change)
-- Remove deprecated sytadin integration (ADR-0004) ([@frenck] - [#26819]) ([sytadin docs]) (breaking change)
-- Remove deprecated srp_energy integration (ADR-0004) ([@frenck] - [#26826]) ([srp_energy docs]) (breaking change)
-- Remove deprecated fedex integration (ADR-0004) ([@frenck] - [#26822]) ([fedex docs]) (breaking change)
-- Remove deprecated linksys_ap integration (ADR-0004) ([@frenck] - [#26847]) ([linksys_ap docs]) (breaking change)
-- Group Linky sensors to Linky meter device ([@piitaya] - [#26738]) ([linky docs]) (breaking change)
-- Move elv integration to component and bump pypca ([@majuss] - [#26552]) ([elv docs]) (breaking change)
-- Reorg device automation ([@balloob] - [#26880]) ([automation docs]) ([binary_sensor docs]) ([deconz docs]) ([device_automation docs]) ([light docs]) ([switch docs]) ([zha docs]) (breaking change)
-- Add config flow to ecobee ([@marthoc] - [#26634]) ([ecobee docs]) (breaking change)
-- Add config flow to transmission ([@engrbm87] - [#26434]) ([transmission docs]) (breaking change)
-- Centralize rainbird config and add binary sensor platform ([@konikvranik] - [#26393]) ([rainbird docs]) (breaking change) (new-platform)
-- Fix incomfort and Bump client to 0.3.5 ([@zxdavb] - [#26802]) ([incomfort docs]) (breaking change)
-- Bugfix evohome ([@zxdavb] - [#26810]) ([evohome docs]) (breaking change)
-- Update opentherm_gw.climate to match Climate 1.0 ([@mvn23] - [#25931]) ([opentherm_gw docs]) (breaking change)
-- Tweak geniushub and bump client to v0.6.26 ([@zxdavb] - [#26640]) ([geniushub docs]) (breaking change)
+- **Removed** - The following integrations which were marked in .98 for pending removal have now been removed (ADR-0004):
+  * **UPS** - ([@frenck] - [#26824]) ([ups docs])
+  * **USPS** -  ([@frenck] - [#26823]) ([usps docs])
+  * **Sytadin** -  ([@frenck] - [#26819]) ([sytadin docs])
+  * **SRP Energy** - ([@frenck] - [#26826]) ([srp_energy docs])
+  * **Fedex** - ([@frenck] - [#26822]) ([fedex docs])
+  * **Linksys AP** - ([@frenck] - [#26847]) ([linksys_ap docs])
+- **NZBGet** - The integration has been changed to support multiple platforms and future events, and common code has been centralized to the component. The configuration has moved from the sensor platform to the `nzbget` key in configuration.yaml, and the `monitored_variables` option has been removed. Users need to update their configuration. - ([@chriscla] - [#26462]) ([nzbget docs])
+
+  New example configuration entry:
+
+  ```yaml
+  nzbget:
+    host: 192.168.1.1
+    ssl: false 
+  ```
+- **SpaceAPI** - Values that were not compliant with the SpaceAPI specification were changed.
+  * `contact / mailing_list` has changed to `contact / ml`, to migrate change the `mailing_list` key to `ml`
+  * `location / address` is no longer required but is optional as the latitude and longitude properties of the location are added automatically from the HA config). There is no need to change anything. - ([@Bouni] - [#26453]) ([spaceapi docs])
+
+- **Linky** - Linky sensors have been grouped to one Linky device. Users will need to remove and re-add the Linky integration to clear the device registry. - ([@piitaya] - [#26738]) ([linky docs])
+
+- __Elv__ - ELV/PCA is now its own integration. Existing configuration should be removed and replaced. Optionally the port for the serial interface can be specified (default is: /dev/ttyUSB0). - ([@majuss] - [#26552]) ([elv docs])
+
+  Example configuration entry:
+  ```yaml
+  elv:
+    device: '/dev/ttyUSB0'
+  ```
+  
+- __Automation__ - Custom component developers who started playing with device automations only: we have restructured how integrations can expose their device triggers/conditions/actions. Instead of 1 platform `device_automation.py` it's now `device_action.py`, `device_trigger.py`, `device_condition.py`.
+  The method to attach a device trigger has been updated from `async_trigger` to `async_attach_trigger` to better reflect what is going on. - ([@balloob] - [#26880]) ([automation docs]) ([binary_sensor docs]) ([deconz docs]) ([device_automation docs]) ([light docs]) ([switch docs]) ([zha docs])
+  
+- **Ecobee** - Ecobee will now be set up via config flow. Existing users will have their config imported from ecobee.conf via an import flow so it shouldn't break their experience. Users configuring via configuration.yaml will have their api key and options imported into the flow but will still need to finish authorization via the flow (instead of the configurator component as previously).
+The configuration parameter `hold_temp` has been removed, as it was not being used in the climate platform and had no effect on whether the temperature was held indefinitely or not. Users will need to remove the parameter `hold_temp` from configuration.yaml.
+Ecobee-specific services will now be registered under the ecobee domain rather than the climate domain, and service names will not include the prefix "ecobee_" (e.g. the service "climate.ecobee_resume_program" will become "ecobee.resume_program"). - ([@marthoc] - [#26634]) ([ecobee docs])
+- **Transmission** - The Transmission integration can now be configured through a config flow via Integrations in the GUI. Once configured all sensors and switches will be created and available for the user.
+`monitored_conditions` has been removed so existing users need to update their configuration in configuration.yaml and remove monitored conditions. The existing configuration will be imported as an entry under Integrations. - ([@engrbm87] - [#26434]) ([transmission docs])
+
+  Example configuration entry:
+  ```yaml
+  transmission:
+    host: 192.168.1.1
+  ```
+- __Rainbird__ - Rainbird is now its own platform. The configuration of rainbird switches has been moved under `zones:` as part of the `rainbird:` integration. - ([@konikvranik] - [#26393]) ([rainbird docs])
+
+  Example configuration entry:
+  ```yaml
+  rainbird:
+    host: IP_ADDRESS_OF_MODULE
+    password: YOUR_PASSWORD
+    trigger_time: 6
+    zones:
+      1:
+        trigger_time: 6
+  ```
+- **Incomfort** - Device state attributes that were causing pointless state changes have been removed:
+  * `"rf_message_rssi` signal strength (between gateway & boiler), changes almost every scan_interval
+  * `nodenr` unknown, is static
+  * `rfstatus_cntr` unknown, changes
+  
+  This is not likely to be considered a breaking change by users. - ([@zxdavb] - [#26802]) ([incomfort docs])
+- **Evohome** - Device state attributes keys have been changed to snake_case and, since this a breaking change, the opportunity was taken to revise/simplify the entire device state attributes schema.
+Evohome is a complicated integration, has had major changes in recent times, and is not yet mature - these changes address some bugs and related architectural issues:
+
+  * Modify behavior of set_temperature to mirror that of the vendor's UI (e.g. any target temp changes until next setpoint, unless explicitly set otherwise)
+  * Setpoint datetimes are now correctly converted to local/aware isoformat (internally, and for logging/state attributes)
+  * Use snake_case for device state attributes
+  * Add a unique_id for each entity (systemId, zoneID, dhwId)
+  * Refactoring - remove API wrappers (no longer using private methods)
+  * Add away mode for DHW (set to permanent off or Auto, depending)([@zxdavb] - [#26810]) ([evohome docs])
+- **OpenTherm** - Move climate entity state to hvac_action attribute to comply with climate 1.0. May break e.g. automations. - ([@mvn23] - [#25931]) ([opentherm_gw docs])
+- **Genius Hub** - Users connecting to a Hub via the v1 API will need to specify a valid MAC address for the hub (see example YAML, below). Those using the v3 API will be unaffected.
+This change is in preperation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
+ 
+  Some Sensor entities fro GeniusHub Issues have been renamed, and so will get a new entity ID:
+
+  * sensor.errors to sensor.geniushub_errors
+  * sensor.warnings to sensor.geniushub_warnings
+  * sensor.information to sensor.geniushub_informationeniushub and bump client to v0.6.26 - ([@zxdavb] - [#26640]) ([geniushub docs])
+  
+  Example configuration entry:
+  ```yaml
+  geniushub:
+    token: JqVFd0UUEi...
+    mac: 18:CC:23:12:34:56
+  ```
 
 ## All changes
 
