@@ -52,7 +52,7 @@ input_number:
         description: Initial value when Home Assistant starts.
         required: false
         type: float
-        default: 0
+        default: The value at shutdown
       step:
         description: Step value for the slider. Smallest value `0.001`.
         required: false
