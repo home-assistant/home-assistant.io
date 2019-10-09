@@ -79,7 +79,7 @@ Local, so cannot be impacted:
 - [camera.amcrest](/integrations/amcrest)
 - [camera.doorbird](/integrations/doorbird#camera)
 - [camera.familyhub](/integrations/familyhub)
-- [camera.generic](/integrations/generic)
+- [camera.generic](/integrations/generic_ip_camera)
 - [camera.mjpeg](/integrations/mjpeg)
 - [camera.proxy](/integrations/proxy)
 - [camera.synology](/integrations/synology)
