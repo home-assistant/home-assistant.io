@@ -115,7 +115,7 @@ As always, this release of Home Assistan is accompanied with a new release of th
 
 - Add support for DOODS Image Processing ([@snowzach] - [#26208]) ([doods docs]) (new-integration)
 - Izone component ([@Swamp-Ig] - [#24550]) ([izone docs]) (new-integration)
-- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26252]) ([moscow_yandex_transport docs]) (new-integration)
+- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26252]) ([yandex_transport docs]) (new-integration)
 - Add Kaiterra integration ([@Michsior14] - [#26661]) ([kaiterra docs]) (new-integration)
 - Add Ombi integration ([@larssont] - [#26755]) ([ombi docs]) (new-integration)
 - Add here_travel_time ([@eifinger] - [#24603]) ([here_travel_time docs]) (new-integration)
@@ -141,12 +141,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - **Removed** - The following integrations which were marked in .98 for pending removal have now been removed (ADR-0004):
-  - **UPS** - ([@frenck] - [#26824]) ([ups docs])
-  - **USPS** - ([@frenck] - [#26823]) ([usps docs])
-  - **Sytadin** - ([@frenck] - [#26819]) ([sytadin docs])
-  - **SRP Energy** - ([@frenck] - [#26826]) ([srp_energy docs])
-  - **Fedex** - ([@frenck] - [#26822]) ([fedex docs])
-  - **Linksys AP** - ([@frenck] - [#26847]) ([linksys_ap docs])
+  - **UPS** - ([@frenck] - [#26824])
+  - **USPS** - ([@frenck] - [#26823])
+  - **Sytadin** - ([@frenck] - [#26819])
+  - **SRP Energy** - ([@frenck] - [#26826])
+  - **Fedex** - ([@frenck] - [#26822])
+  - **Linksys AP** - ([@frenck] - [#26847])
 - **NZBGet** - The integration has been changed to support multiple platforms and future events, and common code has been centralized to the component. The configuration has moved from the sensor platform to the `nzbget` key in configuration.yaml, and the `monitored_variables` option has been removed. Users need to update their configuration. - ([@chriscla] - [#26462]) ([nzbget docs])
 
   New example configuration entry:
@@ -309,8 +309,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump restrictedpython to 5.0 ([@frenck] - [#26741])
 - Izone component ([@Swamp-Ig] - [#24550]) ([izone docs]) (new-integration)
 - Bump influxdb to 5.2.3 ([@frenck] - [#26743]) ([influxdb docs])
-- Update codeowners ([@amelchio] - [#26733]) ([lifx docs]) ([lifx_cloud docs]) ([lifx_legacy docs]) ([netgear_lte docs]) ([sonos docs])
-- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26252]) ([moscow_yandex_transport docs]) (new-integration)
+- Update codeowners ([@amelchio] - [#26733]) ([lifx docs]) ([lifx_cloud docs]) ([netgear_lte docs]) ([sonos docs])
+- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26252]) ([yandex_transport docs]) (new-integration)
 - deCONZ improve gateway tests ([@Kane610] - [#26709]) ([deconz docs])
 - Revert "Add transport data from maps.yandex.ru api (#26252)" ([@pvizeli] - [#26762]) ([yandex_transport docs])
 - Bump openwrt-luci-rpc to version 1.1.1 ([@flowolf] - [#26759]) ([luci docs])
@@ -348,15 +348,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Ombi integration ([@larssont] - [#26755]) ([ombi docs]) (new-integration)
 - Prevent Wemo doing I/O in event loop ([@balloob] - [#26835]) ([wemo docs])
 - Split scaffolding script ([@balloob] - [#26832])
-- Remove deprecated ups integration (ADR-0004) ([@frenck] - [#26824]) ([ups docs]) (breaking change)
-- Remove deprecated usps integration (ADR-0004) ([@frenck] - [#26823]) ([usps docs]) (breaking change)
-- Remove deprecated sytadin integration (ADR-0004) ([@frenck] - [#26819]) ([sytadin docs]) (breaking change)
+- Remove deprecated ups integration (ADR-0004) ([@frenck] - [#26824]) (breaking change)
+- Remove deprecated usps integration (ADR-0004) ([@frenck] - [#26823]) (breaking change)
+- Remove deprecated sytadin integration (ADR-0004) ([@frenck] - [#26819]) (breaking change)
 - Add here_travel_time ([@eifinger] - [#24603]) ([here_travel_time docs]) (new-integration)
-- Remove deprecated srp_energy integration (ADR-0004) ([@frenck] - [#26826]) ([srp_energy docs]) (breaking change)
-- Remove deprecated fedex integration (ADR-0004) ([@frenck] - [#26822]) ([fedex docs]) (breaking change)
+- Remove deprecated srp_energy integration (ADR-0004) ([@frenck] - [#26826]) (breaking change)
+- Remove deprecated fedex integration (ADR-0004) ([@frenck] - [#26822]) (breaking change)
 - Store ZHA light brightness when fading off to turn on at the correct brightness ([@abmantis] - [#26680]) ([zha docs])
 - Bump pyotp to 2.3.0 ([@frenck] - [#26849]) ([otp docs])
-- Remove deprecated linksys_ap integration (ADR-0004) ([@frenck] - [#26847]) ([linksys_ap docs]) (breaking change)
+- Remove deprecated linksys_ap integration (ADR-0004) ([@frenck] - [#26847]) (breaking change)
 - Bump up ZHA dependencies ([@Adminiuga] - [#26746])
 - fix onvif/camera setting up error ([@sanyatuning] - [#26825]) ([onvif docs])
 - Bump homematicip_cloud to 0.10.11 ([@SukramJ] - [#26852]) ([homematicip_cloud docs])
@@ -443,7 +443,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bugfix evohome ([@zxdavb] - [#26810]) ([evohome docs]) (breaking change)
 - Add saj component ([@fredericvl] - [#26902]) ([saj docs]) (new-integration)
 - Add availability_template to Template Lock platform ([@grillp] - [#26517]) ([template docs])
-- Cleanup coroutine threadsafe ([@pvizeli] - [#27080]) ([bluetooth_le_tracker docs]) ([generic docs]) ([group docs]) ([mqtt docs]) ([proxy docs])
+- Cleanup coroutine threadsafe ([@pvizeli] - [#27080]) ([bluetooth_le_tracker docs]) ([group docs]) ([mqtt docs]) ([proxy docs])
 - Plex external config flow ([@jjlawren] - [#26936]) ([plex docs])
 - Bump attrs to 19.2.0 ([@frenck] - [#27102])
 - Update meteoalertapi to version 0.1.6 ([@rolfberkenbosch] - [#27099]) ([meteoalarm docs])
@@ -885,7 +885,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
 [meteoalarm docs]: /integrations/meteoalarm/
-[moscow_yandex_transport docs]: /integrations/moscow_yandex_transport/
+[yandex_transport docs]: /integrations/yandex_transport/
 [mqtt docs]: /integrations/mqtt/
 [mysensors docs]: /integrations/mysensors/
 [nest docs]: /integrations/nest/
