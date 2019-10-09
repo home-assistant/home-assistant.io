@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.100: TBD"
-description: "TBD"
-date: 2019-10-03 14:05:02
+title: "0.100: Better Plex, Bye JSON, HERE Travel time."
+description: "A lot of frontend work, performance tweaks and more device automations."
+date: 2019-10-09 01:05:02
 date_formatted: "October 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -13,35 +13,72 @@ og_image: /images/blog/2019-09-0.100/components.png
 
 <a href='/integrations/#version/0.100'><img src='/images/blog/2019-10-0.100/components.png' style='border: 0;box-shadow: none;'></a>
 
-TBD
+Welcome to the release notes of yet another wonderful release! No, we're not going for 1.0, we're doing 0.100! We feel like we're not ready yet with our vision for 1.0, but we're making progress every day. For a sneak peak of what we're thinking about, check our blog [Simple mode in Home Assistant 1.0](https://developers.home-assistant.io/blog/2019/10/05/simple-mode.html).
 
-## In other news
+## Hacktoberfest
 
-TBD
+It is Hacktoberfest. This means that we're spending the month celebrating contributing to open source. If you make 4 pull requests this month, you get a free Hacktoberfest t-shirt! More info and what to work on, check [our Hacktoberfest blog post](https://developers.home-assistant.io/blog/2019/09/27/hacktoberfest.html).
 
-## Frontend
+Average contributions per day have doubled for the month of October. There are now on average 40 contributions coming in each day. Breakdown is ~50% Home Assistant backend, ~37% documentation and ~13% the frontend. Most of these contributions you'll see in the next release!
 
-### Lovelace
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/hacktoberfest.png' alt='Graph of 420 PRs that got opened and merged in the last 14 days.'></a>
+Last 14 days of pull pequest throughput in the Home Assistant organization. (<a href="https://pullreminders.com/installs/13844975/pr-throughput?d=14d">source</a>)
+</p>
 
-[@iantrich](https://github.com/iantrich) fire has not been put out yet. This version he has also added many new functions to Lovelace! Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/) for all changes.
+## State of the Union 2019
 
-#### Some hightlights:
+We're going to have another State of the Union! It will be held at November 13, in Amsterdam. Like last year, it will be hosted by our friends at ING. I'm looking forward to talk about all the great things that are happening in Home Assistant land. We had 150 tickets available when we announced it on social media, and they were all gone in less than 24 hours!
+
+We're going to make sure that there will be a live stream available. We'll announce that in time via the blog and social media. Some people on Twitter are talking about hosting viewing parties across the globe. Keep an eye out on [the social category on the forums](https://community.home-assistant.io/c/social) for announcements.
+
+## Plex
+
+[@jjlawren] has been on fire with the Plex integration. You will now be able to link your account via the official Plex account link feature.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/plex.png' alt='Screenshot of the Plex user interface asking the user if they want to link with Home Assistant.'></a>
+Screenshot of the Plex user interface asking the user if they want to link with Home Assistant.
+</p>
+
+## Lovelace
+
+[@iantrich](https://github.com/iantrich) fire has not been put out yet. This version he has also added many new functions to Lovelace! Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/) for all changes. Some hightlights:
+
 - There are a lot more option for state filtering
 - We have a bunch of new UI editors
 - A new action `url` to link to external sites
+- Config panel: Disabled entities are now hidden by default.
 
-### Automation editor
+## Device automations
+
+[@emontnemery] has been hard at work at further expanding device automations aided by [@dmulcahey] and [@Kane610]. This release includes improved support for Zigbee (ZHA) devices, sensors, binary sensor, switch and Deconz. One neat new improvement is the addition of a "for" option. This allows you to specify triggers for when a certain device has been on for a period of time.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/device-trigger-sensor.png' alt='Screenshot of a device trigger for a temperature sensor.'></a>
+Screenshot of a device trigger for a temperature sensor.
+</p>
+
+## Automation editor
 
 [@emontnemery](https://github.com/emontnemery) has added a bunch of functions to the automation editor, you can now use `and` and `or` conditions, and give your automation a description so you know why you did what you did.
 
-### Devices
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/condition-and.png' alt='Screenshot of an and-condition in the automation editor.'></a>
+Screenshot of an and-condition in the automation editor.
+</p>
 
-When we are on automations, we have taken that to the last release introduced device page. You can now see all the triggers, conditions and actions the device supports, and create an automation with it in 1 click.
+## Devices
 
-Also the entity registry is added to the device page, so you can change all the settings of the devices entities in one place.
-By default the disabled entities are now hidden, you can show them with the switch on the top, this is the same on the general entity registry page.
+Device automations are now available on the experimental device page that we introduced in the last release. You can now see all the triggers, conditions and actions the device supports, and create an automation in 1 click.
+
+We also added the entity registry, so you can change all the settings of the devices entities in one place.
 
 When you rename a device on the device page, it will now also rename the entities of that device if they contain the device name. When you are in advanced mode, it can also rename the entity id's for you.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/action-trigger.png' alt='Screenshot of a card showing device triggers to create automations from.'></a>
+</p>
 
 ### We say goodbye to JSON
 
@@ -55,12 +92,30 @@ This includes:
 - States in dev tools
 - Events in dev tools
 
+<p class='img'>
+<img src='/images/blog/2019-10-0.100/yaml.png' alt='Screenshot of a service action in the automation editor using YAML.'></a>
+Screenshot of a service action in the automation editor using YAML.
+</p>
+
+## In other news
+
+Hans Oischinger showcased how he can steer his vacuum cleaner to specific rooms in his ouse via his floorplan. Besides this tweet, he also wrote [a great blog about it](https://medium.com/@hans.oischinger/zoned-cleanup-with-live-map-922240b4cf8c).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Freed my vacuum robot from the cloud with <a href="https://t.co/tirC2vcsqK">https://t.co/tirC2vcsqK</a><br>This unlocked some new functionality for my vacuum:<br>Configure and start zoned cleanup in <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> with live map overlayed on the floorplan <a href="https://t.co/jtPZHk2xeT">pic.twitter.com/jtPZHk2xeT</a></p>&mdash; Hans Oischinger (@oischinger) <a href="https://twitter.com/oischinger/status/1178254181221769216?ref_src=twsrc%5Etfw">September 29, 2019</a>
+</blockquote>
+
+To improve discovery, we're collecting discovery info of devices and services. Please help us gather [zeroconf discovery info](https://github.com/home-assistant/home-assistant/issues/27371) and [HomeKit discovery info](https://github.com/home-assistant/home-assistant/issues/27292).
+
+As always, this release of Home Assistan is accompanied with a new release of the [Home Assistant Podcast](https://hasspodcast.io/):
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Time for another <a href="https://twitter.com/hashtag/smarthome?src=hash&amp;ref_src=twsrc%5Etfw">#smarthome</a> <a href="https://twitter.com/hashtag/Podcast?src=hash&amp;ref_src=twsrc%5Etfw">#Podcast</a><br><br>This week we&#39;re talking <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> version 1...hundred, <a href="https://twitter.com/hacktoberfest?ref_src=twsrc%5Etfw">@hacktoberfest</a> and catch up with 🇦🇺 Tony about his <a href="https://twitter.com/hashtag/homeautomation?src=hash&amp;ref_src=twsrc%5Etfw">#homeautomation</a> journey with Home Assistant, or maybe it should just be <a href="https://twitter.com/NodeRED?ref_src=twsrc%5Etfw">@NodeRED</a> 🤷‍♂️<a href="https://t.co/DUtNZTHOAA">https://t.co/DUtNZTHOAA</a></p>&mdash; Phil Hawthorne (@philhawthorne) <a href="https://twitter.com/philhawthorne/status/1182055672638267398?ref_src=twsrc%5Etfw">October 9, 2019</a>
+</blockquote>
+
 ## New Integrations
 
 - Add support for DOODS Image Processing ([@snowzach] - [#26208]) ([doods docs]) (new-integration)
 - Izone component ([@Swamp-Ig] - [#24550]) ([izone docs]) (new-integration)
 - Add transport data from maps.yandex.ru api ([@rishatik92] - [#26252]) ([moscow_yandex_transport docs]) (new-integration)
-- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26766]) ([yandex_transport docs]) (new-integration)
 - Add Kaiterra integration ([@Michsior14] - [#26661]) ([kaiterra docs]) (new-integration)
 - Add Ombi integration ([@larssont] - [#26755]) ([ombi docs]) (new-integration)
 - Add here_travel_time ([@eifinger] - [#24603]) ([here_travel_time docs]) (new-integration)
@@ -73,15 +128,25 @@ This includes:
 - Add basic support for IKEA Fyrtur blinds ([@ggravlingen] - [#26659]) ([tradfri docs]) (new-platform)
 - Centralize rainbird config and add binary sensor platform ([@konikvranik] - [#26393]) ([rainbird docs]) (breaking change) (new-platform)
 
+## If you need help...
+
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+
+## Reporting Issues
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+<!--more-->
+
 ## Breaking Changes
 
 - **Removed** - The following integrations which were marked in .98 for pending removal have now been removed (ADR-0004):
-  * **UPS** - ([@frenck] - [#26824]) ([ups docs])
-  * **USPS** -  ([@frenck] - [#26823]) ([usps docs])
-  * **Sytadin** -  ([@frenck] - [#26819]) ([sytadin docs])
-  * **SRP Energy** - ([@frenck] - [#26826]) ([srp_energy docs])
-  * **Fedex** - ([@frenck] - [#26822]) ([fedex docs])
-  * **Linksys AP** - ([@frenck] - [#26847]) ([linksys_ap docs])
+  - **UPS** - ([@frenck] - [#26824]) ([ups docs])
+  - **USPS** - ([@frenck] - [#26823]) ([usps docs])
+  - **Sytadin** - ([@frenck] - [#26819]) ([sytadin docs])
+  - **SRP Energy** - ([@frenck] - [#26826]) ([srp_energy docs])
+  - **Fedex** - ([@frenck] - [#26822]) ([fedex docs])
+  - **Linksys AP** - ([@frenck] - [#26847]) ([linksys_ap docs])
 - **NZBGet** - The integration has been changed to support multiple platforms and future events, and common code has been centralized to the component. The configuration has moved from the sensor platform to the `nzbget` key in configuration.yaml, and the `monitored_variables` option has been removed. Users need to update their configuration. - ([@chriscla] - [#26462]) ([nzbget docs])
 
   New example configuration entry:
@@ -89,39 +154,45 @@ This includes:
   ```yaml
   nzbget:
     host: 192.168.1.1
-    ssl: false 
+    ssl: false
   ```
+
 - **SpaceAPI** - Values that were not compliant with the SpaceAPI specification were changed.
-  * `contact / mailing_list` has changed to `contact / ml`, to migrate change the `mailing_list` key to `ml`
-  * `location / address` is no longer required but is optional as the latitude and longitude properties of the location are added automatically from the HA config). There is no need to change anything. - ([@Bouni] - [#26453]) ([spaceapi docs])
+
+  - `contact / mailing_list` has changed to `contact / ml`, to migrate change the `mailing_list` key to `ml`
+  - `location / address` is no longer required but is optional as the latitude and longitude properties of the location are added automatically from the HA config). There is no need to change anything. - ([@Bouni] - [#26453]) ([spaceapi docs])
 
 - **Linky** - Linky sensors have been grouped to one Linky device. Users will need to remove and re-add the Linky integration to clear the device registry. - ([@piitaya] - [#26738]) ([linky docs])
 
-- __Elv__ - ELV/PCA is now its own integration. Existing configuration should be removed and replaced. Optionally the port for the serial interface can be specified (default is: /dev/ttyUSB0). - ([@majuss] - [#26552]) ([elv docs])
+- **Elv** - ELV/PCA is now its own integration. Existing configuration should be removed and replaced. Optionally the port for the serial interface can be specified (default is: /dev/ttyUSB0). - ([@majuss] - [#26552]) ([elv docs])
 
   Example configuration entry:
+
   ```yaml
   elv:
-    device: '/dev/ttyUSB0'
+    device: "/dev/ttyUSB0"
   ```
-  
-- __Automation__ - Custom component developers who started playing with device automations only: we have restructured how integrations can expose their device triggers/conditions/actions. Instead of 1 platform `device_automation.py` it's now `device_action.py`, `device_trigger.py`, `device_condition.py`.
+
+- **Automation** - Custom component developers who started playing with device automations only: we have restructured how integrations can expose their device triggers/conditions/actions. Instead of 1 platform `device_automation.py` it's now `device_action.py`, `device_trigger.py`, `device_condition.py`.
   The method to attach a device trigger has been updated from `async_trigger` to `async_attach_trigger` to better reflect what is going on. - ([@balloob] - [#26880]) ([automation docs]) ([binary_sensor docs]) ([deconz docs]) ([device_automation docs]) ([light docs]) ([switch docs]) ([zha docs])
-  
+
 - **Ecobee** - Ecobee will now be set up via config flow. Existing users will have their config imported from ecobee.conf via an import flow so it shouldn't break their experience. Users configuring via configuration.yaml will have their api key and options imported into the flow but will still need to finish authorization via the flow (instead of the configurator component as previously).
-The configuration parameter `hold_temp` has been removed, as it was not being used in the climate platform and had no effect on whether the temperature was held indefinitely or not. Users will need to remove the parameter `hold_temp` from configuration.yaml.
-Ecobee-specific services will now be registered under the ecobee domain rather than the climate domain, and service names will not include the prefix "ecobee_" (e.g. the service "climate.ecobee_resume_program" will become "ecobee.resume_program"). - ([@marthoc] - [#26634]) ([ecobee docs])
+  The configuration parameter `hold_temp` has been removed, as it was not being used in the climate platform and had no effect on whether the temperature was held indefinitely or not. Users will need to remove the parameter `hold_temp` from configuration.yaml.
+  Ecobee-specific services will now be registered under the ecobee domain rather than the climate domain, and service names will not include the prefix "ecobee\_" (e.g. the service "climate.ecobee_resume_program" will become "ecobee.resume_program"). - ([@marthoc] - [#26634]) ([ecobee docs])
 - **Transmission** - The Transmission integration can now be configured through a config flow via Integrations in the GUI. Once configured all sensors and switches will be created and available for the user.
-`monitored_conditions` has been removed so existing users need to update their configuration in configuration.yaml and remove monitored conditions. The existing configuration will be imported as an entry under Integrations. - ([@engrbm87] - [#26434]) ([transmission docs])
+  `monitored_conditions` has been removed so existing users need to update their configuration in configuration.yaml and remove monitored conditions. The existing configuration will be imported as an entry under Integrations. - ([@engrbm87] - [#26434]) ([transmission docs])
 
   Example configuration entry:
+
   ```yaml
   transmission:
     host: 192.168.1.1
   ```
-- __Rainbird__ - Rainbird is now its own platform. The configuration of rainbird switches has been moved under `zones:` as part of the `rainbird:` integration. - ([@konikvranik] - [#26393]) ([rainbird docs])
+
+- **Rainbird** - Rainbird is now its own platform. The configuration of rainbird switches has been moved under `zones:` as part of the `rainbird:` integration. - ([@konikvranik] - [#26393]) ([rainbird docs])
 
   Example configuration entry:
+
   ```yaml
   rainbird:
     host: IP_ADDRESS_OF_MODULE
@@ -131,37 +202,65 @@ Ecobee-specific services will now be registered under the ecobee domain rather t
       1:
         trigger_time: 6
   ```
-- **Incomfort** - Device state attributes that were causing pointless state changes have been removed:
-  * `"rf_message_rssi` signal strength (between gateway & boiler), changes almost every scan_interval
-  * `nodenr` unknown, is static
-  * `rfstatus_cntr` unknown, changes
-  
-  This is not likely to be considered a breaking change by users. - ([@zxdavb] - [#26802]) ([incomfort docs])
-- **Evohome** - Device state attributes keys have been changed to snake_case and, since this a breaking change, the opportunity was taken to revise/simplify the entire device state attributes schema.
-Evohome is a complicated integration, has had major changes in recent times, and is not yet mature - these changes address some bugs and related architectural issues:
 
-  * Modify behavior of set_temperature to mirror that of the vendor's UI (e.g. any target temp changes until next setpoint, unless explicitly set otherwise)
-  * Setpoint datetimes are now correctly converted to local/aware isoformat (internally, and for logging/state attributes)
-  * Use snake_case for device state attributes
-  * Add a unique_id for each entity (systemId, zoneID, dhwId)
-  * Refactoring - remove API wrappers (no longer using private methods)
-  * Add away mode for DHW (set to permanent off or Auto, depending)([@zxdavb] - [#26810]) ([evohome docs])
+- **Incomfort** - Device state attributes that were causing pointless state changes have been removed:
+
+  - `"rf_message_rssi` signal strength (between gateway & boiler), changes almost every scan_interval
+  - `nodenr` unknown, is static
+  - `rfstatus_cntr` unknown, changes
+
+  This is not likely to be considered a breaking change by users. - ([@zxdavb] - [#26802]) ([incomfort docs])
+
+- **Evohome** - Device state attributes keys have been changed to snake_case and, since this a breaking change, the opportunity was taken to revise/simplify the entire device state attributes schema.
+  Evohome is a complicated integration, has had major changes in recent times, and is not yet mature - these changes address some bugs and related architectural issues:
+
+  - Modify behavior of set_temperature to mirror that of the vendor's UI (e.g. any target temp changes until next setpoint, unless explicitly set otherwise)
+  - Setpoint datetimes are now correctly converted to local/aware isoformat (internally, and for logging/state attributes)
+  - Use snake_case for device state attributes
+  - Add a unique_id for each entity (systemId, zoneID, dhwId)
+  - Refactoring - remove API wrappers (no longer using private methods)
+  - Add away mode for DHW (set to permanent off or Auto, depending)([@zxdavb] - [#26810]) ([evohome docs])
+
 - **OpenTherm** - Move climate entity state to hvac_action attribute to comply with climate 1.0. May break e.g. automations. - ([@mvn23] - [#25931]) ([opentherm_gw docs])
 - **Genius Hub** - Users connecting to a Hub via the v1 API will need to specify a valid MAC address for the hub (see example YAML, below). Those using the v3 API will be unaffected.
-This change is in preperation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
- 
+  This change is in preperation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
+
   Some Sensor entities fro GeniusHub Issues have been renamed, and so will get a new entity ID:
 
-  * sensor.errors to sensor.geniushub_errors
-  * sensor.warnings to sensor.geniushub_warnings
-  * sensor.information to sensor.geniushub_informationeniushub and bump client to v0.6.26 - ([@zxdavb] - [#26640]) ([geniushub docs])
-  
+  - sensor.errors to sensor.geniushub_errors
+  - sensor.warnings to sensor.geniushub_warnings
+  - sensor.information to sensor.geniushub_informationeniushub and bump client to v0.6.26 - ([@zxdavb] - [#26640]) ([geniushub docs])
+
   Example configuration entry:
+
   ```yaml
   geniushub:
     token: JqVFd0UUEi...
     mac: 18:CC:23:12:34:56
   ```
+
+## Beta Fixes
+
+- Only generate device trigger for sensor with unit ([@emontnemery] - [#27152]) ([sensor docs]) (beta fix)
+- Add above and below to sensor trigger extra_fields ([@emontnemery] - [#27160]) ([sensor docs]) (beta fix)
+- Update connect-box to fix issue with attrs ([@pvizeli] - [#27194]) ([upc_connect docs]) (beta fix)
+- Fix validation when automation is saved from frontend ([@emontnemery] - [#27195]) ([automation docs]) (beta fix)
+- Fix ecobee binary sensor and sensor unique ids ([@marthoc] - [#27208]) ([ecobee docs]) (beta fix)
+- Bump adb-shell to 0.0.4; bump androidtv to 0.0.30 ([@JeffLIrion] - [#27224]) ([androidtv docs]) (beta fix)
+- Fix closed status for non horizontal awnings. ([@psicot] - [#26840]) ([tahoma docs]) (beta fix)
+- Fix update on cert_expiry startup ([@jjlawren] - [#27137]) ([cert_expiry docs]) (beta fix)
+- Fix onvif PTZ service freeze ([@skgsergio] - [#27250]) ([onvif docs]) (beta fix)
+- Fix the todoist integration ([@boralyl] - [#27273]) ([todoist docs]) (beta fix)
+- Fix Plex media_player.play_media service ([@jjlawren] - [#27278]) ([plex docs]) (beta fix)
+- Remove manual config flow step ([@jjlawren] - [#27291]) ([plex docs]) (beta fix)
+- Improve speed websocket sends messages ([@balloob] - [#27295]) ([websocket_api docs]) (beta fix)
+- Google: Report all states on activating report state ([@balloob] - [#27312]) ([google_assistant docs]) (beta fix)
+- Fix single Plex server case ([@jjlawren] - [#27326]) ([plex docs]) (beta fix)
+- Updated frontend to 20191002.1 ([@bramkragten] - [#27329]) ([frontend docs]) (beta fix)
+- Fix translations for binary_sensor triggers ([@emontnemery] - [#27330]) ([binary_sensor docs]) (beta fix)
+- Fix connection issues with withings API by switching to a maintained codebase ([@vangorra] - [#27310]) ([withings docs]) (beta fix)
+- Update zigpy-zigate to 0.4.1 ([@doudz] - [#27345]) ([zha docs]) (beta fix)
+- Updated frontend to 20191002.2 ([@bramkragten] - [#27370]) ([frontend docs]) (beta fix)
 
 ## All changes
 
@@ -216,7 +315,7 @@ This change is in preperation for for further changes, so the geniushub entities
 - Revert "Add transport data from maps.yandex.ru api (#26252)" ([@pvizeli] - [#26762]) ([yandex_transport docs])
 - Bump openwrt-luci-rpc to version 1.1.1 ([@flowolf] - [#26759]) ([luci docs])
 - Type hint additions ([@scop] - [#26765]) ([automation docs]) ([cover docs]) ([frontend docs]) ([http docs]) ([media_player docs]) ([switch docs])
-- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26766]) ([yandex_transport docs]) (new-integration)
+- Add transport data from maps.yandex.ru api ([@rishatik92] - [#26766]) ([yandex_transport docs])
 - ZHA siren and warning device support ([@dmulcahey] - [#26046]) ([zha docs])
 - Bump aiowwlln to 2.0.2 ([@bachya] - [#26769]) ([wwlln docs])
 - Bump simplisafe-python to 5.0.1 ([@bachya] - [#26775]) ([simplisafe docs])
@@ -378,54 +477,27 @@ This change is in preperation for for further changes, so the geniushub entities
 - Fix colorTemperatureInKelvin in Alexa report when light is off ([@ochlocracy] - [#27107]) ([alexa docs])
 - Add device trigger support to sensor entities ([@emontnemery] - [#27133]) ([automation docs]) ([binary_sensor docs]) ([device_automation docs]) ([sensor docs])
 - Add Google Report State ([@balloob] - [#27112]) ([alexa docs]) ([cloud docs]) ([google_assistant docs])
-
-## All frontend changes
-
-* Fix whitespace error in services ([#3880](https://github.com/home-assistant/home-assistant-polymer/pull/3880)) [@bramkragten](https://github.com/bramkragten)
-* Hide empty blocks on device page ([#3950](https://github.com/home-assistant/home-assistant-polymer/pull/3950)) [@bramkragten](https://github.com/bramkragten)
-* Fix updating entity id in entity-registry-dialog ([#3962](https://github.com/home-assistant/home-assistant-polymer/pull/3862)) [@bramkragten](https://github.com/bramkragten)
-* Add report state toggle for Google ([#3855](https://github.com/home-assistant/home-assistant-polymer/pull/3855)) [@bramkragten](https://github.com/bramkragten)
-* Fix dark switch for map card editor ([#3856](https://github.com/home-assistant/home-assistant-polymer/pull/3856)) [@bramkragten](https://github.com/bramkragten)
-* Align background with tiles ([#3858](https://github.com/home-assistant/home-assistant-polymer/pull/3858)) [@bramkragten](https://github.com/bramkragten)
-* Allow yaml in dev states ([#3859](https://github.com/home-assistant/home-assistant-polymer/pull/3859)) [@bramkragten](https://github.com/bramkragten)
-* Allow yaml in dev services ([#3860](https://github.com/home-assistant/home-assistant-polymer/pull/3860)) [@bramkragten](https://github.com/bramkragten)
-* Allow yaml in dev events ([#3861](https://github.com/home-assistant/home-assistant-polymer/pull/3861)) [@bramkragten](https://github.com/bramkragten)
-* Allow yaml in script and automation ([#3862](https://github.com/home-assistant/home-assistant-polymer/pull/3862)) [@bramkragten](https://github.com/bramkragten)
-* Default hide disabled entities from entity registry ([#3863](https://github.com/home-assistant/home-assistant-polymer/pull/3863)) [@bramkragten](https://github.com/bramkragten)
-* Guard for null badges ([#3841](https://github.com/home-assistant/home-assistant-polymer/pull/3841)) [@bramkragten](https://github.com/bramkragten)
-* Add entity registry functions to device page ([#3843](https://github.com/home-assistant/home-assistant-polymer/pull/3843)) [@bramkragten](https://github.com/bramkragten)
-* Allow user selection of text in Lovelace ([#3605](https://github.com/home-assistant/home-assistant-polymer/pull/3605)) [@iantrich](https://github.com/iantrich)
-* Update documentation link URL for integrations ([#3857](https://github.com/home-assistant/home-assistant-polymer/pull/3857)) [@frenck](https://github.com/frenck)
-* add actions to picture-glance entities ([#3807](https://github.com/home-assistant/home-assistant-polymer/pull/3807)) [@iantrich](https://github.com/iantrich)
-* Fix some styling of ha-switch ([#3842](https://github.com/home-assistant/home-assistant-polymer/pull/3842)) [@bramkragten](https://github.com/bramkragten)
-* Remove local mdc-datatable ([#3840](https://github.com/home-assistant/home-assistant-polymer/pull/3840)) [@bramkragten](https://github.com/bramkragten)
-* Add missing domain icons ([#3836](https://github.com/home-assistant/home-assistant-polymer/pull/3836)) [@SeanPM5](https://github.com/SeanPM5)
-* Use filter worker in data-table ([#3808](https://github.com/home-assistant/home-assistant-polymer/pull/3808)) [@bramkragten](https://github.com/bramkragten)
-* add image option to entities card ([#3832](https://github.com/home-assistant/home-assistant-polymer/pull/3832)) [@iantrich](https://github.com/iantrich)
-* fix alignment of switches positioned absolutely ([#3812](https://github.com/home-assistant/home-assistant-polymer/pull/3812)) [@iantrich](https://github.com/iantrich)
-* add state_filter to picture cards ([#3791](https://github.com/home-assistant/home-assistant-polymer/pull/3791)) [@iantrich](https://github.com/iantrich)
-* Add a setting for vibration ([#3813](https://github.com/home-assistant/home-assistant-polymer/pull/3813)) [@bramkragten](https://github.com/bramkragten)
-* Add hassio supervisor and os update notice ([#3798](https://github.com/home-assistant/home-assistant-polymer/pull/3798)) [@bramkragten](https://github.com/bramkragten)
-* Add name to picture entity struct ([#3809](https://github.com/home-assistant/home-assistant-polymer/pull/3809)) [@bramkragten](https://github.com/bramkragten)
-* UI Editor for picture-glance card ([#3709](https://github.com/home-assistant/home-assistant-polymer/pull/3709)) [@iantrich](https://github.com/iantrich)
-* Fix firefox overflow ([#3806](https://github.com/home-assistant/home-assistant-polymer/pull/3806)) [@bramkragten](https://github.com/bramkragten)
-* Expand entity-filter options ([#3692](https://github.com/home-assistant/home-assistant-polymer/pull/3692)) [@iantrich](https://github.com/iantrich)
-* Green shade in climate history for platforms that don't support `hvac_action` ([#3787](https://github.com/home-assistant/home-assistant-polymer/pull/3787)) [@OnFreund](https://github.com/OnFreund)
-* UI editor for history-graph ([#3782](https://github.com/home-assistant/home-assistant-polymer/pull/3782)) [@iantrich](https://github.com/iantrich)
-* cleanup editors ([#3786](https://github.com/home-assistant/home-assistant-polymer/pull/3786)) [@iantrich](https://github.com/iantrich)
-* Add support for `and` and `or` conditions to the automation editor. ([#3724](https://github.com/home-assistant/home-assistant-polymer/pull/3724)) [@emontnemery](https://github.com/emontnemery)
-* Add support for panels to cast ([#3796](https://github.com/home-assistant/home-assistant-polymer/pull/3796)) [@bramkragten](https://github.com/bramkragten)
-* Move views to own folder + use update vs updated in panel view ([#3761](https://github.com/home-assistant/home-assistant-polymer/pull/3761)) [@bramkragten](https://github.com/bramkragten)
-* Add Language Urdu ([#3750](https://github.com/home-assistant/home-assistant-polymer/pull/3750)) [@bramkragten](https://github.com/bramkragten)
-* Add support for automation description ([#3723](https://github.com/home-assistant/home-assistant-polymer/pull/3723)) [@emontnemery](https://github.com/emontnemery)
-* light-card: icon option ([#3771](https://github.com/home-assistant/home-assistant-polymer/pull/3771)) [@iantrich](https://github.com/iantrich)
-* Switch paper-toggle-button to mwc-switch ([#3683](https://github.com/home-assistant/home-assistant-polymer/pull/3683)) [@iantrich](https://github.com/iantrich)
-* Upgrade some deps ([#3780](https://github.com/home-assistant/home-assistant-polymer/pull/3780)) [@balloob](https://github.com/balloob)
-* UI Editor for picture-entity card ([#3708](https://github.com/home-assistant/home-assistant-polymer/pull/3708)) [@iantrich](https://github.com/iantrich)
-* picture entity editor fix ([#3783](https://github.com/home-assistant/home-assistant-polymer/pull/3783)) [@iantrich](https://github.com/iantrich)
-* new action: url ([#3773](https://github.com/home-assistant/home-assistant-polymer/pull/3773)) [@iantrich](https://github.com/iantrich)
-* Replace all default exports in common/ with named exports ([#3790](https://github.com/home-assistant/home-assistant-polymer/pull/3790)) [@iantrich](https://github.com/iantrich)
-* Add device automation options to device page ([#3776](https://github.com/home-assistant/home-assistant-polymer/pull/3776)) [@bramkragten](https://github.com/bramkragten)
+- Handle all single zone thermostats ([@zxdavb] - [#27168]) ([evohome docs])
+- Only generate device trigger for sensor with unit ([@emontnemery] - [#27152]) ([sensor docs]) (beta fix)
+- Add above and below to sensor trigger extra_fields ([@emontnemery] - [#27160]) ([sensor docs]) (beta fix)
+- Update connect-box to fix issue with attrs ([@pvizeli] - [#27194]) ([upc_connect docs]) (beta fix)
+- Fix validation when automation is saved from frontend ([@emontnemery] - [#27195]) ([automation docs]) (beta fix)
+- Fix ecobee binary sensor and sensor unique ids ([@marthoc] - [#27208]) ([ecobee docs]) (beta fix)
+- Bump adb-shell to 0.0.4; bump androidtv to 0.0.30 ([@JeffLIrion] - [#27224]) ([androidtv docs]) (beta fix)
+- Fix closed status for non horizontal awnings. ([@psicot] - [#26840]) ([tahoma docs]) (beta fix)
+- Fix update on cert_expiry startup ([@jjlawren] - [#27137]) ([cert_expiry docs]) (beta fix)
+- Fix onvif PTZ service freeze ([@skgsergio] - [#27250]) ([onvif docs]) (beta fix)
+- Fix the todoist integration ([@boralyl] - [#27273]) ([todoist docs]) (beta fix)
+- Fix Plex media_player.play_media service ([@jjlawren] - [#27278]) ([plex docs]) (beta fix)
+- Remove manual config flow step ([@jjlawren] - [#27291]) ([plex docs]) (beta fix)
+- Improve speed websocket sends messages ([@balloob] - [#27295]) ([websocket_api docs]) (beta fix)
+- Google: Report all states on activating report state ([@balloob] - [#27312]) ([google_assistant docs]) (beta fix)
+- Fix single Plex server case ([@jjlawren] - [#27326]) ([plex docs]) (beta fix)
+- Updated frontend to 20191002.1 ([@bramkragten] - [#27329]) ([frontend docs]) (beta fix)
+- Fix translations for binary_sensor triggers ([@emontnemery] - [#27330]) ([binary_sensor docs]) (beta fix)
+- Fix connection issues with withings API by switching to a maintained codebase ([@vangorra] - [#27310]) ([withings docs]) (beta fix)
+- Update zigpy-zigate to 0.4.1 ([@doudz] - [#27345]) ([zha docs]) (beta fix)
+- Updated frontend to 20191002.2 ([@bramkragten] - [#27370]) ([frontend docs]) (beta fix)
 
 [#22311]: https://github.com/home-assistant/home-assistant/pull/22311
 [#23495]: https://github.com/home-assistant/home-assistant/pull/23495
@@ -547,6 +619,7 @@ This change is in preperation for for further changes, so the geniushub entities
 [#26831]: https://github.com/home-assistant/home-assistant/pull/26831
 [#26832]: https://github.com/home-assistant/home-assistant/pull/26832
 [#26835]: https://github.com/home-assistant/home-assistant/pull/26835
+[#26840]: https://github.com/home-assistant/home-assistant/pull/26840
 [#26847]: https://github.com/home-assistant/home-assistant/pull/26847
 [#26849]: https://github.com/home-assistant/home-assistant/pull/26849
 [#26852]: https://github.com/home-assistant/home-assistant/pull/26852
@@ -640,31 +713,52 @@ This change is in preperation for for further changes, so the geniushub entities
 [#27133]: https://github.com/home-assistant/home-assistant/pull/27133
 [#27134]: https://github.com/home-assistant/home-assistant/pull/27134
 [#27135]: https://github.com/home-assistant/home-assistant/pull/27135
-[@Adminiuga]: https://github.com/Adminiuga
-[@BKPepe]: https://github.com/BKPepe
-[@Bouni]: https://github.com/Bouni
-[@CQoute]: https://github.com/CQoute
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@HarlemSquirrel]: https://github.com/HarlemSquirrel
-[@Jc2k]: https://github.com/Jc2k
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@KJonline]: https://github.com/KJonline
-[@Kane610]: https://github.com/Kane610
-[@KiLLeRRaT]: https://github.com/KiLLeRRaT
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MatthewFlamm]: https://github.com/MatthewFlamm
-[@Michsior14]: https://github.com/Michsior14
-[@SNoof85]: https://github.com/SNoof85
-[@SneakSnackSnake]: https://github.com/SneakSnackSnake
-[@SukramJ]: https://github.com/SukramJ
-[@Swamp-Ig]: https://github.com/Swamp-Ig
-[@ViViDboarder]: https://github.com/ViViDboarder
+[#27137]: https://github.com/home-assistant/home-assistant/pull/27137
+[#27152]: https://github.com/home-assistant/home-assistant/pull/27152
+[#27160]: https://github.com/home-assistant/home-assistant/pull/27160
+[#27168]: https://github.com/home-assistant/home-assistant/pull/27168
+[#27194]: https://github.com/home-assistant/home-assistant/pull/27194
+[#27195]: https://github.com/home-assistant/home-assistant/pull/27195
+[#27208]: https://github.com/home-assistant/home-assistant/pull/27208
+[#27224]: https://github.com/home-assistant/home-assistant/pull/27224
+[#27250]: https://github.com/home-assistant/home-assistant/pull/27250
+[#27273]: https://github.com/home-assistant/home-assistant/pull/27273
+[#27278]: https://github.com/home-assistant/home-assistant/pull/27278
+[#27291]: https://github.com/home-assistant/home-assistant/pull/27291
+[#27295]: https://github.com/home-assistant/home-assistant/pull/27295
+[#27310]: https://github.com/home-assistant/home-assistant/pull/27310
+[#27312]: https://github.com/home-assistant/home-assistant/pull/27312
+[#27326]: https://github.com/home-assistant/home-assistant/pull/27326
+[#27329]: https://github.com/home-assistant/home-assistant/pull/27329
+[#27330]: https://github.com/home-assistant/home-assistant/pull/27330
+[#27345]: https://github.com/home-assistant/home-assistant/pull/27345
+[#27370]: https://github.com/home-assistant/home-assistant/pull/27370
+[@adminiuga]: https://github.com/Adminiuga
+[@bkpepe]: https://github.com/BKPepe
+[@bouni]: https://github.com/Bouni
+[@cqoute]: https://github.com/CQoute
+[@danielhiversen]: https://github.com/Danielhiversen
+[@harlemsquirrel]: https://github.com/HarlemSquirrel
+[@jc2k]: https://github.com/Jc2k
+[@jefflirion]: https://github.com/JeffLIrion
+[@kjonline]: https://github.com/KJonline
+[@kane610]: https://github.com/Kane610
+[@killerrat]: https://github.com/KiLLeRRaT
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@matthewflamm]: https://github.com/MatthewFlamm
+[@michsior14]: https://github.com/Michsior14
+[@snoof85]: https://github.com/SNoof85
+[@sneaksnacksnake]: https://github.com/SneakSnackSnake
+[@sukramj]: https://github.com/SukramJ
+[@swamp-ig]: https://github.com/Swamp-Ig
+[@vividboarder]: https://github.com/ViViDboarder
 [@abmantis]: https://github.com/abmantis
 [@amelchio]: https://github.com/amelchio
 [@amigan]: https://github.com/amigan
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bbrendon]: https://github.com/bbrendon
+[@boralyl]: https://github.com/boralyl
 [@bramkragten]: https://github.com/bramkragten
 [@bryanyork]: https://github.com/bryanyork
 [@chriscla]: https://github.com/chriscla
@@ -707,6 +801,7 @@ This change is in preperation for for further changes, so the geniushub entities
 [@pgilad]: https://github.com/pgilad
 [@piitaya]: https://github.com/piitaya
 [@poofyteddy]: https://github.com/poofyteddy
+[@psicot]: https://github.com/psicot
 [@pvizeli]: https://github.com/pvizeli
 [@ratsept]: https://github.com/ratsept
 [@rishatik92]: https://github.com/rishatik92
@@ -719,6 +814,7 @@ This change is in preperation for for further changes, so the geniushub entities
 [@scop]: https://github.com/scop
 [@sebasje]: https://github.com/sebasje
 [@shutupflanders]: https://github.com/shutupflanders
+[@skgsergio]: https://github.com/skgsergio
 [@snowzach]: https://github.com/snowzach
 [@squishykid]: https://github.com/squishykid
 [@thecynic]: https://github.com/thecynic
@@ -726,128 +822,133 @@ This change is in preperation for for further changes, so the geniushub entities
 [@tleegaard]: https://github.com/tleegaard
 [@tribut]: https://github.com/tribut
 [@tsvi]: https://github.com/tsvi
+[@vangorra]: https://github.com/vangorra
 [@zewelor]: https://github.com/zewelor
 [@zhumuht]: https://github.com/zhumuht
 [@zxdavb]: https://github.com/zxdavb
-[alexa docs]: https://www.home-assistant.io/integrations/alexa/
-[amazon_polly docs]: https://www.home-assistant.io/integrations/amazon_polly/
-[androidtv docs]: https://www.home-assistant.io/integrations/androidtv/
-[automation docs]: https://www.home-assistant.io/integrations/automation/
-[binary_sensor docs]: https://www.home-assistant.io/integrations/binary_sensor/
-[bluetooth_le_tracker docs]: https://www.home-assistant.io/integrations/bluetooth_le_tracker/
-[bluetooth_tracker docs]: https://www.home-assistant.io/integrations/bluetooth_tracker/
-[bmw_connected_drive docs]: https://www.home-assistant.io/integrations/bmw_connected_drive/
-[cert_expiry docs]: https://www.home-assistant.io/integrations/cert_expiry/
-[cloud docs]: https://www.home-assistant.io/integrations/cloud/
-[config docs]: https://www.home-assistant.io/integrations/config/
-[cover docs]: https://www.home-assistant.io/integrations/cover/
-[darksky docs]: https://www.home-assistant.io/integrations/darksky/
-[deconz docs]: https://www.home-assistant.io/integrations/deconz/
-[device_automation docs]: https://www.home-assistant.io/integrations/device_automation/
-[doods docs]: https://www.home-assistant.io/integrations/doods/
-[ebusd docs]: https://www.home-assistant.io/integrations/ebusd/
-[ecobee docs]: https://www.home-assistant.io/integrations/ecobee/
-[egardia docs]: https://www.home-assistant.io/integrations/egardia/
-[elv docs]: https://www.home-assistant.io/integrations/elv/
-[enphase_envoy docs]: https://www.home-assistant.io/integrations/enphase_envoy/
-[environment_canada docs]: https://www.home-assistant.io/integrations/environment_canada/
-[esphome docs]: https://www.home-assistant.io/integrations/esphome/
-[evohome docs]: https://www.home-assistant.io/integrations/evohome/
-[fedex docs]: https://www.home-assistant.io/integrations/fedex/
-[frontend docs]: https://www.home-assistant.io/integrations/frontend/
-[generic docs]: https://www.home-assistant.io/integrations/generic/
-[geniushub docs]: https://www.home-assistant.io/integrations/geniushub/
-[geonetnz_quakes docs]: https://www.home-assistant.io/integrations/geonetnz_quakes/
-[glances docs]: https://www.home-assistant.io/integrations/glances/
-[google_assistant docs]: https://www.home-assistant.io/integrations/google_assistant/
-[group docs]: https://www.home-assistant.io/integrations/group/
-[here_travel_time docs]: https://www.home-assistant.io/integrations/here_travel_time/
-[hive docs]: https://www.home-assistant.io/integrations/hive/
-[homekit docs]: https://www.home-assistant.io/integrations/homekit/
-[homekit_controller docs]: https://www.home-assistant.io/integrations/homekit_controller/
-[homematicip_cloud docs]: https://www.home-assistant.io/integrations/homematicip_cloud/
-[http docs]: https://www.home-assistant.io/integrations/http/
-[hue docs]: https://www.home-assistant.io/integrations/hue/
-[iaqualink docs]: https://www.home-assistant.io/integrations/iaqualink/
-[image_processing docs]: https://www.home-assistant.io/integrations/image_processing/
-[incomfort docs]: https://www.home-assistant.io/integrations/incomfort/
-[influxdb docs]: https://www.home-assistant.io/integrations/influxdb/
-[iperf3 docs]: https://www.home-assistant.io/integrations/iperf3/
-[izone docs]: https://www.home-assistant.io/integrations/izone/
-[kaiterra docs]: https://www.home-assistant.io/integrations/kaiterra/
-[keenetic_ndms2 docs]: https://www.home-assistant.io/integrations/keenetic_ndms2/
-[knx docs]: https://www.home-assistant.io/integrations/knx/
-[lcn docs]: https://www.home-assistant.io/integrations/lcn/
-[lifx docs]: https://www.home-assistant.io/integrations/lifx/
-[lifx_cloud docs]: https://www.home-assistant.io/integrations/lifx_cloud/
-[lifx_legacy docs]: https://www.home-assistant.io/integrations/lifx_legacy/
-[light docs]: https://www.home-assistant.io/integrations/light/
-[linksys_ap docs]: https://www.home-assistant.io/integrations/linksys_ap/
-[linky docs]: https://www.home-assistant.io/integrations/linky/
-[luci docs]: https://www.home-assistant.io/integrations/luci/
-[media_extractor docs]: https://www.home-assistant.io/integrations/media_extractor/
-[media_player docs]: https://www.home-assistant.io/integrations/media_player/
-[meteoalarm docs]: https://www.home-assistant.io/integrations/meteoalarm/
-[moscow_yandex_transport docs]: https://www.home-assistant.io/integrations/moscow_yandex_transport/
-[mqtt docs]: https://www.home-assistant.io/integrations/mqtt/
-[mysensors docs]: https://www.home-assistant.io/integrations/mysensors/
-[nest docs]: https://www.home-assistant.io/integrations/nest/
-[netgear_lte docs]: https://www.home-assistant.io/integrations/netgear_lte/
-[nextbus docs]: https://www.home-assistant.io/integrations/nextbus/
-[nws docs]: https://www.home-assistant.io/integrations/nws/
-[nzbget docs]: https://www.home-assistant.io/integrations/nzbget/
-[obihai docs]: https://www.home-assistant.io/integrations/obihai/
-[ombi docs]: https://www.home-assistant.io/integrations/ombi/
-[onvif docs]: https://www.home-assistant.io/integrations/onvif/
-[opentherm_gw docs]: https://www.home-assistant.io/integrations/opentherm_gw/
-[openuv docs]: https://www.home-assistant.io/integrations/openuv/
-[otp docs]: https://www.home-assistant.io/integrations/otp/
-[owlet docs]: https://www.home-assistant.io/integrations/owlet/
-[persistent_notification docs]: https://www.home-assistant.io/integrations/persistent_notification/
-[pi_hole docs]: https://www.home-assistant.io/integrations/pi_hole/
-[plex docs]: https://www.home-assistant.io/integrations/plex/
-[proxy docs]: https://www.home-assistant.io/integrations/proxy/
-[rainbird docs]: https://www.home-assistant.io/integrations/rainbird/
-[remote_rpi_gpio docs]: https://www.home-assistant.io/integrations/remote_rpi_gpio/
-[rest_command docs]: https://www.home-assistant.io/integrations/rest_command/
-[saj docs]: https://www.home-assistant.io/integrations/saj/
-[sendgrid docs]: https://www.home-assistant.io/integrations/sendgrid/
-[sensor docs]: https://www.home-assistant.io/integrations/sensor/
-[shodan docs]: https://www.home-assistant.io/integrations/shodan/
-[simplisafe docs]: https://www.home-assistant.io/integrations/simplisafe/
-[solaredge_local docs]: https://www.home-assistant.io/integrations/solaredge_local/
-[solax docs]: https://www.home-assistant.io/integrations/solax/
-[soma docs]: https://www.home-assistant.io/integrations/soma/
-[sonos docs]: https://www.home-assistant.io/integrations/sonos/
-[spaceapi docs]: https://www.home-assistant.io/integrations/spaceapi/
-[srp_energy docs]: https://www.home-assistant.io/integrations/srp_energy/
-[sun docs]: https://www.home-assistant.io/integrations/sun/
-[switch docs]: https://www.home-assistant.io/integrations/switch/
-[sytadin docs]: https://www.home-assistant.io/integrations/sytadin/
-[template docs]: https://www.home-assistant.io/integrations/template/
-[tensorflow docs]: https://www.home-assistant.io/integrations/tensorflow/
-[tfiac docs]: https://www.home-assistant.io/integrations/tfiac/
-[tibber docs]: https://www.home-assistant.io/integrations/tibber/
-[torque docs]: https://www.home-assistant.io/integrations/torque/
-[tradfri docs]: https://www.home-assistant.io/integrations/tradfri/
-[transmission docs]: https://www.home-assistant.io/integrations/transmission/
-[unifi docs]: https://www.home-assistant.io/integrations/unifi/
-[ups docs]: https://www.home-assistant.io/integrations/ups/
-[usps docs]: https://www.home-assistant.io/integrations/usps/
-[velux docs]: https://www.home-assistant.io/integrations/velux/
-[venstar docs]: https://www.home-assistant.io/integrations/venstar/
-[vera docs]: https://www.home-assistant.io/integrations/vera/
-[vivotek docs]: https://www.home-assistant.io/integrations/vivotek/
-[volumio docs]: https://www.home-assistant.io/integrations/volumio/
-[watson_tts docs]: https://www.home-assistant.io/integrations/watson_tts/
-[websocket_api docs]: https://www.home-assistant.io/integrations/websocket_api/
-[wemo docs]: https://www.home-assistant.io/integrations/wemo/
-[whois docs]: https://www.home-assistant.io/integrations/whois/
-[wwlln docs]: https://www.home-assistant.io/integrations/wwlln/
-[xbox_live docs]: https://www.home-assistant.io/integrations/xbox_live/
-[xiaomi_aqara docs]: https://www.home-assistant.io/integrations/xiaomi_aqara/
-[yandex_transport docs]: https://www.home-assistant.io/integrations/yandex_transport/
-[yessssms docs]: https://www.home-assistant.io/integrations/yessssms/
-[zha docs]: https://www.home-assistant.io/integrations/zha/
-[zone docs]: https://www.home-assistant.io/integrations/zone/
-[zwave docs]: https://www.home-assistant.io/integrations/zwave/
+[alexa docs]: /integrations/alexa/
+[amazon_polly docs]: /integrations/amazon_polly/
+[androidtv docs]: /integrations/androidtv/
+[automation docs]: /integrations/automation/
+[binary_sensor docs]: /integrations/binary_sensor/
+[bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
+[bluetooth_tracker docs]: /integrations/bluetooth_tracker/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[cert_expiry docs]: /integrations/cert_expiry/
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover docs]: /integrations/cover/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[device_automation docs]: /integrations/device_automation/
+[doods docs]: /integrations/doods/
+[ebusd docs]: /integrations/ebusd/
+[ecobee docs]: /integrations/ecobee/
+[egardia docs]: /integrations/egardia/
+[elv docs]: /integrations/elv/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[environment_canada docs]: /integrations/environment_canada/
+[esphome docs]: /integrations/esphome/
+[evohome docs]: /integrations/evohome/
+[fedex docs]: /integrations/fedex/
+[frontend docs]: /integrations/frontend/
+[generic docs]: /integrations/generic/
+[geniushub docs]: /integrations/geniushub/
+[geonetnz_quakes docs]: /integrations/geonetnz_quakes/
+[glances docs]: /integrations/glances/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[here_travel_time docs]: /integrations/here_travel_time/
+[hive docs]: /integrations/hive/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[iaqualink docs]: /integrations/iaqualink/
+[image_processing docs]: /integrations/image_processing/
+[incomfort docs]: /integrations/incomfort/
+[influxdb docs]: /integrations/influxdb/
+[iperf3 docs]: /integrations/iperf3/
+[izone docs]: /integrations/izone/
+[kaiterra docs]: /integrations/kaiterra/
+[keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[lifx docs]: /integrations/lifx/
+[lifx_cloud docs]: /integrations/lifx_cloud/
+[lifx_legacy docs]: /integrations/lifx_legacy/
+[light docs]: /integrations/light/
+[linksys_ap docs]: /integrations/linksys_ap/
+[linky docs]: /integrations/linky/
+[luci docs]: /integrations/luci/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[meteoalarm docs]: /integrations/meteoalarm/
+[moscow_yandex_transport docs]: /integrations/moscow_yandex_transport/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[nest docs]: /integrations/nest/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nextbus docs]: /integrations/nextbus/
+[nws docs]: /integrations/nws/
+[nzbget docs]: /integrations/nzbget/
+[obihai docs]: /integrations/obihai/
+[ombi docs]: /integrations/ombi/
+[onvif docs]: /integrations/onvif/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[openuv docs]: /integrations/openuv/
+[otp docs]: /integrations/otp/
+[owlet docs]: /integrations/owlet/
+[persistent_notification docs]: /integrations/persistent_notification/
+[pi_hole docs]: /integrations/pi_hole/
+[plex docs]: /integrations/plex/
+[proxy docs]: /integrations/proxy/
+[rainbird docs]: /integrations/rainbird/
+[remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
+[rest_command docs]: /integrations/rest_command/
+[saj docs]: /integrations/saj/
+[sendgrid docs]: /integrations/sendgrid/
+[sensor docs]: /integrations/sensor/
+[shodan docs]: /integrations/shodan/
+[simplisafe docs]: /integrations/simplisafe/
+[solaredge_local docs]: /integrations/solaredge_local/
+[solax docs]: /integrations/solax/
+[soma docs]: /integrations/soma/
+[sonos docs]: /integrations/sonos/
+[spaceapi docs]: /integrations/spaceapi/
+[srp_energy docs]: /integrations/srp_energy/
+[sun docs]: /integrations/sun/
+[switch docs]: /integrations/switch/
+[sytadin docs]: /integrations/sytadin/
+[tahoma docs]: /integrations/tahoma/
+[template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
+[tfiac docs]: /integrations/tfiac/
+[tibber docs]: /integrations/tibber/
+[todoist docs]: /integrations/todoist/
+[torque docs]: /integrations/torque/
+[tradfri docs]: /integrations/tradfri/
+[transmission docs]: /integrations/transmission/
+[unifi docs]: /integrations/unifi/
+[upc_connect docs]: /integrations/upc_connect/
+[ups docs]: /integrations/ups/
+[usps docs]: /integrations/usps/
+[velux docs]: /integrations/velux/
+[venstar docs]: /integrations/venstar/
+[vera docs]: /integrations/vera/
+[vivotek docs]: /integrations/vivotek/
+[volumio docs]: /integrations/volumio/
+[watson_tts docs]: /integrations/watson_tts/
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
+[whois docs]: /integrations/whois/
+[withings docs]: /integrations/withings/
+[wwlln docs]: /integrations/wwlln/
+[xbox_live docs]: /integrations/xbox_live/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[yandex_transport docs]: /integrations/yandex_transport/
+[yessssms docs]: /integrations/yessssms/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/
