@@ -358,7 +358,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [camera docs]: /integrations/camera/
 [camera.familyhub docs]: /integrations/familyhub
-[camera.generic docs]: /integrations/generic
+[camera.generic docs]: /integrations/generic_ip_camera
 [climate.mysensors docs]: /integrations/climate.mysensors/
 [climate.sensibo docs]: /integrations/sensibo
 [climate.venstar docs]: /integrations/venstar
