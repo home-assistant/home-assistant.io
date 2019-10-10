@@ -2057,3 +2057,6 @@
 /components/zone /integrations/zone
 /components/zoneminder /integrations/zoneminder
 /components/zwave /integrations/zwave
+
+# Breaking changes
+/integrations/switch.pca /integrations/elv

@@ -138,9 +138,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
 - more tests for slugify ([@micw] - [#7027])
 - Additional ZWave coverage ([@armills] - [#7024]) ([zwave docs])
-- bump ups version ([@happyleavesaoc] - [#7033]) ([sensor.ups docs])
-- update usps version ([@happyleavesaoc] - [#7035]) ([sensor.usps docs])
-- update fedex ([@happyleavesaoc] - [#7034]) ([sensor.fedex docs])
+- bump ups version ([@happyleavesaoc] - [#7033])
+- update usps version ([@happyleavesaoc] - [#7035])
+- update fedex ([@happyleavesaoc] - [#7034])
 - Google TTS can't read percent sign (#6971) ([@pezinek] - [#7030]) ([tts.google docs])
 - Feature/min max improvements ([@micw] - [#6786]) (breaking change)
 - Upgrade psutil to 5.2.2 ([@fabaff] - [#7037]) ([sensor.systemmonitor docs])
@@ -416,6 +416,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@titilambert]: https://github.com/titilambert
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
+
 [alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [arduino docs]: /integrations/arduino/
 [automation docs]: /integrations/automation/
@@ -458,7 +459,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [scene.lifx_cloud docs]: /integrations/lifx_cloud
 [sensor.cpuspeed docs]: /integrations/cpuspeed
 [sensor.crimereports docs]: /integrations/crimereports
-[sensor.fedex docs]: /integrations/fedex
 [sensor.fido docs]: /integrations/fido
 [sensor.modbus docs]: /integrations/sensor.modbus/
 [sensor.mvglive docs]: /integrations/mvglive
@@ -467,8 +467,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.qnap docs]: /integrations/qnap
 [sensor.speedtest docs]: /integrations/speedtestdotnet
 [sensor.systemmonitor docs]: /integrations/systemmonitor
-[sensor.ups docs]: /integrations/ups
-[sensor.usps docs]: /integrations/usps#sensor
 [sensor.vera docs]: /integrations/vera#sensor
 [sun docs]: /integrations/sun/
 [switch.tplink docs]: /integrations/tplink

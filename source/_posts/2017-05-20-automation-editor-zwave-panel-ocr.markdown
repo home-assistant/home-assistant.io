@@ -115,7 +115,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - LIFX: avoid out-of-bounds hue aborting the colorloop effect ([@amelchio] - [#7495])
 - Upgrade async_timeout to 1.2.1 ([@fabaff] - [#7490])
 - Prevent printing of packets. ([@aequitas] - [#7492]) ([rflink docs])
-- Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([device_tracker.linksys_ap docs]) ([sensor.scrape docs])
+- Upgrade beautifulsoup4 to 4.6.0 ([@fabaff] - [#7491]) ([sensor.scrape docs])
 - Switch onkyo to pypi ([@andrey-git] - [#7497]) ([media_player.onkyo docs])
 - Fixed potential AttributeError when checking for deleted sources ([@scarface-4711] - [#7502]) ([media_player.denonavr docs])
 - Refactor sun component for correctness ([@armills] - [#7295])
@@ -340,6 +340,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [config.automation docs]: /docs/automation/editor/
 [automation.event docs]: /docs/configuration/events/
 [automation.state docs]: /docs/configuration/state_object/
+
 [binary_sensor.mystrom docs]: /integrations/mystrom#binary-sensor
 [binary_sensor.raspihats docs]: /integrations/raspihats#binary-sensor
 [binary_sensor.rpi_pfio docs]: /integrations/rpi_pfio#binary-sensor
@@ -353,7 +354,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.lutron_caseta docs]: /integrations/lutron_caseta/
 [datadog docs]: /integrations/datadog/
 [device_tracker.automatic docs]: /integrations/automatic
-[device_tracker.linksys_ap docs]: /integrations/linksys_ap
 [device_tracker.unifi docs]: /integrations/unifi
 [dweet docs]: /integrations/dweet/
 [eight_sleep docs]: /integrations/eight_sleep/
@@ -422,6 +422,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: /integrations/websocket_api/
 [zwave docs]: /integrations/zwave/
 [zwave.api docs]: /integrations/zwave/
+
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7673]: https://github.com/home-assistant/home-assistant/pull/7673

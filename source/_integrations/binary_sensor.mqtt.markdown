@@ -84,6 +84,10 @@ device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+expire_after:
+  description: "Defines the number of seconds after the value expires if it's not updated. After expiry, the value is cleared, and the availability is set to false"
+  required: false
+  type: integer
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads."
   required: false
