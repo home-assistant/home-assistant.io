@@ -52,22 +52,23 @@ You will need to enable the software collection each time you log on before you 
 
 ### Systemd with Software Collections
 
-To autostart Home Assistant using systemd follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
+To autostart Home Assistant using systemd and a python36 (from SCL) virtual environment, follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
 
+Filename: `/etc/systemd/system/home-assistant@homeassistant.service`
 ```txt
 [Unit]
 Description=Home Assistant
-After=network.target
+After=network-online.target
 
 [Service]
 Type=simple
-User=homeassistant
-# Make sure the virtualenv Python binary is used
-Environment=VIRTUAL_ENV="/srv/homeassistant"
-Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
-# ExecStart using software collection:
-ExecStart=/usr/bin/scl enable rh-python36 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+# %i means the username is derrived from the filename.
+User=%i
+# a python venv for hass exists in /opt/hass/venv
+ExecStart=/srv/homeassistant/bin/hass
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+This works because the Python virtual environment was created using the SCL environment, thus there is no need to activate SCL.
