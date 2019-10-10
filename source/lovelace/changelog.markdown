@@ -186,7 +186,7 @@ description: "Changelog of the Lovelace UI."
 - 🔧 [history graph card]: Fix cache of image between views
 
 ## Changes in 0.74.0
-- 📣 [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/)
+- 📣 [Lovelace card gallery](https://www.awesome-ha.com/)
 - 🔧 Async communication improvements
 
 ### Views

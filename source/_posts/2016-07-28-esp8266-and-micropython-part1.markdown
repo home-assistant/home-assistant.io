@@ -56,7 +56,7 @@ Type "help()" for more information.
 
 <div class='note'>
 
-The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
+The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/quickref.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
 
 </div>
 
