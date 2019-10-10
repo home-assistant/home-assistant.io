@@ -165,7 +165,7 @@ light:
 - Do not call update() in constructor ([@fabaff] - [#8120]) ([sensor.netdata docs])
 - Change Error Message when Turning off ISY994 Light ([@SConaway] - [#8131]) ([light.isy994 docs])
 - Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
-- Add current balance to hydroquebec sensor ([@titilambert] - [#8138]) ([sensor.hydroquebec docs])
+- Add current balance to hydroquebec sensor ([@titilambert] - [#8138])
 - Decora light: Fix brightness level in UI ([@titilambert] - [#8139]) ([light.decora docs])
 - Add I2c BME280 temperature, humidity and pressure sensor for Raspberry Pi ([@azogue] - [#7989]) ([sensor.bme280 docs]) (new-platform)
 - Upgrade libsoundtouch to prevent Python3.6 errors with enum. #7733 #8103 ([@CharlesBlonde] - [#8143]) ([media_player.soundtouch docs])
@@ -489,7 +489,6 @@ light:
 [sensor.dyson docs]: /integrations/dyson#sensor
 [sensor.glances docs]: /integrations/glances
 [sensor.htu21d docs]: /integrations/htu21d
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.netdata docs]: /integrations/netdata
 [sensor.openhardwaremonitor docs]: /integrations/openhardwaremonitor
