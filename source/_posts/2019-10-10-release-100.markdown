@@ -134,6 +134,10 @@ As always, this release of Home Assistant is accompanied with a new release of t
 - Add basic support for IKEA Fyrtur blinds ([@ggravlingen] - [#26659]) ([tradfri docs]) (new-platform)
 - Centralize rainbird config and add binary sensor platform ([@konikvranik] - [#26393]) ([rainbird docs]) (breaking change) (new-platform)
 
+## Release 0.100.1 - October 10
+
+- Fix build not succeeding [@bramkragten]
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
