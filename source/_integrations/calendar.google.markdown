@@ -23,13 +23,13 @@ Generate a Client ID and Client Secret on
 
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
-1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
+1. Under APIs & Services (left sidebar) > Credentials, click on the tab 'OAuth consent screen'.
 1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
 1. Save this page. You don't have to fill out anything else there.
-1. Click 'Create credentials' -> OAuth client ID.
-1. Set the Application type to 'Other' and give this credential set a name then click Create.
+1. Under APIs & Services > Credentials, click 'Create credentials' > OAuth client ID.
+1. Set the Application type to 'Other' and give this credential set a name then click 'Create'.
 1. Copy the client ID and secret to a text editor temporarily as you will need to put these in your `configuration.yaml` file.
-1. Under "API's and Services" (left sidebar), click on "Library."  Search for "Google Calendar API" and enable it if it isn't already enabled automatically through this process.
+1. Under APIs and Services > Library, search for "Google Calendar API" and enable it if it isn't already enabled automatically through this process.
 
 If you will be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
