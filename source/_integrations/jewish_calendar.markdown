@@ -61,6 +61,12 @@ havdalah_minutes_after_sunset:
 - omer_count: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 
 ### Time sensors
+
+*Note: Due to the variety of rabbinic opinions on how to calculate the different times, we do not take any responsibility on your religious reliance upon these calculations.*
+
+Time sensor states are represented as ISO8601 formatted *UTC time*.
+For easier use in automations, all time sensors have a `timestamp` attribute, which returns the UNIX timestamp.
+
 - first_light: First light of dawn (Alot Hashachar - עלות השחר).
 - gra_end_shma: Last time for reading of the Shma according to the GR"A.
 - mga_end_shma: Last time for reading of the Shma according to the MG"A.
