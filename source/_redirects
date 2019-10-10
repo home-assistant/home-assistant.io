@@ -571,7 +571,6 @@
 /components/notify.free_mobile /integrations/free_mobile
 /components/notify.gntp /integrations/gntp
 /components/notify.hangouts /integrations/hangouts
-/components/notify.hipchat /integrations/hipchat
 /components/notify.homematic /integrations/homematic
 /components/notify.html5 /integrations/html5
 /components/notify.huawei_lte /integrations/huawei_lte
@@ -1433,7 +1432,6 @@
 /components/heos /integrations/heos
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
-/components/hipchat /integrations/hipchat
 /components/history /integrations/history
 /components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
