@@ -36,14 +36,15 @@ automation:
 - id: this_is_the_automation_id
   alias: The optional automation alias
   trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
+  - event_data:
       action: call_service
+    event_type: ifttt_webhook_received
+    platform: event
+  condition: []
   action:
-    service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
-    data_template:
+  - data_template:
       entity_id: '{% raw %}{{ trigger.event.data.entity_id }}{% endraw %}'
+    service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
 ```
 
 ## Sending events to IFTTT
