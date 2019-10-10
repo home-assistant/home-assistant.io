@@ -23,3 +23,7 @@ sensor:
 
 This sensor will return one of the following values:
 `new_moon`, `waxing_crescent`, `first_quarter`, `waxing_gibbous`, `full_moon`, `waning_gibbous`, `last_quarter` or `waning_crescent` .
+
+<p class='img'>
+<img src='/images/screenshots/more-info-dialog-moon.png' />
+</p>
