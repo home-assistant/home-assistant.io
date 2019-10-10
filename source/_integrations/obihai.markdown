@@ -41,6 +41,7 @@ The following is a list of expected sensors and their expected states when using
 - Sensor if the device requires a reboot (`True` or `False`)
 - Sensor for each configured service (`0` for no calls, `1` for a call and `2` for call waiting/3way calling)
 - Sensor for the last reboot date
+- Sensor for call direction (`No Active Calls`, `Inbound Call` or `Outbound Call`) 
 
 In addition to the above list the `admin` account can expect to see the following sensors:
 

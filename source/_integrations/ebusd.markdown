@@ -26,7 +26,7 @@ host:
   required: true
   type: string
 circuit:
-  description: The heating circuit name to monitor, e.g., 700.
+  description: The heating circuit name to monitor, e.g., '700', 'ehp' or 'bai'.
   required: true
   type: string
 port:
@@ -40,7 +40,7 @@ name:
   required: false
   default: ebusd
 monitored_conditions:
-  description: List of condition to monitor.
+  description: List of conditions to monitor. Note that not all monitored_conditions listed here can be supported by your circuit. This integration maps limited set of keys to circuit specific ebusd values.
   type: list
   required: false
   keys:
@@ -110,4 +110,24 @@ monitored_conditions:
       description: Power energy consumption from last month.
     PowerEnergyConsumptionThisMonth:
       description: Power energy consumption from the actual month.
+    HotWaterTemperature:
+      description: Hot water circuit temperature.
+    StorageTemperature:
+      description: Boiler temperature.
+    DesiredStorageTemperature:
+      description: Target boiler temperature.
+    OutdoorsTemperature:
+      description: Temperature used for weather dependent calculations.
+    AverageIgnitionTime:
+      description: Average flame ignition time (seconds).
+    MaximumIgnitionTime:
+      description: Maximum flame ignition time (seconds).
+    MinimumIgnitionTime:
+      description: Minimum flame ignition time (seconds).
+    ReturnTemperature:
+      description: Temperature returned into heater from water circuit.
+    DesiredFlowTemperature:
+      description: Target heat temperature.
+    FlowTemperature:
+      description: Out temperature.
 {% endconfiguration %}

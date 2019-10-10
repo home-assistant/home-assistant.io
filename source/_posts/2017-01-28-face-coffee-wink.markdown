@@ -58,7 +58,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Device tracker: [Sky hub][sky] support ([@alexmogavero])
 - Support for [Lutron][lutron] RadioRA 2 ([@thecynic])
 - TTS: Amazon [Polly TTS][polly] platform ([@robbiet480])
-- Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
+- Device tracker: Support for Linksys Access Points ([@lukas-hetzenecker])
 - Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
 #### Improvements
@@ -239,7 +239,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [skybeacon]: /integrations/skybeacon
 [lutron]: /integrations/lutron/
 [polly]: /integrations/amazon_polly
-[linksys]: /integrations/linksys_ap
 [emul-hue]: /integrations/emulated_hue/
 [netatmo]: /integrations/netatmo/
 [face]: /integrations/microsoft_face/

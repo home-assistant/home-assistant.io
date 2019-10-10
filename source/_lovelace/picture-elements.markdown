@@ -30,6 +30,10 @@ title:
   required: false
   description: Card title
   type: string
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
 {% endconfiguration %}
 
 ## Elements
@@ -82,12 +86,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -107,12 +116,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -162,12 +176,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -187,12 +206,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`,, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -264,12 +288,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -289,12 +318,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -336,12 +370,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -361,12 +400,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
