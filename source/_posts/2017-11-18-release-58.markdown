@@ -64,7 +64,7 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 
 - Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
 - Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
-- Handle the new version of HydroQuebec website ([@titilambert] - [#10682]) ([sensor.hydroquebec docs])
+- Handle the new version of HydroQuebec website ([@titilambert] - [#10682])
 - Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
 - Frontend fixes ([@andrey-git] [@armills] [@balloob])
 
@@ -492,6 +492,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tinloaf]: https://github.com/tinloaf
 [@titilambert]: https://github.com/titilambert
 [remote.harmony docs]: /integrations/harmony
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.time_date docs]: /integrations/time_date
 [weather.yweather docs]: /integrations/yweather

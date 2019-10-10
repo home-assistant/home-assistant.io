@@ -42,7 +42,7 @@ Also impacted, but integrations are read only:
 - [sensor.ebox](/integrations/ebox)
 - [sensor.fido](/integrations/fido)
 - [sensor.foobot](/integrations/foobot)
-- [sensor.hydroquebec](/integrations/hydroquebec)
+- sensor.hydroquebec
 - [sensor.startca](/integrations/startca)
 - [sensor.teksavvy](/integrations/teksavvy)
 - [sensor.thethingsnetwork](/integrations/thethingsnetwork#sensor)

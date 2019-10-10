@@ -38,7 +38,7 @@ This release includes a security fix. The error log was accessible via the API w
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs])
 - Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs])
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946])
 - Update pyfido to 2.1.1 ([@titilambert] - [#13947]) ([sensor.fido docs])
 - Bumped pypollencom to 1.1.2 ([@bachya] - [#13959]) ([sensor.pollen docs])
 - Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
@@ -111,7 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) (mercedesme docs) (binary_sensor.mercedesme docs) (sensor.mercedesme docs) (breaking change)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
-- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586]) ([sensor.hydroquebec docs])
+- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586])
 - Add mastodon ([@fabaff] - [#13441]) ([notify docs]) (new-platform)
 - Added support for requesting RSSI values from Bluetooth devices ([@FrederikBolding] - [#12458]) ([device_tracker.bluetooth_tracker docs])
 - Fix mysensors update callback ([@MartinHjelmare] - [#13602]) ([mysensors docs])
@@ -384,7 +384,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.canary docs]: /integrations/canary#sensor
 [sensor.cpuspeed docs]: /integrations/cpuspeed
 [sensor.file docs]: /integrations/file#sensor
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.imap_email_content docs]: /integrations/imap_email_content/
 [sensor.plex docs]: /integrations/plex#sensor
 [sensor.qnap docs]: /integrations/qnap
@@ -435,7 +434,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
 [qwikswitch docs]: /integrations/qwikswitch/
 [sensor.fido docs]: /integrations/fido
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.pollen docs]: /integrations/iqvia
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.vesync docs]: /integrations/vesync#switches
