@@ -2,8 +2,8 @@
 layout: post
 title: "0.100: Better Plex, Bye JSON, HERE Travel time."
 description: "A lot of frontend work, performance tweaks and more device automations."
-date: 2019-10-09 01:05:02
-date_formatted: "October 9, 2019"
+date: 2019-10-10 01:05:02
+date_formatted: "October 10, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -13,7 +13,7 @@ og_image: /images/blog/2019-09-0.100/components.png
 
 <a href='/integrations/#version/0.100'><img src='/images/blog/2019-10-0.100/components.png' style='border: 0;box-shadow: none;'></a>
 
-Welcome to the release notes of yet another wonderful release! No, we're not going for 1.0, we're doing 0.100! We feel like we're not ready yet with our vision for 1.0, but we're making progress every day. For a sneak peak of what we're thinking about, check our blog [Simple mode in Home Assistant 1.0](https://developers.home-assistant.io/blog/2019/10/05/simple-mode.html).
+Welcome to the release notes of yet another wonderful release! No, we're not going for 1.0, we're doing 0.100! We feel like we're not ready yet with our goals for 1.0, but we're making progress every day. For a sneak peak of what we're thinking about, check our blog [Simple mode in Home Assistant 1.0](https://developers.home-assistant.io/blog/2019/10/05/simple-mode.html).
 
 ## Hacktoberfest
 
@@ -30,7 +30,7 @@ Last 14 days of pull pequest throughput in the Home Assistant organization. (<a 
 
 We're going to have another State of the Union! It will be held at November 13, in Amsterdam. Like last year, it will be hosted by our friends at ING. I'm looking forward to talk about all the great things that are happening in Home Assistant land. We had 150 tickets available when we announced it on social media, and they were all gone in less than 24 hours!
 
-We're going to make sure that there will be a live stream available. We'll announce that in time via the blog and social media. Some people on Twitter are talking about hosting viewing parties across the globe. Keep an eye out on [the social category on the forums](https://community.home-assistant.io/c/social) for announcements.
+We're going to make sure that there will be a live stream available. We'll announce that in time via the blog and social media. Some people are talking about hosting viewing parties across the globe. Keep an eye out on [the social category on the forums](https://community.home-assistant.io/c/social) for announcements. This would also be the place to announce if you are planning on hosting one.
 
 ## Plex
 
@@ -70,17 +70,17 @@ Screenshot of an and-condition in the automation editor.
 
 ## Devices
 
-Device automations are now available on the experimental device page that we introduced in the last release. You can now see all the triggers, conditions and actions the device supports, and create an automation in 1 click.
-
-We also added the entity registry, so you can change all the settings of the devices entities in one place.
-
-When you rename a device on the device page, it will now also rename the entities of that device if they contain the device name. When you are in advanced mode, it can also rename the entity id's for you.
+Device automations are now available on the experimental device page that we introduced in the last release. You can now see all the triggers, conditions and actions the device supports. Clicking on it will open the automation editor with the automation filled in, ready to edit.
 
 <p class='img'>
 <img src='/images/blog/2019-10-0.100/action-trigger.png' alt='Screenshot of a card showing device triggers to create automations from.'></a>
 </p>
 
-### We say goodbye to JSON
+We also added the entity registry, so you can change all the settings of the devices entities in one place.
+
+And, bonus, when you rename a device on the device page, it will now also rename the entities of that device if they contain the device name. When you are in advanced mode, it can also rename the entity id's for you.
+
+## Goodbye JSON 👋
 
 On the backend we have been using YAML for a long time, but on the frontend, we still used JSON for a lot of things. JSON is harder to write than YAML so we have aligned that. All data inputs on the frontend now accept YAML. You can still use JSON, as JSON is valid YAML.
 
@@ -97,16 +97,22 @@ This includes:
 Screenshot of a service action in the automation editor using YAML.
 </p>
 
+## Thank You, @Amelchio
+
+Core developer [@amelchio] is taking a break from working on Home Assistant. Amelchio has been a contributing member of the Home Assistant community for 2.5 years in which he made a grand total of 275 pull requests! Amelchio has worked on improving database performance and under his wing the Sonos, LIFX and Netgear LTE integrations flourished. He is an example community member, always available in the chat to help other people contribute to Home Assistant.
+
+Thanks Anders, we're going to miss you! ❤️
+
 ## In other news
 
-Hans Oischinger showcased how he can steer his vacuum cleaner to specific rooms in his ouse via his floorplan. Besides this tweet, he also wrote [a great blog about it](https://medium.com/@hans.oischinger/zoned-cleanup-with-live-map-922240b4cf8c).
+Hans Oischinger showcased how he can steer his vacuum cleaner to specific rooms in his house via his floorplan. Besides this tweet, he also wrote [a great blog about it](https://medium.com/@hans.oischinger/zoned-cleanup-with-live-map-922240b4cf8c).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Freed my vacuum robot from the cloud with <a href="https://t.co/tirC2vcsqK">https://t.co/tirC2vcsqK</a><br>This unlocked some new functionality for my vacuum:<br>Configure and start zoned cleanup in <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> with live map overlayed on the floorplan <a href="https://t.co/jtPZHk2xeT">pic.twitter.com/jtPZHk2xeT</a></p>&mdash; Hans Oischinger (@oischinger) <a href="https://twitter.com/oischinger/status/1178254181221769216?ref_src=twsrc%5Etfw">September 29, 2019</a>
 </blockquote>
 
 To improve discovery, we're collecting discovery info of devices and services. Please help us gather [zeroconf discovery info](https://github.com/home-assistant/home-assistant/issues/27371) and [HomeKit discovery info](https://github.com/home-assistant/home-assistant/issues/27292).
 
-As always, this release of Home Assistan is accompanied with a new release of the [Home Assistant Podcast](https://hasspodcast.io/):
+As always, this release of Home Assistant is accompanied with a new release of the [Home Assistant Podcast](https://hasspodcast.io/):
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Time for another <a href="https://twitter.com/hashtag/smarthome?src=hash&amp;ref_src=twsrc%5Etfw">#smarthome</a> <a href="https://twitter.com/hashtag/Podcast?src=hash&amp;ref_src=twsrc%5Etfw">#Podcast</a><br><br>This week we&#39;re talking <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> version 1...hundred, <a href="https://twitter.com/hacktoberfest?ref_src=twsrc%5Etfw">@hacktoberfest</a> and catch up with 🇦🇺 Tony about his <a href="https://twitter.com/hashtag/homeautomation?src=hash&amp;ref_src=twsrc%5Etfw">#homeautomation</a> journey with Home Assistant, or maybe it should just be <a href="https://twitter.com/NodeRED?ref_src=twsrc%5Etfw">@NodeRED</a> 🤷‍♂️<a href="https://t.co/DUtNZTHOAA">https://t.co/DUtNZTHOAA</a></p>&mdash; Phil Hawthorne (@philhawthorne) <a href="https://twitter.com/philhawthorne/status/1182055672638267398?ref_src=twsrc%5Etfw">October 9, 2019</a>
 </blockquote>
