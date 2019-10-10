@@ -13,7 +13,7 @@ type:
   type: string
 title:
   required: false
-  description: Title of Shopping List
+  description: Title of Stack
   type: string
 cards:
   required: true
