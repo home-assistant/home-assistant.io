@@ -31,6 +31,7 @@ For example, set the body of the IFTTT webhook to:
 
 You then need to consume that incoming information with the following automation:
 
+{% raw %}
 ```yaml
 automation:
 - id: this_is_the_automation_id
@@ -43,9 +44,10 @@ automation:
   condition: []
   action:
   - data_template:
-      entity_id: '{% raw %}{{ trigger.event.data.entity_id }}{% endraw %}'
-    service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
+      entity_id: '{{ trigger.event.data.entity_id }}'
+    service_template: '{{ trigger.event.data.service }}'
 ```
+{% endraw %}
 
 ## Sending events to IFTTT
 
