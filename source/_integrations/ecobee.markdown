@@ -17,7 +17,7 @@ The `ecobee` integration lets you control and view sensor data from [ecobee](htt
 
 ## Preliminary Step
 
-You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, you first need to register your thermostat which should be done as part of the ecobee installation. Once you have done that, perform the following steps.
+You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, you first need to register your thermostat which, should be done as part of the ecobee installation. Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
 2. Log in with your ecobee credentials.
@@ -59,7 +59,7 @@ ecobee:
 
 {% configuration %}
 api_key:
-  description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal, you will need to remove the existing `ecobee` configuration in the **Integrations** menu, update this, and then configure the Integration again.
+  description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal, you will need to remove the existing `ecobee` configuration in the **Integrations** menu, update this, and then configure the integration again.
   required: false
   type: string
 {% endconfiguration %}
@@ -75,7 +75,7 @@ The first time you (re)run Home Assistant with this integration it will give you
 
 The PIN can be found in the Home Assistant portal on the Ecobee card or from the **configurator.ecobee** entity in the States developer tool.
 
-- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
+- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this, you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
 
 Once you enter the PIN on the ecobee site, wait approximately 5 minutes, and then click on the **I have authorized the app** link at the bottom of the ecobee pop-up window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
 
