@@ -138,7 +138,7 @@ conversation:
 - Remove deprecated automation keywords ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Citybikes: Allow None as result for empty slots ([@janLo] - [#8528]) ([sensor.citybikes docs])
 - Return a 0 temperature value when none is found ([@phil-lavin] - [#8518]) ([climate.maxcube docs])
-- Fix #6469 and #6828 ([@titilambert] - [#8537]) ([sensor.hydroquebec docs])
+- Fix #6469 and #6828 ([@titilambert] - [#8537])
 - Update docstrings ([@fabaff] - [#8536])
 - Upgrade TwitterAPI to 2.4.6 ([@fabaff] - [#8535]) ([notify.twitter docs])
 - Decora: Fix set brightness and improve reconnection ([@titilambert] - [#8522]) ([light.decora docs])
@@ -381,7 +381,6 @@ conversation:
 [sensor.dht docs]: /integrations/dht
 [sensor.fitbit docs]: /integrations/fitbit
 [sensor.google_wifi docs]: /integrations/google_wifi
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.lyft docs]: /integrations/lyft
 [sensor.octoprint docs]: /integrations/octoprint#sensor
