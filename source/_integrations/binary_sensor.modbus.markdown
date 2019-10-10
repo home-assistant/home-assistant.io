@@ -52,6 +52,10 @@ coils:
       description: Coil number.
       required: true
       type: integer
+    register_type:
+      description: Modbus register type (coil, discrete_input), default coil.
+      required: false
+      type: string
 {% endconfiguration %}
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
