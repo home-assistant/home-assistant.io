@@ -14,6 +14,10 @@ The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor 
 
 To set up this sensor, you will need to generate a `client_id` and `client_secret` for the user account you will use to connect. Follow the first steps in [this Wiki page](https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example).
 
+<div class='note'>
+This integration does not support Reddit's two-factor authentication. If you use two-factor authentication for your Reddit account, create a separate Reddit account without two-factor authentication for use with Home Assistant.
+</div>
+
 ## Configuration
 
 To enable this platform, add the following to your `configuration.yaml` file:
