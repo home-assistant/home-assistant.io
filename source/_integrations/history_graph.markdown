@@ -30,9 +30,10 @@ entities:
   description: List of entities whose history to show as a graph.
   required: true
   type: string
-title:
-  description: Card title to display above graph.
+name:
+  description: Name to display.
   required: false
+  default: ID
   type: string
 hours_to_show:
   description: Number of hours to show in the graph.
@@ -52,14 +53,14 @@ refresh:
 # Full configuration.yaml entry
 history_graph:
   gr1:
-    title: Lights Graph
+    name: Lights Graph
     entities:
       - light.ceiling.lights
       - light.bed_light
     hours_to_show: 240
     refresh: 60
   gr2:
-    title: Temperature
+    name: Temperature
     entities:
       - sensor.outside_temperature
       - sensor.inside_temperature
