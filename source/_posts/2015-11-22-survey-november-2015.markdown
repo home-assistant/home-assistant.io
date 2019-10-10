@@ -19,7 +19,7 @@ Of course most users are running with the [automation](/getting-started/automati
 
 The [Alarm control panels](/integrations/alarm_control_panel/) and the [camera component](/integrations/camera/) are both used by around one third of the participants of the survey. It's safe to say that they cover a niche, but they will gain momentum when people discover how they can build alarm systems with Home Assistant.
 
-[Philips Hue](/integrations/hue) is the "winner" in the light category closely followed by [MQTT lights](components/light.mqtt/). [Google Cast](/integrations/cast) and [ Plex](/integrations/plex#media-player) are the top media player platforms. [Pushbullet](/integrations/pushbullet) is by far the most-used [notification platform](/integrations/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
+[Philips Hue](/integrations/hue) is the "winner" in the light category closely followed by [MQTT lights](/integrations/light.mqtt/). [Google Cast](/integrations/cast) and [ Plex](/integrations/plex#media-player) are the top media player platforms. [Pushbullet](/integrations/pushbullet) is by far the most-used [notification platform](/integrations/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
 
 It's interesting to see that most of the sensor, switch, and thermostat platforms are used. A lot of people seem to be interested in the weather data provided by the [Forecast sensor](/integrations/darksky). The MQTT sensors and switches are deployed in almost 50% of all Home Assistant setups.
 
