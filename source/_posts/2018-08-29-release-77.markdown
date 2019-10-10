@@ -425,7 +425,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [calendar.google docs]: /integrations/calendar.google/
 [camera docs]: /integrations/camera/
-[camera.generic docs]: /integrations/generic
+[camera.generic docs]: /integrations/generic_ip_camera
 [camera.proxy docs]: /integrations/proxy
 [camera.push docs]: /integrations/push
 [climate docs]: /integrations/climate/
@@ -448,8 +448,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /integrations/http/
 [image_processing.opencv docs]: /integrations/opencv
 [input_datetime docs]: /integrations/input_datetime/
-[insteon_local docs]: /integrations/insteon_local/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_local docs]: /integrations/insteon/
+[insteon_plm docs]: /integrations/insteon/
 [konnected docs]: /integrations/konnected/
 [light.deconz docs]: /integrations/deconz#light
 [light.wemo docs]: /integrations/wemo

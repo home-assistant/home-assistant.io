@@ -168,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [facebook]: /integrations/facebook
 [image]: /integrations/image_processing/
 [influx]: /integrations/influxdb/
-[insteon]: /integrations/insteon_local/
+[insteon]: /integrations/insteon/
 [iss]: /integrations/iss
 [kankun]: /integrations/kankun
 [lannouncer]: /integrations/lannouncer

@@ -89,7 +89,7 @@ unique_id:
   required: false
   type: string
 device_class:
-  description: The type/class of the sensor to set the icon in the frontend.
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
   required: false
   type: device_class
   default: None

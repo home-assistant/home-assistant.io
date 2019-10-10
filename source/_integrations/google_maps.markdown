@@ -28,6 +28,10 @@ device_tracker:
     username: YOUR_USERNAME
 ```
 
+Once enabled and you have rebooted devices discovered through this integration wil be listed in the `known_devices.yaml`file within your configuration directory.
+
+They will be created with indentifiers like `google_maps_<numeric_id>`. To be able to properly track entities you must set the `track` attribute to `true`. 
+
 {% configuration %}
 username:
   description: The email address for the Google account that has access to your shared location.
@@ -43,3 +47,7 @@ scan_interval:
   default: 60
   type: integer
 {% endconfiguration %}
+
+<div class='note'>
+As of release 0.97 Google passwords are no longer required in your configuration. Users coming from earlier releases should only remove the password entry from their configuration file (username is still required) and restart Home Assistant. The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated.
+</div>

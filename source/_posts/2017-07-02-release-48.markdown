@@ -448,12 +448,12 @@ light:
 [digital_ocean docs]: /integrations/digital_ocean/
 [fan.comfoconnect docs]: /integrations/comfoconnect
 [fan.dyson docs]: /integrations/dyson#fan
-[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.insteon_local docs]: /integrations/insteon/
 [group docs]: /integrations/group/
 [image_processing.opencv docs]: /integrations/opencv
 [influxdb docs]: /integrations/influxdb/
 [insteon_hub docs]: /integrations/insteon/
-[insteon_local docs]: /integrations/insteon_local/
+[insteon_local docs]: /integrations/insteon/
 [knx docs]: /integrations/knx/
 [light.decora docs]: /integrations/decora
 [light.isy994 docs]: /integrations/isy994

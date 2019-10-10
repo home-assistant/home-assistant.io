@@ -805,7 +805,6 @@ anymore. - ([@abmantis] - [#25971])
 [geniushub docs]: /integrations/geniushub/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [google_maps docs]: /integrations/google_maps/
-[googlehome docs]: /integrations/googlehome/
 [group docs]: /integrations/group/
 [heos docs]: /integrations/heos/
 [homekit_controller docs]: /integrations/homekit_controller/

@@ -9,6 +9,10 @@ ha_release: 0.52
 ha_iot_class: Cloud Polling
 ---
 
+<div class="note warning">
+Locumi Labs, the manufacturer of Nello, entered insolvency on the 2<sup>nd</sup> of October 2019 closed their cloud service. Since Nello One locks require this cloud service, the locks will cease to operate as of the 18<sup>th</sup> October 2019.
+</div>
+
 The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.
 
 To get started you need to create a secondary Nello account and authorize it to access your lock(s).
