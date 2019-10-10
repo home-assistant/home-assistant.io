@@ -64,10 +64,6 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 
 Now you can [configure][configure] your install.
 
-### Migrating from a non-Hass.io install
-
-If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
-
 ## Updating a Hass.io installation
 
 Best practice for updating a Hass.io installation:
