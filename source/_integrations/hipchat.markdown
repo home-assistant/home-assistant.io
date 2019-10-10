@@ -8,16 +8,15 @@ ha_release: 0.52
 ---
 
 <div class='note'>
-This integration was removed from Home Assistant. Slack [has taken](https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership) over Hipchat and Stride and will therefore stop these platforms. Hipchat was disconnected on February 15th, 2019. This document is now legacy.
+This integration will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
+<br>
+<br>
+Hipchat will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
 </div>
 
 The `hipchat` platform allows you to send notifications from Home Assistant to [HipChat](https://hipchat.com/).
 
-## Setup
-
 You need to obtain a [HipChat API token](https://developer.atlassian.com/hipchat/guide/hipchat-rest-api/api-access-tokens#APIaccesstokens-Usergeneratedtokens) to be able to send notifications.
-
-## Configuration
 
 To enable the HipChat notification in your installation, add the following to your `configuration.yaml` file:
 
@@ -62,6 +61,7 @@ format:
 host:
   description: Setting the host will override the default HipChat server host.
   required: false
+  default: "https://api.hipchat.com/"
   type: string
 {% endconfiguration %}
 
