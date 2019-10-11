@@ -26,7 +26,7 @@ sensor:
 meter_number:
   description: The meter number of your smart meter with Orange and Rockland Utility. 
   required: true
-  type: String
+  type: string
 {% endconfiguration %}
 
 `meter_number` is the smart meter number. It can be found on your energy bill, on the top left corner, alongside your account number.
