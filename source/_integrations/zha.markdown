@@ -50,8 +50,11 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
   - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
-  - ZiGate USB modules (require firmware 3.1a or later)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
+  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
+  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
+  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
+  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
 ## Configuration
 
@@ -65,6 +68,11 @@ zha:
   usb_path: /dev/ttyUSB2
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 ```
+
+If you are use ZiGate, you have to use some special usb_path configuration:
+  - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
+  - PiZigate : `pizigate:/dev/serial0`
+  - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 
 {% configuration %}
 radio_type:
@@ -95,6 +103,7 @@ enable_quirks:
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
 In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
+
 
 ## Troubleshooting
 
