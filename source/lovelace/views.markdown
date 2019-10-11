@@ -50,9 +50,9 @@ views:
       required: false
       description: Themes view and cards, more info below.
       type: string
-    show:
+    visible:
       required: false
-      description: "Hide/show the view tab from all users or a list of individual `show` objects."
+      description: "Hide/show the view tab from all users or a list of individual `visible` objects."
       type: [boolean, list]
       default: true
 {% endconfiguration %}
@@ -80,9 +80,9 @@ image:
   type: string
 {% endconfiguration %}
 
-## Options For Badges
+## Options For Visible
 
-If you define `show` as objects instead of a boolean to specify conditions for displaying the view tab:
+If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
 {% configuration badges %}
 user:
