@@ -23,7 +23,7 @@ If you don't know the name of the stop follow this guide:
 - Now insert the coordinates for the location in the url, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
 - You will now see the 30 stops closest to your location.
 
-You will see output like this:
+You will see an output like this:
 
 ```text
 "StopLocation":[{
