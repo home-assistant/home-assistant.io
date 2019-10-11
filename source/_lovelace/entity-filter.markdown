@@ -23,7 +23,7 @@ entities:
   description: A list of entity IDs or `entity` objects, see below.
   type: list
 state_filter:
-  required: false
+  required: true
   description: List of strings representing states or `filter` objects, see below.
   type: list
 card:
