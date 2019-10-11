@@ -21,7 +21,7 @@ See the [open ports](/docs/security/porosity/) of a Hass.io instance with variou
 
 ## HTTP SSL/TLS
 
-Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibilty**, this is configurable in the [`http` integration](/integrations/http/).
+Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibility**, this is configurable in the [`http` integration](/integrations/http/).
 
 ## SSH
 
