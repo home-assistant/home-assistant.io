@@ -27,11 +27,11 @@ sensor:
 
 {% configuration %}
 origin:
-  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
+  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 destination:
-  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
+  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 region:

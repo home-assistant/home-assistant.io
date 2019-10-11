@@ -20,7 +20,7 @@ Amazon provides a Smart Home API for richer home automation control. It takes
 considerable effort to configure. The easy solution is to use
 [Home Assistant Cloud](/integrations/cloud/).
 
-However, config Amazon Alexa Smart Home Skill is not a easy job, you have to allow
+However, config Amazon Alexa Smart Home Skill is not an easy job, you have to allow
 your Home Assistant accessible from Internet, and you need to create Amazon Developer
 account and an Amazon Web Service account. 
 

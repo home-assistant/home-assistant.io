@@ -72,7 +72,7 @@ region_name:
   required: true
   type: string
 credential_name:
-  description: A reference to a `aws` credential. Notify platform will use the `default profile` defined in `~/.aws` if none of `credential_name`, `aws_access_key_id`, or `profile_name` was given.
+  description: A reference to an `aws` credential. Notify platform will use the `default profile` defined in `~/.aws` if none of `credential_name`, `aws_access_key_id`, or `profile_name` was given.
   required: false
   type: string
 aws_access_key_id:
