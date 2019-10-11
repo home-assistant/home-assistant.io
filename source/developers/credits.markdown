@@ -9891,7 +9891,7 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
-- [Stephan Grobler (@stephanfx)](https://github.com/stephanfx "1 total commits to the Home Assistant orga:
+- [Stephan Grobler (@stephanfx)](https://github.com/stephangrobler "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [stephanerosi (@stephanerosi)](https://github.com/stephanerosi "11 total commits to the Home Assistant orga:
@@ -11373,4 +11373,4 @@ This page contains a list of people who have contributed in one way or another t
 
 This page is irregularly updated using the [`hass-release` tool](https://github.com/home-assistant/hass-release). If you think that you are missing, please let us know.
 
-<i>This page was last updated Sunday, April 07 2019, 04:19:58 UTC.</i>
+<i>This page was last updated Sunday, October 11th 2019, 01:58:30 UTC.</i>
