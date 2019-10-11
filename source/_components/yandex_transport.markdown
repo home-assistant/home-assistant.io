@@ -25,7 +25,7 @@ To activate Yandex Transport, add the following lines to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: yandex_tranport
+  - platform: yandex_transport
     stop_id: YOUR_STOP_ID
 ```
 
