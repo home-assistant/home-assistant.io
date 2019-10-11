@@ -55,7 +55,7 @@ view:
   type: boolean
   default: false
 control:
-  description: "**Only applies to the deprecated UI `/states`**. Set value to `hidden`. If hidden then the group switch will be hidden. *Does not apply to Lovelace.*"
+  description: "If value set to `hidden` the group switch will be hidden."
   required: false
   type: string
 {% endconfiguration %}
