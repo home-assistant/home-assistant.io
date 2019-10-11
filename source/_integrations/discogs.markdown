@@ -8,7 +8,7 @@ logo: discogs.png
 ha_iot_class: Cloud Polling
 ---
 
-The `discogs` platform allows you to see the current amount of records in your [Discogs](https://discogs.com) collection.
+The `discogs` platform allows you to see the current amount of records in your [Discogs](https://www.discogs.com) collection.
 
 ## Setup
 
