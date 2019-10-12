@@ -22,7 +22,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The ip address or host name of the mower.
+  description: The IP address or host name of the mower.
   required: true
   type: string
 pin:
