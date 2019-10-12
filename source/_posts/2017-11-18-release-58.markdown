@@ -397,7 +397,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.knx docs]: /integrations/climate.knx/
 [climate.wink docs]: /integrations/wink#climate
 [cloud docs]: /integrations/cloud/
-[cloud.const docs]: /integrations/cloud.const/
 [config.zwave docs]: /integrations/config.zwave/
 [configurator docs]: /integrations/configurator/
 [counter docs]: /integrations/counter/
