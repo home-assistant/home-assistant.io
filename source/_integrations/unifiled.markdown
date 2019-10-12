@@ -23,8 +23,8 @@ This integration uses settings in the configuration file. Underneath here is a e
 light:
   - platform: unifiled
     host: IP_ADDRESS
-    username: ubnt
-    password: ubnt
+    username: USERNAME
+    password: PASSWORD
 ```
 
 {% configuration %}
