@@ -113,5 +113,7 @@ version of the name will be used as the name of the entity.
 With the default of "Buienradar loop" the entity name becomes
 `camera.buienradar_loop`.
 
+<div class='note'>
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
-> Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission.
+Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission.
+</div>
