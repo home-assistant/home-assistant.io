@@ -55,7 +55,7 @@ Last login: Fri Oct 27 17:50:09 2017
 [ha@home-assistant ~]$
 ```
 
-Now you are able to use your frontend on your local system: [http://localhost:8000](http://localhost:8000)
+Now you are able to use your frontend on your local system: `http://localhost:8000`
 
 Things to keep in mind:
 
