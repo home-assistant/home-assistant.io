@@ -8,6 +8,12 @@ ha_iot_class: Cloud Polling
 ha_release: 0.57
 ---
 
+<div class='note warning'>
+
+  Since October 1, 2019, this integration no longer works due to changes in the NS API. [Work is being done](https://github.com/aquatix/ns-api/pull/17) on a solution, but this can still take several releases before it works again.
+
+</div>
+
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
 You must create an application [here](https://www.ns.nl/ews-aanvraagformulier/) to obtain a `password`.
