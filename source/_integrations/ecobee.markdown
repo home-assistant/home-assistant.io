@@ -17,7 +17,7 @@ The `ecobee` integration lets you control and view sensor data from [ecobee](htt
 
 ## Preliminary Step
 
-You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, you first need to register your thermostat which, should be done as part of the ecobee installation. Once you have done that, perform the following steps.
+You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
 2. Log in with your ecobee credentials.
@@ -69,7 +69,7 @@ api_key:
   <img src='{{site_root}}/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. In the **Configuration** -> **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the App per the Integration menu instructions above.
+[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. In the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the App per the Integration menu instructions above.
 
 The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
 
@@ -171,9 +171,9 @@ Creates a vacation on the selected ecobee thermostat.
 | `cool_temp`            | no       | Cooling temperature during the vacation                                                              |
 | `heat_temp`            | no       | Heating temperature during the vacation                                                              |
 | `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
-| `start_time`           | yes      | Time the vacation starts, in the local time of the thermostat, in the 24-hour format HH:MM:SS        |
+| `start_time`           | yes      | Time the vacation starts in the local time zone. Must be in 24-hour format (HH:MM:SS)        |
 | `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
-| `end_time`             | yes      | Time the vacation ends, in the local time of the thermostat, in the 24-hour format HH:MM:SS          |
+| `end_time`             | yes      | Time the vacation ends in the local time zone. Must be in 24-hour format (HH:MM:SS)          |
 | `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
 | `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
 
@@ -197,7 +197,7 @@ Resumes the currently active schedule.
 
 ### Service `ecobee.set_fan_min_on_time`
 
-Sets the minimum amount of time that the fan will run.
+Sets the minimum amount of time that the fan will run per hour.
 
 | Service data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
