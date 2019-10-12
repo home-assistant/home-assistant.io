@@ -11,11 +11,15 @@ ha_iot_class: Cloud Polling
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).
 
-This will log into your Growatt account and grab the first "Plant", after which it collects the inverters on this plant and creates sensors for these inverters as well as total sensors.
-
 ## Configuration
 
-Add the following to your `configuration.yaml` file:
+This integration supports being configured under the integrations button in home assistant.
+
+To configure it this way go to the configuration tab in your browser and click on integrations,
+Then click on the + and search for "Growatt Server".
+After which you can simply enter the required details.
+
+If you'd rather use yaml add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,6 +49,8 @@ name:
   default: Growatt
   type: string
 {% endconfiguration %}
+
+This will log into your Growatt account and grab the first "Plant", after which it collects the inverters on this plant and creates sensors for these inverters as well as total sensors.
 
 ## Example with multiple plants
 
