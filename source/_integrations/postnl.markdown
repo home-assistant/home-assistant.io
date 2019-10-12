@@ -8,9 +8,11 @@ ha_release: 0.69
 ha_iot_class: Cloud Polling
 ---
 
-The `postnl` platform allows one to track deliveries by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use this sensor, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
+The `postnl` platform allows one to track deliveries, distributions and letters by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use these sensors, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
 
-The sensor value shows the number of packages to be delivered. The packages are available in the shipments attribute.
+The sensors value shows the number of packages to be delivered, packages you are distributing and the amount of letters you are receiving.
+
+To be able to see your letters, you have to make sure you enabled letters within your PostNL account configuration.
 
 ## Configuration
 
