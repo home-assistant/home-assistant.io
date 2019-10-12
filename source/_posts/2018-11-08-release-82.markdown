@@ -45,7 +45,7 @@ And we have one more thing… we have soft-forked Open Z-Wave and have added sup
 - cancel off_delay action ([@dgomes] - [#18389]) ([binary_sensor.mqtt docs])
 - Changed checking of cover state closed from 0 to closed_position variable. ([@pszafer] - [#18407]) ([cover.mqtt docs])
 - updated pydaikin version ([@fredrike] - [#18413]) ([daikin docs]) ([climate.daikin docs])
-- edp_redy: increase UPDATE_INTERVAL ([@abmantis] - [#18429]) ([edp_redy docs])
+- edp_redy: increase UPDATE_INTERVAL ([@abmantis] - [#18429])
 - Update pyozw to 0.1.1 ([@pvizeli] - [#18436]) ([zwave docs])
 - Fix AsusWRT ([@kennedyshead] - [#18400])
 
@@ -72,7 +72,6 @@ And we have one more thing… we have soft-forked Open Z-Wave and have added sup
 [climate.daikin docs]: /integrations/daikin#climate
 [cover.mqtt docs]: /integrations/cover.mqtt/
 [daikin docs]: /integrations/daikin/
-[edp_redy docs]: /integrations/edp_redy/
 [image_processing.tensorflow docs]: /integrations/tensorflow
 [notify docs]: /integrations/notify/
 [sense docs]: /integrations/sense/
