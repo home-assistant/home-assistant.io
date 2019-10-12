@@ -14,7 +14,7 @@ with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace
 
 To use this component, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
-this check the [official documentation](https://console.bluemix.net/docs/services/IoT/gateways/dashboard.html#IoT_connectGateway)
+this check the [official documentation](https://cloud.ibm.com/docs/services/IoT?topic=iot-platform-getting-started#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
 for your home-assistant you'll need 4 pieces of information:
 

@@ -94,7 +94,7 @@ callback_ip:
   required: false
   type: string
 callback_port:
-  description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+  description: Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
   required: false
   type: integer
 resolvenames:

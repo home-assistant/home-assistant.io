@@ -63,7 +63,7 @@ transporter_toslink:
 
 Call a custom Squeezebox JSONRPC API.
 
-See documentation for this interface on http://HOST:PORT/html/docs/cli-api.html?player= where HOST and PORT are the host name and port for your Logitech Media Server.
+See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
