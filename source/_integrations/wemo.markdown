@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
     type: boolean
     default: true
   static:
-    description: One or more static IP adresses for WeMo to use
+    description: One or more static IP addresses for WeMo to use
     required: false
     type: list
 {% endconfiguration %}

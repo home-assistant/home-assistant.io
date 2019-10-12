@@ -112,7 +112,7 @@ camera:
 ```
 ## Hostname template
 
-The hostname/ip address can be provided either a value or from the existing entity attributes.
+The hostname/IP address can be provided either a value or from the existing entity attributes.
 
 ```yaml
 camera:

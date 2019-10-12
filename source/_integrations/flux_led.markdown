@@ -41,7 +41,7 @@ automatic_add:
   default: false
   type: boolean
 devices:
-  description: A list of devices with their ip address.
+  description: A list of devices with their IP address.
   required: false
   type: list
   keys:
