@@ -33,7 +33,7 @@ binary_sensor:
 
 {% configuration %}
 resource:
-  description: IP address and schema of the device that is exposing an aREST API, e.g., http://192.168.1.10.
+  description: IP address and schema of the device that is exposing an aREST API, e.g., `http://192.168.1.10`.
   required: true
   type: string
 pin:
@@ -46,7 +46,7 @@ name:
   type: string
 {% endconfiguration %}
 
-Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as `return_value`.
+Accessing the URL `http://IP_ADDRESS/digital/PIN_NUMBER` should give you the state of the pin inside a JSON response as `return_value`.
 
 ```bash
 $ curl -X GET http://192.168.0.5/digital/9
@@ -89,7 +89,7 @@ sensor:
 
 {% configuration %}
 resource:
-  description: "IP address and schema of the device that is exposing an aREST API, e.g., https://192.168.1.10."
+  description: "IP address and schema of the device that is exposing an aREST API, e.g., `https://192.168.1.10`."
   required: true
   type: string
 name:
@@ -145,7 +145,7 @@ monitored_variables:
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints.
 
-Accessing one of the endpoints (eg. http://192.168.1.10/temperature) will give you the value inside a JSON response.
+Accessing one of the endpoints (eg. `http://192.168.1.10/temperature`) will give you the value inside a JSON response.
 
 ```json
 {"temperature": 23, "id": "sensor01", "name": "livingroom", "connected": true}
@@ -165,7 +165,7 @@ The root will give you a JSON response that contains all variables and their cur
 }
 ```
 
-`return_value` contains the sensor's data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/).
+`return_value` contains the sensor's data in a JSON response for a given pin (eg. `http://192.168.1.10/analog/2/` or  `http://192.168.1.10/digital/7/`).
 
 ```json
 {"return_value": 34, "id": "sensor02", "name": "livingroom", "connected": true}
