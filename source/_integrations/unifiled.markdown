@@ -4,7 +4,7 @@ description: "Instructions on how to configure the UniFi LED integration with Un
 logo: ubiquiti.png
 ha_category:
   - Light
-ha_release: next
+ha_release: 0.101
 ha_iot_class: Local Polling
 ---
 
