@@ -20,7 +20,9 @@ You must then create a Shared Access Policy for the Service Bus with `Send` clai
 Once you have the connection string with `Send` policy, you can setup the integration itself.
 
 <div class='note warning'>
+
 The queue or topic that you are sending to needs to exists with the service bus namespace before you use it within Home Assistant. See [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal) for how to set up a queue and [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) for setting up a topic and subscriptions.
+
 </div>
 
 ## Configuration
@@ -61,7 +63,9 @@ topic:
 {% endconfiguration %}
 
 <div class="note">
+
 If you plan to send all state changes from one or more entities within Home Assistant, you should consider using the [Azure Event Hub](/integrations/azure_event_hub/) integration instead.
+
 </div>
 
 ## Usage
