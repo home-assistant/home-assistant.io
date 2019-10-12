@@ -22,7 +22,7 @@ This integration uses settings in the configuration file. Underneath here is a e
 # Example configuration.yaml entry
 light:
   - platform: unifiled
-    host: 192.168.1.20
+    host: IP_ADDRESS
     username: ubnt
     password: ubnt
 ```
