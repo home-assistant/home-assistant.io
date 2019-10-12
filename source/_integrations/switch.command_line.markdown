@@ -93,13 +93,13 @@ switch:
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
       value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
-      friendly_name: Kitchen Lightswitch
+      friendly_name: Kitchen Light
 ```
 
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
 `entity_id` `switch.arest_pin_four`, which is what one would use in
-[`automation`](/integrations/automation/) or in [API calls](/developers/).
+[`Automation`](/integrations/automation/) or in [API calls](/developers/).
 
 ### Shutdown your local host
 
