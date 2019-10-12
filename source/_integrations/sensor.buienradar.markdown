@@ -45,7 +45,7 @@ timeframe:
   default: 60
   type: integer
 monitored_conditions:
-  description: One or more conditions to display in the frontend.
+  description: One or more conditions to display in the frontend. See [the Buienradar.nl website](https://www.buienradar.nl/overbuienradar/legenda) for a detailed explanation of each one.
   required: true
   type: list
   keys:
