@@ -24,7 +24,7 @@ hass --open-ui
 Running these commands will:
 
  - Install Home Assistant
- - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
+ - Launch Home Assistant and serve the web interface on `http://localhost:8123`
  - the configuration files will be created in /home/{user}/.homeassistant
  
  
