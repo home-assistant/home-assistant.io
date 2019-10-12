@@ -27,7 +27,7 @@ Launch the InfluxDB service.
 sudo systemctl start influxdb
 ```
 
-If everything went well, then the web interface of the database should be accessible at [http://localhost:8083/](http://localhost:8083/). Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
+If everything went well, then the web interface of the database should be accessible at `http://localhost:8083/`. Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
 
 <p class='img'>
   <img src='/images/blog/2015-12-influxdb/influxdb-frontend.png' />
@@ -88,7 +88,7 @@ sudo systemctl start grafana-server
 sudo systemctl status grafana-server
 ```
 
-Login with the username `admin` and the password `admin` at [http://localhost:3000/login](http://localhost:3000/login). Now follow the [InfluxDB setup instructions](http://docs.grafana.org/datasources/influxdb/).
+Login with the username `admin` and the password `admin` at `http://localhost:3000/login`. Now follow the [InfluxDB setup instructions](http://docs.grafana.org/datasources/influxdb/).
 
 Now you can start to create dashboards and graphs. You have various options to get the data from the graph. The next image just shows a screenshot of the setting for a temperature sensor.
 
