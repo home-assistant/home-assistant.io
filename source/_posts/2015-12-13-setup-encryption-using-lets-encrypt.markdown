@@ -100,7 +100,7 @@ http:
   ssl_key: /etc/letsencrypt/live/hass-example.duckdns.org/privkey.pem
 ```
 
-You can now navigate to https://hass-example.duckdns.org and enjoy encryption!
+You can now navigate to `https://hass-example.duckdns.org` and enjoy encryption!
 
 _Big thanks to Fabian Affolter for his help and feedback on this article._
 
