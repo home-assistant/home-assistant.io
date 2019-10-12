@@ -63,5 +63,5 @@ Things to keep in mind:
 - You need to setup port forwarding on your router.
 - Don't allow `root` to use SSH. Set `PermitRootLogin no` on the remote system.
 - Your local port must be above 1024. Only `root` is allowed to forward privileged ports which are below 1024.
-- Use [SSH keys for authentication](https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
+- Use [SSH keys for authentication](http://docs.fedoraproject.org//en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
 
