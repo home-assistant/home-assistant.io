@@ -93,7 +93,7 @@ By following the instructions on the [customizing entities](/docs/configuration/
 
 ```yaml
 customize:
-  person.ada6789:
+  person.ada:
     entity_picture: "/local/ada.jpg"
 ```
 
