@@ -1,6 +1,6 @@
 ---
-title: "Orange and Rockland Utility Real Time Energy Usage Sensor"
-description: "Instructions on how to integrate the Orange and Rockland Utility real time energy usage sensor within Home Assistant."
+title: "Orange and Rockland Utility Real-Time Energy Usage Sensor"
+description: "Instructions on how to integrate the Orange and Rockland Utility real-time energy usage sensor within Home Assistant."
 logo: oru.png
 ha_release: 0.101
 ha_category:
