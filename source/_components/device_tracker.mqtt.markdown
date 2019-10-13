@@ -43,8 +43,8 @@ payload_not_home:
   required: false
   type: string
   default: 'not_home'
-payload_custom:
-  description: A dictionary to map payload values to custom zones. The keys are the payloads and the values are the corresponding locations that the payload represents.
+payload_other_zones:
+  description: A dictionary where the keys are the payloads and the values are the corresponding zones that the payload represents. This parameter allows the device tracker to maintain states for other zones aside from 'home' and 'not_home' when the payload value does not match the zone name.
   required: false
   type: list
 {% endconfiguration %}
