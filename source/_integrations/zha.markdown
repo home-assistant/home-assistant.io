@@ -109,6 +109,7 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 Philips Hue bulbs that have previously been added to another bridge won't show up during search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
 
 #### Philips Hue Dimmer Switch
+
 Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset your bulbs. For this to work, the remote doesn't have to be paired with your previous bridge.
 
 1. Turn on your Hue bulb you want to reset
@@ -117,6 +118,7 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 4. Your bulb should stop blinking and eventually turning on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
 
 #### hue-thief
+
 Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
 
 ### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
