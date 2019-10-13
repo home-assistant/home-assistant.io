@@ -10,7 +10,7 @@ If your Home Assistant instance is only accessible from your local network you c
 The solution is to use a self-signed certificate. Please note however that after you have completed these steps, your browser will complain about the security of the certificate as it was not issued by a trusted authority.
 
 * This is due to self-signed certificates having not been issued by a certification authority ([`CA`](https://cheapsslsecurity.com/blog/what-is-a-certificate-authority-ca/)). If you have your own CA then this will not be an issue.
-* A fantastic workaround for this, while keeping your instance isolated securely off the Internet, is to use a [`Certificate for SSL/TLS via domain ownership`](/docs/ecosystem/certificates/tls_domain_certificate/).
+* A fantastic workaround for this, while keeping your instance isolated securely off the Internet, is to use a [`Certificate for SSL/TLS via domain ownership`]({{site_root}}/docs/ecosystem/certificates/tls_domain_certificate/).
 
 If you don't mind the browser warnings and simply want SSL/TLS encryption and therefore have decided to use a self-signed certificate perminantly or temporarily, read on!
 
