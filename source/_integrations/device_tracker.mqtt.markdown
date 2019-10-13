@@ -22,6 +22,7 @@ device_tracker:
     devices:
       paulus_oneplus: 'location/paulus'
       annetherese_n4: 'location/annetherese'
+    source_type: router
 ```
 
 {% configuration %}
@@ -33,6 +34,10 @@ qos:
   description: The QoS level of the topic.
   required: false
   type: integer
+source_type:
+  description: Source type of the device tracker.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Usage
