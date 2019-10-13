@@ -62,6 +62,8 @@ entities:
   - light.bed_light
   - light.ceiling_lights
   - light.kitchen_lights
+state_filter:
+  - 'on'
 card:
   type: markdown
   content: |
