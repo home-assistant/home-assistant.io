@@ -13,11 +13,9 @@ This is a sensor to collect information from your Growatt inverters using [Growa
 
 ## Configuration
 
-This integration supports being configured under the integrations button in home assistant.
+This integration supports being configured under the integrations panel in Home Assistant.
 
-To configure it this way go to the configuration tab in your browser and click on integrations,
-Then click on the + and search for "Growatt Server".
-After which you can simply enter the required details.
+To configure it this way go to the configuration tab in your browser and click on integrations. Next, click on the + and search for "Growatt Server" and enter the required details.
 
 If you'd rather use yaml add the following to your `configuration.yaml` file:
 
