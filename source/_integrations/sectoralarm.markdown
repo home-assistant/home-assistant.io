@@ -1,6 +1,7 @@
 ---
 title: "Sector Alarm"
 description: "Instructions on how to integrate Sector Alarm within Home Assistant."
+logo: sector_alarm.png
 ha_category:
   - Alarm
   - Sensor
@@ -10,11 +11,11 @@ ha_iot_class: Cloud Polling
 
 The `Sector Alarm` component adds all of your temperature sensors and a panel that lets you control your alarm from Home Assistant.
 
-This has currencly only been testet on norwegian installations, but it should work for other countries as well.
+This has currently only been tested on Norwegian installations, but it should work for other countries as well.
 
 ## Configuration
 
-Go to [minside.sectoralarm.no/](https://minside.sectoralarm.no/) and login to find your panel id. After you login it should be a part of the URL. Example: https://minside.sectoralarm.no/#!/systems/**012345678**
+Go to [minside.sectoralarm.no/](https://minside.sectoralarm.no/) and login to find your panel id. After you log in it should be a part of the URL. Example: https://minside.sectoralarm.no/#!/systems/**012345678**
 
 To add Sector Alarm sensors and alarm to your installation, add the following to your `configuration.yaml` file:
 
