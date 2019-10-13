@@ -147,15 +147,18 @@ As always, this release of Home Assistant is accompanied with a new release of t
 - Add mobile_app dependency on cloud ([@uSpike] - [#27470]) ([mobile_app docs])
 - Fix for unknown sensor state ([@marthoc] - [#27542]) ([ecobee docs])
 - Google: catch query not supported ([@balloob] - [#27559]) ([google_assistant docs])
+- Fixing nzbget units display ([@chriscla] - [#27521]) ([nzbget docs])
 
 [#27398]: https://github.com/home-assistant/home-assistant/pull/27398
 [#27404]: https://github.com/home-assistant/home-assistant/pull/27404
 [#27410]: https://github.com/home-assistant/home-assistant/pull/27410
 [#27426]: https://github.com/home-assistant/home-assistant/pull/27426
 [#27470]: https://github.com/home-assistant/home-assistant/pull/27470
+[#27521]: https://github.com/home-assistant/home-assistant/pull/27521
 [#27542]: https://github.com/home-assistant/home-assistant/pull/27542
 [#27559]: https://github.com/home-assistant/home-assistant/pull/27559
 [@balloob]: https://github.com/balloob
+[@chriscla]: https://github.com/chriscla
 [@flz]: https://github.com/flz
 [@marthoc]: https://github.com/marthoc
 [@rytilahti]: https://github.com/rytilahti
@@ -165,6 +168,7 @@ As always, this release of Home Assistant is accompanied with a new release of t
 [google_assistant docs]: /integrations/google_assistant/
 [iaqualink docs]: /integrations/iaqualink/
 [mobile_app docs]: /integrations/mobile_app/
+[nzbget docs]: /integrations/nzbget/
 [songpal docs]: /integrations/songpal/
 [withings docs]: /integrations/withings/
 
