@@ -279,6 +279,22 @@ The `for` template(s) will be evaluated when the `value_template` becomes `true`
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 </div>
 
+
+As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+```
+
+{% endraw %}
+
+which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+
 ### Time trigger
 
 The time trigger is configured to run once at a specific point in time each day.
