@@ -9,13 +9,13 @@ og_image: /images/blog/2016-07-micropython/social.png
 ---
 
 <img src='/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/) covers a lot of ground. This post is providing only a little summary which should get you started.
 
 Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).
 
 <!--more-->
 
-The easiest way is to use [esptool.py](https://github.com/themadinventor/esptool) for firmware handling tasks. First erase the flash:
+The easiest way is to use [esptool.py](https://github.com/espressif/esptool) for firmware handling tasks. First erase the flash:
 
 ```bash
 $ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
