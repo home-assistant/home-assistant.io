@@ -60,8 +60,20 @@ config:
     message: "A message from Home Assistant"
 ```
 
+If you're using configuration files to store your Apprise URLs in, then you have the added bonus of associating tags with them.  By default Apprise in Home Assistant will only notify the elements that have no tags associated with them.  You can optionally focus on only notifying a specifc services based on the tag(s) you assigned them like so:
+```yaml
+- service: notify.apprise
+  data:
+    message: "A message from Home Assistant"
+    target: [
+      "tag_name1",
+    ]
+```
+
+The tag `all` is reserved to notify absolutely everything whether you have a tag associated with a URL or not.
+
 ### Notes
-There are almost 50 supported Notification services supported by Apprise.  Each has their own tweaks and customizations you can leverage.
+There are over 50 supported Notification services supported by Apprise.  Each has their own tweaks and customizations you can leverage.
 * For instructions on how to construct the URLs, visit [here](https://github.com/caronc/apprise/wiki#notification-services).
 * For instructions on how you can customize your own Apprise configuration files (referenced through the `config` directive), checkout the following:
    * [Text Formatted URLs](https://github.com/caronc/apprise/wiki/config_text)
