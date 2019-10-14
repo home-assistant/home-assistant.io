@@ -126,6 +126,7 @@ Currently supported devices as device triggers:
 
 - Hue Dimmer Remote
 - Hue Tap
+- Symfonisk Sound Controller
 - Trådfri On/Off Switch
 - Trådfri Open/Close Remote
 - Trådfri Remote Control
