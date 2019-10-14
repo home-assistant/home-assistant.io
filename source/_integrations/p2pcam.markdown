@@ -18,7 +18,7 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 camera:
   - platform: p2pcam
-    ip_address: 192.168.178.9
+    ip_address: IP_ADDRESS
 ```
 
 {% configuration %}
