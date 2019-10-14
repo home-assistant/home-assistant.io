@@ -9,6 +9,10 @@ ha_release: 0.51
 
 The `roomba` integration allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
 
+<p class='img'>
+<img src='/images/screenshots/more-info-dialog-roomba.png' />
+</p>
+
 <div class='note'>
 This platform has been tested and is confirmed to be working with the iRobot Roomba 980 and 890 models, but should also work fine with any Wi-Fi enabled Roomba like the 690 or the 960.
 </div>
