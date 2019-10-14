@@ -111,6 +111,7 @@ Currently tested but not working models:
 - JU7500 - Unable to see state and unable to control
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
+- NU7475 - State is always "on" and unable to control (but port 8001 *is* open)
 - Q7F - State is always "off" and unable to control via port 8001.
 
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
