@@ -144,13 +144,11 @@ media_player:
 
 ## ADB Setup
 
-This integration works by sending ADB commands to your Android TV / Fire TV device.
+This integration works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this.
 
 <div class='note'>
-When connecting to your device for the first time, a dialog will appear on your Android TV / Fire TV asking your to approve the connection. Check the box that says "always allow connections from this device" and hit OK.
+When connecting to your device for the first time, a dialog will appear on your Android TV / Fire TV asking you to approve the connection. Check the box that says "always allow connections from this device" and hit OK.
 </div>
-
-There are two ways to accomplish this:
 
 ### 1. ADB Server
 
@@ -236,7 +234,7 @@ Available key commands include:
 
 The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/bf1058a2f746535921b3f5247801469c4567e51a/androidtv/constants.py#L143-L186).
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level, this information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
