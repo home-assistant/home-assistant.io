@@ -24,7 +24,7 @@ This integration provides the following platforms:
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto) and additional channel.
-- Services: Update the state. More details can be found [here](/integrations/starline/#services).
+- Services: Update the state, set update frequency. More details can be found [here](/integrations/starline/#services).
 
 ## Configuration
 
@@ -49,6 +49,14 @@ It is not recommended to set update interval of less than 90 seconds.
 The service `starline.update_state` fetches the last state of the device from the StarLine server.
 
 This service does not require any attributes.
+
+### Set scan interval
+
+The service `starline.set_scan_interval` sets update frequency for entities.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `scan_interval` | no | Update frequency in seconds.
 
 ## Disclaimer
 
