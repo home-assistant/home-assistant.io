@@ -85,14 +85,14 @@ precision:
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
-{% Notes %}
+__Notes__  
 Time for `min_cycle_duration` and `keep_alive` must be set as wrapped in quotes representation of time in form of "hh:mm:ss", time in seconds (without quotes) or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
-{% Example %}
+__Example__
 ```yaml
 # Full example configuration.yaml entry
 climate:
