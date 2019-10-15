@@ -30,6 +30,10 @@ name:
   description: Overwrites friendly name.
   type: string
   default: Name of Entity
+icon:
+  required: false
+  description: Any icon from MaterialDesignIcons.com (Cheatsheet). Prefix name with mdi:, ie mdi:ceiling-light
+  type: string
 {% endconfiguration %}
 
 ## Examples
@@ -46,6 +50,7 @@ name: Kids Bedroom
 type: light
 entity: light.office
 name: My Office
+icon: mdi:ceiling-light
 ```
 
 <p class='img'>
