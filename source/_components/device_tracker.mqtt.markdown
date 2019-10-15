@@ -26,7 +26,7 @@ device_tracker:
 
 {% configuration %}
 devices:
-  description: A dictionary where the keys are devices and the values are their corresponding topic.
+  description: List of devices with their topic.
   required: true
   type: list
 qos:
@@ -44,7 +44,7 @@ payload_not_home:
   type: string
   default: 'not_home'
 payload_other_zones:
-  description: A dictionary where the keys are the payloads and the values are the corresponding zones that the payload represents. This parameter allows the device tracker to maintain states for other zones aside from 'home' and 'not_home' when the payload value does not match the zone name.
+  description: List of payloads with the zones they correspond to. This parameter allows the device tracker to maintain states for other zones aside from 'home' and 'not_home' when the payload value does not match the zone name.
   required: false
   type: list
 {% endconfiguration %}
