@@ -34,6 +34,11 @@ port:
   type: integer
   required: false
   default: 8888
+cache_ttl:
+  description: Ask ebusd to return cached value if age is less than this value, seconds.
+  type: integer
+  required: false
+  default: 900
 name:
   description: The name to use when displaying this ebusd instance.
   type: string
