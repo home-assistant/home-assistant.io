@@ -42,37 +42,31 @@ Then you need to create an application and get the client_id as explained here:
 Once this has been done, you can configure the integration:
 
 ```yaml
-# Example configuration.yaml entry
+# Sample configuration.yaml entry
 gardena:
   email: your_email@provider.com
   password: your_secret_gardena_password
   client_id: your_client_id_from_the_gardena_site
   location_id: your_location_id
-  default_mower_duration_in_minutes: 300
-  default_smart_irrigation_control_duration_in_minutes: 60
-  default_smart_watering_duration_in_minutes: 60
 ```
+
 
 {% configuration %}
 email:
   description: The email associated with the Gardena account.
   required: true
-  default: None
   type: string
 password:
   description: The password associated with the Gardena account.
   required: true
-  default: None
   type: string
 client_id:
   description: The client_id provided by gardena when creating the application.
   required: true
-  default: None
   type: string
 location_id:
   description: The locations_id where the devices are stored.
   required: true
-  default: None
   type: string
 default_mower_duration_in_minutes:
   description: The default duration of mowing when launching the mower manually. 
@@ -91,22 +85,28 @@ default_smart_watering_duration_in_minutes:
   type: string  
 {% endconfiguration %}
 
-NB : Your email, password and your client_id are **PRIVATE**. You should not store them 
-on a public git. You should store them in your unversionned secret file.
+## Full sample configuration
 
-NB2 :
-* If you don't have a mower, the key 'default_mower_duration_in_minutes' in the 
-config is not necessary. Defaults to 60 Minutes.
-* If you don't have a smart irrigation control, the key 
-'default_smart_irrigation_control_duration_in_minutes' in the 
-config is not necessary. Defaults to 60 Minutes.
-* If you don't have a smart water control, the key 
-'default_smart_watering_duration_in_minutes' in the 
-config is not necessary. Defaults to 60 Minutes.
+```yaml
+# Full configuration.yaml entry
+gardena:
+  email: your_email@provider.com
+  password: your_secret_gardena_password
+  client_id: your_client_id_from_the_gardena_site
+  location_id: your_location_id
+  default_mower_duration_in_minutes: 300
+  default_smart_irrigation_control_duration_in_minutes: 60
+  default_smart_watering_duration_in_minutes: 60
+```
+
+You can adjust, through "default_mower_duration_in_minutes", 
+"default_smart_irrigation_control_duration_in_minutes", 
+"default_smart_watering_duration_in_minutes" the duration of the different actions
+ depending on your specific garden setup.
 
 ## Debugging integration
 
-If you have problems with gardena smart system or the integration you can add debug 
+If you have problems with Gardena smart system or the integration you can add debug 
 prints to the log.
 
 ```yaml
