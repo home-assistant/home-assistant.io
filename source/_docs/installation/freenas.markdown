@@ -25,13 +25,6 @@ pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
 ```
 
-Create the configuration directory:
-
-```bash
-mkdir -p /usr/local/homeassistant
-chown -R homeassistant:homeassistant /usr/local/homeassistant
-```
-
 Create the installation directory:
 
 ```bash
@@ -100,7 +93,7 @@ vi /usr/local/etc/rc.d/homeassistant
 #            empty string as this will cause the daemon to run with group wheel.
 #            Default: homeassistant
 # homeassistant_config_dir:    Directory where config files are located.
-#            Default: /usr/home/homeassistant/.homeassistant
+#            Default: /home/homeassistant/.homeassistant
 # homeassistant_install_dir:    Directory where Home Assistant is installed.
 #            Default: /usr/local/share/homeassistant
 #
@@ -118,7 +111,7 @@ load_rc_config ${name}
 : ${homeassistant_enable:="NO"}
 : ${homeassistant_user:="homeassistant"}
 : ${homeassistant_group:="homeassistant"}
-: ${homeassistant_config_dir:="/usr/home/homeassistant/.homeassistant"}
+: ${homeassistant_config_dir:="/home/homeassistant/.homeassistant"}
 : ${homeassistant_install_dir:="/usr/local/share/homeassistant"}
 
 command="/usr/sbin/daemon"
