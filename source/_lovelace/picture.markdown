@@ -80,7 +80,7 @@ hold_action:
       description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
-dbltap_action:
+double_tap_action:
   required: false
   description: Action to take on double tap
   type: map
