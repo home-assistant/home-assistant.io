@@ -40,10 +40,11 @@ To turn on a light bulb, use the following steps:
 3.	If an entity is selected, the service data is populated with basic JSON that will be passed to the service. An additional data can also be passed by updating the JSON as below.
 
 ```yaml
-  entity_id: light.bedroom
-  brightness: 255
-  rgb_color: [255, 0, 0]
+entity_id: light.bedroom
+brightness: 255
+rgb_color: [255, 0, 0]
 ```
+
 ## States
 
 This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, click on the entity, scroll to the top, and modify the values, and click on “SET STATE” button.
@@ -59,10 +60,11 @@ To fire an event, simply type the name of the event, and pass the event data in 
 For ex: To fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as
 
 ```yaml
-state": on
+state: on
 ```
 
 If there is an automation that handles that event, it will be automatically triggered. See below:
+
 ```yaml
 - alias: Capture Event
   trigger:
@@ -84,18 +86,15 @@ It is a good practice to test the template code in the template editor prior to 
 
 For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](/topics/templating/)
 
-
 ## MQTT
 
 This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/integrations/mqtt/) component.
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 
-
 ## Logs
 
 This section displays `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
-
 
 ## Info
 
