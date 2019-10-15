@@ -43,10 +43,6 @@ payload_not_home:
   required: false
   type: string
   default: 'not_home'
-payload_other_zones:
-  description: List of payloads with the zones they correspond to. This parameter allows the device tracker to maintain states for other zones aside from 'home' and 'not_home' when the payload value does not match the zone name.
-  required: false
-  type: list
 {% endconfiguration %}
 
 ## Complete example configuration
@@ -60,9 +56,6 @@ device_tracker:
   qos: 1
   payload_home: 'present'
   payload_not_home: 'not present'
-  payload_other_zones:
-    work1: 'work_paulus'
-    work2: 'work_annetherese'
 ```
 
 ## Usage
