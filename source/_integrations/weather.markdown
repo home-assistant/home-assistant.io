@@ -8,9 +8,9 @@ ha_qa_scale: internal
 ha_release: 0.32
 ---
 
-The `weather` platforms are gathering meteorological information from web services and display the conditions and other details about the weather at the given location. Read the integration documentation for your particular weather provider to learn how to set it up.
+The `weather` platforms gather meteorological information from web services and display the conditions and other details about the weather at the given location. Read the integration documentation for your particular weather provider to learn how to set it up.
 
-Home Assistant currently supports free web services and such which require a registration.
+Home Assistant currently supports free web services some of which require registration.
 
 ## Condition mapping
 
@@ -30,4 +30,4 @@ The `weather` platform only knows the below listed conditions. The reason for th
 - 'sunny'
 - 'windy'
 - 'windy-variant'
-- 'exceptional':
+- 'exceptional'
