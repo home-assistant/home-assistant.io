@@ -505,8 +505,8 @@ light:
 [switch.verisure docs]: /integrations/verisure
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [tado docs]: /integrations/tado/
-[telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tellduslive docs]: /integrations/tellduslive/
 [tts docs]: /integrations/tts/
 [upnp docs]: /integrations/upnp/

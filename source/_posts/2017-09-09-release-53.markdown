@@ -439,7 +439,7 @@ frontend:
 [switch.rest docs]: /integrations/switch.rest/
 [switch.rfxtrx docs]: /integrations/switch.rfxtrx/
 [switch.knx docs]: /integrations/switch.knx/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tesla docs]: /integrations/tesla/
 [tradfri docs]: /integrations/tradfri/
 [volvooncall docs]: /integrations/volvooncall/

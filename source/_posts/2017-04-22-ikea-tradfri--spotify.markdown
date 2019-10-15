@@ -472,9 +472,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /integrations/tplink
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tts.google docs]: /integrations/google_translate
 [tts.marytts docs]: /integrations/marytts
 [vera docs]: /integrations/vera/
@@ -494,8 +494,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [recorder docs]: /integrations/recorder/
 [switch.hook docs]: /integrations/hook
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [wemo docs]: /integrations/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
@@ -511,5 +511,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [notify.html5 docs]: /integrations/html5
 [notify.telegram docs]: /integrations/telegram
-[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.polling docs]: /integrations/telegram_polling
 [discord]: https://discord.gg/c5DvZ4e
