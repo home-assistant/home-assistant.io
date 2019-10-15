@@ -34,10 +34,8 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
  - Start Home Assistant
  - Call service `python_script.hello_world` with parameters
 
-```json
-{
-  "name": "you"
-}
+```yaml
+name: you
 ```
 
 ## Calling Services
@@ -54,8 +52,9 @@ if entity_id is not None:
 ```
 The above `python_script` can be called using the following JSON as an input.
 
-```json
-{"entity_id": "light.bedroom", "rgb_color": [255, 0, 0] }
+```yaml
+entity_id: light.bedroom
+rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts
