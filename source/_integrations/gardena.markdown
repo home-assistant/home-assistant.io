@@ -75,5 +75,4 @@ logger:
     homeassistant.components.sensor : debug
     homeassistant.components.switch : debug
     gardena.smart_system: debug
-
 ```
