@@ -27,7 +27,7 @@ payload: on
 
 {% raw %}
 ```yaml
-topic: "home-assistant/light/1/state
+topic: home-assistant/light/1/state
 payload_template: {{ states('device_tracker.paulus') }}
 ```
 {% endraw %}
