@@ -22,7 +22,6 @@ device_tracker:
     devices:
       paulus_oneplus: 'location/paulus'
       annetherese_n4: 'location/annetherese'
-    source_type: router
 ```
 
 {% configuration %}
@@ -38,6 +37,7 @@ source_type:
   description: Source type of the device tracker.
   required: false
   type: string
+  default: gps
 {% endconfiguration %}
 
 ## Usage
