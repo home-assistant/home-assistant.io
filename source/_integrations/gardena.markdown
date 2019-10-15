@@ -29,6 +29,8 @@ application.
 
 Mowers are added as a vacuum.
 
+For now, the integration supports only one location.
+
 ## Configuration
 
 You first need to get a client id for your personal installation of Gardena. 
@@ -52,14 +54,41 @@ gardena:
 ```
 
 {% configuration %}
-gardena:
-  email: your_email@provider.com
-  password: your_secret_gardena_password
-  client_id: your_client_id_from_the_gardena_site
-  location_id: your_location_id
-  default_mower_duration_in_minutes: 300
-  default_smart_irrigation_control_duration_in_minutes: 60
-  default_smart_watering_duration_in_minutes: 60
+email:
+  description: The email associated with the Gardena account.
+  required: true
+  default: None
+  type: string
+password:
+  description: The password associated with the Gardena account.
+  required: true
+  default: None
+  type: string
+client_id:
+  description: The client_id provided by gardena when creating the application.
+  required: true
+  default: None
+  type: string
+location_id:
+  description: The locations_id where the devices are stored.
+  required: true
+  default: None
+  type: string
+default_mower_duration_in_minutes:
+  description: The default duration of mowing when launching the mower manually. 
+  required: false
+  default: 60
+  type: string
+default_smart_irrigation_control_duration_in_minutes:
+  description: The default duration when starting irrigation manually. 
+  required: false
+  default: 60
+  type: string
+default_smart_watering_duration_in_minutes:
+  description: The default duration when starting the watering manually. 
+  required: false
+  default: 60
+  type: string  
 {% endconfiguration %}
 
 NB : Your email, password and your client_id are **PRIVATE**. You should not store them 
@@ -85,8 +114,8 @@ logger:
   default: info
   logs:
     homeassistant.components.gardena: debug
-    homeassistant.components.mower : debug
-    homeassistant.components.sensor : debug
-    homeassistant.components.switch : debug
+    homeassistant.components.gardena.mower : debug
+    homeassistant.components.gardena.sensor : debug
+    homeassistant.components.gardena.switch : debug
     gardena.smart_system: debug
 ```
