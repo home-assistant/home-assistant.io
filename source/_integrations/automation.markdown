@@ -11,8 +11,6 @@ ha_release: 0.7
 Please see the [docs section](/docs/automation/) for in-depth
 documentation on how to use the automation component.
 
-Starting with 0.28 your automation rules can be controlled with the frontend.
-
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
 </p>
