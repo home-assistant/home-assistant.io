@@ -60,7 +60,7 @@ device_tracker:
   qos: '1'
   payload_home: 'present'
   payload_not_home: 'not present'
-  payload_custom:
+  payload_other_zones:
     work1: 'work_paulus'
     work2: 'work_annetherese'
 ```
