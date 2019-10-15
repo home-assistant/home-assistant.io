@@ -1,11 +1,13 @@
 ---
-title: "Home Assistant vs. Hass.io"
-description: "Home Assistant vs. Hass.io"
+title: "Home Assistant vs. Hass.io vs. HassOS"
+description: "Home Assistant vs. Hass.io vs. HassOS"
 ha_category: Installation
 ---
 
-Home Assistant is a Python program, in simple words. It can be run various operating system and provide the ability to track, control and automate your devices. When people talking about Home Assistant they usually refer to a standalone [installation method](/docs/installation/).
+Home Assistant is a Python program and is run via various [Installation Methods](https://www.home-assistant.io/docs/installation/).  The home assistant Python program is the core of the Home Assistant project that is used to observe, control and automate the devices in your home.  
 
-[Hass.io](/hassio/) is a combination of Home Assistant and tools which allows one to run it easily on a Raspberry Pi and other platforms without setting up an operating system first. Hass.io is an all-in one-solution and has a management user interface that can be used from the Home Assistant frontend. This interface is not present in a standalone setup of Home Assistant.
+[Hass.io](https://www.home-assistant.io/hassio/) is a Docker-based system for managing your Home Assistant installation and related applications. Hass.io is an all-in one-solution and has a management user interface that can be used from the Home Assistant frontend. This interface is not present in a standalone setup of Home Assistant. Hass.io can also utilize [Add-ons](https://www.home-assistant.io/addons/) to extend the functionality around Home Assistant. Hass.io can be [installed on compatiable linux distribution](https://www.home-assistant.io/hassio/installation/#alternative-install-on-a-generic-linux-host) running docker or is part of the HassOS installation method.  
+
+[HassOS](https://github.com/home-assistant/hassos) is a Operating System specifcally deisgned to run Hass.io.  The whole system is optimized for the embedded system, security and allows for seamless updates of the underlying Operating System and Hass.io.  
 
 Be aware that add-ons are only available in Hass.io, due to the way Hass.io is installed.
