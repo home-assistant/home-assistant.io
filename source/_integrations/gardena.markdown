@@ -7,10 +7,13 @@ ha_category:
   - Vacuum
   - Sensor
   - Switch
-ha_release: XXX
-ha_qa_scale: XXX
+ha_release: 0.101
+ha_qa_scale: Silver
 ha_config_flow: false
 ---
+
+This plugin aims to integrate Gardena smart systems into Home Assistant.
+Gardena provides integrations for mowers, power socket, sensors, ...
 
 [Gardena API](https://developer.1689.cloud/apis).
 [py-smart-gardena wrapper for gardena API](https://github.com/grm/py-smart-gardena).
@@ -21,20 +24,21 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch) (Power plugs, smart water control, Smart irrigation control)
 
-Entities will automatically be added based on what is declared in the ANdroid/IOS 
+Entities will automatically be added based on what is declared in the Android/IOS 
 application.
 
 Mowers are added as a vacuum.
 
 ## Configuration
 
-You first need to get a client id for your personal installation of gardena. 
-To do so, create an account here : https://developer.1689.cloud/apis
+You first need to get a client id for your personal installation of Gardena. 
+To do so, create an account here: <https://developer.1689.cloud/apis>
 
-Then you need to create an application and get the client_id as explained here : 
-https://developer.1689.cloud/docs/getting-started
+Then you need to create an application and get the client_id as explained here: 
+<https://developer.1689.cloud/docs/getting-started>
 
-Once this has been done, you can configure the component :
+Once this has been done, you can configure the integration:
+
 ```yaml
 # Example configuration.yaml entry
 gardena:
@@ -46,6 +50,17 @@ gardena:
   default_smart_irrigation_control_duration_in_minutes: 60
   default_smart_watering_duration_in_minutes: 60
 ```
+
+{% configuration %}
+gardena:
+  email: your_email@provider.com
+  password: your_secret_gardena_password
+  client_id: your_client_id_from_the_gardena_site
+  location_id: your_location_id
+  default_mower_duration_in_minutes: 300
+  default_smart_irrigation_control_duration_in_minutes: 60
+  default_smart_watering_duration_in_minutes: 60
+{% endconfiguration %}
 
 NB : Your email, password and your client_id are **PRIVATE**. You should not store them 
 on a public git. You should store them in your unversionned secret file.
@@ -69,7 +84,6 @@ prints to the log.
 logger:
   default: info
   logs:
-    pydeconz: debug
     homeassistant.components.gardena: debug
     homeassistant.components.mower : debug
     homeassistant.components.sensor : debug
