@@ -88,6 +88,10 @@ region_mapping:
   description: "Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`."
   required: false
   type: list
+friends:
+  description: "Boolean flag to control whether friends' locations are shared with OwnTracks clients submitting their location via the Home Assistant HTTP webhook. This options brings similar functionality to the way OwnTracks works when used via a MQTT broker. The returned locations are based on the configured [Person](/integrations/person/)'s [device_trackers](/integrations/device_tracker/). This option has no effect if OwnTracks is used solely via MQTT"
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 A full sample configuration for the `owntracks` platform is shown below:
