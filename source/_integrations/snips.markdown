@@ -81,11 +81,11 @@ sudo systemctl start "snips-*"
 
 Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say
 
-> Hey Snips
+_Hey Snips_
 
 followed by a command, e.g.
 
-> Set the lights to green in the living room
+_Set the lights to green in the living room_
 
 As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
 

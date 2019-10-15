@@ -43,7 +43,7 @@ The following statistics will be exposed as attributes.
 |is_linked              |True if the FritzBox is physically linked to the provider    |
 |is_connected           |True if the FritzBox has established an internet-connection  |
 |wan_access_type        |Connection-type, can be `DSL` or `Cable`                     |
-|external_ip            |External ip address                                          |
+|external_ip            |External IP address                                          |
 |uptime                 |Uptime in seconds                                            |
 |bytes_sent             |Bytes sent                                                   |
 |bytes_received         |Bytes received                                               |

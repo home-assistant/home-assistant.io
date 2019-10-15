@@ -152,7 +152,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade youtube_dl to 2018.07.21 ([@fabaff] - [#15718]) ([media_extractor docs])
 - Upgrade numpy to 1.15.0 ([@fabaff] - [#15722]) ([binary_sensor.trend docs]) ([image_processing.opencv docs])
 - Upgrade spiderpy to 1.2.0 ([@peternijssen] - [#15729]) ([spider docs])
-- Upgrade beautifulsoup4 to 4.6.1 ([@fabaff] - [#15727]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
+- Upgrade beautifulsoup4 to 4.6.1 ([@fabaff] - [#15727]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs])
 - Upgrade mutagen to 1.41.0 ([@fabaff] - [#15739]) ([tts docs])
 - Upgrade sqlalchemy to 1.2.10 ([@fabaff] - [#15737]) ([sensor.sql docs])
 - Upgrade voluptuous to 0.11.3 ([@fabaff] - [#15735])
@@ -313,7 +313,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [auth docs]: /integrations/auth/
 [binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
 [binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
-[binary_sensor.insteon_plm docs]: /integrations/insteon_plm/
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
 [binary_sensor.tahoma docs]: /integrations/tahoma
 [binary_sensor.trend docs]: /integrations/trend
 [calendar.todoist docs]: /integrations/todoist
@@ -335,7 +335,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan docs]: /integrations/fan/
 [fan.comfoconnect docs]: /integrations/comfoconnect
 [fan.dyson docs]: /integrations/dyson#fan
-[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.insteon_local docs]: /integrations/insteon/
 [fan.template docs]: /integrations/fan.template/
 [fan.tuya docs]: /integrations/tuya
 [fan.wink docs]: /integrations/wink#fan
@@ -347,7 +347,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /integrations/http/
 [ihc docs]: /integrations/ihc/
 [image_processing.opencv docs]: /integrations/opencv
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light docs]: /integrations/light/
 [light.deconz docs]: /integrations/deconz#light
 [light.futurenow docs]: /integrations/futurenow
@@ -391,14 +391,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.scrape docs]: /integrations/scrape
 [sensor.sql docs]: /integrations/sql
 [sensor.strings.moon.json docs]: /integrations/sensor.strings.moon.json/
-[sensor.sytadin docs]: /integrations/sytadin
 [sensor.waze_travel_time docs]: /integrations/waze_travel_time
 [sisyphus docs]: /integrations/sisyphus/
 [smappee docs]: /integrations/smappee/
 [spider docs]: /integrations/spider/
 [switch docs]: /integrations/switch/
 [switch.ihc docs]: /integrations/ihc#switch
-[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.insteon_plm docs]: /integrations/insteon/
 [switch.mqtt docs]: /integrations/switch.mqtt/
 [switch.spider docs]: /integrations/spider
 [switch.tplink docs]: /integrations/tplink

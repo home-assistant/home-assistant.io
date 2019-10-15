@@ -51,6 +51,10 @@ icon:
   required: false
   description: Overwrites icon or entity picture.
   type: string
+image:
+  required: false
+  description: Overwrites entity picture.
+  type: string
 secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."

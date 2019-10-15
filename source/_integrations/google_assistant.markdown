@@ -200,6 +200,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting, only for temperature sensor)
+- Alarm Control Panel (Arm/Disarm)
 
 <div class='note warning'>
   The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
@@ -207,9 +208,11 @@ Currently, the following domains are available to be used with Google Assistant,
 
 ### Secure Devices
 
-Certain devices are considered secure, including anything in the `lock` domain, and `covers` with device types `garage` and `door`.
+Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `garage` and `door`.
 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing and locking these devices does not require a pin.
+
+For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
 
 ### Media Player Sources
 

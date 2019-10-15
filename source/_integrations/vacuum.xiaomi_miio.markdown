@@ -68,7 +68,7 @@ Start the remote control mode of the robot. You can then move it with `remote_co
 
 | Service data attribute    | Optional | Description                                       |
 |---------------------------|----------|---------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific robot; default targets all |
+| `entity_id`               |       no | Only act on a specific robot                      |
 
 ### Service `vacuum.xiaomi_remote_control_stop`
 
@@ -76,7 +76,7 @@ Exit the remote control mode of the robot.
 
 | Service data attribute    | Optional | Description                                       |
 |---------------------------|----------|---------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific robot; default targets all |
+| `entity_id`               |       no | Only act on a specific robot                      |
 
 ### Service `vacuum.xiaomi_remote_control_move`
 
@@ -84,7 +84,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 
 | Service data attribute    | Optional | Description                                               |
 |---------------------------|----------|-----------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific robot; default targets all         |
+| `entity_id`               |       no | Only act on a specific robot                              |
 | `velocity`                |       no | Speed: between -0.29 and 0.29                             |
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
@@ -95,7 +95,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 
 | Service data attribute    | Optional | Description                                               |
 |---------------------------|----------|-----------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific robot; default targets all         |
+| `entity_id`               |       no | Only act on a specific robot                              |
 | `velocity`                |       no | Speed: between -0.29 and 0.29                             |
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
@@ -106,9 +106,9 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific robot; default targets all       |
+| `entity_id`               |       no | Only act on a specific robot                          |
 | `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
-| `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
+| `repeats`                 |       no | Number of cleaning repeats for each zone between 1 and 3. |
 
 Example of `vacuum.xiaomi_clean_zone` use:
 

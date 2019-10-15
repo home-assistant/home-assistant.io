@@ -46,6 +46,10 @@ state_image:
       type: string
       required: false
       description: "`state: image-url`, check the example below."
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
 aspect_ratio:
   required: false
   description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
@@ -61,12 +65,17 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -86,12 +95,17 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    url_path:
+      required: false
+      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
@@ -119,7 +133,67 @@ icon:
   required: false
   description: Overwrites default icon.
   type: string
+tap_action:
+  required: false
+  description: Action to take on tap
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
+hold_action:
+  required: false
+  description: Action to take on tap-and-hold
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 {% endconfiguration %}
+
+## How to use state_filter
+
+Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
+
+```yaml
+state_filter:
+  "on": brightness(110%) saturate(1.2)
+  "off": brightness(50%) hue-rotate(45deg)
+```
 
 ## Examples
 

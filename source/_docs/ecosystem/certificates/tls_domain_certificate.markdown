@@ -48,12 +48,12 @@ Press Enter to Continue
 If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:
 
 ```text
-address=/mydomain.com/<hass ip>
+address=/mydomain.com/<hass IP>
 ```
 
 ### Edit your Home Assistant configuration to use your certificates
 
-The [`http`](/integrations/http/) section must contain the full path to the needed files. 
+The [`http`](/integrations/http/) section must contain the full path to the needed files.
 
 ```yaml
 http:

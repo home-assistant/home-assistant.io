@@ -8,29 +8,30 @@ ha_category:
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 
-The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Media Player](#media-player)
 - [Sensor](#sensor)
 
-If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require an authentication token to connect. If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The preferred way to setup the Plex platform is by enabling the [discovery component](/integrations/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [plex.tv](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
-If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. You will be prompted with a notification to complete configuration if discovery is enabled.
+<div class='note info'>
 
-If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use SSL, write "`off`" or "`false`" in the _"Verify SSL"_ field as well.
+Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-token.png' />
-</p>
+</div>
 
-You can also enable the `plex` platform directly by adding the following lines to your `configuration.yaml`:
+If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
+
+The `plex` integration can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,8 +40,8 @@ plex:
 ```
 
 <div class='note warning'>
-  
-At least one of `host` or `token` must be provided.
+
+Only one Plex server can be configured when using `configuration.yaml`. To add more servers, set up via **Configuration** -> **Integrations**.
 
 </div>
 
@@ -73,7 +74,7 @@ verify_ssl:
   default: true
   type: boolean
 media_player:
-  description: Options to customize behavior of `media_player` entities.
+  description: Options to set the default behavior of `media_player` entities for new Integrations. **NOTE:** These options are exposed as Configuration Options (**Integrations** -> **Configured** --> **Plex** --> **Gear Icon**). Configuration Options will take precedence.
   required: false
   type: map
   keys:
@@ -112,40 +113,40 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 #### Music
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `MUSIC` | MUSIC |
+| Service data attribute | Optional | Description                                                                                            | Example                                                                                                                                                       |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                                              | media_player.theater_plex                                                                                                                                     |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `MUSIC`                                                            | MUSIC                                                                                                                                                         |
 
 #### Playlist
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `PLAYLIST` | PLAYLIST |
+| Service data attribute | Optional | Description                                                  | Example                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `entity_id`            | no       | `entity_id` of the client                                    | media_player.theater_plex                                                |
+| `media_content_id`     | no       | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `PLAYLIST`               | PLAYLIST                                                                 |
 
 #### TV Episode
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `EPISODE` | EPISODE |
+| Service data attribute | Optional | Description                                                                                                 | Example                                                                                                                                                    |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                                                   | media_player.theater_plex                                                                                                                                  |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `EPISODE`                                                               | EPISODE                                                                                                                                                    |
 
 #### Video
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type` | no | Type of media to play, in this case `VIDEO` | VIDEO |
+| Service data attribute | Optional | Description                                                               | Example                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the client                                                 | media_player.theater_plex                                                                           |
+| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type`   | no       | Type of media to play, in this case `VIDEO`                               | VIDEO                                                                                               |
 
 ### Compatibility
 
 | Client                           | Limitations                                                                                                                                                     |
-|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
@@ -157,15 +158,15 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ### Notes
 
-* At this moment, the Plex platform only supports one Plex Media Server.
-* It is possible to get errors that look like the following.
+* The `plex` integration supports multiple Plex servers. Additional connections can be configured under Configuration > Integrations.
+* When setting up a server via `configuration.yaml`, it is possible to get errors that look like the following.
 
   ```txt
   ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans to, respectively, `true` and `false`.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify_ssl` configuration options to, respectively, `true` and `false`.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
 ## Sensor

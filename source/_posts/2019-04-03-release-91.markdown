@@ -315,7 +315,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Prometheus casting issues ([@robbiet480] - [#22282]) ([prometheus docs])
 - Update trait to support auto without ranges. ([@Swamp-Ig] - [#21847]) ([google_assistant docs])
 - Sort code owners alphabetically ([@cgtobi] - [#22304])
-- Update srpenergy library ([@robbiet480] - [#22307]) ([srp_energy docs])
+- Update srpenergy library ([@robbiet480] - [#22307])
 - Switch from using Google Maps API for elevation to Open Elevation API ([@robbiet480] - [#22306])
 - Fix for embedded MQTT server configuration ([@robbiet480] - [#22305]) ([mqtt docs])
 - Upgrade pylast to 3.1.0 ([@fabaff] - [#22302]) ([lastfm docs])
@@ -827,7 +827,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [smartthings docs]: /integrations/smartthings/
 [solaredge docs]: /integrations/solaredge/
 [sql docs]: /integrations/sql/
-[srp_energy docs]: /integrations/srp_energy/
 [stream docs]: /integrations/stream/
 [switch docs]: /integrations/switch/
 [switchbot docs]: /integrations/switchbot/

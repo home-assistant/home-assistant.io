@@ -75,7 +75,7 @@ sensor:
   - platform: command_line
     name: HD Temperature
     command: "hddtemp -n /dev/sda"
-    # If errors occur, remove degree symbol below
+    # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
 ```
 
@@ -90,7 +90,7 @@ sensor:
   - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
-    # If errors occur, remove degree symbol below
+    # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
 ```

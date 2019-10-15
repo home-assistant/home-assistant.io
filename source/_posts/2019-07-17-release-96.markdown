@@ -345,7 +345,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## All changes
 
-- Fix AttributeError: 'NoneType' object has no attribute 'group' with sytadin component ([@foreign-sub] - [#24652]) ([sytadin docs])
+- Fix AttributeError: 'NoneType' object has no attribute 'group' with sytadin component ([@foreign-sub] - [#24652])
 - braviatv, nmap_tracker: use getmac for getting MAC addresses ([@scop] - [#24628]) ([braviatv docs]) ([braviatv docs]) ([braviatv docs]) ([nmap_tracker docs])
 - Fix downloader_download_failed event not firing for HTTP response errors ([@sfjes] - [#24640]) ([downloader docs])
 - Multiple devices support for opentherm_gw ([@mvn23] - [#22932]) ([opentherm_gw docs]) (breaking change)
@@ -869,7 +869,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switchmate docs]: /integrations/switchmate/
 [syncthru docs]: /integrations/syncthru/
 [systemmonitor docs]: /integrations/systemmonitor/
-[sytadin docs]: /integrations/sytadin/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [template docs]: /integrations/template/

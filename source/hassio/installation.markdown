@@ -36,9 +36,10 @@ The following will take you through the steps required to install Hass.io.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
 3. Optional - set up the WiFi or static IP. There are two possible places for that: 
-- On a blank USB stick with Fat32 partition (partition label: "CONFIG"), while in / directory, create `network/my-network` file 
-- or on Hassio SD card first, bootable partition (might not be auto mounted in Linux) create `CONFIG/network/my-network` file 
-For the content of this file follow the [HassOS howto][hassos-network].
+   - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
+   - on the Hassio SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
+
+   For the content of this file, follow the [HassOS howto][hassos-network].
 
 4. For image-based installs insert the SD card (and optional USB stick) into the device.
 
@@ -63,10 +64,6 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 </div>
 
 Now you can [configure][configure] your install.
-
-### Migrating from a non-Hass.io install
-
-If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 
 ## Updating a Hass.io installation
 

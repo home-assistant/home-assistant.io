@@ -178,7 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## Breaking Changes
 
-- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/integrations/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/integrations/insteon/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
 - TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
@@ -549,7 +549,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.concord232 docs]: /integrations/concord232#binary-sensor
 [binary_sensor.egardia docs]: /integrations/egardia#binary-sensor
 [binary_sensor.hikvision docs]: /integrations/hikvision
-[binary_sensor.insteon_plm docs]: /integrations/insteon_plm/
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
 [binary_sensor.isy994 docs]: /integrations/isy994
 [binary_sensor.knx docs]: /integrations/binary_sensor.knx/
 [binary_sensor.upcloud docs]: /integrations/upcloud#binary-sensor
@@ -582,7 +582,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /integrations/hue/
 [ihc docs]: /integrations/ihc/
 [influxdb docs]: /integrations/influxdb/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [knx docs]: /integrations/knx/
 [light docs]: /integrations/light/
 [light.demo docs]: /integrations/light.demo/
@@ -636,7 +636,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.zestimate docs]: /integrations/zestimate
 [shopping_list docs]: /integrations/shopping_list/
 [switch.edimax docs]: /integrations/edimax
-[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.insteon_plm docs]: /integrations/insteon/
 [switch.rest docs]: /integrations/switch.rest/
 [switch.tesla docs]: /integrations/tesla
 [switch.upcloud docs]: /integrations/upcloud#switch

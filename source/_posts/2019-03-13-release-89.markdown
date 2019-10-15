@@ -159,13 +159,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix calc next ([@balloob] - [#21630]) (beta fix)
 - Cast displaytime to int for JSON RPC ([@GGeezes] - [#21649]) ([notify docs]) (beta fix)
 - :shirt: Corrects unit of measurement symbol for Watt ([@frenck] - [#21654]) ([toon docs]) (beta fix)
-- Rename Google Assistant evenets ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
+- Rename Google Assistant events ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
 - :ambulance: Fixes Toon doing I/O in coroutines ([@frenck] - [#21657]) ([toon docs]) (beta fix)
 - Upgrade toonapilib to 3.1.0 ([@frenck] - [#21661]) ([toon docs]) (beta fix)
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 ## All changes

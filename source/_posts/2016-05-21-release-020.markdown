@@ -25,7 +25,7 @@ Tons of new supported things in 0.20.
 - Configurator: allow supplying a link to the user ([@mnestor])
 - Media Player: [Roku] now supported ([@bah2830])
 - Sensor: [Last.fm] now supported ([@darookee], [@GreenTurtwig])
-- Notify: Amazon Lambda, [SNS], [SQS] now supported ([@robbiet480])
+- Notify: Amazon Lambda, SNS, SQS now supported ([@robbiet480])
 - Light: allow human readable colors in turn_on command ([@robbiet480])
 - YAML: new include dir options [`!include_dir_merge_list`] and [`!include_dir_merge_named`] ([@happyleavesaoc])
 - Media Player: [LG Netcast TVs] now supported ([@wokar])
@@ -75,8 +75,6 @@ device_tracker:
 [Nest Protect]: /integrations/nest#sensor
 [purge days option]: /integrations/recorder/
 [Roku]: /integrations/roku#media-player
-[SNS]: /integrations/notify.aws_sns/
-[SQS]: /integrations/notify.aws_sqs/
 [supervisord]: /integrations/supervisord
 [Twilio SMS]: /integrations/twilio_sms
 [Last.fm]: /integrations/lastfm

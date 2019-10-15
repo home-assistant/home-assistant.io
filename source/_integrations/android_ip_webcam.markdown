@@ -202,4 +202,4 @@ camera:
 
 The `android_ip_webcam` sensor platform lets you observe states of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 
-You can setup your own sensors by examining the JSON file from the webcam server: http://IP:8080/sensors.json
+You can setup your own sensors by examining the JSON file from the webcam server: `http://IP:8080/sensors.json`

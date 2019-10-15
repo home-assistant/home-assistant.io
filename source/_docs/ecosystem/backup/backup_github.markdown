@@ -159,7 +159,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.5"
+  - "3.7"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev

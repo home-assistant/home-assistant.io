@@ -27,6 +27,11 @@ ip_address:
   description: The IP address of your Solax system.
   required: true
   type: string
+port:
+  required: false
+  type: integer
+  default: 80
+  description: The port number
 {% endconfiguration %}
 
 ### Optional template sensor

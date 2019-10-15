@@ -14,13 +14,15 @@ pw groupadd -n homeassistant -g 8123
 echo 'homeassistant:8123:8123::::::/bin/csh:' | adduser -f -
 ```
 
-Install the necessary Python packages:
+Install the necessary Python packages and virtualenv:
 
 ```bash
 pkg update
 pkg upgrade
 pkg install -y python37 py37-sqlite3 ca_root_nss
 python3.7 -m ensurepip
+pip3 install --upgrade pip
+pip3 install --upgrade virtualenv
 ```
 
 Create the configuration directory:
@@ -45,11 +47,38 @@ cd /usr/local/share/homeassistant
 virtualenv -p python3.7 .
 source ./bin/activate.csh
 pip3 install homeassistant
+```
+
+While still in the `venv`, start Home Assistant to populate the configuration directory.
+
+```bash
+hass --open-ui
+```
+
+Wait until you see:
+
+```bash
+(MainThread) [homeassistant.core] Starting Home Assistant
+```
+
+Then escape and exit the `venv`.
+
+```bash
 deactivate
 exit
 ```
 
-Create an `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts. Create a file at `/usr/local/etc/rc.d/homeassistant` with the following contents:
+Create the directory and the `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts.
+
+```bash
+mkdir /usr/local/etc/rc.d/
+```
+
+Then create a file at `/usr/local/etc/rc.d/homeassistant` and insert the content below:
+
+```bash
+vi /usr/local/etc/rc.d/homeassistant
+```
 
 ```bash
 #!/bin/sh
@@ -71,7 +100,7 @@ Create an `rc.d` script for the system-level service that enables Home Assistant
 #            empty string as this will cause the daemon to run with group wheel.
 #            Default: homeassistant
 # homeassistant_config_dir:    Directory where config files are located.
-#            Default: /usr/local/homeassistant
+#            Default: /usr/home/homeassistant/.homeassistant
 # homeassistant_install_dir:    Directory where Home Assistant is installed.
 #            Default: /usr/local/share/homeassistant
 #
@@ -89,7 +118,7 @@ load_rc_config ${name}
 : ${homeassistant_enable:="NO"}
 : ${homeassistant_user:="homeassistant"}
 : ${homeassistant_group:="homeassistant"}
-: ${homeassistant_config_dir:="/usr/local/homeassistant"}
+: ${homeassistant_config_dir:="/usr/home/homeassistant/.homeassistant"}
 : ${homeassistant_install_dir:="/usr/local/share/homeassistant"}
 
 command="/usr/sbin/daemon"

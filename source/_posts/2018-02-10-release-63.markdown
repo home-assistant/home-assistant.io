@@ -51,7 +51,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 
 ## Release 0.63.2 - February 14
 
-- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) (mercedesme docs) (binary_sensor.mercedesme docs) (device_tracker.mercedesme docs) (sensor.mercedesme docs)
 - Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
 - Updated beacontools ([@citruz] - [#12368]) ([sensor.eddystone_temperature docs])
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
@@ -226,7 +226,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Canary live stream ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Replace Gitter with Discord ([@fabaff] - [#12199])
 - Upgrade Sphinx to 1.6.7 ([@fabaff] - [#12200])
-- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) (mercedesme docs) (binary_sensor.mercedesme docs) (device_tracker.mercedesme docs) (sensor.mercedesme docs)
 - Binary Sensor Template: Add icon_template and entity_picture_template support ([@hawk259] - [#12158]) ([binary_sensor.template docs])
 - Bump pyeconet version to fix JSONDecodeError ([@w1ll1am23] - [#12204]) ([climate.econet docs])
 - Add support for Alexa.StepSpeaker ([@lucasweb78] - [#12183]) ([alexa docs])
@@ -528,7 +528,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.template docs]: /integrations/cover.template/
 [deconz docs]: /integrations/deconz/
 [device_tracker.huawei_router docs]: /integrations/huawei_router
-[device_tracker.mercedesme docs]: /integrations/device_tracker.mercedesme/
 [device_tracker.mikrotik docs]: /integrations/mikrotik
 [device_tracker.mqtt docs]: /integrations/device_tracker.mqtt/
 [device_tracker.owntracks docs]: /integrations/owntracks
@@ -543,7 +542,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [group docs]: /integrations/group/
 [homematic docs]: /integrations/homematic/
 [http docs]: /integrations/http/
-[image_processing.openalpr_cloud docs]: /integrations/openalpr_local_cloud
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_cloud
 [influxdb docs]: /integrations/influxdb/
 [input_text docs]: /integrations/input_text/
 [ios docs]: /integrations/ios/
@@ -572,7 +571,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.volumio docs]: /integrations/volumio
 [media_player.webostv docs]: /integrations/webostv#media-player
 [melissa docs]: /integrations/melissa/
-[mercedesme docs]: /integrations/mercedesme/
 [mochad docs]: /integrations/mochad/
 [notify.gntp docs]: /integrations/gntp
 [notify.kodi docs]: /integrations/kodi
@@ -592,7 +590,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
 [sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
 [sensor.melissa docs]: /integrations/melissa/
-[sensor.mercedesme docs]: /integrations/sensor.mercedesme/
 [sensor.miflora docs]: /integrations/miflora
 [sensor.onewire docs]: /integrations/onewire
 [sensor.pollen docs]: /integrations/iqvia
@@ -653,12 +650,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
-[device_tracker.mercedesme docs]: /integrations/device_tracker.mercedesme/
 [light.limitlessled docs]: /integrations/limitlessled
 [media_player.yamaha docs]: /integrations/yamaha
-[mercedesme docs]: /integrations/mercedesme/
 [sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
-[sensor.mercedesme docs]: /integrations/sensor.mercedesme/
 [sensor.wunderground docs]: /integrations/wunderground
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392
 [#12421]: https://github.com/home-assistant/home-assistant/pull/12421

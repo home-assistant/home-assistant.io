@@ -3,6 +3,7 @@ title: "Jandy iAqualink"
 description: "Instructions on how to configure Jandy iAqualink integration."
 logo: iaqualink.png
 ha_category:
+  - Binary Sensor
   - Climate
   - Light
   - Sensor
@@ -15,6 +16,7 @@ ha_iot_class: Cloud Polling
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor
 - Climate
 - Light
 - Sensor

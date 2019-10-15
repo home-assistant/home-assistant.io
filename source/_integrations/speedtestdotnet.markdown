@@ -15,9 +15,11 @@ Enabling this integration will automatically create the Speedtest.net Sensors fo
 
 By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
+Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
+
 ## Configuration
 
-For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
+For the `server_id` check the list of [available servers](http://www.speedtestserver.com).
 
 To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 

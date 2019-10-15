@@ -600,8 +600,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
 [binary_sensor.blink docs]: /integrations/blink
 [binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
-[binary_sensor.ffmpeg_motion docs]: /integrations/ffmpeg_motion_motion/
-[binary_sensor.ffmpeg_noise docs]: /integrations/ffmpeg_motion_noise/
+[binary_sensor.ffmpeg_motion docs]: /integrations/ffmpeg_motion/
+[binary_sensor.ffmpeg_noise docs]: /integrations/ffmpeg_noise/
 [binary_sensor.fritzbox docs]: /integrations/fritzbox
 [binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
 [binary_sensor.openuv docs]: /integrations/openuv

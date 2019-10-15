@@ -206,13 +206,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add ZHA binary sensor tests ([@dmulcahey] - [#20711])
 - Add ZHA fan tests ([@dmulcahey] - [#20712])
 - Add ZHA light tests ([@dmulcahey] - [#20713])
-- Add google home alarm sensor ([@eliseomartelli] - [#20709]) ([googlehome docs]) (new-platform)
+- Add google home alarm sensor ([@eliseomartelli] - [#20709]) (googlehome docs) (new-platform)
 - Add missing abbreviations ([@emontnemery] - [#20741]) ([mqtt docs])
 - Update pysmartthings to 0.5.0 ([@andrewsayre] - [#20759]) ([smartthings docs])
 - Use PLATFORM_SCHEMA_BASE as base schema for additional components. ([@emontnemery] - [#20578]) (breaking change)
 - Update flake8 to 3.7.5 ([@Danielhiversen] - [#20761]) ([cast docs]) ([device_tracker docs]) ([isy994 docs])
 - Modifying MTUs acquisition ([@SupremeSports] - [#20654]) ([sensor.ted5000 docs])
-- Fix googlehome alarm sensor platform ([@eliseomartelli] - [#20742]) ([googlehome docs])
+- Fix googlehome alarm sensor platform ([@eliseomartelli] - [#20742]) (googlehome docs)
 - SMHI component: Bugfix - calc precipitation ([@helto4real] - [#20745]) ([smhi docs])
 - Added HomeKit fan speed based on speed_list ([@nd-net] - [#19767]) ([homekit docs]) (new-feature)
 - Reproduce states by letting each component opt in on handling state recovery itself ([@elupus] - [#18700])
@@ -649,7 +649,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [feedreader docs]: /integrations/feedreader/
 [freedns docs]: /integrations/freedns/
 [google_pubsub docs]: /integrations/google_pubsub/
-[googlehome docs]: /integrations/googlehome/
 [harmony docs]: /integrations/harmony/
 [homekit docs]: /integrations/homekit/
 [homematic docs]: /integrations/homematic/
@@ -700,7 +699,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.modbus docs]: /integrations/sensor.modbus/
 [sensor.rejseplanen docs]: /integrations/rejseplanen
 [sensor.speedtest docs]: /integrations/speedtestdotnet
-[sensor.speedtestdotnet docs]: /integrations/speedtestdotnetdotnet/
+[sensor.speedtestdotnet docs]: /integrations/speedtestdotnet
 [sensor.sql docs]: /integrations/sql
 [sensor.ted5000 docs]: /integrations/ted5000
 [sensor.thermoworks_smoke docs]: /integrations/thermoworks_smoke

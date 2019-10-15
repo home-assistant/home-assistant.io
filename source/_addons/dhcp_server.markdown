@@ -86,7 +86,7 @@ hosts:
       required: true
       type: string
     ip:
-      description: Fix ip address for device.
+      description: Fix IP address for device.
       required: true
       type: string
 {% endconfiguration %}

@@ -1,5 +1,5 @@
 ---
-title: "Lights"
+title: "Light"
 description: "Instructions on how to setup your lights with Home Assistant."
 logo: home-assistant.png
 ha_category:

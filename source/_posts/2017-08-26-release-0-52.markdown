@@ -40,7 +40,7 @@ script: !include scripts.yaml
 - Add version sensor ([@fabaff] - [#8912]) ([sensor.version docs]) (new-platform)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
 - Add Abode home security component ([@arsaboo] - [#9030]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) (new-platform)
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
@@ -80,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     retain: true
 ```
 
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 
 ```yaml
 usps:
@@ -123,7 +123,7 @@ usps:
 - Update ffmpeg to 1.7 to fix severals problems ([@pvizeli] - [#9029])
 - Add state_with_unit property to state objects in templates ([@balloob] - [#9014])
 - Fix Geizhals index issue when not 4 prices available ([@celeroll] - [#9035]) ([sensor.geizhals docs])
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Set password after connecting. Fixes #8983 ([@StevenLooman] - [#9039]) ([media_player.mpd docs])
 - Update iOS sensor (battery icon fix and format updates) ([@schmittx] - [#9032])
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
@@ -163,7 +163,7 @@ usps:
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 - Support changing the bulb color for tplink smartbulbs, fixes #8766 ([@rytilahti] - [#8780]) ([light.tplink docs])
 - bump snapcast version ([@happyleavesaoc] - [#9100]) ([media_player.snapcast docs])
-- bump fedex version ([@happyleavesaoc] - [#9099]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#9099])
 - Yeelight fix updates on hsv mode ([@rytilahti] - [#9093]) ([light.yeelight docs])
 - Catch exceptions ([@fabaff] - [#9085]) ([notify.discord docs])
 - Fix issue 8894 with uk_transport component if no next_buses or next_trains ([@robmarkcole] - [#9046]) ([sensor.uk_transport docs])
@@ -310,7 +310,6 @@ usps:
 [binary_sensor.abode docs]: /integrations/abode#binary-sensor
 [binary_sensor.mysensors docs]: /integrations/binary_sensor.mysensors/
 [binary_sensor.workday docs]: /integrations/workday
-[camera.usps docs]: /integrations/usps#camera
 [climate.mysensors docs]: /integrations/climate.mysensors/
 [config docs]: /integrations/config/
 [configurator docs]: /integrations/configurator/
@@ -324,7 +323,7 @@ usps:
 [fan.isy994 docs]: /integrations/isy994
 [image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.decora_wifi docs]: /integrations/decora_wifi/
 [light.flux_led docs]: /integrations/flux_led
 [light.hue docs]: /integrations/hue
@@ -356,7 +355,6 @@ usps:
 [sensor.buienradar docs]: /integrations/sensor.buienradar/
 [sensor.cert_expiry docs]: /integrations/cert_expiry
 [sensor.eliqonline docs]: /integrations/eliqonline
-[sensor.fedex docs]: /integrations/fedex
 [sensor.fitbit docs]: /integrations/fitbit
 [sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
 [sensor.geizhals docs]: /integrations/geizhals
@@ -368,7 +366,6 @@ usps:
 [sensor.snmp docs]: /integrations/snmp#sensor
 [sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
 [sensor.uk_transport docs]: /integrations/uk_transport
-[sensor.usps docs]: /integrations/usps#sensor
 [sensor.version docs]: /integrations/version
 [sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
 [switch.mqtt docs]: /integrations/switch.mqtt/

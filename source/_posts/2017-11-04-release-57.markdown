@@ -73,7 +73,7 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 - Linode ([@ryanm101] - [#9936]) ([linode docs]) ([binary_sensor.linode docs]) (new-platform)
 - Nederlandse spoorwegen ([@b10m] - [#10136]) ([sensor.nederlandse_spoorwegen docs]) (new-platform)
 - added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
-- Add Sytadin Traffic component ([@gautric] - [#9524]) ([sensor.sytadin docs]) (new-platform)
+- Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add gc100 platforms and component ([@davegravy] - [#10159]) ([gc100 docs]) ([binary_sensor.gc100 docs]) ([switch.gc100 docs]) (new-platform)
@@ -210,10 +210,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added capability to pass a filename to the downloader component ([@tchellomello] - [#10059]) ([downloader docs])
 - Limits of the favorite level updated. Values between 0 and 16 will be accepted. ([@syssi] - [#10186]) ([fan.xiaomi_miio docs])
 - added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
-- Add Sytadin Traffic component ([@gautric] - [#9524]) ([sensor.sytadin docs]) (new-platform)
+- Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - media_title property now returns current source ([@etsinko] - [#10120]) ([media_player.monoprice docs])
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
-- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) (notify.aws_lambda docs) ([notify.aws_sns docs]) ([notify.aws_sqs docs]) ([tts.amazon_polly docs])
+- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) ([tts.amazon_polly docs])
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add clickatell ([@fabaff] - [#10199])
 - Update CODEOWNERS ([@ggravlingen] - [#10198])
@@ -236,7 +236,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update services.yaml files ([@fabaff] - [#10229])
 - Add priority attribute for hyperion ([@ImEmJay] - [#10102]) ([light.hyperion docs])
 - OwnTracks work. Beacon logic and testcases ([@ehagan] - [#10183]) ([device_tracker.owntracks docs])
-- Sytadin default value must be a list #10233 ([@gautric] - [#10234]) ([sensor.sytadin docs])
+- Sytadin default value must be a list #10233 ([@gautric] - [#10234])
 - Use theme color in loading screen. ([@andrey-git] - [#10248])
 - Move constant to 'const.py' ([@fabaff] - [#10249]) ([sensor.hddtemp docs]) ([sensor.synologydsm docs])
 - Add support for odhcpd DHCP server ([@chemicalstorm] - [#9858]) ([device_tracker.ubus docs])
@@ -586,8 +586,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
 [namecheapdns docs]: /integrations/namecheapdns/
 [no_ip docs]: /integrations/no_ip/
-[notify.aws_sns docs]: /integrations/notify.aws_sns/
-[notify.aws_sqs docs]: /integrations/notify.aws_sqs/
 [notify.clickatell docs]: /integrations/clickatell
 [notify.sendgrid docs]: /integrations/sendgrid
 [notify.yessssms docs]: /integrations/yessssms

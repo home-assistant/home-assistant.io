@@ -65,10 +65,15 @@ output_format:
   type: string
   default: mp3
 sample_rate:
-  description: "Override the default sample rate."
+  description: "Override the default sample rate. Possible values are: 8000, 16000, 22050, 24000."
   required: false
   type: string
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
+engine:
+  description: "Override the default engine. Can be either of `standard` or `neural`. See Amazon documentation for compatible regions and voices."
+  required: false
+  type: string
+  default: standard  
 {% endconfiguration %}
 
 ## Usage

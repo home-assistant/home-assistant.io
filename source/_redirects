@@ -213,6 +213,7 @@
 /components/camera.august /integrations/august#camera
 /components/camera.axis /integrations/axis
 /components/camera.blink /integrations/blink
+/components/camera.buienradar /integrations/buienradar#camera
 /components/camera.canary /integrations/canary#camera
 /components/camera.dispatcher /integrations/dispatcher
 /components/camera.doorbird /integrations/doorbird#camera
@@ -2057,3 +2058,6 @@
 /components/zone /integrations/zone
 /components/zoneminder /integrations/zoneminder
 /components/zwave /integrations/zwave
+
+# Breaking changes
+/integrations/switch.pca /integrations/elv

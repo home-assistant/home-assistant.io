@@ -9,22 +9,27 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Water Heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
 ---
 
-The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all your Hive devices into Home Assistant, including support for multizone heating.
+The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following services and platforms within Home Assistant:
 
-- [Binary Sensor](#Binary-Sensor)
-- [Climate](#Climate)
-- [Light](#Light)
-- [Sensor](#Sensor)
-- [Switch](#Switch)
-- [Water Heater](#Water-Heater)
+- [Services](#services)
+  - [Service `hive.boost_heating`](#service-hiveboostheating)
+  - [Service `hive.boost_hot_water`](#service-hiveboosthotwater)
+- [Platforms](#platforms)
+  - [Binary Sensor](#binary-sensor)
+  - [Climate](#climate)
+  - [Light](#light)
+  - [Sensor](#sensor)
+  - [Switch](#switch)
+  - [Water Heater](#water-heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -51,7 +56,65 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
-## Binary Sensor
+## Services
+
+### Service `hive.boost_heating`
+
+You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
+
+Examples:
+
+```yaml
+# Example script to boost heating, boost period and target temperature specified.
+script:
+  boost_heating:
+    sequence:
+      - service: hive.boost_heating
+        data:
+          entity_id: "climate.heating"
+          time_period: "01:30:00"
+          temperature: "20.5"
+```
+
+### Service `hive.boost_hot_water`
+
+You can use the service `hive.boost_hot_water` to set your hot water to boost for a period of time.
+
+| Service data attribute | Optional | Description                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g., `water_heater.hot_water`                   |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
+| `on_off`               | no       | String, The mode to set the boost to on or odd e.g., `on`               |
+
+Examples:
+
+```yaml
+# Example script to boost hot water, boost period specified
+script:
+  boost_hot_water:
+    sequence:
+      - service: "hive.boost_hot_water"
+        data:
+          entity_id: "water_heater.hot_water"
+          time_period: "01:30:00"
+          on_off: "on"
+```
+
+## Platforms
+
+<div class='note'>
+
+You must have the [Hive integration](/components/hive/) configured to use the platforms below.
+
+</div>
+
+### Binary Sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
@@ -60,7 +123,7 @@ The platform supports the following Hive products:
 - Hive Window or Door Sensor
 - Hive Motion Sensor
 
-## Climate
+### Climate
 
 The `hive` climate platform integrates your Hive thermostat into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
@@ -69,9 +132,9 @@ A short boost for Hive Heating can be set by using the **Boost** preset, this wi
 The platform supports the following Hive products:
 
 - Hive Active Heating
-- Hive Multizone
+- Hive Multi-zone
 
-## Light
+### Light
 
 The `hive` light platform integrates your Hive lights into Home Assistant, enabling control of various settings, depending on the model light.
 
@@ -81,7 +144,7 @@ The platform supports the following Hive products:
 - Hive Active Light Cool to Warm White
 - Hive Active Light Color Changing
 
-## Sensor
+### Sensor
 
 The `hive` sensor integration exposes Hive data as a sensor.
 
@@ -90,7 +153,7 @@ The platform exposes the following sensors:
 - Hive Hub Online Status
 - Hive Outside Temperature
 
-## Switch
+### Switch
 
 The `hive` switch platform integrates your Hive plugs into Home Assistant, enabling control of your devices.
 
@@ -98,7 +161,7 @@ The platform supports the following Hive products:
 
 - Hive Active Plug
 
-## Water Heater
+### Water Heater
 
 The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
 

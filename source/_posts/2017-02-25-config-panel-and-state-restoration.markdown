@@ -115,8 +115,8 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
 - [Telegram] webhooks ([@scipioni])
 - Added [Openhome][openhome] support ([@bazwilliams])
-- [UPS][ups] sensor ([@happyleavesaoc])
-- [FEDex][fedex] sensor ([@happyleavesaoc])
+- UPS sensor ([@happyleavesaoc])
+- FEDex sensor ([@happyleavesaoc])
 - [Gstreamer][gstreamer] media player ([@happyleavesaoc])
 - [iTach Remote][itach] Platform ([@alanfischer])
 - [myq] cover component ([@arraylabs])
@@ -287,7 +287,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [pushsafer]: /integrations/pushsafer
 [openhome]: /integrations/openhome
 [ups]: /integrations/ups
-[fedex]: /integrations/fedex
 [fido]: /integrations/fido
 [gstreamer]: /integrations/gstreamer
 [clementine]: /integrations/clementine

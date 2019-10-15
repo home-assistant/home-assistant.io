@@ -160,7 +160,7 @@ For Hass.io users, you can install the [Android Debug Bridge](https://github.com
 
 ### 2. Python ADB Implementation
 
-The second option is to connect to your device using the `adb` Python package.
+The second option is to connect to your device using the `adb-shell` Python package.
 
 If your device requires ADB authentication, you will need to follow the instructions in the [ADB Authentication](#adb-authentication) section below. Once you have an authenticated key, this approach does not require any additional setup or addons. However, users with newer devices may find that the ADB connection is unstable. For a Fire TV device, you can try setting the `get_sources` configuration option to `false`.  If the problem cannot be resolved, you should use the ADB server option.
 
@@ -172,7 +172,7 @@ If you get a "Device authentication required, no keys available" error when tryi
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
 </div>
 
-Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>:5555`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
+Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>:5555`, the file `adbkey` will be created on your computer. The default locations for this file are (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
 - Linux and Mac: `$HOME/.android.`
 - Windows: `%userprofile%\.android.`

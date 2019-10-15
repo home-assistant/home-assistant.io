@@ -197,4 +197,4 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
-For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.
+For Archer D9 model the default IP is 192.168.1.1, the username is not necessary and you can leave that field blank.

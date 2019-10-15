@@ -11,14 +11,14 @@ Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databa
   "logins": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "password": "securePassword"
     }
   ],
   "rights": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "database": "homeassistant",
       "grant": "ALL PRIVILEGES ON"
     }

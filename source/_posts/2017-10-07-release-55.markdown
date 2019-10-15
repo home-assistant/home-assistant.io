@@ -75,7 +75,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - flux led lib 0.20 ([@danielhiversen] - [#9533]) ([light.flux_led docs])
 - Update AbodePy to 0.11.8 ([@MisterWil] - [#9537]) ([abode docs])
 - Bump python_openzwave to 0.4.0.35 ([@arsaboo] - [#9542]) ([zwave docs])
-- update usps ([@happyleavesaoc] - [#9540]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs])
+- update usps ([@happyleavesaoc] - [#9540])
 - Bugfix Homematic hub object ([@pvizeli] - [#9544]) ([homematic docs])
 - Fix a bunch of typos ([@mika] - [#9545])
 - Catch no longer existing process in systemmonitor ([@Tommatheussen] - [#9535]) ([sensor.systemmonitor docs])
@@ -83,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add history_graph component ([@andrey-git] - [#9472]) (breaking change)
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Fixed bug with all switch devices being excluded ([@MisterWil] - [#9555]) ([switch.abode docs])
-- fix usps? ([@happyleavesaoc] - [#9557]) ([usps docs]) ([sensor.usps docs])
+- fix usps? ([@happyleavesaoc] - [#9557])
 - Added support for ARM_NIGHT for manual_mqtt alarm ([@snjoetw] - [#9358]) ([alarm_control_panel.manual_mqtt docs])
 - Various AirVisual bugfixes ([@bachya] - [#9554]) ([sensor.airvisual docs])
 - Updated Arlo cameras with new attributes ([@bachya] - [#9565]) ([arlo docs]) ([camera.arlo docs])
@@ -105,8 +105,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.6.4 ([@fabaff] - [#9584])
 - Bump pyatv to 0.3.5 ([@postlund] - [#9586]) ([apple_tv docs]) ([media_player.apple_tv docs])
 - New Wink services. pair new device, rename, and delete, add new lock key code. Add water heater support ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
-- Fixes UPS MyChoice exception ([@bachya] - [#9587]) ([sensor.ups docs])
-- FedEx: Adds "packages" as a unit ([@bachya] - [#9588]) ([sensor.fedex docs])
+- Fixes UPS MyChoice exception ([@bachya] - [#9587])
+- FedEx: Adds "packages" as a unit ([@bachya] - [#9588])
 - Cleanup entity & remove warning ([@pvizeli] - [#9606])
 - Add OwnTracks over HTTP ([@balloob] - [#9582]) ([http docs]) ([device_tracker.owntracks docs]) ([device_tracker.owntracks_http docs]) (new-platform)
 - upgrade python-ecobee-api ([@nkgilley] - [#9612]) ([ecobee docs])
@@ -314,14 +314,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.wink docs]: /integrations/wink#binary-sensor
 [camera.arlo docs]: /integrations/arlo#camera
 [camera.synology docs]: /integrations/synology
-[camera.usps docs]: /integrations/usps#camera
 [climate.ecobee docs]: /integrations/ecobee
 [climate.mqtt docs]: /integrations/climate.mqtt/
 [cover.mqtt docs]: /integrations/cover.mqtt/
 [cover.rflink docs]: /integrations/cover.rflink/
 [demo docs]: /integrations/demo/
 [device_tracker.owntracks docs]: /integrations/owntracks
-[device_tracker.owntracks_http docs]: /integrations/owntracks_http/
+[device_tracker.owntracks_http docs]: /integrations/owntracks
 [duckdns docs]: /integrations/duckdns/
 [ecobee docs]: /integrations/ecobee/
 [emulated_hue docs]: /integrations/emulated_hue/
@@ -345,7 +344,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.webostv docs]: /integrations/webostv#media-player
 [media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
-[notify.clicksendaudio docs]: /integrations/clicksendaudio/
+[notify.clicksendaudio docs]: /integrations/clicksend_tts/
 [notify.discord docs]: /integrations/discord
 [notify.facebook docs]: /integrations/facebook
 [notify.simplepush docs]: /integrations/simplepush
@@ -358,7 +357,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.arlo docs]: /integrations/arlo#sensor
 [sensor.comed_hourly_pricing docs]: /integrations/comed_hourly_pricing
 [sensor.dsmr docs]: /integrations/dsmr
-[sensor.fedex docs]: /integrations/fedex
 [sensor.geo_rss_events docs]: /integrations/geo_rss_events
 [sensor.google_travel_time docs]: /integrations/google_travel_time
 [sensor.imap docs]: /integrations/imap
@@ -369,8 +367,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.systemmonitor docs]: /integrations/systemmonitor
 [sensor.thethingsnetwork docs]: /integrations/thethingsnetwork#sensor
 [sensor.tibber docs]: /integrations/tibber#sensor
-[sensor.ups docs]: /integrations/ups
-[sensor.usps docs]: /integrations/usps#sensor
 [sensor.vera docs]: /integrations/vera#sensor
 [sensor.wunderground docs]: /integrations/wunderground
 [splunk docs]: /integrations/splunk/
@@ -381,7 +377,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [thethingsnetwork docs]: /integrations/thethingsnetwork/
 [tradfri docs]: /integrations/tradfri/
 [upnp docs]: /integrations/upnp/
-[usps docs]: /integrations/usps/
 [vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
 [wink docs]: /integrations/wink/
 [zwave docs]: /integrations/zwave/

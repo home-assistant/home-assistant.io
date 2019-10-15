@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 ## Setup the integration via the frontend
 
 Menu: *Configuration* -> *Integrations*
-  
+
 Configure the integration:
 * Enter your **Google Mail Address** and **Password**
 * In the authentication form there is an Optional Field: **Authorization Code** which should only be used if you get an invalid login error with email and password (see note below for details).
@@ -225,9 +225,9 @@ Reconnects the hangouts bot.
 
 ## Advanced
 
-### Automatic reconnect after ip change
+### Automatic reconnect after IP change
 
-The hangouts integration can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+The hangouts integration can't detect if your IP address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
 
 {% raw %}
 

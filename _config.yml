@@ -100,9 +100,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 99
-current_patch_version: 3
-date_released: 2019-09-25
+current_minor_version: 100
+current_patch_version: 2
+date_released: 2019-10-12
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -134,5 +134,6 @@ defaults:
 
 # Support for files Jekyll will normally exclude
 include:
-  - ".well-known"
+  - "_headers"
   - "_redirects"
+  - ".well-known"

@@ -71,6 +71,13 @@ authtoken:
   type: string
 {% endconfiguration %}
 
+## Adding and removing devices and group via native HomematicIP APP
+
+Devices and groups are instantly removed from Homeassistant when removed in the native HomematicIP APP.
+Groups are instantly created in Homeassistant when created in the native HomematicIP APP.
+Devices are created with a delay of 30 seconds in Homeassistant when created in the native HomematicIP APP.
+Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Homeassistant entity registry afterwards.
+
 ## Implemented and tested devices
 
 * homematicip_cloud.alarm_control_panel

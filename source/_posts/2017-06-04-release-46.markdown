@@ -32,7 +32,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 
 ## Breaking changes
 
-- The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+- The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
 - Redesign monitored variables for hp_ilo sensor. `monitored_variables` is now a list of `name` and `sensor_type` values ([@Juggels] - [#7534]) ([sensor.hp_ilo docs]) (breaking change)
 
@@ -63,9 +63,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
-- bump fedex version ([@happyleavesaoc] - [#7653]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#7653])
 - bump ups version ([@happyleavesaoc] - [#7654])
-- update usps ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
+- update usps ([@happyleavesaoc] - [#7655]) (breaking change)
 - Final tweaks for Zwave panel ([@turbokongen] - [#7652]) ([zwave docs])
 - Add network_key as a config option ([@robbiet480] - [#7637]) ([zwave docs])
 - Bugfix #7586 ([@turbokongen] - [#7661]) ([lock.zwave docs])
@@ -100,7 +100,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always return rgb color of bulbs ([@w1ll1am23] - [#7743]) ([light.wink docs])
 - Redesign monitored variables for hp_ilo sensor ([@Juggels] - [#7534]) ([sensor.hp_ilo docs]) (breaking change)
 - Fix time_date sensor to update at predictable intervals ([@stu-gott] - [#7644]) ([sensor.time_date docs])
-- Added new commands and functionality to the harmony remote component. ([@everix1992] - [#7113]) ([remote docs]) ([remote.harmony docs]) ([remote.services.yaml docs])
+- Added new commands and functionality to the harmony remote component. ([@everix1992] - [#7113]) ([remote docs]) ([remote.harmony docs]) (remote.services.yaml docs)
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Exclude filter for event types ([@amigian74] - [#7627])
 - Change setup script to use pip install instead of setup.py develop ([@hoh] - [#7756])
@@ -329,7 +329,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [homematic docs]: /integrations/homematic/
 [image_processing.seven_segments docs]: /integrations/seven_segments
-[insteon_local docs]: /integrations/insteon_local/
+[insteon_local docs]: /integrations/insteon/
 [ios docs]: /integrations/ios/
 [light.__init__ docs]: /integrations/light.__init__/
 [light.flux_led docs]: /integrations/flux_led
@@ -355,12 +355,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [recorder.__init__ docs]: /integrations/recorder.__init__/
 [remote docs]: /integrations/remote/
 [remote.harmony docs]: /integrations/harmony
-[remote.services.yaml docs]: /integrations/remote.services.yaml/
 [scene.hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview
 [sensor.amcrest docs]: /integrations/amcrest
 [sensor.arlo docs]: /integrations/arlo#sensor
 [sensor.dsmr docs]: /integrations/dsmr
-[sensor.fedex docs]: /integrations/fedex
 [sensor.history_stats docs]: /integrations/history_stats
 [sensor.hp_ilo docs]: /integrations/hp_ilo
 [sensor.influxdb docs]: /integrations/influxdb#sensor
@@ -368,7 +366,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.snmp docs]: /integrations/snmp#sensor
 [sensor.synologydsm docs]: /integrations/synologydsm
 [sensor.time_date docs]: /integrations/time_date
-[sensor.usps docs]: /integrations/usps#sensor
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.rachio docs]: /integrations/rachio#switch
 [switch.rflink docs]: /integrations/switch.rflink/

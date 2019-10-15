@@ -17,6 +17,7 @@ To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 fan:
@@ -49,6 +50,7 @@ fan:
           - '2'
           - '3'
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -77,6 +79,11 @@ fan:
         description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
         required: false
         type: template
+      availability_template:
+        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        required: false
+        type: template
+        default: true
       turn_on:
         description: Defines an action to run when the fan is turned on.
         required: true

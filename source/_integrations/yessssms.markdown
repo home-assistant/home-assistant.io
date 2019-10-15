@@ -1,13 +1,29 @@
 ---
 title: "Yesss SMS"
-description: "Instructions on how to add user notifications to Home Assistant."
+description: "Instructions on how to add Yesss-SMS notifications to Home Assistant."
 logo: yesssat.png
 ha_category:
   - Notifications
 ha_release: 0.57
 ---
 
-The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) to send SMS via its web-site.
+The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.
+
+Currently some MVNOs (mobile virtual network operators), in the A1 network, that use the kontomanager.at interface work. These are currently  (as of version 0.4.0 of [YesssSMS](https://pypi.org/project/YesssSMS/)): 
+* YESSS
+* billitel
+* EDUCOM
+* fenercell
+* georg
+* goood
+* kronemobile
+* kuriermobil
+* SIMfonie
+* teleplanet
+* WOWWW
+* yooopi
+
+![supported providers](/images/screenshots/yessssms_brands.png)
 
 <div class='note warning'>
 Regular charges apply and a contract or prepaid plan is needed.
@@ -44,12 +60,29 @@ recipient:
   description: This is the phone number you want to send the SMS notification to.
   required: true
   type: string
+provider:
+  description: Possible values are `yesss`, `billitel`, `educom`, `fenercell`, `georg`, `goood`, `kronemobile`, `kuriermobil`, `simfonie`, `teleplanet`, `wowww` and `yooopi`.
+  required: false
+  default: "YESSS"
+  type: string
 {% endconfiguration %}
 
+For an alternative provider you would set the `provider` option. An example configuration for the `educom` provider with SMS to yourself would be:
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: sms_to_self
+    platform: yessssms
+    username: 06641234567
+    password: tops3cr3tpass0rd
+    recipient: 06641234567
+    provider: educom
+```
+
 <div class='note warning'>
-
-Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you suspended for one hour.
-Home Assistant will not try to login after the account has been suspended.
-Re-check the credentials and restart Home Assistant.
-
+Verify that your credentials work on the website of your provider.
+Using the wrong credentials three times in a row will get you suspended for one hour.
 </div>
+
+Home Assistant will check your credentials on startup. Check the logs for errors. 
+If the login credentials are not valid, re-check the credentials and restart Home Assistant.

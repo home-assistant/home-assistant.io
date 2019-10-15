@@ -315,7 +315,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.generic_thermostat docs]: /integrations/generic_thermostat
 [climate.tado docs]: /integrations/tado
 [cloud docs]: /integrations/cloud/
-[cloud.const docs]: /integrations/cloud.const/
+[cloud.const docs]: /integrations/cloud/
 [config.automation docs]: /integrations/config.automation/
 [cover.tellstick docs]: /integrations/tellstick#cover
 [device_tracker docs]: /integrations/device_tracker/

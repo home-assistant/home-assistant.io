@@ -84,7 +84,7 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 
 - updated to bimmer_connected 0.4.1 ([@ChristianKuehnel] - [#12759]) ([bmw_connected_drive docs])
 - Revert optimized logbook SQL ([@amelchio] - [#12762]) ([logbook docs])
-- bump fedex version ([@happyleavesaoc] - [#12764]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#12764])
 - Silence harmless sonos data structure warnings ([@amelchio] - [#12767]) ([media_player.sonos docs])
 - Update samsungctl library to latest version ([@uchagani] - [#12769]) ([media_player.samsungtv docs])
 - Fixed missing optional keyerror data_bits ([@basschipper] - [#12789]) ([binary_sensor.rfxtrx docs])
@@ -128,7 +128,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated AirVisual unique IDs to play better with the entity registry. If AirVisual had been configured previously, new entries will be placed into the entity registry, causing there to be two of each sensor type defined. To address, simply alter the `entity_registry.yaml` as desired.  ([@bachya] - [#12319]) ([sensor.airvisual docs]) (breaking change)
 - Custom component devs only: voluptuous now requires default values for config keys to be valid values. ([@balloob] - [#12463]) (breaking change)
 - Fixes `usps` platform. Dependency `myusps` now leverages Selenium webdriver to overcome login issues. This is a breaking change since the user must now have additional dependencies installed - either `google-chrome` and `chromedriver`, or `phantomjs`. There is a new config option `driver` that allows the user to specify their preference, though `phantomjs` is the default. Doc PR forthcoming that will outline choices and make suggestions based on user's OS.
- ([@happyleavesaoc] - [#12465]) ([usps docs]) (breaking change)
+ ([@happyleavesaoc] - [#12465]) (breaking change)
 - LimitlessLED has been converted to assumed state. Will no longer turn the lights off when restarting Home Assistant. Will no longer revert changes made by other controllers. ([@amelchio] - [#12475]) ([light.limitlessled docs]) (breaking change)
 
 ## All changes
@@ -164,7 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use the speedometer icon in the fastdotcom sensor ([@d0ugal] - [#12348]) ([sensor.fastdotcom docs])
 - Communication reduced. Setting brightness and/or color temperature will turn on the device. ([@syssi] - [#12343]) ([light.xiaomi_miio docs])
 - Add New Sensor for ISP Start.ca ([@mikeodr] - [#12356]) ([sensor.startca docs]) (new-platform)
-- bump fedex version ([@happyleavesaoc] - [#12362]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#12362])
 - Upgrade alpha_vantage to 1.9.0 ([@fabaff] - [#12352]) ([sensor.alpha_vantage docs])
 - Eq3btsmart more reliable ([@karlkar] - [#11555]) ([climate.eq3btsmart docs])
 - Allow disabling entities in the registry ([@balloob] - [#12360])
@@ -209,7 +209,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added doorbird_last_motion to DoorBird camera platform ([@sjvc] - [#12457]) ([camera.doorbird docs])
 - Fail gracefully with unreachable LaMetric ([@PhilRW] - [#12451]) ([notify.lametric docs])
 - Enable compression when sending json to client ([@elupus] - [#11165]) ([http docs])
-- bump usps version ([@happyleavesaoc] - [#12465]) ([usps docs]) (breaking change)
+- bump usps version ([@happyleavesaoc] - [#12465]) (breaking change)
 - Try deflaking recorder tests ([@balloob] - [#12492])
 - Support for August doorbell ([@snjoetw] - [#11124]) ([august docs]) ([binary_sensor.august docs]) ([camera.august docs]) ([lock.august docs]) (new-platform)
 - Avoid warnings when purging an empty database ([@amelchio] - [#12494])
@@ -554,7 +554,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.buienradar docs]: /integrations/sensor.buienradar/
 [sensor.deconz docs]: /integrations/deconz#sensor
 [sensor.fastdotcom docs]: /integrations/fastdotcom
-[sensor.fedex docs]: /integrations/fedex
 [sensor.filesize docs]: /integrations/file#sensorsize/
 [sensor.folder docs]: /integrations/folder
 [sensor.knx docs]: /integrations/sensor.knx/
@@ -578,7 +577,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [tahoma docs]: /integrations/tahoma/
 [telegram_bot docs]: /integrations/telegram_chatbot/
-[usps docs]: /integrations/usps/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [vera docs]: /integrations/vera/
 [weather.buienradar docs]: /integrations/buienradar
@@ -644,7 +642,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.samsungtv docs]: /integrations/samsungtv
 [media_player.sonos docs]: /integrations/sonos
-[sensor.fedex docs]: /integrations/fedex
 [sensor.pollen docs]: /integrations/iqvia
 [#12810]: https://github.com/home-assistant/home-assistant/pull/12810
 [#12837]: https://github.com/home-assistant/home-assistant/pull/12837

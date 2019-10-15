@@ -131,8 +131,8 @@ light:
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Add option to set language of openweathermap sensor, and handle updating errors ([@azogue] - [#8046]) ([sensor.openweathermap docs])
 - Bump pyEmby version to account for API changes ([@mezz64] - [#8070]) ([media_player.emby docs])
-- bump ups ([@happyleavesaoc] - [#8075]) ([sensor.ups docs])
-- bump usps version ([@happyleavesaoc] - [#8074]) ([sensor.usps docs])
+- bump ups ([@happyleavesaoc] - [#8075])
+- bump usps version ([@happyleavesaoc] - [#8074])
 - Add to zwave services descriptions ([@andrey-git] - [#8072])
 - Fix attribute entity ([@pvizeli] - [#8066]) (breaking change)
 - Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
@@ -448,12 +448,12 @@ light:
 [digital_ocean docs]: /integrations/digital_ocean/
 [fan.comfoconnect docs]: /integrations/comfoconnect
 [fan.dyson docs]: /integrations/dyson#fan
-[fan.insteon_local docs]: /integrations/insteon_local/
+[fan.insteon_local docs]: /integrations/insteon/
 [group docs]: /integrations/group/
 [image_processing.opencv docs]: /integrations/opencv
 [influxdb docs]: /integrations/influxdb/
 [insteon_hub docs]: /integrations/insteon/
-[insteon_local docs]: /integrations/insteon_local/
+[insteon_local docs]: /integrations/insteon/
 [knx docs]: /integrations/knx/
 [light.decora docs]: /integrations/decora
 [light.isy994 docs]: /integrations/isy994
@@ -496,8 +496,6 @@ light:
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
 [sensor.pi_hole docs]: /integrations/pi_hole
 [sensor.upnp docs]: /integrations/upnp
-[sensor.ups docs]: /integrations/ups
-[sensor.usps docs]: /integrations/usps#sensor
 [sensor.verisure docs]: /integrations/verisure
 [sensor.wunderground docs]: /integrations/wunderground
 [shiftr docs]: /integrations/shiftr/

@@ -26,6 +26,8 @@ To enable it, add the following to your `configuration.yaml` file:
 rainbird:
   host: IP_ADDRESS_OF_MODULE
   password: YOUR_PASSWORD
+  trigger_time: 360
+
 ```
 
 {% configuration %}
@@ -37,8 +39,56 @@ password:
   description: The password for accessing the module.
   required: true
   type: string
+trigger_time:
+  description: Irrigation time. The time will be rounded down to whole minutes.
+  required: true
+  type: time
+zones:
+  description: Dictionary of zone configurations
+  required: false
+  type: map
+  keys:
+    ZONE_NUMBER:
+      description: Zone ID
+      type: map
+      keys:
+        friendly_name:
+          description: Friendly name to see in GUI
+          required: false
+          type: string
+        trigger_time:
+          description: Irrigation time. Seconds are ignored.
+          required: false
+          type: time
 {% endconfiguration %}
 
+
+More complex configuration using all possible features could look like this example:
+```yaml
+# Example configuration.yaml entry
+rainbird:
+  - host: IP_ADDRESS_OF_MODULE
+    password: YOUR_PASSWORD
+    trigger_time: 6
+    zones:
+      1:
+        friendly_name: My zone 1
+        trigger_time:
+          minutes: 6
+      2:
+        friendly_name: My zone 2
+        trigger_time: 2
+  - host: IP_ADDRESS_OF_ANOTHER_MODULE
+    password: YOUR_ANOTHER_PASSWORD
+    trigger_time: 0:06
+    zones:
+      1:
+        friendly_name: My zone 1
+        trigger_time: 0:06
+      3:
+        friendly_name: My zone 3
+        trigger_time: 0:05
+```
 <div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
 </div>
@@ -47,62 +97,11 @@ Please note that due to the implementation of the API within the LNK Module, the
 
 This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-Add the following to your `configuration.yaml` file to enable the rain sensor:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: rainbird
-    monitored_conditions:
-      - rainsensor
-```
-
-{% configuration %}
-monitored_conditions:
-  description: Conditions to be monitored.
-  type: list
-  keys:
-    rainsensor:
-      description: Returns the sensor level.
-{% endconfiguration %}
+The integration adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
 
 ## Switch
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-Add the following to your `configuration.yaml` file to use the switch platform:
+Switches are automatically added for all available zones of configured controllers.
 
-```yaml
-switch:
-  - platform: rainbird
-    switches:
-      sprinkler_1:
-        zone: 1
-        friendly_name: "Front sprinklers"
-        trigger_time: 10
-        scan_interval: 10
-      sprinkler_2:
-        friendly_name: "Back sprinklers"
-        zone: 2
-        trigger_time: 20
-        scan_interval: 10
-```
-
-{% configuration %}
-zone:
-  description: Station zone identifier.
-  required: true
-  type: string
-friendly_name:
-  description: Just a friendly name for the station.
-  required: false
-  type: string
-trigger_time:
-  description: The default duration to sprinkle the zone in minutes.
-  required: true
-  type: integer
-scan_interval:
-  description: How fast to refresh the switch in minutes.
-  required: false
-  type: integer
-{% endconfiguration %}

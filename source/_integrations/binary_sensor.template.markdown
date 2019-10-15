@@ -18,6 +18,7 @@ other entities. The state of a Template Binary Sensor can only be `on` or
 Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -28,6 +29,7 @@ binary_sensor:
         value_template: >-
           {{ state_attr('sun.sun', 'elevation')|float > 0 }}
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -58,6 +60,11 @@ sensors:
           description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
           required: true
           type: template
+        availability_template:
+          description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+          required: false
+          type: template
+          default: true
         icon_template:
           description: Defines a template for the icon of the sensor.
           required: false
@@ -118,6 +125,7 @@ sensor of `furnace` that provides a current reading for the fan motor, we can
 determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -127,6 +135,7 @@ binary_sensor:
         device_class: heat
         value_template: "{{ states('sensor.furnace')|float > 2.5 }}"
 ```
+
 {% endraw %}
 
 ### Switch as Sensor
@@ -137,6 +146,7 @@ original switch can then be hidden by
 [customizing](/getting-started/customizing-devices/).
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -148,6 +158,7 @@ binary_sensor:
         device_class: opening
         value_template: "{{ is_state('switch.door', 'on') }}"
 ```
+
 {% endraw %}
 
 ### Combining Multiple Sensors
@@ -157,6 +168,7 @@ status. When using templates with binary sensors, you need to return
 `true` or `false` explicitly.
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -169,6 +181,7 @@ binary_sensor:
              and is_state('sensor.kitchen_co_status', 'Ok')
              and is_state('sensor.wardrobe_co_status', 'Ok') }}
 ```
+
 {% endraw %}
 
 ### Washing Machine Running
@@ -180,6 +193,7 @@ finished. By utilizing `delay_off`, we can have this sensor only turn off if
 there has been no washer activity for 5 minutes.
 
 {% raw %}
+
 ```yaml
 # Determine when the washing machine has a load running.
 binary_sensor:
@@ -192,9 +206,10 @@ binary_sensor:
         value_template: >-
           {{ states('sensor.washing_machine_power')|float > 0 }}
 ```
+
 {% endraw %}
 
-### Is Anyone Home?
+### Is Anyone Home
 
 This example is determining if anyone is home based on the combination of device
 tracking and motion sensors. It's extremely useful if you have kids/baby sitter/
@@ -203,6 +218,7 @@ trackable device in Home Assistant. This is providing a composite of WiFi based
 device tracking and Z-Wave multisensor presence sensors.
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -217,11 +233,12 @@ binary_sensor:
              or is_state('binary_sensor.porch_ms6_1_129', 'on')
              or is_state('binary_sensor.family_room_144', 'on') }}
 ```
+
 {% endraw %}
 
 ### Device Tracker sensor with Latitude and Longitude Attributes
 
-This example shows how to combine an non-GPS (e.g. NMAP) and GPS device tracker while still including latitude and longitude attributes
+This example shows how to combine a non-GPS (e.g. NMAP) and GPS device tracker while still including latitude and longitude attributes
 
 {% raw %}
 ```yaml
@@ -251,11 +268,11 @@ binary_sensor:
 ### Change the icon when state changes
 
 This example demonstrates how to use `icon_template` to change the entity's
-icon as its state changes, it evaluates the state of its own sensor and uses a 
-conditional statement to output the appropriate icon. 
-
+icon as its state changes, it evaluates the state of its own sensor and uses a
+conditional statement to output the appropriate icon.
 
 {% raw %}
+
 ```yaml
 sun:
 binary_sensor:
@@ -273,4 +290,5 @@ binary_sensor:
             mdi:weather-sunset-down
           {% endif %}
 ```
+
 {% endraw %}

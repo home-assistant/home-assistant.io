@@ -149,7 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Eph ember support operation modes ([@ttroy50] - [#15820]) ([climate.ephember docs])
 - Fixed race condition in Generic Thermostat ([@aronsky] - [#15784]) ([climate.generic_thermostat docs])
 - Fix magic cube support of the Aqara LAN Protocol V2 ([@syssi] - [#15940]) ([binary_sensor.xiaomi_aqara docs])
-- Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
+- Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs])
 - Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
 - Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)
 - Add monitored conditions for Unifi device_tracker ([@cgarwood] - [#15888]) ([device_tracker docs])
@@ -425,7 +425,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [calendar.google docs]: /integrations/calendar.google/
 [camera docs]: /integrations/camera/
-[camera.generic docs]: /integrations/generic
+[camera.generic docs]: /integrations/generic_ip_camera
 [camera.proxy docs]: /integrations/proxy
 [camera.push docs]: /integrations/push
 [climate docs]: /integrations/climate/
@@ -448,8 +448,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [http docs]: /integrations/http/
 [image_processing.opencv docs]: /integrations/opencv
 [input_datetime docs]: /integrations/input_datetime/
-[insteon_local docs]: /integrations/insteon_local/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_local docs]: /integrations/insteon/
+[insteon_plm docs]: /integrations/insteon/
 [konnected docs]: /integrations/konnected/
 [light.deconz docs]: /integrations/deconz#light
 [light.wemo docs]: /integrations/wemo
@@ -475,7 +475,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.scrape docs]: /integrations/scrape
 [sensor.shodan docs]: /integrations/shodan
 [sensor.systemmonitor docs]: /integrations/systemmonitor
-[sensor.sytadin docs]: /integrations/sytadin
 [sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
 [sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
 [sonos docs]: /integrations/sonos/

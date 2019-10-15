@@ -376,7 +376,7 @@ vacuum:
 [history docs]: /integrations/history/
 [image_processing.opencv docs]: /integrations/opencv
 [influxdb docs]: /integrations/influxdb/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.decora_wifi docs]: /integrations/decora_wifi/
 [light.flux_led docs]: /integrations/flux_led
 [light.lifx docs]: /integrations/lifx

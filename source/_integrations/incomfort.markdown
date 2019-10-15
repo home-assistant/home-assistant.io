@@ -21,11 +21,11 @@ The boiler is represented as a **Water Heater** device. It will report the boile
 
 Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
-In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
+In addition, there is a **Sensor** for each of CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
 
 ### Rooms
 
-Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint) and `current_temperature` and the setpoint can be changed.
+Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
 
 ## Automation
 
@@ -52,9 +52,9 @@ Other properties are available via each device's attributes.
 
 ## Configuration
 
-To set up this integration, add the following to your **configuration.yaml** file:
+To set up this integration, add one of the following to your **configuration.yaml** file:
 
-The hub does not have to be in the same network as HA.
+The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
 ### Older gateways
 
