@@ -92,6 +92,7 @@ friends:
   description: "Boolean flag to control whether friends' locations are shared with OwnTracks clients submitting their location via the Home Assistant HTTP webhook. This options brings similar functionality to the way OwnTracks works when used via a MQTT broker. The returned locations are based on the configured [Person](/integrations/person/)'s [device_trackers](/integrations/device_tracker/). This option has no effect if OwnTracks is used solely via MQTT"
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 A full sample configuration for the `owntracks` platform is shown below:
