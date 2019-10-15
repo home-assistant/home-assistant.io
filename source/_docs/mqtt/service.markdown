@@ -36,7 +36,7 @@ payload_template: {{ states('device_tracker.paulus') }}
 
 ```yaml
 topic: home-assistant/light/1/state
-payload: {\"Status\":\"off\", \"Data\":\"something\"}
+payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
 ``` 
 
 Example of how to use `qos` and `retain`:
