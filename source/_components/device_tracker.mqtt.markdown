@@ -34,12 +34,12 @@ qos:
   required: false
   type: integer
 payload_home:
-  description: The payload that represents the home state for the device.
+  description: The payload value that represents the 'home' state for the device.
   required: false
   type: string
   default: 'home'
 payload_not_home:
-  description: The payload that represents the not home state for the device.
+  description: The payload value that represents the 'not_home' state for the device.
   required: false
   type: string
   default: 'not_home'
