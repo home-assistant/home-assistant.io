@@ -37,6 +37,8 @@ unifi:
       ssid_filter:
         - 'HomeSSID'
         - 'IoTSSID'
+      latitude: 31.317551
+      longitude: 121.469879
 ```
 
 {% configuration %}
@@ -80,6 +82,14 @@ ssid_filter:
   type: list
   required: false
   default: None
+latitude:
+  description: Latitude for the device.
+  required: false
+  type: float
+longitude:
+  description: Longitude for the device.
+  required: false
+  type: float
 {% endconfiguration %}
 
 ### Configuring Users
