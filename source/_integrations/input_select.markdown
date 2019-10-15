@@ -77,15 +77,25 @@ This integrations provide three services to modify the state of the `input_selec
 
 ### Scenes
 
-To specify a target option in a [Scene](/integrations/scene/) you have to specify the target as `option` attribute:
+Specifying a target option in a [Scene](/integrations/scene/) is simple:
 
 ```yaml
 # Example configuration.yaml entry
 scene:
   - name: Example1
     entities:
+      input_select.who_cooks: Paulus
+```
+
+The list of options can also be set in a [Scene](/integrations/scene/) like this:
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example1
+    entities:
       input_select.who_cooks:
-        option: Paulus
+        options: [Alice, Bob, Paulus]
+        state: Bob
 ```
 
 ## Automation Examples
