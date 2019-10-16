@@ -19,6 +19,12 @@ This integration allows you to write Python scripts that are exposed as services
 [hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
 
+<div class='note'>
+
+It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](/docs/ecosystem/appdaemon/)
+
+</div>
+
 ## Writing your first script
 
  - Add to `configuration.yaml`: `python_script:`
