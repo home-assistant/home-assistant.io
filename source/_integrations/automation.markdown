@@ -31,3 +31,13 @@ automation:
       - platform: state
   ...
 ```
+
+## Configuration
+
+This integration is by default enabled, unless you've disabled or removed the `default_config:` line from your configuration.
+If that is the case, the following example shows you how to enable this integration manually:
+
+```yaml
+# Example configuration.yaml entry
+automation:
+```
