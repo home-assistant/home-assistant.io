@@ -28,7 +28,7 @@ host:
   required: true
   type: string
 username:
-  description: The username to login into the router (the same used trough the router's web interface).
+  description: The username to login into the router (the same used through the router's web interface).
   required: true
   type: string
 password:
