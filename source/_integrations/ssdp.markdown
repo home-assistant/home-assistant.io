@@ -12,7 +12,8 @@ Integrations can opt-in to be found by adding [an SSDP section](https://develope
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the `default_config:` line from your configuration.
+If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
