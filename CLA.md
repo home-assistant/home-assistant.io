@@ -38,7 +38,7 @@ is covered under an appropriate open source license and you have the right under
 whether created in whole or in part by you, or you have clearly identified the source of the contribution and any license or other
 restriction (like related patents, trademarks, and license agreements) of which you are personally aware.
 
-## Attribution	
+## Attribution
 
 This Contributor License Agreement is adapted from the GitHub CLA.
 
