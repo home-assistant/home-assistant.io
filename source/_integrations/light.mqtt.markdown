@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_release: 0.8
 ---
 
-The `mqtt` light platform with lets you control your MQTT enabled lights through one of the supported message schemas.
+The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas.
 
 ## Comparison of light MQTT schemas
 
