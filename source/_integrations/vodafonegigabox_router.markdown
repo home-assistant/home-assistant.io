@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Vodafone Gigabit router into Home
 logo: vodafone.svg
 ha_category:
   - Presence Detection
-ha_release: 0.100.3
+ha_release: 0.101
 ---
 
 The `vodafonegigabox` device tracker platform offers presence detection by looking at devices connected to a [Vodafone Gigabox router](https://n.vodafone.ie/business/products-and-solutions/fixed-communications/gigabox.html) as used by Vodafone Ireland.
@@ -17,7 +17,7 @@ To use a Vodafone Gigabox router in your installation, add the following to your
 # Example configuration.yaml entry
 device_tracker:
   - platform: vodafonegigabox_router
-    host: 192.168.1.1
+    host: IP_ADDRESS
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
