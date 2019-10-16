@@ -96,3 +96,5 @@ Your previously customized Lovelace UI won't be modifiable anymore and won't fol
   - There you see the config for your actual Lovelace UI, you can copy that into the `<config>/ui-lovelace.yaml` file.
 
 Navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
+
+To revert to using the UI to edit Lovelace, remove the `configuration.yaml` Lovelace entry and copy your `lovelace.yaml` content back into the raw config section of Home Assiatant and restart.
