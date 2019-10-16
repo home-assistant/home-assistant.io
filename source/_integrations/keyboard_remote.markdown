@@ -22,10 +22,22 @@ keyboard_remote:
 
 {% configuration %}
 type:
-  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
+  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.  This can be a list of types.
   required: true
   type: string
-device_description:
+emulate_key_hold:
+  description: Emulate key hold events when key is held down.  (Some input devices do not send these otherwise.)
+  required: false
+  type: boolean  
+emulate_key_hold_delay:
+  description:  Number of milliseconds to wait before sending first emulated key hold event
+  required: false
+  type: positive_int
+emulate_key_hold_repeat:
+  description:  Number of milliseconds to wait before sending subsequent emulated key hold event
+  required: false
+  type: positive_int
+device_descriptor:
   description: Path to the local event input device file that corresponds to the keyboard.
   required: false
   type: string
@@ -45,9 +57,14 @@ A full configuration for two Keyboard Remotes could look like the one below:
 ```yaml
 keyboard_remote:
 - device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
-  type: 'key_up'
+  type: 'key_down'
+  emulate_key_hold: true
+  emulate_key_hold_delay: 250
+  emulate_key_hold_repeat: 33
 - device_descriptor: '/dev/input/event0'
-  type: 'key_up'
+  type:
+    - 'key_up'
+    - 'key_down'
 ```
 
 Or like the following for one keyboard:
