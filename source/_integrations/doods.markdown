@@ -23,6 +23,7 @@ The configuration loosely follows the tensorflow configuration. To enable this p
 image_processing:
   - platform: doods
     url: "http://<my doods server>:8080"
+    detector: default
     source:
       - entity_id: camera.front_yard
 ```
@@ -47,7 +48,7 @@ url:
     type: string
 detector:
     description: The DOODS detector to use
-    required: false
+    required: true
     type: string
 confidence:
     description: The default confidence for any detected objects where not explicitly set
