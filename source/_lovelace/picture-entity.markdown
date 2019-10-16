@@ -93,6 +93,7 @@ tap_action:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
+      default: "false"
 hold_action:
   required: false
   description: Action to take on tap-and-hold
@@ -127,6 +128,7 @@ hold_action:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
+      default: "false"
 double_tap_action:
   required: false
   description: Action to take on double tap
@@ -161,6 +163,7 @@ double_tap_action:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
       type: [boolean, map]
+      default: "false"
 {% endconfiguration %}
 
 ## Options For Confirmation
