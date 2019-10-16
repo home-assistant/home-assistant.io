@@ -41,7 +41,7 @@ views:
       required: false
       description: Renders the view in panel mode, more info below.
       type: boolean
-      default: "false"
+      default: false
     background:
       required: false
       description: Style the background using CSS, more info below.
@@ -50,6 +50,11 @@ views:
       required: false
       description: Themes view and cards, more info below.
       type: string
+    visible:
+      required: false
+      description: "Hide/show the view tab from all users or a list of individual `visible` objects."
+      type: [boolean, list]
+      default: true
 {% endconfiguration %}
 
 ## Options For Badges
@@ -72,6 +77,17 @@ icon:
 image:
   required: false
   description: The URL of an image.
+  type: string
+{% endconfiguration %}
+
+## Options For Visible
+
+If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab.
   type: string
 {% endconfiguration %}
 
