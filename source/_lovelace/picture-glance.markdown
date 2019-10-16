@@ -88,6 +88,10 @@ tap_action:
       description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
 hold_action:
   required: false
   description: Action to take on tap-and-hold
@@ -118,6 +122,10 @@ hold_action:
       description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
 double_tap_action:
   required: false
   description: Action to take on double tap
@@ -148,6 +156,10 @@ double_tap_action:
       description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
 {% endconfiguration %}
 
 ## Options For Entities
@@ -188,6 +200,10 @@ tap_action:
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
 hold_action:
   required: false
   description: Action to take on tap-and-hold
@@ -213,6 +229,10 @@ hold_action:
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
 double_tap_action:
   required: false
   description: Action to take on double tap
@@ -243,6 +263,33 @@ double_tap_action:
       description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    confirmation:
+      required: false
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      type: [boolean, map]
+{% endconfiguration %}
+
+## Options For Confirmation
+
+If you define confirmation as an object instead of boolean, you can add more customization and configurations:
+{% configuration %}
+text:
+  required: false
+  description: Text to present in the confirmation dialog.
+  type: string
+exemptions:
+  required: false
+  description: "List of `exemption` objects. See below"
+  type: list
+{% endconfiguration %}
+
+## Options For Exemptions
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab.
+  type: string
 {% endconfiguration %}
 
 ## How to use state_filter
