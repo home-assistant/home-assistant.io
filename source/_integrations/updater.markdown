@@ -10,7 +10,7 @@ ha_release: 0.8
 
 The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this binary sensor on Hass.io.
 
-The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/updater).
+The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/updater).
 
 <div class='note'>
 
@@ -20,7 +20,7 @@ The `updater` binary sensor will wait one hour after startup until it performs t
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 updater:

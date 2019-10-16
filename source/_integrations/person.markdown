@@ -32,7 +32,7 @@ You can manage persons via the UI from the person page inside the configuration 
 
 ## Configuring the `person` integration via the Home Assistant configuration panel
 
-If you prefer to use the configuration panel to configure the `person` integration simply add one line to your `configuration.yaml` file and restart Home Assistant.
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 person:
@@ -93,7 +93,7 @@ By following the instructions on the [customizing entities](/docs/configuration/
 
 ```yaml
 customize:
-  person.ada6789:
+  person.ada:
     entity_picture: "/local/ada.jpg"
 ```
 

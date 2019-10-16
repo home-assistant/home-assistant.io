@@ -10,7 +10,7 @@ ha_release: 0.67
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
 
-Unit system is set to metric system.
+Unit system is by default set to the metric system.
 
 ## Configuration
 
@@ -27,11 +27,11 @@ sensor:
 
 {% configuration %}
 origin:
-  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
+  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 destination:
-  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
+  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 region:
@@ -57,7 +57,7 @@ realtime:
   type: boolean
   default: true
 units:
-  description: "Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`."
+  description: "Set the unit of measurement for the sensor in metric or imperial, otherwise the default unit of measurement is the same as the unit set in `unit_system:`."
   required: false
   type: string
 vehicle_type:
@@ -70,7 +70,7 @@ vehicle_type:
 
 Using the flexible option to set a sensor value to the `destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
 
-In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval set to fetch Waze data).
+In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
 ```yaml
@@ -117,11 +117,11 @@ sensor:
     destination: "725 5th Ave, New York, NY 10022, USA"
     region: 'US'
     units: imperial    # 'metric' for Metric, 'imperial' for Imperial
-    vehicle_type: motorcycle  # vehicle type used for route
+    vehicle_type: motorcycle  # vehicle type used for routing
 ```
 {% endraw %}
 
-## Using the live map in a iFrame
+## Using the live map in an iFrame
 
 If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
 in Lovelace [iframe](/lovelace/iframe/) then use

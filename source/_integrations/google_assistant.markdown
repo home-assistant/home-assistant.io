@@ -64,27 +64,26 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
-    2. Click on the `Home Control` card, select the `Smart home` recommendation.
-    3. Click `Build your Action`, select `Add Action(s)`, and click `Add your first action`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
-    4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
+    2. Click on the `Smart Home` card, select the `Smart home` recommendation.
+    3. Click `Build your Action`, select `Add Action(s)`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    4. Click `Save`. Then click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
-    1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
-    2. For the `Linking type` select `OAuth` and `Authorization Code`.
+    1. Leave it at the default `No, I only want to allow account creation on my website` and select `Next`.
+    2. For the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
     3. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
-    6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
+    6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. Click `Next`
     7. Configure your client: Type `email` and click `Add scope`, then type `name` and click `Add scope` again.
-    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
-    9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`. Click `Next`
+    9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app. Click `Save`
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
-3. Under `Build your Action` click `Add Action(s)`.
-    1. Under `Fulfillment` fill in this URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`.
-4. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App.
-5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
-6. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
-7. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+    
+3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App.
+4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+5. Open the Google Home app and goto `Account` most right icon.
+6. Click `+ Set up or add`, `+ Set up device`, 'New devices', choose your home and click `Next` click `Have something...`you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 
 <div class='note'>
 
@@ -242,7 +241,7 @@ Here are the modes that are currently available:
 
 ### Troubleshooting the request_sync service
 
-The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443) from Home Control and relink.
+The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlenest/answer/7126338) from Home Control and relink.
 
 The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [Actions on Google console](https://console.actions.google.com). Resolve this by:
 

@@ -576,7 +576,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.smappee docs]: /integrations/smappee
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [vera docs]: /integrations/vera/
 [weather.buienradar docs]: /integrations/buienradar

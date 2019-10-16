@@ -126,6 +126,7 @@ Currently supported devices as device triggers:
 
 - Hue Dimmer Remote
 - Hue Tap
+- Symfonisk Sound Controller
 - Trådfri On/Off Switch
 - Trådfri Open/Close Remote
 - Trådfri Remote Control
@@ -382,15 +383,18 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 
 ### Verified supported lights
 
-- IKEA Trådfri bulb E14 WS opal 400lm
+- IKEA Trådfri bulb E14 WS Opal 400lm
 - IKEA Trådfri Bulb E27 WS Opal 980lm
 - IKEA Trådfri Bulb E27 WS Opal 1000lm
+- IKEA Trådfri Bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri Bulb GU10 W 400lm
+- IKEA Trådfri FLOALT LED light panel
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
 - Philips Hue White A19
 - Philips Hue White Ambiance A19
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
+- Philips Hue LightStrip Plus
 - Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
 - Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
 
@@ -465,5 +469,6 @@ The `entity_id` name will be `switch.device_name`, where `device_name` is define
 ### Verified supported switches
 
 - Innr SP120
+- Osram Lightify plug
 - Osram Outdoor plug
 - Heiman siren

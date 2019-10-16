@@ -213,6 +213,7 @@
 /components/camera.august /integrations/august#camera
 /components/camera.axis /integrations/axis
 /components/camera.blink /integrations/blink
+/components/camera.buienradar /integrations/buienradar#camera
 /components/camera.canary /integrations/canary#camera
 /components/camera.dispatcher /integrations/dispatcher
 /components/camera.doorbird /integrations/doorbird#camera
@@ -1063,9 +1064,9 @@
 /components/switch.zigbee /integrations/zigbee#switch
 /components/switch.zoneminder /integrations/zoneminder#switch
 /components/switch.zwave /integrations/zwave
-/components/telegram_bot.broadcast /integrations/broadcast
-/components/telegram_bot.polling /integrations/polling
-/components/telegram_bot.webhooks /integrations/webhooks
+/components/telegram_bot.broadcast /integrations/telegram_broadcast
+/components/telegram_bot.polling /integrations/telegram_polling
+/components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/tts.amazon_polly /integrations/amazon_polly
 /components/tts.baidu /integrations/baidu
 /components/tts.google /integrations/google_translate
@@ -1187,7 +1188,7 @@
 /components/bmw_connected_drive /integrations/bmw_connected_drive
 /components/bom /integrations/bom
 /components/braviatv /integrations/braviatv
-/components/broadcast /integrations/broadcast
+/components/broadcast /integrations/telegram_broadcast
 /components/broadlink /integrations/broadlink
 /components/brottsplatskartan /integrations/brottsplatskartan
 /components/browser /integrations/browser
@@ -1705,7 +1706,7 @@
 /components/plum_lightpad /integrations/plum_lightpad
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
-/components/polling /integrations/polling
+/components/polling /integrations/telegram_polling
 /components/postnl /integrations/postnl
 /components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
@@ -1903,7 +1904,7 @@
 /components/ted5000 /integrations/ted5000
 /components/teksavvy /integrations/teksavvy
 /components/telegram /integrations/telegram
-/components/telegram_bot /integrations/telegram_bot
+/components/telegram_bot /integrations/telegram_chatbot
 /components/tellduslive /integrations/tellduslive
 /components/tellstick /integrations/tellstick
 /components/telnet /integrations/telnet
@@ -2004,7 +2005,7 @@
 /components/weather /integrations/weather
 /components/weather.darksky /integrations/weather.darksky
 /components/webhook /integrations/webhook
-/components/webhooks /integrations/webhooks
+/components/webhooks /integrations/telegram_webhooks
 /components/weblink /integrations/weblink
 /components/webostv /integrations/webostv
 /components/websocket_api /integrations/websocket_api

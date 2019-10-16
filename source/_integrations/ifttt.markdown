@@ -31,20 +31,23 @@ For example, set the body of the IFTTT webhook to:
 
 You then need to consume that incoming information with the following automation:
 
+{% raw %}
 ```yaml
 automation:
 - id: this_is_the_automation_id
   alias: The optional automation alias
   trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
+  - event_data:
       action: call_service
+    event_type: ifttt_webhook_received
+    platform: event
+  condition: []
   action:
-    service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
-    data_template:
-      entity_id: '{% raw %}{{ trigger.event.data.entity_id }}{% endraw %}'
+  - data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+    service_template: '{{ trigger.event.data.service }}'
 ```
+{% endraw %}
 
 ## Sending events to IFTTT
 

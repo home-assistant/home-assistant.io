@@ -4,7 +4,10 @@ sidebar_label: Markdown
 description: "Markdown card is used to render markdown"
 ---
 
-Markdown card is used to render [markdown](http://commonmark.org/help/).
+Markdown card is used to render [Markdown](https://commonmark.org/help/).
+
+The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#/README.md#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
+ 	 
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
@@ -18,7 +21,7 @@ type:
   type: string
 content:
   required: true
-  description: "Content to render as [markdown](http://commonmark.org/help/). May contain [templates](/docs/configuration/templating/)."
+  description: "Content to render as [Markdown](https://commonmark.org/help/). May contain [templates](/docs/configuration/templating/)."
   type: string
 title:
   required: false
@@ -59,6 +62,8 @@ entities:
   - light.bed_light
   - light.ceiling_lights
   - light.kitchen_lights
+state_filter:
+  - 'on'
 card:
   type: markdown
   content: |

@@ -41,7 +41,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [YR]: /integrations/yr
 [Locative]: /integrations/locative
 [sun condition]: /getting-started/automation-condition/#sun-condition
-[command_switch]: /integrations/switch.command_switch/
+[command_switch]: /integrations/switch.command_line/
 [wemo]: /integrations/wemo
 [Telldus Live]: /integrations/tellduslive/
 [Vera]: /integrations/vera/

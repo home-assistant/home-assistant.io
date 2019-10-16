@@ -11,8 +11,6 @@ ha_release: 0.7
 Please see the [docs section](/docs/automation/) for in-depth
 documentation on how to use the automation component.
 
-Starting with 0.28 your automation rules can be controlled with the frontend.
-
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
 </p>
@@ -32,4 +30,13 @@ automation:
     trigger:
       - platform: state
   ...
+```
+
+## Configuration
+
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+
+```yaml
+# Example configuration.yaml entry
+automation:
 ```

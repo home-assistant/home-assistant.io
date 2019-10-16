@@ -15,10 +15,10 @@ The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver not
 The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
-- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
+- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_chatbot) and define there your API key and the allowed chat ids to interact with.
 - The `chat_id` of an allowed user.
 
-The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+The quickest way to retrieve your `chat_id` is visiting `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 

@@ -148,7 +148,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
-- Adding configration to disable ip address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
+- Adding configuration to disable IP address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Send XY color for non-osram hue bulbs ([@armills] - [#13665]) ([light.hue docs])
 - Update AbodePy version to 0.12.3 ([@MisterWil] - [#13709]) ([abode docs])

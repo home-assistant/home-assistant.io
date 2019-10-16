@@ -134,6 +134,44 @@ As always, this release of Home Assistant is accompanied with a new release of t
 - Add basic support for IKEA Fyrtur blinds ([@ggravlingen] - [#26659]) ([tradfri docs]) (new-platform)
 - Centralize rainbird config and add binary sensor platform ([@konikvranik] - [#26393]) ([rainbird docs]) (breaking change) (new-platform)
 
+## Release 0.100.1 - October 10
+
+- Fix build not succeeding [@bramkragten]
+
+## Release 0.100.2 - October 12
+
+- Vangorra withings fix ([@vangorra] - [#27404]) ([withings docs])
+- Bump python-songpal ([@rytilahti] - [#27398]) ([songpal docs])
+- bump songpal to fix attrs usage when using its most recent version ([@rytilahti] - [#27410]) ([songpal docs])
+- iaqualink: set 5s timeout, use cookiejar defaults ([@flz] - [#27426]) ([iaqualink docs])
+- Add mobile_app dependency on cloud ([@uSpike] - [#27470]) ([mobile_app docs])
+- Fix for unknown sensor state ([@marthoc] - [#27542]) ([ecobee docs])
+- Google: catch query not supported ([@balloob] - [#27559]) ([google_assistant docs])
+- Fixing nzbget units display ([@chriscla] - [#27521]) ([nzbget docs])
+
+[#27398]: https://github.com/home-assistant/home-assistant/pull/27398
+[#27404]: https://github.com/home-assistant/home-assistant/pull/27404
+[#27410]: https://github.com/home-assistant/home-assistant/pull/27410
+[#27426]: https://github.com/home-assistant/home-assistant/pull/27426
+[#27470]: https://github.com/home-assistant/home-assistant/pull/27470
+[#27521]: https://github.com/home-assistant/home-assistant/pull/27521
+[#27542]: https://github.com/home-assistant/home-assistant/pull/27542
+[#27559]: https://github.com/home-assistant/home-assistant/pull/27559
+[@balloob]: https://github.com/balloob
+[@chriscla]: https://github.com/chriscla
+[@flz]: https://github.com/flz
+[@marthoc]: https://github.com/marthoc
+[@rytilahti]: https://github.com/rytilahti
+[@uspike]: https://github.com/uSpike
+[@vangorra]: https://github.com/vangorra
+[ecobee docs]: /integrations/ecobee/
+[google_assistant docs]: /integrations/google_assistant/
+[iaqualink docs]: /integrations/iaqualink/
+[mobile_app docs]: /integrations/mobile_app/
+[nzbget docs]: /integrations/nzbget/
+[songpal docs]: /integrations/songpal/
+[withings docs]: /integrations/withings/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).

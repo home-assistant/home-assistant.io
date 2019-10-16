@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script integration will create an entity for each script and allow them to be controlled via services.
+The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
 
 ## Configuration
 

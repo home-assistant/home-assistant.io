@@ -105,3 +105,26 @@ This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.ra
 
 Switches are automatically added for all available zones of configured controllers.
 
+## Services
+
+The Rain Bird switch platform exposes a service to start a single irrigation for a given duration.
+
+| Service | Description |
+| ------- | ----------- |
+| rainbird.start_irrigation | Set a duration state attribute for a switch and turn the irrigation on.|
+
+The service can be used as part of an automation script. For example:
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: Turn irrigation on
+    trigger:
+      platform: time
+      at: '5:30:00'
+    action:
+      service: rainbird.start_irrigation
+      entity_id: switch.sprinkler_1
+      data:
+        duration: 5
+```

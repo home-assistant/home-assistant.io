@@ -11,7 +11,7 @@ ha_iot_class: Cloud Polling
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-Enabling this integration will automatically create the Speedtest.net Sensors for the monitored conditions (below).
+Enabling this integration will automatically create Speedtest.net sensors for the monitored conditions (below).
 
 By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
@@ -83,11 +83,11 @@ action:
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
 
-When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `speedtestdotnet.speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
+When Home Assistant first starts up, the values of the speed test sensors will show as `Unknown`. You can use the service `speedtestdotnet.speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
 
 ## Examples
 
-In this section, you find some real-life examples of how to use this component.
+In this section you will find some real-life examples of how to use this component.
 
 ### Run periodically
 
@@ -128,8 +128,8 @@ automation:
 
 ## Notes
 
-- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter. The Raspberry Pi 3+ models comes with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
+- When running on Raspberry Pi the maximum speed is limited by the LAN adapter. The Raspberry Pi 3+ models come with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
 - Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
-- Entries under `monitored_conditions` only control what entities are available in Home Assistant, it does not disable the condition from running.
-- If ran frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
-- While running, your network capacity is fully utilized. This may have a negative effect on other devices in use the network such as gaming consoles or streaming boxes.
+- Entries under `monitored_conditions` only control which entities are available in Home Assistant, they do not disable conditions from running.
+- If run frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
+- While the speedtest is running your network capacity is fully utilized. This may have a negative effect on other devices using the network such as gaming consoles or streaming boxes.

@@ -113,9 +113,9 @@ Per default the bulb limits the amount of requests per minute to 60, a limitatio
 <div class='note'>
 
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
-In the bulb property, you have to enable "LAN Mode" (previously called "Developer mode"). LAN mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
+In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
-Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
+Information on how to enable "LAN Control" can be found [here](https://www.yeelight.com/faqs/lan_control).
 
 </div>
 

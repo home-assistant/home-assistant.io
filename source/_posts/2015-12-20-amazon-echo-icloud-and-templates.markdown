@@ -82,7 +82,7 @@ Affected components and platforms:
  - automation: [numeric_state][automation-numeric-state]
 
 [sensor.arest]: /integrations/arest#sensor
-[sensor.command]: /integrations/sensor.command_sensor/
+[sensor.command]: /integrations/sensor.command_line/
 [sensor.rest]: /integrations/rest
 [sensor.mqtt]: /integrations/sensor.mqtt/
 [switch.mqtt]: /integrations/switch.mqtt/
