@@ -55,7 +55,7 @@ ac_mode:
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
   required: false
-  type: [time, integer]
+  type: time
 cold_tolerance:
   description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor equals or goes below 24.5.
   required: false
@@ -69,7 +69,7 @@ hot_tolerance:
 keep_alive:
   description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
   required: false
-  type: [time, integer]
+  type: time
 initial_hvac_mode:
   description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
@@ -85,12 +85,14 @@ precision:
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
-A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
+__Notes__  
+Time for `min_cycle_duration` and `keep_alive` must be set as wrapped in quotes representation of time in form of "hh:mm:ss", time in seconds (without quotes) or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
+__Example__ 
 ```yaml
 # Full example configuration.yaml entry
 climate:
