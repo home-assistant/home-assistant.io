@@ -92,7 +92,8 @@ Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
-__Example__ 
+## Full configuration example
+
 ```yaml
 # Full example configuration.yaml entry
 climate:
