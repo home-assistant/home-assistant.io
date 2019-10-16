@@ -19,6 +19,10 @@ title:
   required: false
   description: The card title.
   type: string
+icon:
+  required: false
+  description: An icon to display to the left of the title
+  type: string
 show_header_toggle:
   required: false
   description: Button to turn on/off all entities.
