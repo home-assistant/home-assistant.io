@@ -14,8 +14,8 @@ component for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
 no history will be available for these entities.
 
-To enable the history option in your installation,
-add the following to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the `default_config:` line from your configuration.
+If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Basic configuration.yaml entry
