@@ -28,15 +28,18 @@ type:
 emulate_key_hold:
   description: Emulate key hold events when key is held down.  (Some input devices do not send these otherwise.)
   required: false
-  type: boolean  
+  type: boolean
+  default: false
 emulate_key_hold_delay:
   description:  Number of milliseconds to wait before sending first emulated key hold event
   required: false
   type: positive_int
+  default: 350
 emulate_key_hold_repeat:
   description:  Number of milliseconds to wait before sending subsequent emulated key hold event
   required: false
   type: positive_int
+  default: 33
 device_descriptor:
   description: Path to the local event input device file that corresponds to the keyboard.
   required: false
