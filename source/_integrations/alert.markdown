@@ -98,6 +98,10 @@ data:
   description: "Dictionary of extra parameters to send to the notifier."
   required: false
   type: list  
+done_data:
+  description: "Dictionary of extra parameters to send to the notifier."
+  required: false
+  type: list  
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -234,7 +238,7 @@ The resulting message could be `Plant Officeplant needs help (moisture low)`.
 ### Additional parameters for notifiers 
 
 Some notifiers support more parameters (e.g., to set text color or action
-  buttons). These can be supplied via the `data` parameter:
+  buttons). These can be supplied via the `data` and `done_data` parameter:
 
 ```yaml
 # Example configuration.yaml entry
@@ -249,9 +253,13 @@ alert:
       - 60
     can_acknowledge: True  # Optional, default is True
     skip_first: True  # Optional, false is the default
+    done_message: Garage has been closed
     data:
       inline_keyboard:
         - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+    done_data:
+      inline_keyboard:
+        - 'Ok:/ack_garage_closed'
     notifiers:
       - frank_telegram
 ```
