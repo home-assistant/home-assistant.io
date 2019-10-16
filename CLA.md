@@ -38,6 +38,10 @@ is covered under an appropriate open source license and you have the right under
 whether created in whole or in part by you, or you have clearly identified the source of the contribution and any license or other
 restriction (like related patents, trademarks, and license agreements) of which you are personally aware.
 
+## Attribution	
+
+This Contributor License Agreement is adapted from the GitHub CLA.
+
 ## Signing
 
 To sign this CLA you must first submit a pull request to a repository under the Home Assistant organization.
@@ -46,5 +50,4 @@ To sign this CLA you must first submit a pull request to a repository under the 
 
 This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
 
-[github-cla]: https://cla.github.com/agreement
 [cla-blog]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/
