@@ -17,8 +17,8 @@ the `recorder` integration for storing the data. This means that if the
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-To enable the logbook in your installation,
-add the following to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the `default_config:` line from your configuration.
+If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
