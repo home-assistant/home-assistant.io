@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the `default_config:` line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
