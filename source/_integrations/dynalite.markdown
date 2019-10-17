@@ -5,8 +5,8 @@ logo: dynalite.png
 ha_category:
   - Hub
   - Light
-ha_iot_class: Local Polling
-ha_qa_scale: platinum
+ha_iot_class: Local Push
+ha_qa_scale: No Score
 featured: true
 ha_release: "0.60"
 ---
