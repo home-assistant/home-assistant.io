@@ -1,10 +1,10 @@
 ---
-title: "Xiaomi Binary Sensor"
-description: "Instructions on how to setup the Xiaomi binary sensors within Home Assistant."
+title: 'Xiaomi Binary Sensor'
+description: 'Instructions on how to setup the Xiaomi binary sensors within Home Assistant.'
 logo: xiaomi.png
 ha_category:
   - Binary Sensor
-ha_release: "0.50"
+ha_release: '0.50'
 ha_iot_class: Local Push
 ---
 
@@ -14,24 +14,24 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 
 ### Type of sensors supported
 
-| Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
-| ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
-| Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `xiaomi_aqara.motion` | | |
-| Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `xiaomi_aqara.motion` | | |
-| Xiaomi Door and Window Sensor (1st gen) | magnet | MCCGQ01LM | on, off | | | |
-| Aqara Door and Window Sensor (2nd gen) | sensor_magnet.aq2 | MCCGQ11LM | on, off | | | |
-| Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
-| Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
-| Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
-| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double` |
-| Button (2nd gen, model b) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
-| Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
-| Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `both` |
-| Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long` |
-| Aqara Wireless Switch (Double) (2nd gen) | remote.b286acn01 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long`, `both`, `double_both`, `long_both` |
-| Cube | cube | MFKZQ01LM | off (always) | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
-| Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
+| Name                                     | Zigbee entity                     | Model no.       | States                             | Event                      | Event key                              | Event values                                                                                                             |
+| ---------------------------------------- | --------------------------------- | --------------- | ---------------------------------- | -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Motion Sensor (1st gen)                  | motion                            | RTCGQ01LM       | on, off                            | `xiaomi_aqara.motion`      |                                        |                                                                                                                          |
+| Motion Sensor (2nd gen)                  | sensor_motion.aq2                 | RTCGQ11LM       | on, off                            | `xiaomi_aqara.motion`      |                                        |                                                                                                                          |
+| Xiaomi Door and Window Sensor (1st gen)  | magnet                            | MCCGQ01LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Aqara Door and Window Sensor (2nd gen)   | sensor_magnet.aq2                 | MCCGQ11LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Smoke Detector                           | smoke                             | JTYJ-GD-01LM/BW | on, off                            |                            |                                        |                                                                                                                          |
+| Gas Leak Detector                        | natgas                            | JTQJ-BF-01LM/BW | on, off                            |                            |                                        |                                                                                                                          |
+| Water Leak Sensor                        | sensor_wleak.aq1                  | SJCGQ11LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Button (1st gen)                         | switch                            | WXKG01LM        | on (through long_click_press), off | `xiaomi_aqara.click`       | `click_type`                           | `long_click_press`, `long_click_release`, `hold`, `single`, `double`                                                     |
+| Button (2nd gen)                         | sensor_switch.aq2, remote.b1acn01 | WXKG11LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`                                                                                                       |
+| Button (2nd gen, model b)                | sensor_switch.aq3                 | WXKG12LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long_click_press`, `shake`                                                                          |
+| Aqara Wireless Switch (Single)           | 86sw1                             | WXKG03LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`                                                                                                                 |
+| Aqara Wireless Switch (Double)           | 86sw2                             | WXKG02LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `both`                                                                                                         |
+| Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01                  | WXKG03LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long`                                                                                               |
+| Aqara Wireless Switch (Double) (2nd gen) | remote.b286acn01                  | WXKG02LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long`, `both`, `double_both`, `long_both`                                                           |
+| Cube                                     | cube                              | MFKZQ01LM       | off (always)                       | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| Vibration Sensor                         | vibration                         | DJT11LM         | off (always)                       | `xiaomi_aqara.movement`    | `movement_type`                        | `vibrate`, `tilt`, `free_fall`                                                                                           |
 
 ### Automation examples
 
@@ -99,6 +99,20 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     entity_id: climate.livingroom
     data:
       operation_mode: 'Smart schedule'
+- alias: Notify if door is opened when away
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'not_home'
+  action:
+    - service: notify.notify_person
+      data:
+        message: 'The door has been opened'
 ```
 
 #### Smoke
@@ -194,7 +208,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
-        color_name: "springgreen"
+        color_name: 'springgreen'
 - alias: Cube event flip180
   trigger:
     platform: event
@@ -206,7 +220,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
-        color_name: "darkviolet"
+        color_name: 'darkviolet'
 - alias: Cube event move
   trigger:
     platform: event
@@ -218,7 +232,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
-        color_name: "gold"
+        color_name: 'gold'
 - alias: Cube event tap_twice
   trigger:
     platform: event
@@ -230,7 +244,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
-        color_name: "deepskyblue"
+        color_name: 'deepskyblue'
 - alias: Cube event shake_air
   trigger:
     platform: event
@@ -242,7 +256,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
-        color_name: "blue"
+        color_name: 'blue'
 ```
 
 #### Aqara Wireless Switch
