@@ -66,6 +66,32 @@ This component will create these sensors:
 - `nzbget_uptime`: NZBGet server uptime.
 - `nzbget_size`: Amount of data downloaded since server start in MB.
 
+## Event Automation
+
+The NZBGet integration continuously monitors nzbget's download history. When a download completes, an event usable for automation is triggered on the Home Assistant Bus.
+
+Possible events are:
+
+- `nzbget_downloaded_nzb`
+
+The event includes the name, category, and status of the downloaded nzb.
+
+Example automation to send a Telegram message on a completed download:
+
+```yaml
+- alias: Completed Torrent
+  trigger:
+    platform: event
+    event_type: nzbget_downloaded_nzb
+  - event_data:
+    category: tv
+  action:
+    service: notify.telegram_notifier
+    data_template:
+      title: "Download completed!"
+      message: "{% raw %}{{trigger.event.data.name}}{% endraw %}"
+```
+
 ## Services
 
 Available services:
@@ -76,6 +102,6 @@ Available services:
 
 ### Service `nzbget/set_speed`
 
-| Service data attribute | Optional | Description |                                                                                     
+| Service data attribute | Optional | Description |
 |------------------------|----------|-------------------------------------------------------------------------------------------------|
 | `speed`                |      yes | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
