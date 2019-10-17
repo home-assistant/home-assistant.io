@@ -5,13 +5,13 @@ logo: dynalite.png
 ha_category:
   - Hub
   - Light
-ha_iot_class: Local Polling
-ha_qa_scale: platinum
+ha_iot_class: Local Push
+ha_qa_scale: No Score
 featured: true
 ha_release: "0.60"
 ---
 
-Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
+Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
