@@ -355,6 +355,11 @@ To fetch the token follow these instructions depending on your mobile phone plat
 2. Install [BlueStacks](https://www.bluestacks.com).
 3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
 4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
+5. Copy `/data/data/com.xiaomi.smarthome/databases/miio2.db` file to your computer using the Bluestacks tweakers filesystem tool.
+6. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
+7. Open the DB Browser and load the `miio2.db` from your computer.
+8. Select `Browse Data` tab from DB Browser and switch to table called `devicerecord`
+9. This will display all the connected devices information with the token.
 
 ### Selecting token manually (Windows and Android)
 
