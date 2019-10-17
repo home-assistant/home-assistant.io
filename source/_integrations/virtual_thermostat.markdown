@@ -4,7 +4,7 @@ description: "A virtual thermostat implementation"
 logo: home-assistant.png
 ha_category:
   - Climate
-ha_release: 0.1XX
+ha_release: 0.101
 ha_iot_class: Local Polling
 redirect_from:
  - /components/climate.virtual_thermostat/
