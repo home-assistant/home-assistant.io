@@ -130,6 +130,10 @@ resources:
       description: The total CPU usage in percent of Docker containers.
     docker_memory_use:
       description: The total memory used by Docker containers.
+docker_containers:
+  description: List of Docker container names to monitor
+  required: false
+  type: list
 {% endconfiguration %}
 
 Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
