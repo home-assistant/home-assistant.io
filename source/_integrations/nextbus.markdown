@@ -43,7 +43,7 @@ route:
 stop:
   description: The stop tag from NextBus.
   required: true
-  type: integer
+  type: string
 name:
   description: Name to use in the frontend.
   required: false
