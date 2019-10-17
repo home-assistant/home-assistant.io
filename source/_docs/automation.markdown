@@ -10,12 +10,13 @@ Home Assistant offers a wide range of automation configurations. In this section
 Before you can go ahead and create your own automations, it's important to learn the basics. To explore these, let's have a look at the following example home automation rule:
 
 ```text
+{annotation} An example automation
 (trigger)    When Paulus arrives home
 (condition)  and it is after sunset:
 (action)     Turn the lights in the living room on
 ```
 
-The example consists of three different parts: a [trigger](/docs/automation/trigger/), a [condition](/docs/automation/condition/) and an [action](/docs/automation/action/).
+The example consists of three mandatory parts: a [trigger](/docs/automation/trigger/), a [condition](/docs/automation/condition/) and an [action](/docs/automation/action/).
 
 The first line is the **trigger** of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from 'not_home' to 'home'.
 
@@ -26,6 +27,69 @@ The third part is the **action**, which will be performed when a rule is trigger
 <div class='note'>
 The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on versus a light being on.
 </div>
+
+{% configuration %}
+id:
+  description: Unique ID of automation.
+  required: false
+  default: automatically generated?
+  type: string
+
+alias:
+  description: Alias of automation.
+  required: false
+  default: N/A?
+  type: string
+  
+annotation:
+  description: A brief description that can be seen in Automation Editor.
+  required: false
+  default: none
+  type: string
+
+initial_state:
+  description: Enables/disables automation (see note below).
+  required: false
+  type: boolean
+  default: true
+
+hide_entity:
+  description: Any idea?
+  required: false
+  type: boolean
+  default: ?
+  
+trigger:
+  description: List of triggers.
+  required: true
+  type: list
+  keys:
+    platform:
+      description: ?.
+      required: true
+      type: ?
+
+condition:
+  description: List of conditions.
+  required: true
+  type: list
+  keys:
+    conditions:
+      description: ?.
+      required: true
+      type: ?
+
+action:
+  description: List of actions.
+  required: true
+  type: list
+  keys:
+    ?:
+      description: ?.
+      required: true
+      type: ?
+
+{% endconfiguration %}
 
 ### Exploring the internal state
 
