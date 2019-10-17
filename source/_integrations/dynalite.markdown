@@ -11,12 +11,11 @@ featured: true
 ha_release: "0.60"
 ---
 
-Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
+Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Lights
-- Motion sensors (including temperature and light level sensors)
 
 Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the States developer tool ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue bridge in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
 
