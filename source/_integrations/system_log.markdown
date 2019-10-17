@@ -53,7 +53,7 @@ Write a log entry
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                 |
-|-------------------------------------------------------------------------------------------|
+|-------------|-----------------------------------------------------------------------------|
 | `level`     | Either `WARNING` or `ERROR` depending on severity.                          |
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
