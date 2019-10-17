@@ -101,3 +101,9 @@ ttl:
   type: integer
   default: 300
 {% endconfiguration %}
+
+## Services
+
+### Service `route53.update_records`
+
+Use this service to manually trigger an update of the DNS records.
