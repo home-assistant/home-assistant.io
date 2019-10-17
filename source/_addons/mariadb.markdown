@@ -41,7 +41,7 @@ logins:
       required: true
       type: string
     host:
-      description: Host for account. If you need to connect to this account from multiple hosts, use '%'.
+      description: Host for account. Use '%', to accept connections for this account from any host.
       required: true
       type: string
     password:
