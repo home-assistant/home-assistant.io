@@ -54,6 +54,7 @@ Currently known supported models:
 
 - C7700
 - D5500
+- D6100
 - D6300SF
 - D6500
 - D6505
