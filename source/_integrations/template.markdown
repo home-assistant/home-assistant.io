@@ -330,6 +330,36 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
 
+Sometimes it is reasonable to convert an entity-less template that operates with time into one with entities to get your sensor value updated automatically:
+
+{% raw %}
+
+```yaml
+# Original entity-less template sensor that WON'T be updated automatically
+- platform: template
+    sensors:
+      house_asleep:
+        value_template: >-
+          {{ is_state('binary_sensor.anybody_home', 'off') and (now().hour|float > 22 or now().hour|float < 6)) }}
+```
+
+{% endraw %}
+
+{% raw %}
+
+```yaml
+# Converted template sensor that uses sensor.time entity and WILL BE be updated automatically on every sensor.time update (i.e every minute)
+# DON'T FORGET TO ENABLE sensor.time IN YOUR configuration.yaml!
+- platform: template
+    sensors:
+      house_asleep:
+        value_template: >-
+          {% set hour = states('sensor.time').split(':')[0]|int %}
+          {{ is_state('binary_sensor.anybody_home', 'off') and (hour > 22 or hour < 6)) }}
+```
+
+{% endraw %}
+
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}
