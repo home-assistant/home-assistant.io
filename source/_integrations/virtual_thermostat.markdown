@@ -6,8 +6,6 @@ ha_category:
   - Climate
 ha_release: 0.101
 ha_iot_class: Local Polling
-redirect_from:
- - /components/climate.virtual_thermostat/
 ---
 
 The `virtual_thermostat` climate platform is a new thermostat implementation in Home Assistant. It handles things differently from its ancestor the `generic_thermostat` being more compliant with the new climate 1.0 and supposed to be closer to a real thermostat. For example, in one component, you can have both AC and heating, avoiding to create multiple instances to control the climate in one area. It also supports an _Away mode_, an _Eco mode_ and a _Comfort mode_
