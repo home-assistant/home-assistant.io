@@ -29,7 +29,7 @@ Since Philips Dynalite has virtually no autodiscover capabilities, it needs to b
 
 ```yaml
 # Example configuration.yaml entry
-hue:
+dynalite:
   bridges:
     - host: DEVICE_IP_ADDRESS
 ```
@@ -109,7 +109,7 @@ area:
 
 ```yaml
 # Example configuration.yaml entry specifying optional parameters
-hue:
+dynalite:
   bridges:
     - host: DEVICE_IP_ADDRESS
       port: 12345
