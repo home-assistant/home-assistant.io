@@ -1,20 +1,17 @@
 ---
-layout: page
 title: "SRP Energy Sensor"
 description: "How to integrate SRP Energy within Home Assistant."
-date: 2018-10-30 08:00
-sidebar: true
-comments: false
-ha_category: Energy
-ha_release: "0.101.0"
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Energy
+ha_release: 0.101
+ha_iot_class: Cloud Polling
 ---
 
 The `srp_energy` component shows information from Srp hourly energy usage report for their customers. The srpenergy module fetches the data found on the website.
 
 You need a Username, Password, and AccountId which you can create at [Srp](https://www.srpnet.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Srp Energy to your installation, add the following to your `configuration.yaml` file:
 
