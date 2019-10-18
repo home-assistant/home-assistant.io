@@ -54,7 +54,7 @@ To get started with the new image, check out the installation instructions in th
  
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
-[hassbian-avahi]: hassbian.local
+[hassbian-avahi]: https://hassbian.local
 [landrash-github]: https://github.com/Landrash
 [gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4
