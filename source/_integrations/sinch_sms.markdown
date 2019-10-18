@@ -4,7 +4,7 @@ description: "Instructions on how to add Sinch SMS notifications to Home Assista
 logo: sinch.png
 ha_category:
   - Notifications
-ha_release: "0.101"
+ha_release: 0.101
 ---
 
 The `sinch_sms` notification component enables sending SMS notifications via [Sinch](https://sinch.com).
