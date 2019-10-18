@@ -48,7 +48,9 @@ The first thing you need to do after you sign in to the [AWS console](https://co
 - Click `Roles` in the left panel, then click `Create role`, select `AWS Service` -> `Lambda` in the first page of the wizard, then click `Next: Permissions`
 - Select `AWSLambdaBasicExecutionRole` policy, then click `Next: Tags`. (Tips: you can use the search box to filter the policy)
 
+<p class='img'>
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
+</p>
 
 - You can skip `Add tags` page, click `Next: Review`.
 - Give your new role a name, such as `AWSLambdaBasicExecutionRole-Intents`, then click `Create role` button. You should be able to find your new role in the roles list now.
@@ -76,7 +78,10 @@ Next you need to create a Lambda function.
   * NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   * DEBUG *(optional)*: set to *True* to log debugging messages.
   * LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.) 
+
+<p class='img'>
   <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
+</p>
 
 - Now scroll up to the top and click the `Save` button.
 - Next, copy the ARN displayed in the top of the page, which is the identify of this Lambda function. Set the end point of the custom Alexa Skill you created earlier to this value.
@@ -103,7 +108,9 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * `Scope`: input `intent`. Home Assistant doesn't use this yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
+<p class='img'>
   <img src='/images/integrations/alexa/account_linking.png' alt='Screenshot: Account Linking'>
+</p>
 
 - Click `Save` button in the top right corner.
 - Next, you will use the Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
