@@ -26,7 +26,7 @@ notify:
 ```
 
 
-{% cfiguration %}
+{% configuration %}
 api_key:
   description: API Key given by Sinch.
   required: true
