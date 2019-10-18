@@ -33,13 +33,13 @@ emulate_key_hold:
 emulate_key_hold_delay:
   description:  Number of milliseconds to wait before sending first emulated key hold event
   required: false
-  type: positive_int
-  default: 350
+  type: float
+  default: 0.250
 emulate_key_hold_repeat:
   description:  Number of milliseconds to wait before sending subsequent emulated key hold event
   required: false
-  type: positive_int
-  default: 33
+  type: float
+  default: 0.033
 device_descriptor:
   description: Path to the local event input device file that corresponds to the keyboard.
   required: false
