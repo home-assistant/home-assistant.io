@@ -352,7 +352,7 @@ The following integrations are currently supported:
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
-| water_heater | WaterHeater | All water_heater devices. |
+| water_heater | WaterHeater | All `water_heater` devices. |
 
 ## Troubleshooting
 
