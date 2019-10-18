@@ -11,19 +11,21 @@ featured: true
 ha_release: "0.60"
 ---
 
-Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
+Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light platforms. 
 
 There is currently support for the following device types within Home Assistant:
 
 - Lights
 
-Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the States developer tool ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue bridge in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
+A Philips Dynalite hub connects to the Dynet network, which is composed of areas, channels, and preset. 
 
-When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP address of the bridge. If the IP address for the bridge changes, you will need to register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your Hue bridge so that it always has the same IP address.
+A Dynalite area typically (although not necessarily) defines some physical area, such as a room. 
 
-Once registration is complete you should see the Hue lights listed as `light` entities, the Hue motion sensors listed as `binary_sensor` entities, and the Hue temperature and light level sensors (which are built in to the motion sensors) listed as `sensor` entities. If you don't, you may have to restart Home Assistant once more.
+Each area can have one or more channels that correspond to the different devices they control. A channel can relate to a dimmable light, or other devices, such as a cover.
 
-If you want to enable the integration without relying on the [discovery component](/integrations/discovery/), add the following lines to your `configuration.yaml` file:
+Additionally each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset 1 in an area means 'on', and preset '4' means off. Additional presets could be used for scenes and dimming.
+
+Since Philips Dynalite has virtually no autodiscover capabilities, it needs to be configured via the `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,23 +36,35 @@ hue:
 
 {% configuration %}
 host:
-  description: The IP address of the bridge (e.g., 192.168.1.10). Required if not using the `discovery` integration to discover Hue bridges.
+  description: The IP address of the bridge (e.g., 192.168.1.10).
   required: true
   type: string
-allow_unreachable:
-  description: This will allow unreachable bulbs to report their state correctly.
+port:
+  description: Port number of the bridge
   required: false
-  type: boolean
-  default: false
-filename:
-  description: Make this unique if specifying multiple Hue bridges.
+  type: integer
+  default: 12345
+name:
+  description: Name for the bridge
   required: false
   type: string
-allow_hue_groups:
-  description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+  default: dynalite
+log_level:
+  description: Log level for the libraries
+  required: false
+  type: string
+  default: info
+autodiscover:
+  description: Enable autodiscover. As Dynalite does not support autodiscovery, this tracks event on your network, so if you turn on a light, it will be added to Home Assistant
   required: false
   type: boolean
   default: true
+polltimer:
+  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g. a light fading), it will ask for a new state every X seconds until it is at the target level.
+  required: false
+  type: float
+  default: 1.0
+
 {% endconfiguration %}
 
 ## Examples
