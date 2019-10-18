@@ -64,7 +64,45 @@ polltimer:
   required: false
   type: float
   default: 1.0
-
+area:
+  description: Definition for the various Dynalite areas
+  required: true
+  type: map
+  keys:
+    'AREA_NUMBER':
+      description: The Dynalite area number, 1-255
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name of the area
+          required: true
+          type: string
+        fade:
+          description: Fade time for the area, in seconds
+          required: false
+          type: float
+          default: 2.0
+        channel:
+          description: Map of the channels in this area
+          required: false
+          type: map
+          keys:
+            'CHANNEL_NUMBER':
+              description: The Dynalite channel number in the area, 1-255
+              required: true
+              type: map
+              keys:
+                name:
+                  description: Name of the channel
+                  required: false
+                  type: string
+                  default: \"AREA_NAME Channel CHANNEL_NUMBER\"
+                fade:
+                  description: Fade time for the channel, in seconds
+                  required: false
+                  type: float
+                  default: 2.0
 {% endconfiguration %}
 
 ## Examples
@@ -74,96 +112,29 @@ polltimer:
 hue:
   bridges:
     - host: DEVICE_IP_ADDRESS
-      allow_unreachable: true
-      allow_hue_groups: true
+      port: 12345
+      autodiscover: true
+      polltimer: 1
+      areacreate: auto
+      log_level: debug
+      area:
+        '2':
+          name: Living Room
+          channel:
+            '2': 
+              name: Entrance Spot
+              fade: 10.0
+            '3': 
+              name: Dining Table
 ```
 
-### Multiple Hue bridges
+### Initial configuration and discovery
 
-Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up. If you prefer to configure them manually and use multiple Hue bridges, then you need to provide a configuration file for every bridge. The bridges can't share a single configuration file.
+Maybe the most difficult thing about a Dynalite system is finding out the areas and channel mapping. If you have them or have access to the Dynalite software and your configuration files, this could be easy,
+but in the likely case that your system was installed by an integrator, you will have to discover them on your own.
 
-Add `filename` to your Hue configuration entry in your `configuration.yaml` file:
+This is where the `autodiscover` option comes handy. If it is on, the component will track the Dynet network and every time a device is used, it will be added to home assistant. It will initially show as "Area 123 Channel 7", but you can then add it to your `configuration.yaml` with the correct configuration.
 
-```yaml
-# Example configuration.yaml entry
-hue:
-  bridges:
-    - host: BRIDGE1_IP_ADDRESS
-      filename: phue.conf
-    - host: BRIDGE2_IP_ADDRESS
-      filename: phue2.conf
-```
+For example, you would go to your kitchen light and turn it on. Now you log into Home Assistant and see what the channel was. If there was more than one discovered (e.g. someone turned off the living room lights), you can try one, turn it on and off in Home Assistant and see which light it affects.
 
-### Using Hue Groups in Home Assistant
-
-The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
-
-These Hue groups can be a `Luminaire`, `Lightsource`, `LightGroup`, or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API or the mobile app. A bulb can only exist in one `Room`, but can exist in more than one `LightGroup`. The `LightGroup` can be useful if you want to link certain bulbs together.
-
-The 2nd generation Hue app only has the ability to create a `Room`. You need to use the first generation app or the API to create a `LightGroup`.
-
-Example:
-
-To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2, and 3, execute the following command:
-
-```bash
-$ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
-```
-
-The `<username>` is the string that is used to register Home Assistant on the bridge. You can find it in the `core.config_entries` file in your configuration\.storage path. `<bridge>` is the IP address or hostname of your Hue bridge.
-
-You can find the IDs of your lights by executing the following command:
-
-```bash
-$ curl http://<bridge>/api/<username>/lights
-```
-
-Home Assistant will automatically detect your new `LightGroup` and add it to the interface.
-
-<div class='note warning'>
-  To support Hue light groups, your bridge needs to have at least firmware 1.13 (released on June 3, 2016).
-</div>
-
-More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
-
-### Using Hue Scenes in Home Assistant
-
-The Hue platform has its own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them—many that you've never used, and almost all very poorly named.
-
-To avoid user interface overload, we don't expose scenes directly. Instead there is a hue.hue_activate_scene service which can be used by `automation` or `script` components.
-This will have all the bulbs transitioned at once, instead of one at a time like when using standard scenes in Home Assistant.
-
-For instance:
-
-```yaml
-script:
-  porch_on:
-    sequence:
-      - service: hue.hue_activate_scene
-        data:
-          group_name: "Porch"
-          scene_name: "Porch Orange"
-```
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `group_name` | no | The group/room name of the lights. Find this in the official Hue app.
-| `scene_name` | no | The name of the scene. Find this in the official Hue app.
-
-*Note*: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
-
-### Finding Group and Scene Names
-
-How do you find these names?
-
-The easiest way to do this is to only use the scenes from the 2nd generation Hue app, which is organized by room (group) and scene name. Use the values of room name and scene name that you see in the app. You can test that these work by using the `dev-service` console of your Home Assistant instance.
-
-Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together, but it is sufficient to get values that you can test in the `dev-service` console.
-
-### Caveats
-
-The Hue API doesn't activate scenes directly; rather, they must be associated with a Hue group (typically rooms, especially if using the 2nd gen app). But Hue scenes don't actually reference their group. So heuristic matching is used.
-
-Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
-
-The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on the scenes that are "least recently used."
+The initial process can be a bit time consuming and tidious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system use for internal communication and you do not want to have visible.
