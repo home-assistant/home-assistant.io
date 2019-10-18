@@ -1,7 +1,6 @@
 <section class="aside-module grid__item one-whole lap-one-half">
   <!-- {% include edit_github.html %} -->
   {% assign cards = site.lovelace | sort_natural: 'title' %}
-  {% assign cards = site.lovelace.badges | sort_natural: 'title' %}
 
   <div class='section'>
     <h1 class="title delta">Lovelace UI</h1>
@@ -18,15 +17,6 @@
       <li>{% active_link /lovelace/yaml-mode/ YAML mode %}</li>
       <li>{% active_link /lovelace/views/ Views %}</li>
       <li><a href='https://developers.home-assistant.io/docs/en/lovelace_custom_card.html'>Developing Custom Cards <i icon='icon-external-link'></i></a></li>
-    </ul>
-  </div>
-
-  <div class='section'>
-    <h1 class="title delta">Badges</h1>
-    <ul class='divided sidebar-menu'>
-      {% for badge in badges %}
-        <li>{% active_link {{badge.url}} {{badge.sidebar_label}} %}</li>
-      {% endfor %}
     </ul>
   </div>
 
