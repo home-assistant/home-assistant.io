@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**.
 
-Enter `host address`, `user name` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user needs administrator privileges in order to control POE switches.
+Enter `host` address, `username` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user needs administrator privileges in order to control POE switches.
 
 ### Extra configuration for device tracker
 
@@ -33,7 +33,7 @@ You can augment the behavior of UniFi device tracker by adding
 unifi:
   controllers:
     - host: unifi
-      site: My site
+      site: 'My site'
       ssid_filter:
         - 'HomeSSID'
         - 'IoTSSID'
