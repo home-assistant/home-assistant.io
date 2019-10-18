@@ -6,7 +6,7 @@ date: 2018-10-30 08:00
 sidebar: true
 comments: false
 ha_category: Energy
-ha_release: "0.83"
+ha_release: "0.101.0"
 ha_iot_class: "Cloud Polling"
 ---
 
