@@ -428,7 +428,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.webostv docs]: /integrations/webostv#media-player
 [media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 [mqtt docs]: /integrations/mqtt/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [mqtt.server docs]: /integrations/mqtt.server/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
 [neato docs]: /integrations/neato/

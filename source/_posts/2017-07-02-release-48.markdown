@@ -469,7 +469,7 @@ light:
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.soundtouch docs]: /integrations/soundtouch
 [mqtt docs]: /integrations/mqtt/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [notify.clicksend docs]: /integrations/clicksend
 [notify.html5 docs]: /integrations/html5
 [notify.smtp docs]: /integrations/smtp
