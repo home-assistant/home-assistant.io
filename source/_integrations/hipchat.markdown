@@ -8,10 +8,7 @@ ha_release: 0.52
 ---
 
 <div class='note'>
-This integration will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
-<br>
-<br>
-Hipchat will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
+Hipchat was discontinued on February 15th, 2019. Slack has taken over Hipchat and Stride, and have therefore stopped these platforms. As a consequence, this integration will be removed from Home Assistant in the future. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
 </div>
 
 The `hipchat` platform allows you to send notifications from Home Assistant to [HipChat](https://hipchat.com/).
