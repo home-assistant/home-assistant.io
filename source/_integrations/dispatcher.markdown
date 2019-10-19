@@ -12,7 +12,7 @@ ha_iot_class: Configurable
 This platform is meant for developers only.
 </div>
 
-The `dispatcher` camera platform allows developers to create virtual camera's.
+The `dispatcher` camera platform allows developers to create virtual cameras.
 
 ## Configuration
 
