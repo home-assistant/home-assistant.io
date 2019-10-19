@@ -17,7 +17,7 @@ To enable this integration with the default configuration, add the following lin
 ```yaml
 # Example configuration.yaml entry
 pi_hole:
-  - host: pi.hole
+  - host: IP_ADDRESS
 ```
 
 {% configuration %}
