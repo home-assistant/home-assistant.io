@@ -6,7 +6,7 @@ ha_category:
   - Hub
   - Light
 ha_iot_class: Local Push
-ha_release: "0.101"
+ha_release: 0.101
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light platforms. 
