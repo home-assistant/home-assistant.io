@@ -25,6 +25,8 @@ Each area can have one or more channels that correspond to the different devices
 
 Additionally each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset 1 in an area means 'on', and preset '4' means off. Additional presets could be used for scenes and dimming.
 
+## Configuration
+
 Since Philips Dynalite has virtually no autodiscover capabilities, it needs to be configured via the `configuration.yaml` file:
 
 ```yaml
