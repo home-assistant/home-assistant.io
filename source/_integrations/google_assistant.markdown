@@ -27,6 +27,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 </div>
 
 ## Migrate to release 0.80 and above
+
 <div class='note'>
 
 If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [manual setup instructions](#first-time-setup) below.
@@ -165,6 +166,8 @@ service_account:
       type: string
     client_email:
       description: Service email address
+      required: true
+      type: string
 report_state:
   description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since google assistant knows pre-hand what state they are. It is also required for some features on visual controls.
   required: false
