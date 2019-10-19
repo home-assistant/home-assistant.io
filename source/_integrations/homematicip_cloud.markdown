@@ -215,7 +215,7 @@ Deactivates the vacation mode immediately.
 ```yaml
 ...
 action:
-  service: homematicip_cloud.deactivate_vacation_mode
+  service: homematicip_cloud.deactivate_vacation
   data:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
