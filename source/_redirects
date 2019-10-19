@@ -596,7 +596,6 @@
 /components/notify.simplepush /integrations/simplepush
 /components/notify.slack /integrations/slack
 /components/notify.smtp /integrations/smtp
-/components/notify.stride /integrations/stride
 /components/notify.synology_chat /integrations/synology_chat
 /components/notify.syslog /integrations/syslog
 /components/notify.telegram /integrations/telegram
