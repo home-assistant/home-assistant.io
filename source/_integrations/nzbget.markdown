@@ -72,7 +72,7 @@ The NZBGet integration continuously monitors nzbget's download history. When a d
 
 Possible events are:
 
-- `nzbget_downloaded_nzb`
+- `nzbget_download_complete`
 
 The event includes the name, category, and status of the downloaded nzb.
 
@@ -83,7 +83,7 @@ Example automation to send a Telegram message on a completed download:
 - alias: Completed Torrent
   trigger:
     platform: event
-    event_type: nzbget_downloaded_nzb
+    event_type: nzbget_download_complete
   - event_data:
     category: tv
   action:
