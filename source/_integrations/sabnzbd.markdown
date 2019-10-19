@@ -101,7 +101,7 @@ sabnzbd:
     - total_size
 ```
 
-This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named
+This will attempt to access your SABnzbd instance at `https://192.168.1.32:9090` and will create sensors named
 `sensor.sab_status`, `sensor.sab_speed`, etc.
 
 ## Services
