@@ -156,7 +156,7 @@ api_key:
   required: false
   type: string
 service_account:
-  description: Service account information. You can use an include statement with your downloaded json file, enter data here directly or use secrets file to populate.
+  description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
   required: false
   type: map
   keys:
@@ -169,7 +169,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since google assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
