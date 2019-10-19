@@ -72,7 +72,7 @@ Next you need to create a Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
 - Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
-- Clear the example code and copy the Python script from: <https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da>
+- Clear the example code and copy the Python script from: [https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da)
 - Scroll down again and you will find `Environment variables`, add the following environment variables as needed:
   * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   * NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
