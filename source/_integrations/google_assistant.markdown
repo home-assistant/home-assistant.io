@@ -98,7 +98,16 @@ If you've added Home Assistant to the home screen, you have to first remove it f
         2. Copy and share the link with the new user.
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
-2. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
+2. If you want to support actively reporting of state to google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
+  1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+  2. From the Service account list, select New service account.
+  3. In the Service account name field, enter a name.
+  4. In the Service account ID field, enter a ID.
+  5. From the Role list, select Service Accounts > Service Account Token Creator.
+  6. For the Key type, select the JSON option.
+  7. Click Create. A JSON file that contains your key downloads to your computer.
+  8. Use the information in this file or the file directly to add to the `service_account`key in configuration.
+3. If you didn't specify a service accunt and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable Homegraph API.
     3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
@@ -113,6 +122,8 @@ Now add the following lines to your `configuration.yaml` file:
 google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
+  service_account: !include SERVICE_ACCOUNT.JSON
+  report_state: true
   exposed_domains:
     - switch
     - light
@@ -140,9 +151,25 @@ secure_devices_pin:
   type: string
   default: ""
 api_key:
-  description: Your Homegraph API key (for the `google_assistant.request_sync` service)
+  description: Your Homegraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.
   required: false
   type: string
+service_account:
+  description: Service account information. You can use an include statement with your downloaded json file, enter data here directly or use secrets file to populate.
+  required: false
+  type: map
+  keys:
+    private_key:
+      description: Private key in PEM format
+      requried: true
+      type: string
+    client_email:
+      description: Service email address
+report_state:
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since google assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  required: false
+  default: false
+  type: boolean
 expose_by_default:
   description: "Expose devices in all supported domains by default. If `exposed_domains` domains is set, only these domains are exposed by default. If `expose_by_default` is set to false, devices have to be manually exposed in `entity_config`."
   required: false
