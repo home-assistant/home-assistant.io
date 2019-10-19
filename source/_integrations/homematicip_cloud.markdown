@@ -228,7 +228,7 @@ You can get the required index from the native Homematic IP App.
 ```yaml
 ...
 action:
-  service: homematicip_cloud.deactivate_vacation_mode
+  service: homematicip_cloud.set_active_climate_profile
   data:
     entity_id: climate.livingroom
     climate_profile_index: 1
