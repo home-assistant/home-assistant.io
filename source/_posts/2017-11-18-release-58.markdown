@@ -23,7 +23,7 @@ Talking about our translators, we now have 445 people with an account to help wi
 
 And because more translations is more better, [@robbiet480] has added the iOS app to Lokalise, our translation management platform. The iOS app is currently supported in 7 different languages.
 
-[Learn more about how to help with translations](/2017/11/06/frontend-translations/)
+[Learn more about how to help with translations](/blog/2017/11/06/frontend-translations/)
 
 ## Frontend improvements continue
 
