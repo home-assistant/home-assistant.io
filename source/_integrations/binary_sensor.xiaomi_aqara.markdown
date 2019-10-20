@@ -99,6 +99,20 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     entity_id: climate.livingroom
     data:
       operation_mode: 'Smart schedule'
+- alias: Notify if door is opened when away
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'not_home'
+  action:
+    - service: notify.notify_person
+      data:
+        message: 'The door has been opened'
 ```
 
 #### Smoke
