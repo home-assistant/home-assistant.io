@@ -7,6 +7,12 @@ description: "Installation of Home Assistant on your FreeNAS."
 
 This has been tested on FreeNAS 11.2 and should also work on FreeBSD 11.x as well. These instructions assume you already have a running and accessible jail. For more information on creating a jail read the official FreeNAS User Guide regarding [Jails](https://www.ixsystems.com/documentation/freenas/11.2/jails.html). Once you have the jail available, follow the steps below. Directories used follow standard BSD conventions but can be adjusted as you wish.
 
+Enter the Home Assistant jail. If you don't know which name you have given the jail, you can use the `iocage list` command to check.
+```bash
+# If the jail is called 'HomeAssistant'
+iocage exec HomeAssistant
+```
+
 Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
 
 ```bash
@@ -149,7 +155,7 @@ run_rc_command "$1"
 Make the `rc.d` script executable:
 
 ```bash
-# chmod +x /usr/local/etc/rc.d/homeassistant
+chmod +x /usr/local/etc/rc.d/homeassistant
 ```
 
 Configure the service to start on boot and start the Home Assistant service:
@@ -166,3 +172,31 @@ You can also restart the jail to ensure that Home Assistant starts on boot.
 USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-Wave stick in Home Assistant. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
 
 </div>
+
+# Updating
+Before updating, read the changelog to see what has changed and how it affects your Home Assistant instance. Enter the jail using `iocage exec <jailname>`. Stop the Home Assistant service:
+
+```bash
+service homeassistant stop
+```
+
+Then, enter the `venv`:
+
+```bash
+su homeassistant
+cd /usr/local/share/homeassistant
+source ./bin/activate.csh
+```
+
+Upgrade Home Assistant:
+
+```bash
+pip3 install homeassistant --upgrade
+```
+
+Log out of the `homeassistant` user and start Home Assistant:
+
+```bash
+exit
+service homeassistant start
+```

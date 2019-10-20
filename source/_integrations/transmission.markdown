@@ -97,6 +97,7 @@ Inside of the event, there is the name of the torrent that is started or complet
 
 Example of configuration of an automation with completed torrents:
 
+{% raw %}
 ```yaml
 - alias: Completed Torrent
   trigger:
@@ -108,6 +109,7 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+{% endraw %}
 
 ## Services
 

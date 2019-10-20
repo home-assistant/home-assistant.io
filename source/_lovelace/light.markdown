@@ -30,6 +30,10 @@ name:
   description: Overwrites friendly name.
   type: string
   default: Name of Entity
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
 ## Examples

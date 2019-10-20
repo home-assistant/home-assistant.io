@@ -9,7 +9,7 @@ ha_release: pre 0.7
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt/)._
 
-This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
+This is a presence detection scanner for OpenWRT using [luci](https://openwrt.org/docs/techref/luci).
 
 <div class='note'>
 
