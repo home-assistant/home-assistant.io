@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Home Assistant vs. Hass.io"
 description: "Home Assistant vs. Hass.io"
-date: 2018-02-12 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Installation
 ---
 

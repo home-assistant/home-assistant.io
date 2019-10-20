@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant and The Things Network (TTN)"
 description: "How to use transfer MQTT messages from The Things Network (TTN) to a local broker."
 date: 2017-11-10 14:00:00 +0200
 date_formatted: "November 10, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-mqtt-ttn/social-ha-ttn.png
 ---
@@ -17,7 +15,7 @@ At the moment Home Assistant only supports one [MQTT broker](/docs/mqtt/). This 
 
 <!--more-->
 
-## {% linkable_title Subscribe to the TTN Broker %}
+## Subscribe to the TTN Broker
 
 To check what your devices are sending, subscribe to the topic `+/devices/+/up` with a command-line tool like `mosquitto_sub`. The `<Region>` is the postfix of the **Handler** entry in your **Application overview**. `<AppID>` is the **Application ID** and `<AppKey>` is your access key. 
 
@@ -33,7 +31,7 @@ $ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>
 
 The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
 
-## {% linkable_title The relay %}
+## The relay
 
 To be able to work locally with the MQTT data that is received from the devices connected to TTN, we need to transfer it to the local broker. With this simple script below all messages from a given device are re-published on your local MQTT broker after they are received. Modify the script with your details as outlined in the previous section.
 
@@ -82,9 +80,9 @@ Save it and run it. As soon as a MQTT message is received from your device you s
 $ mosquitto_sub -h 192.168.0.2 -t "#" -d
 ```
 
-## {% linkable_title The sensor %}
+## The sensor
 
-All we would need now, is a [`mqtt` sensor](/components/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
+All we would need now, is a [`mqtt` sensor](/integrations/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
 
 ```python
 """Support for The Things Network MQTT sensors."""
@@ -184,11 +182,11 @@ class MqttTtnSensor(Entity):
 
 Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will handle the messages.
 
-## {% linkable_title The configuration %}
+## The configuration
 
-Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
+Now create the [`mqtt_ttn` sensor](/integrations/sensor.mqtt/) entry for your device.
 
-```
+```yaml
 sensor:
   - platform: mqtt_ttn
     name: TTN Sensor

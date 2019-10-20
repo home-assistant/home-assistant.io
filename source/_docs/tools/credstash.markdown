@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "credstash"
 description: "Script to store credentials securely in AWS"
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using [Credstash](https://github.com/fugue/credstash) is an alternative way to `secrets.yaml`. They can be managed from the command line via the credstash script.
@@ -27,6 +21,12 @@ http:
 Create an entry in your credstash store.
 
 ```bash
-$ hass --script credstash set http_password
+$ hass --script credstash put http_password 123
+```
+
+List your secrets.
+
+```bash
+$ hass --script credstash list
 ```
 

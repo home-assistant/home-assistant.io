@@ -1,21 +1,15 @@
 ---
-layout: page
 title: "Installation on a Windows system"
 description: "Instructions to install Home Assistant on a Microsoft Windows system."
-date: 2017-02-23 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To run Home Assistant on Microsoft Windows installation you need to install Python first. Download Python (the latest version of Python 3.6 is recommended) for [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/) and follow the instructions of the installer.
 
-<p class='note'>
+<div class='note'>
 There may be alpha or beta releases of Python listed on that download page (marked by the letters `a` or `b` in the version number. Do not use these versions.
-</p>
+</div>
 
-If you use your machine for something other than Home Assistant, you should install it in a [Python virtual environment](#Installing_in_a_Python_virtual_environment).
+If you use your machine for something other than Home Assistant, you should install it in a [Python virtual environment](#installing-in-a-python-virtual-environment).
 
 Start 
 
@@ -28,11 +22,11 @@ For autostarting Home Assistant please refer to this [guide](https://community.h
 
 Check this [video](https://www.youtube.com/watch?v=X27eVvuqwnY) for the installation on Windows 10.
 
-<p class='note warning'>
+<div class='note warning'>
 The Microsoft Windows platform is not a primary target to install Home Assistant. Also, not all tools and third-party modules will work.
-</p>
+</div>
 
-## {% linkable_title Updating %}
+## Updating
 
 To update Home Assistant, stop it and then run:
 
@@ -42,7 +36,7 @@ C:\...\> pip3 install --upgrade homeassistant
 
 Then start Home Assistant.
 
-## {% linkable_title Installing in a Python virtual environment %}
+## Installing in a Python virtual environment
 
 Open `cmd.exe` and paste the following commands (one at the time):
 
@@ -55,7 +49,7 @@ C:\...\> py -m pip install homeassistant
 C:\...\> hass
 ```
 
-## {% linkable_title Upgrading in a Python virtual environment %}
+## Upgrading in a Python virtual environment
 
 To update Home Assistant, stop it and then open `cmd.exe` and paste the following commands (one at the time):
 

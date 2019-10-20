@@ -1,19 +1,13 @@
 ---
-layout: page
 title: "Home Assistant/Hass.io porosity"
 description: "Use nmap to scan your Home Assistant instance."
-date: 2016-10-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 As a large amount of users are running [Hass.io](/hassio/), here we are using a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview.
 
-The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network.
+The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to perform the port scans. Both systems are in the same network.
 
-## {% linkable_title SSH server Add-on %}
+## SSH server Add-on
 
 To get access to Hass.io in secure way, SSH is provided by the [SSH server add-on](/addons/ssh/).
 
@@ -56,7 +50,7 @@ Nmap done: 1 IP address (1 host up) scanned in 726.23 seconds
 
 That port 22 and 8123 are open was expected. On port 22222 is an additional SSH server running. This port is for [debugging](https://developers.home-assistant.io/docs/en/hassio_debugging.html) and supports only a login with a key. This means that you would need to remove the SD card from your Raspberry Pi, create an `authorized_keys` with your SSH public key in it and put the SD Card back in your Pi to get access.
 
-## {% linkable_title Mosquitto MQTT broker Add-on %}
+## Mosquitto MQTT broker Add-on
 
 While setting up the [Mosquitto MQTT broker add-on](/addons/mosquitto/) no settings very modified, the add-on was running with the default settings.
 
@@ -101,7 +95,7 @@ Nmap done: 1 IP address (1 host up) scanned in 223.76 seconds
 
 To secure MQTT to consider to use certificates and to specify users with password under `logins:` at least. Use port 1883 only in your local network.
 
-## {% linkable_title Samba Add-on %}
+## Samba Add-on
 
 The [Samba add-on](/addons/samba/) enables one to use a Windows system to access the configuration and other shares. Per default there is no user set. To increase your local security we strongly suggest that you set a username and a password and don't allow guests. A sample configuration could look like the one below.
 

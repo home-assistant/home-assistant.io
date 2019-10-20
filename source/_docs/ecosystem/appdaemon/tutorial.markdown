@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "AppDaemon Tutorial"
 description: "AppDaemon Tutorial"
-release_date: 2016-11-27 08:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/appdaemon/tutorial/
 ---
 
-## {% linkable_title Another Take on Automation %}
+## Another Take on Automation
 
 If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a light switch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation in bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
@@ -37,11 +31,11 @@ So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations
 
 It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additional functions to make things that were already possible easier.
 
-## {% linkable_title How it Works %}
+## How it Works
 
 The best way to show what AppDaemon does is through a few simple examples.
 
-### {% linkable_title Sunrise/Sunset Lighting %}
+### Sunrise/Sunset Lighting
 
 Lets start with a simple App to turn a light on every night fifteen
 minutes (900 seconds) before sunset and off every morning at sunrise.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Asterisk Voicemail Server Installation"
 description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
-date: 2017-06-30 18:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Asterisk Voicemail integration allows Home Assistant to view, listen to and delete voicemails from a Asterisk voicemail mailbox.
@@ -18,13 +12,13 @@ There are two components to the integration:
 
 Both parts are necessary for Asterisk voicemail integration.
 
-The server installation is documented below. The client is [integrated inside Home Assistant](/components/asterisk_mbox)
+The server installation is documented below. The client is [integrated inside Home Assistant](/integrations/asterisk_mbox)
 
-<p class='note'>
+<div class='note'>
 Currently this module can only monitor a single Asterisk PBX mailbox.
-</p>
+</div>
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 Before beginning make sure that you have the following:
 
@@ -34,14 +28,14 @@ Before beginning make sure that you have the following:
 - Administrator access on the Asterisk PBX (for python module installation).
 - Account access to the `asterisk` user that runs the Asterisk PBX software.
 
-### {% linkable_title Installation %}
+### Installation
 
 1. Apply for a Google API key to enable speech-transcription services
 
 2. Install the `asterisk_mbox_server` python module:
 
    ```bash
-   $ pip3 install asterisk_mbox_server
+   pip3 install asterisk_mbox_server
    ```
 
 3. Create a configuration file for the server
@@ -71,16 +65,16 @@ Before beginning make sure that you have the following:
    Once complete, ensure this file is only accessible by the Asterisk user:
 
    ```bash
-   $ sudo chown asterisk:asterisk /etc/asterisk/asterisk_mbox.ini
-   $ sudo chmod 600 /etc/asterisk/asterisk_mbox.ini
+   sudo chown asterisk:asterisk /etc/asterisk/asterisk_mbox.ini
+   sudo chmod 600 /etc/asterisk/asterisk_mbox.ini
    ```
 4. Interactively start the server to verify it is functioning
 
    ```bash
-   $ sudo -u asterisk asterisk_mbox_server -v --cfg /etc/asterisk/asterisk_mbox.ini
+   sudo -u asterisk asterisk_mbox_server -v --cfg /etc/asterisk/asterisk_mbox.ini
    ```
 
-   Now complete the [Home Assistant configuration](/components/asterisk_mbox) and verify that Home Assistant can communicate with the server
+   Now complete the [Home Assistant configuration](/integrations/asterisk_mbox) and verify that Home Assistant can communicate with the server
 
    You can use `Ctrl-c` to terminate the server when done testing
 
@@ -104,6 +98,8 @@ Before beginning make sure that you have the following:
    WantedBy=multi-user.target
    ```
 
-<p class='note'>
+<div class='note'>
+
 This assumes that your Asterisk PBX server is using `systemd` for init handling. If not, you will need to create the appropriate configuration files yourself.
-</p>
+
+</div>

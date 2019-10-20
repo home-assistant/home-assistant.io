@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Turn on lights for 10 minutes after motion detected"
 description: "Turn on lights for 10 minutes when motion detected."
-date: 2015-10-08 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on lights with a resetable off timer %}
+#### Turn on lights with a resetable off timer
 
 This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.
 

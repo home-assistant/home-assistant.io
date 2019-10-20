@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Testing"
 description: "Instructions on how to test your MQTT setup."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -22,7 +16,7 @@ If you are using the embedded MQTT broker, the command looks a little different 
 $ mosquitto_pub -V mqttv311 -u homeassistant -P <broker password> -t "hello" -m world
 ```
 
-Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
+Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt.publish` under "Available Services". Enter something similar to the example below into the "Service Data" field.
 
 ```json
 {

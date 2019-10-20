@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.25: Custom frontend panels, Jupyter notebooks, DirecTV."
 description: "Frontend became blazing fast and extensible. DirecTV support added."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 
@@ -38,7 +36,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Template: New [filters] (`timestamp_local` and `timestamp_utc`) ([@fabaff])
 - Binary sensor - Wink: Water leak sensor support added ([@w1ll1am23])
 - Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor ([@PetitCircuitLab])
-- Switch - RPi GPIO: Fix when inverted logic ([@zeroDenial])
+- Switch - RPi GPIO: Fix when inverted logic (@zeroDenial)
 - Z-Wave: Rollershutter update ([@turbokongen])
 - RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
 - Core: Add [type][typing] checking using mypy to the core ([@fabianhjr])
@@ -57,18 +55,18 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Qwikswitch: Stability fixes ([@kellerza])
 - Light: [Hyperion] keeps now track of active color ([@schneefux])
 
-### {% linkable_title Hotfix 0.25.1 - August 1 %}
+### Hotfix 0.25.1 - August 1
 
 - Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
 - Recorder: Properly close session after execute ([@kellerza])
 - Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
 - Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
 
-### {% linkable_title Hotfix 0.25.2 - August 2 %}
+### Hotfix 0.25.2 - August 2
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Google Voice SMS notification support was removed.
 
@@ -99,32 +97,31 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [@usul27]: https://github.com/usul27
 [@vladonemo]: https://github.com/vladonemo
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@zeroDenial]: https://github.com/zeroDenial
 [@jnewland]: https://github.com/jnewland
 [@shoekstra]: https://github.com/shoekstra
 
 [custom-panels]: /developers/frontend_creating_custom_panels/
-[iframe_panel]: /components/panel_iframe/
+[iframe_panel]: /integrations/panel_iframe/
 [custom]: /cookbook/custom_panel_using_react/
-[flux]: /components/light.flux_led/
+[flux]: /integrations/flux_led
 [script]: /getting-started/scripts/#delay
-[Russound]: /components/media_player.russound_rnet/
-[tags]: /components/influxdb/
+[Russound]: /integrations/russound_rnet
+[tags]: /integrations/influxdb/
 [filter]: /topics/templating/
 [jupyter-notebooks]: /cookbook/#jupyter-notebooks
 [jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
 [Jupyter]: http://jupyter.org/
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
-[DirecTV]: /components/media_player.directv/
+[DirecTV]: /integrations/directv
 [Configuration]: /developers/python_api/#get-configuration
-[X10]: /components/light.x10/
-[IMAP]: /components/sensor.imap/
+[X10]: /integrations/x10
+[IMAP]: /integrations/imap
 [typing]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
-[MPC-HC]: /components/media_player.mpchc/
-[Telegram]: /components/notify.telegram/
+[MPC-HC]: /integrations/mpchc
+[Telegram]: /integrations/telegram
 [react-panel]: /cookbook/custom_panel_using_react/
-[KNX]: /components/thermostat.knx/
-[Nest]: /components/thermostat.nest/
+[KNX]: /integrations/climate.knx/
+[Nest]: /integrations/nest/#climate
 [filters]: /topics/templating/#home-assistant-template-extensions
-[Hyperion]: /components/light.hyperion/
+[Hyperion]: /integrations/hyperion

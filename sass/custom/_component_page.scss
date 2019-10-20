@@ -1,11 +1,11 @@
 #components-page{
   .component-search{
     margin-bottom: 24px;
-  
+
     input{
       width: 100%;
       padding: 10px;
-      
+
       background-color: #fefefe;
       border-radius: 2px;
       border: 1px solid;
@@ -50,12 +50,12 @@
         margin: 12px 0;
       }
 
-      .added_in_current_version {
-        margin-top: 12px;
+      .version_select {
+        margin: 12px 0 12px 0;
       }
 
-      .added_two_versions_ago {
-        margin-bottom: 12px;
+      .version_select > select {
+        width: 100%;
       }
 
       .btn {
@@ -76,18 +76,18 @@
 
 // styles for the cards
 .hass-option-cards {
-  display: -ms-flexbox;    
-  display: -webkit-box;    
-  display: -webkit-flexbox; 
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flexbox;
   display: -webkit-flex;
-  display: flex; 
-  
+  display: flex;
+
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   margin: -4px; // grid trick, has to match option-card's margin
-  
+
   p.note{
     width: 100%;
   }
@@ -139,7 +139,7 @@
       color: #AAA;
     }
   }
-  
+
   // fade-in animation
   &.show-items .option-card{
     opacity:0;
@@ -147,7 +147,7 @@
     -o-animation:new-item-animation .2s linear forwards;
     animation:new-item-animation .2s linear forwards;
   }
-  
+
   // fade-out animation
   &.remove-items .option-card{
     -webkit-animation:removed-item-animation .2s cubic-bezier(.55,-0.04,.91,.94) forwards;

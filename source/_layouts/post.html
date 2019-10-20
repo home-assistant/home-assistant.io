@@ -10,16 +10,7 @@ is_post: true
 
 <div id='post-comments'></div>
 
-{% if site.disqus_short_name and post.date < site.disqus_end_date and page.comments == true %}
-<section id="disqus">
-  <h3 class="indent title">Comments</h3>
-  <div id="disqus_thread" aria-live="polite">{% include blog/post/disqus_thread.html %}</div>
-</section>
-
-{% include javascripts/disqus.html %}
-{% endif %}
-
-{% if page.comments == true and post.date > site.disqus_end_date %}
+{% if page.comments == true %}
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">

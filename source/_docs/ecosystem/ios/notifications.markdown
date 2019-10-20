@@ -1,19 +1,13 @@
 ---
-layout: page
 title: "Notifications Introduction"
 description: "Getting started with iOS notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/
 ---
 
 The `ios` notify platform enables sending push notifications to the Home Assistant iOS app.
 
-The 'ios' component will automatically load the notify service.
-The service component can be called using `service: notify.ios_<your_device_ID>`.
+The 'ios' integration will automatically load the notify service.
+The service integration can be called using `service: notify.ios_<your_device_ID>`.
 Your device ID can be found in the `ios.conf` file in your configuration folder. The file is compressed JSON. You can view it easier by copying the file contents and pasting them into [JSONLint](http://jsonlint.com).
 
 In this example, the device ID is `robbiet480_7plus`, so the notify service to use is `notify.ios_robbiet480_7plus`:

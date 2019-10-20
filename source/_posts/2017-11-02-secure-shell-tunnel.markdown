@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant and SSH"
 description: "Accessing Home Assistant through a secure shell tunnel."
 date: 2017-11-02 10:00:00 +0200
 date_formatted: "November 02, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-ssh/social.png
 ---
@@ -57,7 +55,7 @@ Last login: Fri Oct 27 17:50:09 2017
 [ha@home-assistant ~]$
 ```
 
-Now you are able to use your frontend on your local system: [http://localhost:8000](http://localhost:8000)
+Now you are able to use your frontend on your local system: `http://localhost:8000`
 
 Things to keep in mind:
 
@@ -65,5 +63,5 @@ Things to keep in mind:
 - You need to setup port forwarding on your router.
 - Don't allow `root` to use SSH. Set `PermitRootLogin no` on the remote system.
 - Your local port must be above 1024. Only `root` is allowed to forward privileged ports which are below 1024.
-- Use [SSH keys for authentication](https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
+- Use [SSH keys for authentication](http://docs.fedoraproject.org//en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
 

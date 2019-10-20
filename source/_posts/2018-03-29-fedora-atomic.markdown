@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Using Fedora Atomic with Home Assistant"
 description: "Running Home Assistant on a Fedora Atomic host."
 date: 2018-03-29 22:00:00
 date_formatted: "March 29, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-03-fedora-atomic/social.png
 ---
@@ -37,8 +35,8 @@ Deployments:
 The release is 27.100. The latest is 27.105. So, let's update the host and reboot it.
 
 ```bash
-$ sudo atomic host upgrade
-$ sudo systemctl reboot
+sudo atomic host upgrade
+sudo systemctl reboot
 ```
 
 You can also see that Docker is already running. No installation needed.
@@ -56,21 +54,21 @@ Further we will cover how it works for Home Assistant and [Mosquitto](https://mo
 Instead of `docker` we can use the command-line tool [`atomic`](http://www.projectatomic.io/docs/usr-bin-atomic/) to perform a lot of tasks. Download the images for the containers. We are pulling the images from [Docker Hub](https://hub.docker.com/), thus we need to add the registry to use.
 
 ```bash
-$ sudo atomic install docker.io/​homeassistant/home-assistant
-$ sudo atomic install docker.io/eclipse-mosquitto
+sudo atomic install docker.io/​homeassistant/home-assistant
+sudo atomic install docker.io/eclipse-mosquitto
 ```
 
 Both containers need additional directories for persistent storage.
 
 ```bash
-$ sudo mkdir -p /opt/home-assistant
-$ sudo mkdir -p /opt/mosquitto/{config,data,log}
+sudo mkdir -p /opt/home-assistant
+sudo mkdir -p /opt/mosquitto/{config,data,log}
 ```
 
 We need a copy of `mosquitto.conf` to run Mosquitto later:
 
 ```bash
-$ sudo curl -o /opt/mosquitto/config/mosquitto.conf \
+sudo curl -o /opt/mosquitto/config/mosquitto.conf \
   https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf
 ```
 
@@ -127,14 +125,14 @@ Exit to be not longer `root`.
 Reload `systemd` to make it aware of the new configurations.
 
 ```bash
-$ sudo systemctl daemon-reload
+sudo systemctl daemon-reload
 ```
 
 Now, both container can be controlled by `systemctl`.
 
 ```bash
-$ sudo systemctl enable home-assistant.service --now
-$ sudo systemctl enable mosquitto.service --now
+sudo systemctl enable home-assistant.service --now
+sudo systemctl enable mosquitto.service --now
 ```
 
 Check with `$ sudo systemctl status [name].service` if there are error or the services are running.

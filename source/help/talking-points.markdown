@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Talking points"
 description: "Talking points for your Home Assistant talk or presentation."
-date: 2016-10-06 06:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 People are starting to present Home Assistant at meetings and get-togethers. Below you find a couple of bullet points for your presentation.

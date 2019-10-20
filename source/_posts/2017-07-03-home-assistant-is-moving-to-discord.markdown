@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant is moving to Discord"
 description: "The Home Assistant chat community is moving over to Discord."
 date: 2017-07-03 18:28:01 -0500
 date_formatted: "July 3, 2017"
 author: Dale Higgs
 author_twitter: dale3h
-comments: true
 categories: Community
 ---
 
@@ -16,45 +14,45 @@ Click `Read on →` to find out more about why we're moving.
 
 <!--more-->
 
-### {% linkable_title Easy to join %}
+### Easy to join
 
 Discord is a very easy platform to join. New users can immediately jump into the conversations without first having to create an account. Just provide your name and you're in!
 
 This is incredibly valuable for us and will make Home Assistant even more accessible than before.
 
-### {% linkable_title Great apps %}
+### Great apps
 
 One of our least favorite things about Gitter is the quality of apps that they provide for iOS and Android devices. Discord, on the other hand, has the fastest and most feature-rich mobile apps that we've tried! For those of you who like to post pictures to the chatrooms directly from your phone...now you can. It doesn't stop there; they also provide well-polished clients for Windows, macOS and even Linux. If you're more of a browser-based chat client person, their web client will be perfect for you.
 
-### {% linkable_title Moderation tools %}
+### Moderation tools
 
 We have been quite lucky so far as to not have much inappropriate behavior (spammers, trolls, etc) in our chatrooms. However, as our community continues to grow, this common issue might come up. Discord has the features that will help us shut this behavior down before it gets out of hand.
 
-### {% linkable_title Great multiple server support %}
+### Great multiple server support
 
 Do you already have a Discord account? Great! You can use that account to [join in on the conversation][discord] now. One Discord account works with every Discord server. It is extremely easy to switch between servers or join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.
 
-### {% linkable_title It's hosted %}
+### It's hosted
 
 We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on its own servers, so it's better to let them maintain the service while we keep busy improving Home Assistant to bring you new and exciting features!
 
-### {% linkable_title Plenty of features %}
+### Plenty of features
 
 Syntax highlighting, voice chats, ability to search chatrooms, private messaging, and even custom emoji! Discord has a great set of features that will keep us all happy for a long time to come. (Pssst...after you join our server, check out the `:ponder:` emoji!)
 
-## {% linkable_title Join us! %}
+## Join us!
 
 Are you convinced and ready to make the switch? Join us, we're just [one click away][discord]!
 
 Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help make the switch easier for you and everyone else.
 
-## {% linkable_title The fine print... %}
+## The fine print...
 
 In the process of switching chat platforms we have decided to create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the [#welcome-rules][discord] channel for the most up-to-date rules for our chat server.
 
-### {% linkable_title The rules... %}
+### The rules...
 
-#### {% linkable_title Rules: %}
+#### Rules:
 
 Please carefully read through these rules **before engaging in conversation.**
 
@@ -74,7 +72,7 @@ These rules are not to be interpreted how you like, there are no "loopholes." An
 
 If you have any issues with anything or anyone on the server please PM me (@dale3h) with any relevant details. **I cannot help anyone if I am unaware of any issues.**
 
-#### {% linkable_title Infractions and Bans: %}
+#### Infractions and Bans:
 
 Bans **will be issued** after one serious infraction or failing to acknowledge warnings of minor infractions. This is non-negotiable.
 

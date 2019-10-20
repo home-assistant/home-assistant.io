@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Troubleshooting Home Assistant Cloud"
 description: "Pointers to help troubleshooting issues with Home Assistant Cloud."
-date: 2018-07-17 20:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 Home Assistant Cloud is a subscription service provided by our partner Nabu Casa, Inc. Check out [their website](https://www.nabucasa.com/config/troubleshooting/) for help with troubleshooting.

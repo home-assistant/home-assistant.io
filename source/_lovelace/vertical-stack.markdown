@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Vertical Stack Card"
 sidebar_label: Vertical Stack
 description: "The Vertical Stack card allows you to stack multiple cards together"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Vertical stack allows you to group multiple cards so they always sit in the same column.
@@ -17,25 +11,30 @@ type:
   required: true
   description: vertical-stack
   type: string
+title:
+  required: false
+  description: Title of Stack
+  type: string
 cards:
   required: true
   description: List of cards.
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Basic example:
 
 ```yaml
-- type: vertical-stack
-  cards:
-    - type: picture-entity
-      entity: camera.demo_camera
-      show_info: false
-    - type: entities
-      entities:
-        - binary_sensor.movement_backyard
+type: vertical-stack
+title: Backyard
+cards:
+  - type: picture-entity
+    entity: camera.demo_camera
+    show_info: false
+  - type: entities
+    entities:
+      - binary_sensor.movement_backyard
 ```
 
 <p class="img">
@@ -46,19 +45,19 @@ Basic example:
 Combination of vertical and horizontal stack card:
 
 ```yaml
-- type: vertical-stack
-  cards:
-    - type: picture-entity
-      entity: group.all_lights
-      image:  /local/house.png
-    - type: horizontal-stack
-      cards:
-        - type: picture-entity
-          entity: light.ceiling_lights
-          image: /local/bed_1.png
-        - type: picture-entity
-          entity: light.bed_light
-          image: /local/bed_2.png
+type: vertical-stack
+cards:
+  - type: picture-entity
+    entity: group.all_lights
+    image:  /local/house.png
+  - type: horizontal-stack
+    cards:
+      - type: picture-entity
+        entity: light.ceiling_lights
+        image: /local/bed_1.png
+      - type: picture-entity
+        entity: light.bed_light
+        image: /local/bed_2.png
 ```
 
 <p class="img">

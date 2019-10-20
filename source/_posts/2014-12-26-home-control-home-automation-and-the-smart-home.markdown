@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Control, Automation &amp; the Smart Home"
 description: "Overview of how the internet of things relates to home control, home automation and the smart home."
 date: 2014-12-26 10:23:13 -0800
 date_formatted: December 26, 2014
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 ---
 

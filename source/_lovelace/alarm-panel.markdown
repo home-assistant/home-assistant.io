@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Alarm Panel Card"
 sidebar_label: Alarm Panel
-description: "The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Components"
-date: 2018-10-15 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations"
 ---
 
-The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Components.
+The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
@@ -18,8 +12,8 @@ Screenshot of the Alarm Panel card.
 </p>
 
 ```yaml
-- type: alarm-panel
-  entity: alarm_control_panel.alarm
+type: alarm-panel
+entity: alarm_control_panel.alarm
 ```
 
 {% configuration %}
@@ -31,9 +25,9 @@ entity:
   required: true
   description: "Entity ID of `alarm_control_panel` domain"
   type: string
-title:
+name:
   required: false
-  description: Title of Alarm Panel
+  description: Overwrites Friendly Name
   type: string
   default: Current State of Alarm Entity
 states:
@@ -52,13 +46,13 @@ states:
       description: Arm Custom Bypass
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title Example:
 
 ```yaml
 - type: alarm-panel
-  title: House Alarm
+  name: House Alarm
   entity: alarm_control_panel.alarm
 ```
 
@@ -70,12 +64,12 @@ Screenshot of the Alarm Panel card.
 Define the State List:
 
 ```yaml
-- type: alarm-panel
-  title: House Alarm
-  entity: alarm_control_panel.alarm
-  states:
-    - arm_home
-    - arm_away
-    - arm_night
-    - armed_custom_bypass
+type: alarm-panel
+name: House Alarm
+entity: alarm_control_panel.alarm
+states:
+  - arm_home
+  - arm_away
+  - arm_night
+  - armed_custom_bypass
 ```

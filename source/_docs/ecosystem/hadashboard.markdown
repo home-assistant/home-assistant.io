@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HADashboard"
 description: "HADashboard is a dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
-release_date: 2016-11-13 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/hadashboard/
 ---
 
@@ -37,4 +31,4 @@ HADashboard is a modular, skinnable dashboard for [Home Assistant](/) that is in
     Glassic Theme
 </p>
 
-For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html). If you're using Hassbian, then the [Hassbian scripts](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/appdaemon.md) make it easy to install AppDaemon.
+For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html). If you're using Hassbian, then the [Hassbian scripts](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/suites/appdaemon.md) make it easy to install AppDaemon.

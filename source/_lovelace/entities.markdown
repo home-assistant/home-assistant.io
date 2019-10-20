@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entities Card"
 sidebar_label: Entities
 description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
@@ -30,11 +24,15 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
-If you define entities as objects instead of strings, you can add more customization and configuration:
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
 {% configuration %}
 entity:
@@ -53,15 +51,23 @@ icon:
   required: false
   description: Overwrites icon or entity picture.
   type: string
+image:
+  required: false
+  description: Overwrites entity picture.
+  type: string
 secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
   type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Special Row Elements %}
+## Special Row Elements
 
-### {% linkable_title Call Service %}
+### Call Service
 
 {% configuration %}
 type:
@@ -72,25 +78,57 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:remote`"
+action_name:
+  required: false
+  description: Button label.
+  type: string
+  default: "`Run`"
 service_data:
-  required: true
+  required: false
   description: The service data to use.
-  type: object
+  type: map
 {% endconfiguration %}
 
-### {% linkable_title Divider %}
+### Cast
+
+Special row to start Home Assistant Cast.
+
+{% configuration %}
+type:
+  required: true
+  description: cast
+  type: string
+view:
+  required: true
+  description: Path to the view that needs to be shown.
+  type: string
+name:
+  required: false
+  description: Name to show in the row
+  type: string
+  default: Home Assistant Cast
+icon:
+  required: false
+  description: Icon to use
+  type: string
+  default: "`hass:television`"
+hide_if_unavailable:
+  required: false
+  description: Hide this row if casting is not available in the browser.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Divider
 
 {% configuration %}
 type:
@@ -100,11 +138,11 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: object
+  type: string
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
-### {% linkable_title Section %}
+### Section
 
 {% configuration %}
 type:
@@ -117,7 +155,7 @@ label:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Weblink %}
+### Weblink
 
 {% configuration %}
 type:
@@ -140,40 +178,44 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Entity rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - entity: alarm_control_panel.alarm
-      name: Alarm Panel
-    - device_tracker.demo_paulus
-    - switch.decorative_lights
-    - group.all_lights
-    - group.all_locks
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - entity: alarm_control_panel.alarm
+    name: Alarm Panel
+  - device_tracker.demo_paulus
+  - switch.decorative_lights
+  - group.all_lights
+  - group.all_locks
 ```
 
 Special rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - type: call-service
-      icon: mdi:power
-      name: Bed light
-      action_name: Toggle light
-      service: light.toggle
-      service_data:
-        entity_id: light.bed_light
-    - type: divider
-    - type: weblink
-      name: Home Assistant
-      url: https://www.home-assistant.io/
-      icon: mdi:home-assistant
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - type: call-service
+    icon: mdi:power
+    name: Bed light
+    action_name: Toggle light
+    service: light.toggle
+    service_data:
+      entity_id: light.bed_light
+  - type: divider
+  - type: weblink
+    name: Home Assistant
+    url: https://www.home-assistant.io/
+    icon: mdi:home-assistant
 ```
+
+<div class='note'>
+Please be aware that the entity types divider and weblink aren't yet support by the UI editor and a warning about `Expected a value of type...` is shown. You can ignore the warning and save your edits to verify.
+</div>

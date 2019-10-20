@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!"
 description: "Home Assistant 0.10 has been released with a bunch of added components and brand new templating support."
 date: 2015-12-22 01:30:00 -0800
 date_formatted: "December 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---
@@ -32,17 +30,17 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
  - Binary sensor: [REST] platform added ([@fabaff])
  - Sensor: [Torque (OBD2)] platform added ([@happyleavesaoc])
 
-[iCloud]: /components/device_tracker.icloud/
-[Twitch]: /components/sensor.twitch/
+[iCloud]: /integrations/icloud
+[Twitch]: /integrations/twitch
 [Template]: /topics/templating/
-[Heatmiser]: /components/thermostat.heatmiser/
-[Dweet.io]: /components/sensor.dweet/
-[Alexa/Amazon echo]: /components/alexa/
-[FritzBox]: /components/device_tracker.fritz/
-[Wink]: /components/sensor.wink/
-[ELIQ Online]: /components/sensor.eliqonline/
-[REST]: /components/binary_sensor.rest/
-[Torque (OBD2)]: /components/sensor.torque/
+[Heatmiser]: /integrations/heatmiser/
+[Dweet.io]: /integrations/dweet#sensor
+[Alexa/Amazon echo]: /integrations/alexa/
+[FritzBox]: /integrations/fritz
+[Wink]: /integrations/wink#sensor
+[ELIQ Online]: /integrations/eliqonline
+[REST]: /integrations/binary_sensor.rest/
+[Torque (OBD2)]: /integrations/torque
 [@andylockran]: https://github.com/andylockran
 [@balloob]: https://github.com/balloob
 [@caiuspb]: https://github.com/caiuspb
@@ -78,17 +76,16 @@ Affected components and platforms:
  - sensor: [rest][sensor.rest]
  - sensor: [MQTT][sensor.mqtt]
  - switch: [MQTT][switch.mqtt]
- - rollershutter: [MQTT][rollershutter.mqtt]
+ - rollershutter: MQTT
  - light: [MQTT][light.mqtt]
  - binary_sensor: [MQTT][binary_sensor.mqtt]
  - automation: [numeric_state][automation-numeric-state]
 
-[sensor.arest]: /components/sensor.arest/
-[sensor.command]: /components/sensor.command_sensor/
-[sensor.rest]: /components/sensor.rest/
-[sensor.mqtt]: /components/sensor.mqtt/
-[switch.mqtt]: /components/switch.mqtt/
-[rollershutter.mqtt]: /components/rollershutter.mqtt/
-[light.mqtt]: /components/light.mqtt/
-[binary_sensor.mqtt]: /components/binary_sensor.mqtt/
+[sensor.arest]: /integrations/arest#sensor
+[sensor.command]: /integrations/sensor.command_line/
+[sensor.rest]: /integrations/rest
+[sensor.mqtt]: /integrations/sensor.mqtt/
+[switch.mqtt]: /integrations/switch.mqtt/
+[light.mqtt]: /integrations/light.mqtt/
+[binary_sensor.mqtt]: /integrations/binary_sensor.mqtt/
 [automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

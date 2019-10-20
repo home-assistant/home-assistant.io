@@ -1,23 +1,23 @@
 <div class="grid">
   {% assign url_parts = page.url | split: '/' %}
-  {% if url_parts[1] == 'components' %}
-    {% include asides/component_navigation.html | compact_newlines %}
+  {% if url_parts[1] == 'integrations' %}
+    {% include asides/component_navigation.html %}
   {% elsif url_parts[1] == 'cookbook' %}
-    {% include asides/cookbook_navigation.html | compact_newlines %}
+    {% include asides/cookbook_navigation.html %}
   {% elsif url_parts[1] == 'lovelace' %}
-    {% include asides/lovelace_navigation.html | compact_newlines %}
+    {% include asides/lovelace_navigation.html %}
   {% elsif url_parts[1] == 'developers' or url_parts[1] == 'help' %}
-    {% include asides/help_navigation.html | compact_newlines %}
+    {% include asides/help_navigation.html %}
   {% elsif url_parts[1] == 'getting-started' %}
-    {% include asides/getting_started_navigation.html | compact_newlines %}
+    {% include asides/getting_started_navigation.html %}
   {% elsif url_parts[1] == 'docs' %}
-    {% include asides/docs_navigation.html | compact_newlines %}
+    {% include asides/docs_navigation.html %}
   {% elsif url_parts[1] == 'faq' %}
-    {% include asides/faq_navigation.html | compact_newlines %}
+    {% include asides/faq_navigation.html %}
   {% elsif url_parts[1] == 'hassio' or url_parts[1] == 'addons' %}
-    {% include asides/hassio_navigation.html | compact_newlines %}
+    {% include asides/hassio_navigation.html %}
   {% elsif url_parts[1] == 'cloud' %}
-    {% include asides/cloud_navigation.html | compact_newlines %}
+    {% include asides/cloud_navigation.html %}
   {% else %}
     {% include asides/about.html %}
 

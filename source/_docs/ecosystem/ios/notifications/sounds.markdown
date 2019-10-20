@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notification Sounds"
 description: "Adding sounds to notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/sounds/
 ---
 
@@ -30,31 +24,32 @@ Here is an example notification that uses one of the pre-installed sounds.
 Notes:
 * You must use the full filename in the payload (including extension).
 
-## {% linkable_title Custom push notification sounds %}
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted following [Apple's requirements][sound-requirements]. You set the filename of the sound in the notification payload. To add sounds:
+## Custom push notification sounds
+
+The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. You set the filename of the sound in the notification payload. To add sounds:
 
 1. Connect the device to a PC or Mac running the latest version of iTunes.
 2. Go to the device in iTunes.
-3. Select "Apps" on the left sidebar.
-4. Scroll down until you see the section labeled "File Sharing".
-5. Select Home Assistant.
-6. Drag and drop properly formatted sounds.
-7. Click Sync in the lower right.
-8. Once sync is complete, disconnect the device from the computer.
-9. On your iOS device, open the Home Assistant app.
-10. Go to Settings -> Notification Settings.
-11. Select "Import sounds from iTunes".
+3. Select "File Sharing" in the left-hand menu.
+4. Select Home Assistant.
+5. Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
+6. Click Sync in the lower right.
+7. Once the sync is complete, disconnect the device from the computer.
+8. On your iOS device, open the Home Assistant app.
+9. Go to Settings -> Notification Settings.
+10. Select "Import sounds from iTunes".
 
 Assuming that you correctly formatted the sounds they are now available to use in push notifications.
 
 Notes:
+
 * **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
 * Uploading a file with the same name as an existing one will overwrite the original.
 * You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
 
-### {% linkable_title Preinstalled notification sounds %}
+### Preinstalled notification sounds
 
-```
+```txt
 US-EN-Alexa-Back-Door-Opened.wav
 US-EN-Alexa-Back-Door-Unlocked.wav
 US-EN-Alexa-Basement-Door-Opened.wav

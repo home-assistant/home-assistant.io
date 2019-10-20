@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Birth and Last will"
 description: "Instructions on how to setup MQTT birth and last will messages within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -25,15 +19,51 @@ mqtt:
     payload: 'offline'
 ```
 
-Configuration variables:
-
-- **birth_message** (*Optional*):
-  - **topic** (*Required*): The MQTT topic to publish the message.
-  - **payload** (*Required*): The message content.
-  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
-  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
-- **will_message** (*Optional*):
-  - **topic** (*Required*): The MQTT topic to publish the message.
-  - **payload** (*Required*): The message content.
-  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
-  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
+{% configuration %}
+birth_message:
+  description: Birth Message.
+  required: false
+  type: list
+  keys:
+    topic:
+      description: The MQTT topic to publish the message.
+      required: true
+      type: string
+    payload:
+      description: The message content.
+      required: true
+      type: string
+    qos:
+      description: The maximum QoS level of the topic.
+      required: false
+      default: 0
+      type: integer
+    retain:
+      description: If the published message should have the retain flag on or not.
+      required: false
+      default: false
+      type: boolean
+will_message:
+  description: Will Message
+  required: false
+  type: list
+  keys:
+    topic:
+      description: The MQTT topic to publish the message.
+      required: true
+      type: string
+    payload:
+      description: The message content.
+      required: true
+      type: string
+    qos:
+      description: The maximum QoS level of the topic.
+      required: false
+      default: 0
+      type: integer
+    retain:
+      description: If the published message should have the retain flag on or not.
+      required: false
+      default: false
+      type: boolean
+{% endconfiguration %}

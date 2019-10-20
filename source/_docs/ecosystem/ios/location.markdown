@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Location"
 description: "Documentation about the location tracking abilities in Home Assistant for iOS"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/location/
 ---
 
-## {% linkable_title Location tracking when outside a Home Assistant zone %}
+## Location tracking when outside a Home Assistant zone
 
 Home Assistant for iOS receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
 
@@ -28,7 +22,7 @@ Finally, I think this answer from [Stack Overflow][stackoverflow] says it best:
 
 What's the real story on significant-change location updates? Who knows, because Apple keeps it private.
 
-## {% linkable_title Location tracking in Home Assistant zones %}
+## Location tracking in Home Assistant zones
 
 At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.
 
