@@ -33,7 +33,30 @@ qos:
   description: The QoS level of the topic.
   required: false
   type: integer
+payload_home:
+  description: The payload value that represents the 'home' state for the device.
+  required: false
+  type: string
+  default: 'home'
+payload_not_home:
+  description: The payload value that represents the 'not_home' state for the device.
+  required: false
+  type: string
+  default: 'not_home'
 {% endconfiguration %}
+
+## Complete example configuration
+
+```yaml
+# Complete configuration.yaml entry
+device_tracker:
+  devices:
+    paulus_oneplus: 'location/paulus'
+    annetherese_n4: 'location/annetherese'
+  qos: 1
+  payload_home: 'present'
+  payload_not_home: 'not present'
+```
 
 ## Usage
 
