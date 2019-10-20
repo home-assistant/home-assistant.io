@@ -34,6 +34,10 @@ state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
   type: map
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## Elements

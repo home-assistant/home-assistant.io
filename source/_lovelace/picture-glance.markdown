@@ -58,6 +58,10 @@ entity:
   required: false
   description: Entity to use for `state_image`.
   type: string
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 tap_action:
   required: false
   description: Action to take on tap
