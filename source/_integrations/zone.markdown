@@ -14,7 +14,6 @@ The `zone` integration uses YAML sequences to configure multiple zones:
 
 ```yaml
 # Example configuration.yaml entry
-zone:
   - name: School
     latitude: 32.8773367
     longitude: -117.2494053
