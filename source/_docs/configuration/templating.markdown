@@ -17,13 +17,13 @@ Templating is a powerful feature that allows you to control information going in
 
 ## Building templates
 
-Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
+Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
-- [Mathematical operation](http://jinja.pocoo.org/docs/dev/templates/#math)
-- [Comparisons](http://jinja.pocoo.org/docs/dev/templates/#comparisons)
-- [Logic](http://jinja.pocoo.org/docs/dev/templates/#logic)
+- [Mathematical operation](https://jinja.palletsprojects.com/en/master/templates/#math)
+- [Comparisons](https://jinja.palletsprojects.com/en/master/templates/#comparisons)
+- [Logic](https://jinja.palletsprojects.com/en/master/templates/#logic)
 
-We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](http://jinja.pocoo.org/docs/dev/templates/).
+We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/master/templates/).
 
 The frontend has a template editor tool to help develop and debug templates. Click on the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> icon, create your template in the _Template editor_ and check the results on the right.
 
@@ -262,7 +262,7 @@ Closest to some entity:
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](http://jinja.pocoo.org/docs/dev/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/master/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
