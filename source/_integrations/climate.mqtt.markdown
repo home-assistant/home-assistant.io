@@ -125,7 +125,7 @@ action_topic:
   description: The MQTT topic on which to listen for the current action state of the HVAC. Expects `idle`, `cooling`, `heating`, `drying`, or `off`.
   required: false
   type: string
-action_template:	
+action_template:
   description: A template to render the value received on the `action_topic` with.
   requred: false
   type: template
