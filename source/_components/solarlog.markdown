@@ -22,7 +22,10 @@ The `solarlog` platform uses the default host address "http://solar-log" if you 
 
 ## Configuration
 
-To use the Solar-Log sensors in your installation, add the following to your configuration.yaml file:
+There are 2 options in configuring the `solarlog` platform:
+
+- Via the Home Assistant user interface where it will let you enter the name and host to connect to your Solar-Log device.
+- Via the Home Assistant `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,9 +35,9 @@ sensor:
 
 {% configuration %}
 host:
-  description: The IP Address or host Address of your Solar-Log device (do not add 'http://' to the IP Address or the host Address).
+  description: The IP Address or host Address of your Solar-Log device.
   required: false
-  default: solar-log
+  default: http://solar-log
   type: string
 name:
   description: Let you overwrite the name of the device in the frontend.
