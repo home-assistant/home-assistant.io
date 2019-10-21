@@ -16,6 +16,8 @@
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
+- topic: Device tracker
+  description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Entity
