@@ -35,7 +35,7 @@ or a template based request:
 ```yaml
 sensor:
   - platform: rest
-    resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
+    resource_template: http://IP_ADDRESS/{% raw %}{{ now().strftime('%Y-%m-%d') }}{% endraw %}
 ```
 
 
