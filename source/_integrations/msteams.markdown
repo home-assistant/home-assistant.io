@@ -1,7 +1,7 @@
 ---
 title: "Microsoft Teams"
-description: "Instructions on how to send notification to a Microsoft Teams channel."
-logo: msteams.png
+description: "Instructions on how to send a notification to a Microsoft Teams channel."
+logo: msteams.jpg
 ha_category:
   - Notifications
 ha_release: 0.101
@@ -11,7 +11,8 @@ The `Microsoft Teams` platform allows you to send notifications from Home Assist
 
 ## Setup
 
-To send notification to teams you need add the Incoming Webhook app to your team channel. When the app is added you will receive a webhook url that needs to be added to your `configuration.yaml`.
+To send a notification to teams, you need to add the Incoming Webhook app to your team channel. When the app is added, you will receive a webhook URL that needs to be added to your `configuration.yaml`.
+
 
 ## Configuration
 
@@ -20,7 +21,6 @@ To add the Microsoft Teams platform to your installation, add the following to y
 ```yaml
 notify:
   - platform: msteams
-    name: myteam
     url: https://outlook.office.com/webhook/<ID>
 ```
 
@@ -31,9 +31,9 @@ name:
   type: string
   default: "notify"
 url:
-  description: The webhook url created in the setup step.
+  description: The webhook URL created in the setup step.
   required: true
-  type: url
+  type: string
 {% endconfiguration %}
 
 ### Microsoft Teams service data
@@ -50,5 +50,5 @@ Example for posting file from URL:
 title: Title of the message.
 message: Message that will be added.
 data:
-  image_url: http://[url to file, photo, security camera etc]
+  image_url: URL_OF_IMAGE
 ```
