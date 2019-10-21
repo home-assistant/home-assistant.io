@@ -63,7 +63,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 6. Connect your power supply to the Raspberry Pi.
 7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
 8. Home Assistant will be available at `http://hassio.local:8123`. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://hassio:8123`.
-9. If you have used a USB stick for configuring the network, you can now remove it.
+9. If you used a USB stick for configuring the network, you can now remove it.
 
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 
