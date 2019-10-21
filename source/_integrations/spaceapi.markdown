@@ -276,7 +276,7 @@ In this section you find some real-life examples of how to use this component.
 
 ### Eastermundigen
 
-A possible configuration entry for [Eastermundigen](http://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
+A possible configuration entry for [Eastermundigen](https://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
 
 ```yaml
 # Example configuration.yaml entry

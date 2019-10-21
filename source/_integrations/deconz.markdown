@@ -18,7 +18,7 @@ ha_config_flow: true
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-[deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
+[deCONZ REST API](https://dresden-elektronik.github.io/deconz-rest-doc/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -69,7 +69,7 @@ Available services: `configure` and `deconz.device_refresh`.
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [Rest API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|

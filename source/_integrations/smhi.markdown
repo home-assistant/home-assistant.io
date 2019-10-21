@@ -29,7 +29,7 @@ You can only add locations through the integrations page, not in configuration f
 
 <div class='note warning'>
 
-Only location close to Sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
+Only location close to Sweden can be added. See [SMHI.se area](https://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
 
 </div>
 
@@ -51,4 +51,4 @@ name:
   default: Home
 {% endconfiguration %}
 
-Details about the API are available in the [SMHI API documentation](http://opendata.smhi.se/apidocs/metfcst/index.html).
+Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/apidocs/metfcst/index.html).

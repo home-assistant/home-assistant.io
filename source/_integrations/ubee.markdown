@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.89
 ---
 
-This platform offers presence detection by looking at connected devices to a [Ubee Router](http://www.ubeeinteractive.com/).
+This platform offers presence detection by looking at connected devices to a [Ubee Router](https://www.ubeeinteractive.com/).
 
 To use a Ubee router in your installation, add the following to your `configuration.yaml` file:
 

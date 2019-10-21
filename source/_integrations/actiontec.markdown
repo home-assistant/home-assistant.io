@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.7
 ---
 
-This platform allows you to detect presence by looking at connected devices to an [Actiontec](http://www.actiontec.com/) device.
+This platform allows you to detect presence by looking at connected devices to an [Actiontec](https://www.actiontec.com/) device.
 
 Supported devices (tested):
 

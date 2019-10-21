@@ -78,5 +78,5 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
-[alexa-settings-site]: http://alexa.amazon.com/
+[alexa-settings-site]: https://alexa.amazon.com/
 [emulated-hue-component]: /integrations/emulated_hue/

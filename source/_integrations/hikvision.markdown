@@ -9,7 +9,7 @@ ha_iot_class: Local Push
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a
-[Hikvision IP Camera or NVR](http://www.hikvision.com/) and presents the
+[Hikvision IP Camera or NVR](https://www.hikvision.com/) and presents the
 camera/nvr events to Home Assistant as binary sensors with either an "off" or
 "on" state.
 

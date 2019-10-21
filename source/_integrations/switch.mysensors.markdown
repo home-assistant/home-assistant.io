@@ -88,10 +88,10 @@ automation:
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/relay
+ * https://www.mysensors.org/build/relay
  */
 
 #include <MySensor.h>
@@ -134,10 +134,10 @@ void incomingMessage(const MyMessage &message)
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/ir
+ * https://www.mysensors.org/build/ir
  */
 
 #include <MySensor.h>
@@ -203,4 +203,4 @@ void incomingMessage(const MyMessage &message) {
 ```
 
 [main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download
+[serial api]: https://www.mysensors.org/download

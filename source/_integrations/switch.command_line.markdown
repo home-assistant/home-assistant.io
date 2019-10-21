@@ -80,7 +80,7 @@ In this section you find some real-life examples of how to use this switch.
 
 The example below is doing the same as the
 [aREST switch](/integrations/arest#switch).
-The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin
+The command line tool [`curl`](https://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 
 ```yaml

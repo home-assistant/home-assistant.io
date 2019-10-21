@@ -73,7 +73,7 @@ departure_type:
 ## Direction
 
 If you use the `direction` filter it's important to put correct destination or else the sensor will not work at all.
-The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check [http://rejseplanen.dk](http://rejseplanen.dk), make a search and use the destinations from there in your configuration. Make sure you use the exact name as the destination(s).
+The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check [https://rejseplanen.dk/](https://rejseplanen.dk/), make a search and use the destinations from there in your configuration. Make sure you use the exact name as the destination(s).
 
 A working example on how to use this sensor with direction:
 

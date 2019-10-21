@@ -16,7 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensor
 
-The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.
+The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](https://www.thinkingcleaner.com/) add-on.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,7 +30,7 @@ This will automatically add sensors for each Thinking Cleaner in your network.
 
 ## switch
 
-The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.
+The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](https://www.thinkingcleaner.com/) add-on.
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
