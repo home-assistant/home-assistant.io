@@ -14,7 +14,7 @@ The `srp_energy` component shows information from Srp hourly energy usage report
 
 You need a Username, Password, and AccountId which you can create at [Srp](https://www.srpnet.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Srp Energy to your installation, add the following to your `configuration.yaml` file:
 
