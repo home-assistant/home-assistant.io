@@ -52,18 +52,18 @@ We will need a few things to get started with installing Home Assistant. The Ras
 1. Put the SD card in your card reader.
 2. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
-4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a flash drive). Otherwise, move to step 5.
-   - Format a flash drive to FAT32 with the volume name `CONFIG`.
-   - Create a folder named `network` in the root of the newly-formatted flash drive.
+4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a USB stick). Otherwise, move to step 5.
+   - Format a USB stick to FAT32 with the volume name `CONFIG`.
+   - Create a folder named `network` in the root of the newly-formatted USB stick.
    - Within that folder, create a file named `my-network` without a file extension.
    - Copy one of [the examples] to the `my-network` file and adjust accordingly.
-   - Plug the flash drive into the Raspberry Pi.
+   - Plug the USB stick into the Raspberry Pi.
 
 5. Insert the SD card into your Raspberry Pi. If you are going to use an Ethernet cable, connect that too.
 6. Connect your power supply to the Raspberry Pi.
 7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
 8. Home Assistant will be available at `http://hassio.local:8123`. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://hassio:8123`.
-9. If you have used a flash drive for configuring the network, you can now remove it.
+9. If you have used a USB stick for configuring the network, you can now remove it.
 
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 
