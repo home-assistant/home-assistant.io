@@ -57,29 +57,6 @@ views:
       default: true
 {% endconfiguration %}
 
-## Options For Badges
-
-If you define badges as objects instead of strings (by adding `entity:` before entity ID), allowing you to add more customizations:
-
-{% configuration badges %}
-entity:
-  required: true
-  description: Home Assistant entity ID.
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
-icon:
-  required: false
-  description: Overwrites icon or entity picture.
-  type: string
-image:
-  required: false
-  description: The URL of an image.
-  type: string
-{% endconfiguration %}
-
 ## Options For Visible
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
