@@ -19,7 +19,7 @@ First of is the age old factor of **time**. I as the lead developer of Hassbian 
 Second is that it's no longer the best option for most to use as an installation method. Hass.io has surpassed Hassbian in almost all ways I can imagine.
 
 ## Next Step for Hassbian
-Since Hassbian has been around for quite a while there's quite a few users that don't want Hassbian to go away. To make this as easy as possible for those users here's the plan.
+Since Hassbian has been around for quite a while, there are quite a few users that don't want Hassbian to go away. To make this as easy as possible for those users, here's the plan.
 
  - The repositories [pi-gen] and [hassbian-scripts] hosting the Hassbian projects files will be moved to a new organization. 
  - A last release will be done by me mid Q4 2019. This image will be hosted under the [pi-gen] repository. 
