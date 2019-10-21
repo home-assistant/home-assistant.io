@@ -17,7 +17,7 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 
 Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v](https://www.anthemav.com/products-current/type=av-processor/model=d2v-3d/page=overview) use a different protocol entirely and are not currently supported.
 
-[Anthem]:	http://www.anthemav.com/
+[Anthem]:	https://www.anthemav.com/
 [anthemav]: https://github.com/nugget/python-anthemav
 
 

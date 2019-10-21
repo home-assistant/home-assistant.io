@@ -29,4 +29,4 @@ name:
 
 The data this platform presents comes from [launchlibrary.net][launchlibrary].
 
-[launchlibrary]: http://launchlibrary.net/
+[launchlibrary]: https://launchlibrary.net/

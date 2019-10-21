@@ -10,7 +10,7 @@ ha_release: 0.54
 ha_iot_class: Local Push
 ---
 
-The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,7 +43,7 @@ devices:
   type: list
   keys:
     host:
-      description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+      description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](https://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
       required: true
       type: string
     username:
@@ -166,7 +166,7 @@ Remember to complete the schedule assignment steps above for each event type tha
 
 ## Camera
 
-The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
 ### Configuration
 
@@ -180,7 +180,7 @@ camera:
 
 ## Switch
 
-The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
+The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 

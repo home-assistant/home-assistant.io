@@ -9,7 +9,7 @@ ha_iot_class: Local Push
 ---
 
 
-The `emby` platform allows you to control a [Emby](http://emby.media/) multimedia system from Home Assistant.
+The `emby` platform allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
 
 To add Emby to your installation, add the following to your `configuration.yaml` file:
 
