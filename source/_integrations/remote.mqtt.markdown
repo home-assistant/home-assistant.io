@@ -25,6 +25,31 @@ name:
   description: The name of your remote.
   required: false
   type: string
+payload_on:
+  description: The payload that represents on state.
+  required: false
+  type: string
+  default: ON
+payload_on:
+  description: The payload that represents off state.
+  required: false
+  type: string
+  default: OFF
+optimistic:
+  description: Flag that defines if remote works in optimistic mode.
+  required: false
+  type: string
+  default:  false
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
 commands:
   description: A list of commands
   required: false
@@ -37,7 +62,11 @@ commands:
 
 {% endconfiguration %}
 
-## Full Configuration
+## Examples
+
+In this section you find some real-life examples of how to use this remote.
+
+### Full Configuration
 
 ```yaml
 remote:
