@@ -73,7 +73,7 @@ The weather platform is easier to configure but less customizable.
 
 ## Camera
 
-The `buienradar` camera platform uses [buienradar.nl](http://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
+The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
 
 Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.

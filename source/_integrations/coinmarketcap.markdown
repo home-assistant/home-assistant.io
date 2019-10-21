@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ---
 
 
-The `coinmarketcap` sensor platform displays various details about a cryptocurrency provided by [CoinMarketCap](http://coinmarketcap.com/).
+The `coinmarketcap` sensor platform displays various details about a cryptocurrency provided by [CoinMarketCap](https://coinmarketcap.com/).
 
 To add the CoinMarketCap sensor to your installation, add the following lines to your `configuration.yaml`:
 

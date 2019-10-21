@@ -10,7 +10,7 @@ ha_release: 0.87
 ha_iot_class: Local Polling
 ---
 
-The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ## Setup
 

@@ -10,9 +10,9 @@ ha_release: pre 0.7
 
 The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.
 
-The [Swiss public transport API](http://transport.opendata.ch/) only allows 1000 requests per 24 hours.
+The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours.
 
-The [Stationboard](http://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
+The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
 
 Then add the data to your `configuration.yaml` file as shown in the example:
 
@@ -40,4 +40,4 @@ name:
   default: Next Departure
 {% endconfiguration %}
 
-The public timetables are coming from [Swiss public transport](http://transport.opendata.ch).
+The public timetables are coming from [Swiss public transport](https://transport.opendata.ch/).

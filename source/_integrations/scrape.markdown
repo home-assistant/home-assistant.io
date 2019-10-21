@@ -123,13 +123,13 @@ sensor:
 
 ### IFTTT status
 
-If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your automations and are curious about the [status of IFTTT](http://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
+If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your automations and are curious about the [status of IFTTT](https://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: http://status.ifttt.com/
+    resource: https://status.ifttt.com/
     name: IFTTT status
     select: '.component-status'
 ```
