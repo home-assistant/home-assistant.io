@@ -15,7 +15,7 @@ It's time for what was once the simplest way to install Home Assistant to retire
 ## R.I.P Hassbian
 
 Some of you will probably wonder why Hassbian is being retired and I'll try to give a proper motivation. 
-First of is the age old factor of **time**. I as the lead developer of Hassbian haven't been able to give it the time and attention it requires, and there have been few others that have pushed the project further. The one exception being [@ludeeus] who's done most of the heavy lifting when the image was retooled to use a proper apt package and repository.
+First of is the age-old factor of **time**. I as the lead developer of Hassbian haven't been able to give it the time and attention it requires, and there have been few others that have pushed the project further. The one exception being [@ludeeus] who's done most of the heavy lifting when the image was retooled to use a proper apt package and repository.
 Second is that it's no longer the best option for most to use as an installation method. Hass.io has surpassed Hassbian in almost all ways I can imagine.
 
 ## Next Step for Hassbian
