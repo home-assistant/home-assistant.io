@@ -141,7 +141,7 @@ group:
     - group.sense_hat
 ```
 
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
+### Directions for installing on Raspberry Pi Raspbian Based installation:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
@@ -182,7 +182,7 @@ sudo reboot
 ```
 
 Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer and HASSbian both run Home Assistant in an virtual environment)._
+_(The Raspberry Pi All-In-One installer run Home Assistant in an virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:

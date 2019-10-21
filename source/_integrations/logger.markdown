@@ -121,12 +121,6 @@ The log information are stored in the
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-If you are a Hassbian user you can use the example below:
-
-```bash
-$ tail -f /home/homeassistant/.homeassistant/home-assistant.log
-```
-
 If you are a Hass.io user, you can use the example below, when logged in through
 the [SSH add-on](/addons/ssh/):
 

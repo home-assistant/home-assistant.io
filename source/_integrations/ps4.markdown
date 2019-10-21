@@ -50,7 +50,6 @@ There are varying methods to perform this, dependent on your OS that is running 
 Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
 
 - Debian
-- Hassbian
 - Rassbian
 - Armbian
 - Ubuntu

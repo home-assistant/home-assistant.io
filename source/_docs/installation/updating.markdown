@@ -6,7 +6,7 @@ redirect_from: /getting-started/updating/
 
 <div class='note warning'>
 
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [Hassbian](/docs/installation/hassbian/common-tasks/#update-home-assistant), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/) or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 
 </div>
 
@@ -14,7 +14,7 @@ Check what's new in the latest version and potentially impacts your system in [H
 
 <div class='note'>
 
-To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [Hassbian](/docs/hassbian/installation/), or [Virtualenv](/docs/installation/virtualenv).
+To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/) or [Virtualenv](/docs/installation/virtualenv).
 
 </div>
 
