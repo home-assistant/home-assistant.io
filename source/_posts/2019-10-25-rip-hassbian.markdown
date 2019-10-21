@@ -28,7 +28,7 @@ Since Hassbian has been around for quite a while, there are quite a few users th
 
 ## Next step for Hassbian users
 The Hassbian image has always aimed to be the same as a manual Raspbian Lite installation with some packages added.
-There won't really be any big changes for all of the users of Hassbian and for documentation please refer to the [Manual installation on a Raspberry PI] method.
+There won't really be any big changes for all of the users of Hassbian and for documentation, please refer to the [Manual installation on a Raspberry PI] method.
 
 ## Last but not least
 Last but not least thank you to all of those who contributed in anyway to the Hassbian Project and image.
