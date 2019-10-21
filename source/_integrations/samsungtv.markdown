@@ -8,7 +8,7 @@ ha_release: 0.13
 ha_iot_class: Local Polling
 ---
 
-The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).
+The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
 ### Setup
 

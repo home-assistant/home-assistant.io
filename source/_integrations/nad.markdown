@@ -8,7 +8,7 @@ ha_release: 0.36
 ha_iot_class: Local Polling
 ---
 
-The `nad` platform allows you to control a [NAD receiver](http://nadelectronics.com) through RS232, TCP and Telnet from Home Assistant.
+The `nad` platform allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
 
 To add an NAD receiver to your installation, add the following to your `configuration.yaml` file:
 
