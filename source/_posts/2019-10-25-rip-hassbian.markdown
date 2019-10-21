@@ -10,19 +10,19 @@ comments: true
 categories: community
 ---
 
-It's time for the part of Home Assistant that once was the simplest way to install Home Assistant to retire. Hassbian is being retired.
+It's time for what was once the simplest way to install Home Assistant to retire.
 
 ## R.I.P Hassbian
 
 Some off you will probably wonder why Hassbian is being retired and I'll try to give a proper motivation. 
-First of is the age old factor of **time**. I as the lead developer of Hassbian hasn't been able to give it the time and attention it requires and there has been few others that have pushed the project further. The one exception being [@ludeeus] who's done most of the heavy lifting when the image was retooled to use a proper apt package and repository.
+First of is the age old factor of **time**. I as the lead developer of Hassbian haven't been able to give it the time and attention it requires, and there have been few others that have pushed the project further. The one exception being [@ludeeus] who's done most of the heavy lifting when the image was retooled to use a proper apt package and repository.
 Second is that it's no longer the best option for most to use as an installation method. Hass.io has surpassed Hassbian in almost all ways I can imagine.
 
 ## Next Step for Hassbian
 Since Hassbian has been around for quite a while there's quite a few users that don't want Hassbian to go away. To make this as easy as possible for those users here's the plan.
 
- - The repositores [pi-gen] and [hassbian-scripts] hosting the Hassbian projects files will be moved to a new organization. 
- - A last release will be released by me mid Q4 2019. Image hosted under the [pi-gen] repository. 
+ - The repositories [pi-gen] and [hassbian-scripts] hosting the Hassbian projects files will be moved to a new organization. 
+ - A last release will be done by me mid Q4 2019. This image will be hosted under the [pi-gen] repository. 
  - The [pi-gen] repository will be reworked to work with a standard [raspbian] image with minor modifications for anyone wanting to create their own "Hassbian like" image. This has always been possible but the current repository is a bit out of date with the current layout of the Raspbian image. 
  - The [hassbian-scripts] package will get a final release and will continue to be hosted on Gitlab. Some minor changes will be made to reflect the changes to the Project.
 
