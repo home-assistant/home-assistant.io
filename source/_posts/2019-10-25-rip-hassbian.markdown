@@ -31,7 +31,7 @@ The Hassbian image has always aimed to be the same as a manual Raspbian Lite ins
 There won't really be any big changes for all of the users of Hassbian and for documentation, please refer to the [Manual installation on a Raspberry PI] method.
 
 ## Last but not least
-Last but not least thank you to all of those who contributed in anyway to the Hassbian Project and image.
+Last but not least, thank you to all of those who contributed, in any way, to the Hassbian project and image.
 
 [@ludeeus]: https://github.com/ludeeus
 [pi-gen]: https://github.com/Hassbian/pi-gen
