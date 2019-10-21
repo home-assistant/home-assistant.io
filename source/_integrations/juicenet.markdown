@@ -5,6 +5,7 @@ logo: juicenet.png
 ha_category:
   - Energy
   - Sensor
+  - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ---
