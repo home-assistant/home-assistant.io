@@ -75,6 +75,11 @@ show_last_changed:
   description: Overwrites the state display with the relative time since last changed.
   type: boolean
   default: false
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap

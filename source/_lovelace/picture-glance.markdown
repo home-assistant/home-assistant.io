@@ -58,6 +58,11 @@ entity:
   required: false
   description: Entity to use for `state_image`.
   type: string
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap
@@ -178,6 +183,11 @@ icon:
   required: false
   description: Overwrites default icon.
   type: string
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap
