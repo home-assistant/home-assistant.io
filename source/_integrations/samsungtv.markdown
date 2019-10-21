@@ -112,7 +112,7 @@ Currently tested but not working models:
 - JU7500 - Unable to see state and unable to control
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
-- Q60 – turning on works, turning off does not work, State is always "off". [#17802](https://github.com/home-assistant/home-assistant/issues/17802)
+- Q60 – turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.
 
