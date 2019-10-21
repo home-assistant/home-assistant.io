@@ -30,12 +30,24 @@ sensor:
     payload: '{ "device" : "heater" }'
 ```
 
+or a template based request:
+
+```yaml
+sensor:
+  - platform: rest
+    resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
+```
+
+
 {% configuration %}
 resource:
   description: The resource or endpoint that contains the value.
   required: true
   type: string
-  default: string
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
+  required: true
+  type: template
 method:
   description: The method of the request. Either `POST` or `GET`.
   required: false
@@ -101,6 +113,10 @@ force_update:
 
 <div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
+</div>
+
+<div class='note info'>
+Use either `resource` or `resource_template`.
 </div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
