@@ -23,7 +23,7 @@ Since Hassbian has been around for quite a while, there are quite a few users th
 
  - The repositories [pi-gen] and [hassbian-scripts] hosting the Hassbian projects files will be moved to a new organization. 
  - A last release will be done by me mid Q4 2019. This image will be hosted under the [pi-gen] repository. 
- - The [pi-gen] repository will be reworked to work with a standard [raspbian] image with minor modifications for anyone wanting to create their own "Hassbian like" image. This has always been possible but the current repository is a bit out of date with the current layout of the Raspbian image. 
+ - The [pi-gen] repository will be reworked to work with a standard [raspbian] image with minor modifications for anyone wanting to create their own "Hassbian like" image. This has always been possible, but the current repository is a bit out of date with the current layout of the Raspbian image. 
  - The [hassbian-scripts] package will get a final release and will continue to be hosted on Gitlab. Some minor changes will be made to reflect the changes to the Project.
 
 ## Next step for Hassbian users
