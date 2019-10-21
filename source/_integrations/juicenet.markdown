@@ -5,10 +5,11 @@ logo: juicenet.png
 ha_category:
   - Energy
   - Sensor
+ha_iot_class: Cloud Polling
 ha_release: 0.47
 ---
 
-The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account.
+The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account. It also exposes a switch allowing you to charge your car now instead of waiting for the pre-set schedule.
 
 ## Configuration
 
