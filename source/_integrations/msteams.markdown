@@ -21,7 +21,7 @@ To add the Microsoft Teams platform to your installation, add the following to y
 notify:
   - platform: msteams
     name: myteam
-    webhook_id: https://outlook.office.com/webhook/<ID>
+    url: https://outlook.office.com/webhook/<ID>
 ```
 
 {% configuration %}
@@ -30,10 +30,10 @@ name:
   required: false
   type: string
   default: "notify"
-webhook_id:
+url:
   description: The webhook url created in the setup step.
   required: true
-  type: string
+  type: url
 {% endconfiguration %}
 
 ### Microsoft Teams service data
