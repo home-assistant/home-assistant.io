@@ -141,7 +141,7 @@ This configuration will:
 
 ## Notifications
 
-The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](http://matrix.org) room. Rooms can be both direct as well as group chats.
+The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
 To enable Matrix notifications in your installation, you first need to configure the [Matrix component](#configuration). Then, add the following to your `configuration.yaml` file:
 

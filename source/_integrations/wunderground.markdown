@@ -8,7 +8,7 @@ ha_release: 0.27
 ha_iot_class: Cloud Polling
 ---
 
-The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information.
+The `wunderground` platform uses [Weather Underground](https://www.wunderground.com/) as a source for current weather information.
 
 <div class='note warning'>
 

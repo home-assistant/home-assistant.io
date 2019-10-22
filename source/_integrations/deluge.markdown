@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensor
 
-The `deluge` platform allows you to monitor your downloads with [Deluge](http://deluge-torrent.org/) from within Home Assistant and setup automation based on the information.
+The `deluge` platform allows you to monitor your downloads with [Deluge](https://deluge-torrent.org/) from within Home Assistant and setup automation based on the information.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -72,7 +72,7 @@ monitored_variables:
 
 ## Switch
 
-The `deluge` switch platform allows you to control your [Deluge](http://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
+The `deluge` switch platform allows you to control your [Deluge](https://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
 
 To add Deluge to your installation, add the following to your `configuration.yaml` file:
 

@@ -8,7 +8,7 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
+The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 

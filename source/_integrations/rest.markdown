@@ -103,7 +103,7 @@ force_update:
 Make sure that the URL exactly matches your endpoint or resource.
 </div>
 
-`curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
+`curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](https://arest.io/).
 
 ```bash
 $ curl -X GET http://192.168.1.31/temperature/
@@ -116,7 +116,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### External IP address
 
-You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
+You can find your external IP address using the service [JSON Test](https://www.jsontest.com/) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
 ```yaml
 sensor:
@@ -217,7 +217,7 @@ sensor:
 
 ### Fetch multiple JSON values and present them as attributes
 
-[JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
+[JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
 {% raw %}
 ```yaml
@@ -240,7 +240,7 @@ sensor:
 ```
 {% endraw %}
 
-This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
+This sample fetches a weather report from [OpenWeatherMap](https://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
 ```yaml
@@ -251,12 +251,12 @@ sensor:
       - main
       - weather
     value_template: '{{ value_json["weather"][0]["description"].title() }}'
-    resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+    resource: https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
   - platform: template
     sensors:
       owm_weather:
         value_template: '{{ state_attr('sensor.owm_report', 'weather')[0]["description"].title() }}'
-        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
+        entity_picture_template: '{{ "https://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: 'Outside temp'

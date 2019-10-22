@@ -100,7 +100,7 @@ Found Apple TVs:
 Note: You must use 'pair' with devices that have home sharing disabled
 ```
 
-Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
+Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](https://pyatv.readthedocs.io/en/master/atvremote.html).
 
 ### Setting up device authentication
 

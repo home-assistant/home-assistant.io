@@ -31,7 +31,7 @@ To enable the GeoRSS events sensor, add the following lines to your `configurati
 sensor:
   - platform: geo_rss_events
     name: NSW Fire Service
-    url: http://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
+    url: https://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
     unit_of_measurement: 'Incidents'
     categories:
       - 'Emergency Warning'
@@ -95,7 +95,7 @@ sensor:
     url: https://www.emergency.wa.gov.au/data/incident_FCAD.rss
   - platform: geo_rss_events
     name: ACT Emergency Services Agency
-    url: http://www.esa.act.gov.au/feeds/currentincidents.xml
+    url: https://www.esa.act.gov.au/feeds/currentincidents.xml
 ```
 
 
@@ -111,7 +111,7 @@ sensor:
       - 'Past Day'
   - platform: geo_rss_events
     name: BGS Worlwide Earthquakes
-    url: http://www.bgs.ac.uk/feeds/worldSeismology.xml
+    url: https://www.bgs.ac.uk/feeds/worldSeismology.xml
     categories:
       - 'EQMH'
   - platform: geo_rss_events

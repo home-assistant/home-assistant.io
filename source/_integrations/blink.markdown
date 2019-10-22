@@ -12,7 +12,7 @@ ha_release: "0.40"
 ha_iot_class: Cloud Polling
 ---
 
-The `blink` integration lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
+The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
 
 ## Setup
 

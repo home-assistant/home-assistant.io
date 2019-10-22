@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ---
 
 The `eddystone_temperature` sensor platform reads temperature information from Bluetooth LE advertisements transmitted by [Eddystone](https://en.wikipedia.org/wiki/Eddystone_(Google)) beacons. Your beacons must be configured to transmit UID frames (for identification) and TLM frames (for temperature).
-All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example [Gimbal](https://store.gimbal.com/collections/beacons/), [Estimote](http://estimote.com/) or [kontakt.io](https://kontakt.io/). For more manufacturers see [this overview](https://developers.google.com/beacons/eddystone#beacon_manufacturers) by Google.
+All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example [Gimbal](https://store.gimbal.com/collections/beacons/), [Estimote](https://estimote.com/) or [kontakt.io](https://kontakt.io/). For more manufacturers see [this overview](https://developers.google.com/beacons/eddystone#beacon_manufacturers) by Google.
 
 ## Requirements
 

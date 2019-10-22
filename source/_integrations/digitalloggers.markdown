@@ -8,7 +8,7 @@ ha_release: 0.35
 ha_iot_class: Local Polling
 ---
 
-The `digitalloggers` switch platform allows you to control the state of your [Digital Loggers](http://www.digital-loggers.com/dinfaqs.html) switches.
+The `digitalloggers` switch platform allows you to control the state of your [Digital Loggers](https://www.digital-loggers.com/dinfaqs.html) switches.
 
 ## Configuration
 

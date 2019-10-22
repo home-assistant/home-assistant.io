@@ -8,7 +8,7 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ---
 
-The `vlc_telnet` platform allows you to control a [VLC media player](http://www.videolan.org/vlc/index.html) using the built in telnet interface.
+The `vlc_telnet` platform allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
 
 To add a VLC media player to your installation, add the following to your `configuration.yaml` file:
 

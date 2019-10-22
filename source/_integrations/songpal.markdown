@@ -10,7 +10,7 @@ ha_release: 0.65
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
 
-Even when the API officially supports only a few devices (HT-ST5000, HT-MT500, HT-CT800, SRS-ZR5 and STR-DN1080), it has also been confirmed to work on others. [The list of supported devices](http://vssupport.sony.net/en_ww/device.html) from Sony's Songpal website lists devices which are likely to be compatible with this platform.
+Even when the API officially supports only a few devices (HT-ST5000, HT-MT500, HT-CT800, SRS-ZR5 and STR-DN1080), it has also been confirmed to work on others. [The list of supported devices](https://vssupport.sony.net/en_ww/device.html) from Sony's Songpal website lists devices which are likely to be compatible with this platform.
 
 If the platform works with your non-listed device, or you encounter bugs, please feel free to [report them upstream](https://github.com/rytilahti/python-songpal).
 

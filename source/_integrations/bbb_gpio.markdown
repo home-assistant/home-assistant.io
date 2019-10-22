@@ -64,7 +64,7 @@ pins:
           default: UP
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
+For more details about the GPIO layout, visit the [article](https://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
 
 ## Switch
 
@@ -112,4 +112,4 @@ pins:
           type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
+For more details about the GPIO layout, visit the [article](https://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.

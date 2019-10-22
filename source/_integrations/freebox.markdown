@@ -11,7 +11,7 @@ ha_release: 0.85
 ha_iot_class: Local Polling
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](http://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -70,7 +70,7 @@ Only the routers with Freebox OS are supported:
 ## Presence Detection
 
 This platform offers presence detection by keeping track of the
-devices connected to a [Freebox](http://www.free.fr/) router.
+devices connected to a [Freebox](https://www.free.fr/) router.
 
 ### Notes
 

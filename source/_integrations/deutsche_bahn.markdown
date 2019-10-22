@@ -53,4 +53,4 @@ sensor:
       friendly_name: 'Next departure'
 ```
 
-The data is coming from the [bahn.de](http://www.bahn.de/p/view/index.shtml) website.
+The data is coming from the [bahn.de](https://www.bahn.de/p/view/index.shtml) website.
