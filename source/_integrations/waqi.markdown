@@ -8,9 +8,9 @@ ha_release: 0.34
 ha_iot_class: Cloud Polling
 ---
 
-The `waqi` sensor platform will query [World Air Quality Index](http://aqicn.org) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.
+The `waqi` sensor platform will query [World Air Quality Index](https://aqicn.org/) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.
 
-This sensor requires an API token. Please obtain one at [AQICN API token](http://aqicn.org/data-platform/token/#/).
+This sensor requires an API token. Please obtain one at [AQICN API token](https://aqicn.org/data-platform/token/#/).
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
