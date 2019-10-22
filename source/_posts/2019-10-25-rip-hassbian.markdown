@@ -30,6 +30,10 @@ Since Hassbian has been around for quite a while, there are quite a few users th
 The Hassbian image has always aimed to be the same as a manual Raspbian Lite installation with some packages added.
 There won't really be any big changes for all of the users of Hassbian and for documentation, please refer to the [Manual installation on a Raspberry PI] method.
 
+## Alternatives
+If your want to continue using something similar have a look at the [manual installation on a Raspberry Pi] since it is the base Hassbian was created from.
+For everyone else I would wholeheartedly recommend Hass.io since it what I personally use now (It's what I had hoped Hassbian could have been but better).
+
 ## Last but not least
 Last but not least, thank you to all of those who contributed, in any way, to the Hassbian project and image.
 
