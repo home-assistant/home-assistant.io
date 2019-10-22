@@ -1,11 +1,11 @@
 ---
-title: "Sky+ HD"
+title: "Sky+HD"
 description: "Instructions on how to integrate a Sky+HD box into Home Assistant."
 logo: sky_plus_hd.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: "0.102"
+ha_release: 0.102
 ---
 
 The `sky_plus_hd` integration allows you to control a [Sky](https://www.sky.com/)+HD box.
@@ -16,8 +16,7 @@ To add a Sky+HD box to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 media_player:
   - platform: sky_plus_hd
-    host: 192.168.0.2
-    name: Sky Box
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
