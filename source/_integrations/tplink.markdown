@@ -32,6 +32,12 @@ The following devices are known to work with this component.
 - HS105
 - HS110
 
+### Multi-Plug Strips
+
+- HS107 (indoor 2-outlet)
+- HS300 (powerstrip 6-outlet)
+- KP400 (outdoot 2-outlet)
+
 ### Wall Switches
 
 - HS200
@@ -64,6 +70,15 @@ discovery:
   default: true
 light:
   description: List of light devices.
+  required: false
+  type: list
+  keys:
+    host:
+      description: Hostname or IP address of the device.
+      required: true
+      type: string
+strip:
+  description: List of multi-outlet on/off switch devices.
   required: false
   type: list
   keys:
@@ -106,6 +121,9 @@ tplink:
   dimmer:
     - host: 192.168.200.5
     - host: 192.168.200.6
+  strip:
+    - host: 192.168.200.7
+    - host: 192.168.200.8
 ```
 
 ## Extracting Energy Sensor data
