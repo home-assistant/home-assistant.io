@@ -9,8 +9,8 @@ ha_iot_class: Cloud Polling
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its
-territories to get information regarding reported flu symptoms from Flu Near
-You. The platform can return user-reported information as well reports from the
+territories to get information regarding reported flu symptoms from [Flu Near
+You](https://flunearyou.org/). The platform can return user-reported information as well reports from the
 Center for Disease Control (CDC).
 
 ## Configuration

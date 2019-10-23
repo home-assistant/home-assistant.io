@@ -213,6 +213,7 @@
 /components/camera.august /integrations/august#camera
 /components/camera.axis /integrations/axis
 /components/camera.blink /integrations/blink
+/components/camera.buienradar /integrations/buienradar#camera
 /components/camera.canary /integrations/canary#camera
 /components/camera.dispatcher /integrations/dispatcher
 /components/camera.doorbird /integrations/doorbird#camera
@@ -570,7 +571,6 @@
 /components/notify.free_mobile /integrations/free_mobile
 /components/notify.gntp /integrations/gntp
 /components/notify.hangouts /integrations/hangouts
-/components/notify.hipchat /integrations/hipchat
 /components/notify.homematic /integrations/homematic
 /components/notify.html5 /integrations/html5
 /components/notify.huawei_lte /integrations/huawei_lte
@@ -596,7 +596,6 @@
 /components/notify.simplepush /integrations/simplepush
 /components/notify.slack /integrations/slack
 /components/notify.smtp /integrations/smtp
-/components/notify.stride /integrations/stride
 /components/notify.synology_chat /integrations/synology_chat
 /components/notify.syslog /integrations/syslog
 /components/notify.telegram /integrations/telegram
@@ -751,7 +750,6 @@
 /components/sensor.htu21d /integrations/htu21d
 /components/sensor.huawei_lte /integrations/huawei_lte#sensor
 /components/sensor.hydrawise /integrations/hydrawise#sensor
-/components/sensor.hydroquebec /integrations/hydroquebec
 /components/sensor.ihc /integrations/ihc#sensor
 /components/sensor.imap /integrations/imap
 /components/sensor.imap_email_content /integrations/imap_email_content
@@ -1065,9 +1063,9 @@
 /components/switch.zigbee /integrations/zigbee#switch
 /components/switch.zoneminder /integrations/zoneminder#switch
 /components/switch.zwave /integrations/zwave
-/components/telegram_bot.broadcast /integrations/broadcast
-/components/telegram_bot.polling /integrations/polling
-/components/telegram_bot.webhooks /integrations/webhooks
+/components/telegram_bot.broadcast /integrations/telegram_broadcast
+/components/telegram_bot.polling /integrations/telegram_polling
+/components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/tts.amazon_polly /integrations/amazon_polly
 /components/tts.baidu /integrations/baidu
 /components/tts.google /integrations/google_translate
@@ -1189,7 +1187,7 @@
 /components/bmw_connected_drive /integrations/bmw_connected_drive
 /components/bom /integrations/bom
 /components/braviatv /integrations/braviatv
-/components/broadcast /integrations/broadcast
+/components/broadcast /integrations/telegram_broadcast
 /components/broadlink /integrations/broadlink
 /components/brottsplatskartan /integrations/brottsplatskartan
 /components/browser /integrations/browser
@@ -1432,7 +1430,6 @@
 /components/heos /integrations/heos
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
-/components/hipchat /integrations/hipchat
 /components/history /integrations/history
 /components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
@@ -1457,7 +1454,6 @@
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
-/components/hydroquebec /integrations/hydroquebec
 /components/hyperion /integrations/hyperion
 /components/ialarm /integrations/ialarm
 /components/iaqualink /integrations/iaqualink
@@ -1709,7 +1705,7 @@
 /components/plum_lightpad /integrations/plum_lightpad
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
-/components/polling /integrations/polling
+/components/polling /integrations/telegram_polling
 /components/postnl /integrations/postnl
 /components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
@@ -1907,7 +1903,7 @@
 /components/ted5000 /integrations/ted5000
 /components/teksavvy /integrations/teksavvy
 /components/telegram /integrations/telegram
-/components/telegram_bot /integrations/telegram_bot
+/components/telegram_bot /integrations/telegram_chatbot
 /components/tellduslive /integrations/tellduslive
 /components/tellstick /integrations/tellstick
 /components/telnet /integrations/telnet
@@ -2008,7 +2004,7 @@
 /components/weather /integrations/weather
 /components/weather.darksky /integrations/weather.darksky
 /components/webhook /integrations/webhook
-/components/webhooks /integrations/webhooks
+/components/webhooks /integrations/telegram_webhooks
 /components/weblink /integrations/weblink
 /components/webostv /integrations/webostv
 /components/websocket_api /integrations/websocket_api

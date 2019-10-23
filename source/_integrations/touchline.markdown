@@ -21,7 +21,7 @@ climate:
 
 {% configuration %}
 host:
-  description: The IP address of your controller, e.g., http://192.168.1.1.
+  description: The IP address of your controller, e.g., `http://192.168.1.1`.
   required: false
   type: string
 {% endconfiguration %}

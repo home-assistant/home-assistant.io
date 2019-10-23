@@ -27,7 +27,7 @@ api_key:
   required: true
   type: string
 language:
-  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For the supported languages check the list of [available languages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/microsoft/tts.py#L20).
+  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For the supported languages check the list of [available languages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/microsoft/tts.py#L20).
   required: false
   type: string
   default: "`en-us`"
@@ -57,7 +57,7 @@ pitch:
   type: string
   default: "`default`"
 contour:
-  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](http://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
+  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
   required: false
   type: string
 {% endconfiguration %}

@@ -53,6 +53,10 @@ input_text:
         required: false
         type: string
         default: empty
+      icon:
+        description: Icon to display in front of the input element in the frontend.
+        required: false
+        type: icon
       pattern:
         description: Regex pattern for client side validation.
         required: false
@@ -67,7 +71,7 @@ input_text:
 
 ### Services
 
-This integrations provide three services to modify the state of the `input_text`.
+This integration provides a single service to modify the state of the `input_text`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -76,6 +80,18 @@ This integrations provide three services to modify the state of the `input_text`
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+
+### Scenes
+
+To set the state of the input_text in a [Scene](/integrations/scene/):
+
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example1
+    entities:
+      input_text.example: Hello!
+```
 
 ## Automation Examples
 

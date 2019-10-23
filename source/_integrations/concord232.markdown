@@ -43,7 +43,7 @@ code:
   required: false
   type: string
 mode:
-  description: audible/silent if defined, specifies wether Alarm Panel should be audible or silent when armed in Home Mode.
+  description: audible/silent if defined, specifies whether Alarm Panel should be audible or silent when armed in Home Mode.
   required: false
   type: string
   default: audible

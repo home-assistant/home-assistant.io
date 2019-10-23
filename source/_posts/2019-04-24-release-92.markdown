@@ -1027,8 +1027,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ifttt docs]: /integrations/ifttt/
 [ign_sismologia docs]: /integrations/ign_sismologia/
 [influxdb docs]: /integrations/influxdb/
-[insteon_local docs]: /integrations/insteon_local/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_local docs]: /integrations/insteon/
+[insteon_plm docs]: /integrations/insteon/
 [introduction docs]: /integrations/introduction/
 [lcn docs]: /integrations/lcn/
 [light docs]: /integrations/light/
@@ -1077,7 +1077,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [stream docs]: /integrations/stream/
 [supla docs]: /integrations/supla/
 [switch docs]: /integrations/switch/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tellduslive docs]: /integrations/tellduslive/
 [tplink docs]: /integrations/tplink/
 [trend docs]: /integrations/trend/

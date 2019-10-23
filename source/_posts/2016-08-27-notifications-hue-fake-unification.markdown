@@ -253,7 +253,7 @@ Talk to you soon on Discord and in your pull request comments!
 [Wunderground]: /integrations/wunderground
 [monitoring]: /integrations/ffmpeg_motion
 [MJPEG]: /integrations/mjpeg
-[Generic]: /integrations/generic
+[Generic]: /integrations/generic_ip_camera
 [positions]: /integrations/zwave#cover
 [forecast]: /integrations/darksky
 [Bluetooth]: /integrations/bluetooth_le_tracker

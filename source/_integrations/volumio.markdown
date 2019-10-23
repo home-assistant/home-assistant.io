@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.41
 ---
 
-The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player from Home Assistant.
+The `Volumio` platform allows you to control a [Volumio](https://volumio.org/) media player from Home Assistant.
 
 The preferred way to set up the Volumio platform is by enabling the [discovery component](/integrations/discovery/).
 

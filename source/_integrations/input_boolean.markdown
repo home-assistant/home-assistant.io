@@ -37,7 +37,7 @@ input_boolean:
         type: boolean
         default: false
       icon:
-        description: Icon to display for the component.
+        description: Icon to display in front of the input element in the frontend.
         required: false
         type: icon
 {% endconfiguration %}

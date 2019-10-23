@@ -8,7 +8,7 @@ ha_category:
 ha_release: 0.49
 ---
 
-[LaMetric Time](http://lametric.com) is a smart clock that can be used to access applications, listen to web radio and display notifications.
+[LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,7 +33,7 @@ These are the steps to take:
 3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
   * App Name: Home Assistant 
   * Description: Home Assistant
-  * Privacy Policy: http://localhost/
+  * Privacy Policy: `http://localhost/`
   * Check all permission boxes
   * Hit Save
 4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources), click on "Home Assistant", copy your client ID and client Secret and paste into the Home Assistant configuration block in the previous section.

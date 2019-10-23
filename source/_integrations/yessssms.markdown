@@ -9,7 +9,7 @@ ha_release: 0.57
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.
 
-Currenty some MVNOs (mobile virtual network operators), in the A1 network, that use the kontomanager.at interface work. These are currently  (as of version 0.4.0 of [YesssSMS](https://pypi.org/project/YesssSMS/)): 
+Currently some MVNOs (mobile virtual network operators), in the A1 network, that use the kontomanager.at interface work. These are currently  (as of version 0.4.0 of [YesssSMS](https://pypi.org/project/YesssSMS/)): 
 * YESSS
 * billitel
 * EDUCOM

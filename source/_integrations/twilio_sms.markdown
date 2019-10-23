@@ -23,7 +23,7 @@ notify:
 
 {% configuration %}
 from_number:
-  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information. Alternatively, a sender ID can be used instead of a phone number. The sender ID must be formatted according to Twilio's guidelines. See [Twilio's guide to sender ID](https://support.twilio.com/hc/en-us/articles/223181348-Getting-started-with-Alphanumeric-Sender-ID) for more information.
+  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information. Alternatively, a sender ID can be used instead of a phone number. The sender ID must be formatted according to Twilio's guidelines. See [Twilio's guide to sender ID](https://support.twilio.com/hc/en-us/articles/223181348-Getting-started-with-Alphanumeric-Sender-ID) for more information. Do keep in mind that not all countries support sender ID. See [Twilio's page of supported countries](https://support.twilio.com/hc/en-us/articles/223133767-International-support-for-Alphanumeric-Sender-ID) for more information.
   required: true
   type: string
 name:
@@ -35,7 +35,7 @@ name:
 
 ### Usage
 
-Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
+Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers. It's also possible to use `whatsapp:+123456789` for sending notifications to a Whatsapp user.
 
 Media can be included with messages by setting the optional `media_url` variable. Only `.gif`, `.png`, or `.jpeg` content are supported, according to the Twilio documentation and this feature is [only supported in the US and Canada.][mms]
 

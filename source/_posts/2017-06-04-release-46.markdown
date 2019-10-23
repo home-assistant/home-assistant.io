@@ -100,7 +100,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always return rgb color of bulbs ([@w1ll1am23] - [#7743]) ([light.wink docs])
 - Redesign monitored variables for hp_ilo sensor ([@Juggels] - [#7534]) ([sensor.hp_ilo docs]) (breaking change)
 - Fix time_date sensor to update at predictable intervals ([@stu-gott] - [#7644]) ([sensor.time_date docs])
-- Added new commands and functionality to the harmony remote component. ([@everix1992] - [#7113]) ([remote docs]) ([remote.harmony docs]) ([remote.services.yaml docs])
+- Added new commands and functionality to the harmony remote component. ([@everix1992] - [#7113]) ([remote docs]) ([remote.harmony docs]) (remote.services.yaml docs)
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Exclude filter for event types ([@amigian74] - [#7627])
 - Change setup script to use pip install instead of setup.py develop ([@hoh] - [#7756])
@@ -329,7 +329,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [homematic docs]: /integrations/homematic/
 [image_processing.seven_segments docs]: /integrations/seven_segments
-[insteon_local docs]: /integrations/insteon_local/
+[insteon_local docs]: /integrations/insteon/
 [ios docs]: /integrations/ios/
 [light.__init__ docs]: /integrations/light.__init__/
 [light.flux_led docs]: /integrations/flux_led
@@ -346,7 +346,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.spotify docs]: /integrations/spotify
 [media_player.volumio docs]: /integrations/volumio
 [modbus docs]: /integrations/modbus/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
 [notify.rest docs]: /integrations/notify.rest/
 [notify.slack docs]: /integrations/slack
@@ -355,7 +355,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [recorder.__init__ docs]: /integrations/recorder.__init__/
 [remote docs]: /integrations/remote/
 [remote.harmony docs]: /integrations/harmony
-[remote.services.yaml docs]: /integrations/remote.services.yaml/
 [scene.hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview
 [sensor.amcrest docs]: /integrations/amcrest
 [sensor.arlo docs]: /integrations/arlo#sensor
@@ -370,9 +369,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.rachio docs]: /integrations/rachio#switch
 [switch.rflink docs]: /integrations/switch.rflink/
-[telegram_bot.__init__ docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.__init__ docs]: /integrations/telegram_chatbot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tellduslive docs]: /integrations/tellduslive/
 [upnp docs]: /integrations/upnp/
 [zoneminder docs]: /integrations/zoneminder/

@@ -285,7 +285,7 @@ sensor:
       measurement: '"°C"'
       field: value
       database: db1
-    -  name: Min for last hour
+    - name: Min for last hour
       unit_of_measurement: '%'
       value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
       group_function: min

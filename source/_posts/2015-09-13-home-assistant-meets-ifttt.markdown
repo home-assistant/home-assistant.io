@@ -36,7 +36,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "switch.irrigation" }
@@ -73,7 +73,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "light.kitchen" }
@@ -88,7 +88,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "group.all_lights", "flash":"yes" }

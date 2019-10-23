@@ -8,12 +8,6 @@ ha_release: 0.55
 ha_qa_scale: internal
 ---
 
-<div class='note'>
-
-Before version 0.55 this integration was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
-
-</div>
-
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 To enable this input number in your installation, add the following lines to your `configuration.yaml`:
@@ -58,7 +52,7 @@ input_number:
         description: Initial value when Home Assistant starts.
         required: false
         type: float
-        default: 0
+        default: The value at shutdown
       step:
         description: Step value for the slider. Smallest value `0.001`.
         required: false
@@ -74,7 +68,7 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend.
+        description: Icon to display in front of the input element in the frontend.
         required: false
         type: icon
 {% endconfiguration %}
@@ -82,6 +76,18 @@ input_number:
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+
+### Scenes
+
+To set the value of an input_number in a [Scene](/integrations/scene/):
+
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example Scene
+    entities:
+      input_number.example_number: 13
+```
 
 ## Automation Examples
 

@@ -376,7 +376,7 @@ rainmachine:
 [auth docs]: /integrations/auth/
 [binary_sensor docs]: /integrations/binary_sensor/
 [binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
-[binary_sensor.insteon_plm docs]: /integrations/insteon_plm/
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
 [binary_sensor.tapsaff docs]: /integrations/tapsaff
 [binary_sensor.trend docs]: /integrations/trend
 [binary_sensor.workday docs]: /integrations/workday
@@ -405,7 +405,7 @@ rainmachine:
 [image_processing.microsoft_face_identify docs]: /integrations/microsoft_face_identify
 [image_processing.opencv docs]: /integrations/opencv
 [influxdb docs]: /integrations/influxdb/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.deconz docs]: /integrations/deconz#light
 [light.flux_led docs]: /integrations/flux_led
 [light.hue docs]: /integrations/hue
@@ -466,7 +466,7 @@ rainmachine:
 [sensor.yweather docs]: /integrations/yweather
 [switch.deluge docs]: /integrations/deluge#switch
 [switch.fritzbox docs]: /integrations/fritzbox
-[switch.insteon_plm docs]: /integrations/insteon_plm/
+[switch.insteon_plm docs]: /integrations/insteon/
 [switch.mqtt docs]: /integrations/switch.mqtt/
 [switch.rainmachine docs]: /integrations/rainmachine#switch
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/

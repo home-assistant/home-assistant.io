@@ -226,7 +226,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
@@ -278,6 +278,22 @@ The `for` template(s) will be evaluated when the `value_template` becomes `true`
 <div class='note warning'>
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 </div>
+
+
+As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+```
+
+{% endraw %}
+
+which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
 
 ### Time trigger
 

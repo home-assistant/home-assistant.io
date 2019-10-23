@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.33
 ---
 
-This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devices.
+This is a presence detection scanner for [Cisco](https://www.cisco.com/) IOS devices.
 
 <div class='note warning'>
 This device tracker needs SSH to be enabled on the router.

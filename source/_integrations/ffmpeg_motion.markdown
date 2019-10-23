@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.27
 ---
 
-The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.
+The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
 <div class='note'>
 

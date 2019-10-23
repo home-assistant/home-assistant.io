@@ -39,14 +39,6 @@ token:
 
 ## Services
 
-### Service `open`
-
-This will unlatch the door, ie. open it (provided this works with your type of door).
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-
 ### Service `lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.

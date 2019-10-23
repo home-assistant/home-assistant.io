@@ -89,7 +89,7 @@ As you can see, there are 4 custom projects here:
 
 You can mix-and-match these attributes to create all sorts of custom projects. You can even use [IFTTT](https://ifttt.com/todoist) to create a task with a certain label, then have Home Assistant do some kind of automation when a task with that label comes due.
 
-Home Assistant does its best to [determine what task in each project is "most" important](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/integrations/todoist/calendar.py), and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
+Home Assistant does its best to [determine what task in each project is "most" important](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/todoist/calendar.py), and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
 
 ### Sensor attributes
 
@@ -156,7 +156,7 @@ Here are two example JSON payloads resulting in the same task:
 
 - **due_date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
 
-- **due_date_lang** (*Optional*): When `due_date_string` is set, it is posisble to set the language.
+- **due_date_lang** (*Optional*): When `due_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.

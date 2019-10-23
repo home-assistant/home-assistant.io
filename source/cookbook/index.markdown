@@ -14,7 +14,7 @@ For [`python_script:` examples](/integrations/python_script/) visit the [Scripts
 [sec-automation]: /integrations/#automation
 [organization]: /integrations/#organization
 
-New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook).
+New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.io/tree/current/source/_cookbook).
 
 <div class='note'>
 

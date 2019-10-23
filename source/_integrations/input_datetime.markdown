@@ -54,7 +54,7 @@ input_datetime:
         type: boolean
         default: false
       icon:
-        description: Icon to display in the frontend.
+        description: Icon to display in front of the input element in the frontend.
         required: false
         type: icon
       initial:

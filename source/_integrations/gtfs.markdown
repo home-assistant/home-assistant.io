@@ -10,11 +10,11 @@ ha_release: 0.17
 
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
 
-You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](http://transitfeeds.com/feeds).
+You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](https://transitfeeds.com/feeds).
 
 Here are some examples:
 
-- [Bay Area Rapid Transit (BART)](http://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
+- [Bay Area Rapid Transit (BART)](https://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
 - [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
 - [Official Timetable Switzerland](https://opentransportdata.swiss/en/dataset/timetable-2019-gtfs) - The official timetable data for Switzerland in 2019.
 

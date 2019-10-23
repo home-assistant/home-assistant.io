@@ -34,7 +34,7 @@ password:
   required: true
   type: string
 host:
-  description: The ip-address of the server that is running the Asterisk PBX
+  description: The IP-address of the server that is running the Asterisk PBX
   required: true
   type: string
 port:

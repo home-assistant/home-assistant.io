@@ -358,7 +358,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [camera docs]: /integrations/camera/
 [camera.familyhub docs]: /integrations/familyhub
-[camera.generic docs]: /integrations/generic
+[camera.generic docs]: /integrations/generic_ip_camera
 [climate.mysensors docs]: /integrations/climate.mysensors/
 [climate.sensibo docs]: /integrations/sensibo
 [climate.venstar docs]: /integrations/venstar
@@ -379,7 +379,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
 [http docs]: /integrations/http/
 [image_processing.facebox docs]: /integrations/facebox
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [iota docs]: /integrations/iota/
 [isy994 docs]: /integrations/isy994/
 [konnected docs]: /integrations/konnected/
@@ -432,7 +432,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tahoma docs]: /integrations/tahoma
 [system_log docs]: /integrations/system_log/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tts docs]: /integrations/tts/
 [updater docs]: /integrations/updater/
 [weather.bom docs]: /integrations/bom

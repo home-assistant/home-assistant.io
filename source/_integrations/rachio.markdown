@@ -10,11 +10,11 @@ ha_iot_class: Cloud Push
 ha_release: 0.73
 ---
 
-The `rachio` platform allows you to control your [Rachio irrigation system](http://rachio.com/).
+The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](http://rachio.com/).
+- **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
 They will be automatically added if the Rachio integration integration is loaded.
@@ -73,7 +73,7 @@ panel_iframe:
 
 ## Switch
 
-The `rachio` switch platform allows you to toggle zones connected to your [Rachio irrigation system](http://rachio.com/) on and off.
+The `rachio` switch platform allows you to toggle zones connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch to toggle each controller's standby mode.
 

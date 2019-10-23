@@ -376,7 +376,7 @@ vacuum:
 [history docs]: /integrations/history/
 [image_processing.opencv docs]: /integrations/opencv
 [influxdb docs]: /integrations/influxdb/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.decora_wifi docs]: /integrations/decora_wifi/
 [light.flux_led docs]: /integrations/flux_led
 [light.lifx docs]: /integrations/lifx
@@ -442,7 +442,7 @@ vacuum:
 [switch.rainmachine docs]: /integrations/rainmachine#switch
 [switch.wink docs]: /integrations/wink#switch
 [switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [updater docs]: /integrations/updater/
 [vacuum docs]: /integrations/vacuum/
 [vacuum.demo docs]: /integrations/vacuum.demo/

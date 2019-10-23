@@ -9,7 +9,7 @@ ha_release: 0.37
 ha_iot_class: Local Polling
 ---
 
-The `zabbix` integration is the main integration to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
+The `zabbix` integration is the main integration to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -64,7 +64,7 @@ zabbix:
 
 ## Sensor
 
-The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](http://www.zabbix.com/) monitoring instance.
+The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](https://www.zabbix.com/) monitoring instance.
 
 <div class='note'>
 You must have the <a href="#configuration">Zabbix component</a> configured to use those sensors.

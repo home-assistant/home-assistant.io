@@ -195,7 +195,7 @@ Triple tap on|2|4
 
 Many Zooz Zen26/27 switches that have been sold do not have firmware 2.0+. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
-Once the firmware is updated, the the new configuration paramters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
+Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
 
 Zen26 (On/Off Switch):
 ```xml
@@ -329,7 +329,7 @@ For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CE
 </CommandClass>
 ```
 
-Go to the Z-Wave Network Management section in the Home Assistant Configuration, select the node which has just been updated and enable the scene support configuration paramter.
+Go to the Z-Wave Network Management section in the Home Assistant Configuration, select the node which has just been updated and enable the scene support configuration parameter.
 
 Once this is complete, you should see the following `zwave.scene_activated` events:
 

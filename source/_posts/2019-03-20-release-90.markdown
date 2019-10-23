@@ -721,7 +721,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [binary_sensor.workday docs]: /integrations/workday
 [camera docs]: /integrations/camera/
 [camera.ffmpeg docs]: /integrations/camera.ffmpeg/
-[camera.generic docs]: /integrations/generic
+[camera.generic docs]: /integrations/generic_ip_camera
 [camera.onvif docs]: /integrations/onvif
 [camera.proxy docs]: /integrations/proxy
 [camera.xeoma docs]: /integrations/xeoma

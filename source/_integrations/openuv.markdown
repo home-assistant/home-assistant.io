@@ -11,7 +11,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ---
 
-The `openuv` integration displays UV and Ozone data from [openuv.io](http://openuv.io).
+The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
 ## Generating an API Key
 

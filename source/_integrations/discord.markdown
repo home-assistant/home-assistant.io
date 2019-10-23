@@ -46,7 +46,7 @@ Bots can only send messages to servers or attach local available images. To add 
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
 
-[https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0](https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0)
+`https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-auth.png' />
@@ -84,3 +84,5 @@ You can tag any user inside a channel by using their user ID in the message like
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).
+
+Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e. `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.

@@ -122,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix the Xiaomi Aqara Cube rotate event of the LAN protocol 2.0 (Closes: #18199) ([@syssi] - [#19104]) ([binary_sensor.xiaomi_aqara docs])
 - Upgrade Mill library ([@Danielhiversen] - [#19117]) ([climate.mill docs])
 - Add Philips Moonlight Bedside Lamp support ([@syssi] - [#18496]) ([light.xiaomi_miio docs])
-- update edp_redy version ([@abmantis] - [#19078]) ([edp_redy docs])
+- update edp_redy version ([@abmantis] - [#19078])
 - Update Google Assistant services description and request sync timeout ([@edif30] - [#19113])
 - Fixed doorbird config without events (empty list) ([@basschipper] - [#19121]) ([doorbird docs])
 - Add code support for iAlarm ([@RyuzakiKK] - [#19124]) ([alarm_control_panel.ialarm docs])
@@ -245,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Clean up RFLink tests and add two tests ([@javicalle] - [#19511])
 - Add ZHA battery sensor ([@dmulcahey] - [#19363]) ([zha docs]) ([sensor.zha docs])
 - Restore state for zha binary_sensors on restart. ([@Adminiuga] - [#19314]) ([binary_sensor.zha docs])
-- Add deprecation warning ([@ludeeus] - [#19515]) ([sensor.ruter docs])
+- Add deprecation warning ([@ludeeus] - [#19515]) (sensor.ruter docs)
 - Update yale smart alarm client to v0.1.6 ([@domwillcode] - [#19495]) ([alarm_control_panel.yale_smart_alarm docs])
 - Add sunrise and sunset to Darksky weather sensor ([@fabaff] - [#19492]) ([sensor.darksky docs])
 - Update ZHA entity state on ZigBee zdo device announce ([@dmulcahey] - [#19208]) ([zha docs])
@@ -764,7 +764,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [demo docs]: /integrations/demo/
 [device_tracker docs]: /integrations/device_tracker/
 [doorbird docs]: /integrations/doorbird/
-[edp_redy docs]: /integrations/edp_redy/
 [eight_sleep docs]: /integrations/eight_sleep/
 [envisalink docs]: /integrations/envisalink/
 [esphome docs]: /integrations/esphome/
@@ -864,7 +863,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.plum_lightpad docs]: /integrations/plum_lightpad
 [sensor.point docs]: /integrations/point#sensor
 [sensor.prezzibenzina docs]: /integrations/prezzibenzina
-[sensor.ruter docs]: /integrations/sensor.ruter/
 [sensor.scrape docs]: /integrations/scrape
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.solaredge docs]: /integrations/solaredge

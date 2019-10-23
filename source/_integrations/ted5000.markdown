@@ -8,7 +8,7 @@ ha_release: "0.30"
 ha_iot_class: Local Polling
 ---
 
-The `ted 5000` monitors electricity consumption/production by connecting to the [TED](http://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.
+The `ted 5000` monitors electricity consumption/production by connecting to the [TED](https://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.
 
 If you want to enable the ted5000 sensor, add the following lines to your `configuration.yaml`:
 

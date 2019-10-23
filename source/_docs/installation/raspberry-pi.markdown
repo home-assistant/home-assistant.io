@@ -14,7 +14,7 @@ Although these installation steps specifically mention a Raspberry Pi, you can g
 
 <div class='note warning'>
 
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/documentation/faqs/#pi-power) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
 
 </div>
 
@@ -84,7 +84,7 @@ Start Home Assistant for the first time. This will complete the installation for
 ```bash
 (homeassistant) $ hass
 ```
-You can now reach your installation on your Raspberry Pi over the web interface on [http://ipaddress:8123](http://ipaddress:8123).
+You can now reach your installation on your Raspberry Pi over the web interface on `http://ipaddress:8123`.
 
 <div class='note'>
 

@@ -82,6 +82,10 @@ homekit:
         required: false
         type: boolean
         default: false
+      advertise_ip:
+        description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
+        required: false
+        type: string
       filter:
         description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
@@ -160,8 +164,8 @@ homekit:
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
 1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
-1. Open the `Home` app.
-2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
+2. Open the `Home` app.
+3. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
 5. Enter the `PIN` code.
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
@@ -324,6 +328,19 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 </div>
 
+## Docker Network Isolation
+
+The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
+
+To use `advertise_ip`, add the option to your `homekit` config:
+
+```yaml
+homekit:
+  advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+```
+
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
+
 ## Supported Components
 
 The following integrations are currently supported:
@@ -352,7 +369,7 @@ The following integrations are currently supported:
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
-| water_heater | WaterHeater | All water_heater devices. |
+| water_heater | WaterHeater | All `water_heater` devices. |
 
 ## Troubleshooting
 
@@ -402,6 +419,8 @@ Remember that the iOS device needs to be in the same local network as the Home A
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 
 Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+
+You can also try to use `avahi-daemon` in reflector mode together with the option `advertise_ip`, see above.
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox
 

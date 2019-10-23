@@ -19,6 +19,12 @@ This integration allows you to write Python scripts that are exposed as services
 [hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
 
+<div class='note'>
+
+It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](/docs/ecosystem/appdaemon/)
+
+</div>
+
 ## Writing your first script
 
  - Add to `configuration.yaml`: `python_script:`
@@ -34,10 +40,8 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
  - Start Home Assistant
  - Call service `python_script.hello_world` with parameters
 
-```json
-{
-  "name": "you"
-}
+```yaml
+name: you
 ```
 
 ## Calling Services
@@ -54,8 +58,9 @@ if entity_id is not None:
 ```
 The above `python_script` can be called using the following JSON as an input.
 
-```json
-{"entity_id": "light.bedroom", "rgb_color": [255, 0, 0] }
+```yaml
+entity_id: light.bedroom
+rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts

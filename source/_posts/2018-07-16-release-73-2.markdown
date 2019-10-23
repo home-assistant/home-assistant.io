@@ -23,7 +23,7 @@ After research, the following integrations have been impacted. Although the odds
 - [google_assistant](/integrations/google_assistant/) (manual setup)
 - [google_domains](/integrations/google_domains/)
 - [homematicip_cloud](/integrations/homematicip_cloud/)
-- [image_processing.openalpr_cloud](/integrations/openalpr_local_cloud)
+- [image_processing.openalpr_cloud](/integrations/openalpr_cloud)
 - [microsoft_face](/integrations/microsoft_face/)
 - [namecheapdns](/integrations/namecheapdns/)
 - [no_ip](/integrations/no_ip/)
@@ -33,7 +33,7 @@ After research, the following integrations have been impacted. Although the odds
 - [scene.lifx_cloud](/integrations/lifx_cloud)
 - [switch.hook](/integrations/hook)
 - [switch.rest](/integrations/switch.rest/)
-- [telegram_bot.polling](/integrations/polling)
+- [telegram_bot.polling](/integrations/telegram_polling)
 - [tts.voicerss](/integrations/voicerss)
 
 Also impacted, but integrations are read only:
@@ -42,7 +42,7 @@ Also impacted, but integrations are read only:
 - [sensor.ebox](/integrations/ebox)
 - [sensor.fido](/integrations/fido)
 - [sensor.foobot](/integrations/foobot)
-- [sensor.hydroquebec](/integrations/hydroquebec)
+- sensor.hydroquebec
 - [sensor.startca](/integrations/startca)
 - [sensor.teksavvy](/integrations/teksavvy)
 - [sensor.thethingsnetwork](/integrations/thethingsnetwork#sensor)
@@ -79,7 +79,7 @@ Local, so cannot be impacted:
 - [camera.amcrest](/integrations/amcrest)
 - [camera.doorbird](/integrations/doorbird#camera)
 - [camera.familyhub](/integrations/familyhub)
-- [camera.generic](/integrations/generic)
+- [camera.generic](/integrations/generic_ip_camera)
 - [camera.mjpeg](/integrations/mjpeg)
 - [camera.proxy](/integrations/proxy)
 - [camera.synology](/integrations/synology)

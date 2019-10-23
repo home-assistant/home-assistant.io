@@ -320,7 +320,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.rflink docs]: /integrations/cover.rflink/
 [demo docs]: /integrations/demo/
 [device_tracker.owntracks docs]: /integrations/owntracks
-[device_tracker.owntracks_http docs]: /integrations/owntracks_http/
+[device_tracker.owntracks_http docs]: /integrations/owntracks
 [duckdns docs]: /integrations/duckdns/
 [ecobee docs]: /integrations/ecobee/
 [emulated_hue docs]: /integrations/emulated_hue/
@@ -344,7 +344,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.webostv docs]: /integrations/webostv#media-player
 [media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
-[notify.clicksendaudio docs]: /integrations/clicksendaudio/
+[notify.clicksendaudio docs]: /integrations/clicksend_tts/
 [notify.discord docs]: /integrations/discord
 [notify.facebook docs]: /integrations/facebook
 [notify.simplepush docs]: /integrations/simplepush

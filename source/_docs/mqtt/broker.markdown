@@ -105,7 +105,7 @@ mqtt:
 
 ### CloudMQTT
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/device_tracker.owntracks/) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/owntracks/) and give you a taste of what is possible.
 
 <div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.

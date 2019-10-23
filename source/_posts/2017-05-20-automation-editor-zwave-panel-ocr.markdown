@@ -364,8 +364,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
 [image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
 [image_processing.microsoft_face_identify docs]: /integrations/microsoft_face_identify
-[image_processing.openalpr_cloud docs]: /integrations/openalpr_local_cloud
-[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_cloud
+[image_processing.openalpr_local docs]: /integrations/openalpr_local
 [image_processing.opencv docs]: /integrations/opencv
 [image_processing.seven_segments docs]: /integrations/seven_segments
 [kira docs]: /integrations/kira/
@@ -413,10 +413,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.wunderground docs]: /integrations/wunderground
 [sun docs]: /integrations/sun/
 [switch.rpi_pfio docs]: /integrations/rpi_pfio#switch
-[telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.services.yaml docs]: /integrations/telegram_bot/#notification-services
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.services.yaml docs]: /integrations/telegram_chatbot/#notification-services
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tradfri docs]: /integrations/tradfri/
 [vera docs]: /integrations/vera/
 [websocket_api docs]: /integrations/websocket_api/
@@ -434,5 +434,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.ubus docs]: /integrations/ubus
 [hassio docs]: /integrations/hassio/
 [media_player.volumio docs]: /integrations/volumio
-[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+[telegram_bot.__init__ docs]: /integrations/telegram_chatbot/
 [discord]: https://discord.gg/c5DvZ4e

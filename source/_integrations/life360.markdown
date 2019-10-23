@@ -17,7 +17,7 @@ You must first [create a Life360 account](https://www.life360.com/websignup).
 
 Then in the Home Assistant user interface (UI), click on Configuration in the left pane, then on Integrations and then on the yellow circle in the lower-right corner to "Set up a new integration." Scroll through the list and click on Life360. Enter your Life360 username and password and click SUBMIT. You can add as many Life360 accounts as you like.
 
-If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
+If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. Any of the advanced options you want to set from the section below will need to be set manually in your configuration.yaml file. They are not able to be set from the UI. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
 
 {% configuration %}
 accounts:

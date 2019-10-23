@@ -793,7 +793,6 @@ anymore. - ([@abmantis] - [#25971])
 [dialogflow docs]: /integrations/dialogflow/
 [dsmr docs]: /integrations/dsmr/
 [ecobee docs]: /integrations/ecobee/
-[edp_redy docs]: /integrations/edp_redy/
 [emulated_hue docs]: /integrations/emulated_hue/
 [environment_canada docs]: /integrations/environment_canada/
 [eq3btsmart docs]: /integrations/eq3btsmart/
@@ -805,7 +804,6 @@ anymore. - ([@abmantis] - [#25971])
 [geniushub docs]: /integrations/geniushub/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [google_maps docs]: /integrations/google_maps/
-[googlehome docs]: /integrations/googlehome/
 [group docs]: /integrations/group/
 [heos docs]: /integrations/heos/
 [homekit_controller docs]: /integrations/homekit_controller/

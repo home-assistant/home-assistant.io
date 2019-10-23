@@ -1,5 +1,5 @@
 ---
-title: "Lights"
+title: "Light"
 description: "Instructions on how to setup your lights with Home Assistant."
 logo: home-assistant.png
 ha_category:
@@ -26,7 +26,7 @@ Most lights do not support all attributes. You can check the integration documen
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
-| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/integrations/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define an xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
+| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define an xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY. You can find a great chart here: [Hue Color Chart](https://developers.meethue.com/documentation/core-concepts#color_gets_more_complicated).
 | `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets. Note that the specified RGB value will not change the light brightness, only the color.

@@ -38,7 +38,7 @@ Note, this release includes a migration to add an index to speed up the logbook 
 - Implemented tplink_lte components and notify service via SMS ([@andtos90] - [#17111]) ([notify docs]) ([tplink_lte docs]) (new-platform)
 - Add Traccar device tracker ([@ludeeus] - [#18200]) ([device_tracker docs]) (new-platform)
 - Add support for Google Home device tracking ([@ludeeus] - [#18190]) ([device_tracker docs]) (new-platform)
-- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) ([sensor.ruter docs]) (new-platform)
+- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) (sensor.ruter docs) (new-platform)
 - Split out geofency with a component and platform. The geofency device_tracker platform no longer takes any configuration. The configuration needs to be applied to the component geofency instead. The platform will be automatically loaded with the component. ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Add support for Lupusec alarm control panel ([@majuss] - [#17691]) ([lupusec docs]) ([alarm_control_panel.lupusec docs]) ([binary_sensor.lupusec docs]) ([switch.lupusec docs]) (new-platform)
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
@@ -181,7 +181,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
 - Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
 - Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
-- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) (sensor.ruter docs) (beta fix)
 - Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
 - Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
 - Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
@@ -252,7 +252,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Normalize MAC addresses ([@balloob] - [#16916])
 - HmIP thermostat fix with operations ([@pvizeli] - [#18068]) ([climate.homematic docs])
 - Update PR checklist with commented out code check ([@armills] - [#18272])
-- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) ([sensor.ruter docs]) (new-platform)
+- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) (sensor.ruter docs) (new-platform)
 - Split out geofency with a component and platform ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Use async_add_executor_job at the xiaomi_miio platforms ([@syssi] - [#18294]) ([device_tracker docs]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([sensor.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - Remove skipped device tracker tests ([@armills] - [#18291])
@@ -265,7 +265,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade hdate to 0.7.5 ([@tsvi] - [#18296]) ([sensor.jewish_calendar docs])
 - Add SUPPORT_SEEK for DLNA DMR devices + now (better) providing media_image_url for DLNA DMR devices ([@StevenLooman] - [#18157]) ([upnp docs]) ([media_player.dlna_dmr docs])
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
-- Update pyruter to 1.1.0 to be able to reuse aiohttp session. ([@ludeeus] - [#18310]) ([sensor.ruter docs])
+- Update pyruter to 1.1.0 to be able to reuse aiohttp session. ([@ludeeus] - [#18310]) (sensor.ruter docs)
 - Make flux switch async ([@jawilson] - [#18277]) ([switch.flux docs])
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
 - Added optional precision configuration option to generic_thermostat. ([@partofthething] - [#18317]) ([climate.generic_thermostat docs])
@@ -380,7 +380,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
 - Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
 - Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
-- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) (sensor.ruter docs) (beta fix)
 - Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
 - Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
 - Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
@@ -781,7 +781,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.point docs]: /integrations/point#sensor
 [sensor.pollen docs]: /integrations/iqvia
 [sensor.rainmachine docs]: /integrations/rainmachine
-[sensor.ruter docs]: /integrations/sensor.ruter/
 [sensor.season docs]: /integrations/season
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.sql docs]: /integrations/sql

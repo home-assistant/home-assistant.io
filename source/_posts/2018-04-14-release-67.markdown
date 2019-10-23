@@ -38,7 +38,7 @@ This release includes a security fix. The error log was accessible via the API w
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs])
 - Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs])
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946])
 - Update pyfido to 2.1.1 ([@titilambert] - [#13947]) ([sensor.fido docs])
 - Bumped pypollencom to 1.1.2 ([@bachya] - [#13959]) ([sensor.pollen docs])
 - Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
@@ -56,7 +56,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Updates default Pilight port number ([@frenck] - [#13419]) ([pilight docs]) (breaking change)
 - Update to new "b2vapi" of BMW ConnectedDrive ([@ChristianKuehnel] - [#13305]) ([bmw_connected_drive docs]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (breaking change)
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) (mercedesme docs) (binary_sensor.mercedesme docs) (sensor.mercedesme docs) (breaking change)
 - Channel up and down for webostv ([@stephanerosi] - [#13624]) ([media_player.webostv docs]) (breaking change)
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
@@ -108,10 +108,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added HassOpenCover and HassCloseCover intents ([@tschmidty69] - [#13372]) ([conversation docs]) ([cover docs])
 - rfxtrx lib 0.22.0 ([@Danielhiversen] - [#13576]) ([rfxtrx docs])
 - xiaomi lib upgrade ([@Danielhiversen] - [#13577]) ([xiaomi_aqara docs])
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) (binary_sensor.mercedesme docs) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) (mercedesme docs) (binary_sensor.mercedesme docs) (sensor.mercedesme docs) (breaking change)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
-- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586]) ([sensor.hydroquebec docs])
+- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586])
 - Add mastodon ([@fabaff] - [#13441]) ([notify docs]) (new-platform)
 - Added support for requesting RSSI values from Bluetooth devices ([@FrederikBolding] - [#12458]) ([device_tracker.bluetooth_tracker docs])
 - Fix mysensors update callback ([@MartinHjelmare] - [#13602]) ([mysensors docs])
@@ -148,7 +148,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
-- Adding configration to disable ip address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
+- Adding configuration to disable IP address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Send XY color for non-osram hue bulbs ([@armills] - [#13665]) ([light.hue docs])
 - Update AbodePy version to 0.12.3 ([@MisterWil] - [#13709]) ([abode docs])
@@ -354,7 +354,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [freedns docs]: /integrations/freedns/
 [homekit docs]: /integrations/homekit/
 [hue docs]: /integrations/hue/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light docs]: /integrations/light/
 [light.nanoleaf_aurora docs]: /integrations/nanoleaf/
 [light.hue docs]: /integrations/hue
@@ -371,7 +371,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.philips_js docs]: /integrations/philips_js
 [media_player.songpal docs]: /integrations/songpal
 [media_player.webostv docs]: /integrations/webostv#media-player
-[mercedesme docs]: /integrations/mercedesme/
 [mqtt docs]: /integrations/mqtt/
 [mysensors docs]: /integrations/mysensors/
 [notify docs]: /integrations/notify/
@@ -385,9 +384,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.canary docs]: /integrations/canary#sensor
 [sensor.cpuspeed docs]: /integrations/cpuspeed
 [sensor.file docs]: /integrations/file#sensor
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.imap_email_content docs]: /integrations/imap_email_content/
-[sensor.mercedesme docs]: /integrations/sensor.mercedesme/
 [sensor.plex docs]: /integrations/plex#sensor
 [sensor.qnap docs]: /integrations/qnap
 [sensor.qwikswitch docs]: /integrations/qwikswitch
@@ -437,7 +434,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
 [qwikswitch docs]: /integrations/qwikswitch/
 [sensor.fido docs]: /integrations/fido
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.pollen docs]: /integrations/iqvia
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.vesync docs]: /integrations/vesync#switches

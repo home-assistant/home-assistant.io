@@ -58,7 +58,7 @@ Core Developer, Home Assistant
 [netdisco-contrib]: https://github.com/home-assistant/netdisco/pull/94
 [hotfix]: /blog/2017/02/25/config-panel-and-state-restoration/#release-0392---march-1
 [Hass.io]: /hassio/
-[to Forbes]: https://webcache.googleusercontent.com/search?q=cache:https://www.forbes.com/sites/paularmstrongtech/2017/06/19/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
+[to Forbes]: https://www.forbes.com/sites/paularmstrongtech/2017/06/20/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
 [tradfri]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
 [Nuimo]: /integrations/nuimo_controller/
 [developer documentation]: http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview

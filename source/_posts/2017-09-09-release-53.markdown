@@ -365,7 +365,6 @@ frontend:
 [climate.knx docs]: /integrations/climate.knx/
 [cloud docs]: /integrations/cloud/
 [cloud.cloud_api docs]: /integrations/cloud.cloud_api/
-[cloud.const docs]: /integrations/cloud.const/
 [cloud.util docs]: /integrations/cloud.util/
 [config docs]: /integrations/config/
 [config.customize docs]: /integrations/config.customize/
@@ -385,7 +384,7 @@ frontend:
 [image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
 [input_text docs]: /integrations/input_text/
-[insteon_plm docs]: /integrations/insteon_plm/
+[insteon_plm docs]: /integrations/insteon/
 [light.homematic docs]: /integrations/homematic
 [light.hue docs]: /integrations/hue
 [light.lutron_caseta docs]: /integrations/lutron_caseta/
@@ -440,7 +439,7 @@ frontend:
 [switch.rest docs]: /integrations/switch.rest/
 [switch.rfxtrx docs]: /integrations/switch.rfxtrx/
 [switch.knx docs]: /integrations/switch.knx/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tesla docs]: /integrations/tesla/
 [tradfri docs]: /integrations/tradfri/
 [volvooncall docs]: /integrations/volvooncall/

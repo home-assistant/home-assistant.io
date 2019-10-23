@@ -8,7 +8,7 @@ ha_release: 0.36
 ha_iot_class: Local Polling
 ---
 
-The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers.
+The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) routers.
 
 <div class='note warning'>
 It might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
@@ -43,7 +43,7 @@ The following statistics will be exposed as attributes.
 |is_linked              |True if the FritzBox is physically linked to the provider    |
 |is_connected           |True if the FritzBox has established an internet-connection  |
 |wan_access_type        |Connection-type, can be `DSL` or `Cable`                     |
-|external_ip            |External ip address                                          |
+|external_ip            |External IP address                                          |
 |uptime                 |Uptime in seconds                                            |
 |bytes_sent             |Bytes sent                                                   |
 |bytes_received         |Bytes received                                               |

@@ -15,7 +15,7 @@ ha_iot_class: Local Polling
 featured: true
 ---
 
-[Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
+[Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
 integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
@@ -50,8 +50,11 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
   - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
-  - ZiGate USB modules (require firmware 3.1a or later)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
+  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
+  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
+  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
+  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
 ## Configuration
 
@@ -65,6 +68,11 @@ zha:
   usb_path: /dev/ttyUSB2
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 ```
+
+If you are use ZiGate, you have to use some special usb_path configuration:
+  - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
+  - PiZigate : `pizigate:/dev/serial0`
+  - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 
 {% configuration %}
 radio_type:
@@ -94,9 +102,24 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
-In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
-
 ## Troubleshooting
+
+### Add Philips Hue bulbs that have previously been added to another bridge
+
+Philips Hue bulbs that have previously been added to another bridge won't show up during search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
+
+#### Philips Hue Dimmer Switch
+
+Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset your bulbs. For this to work, the remote doesn't have to be paired with your previous bridge.
+
+1. Turn on your Hue bulb you want to reset
+2. Hold the Dimmer Switch near your bulb (< 10 cm)
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons of the Dimmer Switch for about 10 seconds until your bulb starts to blink
+4. Your bulb should stop blinking and eventually turning on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
+
+#### hue-thief
+
+Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
 
 ### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
 

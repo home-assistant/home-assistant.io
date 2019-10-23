@@ -283,7 +283,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /integrations/webhooks/
+[telegram]: /integrations/telegram_webhooks/
 [pushsafer]: /integrations/pushsafer
 [openhome]: /integrations/openhome
 [ups]: /integrations/ups
@@ -306,7 +306,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [docs]: /docs/
 [getting-started]: /getting-started/
-[docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
+[docs-issue]: https://github.com/home-assistant/home-assistant.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues

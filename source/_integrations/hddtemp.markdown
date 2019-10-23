@@ -7,7 +7,7 @@ ha_release: 0.32
 ha_iot_class: Local Polling
 ---
 
-The `hddtemp` sensor platform is using the data provided by [HDDTemp](http://savannah.nongnu.org/projects/hddtemp).
+The `hddtemp` sensor platform is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).
 
 It required that `hddtemp` is started or running in daemon mode on a local or remote system.
 

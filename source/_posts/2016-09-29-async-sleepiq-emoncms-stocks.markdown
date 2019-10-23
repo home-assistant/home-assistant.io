@@ -170,9 +170,9 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [KNX]: /integrations/sensor.knx/
 [Kodi]: /integrations/kodi
 [Modbus]: /integrations/modbus/
-[Nest]: /integrations/fan.nest/
+[Nest]: /integrations/nest/
 [Nuimo]: /integrations/nuimo_controller/
-[OpenALPR]: /integrations/openalpr_local_local
+[OpenALPR]: /integrations/openalpr_local/
 [passwordless]: /integrations/http/
 [Simplepush]: /integrations/simplepush
 [Slack]: /integrations/slack
