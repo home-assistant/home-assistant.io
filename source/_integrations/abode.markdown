@@ -94,6 +94,12 @@ They are grouped into the below events:
 - **abode_automation**: Fired when an Automation is triggered from Abode.
 - **abode_panel_fault**: Fired when there is a fault with the Abode hub. This includes events like loss of power, low battery, tamper switches, polling failures, and signal interference.
 - **abode_panel_restore**: Fired when the panel fault is restored.
+- **abode_disarm**: Fired when the alarm is disarmed.
+- **abode_arm**: Fired when the alarm is armed (home or away).
+- **abode_test**: Fired when a sensor is in test mode.
+- **abode_capture**: Fired when an image is captured.
+- **abode_device**: Fired for device changes/additions/deletions.
+- **abode_automation_edit**: Fired for changes to automations.
 
 All events have the fields:
 
