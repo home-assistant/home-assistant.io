@@ -18,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 - [Remote](#remote)
 
 <div class='note'>
-Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
+Currently, this component does not work with tvOS 13. You must have Home Sharing enabled for this to work with previous versions. Support for pairing Home Assistant with your device will be supported in a later release.
 </div>
 
 ## Configuration
