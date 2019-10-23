@@ -57,4 +57,4 @@ Sensors are exposing additional values through their attributes for all availabl
   The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
 </div>
 
-The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](http://www.hydrodaten.admin.ch) and are updated every 10 minutes.
+The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](https://www.hydrodaten.admin.ch/) and are updated every 10 minutes.

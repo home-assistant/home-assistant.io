@@ -12,7 +12,7 @@ The `flux_led` support is integrated into Home Assistant as a light platform. Se
 
 Example of bulbs:
 
-- [Flux Smart Lighting](http://www.fluxsmartlighting.com/)
+- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
 - [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
 - [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
 

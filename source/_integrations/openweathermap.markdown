@@ -9,14 +9,14 @@ ha_release: 0.32
 ha_iot_class: Cloud Polling
 ---
 
-The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.
+The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Weather](#weather)
 
-You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
+You need an API key which is free but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
 ## Weather
 
@@ -31,7 +31,7 @@ weather:
 
 {% configuration %}
 api_key:
-  description: Your API key for [OpenWeatherMap](http://openweathermap.org/).
+  description: Your API key for [OpenWeatherMap](https://openweathermap.org/).
   required: true
   type: string
 name:
@@ -64,7 +64,7 @@ This platform is an alternative to the [`openweathermap`](/integrations/openweat
 
 ## Sensor
 
-The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
+The `openweathermap` platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
 
 To add OpenWeatherMap sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -124,4 +124,4 @@ monitored_conditions:
       description: The current weather condition code.
 {% endconfiguration %}
 
-Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
+Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).

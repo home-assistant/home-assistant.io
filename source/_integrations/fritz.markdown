@@ -8,7 +8,7 @@ ha_release: "0.10"
 ---
 
 
-The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) based router.
+The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) based router.
 
 ## Setup
 

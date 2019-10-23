@@ -8,7 +8,7 @@ ha_release: 0.87
 ha_iot_class: Cloud Polling
 ---
 
-The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected via latitude/longitude or by country code. This API uses the same data as https://www.electricitymap.org/. Not all countries/regions in the world are supported so please consult this website to check local availability.
+The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected via latitude/longitude or by country code. This API uses the same data as <https://www.electricitymap.org> Not all countries/regions in the world are supported so please consult this website to check local availability.
 
 This platform requires a CO2Signal API key, which can be obtained [here](https://www.co2signal.com/). Note that this API key is for personal use only and other options exist when the data is used commercially.
 

@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ---
 
 
-The `ephember` climate platform lets you control [EPH Controls](http://emberapp.ephcontrols.com/) thermostats. The module only works if you have a WiFi gateway to control your EPH system and an account on the EMBER app.
+The `ephember` climate platform lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats. The module only works if you have a WiFi gateway to control your EPH system and an account on the EMBER app.
 
 To set it up, add the following information to your `configuration.yaml` file:
 

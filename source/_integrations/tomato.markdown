@@ -66,7 +66,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for
 instructions how to configure the people to be tracked.
 
 A description of the API s available in this
-[Tomato API](http://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/)
+[Tomato API](https://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/)
 blog post.
 
 SSL Certificate:

@@ -10,7 +10,7 @@ ha_release: 0.29
 ha_iot_class: Local Polling
 ---
 
-The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](http://www.sleepnumber.com/sn/en/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
+The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
 
 ## Setup
 

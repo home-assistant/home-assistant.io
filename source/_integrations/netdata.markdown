@@ -8,7 +8,7 @@ ha_release: 0.35
 ha_iot_class: Local Polling
 ---
 
-The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
+The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).
 
 ## Setup
 

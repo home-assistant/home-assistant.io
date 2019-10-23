@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ---
 
 
-The `venstar` climate platform allows you to control [Venstar](http://www.venstar.com) thermostats from Home Assistant.
+The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
 Venstar thermostats feature a local API that allows for automation without the need for a cloud service.
 
 Currently supported and tested thermostats:

@@ -161,7 +161,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 ## All changes
 
 - Try multiple methods of getting data in asuswrt. ([@PeWu] - [#11140]) ([device_tracker.asuswrt docs])
-- Hydroquebec component use now asyncio ([@titilambert] - [#10795]) ([sensor.hydroquebec docs])
+- Hydroquebec component use now asyncio ([@titilambert] - [#10795])
 - Hive Component Release Two ([@KJonline] - [#11053]) ([hive docs]) ([climate.hive docs]) ([light.hive docs])
 - Add Discogs Sensor platform ([@thibmaek] - [#10957]) ([sensor.discogs docs]) (new-platform)
 - Fix statistics sensor mean and median when only one sample is available. ([@markferry] - [#11180]) ([sensor.statistics docs])
@@ -259,7 +259,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Input Select - Added service description ([@cdce8p] - [#11456]) ([input_select docs])
 - Input Boolean - Deleted 'DEFAULT_INITIAL' ([@cdce8p] - [#11453]) ([input_boolean docs])
 - Updated gitignore file ([@cdce8p] - [#11452])
-- Update hydroquebec component to use hass httpsession ([@titilambert] - [#11412]) ([sensor.hydroquebec docs])
+- Update hydroquebec component to use hass httpsession ([@titilambert] - [#11412])
 - Catch everything when calling to OctoPrint API to fix #10557 ([@w1ll1am23] - [#11457]) ([octoprint docs])
 - Update PULL_REQUEST_TEMPLATE.md ([@danielhiversen] - [#11465])
 - Alexa to not use customize for entity config ([@balloob] - [#11461]) ([cloud docs]) ([alexa.smart_home docs]) (breaking change)

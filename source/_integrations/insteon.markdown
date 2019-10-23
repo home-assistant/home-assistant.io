@@ -191,7 +191,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 If you are looking for more advanced options, you can use the [insteonplm_interactive] command line tool that is distributed with the [insteonplm] Python module. Please see the documentation on the [insteonplm] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
-[understanding linking]: http://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
+[understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 [Development Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
