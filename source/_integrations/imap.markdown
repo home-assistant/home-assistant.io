@@ -55,6 +55,11 @@ search:
   required: false
   default: UnSeen UnDeleted
   type: string
+charset:
+  description: The characterset used for this connection
+  required: false
+  default: UTF-8
+  type: string
 {% endconfiguration %}
 
 ### Configuring IMAP Searches
@@ -68,7 +73,7 @@ By default, this integration will count unread emails. By configuring the search
 #### Full configuration sample with search
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for gmail
 sensor:
   - platform: imap
     server: imap.gmail.com
@@ -76,4 +81,15 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
+    charset: utf-8
+
+# Example configuration.yaml entry for Office 365
+sensor:
+  - platform: imap
+    server: outlook.office365.com
+    port: 993
+    username: email@address.com
+    password: password
+    search: FROM <sender@email.com>, SUBJECT <subject here>
+    charset: US-ASCII
 ```
