@@ -32,12 +32,16 @@ sensor:
 
 or a template based request:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: rest
-    resource_template: http://IP_ADDRESS/{% raw %}{{ now().strftime('%Y-%m-%d') }}{% endraw %}
+    resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
 ```
+
+{% endraw %}
 
 {% configuration %}
 resource:
@@ -116,7 +120,9 @@ Make sure that the URL exactly matches your endpoint or resource.
 </div>
 
 <div class='note'>
+
 Use either `resource` or `resource_template`.
+
 </div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
