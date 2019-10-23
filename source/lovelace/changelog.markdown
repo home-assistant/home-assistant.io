@@ -16,7 +16,15 @@ description: "Changelog of the Lovelace UI."
 - 📣 New theme variables for ha-switch element (https://github.com/home-assistant/home-assistant-polymer/pull/#4017) @iantrich
 - 📣 Display card errors in YAML instead of JSON (https://github.com/home-assistant/home-assistant-polymer/pull/#4018) @iantrich
 - 📣 Confirmation Dialog (https://github.com/home-assistant/home-assistant-polymer/pull/#4053) @timmo001
-- 📣 card level themes (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [weather forecast card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [shopping list card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [plant status card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [markdown card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [alarm panel card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [picture card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [picture elements card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [picture entity card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
+- 📣 [picture glance card]: New `theme` option (https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
 - ⚠️ revert lovelace selectable text (https://github.com/home-assistant/home-assistant-polymer/pull/#4095) @iantrich
 - 🔧 Fix delete button styling in hui-edit-view (https://github.com/home-assistant/home-assistant-polymer/pull/#4102) @bramkragten
 - 🔧 Added title to view configuation (https://github.com/home-assistant/home-assistant-polymer/pull/#4037) @drakeloud
