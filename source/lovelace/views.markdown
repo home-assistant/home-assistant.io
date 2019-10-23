@@ -79,7 +79,7 @@ type: state-label
 entity: light.living_room
 ```
 
-{% configuration %}
+{% configuration state_label %}
 type:
   required: true
   description: entity-button
@@ -222,7 +222,7 @@ double_tap_action:
 #### Options For Confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations:
-{% configuration %}
+{% configuration confirmation %}
 text:
   required: false
   description: Text to present in the confirmation dialog.
@@ -261,7 +261,7 @@ View config:
 
 This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
 
-{% configuration %}
+{% configuration filter_badge %}
 type:
   required: true
   description: entity-filter
@@ -280,7 +280,7 @@ state_filter:
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
-{% configuration %}
+{% configuration entities %}
 type:
   required: false
   description: "Sets a custom badge type: `custom:my-custom-badge`"
@@ -311,7 +311,7 @@ state_filter:
 
 If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 
-{% configuration %}
+{% configuration state_filter %}
 value:
   required: true
   description: String representing the state.
