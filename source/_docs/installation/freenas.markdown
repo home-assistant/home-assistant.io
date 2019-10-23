@@ -173,6 +173,77 @@ USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no
 
 </div>
 
+# Adding support for Z-wave stick
+
+The following two packages need to be installed in the jail
+
+```bash
+pkg install gmake
+pkg install libudev-devd
+```
+
+Then you can install the zwave package
+```bash
+pip3 install homeassistant-pyozw==0.1.4
+```
+
+Stop the hass Jail
+```bash
+sudo iocage stop hass
+```
+
+Edit the devfs rules on the Freenas Host
+```bash
+vi /etc/devfs.rules
+```
+
+Add the following lines 
+```bash
+[devfsrules_jail_allow_usb=7]  
+add path 'cu\*' unhide  
+```
+
+Reload devfs
+```bash
+sudo service devfs restart
+```
+
+Edit the ruleset used by the jail in the Freenas GUI by going to Jails -> hass -> Edit ->  Jail Properties ->  devfs_ruleset
+Set it to 7
+
+Start the hass jail
+```bash
+sudo iocage start hass
+```
+
+Connect to the hass jail and verify that you see the modem devices
+```bash
+sudo iocage console hass
+```
+
+```bash
+ls /dev/cu
+```
+This should ouput the following 
+```bash
+/dev/cuau0      /dev/cuaU0
+```
+
+Add the zwave config to your `configuration.yaml` and restart HA
+```bash
+vi /home/homeassistant/.homeassistant/configuration.yaml
+```
+```yaml
+zwave:
+  usb_path: /dev/cuaU0
+  polling_interval: 10000
+```
+
+```bash
+service homeassistant restart
+```
+
+
 # Updating
 Before updating, read the changelog to see what has changed and how it affects your Home Assistant instance. Enter the jail using `iocage exec <jailname>`. Stop the Home Assistant service:
 
