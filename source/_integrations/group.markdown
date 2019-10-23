@@ -55,7 +55,7 @@ view:
   type: boolean
   default: false
 control:
-  description: "If value set to `hidden` the group switch will be hidden."
+  description: "**This is only a feature in generated mode of Lovelace** If value set to `hidden` the group switch will be hidden."
   required: false
   type: string
 {% endconfiguration %}
