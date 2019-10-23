@@ -37,7 +37,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is need if you want to use Smart Home Skill API. Part of your Smart Home Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
-- Smart Home API also needs your Home Assistant instance can be accessed from Internet. We strongly suggest you host HTTPS server and use validation certificate. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) add-ons is the easiest method.
+- Smart Home API also needs your Home Assistant instance can be accessed from Internet. We strongly suggest you host HTTPS server and use validation certificate. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 
 ### Create Your Amazon Alexa Smart Home Skill
 
@@ -46,7 +46,9 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
 
+<p class='img'>
   <img src='/images/integrations/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
+</p>
 
 - In next screen, make sure *v3* is selected in `Payload version`.
 - Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
@@ -75,7 +77,9 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
 - Click `Roles` in the left panel, then click `Create role`, select `AWS Service` -> `Lambda` in the first page of the wizard, then click `Next: Permissions`
 - Select `AWSLambdaBasicExecutionRole` policy, then click `Next: Tags`. (Tips: you can use the search box to filter the policy)
 
+<p class='img'>
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
+</p>
 
 - You can skip `Add tags` page, click `Next: Review`.
 - Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
@@ -97,13 +101,16 @@ Next you need create a Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
 - Click your Lambda Function icon in the middle of the diagram, scroll down you will see a `Function code` window.
-- Clear the example code, copy the Python script from: <https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b> (modified code to support Alexa's proactive mode, see details below)
+- Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
 - Scroll down a little bit, you will find `Environment variables`, you need add 4 environment variables:
   * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   * NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   * DEBUG *(optional)*: set to *True* to log the debug message
   * LONG_LIVED_ACCESS_TOKEN *(optional, not recommend)*: you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.) 
+
+<p class='img'>
   <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
+</p>
 
 - Now scroll up to the top, click `Save` button.
 - You need copy the ARN displayed in the top of the page, which is the identify of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
@@ -178,7 +185,9 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * `Scope`: input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
+<p class='img'>
   <img src='/images/integrations/alexa/account_linking.png' alt='Screenshot: Account Linking'>
+</p>
 
 - Click `Save` button in the top right corner.
 - Next, you will use Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
