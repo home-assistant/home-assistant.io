@@ -43,6 +43,10 @@ payload_not_home:
   required: false
   type: string
   default: 'not_home'
+source_type:
+  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Complete example configuration
@@ -56,6 +60,7 @@ device_tracker:
   qos: 1
   payload_home: 'present'
   payload_not_home: 'not present'
+  source_type: bluetooth
 ```
 
 ## Usage
