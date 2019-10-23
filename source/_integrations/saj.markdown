@@ -20,20 +20,10 @@ The WiFi module requires a username and password for authentication where the et
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry for ethernet module
+# Example configuration.yaml entry
 sensor:
   - platform: saj
     host: IP_ADDRESS_OF_DEVICE
-```
-
-```yaml
-# Example configuration.yaml entry for WiFi module
-sensor:
-  - platform: saj
-    host: IP_ADDRESS_OF_DEVICE
-    type: wifi
-    username: USERNAME
-    password: PASSWORD
 ```
 
 {% configuration %}
@@ -71,3 +61,14 @@ Sensors available in the library:
 | total_co2_reduced  | kg   | Total CO2 in kg reduced.                                                     |
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
+
+## Full configuration example for WiFi inverters
+
+```yaml
+sensor:
+  - platform: saj
+    host: IP_ADDRESS_OF_DEVICE
+    type: wifi
+    username: USERNAME
+    password: PASSWORD
+```
