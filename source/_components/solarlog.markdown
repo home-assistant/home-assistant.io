@@ -7,22 +7,20 @@ ha_release: 0.101
 ha_iot_class: Local Polling
 ---
 
-The `solarlog` platform uses the open JSON interface on Solar-Log PV monitoring systems to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
+The `solarlog` integration uses the open JSON interface on Solar-Log PV monitoring systems to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
 
-Before being able to use the component, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
+Before being able to use the integration, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
 When activating the interface, a red warning triangle with security information and risks is displayed.
 
-The `solarlog` platform uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
+The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 <div class='note warning'>
-
-  The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
-
+The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
 </div>
 
 ## Configuration
 
-There are 2 options in configuring the `solarlog` platform:
+There are 2 options in configuring the `solarlog` integration:
 
 - Via the Home Assistant user interface where it will let you enter the name and host to connect to your Solar-Log device.
 - Via the Home Assistant `configuration.yaml` file.
@@ -35,7 +33,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The IP Address or host Address of your Solar-Log device.
+  description: The IP Address or host address of your Solar-Log device.
   required: false
   default: http://solar-log
   type: string
@@ -58,7 +56,7 @@ sensor:
     host: 192.168.1.123
 ```
 
-In case you would like to convert the values for example to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
+In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
 ```yaml
@@ -87,7 +85,7 @@ The following sensors are available in the library:
 | yield_month           | kWh    | Total yield for the month from all of the inverters. |
 | yield_year            | kWh    | Total yield for the year from all of the inverters. |
 | yield_total           | kWh    | Total yield from all of the inverters. |
-| consumption_ac        | kWk    | Current total consumption AC from all of the consumption meters. |
+| consumption_ac        | kWh    | Current total consumption AC from all of the consumption meters. |
 | consumption_day       | kWh    | Total consumption for the day from all of the consumption meters. |
 | consumption_yesterday | kWh    | Total consumption for the previous day from all of the consumption meters. |
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
@@ -101,7 +99,5 @@ The following sensors are available in the library:
 | usage                 |        | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
-
-  The solarlog component is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
-
+The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
 </div>
