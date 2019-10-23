@@ -3,61 +3,69 @@ title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
 ## Changes in 0.101.0
-- 📣 [entities card]: Add actions on rows [#4023](https://github.com/home-assistant/home-assistant-polymer/pull/#4023) @iantrich
-  - 📣 [picture elements card]: Add actions to `state-badge` element [#4028](https://github.com/home-assistant/home-assistant-polymer/pull/#4028) @iantrich
-- 📣 [picture glance card]: New `show_state` option for entities [#3937](https://github.com/home-assistant/home-assistant-polymer/pull/#3937) @iantrich
-- 📣 [entities card]: New `icon` option for title [#4024](https://github.com/home-assistant/home-assistant-polymer/pull/#4024) @iantrich
-- 📣 New `double_tap_action` option [#3879](https://github.com/home-assistant/home-assistant-polymer/pull/#3879) @iantrich
-- 📣 New `confirmation` option for actions [#4006](https://github.com/home-assistant/home-assistant-polymer/pull/#4006) @iantrich
-- 📣 [views]: Custom badges [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/#3867) @iantrich
-- 📣 [views]: new `entity-filter` badge [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/#3867) @iantrich
-- 📣 [views]: new `state-label` badge [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/#3867) @iantrich
-- 📣 [views]: Add actions to `state-label` badge [#4028](https://github.com/home-assistant/home-assistant-polymer/pull/#4028) @iantrich
-- 📣 New theme variables for ha-switch element [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/#4017) @iantrich
-- 📣 Display card errors in YAML instead of JSON [#4018](https://github.com/home-assistant/home-assistant-polymer/pull/#4018) @iantrich
-- 📣 Confirmation Dialog [#4053](https://github.com/home-assistant/home-assistant-polymer/pull/#4053) @timmo001
-- 📣 [weather forecast card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [shopping list card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [plant status card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [markdown card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [alarm panel card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [picture card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [picture elements card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [picture entity card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- 📣 [picture glance card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/#4057) @iantrich
-- ⚠️ revert lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/#4095) @iantrich
-- 🔧 Fix delete button styling in hui-edit-view [#4102](https://github.com/home-assistant/home-assistant-polymer/pull/#4102) @bramkragten
-- 🔧 Added title to view configuation [#4037](https://github.com/home-assistant/home-assistant-polymer/pull/#4037) @drakeloud
-- 🔧 Added view title to heading of Lovelace Add Card picker [#4083](https://github.com/home-assistant/home-assistant-polymer/pull/#4083) @springstan
-- 🔧 Fix issue where long states do not wrap [#4101](https://github.com/home-assistant/home-assistant-polymer/pull/#4101) @pdong
-- 🔧 Changed View Configuration icons to text [#4067](https://github.com/home-assistant/home-assistant-polymer/pull/#4067) @drakeloud
-- 🔧 Change ha-device-picker to combo box + improve name handling + show area [#4089](https://github.com/home-assistant/home-assistant-polymer/pull/#4089) @bramkragten
-- 🔧 [map card]: Fix for Zone icon visibility on Map panel and Lovelace Map card [#4085](https://github.com/home-assistant/home-assistant-polymer/pull/#4085) @springstan
-- 🔧 Changed outdated "GUI editor" reference to "visual editor" [#4068](https://github.com/home-assistant/home-assistant-polymer/pull/#4068) @SeanPM5
-- 🔧 Hide "Save" on card configuration modal if no card is picked [#4062](https://github.com/home-assistant/home-assistant-polymer/pull/#4062) @pdong
-- 🔧 [light card]: Add width property [#3972](https://github.com/home-assistant/home-assistant-polymer/pull/#3972) @shbatm
-- 🔧 Made thermostat history graph localizable [#4004](https://github.com/home-assistant/home-assistant-polymer/pull/#4004) @springstan
-- 🔧 [thermostat card]: Convert thermostat to round-slider [#3734](https://github.com/home-assistant/home-assistant-polymer/pull/#3734) @iantrich
-- 🔧 Update alarm more-info dialog button styles to match lovelace card [#3955](https://github.com/home-assistant/home-assistant-polymer/pull/#3955) @joshmcrty
-- 🔧 [alarm panel card]: number buttons outline and adjusted padding and font-size [#3991](https://github.com/home-assistant/home-assistant-polymer/pull/#3991) @mr-awk
+- 📣 Upgrade MDI icons to 4.5.95 [#3977](https://github.com/home-assistant/home-assistant-polymer/pull/3977) @bonanitech
+- 📣 [entities card]: Add actions on rows [#4023](https://github.com/home-assistant/home-assistant-polymer/pull/4023) @iantrich
+- 📣 [picture elements card]: Add actions to `state-badge` element [#4028](https://github.com/home-assistant/home-assistant-polymer/pull/4028) @iantrich
+- 📣 [picture glance card]: New `show_state` option for entities [#3937](https://github.com/home-assistant/home-assistant-polymer/pull/3937) @iantrich
+- 📣 [entities card]: New `icon` option for title [#4024](https://github.com/home-assistant/home-assistant-polymer/pull/4024) @iantrich
+- 📣 New `double_tap_action` option [#3879](https://github.com/home-assistant/home-assistant-polymer/pull/3879) @iantrich
+- 📣 New `confirmation` option for actions [#4006](https://github.com/home-assistant/home-assistant-polymer/pull/4006) @iantrich
+- 📣 [views]: New `visible` option [#3811](https://github.com/home-assistant/home-assistant-polymer/pull/3811) @iantrich
+- 📣 [views]: Custom badges [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/3867) @iantrich
+- 📣 [views]: new `entity-filter` badge [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/3867) @iantrich
+- 📣 [views]: new `state-label` badge [#3867](https://github.com/home-assistant/home-assistant-polymer/pull/3867) @iantrich
+- 📣 [views]: Add actions to `state-label` badge [#4028](https://github.com/home-assistant/home-assistant-polymer/pull/4028) @iantrich
+- 📣 New theme variables for ha-switch element [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
+- 📣 Display card errors in YAML instead of JSON [#4018](https://github.com/home-assistant/home-assistant-polymer/pull/4018) @iantrich
+- 📣 Confirmation Dialog [#4053](https://github.com/home-assistant/home-assistant-polymer/pull/4053) @timmo001
+- 📣 [weather forecast card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [shopping list card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [plant status card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [markdown card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [alarm panel card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [picture card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [picture elements card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [picture entity card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [picture glance card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- 📣 [vertical stack card]: Add `title` option [#3839](https://github.com/home-assistant/home-assistant-polymer/pull/3839) @iantrich
+- 📣 [horizontal stack card]: Add `title` option [#3839](https://github.com/home-assistant/home-assistant-polymer/pull/3839) @iantrich
+- ⚠️ revert lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich
+- 🔧 Fix delete button styling in hui-edit-view [#4102](https://github.com/home-assistant/home-assistant-polymer/pull/4102) @bramkragten
+- 🔧 Added title to view configuation [#4037](https://github.com/home-assistant/home-assistant-polymer/pull/4037) @drakeloud
+- 🔧 Added view title to heading of Lovelace Add Card picker [#4083](https://github.com/home-assistant/home-assistant-polymer/pull/4083) @springstan
+- 🔧 Fix issue where long states do not wrap [#4101](https://github.com/home-assistant/home-assistant-polymer/pull/4101) @pdong
+- 🔧 Changed View Configuration icons to text [#4067](https://github.com/home-assistant/home-assistant-polymer/pull/4067) @drakeloud
+- 🔧 Change ha-device-picker to combo box + improve name handling + show area [#4089](https://github.com/home-assistant/home-assistant-polymer/pull/4089) @bramkragten
+- 🔧 [map card]: Fix for Zone icon visibility on Map panel and Lovelace Map card [#4085](https://github.com/home-assistant/home-assistant-polymer/pull/4085) @springstan
+- 🔧 Changed outdated "GUI editor" reference to "visual editor" [#4068](https://github.com/home-assistant/home-assistant-polymer/pull/4068) @SeanPM5
+- 🔧 Hide "Save" on card configuration modal if no card is picked [#4062](https://github.com/home-assistant/home-assistant-polymer/pull/4062) @pdong
+- 🔧 [light card]: Add width property [#3972](https://github.com/home-assistant/home-assistant-polymer/pull/3972) @shbatm
+- 🔧 Made thermostat history graph localizable [#4004](https://github.com/home-assistant/home-assistant-polymer/pull/4004) @springstan
+- 🔧 [thermostat card]: Convert thermostat to round-slider [#3734](https://github.com/home-assistant/home-assistant-polymer/pull/3734) @iantrich
+- 🔧 Update alarm more-info dialog button styles to match lovelace card [#3955](https://github.com/home-assistant/home-assistant-polymer/pull/3955) @joshmcrty
+- 🔧 [alarm panel card]: number buttons outline and adjusted padding and font-size [#3991](https://github.com/home-assistant/home-assistant-polymer/pull/3991) @mr-awk
+- 🔧 Translate Advanced mode toggle [#3997](https://github.com/home-assistant/home-assistant-polymer/pull/3997) @springstan
+- 🔧 [entities card]: Fix media row secondary info [#3957](https://github.com/home-assistant/home-assistant-polymer/pull/3957) @iantrich
+- 📣 [markdown card]: Add default text to card editor [#3960](https://github.com/home-assistant/home-assistant-polymer/pull/3960) @akargl
+- 🔧 Add localized names to card editor [#3941](https://github.com/home-assistant/home-assistant-polymer/pull/3941) @timmo001
 
 ## Changes in 0.100.0
-- 📣 [picture glance card]: New config `tap_action` and `hold_action` for `entities` [#3807](https://github.com/home-assistant/home-assistant-polymer/pull/#3807) @iantrich
-- 📣 [entities card]: New config `image` for `entities` [#3832](https://github.com/home-assistant/home-assistant-polymer/pull/#3832) @iantrich
-- 📣 [entity filter card]: Support for operators in `state_filter` and individual `state_filter` option for `entitites` [#3692](https://github.com/home-assistant/home-assistant-polymer/pull/#3692) @iantrich
-- 📣 [light card]: New config `icon` [#3771](https://github.com/home-assistant/home-assistant-polymer/pull/#3771) @iantrich
-- 📣 [picture entity card]: UI Editor [#3708](https://github.com/home-assistant/home-assistant-polymer/pull/#3708) @iantrich
-- 📣 [picture glance card]: UI Editor [#3709](https://github.com/home-assistant/home-assistant-polymer/pull/#3709) @iantrich
-- 📣 [history graph card]: UI Editor [#3782](https://github.com/home-assistant/home-assistant-polymer/pull/#3782) @iantrich
-- 📣 Add support for panels to cast [#3796](https://github.com/home-assistant/home-assistant-polymer/pull/#3796) @bramkragten
-- 📣 Allow for user text selection (Android Chrome not supported) [#3605](https://github.com/home-assistant/home-assistant-polymer/pull/#3605) @iantrich
-- 📣 add `state_filter` to picture cards [#3791](https://github.com/home-assistant/home-assistant-polymer/pull/#3791) @iantrich
-- 📣 Add a setting for vibration [#3813](https://github.com/home-assistant/home-assistant-polymer/pull/#3813) @bramkragten
-- 📣 Switch paper-toggle-button to mwc-switch [#3683](https://github.com/home-assistant/home-assistant-polymer/pull/#3683) @iantrich
-- 📣 New Action `url` [#3773](https://github.com/home-assistant/home-assistant-polymer/pull/#3773) @iantrich
-- 🔧 [map card]: Align background with tiles [#3858](https://github.com/home-assistant/home-assistant-polymer/pull/#3858) @bramkragten
-- 🔧 [map card]: Fix dark switch for map card editor [#3856](https://github.com/home-assistant/home-assistant-polymer/pull/#3856) @bramkragten
-- 🔧 [views]: Guard for null badges [#3841](https://github.com/home-assistant/home-assistant-polymer/pull/#3841) @bramkragten
+- 📣 [picture glance card]: New config `tap_action` and `hold_action` for `entities` [#3807](https://github.com/home-assistant/home-assistant-polymer/pull/3807) @iantrich
+- 📣 [entities card]: New config `image` for `entities` [#3832](https://github.com/home-assistant/home-assistant-polymer/pull/3832) @iantrich
+- 📣 [entity filter card]: Support for operators in `state_filter` and individual `state_filter` option for `entitites` [#3692](https://github.com/home-assistant/home-assistant-polymer/pull/3692) @iantrich
+- 📣 [light card]: New config `icon` [#3771](https://github.com/home-assistant/home-assistant-polymer/pull/3771) @iantrich
+- 📣 [picture entity card]: UI Editor [#3708](https://github.com/home-assistant/home-assistant-polymer/pull/3708) @iantrich
+- 📣 [picture glance card]: UI Editor [#3709](https://github.com/home-assistant/home-assistant-polymer/pull/3709) @iantrich
+- 📣 [history graph card]: UI Editor [#3782](https://github.com/home-assistant/home-assistant-polymer/pull/3782) @iantrich
+- 📣 Add support for panels to cast [#3796](https://github.com/home-assistant/home-assistant-polymer/pull/3796) @bramkragten
+- 📣 Allow for user text selection (Android Chrome not supported) [#3605](https://github.com/home-assistant/home-assistant-polymer/pull/3605) @iantrich
+- 📣 add `state_filter` to picture cards [#3791](https://github.com/home-assistant/home-assistant-polymer/pull/3791) @iantrich
+- 📣 Add a setting for vibration [#3813](https://github.com/home-assistant/home-assistant-polymer/pull/3813) @bramkragten
+- 📣 Switch paper-toggle-button to mwc-switch [#3683](https://github.com/home-assistant/home-assistant-polymer/pull/3683) @iantrich
+- 📣 New Action `url` [#3773](https://github.com/home-assistant/home-assistant-polymer/pull/3773) @iantrich
+- 🔧 [map card]: Align background with tiles [#3858](https://github.com/home-assistant/home-assistant-polymer/pull/3858) @bramkragten
+- 🔧 [map card]: Fix dark switch for map card editor [#3856](https://github.com/home-assistant/home-assistant-polymer/pull/3856) @bramkragten
+- 🔧 [views]: Guard for null badges [#3841](https://github.com/home-assistant/home-assistant-polymer/pull/3841) @bramkragten
 
 ## Changes in 0.99.0
 - 📣 [glance card]: New config `show_last_changed` for `entities`
