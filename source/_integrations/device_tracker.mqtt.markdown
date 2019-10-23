@@ -44,7 +44,7 @@ payload_not_home:
   type: string
   default: 'not_home'
 source_type:
-  description: Attribute of a device tracker that affects state when being used to track a [person](https://www.home-assistant.io/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
+  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
 {% endconfiguration %}
