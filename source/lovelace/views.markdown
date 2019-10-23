@@ -98,6 +98,10 @@ icon:
   description: Overwrites icon or entity picture.
   type: string
   default: Entity Domain Icon
+image:
+  required: false
+  description: The URL of an image.
+  type: string
 show_name:
   required: false
   description: Show name.
