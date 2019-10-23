@@ -33,11 +33,11 @@ sensor:
 or a template based request:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: rest
     resource_template: http://IP_ADDRESS/{% raw %}{{ now().strftime('%Y-%m-%d') }}{% endraw %}
 ```
-
 
 {% configuration %}
 resource:
@@ -115,7 +115,7 @@ force_update:
 Make sure that the URL exactly matches your endpoint or resource.
 </div>
 
-<div class='note info'>
+<div class='note'>
 Use either `resource` or `resource_template`.
 </div>
 
