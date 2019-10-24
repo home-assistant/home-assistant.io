@@ -7,6 +7,7 @@ ha_category:
   - Presence Detection
   - Notifications
   - Sensor
+  - Switch
 ha_release: 0.79
 ha_iot_class: Local Polling
 ---
@@ -18,6 +19,7 @@ There is currently support for the following platforms within Home Assistant:
 - Presence detection - device tracker for connected devices
 - Notifications - via SMS
 - Sensors - device, signal, and traffic information
+- Switch - mobile data on/off
 
 ## Configuration
 
