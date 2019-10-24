@@ -151,12 +151,38 @@ You can verify that the `emulated_hue` integration has been loaded and is respon
 
 For Google Home, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
 
-An additional step is required to run Home Assistant as a non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as a non-root user.
+### Platform specific instructions
+
+#### Hass.io and Docker
+
+No further actions are required
+
+#### Python venv
+
+An additional step is required to run Home Assistant as a non-root user and use port 80. 
+
+##### Linux
+
+On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `emulated_hue` to use port 80 as a non-root user:
 
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
+
+##### FreeBSD and FreeNAS
+
+On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
+
+```bash
+sysctl net.inet.ip.portrange.reservedhigh=0
+```
+
+You can make this persist by adding the following to `/etc/sysctl.conf`:
+
+```
+net.inet.ip.portrange.reservedhigh=0
+```
 
 ### License
 
