@@ -7,7 +7,7 @@ ha_category:
 ha_release: "0.50"
 ---
 
-The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
+The `mqtt` platform extends the [manual alarm](/integrations/manual_alarm_control_panel) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
 
 It's essentially the opposite of the [MQTT Alarm Panel](/integrations/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
@@ -106,7 +106,7 @@ armed_home/armed_away/armed_night/disarmed/triggered:
       type: integer
 {% endconfiguration %}
 
-See the documentation for the [manual alarm platform](/integrations/manual) for a description.
+See the documentation for the [manual alarm platform](/integrations/manual_alarm_control_panel) for a description.
 
 Additionally, the following MQTT configuration variables are also available.
 
@@ -173,7 +173,7 @@ alarm_control_panel:
       pending_time: 0
 ```
 
-Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
+Refer to the [Manual Alarm Control page](/integrations/manual_alarm_control_panel#examples) for more real-life examples on how to use this panel.
 
 ## MQTT Control
 

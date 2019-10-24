@@ -301,7 +301,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ads docs]: /integrations/ads/
 [alarm_control_panel.egardia docs]: /integrations/egardia
 [alarm_control_panel.ialarm docs]: /integrations/ialarm
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
 [alarm_control_panel.totalconnect docs]: /integrations/totalconnect
 [alarmdecoder docs]: /integrations/alarmdecoder/

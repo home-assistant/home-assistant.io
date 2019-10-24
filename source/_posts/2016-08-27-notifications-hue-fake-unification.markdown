@@ -246,7 +246,7 @@ Talk to you soon on Discord and in your pull request comments!
 [expose]: /integrations/light/
 [Automate]: /integrations/llamalab_automate
 [Secrets]: /topics/secrets/
-[trigger]: /integrations/manual
+[trigger]: /integrations/manual_alarm_control_panel
 [CO2]: /integrations/mhz19
 [presence]: /integrations/mqtt_room
 [grouping]: /integrations/notify.group/

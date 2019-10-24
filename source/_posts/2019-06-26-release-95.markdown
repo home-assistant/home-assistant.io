@@ -740,7 +740,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [linky docs]: /integrations/linky/
 [locative docs]: /integrations/locative/
 [logi_circle docs]: /integrations/logi_circle/
-[manual docs]: /integrations/manual/
+[manual docs]: /integrations/manual_alarm_control_panel/
 [manual_mqtt docs]: /integrations/manual_mqtt/
 [mastodon docs]: /integrations/mastodon/
 [media_extractor docs]: /integrations/media_extractor/

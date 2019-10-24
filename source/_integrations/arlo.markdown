@@ -128,7 +128,7 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
 
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.
 
-More examples and configuration options can be found on the [Manual Alarm Control page](/integrations/manual#examples).
+More examples and configuration options can be found on the [Manual Alarm Control page](/integrations/manual_alarm_control_panel#examples).
 
 ## Camera
 

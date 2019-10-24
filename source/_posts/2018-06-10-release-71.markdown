@@ -326,7 +326,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tchellomello]: https://github.com/tchellomello
 [@titilambert]: https://github.com/titilambert
 [@treehoof]: https://github.com/treehoof
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [alarm_control_panel.totalconnect docs]: /integrations/totalconnect
 [api docs]: /integrations/api/
 [automation docs]: /integrations/automation/

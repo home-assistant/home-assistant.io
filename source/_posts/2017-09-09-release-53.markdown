@@ -350,7 +350,7 @@ frontend:
 [abode docs]: /integrations/abode/
 [alarm_control_panel.abode docs]: /integrations/abode
 [alarm_control_panel.egardia docs]: /integrations/egardia
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [binary_sensor.abode docs]: /integrations/abode#binary-sensor
 [binary_sensor.bayesian docs]: /integrations/bayesian
 [binary_sensor.hikvision docs]: /integrations/hikvision

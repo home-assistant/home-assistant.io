@@ -563,7 +563,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tsvi]: https://github.com/tsvi
 [@vacumet]: https://github.com/vacumet
 [@victorcerutti]: https://github.com/victorcerutti
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [alert docs]: /integrations/alert/
 [alexa docs]: /integrations/alexa/
 [august docs]: /integrations/august/

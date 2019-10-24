@@ -15,7 +15,7 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 <img src='/images/supported_brands/radiotherm.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/firetv.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' /><img src='/images/supported_brands/locative.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' />
 
  - Device tracker: Newer [TP-Link routers](/integrations/tplink) now supported ([@mKeRix](https://github.com/mKeRix))
- - Alarm Control Panel: [Manual alarm](/integrations/manual) added ([@sfam](https://github.com/sfam))
+ - Alarm Control Panel: [Manual alarm](/integrations/manual_alarm_control_panel) added ([@sfam](https://github.com/sfam))
  - Thermostat: [Radiotherm](/integrations/radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
  - Media Player: [Amazon FireTV](/integrations/androidtv) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
  - Device Tracker: [Geofancy](/integrations/locative) now supported (@wind-rider)

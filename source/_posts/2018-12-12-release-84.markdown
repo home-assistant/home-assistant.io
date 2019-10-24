@@ -161,7 +161,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [@zsarnett]: https://github.com/zsarnett
 [@iantrich]: https://github.com/iantrich
 [@liaanvdm]: https://github.com/liaanvdm
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [config docs]: /integrations/config/
 [lock.zwave docs]: /integrations/zwave#lock
 

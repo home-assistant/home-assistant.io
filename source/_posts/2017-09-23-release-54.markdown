@@ -276,7 +276,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wickerwaka]: https://github.com/wickerwaka
 [abode docs]: /integrations/abode/
 [alarm_control_panel.abode docs]: /integrations/abode
-[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual docs]: /integrations/manual_alarm_control_panel
 [alarm_control_panel.satel_integra docs]: /integrations/satel_integra
 [alarm_control_panel.spc docs]: /integrations/spc
 [alexa docs]: /integrations/alexa/
