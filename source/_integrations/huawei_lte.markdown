@@ -26,19 +26,17 @@ or using YAML.
 
 The integration can be run with or without
 authentication. Authenticated mode enables all available integration
-features, but may interfere with accessing the device web interface
-from another source such as a browser while the integration is active,
-or vice versa. The exact list of features requiring authentication to
-work varies by device and firmware version. The integration will try
-to use all configured ones and fail gracefully if it detects one
-requiring authentication in unauthenticated mode.
+features and entities, but may interfere with accessing the device web
+interface from another source such as a browser while the integration
+is active, or vice versa. The exact list of features requiring
+authentication to work varies by device and firmware version. The
+integration will try to use all configured ones and fail gracefully if
+it detects one requiring authentication in unauthenticated mode.
 
-Newly discovered entities from this integration are disabled by
-default. This is because the target provide for a large amount of
-entities, and fetching info for all of them requires multiple HTTP API
-calls to the device. To keep the number of these calls at minimum,
-keeping also in mind the above mentioned authentication conflicts they
-may cause, API accesses are made only for enabled entities.
+Only a subset of the entities provided by the target device by
+default: WAN IP Address, RSRQ, RSRP, RSSI, and SINR LTE signal
+information sensors, and device tracker entries. The rest are added to
+the entity registry, but disabled by default.
 
 Support for different categories of information and thus available
 entities varies by device model and firmware version.
