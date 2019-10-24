@@ -92,7 +92,7 @@
 /components/alarm_control_panel.homematicip_cloud /integrations/homematicip_cloud
 /components/alarm_control_panel.ialarm /integrations/ialarm
 /components/alarm_control_panel.lupusec /integrations/lupusec
-/components/alarm_control_panel.manual /integrations/manual
+/components/alarm_control_panel.manual /integrations/manual_alarm_control_panel
 /components/alarm_control_panel.manual_mqtt /integrations/manual_mqtt
 /components/alarm_control_panel.ness_alarm /integrations/ness_alarm
 /components/alarm_control_panel.nx584 /integrations/nx584
@@ -1563,7 +1563,7 @@
 /components/magicseaweed /integrations/magicseaweed
 /components/mailbox /integrations/mailbox
 /components/mailgun /integrations/mailgun
-/components/manual /integrations/manual
+/components/manual /integrations/manual_alarm_control_panel
 /components/manual_mqtt /integrations/manual_mqtt
 /components/map /integrations/map
 /components/marytts /integrations/marytts
@@ -2061,3 +2061,4 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/manual /integrations/manual_alarm_control_panel
