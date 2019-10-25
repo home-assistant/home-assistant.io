@@ -9,7 +9,7 @@
   </div>
 
   {%- assign file_parts = page.url | split: '/' | last | split: '.' -%}
-  {%- assign imp_name = file_parts | first -%}
+  {%- assign imp_name = file_parts | last -%}
   {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
 
   <div class="section">
