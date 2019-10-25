@@ -107,7 +107,7 @@ automation (note that you will need a
 automation:
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', True)) }}"
   action:
     service: light.turn_on
     entity_id: light.bedroom
