@@ -20,7 +20,7 @@ For more details about the PCAL9535A I2C I/O port expander, you can find its dat
 
 The `pcal9535a` binary sensor platform allows you to read sensor values from the I/O pins of your [PCAL9535A I2C I/O expander](https://www.nxp.com/products/interfaces/ic-spi-serial-interface-devices/ic-general-purpose-i-o/low-voltage-16-bit-ic-bus-i-o-port-with-interrupt-and-agile-i-o:PCAL9535A).
 
-The pin numbers are from 0 to 15, where: 0-7 corresponds to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
+The pin numbers are from 0 to 15, where: 0-7 correspond to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
 
 ### Configuration
 
@@ -78,7 +78,7 @@ pull_mode:
 
 The `pcal9535a` switch platform allows you to write to the I/O pins of your [PCAL9535A I2C I/O expander](https://www.nxp.com/products/interfaces/ic-spi-serial-interface-devices/ic-general-purpose-i-o/low-voltage-16-bit-ic-bus-i-o-port-with-interrupt-and-agile-i-o:PCAL9535A).
 
-The pin numbers are from 0 to 15, where: 0-7 corresponds to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
+The pin numbers are from 0 to 15, where: 0-7 correspond to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
 
 ### Configuration
 
