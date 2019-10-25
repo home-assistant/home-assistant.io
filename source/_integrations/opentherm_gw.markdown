@@ -46,9 +46,23 @@ id:
 {% endconfiguration %}
 
 <div class='note'>
-The precision and floor_temperature settings that were supported in configuration.yaml entries have been temporarily removed. The values will be lost upon import of the configuration.yaml entry into the Integrations panel. These features will be re-added soon.
+The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.
 </div>
 
+# Options
+
+The OpenTherm Gateway can be further configured through the integration settings in the web interface
+The following options are available:
+{% configuration %}
+Precision:
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
+  type: float
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
+Floor Temperature:
+  description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
+  type: boolean
+  default: Disabled
+{% endconfiguration %}
 
 ## Services
 

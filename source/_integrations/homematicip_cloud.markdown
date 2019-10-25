@@ -15,7 +15,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.66
 ---
 
-The [HomematicIP](http://www.homematic-ip.com) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -159,6 +159,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
+- `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 
 ### Service Examples
 
@@ -214,10 +215,25 @@ Deactivates the vacation mode immediately.
 ```yaml
 ...
 action:
-  service: homematicip_cloud.deactivate_vacation_mode
+  service: homematicip_cloud.deactivate_vacation
   data:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
+
+Set the active climate profile index.
+
+The index of the climate profile is 1-based. 
+You can get the required index from the native Homematic IP App.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.set_active_climate_profile
+  data:
+    entity_id: climate.livingroom
+    climate_profile_index: 1
+```
+
 
 ## Additional info
 

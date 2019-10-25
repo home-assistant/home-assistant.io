@@ -31,7 +31,7 @@ To edit `/boot/config.txt` on Hass.io use [this documentation](https://developer
 
 ### owfs
 
-When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](http://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
+When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
 
 ### Units with multiple sensors
 

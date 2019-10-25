@@ -8,7 +8,7 @@ ha_release: 0.35
 ha_iot_class: Local Polling
 ---
 
-The `vlc` platform allows you to control [VLC media player](http://www.videolan.org/vlc/index.html).
+The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).
 
 To add a VLC media player to your installation, add the following to your `configuration.yaml` file:
 
@@ -63,4 +63,4 @@ sudo usermod -a -G audio homeassistant
 
 ##### VLC currently not supported with Hass.io
 
-According to the forum topic ["How to add VLC into my Hassio"](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.
+According to the forum topic ["How to add VLC into my Hassio"](https://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.

@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.19
 ---
 
-The Fitbit sensor allows you to expose data from [Fitbit](http://fitbit.com) to Home Assistant.
+The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
 

@@ -8,7 +8,7 @@ logo: leviton.png
 ha_release: 0.51
 ---
 
-Support for [Leviton Decora Wi-Fi](http://www.leviton.com/en/products/lighting-controls/decora-smart-with-wifi) dimmers/switches via the MyLeviton API.
+Support for [Leviton Decora Wi-Fi](https://www.leviton.com/en/products/lighting-controls/decora-smart-with-wifi) dimmers/switches via the MyLeviton API.
 
 Supported devices (tested):
 

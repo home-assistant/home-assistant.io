@@ -94,13 +94,13 @@ The Frontier Silicon API does not provide a multi-user environment. There is alw
 
 </div>
 
-[Frontier Silicon chipset]: http://www.frontier-silicon.com/digital-radio-solutions
+[Frontier Silicon chipset]: https://www.frontier-silicon.com/digital-radio-solutions
 [Medion Radios]: http://internetradio.medion.com/
 [IR110]: https://www.hama.com/00054823/hama-ir110-internet-radio-internet-radio-multi-room-app-control
 [DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
 [MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
 [SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.pdf
 [fsapi]: https://github.com/zhelev/python-fsapi
-[UNDOK]: http://www.frontier-silicon.com/undok
+[UNDOK]: https://www.frontier-silicon.com/undok
 [flammy]: https://github.com/flammy/fsapi/
 [tiwillam]: https://github.com/tiwilliam/fsapi

@@ -31,5 +31,5 @@ Is SSH used with the [SSH server add-on](/addons/ssh/) then the user is responsi
 
 ## Source code
 
-Due to the lack of resources we are not able to review all of our dependencies and inspect them for malicious behavior, leakage of information or compliance with GDPR. But we have a keen interest in the development of our dependencies are try to work closely with the upstream developer.
+Due to the lack of resources we are not able to review all of our dependencies and inspect them for malicious behavior, leakage of information or compliance with GDPR. But we have a keen interest in the development of our dependencies and try to work closely with the upstream developer.
 

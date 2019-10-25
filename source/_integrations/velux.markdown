@@ -9,7 +9,7 @@ ha_release: 0.49
 ha_iot_class: Local Polling
 ---
 
-[Velux](http://www.velux.com) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
+[Velux](https://www.velux.com/) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
 
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained [here](https://www.velux.com/api/klf200) and may be imported via the webinterface of your KLF 200.
 

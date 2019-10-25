@@ -59,7 +59,7 @@ username:
   type: string
   default: The user account or botname that you generated the API key as.
 icon:
-  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/).
   required: false
   type: string
 {% endconfiguration %}
@@ -121,7 +121,7 @@ Example for posting formatted attachment:
     "attachments": [
       {
         "title": "WHAT A HORRIBLE NIGHT TO HAVE A CURSE.",
-        "image_url": "http://i.imgur.com/JEExnsI.gif"
+        "image_url": "https://i.imgur.com/JEExnsI.gif"
       }
     ]
   }

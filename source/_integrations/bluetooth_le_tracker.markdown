@@ -49,7 +49,7 @@ Some BTLE devices (e.g., fitness trackers) are only visible to the devices that 
 
 ## Rootless Setup
 
-Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 sudo apt-get install libcap2-bin

@@ -100,7 +100,7 @@ context:
 
 ## Lambda Notify Usage
 
-AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
+AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
 
 The Lambda event payload will contain everything passed in the service call payload. Here is an example payload that would be sent to Lambda:
 
@@ -128,7 +128,7 @@ The context will look like this:
 
 ## SNS Notify Usage
 
-AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Client.publish).
+AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Client.publish).
 
 If one exists, the SNS Subject will be set to the title. All attributes from the payload, except the message, will be sent as stringified message attributes.
 
@@ -154,14 +154,14 @@ If you do not download them, you will lose them and will have to recreate a new 
 
 ## SQS Notify Usage
 
-AWS SQS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html) and [bototcore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
+AWS SQS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html) and [bototcore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
 
 The SQS event payload will contain everything passed in the service call payload. SQS payloads will be published as stringified JSON. All attributes from the payload, except message, will also be sent as stringified message attributes. Here is an example message that would be published to the SQS queue:
 
 ```json
 {
   "title": "Test message!",
-  "target": "http://sqs.us-east-1.amazonaws.com/123456789012/queue2",
+  "target": "https://sqs.us-east-1.amazonaws.com/123456789012/queue2%22,
   "data": {
     "test": "okay"
   },

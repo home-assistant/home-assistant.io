@@ -8,14 +8,14 @@ ha_iot_class: Cloud Polling
 ha_release: 0.28
 ---
 
-The Xbox Live integration is able to track [Xbox](http://xbox.com/) profiles.
+The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.
 
 To use this sensor you need a free API key from
-[XboxAPI.com](http://xboxapi.com).
+[XboxAPI.com](https://xboxapi.com/).
 Please also make sure to connect your Xbox account on that site.
 
 The configuration requires you to specify XUIDs which are the unique identifiers
-for profiles. These can be determined on [XboxAPI.com](http://xboxapi.com) by
+for profiles. These can be determined on [XboxAPI.com](https://xboxapi.com/) by
 either looking at your own profile page or using their interactive documentation
 to search for gamertags.
 
@@ -34,7 +34,7 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: Your API key from [XboxAPI.com](http://xboxapi.com).
+  description: Your API key from [XboxAPI.com](https://xboxapi.com/).
   required: true
   type: string
 xuid:

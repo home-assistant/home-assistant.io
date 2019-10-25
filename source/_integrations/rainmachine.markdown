@@ -11,7 +11,7 @@ ha_release: 0.69
 ha_iot_class: Local Polling
 ---
 
-The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -188,7 +188,7 @@ Unpause all watering activities.
 
 ## Switch
 
-The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/).
+The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](https://www.rainmachine.com/).
 
 ### Controlling Your Device
 

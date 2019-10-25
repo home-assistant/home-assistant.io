@@ -9,7 +9,7 @@ ha_release: 0.92
 ---
 
 The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 
-Spanish [Instituto Geográfico Nacional](http://www.ign.es/) with information 
+Spanish [Instituto Geográfico Nacional](https://www.ign.es/) with information 
 about seismic events like earthquakes on the Iberian Peninsula and Canary 
 Islands. It retrieves incidents from a feed and shows information of those 
 incidents filtered by distance to Home Assistant's location.

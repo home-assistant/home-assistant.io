@@ -71,7 +71,7 @@ input_text:
 
 ### Services
 
-This integrations provide three services to modify the state of the `input_text`.
+This integration provides a single service to modify the state of the `input_text`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |

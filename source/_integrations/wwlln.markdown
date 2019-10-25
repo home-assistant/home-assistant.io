@@ -9,7 +9,7 @@ ha_config_flow: true
 ---
 
 The `wwlln` integration displays lightning strike information from the
-[World Wide Lightning Location Network (WWLLN)](http://wwlln.net).
+[World Wide Lightning Location Network (WWLLN)](https://wwlln.net/).
 
 Entities are generated, updated and removed automatically with each update
 from the feed. Each entity defines latitude and longitude and will be shown

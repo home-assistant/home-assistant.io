@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ha_release: 0.96
 ---
 
-The `fronius` sensor polls a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
+The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
 
 ## Configuration
 

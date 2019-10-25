@@ -25,7 +25,7 @@ name:
   default: notify
   type: string
 facility:
-  description: Facility according to RFC 3164 (http://tools.ietf.org/html/rfc3164). Check the table below for entries.
+  description: Facility according to RFC 3164 (https://tools.ietf.org/html/rfc3164). Check the table below for entries.
   required: false
   default: syslog
   type: string
@@ -64,6 +64,6 @@ The table contains values to use in your `configuration.yaml` file.
 | local6    |         |           |
 | local7    |         |           |
 
-For details about facility, option, and priority please consult the [wikipedia article](http://en.wikipedia.org/wiki/Syslog) and [RFC 3164](http://tools.ietf.org/html/rfc3164).
+For details about facility, option, and priority please consult the [wikipedia article](https://en.wikipedia.org/wiki/Syslog) and [RFC 3164](https://tools.ietf.org/html/rfc3164).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

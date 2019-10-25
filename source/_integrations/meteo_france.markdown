@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](http://vigilance.meteofrance.com)
+It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
 
 ## Configuration
 
@@ -70,7 +70,7 @@ It works well with french postal code, city name, etc. In case your expected res
 It also works with international city, with mixed results. You may have to find the correct city query.
 For example `Montreal, Canada` will return a city in Ardèche, France, whereas `Montreal, america` works
 
-[http://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique](http://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique)
+[https://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique](https://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique)
 
 ```yaml
 # Example configuration.yaml entry for Montreal, Canada
@@ -83,7 +83,7 @@ meteo_france:
 <div class='note warning'>
 
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
-  You can check if your city is covered on the [Météo-France website](http://www.meteofrance.com/previsions-meteo-france/previsions-pluie).
+  You can check if your city is covered on the [Météo-France website](https://www.meteofrance.com/previsions-meteo-france/previsions-pluie).
 
 </div>
 
@@ -104,7 +104,7 @@ Possible value for each intervals attributes are:
   The weather alert is available for the metropolitan France.
 </div>
 
-The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](http://vigilance.meteofrance.com/).
+The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](https://vigilance.meteofrance.com/).
 
 The sensor attributes give access to each type of alerts and date of the bulletin emitted by Météo-France.
 

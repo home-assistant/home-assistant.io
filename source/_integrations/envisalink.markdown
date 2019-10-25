@@ -135,6 +135,7 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
 - **alarm_arm_home**: Arms the alarm in home mode.
 - **alarm_arm_away**: Arms the alarm in standard away mode.
+- **alarm_arm_night**: Arms the alarm in night mode.
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 - **envisalink_alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
 - **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*

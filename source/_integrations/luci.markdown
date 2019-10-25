@@ -9,7 +9,7 @@ ha_release: pre 0.7
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt/)._
 
-This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
+This is a presence detection scanner for OpenWRT using [luci](https://openwrt.org/docs/techref/luci).
 
 <div class='note'>
 
@@ -52,6 +52,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

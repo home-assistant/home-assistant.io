@@ -13,7 +13,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
+The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes.
 
 ## Configuration
 

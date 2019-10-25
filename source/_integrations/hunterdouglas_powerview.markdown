@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.15
 ---
 
-Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
+Implements the [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
 
 Scenes can be activated using the service `scene.turn_on`.
 
