@@ -6,7 +6,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: 0.99
+ha_release: 0.101
 ha_iot_class: Local Polling
 ---
 
