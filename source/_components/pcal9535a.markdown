@@ -10,17 +10,17 @@ ha_release: 0.101
 ha_iot_class: Local Polling
 ---
 
-The `pcal9535a` integration is the base for all related pcal9535a platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
+The `pcal9535a` integration is the base for all related pcal9535a platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms, please check their corresponding sections.
 
 One of the use cases is [Seeed studio Raspberry Pi Relay Board](http://wiki.seeedstudio.com/Raspberry_Pi_Relay_Board_v1.0/).
 
-For more details about the PCAL9535A I2C I/O port expander you can find its datasheet here: [PCAL9535A](https://www.nxp.com/docs/en/data-sheet/PCAL9535A.pdf).
+For more details about the PCAL9535A I2C I/O port expander, you can find its datasheet here: [PCAL9535A](https://www.nxp.com/docs/en/data-sheet/PCAL9535A.pdf).
 
 ## Binary Sensor
 
 The `pcal9535a` binary sensor platform allows you to read sensor values from the I/O pins of your [PCAL9535A I2C I/O expander](https://www.nxp.com/products/interfaces/ic-spi-serial-interface-devices/ic-general-purpose-i-o/low-voltage-16-bit-ic-bus-i-o-port-with-interrupt-and-agile-i-o:PCAL9535A).
 
-The pin numbers are from 0 to 15 where: 0-7 correspond to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
+The pin numbers are from 0 to 15, where: 0-7 corresponds to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
 
 ### Configuration
 
@@ -30,7 +30,6 @@ To use the I/O pins of an pcal9535a connected to an I2C bus of your Raspberry Pi
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pcal9535a
-    i2c_address: 0x20
     pins:
       0: PIR Office
       1: PIR Bedroom
@@ -79,7 +78,7 @@ pull_mode:
 
 The `pcal9535a` switch platform allows you to write to the I/O pins of your [PCAL9535A I2C I/O expander](https://www.nxp.com/products/interfaces/ic-spi-serial-interface-devices/ic-general-purpose-i-o/low-voltage-16-bit-ic-bus-i-o-port-with-interrupt-and-agile-i-o:PCAL9535A).
 
-The pin numbers are from 0 to 15 where: 0-7 correspond to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
+The pin numbers are from 0 to 15, where: 0-7 corresponds to port P0 (P0_0 - P0_7) and 8-15 to port P1 (P1_0 - P1_7).
 
 ### Configuration
 
@@ -89,7 +88,6 @@ To use the I/O pins of an pcal9535a connected to an I2C bus of your Raspberry Pi
 # Example configuration.yaml entry
 switch:
   - platform: pcal9535a
-    i2c_address: 0x20
     pins:
       11: Fan Office
       12: Light Desk
