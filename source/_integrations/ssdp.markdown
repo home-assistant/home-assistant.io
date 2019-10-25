@@ -24,4 +24,5 @@ ssdp:
 The following integrations are automatically discovered by the SSDP integration:
 
  - Deconz
+ - Huawei LTE
  - Philips Hue
