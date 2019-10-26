@@ -119,7 +119,7 @@ pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCryp
 
 ## Switch
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](https://www.ibroadlink.com/).
 
 ### Configuration
 
@@ -357,7 +357,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     Not every code works.
 
 8. Convert the HEX codes to base64.
-    Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+    Use [this](https://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
 ### Using iOS and Windows to obtain codes
 
@@ -367,7 +367,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
    - Download and install Python 2.7 on your windows PC.
    - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
-   - Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
+   - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
    - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
 3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.

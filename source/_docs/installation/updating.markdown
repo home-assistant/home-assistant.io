@@ -39,7 +39,7 @@ $ sudo docker pull homeassistant/raspberrypi3-homeassistant:latest
 
 After updating, you must start/restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself or the [autostarting](/docs/autostart/) daemon (if applicable). Startup can take considerable amount of time (i.e. minutes) depending on your device. This is because all requirements are updated as well.
 
-[BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
+[BRUH automation](https://www.bruhautomation.io/) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
 
 #### Run a specific version
 

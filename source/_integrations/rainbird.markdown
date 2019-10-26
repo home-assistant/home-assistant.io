@@ -10,7 +10,7 @@ ha_release: 0.61
 ha_iot_class: Local Polling
 ---
 
-This `rainbird` integration allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -95,13 +95,13 @@ Please note that due to the implementation of the API within the LNK Module, the
 
 ## Sensor
 
-This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` sensor allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 The integration adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
 
 ## Switch
 
-This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` switch platform allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 Switches are automatically added for all available zones of configured controllers.
 

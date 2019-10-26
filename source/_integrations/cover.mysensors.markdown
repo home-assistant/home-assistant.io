@@ -33,8 +33,8 @@ For more information, visit the [serial api] of MySensors.
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  */
 
 // Enable debug prints to serial monitor

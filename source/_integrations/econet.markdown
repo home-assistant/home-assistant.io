@@ -8,7 +8,7 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ---
 
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
+The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
 
 ## Configuration
 

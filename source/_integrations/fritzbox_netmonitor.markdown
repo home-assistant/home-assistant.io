@@ -8,7 +8,7 @@ ha_release: 0.36
 ha_iot_class: Local Polling
 ---
 
-The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers.
+The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) routers.
 
 <div class='note warning'>
 It might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>

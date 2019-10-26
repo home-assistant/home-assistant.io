@@ -12,7 +12,7 @@ ha_iot_class: Local Push
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door and smoke sensors.
 
-Integration with SPC is done through a third-party API gateway called [SPC Web Gateway](http://www.lundix.se/smarta-losningar/) which must be installed and configured somewhere on your network.
+Integration with SPC is done through a third-party API gateway called [SPC Web Gateway](https://www.lundix.se/smarta-losningar/) which must be installed and configured somewhere on your network.
 
 There is currently support for the following device types within Home Assistant:
 

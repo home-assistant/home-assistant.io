@@ -38,6 +38,10 @@ entity_id:
   type: [string, list]
   default: none
   description: "A list of entity IDs so a template in `content:` only reacts to the state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities."
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## Example

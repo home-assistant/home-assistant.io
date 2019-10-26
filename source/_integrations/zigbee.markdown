@@ -11,7 +11,7 @@ ha_release: 0.12
 ha_iot_class: Local Polling
 ---
 
-[Zigbee](http://www.zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](http://www.digi.com/lp/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Zigbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
+[Zigbee](https://zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](https://www.digi.com/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Zigbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -65,7 +65,7 @@ zigbee:
 
 ## Binary Sensor
 
-A `zigbee` binary sensor in this context is a device connected to one of the digital input pins on a [Zigbee](http://www.zigbee.org/) module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the Zigbee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
+A `zigbee` binary sensor in this context is a device connected to one of the digital input pins on a [Zigbee](https://zigbee.org/) module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the Zigbee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
 ### Configuration
 
@@ -134,7 +134,7 @@ on_state:
 
 ## Sensor
 
-There are two types of [Zigbee](http://www.zigbee.org/) sensor available to Home Assistant:
+There are two types of [Zigbee](https://zigbee.org/) sensor available to Home Assistant:
 
 - [Analog input pin](#analog-input-pin)
 - [Temperature sensor](#temperature-sensor) (XBee Pro)
