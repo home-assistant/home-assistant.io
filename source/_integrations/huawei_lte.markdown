@@ -37,8 +37,9 @@ it detects one requiring authentication in unauthenticated mode.
 
 Only a subset of the entities provided by the target device by
 default: WAN IP Address, RSRQ, RSRP, RSSI, and SINR LTE signal
-information sensors, and device tracker entries. The rest are added to
-the entity registry, but disabled by default.
+information sensors, mobile data switch, and device tracker
+entries. The rest are added to the entity registry, but disabled by
+default.
 
 Support for different categories of information and thus available
 entities varies by device model and firmware version.
