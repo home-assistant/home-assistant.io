@@ -2,8 +2,8 @@
 layout: post
 title: "R.I.P Hassbian"
 description: "The end of Hassbian"
-date: 2019-10-25 01:11:03
-date_formatted: "October 25, 2019"
+date: 2019-10-26 06:00:00
+date_formatted: "October 26, 2019"
 author: Fredrik Lindqvist
 author_twitter: Landrash
 comments: true
