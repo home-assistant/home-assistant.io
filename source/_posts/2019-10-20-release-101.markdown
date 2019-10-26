@@ -13,7 +13,12 @@ og_image: /images/blog/2019-09-0.100/components.png
 
 Highlight breaking change for api password/trusted networks
 
+https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/
+
 ## In other news
+
+https://twitter.com/Frenck/status/1188044714571907072?s=09
+
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
 </blockquote>
