@@ -40,6 +40,12 @@ media_player:
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
 
+  # Use the Python ADB implementation with authentication on virtual env
+  - platform: androidtv
+    name: Android TV 2
+    host: 192.168.0.222
+    adbkey: "/home/homeassistant/.homeassistant/android/adbkey"
+
   # Use an ADB server for sending ADB commands
   - platform: androidtv
     name: Android TV 3
