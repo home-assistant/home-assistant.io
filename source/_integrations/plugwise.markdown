@@ -4,7 +4,7 @@ description: "Plugwise Climate integration."
 logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
-ha_release: 0.98
+ha_release: 0.102
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -25,6 +25,7 @@ climate:
   - platform: plugwise
     password: YOUR_SHORT_IP 
     host: YOUR_SMILE_LOCAL_IP
+    legacy_anna: true # required for a legacy Anna (firmware 1.8.x), not needed for a more recent Anna (firmware 3.1.x)
 ```
 
 {% configuration %}
@@ -51,6 +52,11 @@ port:
   required: false
   type: integer
   default: 80
+legacy_anna:
+  description: Indicate that the Anna is a legacy unit
+  required: false
+  type: boolean
+  default: false
 min_temp:
   description: If you want to adjust the lower boundary, the integration will not allow temperatures below the set value.
   required: false
@@ -72,6 +78,7 @@ climate:
     password: YOUR_SHORT_ID
     host: YOUR_SMILE_LOCAL_IP
     port: YOUR_SMILE_PORT_NUMBER
+    legacy_anna: true
     min_temp: YOUR_MINIMAL_TARGET_TEMPERATURE
     max_temp: YOUR_MAXIMAL_TARGET_TEMPERATURE
 ```
