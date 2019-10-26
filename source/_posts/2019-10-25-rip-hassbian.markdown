@@ -40,5 +40,5 @@ Last but not least, thank you to all of those who contributed, in any way, to th
 [@ludeeus]: https://github.com/ludeeus
 [pi-gen]: https://github.com/Hassbian/pi-gen
 [hassbian-scripts]: https://github.com/Hassbian/hassbian-scripts
-[Manual installation on a Raspberry Pi]: docs/installation/raspberry-pi/
+[Manual installation on a Raspberry Pi]: /docs/installation/raspberry-pi/
 [raspbian]: https://www.raspberrypi.org/downloads/raspbian/
