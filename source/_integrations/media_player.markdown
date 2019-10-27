@@ -73,4 +73,14 @@ Currently only supported on [Spotify](/integrations/spotify), [MPD](/integration
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
 
+#### Service `media_player.command`
+
+Currently only supported on [Denon AVR](/integrations/denonavr/).
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
+| `command`              |       no | Command to send to device.  Platform dependent.|
+| `command_type`         |      yes | Type of command to send to device.  Platform dependent.|
+| `command`              |      yes | Additional data to be sent with command.  Platform dependent.|
 
