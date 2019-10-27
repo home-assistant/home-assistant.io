@@ -147,10 +147,14 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 To prepare your machine for the Hass.io installation, run the following commands:
 
+For Ubuntu:
+```bash
+add-apt-repository universe
+```
+Debian/Ubuntu:
 ```bash
 sudo -i
 apt-get install software-properties-common
-add-apt-repository universe
 apt-get update
 apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 curl -fsSL get.docker.com | sh
