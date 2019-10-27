@@ -18,7 +18,24 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
+or using `docker-compose`
+```yaml
+version: '3'
+services:
+  facebox:
+    image: machinebox/facebox
+    container_name: facebox
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - MB_KEY=${MB_KEY}
+      - MB_FACEBOX_DISABLE_RECOGNITION=false
+```
+
 You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bear in mind that the integration does not encrypt these credentials and this approach does not guarantee security on an unsecured network.
+
+After you created an account at [Machinebox](https://machinebox.io/account) you can grab your `MB_KEY` at [your Account page](https://developer.veritone.com/machinebox/overview)
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
