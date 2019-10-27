@@ -8,7 +8,7 @@ ha_release: 0.25
 ha_iot_class: Cloud Push
 ---
 
-The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
+The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
 
 ## Configuration
 
@@ -56,9 +56,9 @@ search:
   default: UnSeen UnDeleted
   type: string
 charset:
-  description: The characterset used for this connection
+  description: The character set used for this connection.
   required: false
-  default: UTF-8
+  default: utf-8
   type: string
 {% endconfiguration %}
 
@@ -81,7 +81,6 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
-    charset: utf-8
 
 # Example configuration.yaml entry for Office 365
 sensor:
