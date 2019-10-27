@@ -33,11 +33,11 @@ duckdns:
 
 ## Service `set_txt`
 
-Set the TXT record of your duckdns subdomain.
+Set the TXT record of your DuckDNS subdomain.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `txt` | no | Peyload for the TXT record.
+| `txt` | no | Payload for the TXT record.
 
 
 <div class='note'>
