@@ -200,7 +200,7 @@ vi /etc/devfs.rules
 Add the following lines 
 ```bash
 [devfsrules_jail_allow_usb=7]  
-add path 'cu\*' unhide  
+add path 'cu\*' mode 0660 group 8123 unhide 
 ```
 
 Reload devfs
@@ -222,7 +222,7 @@ sudo iocage console hass
 ```
 
 ```bash
-ls /dev/cu
+ls /dev/cu*
 ```
 This should ouput the following 
 ```bash
