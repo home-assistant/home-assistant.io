@@ -38,19 +38,19 @@ We will need a few things to get started with installing Home Assistant. The Ras
 - [Raspberry Pi 3 Model B+](https://amzn.to/2IAyNl0) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
-- Ethernet cable. Hass.io can work with Wi-Fi, but an Ethernet connection would be more reliable.
+- Ethernet cable. Home Assistant can work with Wi-Fi, but an Ethernet connection would be more reliable.
 
 ### Software requirements
 
-- Download the Hass.io image for [your device](/hassio/installation/)
+- Download the HassOS image for [your device](/hassio/installation/)
 - Download [balenaEtcher] to write the image to an SD card
 
 [balenaEtcher]: https://www.balena.io/etcher
 
-### Installing Hass.io
+### Installation
 
 1. Put the SD card in your card reader.
-2. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
+2. Open balenaEtcher, select the HassOS image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
 4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a USB stick). Otherwise, move to step 5.
    - Format a USB stick to FAT32 with the volume name `CONFIG`.
