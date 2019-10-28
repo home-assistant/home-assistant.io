@@ -1,6 +1,6 @@
 ---
-title: PocketCasts
-description: "Instructions on how to set up PocketCasts sensors within Home Assistant."
+title: Pocket Casts
+description: "Instructions on how to set up Pocket Casts sensors within Home Assistant."
 logo: pocketcasts.png
 ha_category:
   - Multimedia
