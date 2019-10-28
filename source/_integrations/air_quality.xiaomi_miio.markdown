@@ -14,13 +14,13 @@ Currently, the supported features are:
 
 - Particulate matter 2.5
 - Attributes
-  - carbon dioxide equivalent
-  - relative humidity
+  - carbon_dioxide_equivalent
+  - relative_humidity
   - temperature
-  - total volatile organic compounds
+  - total_volatile_organic_compounds
   - manufacturer
   - model
-  - sw version
+  - sw_version
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
