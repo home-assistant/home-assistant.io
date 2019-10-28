@@ -1,6 +1,6 @@
 ---
-title: "Xiaomi Air Quality Index Monitor"
-description: "Instructions how to integrate your Xiaomi Mi Air Quality Index Monitor within Home Assistant."
+title: "Xiaomi Air Quality Monitor"
+description: "Instructions how to integrate your Xiaomi Mi Air Quality Monitor within Home Assistant."
 logo: xiaomi.png
 ha_category:
   - Health
