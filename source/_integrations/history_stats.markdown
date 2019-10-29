@@ -123,6 +123,28 @@ duration:
 
 </div>
 
+### Time units
+
+The timeperiod is by default returned as decimal hours. By setting `fmt` to `seconds` the time period will be returned as a number of seconds. Valid values for `fmt` are `hours` (the default) and  `seconds`.
+
+## Example 
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: history_stats
+    name: Lamp ON today
+    entity_id: light.my_lamp
+    state: 'on'
+    type: time
+    fmt: seconds
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+```
+{% endraw %}
+
+
 ### Examples
 
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
