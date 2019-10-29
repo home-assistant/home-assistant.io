@@ -275,6 +275,26 @@ script:
 ```
 {% endraw %}
 
+#### Simple script to play a smart playlist
+
+{% raw %}
+```yaml
+script:
+  play_kodi_smp:
+    alias: Turn on the silly box with random Firefighter Sam episode
+    sequence:
+      - alias: TV on
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kodi
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.kodi
+          media_content_type: DIRECTORY
+          media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
+```
+{% endraw %}
+
 #### Trigger a Kodi video library update
 
 ```yaml
