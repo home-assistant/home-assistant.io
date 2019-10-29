@@ -36,7 +36,7 @@ host:
   required: true
   type: string
 mac:
-  description: Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`.
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
   required: true
   type: string
 name:
@@ -139,7 +139,7 @@ host:
   required: true
   type: string
 mac:
-  description: Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`.
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
   required: true
   type: string
 timeout:
