@@ -15,10 +15,52 @@ Highlight breaking change for api password/trusted networks
 
 https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/
 
+## Frontend
+
+A lot has happend on the frontend, we had a ton of Hacktoberfest PR's that added lokalization to the frontend and made our user experience better.
+A special shout out to [@springstan](https://github.com/springstan) who did a lot of lokalization work, we now have the biggest part of our UI translatable!
+
+Thanks a lot to all the contributers!
+
+We now have our own confirmation dialogs thanks to [@timmo001](https://github.com/timmo001)! No more ugly browser modals.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/confirm_dialog.png' alt='Screenshot of a confirm dialog when restarting Home Assistant.'></a>
+Screenshot of a confirm dialog when restarting Home Assistant.
+</p>
+
+In the last release we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and jinja2 inputs. This makes it a lot easier to read and write YAML.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/yaml_editor.png' alt='Screenshot of the service dev tools with YAML editor.'></a>
+Screenshot of the service dev tools with YAML editor.
+</p>
+
+The entity registry is now also migrated to a datatable so you can easily search and sort your entities so it is easier to find the one you are looking for.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/entity_registry_data_table.png' alt='Screenshot of the entity registry data table.'></a>
+Screenshot of the entity registry data table.
+</p>
+
+We improved the device picker in automations, you can now search them and see in what area the device is.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/device_automation_device_picker.png' alt='Screenshot of the device picker.'></a>
+Screenshot of the device picker.
+</p>
+
+The device automation trigger editor now has duration support, so it will only trigger if a device is in a certain state for a set duration.
+[mdonoughe](https://github.com/mdonoughe) added support the activate scene action in the automation editor.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/device_automation_duration.png' alt='Screenshot of a device trigger with duration.'></a>
+Screenshot of a device trigger with duration.
+</p>
+
 ## In other news
 
 https://twitter.com/Frenck/status/1188044714571907072?s=09
-
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
 </blockquote>
