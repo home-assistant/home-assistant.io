@@ -42,7 +42,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 
 ### Software requirements
 
-- Download the Hass.io image for [your device](/hassio/installation/)
+- Download the HassOS image for [your device](/hassio/installation/)
 - Download [balenaEtcher] to write the image to an SD card
 
 [balenaEtcher]: https://www.balena.io/etcher
@@ -50,7 +50,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 ### Installing Hass.io
 
 1. Put the SD card in your card reader.
-2. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
+2. Open balenaEtcher, select the HassOS image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
 4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a USB stick). Otherwise, move to step 5.
    - Format a USB stick to FAT32 with the volume name `CONFIG`.
