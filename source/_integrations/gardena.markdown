@@ -94,15 +94,15 @@ gardena:
   password: your_secret_gardena_password
   client_id: your_client_id_from_the_gardena_site
   location_id: your_location_id
-  default_mower_duration_in_minutes: 300
-  default_smart_irrigation_control_duration_in_minutes: 60
-  default_smart_watering_duration_in_minutes: 60
+  mower_duration: 300
+  smart_irrigation_control_duration: 60
+  smart_watering_duration: 60
 ```
 
-You can adjust, through "default_mower_duration_in_minutes", 
-"default_smart_irrigation_control_duration_in_minutes", 
-"default_smart_watering_duration_in_minutes" the duration of the different actions
- depending on your specific garden setup.
+You can adjust, through "mower_duration", 
+"smart_irrigation_control_duration", 
+"smart_watering_duration" the duration of the different actions
+ depending on your specific garden setup. These durations are in minutes.
 
 ## Debugging integration
 
