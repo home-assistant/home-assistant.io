@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.101: TBD - UPDATE DATE"
+title: "0.101: Airly, Apprise, Sinch, Solar-Log, Microsoft Teams"
 description: "TBD"
-date: 2019-10-30 21:15:02
+date: 2019-10-30 20:41:02
 date_formatted: "October 30, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -15,7 +15,7 @@ og_image: /images/blog/2019-10-0.101/components.png
 
 ## Hacktoberfest
 
-It is almost the end of Hacktoberfest, and boy it was a good one. We had a total of 1318 PRs merged in the last month. And most of them are in this release!
+It is almost the end of Hacktoberfest, and boy, it was a good one. We had a total of 1318 PRs merged in the last month. And most of them are in this release!
 
 We had:
 154 authors on home-assistant
@@ -26,29 +26,29 @@ A lot of thanks to all the contributors!
 
 ## API Password and trusted networks
 
-It is no longer possible to make authenticated requests using trusted networks or by appending `?api_password=X` to the url. You will now first need to get an authentication token and use that token to make requests.
+It is no longer possible to make authenticated requests using trusted networks or by appending `?api_password=X` to the URL. You will now first need to get an authentication token and use that token to make requests.
 
 These features were deprecated in Home Assistant 0.90 and 0.91 (released around April 2019). It was initially planned to be dropped in Home Assistant 0.96 (released July 17, 2019).
 
 The support of configuring the auth providers for API Password and Trusted Networks via the HTTP configuration is also removed. It now needs to be configured in the auth provider section ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
 
-Direct authentication meant that you could make an authenticated request without a bearer token by making the request from a trusted network or appending `?api_password=X` to the url.
+Direct authentication meant that you could make an authenticated request without a bearer token by making the request from a trusted network or appending `?api_password=X` to the URL.
 
 These features are still available as authentication providers ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
 
-You can use Long Lived Access Tokens that can be created in the fronted on your profile page. These tokens will not expire and can be added in the header of the request. See the developer documentation for more info.
+You can use Long-Lived Access Tokens that can be created in the fronted on your profile page. These tokens will not expire and can be added in the header of the request. See the developer documentation for more info.
 
 <p class='img'>
 <img src='/images/blog/2019-10-0.101/long-lived-access-tokens.png' alt='Screenshot of the Long-Lived Access Tokens interface in the profile page.'></a>
 Screenshot of the Long-Lived Access Tokens interface in the profile page.
 </p>
 
-Or you can use an webhook-based-integration. A webhook is a unique hard to guess URL that can be used to send data to Home Assistant. Requests made to webhooks do not need authentication.
-Your webhooks should be available from the internet, if you have a cloud subscription the cloud will take care if this. You can find the cloud webhook URLs on your cloud configuration page.
+Or you can use a webhook-based-integration. A webhook is a unique hard to guess URL that can be used to send data to Home Assistant. Requests made to webhooks do not need authentication.
+Your webhook should be available from the internet, if you have a cloud subscription, the cloud will take care if this. You can find the cloud webhook URLs on your cloud configuration page.
 
 ## Hassbian
 
-As you may have already read, We'll be sunsetting Hassbian.
+As you may have already read, we'll be sunsetting Hassbian.
 
 Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
 
@@ -68,10 +68,10 @@ Screenshot of a device trigger with duration.
 
 ## Frontend
 
-A lot has happend on the frontend, we had a ton of Hacktoberfest PRs that added lokalization to the frontend and made our user experience better.
-A special shout out to [@springstan](https://github.com/springstan) who did a lot of lokalization work, we now have the biggest part of our UI translatable!
+A lot has happened on the frontend; we had a ton of Hacktoberfest PRs that added localization to the frontend and made our user experience better.
+A special shout out to [@springstan](https://github.com/springstan) who did a lot of localization work, we now have the biggest part of our UI translatable!
 
-Thanks a lot to all the contributers!
+Thanks a lot to all the contributors!
 
 We now have our own confirmation dialogs thanks to [@timmo001](https://github.com/timmo001)! No more ugly browser modals.
 
@@ -80,7 +80,7 @@ We now have our own confirmation dialogs thanks to [@timmo001](https://github.co
 Screenshot of a confirm dialog when restarting Home Assistant.
 </p>
 
-In the last release we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and Jinja2 inputs. This makes it a lot easier to read and write YAML.
+In the last release, we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and Jinja2 inputs. This makes it a lot easier to read and write YAML.
 
 <p class='img'>
 <img src='/images/blog/2019-10-0.101/yaml_editor.png' alt='Screenshot of the service dev tools with YAML editor.'></a>
@@ -148,55 +148,52 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - __Removed__ - The following integrations have been removed:
-  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the url. You will now first need to get an authentication token and use that token to make requests. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
+  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
   - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
   - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399]) ([hipchat docs])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
-- __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e. "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
+- __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e., "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
  - __Genius Hub__ - This addresses an issue that requires the `unique_id` of **climate** and **water_heater** entities to be changed. After upgrading HA with this change, users will have stale entities in the entity registry that they may wish to clear out. -  ([@zxdavb] - [#27916]) ([geniushub docs])
-- __Abode__ - The configuration variables were removed: `name`, `exclude` and `lights`, which were all previously optional. Existing users of the abode integration that use these configuration variables will have to remove them from the configuration.yaml file. Entities that users wish to disable can be done from the Entity Registry in the Configuration UI. - ([@shred86] - [#26699]) ([abode docs])
+- __Abode__ - The configuration variables were removed: `name`, `exclude` and `lights`, which were all previously optional. Existing users of the abode integration that use these configuration variables will have to remove them from the `configuration.yaml` file. Entities that users wish to disable can be done from the Entity Registry in the Configuration UI. - ([@shred86] - [#26699]) ([abode docs])
 - __AdGuard Home__ - The AdGuard Home integration has been made compatible with AdGuard Home v0.99.0. However, support for lower versions is now limited. Upgrading to AdGuard Home v0.99.0 or newer is advised. - ([@frenck] - [#27926]) ([adguard docs])
-- __UniFi__ - Previously UniFi POE control switches had attributes showing network usage for receiving and transmitting data of that entity. This has been replaced with separate sensors, a pair per network client; one for received data and one for transmitted data. Default configuration is to keep this disabled so if you want to use this either enable select entities in the entity registry or go to your UniFi Integration options and enable it for all clients (see HASS 0.98 blog post for guidance). - ([@Kane610] - [#27229]) ([unifi docs])
-- __IKEA Tradfri__ - The Tradfri sensors (eg: button remotes and motion detectors) are now being represented as battery entities and will no longer have remaining battery power represented as an attribute. Use the sensors state instead to monitor remaining battery power. -  ([@ggravlingen] - [#27245]) ([tradfri docs])
+- __UniFi__ - Previously, UniFi POE control switches had attributes showing network usage for receiving and transmitting data of that entity. This has been replaced with separate sensors, a pair per network client; one for received data and one for transmitted data. The default configuration is to keep this disabled so, if you want to use this, either enable select entities in the entity registry or go to your UniFi Integration options and enable it for all clients (see HASS 0.98 blog post for guidance). - ([@Kane610] - [#27229]) ([unifi docs])
+- __IKEA Tradfri__ - The Tradfri sensors (e.g., button remotes and motion detectors) are now being represented as battery entities and will no longer have remaining battery power represented as an attribute. Use the sensors state instead to monitor the remaining battery power. -  ([@ggravlingen] - [#27245]) ([tradfri docs])
 
 - __Jewish Calendar__
-  - The output of the timestamp sensors have been streamlined so they're easier to use in automations. All the timestamp sensors will return UTC time in ISO 8601 format.
+  - The output of the timestamp sensors have been streamlined, so they're easier to use in automations. All the timestamp sensors will return UTC time in ISO 8601 format.
 Attributes have been added to get a UNIX timestamp. -  ([@tsvi] - [#26940]) ([jewish_calendar docs])
   - The holiday type sensor has been removed and added as an attribute to the holiday sensor.
 The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]) ([jewish_calendar docs]) (breaking change)
-- __Onkyo__ - Added `max_receiver_volume` which sets the maximum volume of the receiver - this will default to 80 which worked with older Onkyo models. See documentation for details on how to find your receivers max volume.
+- __Onkyo__ - Added `max_receiver_volume`, which sets the maximum volume of the receiver - this will default to 80, which worked with older Onkyo models. See documentation for details on how to find your receivers' max volume.
 
-  The max_volume is now a percentage instead of a number from 0 to 80. If you have a `max_volume` setting of 80 you will need to change this to 100, if you have it as 40 you will need to change this to 50. To work out the new max volume setting use this formula: `( / 80) * 100` - ([@foxy82] - [#27218]) ([onkyo docs])
+  The max_volume is now a percentage instead of a number from 0 to 80. If you have a `max_volume` setting of 80, you will need to change this to 100, if you have it as 40 you will need to change this to 50. To work out the new max volume setting use this formula: `( / 80) * 100` - ([@foxy82] - [#27218]) ([onkyo docs])
 
-- __MQTT__ - Allow MQTT json light floating point transition. The MQTT light with JSON schema will now sent a float instead of an int with the `transition` key. In this way transitions shorter than 1s can be used (0.5 seconds for instance) if the MQTT light supports it. Lights that are based on the "ArduinoJson" module should not experience problems due to the change from int to float (the float value will be truncated to an int). - ([@starkillerOG] - [#27253]) ([mqtt docs])
+- __MQTT__ - Allow MQTT JSON light floating-point transition. The MQTT light with JSON schema will now send a float instead of an int with the `transition` key. In this way, transitions shorter than 1s can be used (0.5 seconds, for instance) if the MQTT light supports it. Lights that are based on the "ArduinoJson" module should not experience problems due to the change from int to float (the float value will be truncated to an int). - ([@starkillerOG] - [#27253]) ([mqtt docs])
 
-
-
-- __Somfy__ - Users that have already created their app in the Somfy developer console will need to update the redirect uri to be able to authorize a new account. You need to change the redirect URI for your app on https://developers.somfy.com to `/auth/external/callback` instead of `/auth/somfy/callback`. - ([@balloob] - [#27727]) ([somfy docs])
-
+- __Somfy__ - Users that have already created their app in the Sofy developer console will need to update the redirect URI to be able to authorize a new account. You need to change the redirect URI for your app on `https://developers.somfy.com` to `/auth/external/callback` instead of `/auth/somfy/callback`. - ([@balloob] - [#27727]) ([somfy docs])
 
 
 - __Glances__ - Glances is now its own integration and configured through config flow. Configured sensors with platform type glances should be edited as shown below. - @engrbm87] - [#27221]) ([glances docs]) (breaking change)
 
-  Example configuration yaml:
+  Example configuration YAML:
 
-Before:
-```yaml
-sensors:
-  - platform: glances
-    host: 192.168.1.1
-    resources:
-      - 'cpu_use_percent'
-```
-After:
-```yaml
-glances:
-  - host: 192.168.1.1
-```
+    Before:
+    ```yaml
+    sensors:
+      - platform: glances
+        host: 192.168.1.1
+        resources:
+          - 'cpu_use_percent'
+    ```
+    After:
+    ```yaml
+    glances:
+      - host: 192.168.1.1
+    ```
 
-- __Tesla__ - Tesla `entity_id` and `unique_id` have changed. This is necessary so that multi-vehicle households have a way to distinguish vehicles by basing the name off the name in the app. Users should remove old tesla entries from the entity registry after upgrade and update automations where tesla entity_ids are used. - ([@alandtse] - [#27957]) ([tesla docs])
-- __Roku__ - Roku TVs will now report "standby" instead of "off" when they are turned off. Roku TVs can be turned on directly to a source by selecting from the source list. When a `media_player` returns STATE_OFF it loses access to the source list. By returning STATE_STANDBY instead the state is more accurately reflected and the source_list attribute is now accessible when the TV screen is off. - ([@Villhellm] - [#28148]) ([roku docs])
+- __Tesla__ - Tesla `entity_id` and `unique_id` have changed. This is necessary so that multi-vehicle households have a way to distinguish vehicles by basing the name off the name in the app. Users should remove old tesla entries from the entity registry after the upgrade and update automations where tesla entity_ids are used. - ([@alandtse] - [#27957]) ([tesla docs])
+- __Roku__ - Roku TVs will now report "standby" instead of "off" when they are turned off. Roku TVs can be turned on directly to a source by selecting from the source list. When a `media_player` returns `STATE_OFF it` loses access to the source list. By returning `STATE_STANDBY` instead, the state is more accurately reflected and the `source_list` attribute is now accessible when the TV screen is off. - ([@Villhellm] - [#28148]) ([roku docs])
 
 ## All changes
 
