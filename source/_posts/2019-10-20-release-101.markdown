@@ -11,9 +11,48 @@ categories: Release-Notes
 og_image: /images/blog/2019-09-0.100/components.png
 ---
 
-Highlight breaking change for api password/trusted networks
+## Hacktoberfest
 
-https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/
+It is almost the end of Hacktoberfest, and boy it was a good one. We had a total of 1318 PRs merged in the last month. And most of them are in this release!
+
+We had:
+154 authors on home-assistant
+184 authors on home-assistant.io
+30 authors on home-assistant-polymer
+
+A lot of thanks to all the contributors!
+
+## API Password and trusted networks
+
+It is no longer possible to make authenticated requests using trusted networks or by appending `?api_password=X` to the url. You will now first need to get an authentication token and use that token to make requests.
+
+These features were deprecated in Home Assistant 0.90 and 0.91 (released around April 2019). It was initially planned to be dropped in Home Assistant 0.96 (released July 17, 2019).
+
+The support of configuring the auth providers for API Password and Trusted Networks via the HTTP configuration is also removed. It now needs to be configured in the auth provider section ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
+
+Direct authentication meant that you could make an authenticated request without a bearer token by making the request from a trusted network or appending `?api_password=X` to the url.
+
+These features are still available as authentication providers ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
+
+You can use Long Lived Access Tokens that can be created in the fronted on your profile page. These tokens will not expire and can be added in the header of the request. See the developer documentation for more info.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/long-lived-access-tokens.png' alt='Screenshot of the Long-Lived Access Tokens interface in the profile page.'></a>
+Screenshot of the Long-Lived Access Tokens interface in the profile page.
+</p>
+
+Or you can use an webhook-based-integration. A webhook is a unique hard to guess URL that can be used to send data to Home Assistant. Requests made to webhooks do not need authentication.
+Your webhooks should be available from the internet, if you have a cloud subscription the cloud will take care if this. You can find the cloud webhook URLs on your cloud configuration page.
+
+## Hassbian
+
+As you may have already read, We'll be sunsetting Hassbian.
+
+Hassbian was a superset of Rasbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
+
+A big thank you to all those who worked on Hassbian - specifically [@landrash](https://github.com/landrash), who was the primary driver of this for so long, and [@ludeeus](https://github.com/ludeeus).
+
+For more info, read the [blogpost](https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/)
 
 ## Frontend
 
