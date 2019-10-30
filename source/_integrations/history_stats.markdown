@@ -125,7 +125,7 @@ duration:
 
 ### Time units
 
-The timeperiod is by default returned as decimal hours. By setting `fmt` to `seconds` the time period will be returned as a number of seconds. Valid values for `fmt` are `hours` (the default) and  `seconds`.
+The timeperiod is by default returned as decimal hours. By setting `fmt` to `seconds` the time period will be returned as a number of seconds. Valid values for `format` are `hours` (the default) and  `seconds`.
 
 ## Example 
 
@@ -138,7 +138,7 @@ sensor:
     entity_id: light.my_lamp
     state: 'on'
     type: time
-    fmt: seconds
+    format: seconds
     start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
     end: '{{ now() }}'
 ```
