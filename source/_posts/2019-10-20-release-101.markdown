@@ -2,23 +2,113 @@
 layout: post
 title: "0.101: TBD - UPDATE DATE"
 description: "TBD"
-date: 2019-10-14 01:05:02
-date_formatted: "October 20, 2019"
+date: 2019-10-30 21:15:02
+date_formatted: "October 30, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-09-0.100/components.png
+og_image: /images/blog/2019-10-0.101/components.png
 ---
 
-Highlight breaking change for api password/trusted networks
+<a href='/integrations/#version/0.101'><img src='/images/blog/2019-10-0.101/components.png' style='border: 0;box-shadow: none;'></a>
 
-https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/
+## Hacktoberfest
+
+It is almost the end of Hacktoberfest, and boy it was a good one. We had a total of 1318 PRs merged in the last month. And most of them are in this release!
+
+We had:
+154 authors on home-assistant
+184 authors on home-assistant.io
+30 authors on home-assistant-polymer
+
+A lot of thanks to all the contributors!
+
+## API Password and trusted networks
+
+It is no longer possible to make authenticated requests using trusted networks or by appending `?api_password=X` to the url. You will now first need to get an authentication token and use that token to make requests.
+
+These features were deprecated in Home Assistant 0.90 and 0.91 (released around April 2019). It was initially planned to be dropped in Home Assistant 0.96 (released July 17, 2019).
+
+The support of configuring the auth providers for API Password and Trusted Networks via the HTTP configuration is also removed. It now needs to be configured in the auth provider section ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
+
+Direct authentication meant that you could make an authenticated request without a bearer token by making the request from a trusted network or appending `?api_password=X` to the url.
+
+These features are still available as authentication providers ([docs](https://www.home-assistant.io/docs/authentication/providers/)).
+
+You can use Long Lived Access Tokens that can be created in the fronted on your profile page. These tokens will not expire and can be added in the header of the request. See the developer documentation for more info.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/long-lived-access-tokens.png' alt='Screenshot of the Long-Lived Access Tokens interface in the profile page.'></a>
+Screenshot of the Long-Lived Access Tokens interface in the profile page.
+</p>
+
+Or you can use an webhook-based-integration. A webhook is a unique hard to guess URL that can be used to send data to Home Assistant. Requests made to webhooks do not need authentication.
+Your webhooks should be available from the internet, if you have a cloud subscription the cloud will take care if this. You can find the cloud webhook URLs on your cloud configuration page.
+
+## Hassbian
+
+As you may have already read, We'll be sunsetting Hassbian.
+
+Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
+
+A big thank you to all those who worked on Hassbian - specifically [@landrash](https://github.com/landrash), who was the primary driver of this for so long, and [@ludeeus](https://github.com/ludeeus).
+
+For more info, read the [blogpost](https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/)
+
+## Device automations
+
+This release includes improved support for alarms, covers, locks and sensors.
+A “for” option was added in release 0.100 which allows you to specify triggers for when a certain device has been in a certain state for a period of time, in this release we added support for it in the automation editor.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/device_automation_duration.png' alt='Screenshot of a device trigger with duration.'></a>
+Screenshot of a device trigger with duration.
+</p>
+
+## Frontend
+
+A lot has happend on the frontend, we had a ton of Hacktoberfest PRs that added lokalization to the frontend and made our user experience better.
+A special shout out to [@springstan](https://github.com/springstan) who did a lot of lokalization work, we now have the biggest part of our UI translatable!
+
+Thanks a lot to all the contributers!
+
+We now have our own confirmation dialogs thanks to [@timmo001](https://github.com/timmo001)! No more ugly browser modals.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/confirm_dialog.png' alt='Screenshot of a confirm dialog when restarting Home Assistant.'></a>
+Screenshot of a confirm dialog when restarting Home Assistant.
+</p>
+
+In the last release we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and Jinja2 inputs. This makes it a lot easier to read and write YAML.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/yaml_editor.png' alt='Screenshot of the service dev tools with YAML editor.'></a>
+Screenshot of the service dev tools with YAML editor.
+</p>
+
+The entity registry is now also migrated to a datatable so you can easily search and sort your entities so it is easier to find the one you are looking for.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/entity_registry_data_table.png' alt='Screenshot of the entity registry data table.'></a>
+Screenshot of the entity registry data table.
+</p>
+
+We improved the device picker in automations, you can now search them and see in what area the device is.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/device_automation_device_picker.png' alt='Screenshot of the device picker.'></a>
+Screenshot of the device picker.
+</p>
+
+[mdonoughe](https://github.com/mdonoughe) added support the activate scene action in the automation editor.
 
 ## In other news
 
-https://twitter.com/Frenck/status/1188044714571907072?s=09
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Proud to announce that the Visual Studio Code add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> reached v1.0.0! 🎉<br><br>This version ships the second generation code-server, VSCode 1.39, HA extension 1.3, updates MDI ext and adds a rainbow indent function ❤️<br><br>Oh, and it is FAST 🚀 <a href="https://t.co/eBe8CirZ4B">pic.twitter.com/eBe8CirZ4B</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1188044714571907072?ref_src=twsrc%5Etfw">October 26, 2019</a></blockquote>
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
+</blockquote>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
 </blockquote>
