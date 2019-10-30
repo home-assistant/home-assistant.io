@@ -17,7 +17,7 @@ https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/
 
 ## Frontend
 
-A lot has happend on the frontend, we had a ton of Hacktoberfest PR's that added lokalization to the frontend and made our user experience better.
+A lot has happend on the frontend, we had a ton of Hacktoberfest PRs that added lokalization to the frontend and made our user experience better.
 A special shout out to [@springstan](https://github.com/springstan) who did a lot of lokalization work, we now have the biggest part of our UI translatable!
 
 Thanks a lot to all the contributers!
