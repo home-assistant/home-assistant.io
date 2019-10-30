@@ -11,6 +11,10 @@ type:
   required: true
   description: horizontal-stack
   type: string
+title:
+  required: false
+  description: Title of Stack
+  type: string
 cards:
   required: true
   description: List of cards.
@@ -21,6 +25,7 @@ cards:
 
 ```yaml
 type: horizontal-stack
+title: Lights
 cards:
   - type: picture-entity
     image: /local/bed_1.png

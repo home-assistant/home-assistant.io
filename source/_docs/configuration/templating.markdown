@@ -180,6 +180,54 @@ The same thing can also be expressed as a filter:
 - Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
+### To/From JSON
+
+The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
+
+The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
+
+### To/From JSON examples
+
+In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = {'temperature': 25, 'unit': '°C'} %}
+stringified object: {{ temp }}
+object|to_json: {{ temp|to_json }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+stringified object: {'temperature': 25, 'unit': '°C'}
+object|to_json: {"temperature": 25, "unit": "\u00b0C"}
+```
+{% endraw %}
+
+Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = '{"temperature": 25, "unit": "\u00b0C"}'|from_json %}
+The temperature is {{ temp.temperature }}{{ temp.unit }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+The temperature is 25°C
+```
+{% endraw %}
+
 ### Distance
 
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.

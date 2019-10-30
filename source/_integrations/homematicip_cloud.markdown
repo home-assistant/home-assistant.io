@@ -84,6 +84,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
 * homematicip_cloud.binary_sensor
+  * Acceleration Sensor (*HMIP-SAM*)
   * Window and door contact (*HmIP-SWDO, -I*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Contact Interface (*HmIP-SCI*)
@@ -158,6 +159,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
+- `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 
 ### Service Examples
 
@@ -213,10 +215,25 @@ Deactivates the vacation mode immediately.
 ```yaml
 ...
 action:
-  service: homematicip_cloud.deactivate_vacation_mode
+  service: homematicip_cloud.deactivate_vacation
   data:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
+
+Set the active climate profile index.
+
+The index of the climate profile is 1-based. 
+You can get the required index from the native Homematic IP App.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.set_active_climate_profile
+  data:
+    entity_id: climate.livingroom
+    climate_profile_index: 1
+```
+
 
 ## Additional info
 

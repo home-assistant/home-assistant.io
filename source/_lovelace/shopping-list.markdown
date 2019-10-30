@@ -26,6 +26,10 @@ title:
   required: false
   description: Title of Shopping List
   type: string
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## Examples

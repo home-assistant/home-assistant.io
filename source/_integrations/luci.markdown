@@ -52,6 +52,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
