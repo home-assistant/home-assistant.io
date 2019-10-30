@@ -53,6 +53,6 @@ curl -X POST \
   http://api.pushetta.com/api/pushes/home-assistant/
 ```
 
-For further details, please check the [API](http://pushetta.com/pushetta-api/).
+For further details, please check the [API](http://www.pushetta.com/pushetta-api/).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

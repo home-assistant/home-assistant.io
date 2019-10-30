@@ -27,7 +27,7 @@ Home Assistant is following the [Mozilla's Operations Security team recommendati
 
 The SSH connection for [debugging](https://developers.home-assistant.io/docs/en/hassio_debugging.html) on port 22222 is not enabled by default and can only be used with keys.
 
-Is SSH used with the [SSH server add-on](/addons/ssh/) then the user is responsible for the configuration and security. 
+If SSH is used with the [SSH server add-on](/addons/ssh/) then the user is responsible for the configuration and security. 
 
 ## Source code
 

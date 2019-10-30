@@ -9,7 +9,7 @@ ha_release: 0.38
 ha_qa_scale: internal
 ---
 
-The `moon` integration is tracking the moon phases.
+The `moon` integration tracks the phases of the moon.
 
 ## Configuration
 
