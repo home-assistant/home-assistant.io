@@ -8,8 +8,10 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-09-0.100/components.png
+og_image: /images/blog/2019-10-0.101/components.png
 ---
+
+<a href='/integrations/#version/0.101'><img src='/images/blog/2019-10-0.101/components.png' style='border: 0;box-shadow: none;'></a>
 
 ## Hacktoberfest
 
