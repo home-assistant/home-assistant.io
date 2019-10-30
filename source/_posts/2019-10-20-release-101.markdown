@@ -29,7 +29,7 @@ We now have our own confirmation dialogs thanks to [@timmo001](https://github.co
 Screenshot of a confirm dialog when restarting Home Assistant.
 </p>
 
-In the last release we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and jinja2 inputs. This makes it a lot easier to read and write YAML.
+In the last release we changed all the JSON inputs to YAML inputs, this release we add a code editor to all the YAML and Jinja2 inputs. This makes it a lot easier to read and write YAML.
 
 <p class='img'>
 <img src='/images/blog/2019-10-0.101/yaml_editor.png' alt='Screenshot of the service dev tools with YAML editor.'></a>
