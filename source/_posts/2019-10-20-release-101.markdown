@@ -50,11 +50,21 @@ Your webhooks should be available from the internet, if you have a cloud subscri
 
 As you may have already read, We'll be sunsetting Hassbian.
 
-Hassbian was a superset of Rasbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
+Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
 
 A big thank you to all those who worked on Hassbian - specifically [@landrash](https://github.com/landrash), who was the primary driver of this for so long, and [@ludeeus](https://github.com/ludeeus).
 
 For more info, read the [blogpost](https://www.home-assistant.io/blog/2019/10/26/rip-hassbian/)
+
+## Device automations
+
+This release includes improved support for alarms, covers, locks and sensors.
+A “for” option was added in release 0.100 which allows you to specify triggers for when a certain device has been in a certain state for a period of time, in this release we added support for it in the automation editor.
+
+<p class='img'>
+<img src='/images/blog/2019-10-0.101/device_automation_duration.png' alt='Screenshot of a device trigger with duration.'></a>
+Screenshot of a device trigger with duration.
+</p>
 
 ## Frontend
 
@@ -91,13 +101,7 @@ We improved the device picker in automations, you can now search them and see in
 Screenshot of the device picker.
 </p>
 
-The device automation trigger editor now has duration support, so it will only trigger if a device is in a certain state for a set duration.
 [mdonoughe](https://github.com/mdonoughe) added support the activate scene action in the automation editor.
-
-<p class='img'>
-<img src='/images/blog/2019-10-0.101/device_automation_duration.png' alt='Screenshot of a device trigger with duration.'></a>
-Screenshot of a device trigger with duration.
-</p>
 
 ## In other news
 
