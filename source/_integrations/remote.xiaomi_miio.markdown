@@ -125,6 +125,14 @@ A pronto hex code is defined as in the following example:
 with an optional last parameter of repeats (required by some devices):
 `pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0623 015B 0057 0016 0E6E:2`
 
+Note there are at least 4 versions of the Xiaomi IR Remote (ChuangmiIr) which can be recognized by their default hostname:
+* `chuangmi.ir.v2`
+* `chuangmi.remote.h102a03`
+* `chuangmi.remote.v2`
+* `chuangmi.remote.h102c01`
+
+For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`). More info on [this issue](https://github.com/rytilahti/python-miio/issues/495) and [pull request](https://github.com/rytilahti/python-miio/pull/501).
+
 ## Platform Services
 
 The Xiaomi IR Remote Platform registers two services.
