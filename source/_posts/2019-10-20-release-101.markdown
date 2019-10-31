@@ -194,7 +194,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 
 - __Tesla__ - Tesla `entity_id` and `unique_id` have changed. This is necessary so that multi-vehicle households have a way to distinguish vehicles by basing the name off the name in the app. Users should remove old tesla entries from the entity registry after the upgrade and update automations where tesla entity_ids are used. - ([@alandtse] - [#27957]) ([tesla docs])
 - __Roku__ - Roku TVs will now report "standby" instead of "off" when they are turned off. Roku TVs can be turned on directly to a source by selecting from the source list. When a `media_player` returns `STATE_OFF it` loses access to the source list. By returning `STATE_STANDBY` instead, the state is more accurately reflected and the `source_list` attribute is now accessible when the TV screen is off. - ([@Villhellm] - [#28148]) ([roku docs])
-- __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes'. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
+- __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 
 ## All changes
 
