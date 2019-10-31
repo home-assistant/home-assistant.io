@@ -226,7 +226,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 

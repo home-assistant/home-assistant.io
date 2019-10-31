@@ -29,7 +29,7 @@ The data is updated every 5 minutes.
 
 <div class='note'>
 
-The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](http://creativecommons.org/licenses/by/3.0/nz/).
+The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](https://creativecommons.org/licenses/by/3.0/nz/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer notice](https://www.geonet.org.nz/disclaimer) and [data policy](https://www.geonet.org.nz/policy) for more information.
 

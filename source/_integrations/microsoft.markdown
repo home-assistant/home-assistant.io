@@ -37,7 +37,7 @@ gender:
   type: string
   default: "`Female`"
 type:
-  description: "The voice type you want to use. Accepted values are listed as the service name mapping [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/Speech/api-reference-rest/bingvoiceoutput)."
+  description: "The voice type you want to use. Accepted values are listed as the service name mapping [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-to-speech)."
   required: false
   type: string
   default: "`ZiraRUS`"
@@ -57,9 +57,14 @@ pitch:
   type: string
   default: "`default`"
 contour:
-  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](http://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
+  description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](https://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
   required: false
   type: string
+region:
+  description: "The region of your API endpoint. See [documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions)."
+  required: false
+  type: string
+  default: "`eastus`"
 {% endconfiguration %}
 
   
@@ -79,4 +84,5 @@ tts:
     volume: -50
     pitch: high
     contour: (0, 0) (100, 100)
+    region: eastus
 ```

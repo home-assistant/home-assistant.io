@@ -9,7 +9,7 @@ ha_release: 0.23
 ---
 
 
-The `fixer` sensor will show you the current exchange rate from [Fixer.io](http://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
+The `fixer` sensor will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
 
 To get an overview about the available [currencies](https://fixer.io/symbols).
 
@@ -31,7 +31,7 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: Your API key for [Fixer.io](http://fixer.io/).
+  description: Your API key for [Fixer.io](https://fixer.io/).
   required: true
   type: string
 target:

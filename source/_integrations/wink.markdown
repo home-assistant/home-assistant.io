@@ -20,7 +20,7 @@ ha_iot_class: Cloud Polling
 ha_release: pre 0.7
 ---
 
-[Wink](http://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
+[Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
 
 <blockquote>
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.
@@ -52,7 +52,9 @@ Wink requests three pieces of information from the user when they sign up for a 
 2. `Website:` The external address of your Home Assistant instance. If not externally accessible you can use your email address.
 3. `Redirect URI:` This should be `http://192.168.1.5:8123/auth/wink/callback` replacing the IP with the internal IP of your Home Assistant box.
 
-No settings are required in the `configuration.yaml` other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
+No settings are required in the `configuration.yaml` other than `wink:`. 
+
+After adding `wink:` to your `configuration.yaml` and restarting Home Assistant you will see a persistent notification on the frontend with a `CONFIGURE` button that will guide you through the setup via the frontend configurator.
 
 <div class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
@@ -373,7 +375,7 @@ script:
 
 ## Alarm Control Panel
 
-The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) Canary all-in-one security camera.
+The Wink alarm platform allows you to control your [Wink](https://www.wink.com/) Canary all-in-one security camera.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -387,7 +389,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Binary Sensor
 
-The Wink binary sensor platform allows you to get data from your [Wink](http://www.wink.com/) binary sensors.
+The Wink binary sensor platform allows you to get data from your [Wink](https://www.wink.com/) binary sensors.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -411,7 +413,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Climate
 
-The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats and air conditioners.
+The Wink climate platform allows you to get data from your [Wink](https://www.wink.com/) thermostats and air conditioners.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -451,7 +453,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Fan
 
-The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fans.
+The Wink fan platform allows you to control your [Wink](https://www.wink.com/) fans.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -466,7 +468,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Light
 
-The `wink` light platform allows you to use your [Wink](http://www.wink.com/) lights.
+The `wink` light platform allows you to use your [Wink](https://www.wink.com/) lights.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -484,7 +486,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Lock
 
-The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
+The Wink lock platform allows you to control your [Wink](https://www.wink.com/) locks.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -619,7 +621,7 @@ If supported by your lock, a binary sensor will be created for each user key cod
 
 ## Sensor
 
-The Wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
+The Wink sensor platform allows you to get data from your [Wink](https://www.wink.com/) sensors.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -639,7 +641,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Switch
 
-The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
+The Wink switch platform allows you to control your [Wink](https://www.wink.com/) switches.
 
 The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
@@ -654,7 +656,7 @@ The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
 ## Water heater
 
-The Wink water heater platform allows you to get data from your [Wink](http://www.wink.com/) Water Heaters.
+The Wink water heater platform allows you to get data from your [Wink](https://www.wink.com/) Water Heaters.
 
 The requirement is that you have set up [Wink](/integrations/wink/) from above.
 

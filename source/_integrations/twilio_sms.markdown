@@ -35,7 +35,7 @@ name:
 
 ### Usage
 
-Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
+Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers. It's also possible to use `whatsapp:+123456789` for sending notifications to a Whatsapp user.
 
 Media can be included with messages by setting the optional `media_url` variable. Only `.gif`, `.png`, or `.jpeg` content are supported, according to the Twilio documentation and this feature is [only supported in the US and Canada.][mms]
 

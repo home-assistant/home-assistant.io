@@ -30,7 +30,7 @@ binary_sensor:
 
 {% configuration %}
 pin_mode:
-  description: Type of pin mode to use. This depends on which device you are actually using ([PIN_MODE](/integrations/orangepi_gpio#pin_mode)).
+  description: Type of pin mode to use. This depends on which device you are actually using ([Pin modes](#pin-modes)).
   required: true
   type: string
 ports:
@@ -51,13 +51,25 @@ invert_logic:
 
 Compared to the [Raspberry Pi GPIO](/integrations/rpi_gpio/) component, this integration does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
 
-## Pin_mode
+## Pin modes
 
 As this platform supports different types of GPIO pinouts for difference Orange Pi or Nano Pi devices, we use the `pin_mode` value to specify which one to use. Enabled values are:
 
 | Value | Description |
 | ----- | ----------- |
-| `pc` | Supports the Orange Pi Lite, One, PC and Prime |
+| `lite` | Supports the Orange Pi Lite |
+| `lite2` | Supports the Orange Pi Lite 2 |
+| `one` | Supports the Orange Pi One |
+| `oneplus` | Supports the Orange Pi One Plus |
+| `pc` | Supports the Orange Pi PC |
+| `pc2` | Supports the Orange Pi PC 2 |
+| `pcplus` | Supports the Orange Pi PC Plus |
+| `pi3` | Supports the Orange Pi 3 |
+| `plus2e` | Supports the Orange Pi Plus 2E |
+| `prime` | Supports the Orange Pi Prime |
+| `r1` | Supports the Orange Pi R1 |
+| `winplus` | Supports the Orange Pi WinPlus |
+| `zero` | Supports the Orange Pi Zero |
 | `zeroplus` | Supports the Orange Pi Zero Plus |
 | `zeroplus2` | Supports the Orange Pi Zero Plus 2 |
 | `duo` | Supports the NanoPi Duo |

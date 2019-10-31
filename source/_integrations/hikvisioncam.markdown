@@ -7,7 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ---
 
-This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](http://www.hikvision.com/) camera.
+This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
 
 <div class='note warning'>
 Currently works using default https port only.

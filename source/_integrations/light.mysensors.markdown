@@ -37,10 +37,10 @@ For more information, visit the [serial api] of MySensors.
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/dimmer
+ * https://www.mysensors.org/build/dimmer
  */
 
 #include <MySensor.h>
@@ -113,10 +113,10 @@ void incomingMessage(const MyMessage &message) {
 ```cpp
 /*
  * Example Dimmable Light
- * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
+ * Code adapted from https://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
  *
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
  */
 
@@ -243,4 +243,4 @@ void send_status_message()
 ```
 
 [main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download
+[serial api]: https://www.mysensors.org/download

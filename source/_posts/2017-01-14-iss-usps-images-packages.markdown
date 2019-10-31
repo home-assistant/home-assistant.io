@@ -34,7 +34,7 @@ The new [image processing component][image] currently works with [number plates]
 
 ## All changes
 
-- Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
+- Sensor: Support for HydroQuebec ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
 - Sensor: USPS deliveries tracking ([@happyleavesaoc])
 - Device tracker: New [ping-based][ping] tracker ([@michaelarnauts])
@@ -176,8 +176,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [packages]: /topics/packages/
 [pico]: /integrations/picotts
 [ping]: /integrations/ping
-[plates]: /integrations/openalpr_local_local
-[quebec]: /integrations/hydroquebec
+[plates]: /integrations/openalpr_local/
 [rest]: /integrations/rest_command/
 [sma]: /integrations/sma#sensors
 [sonarr]: /integrations/sonarr
@@ -190,4 +189,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [yandex]: /integrations/yandextts
 [yeelight]: /integrations/yeelight
 [zengge]: /integrations/zengge
-

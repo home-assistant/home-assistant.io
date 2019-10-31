@@ -38,8 +38,8 @@ For more information, visit the [api] page of MySensors.
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  */
 
  #define MY_DEBUG
@@ -93,4 +93,4 @@ For more information, visit the [api] page of MySensors.
 ```
 
 [main component]: /integrations/mysensors/
-[api]: http://www.mysensors.org/download/
+[api]: https://www.mysensors.org/download/

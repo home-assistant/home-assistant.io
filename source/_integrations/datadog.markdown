@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.45
 ---
 
-The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](http://docs.datadoghq.com/guides/basic_agent_usage/).
+The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
 
 Datadog allows you to analyze, monitor, cross-reference and alert upon your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real-time, send critical alerts to Slack, etc.
 

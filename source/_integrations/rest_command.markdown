@@ -33,7 +33,7 @@ service_name:
       required: true
       type: [string, template]
     method:
-      description: HTTP method to use (get, post, put, or delete).
+      description: HTTP method to use (get, patch, post, put, or delete).
       required: false
       default: get
       type: string
@@ -57,7 +57,7 @@ service_name:
       description: Timeout for requests in seconds.
       required: false
       type: string
-      defaut: 10
+      default: 10
     content_type:
       description: Content type for the request.
       required: false

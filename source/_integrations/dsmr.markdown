@@ -121,18 +121,6 @@ or
 2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
 ```
 
-[HASSbian](/docs/installation/hassbian/installation/) users have to give dialout permission to the user `homeassistant`:
-
-```bash
-$ sudo usermod -a -G dialout homeassistant
-```
-
-and after that you need to reboot!
-
-```bash
-$ sudo reboot
-```
-
 Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
 
 ```hass

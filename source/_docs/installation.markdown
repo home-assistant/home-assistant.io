@@ -45,11 +45,16 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
+<div class='note'>
+
+The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and manual installer. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+
+</div>
+
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
 [Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
-[Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## Alternative installs
 

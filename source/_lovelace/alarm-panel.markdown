@@ -44,6 +44,10 @@ states:
       description: Arm Night
     arm_custom_bypass:
       description: Arm Custom Bypass
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## Examples

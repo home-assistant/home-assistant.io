@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
+The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices.
 
 ## Configuration
 

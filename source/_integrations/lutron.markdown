@@ -65,7 +65,7 @@ For single-action buttons (scene selection, etc.), `action` will be `single`, an
 
 ## Scene
 
-This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, and seeTouch RF tabletop keypads.
+This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, Pico, and seeTouch RF tabletop keypads.
 The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.

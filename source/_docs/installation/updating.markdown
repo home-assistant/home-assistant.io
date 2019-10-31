@@ -6,7 +6,7 @@ redirect_from: /getting-started/updating/
 
 <div class='note warning'>
 
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [Hassbian](/docs/installation/hassbian/common-tasks/#update-home-assistant), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/) or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 
 </div>
 
@@ -14,7 +14,7 @@ Check what's new in the latest version and potentially impacts your system in [H
 
 <div class='note'>
 
-To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [Hassbian](/docs/hassbian/installation/), or [Virtualenv](/docs/installation/virtualenv).
+To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/) or [Virtualenv](/docs/installation/virtualenv).
 
 </div>
 
@@ -39,7 +39,7 @@ $ sudo docker pull homeassistant/raspberrypi3-homeassistant:latest
 
 After updating, you must start/restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself or the [autostarting](/docs/autostart/) daemon (if applicable). Startup can take considerable amount of time (i.e. minutes) depending on your device. This is because all requirements are updated as well.
 
-[BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
+[BRUH automation](https://www.bruhautomation.io/) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
 
 #### Run a specific version
 

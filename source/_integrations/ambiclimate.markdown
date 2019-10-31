@@ -7,7 +7,7 @@ ha_release: 0.93
 ha_iot_class: Cloud Polling
 ---
 
-Integrates [Ambiclimate](https://Ambiclimate.com) Air Conditioning controller into Home Assistant.
+Integrates [Ambiclimate](https://ambiclimate.com/) Air Conditioning controller into Home Assistant.
 
 You must create an application [here](https://api.ambiclimate.com/clients) to obtain a `client_id` and `client_secret`.
 The `callback url` should be configured as your Home Assistant `base_url` + `/api/ambiclimate`, e.g. `https://example.com/api/ambiclimate`.
