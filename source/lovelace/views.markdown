@@ -64,7 +64,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User id that can see the view tab (unique hex value found on the user profile page).
   type: string
 {% endconfiguration %}
 
