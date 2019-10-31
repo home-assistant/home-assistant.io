@@ -111,7 +111,7 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Regions
 
-Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
+Some titles will have different SKUs in the PlayStation Store database depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |
