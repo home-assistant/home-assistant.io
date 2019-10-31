@@ -24,9 +24,10 @@ scene:
     entities:
       light.tv_back_light:
         state: on
-        brightness: 100
+        brightness: 125
       light.ceiling: off
       media_player.sony_bravia_tv:
+        state: on
         source: HDMI 1
 ```
 
@@ -82,6 +83,7 @@ automation:
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
+          state: on
           source: HDMI 1
 ```
 
