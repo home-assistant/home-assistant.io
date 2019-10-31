@@ -135,6 +135,39 @@ Screenshot of the device picker.
 - Add sensor platform to Airly integration ([@bieniu] - [#27717]) ([airly docs]) (new-platform)
 - Move imports in mqtt component ([@exxamalte] - [#27835]) ([mqtt docs]) (new-platform)
 
+## Release 0.101.1 - October 31
+
+- Bump songpal to fix a regression ([@rytilahti] - [#28115]) ([songpal docs])
+- Bump pymyq to 2.0.1 ([@bachya] - [#28348]) ([myq docs])
+- Bump pysaj to v0.0.13 (fix for sensor date) ([@fredericvl] - [#28351]) ([saj docs])
+- Bump env_canada to fixed 0.0.29 version ([@shmick] - [#28360]) ([environment_canada docs])
+- Fix Airly asyncio timeout error ([@bieniu] - [#28387]) ([airly docs])
+- Fix hdate spamming homeassistant log ([@tsvi] - [#28392]) ([jewish_calendar docs])
+- Fix check config ([@balloob] - [#28393])
+- Check for import errors before validating config ([@balloob] - [#28395])
+
+[#28115]: https://github.com/home-assistant/home-assistant/pull/28115
+[#28348]: https://github.com/home-assistant/home-assistant/pull/28348
+[#28351]: https://github.com/home-assistant/home-assistant/pull/28351
+[#28360]: https://github.com/home-assistant/home-assistant/pull/28360
+[#28387]: https://github.com/home-assistant/home-assistant/pull/28387
+[#28392]: https://github.com/home-assistant/home-assistant/pull/28392
+[#28393]: https://github.com/home-assistant/home-assistant/pull/28393
+[#28395]: https://github.com/home-assistant/home-assistant/pull/28395
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@fredericvl]: https://github.com/fredericvl
+[@rytilahti]: https://github.com/rytilahti
+[@shmick]: https://github.com/shmick
+[@tsvi]: https://github.com/tsvi
+[airly docs]: /integrations/airly/
+[environment_canada docs]: /integrations/environment_canada/
+[jewish_calendar docs]: /integrations/jewish_calendar/
+[myq docs]: /integrations/myq/
+[saj docs]: /integrations/saj/
+[songpal docs]: /integrations/songpal/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
