@@ -165,7 +165,7 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 
 The data in the example shows 2 entries.
 
-Each game or app will have a field named `locked` with a value of `true` or `false` associated to it. The default value will be `false` for each entry. If `locked` is `true` the integration will not overwrite the data pertaining to that game or app.
+Each entry will begin with the SKU ID of the title eg.`CUSA00000` and will have a field named `locked` with a value of `true` or `false` associated to it. The default value will be `false` for each entry. If `locked` is `true` the integration will not overwrite the data pertaining to that game or app.
 
 The `media_image_url` value can be any valid url. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
   
@@ -177,6 +177,15 @@ The `media_image_url` value can be any valid url. This includes the `local direc
 To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
 
 ## Services
+
+### Service `select_source`
+
+Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
+
+| Service data attribute | Optional | Example                      | Description                           |
+| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
+| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
+| `source`               | No       | `Some Game` or `CUSA00123`   | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable.|
 
 ### Service `send_command`
 
