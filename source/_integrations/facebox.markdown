@@ -19,7 +19,8 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
 
-or using `docker-compose`
+or using `docker-compose`:
+
 ```yaml
 version: '3'
 services:
@@ -36,9 +37,9 @@ services:
 
 You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bear in mind that the integration does not encrypt these credentials and this approach does not guarantee security on an unsecured network.
 
-After you created an account at [Machinebox](https://machinebox.io/account) you can grab your `MB_KEY` at [your Account page](https://developer.veritone.com/machinebox/overview)
+After you created an account at [Machinebox](https://machinebox.io/account), you can grab your `MB_KEY` at [your Account page](https://developer.veritone.com/machinebox/overview).
 
-If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
+If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` in the `docker run` command.
 
 If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image there is an alternative image without AVX support available at `machinebox/facebox_noavx`(*HINT*: This image is currently not supported by machinebox and should only be used if necessary) 
 
