@@ -18,6 +18,7 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
+
 or using `docker-compose`
 ```yaml
 version: '3'
