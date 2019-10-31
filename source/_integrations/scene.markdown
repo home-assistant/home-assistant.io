@@ -36,15 +36,15 @@ name:
   required: true
   type: string
 entities:
-  description: Entities to control.
+  description: Entities to control and their desired state.
   required: true
   type: list
 {% endconfiguration %}
 
 As you can see, there are two ways to define the states of each `entity_id`:
 
-- Define the `state` directly with the entity.
-- Define a complex state with its attributes.
+- Define the `state` directly with the entity. Be aware, that `state` needs to be defined.
+- Define a complex state with its attributes. You can see all attributes available for a particular entity under `developer-tools -> state`.
 
 Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
 
