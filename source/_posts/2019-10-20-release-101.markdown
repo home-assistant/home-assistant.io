@@ -148,11 +148,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - __Removed__ - The following integrations have been removed:
-  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
+  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
   - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
   - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399]) ([hipchat docs])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
+- __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 - __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e., "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
  - __Genius Hub__ - This addresses an issue that requires the `unique_id` of **climate** and **water_heater** entities to be changed. After upgrading HA with this change, users will have stale entities in the entity registry that they may wish to clear out. -  ([@zxdavb] - [#27916]) ([geniushub docs])
 - __Abode__ - The configuration variables were removed: `name`, `exclude` and `lights`, which were all previously optional. Existing users of the abode integration that use these configuration variables will have to remove them from the `configuration.yaml` file. Entities that users wish to disable can be done from the Entity Registry in the Configuration UI. - ([@shred86] - [#26699]) ([abode docs])
@@ -194,7 +195,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 
 - __Tesla__ - Tesla `entity_id` and `unique_id` have changed. This is necessary so that multi-vehicle households have a way to distinguish vehicles by basing the name off the name in the app. Users should remove old tesla entries from the entity registry after the upgrade and update automations where tesla entity_ids are used. - ([@alandtse] - [#27957]) ([tesla docs])
 - __Roku__ - Roku TVs will now report "standby" instead of "off" when they are turned off. Roku TVs can be turned on directly to a source by selecting from the source list. When a `media_player` returns `STATE_OFF it` loses access to the source list. By returning `STATE_STANDBY` instead, the state is more accurately reflected and the `source_list` attribute is now accessible when the TV screen is off. - ([@Villhellm] - [#28148]) ([roku docs])
-- __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 
 ## All changes
 
