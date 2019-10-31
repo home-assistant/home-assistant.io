@@ -68,6 +68,121 @@ user:
   type: string
 {% endconfiguration %}
 
+#### Example
+
+View config:
+
+```yaml
+- title: Living room
+  badges:
+    - device_tracker.demo_paulus
+    - entity: light.ceiling_lights
+      name: Ceiling Lights
+      icon: mdi:bulb
+    - entity: switch.decorative_lights
+      image: /local/lights.png
+```
+
+## Paths
+
+You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
+
+### Example
+
+View config:
+
+```yaml
+- title: Living room
+  # the final path is /lovelace/living_room
+  path: living_room
+```
+
+Picture card config:
+
+```yaml
+- type: picture
+  image: /local/living_room.png
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/living_room
+```
+
+## Icons
+
+If you define an icon the title will be used as a tool-tip.
+
+### Example
+
+```yaml
+- title: Garden
+  icon: mdi:flower
+```
+
+## Visible
+
+You can specify the visibility of views as a whole or per-user.
+
+### Example
+
+```yaml
+views:
+  - title: Ian
+    visible:
+      - user: iantrich_id
+    cards:
+      ...
+  - title: Chelsea
+    visible:
+      - user: cswehla_id
+    cards:
+      ...
+  - title: Admin
+    visible: false
+    cards:
+      ...
+```
+
+## Panel mode
+
+This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
+
+### Example
+
+```yaml
+- title: Map
+  panel: true
+  cards:
+    - type: map
+      entities:
+        - device_tracker.demo_paulus
+        - zone.home
+```
+
+## Themes
+
+Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
+
+### Example
+
+```yaml
+- title: Home
+  theme: happy
+```
+
+### Background
+
+You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+
+#### Example
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  themes:
+    example:
+      lovelace-background: center / cover no-repeat url("/local/background.png") fixed
+```
+
 ## Badges
 
 ### State Label Badge
@@ -242,21 +357,6 @@ user:
   type: string
 {% endconfiguration %}
 
-#### Example
-
-View config:
-
-```yaml
-- title: Living room
-  badges:
-    - device_tracker.demo_paulus
-    - entity: light.ceiling_lights
-      name: Ceiling Lights
-      icon: mdi:bulb
-    - entity: switch.decorative_lights
-      image: /local/lights.png
-```
-
 ### Entity Filter Badge
 
 This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
@@ -357,80 +457,4 @@ entities:
       - operator: ">"
         value: 50
         attribute: humidity
-```
-
-## Paths
-
-You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
-
-### Example
-
-View config:
-
-```yaml
-- title: Living room
-  # the final path is /lovelace/living_room
-  path: living_room
-```
-
-Picture card config:
-
-```yaml
-- type: picture
-  image: /local/living_room.png
-  tap_action:
-    action: navigate
-    navigation_path: /lovelace/living_room
-```
-
-## Icons
-
-If you define an icon the title will be used as a tool-tip.
-
-### Example
-
-```yaml
-- title: Garden
-  icon: mdi:flower
-```
-
-## Panel mode
-
-This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
-
-### Example
-
-```yaml
-- title: Map
-  panel: true
-  cards:
-    - type: map
-      entities:
-        - device_tracker.demo_paulus
-        - zone.home
-```
-
-## Themes
-
-Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
-
-### Example
-
-```yaml
-- title: Home
-  theme: happy
-```
-
-### Background
-
-You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
-
-#### Example
-
-```yaml
-# Example configuration.yaml entry
-frontend:
-  themes:
-    example:
-      lovelace-background: center / cover no-repeat url("/local/background.png") fixed
 ```
