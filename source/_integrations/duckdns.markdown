@@ -37,7 +37,7 @@ Set the TXT record of your DuckDNS subdomain.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `txt` | no | Payload for the TXT record.
+| `txt` | no | Payload for the TXT record. |
 
 
 <div class='note'>
