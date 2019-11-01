@@ -5,7 +5,7 @@ description: "Installation of Home Assistant on your macOS system."
 
 [macOS](http://www.apple.com/macos/) is available by default on Apple computer. If you run a different operating system, please refer to the other section of the documentation.
 
-To run Home Assistant on macOS, you need to install Python first. Download Python 3.6 or later (at this time, we recommend Python 3.7) from [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and follow the instructions of the installer.
+To run Home Assistant on macOS, you need to install Python first. Download Python 3.7 or later from [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and follow the instructions of the installer.
 
 Open a terminal and install Home Assistant in a virtual environment:
 
