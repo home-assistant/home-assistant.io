@@ -103,6 +103,10 @@ Screenshot of the device picker.
 
 [mdonoughe](https://github.com/mdonoughe) added support the activate scene action in the automation editor.
 
+## Lovelace
+
+Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/) for all changes.
+
 ## In other news
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Proud to announce that the Visual Studio Code add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> reached v1.0.0! 🎉<br><br>This version ships the second generation code-server, VSCode 1.39, HA extension 1.3, updates MDI ext and adds a rainbow indent function ❤️<br><br>Oh, and it is FAST 🚀 <a href="https://t.co/eBe8CirZ4B">pic.twitter.com/eBe8CirZ4B</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1188044714571907072?ref_src=twsrc%5Etfw">October 26, 2019</a></blockquote>
