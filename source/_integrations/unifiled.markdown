@@ -8,15 +8,13 @@ ha_release: 0.101
 ha_iot_class: Local Polling
 ---
 
-[UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system off controler managed led light panels and dimmers.
+[UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system off controller managed led light panels and dimmers.
 
 There is currently support for the following device type within Home Assistant:
 
 - [Light](#light)
 
 ## Configuration
-
-This integration uses settings in the configuration file. Underneath here is a example.
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,7 +27,7 @@ light:
 
 {% configuration %}
 host:
-  description: Ip address or DNS name used to connect to the Unifi LED controller.
+  description: Ip address or hostname used to connect to the Unifi LED controller.
   type: string
   required: true
   default: None
