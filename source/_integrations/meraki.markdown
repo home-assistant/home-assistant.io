@@ -1,12 +1,48 @@
 ---
 title: "Meraki"
-description: "Instructions on how to integrate Meraki-based presence detection into Home Assistant."
+description: "Instructions on how to integrate Meraki-based presence detection or Meraki Switches into Home Assistant."
 logo: meraki.png
 ha_category:
   - Presence Detection
-ha_release: "0.60"
+  - Switch
+ha_release: "0.100"
 ---
 
+# Switch
+Enable/Disable Cisco Meraki switchports
+
+### Prerequisites
+
+1. Go to the Meraki Dashboard
+1. Go to "My Profile"
+1. Under API access -> API keys
+1. Press "Generate new API Key"
+1. Save the API Key for later
+
+## Configuration
+
+After you've generated a new api key, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: meraki
+    api_key: "12345674asdfasdf"
+    device_id: "Q2BX-0000-0000"
+```
+
+{% configuration %}
+  api_key:
+    description: the dashboard api key
+    required: true
+    type: string
+  device_id:
+    description: The serial of the Meraki Switch
+    required: true
+    type: string
+{% endconfiguration %}
+
+# Device Tracker
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.
 
 ### Prerequisites
