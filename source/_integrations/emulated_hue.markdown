@@ -165,7 +165,7 @@ An additional step is required to run Home Assistant as a non-root user and use 
 
 On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `emulated_hue` to use port 80 as a non-root user:
 
-```
+```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
@@ -175,13 +175,13 @@ Please note that your path may be different depending on your installation metho
 
 On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
 
-```
+```bash
 sysctl net.inet.ip.portrange.reservedhigh=0
 ```
 
 You can make this persist by adding the following to `/etc/sysctl.conf`:
 
-```
+```bash
 net.inet.ip.portrange.reservedhigh=0
 ```
 
