@@ -28,6 +28,7 @@ scene:
       light.ceiling: off
       media_player.sony_bravia_tv:
         source: HDMI 1
+        state: on
 ```
 
 {% configuration %}
