@@ -169,6 +169,29 @@ Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/
 [saj docs]: /integrations/saj/
 [songpal docs]: /integrations/songpal/
 
+## Release 0.101.2 - November 1
+
+- Prevent TypeError when KNX RGB(W) light value contains None ([@phispi] - [#28358]) ([knx docs])
+- Change Abode cache file path, add cache path to config flow ([@MisterWil] - [#28389]) ([abode docs])
+- SNMP switch fix integer support ([@rfpronk] - [#28425]) ([snmp docs])
+- Use server-specific unique_ids for Plex media_players ([@jjlawren] - [#28447]) ([plex docs])
+- Also install after_deps ([@balloob] - [#28453])
+
+[#28358]: https://github.com/home-assistant/home-assistant/pull/28358
+[#28389]: https://github.com/home-assistant/home-assistant/pull/28389
+[#28425]: https://github.com/home-assistant/home-assistant/pull/28425
+[#28447]: https://github.com/home-assistant/home-assistant/pull/28447
+[#28453]: https://github.com/home-assistant/home-assistant/pull/28453
+[@MisterWil]: https://github.com/MisterWil
+[@balloob]: https://github.com/balloob
+[@jjlawren]: https://github.com/jjlawren
+[@phispi]: https://github.com/phispi
+[@rfpronk]: https://github.com/rfpronk
+[abode docs]: /integrations/abode/
+[knx docs]: /integrations/knx/
+[plex docs]: /integrations/plex/
+[snmp docs]: /integrations/snmp/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
