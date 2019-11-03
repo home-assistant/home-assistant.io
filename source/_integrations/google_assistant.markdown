@@ -72,7 +72,7 @@ If you've added Home Assistant to the home screen, you have to first remove it f
   5. From the Role list, select Service Accounts > Service Account Token Creator.
   6. For the Key type, select the JSON option.
   7. Click Create. A JSON file that contains your key downloads to your computer.
-  8. Use the information in this file or the file directly to add to the `service_account`key in the configuration.
+  8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
 3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable Homegraph API.
@@ -127,7 +127,7 @@ service_account:
   keys:
     private_key:
       description: Private key in PEM format
-      requried: true
+      required: true
       type: string
     client_email:
       description: Service email address
