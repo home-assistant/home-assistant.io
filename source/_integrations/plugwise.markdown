@@ -4,7 +4,7 @@ description: "Plugwise Climate integration."
 logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
-ha_release: 0.102
+ha_release: 0.98
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -25,8 +25,8 @@ climate:
   - platform: plugwise
     password: YOUR_SHORT_IP 
     host: YOUR_SMILE_LOCAL_IP
-    legacy_anna: true # required for a legacy Anna (firmware 1.8.x), not needed for a more recent Anna (firmware 3.1.x)
 ```
+**Please note**: for a legacy Anna (firmware 1.8.x) an additional line is required, see below, this line is not needed for a more recent Anna (firmware 3.1.x).
 
 {% configuration %}
 password:
