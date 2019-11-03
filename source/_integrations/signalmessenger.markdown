@@ -35,6 +35,23 @@ notify:
       - "+438871271789"
 ```
 
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  type: string
+  default: notify
+number:
+  description: The sender number.
+  required: true
+  type: string
+recipients:
+  description: A list of recipients.
+  required: true
+  type: string
+{% endconfiguration %}
+
+
 ### Text message
 
 ```yaml
@@ -53,5 +70,5 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     message: "Alarm in the living room!"
-	attachment: /tmp/surveillance_camera.jpg
+    attachment: "/tmp/surveillance_camera.jpg"
 ```
