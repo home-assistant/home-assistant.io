@@ -31,6 +31,7 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
+      api_password: !secret http_password
 ```
 
 ## Available auth providers
