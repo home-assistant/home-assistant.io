@@ -31,7 +31,7 @@ The Home Assistant for iOS app supports the new authentication system introduced
 
 ### Automated Setup
 
-The `ios` integration will automatically be loaded under the following circumstances:
+The `ios` integration may or may not be automatically loaded under the following circumstances:
 
 1. The [`discovery`](/integrations/discovery) integration is enabled.
 2. You have just installed the app and are at the getting started screen.
