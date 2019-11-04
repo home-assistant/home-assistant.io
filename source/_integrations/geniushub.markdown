@@ -24,7 +24,13 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 - `Water Heater` entity, for **Hot Water Temperature** Zones and
 - `Switch` entity, for **On/Off** Zones
 
-Each entity derived from a GH zone will report back its mode, setpoint and current temperature; other properties are available via its attributes (see below). The zone's mode can be changed as below.
+**Group** zones are not supported
+
+Currently, there is no support for altering zone schedules, although entities can be switched to/from GH modes that utilize schedules.
+
+### Climate and Water Heater Entities
+
+Climate and Water Heater entities will report their mode, setpoint and current temperature; other properties are available via their state attributes (see below). The mode will be reported as:
 
 GH mode | HA Operation | HA Preset
 :---: | :---: | :---:
@@ -35,7 +41,16 @@ GH mode | HA Operation | HA Preset
 
 Note that **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
-Currently, there is no support for reading/altering zone schedules, although a zone can be switched to/from modes that utilize schedules.
+### Switch Entities
+
+Switch entities will report back their state; other properties are available via their state attributes. The state will be report as:
+
+GH mode | HA Operation | HA Preset
+:---: | :---: | :---:
+**Off** | Off | N/A
+**Timer** | Heat | None
+**Override** | Heat | Boost
+**Footprint** | Heat | Activity
 
 ### Devices
 
