@@ -39,10 +39,7 @@ Only a subset of the entities provided by the target device by
 default: 
 
 - WAN IP address sensor
-- RSRQ sensor
-- RSRP sensor
-- RSSI sensor
-- SINR LTE signal sensor
+- LTE signal sensors RSRQ, RSRP, RSSI, and SINR
 - mobile data switch
 - device tracker entries
 
