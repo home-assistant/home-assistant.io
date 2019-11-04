@@ -93,7 +93,7 @@ Whenever you make a change to your scene configuration, you can call the `scene.
 
 Create a new scene without having to configure it by calling the `scene.create` service. This scene will be discarded after reloading the configuration.
 
-You need to pass a scene_id in lowercase and with underscores instead of spaces. You also need to specify the entities in the same format as when configuring the scene.
+You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also need to specify the entities in the same format as when configuring the scene.
 
 ```yaml
 # Example automation
