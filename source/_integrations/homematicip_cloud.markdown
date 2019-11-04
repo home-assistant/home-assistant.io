@@ -160,6 +160,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
+- `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 
 ### Service Examples
 
@@ -232,6 +233,16 @@ action:
   data:
     entity_id: climate.livingroom
     climate_profile_index: 1
+```
+
+Dump the configuration of the Homematic IP Access Point(s).
+
+```yaml
+...
+action:
+  service: homematicip_cloud.dump_hap_config
+  data:
+    anonymize: True
 ```
 
 
