@@ -53,7 +53,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device ([User setup](https://www.home-assistant.io/integrations/doorbird/#setup))
+      description: The username of a non-administrator user account on the device ([User setup](/integrations/doorbird/#setup))
       required: true
       type: string
     password:
