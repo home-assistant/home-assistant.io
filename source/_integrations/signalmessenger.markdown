@@ -14,7 +14,7 @@ The `signalmessenger` integration uses the [Signal Messenger REST API](https://g
 The requirements are:
 
 - You need to set up the Signal Messenger REST API. 
-- You need a spare phone number which needs to be registered first. 
+- You need a spare phone number to register with the Signal Messenger service. 
 
 
 Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
