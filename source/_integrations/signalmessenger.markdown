@@ -30,9 +30,9 @@ notify:
   - name: signal
     platform: signalmessenger
     url: "http://127.0.0.1:8080" # the URL where the Signal Messenger REST API is listening 
-    number: "+43677675655" # the sender number
+    number: YOUR_PHONE_NUMBER # the sender number
     recipients: # one or more recipients
-      - "+438871271789"
+      - RECIPIENT1
 ```
 
 {% configuration %}
