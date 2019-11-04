@@ -19,7 +19,13 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-The user, which you are going to use with Home Assistant, needs the "API-Operator" permission enabled.
+It is recommended to set up a new account on your Doorbird for use with Home Assistant. This can be added via the Doorbird App by choosing Administration -> (User) Add. This user, needs specific permissions enabled, depending on what functionality you want:
+
+- Live view -> Watch Always
+- Last motion -> Motion + History
+- Last ring -> History
+
+In addition, the "API-Operator" permission needs to be enabled as well.
 
 ## Configuration
 
@@ -47,7 +53,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on Doorbird. It is recommended to set up a new account on your Doorbird for use with Home Assistant. This can be added via the Doorbird App by choosing Administration -> (User) Add. When the new account is created, you will need to enable the permission "API-Operator" in the "permissions" option.
+      description: The username of a non-administrator user account on the device ([User setup](/integrations/doorbird/#setup))
       required: true
       type: string
     password:
