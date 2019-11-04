@@ -34,24 +34,26 @@ The `ps4` integration allows you to control a
 
 ## Granting Port Access
 
-The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
+The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
 
 <div class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
 </div>
 
-There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
+There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
 <div class='note'>
-  If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
+
+If your Home Assistant device is running **Hass.io** on **HassOS**, it does not require additional configuration.
+
 </div>
 
 ### Debian-based
+
 Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
 
 - Debian
-- Hassbian
-- Rassbian
+- Raspbian
 - Armbian
 - Ubuntu
 
@@ -64,13 +66,14 @@ sudo setcap 'cap_net_bind_service=+ep' <python>
 Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
 
 Example:
+
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 ```
 
 To find your system Python path:
 
-- Add the [System Health](/integrations/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](/integrations/system_health/) integration to your `configuration.yaml`. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
 
   ```bash
   whereis python<version>
@@ -111,7 +114,7 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Regions
 
-Some titles will have different SKUs in the PlayStation Store database depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
+Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |
@@ -126,18 +129,18 @@ Some titles will have different SKUs in the PlayStation Store database depending
 | Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
 
 <div class='note'>
-  The regions which are unavailable have no database or have formatting in the database which can not be used by the component.
+  The regions which are unavailable have no database or have formatting in the database, which can not be used by the component.
 </div>
 
 ## Media Data
 
 The PlayStation 4 integration will fetch information about the game or app that is currently running from your region's [PlayStation Store](https://store.playstation.com) database.
   
-Occasionally, the integration may fail to get the data at all, or may get incorrect data. To correct this issue the integration allows for manual editing via any text editor.
+Occasionally, the integration may fail to get the data at all, or may get incorrect data. To correct this issue, the integration allows for manual editing via any text editor.
   
 ### Formatting
 
-When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines there will be indented entries for each game or app the integration finds. See the following example and table:
+When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
   
 ```json
 {
@@ -165,9 +168,9 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 
 The data in the example shows 2 entries.
 
-Each entry will begin with the SKU ID of the title eg.`CUSA00000` and will have a field named `locked` with a value of `true` or `false` associated to it. The default value will be `false` for each entry. If `locked` is `true` the integration will not overwrite the data pertaining to that game or app.
+Each entry will begin with the SKU ID of the title, e.g., `CUSA00000` and will have a field named `locked` with a value of `true` or `false` associated with it. The default value will be `false` for each entry. If `locked` is `true`, the integration will not overwrite the data pertaining to that game or app.
 
-The `media_image_url` value can be any valid url. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
+The `media_image_url` value can be any valid URL. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
   
 ### Editing with Text Editor
 <div class='note'>
