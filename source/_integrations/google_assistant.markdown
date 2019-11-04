@@ -65,14 +65,14 @@ If you've added Home Assistant to the home screen, you have to first remove it f
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 2. If you want to support actively reporting of state to Google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
-  1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
-  2. From the Service account list, select New service account.
-  3. In the Service account name field, enter a name.
-  4. In the Service account ID field, enter an ID.
-  5. From the Role list, select Service Accounts > Service Account Token Creator.
-  6. For the Key type, select the JSON option.
-  7. Click Create. A JSON file that contains your key downloads to your computer.
-  8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
+    1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+    2. From the Service account list, select New service account.
+    3. In the Service account name field, enter a name.
+    4. In the Service account ID field, enter an ID.
+    5. From the Role list, select Service Accounts > Service Account Token Creator.
+    6. For the Key type, select the JSON option.
+    7. Click Create. A JSON file that contains your key downloads to your computer.
+    8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
 3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable Homegraph API.
