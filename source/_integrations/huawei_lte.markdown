@@ -24,7 +24,10 @@ There is currently support for the following platforms within Home Assistant:
 ## Configuration
 
 The integration can be enabled in two ways, either using the frontend
-or using YAML.
+or using YAML. Additionally, if the [SSDP integration](../ssdp/) is
+enabled in Home Assistant, automatically discovered Huawei LTE devices
+which support and have UPnP enabled are made available for further
+optional configuration in the frontend.
 
 The integration can be run with or without
 authentication. Authenticated mode enables all available integration
