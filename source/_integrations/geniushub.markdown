@@ -12,25 +12,27 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
+The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
-It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ necessarily match that of the official Web App.
+It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ exactly match that of the official Web App.
 
 ### Zones
 
-Each zone controlled by your Genius Hub will be exposed as either a:
+Each Zone controlled by your Genius Hub will be exposed as either a:
 
 - `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
 - `Water Heater` entity, for **Hot Water Temperature** Zones and
 - `Switch` entity, for **On/Off** Zones
 
-**Group** zones are not supported
+**Group** Zones are not supported.
 
-Currently, there is no support for altering zone schedules, although entities can be switched to/from GH modes that utilize schedules.
+Currently, there is no support for altering Zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
+
+There are limitations due to the differences between the Genius Hub and Home Assisatnt schemas (e.g. HA has no **Footprint** mode) - see below for more details.
 
 ### Climate and Water Heater Entities
 
-Climate and Water Heater entities will report their mode, setpoint and current temperature; other properties are available via their state attributes (see below). The mode will be reported as:
+Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g. occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
 GH mode | HA Operation | HA Preset
 :---: | :---: | :---:
@@ -39,27 +41,27 @@ GH mode | HA Operation | HA Preset
 **Override** | Heat | Boost
 **Footprint** | Heat | Activity
 
-Note that **Footprint** mode is only available to **Radiator** zones that have room sensors.
+Note that `Boost` mode may 
+
+Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
 
 ### Switch Entities
 
-Switch entities will report back their state; other properties are available via their state attributes. The state will be report as:
+Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant state will be reported as:
 
-GH mode | HA Operation | HA Preset
-:---: | :---: | :---:
-**Off** | Off | N/A
-**Timer** | Heat | None
-**Override** | Heat | Boost
-**Footprint** | Heat | Activity
+- `On` for **Override** \ **On**, and
+- `Off` otherwise (NB: the zone could still be 'on', e.g. with **Timer** mode)
+
+If you turn a Switch entity `Off` via HA, it will revert to **Timer** mode.
 
 ### Devices
 
-Each Device controlled by your Genius hub will be exposed as either a:
+Each Device controlled by your Genius Hub will be exposed as either a:
 
 - `Sensor` entity with a % battery, for any Device with a battery (e.g., a Genius Valve), or
 - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g., Smart Plugs, DCRs)
 
-Each such entity will report back its primary state and `assigned_zone`. If the Hub is directly polled using Option 1 (see below), then some additional attributes such as `last_comms` (last communications time) are also available.
+Such entities will report back their primary state and `assigned_zone`. If the Hub is directly polled using Option 1 (see below), then some additional state attributes such as `last_comms` (last communications time) are also available.
 
 ### Issues
 
@@ -104,7 +106,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 
 ## State Attributes
 
-Many zone/device properties are available via each entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
+Many Zone/Device properties are available via the corresponding entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
 
 ```json
 {
@@ -163,9 +165,9 @@ This is the recommended option.
 - Requires your **username** & **password**, as used with [geniushub.co.uk/app](https://www.geniushub.co.uk/app).
 - Uses the v3 API - unofficial, but there are additional features (e.g., battery levels).
 - Polls the hub directly (so is faster, say ~1s response time).
-- You have the option of specifying a MAC address.
+- You have the option of specifying a MAC address (not recommended, see above).
 
-The hub does not have to be in the same subnet as HA.
+The hub does not have to be in the same subnet as your HA server.
 
 ### Option 2: hub token only
 
