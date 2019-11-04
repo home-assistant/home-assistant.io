@@ -90,6 +90,8 @@ Field | Description
 `event_type` | The type of the event.
 `event_utc` | The UTC timestamp of the event.
 `user_name` | The Abode user that triggered the event, if applicable.
+`app_type` | The Abode app that triggered the event (e.g. web app, iOS app, etc.).
+`event_by` | The keypad user that triggered the event.
 `date` | The date of the event in the format `MM/DD/YYYY`.
 `time` | The time of the event in the format `HH:MM AM`.
 
