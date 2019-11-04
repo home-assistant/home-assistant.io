@@ -74,8 +74,6 @@ To enable the component, add the following lines to your
 # Example configuration.yaml entry
 huawei_lte:
   - url: http://192.168.100.1/
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
 ```
 For routers configured via the UI, each configuration item for the
 same router in YAML overrides and updates the values set in UI
