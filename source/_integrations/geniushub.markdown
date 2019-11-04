@@ -7,6 +7,7 @@ ha_category:
   - Water Heater
   - Sensor
   - Binary Sensor
+  - Switch
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---
@@ -20,9 +21,8 @@ It uses the [geniushub](https://pypi.org/project/geniushub-client/) client libra
 Each zone controlled by your Genius Hub will be exposed as either a:
 
 - `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
-- `Water Heater` entity, for **Hot Water Temperature** Zones
-
-Other zone types, such as **On/Off** zones, are not currently supported (although see `Binary Sensor`s, below).
+- `Water Heater` entity, for **Hot Water Temperature** Zones and
+- `Switch` entity, for **On/Off** Zones
 
 Each entity derived from a GH zone will report back its mode, setpoint and current temperature; other properties are available via its attributes (see below). The zone's mode can be changed as below.
 
