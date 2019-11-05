@@ -44,22 +44,22 @@ notify:
 
 {% configuration %}
 name:
-description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-required: false
-type: string
-default: notify
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  type: string
+  default: notify
 connection_string:
-description: Connection string found in the azure portal, with `send` claim in the key.
-required: true
-type: string
+  description: Connection string found in the azure portal, with `send` claim in the key.
+  required: true
+  type: string
 queue:
-description: Which queue to send notifications on.
-required: exclusive
-type: string
+  description: Which queue to send notifications on.
+  required: exclusive
+  type: string
 topic:
-description: Which topic to send notifications on.
-required: exclusive
-type: string
+  description: Which topic to send notifications on.
+  required: exclusive
+  type: string
 {% endconfiguration %}
 
 <div class="note">
