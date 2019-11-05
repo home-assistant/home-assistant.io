@@ -5,6 +5,7 @@ logo: broadlink.png
 ha_category:
   - Switch
   - Sensor
+  - Climate
 ha_release: 0.35
 ha_iot_class: Local Polling
 ---
@@ -13,6 +14,30 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Climate](#climate)
+
+## Climate
+
+Cheap chinese thermostats like the `Floureon Smart Wi-Fi Programmable Digital Touch Screen Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat` and `SeeSii Programmable Thermostat Heating WiFi` are all using a 2.4 GHz RF-Chip manufactured by broadlink. To check your thermostat just open it or look it up in the FCC-database.
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+```
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
+  required: true
+  type: string
 
 ## Sensor
 
