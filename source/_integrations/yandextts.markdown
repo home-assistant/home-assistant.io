@@ -1,10 +1,10 @@
 ---
-title: "Yandex TTS"
+title: "Yandex Speechkit"
 description: "Instructions on how to setup Yandex SpeechKit TTS with Home Assistant."
 logo: yandex.png
 ha_category:
   - Text-to-speech
-ha_release: 0.36
+ha_release: 0.102
 ---
 
 The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) Text-to-Speech engine to read a text with natural sounding voices.
@@ -26,33 +26,33 @@ api_key:
   required: true
   type: string
 language:
-  description: "The language to use. Supported languages are `en-US`, `ru-RU`, `uk-UK` and `tr-TR`."
+  description: "The language to use. Supported languages are `en-US`, `ru-RU` and `tr-TR`."
   required: false
   type: string
   default: "`en-US`"
 codec:
-  description: "The audio codec. Supported codecs are `mp3`, `wav` and `opus`."
+  description: "The audio codec. Supported codecs are `wav` and `oggopus`."
   required: false
   type: string
-  default: "`mp3`"
+  default: "`oggopus`"
 voice:
-  description: "The speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh`, `silaerkan`, `nastya`, `sasha`, `tanya`, `tatyana_abramova`, `voicesearch`, and `zombie`. Male voices are `zahar`, `ermil`, `levitan`, `ermilov`, `kolya`, `kostya`, `nick`, `erkanyavas`, `zhenya`, `anton_samokhvalov`, `ermil_with_tuning`, `robot`, `dude`, and `smoky`."
+ description: "The speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh`, `silaerkan` and 'alena'. Male voices are `zahar`, `ermil`, `nick`, `erkanyavas`, and `filipp`. According to yandex `jane`, `oksana`, `zahar`, `ermil`, `alena` and `filipp` are trained for `ru-RU`, `silaerkan` and `erkanyavas` prefer `tr-TR`. For `en-US` choose `alyss` and `nick`."
   required: false
   type: string
-  default: "`zahar`"
+  default: "`alyss`"
 emotion:
-  description: "The speaker emotional intonation. Supported emotions are `good` (friendly), `evil` (angry) and `neutral`"
+  description: "The speaker emotional intonation. Supported emotions are `good` (friendly), `evil` (angry) and `neutral`."
   required: false
   type: string
   default: "`neutral`"
 speed:
-  description: The speech speed. Highest speed is `3` and lowest `0,1`
+  description: "The speech speed. Highest speed is `3` and lowest `0,1`."
   required: false
   type: float
   default: "`1`"
 {% endconfiguration %}
 
-Please check the [API documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. It seems that the English version of documentation is outdated. You could request an API key [by email](https://tech.yandex.com/speechkit/cloud/) or [online](https://developer.tech.yandex.ru/).
+ You could create  API key [online](https://cloud.yandex.com/docs/speechkit/concepts/auth) and select `Service Account` tab.  There no free tier for  Yandex.Speechkit (see [price](https://cloud.yandex.com/docs/speechkit/pricing) ) N.B some voices (`alena` and `filipp` are 7 time more expensive than other . Please see the [API documentation](https://cloud.yandex.com/docs/speechkit/tts/) for details.
 
 ## Full configuration example
 
@@ -64,7 +64,7 @@ tts:
   - platform: yandextts
     api_key: YOUR_API_KEY
     language: 'ru-RU'
-    codec: mp3
+    codec: oggopus
     voice: oksana
     emotion: evil
     speed: 2
