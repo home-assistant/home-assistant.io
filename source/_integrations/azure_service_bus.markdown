@@ -32,11 +32,11 @@ Add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - platform: azure_servicebus
+  - platform: azure_service_bus
     name: Test Topic
     connection_string: !secret servicebus_connection_string
     topic: t-test
-  - platform: azure_servicebus
+  - platform: azure_service_bus
     name: Test Queue
     connection_string: !secret servicebus_connection_string
     queue: q-test
@@ -44,22 +44,22 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  type: string
-  default: notify
+description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+required: false
+type: string
+default: notify
 connection_string:
-  description: Connection string found in the azure portal, with `send` claim in the key.
-  required: true
-  type: string
+description: Connection string found in the azure portal, with `send` claim in the key.
+required: true
+type: string
 queue:
-  description: Which queue to send notifications on.
-  required: exclusive
-  type: string
+description: Which queue to send notifications on.
+required: exclusive
+type: string
 topic:
-  description: Which topic to send notifications on.
-  required: exclusive
-  type: string
+description: Which topic to send notifications on.
+required: exclusive
+type: string
 {% endconfiguration %}
 
 <div class="note">
@@ -72,25 +72,25 @@ If you plan to send all state changes from one or more entities within Home Assi
 
 The notification service will translate the data given to a json object on service bus. The `message` field will always be set, but the fields `target` and `title` are optional and are only included in the service bus message if set. Any input given in the `data` section will be flatten to root of the json object and follow the structure given. All input given in the data section will be included on message.
 
-See example below for how an automation trigger translates to a message on the servicebus.
+See example below for how an automation trigger translates to a message on the service bus.
 
 ```yaml
 automation:
-  - alias: Sunset ServiceBus message
+  - alias: Sunset Service Bus message
     trigger:
       platform: sun
       event: sunset
     action:
-      service: notify.azure_servicebus
+      service: notify.test_queue
       data:
-        message: 'Sun is going down'
-        title: 'Good evening'
+        message: "Sun is going down"
+        title: "Good evening"
         data:
-          sun_direction: 'Down'
+          sun_direction: "Down"
           custom_field: 123
           custom_object:
             trigger_more: true
-            explain: 'Its starting to get dark'
+            explain: "Its starting to get dark"
 ```
 
 Message that can be retrieved from a queue or topic subscription:
