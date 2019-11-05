@@ -192,6 +192,22 @@ Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/
 [plex docs]: /integrations/plex/
 [snmp docs]: /integrations/snmp/
 
+## Release 0.101.3 - November 5
+
+- Fix missing import ([@timmccor] - [#28460]) ([sonos docs])
+- Fix Airly if more than one config entry ([@bieniu] - [#28498]) ([airly docs])
+- Add deprecated attributes to light.reproduce_state ([@Santobert] - [#28557]) ([light docs])
+
+[#28460]: https://github.com/home-assistant/home-assistant/pull/28460
+[#28498]: https://github.com/home-assistant/home-assistant/pull/28498
+[#28557]: https://github.com/home-assistant/home-assistant/pull/28557
+[@Santobert]: https://github.com/Santobert
+[@bieniu]: https://github.com/bieniu
+[@timmccor]: https://github.com/timmccor
+[airly docs]: /integrations/airly/
+[light docs]: /integrations/light/
+[sonos docs]: /integrations/sonos/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
