@@ -38,6 +38,7 @@ mac:
   description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
   required: true
   type: string
+{% endconfiguration %}
 
 ## Sensor
 
