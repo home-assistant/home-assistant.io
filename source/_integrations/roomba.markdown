@@ -59,7 +59,7 @@ continuous:
   type: boolean
   default: true
 delay:
-  description: Custom connection delay for periodic mode
+  description: Custom connection delay (in seconds) for periodic mode
   required: false
   type: integer
   default: 1
