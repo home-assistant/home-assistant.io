@@ -12,7 +12,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
+The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ exactly match that of the official Web App.
 
@@ -20,11 +20,11 @@ It uses the [geniushub](https://pypi.org/project/geniushub-client/) client libra
 
 Each Zone controlled by your Genius Hub will be exposed as either a:
 
-- `Climate` entity, for **Radiator** and **Wet Underfloor** Zones, and
-- `Water Heater` entity, for **Hot Water Temperature** Zones and
-- `Switch` entity, for **On/Off** Zones
+- `Climate` entity, for **Radiator** and **Wet Underfloor** zones, and
+- `Water Heater` entity, for **Hot Water Temperature** zones and
+- `Switch` entity, for **On/Off** zones
 
-**Group** Zones are not supported.
+**Group** zones are not supported.
 
 Currently, there is no support for altering Zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
@@ -43,7 +43,7 @@ GH mode | HA Operation | HA Preset
 
 Note that `Boost` mode may 
 
-Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
+Note that **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
 ### Switch Entities
 
@@ -167,7 +167,7 @@ This is the recommended option.
 - Polls the hub directly (so is faster, say ~1s response time).
 - You have the option of specifying a MAC address (not recommended, see above).
 
-The hub does not have to be in the same subnet as your HA server.
+The hub does not have to be in the same subnet as your Home Assistant server.
 
 ### Option 2: hub token only
 
