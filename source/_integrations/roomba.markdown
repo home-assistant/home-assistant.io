@@ -58,6 +58,11 @@ continuous:
   required: false
   type: boolean
   default: true
+delay:
+  description: Custom connection delay for periodic mode
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 <div class='note'>
