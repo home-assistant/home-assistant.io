@@ -50,7 +50,8 @@ Use the following configuration in Home Assistant to use the generated certifica
 
 ```yaml
 http:
-  base_url: https://my-domain.duckdns.org:8123
+  base_url: my-domain.duckdns.org
+  server_port: 8123  # 8123 is also the default value
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 ```
