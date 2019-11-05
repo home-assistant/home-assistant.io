@@ -18,7 +18,7 @@ It uses the [geniushub](https://pypi.org/project/geniushub-client/) client libra
 
 ### Zones
 
-Each Zone controlled by your Genius Hub will be exposed as either a:
+Each zone controlled by your Genius Hub will be exposed as either a:
 
 - `Climate` entity, for **Radiator** and **Wet Underfloor** zones, and
 - `Water Heater` entity, for **Hot Water Temperature** zones and
@@ -26,7 +26,7 @@ Each Zone controlled by your Genius Hub will be exposed as either a:
 
 **Group** zones are not supported.
 
-Currently, there is no support for altering Zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
+Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
 There are limitations due to the differences between the Genius Hub and Home Assisatnt schemas (e.g. HA has no **Footprint** mode) - see below for more details.
 
@@ -106,7 +106,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 
 ## State Attributes
 
-Many Zone/Device properties are available via the corresponding entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
+Many zone/device properties are available via the corresponding entity's state attributes. For example, in the case of **Radiator**-derived `Climate` entities (note 'status'):
 
 ```json
 {
