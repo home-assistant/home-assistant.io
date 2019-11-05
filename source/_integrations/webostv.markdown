@@ -149,7 +149,7 @@ data:
 
 ### Launch application with content
 
-The `play_media` service can be used to launch an application and play content. The `media_content_id` parameter value varies dependent on the application called in the `media_content_type` parameter. The `media_content_type` parameter is the internal application name and seems to vary depending on regions. Netflix and YouTube are shown in examples below.
+The `play_media` service can be used to launch an application and play content. The `media_content_id` parameter value varies dependent on the application called in the `media_content_type` parameter. The `media_content_type` parameters currently supported are netflix, youtube and url. Examples can be found below:
 
 ```yaml
 # Example to launch netflix and begin playing a video.
@@ -167,7 +167,14 @@ service: media_player.play_media
 data:
   entity_id: media_player.lg_webos_smart_tv
   media_content_id: "dQw4w9WgXcQ"
-  media_content_type: "youtube.leanback.v4"
+  media_content_type: "youtube"
+
+# Example to launch browser and navigate to a URL.
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: "https://www.home-assistant.io"
+  media_content_type: "url"
 ```
 
 ### Next/Previous buttons
