@@ -28,3 +28,7 @@ The presentation is going to start at:
  - [Other time zones](https://www.timeanddate.com/worldclock/converter.html?iso=20191113T173000&p1=137&p2=179&p3=16)
 
 URL of live stream coming soon!
+
+## Local Meet-Ups
+
+ - [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
