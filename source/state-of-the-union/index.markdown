@@ -20,4 +20,11 @@ This years presenters are:
 
 ## Livestream
 
-Info coming soon!
+The presentation is going to start at:
+
+ - 9.30 AM in PST
+ - 12.30 PM in EST
+ - 18:30 in CET
+ - [Other time zones](https://www.timeanddate.com/worldclock/converter.html?iso=20191113T173000&p1=137&p2=179&p3=16)
+
+URL of live stream coming soon!
