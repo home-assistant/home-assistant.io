@@ -11,7 +11,7 @@ ha_qa_scale: platinum
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich
 implementation of an ESP8266/ESP32 webserver to control
-NeoPixel (WS2812B, WS2811, SK6812, APA102) LED's.
+NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 
 ## Configuration
 
@@ -37,7 +37,7 @@ This integration adds the WLED device as a light in Home Assistant.
 Home Assistant threats every segment of the LED strip as a separate light
 entity.
 
-Only native support features of a light in Home Assistant are supported
+Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
 ## Services
