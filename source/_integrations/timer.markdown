@@ -13,7 +13,7 @@ The `timer` integration aims to simplify automations based on (dynamic) duration
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
 <div class='note warning'>
-  With the current implementation timers don't persist over restarts. After a restart, they will be idle again, together with their initial configuration.
+  By default the timer will not persist after a restart, they will be idle again, together with their initial configuration. To allow timers to persist after a restart, add the `restore: true` flag to the configuration.
 </div>
 
 ## Configuration
@@ -46,6 +46,16 @@ timer:
       description: Set a custom icon for the state card.
       required: false
       type: icon
+    restore: 
+      description: Set timer to be restored after a restart. For more information see: [Explanation of behavior for restoring timer after restart](/integrations/timer/#Explanation-of-behavior-for-restoring-timer-after-restart)
+      required: false
+      type: boolean
+      default: false
+    restore_grace_period:
+      description: If the timer should have `finished` during the time that HA was down during a restart, the grace period is applied to determine whether or not to fire the `finished` event. The period of time is from the time the timer should have finished to the current time. If that time is greater than the `restore_grace_period`, no event will fire and the timer will return to it's `idle` state.
+      required: false
+      type: [integer, time]
+      default: 15 minutes
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
@@ -173,3 +183,37 @@ script:
       - service: timer.finish
         entity_id: timer.test
 ```
+
+### Explanation of behavior for restoring timer after restart:
+
+Say you have the following timer. When the timer is `finished`, an automation is triggered.
+
+    # Example configuration.yaml entry
+    timer:
+      turn_off_patio_light:
+        duration: '01:00:00'
+        restore: true
+        restore_grace_period: '00:15:00'  # default grace period is 15 minutes
+
+    # Example automation.yaml entry
+    - alias: Timer for patio light finished
+      trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.turn_off_patio_light
+      action:
+      - service: switch.turn_off
+        entity_id: switch.patio_light
+
+_Scenario 1:_
+
+The timer is started with a duration of 1 hour. After 30 minutes have elapsed, Home Assistant is restarted. Since it only took a few minutes for Home Assistant to restart, your timer continues as expected and there is no difference than had you not restarted Home Assistant.
+
+_Scenario 2:_
+ 
+The timer is started with a duration of 1 hour. After 30 minutes have elapsed, there is a power outage and Home Assistant is off for 31 minutes. When Home Assistant comes online, it sees that the timer should have `finished` 1 minute prior to it coming online. Since the `restore_grace_period` is set to 15 minutes and only 1 minute has passed since the timer should have `finished`, Home Assistant will fire the event `timer.finished` and the automation will be triggered. The timer will then return to its `idle` state.
+
+_Scenario 3:_
+ 
+The timer is started with a duration of 1 hour. After 50 minutes have elapsed, there is a power outage and Home Assistant is off for 30 minutes. When Home Assistant comes online, it sees that the timer should have `finished` 20 minutes prior to it coming online. Since the `restore_grace_period` is set to 15 minutes 20 minutes have passed since the timer should have `finished`, Home Assistant not fire the event and the automation will not be triggered. The timer will then return to its `idle` state.
