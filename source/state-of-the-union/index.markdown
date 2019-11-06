@@ -29,6 +29,9 @@ The presentation is going to start at:
 
 URL of live stream coming soon!
 
-## Local Meet-Ups
+## Local Meetups
 
+If you would like to meet other Home Assistant users and watch the livestream together, check out the following local meetups:
+
+ - [Berlin](https://www.meetup.com/Berlin-Home-Assistant/events/265634883/)
  - [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
