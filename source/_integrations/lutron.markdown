@@ -73,3 +73,18 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 ## Occupancy Sensors
 
 Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+
+## Example Automations
+``` yaml
+- alias: "keypad button pressed notification"
+  trigger:
+    - platform: event
+      event_type: lutron_event
+      event_data:
+        id: office_pico_on
+        action: single
+  action:
+    - service: notify.telegram
+      data_template:
+        message: "pico just turned on!"
+```
