@@ -4,7 +4,7 @@ description: "Instructions on how to configure the UniFi LED integration with Un
 logo: ubiquiti.png
 ha_category:
   - Light
-ha_release: 0.101
+ha_release: 0.102
 ha_iot_class: Local Polling
 ---
 
@@ -50,4 +50,4 @@ password:
 
 ## Light
 
-The light panels output state and brightness are synchronised with home assistant.
+The light panels output state and brightness are synchronized with home assistant.
