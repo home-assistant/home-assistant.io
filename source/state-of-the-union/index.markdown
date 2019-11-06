@@ -31,4 +31,6 @@ URL of live stream coming soon!
 
 ## Local Meet-Ups
 
+Join one of the local meet-ups to watch the live stream together with other home automation enthusiasts.
+
  - [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
