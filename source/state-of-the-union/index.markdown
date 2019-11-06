@@ -4,6 +4,7 @@ sidebar: false
 title: State of the Union
 hide_github_edit: true
 description: Join us on November 13, 2019 for the Home Assistant State of the Union.
+og_image: /images/frontpage/sotu2019.png
 ---
 
 Home Assistant is proud to present the State of the Union 2019. We're going to discuss all things Home Assistant: the platform, our goals, our achievements and a sneak peek at what we have planned for the home automation ecosystem.
