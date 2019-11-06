@@ -5,19 +5,16 @@ logo: magichome.png
 ha_category:
   - Light
   - Switch
-
 ha_iot_class: Cloud Polling
-ha_release: 0.40
+ha_release: 0.102
 ---
 
 The `magichome` integration is the main integration to integrate all [Zengge Smart](http://zengge.com/) related platforms. You will need your Magic Home Pro account information (username, password and account country code) to discover and control devices which related to your account.
 
 There is currently support for the following device types within Home Assistant:
 
-
 - **Light** - The platform supports most kinds of MagicHome light and controller.
 - **Switch** - The platform supports switch and socket.
-
 
 ## Configuration
 
@@ -39,7 +36,6 @@ password:
   description: Your password to log in to MagicHome.
   required: true
   type: string
-
 {% endconfiguration %}
 
 ## Service
