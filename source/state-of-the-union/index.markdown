@@ -6,7 +6,9 @@ hide_github_edit: true
 description: Join us on November 13, 2019 for the Home Assistant State of the Union.
 ---
 
-Home Assistant is proud to present the State of the Union 2019. It will take place on November 13, 2019 in Amsterdam. Tickets have already been sold out (in 24h!) but we're having a live stream.
+Home Assistant is proud to present the State of the Union 2019. We're going to discuss all things Home Assistant: the platform, our goals, our achievements and a sneak peek at what we have planned for the home automation ecosystem.
+
+It will take place on November 13, 2019 in Amsterdam. Tickets have already been sold out (in 24h!) but we're having a live stream (see below).
 
 This years presenters are:
 
