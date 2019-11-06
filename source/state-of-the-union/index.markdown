@@ -31,4 +31,5 @@ URL of live stream coming soon!
 
 ## Local Meet-Ups
 
+ - [Berlin](https://www.meetup.com/de-DE/Berlin-Home-Assistant/)
  - [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
