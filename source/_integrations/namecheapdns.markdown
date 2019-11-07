@@ -36,7 +36,7 @@ namecheapdns:
     description: Time between updates (in minutes)
     required: false
     default: 5
-    type: int
+    type: integer
   domains:
     description: A list of domains to configure.
     required: false
