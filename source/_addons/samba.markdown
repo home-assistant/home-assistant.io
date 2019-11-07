@@ -63,7 +63,7 @@ allow_hosts:
   default: '`["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]`'
   type: list
 veto_files:
-  description: List of files that are neither visible nor accessible. Useful to stop clients from littering the share with temporary hidden files (ex: macOS .DS_Store, Windows Thumbs.db)
+  description: List of files that are neither visible nor accessible. Useful to stop clients from littering the share with temporary hidden files (e.g. macOS .DS_Store, Windows Thumbs.db)
   required: false
   default: '`["._*", ".DS_Store", "Thumbs.db", "icon?", ".Trashes"]`'
   type: list
