@@ -25,6 +25,13 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 <div class='note tip'>
 
+The config files can also be accessed via the console on the Hass.io host system (which runs the homeassistant docker image)  in the `/mnt/data/supervisor/homeassistant` directory. This path can also be found by running `docker container inspect homeassistant | grep :/config`. 
+
+</div>
+
+
+<div class='note tip'>
+
   Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
 
 </div>
