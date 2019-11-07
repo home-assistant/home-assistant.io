@@ -95,6 +95,8 @@ Create a new scene without having to configure it by calling the `scene.create` 
 
 You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also need to specify the entities in the same format as when configuring the scene.
 
+If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
+
 ```yaml
 # Example automation
 automation:
