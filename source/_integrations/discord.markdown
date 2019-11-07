@@ -46,7 +46,7 @@ Bots can only send messages to servers or attach local available images. To add 
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
 
-[https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0](https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0)
+`https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-auth.png' />

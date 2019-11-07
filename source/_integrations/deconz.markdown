@@ -18,7 +18,7 @@ ha_config_flow: true
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-[deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
+[deCONZ REST API](https://dresden-elektronik.github.io/deconz-rest-doc/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -69,7 +69,7 @@ Available services: `configure` and `deconz.device_refresh`.
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [Rest API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
@@ -383,15 +383,18 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 
 ### Verified supported lights
 
-- IKEA Trådfri bulb E14 WS opal 400lm
+- IKEA Trådfri bulb E14 WS Opal 400lm
 - IKEA Trådfri Bulb E27 WS Opal 980lm
 - IKEA Trådfri Bulb E27 WS Opal 1000lm
+- IKEA Trådfri Bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri Bulb GU10 W 400lm
+- IKEA Trådfri FLOALT LED light panel
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
 - Philips Hue White A19
 - Philips Hue White Ambiance A19
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
+- Philips Hue LightStrip Plus
 - Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
 - Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
 
@@ -466,5 +469,6 @@ The `entity_id` name will be `switch.device_name`, where `device_name` is define
 ### Verified supported switches
 
 - Innr SP120
+- Osram Lightify plug
 - Osram Outdoor plug
 - Heiman siren

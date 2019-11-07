@@ -10,7 +10,7 @@ ha_iot_class: Local Polling
 ha_release: 0.86
 ---
 
-The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/integrations/discovery/).
+The [Roku](https://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/integrations/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -95,6 +95,9 @@ The api calls are like this:
 ```txt
 GET http:// ROKU_IP:8060/query/apps
 POST http://ROKU_IP:8060/launch/APP_ID
+
+YouTube example:
+POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
 ```
 
 More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/discovery/external-control-api.md)

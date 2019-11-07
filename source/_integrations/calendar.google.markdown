@@ -178,7 +178,7 @@ You can use the service `google.add_event` to create a new calendar event in a c
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `calendar_id` | no | The id of the calendar you want. |	Your email
+| `calendar_id` | no | The id of the calendar you want. | *****@group.calendar.google.com
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
 | `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00

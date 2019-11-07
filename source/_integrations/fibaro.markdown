@@ -15,7 +15,7 @@ ha_release: 0.83
 ha_iot_class: Local Push
 ---
 
-The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
+The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.
 
 There is currently support for the following device types within Home Assistant:
 

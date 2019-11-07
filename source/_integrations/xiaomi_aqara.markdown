@@ -8,7 +8,7 @@ ha_release: 0.57
 ha_iot_class: Local Push
 ---
 
-The `xiaomi_aqara` integration allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
+The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
 Please note, there are two versions of the hub: v1 and v2. v1 can be used with Home Assistant without any problems, however, v2 might be less straight forward when it comes to enabling the local API, and might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline.
 
@@ -276,7 +276,7 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - If your gateway's MAC address starts with `04:CF:8C`, there is a good chance that the required port `9898` is closed on your gateway (you can check it with the Nmap utility, using the command `sudo nmap - sU {gateway_ip} -p 9898`). To fix that issue, you need to do these steps:
   - Find a specific screw bit (like a fork) to open the gateway case.
   - Find a USB-UART cable/module and connect it to your computer.
-  - Solder 3 wires - RX, TX and GND like [here](http://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).
+  - Solder 3 wires - RX, TX and GND like [here](https://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).
   - Turn on the gateway (220V).
   - Open a serial terminal application (e.g. PuTTY) and connect to the serial port assigned to the USB-UART module (baudrate: 115200).
   - Wait until the gateway is booted up, connect the RX, TX and GND wires to the UART module (don't connect the Vcc (power) wire!).

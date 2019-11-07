@@ -9,7 +9,7 @@ ha_release: 0.19
 ha_iot_class: Cloud Polling
 ---
 
-The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](http://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
+The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />

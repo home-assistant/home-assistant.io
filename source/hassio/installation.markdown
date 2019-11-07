@@ -47,7 +47,7 @@ The following will take you through the steps required to install Hass.io.
 
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
-6. You will be able to reach your installation at [http://hassio.local:8123][local] (if your router supports mDNS, otherwise see below).
+6. You will be able to reach your installation at `http://hassio.local:8123` (if your router supports mDNS, otherwise see below).
 
 7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
@@ -147,10 +147,17 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 To prepare your machine for the Hass.io installation, run the following commands:
 
+For Ubuntu:
+
+```bash
+add-apt-repository universe
+```
+
+Debian/Ubuntu:
+
 ```bash
 sudo -i
 apt-get install software-properties-common
-add-apt-repository universe
 apt-get update
 apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 curl -fsSL get.docker.com | sh

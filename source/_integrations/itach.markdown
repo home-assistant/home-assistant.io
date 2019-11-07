@@ -79,4 +79,4 @@ Note: Global Cache devices expect data in their own format of "sendir...". This 
 API Docs:
 
 - [iTach](https://www.globalcache.com/files/docs/API-iTach.pdf)
-- [GC-100](http://www.globalcache.com/files/docs/API-GC-100.pdf)
+- [GC-100](https://www.globalcache.com/files/docs/API-GC-100.pdf)

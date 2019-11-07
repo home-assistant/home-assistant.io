@@ -33,6 +33,9 @@ name:
 icon:
   required: false
   description: Any icon from MaterialDesignIcons.com (Cheatsheet). Prefix name with mdi:, ie mdi:ceiling-light
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
   type: string
 {% endconfiguration %}
 

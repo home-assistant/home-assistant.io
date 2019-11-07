@@ -8,7 +8,7 @@ ha_iot_class: Assumed State
 ha_release: 0.34
 ---
 
-The `hook` integration allows you to control the [Hook Smart Home Hub](http://www.hooksmarthome.com/) from within Home Assistant.
+The `hook` integration allows you to control the Hook Smart Home Hub from within Home Assistant.
 
 Hook allows you to control cheap mains electrical outlets, like these ones at [Amazon](https://amzn.to/2WVZdGG).
 

@@ -10,9 +10,10 @@ ha_release: 0.87
 
 The System Health integration provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.
 
-System health is included as part of the [default config](https://www.home-assistant.io/integrations/default_config/) starting with Home Assistant 0.88. If you do not wish to use the default config, you can add the following to your configuration.yaml file.
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
+# Example configuration.yaml entry
 system_health:
 ```
 

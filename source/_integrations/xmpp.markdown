@@ -8,7 +8,7 @@ ha_release: pre 0.7
 ---
 
 
-The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
+The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 

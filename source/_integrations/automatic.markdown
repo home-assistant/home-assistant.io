@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ---
 
 
-The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](http://automatic.com/) cloud service.
+The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](https://automatic.com/) cloud service.
 
 ## Setup
 

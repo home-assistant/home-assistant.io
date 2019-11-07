@@ -56,7 +56,7 @@ input_select:
 
 <div class='note'>
 
-Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
+Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 
 </div>
 
@@ -77,16 +77,31 @@ This integrations provide three services to modify the state of the `input_selec
 
 ### Scenes
 
-To specify a target option in a [Scene](/integrations/scene/) you have to specify the target as `option` attribute:
+Specifying a target option in a [Scene](/integrations/scene/) is simple:
 
 ```yaml
 # Example configuration.yaml entry
 scene:
   - name: Example1
     entities:
-      input_select.who_cooks:
-        option: Paulus
+      input_select.who_cooks: Paulus
 ```
+
+The list of options can also be set in a [Scene](/integrations/scene). In that case, you also need to specify what the new state will be.
+
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example2
+    entities:
+      input_select.who_cooks:
+        options:
+          - Alice
+          - Bob
+          - Paulus
+        state: Bob
+```
+
 
 ## Automation Examples
 

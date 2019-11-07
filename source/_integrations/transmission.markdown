@@ -10,7 +10,7 @@ ha_release: 0.87
 ha_iot_class: Local Polling
 ---
 
-The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ## Setup
 
@@ -97,6 +97,7 @@ Inside of the event, there is the name of the torrent that is started or complet
 
 Example of configuration of an automation with completed torrents:
 
+{% raw %}
 ```yaml
 - alias: Completed Torrent
   trigger:
@@ -108,6 +109,7 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+{% endraw %}
 
 ## Services
 

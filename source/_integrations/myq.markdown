@@ -20,7 +20,6 @@ cover:
   - platform: myq
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    type: chamberlain
 ```
 
 {% configuration %}
@@ -30,10 +29,6 @@ username:
   type: string
 password:
   description: Your MyQ account password.
-  required: true
-  type: string
-type:
-  description: "Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`."
   required: true
   type: string
 {% endconfiguration %}

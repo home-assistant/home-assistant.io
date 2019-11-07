@@ -153,10 +153,10 @@ Present a MySensors sensor or actuator, by following these steps:
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/relay
+ * https://www.mysensors.org/build/relay
  */
 
 #define MY_DEBUG
@@ -259,4 +259,4 @@ logger:
 
 Visit the [library API][MySensors library api] of MySensors for more information.
 
-[MySensors library API]: http://www.mysensors.org/download
+[MySensors library API]: https://www.mysensors.org/download

@@ -562,7 +562,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [history docs]: /integrations/history/
 [http docs]: /integrations/http/
-[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[image_processing.openalpr_local docs]: /integrations/openalpr_local/
 [input_number docs]: /integrations/input_number/
 [input_text docs]: /integrations/input_text/
 [introduction docs]: /integrations/introduction/

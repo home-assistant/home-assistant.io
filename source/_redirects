@@ -571,7 +571,6 @@
 /components/notify.free_mobile /integrations/free_mobile
 /components/notify.gntp /integrations/gntp
 /components/notify.hangouts /integrations/hangouts
-/components/notify.hipchat /integrations/hipchat
 /components/notify.homematic /integrations/homematic
 /components/notify.html5 /integrations/html5
 /components/notify.huawei_lte /integrations/huawei_lte
@@ -597,7 +596,6 @@
 /components/notify.simplepush /integrations/simplepush
 /components/notify.slack /integrations/slack
 /components/notify.smtp /integrations/smtp
-/components/notify.stride /integrations/stride
 /components/notify.synology_chat /integrations/synology_chat
 /components/notify.syslog /integrations/syslog
 /components/notify.telegram /integrations/telegram
@@ -752,7 +750,6 @@
 /components/sensor.htu21d /integrations/htu21d
 /components/sensor.huawei_lte /integrations/huawei_lte#sensor
 /components/sensor.hydrawise /integrations/hydrawise#sensor
-/components/sensor.hydroquebec /integrations/hydroquebec
 /components/sensor.ihc /integrations/ihc#sensor
 /components/sensor.imap /integrations/imap
 /components/sensor.imap_email_content /integrations/imap_email_content
@@ -1433,7 +1430,6 @@
 /components/heos /integrations/heos
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
-/components/hipchat /integrations/hipchat
 /components/history /integrations/history
 /components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
@@ -1458,7 +1454,6 @@
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
-/components/hydroquebec /integrations/hydroquebec
 /components/hyperion /integrations/hyperion
 /components/ialarm /integrations/ialarm
 /components/iaqualink /integrations/iaqualink

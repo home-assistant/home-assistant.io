@@ -9,7 +9,8 @@ ha_iot_class: Local Polling
 ---
 
 The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
- and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
+and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant.
+Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
 
@@ -37,8 +38,14 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume. Defaults to 80.
+  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e. if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
   required: false
+  default: 100
+  type: integer
+receiver_max_volume:
+  description: The maximum volume of the receiver. For older Onkyo receivers this was 80, newer Onkyo receivers use 200.
+  required: false
+  default: 80
   type: integer
 sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
@@ -75,6 +82,14 @@ List of source names:
 - xm
 - sirius
 
+To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
+(don't do this whilst playing something!) and run:
+
+```bash
+onkyo --host 192.168.0.100 volume=query
+unknown-model: master-volume = 191
+```
+
 ### Service `onkyo_select_hdmi_output`
 
 Changes HDMI output of your receiver
@@ -109,7 +124,6 @@ script:
           entity_id: media_player.onkyo
           media_content_type: "radio"
           media_content_id: "1"
-
 ```
 
 ### Example `onkyo_select_hdmi_output` script
@@ -125,5 +139,4 @@ script:
         service_data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub
-
 ```

@@ -17,7 +17,7 @@ HTML5 push notifications **do not** work on iOS.
 
 <div class='note warning'>
 
-The GCM configuration option is deprecated and will stop working in April 2019, see [https://developers.google.com/cloud-messaging/faq](https://developers.google.com/cloud-messaging/faq). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
+The GCM configuration option is deprecated and stopped working in May 2019, see [https://developers.google.com/cloud-messaging/faq](https://developers.google.com/cloud-messaging/faq). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
 
 </div>
 
@@ -341,5 +341,5 @@ If you need to verify domain ownership with Google Webmaster Central/Search Cons
 2. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
 3. Place the downloaded `google*.html` file in the `www` directory.
 4. RESTART Home Assistant. **This is important!**
-5. Verify the file can be accessed in the browser, e.g., **https://example.com:8123/local/google123456789.html** (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
+5. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
 6. Go back to Google Webmaster Central/Search Console and proceed with the verification.

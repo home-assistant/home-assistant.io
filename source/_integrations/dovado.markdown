@@ -10,7 +10,7 @@ ha_release: 0.87
 ha_iot_class: Local Polling
 ---
 
-The `dovado` integration manages communication with the [Dovado](http://www.dovado.com/) router.
+The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,7 +49,7 @@ port:
 
 ## Notifications
 
-The `dovado` notify platform allows you to send SMS from your [Dovado](http://www.dovado.com/) router, if it supports it.
+The `dovado` notify platform allows you to send SMS from your [Dovado](https://www.dovado.com/) router, if it supports it.
 
 To add the Dovado notify platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -79,7 +79,7 @@ automation:
 
 ## Sensor
 
-The `dovado` sensor platform let you monitor your [Dovado](http://www.dovado.com/) router.
+The `dovado` sensor platform let you monitor your [Dovado](https://www.dovado.com/) router.
 
 To add a Dovado sensor to your installation, add the following to your `configuration.yaml` file:
 

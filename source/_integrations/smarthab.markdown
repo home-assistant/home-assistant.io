@@ -10,7 +10,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ---
 
-If your home is fitted with [SmartHab](http://www.smarthab.fr/en/home/)'s 
+If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 
 devices and you have access to their app-based services, you will be able 
 to control your lights and shutters with the SmartHab integration for Home 
 Assistant.

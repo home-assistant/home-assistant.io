@@ -20,7 +20,7 @@ The `updater` binary sensor will wait one hour after startup until it performs t
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 updater:

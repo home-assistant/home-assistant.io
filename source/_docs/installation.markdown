@@ -45,6 +45,12 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
+<div class='note'>
+
+The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and manual installer. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+
+</div>
+
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
 [Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
@@ -57,8 +63,8 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.6 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.6 or later|Developers
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7 or later|Developers
 
 ## Community provided guides
 
