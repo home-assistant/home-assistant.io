@@ -14,7 +14,7 @@ To enable RFXtrx in your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry for local serial device
 rfxtrx:
-  port: /dev/ttyUSB0
+  device: /dev/ttyUSB0
 ```
 
 OR
@@ -57,7 +57,7 @@ Not all protocols as advertised are enabled on initial setup of your transceiver
 
 #### Ser2Net
 
-You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this
+You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your home assistant config.
 
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
