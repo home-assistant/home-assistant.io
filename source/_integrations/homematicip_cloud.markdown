@@ -36,6 +36,7 @@ Fill the form:
 
 * Your **access point ID** (SGTIN)
 * Optional a **name** to identify your access point, this will be used to prefix your device names.
+* The **PIN**, mandatory if one is used in the native HomematicIP App.
 
 The authentification token will be generated and stored internally.
 
