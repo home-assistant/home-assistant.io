@@ -70,7 +70,7 @@ Sensors available in the library:
 
 When adding multiple inverters you need to specify a name that will be part of the sensor entity id.
 If you do not specify names when adding multiple inverters you are probably see an error like this:
-```
+```text
 Error doing job: Task exception was never retrieved
 Traceback (most recent call last):
   File "/home/frederic/home-assistant/homeassistant/helpers/entity_platform.py", line 399, in _async_add_entity
