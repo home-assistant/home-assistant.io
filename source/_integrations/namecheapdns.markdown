@@ -40,3 +40,55 @@ namecheapdns:
 {% endconfiguration %}
 
 See the [How do I set up a Host for Dynamic DNS?](https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns) for further instructions
+
+### Service `update`
+
+You can use the service `update` to update any domain.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `domain` | yes | String, domain to update, defaults to configured domain.
+| `host` | yes | String, host to update, defaults to configured hose.
+| `password` | yes | String, password as given on namecheap management page, defaults to configured password.
+
+Examples:
+
+```yaml
+# Example script to update dns for an unconfigured host
+script:
+  update_dns:
+    sequence:
+      - service: namecheapdns.update
+        data:
+          domain: myhost.com
+          host: subdomain
+          password: key123ab
+```
+
+```yaml
+# Example script to update dns for a configured host
+script:
+  update_dns:
+    sequence:
+      - service: namecheapdns.update
+```
+
+```yaml
+# Example script to update dns for an unconfigured subdomain on the configured domain
+script:
+  update_dns:
+    sequence:
+      - service: namecheapdns.update
+        data:
+          host: subdomain
+```
+
+```yaml
+# Example script to update dns for all subdomains on the configured domain
+script:
+  update_dns:
+    sequence:
+      - service: namecheapdns.update
+        data:
+          host: *
+```
