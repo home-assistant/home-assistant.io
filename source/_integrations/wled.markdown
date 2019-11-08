@@ -4,6 +4,7 @@ description: "Instructions on how to integrate WLED with Home Assistant."
 logo: wled.png
 ha_category:
   - Light
+  - Switch
 ha_release: 0.102
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
@@ -39,6 +40,14 @@ entity.
 
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
+
+## Switches
+
+The integration will create a number of switches:
+
+- Nightlight.
+- Sync Receive.
+- Sync Send.
 
 ## Services
 
