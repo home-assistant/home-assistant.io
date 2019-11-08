@@ -95,6 +95,7 @@ Supported models: `philips.light.moonlight`
   - brand
 
 
+## Configuration
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
@@ -129,6 +130,16 @@ model:
   required: false
   type: string
 {% endconfiguration %}
+
+Note that some models (currently `philips.light.bulb` only) can be configured automatically
+by adding the following to your `configuration.yaml`:
+
+```yaml
+xiaomi_miio:
+```
+
+This will trigger automatic discovery at home assistant startup and will add all discovered lights.
+
 
 ## Platform Services
 
