@@ -55,6 +55,6 @@ input_number:
 
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states('input_number.ac_temperature') }}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
 {% endraw %}
 ```
