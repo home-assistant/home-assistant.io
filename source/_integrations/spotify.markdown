@@ -33,12 +33,9 @@ To create the required Spotify application:
  If you are using SSL:
   `https://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
 
- The URL is whatever you use to access Home Assistant from outside your network
- (including port if applicable).
-
 - Click **Save** after adding the URI.
 
-You will likely also need to set the `base_url` attribute of the [HTTP Component](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
+If you are using an externally accessible address you will likely also need to set the `base_url` attribute of the [HTTP Component](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
 ## Configuration
 
