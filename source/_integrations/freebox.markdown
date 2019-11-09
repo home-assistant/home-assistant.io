@@ -42,11 +42,11 @@ port:
   type: string
 {% endconfiguration %}
 
-You can find out your Freebox host and port by opening the address mafreebox.freebox.fr/api_version in your browser. The
+You can find out your Freebox host and port by opening the address [http://mafreebox.freebox.fr/api_version](http://mafreebox.freebox.fr/api_version) in your browser. The
 returned json should contain an api_domain (`host`) and a https_port (`port`).
 Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
-### Initial setup
+### Initial setup(https://dev.freebox.fr/sdk/os/)
 
 <div class='note warning'>
 You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
