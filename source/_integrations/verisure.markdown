@@ -93,6 +93,11 @@ giid:
   description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
   required: false
   type: string
+ethernet_status:
+  description: Set to `true` to show ethernet connection status, `false` to disable.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Alarm Control Panel
