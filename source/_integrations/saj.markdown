@@ -32,7 +32,7 @@ host:
   required: true
   type: string
 name:
-  description: "The name of your SAJ Solar Inverter. (Optional but required when adding multiple inverters for unique sensors.)"
+  description: "An optional name for your SAJ Solar Inverter."
   required: false
   type: string
 type:
@@ -61,40 +61,17 @@ Sensors available in the library:
 | today_time         | h    | Inverter's running time for today.                                           |
 | today_max_current  | W    | Maximum current power for today. (only for connection via ethernet module)   |
 | total_yield        | kWh  | Total kWh generated to date.                                                 |
-| total_time         | h    | Total running time of the inverter .                                         |
+| total_time         | h    | Total running time of the inverter.                                          |
 | total_co2_reduced  | kg   | Total CO2 in kg reduced.                                                     |
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
-
-## Multiple inverters
-
-When adding multiple inverters you need to specify a name that will be part of the sensor entity id.
-If you do not specify names when adding multiple inverters you are probably see an error like this:
-```text
-Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/home/frederic/home-assistant/homeassistant/helpers/entity_platform.py", line 399, in _async_add_entity
-    raise HomeAssistantError(msg)
-homeassistant.exceptions.HomeAssistantError: Entity id already exists: sensor.saj_current_power. Platform saj does not generate unique IDs
-```
-
-Below an example configuration for multiple inverters:
-
-```yaml
-sensor:
-  - platform: saj
-    name: MY_FIRST_INVERTER
-    host: IP_ADDRESS_OF_DEVICE
-  - platform: saj
-    name: MY_SECOND_INVERTER
-    host: IP_ADDRESS_OF_DEVICE
-```
 
 ## Full configuration example for WiFi inverters
 
 ```yaml
 sensor:
   - platform: saj
+    name: MY_INVERTER_NAME
     host: IP_ADDRESS_OF_DEVICE
     type: wifi
     username: USERNAME
