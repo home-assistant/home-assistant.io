@@ -27,7 +27,7 @@ The `triggered` state also provides a state attribute called `triggered_source` 
 
 The integration provides a Binary Sensor for each TotalConnect zone.  To see zones in TotalConnect "fault" status, your TotalConnect account must have "Sensor Events" enabled.  Your alarm monitoring company may charge an extra fee to enable this.
 
-The TotalConnect API has limited zone type information.  Home Assistant device class `door` is assigned to TotalConnect door, window, perimeter, motion sensor, and most alarm panel buttons.  The sensor will appear as `True` if the door is open (either fault or triggered in TotalConnect) and `False` otherwise. Device class `smoke` is assigned to TotalConnect smoke detectors and buttons with physical alarm panel "Response Type" setting of "smoke".  The sensor will appear as `True` if smoke is detected.  Device class `gas` is assigned to TotalConnect carbon monoxide detectors.  The sensor will appear as `True` if gas is detected.
+The TotalConnect API has limited zone type information.  Home Assistant device class `door` is assigned to TotalConnect door, window, perimeter, motion sensor, and most alarm panel buttons.  The sensor will appear as `True` if the door is open (either fault or triggered in TotalConnect) and `False` otherwise. Device class `smoke` is assigned to TotalConnect smoke detectors and buttons with physical alarm panel "Response Type" setting of "Fire No Verification".  The sensor will appear as `True` if smoke is detected.  Device class `gas` is assigned to TotalConnect carbon monoxide detectors.  The sensor will appear as `True` if gas is detected.
 
 ## Configuration
 
