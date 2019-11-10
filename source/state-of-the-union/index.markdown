@@ -22,7 +22,9 @@ This years presenters are:
 
 This year, the Home Assistant State of the Union will be live streamed to YouTube!
 
-<iframe width="691" height="388" src="https://www.youtube.com/embed/tc17q1Zn0Xs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tc17q1Zn0Xs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Direct YouTube URL: <https://www.youtube.com/watch?v=tc17q1Zn0Xs>
 
@@ -40,5 +42,5 @@ The presentation is going to start on 13 November at:
 
 If you would like to meet other Home Assistant users and watch the livestream together, check out the following local meetups:
 
- - [Berlin](https://www.meetup.com/Berlin-Home-Assistant/events/265634883/)
- - [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
+- [Berlin](https://www.meetup.com/Berlin-Home-Assistant/events/265634883/)
+- [Rhein-Main Area](https://www.meetup.com/de-DE/Home-Assistant-Meetup-Rhein-Main-Neckar/events/265920456/)
