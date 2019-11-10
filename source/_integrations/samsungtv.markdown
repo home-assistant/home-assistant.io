@@ -107,6 +107,7 @@ Currently tested but not working models:
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
+- JU6445K - State is always "on" and unable to control (but port 8001 *is* open)
 - JU6800 - Unable to see state and unable to control
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
