@@ -20,14 +20,21 @@ This years presenters are:
 
 ## Livestream
 
-The presentation is going to start at:
+This year, the Home Assistant State of the Union will be live streamed to YouTube!
 
- - 9.30 AM in PST
- - 12.30 PM in EST
- - 18:30 in CET
- - [Other time zones](https://www.timeanddate.com/worldclock/converter.html?iso=20191113T173000&p1=137&p2=179&p3=16)
+<iframe width="691" height="388" src="https://www.youtube.com/embed/tc17q1Zn0Xs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-URL of live stream coming soon!
+Direct YouTube URL: <https://www.youtube.com/watch?v=tc17q1Zn0Xs>
+
+🔔 Don't forget to go to the above URL to hit the "Set reminder" bell!
+Doing that, ensures you'll get a notification from YouTube, when the stream starts.
+
+The presentation is going to start on 13 November at:
+
+- 9.30 AM in PST
+- 12.30 PM in EST
+- 18:30 in CET
+- [Other time zones](https://www.timeanddate.com/worldclock/converter.html?iso=20191113T173000&p1=137&p2=179&p3=16)
 
 ## Local Meetups
 
