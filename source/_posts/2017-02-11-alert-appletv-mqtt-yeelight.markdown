@@ -1,43 +1,41 @@
 ---
-layout: post
 title: "0.38: Alert, AppleTV, MQTT discovery, and Yeelight"
 description: "Faster and more configurable frontend, configuration check, and complete move to async for core"
 date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
 author: Robbie Trencheny, Fabian Affolter
 author_twitter: robbie
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.38/social.png
 ---
 
 Another Saturday, another release!
 
-### {% linkable_title Core updates %}
+### Core updates
 - Thanks to [@pvizeli], all the core components are now written asynchronously. All entity components are now migrated from synchronously to asynchronously code!
 
 - Now when you restart Home Assistant using the `homeassistant.restart` service, your configuration is checked. If it appears to be invalid the restart will fail.
 
-### {% linkable_title Rewritten frontend %}
+### Rewritten frontend
 The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
 
-### {% linkable_title Custom state card UI %}
+### Custom state card UI
 A nice new feature is the possibility to create [custom state cards][custom-ui] in the frontend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
 
-### {% linkable_title MQTT discovery %}
+### MQTT discovery
 MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
 
-### {% linkable_title Alert component %}
+### Alert component
 If you left your front door open, then the new [`alert`][alert] component can be used to remind you of this by sending you repeating notifications at a given interval.
 
-### {% linkable_title Yeelight %}
+### Yeelight
 The [`yeelight`][yeelight] component has been ported to use a more stable and feature-complete [python-yeelight][python-yeelight] backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our [issue tracker][issue].
 
-### {% linkable_title Apple TV %}
+### Apple TV
 [Apple TV][apple-tv] is now a supported [`media_player`][media-player]! It has support for just about every media player function, including a realtime display of playback status and artwork.
 
-### {% linkable_title All changes %}
-#### {% linkable_title New platforms/components %}
+### All changes
+#### New platforms/components
 
 - Sensor: Support for monitoring [OpenEVSE][openevse] chargers ([@miniconfig])
 - Voice command [API.AI][apiai] ([@adrianlzt])
@@ -53,7 +51,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
 - Image Processing: Support [Microsoft Face detection][face-detect] ([@pvizeli])
 
-#### {% linkable_title Improvements %}
+#### Improvements
 
 - Switch - Pilight: Validation no longer rejects alphanumeric IDs ([@DavidLP])
 - Device tracker - ASUSWrt: Fixes `ip neigh` regex to handle the possible IPv6 "router" flag ([@kylehendricks])
@@ -86,8 +84,8 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Notify - SMTP: Add error checking to the MIMEImage encoding ([@stratosmacker])
 - Light - MQTT: Check for command topics when determining the capabilities of an MQTT light ([@herm])
 - Core: Check config before restarting ([@andrey-git])
-- Light - [Hue][hue]: Fix groups with same names ([@tboyce1])
-- Template: Add icon_template to template sensor ([@tboyce1])
+- Light - [Hue][hue]: Fix groups with same names (@tboyce1)
+- Template: Add icon_template to template sensor (@tboyce1)
 - Recorder: Refactoring, scoping, and better handling of SQLAlchemy Sessions ([@kellerza])
 - Light - Flux: Add support for fluxled discovery. ([@aequitas])
 - Media player - AppleTV: Add discovery support to Apple TV ([@postlund])
@@ -102,12 +100,12 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 
 Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
 
-### {% linkable_title Release 0.38.1 - February 12 %}
+### Release 0.38.1 - February 12
 
 - Fix logbook ordering ([@balloob])
 - Fix AppleTV conflicting dependency breaking websockets ([@balloob])
 
-### {% linkable_title Release 0.38.2 - February 12 %}
+### Release 0.38.2 - February 12
 
 - Validate config will now respect custom config location ([@balloob])
 - Fix Nuki lock on Python 3.4 ([@pschmitt])
@@ -116,7 +114,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Fix MQTT discovery ([@fabaff])
 - Fix Z-Wave thermostat units ([@turbokongen])
 
-### {% linkable_title Release 0.38.3 - February 15 %}
+### Release 0.38.3 - February 15
 
 - Sonos: fix losing favorite sources on disconnect ([@pvizeli])
 - Google Calendar: fix timeMin losing events ([@happyleavesaoc])
@@ -125,22 +123,22 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Moon: remove unit of measurement ([@fabaff])
 - MySensors: add version requirement to notify and device tracker ([@MartinHjelmare])
 
-### {% linkable_title Release 0.38.4 - February 21 %}
+### Release 0.38.4 - February 21
 
  - Discovery: flux_led discovery led to problems on systems and has been removed ([@bazwilliams])
  - Hidden devices are no longer visible on views ([@balloob])
 
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
 - The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 - The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use `this.hass.entities`, `this.hass.callService` and `this.hass.callApi`.
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### {% linkable_title Reporting Issues %}
+### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 [@bazwilliams]: https://github.com/bazwilliams
@@ -188,7 +186,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@sbidoul]: https://github.com/sbidoul
 [@sdague]: https://github.com/sdague
 [@stratosmacker]: https://github.com/stratosmacker
-[@tboyce1]: https://github.com/tboyce1
 [@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@turbokongen]: https://github.com/turbokongen
@@ -196,36 +193,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@Yannic-HAW]: https://github.com/Yannic-HAW
 
-[alert]: https://home-assistant.io/components/alert/
-[apiai]: https://home-assistant.io/components/apiai/
-[apple-tv]: https://home-assistant.io/components/media_player.apple_tv/
-[arwn]: https://home-assistant.io/components/sensor.arwn/
-[custom-ui]: https://home-assistant.io/developers/frontend_creating_custom_ui/
-[discovery]: https://home-assistant.io/components/discovery/
-[face-detect]: https://home-assistant.io/components/image_processing.microsoft_face_detect/
-[ffmpeg-bin]: https://home-assistant.io/components/binary_sensor.ffmpeg/
-[ffmpeg]: https://home-assistant.io/components/ffmpeg/
-[filters]: https://home-assistant.io/topics/templating/#home-assistant-template-extensions
-[fritz]: https://home-assistant.io/components/switch.fritzdect/
-[hue]: https://home-assistant.io/components/light.hue/
-[light]: https://home-assistant.io/cookbook/custom_ui_by_andrey-git
-[mailgun]: https://home-assistant.io/components/notify.mailgun/
-[media-player]: https://home-assistant.io/components/media_player/
-[moon]: https://home-assistant.io/components/sensor.moon/
-[mqtt-discovery]: https://home-assistant.io/components/mqtt/#discovery
-[nuki]: https://home-assistant.io/components/lock.nuki/
-[openevse]: https://home-assistant.io/components/sensor.openevse/
-[orange]: https://home-assistant.io/components/media_player.liveboxplaytv/
-[owm]: https://home-assistant.io/components/sensor.openweathermap/
+[alert]: /integrations/alert/
+[apiai]: /integrations/dialogflow
+[apple-tv]: /integrations/apple_tv
+[arwn]: /integrations/arwn
+[custom-ui]: /developers/frontend_creating_custom_ui/
+[discovery]: /integrations/discovery/
+[face-detect]: /integrations/microsoft_face_detect
+[ffmpeg-bin]: /integrations/ffmpeg_motion
+[ffmpeg]: /integrations/ffmpeg/
+[filters]: /topics/templating/#home-assistant-template-extensions
+[fritz]: /integrations/fritzdect
+[hue]: /integrations/hue
+[light]: /cookbook/custom_ui_by_andrey-git
+[mailgun]: /integrations/mailgun
+[media-player]: /integrations/media_player/
+[moon]: /integrations/moon
+[mqtt-discovery]: /integrations/mqtt/#discovery
+[nuki]: /integrations/nuki
+[openevse]: /integrations/openevse
+[orange]: /integrations/liveboxplaytv
+[owm]: /integrations/openweathermap#sensor
 [python-yeelight]: https://gitlab.com/stavros/python-yeelight
-[qnap]: https://home-assistant.io/components/sensor.qnap/
-[rflink]: https://home-assistant.io/components/rflink/
-[systemmonitor]: https://home-assistant.io/components/sensor.systemmonitor/
-[webostv]: https://home-assistant.io/components/media_player.webostv/
-[yeelight]: https://home-assistant.io/components/light.yeelight/
+[qnap]: /integrations/qnap
+[rflink]: /integrations/rflink/
+[systemmonitor]: /integrations/systemmonitor
+[webostv]: /integrations/webostv#media-player
+[yeelight]: /integrations/yeelight
 
-[event-stream-api]: https://home-assistant.io/developers/server_sent_events/
+[event-stream-api]: /developers/server_sent_events/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[websocket-api]: https://home-assistant.io/developers/websocket_api/
+[websocket-api]: /developers/websocket_api/
 [discord]: https://discord.gg/c5DvZ4e

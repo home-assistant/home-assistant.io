@@ -1,22 +1,28 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Enhance your Hass.io installation with Google Assistant."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
-[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over [api.ai] with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
+<div class='note warning'>
+
+These instructions are outdated - the add-on has been updated and these are no longer accurate or complete.
+
+</div>
+
+<div class='note'>
+
+If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/integrations/google_assistant/).
+
+</div>
+
+[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact via the [DialogFlow][comp] integration with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
 
 To enable access to the Google Assistant API, do the following:
 
 1. In the [Cloud Platform Console][project], go to the Projects page. Select an existing project or create a new project
-2. Open the project. In the top of the page search for Google Assistant API or use [this link][API] and enable it.
-3. Create an [OAuth Client ID][oauthclient], pick type "Other", click "Create" and download the JSON file by clicking the Download JSON button on the right side.
+1. Open the project. In the top of the page search for Google Assistant API or use [this link][API] and enable it.
+1. Create an [OAuth Client ID][oauthclient], pick type "Other", click "Create" and download the JSON file by clicking the Download JSON button on the right side.
 
 Now install and activate the [Samba] add-on so you can upload your credential file. Connect to the "share" Samba share and copy your credentials over. Name the file `google_assistant.json`.
 
@@ -48,9 +54,9 @@ Find the microphone and speakers that you want to use and note down their device
 
 The next step is to authenticate your Google account with Google Assistant. Start the add-on and click on the "OPEN WEB UI" button to start authentication.
 
-### Add-On configuration
+### Add-on configuration
 
-Configuration example that uses the USB microphone and use the built-in headset audio output on the Raspberry Pi. Note that card and device numbers can differ on your device.
+Configuration example that uses the USB microphone and the built-in headset audio output on the Raspberry Pi. Note that card and device numbers can differ on your device.
 
 ```json
 {
@@ -60,21 +66,25 @@ Configuration example that uses the USB microphone and use the built-in headset 
 }
 ```
 
-Configuration variables:
+{% configuration %}
+mic:
+  description: This is the hardware address of your microphone. Look at the add-on output.
+  required: true
+  type: float
+speaker:
+  description: This is the hardware address of your speakers. Look at the add-on output.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **mic**: This is the hardware address of your microphone. Look at the add-on output 
-- **speaker**: This is the hardware address of your speakers. Look at the add-on output
+### Home Assistant configuration
 
-### {% linkable_title Home Assistant configuration %}
-
-Use the Home Assistant [api.ai component][comp] to integrate the add-on into Home Assistant.
-
+Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 
 [GoogleAssistant]: https://assistant.google.com/
 [GoogleActions]: https://actions.google.com/
-[api.ai]: https://api.ai/
 [Samba]: /addons/samba/
-[comp]: /components/apiai/
+[comp]: /integrations/dialogflow/
 [project]: https://console.cloud.google.com/project
 [API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 [oauthclient]: https://console.developers.google.com/apis/credentials/oauthclient

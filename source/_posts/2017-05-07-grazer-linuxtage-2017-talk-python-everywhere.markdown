@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Grazer Linuxtage 2017: Python Everywhere"
 description: "Florian Klien's talk at Grazer Linuxtage 2017 about Home Assistant."
 date: 2017-05-07 02:00:00
 date_formatted: "May 7, 2017"
 author: Florian Klien
 author_twitter: flowolf
-comments: true
 categories: Community Micropython
 og_image: /images/blog/2017-05-grazer-linuxtage/social.png
 ---

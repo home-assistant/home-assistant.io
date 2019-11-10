@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "1 year and 22 days ago I had an idea..."
 description: "An Easter gift from Home Assistant for all iOS fans"
 date: 2017-04-15 08:04:05 +0000
 date_formatted: "April 16, 2017"
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Announcements
 ---
 
@@ -24,7 +22,7 @@ I received emails and forum posts almost every day, even when the app would go w
 
 I wanted this app to be done 9 months ago, at least, but my drive to add more and more features killed that idea. This really taught me the value of the MVP over the kitchen sink.
 
-It may not look the way that I wanted it to initially, with beautiful native UI components, but thats okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.
+It may not look the way that I wanted it to initially, with beautiful native UI components, but that's okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.
 
 Just because the app is released doesn't mean we are at the end of the road. It's only the beginning. There's plenty of bugs to fix still, improvements to make, features to add. Beta testing will continue, and if anything, be expanded. I do want to have a native UI someday, but that's pretty hard with how fast the project moves.
 

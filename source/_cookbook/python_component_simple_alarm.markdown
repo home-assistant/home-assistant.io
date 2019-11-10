@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Flash lights when intruder detected"
 description: "Detect intruders by checking if the light is turning on while no one is home."
-date: 2016-02-14 0:40 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation in Python Examples
 ---
 
-This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify component](/components/notify/). It will also flash a specific light when a known person comes home.
+This example integration will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify integration](/integrations/notify/). It will also flash a specific light when a known person comes home.
 
-This component depends on the components [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
+This integration depends on the integrations [device_tracker](/integrations/device_tracker/) and [light](/integrations/light/) being setup.
 
 To set it up, add the following lines to your `configuration.yaml` file:
 
@@ -23,10 +17,16 @@ simple_alarm:
   unknown_light: group.living_room
 ```
 
-Configuration variables:
-
-- **known_light** (*Optional*): Which light/light group has to flash when a known device comes home.
-- **unknown_light** (*Optional*): Which light/light group has to flash red when light turns on while no one home.
+{% configuration %}
+known_light:
+  description: Which light/light group has to flash when a known device comes home.
+  required: false
+  type: string
+unknown_light:
+  description: Which light/light group has to flash red when light turns on while no one home.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Create the file `<config dir>/custom_components/simple_alarm.py` and copy paste the content below:
 

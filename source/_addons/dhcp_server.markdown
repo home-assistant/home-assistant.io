@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DHCP server"
 description: "A simple DHCP server."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Create a simple DHCP server for your network and allow setting fixed IPs for devices.
@@ -36,19 +30,63 @@ Create a simple DHCP server for your network and allow setting fixed IPs for dev
 }
 ```
 
-Configuration variables:
-
-- **domain** (*Required*): Your network domain name.
-- **dns** (*Required*): A list of DNS server for your network.
-- **networks** (*Optional*): A list of network to provide DHCP.
-  - **subnet** (*Required*): Your network schema.
-  - **netmask** (*Required*): Your network netmask.
-  - **range_start** (*Required*): Start address for dhcp leases.
-  - **range_end** (*Required*): End address for dhcp leases.
-  - **broadcast** (*Required*): Network broadcast address.
-  - **gateway** (*Required*): A List of gateways.
-  - **interface** (*Required*): Inteface on that will be listen. Normally is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
-- **hosts** (*Optional*): A list of fixed IPs for devices.
-  - **name** (*Required*): Name/hostname of your device.
-  - **mac** (*Required*): Mac address of your device.
-  - **ip** (*Required*): Fix ip address for device.
+{% configuration %}
+domain:
+  description: Your network domain name.
+  required: true
+  type: string
+dns:
+  description: A list of DNS server for your network.
+  required: true
+  type: list
+networks:
+  description: A list of network to provide DHCP.
+  required: false
+  type: list
+  keys:
+    subnet:
+      description: Your network schema.
+      required: true
+      type: string
+    netmask:
+      description: Your network netmask.
+      required: true
+      type: string
+    range_start:
+      description: Start address for DHCP leases.
+      required: true
+      type: string
+    range_end:
+      description: End address for DHCP leases.
+      required: true
+      type: string
+    broadcast:
+      description: Network broadcast address.
+      required: true
+      type: string
+    gateway:
+      description: A List of gateways.
+      required: true
+      type: list
+    interface:
+      description: Interface on that will be listen. Normally is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+      required: true
+      type: string
+hosts:
+  description: A list of fixed IPs for devices.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Name/hostname of your device.
+      required: true
+      type: string
+    mac:
+      description: Mac address of your device.
+      required: true
+      type: string
+    ip:
+      description: Fix IP address for device.
+      required: true
+      type: string
+{% endconfiguration %}

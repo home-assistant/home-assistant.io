@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Home Assistant Podcast #9"
 description: "Dale (dale3h) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
  leader and his contributions. Dale and Rohan also cover off the 0.54 release."
@@ -7,7 +6,6 @@ date: 2017-10-01 00:01:000000
 date_formatted: "October 1, 2017"
 author: Dan Faulknor
 author_twitter: dangeek
-comments: true
 categories: Media
 og_image: /images/hasspodcast.jpg
 ---

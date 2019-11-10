@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Missing Documentation"
 description: "The docs are missing or outdated"
-date: 2017-06-18 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Documentation
 ---
 

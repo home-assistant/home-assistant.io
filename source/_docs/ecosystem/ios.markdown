@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iOS"
 description: "Documentation about the Home Assistant iOS app."
-release_date: 2016-10-24 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/
 ---
 
@@ -27,38 +21,38 @@ The app is available on the iOS App Store in every country that Apple supports.
 * Home Assistant 0.42.4 or higher for push notification support.
 * SSL is strongly recommended. Self-signed SSL certificates will not work due to Apple's limitations.
 
-The `ios` component is the companion component for the Home Assistant iOS app. While not required, adding the `ios` component to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.
+The `ios` integration is the companion integration for the Home Assistant iOS app. While not required, adding the `ios` integration to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.
 
-Loading the `ios` component will also load the [`device_tracker`][device-tracker], [`zeroconf`][zeroconf] and [`notify`][notify] platforms.
+Loading the `ios` integration will also load the [`device_tracker`](/integrations/device_tracker), [`zeroconf`](/integrations/zeroconf) and [`notify`](/integrations/notify) platforms.
 
-## {% linkable_title Setup %}
+The Home Assistant for iOS app supports the new authentication system introduced in Home Assistant 0.77.
+
+## Setup
 
 ### Automated Setup
 
-The `ios` component will automatically be loaded under the following circumstances:
+The `ios` integration will automatically be loaded under the following circumstances:
 
-1. The [`discovery`][discovery] component is enabled.
+1. The [`discovery`](/integrations/discovery) integration is enabled.
 2. You have just installed the app and are at the getting started screen.
 
-Automated discovery and component loading only happens at first install of the app. You may need to wait a few minutes for the iOS component to load as the `discovery` component only scans the network every 5 minutes.
+Automated discovery and integration loading only happens at first install of the app. You may need to wait a few minutes for the iOS integration to load as the `discovery` integration only scans the network every 5 minutes.
 
-After the first automated setup you need to add `ios:` to your configuration so that the component loads by default even after restarting Home Assistant.
+After the first automated setup you need to add `ios:` to your configuration so that the integration loads by default even after restarting Home Assistant.
 
 ### Manual Setup
 
-You may also manually load the `ios` component by adding the following to your configuration:
+You may also manually load the `ios` integration by adding the following to your configuration:
 
 ```yaml
 # Example configuration.yaml entry
 ios:
 ```
 
-Configuration variables:
+{% configuration %}
+push:
+  description: Actionable push notifications configuration. See the [actionable notifications documentation](/docs/ecosystem/ios/notifications/actions/) for more information.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **push** (*Optional*): Actionable push notifications configuration. See the [actionable notifications documentation][actionable-notifications] for more information.
-
-[discovery]: /components/discovery
-[device-tracker]: /components/device_tracker
-[zeroconf]: /components/zeroconf
-[notify]: /components/notify
-[actionable-notifications]: /docs/ecosystem/ios/notifications/actions/

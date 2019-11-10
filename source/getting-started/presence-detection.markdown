@@ -1,55 +1,51 @@
 ---
-layout: page
 title: "Setting up presence detection"
-description: "Instructions how to setup presence detection within Home Assistant."
-date: 2015-10-04 12:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to setup presence detection within Home Assistant."
 ---
-
-<p class='note'>
-We care about privacy. Collected data is <b>only</b> stored in your instance of Home Assistant.
-</p>
 
 Presence detection detects if people are home, which is the most valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:
 
- - Send me a notification when my child arrives at school
- - Turn on the AC when I leave work
+- Send me a notification when my child arrives at school
+- Turn on the AC when I leave work
 
 <p class='img'>
 <img src='/images/screenshots/map.png' />
 Screenshot of Home Assistant showing a school, work and home zone and two people.
 </p>
 
-### {% linkable_title Setting it up %}
+### Adding presence detection
 
-The device tracker component offers presence detection for Home Assistant. It supports two different methods for presence detection: scan for connected devices on the local network and connect to third party service.
+There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
-Scanning for connected devices is easy to setup. See the instructions for our [supported routers][routers] or [scan the network using nmap][nmap]. This approach does have its limitations, however: it will only be able to detect if a device is at home, and iPhones may show as not home inaccurately (as iPhones disconnect from WiFi if idle).
+It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. If you're on iOS we suggest to use the [Home Assistant iOS app](/ios/). For Android, we suggest [OwnTracks][ha-owntracks].
 
-Home Assistant currently supports multiple third-party services for presence detection: [OwnTracks][ha-owntracks], [GPSLogger][ha-gpslogger] and [Locative][ha-locative]. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
+</div>
 
-<p class='note'>
-OwnTracks communicates directly with your MQTT broker; no data will pass through their servers.
-</p>
-
-### {% linkable_title Zones %}
+### Zones
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 
-Home Assistant will know the location of your device if you are using OwnTracks. By [setting up zones][zone] you will be able to add names to the locations of your devices. This way you can easily spot on the state page where the people in your house are and use it as [triggers][trigger] and [conditions][condition] for automation.
+Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
 
-[routers]: /components/#presence-detection
-[nmap]: /components/device_tracker.nmap_tracker/
-[ha-owntracks]: /components/device_tracker.owntracks/
-[ha-locative]: /components/device_tracker.locative/
-[ha-gpslogger]: /components/device_tracker.gpslogger/
-[mqtt-self]: /components/mqtt/#run-your-own
-[mqtt-cloud]: /components/mqtt/#cloudmqtt
-[zone]: /components/zone/
+<div class='note'>
+The map view will hide all devices that are home.
+</div>
+
+[routers]: /integrations/#presence-detection
+[nmap]: /integrations/nmap_tracker
+[ha-bluetooth]: /integrations/bluetooth_tracker
+[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
+[ha-owntracks]: /integrations/owntracks/
+[ha-locative]: /integrations/locative
+[ha-gpslogger]: /integrations/gpslogger
+[ha-presence]: /integrations/#presence-detection
+[mqtt-self]: /integrations/mqtt/#run-your-own
+[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
+[zone]: /integrations/zone/
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
+[ha-map]: /integrations/map/
 
-### [Next step: Use Home Assistant &raquo;](/getting-started/use/)
+### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)

@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "The Apache 2.0 License"
 description: "The License that all Home Assistant projects are licensed under"
-date: 2017-01-21 15:05:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Home Assistant source code is released under the following license.
 
-```
+```txt
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

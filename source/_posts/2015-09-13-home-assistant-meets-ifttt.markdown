@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant meets IFTTT"
 description: "Announcing new integration with IFTTT and some samples to get started."
 date: 2015-09-13 09:28 -0700
 date_formatted: "September 13, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To Release-Notes
 og_image: /images/blog/2015-09-ifttt/og_facebook.png
 ---
@@ -22,13 +20,13 @@ It is now possible to disable your irregation system if it is going to be cloudy
   <img src='/images/blog/2015-09-ifttt/splash.png'>
 </p>
 
-Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
+Head over to the [setup instructions](/integrations/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
 
 <!--more-->
 
 In each of the following examples, make sure to replace the XXX in the URL with your correct host address and API password.
 
-## {% linkable_title Turn off irregation system when not needed %}
+## Turn off irregation system when not needed
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-weather.png' />
@@ -38,12 +36,12 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "switch.irrigation" }
 
-## {% linkable_title Tweet when important events happen %}
+## Tweet when important events happen
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-twitter.png' />
@@ -65,7 +63,7 @@ automation:
     data: {"event":"HA_FIRE_ALARM", "value1":"The fire alarm just triggered!"}
 ```
 
-## {% linkable_title Turn on lights when I get home %}
+## Turn on lights when I get home
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-geo.png' />
@@ -75,12 +73,12 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "light.kitchen" }
 
-## {% linkable_title Flash lights when a new PR comes in for Home Assistant %}
+## Flash lights when a new PR comes in for Home Assistant
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-github.png' />
@@ -90,12 +88,12 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "group.all_lights", "flash":"yes" }
 
-## {% linkable_title Fire events when pressing the DO button %}
+## Fire events when pressing the DO button
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-do.png' />

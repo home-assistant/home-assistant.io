@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Examples"
 description: "Some automation examples to get you started."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-examples/
 ---
 
@@ -38,6 +32,7 @@ automation:
         after: '16:00:00'
         before: '23:00:00'
     action:
+      # With a single service call, we don't need a '-' before service - though you can if you want to
       service: homeassistant.turn_on
       entity_id: group.living_room
 
@@ -76,9 +71,9 @@ automation:
       event_data:
         entity_id: binary_sensor.cube_158d000103a3de
     action:
-      - service_template: notify.pushover
-        data_template: 
-          title: "Cube event detected"
-          message: "Cube has triggered this event: {{ trigger.event }}"
+      service_template: notify.pushover
+      data_template: 
+        title: "Cube event detected"
+        message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 {% endraw %}

@@ -1,0 +1,8 @@
+---
+---
+
+{% assign recent_release_post = site.categories['Release-Notes'].first %}
+
+<script>
+  document.location = '{{ recent_release_post.url }}{{ site.patch_version_notes }}';
+</script>
