@@ -1,6 +1,6 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-ruby "> 2.5.0"
+ruby '> 2.5.0'
 
 group :development do
   gem 'rake', '13.0.0'
@@ -20,3 +20,13 @@ end
 
 gem 'sinatra', '2.0.7'
 gem 'nokogiri', '1.10.5'
+
+# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library
+install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
+  gem 'tzinfo', '~> 1.2'
+  gem 'tzinfo-data'
+end
+
+# Performance-booster for watching directories on Windows
+gem "wdm", "~> 0.1.0" if Gem.win_platform?
