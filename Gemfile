@@ -24,7 +24,7 @@ gem 'nokogiri', '1.10.5'
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library
 install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-  gem 'tzinfo', '~> 1.2'
+  gem 'tzinfo', '~> 2.0'
   gem 'tzinfo-data'
 end
 

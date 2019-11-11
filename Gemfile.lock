@@ -104,10 +104,9 @@ GEM
     stringex (2.8.5)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    thread_safe (0.3.6)
     tilt (2.0.10)
-    tzinfo (1.2.5)
-      thread_safe (~> 0.1)
+    tzinfo (2.0.0)
+      concurrent-ruby (~> 1.0)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.6.0)
@@ -129,7 +128,7 @@ DEPENDENCIES
   sass-globbing (= 1.1.5)
   sinatra (= 2.0.7)
   stringex (= 2.8.5)
-  tzinfo (~> 1.2)
+  tzinfo (~> 2.0)
   tzinfo-data
 
 RUBY VERSION
