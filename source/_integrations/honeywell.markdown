@@ -61,6 +61,11 @@ region:
   required: true
   default: us
   type: string
+scan_interval:
+  description: How often to pull the data from Honeywell's API in seconds.
+  required: false
+  default: 600
+  type: string
 away_cool_temperature:
   description: "Cooling setpoint when away mode is on, in degrees Fahrenheit."
   required: false
