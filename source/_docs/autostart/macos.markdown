@@ -17,6 +17,8 @@ Home Assistant has been installed.         Open it here: http://localhost:8123
 
 Home Assistant will log to `~/Library/Logs/homeassistant.log`
 
+Configuration is kept in `~/.homeassistant`
+
 To uninstall the service, run:
 
 ```bash
