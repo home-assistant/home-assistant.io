@@ -8,9 +8,9 @@ ha_category:
 ha_iot_class: Local Poll
 ---
 
-The Hisense AEH-W4A1 is wifi module used to give wifi connectivity to some Hisense ACs and rebranded models (Smart Cool, Beko and others).
+The Hisense AEH-W4A1 is a WiFi module used to give WiFi connectivity to some Hisense ACs and rebranded models (Smart Cool, Beko and others).
 
-Later AC models use other wifi modules (like AEH-W4B1 and AEH-W4E1) that are not compatible or otherwise tested  with this integration.
+Later AC models use other WiFi modules (like AEH-W4B1 and AEH-W4E1) that are not compatible or otherwise tested with this integration.
 
 It is highly recommended not to use one of the official smartphone applications and this integration at the same time, to avoid problems related to command collision.
 
@@ -25,7 +25,15 @@ hisense_aehw4a1:
 ```
 
 Alternately, devices that are not discoverable can be statically configured.
-Use of static configuration disables automatic discovery.
+The use of static configuration disables automatic discovery.
+
+
+{% configuration %}
+ip_address:
+  description: One or more static IP addresses
+  required: false
+  type: list
+{% endconfiguration %}
 
 ```yaml
 # Static configured devices
@@ -35,9 +43,3 @@ hisense_aehw4a1:
   - 192.168.5.20
 ```
 
-{% configuration %}
-ip_address:
-  description: One or more static IP addresses
-  required: false
-  type: list
-{% endconfiguration %}
