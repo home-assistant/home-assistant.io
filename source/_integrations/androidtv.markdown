@@ -130,7 +130,7 @@ media_player:
         - 'playing':
             'media_session_state': 3  # this indentation is important!
         - 'standby'
-      'com.amazon.tv.launcher':
+      'com.amazon.avod':
         - 'playing':
             'wake_lock_size': 4  # this indentation is important!
         - 'playing':
