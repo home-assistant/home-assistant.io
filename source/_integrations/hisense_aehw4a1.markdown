@@ -5,7 +5,7 @@ logo: hisense.png
 ha_release: 0.102
 ha_category:
   - Climate
-ha_iot_class: Local Pull
+ha_iot_class: Local Poll
 ---
 
 The Hisense AEH-W4A1 is wifi module used to give wifi connectivity to some Hisense ACs and rebranded models (Smart Cool, Beko and others).
