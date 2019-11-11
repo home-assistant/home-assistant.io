@@ -24,7 +24,7 @@ The pin numbers are from 0 to 15, where: 0-7 correspond to port P0 (P0_0 - P0_7)
 
 ### Configuration
 
-To use the I/O pins of an pcal9535a connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
+To use the I/O pins of an PCAL9535A connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,11 +55,6 @@ pins:
       description: The pin numbers (from 0 to 15) and corresponding names.
       required: true
       type: [integer, string]
-scan_interval:
-  description: Interval to scan for sensor state changes in seconds.
-  required: false
-  type: integer
-  default: 15
 invert_logic:
   description: If `true`, inverts the output logic to ACTIVE LOW.
   required: false
@@ -82,7 +77,7 @@ The pin numbers are from 0 to 15, where: 0-7 correspond to port P0 (P0_0 - P0_7)
 
 ### Configuration
 
-To use the I/O pins of an pcal9535a connected to an I2C bus of your Raspberry Pi as switches, add the following to your `configuration.yaml` file:
+To use the I/O pins of a PCAL9535A connected to an I2C bus of your Raspberry Pi as switches, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,7 +115,7 @@ invert_logic:
   type: boolean
 strength:
   description: >
-    Control the output drive level of the GPIO. Each GPIO can be configured independently to one of the four possible output current levels. By programming these bits the user is changing the number of transistor pairs or ‘fingers’ that drive the I/O pad.
+    Control the output drive level of the GPIO. Each GPIO can be configured independently to one of the four possible output current levels. By programming these bits, the user is changing the number of transistor pairs or ‘fingers’ that drive the I/O pad.
     Options are `0.25`, `0.5`, `0.75`, `1.0`.
   required: false
   default: "`1.0`"
