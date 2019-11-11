@@ -39,17 +39,19 @@ $ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /P
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/network/). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### Windows
+
 Docker containers are completely isolated from its Windows host system. So when you delete a container, all the changes you made to that container are also removed. If you want to have configuration files or other assets remain persistent, try mounting Windows folders on containers.
 
-Before proceeding make sure you have shared out a drive for docker to mount to.  This will allow saving of config files to persist on the local machine rather than in the docker container. (which may be destroyed when upgraded)
-https://docs.docker.com/docker-for-windows/#shared-drives
-https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes
+Before proceeding, make sure you have shared out a drive for docker to mount to. This will allow the saving of config files to persist on the local machine rather than in the docker container (which may be destroyed when upgraded).
+
+<https://docs.docker.com/docker-for-windows/#shared-drives>
+<https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
 
 ```powershell
 $ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
 ```
 
-It’s easier to understand the trick when put into practice. Here we would like to mount a current working directory (something like C:\Users\<your login name>\homeassistant make sure this exists first) into the homeassistant/home-assistant:stable image at the /config location in the container. We would do that as so:
+It’s easier to understand the trick when put into practice. Here we would like to mount a current working directory (something like `C:\Users\<your login name>\homeassistant` make sure this exists first) into the `homeassistant/home-assistant:stable` image at the `/config` location in the container. We would do that as so:
 
 ```powershell
 $ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config --net=host homeassistant/home-assistant:stable
@@ -211,7 +213,7 @@ As the docker command becomes more complex, switching to `docker-compose` can be
       environment:
         - TZ=America/New_York
       restart: always
-	  network_mode: host
+      network_mode: host
 ```
 
 Then start the container with:
