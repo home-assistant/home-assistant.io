@@ -138,8 +138,7 @@ by adding the following to your `configuration.yaml`:
 xiaomi_miio:
 ```
 
-This will trigger automatic discovery at home assistant startup and will add all discovered lights.
-
+This will trigger automatic discovery at Home Assistant startup and will add all discovered lights.
 
 ## Platform Services
 
