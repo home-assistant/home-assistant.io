@@ -64,7 +64,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab (unique hex value found on the user profile page).
+  description: User id that can see the view tab (unique hex value found on the Users configuration page).
   type: string
 {% endconfiguration %}
 
@@ -120,7 +120,7 @@ If you define an icon the title will be used as a tool-tip.
 
 ## Visible
 
-You can specify the visibility of views as a whole or per-user.
+You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The url path is still accessible)
 
 ### Example
 
@@ -128,16 +128,16 @@ You can specify the visibility of views as a whole or per-user.
 views:
   - title: Ian
     visible:
-      - user: iantrich_id
+      - user: 581fca7fdc014b8b894519cc531f9a04
     cards:
       ...
   - title: Chelsea
     visible:
-      - user: cswehla_id
+      - user: 6e690cc4e40242d2ab14cf38f1882ee6
     cards:
       ...
   - title: Admin
-    visible: false
+    visible: db34e025e5c84b70968f6530823b117f
     cards:
       ...
 ```
