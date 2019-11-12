@@ -9,7 +9,9 @@ ha_iot_class: Cloud Polling
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
-One entity will be created for each gas station within the given radius and for each fuel type in it.
+One entity will be created for each fuel station within the given radius and for each fuel type in it.
+
+You can also add additional stations manually, referencing them via their IDs. To find out the ID for a given fuel station, you can use the [TankstellenFinder](https://creativecommons.tankerkoenig.de/TankstellenFinder/index.html) tool.
 
 ## Setup
 
@@ -57,8 +59,12 @@ radius:
 scan_interval:
   description: The time interval to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
   required: false
-  default: 0:30
+  default: 0:30:00
   type: time
+stations:
+  description: List of additional fuel stations to create entities for.
+  required: false
+  type: list
 {% endconfiguration %}
 
 ## Full example
@@ -76,4 +82,6 @@ sensor:
     longitude: 13.3777
     radius: 1
     scan_interval: "0:10:01"
+    stations:
+      - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
 ```
