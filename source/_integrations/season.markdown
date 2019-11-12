@@ -29,7 +29,6 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: season
-    type: astronomical
 ```
 
 {% configuration %}
