@@ -13,7 +13,7 @@ The `humidity` integration is built for the controlling and monitoring of humidi
 
 ### Humidity control services
 
-Available services: `humidity.set_preset_mode`, `humidity.set_humidity`, `humidity.set_humidifier_mode`, `humidity.turn_on`, `humidity.turn_off`
+Available services: `humidity.set_preset_mode`, `humidity.set_humidity`, `humidity.set_fan_mode`, `humidity.set_humidifier_mode`, `humidity.turn_on`, `humidity.turn_off`
 
 <div class='note'>
 
@@ -67,6 +67,29 @@ automation:
       data:
         entity_id: humidity.kitchen
         humidity: 60
+```
+
+### Service `humidity.set_fan_mode`
+
+Set fan operation for humidity device
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidity devices to control. Else targets all.
+| `fan_mode` | no | New value of fan mode
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: humidity.set_fan_mode
+      data:
+        entity_id: humidity.kitchen
+        fan_mode: 'On Low'
 ```
 
 ### Service `humidity.set_humidifier_mode`
