@@ -33,11 +33,9 @@ Add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 notify:
   - platform: azure_service_bus
-    name: Test Topic
     connection_string: !secret servicebus_connection_string
     topic: t-test
   - platform: azure_service_bus
-    name: Test Queue
     connection_string: !secret servicebus_connection_string
     queue: q-test
 ```
