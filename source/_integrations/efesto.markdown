@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Efesto heating devices within Hom
 logo: efesto.png
 ha_category: Climate
 ha_release: 0.102
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ---
 
 
