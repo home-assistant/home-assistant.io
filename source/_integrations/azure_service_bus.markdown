@@ -4,20 +4,20 @@ description: "Setup for Azure Service Bus integration"
 logo: azure_service_bus.svg
 ha_category:
   - Notification
-ha_release: 0.101
+ha_release: 0.102
 ---
 
-The `Azure Service Bus` integration allows you send messages to [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) from within Home Assistant.
+The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) from within Home Assistant.
 
-## First time setup
+## First-time setup
 
-This assumes you already have a Azure account. Otherwise create a free account [here](https://azure.microsoft.com/en-us/free/).
+This assumes you already have an Azure account. Otherwise, create a free account [here](https://azure.microsoft.com/en-us/free/).
 
-You need to create a Service Bus namespace, you can follow [this guide](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-create-namespace-portal).
+You need to create a Service Bus namespace; you can follow [this guide](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-create-namespace-portal).
 
 You must then create a Shared Access Policy for the Service Bus with `Send` claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Service Bus [go here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). Alternatively you can create a dedicated key for only one queue or topic, to restrict access to only that queue or topic.
 
-Once you have the connection string with `Send` policy, you can setup the integration itself.
+Once you have the connection string with `Send` policy, you can set up the integration itself.
 
 <div class='note warning'>
 
@@ -49,7 +49,7 @@ name:
   type: string
   default: notify
 connection_string:
-  description: Connection string found in the azure portal, with `send` claim in the key.
+  description: Connection string found in the Azure portal, with `send` claim in the key.
   required: true
   type: string
 queue:
@@ -70,9 +70,9 @@ If you plan to send all state changes from one or more entities within Home Assi
 
 ## Usage
 
-The notification service will translate the data given to a json object on service bus. The `message` field will always be set, but the fields `target` and `title` are optional and are only included in the service bus message if set. Any input given in the `data` section will be flatten to root of the json object and follow the structure given. All input given in the data section will be included on message.
+The notification service will translate the data given to a JSON object on the service bus. The `message` field will always be set, but the fields `target` and `title` are optional and are only included in the service bus message if set. Any input given in the `data` section, will be flattened to the root of the JSON object and follow the structure given. All input given in the data section will be included in the message.
 
-See example below for how an automation trigger translates to a message on the service bus.
+See the example below for how an automation trigger translates to a message on the service bus.
 
 ```yaml
 automation:
@@ -93,7 +93,7 @@ automation:
             explain: "Its starting to get dark"
 ```
 
-Message that can be retrieved from a queue or topic subscription:
+The message that can be retrieved from a queue or topic subscription:
 
 ```json
 {
