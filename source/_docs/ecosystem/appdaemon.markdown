@@ -57,7 +57,7 @@ import appdaemon.plugins.hass.hassapi as hass
 class FlashyMotionLights(hass.Hass):
 
   def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    self.listen_state(self.motion, "binary_sensor.drive", new="on")
   
   def motion(self, entity, attribute, old, new, kwargs):
     if self.sun_down():
@@ -78,7 +78,7 @@ import appdaemon.plugins.hass.hassapi as hass
 class MotionLights(hass.Hass):
 
   def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    self.listen_state(self.motion, "binary_sensor.drive", new="on")
   
   def motion(self, entity, attribute, old, new, kwargs):
     if self.self.sun_down():
