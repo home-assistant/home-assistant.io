@@ -19,7 +19,7 @@ To connect Somfy, you need to set up a developer account.
 3. Open the *My Apps* menu.
 4. Add a new App:
   - App Name: Home Assistant
-  - Callback URL: `<YOUR_HOME_ASSISTANT_URL>/auth/somfy/callback`
+  - Callback URL: `<YOUR_HOME_ASSISTANT_URL>/auth/external/callback`
   - Description: Home Assistant instance
   - Product: Somfy Open API
 5. Once Home Assistant restarted, go to Configuration>Integrations.

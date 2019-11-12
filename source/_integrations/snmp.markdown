@@ -82,7 +82,7 @@ baseoid:
   required: true
   type: string
 auth_key:
-  description: A"uthentication key for SNMPv3. Variable `priv_key` must also be set."
+  description: "Authentication key for SNMPv3. Variable `priv_key` must also be set."
   required: inclusive
   type: string
 priv_key:

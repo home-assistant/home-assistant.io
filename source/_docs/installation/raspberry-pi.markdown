@@ -6,7 +6,7 @@ redirect_from: /getting-started/installation-raspberry-pi/
 
 This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
-You must have Python 3.6 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
+You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
 
 <div class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well. This guide is also referred to as the "Advanced Guide" for a virtual environment install.

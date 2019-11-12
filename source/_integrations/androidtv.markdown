@@ -124,12 +124,21 @@ media_player:
       'com.ellation.vrv':
         - 'audio_state'
       'com.plexapp.android':
-        - 'playing':
-            'media_session_state': 3  # this indentation is important!
-            'wake_lock_size': 3       # this indentation is important!
         - 'paused':
             'media_session_state': 3  # this indentation is important!
             'wake_lock_size': 1       # this indentation is important!
+        - 'playing':
+            'media_session_state': 3  # this indentation is important!
+        - 'standby'
+      'com.amazon.avod':
+        - 'playing':
+            'wake_lock_size': 4  # this indentation is important!
+        - 'playing':
+            'wake_lock_size': 3  # this indentation is important!
+        - 'paused':
+            'wake_lock_size': 2  # this indentation is important!
+        - 'paused':
+            'wake_lock_size': 1  # this indentation is important!
         - 'standby'
 
   # Use an ADB server to setup a Fire TV device and don't get the running apps.

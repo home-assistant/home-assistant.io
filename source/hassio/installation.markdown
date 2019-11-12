@@ -101,19 +101,19 @@ The packages you need to have available on your system that will run Hass.io may
 
 ### Debian/Ubuntu
 
- - apparmor-utils
- - apt-transport-https
- - avahi-daemon
- - ca-certificates
- - curl
- - dbus
- - jq
- - socat
- - software-properties-common
+ - `apparmor-utils`
+ - `apt-transport-https`
+ - `avahi-daemon`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `jq`
+ - `socat`
+ - `software-properties-common`
 
 Optional:
 
- - network-manager
+ - `network-manager`
 
 <div class='note warning'>
 
@@ -123,14 +123,14 @@ Optional:
 
 ### Arch Linux
 
- - apparmor
- - avahi
- - ca-certificates
- - curl
- - dbus
- - docker
- - jq
- - socat
+ - `apparmor`
+ - `avahi`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `docker`
+ - `jq`
+ - `socat`
 
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 

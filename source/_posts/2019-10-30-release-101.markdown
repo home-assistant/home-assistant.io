@@ -103,12 +103,13 @@ Screenshot of the device picker.
 
 [mdonoughe](https://github.com/mdonoughe) added support the activate scene action in the automation editor.
 
+## Lovelace
+
+Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/) for all changes.
+
 ## In other news
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Proud to announce that the Visual Studio Code add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> reached v1.0.0! 🎉<br><br>This version ships the second generation code-server, VSCode 1.39, HA extension 1.3, updates MDI ext and adds a rainbow indent function ❤️<br><br>Oh, and it is FAST 🚀 <a href="https://t.co/eBe8CirZ4B">pic.twitter.com/eBe8CirZ4B</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1188044714571907072?ref_src=twsrc%5Etfw">October 26, 2019</a></blockquote>
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
-</blockquote>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It is done! Making magic with <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://twitter.com/hashtag/opencv?src=hash&amp;ref_src=twsrc%5Etfw">#opencv</a> <a href="https://twitter.com/hashtag/tensorflow?src=hash&amp;ref_src=twsrc%5Etfw">#tensorflow</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a>. <a href="https://t.co/ZiN5AE7ixt">https://t.co/ZiN5AE7ixt</a></p>&mdash; Esther Makes Tech (@esthermakestech) <a href="https://twitter.com/esthermakestech/status/1185696326710808576?ref_src=twsrc%5Etfw">October 19, 2019</a>
 </blockquote>
@@ -135,6 +136,78 @@ Screenshot of the device picker.
 - Add sensor platform to Airly integration ([@bieniu] - [#27717]) ([airly docs]) (new-platform)
 - Move imports in mqtt component ([@exxamalte] - [#27835]) ([mqtt docs]) (new-platform)
 
+## Release 0.101.1 - October 31
+
+- Bump songpal to fix a regression ([@rytilahti] - [#28115]) ([songpal docs])
+- Bump pymyq to 2.0.1 ([@bachya] - [#28348]) ([myq docs])
+- Bump pysaj to v0.0.13 (fix for sensor date) ([@fredericvl] - [#28351]) ([saj docs])
+- Bump env_canada to fixed 0.0.29 version ([@shmick] - [#28360]) ([environment_canada docs])
+- Fix Airly asyncio timeout error ([@bieniu] - [#28387]) ([airly docs])
+- Fix hdate spamming homeassistant log ([@tsvi] - [#28392]) ([jewish_calendar docs])
+- Fix check config ([@balloob] - [#28393])
+- Check for import errors before validating config ([@balloob] - [#28395])
+
+[#28115]: https://github.com/home-assistant/home-assistant/pull/28115
+[#28348]: https://github.com/home-assistant/home-assistant/pull/28348
+[#28351]: https://github.com/home-assistant/home-assistant/pull/28351
+[#28360]: https://github.com/home-assistant/home-assistant/pull/28360
+[#28387]: https://github.com/home-assistant/home-assistant/pull/28387
+[#28392]: https://github.com/home-assistant/home-assistant/pull/28392
+[#28393]: https://github.com/home-assistant/home-assistant/pull/28393
+[#28395]: https://github.com/home-assistant/home-assistant/pull/28395
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@fredericvl]: https://github.com/fredericvl
+[@rytilahti]: https://github.com/rytilahti
+[@shmick]: https://github.com/shmick
+[@tsvi]: https://github.com/tsvi
+[airly docs]: /integrations/airly/
+[environment_canada docs]: /integrations/environment_canada/
+[jewish_calendar docs]: /integrations/jewish_calendar/
+[myq docs]: /integrations/myq/
+[saj docs]: /integrations/saj/
+[songpal docs]: /integrations/songpal/
+
+## Release 0.101.2 - November 1
+
+- Prevent TypeError when KNX RGB(W) light value contains None ([@phispi] - [#28358]) ([knx docs])
+- Change Abode cache file path, add cache path to config flow ([@MisterWil] - [#28389]) ([abode docs])
+- SNMP switch fix integer support ([@rfpronk] - [#28425]) ([snmp docs])
+- Use server-specific unique_ids for Plex media_players ([@jjlawren] - [#28447]) ([plex docs])
+- Also install after_deps ([@balloob] - [#28453])
+
+[#28358]: https://github.com/home-assistant/home-assistant/pull/28358
+[#28389]: https://github.com/home-assistant/home-assistant/pull/28389
+[#28425]: https://github.com/home-assistant/home-assistant/pull/28425
+[#28447]: https://github.com/home-assistant/home-assistant/pull/28447
+[#28453]: https://github.com/home-assistant/home-assistant/pull/28453
+[@MisterWil]: https://github.com/MisterWil
+[@balloob]: https://github.com/balloob
+[@jjlawren]: https://github.com/jjlawren
+[@phispi]: https://github.com/phispi
+[@rfpronk]: https://github.com/rfpronk
+[abode docs]: /integrations/abode/
+[knx docs]: /integrations/knx/
+[plex docs]: /integrations/plex/
+[snmp docs]: /integrations/snmp/
+
+## Release 0.101.3 - November 5
+
+- Fix missing import ([@timmccor] - [#28460]) ([sonos docs])
+- Fix Airly if more than one config entry ([@bieniu] - [#28498]) ([airly docs])
+- Add deprecated attributes to light.reproduce_state ([@Santobert] - [#28557]) ([light docs])
+
+[#28460]: https://github.com/home-assistant/home-assistant/pull/28460
+[#28498]: https://github.com/home-assistant/home-assistant/pull/28498
+[#28557]: https://github.com/home-assistant/home-assistant/pull/28557
+[@Santobert]: https://github.com/Santobert
+[@bieniu]: https://github.com/bieniu
+[@timmccor]: https://github.com/timmccor
+[airly docs]: /integrations/airly/
+[light docs]: /integrations/light/
+[sonos docs]: /integrations/sonos/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -148,11 +221,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - __Removed__ - The following integrations have been removed:
-  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
+  - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
   - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
   - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399]) ([hipchat docs])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
+- __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 - __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e., "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
  - __Genius Hub__ - This addresses an issue that requires the `unique_id` of **climate** and **water_heater** entities to be changed. After upgrading HA with this change, users will have stale entities in the entity registry that they may wish to clear out. -  ([@zxdavb] - [#27916]) ([geniushub docs])
 - __Abode__ - The configuration variables were removed: `name`, `exclude` and `lights`, which were all previously optional. Existing users of the abode integration that use these configuration variables will have to remove them from the `configuration.yaml` file. Entities that users wish to disable can be done from the Entity Registry in the Configuration UI. - ([@shred86] - [#26699]) ([abode docs])
