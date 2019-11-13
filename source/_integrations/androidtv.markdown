@@ -75,7 +75,7 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. (Note: [these app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
