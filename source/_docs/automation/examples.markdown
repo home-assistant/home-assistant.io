@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Examples"
 description: "Some automation examples to get you started."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-examples/
 ---
 

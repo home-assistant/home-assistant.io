@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "fail2ban"
 description: "Setting up fail2ban to read Home Assistant's log files to improve security."
-date: 2018-08-29 15:30 AEST
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Infrastructure
 ---
 
@@ -17,19 +11,19 @@ This is a quick guide on how to set up `fail2ban` for Home Assistant. Contains e
 Debian/Ubuntu:
 
 ```bash
-$ sudo apt-get install fail2ban
+sudo apt-get install fail2ban
 ```
 
 CentOS/RHEL:
 
 ```bash
-$ sudo yum install epel-release
-$ sudo yum install -y fail2ban
+sudo yum install epel-release
+sudo yum install -y fail2ban
 ```
 Fedora:
 
 ```bash
-$ sudo dnf install -y fail2ban
+sudo dnf install -y fail2ban
 ```
 
 For other package managers use the appropriate commands.
@@ -48,7 +42,7 @@ logger:
 Restart Home Assistant to activate the changes:
 
 ```bash
-$ sudo systemctl restart home-assistant
+sudo systemctl restart home-assistant
 ```
 
 Tail the Home Assistant log then log out of the Home Assistant web interface and attempt logging in with an incorrect password, look for a line like `Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx`:
@@ -147,20 +141,20 @@ sudo tail -f -n 20 /var/log/fail2ban.log
 Now that fail2ban is working it can be enabled for startup at boot time, also raise the bantime from 30 seconds to what ever you would like. 8 hours is 28800 seconds.
 
 ```bash
-$ sudo sed -i 's/bantime = 30/bantime = 28800/g' /etc/fail2ban/jail.d/ha.conf
-$ sudo systemctl enable fail2ban
-$ sudo systemctl restart fail2ban
+sudo sed -i 's/bantime = 30/bantime = 28800/g' /etc/fail2ban/jail.d/ha.conf
+sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban
 ```
 
 A final note, if you need to unban an IP it can be done with `fail2ban-client`:
 
 ```bash
-$ sudo fail2ban-client set JAILNAME unbanip IPADDRESS
+sudo fail2ban-client set JAILNAME unbanip IPADDRESS
 ```
 eg:
 
 ```bash
-$ sudo fail2ban-client set ha unbanip xxx.xxx.xxx.xxx
+sudo fail2ban-client set ha unbanip xxx.xxx.xxx.xxx
 ```
 
 Fail2ban should now be configured and running, if an IP address is banned you will receive an email with WHOIS details about the IP address that attempted to connect, if not you will need configure Postfix or another MTA (Mail Transport Agent).

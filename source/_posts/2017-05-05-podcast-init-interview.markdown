@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Podcast.__init__ interview with Paulus Schoutsen"
 description: "Tobias Macey interviews our founder Paulus Schoutsen about Home Assistant."
 date: 2017-05-05 02:00:00
 date_formatted: "May 5, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Media
 og_image: /images/blog/2017-05-podcast-init/podcast_init.png
 ---

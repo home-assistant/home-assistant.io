@@ -1,18 +1,16 @@
 ---
-layout: post
 title: "Using MQTT with Home Assistant"
 description: "This post describes three different ways to use MQTT with Home Assistant."
 date: 2015-09-11 11:19:38 +0200
 date_formatted: "September 11, 2015"
 author: Fabian Affolter
-comments: true
 categories: How-To MQTT
 og_image: /images/blog/2015-09-mqtt/arduino.png
 ---
 
 {::options coderay_line_numbers="table" /}
 
-<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' /> [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](/components/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
+<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' /> [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](/integrations/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
 
 A great example is shown in a [Laundry Automation](/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/) post in this blog.
 
@@ -34,7 +32,7 @@ sensor:
     state_topic: "home-assistant/fabian/mood"
 ```
 
-After a restart of Home Assistant the "Mood" sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the [MQTT component](/components/mqtt/) or the [MQTT sensor](/components/sensor.mqtt/) documentation.
+After a restart of Home Assistant the "Mood" sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the [MQTT component](/integrations/mqtt/) or the [MQTT sensor](/integrations/sensor.mqtt/) documentation.
 
 Now we can set the mood. The commandline tool (`mosquitto_pub`) which is shipped with `mosquitto` is used to send an MQTT message.
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats"
 description: "No Home Assistant restart for reloading automations and groups, Automatic car tracking, Pi-Hole and battery details, and bugfixes for climate and cover"
 date: 2016-09-10 08:00:00 +0200
 date_formatted: "September 10, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 
@@ -136,25 +134,25 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@snikch]: https://github.com/snikch
 
-[modbus]: /components/modbus/
+[modbus]: /integrations/modbus/
 [rpi]: /getting-started/installation-raspberry-pi/
-[MPD]: /components/media_player.mpd/
-[Coinmarketcap]: /components/sensor.coinmarketcap
+[MPD]: /integrations/mpd
+[Coinmarketcap]: /integrations/coinmarketcap
 [template]: /topics/templating/
-[battery]: /components/sensor.linux_battery
-[group]: /components/group/
-[automation]: /components/automation/
-[Temper]: /components/sensor.temper/
-[mqtt-fan]: /components/fan.mqtt/
-[Xbox]: /components/sensor.xbox_live/
-[Nmap]: /components/device_tracker.nmap_tracker/
-[automatic]: /components/device_tracker.automatic/
-[Owntracks]: /components/device_tracker.owntracks/
-[OpenweatherMap]: /components/sensor.openweathermap/
-[OctoPrint]: /components/octoprint/
-[mfi-switch]: /components/switch.mfi/
-[mfi-sensor]: /components/sensor.mfi/
-[FireTV]: /components/media_player.firetv/
-[Kodi]: /components/media_player.kodi/
-[command-line-switch]: /components/switch.command_line/
-[command-line-cover]: /components/cover.command_line/
+[battery]: /integrations/linux_battery
+[group]: /integrations/group/
+[automation]: /integrations/automation/
+[Temper]: /integrations/temper
+[mqtt-fan]: /integrations/fan.mqtt/
+[Xbox]: /integrations/xbox_live
+[Nmap]: /integrations/nmap_tracker
+[automatic]: /integrations/automatic
+[Owntracks]: /integrations/owntracks
+[OpenweatherMap]: /integrations/openweathermap#sensor
+[OctoPrint]: /integrations/octoprint/
+[mfi-switch]: /integrations/mfi#switch
+[mfi-sensor]: /integrations/mfi#sensor
+[FireTV]: /integrations/androidtv
+[Kodi]: /integrations/kodi
+[command-line-switch]: /integrations/switch.command_line/
+[command-line-cover]: /integrations/cover.command_line/

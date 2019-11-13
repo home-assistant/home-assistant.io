@@ -1,17 +1,13 @@
 ---
-layout: page
 title: "Z-Wave Entity Naming"
 description: "A summary of common entity names."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
-<p class='note'>
-This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
-</p>
+<div class='note'>
+
+This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS).
+
+</div>
 
 ## Binary Sensor
 
@@ -151,7 +147,7 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **254**: Deep sleep
   - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
 ```yaml
@@ -177,7 +173,7 @@ binary_sensor:
    - **254**: Deep sleep
    - **255**: Case open
 
-If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
 ```yaml

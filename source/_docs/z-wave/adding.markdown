@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
-date: 2017-11-08 19:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 ## Adding Non-Secure Devices
@@ -20,9 +14,11 @@ To add (include) a non-secure Z-Wave [device](/docs/z-wave/devices/) to your sys
 
 Don't use this for [secure devices](/docs/z-wave/adding/#adding-secure-devices), since this is likely to limit the features the device supports.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Don't use the OpenZWave control panel (OZWCP), **or the physical button on a controller**, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won't have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.
-</p>
+
+</div>
 
 When you add a device, it may initially appear without a specific entity ID (e.g., `zwave.__`) and without other identifying information. Running a *Heal* should help speed this process up, and you'll need to run a *Heal* anyway so that all the devices in your Z-Wave network learn about the new device. You *might* need to restart Home Assistant (not reboot the system) to have the entity ID fully visible.
 
@@ -60,9 +56,9 @@ If the above command doesn't work then replace `LC_CTYPE=C` with `LC_ALL=C`:
 $ cat /dev/urandom | LC_ALL=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
-<p class='note warning'>
+<div class='note warning'>
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
-</p>
+</div>
 
 ## Adding Secure Devices
 
@@ -72,6 +68,10 @@ After defining your network key, follow these steps to add (include) a secure Z-
 2. Click the **Add Node Secure** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode
 3. Activate your device to be included by following the instructions provided with the device
 4. With the device in its final location, run a *Heal Network*
+
+<div class='note warning'>
+Secure devices require additional bandwidth, and too many secure devices can slow down your Z-Wave network. We recommend only using secure inclusion for devices that require it, such as locks.
+</div>
 
 ## Removing Devices
 

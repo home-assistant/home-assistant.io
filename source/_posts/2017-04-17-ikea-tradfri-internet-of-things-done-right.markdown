@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "IKEA Trådfri: Internet of Things done right"
 description: "We analyzed the recently released IKEA Trådfri hardware. It is the perfect companion hardware to Home Assistant."
 date: 2017-04-17 08:04:05 +0000
 date_formatted: "April 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 og_image: /images/blog/2017-04-tradfri/gateway.jpg
 ---
@@ -133,8 +131,8 @@ As it currently stands, this is going to be the perfect companion hardware to wo
 [rumors]: https://github.com/bwssytems/ha-bridge/issues/570#issuecomment-293505087
 [Homebridge]: https://github.com/nfarina/homebridge
 [hb-hass]: https://github.com/home-assistant/homebridge-homeassistant
-[emulated_hue]: /components/emulated_hue/
-[apiai]: /components/apiai/
+[emulated_hue]: /integrations/emulated_hue/
+[apiai]: /integrations/dialogflow
 [Haaska]: https://github.com/auchter/haaska
 [great marketing material]: https://i2.wp.com/blog.smartthings.com/wp-content/uploads/2014/06/summer-vacay-683x405-blog.png?fit=683%2C405&ssl=1
 [classification]: /blog/2016/02/12/classifying-the-internet-of-things/

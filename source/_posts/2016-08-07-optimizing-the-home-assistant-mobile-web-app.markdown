@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Optimizing the Home Assistant mobile web app"
 description: "A comprehensive list of optimizations done to improve our mobile web application."
 date: 2016-08-07 12:36 -0700
 date_formatted: "August 7, 2016"
 author: Paulus Schoutsen
-comments: true
 categories: Technology
 og_image: /images/blog/2016-08-optimizing-web-app/performance-diagram.png
 ---
@@ -105,7 +103,7 @@ Because the browser tracks your web components, creating standalone bundles for 
  - Find all dependencies included in the main bundle (using [hydrolysis])
  - Create individual bundles of each panel (page) but filter out the dependencies included in main bundle.
 
-The [build script][build-html] that bundles and minifies the main bundle and panel bundles is <100 lines.
+The build script that bundles and minifies the main bundle and panel bundles is <100 lines.
 
 ## Change the JavaScript bundler to Rollup
 
@@ -167,9 +165,8 @@ A lot of optimizations have been applied but this journey will never be over. Th
 [hajs]: https://github.com/home-assistant/home-assistant-js
 [es2015-arch]: https://github.com/home-assistant/home-assistant-polymer/wiki/Using-Polymer-with-ES2015,-Babel-and-NPM
 [NuclearJS]: https://optimizely.github.io/nuclear-js/
-[ImmutableJS]: https://facebook.github.io/immutable-js/
+[ImmutableJS]: https://immutable-js.github.io/immutable-js/
 [Polymer]: https://www.polymer-project.org/
-[build-html]: https://github.com/home-assistant/home-assistant-polymer/blob/master/script/vulcanize.js
 [Webpack]: https://webpack.github.io/
 [Rollup]: http://rollupjs.org/
 [lodash.range]: https://github.com/lodash/lodash/blob/3.1.7-npm-packages/lodash.range/index.js

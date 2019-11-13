@@ -1,24 +1,22 @@
 ---
-layout: page
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-date: 2017-02-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation/
 ---
 
-<p class='note'>
+<div class='note'>
+
 Beginners should check our [Getting started guide](/getting-started/) first.
-</p>
+
+</div>
 
 Home Assistant provides multiple ways to be installed. The first start may take up to 20 minutes because the required packages will be downloaded and installed. The web interface will be served on `http://ip.add.re.ss:8123/`. Replace `ip.add.re.ss` with the IP of the computer you installed it on.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
-</p>
+
+</div>
 
 ## Hardware
 
@@ -47,11 +45,16 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
+<div class='note'>
+
+The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and manual installer. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+
+</div>
+
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
 [Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
-[Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## Alternative installs
 
@@ -59,8 +62,8 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.6 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.6 or later|Developers
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7 or later|Developers
 
 ## Community provided guides
 
@@ -109,19 +112,13 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>Synology</div>
   </a>
-  <a class='option-card' href='/docs/installation/vagrant/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/vagrant.png' />
-    </div>
-    <div class='title'>Vagrant</div>
-  </a>
   <a class='option-card' href='/docs/installation/freenas/'>
     <div class='img-container'>
       <img src='/images/supported_brands/freenas.png' />
     </div>
     <div class='title'>FreeNAS</div>
   </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
+  <a class='option-card' href='/hassio/installation/#alternative-install-on-a-generic-linux-host'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
     </div>

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Templating"
 description: "Advanced automation documentation using templating."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-templating/
 ---
 
@@ -77,6 +71,8 @@ There are a few very important rules to remember when writing automation templat
 1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
+
+It is possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
 
 ## Trigger State Object
 

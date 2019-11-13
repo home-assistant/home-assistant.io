@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "YAML"
 description: "Details about YAML to configure Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/yaml/
 ---
 
-Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
+Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
 
-For each integration that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
-The following example entry specifies that you want to use the [notify component](/components/notify) with the [pushbullet platform](/components/notify.pushbullet).
+For integrations that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings. This especially applies to integrations that are not yet available to configure through the UI.
+
+The following example entry assumes that you would like to set up the [notify component](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
 
 ```yaml
@@ -34,14 +29,16 @@ Getting the right indentation can be tricky if you're not using an editor with a
 
 You can use the online service [YAMLLint](http://www.yamllint.com/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.
 
-<p class='note'>
-Please pay attention on not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
-</p>
+<div class='note'>
 
-Text following a `#` are comments and are ignored by the system.
+Please pay attention to not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in either a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this security problem.
 
-The next example shows an [input_select](/components/input_select) integration that uses a block collection for the options values.
-The other properties (like name) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
+</div>
+
+Strings of text following a `#` are comments and are ignored by the system.
+
+The next example shows an [input_select](/integrations/input_select) integration that uses a block collection for the values of options.
+The other properties (like `name:`) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
 
 ```yaml
 input_select:
@@ -66,16 +63,17 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### Using Environment Variables
+## Including values
 
-You can include values from your system's environment variables with `!env_var`.
+### Environmental variables
+You can include values from your system's environment variables with `!env_var`. Note that this will only work in a scenario where it is possible to specify these. Hass.io users are recommended to use `!include` statements instead.
 
 ```yaml
 http:
   api_password: !env_var PASSWORD
 ```
 
-#### Default Value
+#### Default value
 
 If an environment variable is not set, you can fallback to a default value.
 
@@ -84,7 +82,7 @@ http:
   api_password: !env_var PASSWORD default_password
 ```
 
-### Including Separate Files
+### Including entire files
 
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
@@ -100,7 +98,7 @@ More information about this feature can also be found at [splitting configuratio
 
 If you see the following message:
 
-```
+```txt
 found character '\t' that cannot start any token
 ```
 

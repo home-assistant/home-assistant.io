@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
@@ -24,9 +18,12 @@ If you have incorrect entries in your configuration files you can use the [`chec
 
 #### Problems with the configuration
 
-One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
+One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file. 
  
- - You can test your configuration using the command line with: `hass --script check_config`. On Hass.io you can use the [hassio command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
+ - You can test your configuration using the command line with: `hass --script check_config`.
+   - On Hass.io you can use the [hassio command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
+   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `homeassistant` is the name of the container.
+ - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
  - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
@@ -40,9 +37,9 @@ sensor:
     ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/components/) for instructions on how to setup the components.
+Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the components.
 
-See the [logger](/components/logger/) integration for instructions on how to define the level of logging you require for specific modules.
+See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 
@@ -84,9 +81,9 @@ Contents of `sensors.yaml`:
   ...
 ```
 
-<p class='note'>
+<div class='note'>
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
-</p>
+</div>
 
 ### Entity names
 

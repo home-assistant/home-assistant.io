@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Running AppDaemon"
 description: "Running AppDaemon"
-release_date: 2016-11-27 08:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/appdaemon/running/
 ---
 
@@ -51,7 +45,7 @@ $ appdaemon -c conf/appdaemon.cfg
 
 If all is well, you should see something like the following:
 
-```
+```bash
 $ appdaemon -c conf/appdaemon.cfg
 2016-08-22 10:08:16,575 INFO Got initial state
 2016-08-22 10:08:16,576 INFO Loading Module: /export/hass/appdaemon_test/conf/apps/hello.py
@@ -62,7 +56,7 @@ $ appdaemon -c conf/appdaemon.cfg
 
 ## AppDaemon arguments
 
-```
+```txt
 usage: appdaemon [-h] [-c CONFIG] [-p PIDFILE] [-t TICK] [-s STARTTIME]
                  [-e ENDTIME] [-i INTERVAL]
                  [-D {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [-v] [-d]

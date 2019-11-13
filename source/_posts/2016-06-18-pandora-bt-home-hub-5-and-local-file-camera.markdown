@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.22: Pandora, BT Home Hub 5 and local file camera."
 description: "This new release of Home Assistant has been mainly about stabilizing our last release which included a lot of core improvements. We're all stable now and set for a bright future."
 date: 2016-06-18 18:06:00 +0000
 date_formatted: "June 18, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -75,20 +73,20 @@ netatmo:
 [@philk]: https://github.com/philk/
 [@wind-rider]: https://github.com/wind/
 [@fabaff]: https://github.com/fabaff/
-[AsusWRT]: /components/device_tracker.asuswrt/
-[BT Home Hub 5]: /components/device_tracker.bt_home_hub_5/
-[Cast]: /components/media_player.cast/
-[IR switch device]: /components/mysensors/
-[local file]: /components/camera.local_file/
-[Netatmo]: /components/netatmo/
-[Pandora]: /components/media_player.pandora/
-[shell command]: /components/shell_command/
-[Sonos]: /components/media_player.sonos/
-[Wink]: /components/rollershutter.wink/
-[alexa]: /components/alexa/#working-with-scenes
-[Plex sensor]: /components/sensor.plex/
+[AsusWRT]: /integrations/asuswrt
+[BT Home Hub 5]: /integrations/bt_home_hub_5
+[Cast]: /integrations/cast
+[IR switch device]: /integrations/mysensors/
+[local file]: /integrations/local_file
+[Netatmo]: /integrations/netatmo/
+[Pandora]: /integrations/pandora
+[shell command]: /integrations/shell_command/
+[Sonos]: /integrations/sonos
+[Wink]: /integrations/wink/#cover
+[alexa]: /integrations/alexa/#working-with-scenes
+[Plex sensor]: /integrations/plex#sensor
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
 [All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
-[Voltage sensor]: /components/sensor.bloomsky/
-[SNMP]: /components/sensor.snmp/
+[Voltage sensor]: /integrations/bloomsky/#sensor
+[SNMP]: /integrations/snmp#sensor

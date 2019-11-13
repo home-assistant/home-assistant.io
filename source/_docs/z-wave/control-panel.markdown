@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Z-Wave Control Panel"
 description: "How to use the Z-Wave control panel."
-date: 2017-09-21 12:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-panel/
 ---
 
-<p class='note'>
-  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
-</p>
+<div class='note'>
+
+  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/integrations/config/).
+
+</div>
 
 Renaming Z-Wave entities is now done using the same [customization options](/docs/configuration/customizing-devices/) as for any other entity.
 
@@ -73,9 +69,9 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 *  **sentTS** The date and time the last message was sent to the node
 *  **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
 
-<p class='note'>
+<div class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
-</p>
+</div>
 
 #### Entities of this node
 
@@ -116,9 +112,9 @@ That would remove the broadcast group from association group 1 of the device wit
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
-<p class='note'>
+<div class='note'>
 The wakeup interval has no impact on the device's ability to report sensor changes. This is purely for how often the Z-Wave chip will check in with the controller. That activity consumes a lot of battery power compared to reporting sensor changes and if you reduce it you'll be reducing the battery life of your device.
-</p>
+</div>
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 

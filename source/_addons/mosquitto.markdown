@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mosquitto MQTT broker"
 description: "Fast and reliable MQTT broker."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
@@ -27,9 +21,11 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 }
 ```
 
-<p class='warning note'>
-Since version 4.1 of the addon, an explicit ACL definition is now required, [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
-</p>
+<div class='warning note'>
+
+Since version 4.1 of the addon, an explicit ACL definition is now required if you plan to use legacy logins and `"anonymous": true` [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
+
+</div>
 
 {% configuration %}
 anonymous:
@@ -45,6 +41,17 @@ customize:
   description: If you enable it, it reads additional configuration files (`*.conf`) from `/share/mosquitto`.
   required: false
   type: [boolean, string]
+  default: false
+cafile:
+  description: Path to the CA certificate. If not set, will default to the *certfile* value.
+  required: false
+  default: certfile
+  type: string
+require_certificate:
+  description: Restrict to users with a valid certificate only.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ### Home Assistant user management
@@ -104,7 +111,7 @@ acl_file /share/mosquitto/accesscontrollist
 3. Create `/share/mosquitto/accesscontrollist` with the contents:
 ```text
 user [YOUR_MQTT_USER]
-topic #
+topic readwrite #
 ```
 
 The `/share` folder can be accessed via SMB, or on the host filesystem under `/usr/share/hassio/share`.

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HASSbian 1.21 - It's about time isn't it"
 description: "New release of the HASSbian Raspberry Pi Image for Home Assistant"
 date: 2017-04-30 16:00:00 +0100
 date_formatted: "April 30, 2017"
 author: Fredrik Lindqvist
-comments: true
 categories: Technology
 ---
 
@@ -43,8 +41,8 @@ To follow discussions about the development of the HASSbian image or to contribu
 
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
 
-[cec]: /components/hdmi_cec/
+[cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [discord-devs]: https://discord.gg/8X8DTH4

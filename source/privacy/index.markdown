@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Privacy Policy"
 description: "Your privacy is super important to us. We will never gather any information from you unless we truly need it."
-date: 2017-10-19 01:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 Your privacy is critically important to us. At Home Assistant, we have a few fundamental principles:

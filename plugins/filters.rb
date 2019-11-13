@@ -100,13 +100,10 @@ module Jekyll
         if minor.length == 1
           "#{major}.X"
         else
-          "#{major}.#{minor[0]}X"
+          "#{major}.#{minor.chop}X"
         end
       }.map { |v|
         sort_key = v[1][-1]["sort_key"]
-        if v[0] == "0.X"
-          sort_key = "0.01" # Ensure 0.X is always sorted at bottom.
-        end
 
         total_new_components = 0
 
@@ -115,7 +112,7 @@ module Jekyll
         end
 
         { "label" => v[0], "versions" => v[1], "new_components_count" => total_new_components, "sort_key" => sort_key }
-      }.sort_by { |v| v["sort_key"] }.reverse
+      }.sort_by { |v| Gem::Version.new(v["sort_key"]) }.reverse
     end
 
     # Get version N behind current

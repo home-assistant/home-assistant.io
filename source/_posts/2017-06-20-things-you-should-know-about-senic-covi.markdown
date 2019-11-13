@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: fixed] A frank and serious warning about X"
 description: "The picture painted is not as great as it seems."
 date: 2017-06-20 01:04:05 +0000
 date_formatted: "June 20, 2017"
 author: Paulus Schoutsen & Robbie Trencheny
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 
@@ -17,9 +15,11 @@ categories: Public-Service-Announcement
 *Original post:*
 
 <!--more-->
-<p class='note'>
+<div class='note'>
+
 TL;DR: We are not affiliated with Senic or their COVI product. We will not support their users and you will get a subpar Home Assistant experience by using their product. **Furthermore, we cannot guarantee stability or security if you use Senic products.**
-</p>
+
+</div>
 
 Recently Home Assistant has been made aware of a product by [Senic] that will be launching later today on [Kickstarter][kickstarter] ([screenshot][ks-backup]). Senic is not new in the IoT business, we have had support for their first product ([Nuimo]) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their [developer documentation] ([screenshot][docs-backup]) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.
 
@@ -58,8 +58,8 @@ Core Developer, Home Assistant
 [netdisco-contrib]: https://github.com/home-assistant/netdisco/pull/94
 [hotfix]: /blog/2017/02/25/config-panel-and-state-restoration/#release-0392---march-1
 [Hass.io]: /hassio/
-[to Forbes]: https://webcache.googleusercontent.com/search?q=cache:https://www.forbes.com/sites/paularmstrongtech/2017/06/19/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
+[to Forbes]: https://www.forbes.com/sites/paularmstrongtech/2017/06/20/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
 [tradfri]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
-[Nuimo]: /components/nuimo_controller/
+[Nuimo]: /integrations/nuimo_controller/
 [developer documentation]: http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview
 [apology]: https://medium.com/@senic/an-open-letter-to-home-assistant-5ccb53ccf722

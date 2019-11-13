@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Script Editor"
 description: "Instructions on how to use the new script editor."
-date: 2016-08-26 03:30 +0000
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/script/editor/
 ---
 

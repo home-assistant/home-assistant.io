@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Synology"
 description: "Instructions on how to get Home Assistant up and running on Synology"
-release_date: 2016-12-07 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/synology/
 ---
 
@@ -17,7 +11,7 @@ Synology NAS are the perfect companion to running Home Assistant. But by default
 Starting with DSM 6.2.1+, you can create "custom headers" in the Application Portal:
 * Go to Application Portal and edit your entry
 * Click on "custom headers" tab and click the dropdon on the "Create" button
-* Select "Websocket". This will automaticly add the required headers for websocket to this reverse proxy.
+* Select "Websocket". This will automatically add the required headers for websocket to this reverse proxy.
 * Click "OK". Home Assistant should work now with the reverse proxy.
 
 It's not necessary anymore to change the template anymore since Version DSM 6.2.1. Changing the `Portal.mustache` is not recommended! You should use the following part only if you're using a Version before DSM 6.2.1. on your Synology.
@@ -28,7 +22,7 @@ To allow WebSocket by default for all service exposed by NGINX, you can enable i
 
 Open `/usr/syno/share/nginx/Portal.mustache` and add the followings in the `Location` section:
 
-```
+```text
         proxy_set_header        Upgrade             $http_upgrade;
         proxy_set_header        Connection          "upgrade";
         proxy_read_timeout      86400;
@@ -49,7 +43,7 @@ You can find more information [here](https://github.com/orobardet/dsm-reverse-pr
 - Copy the Home Assistant specific Reverse Proxy settings from the existing `/etc/nginx/app.d/server.ReverseProxy.conf` file to `/usr/local/etc/nginx/conf.d/http.HomeAssistant.conf`.
 - Include these lines in the location declaration:
 
-```
+```text
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
 ```

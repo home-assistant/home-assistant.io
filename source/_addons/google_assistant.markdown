@@ -1,22 +1,20 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Enhance your Hass.io installation with Google Assistant."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
-<p class='note warning'>
- These instructions are outdated - the add-on has been updated and these are no longer accurate or complete.
-</p>
+<div class='note warning'>
 
-<p class='note'>
-  If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
-</p>
+These instructions are outdated - the add-on has been updated and these are no longer accurate or complete.
+
+</div>
+
+<div class='note'>
+
+If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/integrations/google_assistant/).
+
+</div>
 
 [Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact via the [DialogFlow][comp] integration with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
 
@@ -86,7 +84,7 @@ Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into
 [GoogleAssistant]: https://assistant.google.com/
 [GoogleActions]: https://actions.google.com/
 [Samba]: /addons/samba/
-[comp]: /components/dialogflow/
+[comp]: /integrations/dialogflow/
 [project]: https://console.cloud.google.com/project
 [API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 [oauthclient]: https://console.developers.google.com/apis/credentials/oauthclient

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Documentation"
 description: "Documentation for Home Assistant"
-date: 2016-10-26 00:46
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.

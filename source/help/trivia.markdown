@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Trivia"
 description: "Home Assistant Trivia"
-date: 2015-11-03 19:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 This page contains only irrelevant and unhelpful information about Home Assistant. If you are going to prepare a talk about Home Assistant, perhaps some information mentioned here can be used for the intro.
@@ -61,7 +56,6 @@ The first commit in `git` was made on Sep 17, 2013 by [Paulus Schoutsen](https:/
 ```bash
 commit d55e4d53cccc9123d03f45c53441e7cbfc58e515
 Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
-Date:   Tue Sep 17 00:32:51 2013 -0700
 
     Initial commit
 ```

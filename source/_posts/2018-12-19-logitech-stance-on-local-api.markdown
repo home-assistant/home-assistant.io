@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Logitech's stance on local APIs"
 description: "Change of mind, Logitech is now committed to maintaining their local XMPP API for the Harmony Hub."
 date: 2018-12-19 00:01:00
 date_formatted: "December 19, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 

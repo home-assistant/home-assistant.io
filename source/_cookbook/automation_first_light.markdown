@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Examples using first light"
 description: "Automation examples that trigger lights in the morning."
-date: 2016-10-08 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

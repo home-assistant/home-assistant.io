@@ -1,30 +1,24 @@
 ---
-layout: page
 title: "MQTT Discovery"
 description: "Instructions on how to setup MQTT Discovery within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
 
 Supported by MQTT discovery:
 
-- [Alarm control panels](/components/alarm_control_panel.mqtt/)
-- [Binary sensors](/components/binary_sensor.mqtt/)
-- [Cameras](/components/camera.mqtt/)
-- [Covers](/components/cover.mqtt/)
-- [Fans](/components/fan.mqtt/)
-- [HVACs](/components/climate.mqtt/)
-- [Lights](/components/light.mqtt/)
-- [Locks](/components/lock.mqtt/)
-- [Sensors](/components/sensor.mqtt/)
-- [Switches](/components/switch.mqtt/)
-- [Vacuums](/components/vacuum.mqtt/)
+- [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensors](/integrations/binary_sensor.mqtt/)
+- [Cameras](/integrations/camera.mqtt/)
+- [Covers](/integrations/cover.mqtt/)
+- [Fans](/integrations/fan.mqtt/)
+- [HVACs](/integrations/climate.mqtt/)
+- [Lights](/integrations/light.mqtt/)
+- [Locks](/integrations/lock.mqtt/)
+- [Sensors](/integrations/sensor.mqtt/)
+- [Switches](/integrations/switch.mqtt/)
+- [Vacuums](/integrations/vacuum.mqtt/)
 
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
@@ -48,9 +42,11 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
-</p>
+
+</div>
 
 The discovery topic need to follow a specific format:
 
@@ -64,7 +60,7 @@ The discovery topic need to follow a specific format:
 
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-If the integration is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` id depracated and may be removed in a future version of Home Assistant.
+If the integration is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` is deprecated and may be removed in a future version of Home Assistant.
 
 An empty payload will cause a previously discovered device to be deleted.
 
@@ -76,7 +72,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
 Supported abbreviations:
-```
+```txt
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
@@ -211,7 +207,7 @@ Supported abbreviations:
 ```
 
 Supported abbreviations for device registry configuration:
-```
+```txt
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -230,10 +226,11 @@ The following software has built-in support for MQTT discovery:
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Examples
 
-A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
+A motion detection device which can be represented by a [binary sensor](/integrations/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
@@ -256,7 +253,7 @@ Delete the sensor by sending an empty message.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
+Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`

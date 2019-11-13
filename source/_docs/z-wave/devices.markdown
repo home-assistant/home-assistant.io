@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Devices"
 description: "What you need to know about Z-Wave devices."
-date: 2017-09-21 11:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-devices/
 ---
 
@@ -39,17 +33,19 @@ The key improvements are:
 
 ### Z-Wave Security 2
 
-From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (March 2018) OpenZWave does not support the S2 framework.
+From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (October 2019) OpenZWave does not support the S2 framework.
 
-## Device power
+## Device Power
 
 Your Z-Wave mesh network is built with the devices that are mains powered (whether directly, or via a USB adapter), these relay traffic for other nodes, building the network. These devices are always awake and you can query them, or send configuration changes, at any time.
 
 Battery powered devices spend most of their time asleep, unable to relay traffic, to be queried, or receive changes. Changes sent while a device is asleep will be queued and sent the next time the device wakes. Details of the default wake interval, and how to manually wake the device (if supported) will be detailed in the devices's manual. Some battery powered devices (primarily locks and thermostats) support beaming (the *Beam* command class) that allows them to be remotely woken. This does require that all devices in the network responsible for relaying the commands between the controller and the device also support beaming.
 
-<p class='note'>
+<div class='note'>
+
 The Z-Wave capability *routing* doesn't mean the device routes traffic, it actually means that it's able to control other devices. You'll see this capability on most remotes and switches.
-</p>
+
+</div>
 
 ## Instant Status
 
@@ -69,8 +65,8 @@ Polling needs to be enabled per device, you can control this through the *pollin
 
 The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/docs/z-wave/device-specific/#homeseer-switches).
 
-## Is my device supported
+## Is my device supported?
 
-You can check to see if OpenZWave supports your particular device by looking at the [OpenZWave github](https://github.com/OpenZWave/open-zwave/tree/master/config). Be aware that being listed here doesn't mean that it will be supported in Home Assistant, since the version of OpenZWave used by Home Assistant will often lag the github by a few months.
+You can check to see if OpenZWave supports your particular device by looking at the [OpenZWave 1.4 github](https://github.com/OpenZWave/open-zwave/tree/1.4/config). Be aware that being listed here doesn't mean that it will be supported in Home Assistant, since the version of OpenZWave used by Home Assistant will often lag the github by a few months.
 
 Even if your device isn't listed there, it's likely that it will still work as expected as long as the device complies with the Z-Wave standards. The OpenZWave wiki describes how [you can add support](https://github.com/OpenZWave/open-zwave/wiki/Adding-Devices) for your device if it isn't listed.

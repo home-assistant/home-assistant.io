@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Send notification based on sensor"
 description: "Basic example of how to send a templated notification if a sensor is over a given threshold"
-date: 2016-02-25 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

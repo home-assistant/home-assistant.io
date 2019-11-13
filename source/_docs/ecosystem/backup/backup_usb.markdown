@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configuration Backup to USB drive"
 description: "Instructions on how backup your Home Assistant configuration to USB drive"
-date: 2017-04-29 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This will step you through the process of setting up a backup of your Home Assistant configuration to a USB device. This is a good method if you don't want to mask all of your passwords since the backup is kept locally at your home/residence.

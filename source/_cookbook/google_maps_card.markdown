@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Show Google Maps as a card"
 description: "Example how to show a Google Map as a Google card."
-date: 2016-08-20 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: User Interface
 ---
 
@@ -27,7 +21,7 @@ camera:
 ```
 
 <p class='img'>
-  <img src='/images/components/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
+  <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
 </p>
 
-[generic camera platform]: /components/camera.generic/
+[generic camera platform]: /integrations/generic_ip_camera

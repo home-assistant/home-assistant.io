@@ -1,17 +1,9 @@
 ---
-layout: page
 title: "HomeMatic"
 description: "HomeMatic hardware support to turn you Home-Assistant into a CCU."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
-Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. For learning and handling devices use [Homematic-Manager](https://github.com/hobbyquaker/homematic-manager) > 2.0.
-
-The logic layer will be Home Assistant. There is no ReGa or other logic layer installed. You can't import an existing configuration, you'll need re-learn it into Home Assistant.
+You can't import an existing configuration, you'll need re-learn it into Home Assistant. There is an experimental WebUI alias Regahss support since 9.0 - before it was required to use a 3party tool.
 
 Follow devices will be supported and tested:
 
@@ -50,6 +42,7 @@ rf_enable:
   description: Enable or disable BidCoS-RF.
   required: true
   type: boolean
+  default: false
 rf:
   description: RF devices.
   required: true
@@ -67,6 +60,7 @@ wired_enable:
   description: Enable or disable BidCoS-Wired.
   required: true
   type: boolean
+  default: false
 wired:
   description: Wired devices.
   required: true
@@ -88,6 +82,7 @@ hmip_enable:
   description: Enable or disable hmip.
   required: true
   type: boolean
+  default: false
 hmip:
   description: HMIP devices.
   required: true

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Join the Community"
 description: "Part of the Home Assistant experience is the large world-wide community of tinkerers. Join us."
-date: 2019-04-19 00:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 You made it here? Good job! You've been able to install Home Assistant and get a small taste of all the things that are possible.

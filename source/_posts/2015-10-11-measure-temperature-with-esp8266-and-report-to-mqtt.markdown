@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Report the temperature with ESP8266 to MQTT"
 description: "Step by step tutorial to use ESP8266 and a HDC1008 to ."
 date: 2015-10-11 12:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To MQTT ESP8266
 og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 ---
@@ -35,7 +33,7 @@ I've been using Adafruit for my shopping:
 
  - [Adafruit HUZZAH ESP8266 Breakout](http://www.adafruit.com/product/2471) ([assembly instructions](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/assembly))
  - [Adafruit HDC1008 Temperature & Humidity Sensor Breakout Board](http://www.adafruit.com/product/2635) ([assembly instructions](https://learn.adafruit.com/adafruit-hdc1008-temperature-and-humidity-sensor-breakout/assembly))
- - [MQTT server](/components/mqtt/#picking-a-broker)
+ - [MQTT server](/integrations/mqtt/#picking-a-broker)
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 

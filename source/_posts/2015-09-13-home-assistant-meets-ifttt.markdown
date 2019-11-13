@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant meets IFTTT"
 description: "Announcing new integration with IFTTT and some samples to get started."
 date: 2015-09-13 09:28 -0700
 date_formatted: "September 13, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To Release-Notes
 og_image: /images/blog/2015-09-ifttt/og_facebook.png
 ---
@@ -22,7 +20,7 @@ It is now possible to disable your irregation system if it is going to be cloudy
   <img src='/images/blog/2015-09-ifttt/splash.png'>
 </p>
 
-Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
+Head over to the [setup instructions](/integrations/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
 
 <!--more-->
 
@@ -38,7 +36,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "switch.irrigation" }
@@ -75,7 +73,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "light.kitchen" }
@@ -90,7 +88,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "group.all_lights", "flash":"yes" }

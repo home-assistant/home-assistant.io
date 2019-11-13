@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
-date: 2016-07-01 08:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/secrets/
 ---
 
@@ -19,15 +13,19 @@ The workflow for moving private information to `secrets.yaml` is very similar to
 The entries for password and API keys in the `configuration.yaml` file usually looks like the example below.
 
 ```yaml
-http:
-  api_password: YOUR_PASSWORD
+homeassistant:
+  auth_providers:
+   - type: legacy_api_password
+     api_password: YOUR_PASSWORD
 ```
 
 Those entries need to be replaced with `!secret` and an identifier.
 
 ```yaml
-http:
-  api_password: !secret http_password
+homeassistant:
+  auth_providers:
+   - type: legacy_api_password
+     api_password: !secret http_password
 ```
 
 The `secrets.yaml` file contains the corresponding password assigned to the identifier.

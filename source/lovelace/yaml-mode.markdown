@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lovelace YAML mode"
 description: "Advanced users can switch on the advanced YAML mode."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace integration to be in yaml mode by adding the following to your `configuration.yaml`:
@@ -44,16 +38,11 @@ resources:
   - url: /local/my-webfont.css
     type: css
 
-# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/background.png") fixed
-
 views:
     # View tab title.
   - title: Example
     # Unique path for direct access /lovelace/${path}
     path: example
-    # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
     theme: dark-mode
     # The cards to show on this view.
@@ -107,3 +96,5 @@ Your previously customized Lovelace UI won't be modifiable anymore and won't fol
   - There you see the config for your actual Lovelace UI, you can copy that into the `<config>/ui-lovelace.yaml` file.
 
 Navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
+
+To revert back to using the UI to edit your Lovelace interface, remove the `lovelace` sections from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw config section of Home Assistant and restart.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart using init.d"
 description: "Documentation about setting up Home Assistant as a daemon running under init.d."
-release_date: 2016-12-02 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-init.d/
 ---
 
@@ -40,8 +34,9 @@ $ sudo service hass-daemon install
 
 This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage of a few seconds every week at night. If you do not want this add `--log-rotate-days 7` to the `FLAGS` variable in the init script.
 
-```
-/var/log/homeassistant/home-assistant.log
+File `/var/log/homeassistant/home-assistant.log`:
+
+```text
 {
         rotate 7
         daily

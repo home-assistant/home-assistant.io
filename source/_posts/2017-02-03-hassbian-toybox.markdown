@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HASSbian 1.1 - The Toy-box"
 description: "New release of the HASSbian Raspberry Pi Image for Home Assistant"
 date: 2017-02-04 05:00:00 -0400
 date_formatted: "February 4, 2017"
 author: Fredrik Lindqvist
-comments: true
 categories: Technology
 ---
 
@@ -26,12 +24,12 @@ Currently includes:
 All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's cloned on first boot and can be updated to the latest release with ease after.
 To update the hassbian-scripts directory execute the following command as the `pi` user.
 ```bash
-$ cd hassbian-scripts
-$ git pull
+cd hassbian-scripts
+git pull
 ```
 To use any of the hassbian-scripts, execute the following command as the `pi` user. Here we use the libcec script as an example.
 ```bash
-$ sudo ./hassbian-scripts/install_libcec.sh
+sudo ./hassbian-scripts/install_libcec.sh
 ```
 
 For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 
@@ -54,9 +52,9 @@ To follow discussions about the development of the HASSbian image or to contribu
  
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
  
-[cec]: /components/hdmi_cec/
+[cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
-[hassbian-avahi]: hassbian.local
+[hassbian-avahi]: https://hassbian.local
 [landrash-github]: https://github.com/Landrash
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

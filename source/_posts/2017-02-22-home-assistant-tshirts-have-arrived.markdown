@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant t-shirts have arrived!"
 description: "You asked and asked and we finally caved: Home Assistant t-shirts are here!"
 date: 2017-02-22 00:04:05 +0000
 date_formatted: "February 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Merchandise
 og_image: /images/blog/2017-02-shirts/social.png
 ---

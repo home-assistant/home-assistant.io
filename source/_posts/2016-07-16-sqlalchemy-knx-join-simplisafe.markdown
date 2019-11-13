@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe."
 description: "This new release of Home Assistant contains support for KNX, Join by Joaoapps, and SimpliSafe. As of now our new database backend is SQLAlchemy which gives you more flexibility for storing your data."
 date: 2016-07-16 12:00:00 +0000
 date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 
@@ -17,8 +15,8 @@ It's time for Home Assistant 0.24 and it's full of new integration for your Home
 [Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
 ```bash
-$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
+pip3 install SQLAlchemy
+hass --script db_migrator --config /path/to/config
 ```
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
@@ -75,25 +73,25 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@Danielhiversen]: https://github.com/danielhiversen
 
 
-[apcupsd-sensor]: /components/sensor.apcupsd/
-[Brightness]: /components/light/
+[apcupsd-sensor]: /integrations/apcupsd#sensor
+[Brightness]: /integrations/light/
 [CARTO]: https://carto.com/
-[Google Travel]: /components/sensor.google_travel_time/
+[Google Travel]: /integrations/google_travel_time
 [imap-sensor]: /component/sensor.imap/
-[join-joaoapps]: /components/joaoapps_join/
-[join-notify]: /components/notify.joaoapps_join/
-[KNX]: /components/knx/
+[join-joaoapps]: /integrations/joaoapps_join/
+[join-notify]: /integrations/joaoapps_join
+[KNX]: /integrations/knx/
 [MapQuest]: https://www.mapquest.com/
-[Plex]: /components/media_player.plex/
-[Radiotherm]: /components/thermostat.radiotherm/
-[recorder]: /components/recorder/
+[Plex]: /integrations/plex#media-player
+[Radiotherm]: /integrations/radiotherm/
+[recorder]: /integrations/recorder/
 [secrets]: /topics/secrets/
-[simplisafe]: /components/alarm_control_panel.simplisafe/
+[simplisafe]: /integrations/simplisafe
 [SQLAlchemy]: http://www.sqlalchemy.org/
-[StatsD]: /components/statsd/
-[Telegram]: /components/notify.telegram/
-[TPLink]: /components/switch.tplink/
-[Verisure]: /components/lock.verisure/
-[yahoo-weather]: /components/sensor.yweather/
-[Z-Wave]: /components/zwave/
-[RFXtrx]: //components/rfxtrx/
+[StatsD]: /integrations/statsd/
+[Telegram]: /integrations/telegram
+[TPLink]: /integrations/tplink
+[Verisure]: /integrations/verisure
+[yahoo-weather]: /integrations/yweather
+[Z-Wave]: /integrations/zwave/
+[RFXtrx]: /integrations/rfxtrx/

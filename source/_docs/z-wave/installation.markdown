@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Installation of the Z-Wave component."
-date: 2017-09-21 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
@@ -33,7 +27,7 @@ network_key:
   type: string
   default: None
 config_path:
-  description: "The path to the Python OpenZWave configuration files. NOTE: there is also the [update_config service](/docs/z-wave/services/) to perform updating the config within python-openzwave automatically."
+  description: The path to the Python OpenZWave configuration files.
   required: false
   type: string
   default: the 'config' that is installed by python-openzwave
@@ -55,7 +49,7 @@ autoheal:
 device_config / device_config_domain / device_config_glob:
   description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
   required: false
-  type: string, list
+  type: [string, list]
   keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
@@ -128,7 +122,7 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
-The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+If you did an alternative install on Linux then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`.
 
 ### Docker
 
@@ -143,34 +137,23 @@ $ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /et
 If the path of `/dev/ttyACM0` doesn't work then you can find the path of the stick by disconnecting and then reconnecting it, and running the following in the Docker host:
 
 ```bash
-$ ls -1tr /dev/tty*|tail -n 1
+ls -1tr /dev/tty*|tail -n 1
 ```
 
 The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
-
-### Hassbian
-
-You do not need to install any software to use Z-Wave.
-
-To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
-
-```bash
-$ ls -1tr /dev/tty*|tail -n 1
-```
 
 ### Community install methods
 
 #### Raspberry Pi specific
 
-On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
-#### Linux (except Hassbian)
+#### Linux
 
-On Debian Linux platforms there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
-$ sudo apt-get install libopenzwave1.5-dev
 ```
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.
@@ -180,7 +163,7 @@ You may also have to install the Python development libraries for your version o
 To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
 
 ```bash
-$ ls -ltr /dev/tty*|tail -n 1
+ls -ltr /dev/tty*|tail -n 1
 ```
 
 That will give you a line that looks something like this:
@@ -194,7 +177,7 @@ Where the date and time displayed is approximately the time you connected the US
 Or, if there is no result, try to find detailed USB connection info with:
 
 ```bash
-$ dmesg | grep USB
+dmesg | grep USB
 ```
 
 If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
@@ -217,13 +200,13 @@ The output from `ls -ltr` above contains the following information:
 When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
 
 ```bash
-$ sudo /Applications/Python\ x.x/Install\ Certificates.command
+sudo /Applications/Python\ x.x/Install\ Certificates.command
 ```
 
 On macOS you can find the USB stick with:
 
 ```bash
-$ ls /dev/cu.usbmodem*
+ls /dev/cu.usbmodem*
 ```
 
 ## Troubleshooting
@@ -249,32 +232,32 @@ systemctl disable ModemManager.service
 Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path (here we're using `/dev/ttyAMA0` for our Razberry board):
 
 ```bash
-$ ls -l /dev/ttyAMA0
+ls -l /dev/ttyAMA0
 ```
 
 You should then see something like this:
 
-```
+```txt
 crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
 ```
 
 The important pieces are the first piece `crw-rw----` and the group `dialout`. If those are different then, for your device path, run:
 
 ```bash
-$ sudo chgrp dialout /dev/ttyAMA0
-$ sudo chmod g+rw /dev/ttyAMA0
+sudo chgrp dialout /dev/ttyAMA0
+sudo chmod g+rw /dev/ttyAMA0
 ```
 
 Check too that the account you're running Home Assistant as is in the `dialout` group. For instance, if you're using `homeassistant`:
 
 ```bash
-$ groups homeassistant
+groups homeassistant
 ```
 
 That should include `dialout`, if it doesn't then:
 
 ```bash
-$ sudo usermod -aG dialout homeassistant
+sudo usermod -aG dialout homeassistant
 ```
 
 ### Unable to install Python Openzwave
@@ -283,13 +266,13 @@ If you're getting errors like:
 
     openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 
-Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).
+Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux).
 
 ### Random failures
 
 If you're having random failures of the mesh, devices going missing, things randomly not working, check your `OZW_Log.txt` for the following messages:
 
-```
+```txt
 WARNING: 500ms passed without reading the rest of the frame...aborting frame read
 WARNING: Out of frame flow! (0xfe).  Sending NAK
 WARNING: Checksum incorrect - sending NAK

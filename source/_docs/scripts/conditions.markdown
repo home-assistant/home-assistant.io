@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Conditions"
 description: "Documentation about all available conditions."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/scripts-conditions/
 ---
 
-Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
+Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation will stop executing. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
@@ -126,16 +120,16 @@ The sun state can be used to test if the sun has set or risen.
 
 ```yaml
 condition:
-    condition: state  # 'day' condition: from sunrise until sunset
-    entity_id: sun.sun
-    state: 'above_horizon'
+  condition: state  # 'day' condition: from sunrise until sunset
+  entity_id: sun.sun
+  state: 'above_horizon'
 ```
 
 ```yaml
 condition:
-    condition: state  # from sunset until sunrise
-    entity_id: sun.sun
-    state: 'below_horizon'
+  condition: state  # from sunset until sunrise
+  entity_id: sun.sun
+  state: 'below_horizon'
 ```
 
 #### Sun elevation condition
@@ -147,18 +141,18 @@ For an in depth explanation of sun elevation see [sun elevation trigger][sun_ele
 
 ```yaml
 condition:
-    condition: and  # 'twilight' condition: dusk and dawn, in typical locations
-    conditions:
-      - condition: template
-        value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') < 0 }}'{% endraw %}
-      - condition: template
-        value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') > -6 }}'{% endraw %}
+  condition: and  # 'twilight' condition: dusk and dawn, in typical locations
+  conditions:
+    - condition: template
+      value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") < 0 }}'{% endraw %}
+    - condition: template
+      value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") > -6 }}'{% endraw %}
 ```
 
 ```yaml
 condition:
-    condition: template  # 'night' condition: from dusk to dawn, in typical locations
-    value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') < -6 }}'{% endraw %}
+  condition: template  # 'night' condition: from dusk to dawn, in typical locations
+  value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") < -6 }}'{% endraw %}
 ```
 
 #### Sunset/sunrise condition
@@ -167,11 +161,11 @@ The sun condition can also test if the sun has already set or risen when a trigg
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-<p class='note warning'>
+<div class='note warning'>
 The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with highly skewed local time zone.
 
 It is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-</p>
+</div>
 
 ```yaml
 condition:
@@ -183,22 +177,22 @@ condition:
 
 ```yaml
 condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
-    conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
+  condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
+  conditions:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
 ```
 
 ```yaml
 condition:
-    condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
-    conditions:
-      - condition: sun
-        before: sunset
-      - condition: sun
-        after: sunrise
+  condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
+  conditions:
+    - condition: sun
+      before: sunset
+    - condition: sun
+      after: sunrise
 ```
 
 A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
@@ -239,13 +233,15 @@ condition:
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
 
-<p class='note tip'>
-A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
-</p>
+<div class='note tip'>
+
+A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
+
+</div>
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 condition:
@@ -257,18 +253,18 @@ condition:
 ### Examples
 
 ```yaml
-    condition:
-      - condition: numeric_state
-        entity_id: sun.sun
-        value_template: '{{ state.attributes.elevation }}'
-        below: 1
-      - condition: state
-        entity_id: light.living_room
-        state: 'off'
-      - condition: time
-        before: '23:00:00'
-        after: '14:00:00'
-      - condition: state
-        entity_id: script.light_turned_off_5min
-        state: 'off'
+condition:
+  - condition: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 1
+  - condition: state
+    entity_id: light.living_room
+    state: 'off'
+  - condition: time
+    before: '23:00:00'
+    after: '14:00:00'
+  - condition: state
+    entity_id: script.light_turned_off_5min
+    state: 'off'
 ```

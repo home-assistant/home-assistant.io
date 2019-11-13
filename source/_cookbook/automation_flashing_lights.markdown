@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Examples for flashing lights"
 description: "Automation examples for flashing lights in case of an alarm."
-date: 2016-03-30 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

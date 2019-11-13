@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "Improved Hass.io build system"
 description: "We're introducing a new and improved Hass.io build system for Hass.io and add-ons."
 date: 2017-09-26 04:00:00 +0100
 date_formatted: "September 26, 2017"
 author: Pascal Vizeli
-comments: true
 categories: Technology
 ---
 
-<p class='note'>
+<div class='note'>
 This is going to be a technical post for Hass.io add-on developers and people that run locally build add-ons (not the default).
-</p>
+</div>
 
 Two months ago we [introduced Hass.io][intro], allowing our users to easily install, update and manage their Home Assistant installation. In this short time we've seen great adoption from the community. Around 20% of our users are choosing Hass.io as their method of running Home Assistant today. We've also seen many add-ons being made available on [the forums][addon-repos]. There are currently 14 reposities full of add-ons being shared!
 
@@ -19,9 +17,11 @@ Hass.io is built on top of Docker, a container runtime. One thing that Docker di
 
 This change only impacts people that build add-ons or use add-ons that are built locally. You can check if your add-on is building locally on the detail page of add-ons.
 
-<p class='note'>
+<div class='note'>
+
 If you are an add-on developer, read [the documentation][publishing-addons] on how to publish your add-ons to Docker Hub. This will greatly improve the user experience.
-</p>
+
+</div>
 
 ### Template changes
 
@@ -29,13 +29,13 @@ As an add-on developer, you will only have to change one line in your template t
 
 Old:
 
-```
+```dockerfile
 FROM %%BASE_IMAGE%%
 ```
 
 New:
 
-```
+```dockerfile
 ARG BUILD_FROM
 FROM $BUILD_FROM
 ```
@@ -48,7 +48,7 @@ We have also updated our build scripts and replaced it with a [builder docker en
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: /hassio/installation/
-[builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
+[builder]: https://github.com/home-assistant/hassio-builder
 [frenck]: https://github.com/frenck
 [build-file]: /developers/hassio/addon_config/#add-on-extended-build
 [addon-repos]: https://community.home-assistant.io/tags/hassio-repository

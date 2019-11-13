@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notification Sounds"
 description: "Adding sounds to notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/sounds/
 ---
 
@@ -55,7 +49,7 @@ Notes:
 
 ### Preinstalled notification sounds
 
-```
+```txt
 US-EN-Alexa-Back-Door-Opened.wav
 US-EN-Alexa-Back-Door-Unlocked.wav
 US-EN-Alexa-Basement-Door-Opened.wav

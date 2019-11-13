@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV"
 description: "This new release of Home Assistant contains support for Envisalink, Homematic, Sony Bravia TV and HDMI-CEC. Additionally was the Wink support improved and CherryPy is the new WSGI server."
 date: 2016-07-01 00:31:00 +0000
 date_formatted: "July 1, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -78,30 +76,30 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [@rhooper]: https://github.com/rhooper/
 [@turbokongen]: https://github.com/turbokongen/
 [@w1ll1am23]: https://github.com/w1ll1am23/
-[envi-alarm]: /components/alarm_control_panel.envisalink/
-[envi-binary-sensor]: /components/binary_sensor.envisalink/
-[envi-sensor]: /components/sensor.envisalink/
-[Envisalink]: /components/envisalink/
-[HDMI-CEC]: /components/hdmi_cec/
-[hm-binary-sensor]: /components/binary_sensor.homematic/
-[hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/rollershutter.homematic/
-[hm-sensor]: /components/sensor.homematic/
-[hm-switch]: /components/switch.homematic/
-[Homematic]: /components/homematic/
-[Netatmo]: /components/sensor.netatmo/
-[OneWire]: /components/sensor.onewire/
-[OpenExchangeRates]: /components/sensor.openexchangerates/
-[Pushover]: /components/notify.pushover/
+[envi-alarm]: /integrations/envisalink
+[envi-binary-sensor]: /integrations/envisalink
+[envi-sensor]: /integrations/envisalink
+[Envisalink]: /integrations/envisalink/
+[HDMI-CEC]: /integrations/hdmi_cec/
+[hm-binary-sensor]: /integrations/homematic
+[hm-light]: /integrations/homematic
+[hm-rollershutter]: /integrations/homematic/
+[hm-sensor]: /integrations/homematic
+[hm-switch]: /integrations/homematic
+[Homematic]: /integrations/homematic/
+[Netatmo]: /integrations/netatmo#sensor
+[OneWire]: /integrations/onewire
+[OpenExchangeRates]: /integrations/openexchangerates
+[Pushover]: /integrations/pushover
 [secrets]: /topics/secrets/
-[Vera]: /components/lock.vera/
-[Wink]: /components/wink/
-[zwave-garage-door]: /components/garage_door.zwave/
-[zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/rollershutter.zwave/
-[Fixer.io]: /components/sensor.fixer/
-[persistent notifications]: /components/persistent_notification/
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[zwave-garage-door]: /integrations/zwave/#cover
+[zwave-light]: /integrations/zwave
+[zwave-rollershutter]: /integrations/zwave/#cover
+[Fixer.io]: /integrations/fixer
+[persistent notifications]: /integrations/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
-[Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
+[Sony Bravia TV]: /integrations/braviatv
+[Raspberry Pi GPIO pins]: /integrations/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

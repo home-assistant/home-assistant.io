@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart on macOS"
 description: "Instructions on how to setup Home Assistant to launch on Apple macOS."
-date: 2015-9-1 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-macos/
 ---
 
@@ -22,6 +16,8 @@ Home Assistant has been installed.         Open it here: http://localhost:8123
 ```
 
 Home Assistant will log to `~/Library/Logs/homeassistant.log`
+
+Configuration is kept in `~/.homeassistant`
 
 To uninstall the service, run:
 

@@ -1,20 +1,10 @@
 ---
-layout: page
 title: "Packages"
 description: "Describes all there is to know about configuration packages in Home Assistant."
-date: 2017-01-10 20:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/packages/
 ---
 
 Packages in Home Assistant provide a way to bundle different component's configuration together. We already learned about the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the integration key in the main `configuration.yaml` file. With packages we have a way to include different components, or different configuration parts using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
-
-<p class='note tip'>
-Note that if you use packages for your configuration, the configuration reloading buttons in the configuration panel will not reload your packages.
-</p>
 
 Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lower case) followed by a dictionary with the package config. For example, package `pack_1` would be created as:
 
@@ -56,7 +46,7 @@ homeassistant:
 
 The file `my_package.yaml` contains the "top-level" configuration:
 
-```
+```yaml
 switch:
   - platform: rest
     ...
@@ -78,9 +68,9 @@ There are some rules for packages that will be merged:
     ```
 3. Any integration that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
 
-<p class='note tip'>
+<div class='note tip'>
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
-</p>
+</div>
 
 ### Create a packages folder
 
@@ -92,7 +82,7 @@ homeassistant:
 ```
 
 This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than accross several.
+See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
 
 ### Customizing entities with packages
 

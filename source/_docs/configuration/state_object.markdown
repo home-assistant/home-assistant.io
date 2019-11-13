@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "State Objects"
 description: "Describes all there is to know about state objects in Home Assistant."
-date: 2016-03-12 12:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/state_object/
 ---
 
@@ -35,9 +29,9 @@ Attribute | Description
 --------- | -----------
 `friendly_name` | Name of the entity. Example: `Kitchen Ceiling`.
 `icon` | Icon to use for the entity in the frontend. Example: `mdi:home`.
-`hidden` | Boolean if the entity should not be shown in the frontend. Example: `true`.
 `entity_picture` | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.
 `assumed_state` | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`.
 `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.
+`hidden` | Boolean if the entity should not be shown in the frontend. Example: `true`. This does not apply to the Lovelace UI, and is only relevant for the old `states` UI.
 
 When an attribute contains spaces, you can retrieve it like this: `states.sensor.livingroom.attributes["Battery numeric"]`.

@@ -6,6 +6,7 @@
 public
 source/_stash
 source/stylesheets/screen.css
+source/.jekyll-cache/
 vendor
 node_modules
 source/.jekyll-metadata
@@ -16,3 +17,4 @@ source/.jekyll-metadata
 !.vscode/extensions.json
 !.vscode/tasks.json
 *.suo
+tags*

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "We Have Apps Now"
 description: "A new subsystem that allows automations to be coded using Python"
 date: 2016-08-16 06:00:00 -0400
 date_formatted: "August 16, 2016"
 author: Andrew Cockburn
-comments: true
 categories: How-To
 ---
 

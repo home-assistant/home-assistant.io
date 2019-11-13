@@ -1,11 +1,6 @@
 ---
-layout: page
 title: "After upgrading, your browser login gets stuck"
 description: "After upgrading, your browser login gets stuck"
-date: 2017-06-18 09:00
-comments: false
-sharing: true
-footer: true
 ha_category: Usage
 ---
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant Governance [updated]"
 description: "Protecting Home Assistant for all, now and into the future"
 date: 2017-01-21 15:05:00 -0800
 date_formatted: "January 21, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Organization
 ---
 

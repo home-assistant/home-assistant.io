@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Hass.io 2018"
 description: "We want to clarify how Hass.io relates to Home Assistant and talk about the roadmap for Hass.io in 2018."
 date: 2018-04-22 00:00:00
 date_formatted: "April 22, 2018"
 author: Pascal Vizeli
 author_twitter: pvizeli
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-hassio-2018/blogpost.png
 ---

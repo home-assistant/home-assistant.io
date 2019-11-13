@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "hass-cli 0.5: Area, Device Registry and event CLI"
 description: "Bulk editing for Areas!"
 date: 2019-02-11 00:01:00
 date_formatted: "February 11, 2018"
 author: Max Rydahl Andersen
 author_twitter: maxandersen
-comments: true
 categories: Announcements
 ---
 
@@ -146,7 +144,7 @@ Minor fixes:
 * fix bad typing [499b544](http://github.com/home-assistant/home-assistant-cli/commit/499b5449b0441b546ea48aff212754433457dbd5) @maxandersen
 * fix editor formatting [86d9bf8](http://github.com/home-assistant/home-assistant-cli/commit/86d9bf8bf6bfb5bec1a9f28177c105f84912a91b) @maxandersen
 * Fix version [3765a03](http://github.com/home-assistant/home-assistant-cli/commit/3765a03ccf11f0865baa7e70937279bcaa245352) @maxandersen
-* Fix version marker [edbe4bf](http://github.com/homeassistant/homeassistant-cli/commit/edbe4bf42e7d0993d68a367ca04ad80217aac395) @maxandersen
+* Fix version marker [edbe4bf](http://github.com/home-assistant/home-assistant-cli/commit/edbe4bf42e7d0993d68a367ca04ad80217aac395) @maxandersen
 
 Have fun!
 
@@ -154,4 +152,4 @@ Have fun!
 
 
 [@maxandersen]: https://xam.dk/about
-[hass-087]: https://www.home-assistant.io/blog/2019/02/06/release-87/
+[hass-087]: /blog/2019/02/06/release-87/

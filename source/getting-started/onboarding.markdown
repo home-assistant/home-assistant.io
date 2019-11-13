@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
-date: 2019-04-19 00:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Alright, you made it here. The tough part is done.

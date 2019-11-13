@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Setting up presence detection"
 description: "Instructions on how to setup presence detection within Home Assistant."
-date: 2015-10-04 12:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Presence detection detects if people are home, which is the most valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:
@@ -35,23 +29,23 @@ It's also possible to run an app on your phone to provide detailed location info
 
 Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
 
-<p class='note'>
+<div class='note'>
 The map view will hide all devices that are home.
-</p>
+</div>
 
-[routers]: /components/#presence-detection
-[nmap]: /components/device_tracker.nmap_tracker/
-[ha-bluetooth]: /components/device_tracker.bluetooth_tracker/
-[ha-bluetooth-le]: /components/device_tracker.bluetooth_le_tracker/
-[ha-owntracks]: /components/owntracks/
-[ha-locative]: /components/device_tracker.locative/
-[ha-gpslogger]: /components/device_tracker.gpslogger/
-[ha-presence]: /components/#presence-detection
-[mqtt-self]: /components/mqtt/#run-your-own
-[mqtt-cloud]: /components/mqtt/#cloudmqtt
-[zone]: /components/zone/
+[routers]: /integrations/#presence-detection
+[nmap]: /integrations/nmap_tracker
+[ha-bluetooth]: /integrations/bluetooth_tracker
+[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
+[ha-owntracks]: /integrations/owntracks/
+[ha-locative]: /integrations/locative
+[ha-gpslogger]: /integrations/gpslogger
+[ha-presence]: /integrations/#presence-detection
+[mqtt-self]: /integrations/mqtt/#run-your-own
+[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
+[zone]: /integrations/zone/
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
-[ha-map]: /components/map/
+[ha-map]: /integrations/map/
 
 ### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)

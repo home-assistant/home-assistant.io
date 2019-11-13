@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Integration"
 description: "Examples of how Home Assistant for iOS can be integrated with other apps"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/integration/
 ---
 

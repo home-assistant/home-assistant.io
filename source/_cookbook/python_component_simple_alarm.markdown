@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Flash lights when intruder detected"
 description: "Detect intruders by checking if the light is turning on while no one is home."
-date: 2016-02-14 0:40 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation in Python Examples
 ---
 
-This example integration will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify integration](/components/notify/). It will also flash a specific light when a known person comes home.
+This example integration will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify integration](/integrations/notify/). It will also flash a specific light when a known person comes home.
 
-This integration depends on the integrations [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
+This integration depends on the integrations [device_tracker](/integrations/device_tracker/) and [light](/integrations/light/) being setup.
 
 To set it up, add the following lines to your `configuration.yaml` file:
 

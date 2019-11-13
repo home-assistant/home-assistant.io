@@ -1,14 +1,8 @@
 ---
-layout: page
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
-date: 2018-08-23 09:40
 redirect_from:
-  - /components/auth/
-sidebar: true
-comments: false
-sharing: true
-footer: true
+  - /integrations/auth/
 ---
 
 Our authentication system secures access to Home Assistant.
@@ -25,9 +19,9 @@ When you start Home Assistant for the first time the _owner_ user account is cre
  - Configure integrations and other settings (coming soon).
  - Configure Hass.io (coming soon).
 
-<p class='note'>
+<div class='note'>
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
-</p>
+</div>
 
 ### Your Account Profile
 
@@ -39,7 +33,7 @@ You can:
 
 * Change the language you prefer Home Assistant to use.
 * Change your password. 
-* Select the [theme](/components/frontend/#defining-themes) for the interface of Home Assistant.
+* Select the [theme](/integrations/frontend/#defining-themes) for the interface of Home Assistant.
 * Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
@@ -60,7 +54,7 @@ Home Assistant provides several ways to authenticate. See the [Auth Providers](/
 
 ### Authentication failures from `127.0.0.1`
 
-If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/device_tracker.nmap_tracker/#exclude) from being scanned.
+If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/integrations/nmap_tracker#exclude) from being scanned.
 
 ### Bearer token warnings
 
@@ -70,7 +64,7 @@ Under the new authentication system you'll see the following warning logged when
 WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
 ```
 
-If you see this, you need to add an [`api_password`](/components/http/#api_password) to your `http:` configuration.
+If you see this, you need to add an [`api_password`](/integrations/http/#api_password) to your `http:` configuration.
 
 ### Bearer token informational messages
 
@@ -103,12 +97,12 @@ This is because we only allow an IP address as a client ID when your IP address 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. On Windows, edit the `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, or on Linux the `/etc/hosts` file,  and add following entry:
 
 ```text
-12.34.56.78 hassbian.home
+12.34.56.78 homeassistant.home
 ```
 
 Replace `12.34.56.78` with your Home Assistant's public IP address.
 
-This will allow you to open Home Assistant at `http://hassbian.home:8123/`
+This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
 ### Stuck on Loading data
 

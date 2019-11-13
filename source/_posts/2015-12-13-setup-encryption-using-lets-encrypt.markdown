@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "Set up encryption using Let's Encrypt"
 description: "Tutorial how to encrypt your connection with Home Assistant."
 date: 2015-12-13 10:05:00 -0800
 date_formatted: "December 13, 2015"
 author: Paulus Schoutsen & Martin Hjelmare
 author_twitter: balloob
-comments: true
 categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 ---
 
-<p class='note'>
+<div class='note'>
 The instructions in this blog post are outdated. Please have a look at the <a href='/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/'>new instructions</a>.
-</p>
+</div>
 
 Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.
 
@@ -102,7 +100,7 @@ http:
   ssl_key: /etc/letsencrypt/live/hass-example.duckdns.org/privkey.pem
 ```
 
-You can now navigate to https://hass-example.duckdns.org and enjoy encryption!
+You can now navigate to `https://hass-example.duckdns.org` and enjoy encryption!
 
 _Big thanks to Fabian Affolter for his help and feedback on this article._
 

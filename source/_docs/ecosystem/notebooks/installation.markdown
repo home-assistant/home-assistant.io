@@ -1,24 +1,20 @@
 ---
-layout: page
 title: "Installation"
 description: "Setup and first steps for Jupyter Notebooks and Home Assistant."
-date: 2016-07-23 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/notebooks/installation/
 ---
 
-To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/getting-started/installation-virtualenv/) in order to properly manage dependencies.
+To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/docs/installation/virtualenv/) in order to properly manage dependencies.
 
 ```bash
 $ pip3 install jupyter matplotlib
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
 Certain notebooks hosted in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks) require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks, install Home Assistant with `$ pip3 install homeassistant` as well.
-</p>
+
+</div>
 
 Run Jupyter from the command line.
 
@@ -31,7 +27,7 @@ $ jupyter notebook
 [I 17:22:18.922 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 
-Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "New" -> "Python3" to open a new notebook.
+Open `http://localhost:8888/` in your browser. Press "New" -> "Python3" to open a new notebook.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
@@ -43,9 +39,7 @@ You will get an empty notebook with one cell. Cells can contain code or text. To
   <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
 </p>
 
-The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/first-notebook.ipynb).
+The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/other/first-notebook.ipynb).
 
 
 As you can see is the Jupyter notebook workflow is very similar to working directly with a Python shell. One advantage of notebooks is that you can go back and forth between cells as you please and save your work.
-
-

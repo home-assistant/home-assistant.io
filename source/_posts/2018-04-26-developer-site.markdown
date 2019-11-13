@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "New developer website"
 description: "We have extracted the developer section of our website into its own website."
 date: 2018-04-26 00:01:00
 date_formatted: "April 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-developer-website/screenshot.png
 ---

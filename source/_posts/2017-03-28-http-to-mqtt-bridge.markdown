@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HTTP to MQTT bridge"
 description: "How to integrate IFTTT with HA using MQTT"
 date: 2017-03-28 06:00:00 +0000
 date_formatted: "March 28, 2017"
 author: petkov
-comments: true
 categories: How-To
 og_image: /images/blog/2017-03-bridge/social.png
 ---

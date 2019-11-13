@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Browsers"
 description: "Browser Compatibility List"
-date: 2016-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/browsers/
 ---
 
@@ -77,16 +71,15 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [elinks]: http://elinks.or.cz/ 
 [Epiphany]: https://wiki.gnome.org/Apps/Web
 [Firefox]: https://www.mozilla.org/en-US/firefox/
-[IE]: http://windows.microsoft.com/en-us/internet-explorer/download-ie
+[IE]: https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
-[Lynx]: http://lynx.browser.org/
-[Midori]: http://midori-browser.org/
-[Opera]: http://www.opera.com/
-[Safari]: http://www.apple.com/safari/
-[surf]: http://surf.suckless.org/
+[Lynx]: https://lynx.browser.org/
+[Midori]: https://www.midori-browser.org/
+[Opera]: https://www.opera.com/
+[Safari]: https://www.apple.com/safari/
+[surf]: https://surf.suckless.org/
 [Tor Browser]: https://www.torproject.org/
-[Uzbl]: http://www.uzbl.org/
+[Uzbl]: https://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
 [Waterfox]: https://www.waterfoxproject.org
-

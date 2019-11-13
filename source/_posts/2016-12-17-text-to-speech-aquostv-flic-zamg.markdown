@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.35: Text-to-speech, VLC, Flic, netdata"
 description: "Home Assistant learned to speak, VLC and AquosTV mediaplayer, Netdata, ZMAG, Flic, and Broadlink"
 date: 2016-12-17 08:04:05 +0000
 date_formatted: "December 17, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.35/social.png
 ---
@@ -30,7 +28,7 @@ Let you control [VLC media player][vlc-media] and  play sound on connected speak
 
 This Broadlink [switch][bl-switch] platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink [sensor][bl-sensor] platform adds support for Broadlink RM2 and A1 Devices.
 
-The [GPSLogger](/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
+The [GPSLogger](/integrations/gpslogger) now also supports attributes as the speed, direction, altitude, provider, and activity.
 
 ## All changes
 - Media player: Support for Sharp [AquaosTV][aquostv] ([@titilambert])
@@ -141,16 +139,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 
-[vlc-media]: /components/media_player.vlc/
-[aquostv]: /components/media_player.aquostv/
-[digitalloggers]: /components/switch.digitalloggers/
-[netdata]: /components/sensor.netdata/
-[bl-sensor]: /components/sensor.broadlink/
-[bl-switch]: /components/switch.broadlink/
-[hikvision]: /components/binary_sensor.hikvision/
-[zamg]: /components/sensor.zamg/
-[flic]: /components/binary_sensor.flic/
-[sensehat]: /components/sensor.sensehat/
-[tts]: /components/tts/
+[vlc-media]: /integrations/vlc
+[aquostv]: /integrations/aquostv
+[digitalloggers]: /integrations/digitalloggers
+[netdata]: /integrations/netdata
+[bl-sensor]: /integrations/broadlink#sensor
+[bl-switch]: /integrations/broadlink#switch
+[hikvision]: /integrations/hikvision
+[zamg]: /integrations/zamg#sensor
+[flic]: /integrations/flic
+[sensehat]: /integrations/sensehat/
+[tts]: /integrations/tts/
 [discord]: https://discord.gg/c5DvZ4e
 [discord-devs]: https://discord.gg/8X8DTH4

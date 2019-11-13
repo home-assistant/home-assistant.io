@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: new users only] Nest to turn off their API"
 description: "Nest has announced that they will shut down their API in August, no longer allowing you to access your data."
 date: 2019-05-08 00:01:00
 date_formatted: "May 8, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 og_image: /images/blog/2019-05-nest-data-bye-bye/notice.png
 ---

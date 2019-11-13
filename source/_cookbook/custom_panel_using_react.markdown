@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Custom Panel using React"
 description: ""
-date: 2016-07-29 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: User Interface
 ---
 

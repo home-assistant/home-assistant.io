@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Templating"
 description: "Instructions on how to use the templating feature of Home Assistant."
-date: 2015-12-12 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/templating/
 ---
 
@@ -17,19 +11,19 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify](/components/notify/) platforms and [alexa](/components/alexa/) component.
-- Process incoming data from sources that provide raw data, like [MQTT](/components/mqtt/), [`rest` sensor](/components/sensor.rest/) or the [`command_line` sensor](/components/sensor.command_line/).
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [alexa](/integrations/alexa/) component.
+- Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
 
-Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
+Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
-- [Mathematical operation](http://jinja.pocoo.org/docs/dev/templates/#math)
-- [Comparisons](http://jinja.pocoo.org/docs/dev/templates/#comparisons)
-- [Logic](http://jinja.pocoo.org/docs/dev/templates/#logic)
+- [Mathematical operation](https://jinja.palletsprojects.com/en/master/templates/#math)
+- [Comparisons](https://jinja.palletsprojects.com/en/master/templates/#comparisons)
+- [Logic](https://jinja.palletsprojects.com/en/master/templates/#logic)
 
-We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](http://jinja.pocoo.org/docs/dev/templates/).
+We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/master/templates/).
 
 The frontend has a template editor tool to help develop and debug templates. Click on the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> icon, create your template in the _Template editor_ and check the results on the right.
 
@@ -65,9 +59,11 @@ Extensions allow templates to access all of the Home Assistant specific states a
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value).
 
-<p class='note warning'>
-  Avoid using `states.sensor.temperature`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
-</p>
+<div class='note warning'>
+
+  Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+
+</div>
 
 Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
@@ -78,7 +74,7 @@ The next two statements result in the same value if the state exists. The second
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus.state }}
 ```
 {% endraw %}
 
@@ -146,11 +142,11 @@ With strings:
 ```
 {% endraw %}
 
-### {% linkable_title Working with Groups %}
+### Working with Groups
 
 The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
 
-#### {% linkable_title Expand examples %}
+#### Expand examples
 
 {% raw %}
 ```text
@@ -179,9 +175,58 @@ The same thing can also be expressed as a filter:
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` will convert datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `strptime(string, format)` will parse a string to a datetime based on a [format](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior).
+- `relative_time` will convert datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g. if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+
+### To/From JSON
+
+The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
+
+The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
+
+### To/From JSON examples
+
+In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = {'temperature': 25, 'unit': '°C'} %}
+stringified object: {{ temp }}
+object|to_json: {{ temp|to_json }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+stringified object: {'temperature': 25, 'unit': '°C'}
+object|to_json: {"temperature": 25, "unit": "\u00b0C"}
+```
+{% endraw %}
+
+Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = '{"temperature": 25, "unit": "\u00b0C"}'|from_json %}
+The temperature is {{ temp.temperature }}{{ temp.unit }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+The temperature is 25°C
+```
+{% endraw %}
 
 ### Distance
 
@@ -204,7 +249,7 @@ These can also be combined in any combination:
 ```
 {% endraw %}
 
-#### {% linkable_title Closest examples %}
+#### Closest examples
 
 The closest function and filter will find the closest entity to the Home Assisant location:
 
@@ -266,12 +311,16 @@ Closest to some entity:
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](http://jinja.pocoo.org/docs/dev/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/master/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
 - `cos(value)` will return the cosine of the input. Can be used as a filter.
 - `tan(value)` will return the tangent of the input. Can be used as a filter.
+- `asin(value)` will return the arcus sine of the input. Can be used as a filter.
+- `acos(value)` will return the arcus cosine of the input. Can be used as a filter.
+- `atan(value)` will return the arcus tangent of the input. Can be used as a filter.
+- `atan2(y, x)` will return the four quadrant arcus tangent of y / x. Can be used as a filter.
 - `sqrt(value)` will return the square root of the input. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
@@ -281,6 +330,7 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Regular expressions
 
@@ -392,7 +442,7 @@ If your template uses an `entity_id` that begins with a number (example: `states
 
 ### Templates without entities using `now()`
 
-Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/components/sensor.template/#working-without-entities)
+Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/integrations/template/#working-without-entities)
 
 ### Priority of operators
 

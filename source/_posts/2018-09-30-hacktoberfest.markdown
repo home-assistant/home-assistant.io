@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Participating in Hacktoberfest"
 description: "Home Assistant will be participating in Hacktoberfest to help people to get started with Open Source."
 date: 2018-09-30 08:00:00 +0000
 date_formatted: "September 30, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image: /images/blog/2018-09-hacktoberfest/hacktoberfest-2018.png
 ---
@@ -29,7 +27,7 @@ If you submit five (5) Pull Requests during October, you will have earned yourse
 
 **We want to focus on new contributors and people who want to get started on working on an Open Source project.**
 
-Are you ready? [Sign up for Hacktoberfest](https://hacktoberfest.digitalocean.com/sign_up/register)!
+Are you ready? [Sign up for Hacktoberfest](https://hacktoberfest.digitalocean.com/profile)!
 
 <!--more-->
 
@@ -81,5 +79,5 @@ If you think that you are not enough qualified to do it, don’t worry, there ar
 
 ## Not a coder? Not a problem!
 
-Also, feel free to [report bugs](https://github.com/home-assistant/home-assistant/issues/new/choose), give us feedback about your user experience, tell the community about your [super cool setup](https://community.home-assistant.io/c/projects), create a [super awesome frontend](https://community.home-assistant.io/c/projects/frontend) with [Lovelace](https://www.home-assistant.io/lovelace) or help other users in the [forum](https://community.home-assistant.io/).
+Also, feel free to [report bugs](https://github.com/home-assistant/home-assistant/issues/new/choose), give us feedback about your user experience, tell the community about your [super cool setup](https://community.home-assistant.io/c/projects), create a [super awesome frontend](https://community.home-assistant.io/c/projects/frontend) with [Lovelace](/lovelace) or help other users in the [forum](https://community.home-assistant.io/).
 

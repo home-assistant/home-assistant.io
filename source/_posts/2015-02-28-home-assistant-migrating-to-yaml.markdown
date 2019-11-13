@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Home Assistant moving to YAML"
 description: "Configuration will now be more flexible"
 date: 2015-03-01 20:38:00 +0100
 date_formatted: March 1, 2015
 author: "Theodor Lindquist"
-comments: true
 categories: Release-Notes
 ---
 
@@ -13,6 +11,6 @@ Home Assistant is now using [YAML](http://yaml.org/) for it's configuration file
 
 The new file is named configuration.yaml and if it can't be found in your config directory, Home Assistant will instead try to find the old configuration file, home-assistant.conf.
 
-The home-assistant.conf.example has been replaced with an updated [configuration.yaml.example](https://github.com/home-assistant/home-assistant/blob/dev/config/configuration.yaml.example).
+The home-assistant.conf.example has been replaced with an updated configuration.yaml.example.
 
 Users of Home Assistant should migrate as the old configuration format is deprecated.

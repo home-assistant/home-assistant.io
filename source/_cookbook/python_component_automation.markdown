@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation in Code"
 description: "A sample to do automations in Python Code."
-date: 2016-02-14 0:40 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation in Python Examples
 ---
 

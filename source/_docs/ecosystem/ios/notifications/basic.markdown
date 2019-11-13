@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Basic Notifications"
 description: "Basic notes about iOS notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/basic/
 ---
 
@@ -80,7 +74,7 @@ automation:
 
 
 ### Sending notifications to multiple phones
-To send notifications to multiple phones, create a [notification group](/components/notify.group/):
+To send notifications to multiple phones, create a [notification group](/integrations/notify.group/):
 ```yaml
 notify:
   - name: NOTIFIER_NAME

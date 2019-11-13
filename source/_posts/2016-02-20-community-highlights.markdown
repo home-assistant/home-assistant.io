@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Community Highlights
 description: Another round-up of the amazing things from our community including Alexa Lightning skill and HomeKit integration.
 date: 2016-02-20 01:06:00 -0800
 date_formatted: "February 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community Video
 og_image: /images/blog/2016-02-community-highlights/part-of-the-thing.png
 ---
@@ -21,7 +19,7 @@ Home Assistant land has been busy and a lot of people have been creating awesome
 
 ### Haaska - Alexa Skill Adapter for Home Assistant
 
-Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own [Alexa](/components/alexa/) component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the 'Ask Home Assistant' part when giving commands:
+Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own [Alexa](/integrations/alexa/) component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the 'Ask Home Assistant' part when giving commands:
 
  - "Alexa, set kitchen to twenty percent"
  - "Alexa, turn on evening scene"

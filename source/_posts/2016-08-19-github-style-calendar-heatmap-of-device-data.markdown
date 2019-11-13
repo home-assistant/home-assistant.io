@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Github-style calendar heatmap of device data"
 description: "Generating a Github-style calendar heatmap from your device data."
 date: 2016-08-19 06:00:00 +0000
 date_formatted: "August 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To IoT-Data
 og_image: /images/blog/2016-08-data-exploration/heatmap.png
 ---

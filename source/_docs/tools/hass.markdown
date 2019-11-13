@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "hass"
 description: "Description of hass."
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The command-line part of Home Assistant is `hass`.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Instructions on how-to enable Z-Wave with Hass.io."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add the following to your `configuration.yaml`:
@@ -20,7 +14,7 @@ zwave:
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Hass.io system, you may need to open the SD card on a Windows or Linux system.):
 
-```
+```txt
 dtoverlay=pi3-miniuart-bt
 ```
 

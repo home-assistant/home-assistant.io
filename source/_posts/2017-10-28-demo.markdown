@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant Demo"
 description: "Showing a demo of Home Assistant to an audience."
 date: 2017-10-28 10:00:00 +0200
 date_formatted: "October 28, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-10-interactive-demo/demo-random.png
 ---
@@ -29,7 +27,7 @@ To be safe for your talk, you don't want to depend on an internet connection. Th
 $ hass --demo-mode
 ```
 
-If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/components/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/integrations/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
 
 ```yaml
 sensor:
@@ -46,7 +44,7 @@ switch:
 </p>
 
 ## `random` platforms
-Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/integrations/random/#binary-sensor) platform in addition to the already available [`random` sensor](/integrations/random#sensor).
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
 
@@ -68,7 +66,7 @@ binary_sensor:
   Demo with `random` platforms
 </p>
 
-The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/integrations/#search/template) platforms or the [`input_*`](/integrations/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
 
 {% raw %}
 ```yaml

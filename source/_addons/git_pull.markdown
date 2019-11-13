@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Git pull"
 description: "Load and update configuration files for Home Assistant from a GIT repository."
-date: 2017-09-25 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Load and update configuration files for Home Assistant from a [Git](https://git-scm.com/) repository.
@@ -47,9 +41,13 @@ Load and update configuration files for Home Assistant from a [Git](https://git-
 - **git_command** (*Required*): `pull`/`reset`: Command to run. Leave this as `pull` if you are unsure.
 * **pull**: Incorporates changes from a remote repository into the current branch. Will preserve any local changes to tracked files.
 * **reset**: Will execute `git reset --hard` and overwrite any local changes to tracked files and update from the remote repository. Use with caution.
-<p class='note warning'>
-  Using the `reset` option will overwrite changes to tracked files. Tracked files are those visible in the git repository or those given by the output on this command: `git ls-tree -r master --name-only`.
-</p>
+
+<div class='note warning'>
+
+Using the `reset` option will overwrite changes to tracked files. Tracked files are those visible in the git repository or those given by the output on this command: `git ls-tree -r master --name-only`.
+
+</div>
+
 - **git_remote** (*Required*): Name of the tracked repository. Leave this as `origin` if you are unsure.
 - **git_prune** (*Required*): `true`/`false`: If set to true, the add-on will clean-up branches that are deleted on the remote repository, but still have cached entries on the local machine. Leave this as `false` if you are unsure.
 
@@ -71,6 +69,8 @@ Load and update configuration files for Home Assistant from a [Git](https://git-
 
 The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using `rsa` protocol.
 
-<p class='note warning'>
+<div class='note warning'>
+
 You should only use this add-on if you do not have an existing configuration or if your existing configuration is already in a Git repository. If the script does not find the necessary Git files in your configuration folder, it will delete anything that might be there. Please ensure that there is a `.git` folder before using this. You can verify this by listing the items in the configuration folder including hidden files. The command is `ls -a /config`.
-</p>
+
+</div>

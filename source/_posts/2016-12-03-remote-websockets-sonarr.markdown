@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.34: New Remote component, Websockets, Sonarr, GPSLogger"
 description: "Major improvements of HomeMatic, Tellstick, the HTTP component, and more."
 date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.34/social.png
 ---
@@ -123,7 +121,7 @@ We are working on a better solution for 0.35.
 ### Release 0.34.5 - December 12
 
  - Fix Nest sensors doing I/O inside event loop ([@balloob])
- - Fix Nest version bump not triggering re-install ([@R1chardTM])
+ - Fix Nest version bump not triggering re-install ([@EarthlingRich])
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
@@ -142,7 +140,7 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund
@@ -205,27 +203,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vemek]: https://github.com/vemek
 [@vkorn]: https://github.com/vkorn
 
-[amcrest]: /components/camera.amcrest/
-[boradlink]: /components/sensor.broadlink/
-[dsmr]: /components/sensor.dsmr/
-[dunehd]: /components/media_player.dunehd/
-[efergy]: /components/sensor.efergy/
-[filtering]: /components/http/
-[gpslogger]: /components/device_tracker.gpslogger/
-[harmony]: /components/remote.harmony/
-[homematic]: /components/homematic/
-[hook]: /components/switch.hook/
-[nest-cam]: /components/camera.nest/
-[nest]: /components/nest/
+[amcrest]: /integrations/amcrest
+[boradlink]: /integrations/broadlink#sensor
+[dsmr]: /integrations/dsmr
+[dunehd]: /integrations/dunehd
+[efergy]: /integrations/efergy
+[filtering]: /integrations/http/
+[gpslogger]: /integrations/gpslogger
+[harmony]: /integrations/harmony
+[homematic]: /integrations/homematic/
+[hook]: /integrations/hook
+[nest-cam]: /integrations/nest#camera
+[nest]: /integrations/nest/
 [nginx]: /ecosystem/nginx/
-[nut]: /components/sensor.nut/
-[philips]: /components/media_player.philips_js/
-[remote]: /components/remote/
-[rfxtrx]: /components/rfxtrx/
-[sonarr]: /components/sensor.sonarr/
-[tellstick]: /components/tellstick/
-[temper]: /components/sensor.temper/
-[threshold]: /components/binary_sensor.threshold/
+[nut]: /integrations/nut
+[philips]: /integrations/philips_js
+[remote]: /integrations/remote/
+[rfxtrx]: /integrations/rfxtrx/
+[sonarr]: /integrations/sonarr
+[tellstick]: /integrations/tellstick/
+[temper]: /integrations/temper
+[threshold]: /integrations/threshold
 [websockets]: /developers/websocket_api/
-[waqi]: /components/sensor.waqi/
+[waqi]: /integrations/waqi
 

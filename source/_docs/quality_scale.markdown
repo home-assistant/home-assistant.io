@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Quality Scale"
 description: "Details about the classification of integrations."
-date: 2018-09-26 23:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Integration Quality Scale scores each integration based on the code quality and user experience. Each level of the quality scale consists of a list of requirements. If an integration matches all requirements, it's considered to have reached that level.

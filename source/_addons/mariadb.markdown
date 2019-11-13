@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MariaDB"
 description: "MariaDB Server is one of the most popular database servers in the world."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
@@ -17,14 +11,14 @@ Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databa
   "logins": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "password": "securePassword"
     }
   ],
   "rights": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "database": "homeassistant",
       "grant": "ALL PRIVILEGES ON"
     }
@@ -47,7 +41,7 @@ logins:
       required: true
       type: string
     host:
-      description: Host for account. If you need an account on multiple hosts, use '%'.
+      description: Host for account. Use '%', to accept connections for this account from any host.
       required: true
       type: string
     password:

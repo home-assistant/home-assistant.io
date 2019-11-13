@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Code of Conduct"
 description: "The Code of Conduct for Home Assistant projects."
-date: 2017-01-21 15:05:00 -0800
 sidebar: false
-comments: false
-sharing: true
-footer: true
 redirect_from: /developers/code_of_conduct/
 ---
 

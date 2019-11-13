@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HASS Configurator"
 description: "Browser-based configuration file editor for Home Assistant."
-date: 2018-07-16 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 og_image: /images/hassio/screenshots/addon-hass-configurator.png
 ---

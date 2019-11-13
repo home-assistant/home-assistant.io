@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Basic MQTT Example"
 description: ""
-date: 2016-02-07 12:13
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Custom Python Component Examples
 ---
 
-<p class='note'>
-This example requires you to have the [MQTT integration](/components/mqtt/) up and running.
-</p>
+<div class='note'>
+
+This example requires you to have the [MQTT integration](/integrations/mqtt/) up and running.
+
+</div>
 
 This is a simple hello world example to show the basics of using MQTT in a custom integration. To use this example, create the file `<config dir>/custom_components/hello_mqtt.py` and copy the below example code.
 

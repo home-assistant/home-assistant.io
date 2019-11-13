@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/scripts/
 ---
 
@@ -38,6 +32,14 @@ The most important one is the action to call a service. This can be done in vari
   data:
     entity_id: group.bedroom
     brightness: 100
+```
+
+#### Activate a Scene
+
+Scripts may also use a shortcut syntax for activating scenes instead of calling the `scene.turn_on` service.
+
+```yaml
+- scene: scene.morning_living_room
 ```
 
 ### Test a Condition
@@ -200,8 +202,8 @@ The following automation shows how to capture the custom event `event_light_stat
 ```
 {% endraw %}
 
-[Script component]: /components/script/
+[Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
-[Alexa/Amazon Echo]: /components/alexa/
+[Alexa/Amazon Echo]: /integrations/alexa/
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/

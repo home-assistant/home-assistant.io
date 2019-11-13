@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tor Onion Service Configuration"
 description: "Configure Tor to work with Home Assistant to provide secure remote access without opening your firewall"
-date: 2016-07-06 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/tor_configuration/
 ---
 

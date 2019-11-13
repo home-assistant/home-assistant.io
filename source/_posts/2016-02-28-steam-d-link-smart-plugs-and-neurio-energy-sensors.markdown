@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.14: Steam, D-Link smart plugs and Neurio Energy Sensors"
 description: "Home Assistant 0.14 has arrived."
 date: 2016-02-27 14:15:00 -0800
 date_formatted: "February 28, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-02-release-14/social.png
 ---
@@ -32,7 +30,7 @@ It's been another two weeks which means it's time for release: 0.14!
  - Switch: [D-Link smart plugs] now supported ([@LinuxChristian])
  - Script: Toggle support added ([@Andythigpen])
  - Light: [Wemo] now supported ([@jaharkes])
- - Rollershutter: [Command line platform][rollershutter.command_line] added ([@t30])
+ - Rollershutter: Command line platform added ([@t30])
  - Sensor: [Steam] now supported ([@GreenTurtwig])
  - Binary Sensor: [Wink] now supported ([@w1ll1am23])
  - Demo has been updated ([@kfgoode])
@@ -50,31 +48,30 @@ It's been another two weeks which means it's time for release: 0.14!
  - Command line platforms for [switch][switch.cmd], [sensor][sensor.cmd] and [binary_sensor][binary_sensor.cmd] have been renamed to `command_line`.
  - The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See [the docs][sensor.rfxtrx] for more details.
 
-[sensor.rfxtrx]: /components/sensor.rfxtrx/
-[notify.command_line]: /components/notify.command_line/
-[Verisure]: /components/sensor.verisure/
-[binary_sensor.tcp]: /components/binary_sensor.tcp/
-[sensor.tcp]: /components/sensor.tcp/
-[Neurio energy sensor]: /components/sensor.neurio_energy/
-[nx584]: /components/binary_sensor.nx584/
+[sensor.rfxtrx]: /integrations/sensor.rfxtrx/
+[notify.command_line]: /integrations/notify.command_line/
+[Verisure]: /integrations/verisure
+[binary_sensor.tcp]: /integrations/tcp#binary-sensor
+[sensor.tcp]: /integrations/tcp#sensor
+[Neurio energy sensor]: /integrations/neurio_energy
+[nx584]: /integrations/nx584#binary-sensor
 [triggers]: /getting-started/automation-trigger/#state-trigger
 [conditions]: /getting-started/automation-condition/#state-condition
-[Nest]: /components/sensor.nest/
-[Ubiquiti Unifi]: /components/device_tracker.unifi/
-[MySensors]: /components/binary_sensor.mysensors/
-[Bloomsky]: /components/binary_sensor.bloomsky/
-[Z-Wave]: /components/binary_sensor.zwave/
-[D-Link smart plugs]: /components/switch.dlink/
-[Wemo]: /components/light.wemo/
-[rollershutter.command_line]: /components/rollershutter.command_line/
-[Steam]: /components/sensor.steam_online/
-[Wink]: /components/binary_sensor.wink/
+[Nest]: /integrations/nest#sensor
+[Ubiquiti Unifi]: /integrations/unifi
+[MySensors]: /integrations/binary_sensor.mysensors/
+[Bloomsky]: /integrations/bloomsky#binary-sensor
+[Z-Wave]: /integrations/zwave
+[D-Link smart plugs]: /integrations/dlink
+[Wemo]: /integrations/wemo
+[Steam]: /integrations/steam_online
+[Wink]: /integrations/wink#binary-sensor
 [the cookbook]: /cookbook/python_component_simple_alarm/
-[script]: /components/script/
-[Wemo component]: /components/wemo/
-[switch.cmd]: /components/switch.command_line/
-[sensor.cmd]: /components/sensor.command_line/
-[binary_sensor.cmd]: /components/binary_sensor.command_line/
+[script]: /integrations/script/
+[Wemo component]: /integrations/wemo/
+[switch.cmd]: /integrations/switch.command_line/
+[sensor.cmd]: /integrations/sensor.command_line/
+[binary_sensor.cmd]: /integrations/command_line
 
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@turbokongen]: https://github.com/turbokongen

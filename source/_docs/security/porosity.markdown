@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Home Assistant/Hass.io porosity"
 description: "Use nmap to scan your Home Assistant instance."
-date: 2016-10-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 As a large amount of users are running [Hass.io](/hassio/), here we are using a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview.
 
-The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network.
+The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to perform the port scans. Both systems are in the same network.
 
 ## SSH server Add-on
 

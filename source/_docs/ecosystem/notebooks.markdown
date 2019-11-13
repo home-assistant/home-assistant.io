@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Jupyter Notebooks"
 description: "Jupyter Notebooks to interact offline and online with Home Assistant."
-release_date: 2016-11-13 15:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/notebooks/
 ---
 

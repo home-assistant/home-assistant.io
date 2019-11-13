@@ -1,48 +1,64 @@
-- topic: Platform
-  description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
-- topic: Component
-  description: "[Components](/docs/configuration/platform_options/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
-- topic: Condition
-  description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."  
-- topic: Service
-  description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Action
   description: "[Actions](/docs/automation/action/) are events that fires once all triggers and conditions have been met."
-- topic: Event
-  description: "An [event](/docs/configuration/events/) is when something happens."
-- topic: Entity
-  description: "An [entity](/docs/configuration/platform_options/) is the representation of a single device, unit or web service."
-- topic: Device
-  description: "A device is usually a physical unit which can do or observe something."
-- topic: Hassbian
-  description: "[Hassbian](/docs/installation/hassbian/) is a customized operating system specifically tailored for Raspberry Pi users. It is one of the easiest way of installing and running Home Assistant on a Raspberry Pi."
-- topic: Discovery
-  description: "[Discovery](/components/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
-- topic: Group
-  description: "[Groups](/components/group/) are a way to organize your entities into a single unit."
 - topic: Automation
-  description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as sunset to cause an event, such as a light turning on."
-- topic: Trigger
-  description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
-- topic: Template
-  description: "A [template](/docs/automation/templating/) is an automation definition that can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
-- topic: Script
-  description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
-- topic: Scene
-  description: "[Scenes](/components/scene/) capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red." 
-- topic: HADashboard
-  description: "[HADashboard](/docs/ecosystem/hadashboard/) is a modular, skinnable dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
-- topic: hass
-  description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command line tool."
-- topic: Hass.io
-  description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended."
+  description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as a sunset to cause an event, such as a light turning on."
+- topic: Binary sensor
+  description: "A [binary sensor](/integrations/binary_sensor) returns information about things that only have two states - such as on or off."
+- topic: Component
+  description: "Integrations (see below) used to be known as components."
+- topic: Condition
+  description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."  
 - topic: Cookbook
   description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
-- topic: Packages
-  description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
+- topic: Cover
+  description: "[Covers](/integrations/cover) are devices such as blinds, garage doors, etc than can be opened and closed and optionally set to a specific position."
 - topic: Customize
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
-- topic: Zone
-  description: "[Zones](/components/zone/) are areas that can be used for presence detection."
+- topic: Device
+  description: "A device is usually a physical unit which can do or observe something."
+- topic: Device tracker
+  description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
+- topic: Discovery
+  description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
+- topic: Entity
+  description: "An [entity](/docs/configuration/platform_options/) is the representation of function a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
+- topic: Event
+  description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
-  description: "The [frontend](/components/frontend/) is a necessary component for the UI, it is also where you can define your themes."
+  description: "The [frontend](/integrations/frontend/) is a necessary component for the UI, it is also where you can define your themes."
+- topic: Group
+  description: "[Groups](/integrations/group/) are a way to organize your entities into a single unit."
+- topic: hass
+  description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
+- topic: Hass.io
+  description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended."
+- topic: Integration
+  description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
+- topic: Lovelace
+  description: "[Lovelace](/lovelace/) is the name of the current frontend."
+- topic: Light
+  description: "A [light](/integrations/light) has a brightness you can control, and optionally color temperature or RGB color control."
+- topic: Notification
+  description: "You can use [notifications](/integrations/#notifications) to send messages, pictures, and more, to devices."
+- topic: Packages
+  description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
+- topic: Platform
+  description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
+- topic: Scene
+  description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red." 
+- topic: Script
+  description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
+- topic: Sensor
+  description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
+- topic: Service
+  description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
+- topic: Switch
+  description: "[Switches](/integrations/switch) are things that have two states you can select between, such as turning on or off a socket."
+- topic: Template
+  description: "A [template](/docs/automation/templating/) is an automation definition that can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
+- topic: Trigger
+  description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
+- topic: TTS
+  description: "TTS ([text to speech](/integrations/tts) allows Home Assistant to talk to you."
+- topic: Zone
+  description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

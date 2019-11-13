@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant Podcast 1"
 description: "Home Assistant Podcast 1 – Introduction and 0.45"
 date: 2017-06-02 06:00:00 +0000
 date_formatted: "June 02, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Media
 og_image: /images/hasspodcast.jpg
 ---

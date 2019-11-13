@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Deprecating Python 3.4 support"
 description: "Starting release 0.55, Python 3.4 support will be deprecated. Support is planned to be removed at the beginning of 2018."
 date: 2017-10-06 0:36 +0000
 date_formatted: "October 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Technology
 ---
 

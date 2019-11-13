@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FAQ"
 description: "Home Assistant's FAQ"
-date: 2015-10-08 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 regenerate: true
 hide_github_edit: true
 ---

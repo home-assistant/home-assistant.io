@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
-date: 2016-03-12 12:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/scripts-service-calls/
 ---
 
@@ -16,9 +10,9 @@ The configuration options to call a config are the same between all integrations
 
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
-<p class='note'>
-Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
-</p>
+<div class='note'>
+Use the "Services" tab under Developer Tools to discover available services.
+</div>
 
 ### The basics
 
@@ -41,7 +35,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/components/light/#service-lightturn_on).
+A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
 
 ### Use templates to decide which service to call
 
@@ -83,6 +77,16 @@ data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 
+It is even possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
+
+```yaml
+service: thermostat.set_temperature
+data:
+  entity_id: thermostat.upstairs
+data_template:
+  temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
+```
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
@@ -93,6 +97,6 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 * `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [google travel time] sensor, a [template sensor], or a [light]
 
 [templating]: /topics/templating/
-[google travel time]: /components/sensor.google_travel_time/
-[template sensor]: /components/sensor.template/
-[light]: /components/light/
+[google travel time]: /integrations/google_travel_time/
+[template sensor]: /integrations/template/
+[light]: /integrations/light/

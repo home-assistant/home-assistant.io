@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Events"
 description: "Describes all there is to know about events in Home Assistant."
-date: 2016-03-12 12:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/events/
 ---
 
@@ -17,9 +11,11 @@ Home Assistant contains a few built-in events that are used to coordinate betwee
 ### Event `homeassistant_start`
 Event `homeassistant_start` is fired when all integrations from the configuration have been initialized. This is the event that will start the timer firing off `time_changed` events.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' [platform](/docs/automation/trigger) instead.
-</p>
+
+</div>
 
 ### Event `homeassistant_stop`
 Event `homeassistant_stop` is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.
@@ -62,7 +58,6 @@ Field | Description
 `service_data` | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`.
 `service_call_id` | String with a unique call id. Example: `23123-4`.
 
-
 ### Event `service_executed`
 Event `service_executed` is fired by the service handler to indicate the service is done.
 
@@ -70,12 +65,15 @@ Field | Description
 ----- | -----------
 `service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Starting with 0.84, it is no longer possible to listen for event `service_executed`.
-</p>
+
+</div>
 
 ### Event `platform_discovered`
-Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/components/discovery/) component.
+
+Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/integrations/discovery/) component.
 
 Field | Description
 ----- | -----------

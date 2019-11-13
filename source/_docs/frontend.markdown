@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Frontend of Home Assistant"
 description: "Frontend of Home Assistant."
-date: 2017-02-13 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The frontend of Home Assistant is built with [Polymer](https://www.polymer-project.org/).

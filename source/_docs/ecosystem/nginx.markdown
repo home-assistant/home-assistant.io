@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NGINX"
 description: "Documentation about setting up Home Assistant with NGINX."
-release_date: 2016-12-02 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/nginx/
 ---
 
@@ -21,9 +15,9 @@ Chances are, you have a dynamic IP address (your ISP changes your address period
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
-<p class='note'>
+<div class='note'>
 You will at least need nginx >= 1.3.13, as WebSocket support is required for the reverse proxy.
-</p>
+</div>
 
 ### 3. Obtain an SSL certificate
 
@@ -43,11 +37,11 @@ Instead of example.com, use your domain. You will need to renew this certificate
 If you do not own your own domain, you may generate a self-signed certificate. This will not work with IFTTT, but it will encrypt all of your Home Assistant traffic.
 
 ```bash
-$ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
-$ openssl rsa -in key.pem -out key.pem
-$ sudo cp key.pem cert.pem /etc/nginx/ssl
-$ sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
-$ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
+openssl rsa -in key.pem -out key.pem
+sudo cp key.pem cert.pem /etc/nginx/ssl
+sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 ```
 
 ### 4. Create dhparams file
@@ -55,24 +49,26 @@ $ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 As a fair warning, this file will take a while to generate.
 
 ```bash
-$ cd /etc/nginx/ssl
-$ sudo openssl dhparam -out dhparams.pem 2048
+cd /etc/nginx/ssl
+sudo openssl dhparam -out dhparams.pem 2048
 ```
 
 ### 5. Install configuration file in nginx.
 
 Create a new file `/etc/nginx/sites-available/hass` and copy the configuration file at the bottom of the page into it.
 
-<p class='note'>
+<div class='note'>
+
 Some Linux distributions (including CentOS and Fedora) will not have the `/etc/nginx/sites-available/` directory. In this case, remove the default server {} block from the `/etc/nginx/nginx.conf` file and paste the contents from the bottom of the page in its place. If doing this, proceed to step 7.
-</p>
+
+</div>
 
 ### 6. Enable the Home Assistant configuration.
 
 ```bash
-$ cd /etc/nginx/sites-enabled
-$ sudo unlink default
-$ sudo ln ../sites-available/hass default
+cd /etc/nginx/sites-enabled
+sudo unlink default
+sudo ln ../sites-available/hass default
 ```
 
 ### 7. Start NGINX.

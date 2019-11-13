@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Testing"
 description: "Instructions on how to test your MQTT setup."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -22,19 +16,26 @@ If you are using the embedded MQTT broker, the command looks a little different 
 $ mosquitto_pub -V mqttv311 -u homeassistant -P <broker password> -t "hello" -m world
 ```
 
-Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
-
-```json
-{
-   "topic":"home-assistant/switch/1/on",
-   "payload":"Switch is ON"
-}
-```
-
-The message should appear on the bus:
+Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose the "MQTT" tab. Enter something similar to the example below into the "Topic" field.
 
 ```bash
-... [homeassistant] Bus:Handling <Event MQTT_MESSAGE_RECEIVED[L]: topic=home-assistant/switch/1/on, qos=0, payload=Switch is ON>
+   home-assistant/switch/1/power
+ ```
+ and in the Payload field
+ ```bash
+   ON
+```
+In the "Listen to a topic" field, type # to see everything, or "home-assistant/switch/#" to just follow the published topic. Press "Start Listening" and then press "Publish". The result should appear similar to the text below 
+
+```bash
+Message 23 received on home-assistant/switch/1/power/stat/POWER at 12:16 PM:
+ON
+QoS: 0 - Retain: false
+Message 22 received on home-assistant/switch/1/power/stat/RESULT at 12:16 PM:
+{
+    "POWER": "ON"
+}
+QoS: 0 - Retain: false
 ```
 
 For reading all messages sent on the topic `home-assistant` to a broker running on localhost:

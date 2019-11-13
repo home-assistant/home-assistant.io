@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant is moving to Discord"
 description: "The Home Assistant chat community is moving over to Discord."
 date: 2017-07-03 18:28:01 -0500
 date_formatted: "July 3, 2017"
 author: Dale Higgs
 author_twitter: dale3h
-comments: true
 categories: Community
 ---
 

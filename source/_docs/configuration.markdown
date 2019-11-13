@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configuring Home Assistant"
 description: "Configuring Home Assistant."
-date: 2018-09-08 16:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 When launched for the first time, Home Assistant will create a default configuration file enabling the web interface and device discovery. It can take up to a minute after startup for your devices to be discovered and appear in the user interface.
@@ -29,18 +23,22 @@ Inside your configuration folder is the file `configuration.yaml`. This is the m
 
 If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
 
-<p class='note tip'>
+<div class='note tip'>
+
   Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
-</p>
+
+</div>
 
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
+You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), and [scripts](/integrations/script/) without restarting.
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
-</p>
+
+</div>
 
 ## Migrating to a new system
 

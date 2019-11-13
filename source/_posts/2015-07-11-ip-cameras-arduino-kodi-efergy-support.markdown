@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "IP Cameras, Arduinos, Kodi and Efergy Energy Monitors now supported"
 description: "New support for IP Cameras, Arduinos, Kodi and Efergy monitors"
 date: 2015-07-11 01:37 -0700
 date_formatted: "July 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -29,14 +27,14 @@ camera:
   still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
-<p class='note'>
+<div class='note'>
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</p>
+</div>
 
 <!--more-->
 
 __Arduino__
-<img src='/images/supported_brands/arduino.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/components/arduino/) for an extensive guide to get started.
+<img src='/images/supported_brands/arduino.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/integrations/arduino/) for an extensive guide to get started.
 
 ```yaml
 # Example configuration.yaml entry

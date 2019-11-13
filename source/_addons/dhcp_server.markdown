@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DHCP server"
 description: "A simple DHCP server."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Create a simple DHCP server for your network and allow setting fixed IPs for devices.
@@ -92,7 +86,7 @@ hosts:
       required: true
       type: string
     ip:
-      description: Fix ip address for device.
+      description: Fix IP address for device.
       required: true
       type: string
 {% endconfiguration %}

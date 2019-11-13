@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Map Card"
 sidebar_label: Map
 description: "A card that allows you to display entities on a map"
-date: 2018-07-08 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 A card that allows you to display entities on a map.
@@ -28,7 +22,7 @@ entities:
   type: list
 geo_location_sources:
   required: true
-  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/components/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
   type: list
 title:
   required: false
@@ -50,15 +44,17 @@ dark_mode:
   default: false
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
   Only entities that have latitude and longitude attributes will be displayed on the map.
-</p>
+</div>
 
-<p class="note">
+<div class="note">
+
   The `default_zoom` value will be ignored if it is set higher than the current zoom level
   after fitting all visible entity markers in the map window. In other words, this can only
   be used to zoom the map _out_ by default.
-</p>
+
+</div>
 
 ## Examples
 

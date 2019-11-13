@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Installation on a Synology NAS"
 description: "Instructions to install Home Assistant on a Synology NAS."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-synology/
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 Synology only provide Python 3.5.1, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3`
-</p>
+
+</div>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
 1. using Docker
@@ -26,7 +22,7 @@ The following configuration has been tested on Synology 413j running DSM 6.0-732
 Running these commands will:
 
  - Install Home Assistant
- - Enable Home Assistant to be launched on [http://localhost:8123](http://localhost:8123)
+ - Enable Home Assistant to be launched on `http://localhost:8123`
 
 Using the Synology webadmin:
 

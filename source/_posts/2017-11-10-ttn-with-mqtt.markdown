@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant and The Things Network (TTN)"
 description: "How to use transfer MQTT messages from The Things Network (TTN) to a local broker."
 date: 2017-11-10 14:00:00 +0200
 date_formatted: "November 10, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-mqtt-ttn/social-ha-ttn.png
 ---
@@ -84,7 +82,7 @@ $ mosquitto_sub -h 192.168.0.2 -t "#" -d
 
 ## The sensor
 
-All we would need now, is a [`mqtt` sensor](/components/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
+All we would need now, is a [`mqtt` sensor](/integrations/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
 
 ```python
 """Support for The Things Network MQTT sensors."""
@@ -186,9 +184,9 @@ Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will hand
 
 ## The configuration
 
-Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
+Now create the [`mqtt_ttn` sensor](/integrations/sensor.mqtt/) entry for your device.
 
-```
+```yaml
 sensor:
   - platform: mqtt_ttn
     name: TTN Sensor

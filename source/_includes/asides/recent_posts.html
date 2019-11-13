@@ -4,7 +4,7 @@
     {% for post in site.posts limit: site.recent_posts %}
       {% if post.url != page.url  %}
         <li class="post">
-          <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+          <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
       {% endif %}
     {% endfor %}

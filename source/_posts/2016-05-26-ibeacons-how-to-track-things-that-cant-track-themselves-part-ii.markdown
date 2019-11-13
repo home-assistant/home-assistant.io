@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "iBeacons: How to track things that can’t track themselves (part II)"
 description: A step by step guide how to tracking dumb devices by using iBeacons.
 date: 2016-05-26 12:06:12 +0100
 date_formatted: "May 26, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
-comments: true
 categories: iBeacons Device-Tracking OwnTracks
 og_image: /images/blog/2016-05-ibeacons/keys_device.png
 ---
@@ -36,7 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<p class='note warning'>OwnTracks currently only supports mobile beacons on iOS.</p>
+<div class='note warning'>
+OwnTracks currently only supports mobile beacons on iOS.
+</div>
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 
@@ -128,7 +128,7 @@ Of course you can use both fixed and mobile beacons at the same time. I want my 
 ### Buying Beacons
 This isn’t a buyer's guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.
 
-I’ve bought quite a few iBeacons from a company called [Blue Sense Networks](http://bluesensenetworks.com/). I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
+I’ve bought quite a few iBeacons from a company called Blue Sense Networks. I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
 
 All the beacons seem fine - and the long range unit does work over a longer range than my other beacons.
 

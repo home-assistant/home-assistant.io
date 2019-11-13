@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Brokers"
 description: "Instructions on how to setup MQTT brokers for Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -60,30 +54,38 @@ tls_insecure:
   required: false
   description: Set the verification of the server hostname in the server certificate.
   type: boolean
+  default: false
 tls_version:
   required: false
   description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
 
 If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'` then you need to set `tls_version: '1.2'`.
-</p>
 
-<p class='note'>
+</div>
+
+<div class='note'>
+
 If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
-```
+
+```txt
 [Unit]
 Description=Home Assistant
 After=network.target mosquitto.service
 ```
-</p>
 
-<p class='note'>
+</div>
+
+<div class='note'>
+
 If you are running a Mosquitto instance on a different server with proper SSL encryption using a service like Let's Encrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of Ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
-</p>
+
+</div>
 
 ### Public broker
 
@@ -103,11 +105,11 @@ mqtt:
 
 ### CloudMQTT
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/owntracks/) and give you a taste of what is possible.
 
-<p class='note'>
+<div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
-</p>
+</div>
 
  1. [Create an account](https://customer.cloudmqtt.com/login) (no payment details needed)
  2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
@@ -126,12 +128,15 @@ mqtt:
   password: CLOUDMQTT_PASSWORD
 ```
 
-<p class='note'>
+<div class='note'>
 Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
-</p>
-<p class='note'>
+</div>
+
+<div class='note'>
+
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
-</p>
+
+</div>
 
 ### Embedded broker (Deprecated)
 
@@ -152,17 +157,19 @@ mqtt:
   password: hello
 ```
 
-<p class='note warning'>
+<div class='note warning'>
 As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
 Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
 There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
-</p>
+
+</div>
 
 #### Owntracks
 

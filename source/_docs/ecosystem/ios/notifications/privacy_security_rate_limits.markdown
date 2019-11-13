@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Privacy, rate limiting and security"
 description: "Notes about important topics relating to push notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/privacy_security_rate_limits/
 ---
 

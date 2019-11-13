@@ -1,16 +1,14 @@
 ---
-layout: post
 title: "When will there be an official Home Assistant for Android app???"
 description: "Announcing Home Assistant Companion for Android"
 date: 2019-04-01 00:01:00
 date_formatted: "April 1, 2019"
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Announcements
 ---
 
-1 year, 11 months and 17 days ago or 716 days ago, [I announced Home Assistant Companion for iOS on this blog](https://www.home-assistant.io/blog/2017/04/15/ios/).
+1 year, 11 months and 17 days ago or 716 days ago, [I announced Home Assistant Companion for iOS on this blog](/blog/2017/04/15/ios/).
 Ever since then, at least once a week, sometimes far more often, I am asked a question that I haven't been able to truly answer until today.
 It's a question that has gotten on my nerves almost every time I've seen it. I could understand why people were wanting an official Android app to mirror the functionality of the iOS app.
 But I never thought of myself as the person to best deliver on that idea.

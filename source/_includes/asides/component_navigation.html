@@ -1,4 +1,3 @@
-{%- assign components = site.components | sort_natural: 'title' -%}
 {%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/dev/homeassistant' -%}
 <section class="aside-module grid__item one-whole lap-one-half">
   {%- include edit_github.html -%}
@@ -10,8 +9,12 @@
   </div>
 
   {%- assign file_parts = page.url | split: '/' | last | split: '.' -%}
-  {%- assign imp_name = file_parts | first -%}
+  {%- assign imp_name = file_parts | last -%}
   {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
+
+  <div class="section">
+    <kb-alert-link integration="{{ imp_name }}"></kb-alert-link>
+  </div>
 
   {%- if page.ha_iot_class -%}
     <div class='section'>
@@ -57,10 +60,12 @@
     <ul class='divided'>
     {%- for category in page.ha_category -%}
       <li>
-        <a href='/components/#{{ category | slugify }}'>{{ category }}</a>
+        <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
       </li>
     {%- endfor -%}
     </ul>
     </div>
   {%- endif -%}
 </section>
+
+<script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

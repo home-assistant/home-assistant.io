@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.38: Alert, AppleTV, MQTT discovery, and Yeelight"
 description: "Faster and more configurable frontend, configuration check, and complete move to async for core"
 date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
 author: Robbie Trencheny, Fabian Affolter
 author_twitter: robbie
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.38/social.png
 ---
@@ -86,8 +84,8 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Notify - SMTP: Add error checking to the MIMEImage encoding ([@stratosmacker])
 - Light - MQTT: Check for command topics when determining the capabilities of an MQTT light ([@herm])
 - Core: Check config before restarting ([@andrey-git])
-- Light - [Hue][hue]: Fix groups with same names ([@tboyce1])
-- Template: Add icon_template to template sensor ([@tboyce1])
+- Light - [Hue][hue]: Fix groups with same names (@tboyce1)
+- Template: Add icon_template to template sensor (@tboyce1)
 - Recorder: Refactoring, scoping, and better handling of SQLAlchemy Sessions ([@kellerza])
 - Light - Flux: Add support for fluxled discovery. ([@aequitas])
 - Media player - AppleTV: Add discovery support to Apple TV ([@postlund])
@@ -188,7 +186,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@sbidoul]: https://github.com/sbidoul
 [@sdague]: https://github.com/sdague
 [@stratosmacker]: https://github.com/stratosmacker
-[@tboyce1]: https://github.com/tboyce1
 [@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@turbokongen]: https://github.com/turbokongen
@@ -196,33 +193,33 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@Yannic-HAW]: https://github.com/Yannic-HAW
 
-[alert]: /components/alert/
-[apiai]: /components/apiai/
-[apple-tv]: /components/media_player.apple_tv/
-[arwn]: /components/sensor.arwn/
+[alert]: /integrations/alert/
+[apiai]: /integrations/dialogflow
+[apple-tv]: /integrations/apple_tv
+[arwn]: /integrations/arwn
 [custom-ui]: /developers/frontend_creating_custom_ui/
-[discovery]: /components/discovery/
-[face-detect]: /components/image_processing.microsoft_face_detect/
-[ffmpeg-bin]: /components/binary_sensor.ffmpeg/
-[ffmpeg]: /components/ffmpeg/
+[discovery]: /integrations/discovery/
+[face-detect]: /integrations/microsoft_face_detect
+[ffmpeg-bin]: /integrations/ffmpeg_motion
+[ffmpeg]: /integrations/ffmpeg/
 [filters]: /topics/templating/#home-assistant-template-extensions
-[fritz]: /components/switch.fritzdect/
-[hue]: /components/light.hue/
+[fritz]: /integrations/fritzdect
+[hue]: /integrations/hue
 [light]: /cookbook/custom_ui_by_andrey-git
-[mailgun]: /components/notify.mailgun/
-[media-player]: /components/media_player/
-[moon]: /components/sensor.moon/
-[mqtt-discovery]: /components/mqtt/#discovery
-[nuki]: /components/lock.nuki/
-[openevse]: /components/sensor.openevse/
-[orange]: /components/media_player.liveboxplaytv/
-[owm]: /components/sensor.openweathermap/
+[mailgun]: /integrations/mailgun
+[media-player]: /integrations/media_player/
+[moon]: /integrations/moon
+[mqtt-discovery]: /integrations/mqtt/#discovery
+[nuki]: /integrations/nuki
+[openevse]: /integrations/openevse
+[orange]: /integrations/liveboxplaytv
+[owm]: /integrations/openweathermap#sensor
 [python-yeelight]: https://gitlab.com/stavros/python-yeelight
-[qnap]: /components/sensor.qnap/
-[rflink]: /components/rflink/
-[systemmonitor]: /components/sensor.systemmonitor/
-[webostv]: /components/media_player.webostv/
-[yeelight]: /components/light.yeelight/
+[qnap]: /integrations/qnap
+[rflink]: /integrations/rflink/
+[systemmonitor]: /integrations/systemmonitor
+[webostv]: /integrations/webostv#media-player
+[yeelight]: /integrations/yeelight
 
 [event-stream-api]: /developers/server_sent_events/
 [forum]: https://community.home-assistant.io/

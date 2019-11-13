@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Home Assistant Cloud"
 description: "Enable the Home Assistant Cloud integration."
-date: 2017-11-17 20:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_release: "0.60"
 ha_category: Voice

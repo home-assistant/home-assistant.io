@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from:
  - /getting-started/automation-create-first/
  - /getting-started/automation-2/
@@ -15,6 +9,8 @@ redirect_from:
 Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
 
 In Lovelace, click Configuration in the sidebar, then click Automation. You will now see the automation screen from which you can manage all the automations in Home Assistant.
+
+Click on the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
 
 <p class='img'>
 <img src='/source/getting-started/screenshots/10 - automation editor.png'>
@@ -39,7 +35,11 @@ In the trigger section, click on the dropdown menu and change the trigger type t
 A new automation with a sun trigger filled in.
 </p>
 
-Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call service," and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `entity_id: all`.
+Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call service," and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to:
+
+```yaml
+entity_id: all
+```
 
 <p class='img'>
 <img src='/source/getting-started/screenshots/13 - action.png'>

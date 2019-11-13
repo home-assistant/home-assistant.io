@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HAProxy"
 description: "Documentation about setting up Home Assistant with HAProxy"
-date: 2018-01-02 11:23:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using HAProxy to proxy for Home Assistant allows you to serve Home Assistant securely over standard ports with HTTP to HTTPS redirection.
@@ -95,7 +89,7 @@ Replace 443 with whatever port you chose to bind to in the config if different.
 
 ### Configure Home Assistant HTTP Component
 
-In your `configuration.yaml` file, edit the [http component](https://www.home-assistant.io/components/http/).
+In your `configuration.yaml` file, edit the [http component](/integrations/http/).
 
 ```text
 http:
