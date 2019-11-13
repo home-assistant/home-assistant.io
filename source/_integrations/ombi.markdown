@@ -68,9 +68,9 @@ You must either supply a password or an API key in order to use this integration
 ```yaml
 # Example configuration.yaml entry
 ombi:
-  api_key: OMBI_API_KEY
   host: OMBI_HOST
   username: OMBI_USERNAME
+  api_key: OMBI_API_KEY
   port: OMBI_PORT
   urlbase: ombi/
   ssl: true
