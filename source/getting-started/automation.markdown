@@ -35,7 +35,7 @@ The second step is defining what should trigger our automation to run. In this c
 In the trigger section, click on the dropdown menu and change the trigger type to "Sun." It allows us to choose sunrise or sunset, so go ahead and pick sunset. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before the sun actually sets. Neat!
 
 <p class='img'>
-<img src='/source/getting-started/screenshots/trigger.png'>
+<img src='/source/getting-started/screenshots/12 - trigger.png'>
 A new automation with a sun trigger filled in.
 </p>
 
