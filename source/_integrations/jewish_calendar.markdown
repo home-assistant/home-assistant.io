@@ -11,7 +11,10 @@ The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of in
 
 ## Configuration
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+Set up the integration through **Configuration** -> **Integrations** -> **Jewish Calendar.
+For legacy support the old Jewish Calendar configuration is imported and set up as a new integration.
+
+To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -138,5 +141,6 @@ The following is the list of holidays the sensor knows about with their selected
 jewish_calendar:
   language: english
   diaspora: true
+  candle_lighting_minutes_before_sunset: 20
   havdalah_minutes_after_sunset: 50
 ```
