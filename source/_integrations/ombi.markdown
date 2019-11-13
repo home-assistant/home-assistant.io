@@ -21,16 +21,12 @@ If you want to enable this sensor, add the following lines to your `configuratio
 ```yaml
 # Example configuration.yaml entry
 ombi:
-  api_key: OMBI_API_KEY
   host: OMBI_HOST
   username: OMBI_USERNAME
+  api_key: OMBI_API_KEY
 ```
 
 {% configuration %}
-api_key:
-  description: Your Ombi API key.
-  required: true
-  type: string
 host:
   description: The hostname or IP Address Ombi is running on.
   required: true
@@ -38,6 +34,14 @@ host:
 username:
   description: Your Ombi username.
   required: true
+  type: string
+password:
+  description: Your Ombi password.
+  required: false
+  type: string
+api_key:
+  description: Your Ombi API key.
+  required: false
   type: string
 port:
   description: The port Ombi is running on.
@@ -54,6 +58,10 @@ ssl:
   default: false
   type: boolean
 {% endconfiguration %}
+
+<div class='note'>
+You must either supply a password or an API key in order to use this integration. If both are supplied, the API key will take precedence.
+</div>
 
 ## Full example for the configuration
 
