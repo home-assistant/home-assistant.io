@@ -102,6 +102,8 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
+Alternatively you can trigger a scan for devices through the Web UI via `Configuration > ZHA > Add Devices`.
+
 ## Troubleshooting
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
