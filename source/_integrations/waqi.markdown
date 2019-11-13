@@ -38,6 +38,10 @@ stations:
   type: list
 {% endconfiguration %}
 
+The locations field is a search for a location; e.g. "brisbane" or "Brisban" would find Brisbane, Australia and all associated stations in the area.
+
+The format for station fields is exactly from the website; e.g. you would provide the location string "[South Brisbane, Australia](http://aqicn.org/city/australia/queensland/south-brisbane/)" for the linked location.
+
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
 AQI | Status | Description
