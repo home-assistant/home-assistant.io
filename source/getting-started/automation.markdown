@@ -39,7 +39,7 @@ In the trigger section, click on the dropdown menu and change the trigger type t
 A new automation with a sun trigger filled in.
 </p>
 
-Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call Service," and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `entity_id: all`.
+Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call service," and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `entity_id: all`.
 
 <p class='img'>
 <img src='/source/getting-started/screenshots/13 - action.png'>
