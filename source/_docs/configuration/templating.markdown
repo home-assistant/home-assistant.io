@@ -104,7 +104,7 @@ Other state examples:
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}
+{% endif %}
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
