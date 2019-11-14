@@ -12,7 +12,11 @@ The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.
 
 ## Setup
 
+This component needs to authenticate to your Ombi instance with either a user `password` or an `api_key`.
+
 To find your `api_key` open the Ombi web interface. Navigate to **Settings** and then to **Ombi**, you should then be able to see your `api_key`.
+
+If you want to use `password` authentication simply use the same password you normally use to login to Ombi. Alternatively, you can set up a separate local account in Ombi designated for Home Assistant. In order to do this, open the Ombi web interface. Navigate to **User Management** and then press **Add User To Ombi**. Input your desired user details and use the same details when configuring this integration.
 
 ## Configuration
 
@@ -23,7 +27,7 @@ If you want to enable this sensor, add the following lines to your `configuratio
 ombi:
   host: OMBI_HOST
   username: OMBI_USERNAME
-  api_key: OMBI_API_KEY
+  password: OMBI_PASSWORD
 ```
 
 {% configuration %}
@@ -36,12 +40,12 @@ username:
   required: true
   type: string
 password:
-  description: Your Ombi password.
-  required: false
+  description: Your Ombi password. [`password`](#password) and [`api_key`](#api_key) cannot be specified concurrently.
+  required: exclusive
   type: string
 api_key:
-  description: Your Ombi API key.
-  required: false
+  description: Your Ombi API key. [`password`](#password) and [`api_key`](#api_key) cannot be specified concurrently.
+  required: exclusive
   type: string
 port:
   description: The port Ombi is running on.
@@ -58,10 +62,6 @@ ssl:
   default: false
   type: boolean
 {% endconfiguration %}
-
-<div class='note'>
-You must either supply a password or an API key in order to use this integration. If both are supplied, the API key will take precedence.
-</div>
 
 ## Full example for the configuration
 
