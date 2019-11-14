@@ -12,6 +12,7 @@ og_image: /images/blog/2019-10-0.102/components.png
 ---
 
 Almond. Account linking. Mobile apps. WLED - platinum.
+Scene services + editor.
 
 ## New Integrations
 
