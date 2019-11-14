@@ -15,7 +15,7 @@ Be aware that `emulated_hue` doesn't work for new users of **Google Home** with 
 
 </div>
 
-The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
+The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
