@@ -16,7 +16,7 @@ This component needs to authenticate to your Ombi instance with either a user `p
 
 To find your `api_key` open the Ombi web interface. Navigate to **Settings** and then to **Ombi**, you should then be able to see your `api_key`.
 
-If you want to use `password` authentication simply use the same password you normally use to login to Ombi. Alternatively, you can set up a separate local account in Ombi designated for Home Assistant. In order to do this, open the Ombi web interface. Navigate to **User Management** and then press **Add User To Ombi**. Input your desired user details and use the same details when configuring this integration.
+If you want to use `password` authentication simply use the same `password` you normally use to login to Ombi. Alternatively, you can set up a separate local account in Ombi designated for Home Assistant. In order to do this, open the Ombi web interface. Navigate to **User Management** and then press **Add User To Ombi**. Input your desired user details and use the same details when configuring this integration.
 
 ## Configuration
 
