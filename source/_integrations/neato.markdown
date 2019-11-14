@@ -7,6 +7,7 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
+ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
 ---
