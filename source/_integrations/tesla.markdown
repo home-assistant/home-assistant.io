@@ -27,7 +27,7 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Home Assistant offers the Tesla integration through Configuration -> Integrations -> Tesla.
+Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
 
 Enter username and password and then continue.
 
