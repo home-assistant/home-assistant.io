@@ -11,7 +11,7 @@ The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of in
 
 ## Configuration
 
-Set up the integration through **Configuration** -> **Integrations** -> **Jewish Calendar.
+Set up the integration through **Configuration** -> **Integrations** -> **Jewish Calendar**.
 For legacy support the old Jewish Calendar configuration is imported and set up as a new integration.
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
