@@ -84,6 +84,22 @@ $ sudo usermod -a -G dialout homeassistant
 
 </div>
 
+### Razberry Board with Hass.io
+
+If you are using hass.io on a Raspberry Pi please note that the `/boot/`-folder is located in a FAT32-partition on the SD-card and will not be accessible from a mac/linux machine. To access the folder from a mac with the SD-card connected:
+List disks:
+`$ diskutil list`
+
+Find the Microsoft Reserved partition on SD card, `diskXsY (e.g. disk2s1)`
+
+Create a mountable area:
+`$ mkdir /fat_mount`
+
+Mount the disk to that area:
+`$ mount -t msdos /dev/diskXsY /fat_mount`
+
+Edit the config.txt and add `dtoverlay=pi3-disable-bt` to the end of the file.
+
 ### Aeon Minimote
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
