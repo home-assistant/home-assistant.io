@@ -9,10 +9,6 @@ featured: true
 This add-on is attached to the Home Assistant user system, so mqtt clients can make convenient use of these credentials. Local users may also still be set independently within the configuration options for the add-on.  For the internal Hass.io ecosystem we register `homeassistant` and `addons`, so these may not be used as user names.
 
 ##### 1. Add a user with credentials the clients will use to authenticate. The username cannot be "homeassistant" or "addons".
-<p class='img'>
-<img src='source/images/screenshots/add_mqtt_user.png'>
-Adding a user.
-</p>
 
 ##### 2. Start the Mosquitto addon. No changes to the configuration are needed.
 
