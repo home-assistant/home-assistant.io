@@ -43,6 +43,10 @@ name:
   required: false
   default: Web scrape
   type: string
+value_template:
+  description: Defines a template to get the state of the sensor.
+  required: false
+  type: template
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
