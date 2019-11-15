@@ -59,6 +59,10 @@ prompted to do so.
 To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
 " permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
+<div class='note warning'>
+If you change your Freebox router for a new one you will need to delete the `freebox.conf` file located in your Home Assistant config directory to make the association again.
+</div>
+
 ### Supported routers
 
 Only the routers with Freebox OS are supported:
