@@ -23,6 +23,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The sensor name to use in the frontend.
+  required: false 
+  default: "ConEdison Current Energy Usage" 
+  type: string
 meter_number:
   description: The meter number of your smart meter with ConEdison. 
   required: true
