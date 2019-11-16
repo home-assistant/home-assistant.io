@@ -47,7 +47,9 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
 <div class='note warning'>
-If you change your Freebox router for a new one you will need to delete the `freebox.conf` file located in your Home Assistant config directory to make the association again.
+  
+If you change your Freebox router for a new one, you need to delete the `freebox.conf` file located in your Home Assistant configuration directory to make the association again.
+
 </div>
 
 ### Initial setup
