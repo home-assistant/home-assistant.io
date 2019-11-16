@@ -37,7 +37,7 @@ api_key:
   required: true
   type: string
 fuel_types:
-  description: The types of fuels you want to track. Allowed values are `e5`, `e10` and `diesel`."
+  description: The types of fuels you want to track. Allowed values are `e5`, `e10` and `diesel`.
   required: false
   default: ["e5", "e10", "diesel"]
   type: list
@@ -59,7 +59,7 @@ radius:
 scan_interval:
   description: The time interval to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
   required: false
-  default: 0:30:00
+  default: 0:30
   type: time
 stations:
   description: List of additional fuel stations to create entities for.
