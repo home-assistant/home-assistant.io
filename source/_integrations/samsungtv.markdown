@@ -48,6 +48,11 @@ mac:
   description: "The MAC address of the Samsung Smart TV, e.g., `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
   required: false
   type: string
+broadcast_address:
+  description: The broadcast address on which to send the Wake-On-Lan packet.
+  required: false
+  default: 255.255.255.255
+  type: string
 {% endconfiguration %}
 
 Currently known supported models:
