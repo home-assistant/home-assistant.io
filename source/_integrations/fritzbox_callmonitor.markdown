@@ -48,7 +48,7 @@ name:
   default: Phone
   type: string
 host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1. If you have a local DNS server and have assigned a hostname to your fritzbox, you can also use that here instead of the IP address.
   required: false
   default: 169.254.1.1
   type: string
