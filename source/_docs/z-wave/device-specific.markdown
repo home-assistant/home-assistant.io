@@ -27,6 +27,8 @@ It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blu
 
 Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
 
+**Note:** You should only do this when Home Assistant has been stopped.
+
 Turn off "Disco lights":
 
 ```bash
