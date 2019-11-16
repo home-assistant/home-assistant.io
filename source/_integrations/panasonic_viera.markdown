@@ -33,7 +33,7 @@ If your model is not on the list then give it a test, if everything works correc
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
 
-Note that your TV has to reside in the same network as your home assistant instance for this platform to work.  If you have multiple network interfaces on your home assistant instance, you may specify `broadcast_address`.
+Note that your TV has to reside in the same network as your Home Assistant instance for this platform to work. If you have multiple network interfaces on your Home Assistant instance, you may need to specify the `broadcast_address`.
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
