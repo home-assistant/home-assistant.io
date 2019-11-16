@@ -13,7 +13,7 @@ The time and date (`time_date`) sensor platform adds one or more sensors to your
 It also displays the time in various formats, the date, or both in non-Lovelace mode.  
 Note that you have to add all options you need access to even if you don't want them to be displayed.
 
-To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contais appropriate data):
+To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data):
 
 ```yaml
 # Example configuration.yaml entry
