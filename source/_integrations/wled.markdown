@@ -36,7 +36,7 @@ integration will be available.
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.
-Home Assistant threats every segment of the LED strip as a separate light
+Home Assistant treats every segment of the LED strip as a separate light
 entity.
 
 Only native supported features of a light in Home Assistant are supported
