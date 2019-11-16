@@ -329,6 +329,9 @@ sensor:
 {% endraw %}
 
 In this case it is also possible to convert the entity-less template above into one that will be updated automatically:
+
+{% raw %}
+
 ````yaml
 sensor:
   - platform: template
@@ -338,6 +341,9 @@ sensor:
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
 ````
+
+{% endraw %}
+
 Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.  
 Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have negative impact on performance. 
  
