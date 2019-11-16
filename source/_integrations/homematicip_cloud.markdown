@@ -111,6 +111,12 @@ Within this delay the device registration should be completed in the App, otherw
     * Radiator thermostat (*HmIP-eTRV,-2,-C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
     * Temperature and humidity sensor (*HmIP-STH*)
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
+  * There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
+    * Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
+    * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
+    * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
+    * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
+    * Floor Heating Actuator – 12x channels, motorised (*HMIP-FALMOT-C12*)
 
 * homematicip_cloud.cover
   * Shutter actuator for brand-mount (*HmIP-BROLL*)
