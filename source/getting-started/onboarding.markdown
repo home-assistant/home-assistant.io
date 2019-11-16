@@ -26,7 +26,7 @@ Once you are done, click Next. In this screen, Home Assistant will show any devi
 Discovery of devices on your network.
 </p>
 
-Finally, click Finish. Now you're brought to the main screen of Home Assistant called Lovelace. This screen will show all of your devices. So let's get that screen filled up!
+Finally, click Finish. Now you're brought to the states screen of Home Assistant. This screen will show all of your devices. So let's get that screen filled up!
 
 <p class='img'>
 <img src='/source/getting-started/screenshots/05 - lovelace.png' />
@@ -42,6 +42,6 @@ The integrations page in the configurations panel shows you all your configured 
 
 When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
 
-When you're done, navigate back to Lovelace and voila, your devices are ready for you to control.
+When you're done, navigate back to the states panel and voila, your devices are ready for you to control.
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
