@@ -22,8 +22,6 @@ Currently supported services are:
 - remote control of your robot.
 - `xiaomi_clean_zone`
 
-
-
 ## Configuration
 
 Please follow [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
