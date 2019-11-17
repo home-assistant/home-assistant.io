@@ -61,7 +61,7 @@ logger:
 
 ## Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](https://www.dresden-elektronik.de/rpi/deconz-firmware/?C=M;O=D). 
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](https://www.dresden-elektronik.de/rpi/deconz-firmware/?C=M;O=D).
 
 ## Device services
 
@@ -71,11 +71,11 @@ Available services: `configure` and `deconz.device_refresh`.
 
 Set attribute of device in deCONZ using [Rest API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
-| Service data attribute | Optional | Description |
-|-----------|----------|-------------|
-| `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
-| `data` | No | Data is a JSON object with what data you want to alter. |
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `field`                | No       | String representing a specific device in deCONZ.                            |
+| `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
+| `data`                 | No       | Data is a JSON object with what data you want to alter.                     |
 
 Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
@@ -107,12 +107,12 @@ Remote controls (ZHASwitch category) will not be exposed as regular entities, bu
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
-| Switch code | Description |
-|-------------|-------------|
-| 1XXX | Button #1 up to #8 |
-| XXX1 | Button hold |
-| XXX2 | Button short release |
-| XXX3 | Button long release |
+| Switch code | Description          |
+| ----------- | -------------------- |
+| 1XXX        | Button #1 up to #8   |
+| XXX1        | Button hold          |
+| XXX2        | Button short release |
+| XXX3        | Button long release  |
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
@@ -400,7 +400,24 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Philips Hue LightStrip Plus
 - Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
-- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
+- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM
+
+### Issues with Trådfri bulbs
+
+When using turn_on / turn_off service call or scenes with Trådfri bulbs, some people have experienced that the bulbs are not turned on/off as expected. As a workaround you should try to set the attribute `transition: 0` in the service call or scene. Any transition time > 0 will also lead to same problem. See an working example of a scene configuration below.
+
+```yaml
+scene:
+  - name: TradfriWorkaround
+    entities:
+      light.somebulb:
+        state: off
+        transition: 0
+      light.anotherbulb:
+        state: on
+        brightness: 50
+        transition: 0
+```
 
 ## Scene
 
@@ -441,22 +458,22 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
 
 The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from https://github.com/mourner/suncalc, on which the deCONZ implementation is based):
 
-| Sensor State | Description |
-|--------------|-------------|
-| sunrise_start | sunrise (top edge of the sun appears on the horizon) |
-| sunrise_end | sunrise ends (bottom edge of the sun touches the horizon) |
-| golden_hour_1 | morning golden hour (soft light, the best time for photography) |
-| solar_noon | solar noon (sun is in the highest position) |
-| golden_hour_2 | evening golden hour |
-| sunset_start | sunset starts (bottom edge of the sun touches the horizon) |
-| sunset_end | sunset (sun disappears below the horizon, evening civil twilight starts) |
-| dusk | dusk (evening nautical twilight starts) |
-| nautical_dusk | nautical dusk (evening astronomical twilight starts) |
-| night_start | night starts (dark enough for astronomical observations) |
-| nadir | nadir (darkest moment of the night, the sun is in the lowest position) |
-| night_end | night ends (morning astronomical twilight starts) |
-| nautical_dawn | nautical dawn (morning nautical twilight starts) |
-| dawn | dawn (morning nautical twilight ends, morning civil twilight starts) |
+| Sensor State  | Description                                                              |
+| ------------- | ------------------------------------------------------------------------ |
+| sunrise_start | sunrise (top edge of the sun appears on the horizon)                     |
+| sunrise_end   | sunrise ends (bottom edge of the sun touches the horizon)                |
+| golden_hour_1 | morning golden hour (soft light, the best time for photography)          |
+| solar_noon    | solar noon (sun is in the highest position)                              |
+| golden_hour_2 | evening golden hour                                                      |
+| sunset_start  | sunset starts (bottom edge of the sun touches the horizon)               |
+| sunset_end    | sunset (sun disappears below the horizon, evening civil twilight starts) |
+| dusk          | dusk (evening nautical twilight starts)                                  |
+| nautical_dusk | nautical dusk (evening astronomical twilight starts)                     |
+| night_start   | night starts (dark enough for astronomical observations)                 |
+| nadir         | nadir (darkest moment of the night, the sun is in the lowest position)   |
+| night_end     | night ends (morning astronomical twilight starts)                        |
+| nautical_dawn | nautical dawn (morning nautical twilight starts)                         |
+| dawn          | dawn (morning nautical twilight ends, morning civil twilight starts)     |
 
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 
@@ -476,3 +493,4 @@ The `entity_id` name will be `switch.device_name`, where `device_name` is define
 - Osram Lightify plug
 - Osram Outdoor plug
 - Heiman siren
+
