@@ -1,8 +1,8 @@
 ---
 title: "Hisense AEH-W4A1"
-description: "Instructions to setup the Hisense AEH W4A1 wifi module for ACs."
+description: "Instructions to setup the Hisense AEH W4A1 WiFi module for ACs."
 logo: hisense.png
-ha_release: 0.102
+ha_release: 0.103
 ha_category:
   - Climate
 ha_iot_class: Local Poll
@@ -13,7 +13,6 @@ The Hisense AEH-W4A1 is a WiFi module used to give WiFi connectivity to some His
 Later AC models use other WiFi modules (like AEH-W4B1 and AEH-W4E1) that are not compatible or otherwise tested with this integration.
 
 It is highly recommended not to use one of the official smartphone applications and this integration at the same time, to avoid problems related to command collision.
-
 
 ## Configuration
 
@@ -27,13 +26,14 @@ hisense_aehw4a1:
 Alternately, devices that are not discoverable can be statically configured.
 The use of static configuration disables automatic discovery.
 
-
 {% configuration %}
 ip_address:
   description: One or more static IP addresses
   required: false
   type: list
 {% endconfiguration %}
+
+## Full configuration example
 
 ```yaml
 # Static configured devices
@@ -42,4 +42,3 @@ hisense_aehw4a1:
   - 192.168.5.10
   - 192.168.5.20
 ```
-
