@@ -57,13 +57,26 @@ To register the sensors, add the following to your `configuration.yaml` file:
 sensor:
   - platform: comfoconnect
     resources:
-      - current_temperature
-      - current_humidity
-      - outside_temperature
-      - outside_humidity
-      - air_flow_supply
       - air_flow_exhaust
+      - air_flow_supply
+      - bypass_state
+      - current_humidity
+      - current_temperature
+      - days_to_replace_filter
+      - exhaust_fan_duty
+      - exhaust_fan_speed
+      - exhaust_humidity
+      - exhaust_temperature
+      - outside_humidity
+      - outside_temperature
+      - power_usage
+      - supply_fan_duty
+      - supply_fan_speed
+      - supply_humidity
+      - supply_temperature
 ```
+
+The list above indicates all supported sensors. It is recommended to only include the ones you need.
 
 <div class='note'>
 Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
