@@ -344,8 +344,8 @@ sensor:
 
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.  
-Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have negative impact on performance. 
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
+Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
  
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
