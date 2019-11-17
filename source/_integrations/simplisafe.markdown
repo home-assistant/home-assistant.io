@@ -5,13 +5,15 @@ logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
+  - Lock
 ---
 
 The `simplisafe` integration integrates SimpliSafe home security (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm
+- **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
+- **Lock**: Reports on `Door Locks` and can be used to lock and unlock a lock.
 
 ## Configuration
 
