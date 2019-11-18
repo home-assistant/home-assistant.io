@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Rhasspy within Home Assistant."
 logo: rhasspy.png
 ha_category:
   - Voice
-ha_release: 0.101.4
+ha_release: 0.103
 ---
 
 [Rhasspy](https://rhasspy.readthedocs.io) is a highly customizable, private voice assistant that [runs completely offline](#the-zen-of-rhasspy) and [supports many languages](#supported-languages). It generates a personalized speech/intent recognizer from voice commands that [you can create](#new-voice-commands) entirely on your device.
