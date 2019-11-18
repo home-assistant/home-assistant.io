@@ -36,7 +36,7 @@ After adding the integration, you can configure the API update interval on the i
 
 <div class='note'>
 
-You can make up to 1000 API calls per day which means you could make one approximately every 86 seconds.
+You can make up to 1000 API calls per day, which means you could make one approximately every 86 seconds.
 By default, the state of integration will be updated every 3 minutes, making 480 calls per day.
 It is not recommended to set update interval of less than 90 seconds.
 
