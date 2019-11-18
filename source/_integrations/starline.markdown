@@ -24,7 +24,7 @@ This integration provides the following platforms:
 - Lock: Control the lock of your car.
 - Sensors: Battery level, SIM card balance, GSM signal level, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto), additional channel and sound the horn.
-- Services: Update the state, set update frequency. More details can be found [here](/integrations/starline/#services).
+- Services: Update the state, set update frequency. More details can be found [here](#services).
 
 ## Configuration
 
