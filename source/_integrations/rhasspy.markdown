@@ -19,7 +19,7 @@ Make sure the Rhasspy server is running *before* you start Home Assistant (or yo
 ```yaml
 # Example configuration.yaml entry
 rhasspy:
-  api_url: http://YOUR_RHASSPY_SERVER:12101/api
+  api_url: http://YOUR_RHASSPY_SERVER:12101/api/
   language: en-US
   register_conversation: true
   make_intent_commands: true
@@ -29,6 +29,7 @@ conversation:
 
 stt:
   - platform: rhasspy
+    api_url: http://YOUR_RHASSPY_SERVER:12101/api/
 ```
 
 Voice commands are [automatically generated](#built-in-voice-commands) based on your Home Assistant configuration when the `rhasspy` integration starts.
@@ -115,11 +116,11 @@ stt:
 ```
 
 {% configuration %}
-speech_url:
-  description: URL of your Rhasspy server's speech-to-text endpoint.
+api_url:
+  description: URL of your Rhasspy server's web API.
   required: false
   type: string
-  default: Use `rhasspy` setting or http://localhost:12101/api/speech-to-text
+  default: http://localhost:12101/api/
 {% endconfiguration %}
 
 ## New Voice Commands
