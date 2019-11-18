@@ -34,8 +34,6 @@ To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus of your Raspberr
 binary_sensor:
 - platform: pi4ioe5v9xxxx
    i2c_bus: 1
-   i2c_address: 0x20
-   bits: 8
    pins:
      01: Pin_01/PI0_0
      02: Pin_02/PI0_1
@@ -49,7 +47,7 @@ binary_sensor:
 {% configuration %}
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
-  required: false
+  required: true
   type: integer
   default: "`1`"
 i2c_address:
@@ -94,7 +92,6 @@ To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus as switches, add
 switch:
   - platform: pi4ioe5v9xxxx
     i2c_bus: 1
-    invert_logic: True
     pins:
      01: Pin_01/PI0_0
      02: Pin_02/PI0_1
@@ -109,7 +106,7 @@ switch:
 {% configuration %}
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
-  required: false
+  required: true
   type: integer
   default: "`1`"
 i2c_address:
