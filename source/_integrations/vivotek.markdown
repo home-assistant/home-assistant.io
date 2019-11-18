@@ -43,6 +43,11 @@ password:
   description: The password for accessing your camera.
   required: true
   type: string
+security_level:
+  description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
+  required: false
+  default: admin
+  type: string
 ssl:
   description: Enable or disable SSL. Set to false to use an HTTP-only camera.
   required: false
@@ -76,6 +81,7 @@ camera:
     ssl: true
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
+    security_level: admin
     verify_ssl: false
     framerate: 5
     stream_path: live2.sdp
