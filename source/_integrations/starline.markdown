@@ -29,7 +29,7 @@ This integration provides the following platforms:
 ## Configuration
 
 1. Create a new application in the [StarLine developer profile](https://my.starline.ru/developer).
-2. Open integrations page and add the StarLine integration.
+2. Open the integrations page and add the StarLine integration.
 3. Fill in your application ID, secret, login and password.
 
 After adding the integration, you can configure the API update interval on the integration page.
