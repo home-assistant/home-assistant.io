@@ -14,6 +14,11 @@ og_image: /images/blog/2019-10-0.102/components.png
 Almond. Account linking. Mobile apps. WLED - platinum.
 Scene services + editor.
 
+## In other news
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Using my new found Swift skills I created a tiny Mac menu bar app to control switches on <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://t.co/N7wl2gXd2O">https://t.co/N7wl2gXd2O</a><br>Saves me reaching behind the printer for the awkward power button.<br>Consider it alpha, I&#39;ve got a lot to learn on both swift and HA! <a href="https://t.co/o6Wm7Le5nm">pic.twitter.com/o6Wm7Le5nm</a></p>&mdash; Andrew Jackson (@AndrewCodeChimp) <a href="https://twitter.com/AndrewCodeChimp/status/1196377630070755328?ref_src=twsrc%5Etfw">November 18, 2019</a>
+</blockquote>
+
 ## New Integrations
 
 - Add Unifi Led ([@florisvdk] - [#27475]) ([unifiled docs]) (new-integration)
