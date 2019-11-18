@@ -11,7 +11,6 @@ ha_category:
   - Switch
 ha_release: 0.101
 ha_iot_class: Cloud Polling
-ha_qa_scale: gold
 ha_config_flow: true
 ---
 
