@@ -29,13 +29,13 @@ scene:
 
 {% configuration %}
 name:
-description: Friendly name of scene.
-required: true
-type: string
+  description: Friendly name of scene.
+  required: true
+  type: string
 entities:
-description: Entities to control and their desired state.
-required: true
-type: list
+  description: Entities to control and their desired state.
+  required: true
+  type: list
 {% endconfiguration %}
 
 As you can see, there are two ways to define the states of each `entity_id`:

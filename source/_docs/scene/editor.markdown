@@ -10,7 +10,7 @@ From the UI choose **Configuration** which is located in the sidebar, then click
 Choose a meaningful name for your scene.
 
 <p class='img'>
-  <img src='{{site_root}}/images/docs/scenes/editor.png' />
+  <img src='/images/docs/scenes/editor.png' />
 </p>
 
 Select all the devices (and/or entities when in advanced mode) you want to include in your scene.
