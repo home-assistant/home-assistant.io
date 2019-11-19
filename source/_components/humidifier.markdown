@@ -13,7 +13,7 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ### Humidity control services
 
-Available services: `humidifier.set_preset_mode`, `humidifier.set_humidity`, `humidifier.set_fan_mode`, `humidifier.set_humidifier_mode`, `humidifier.turn_on`, `humidifier.turn_off`
+Available services: `humidifier.set_preset_mode`, `humidifier.set_humidity`, `humidifier.set_fan_mode`, `humidifier.set_operation_mode`, `humidifier.turn_on`, `humidifier.turn_off`
 
 <div class='note'>
 
@@ -42,7 +42,7 @@ automation:
   action:
     - service: humidifier.set_preset_mode
       data:
-        entity_id: humidifier.kitchen
+        entity_id: humidifier.bedroom
         preset_mode: 'eco'
 ```
 
@@ -65,7 +65,7 @@ automation:
   action:
     - service: humidifier.set_humidity
       data:
-        entity_id: humidifier.kitchen
+        entity_id: humidifier.bedroom
         humidity: 60
 ```
 
@@ -88,18 +88,18 @@ automation:
   action:
     - service: humidifier.set_fan_mode
       data:
-        entity_id: humidifier.kitchen
+        entity_id: humidifier.bedroom
         fan_mode: 'On Low'
 ```
 
-### Service `humidifier.set_humidifier_mode`
+### Service `humidifier.set_operation_mode`
 
-Set humidifier mode for humidifier device
+Set operation mode for humidifier device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control. Else targets all.
-| `humidifier_mode` | no | New value of humidifier mode
+| `operation_mode` | no | New value of operation mode
 
 #### Automation example
 
@@ -109,10 +109,10 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: humidifier.set_humidifier_mode
+    - service: humidifier.set_operation_mode
       data:
-        entity_id: humidifier.kitchen
-        humidifier_mode: humidify
+        entity_id: humidifier.bedroom
+        operation_mode: humidify
 ```
 
 ### Service `humidifier.turn_on`
