@@ -17,7 +17,7 @@ ha_iot_class: Local Polling
 
 The `VersaSense` integration supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +32,7 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Supported hardware %}
+## Supported hardware
 
 All Versasense gateways with software version >= 1.0.2.10
 
