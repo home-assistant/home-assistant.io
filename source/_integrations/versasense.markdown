@@ -2,12 +2,12 @@
 layout: page
 title: "VersaSense"
 description: "Integrate your VersaSense MicroPnP devices."
-date: 2019-06-15 16:00
+date: 2019-11-19 14:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_release: 0.95
+ha_release: 0.103
 ha_category:
   - Hub
   - Sensor
