@@ -114,7 +114,10 @@ http:
     - https://www.home-assistant.io
   use_x_forwarded_for: true
   trusted_proxies:
+    # specify a single IP
     - 10.0.0.200
+    # you can also use CIDR to specify a whole range
+    - 172.17.0.0/16
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```
@@ -153,6 +156,9 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 Please note, that sources from `trusted_networks` won't be banned automatically.
 
 </div>
+
+If you are using a load balancer (e.g. Nginx, Traefik etc) with Docker then all requests will appear to come from the IP of your load balancer and therefore IP block all clients. To get the real IP you must set `use_x_forwarded_for` to true and add Dockers IP range to trusted_proxies (the default Docker IP range is 172.17.0.0/16 but it will use other ranges if this is already taken on your network).
+
 
 ## Hosting files
 
