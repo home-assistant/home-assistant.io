@@ -182,10 +182,19 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi2`
  - `raspberrypi3`
  - `raspberrypi3-64`
+ - `raspberrypi4`
+ - `raspberrypi4-64`
  - `odroid-c2`
  - `odroid-cu2`
  - `odroid-xu`
  - `orangepi-prime`
+ - `tinker`
+ - `qemuarm`
+ - `qemuarm-64`
+ - `qemux86`
+ - `qemux86-64`
+
+See the [hassio-installer](https://github.com/home-assistant/hassio-installer) Github page for an up-to-date listing of supported machine types.
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
