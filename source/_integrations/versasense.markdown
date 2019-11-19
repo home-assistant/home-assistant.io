@@ -22,7 +22,7 @@ versasense:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of the VersaSense gateway. Including *protocol* and *port* e.g. https://gateway.versasense.com:8889"
+  description: "The IP address or hostname of the VersaSense gateway. Including *protocol* and *port*, e.g., https://gateway.versasense.com:8889"
   required: true
   type: string
 {% endconfiguration %}
