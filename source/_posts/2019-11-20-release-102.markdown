@@ -42,7 +42,7 @@ You simply select the devices (and/or entities if you are in advanced mode) you 
 Changes you do to the state of a device that is included in the scene you are editing are discarded when you exit the scene editor.
 
 To use the scene editor your scene config should be in the file `scenes.yaml` in your config directory and included in `configuration.yaml`.
-Every scene should have an unique id for the editor to work.
+Every scene should have a unique id for the editor to work.
 
 ```yaml
 # scenes.yaml
