@@ -113,6 +113,11 @@ force_update:
   reqired: false
   type: boolean
   default: false
+file_path:
+  description: Path to the file that contains the client-certificate used for authentication. Make sure the file contains private key ant the certificate
+  required: false
+  type: string
+  
 {% endconfiguration %}
 
 <div class='note warning'>
