@@ -12,6 +12,8 @@ og_image: /images/blog/2019-10-0.102/components.png
 ---
 
 Almond. Account linking. Mobile apps. WLED - platinum.
+Submit new sentences for Almond: https://docs.google.com/forms/d/e/1FAIpQLSeStJfjvueNAiueRVmP47XALRaJlx7tttzJjRfVjX4J546-uA/viewform
+
 Scene services + editor.
 Android app.
 
