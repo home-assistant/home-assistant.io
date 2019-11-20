@@ -70,6 +70,8 @@ scene: !include scenes.yaml
 
 https://github.com/tuanha2000vn/hasskit/
 
+https://www.reddit.com/r/homeassistant/comments/dz1qsi/picture_elements_are_so_fun_i_made_a_bad_video/
+
 ## New Integrations
 
 - Add Unifi Led ([@florisvdk] - [#27475]) ([unifiled docs]) (new-integration)
@@ -103,34 +105,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- __Huawei LTE__ - Configuration has been consolidated below `huawei_lte`. Device tracker no longer uses known_devices.yaml but entity registry. - ([@scop] - [#26675]) ([huawei_lte docs])
-  
+- **Huawei LTE** - Configuration has been consolidated below `huawei_lte`. Device tracker no longer uses known_devices.yaml but entity registry. - ([@scop] - [#26675]) ([huawei_lte docs])
+
   Example configuration yaml:
+
   ```yaml
   huawei_lte:
     - url: http://192.168.100.1/
       username: admin
       password: something
   ```
-  
-- __Ikea Tradfri__ - This removes the battery sensor that was created for the signal repeater. The sensor would never have a state, and after some inspection, it does not look like that device present any valuable metrics. - ([@ludeeus] - [#28181]) ([tradfri docs])
 
-- __UPNP/IGD__ -  All UPNP/IGD sensors are now in one device. You have to remove and re-add the integration to get rid of the previous devices. ([@escoand] - [#27517]) ([upnp docs])
+- **Ikea Tradfri** - This removes the battery sensor that was created for the signal repeater. The sensor would never have a state, and after some inspection, it does not look like that device present any valuable metrics. - ([@ludeeus] - [#28181]) ([tradfri docs])
 
-- __PS4__ - State `off` is now State `standby`. Affects user defined scripts, automations, etc. ([@ktnrg45] - [#28261]) ([ps4 docs])
+- **UPNP/IGD** - All UPNP/IGD sensors are now in one device. You have to remove and re-add the integration to get rid of the previous devices. ([@escoand] - [#27517]) ([upnp docs])
 
-- __SSDP__ -  `ssdp` in manifest.json has changed; it is now a list of dicts, and as we now match using the UPnP device description fields directly, `device_type` has to be renamed to `deviceType`. No included integrations use it at the moment, nor are they broken by this change. If any custom integrations are using it, they need to adjust accordingly. ([@scop] - [#28285]) ([ssdp docs])
+- **PS4** - State `off` is now State `standby`. Affects user defined scripts, automations, etc. ([@ktnrg45] - [#28261]) ([ps4 docs])
 
-- __HomematicIP Cloud__ - The attribute naming between Homematic IP `HmIP-BSM` (light) and `HmIP-FSM/HmIP-PSM` (switch) was different and in case of light not correct. The attributes for `HmIP-BSM` have been renamed:
-  
-  * energy_counter_kwh --> today_energy_kwh
-  * power_consumption --> current_power_w
+- **SSDP** - `ssdp` in manifest.json has changed; it is now a list of dicts, and as we now match using the UPnP device description fields directly, `device_type` has to be renamed to `deviceType`. No included integrations use it at the moment, nor are they broken by this change. If any custom integrations are using it, they need to adjust accordingly. ([@scop] - [#28285]) ([ssdp docs])
+
+- **HomematicIP Cloud** - The attribute naming between Homematic IP `HmIP-BSM` (light) and `HmIP-FSM/HmIP-PSM` (switch) was different and in case of light not correct. The attributes for `HmIP-BSM` have been renamed:
+
+  - energy_counter_kwh --> today_energy_kwh
+  - power_consumption --> current_power_w
 
   Please check your automations, scripts, scenes, etc., if you are using the old attributes in templates, and replace them with the new ones. - ([@SukramJ] - [#28271]) ([homematicip_cloud docs])
 
-- __Plugwise__ - Detection of a legacy Anna (firmware 1.8.x) is no longer automatic: owners of a legacy Anna have to provide info in configuration.yaml, the last line. This change was needed to be able to fix issue #26520. - ([@bouwew] - [#28237]) ([plugwise docs])
+- **Plugwise** - Detection of a legacy Anna (firmware 1.8.x) is no longer automatic: owners of a legacy Anna have to provide info in configuration.yaml, the last line. This change was needed to be able to fix issue #26520. - ([@bouwew] - [#28237]) ([plugwise docs])
 
   Example configuration yaml:
+
   ```yaml
   climate:
     - platform: plugwise
@@ -138,19 +142,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
       password: your_password
       host: your_anna_ip
       legacy_anna: true
-   ```
-   
-- __Android TV__ - The `source` and `sources_list` attributes for Fire TV devices will use friendly app names instead of app IDs (e.g., "Netflix" instead of "com.netflix.ninja"). If you are using these attributes in automations, sensors, etc., you will need to update them.
-  * If you are currently checking that the `source` attribute of a Fire TV device is a particular app ID, you have two options:
-    * Check the `app_id` attribute instead
-    * Replace that app ID with the friendly name for the app.
-  * If you are currently checking the `sources_list` attribute, then you will need to check for friendly app names instead of app IDs.
-  
-  You can still use app IDs for the media_player.select_source service. - ([@JeffLIrion] - [#28417]) ([androidtv docs])
-  
-- __Homekit__ - Thermostats supported by the Homekit Controller component were reporting "off" for the running status when the HVAC was powered on but not actively heating or cooling. This `hvac_action` attribute will now properly return "idle" instead of off. Any logic that tests for the `hvac_action` condition of `off` will need to change to `idle`. There is no change to any other states. - ([@GaryOkie] - [#28625]) ([homekit_controller docs])
+  ```
 
-- __OpenALPR local__ - The "alp_bin" option has been corrected to "alpr_bin" as is outlined in the documentation. Users should check their config and update if necessary. ([@HexF] - [#28746]) ([openalpr_local docs])
+- **Android TV** - The `source` and `sources_list` attributes for Fire TV devices will use friendly app names instead of app IDs (e.g., "Netflix" instead of "com.netflix.ninja"). If you are using these attributes in automations, sensors, etc., you will need to update them.
+
+  - If you are currently checking that the `source` attribute of a Fire TV device is a particular app ID, you have two options:
+    - Check the `app_id` attribute instead
+    - Replace that app ID with the friendly name for the app.
+  - If you are currently checking the `sources_list` attribute, then you will need to check for friendly app names instead of app IDs.
+
+  You can still use app IDs for the media_player.select_source service. - ([@JeffLIrion] - [#28417]) ([androidtv docs])
+
+- **Homekit** - Thermostats supported by the Homekit Controller component were reporting "off" for the running status when the HVAC was powered on but not actively heating or cooling. This `hvac_action` attribute will now properly return "idle" instead of off. Any logic that tests for the `hvac_action` condition of `off` will need to change to `idle`. There is no change to any other states. - ([@GaryOkie] - [#28625]) ([homekit_controller docs])
+
+- **OpenALPR local** - The "alp_bin" option has been corrected to "alpr_bin" as is outlined in the documentation. Users should check their config and update if necessary. ([@HexF] - [#28746]) ([openalpr_local docs])
 
 ## Beta Fixes
 
