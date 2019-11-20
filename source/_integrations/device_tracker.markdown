@@ -29,7 +29,7 @@ device_tracker:
 The following optional parameters can be used with any platform:
 
 <div class='note'>
-  Device tracker will only look for global settings under the configuration of the first configured platform.
+  Device tracker will only look for global settings under the configuration of the first configured platform. These 3 are the global settings:
 </div>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |

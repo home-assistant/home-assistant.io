@@ -8,7 +8,6 @@ ha_category:
   - Fan
   - Light
   - Switch
-featured: true
 ha_release: pre 0.7
 ---
 

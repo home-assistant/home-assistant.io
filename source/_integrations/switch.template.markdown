@@ -104,11 +104,11 @@ switch:
         turn_on:
           service: switch.turn_on
           data:
-            entity_id: switch.source
+            entity_id: switch.target
         turn_off:
           service: switch.turn_off
           data:
-            entity_id: switch.source
+            entity_id: switch.target
 ```
 
 {% endraw %}
