@@ -70,7 +70,7 @@ pins:
       required: true
       type: [integer, string]
 invert_logic:
-  description: If `true`, inverts the output logic to ACTIVE LOW.
+  description: If `true`, inverts the input logic to ACTIVE LOW.
   required: false
   type: boolean
   default: "`false` (ACTIVE HIGH)"
