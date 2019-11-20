@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Almond & Ada: A privacy-focused voice assistant"
+title: "Almond & Ada: privacy-focused voice assistant"
 description: "Say Hi! to Almond, a privacy-focused virtual assistant and Ada, a voice assistant powered by Home Assistant."
 date: 2019-11-14 0:43:02
 date_formatted: "November 20, 2019"
@@ -41,9 +41,9 @@ Almond is available to users today in Home Assistant 0.102. It requires an Almon
 
 Almond is set up in a way such that your privacy is still partially preserved even with LUInet running in the cloud. This is made possible because LUInet is only responsible for converting the text into a program, whose details are filled in locally by the Almond Server. For example, LUInet will convert "turn on the lights" into code that Almond Server understands. Only Almond Server will know which lights the user has, how to control them and the context of how the text was received.
 
-### Almond vs. …
+### How Almond compares to Google/Alexa
 
-You're probably wondering if Almond is as good as Alexa or Google. And it's not yet. However, it doesn't matter.
+You're probably wondering if Almond is as good as Alexa or Google. And it's not yet as good. However, it doesn't matter.
 
 If you want to have an assistant in your home that knows everything about you, it needs to be one that cares about privacy. It needs to be one that is open. That's not negotiable.
 
@@ -84,3 +84,9 @@ We cannot wait until all the pieces are in place to run 100% locally. We need to
 ## What's next?
 
 With Almond and Ada, we've put the building blocks in place to create voice assistants. It's now time to use it, improve it and surprise us by sharing the things you'll use it for.
+
+## Bonus
+
+I hacked together a quick prototype to allow you to talk to Almond via a Telegram Bot! It's available as a [custom component](https://gist.github.com/balloob/d59cae89d19a14bcec99ce1bde05bd44).
+
+<p class='img'><img src='/images/blog/2019-voice-assistant/telegram.png' style='max-width: 300px' alt='Screenshot of talking to Almond via Telegram.'>Screenshot of talking to Almond via Telegram.</p>

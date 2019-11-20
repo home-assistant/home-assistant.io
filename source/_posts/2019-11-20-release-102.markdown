@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.102: TBD - UPDATE DATE"
+title: "0.102: Official Android App, Almond, Scene editor"
 description: "TBD"
 date: 2019-11-14 0:41:02
 date_formatted: "November 20, 2019"
@@ -11,13 +11,37 @@ categories: Release-Notes
 og_image: /images/blog/2019-10-0.102/components.png
 ---
 
-Almond. Account linking. Mobile apps. WLED - platinum.
-Submit new sentences for Almond: https://docs.google.com/forms/d/e/1FAIpQLSeStJfjvueNAiueRVmP47XALRaJlx7tttzJjRfVjX4J546-uA/viewform
+Home Assistant 0.102 is here ! It's been quite the trip as we hosted our annual State of the Union last week, which took a lot of energy away from our release. This doesn't mean that we don't have anything to share, just that the notes might be a little less polished.
 
-Android app.
-Scene services.
+First, we had our State of the Union! It was great. You can watch it back [on YouTube](https://youtu.be/tc17q1Zn0Xs?t=434) or keep an eye out for the blog post coming soon that will summarize all the announcements.
 
-### Create automations with natural language
+Alright, so what's new? A lot.
+
+## Android App released!
+
+At the State of the Union we announced that we have released the initial version of the official [Home Assistant Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). It's still a work in progress, but the basic version already works.
+
+It's been developed by [@CedrickFlocon](https://github.com/CedrickFlocon) and the source is [available on GitHub](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). We've already seen some other developers step in, so that's great! Keep it coming.
+
+## Private Voice Assistant
+
+We teamed up with Stanford to tightly integrate their open, privacy-preserving virtual assistant Almond into Home Assistant. For more information, see the [separate blog post](/blog/2019/11/14/privacy-focused-voice-assistant/).
+
+## Account Linking
+
+Some companies only allow us to integrate with their products via cloud APIs. These cloud APIs often use [the OAuth2 specification](https://tools.ietf.org/html/rfc6749) to link accounts. The problem with this specification is that it cannot properly handle non-public or decentralized installations.
+
+So if you were to link an integration via OAuth2 before today, you would have to sign up for a developer account, configure Home Assistant and expose your instance publicly before you got to the part where you can link your account. That's not good!
+
+Home Assistant Cloud is introducing a new account linking service that will be freely available for everyone – no cloud account required. With this service, Home Assistant controls the developer account, and users will just need to link their accounts.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
+</div>
+
+The first integration to use this new service is [Somfy][somfy docs]. Manual installation is also still possible. This integration is built on top of our [new OAuth2 framework](https://developers.home-assistant.io/docs/en/config_entries_config_flow_handler.html#configuration-via-oauth2). We expect more integration developers to migrate OAuth2 integrations in the future.
+
+## Create automations with natural language
 
 As an experimental feature, we have added a new way to create automations. With the help of Almond, we can transform natural language into Home Assistant automations.
 
@@ -30,7 +54,7 @@ When you click the **+** in the automation editor to add a new automation, you w
 
 Be advised that not all devices are supported yet, and that Almond needs more training for better responses. Check the Almond part for how you can help make Almond better.
 
-### Scene editor
+## Scene editor
 
 <p class='img'>
 <img src='/images/docs/scenes/editor.png' alt='Screenshot of the scene editor.'></a>
@@ -75,7 +99,6 @@ https://www.reddit.com/r/homeassistant/comments/dz1qsi/picture_elements_are_so_f
 ## New Integrations
 
 - Add Unifi Led ([@florisvdk] - [#27475]) ([unifiled docs]) (new-integration)
-- Add available state to unifiled integration ([@florisvdk] - [#28189]) ([unifiled docs]) (new-integration)
 - Almond integration ([@balloob] - [#28282]) ([almond docs]) (new-integration)
 - Speech to Text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
 - Add WLED integration ([@frenck] - [#28542]) ([wled docs]) (new-integration)
@@ -89,9 +112,7 @@ https://www.reddit.com/r/homeassistant/comments/dz1qsi/picture_elements_are_so_f
 - Add switches (on/off zones) to geniushub ([@castaway] - [#28182]) ([geniushub docs]) (new-platform)
 - Add config endpoint for scene ([@bramkragten] - [#28429]) ([config docs]) ([homeassistant docs]) (new-platform)
 - Add override switch for juicenet ([@jesserockz] - [#28049]) ([juicenet docs]) (new-platform)
-- Add additional support over NC ([@pvizeli] - [#28527]) ([cloud docs]) ([stt docs]) (new-platform)
-- Add switch platform to WLED integration ([@frenck] - [#28606]) ([wled docs]) (new-platform)
-- Add sensor platform to WLED integration ([@frenck] - [#28632]) ([wled docs]) (new-platform)
+- Add SST/TTS support over NC ([@pvizeli] - [#28527]) ([cloud docs]) ([stt docs]) (new-platform)
 
 ## If you need help...
 
@@ -162,6 +183,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump ZHA quirks to 0.0.28 ([@dmulcahey] - [#28750]) ([zha docs]) (beta fix)
 - Updated frontend to 20191114.0 ([@bramkragten] - [#28768]) ([frontend docs]) (beta fix)
 - Fix account link version check ([@balloob] - [#28770]) ([cloud docs]) (beta fix)
+- Fix amazon dependency conflicts ([@bbrendon] - [#28217]) ([amazon_polly docs]) ([aws docs]) (beta fix)
+- Change unique id for SAJ sensor based on device SN ([@fredericvl] - [#28663]) ([saj docs]) (breaking change) (beta fix)
+- Fix changing venstar operation_mode ([@iamtpage] - [#28754]) ([venstar docs]) (beta fix)
+- Fix Repetier integration entity indexing ([@MTrab] - [#28766]) ([repetier docs]) (beta fix)
+- Fix HomematicIP Cloud Alarm Control Panel support for basic mode ([@SukramJ] - [#28778]) ([homematicip_cloud docs]) (beta fix)
+- Fix Swisscom empty response received ([@LeoCal] - [#28782]) ([swisscom docs]) (beta fix)
+- Fix broken postnl sensor ([@peternijssen] - [#28794]) ([postnl docs]) (beta fix)
+- Updated frontend to 20191115.0 ([@bramkragten] - [#28797]) ([frontend docs]) (beta fix)
+- Fix Comfoconnect errors during startup ([@michaelarnauts] - [#28802]) ([comfoconnect docs]) (beta fix)
+- Fix miio air quality sensor ([@valkjsaaa] - [#28828]) ([xiaomi_miio docs]) (beta fix)
+- Update pyatmo to 3.0.1 ([@cgtobi] - [#28829]) ([netatmo docs]) (beta fix)
+- Updated frontend to 20191118.0 ([@bramkragten] - [#28852]) ([frontend docs]) (beta fix)
+- Fix documentation URL in failed platform config check ([@frenck] - [#28814]) (beta fix)
+- Fix Synology camera whitelist ([@h4de5] - [#28822]) ([synology docs]) (beta fix)
+- Fix setting colors while reproducing a lights state ([@Santobert] - [#28871]) ([light docs]) (beta fix)
+- Updated frontend to 20191119.0 ([@bramkragten] - [#28875]) ([frontend docs]) (beta fix)
+- Updated frontend to 20191119.1 ([@bramkragten] - [#28881]) ([frontend docs]) (beta fix)
+- Updated frontend to 20191119.2 ([@bramkragten] - [#28896]) ([frontend docs]) (beta fix)
+- Fix Almond onboarding url when using cloud ([@bramkragten] - [#28908]) ([almond docs]) (beta fix)
 
 ## All changes
 
@@ -382,6 +422,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump ZHA quirks to 0.0.28 ([@dmulcahey] - [#28750]) ([zha docs]) (beta fix)
 - Updated frontend to 20191114.0 ([@bramkragten] - [#28768]) ([frontend docs]) (beta fix)
 - Fix account link version check ([@balloob] - [#28770]) ([cloud docs]) (beta fix)
+- Fix amazon dependency conflicts ([@bbrendon] - [#28217]) ([amazon_polly docs]) ([aws docs]) (beta fix)
+- Change unique id for SAJ sensor based on device SN ([@fredericvl] - [#28663]) ([saj docs]) (breaking change) (beta fix)
+- Fix changing venstar operation_mode ([@iamtpage] - [#28754]) ([venstar docs]) (beta fix)
+- Fix Repetier integration entity indexing ([@MTrab] - [#28766]) ([repetier docs]) (beta fix)
+- Fix HomematicIP Cloud Alarm Control Panel support for basic mode ([@SukramJ] - [#28778]) ([homematicip_cloud docs]) (beta fix)
+- Fix Swisscom empty response received ([@LeoCal] - [#28782]) ([swisscom docs]) (beta fix)
+- Fix broken postnl sensor ([@peternijssen] - [#28794]) ([postnl docs]) (beta fix)
+- Updated frontend to 20191115.0 ([@bramkragten] - [#28797]) ([frontend docs]) (beta fix)
+- Fix Comfoconnect errors during startup ([@michaelarnauts] - [#28802]) ([comfoconnect docs]) (beta fix)
+- Fix miio air quality sensor ([@valkjsaaa] - [#28828]) ([xiaomi_miio docs]) (beta fix)
+- Update pyatmo to 3.0.1 ([@cgtobi] - [#28829]) ([netatmo docs]) (beta fix)
+- Updated frontend to 20191118.0 ([@bramkragten] - [#28852]) ([frontend docs]) (beta fix)
+- Fix documentation URL in failed platform config check ([@frenck] - [#28814]) (beta fix)
+- Fix Synology camera whitelist ([@h4de5] - [#28822]) ([synology docs]) (beta fix)
+- Fix setting colors while reproducing a lights state ([@Santobert] - [#28871]) ([light docs]) (beta fix)
+- Updated frontend to 20191119.0 ([@bramkragten] - [#28875]) ([frontend docs]) (beta fix)
+- Updated frontend to 20191119.1 ([@bramkragten] - [#28881]) ([frontend docs]) (beta fix)
+- Updated frontend to 20191119.2 ([@bramkragten] - [#28896]) ([frontend docs]) (beta fix)
+- Fix Almond onboarding url when using cloud ([@bramkragten] - [#28908]) ([almond docs]) (beta fix)
 
 [#26563]: https://github.com/home-assistant/home-assistant/pull/26563
 [#26656]: https://github.com/home-assistant/home-assistant/pull/26656
@@ -445,6 +504,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#28214]: https://github.com/home-assistant/home-assistant/pull/28214
 [#28215]: https://github.com/home-assistant/home-assistant/pull/28215
 [#28216]: https://github.com/home-assistant/home-assistant/pull/28216
+[#28217]: https://github.com/home-assistant/home-assistant/pull/28217
 [#28220]: https://github.com/home-assistant/home-assistant/pull/28220
 [#28225]: https://github.com/home-assistant/home-assistant/pull/28225
 [#28228]: https://github.com/home-assistant/home-assistant/pull/28228
@@ -575,6 +635,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#28644]: https://github.com/home-assistant/home-assistant/pull/28644
 [#28651]: https://github.com/home-assistant/home-assistant/pull/28651
 [#28658]: https://github.com/home-assistant/home-assistant/pull/28658
+[#28663]: https://github.com/home-assistant/home-assistant/pull/28663
 [#28664]: https://github.com/home-assistant/home-assistant/pull/28664
 [#28667]: https://github.com/home-assistant/home-assistant/pull/28667
 [#28674]: https://github.com/home-assistant/home-assistant/pull/28674
@@ -598,8 +659,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#28737]: https://github.com/home-assistant/home-assistant/pull/28737
 [#28746]: https://github.com/home-assistant/home-assistant/pull/28746
 [#28750]: https://github.com/home-assistant/home-assistant/pull/28750
+[#28754]: https://github.com/home-assistant/home-assistant/pull/28754
+[#28766]: https://github.com/home-assistant/home-assistant/pull/28766
 [#28768]: https://github.com/home-assistant/home-assistant/pull/28768
 [#28770]: https://github.com/home-assistant/home-assistant/pull/28770
+[#28778]: https://github.com/home-assistant/home-assistant/pull/28778
+[#28782]: https://github.com/home-assistant/home-assistant/pull/28782
+[#28794]: https://github.com/home-assistant/home-assistant/pull/28794
+[#28797]: https://github.com/home-assistant/home-assistant/pull/28797
+[#28802]: https://github.com/home-assistant/home-assistant/pull/28802
+[#28814]: https://github.com/home-assistant/home-assistant/pull/28814
+[#28822]: https://github.com/home-assistant/home-assistant/pull/28822
+[#28828]: https://github.com/home-assistant/home-assistant/pull/28828
+[#28829]: https://github.com/home-assistant/home-assistant/pull/28829
+[#28852]: https://github.com/home-assistant/home-assistant/pull/28852
+[#28871]: https://github.com/home-assistant/home-assistant/pull/28871
+[#28875]: https://github.com/home-assistant/home-assistant/pull/28875
+[#28881]: https://github.com/home-assistant/home-assistant/pull/28881
+[#28896]: https://github.com/home-assistant/home-assistant/pull/28896
+[#28908]: https://github.com/home-assistant/home-assistant/pull/28908
 [@adminiuga]: https://github.com/Adminiuga
 [@anonym-tsk]: https://github.com/Anonym-tsk
 [@bkpepe]: https://github.com/BKPepe
@@ -612,6 +690,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jongilmore]: https://github.com/JonGilmore
 [@kane610]: https://github.com/Kane610
 [@leocal]: https://github.com/LeoCal
+[@mtrab]: https://github.com/MTrab
 [@martinhjelmare]: https://github.com/MartinHjelmare
 [@misiu]: https://github.com/Misiu
 [@onfreund]: https://github.com/OnFreund
@@ -630,6 +709,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@basnijholt]: https://github.com/basnijholt
+[@bbrendon]: https://github.com/bbrendon
 [@bendavid]: https://github.com/bendavid
 [@bluestripe]: https://github.com/bluestripe
 [@bouwew]: https://github.com/bouwew
@@ -660,6 +740,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@gerard33]: https://github.com/gerard33
 [@gngj]: https://github.com/gngj
 [@guillempages]: https://github.com/guillempages
+[@h4de5]: https://github.com/h4de5
 [@hfurubotten]: https://github.com/hfurubotten
 [@iamtpage]: https://github.com/iamtpage
 [@jesserockz]: https://github.com/jesserockz
@@ -674,12 +755,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@marthoc]: https://github.com/marthoc
 [@mezz64]: https://github.com/mezz64
 [@mflage]: https://github.com/mflage
+[@michaelarnauts]: https://github.com/michaelarnauts
 [@michaeldavie]: https://github.com/michaeldavie
 [@nkaminski]: https://github.com/nkaminski
 [@ochlocracy]: https://github.com/ochlocracy
 [@oischinger]: https://github.com/oischinger
 [@pattyland]: https://github.com/pattyland
 [@persandstrom]: https://github.com/persandstrom
+[@peternijssen]: https://github.com/peternijssen
 [@pvizeli]: https://github.com/pvizeli
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@rutkai]: https://github.com/rutkai
@@ -697,6 +780,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@timgates42]: https://github.com/timgates42
 [@tlrobinson]: https://github.com/tlrobinson
 [@ttroy50]: https://github.com/ttroy50
+[@valkjsaaa]: https://github.com/valkjsaaa
 [@vangorra]: https://github.com/vangorra
 [@yeralin]: https://github.com/yeralin
 [@yjajkiew]: https://github.com/yjajkiew
@@ -704,15 +788,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alexa docs]: /integrations/alexa/
 [almond docs]: /integrations/almond/
+[amazon_polly docs]: /integrations/amazon_polly/
 [androidtv docs]: /integrations/androidtv/
 [asuswrt docs]: /integrations/asuswrt/
 [automation docs]: /integrations/automation/
 [avea docs]: /integrations/avea/
+[aws docs]: /integrations/aws/
 [azure_servicebus docs]: /integrations/azure_servicebus/
 [bluesound docs]: /integrations/bluesound/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [climate docs]: /integrations/climate/
 [cloud docs]: /integrations/cloud/
+[comfoconnect docs]: /integrations/comfoconnect/
 [config docs]: /integrations/config/
 [conversation docs]: /integrations/conversation/
 [coolmaster docs]: /integrations/coolmaster/
@@ -761,6 +848,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [iss docs]: /integrations/iss/
 [juicenet docs]: /integrations/juicenet/
 [keyboard_remote docs]: /integrations/keyboard_remote/
+[light docs]: /integrations/light/
 [lock docs]: /integrations/lock/
 [lutron docs]: /integrations/lutron/
 [media_extractor docs]: /integrations/media_extractor/
@@ -780,10 +868,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
 [point docs]: /integrations/point/
+[postnl docs]: /integrations/postnl/
 [proxy docs]: /integrations/proxy/
 [ps4 docs]: /integrations/ps4/
 [qrcode docs]: /integrations/qrcode/
 [reddit docs]: /integrations/reddit/
+[repetier docs]: /integrations/repetier/
 [saj docs]: /integrations/saj/
 [samsungtv docs]: /integrations/samsungtv/
 [shiftr docs]: /integrations/shiftr/
@@ -793,6 +883,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ssdp docs]: /integrations/ssdp/
 [stt docs]: /integrations/stt/
 [swisscom docs]: /integrations/swisscom/
+[synology docs]: /integrations/synology/
 [systemmonitor docs]: /integrations/systemmonitor/
 [tahoma docs]: /integrations/tahoma/
 [telegram_bot docs]: /integrations/telegram_bot/
