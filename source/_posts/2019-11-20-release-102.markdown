@@ -14,8 +14,54 @@ og_image: /images/blog/2019-10-0.102/components.png
 Almond. Account linking. Mobile apps. WLED - platinum.
 Submit new sentences for Almond: https://docs.google.com/forms/d/e/1FAIpQLSeStJfjvueNAiueRVmP47XALRaJlx7tttzJjRfVjX4J546-uA/viewform
 
-Scene services + editor.
 Android app.
+Scene services.
+
+### Create automations with natural language
+
+As an experimental feature, we have added a new way to create automations. With the help of Almond, we can transform natural language in to Home Assistant automations.
+
+<p class='img'>
+<img src='/images/blog/2019-11-0.102/thingtalk-automation.png' alt='Screenshot of the create automation dialog.'></a>
+Screenshot of the create automation dialog.
+</p>
+
+When you click the **+** in the automation editor to add a new automation, you will see a new dialog where you can enter what you want your automation to do in natural language. Like: `Turn on the lights when I come home`. We will try to convert this into an automation. We will check you need to specify devices or persons for this automation and ask you for them. You can than check the generated automation in the editor and save it.
+
+Be advised that not all devices are supported yet, and that Almond needs more training for beter responses. Check the Almond part for how you can help make Almond better.
+
+### Scene editor
+
+<p class='img'>
+<img src='/images/docs/scenes/editor.png' alt='Screenshot of the scene editor.'></a>
+Screenshot of the scene editor.
+</p>
+
+We also introduce a [scene editor](/docs/scene/editor/). With the scene editor you can easily store the states of devices in a scene.
+You simply select the devices (and/or entities if you are in advanced mode) you want to include in your scene and set the states to how you would like them when the scene activates.
+Changes you do to the state of a device that is included in the scene you are editing are discarded when you exit the scene editor.
+
+To use the scene editor your scene config should be in the file `scenes.yaml` in your config directory and included in `configuration.yaml`.
+Every scene should have an unique id for the editor to work.
+
+```yaml
+# scenes.yaml
+- id: my_unique_id # <-- Required for editor to work.
+  name: Romantic
+  entities:
+    light.tv_back_light: on
+    light.ceiling:
+      state: on
+      xy_color: [0.33, 0.66]
+      brightness: 200
+```
+
+Than update your `configuration.yaml` to look like this:
+
+```yaml
+# Configuration.yaml example
+scene: !include scenes.yaml
+```
 
 ## In other news
 
