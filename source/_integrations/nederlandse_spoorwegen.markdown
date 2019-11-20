@@ -74,17 +74,17 @@ routes:
 
 Station codes must be used and can be looked up [here](https://nl.wikipedia.org/wiki/Lijst_van_spoorwegstations_in_Nederland).
 
-### Searching a specific train vs. searching the next train
+### Searching a specific train vs. the next train
 
-Default behavior (without configuration variable `time`) gives you the information about the *next* train that fits the criteria (`from`, `to`, `via`).
-When using the configuration variable `time` you can search for a specific train.
+The default behavior (without configuration variable `time`) gives you the information about the *next* train that fits the criteria (`from`, `to`, `via`).
+When using the configuration variable `time`, you can search for a specific train.
 This is convenient when searching for the next train doesn't give you enough time to base an automation on.
-E.g. when you normally take the 08h06m train and want to get information about this train, but there is another train
+E.g., when you normally take the 08h06m train and want to get information about this train, but there is another train
 that's departing just minutes before your train, your time window to warn you on a delay might be too small.
 
 Using `time` only updates the route sensor during a time window around the chosen time.
-Outside this window the route sensor's state is `unknown`.
-The window is from half an hour before the chosen time till half an hour after the chosen time.
-In this way you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
+Outside this window, the route sensor's state is `unknown`.
+The window is from half an hour before the chosen time until half an hour after the chosen time.
+In this way, you can have multiple routes with specific trains before hitting the FUP threshold for using NS API.
 
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
