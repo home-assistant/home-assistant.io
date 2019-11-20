@@ -36,7 +36,7 @@ So if you were to link an integration via OAuth2 before today, you would have to
 Home Assistant Cloud is introducing a new account linking service that will be freely available for everyone – no cloud account required. With this service, Home Assistant controls the developer account, and users will just need to link their accounts.
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
 </div>
 
 The first integration to use this new service is [Somfy][somfy docs]. Manual installation is also still possible. This integration is built on top of our [new OAuth2 framework](https://developers.home-assistant.io/docs/en/config_entries_config_flow_handler.html#configuration-via-oauth2). We expect more integration developers to migrate OAuth2 integrations in the future.
@@ -61,12 +61,9 @@ Be advised that not all devices are supported yet, and that Almond needs more tr
 Screenshot of the scene editor.
 </p>
 
-We also introduce a [scene editor](/docs/scene/editor/). With the scene editor you can easily store the states of devices in a scene.
-You simply select the devices (and/or entities if you are in advanced mode) you want to include in your scene and set the states to how you would like them when the scene activates.
-Changes you do to the state of a device that is included in the scene you are editing are discarded when you exit the scene editor.
+We're also introducing a [scene editor](/docs/scene/editor/). With the scene editor you can easily store the states of devices in a scene. You simply select the devices (and/or entities if you are in advanced mode) you want to include in your scene and set the states to how you would like them when the scene activates.
 
-To use the scene editor your scene config should be in the file `scenes.yaml` in your config directory and included in `configuration.yaml`.
-Every scene should have a unique id for the editor to work.
+To use the scene editor your scene config should be in the file `scenes.yaml` in your config directory and included in `configuration.yaml`. Every scene should have a unique id for the editor to work.
 
 ```yaml
 # scenes.yaml
@@ -89,12 +86,23 @@ scene: !include scenes.yaml
 
 ## In other news
 
+Andrew learned Swift and created a new mini-app for Mac:
+
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Using my new found Swift skills I created a tiny Mac menu bar app to control switches on <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://t.co/N7wl2gXd2O">https://t.co/N7wl2gXd2O</a><br>Saves me reaching behind the printer for the awkward power button.<br>Consider it alpha, I&#39;ve got a lot to learn on both swift and HA! <a href="https://t.co/o6Wm7Le5nm">pic.twitter.com/o6Wm7Le5nm</a></p>&mdash; Andrew Jackson (@AndrewCodeChimp) <a href="https://twitter.com/AndrewCodeChimp/status/1196377630070755328?ref_src=twsrc%5Etfw">November 18, 2019</a>
 </blockquote>
 
-https://github.com/tuanha2000vn/hasskit/
+Our Android app is not the only new app on the block. [@tuanha2000vn](https://github.com/tuanha2000vn) has released [Hasskit](https://github.com/tuanha2000vn/hasskit/), a new app built with Flutter that can be used on both Android and iOS.
 
-https://www.reddit.com/r/homeassistant/comments/dz1qsi/picture_elements_are_so_fun_i_made_a_bad_video/
+And finally, Brad posted a video on [Reddit](https://www.reddit.com/r/homeassistant/comments/dz1qsi/picture_elements_are_so_fun_i_made_a_bad_video/) showing his amazing usage of picture elements in Lovelace. Check it out:
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SqIMUSegjrs" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Users of Xiaomi Vacuum cleaners can now use this great custom Lovelace card:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Wow 😲<br><br>This custom card for Xiaomi vacuum cleaners allows you to exactly tell what part of the house your vacuum cleaner has to clean 👏<a href="https://t.co/NJtrRLKvDZ">https://t.co/NJtrRLKvDZ</a> <a href="https://t.co/iNOOwt5Wxd">pic.twitter.com/iNOOwt5Wxd</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1192889842440507392?ref_src=twsrc%5Etfw">November 8, 2019</a>
+</blockquote>
 
 ## New Integrations
 
