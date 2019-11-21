@@ -95,6 +95,10 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | `entity_id`            |       no | Entity ID to target.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
+### Service `remote.toggle`
+
+..........
+
 ##### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
