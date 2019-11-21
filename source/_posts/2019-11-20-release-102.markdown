@@ -21,7 +21,7 @@ Alright, so what's new? A lot.
 
 At the State of the Union we announced that we have released the initial version of the official [Home Assistant Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). It's still a work in progress, but the basic version already works.
 
-It's been developed by [@CedrickFlocon](https://github.com/CedrickFlocon) and the source is [available on GitHub](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). We've already seen some other developers step in, so that's great! Keep it coming.
+It's been developed by [@CedrickFlocon](https://github.com/CedrickFlocon) and the source is [available on GitHub](https://github.com/home-assistant/home-assistant-android). We've already seen some other developers step in, so that's great! Keep it coming.
 
 <!--more-->
 
