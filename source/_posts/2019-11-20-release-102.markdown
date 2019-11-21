@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "0.102: Official Android App, Almond, Scene editor"
-description: "TBD"
-date: 2019-11-14 0:41:02
+description: "Download the Android app, install a private voice assistant and easy OAuth2 account linking."
+date: 2019-11-20 0:41:02
 date_formatted: "November 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob

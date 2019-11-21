@@ -2,13 +2,13 @@
 layout: post
 title: "Almond & Ada: privacy-focused voice assistant"
 description: "Say Hi! to Almond, a privacy-focused virtual assistant and Ada, a voice assistant powered by Home Assistant."
-date: 2019-11-14 0:43:02
+date: 2019-11-20 0:43:02
 date_formatted: "November 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Announcements
-og_image: /images/blog/2019-voice-assistant/almond.png
+og_image: /images/blog/2019-11-voice-assistant/almond.png
 ---
 
 TL;DR:
@@ -33,9 +33,9 @@ Recently we got in touch with the [Open Virtual Assistant Lab at Stanford Univer
 
 [Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant that is open source. With Almond, you can run a virtual assistant at home, that can tell you the news or control your house. It is powered by [LUInet](https://almond.stanford.edu/doc/genie-intro.md), a state-of-the-art neural network developed at Stanford. And it now works with Home Assistant.
 
-The Almond team has updated Almond to make it aware of all the different device types in Home Assistant and allow Almond to control them. In turn, we have upgraded the conversation integration in Home Assistant to support Almond, allowing users to converse with Almond via the frontend.
+The Almond team has updated Almond to make it aware of the different device types in Home Assistant and allow Almond to control them. In turn, we have upgraded the conversation integration in Home Assistant to support Almond, allowing users to converse with Almond via the frontend.
 
-<p class='img'><img src='/images/blog/2019-voice-assistant/almond.png' alt='Screenshot showing Almond integration in Home Assistant.'>Screenshot showing Almond integration in Home Assistant.</p>
+<p class='img'><img src='/images/blog/2019-11-voice-assistant/almond.png' alt='Screenshot showing Almond integration in Home Assistant.'>Screenshot showing Almond integration in Home Assistant.</p>
 
 Almond is available to users today in Home Assistant 0.102. It requires an Almond Server, which you can either install yourself, use the new Almond Hass.io add-on or rely on Almond Web, a cloud version hosted by Stanford. By default, Almond Server will rely on a cloud version of LUInet, but it is possible to run it locally.
 
@@ -51,7 +51,7 @@ Almond has room for improvement. But it's open source, and with the Home Assista
 
 Almond is gathering sentences that you want to use to control the devices in your home. We already have a basic set of sentences, but the more, the better. You can submit those sentences [using this form](https://docs.google.com/forms/d/e/1FAIpQLSeStJfjvueNAiueRVmP47XALRaJlx7tttzJjRfVjX4J546-uA/viewform).
 
-You are also able to help train LUInet directly by teaching it how to interpret sentences [here](https://almond.stanford.edu/developers/train).
+You are also able to help train LUInet directly by teaching it how to interpret sentences [in the training console](https://almond.stanford.edu/developers/train).
 
 ## Ada
 
@@ -59,7 +59,7 @@ Almond is not the full story. Almond only works with text input, and generates t
 
 Now we almost have all the pieces for a voice assistant built-in to Home Assistant, and so we decided to finish it off by introducing a new project called [Ada](https://github.com/home-assistant/ada). Ada integrates hotword detection and will route all data to the various integrations to provide a full voice assistant experience.
 
-<a href='/images/blog/2019-voice-assistant/overview.svg'><img src='/images/blog/2019-voice-assistant/overview.svg' alt='Architectural overview of how all pieces fit together.' style='border: 0;box-shadow: none;'></a>
+<a href='/images/blog/2019-11-voice-assistant/overview.svg'><img src='/images/blog/2019-11-voice-assistant/overview.svg' alt='Architectural overview of how all pieces fit together.' style='border: 0;box-shadow: none;'></a>
 
 Ada is still very much in the beginning. We'll be working on improving it. If you have expertise in this area and want to help, please get in touch.
 
@@ -79,7 +79,7 @@ But we also want privacy to be accessible. A user should be able to get a privat
 
 With the current approach, some things will still run in the cloud, but the home data and control stays local. We will bring more things local when faster technology becomes more accessible or new projects emerge that can help with this.
 
-We cannot wait until all the pieces are in place to run 100% locally. We need to help build the future we want to see.
+We don't want to wait with integrating this until all the pieces run 100% locally. We need to help build the future we want to see.
 
 ## What's next?
 
@@ -89,4 +89,4 @@ With Almond and Ada, we've put the building blocks in place to create voice assi
 
 I hacked together a quick prototype to allow you to talk to Almond via a Telegram Bot! It's available as a [custom component](https://gist.github.com/balloob/d59cae89d19a14bcec99ce1bde05bd44).
 
-<p class='img'><img src='/images/blog/2019-voice-assistant/telegram.png' style='max-width: 300px' alt='Screenshot of talking to Almond via Telegram.'>Screenshot of talking to Almond via Telegram.</p>
+<p class='img'><img src='/images/blog/2019-11-voice-assistant/telegram.png' style='max-width: 300px' alt='Screenshot of talking to Almond via Telegram.'>Screenshot of talking to Almond via Telegram.</p>

@@ -58,3 +58,11 @@ almond:
 ```
 
 You can now go to the integrations page and start the configuration flow.
+
+## Language Support
+
+Almond is currently limited to the English language. This is not a technical limitation but requires specialized engineering effort. Almond has currently no public timeline for adding other languages.
+
+## Device Support
+
+Almond is constantly improving. It does not currently support all devices, but we're working with Almond on improving this.
