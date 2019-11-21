@@ -4,7 +4,7 @@ description: "Access your ProxmoxVE instance in Home Assistant."
 logo: proxmoxve.png
 ha_category:
   - Binary Sensor
-ha_release: 0.101
+ha_release: 0.103
 ha_iot_class: Local Polling
 ---
 
