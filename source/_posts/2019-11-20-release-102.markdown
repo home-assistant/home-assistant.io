@@ -27,7 +27,7 @@ It's been developed by [@CedrickFlocon](https://github.com/CedrickFlocon) and th
 
 ## Private Voice Assistant
 
-We teamed up with Stanford to tightly integrate their open, privacy-preserving virtual assistant Almond into Home Assistant. For more information, see the [separate blog post](/blog/2019/11/14/privacy-focused-voice-assistant/).
+We teamed up with Stanford to tightly integrate their open, privacy-preserving virtual assistant Almond into Home Assistant. For more information, see the [separate blog post](/blog/2019/11/20/privacy-focused-voice-assistant/).
 
 ## Account Linking
 
