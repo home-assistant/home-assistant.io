@@ -99,6 +99,10 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 
 ..........
 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Entity ID to target.
+
 ##### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
