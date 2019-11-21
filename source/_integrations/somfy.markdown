@@ -48,13 +48,13 @@ somfy:
 
 {% configuration %}
 client_id:
-description: Your Somfy consumer key.
-required: true
-type: string
+  description: Your Somfy consumer key.
+  required: true
+  type: string
 client_secret:
-description: Your Somfy consumer secret.
-required: true
-type: string
+  description: Your Somfy consumer secret.
+  required: true
+  type: string
 {% endconfiguration %}
 
 ### Potential duplicate with the Tahoma integration
