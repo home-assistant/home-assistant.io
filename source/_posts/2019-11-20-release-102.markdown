@@ -13,7 +13,7 @@ og_image: /images/blog/2019-10-0.102/components.png
 
 Home Assistant 0.102 is here ! It's been quite the trip as we hosted our annual State of the Union last week, which took a lot of energy away from our release. This doesn't mean that we don't have anything to share, just that the notes might be a little less polished.
 
-First, we had our State of the Union! It was great. You can watch it back [on YouTube](https://youtu.be/tc17q1Zn0Xs?t=434) or keep an eye out for the blog post coming soon that will summarize all the announcements.
+First, we had our State of the Union at the ING office in Amsterdam! It was great. You can watch it back [on YouTube](https://youtu.be/tc17q1Zn0Xs?t=434) or keep an eye out for the blog post coming soon that will summarize all the announcements.
 
 Alright, so what's new? A lot.
 
@@ -22,6 +22,8 @@ Alright, so what's new? A lot.
 At the State of the Union we announced that we have released the initial version of the official [Home Assistant Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). It's still a work in progress, but the basic version already works.
 
 It's been developed by [@CedrickFlocon](https://github.com/CedrickFlocon) and the source is [available on GitHub](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). We've already seen some other developers step in, so that's great! Keep it coming.
+
+<!--more-->
 
 ## Private Voice Assistant
 
@@ -129,8 +131,6 @@ Users of Xiaomi Vacuum cleaners can now use this great custom Lovelace card:
 ## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
-
-<!--more-->
 
 ## Breaking Changes
 
