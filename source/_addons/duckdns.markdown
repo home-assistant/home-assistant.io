@@ -13,8 +13,8 @@ featured: true
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem"
   },
-  "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["my-domain.duckdns.org"],
+  "token": "0a21a3d8-082b-4f8e-872d-4d30403cc866",
+  "domains": ["benglim.duckdns.org"],
   "seconds": 300
 }
 ```
