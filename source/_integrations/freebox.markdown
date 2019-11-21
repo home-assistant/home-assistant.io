@@ -15,7 +15,7 @@ The `freebox` integration allows you to observe and control [Freebox router](htt
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with traffic metrics
+* [Sensor](#sensor) with traffic metrics and temperatures
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control WiFi
 
