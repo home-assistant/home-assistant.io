@@ -211,6 +211,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20191119.2 ([@bramkragten] - [#28896]) ([frontend docs]) (beta fix)
 - Fix Almond onboarding url when using cloud ([@bramkragten] - [#28908]) ([almond docs]) (beta fix)
 
+## Release 0.102.1 - November 21
+
+- Fix missing Netatmo sensors ([@cgtobi] - [#28899]) ([netatmo docs])
+- Updated frontend to 20191119.5 ([@bramkragten] - [#28925]) ([frontend docs])
+- Fix Plex startup race condition #28934 [@jjlawren]
+
+[#28899]: https://github.com/home-assistant/home-assistant/pull/28899
+[#28925]: https://github.com/home-assistant/home-assistant/pull/28925
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[frontend docs]: /integrations/frontend/
+[netatmo docs]: /integrations/netatmo/
+
 ## All changes
 
 - Cover all possible values for venstar operation_mode ([@iamtpage] - [#27949]) ([venstar docs])
