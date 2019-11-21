@@ -251,6 +251,18 @@ camera:
     - camera_name2
 ```
 
+### Services (only for camera)
+
+The services below permit to control whether the camera should monitor and alert on motion detection. Also, it allows to control the status of the flood light (only for Presence model).
+
+| Service | Description |
+| ------- | ----------- |
+| enable_motion_detection | Enable motion detection and alert. 
+| disable_motion_detection | Disable motion detection and alert. 
+| set_light_auto | Presence model only : Set flood light on automatic mode.
+| set_light_on | Presence model only : Set flood light on.
+| set_light_off | Presence model only : Set flood light off.
+
 ## Climate
 
 The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This integration allows you to view the current temperature and setpoint.

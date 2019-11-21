@@ -38,7 +38,7 @@ If you use a version higher than 0.1.4-beta2, you can simply solve the FTP issue
 </div>
 
 <div class='note warning'>
-Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
+Raspbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
 </div>
 
 <div class='note warning'>

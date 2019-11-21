@@ -58,6 +58,11 @@ framerate:
   required: false
   default: 2
   type: integer
+stream_path:
+  description: This parameter allows you to override the stream path.
+  required: false
+  default: live.sdp
+  type: string
 {% endconfiguration %}
 
 ### Advanced configuration
@@ -73,6 +78,7 @@ camera:
     password: !secret fd_camera_pwd
     verify_ssl: false
     framerate: 5
+    stream_path: live2.sdp
 ```
 
 ### Services

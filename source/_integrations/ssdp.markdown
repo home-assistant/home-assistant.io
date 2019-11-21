@@ -23,5 +23,6 @@ ssdp:
 
 The following integrations are automatically discovered by the SSDP integration:
 
- - Deconz
- - Philips Hue
+ - [deCONZ](../deconz/)
+ - [Huawei LTE](../huawei_lte/)
+ - [Philips Hue](../hue/)
