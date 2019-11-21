@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-10-0.102/components.png
+og_image: /images/blog/2019-11-0.102/components.png
 ---
 
 Home Assistant 0.102 is here ! It's been quite the trip as we hosted our annual State of the Union last week, which took a lot of energy away from our release. This doesn't mean that we don't have anything to share, just that the notes might be a little less polished.
