@@ -48,7 +48,7 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-      key_actions:
+      events:
         arrow_right:
           service: logbook.log
           data:
@@ -150,8 +150,8 @@ homekit:
                     description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
-              key_actions:
-                description: Only for `media_player` entities. Dictionary of scripts to run when the corresponding key is pressed in the Remote app.
+              events:
+                description: Only for `media_player` entities. Dictionary of scripts to run when the corresponding event occurs Remote app (i.e. right arrow key pressed).
                 type: map
                 keys:
                  rewind:
