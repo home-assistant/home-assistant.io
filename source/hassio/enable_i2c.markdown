@@ -25,12 +25,12 @@ Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
 
 - In the root of the USB drive add a folder called `/modules`.
 - Inside that folder add a text file called `rpi-i2c.conf` with the following contents:
-  ```
+  ```txt
   i2c-bcm2708
   i2c-dev
   ```
 - In the root of the USB drive add a file called `config.txt` with the following contents:
-  ```
+  ```txt
   dtparam=i2c1=on 
   dtparam=i2c_arm=on
   ```

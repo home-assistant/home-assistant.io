@@ -5,7 +5,7 @@ description: "A guide to remotely accessing Home Assistant and securing the conn
 
 <div class='note'>
 
-If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/suites/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+If you are using Hass.io do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io.
 
 </div>
 
@@ -17,7 +17,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You want to access your Home Assistant instance when you are away from home (ie, not connected to your local network) and secure it with a TLS/SSL certificate.
  * You have a basic understanding of the phrases I have used so far.
  * You are not currently running anything on port 80 on your network (you'd know if you were).
- * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
+ * If you are not using Home Assistant on a Debian/Raspian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is inaccurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
  * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
 
@@ -76,7 +76,7 @@ SSH in to your system running Home Assistant and login.
 Type the following command to list your network interfaces:
 
 ```bash
-$ ifconfig
+ifconfig
 ```
 
 You will receive an output similar to the image below:
@@ -91,7 +91,7 @@ Make a note of the interface name and the IP address you are currently on. In th
 Then type the following command to open the text file that controls your network connection:
 
 ```bash
-$ sudo nano /etc/dhcpcd.conf
+sudo nano /etc/dhcpcd.conf
 ```
 
 At the bottom of the file add the following lines:
@@ -121,7 +121,7 @@ Press Ctrl + x to close the editor, pressing Y to save the changes when prompted
 Reboot your device running HA:
 
 ```bash
-$ sudo reboot
+sudo reboot
 ```
 
 When it comes back up check that you can SSH in to it again on the IP address you wrote down.
@@ -248,35 +248,35 @@ sudo adduser homeassistant sudo
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `homeassistant` or `hass` - you may have used a command similar to this in the past):
 
 ```bash
-$ sudo -u homeassistant -H -s
+sudo -u homeassistant -H -s
 ```
 
 Make sure you are in the home directory for the Home Assistant user:
 
 ```bash
-$ cd
+cd
 ```
 
 We will now make a directory for the certbot software, download it and give it the correct permissions:
 
 ```text
-$ mkdir certbot
-$ cd certbot/
-$ wget https://dl.eff.org/certbot-auto
-$ chmod a+x certbot-auto
+mkdir certbot
+cd certbot/
+wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
 ```
 
-You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Hassbian:
+You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
 
 ```text
-$ sudo systemctl stop home-assistant@homeassistant.service
+sudo systemctl stop home-assistant@homeassistant.service
 ```
 
 You can restart Home Assistant after the next step using the same command and replacing `stop` with `start`.
 Now we will run the certbot program to get our SSL certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
-$ ./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
+./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
 ```
 
 Once the program has run it will generate a certificate and other files and place them in a folder `/etc/letsencrypt/` .
@@ -284,7 +284,7 @@ Once the program has run it will generate a certificate and other files and plac
 Confirm this file has been populated:
 
 ```bash
-$ ls /etc/letsencrypt/live/
+ls /etc/letsencrypt/live/
 ```
 
 This should show a folder named exactly after your DuckDNS URL.
@@ -292,8 +292,8 @@ This should show a folder named exactly after your DuckDNS URL.
 Our Home Assistant user needs access to files within the letsencrypt folder, so issue the following commands to change the permissions.
 
 ```bash
-$ sudo chmod 755 /etc/letsencrypt/live/
-$ sudo chmod 755 /etc/letsencrypt/archive/
+sudo chmod 755 /etc/letsencrypt/live/
+sudo chmod 755 /etc/letsencrypt/archive/
 ```
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
@@ -304,7 +304,7 @@ Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now
 
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
 
-```
+```bash
 cd ~/.homeassistant
 ```
 
@@ -336,7 +336,7 @@ http:
   base_url: examplehome.duckdns.org
 ```
 
-You may wish to set up other options for the [http](/components/http/) integration at this point, these extra options are beyond the scope of this guide.
+You may wish to set up other options for the [http](/integrations/http/) integration at this point, these extra options are beyond the scope of this guide.
 
 Save the changes to configuration.yaml. Restart Home Assistant.
 
@@ -403,8 +403,8 @@ If you do not wish to set up a sensor you can skip straight to step 8 to learn h
 The sensor will rely on a command line program that needs to be installed on your device running Home Assistant. SSH in to the device and run the following commands:
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install ssl-cert-check
+sudo apt-get update
+sudo apt-get install ssl-cert-check
 ```
 
 <div class='note'>
@@ -426,7 +426,7 @@ sensor:
 
 Save the configuration.yaml. Restart Home Assistant.
 
-On your default_view you should now see a sensor badge containing your number of days until expiry. If you've been following this guide from the start and have not taken any breaks in between, this should be 89 or 90. The sensor will update every 3 hours. You can place this reading on a card using groups, or hide it using customize. These topics are outside of the scope of this guide, but information can be found on their respective integrations pages: [Group](/components/group/) and [Customize](/docs/configuration/customizing-devices/)
+On your default_view you should now see a sensor badge containing your number of days until expiry. If you've been following this guide from the start and have not taken any breaks in between, this should be 89 or 90. The sensor will update every 3 hours. You can place this reading on a card using groups, or hide it using customize. These topics are outside of the scope of this guide, but information can be found on their respective integrations pages: [Group](/integrations/group/) and [Customize](/docs/configuration/customizing-devices/)
 
 Got your sensor up and running and where you want it? Top drawer! Nearly there, now move on to the final steps to ensure that you're never without a secure connection in the future.
 
@@ -449,13 +449,13 @@ To set a cron job to run the script at regular intervals:
  * Change to your Home Assistant user (where `homeassistant` is the name of the user):
 
 ```bash
-$ sudo -u homeassistant -H -s
+sudo -u homeassistant -H -s
 ```
 
  * Open the crontab:
 
 ```bash
-$ crontab -e
+crontab -e
 ```
 
  * If you are a TWO-RULE Person: Scroll to the bottom of the file and paste in the following line
@@ -506,19 +506,19 @@ To manually update:
  * Change to your Home Assistant user (where `homeassistant` is the name of the user):
 
 ```bash
-$ sudo -u homeassistant -H -s
+sudo -u homeassistant -H -s
 ```
 
  * Change to your certbot folder
 
 ```bash
-$ cd ~/certbot/
+cd ~/certbot/
 ```
 
  * Run the renewal command
 
 ```bash
-$ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
 
 * If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`

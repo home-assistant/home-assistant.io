@@ -89,7 +89,7 @@ Replace 443 with whatever port you chose to bind to in the config if different.
 
 ### Configure Home Assistant HTTP Component
 
-In your `configuration.yaml` file, edit the [http component](/components/http/).
+In your `configuration.yaml` file, edit the [http component](/integrations/http/).
 
 ```text
 http:

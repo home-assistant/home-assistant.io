@@ -33,19 +33,19 @@ Zones allow you to name areas on a map. These areas can then be used to name the
 The map view will hide all devices that are home.
 </div>
 
-[routers]: /components/#presence-detection
-[nmap]: /components/device_tracker.nmap_tracker/
-[ha-bluetooth]: /components/device_tracker.bluetooth_tracker/
-[ha-bluetooth-le]: /components/device_tracker.bluetooth_le_tracker/
-[ha-owntracks]: /components/owntracks/
-[ha-locative]: /components/device_tracker.locative/
-[ha-gpslogger]: /components/device_tracker.gpslogger/
-[ha-presence]: /components/#presence-detection
-[mqtt-self]: /components/mqtt/#run-your-own
-[mqtt-cloud]: /components/mqtt/#cloudmqtt
-[zone]: /components/zone/
+[routers]: /integrations/#presence-detection
+[nmap]: /integrations/nmap_tracker
+[ha-bluetooth]: /integrations/bluetooth_tracker
+[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
+[ha-owntracks]: /integrations/owntracks/
+[ha-locative]: /integrations/locative
+[ha-gpslogger]: /integrations/gpslogger
+[ha-presence]: /integrations/#presence-detection
+[mqtt-self]: /integrations/mqtt/#run-your-own
+[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
+[zone]: /integrations/zone/
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
-[ha-map]: /components/map/
+[ha-map]: /integrations/map/
 
 ### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)

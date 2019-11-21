@@ -34,8 +34,8 @@ Some best practices to consider before putting your configuration on GitHub:
 In order to put your configuration on GitHub, you must install the Git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubuntu or any Debian-based system) *Note: this isn't required in Hass.io, it's included as default so proceed to step 2*:
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install git
+sudo apt-get update
+sudo apt-get install git
 ```
 
 ### Step 2: Creating `.gitignore`
@@ -46,7 +46,7 @@ Before creating and pushing your Home Assistant configuration to GitHub, please 
 
 </div>
 
-Creating a `.gitignore` file in your repository will tell Git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your [`secrets.yaml`](/docs/configuration/secrets/) file, device configuration files, and the Home Assistant database/directory structure. The `.gitignore` file should be placed in the root of your Home Assistant configuration directory: `<config dir/.gitignore`.
+Creating a `.gitignore` file in your repository will tell Git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your [`secrets.yaml`](/docs/configuration/secrets/) file, device configuration files, and the Home Assistant database/directory structure. The `.gitignore` file should be placed in the root of your Home Assistant configuration directory: `<config dir>/.gitignore`.
 
 <div class='note'>
 
@@ -88,11 +88,11 @@ More information on the layout of the file can be found in the [.gitignore manua
 In your Home Assistant directory, type the following commands as the Home Assistant user, replacing the email address and name with your information:
 
 ```bash
-$ git init
-$ git config user.email "you@example.com"
-$ git config user.name "Your Name"
-$ git add .
-$ git commit
+git init
+git config user.email "you@example.com"
+git config user.name "Your Name"
+git add .
+git commit
 ```
 
 After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit. In this case, you can enter something like "Initial commit of my Home Assistant configuration". To exit the editor, press `CTRL + C` and then `:wq` which will exit and save the changes. 
@@ -110,8 +110,8 @@ Once you are sure you are using `secrets.yaml` and `.gitignore` correctly, it is
 In your Home Assistant directory, type the following commands as the Home Assistant user, replacing "username" in the URL with your GitHub username:
 
 ```bash
-$ git remote add origin https://github.com/username/Home-AssistantConfig
-$ git push -u origin master
+git remote add origin https://github.com/username/Home-AssistantConfig
+git push -u origin master
 ```
 
 You will be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
@@ -159,7 +159,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.5"
+  - "3.7"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev
@@ -184,8 +184,8 @@ home_elevation: 0
 You can enter these commands to get a list of the files in your local Git repository and a status of files that have changed but not committed yet:
 
 ```bash
-$ git ls-files
-$ git status
+git ls-files
+git status
 ```
 Examples:
 

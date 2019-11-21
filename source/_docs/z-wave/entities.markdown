@@ -147,7 +147,7 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **254**: Deep sleep
   - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
 ```yaml
@@ -173,7 +173,7 @@ binary_sensor:
    - **254**: Deep sleep
    - **255**: Case open
 
-If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
 ```yaml

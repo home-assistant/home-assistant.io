@@ -22,7 +22,7 @@ Under the "Core" section you will find HASS Configurator.
 
  - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
  - Now start the add-on by clicking on START.
- - Open the user interface by clcking on OPEN WEB UI.
+ - Open the user interface by clicking on OPEN WEB UI.
 
 Now let's make a small change using the configurator: we are going to change the name and location of your Home Assistant installation.
 
@@ -30,8 +30,8 @@ Now let's make a small change using the configurator: we are going to change the
  - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main Configurator edit window.
  - Find the `homeassistant:` configuration block, which should be the first thing in `configuration.yaml`. In this block, update `name`, `latitude`, `longitude`, `unit_system` and `time_zone` to match yours.
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on General and click on the "Check Config" button. When it's valid, it will show the text "Configuration valid!".
- - Now Restart Home Assistant using the "restart" in the Server management section on the same page.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on "Server Control" and click on the "CHECK CONFIG" button. When it's valid, it will show the text "Configuration valid!".
+ - Now Restart Home Assistant using the "restart" in the Server management section on the same page. In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile.
 
 <p class='img'>
 <img src='/images/screenshots/configuration-validation.png' />

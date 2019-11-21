@@ -4,7 +4,7 @@ description: "Details what the updater integration is reporting about your Home 
 redirect_from: /details/updater/
 ---
 
-Starting with 0.31 the [updater component](/components/updater/) sends an optional report about Home Assistant instance.
+Starting with 0.31 the [updater component](/integrations/updater/) sends an optional report about Home Assistant instance.
 
 If you want to opt-in to include integration information, add `include_used_components` to your config. This will allow the Home Assistant developers to focus development efforts on the most popular components.
 

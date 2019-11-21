@@ -122,8 +122,8 @@ esac
 To install this script, download it, tweak it to you liking, and install it by following the directions in the header. This script will setup Home Assistant to run when the system boots. To start/stop Home Assistant manually, issue the following commands:
 
 ```bash
-$ sudo service hass-daemon start
-$ sudo service hass-daemon stop
+sudo service hass-daemon start
+sudo service hass-daemon stop
 ```
 
 When running Home Assistant with this script, the configuration directory will be located at `/var/opt/homeassistant`. This directory will contain a verbose log rather than simply an error log.

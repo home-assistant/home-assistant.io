@@ -12,6 +12,12 @@ Be careful when setting up port forwarding for remote access. If you don't restr
 
 </div>
 
+<div class='note'>
+
+Sometimes shares will not show up under network in Windows. Then you could open the file browser, click the address field where it says "> Network" and type //HASSIO to access Hass.io shares.
+
+</div>
+
 ```json
 {
   "workgroup": "WORKGROUP",
@@ -22,6 +28,13 @@ Be careful when setting up port forwarding for remote access. If you don't restr
       "10.0.0.0/8",
       "172.16.0.0/12",
       "192.168.0.0/16"
+  ],
+  "veto_files": [
+      "._*",
+      ".DS_Store",
+      "Thumbs.db",
+      "icon?",
+      ".Trashes"
   ]
 }
 ```
@@ -48,5 +61,10 @@ allow_hosts:
   description: The hosts that are allowed to connect to your Samba server. By default it is limited to people within the same local network.
   required: false
   default: '`["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]`'
+  type: list
+veto_files:
+  description: List of files that are neither visible nor accessible. Useful to stop clients from littering the share with temporary hidden files (e.g. macOS .DS_Store, Windows Thumbs.db)
+  required: false
+  default: '`["._*", ".DS_Store", "Thumbs.db", "icon?", ".Trashes"]`'
   type: list
 {% endconfiguration %}

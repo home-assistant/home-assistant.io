@@ -20,7 +20,7 @@ __Line Charts__
 __ISY994 hub support__
 <img src='/images/supported_brands/universal_devices.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Ryan](https://github.com/rmkraus) has contributed support to integrate the ISY994 hub by Universal Devices. This allows you to integrate your X10/Insteon sensors, switches and lights.
 
-He has created an extensive getting started guide which can be found on [the ISY994 component page](/components/isy994/).
+He has created an extensive getting started guide which can be found on [the ISY994 component page](/integrations/isy994/).
 
 ```yaml
 # Example configuration.yaml entry

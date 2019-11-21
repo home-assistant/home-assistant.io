@@ -81,17 +81,17 @@ We released two hotfixes to address some issues that couldn't wait till the next
 [@rubund]: https://github.com/rubund
 [@shaftoe]: https://github.com/shaftoe
 [@wkonkel]: https://github.com/wkonkel
-[DTE Energy Bridge]: /components/sensor.dte_energy_bridge/
-[en-lights]: /components/light.enocean/
-[en-sensors]: /components/sensor.enocean/
-[en-switches]: /components/switch.enocean/
-[Feedreader]: /components/feedreader/
-[Flux like switch platform]: /components/switch.flux/
-[Insteon Hub]: /components/insteon/
-[Kodi]: /components/media_player.kodi/
-[LIRC component]: /components/lirc/
-[Osram Lightify]: /components/light.osramlightify/
-[RFXTRX]: /components/rfxtrx/
-[Template switches]: /components/switch.template/
+[DTE Energy Bridge]: /integrations/dte_energy_bridge
+[en-lights]: /integrations/enocean#light
+[en-sensors]: /integrations/enocean#sensor
+[en-switches]: /integrations/enocean#switch
+[Feedreader]: /integrations/feedreader/
+[Flux like switch platform]: /integrations/flux
+[Insteon Hub]: /integrations/insteon/
+[Kodi]: /integrations/kodi
+[LIRC component]: /integrations/lirc/
+[Osram Lightify]: /integrations/osramlightify
+[RFXTRX]: /integrations/rfxtrx/
+[Template switches]: /integrations/switch.template/
 [time condition]: /getting-started/scripts-conditions/#time-condition
 [been updated]: /developers/rest_api/

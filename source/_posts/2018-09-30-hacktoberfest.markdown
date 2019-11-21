@@ -27,7 +27,7 @@ If you submit five (5) Pull Requests during October, you will have earned yourse
 
 **We want to focus on new contributors and people who want to get started on working on an Open Source project.**
 
-Are you ready? [Sign up for Hacktoberfest](https://hacktoberfest.digitalocean.com/sign_up/register)!
+Are you ready? [Sign up for Hacktoberfest](https://hacktoberfest.digitalocean.com/profile)!
 
 <!--more-->
 

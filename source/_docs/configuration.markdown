@@ -32,7 +32,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
+You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), and [scripts](/integrations/script/) without restarting.
 
 <div class='note warning'>
 

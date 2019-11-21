@@ -5,7 +5,7 @@ description: "Instructions on how to use the automation editor."
 
 In Home Assistant 0.45 we introduced the first version of our automation editor. If you just created a new configuration with Home Assistant, then you're all set! Go to the UI and enjoy.
 
-From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/components/sensor.random/).
+From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/integrations/random#sensor).
 
 Choose a meaningful name for your automation rules.
 
@@ -19,7 +19,7 @@ If the value of the sensor is greater than 10, then the automation rule should a
   <img src='{{site_root}}/images/docs/automation-editor/new-trigger.png' />
 </p>
 
-Firing a [persistent notification](/components/persistent_notification/) is the result.
+Firing a [persistent notification](/integrations/persistent_notification/) is the result.
 
 <p class='img'>
   <img src='{{site_root}}/images/docs/automation-editor/new-action.png' />

@@ -8,8 +8,8 @@ description: "Instructions to install Home Assistant on an Armbian-powered syste
 Setup Python and `pip`:
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install python3-dev python3-pip
+sudo apt-get update
+sudo apt-get install python3-dev python3-pip
 ```
 
 Now that you installed python, there are two ways to install Home Assistant:
@@ -17,14 +17,14 @@ Now that you installed python, there are two ways to install Home Assistant:
 2. Alternatively, you can install Home Assistant for the user you created when first booting Armbian:
 
 ```bash
-$ sudo pip3 install homeassistant
-$ hass --open-ui
+sudo pip3 install homeassistant
+hass --open-ui
 ```
 
 Running these commands will:
 
  - Install Home Assistant
- - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
+ - Launch Home Assistant and serve the web interface on `http://localhost:8123`
  - the configuration files will be created in /home/{user}/.homeassistant
  
  

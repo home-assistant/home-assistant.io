@@ -4,12 +4,12 @@ description: "Instructions on how to setup ManyThing support with IFTTT."
 logo: manything.png
 ha_category: Camera
 redirect_from:
-  /components/ifttt.manything/
+  /integrations/ifttt.manything/
 ---
 
 [Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a WiFi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
-To get manything support, HA will use IFTTT's [Webhooks Service](https://ifttt.com/maker_webhooks) and the [ManyThing Service](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/components/ifttt/) to activate the IFTTT Platform.
+To get manything support, HA will use IFTTT's [Webhooks Service](https://ifttt.com/maker_webhooks) and the [ManyThing Service](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/integrations/ifttt/) to activate the IFTTT Platform.
 
 After setting up IFTTT, Maker Service and ManyThing Service, you can use the following examples to configure Home Assistant.
 
@@ -50,7 +50,7 @@ automation:
 ### Setting up a recipe
 
 <p class='img'>
-<img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
+<img src='/images/integrations/ifttt/IFTTT_manything_trigger.png' />
 You need to setup a unique trigger for each event you sent to IFTTT.
 For ManyThing support, you need to set up an `on` and `off` event.
 </p>

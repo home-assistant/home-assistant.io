@@ -2,7 +2,7 @@
 title: "Lovelace UI"
 description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
 redirect_from:
-  - /components/lovelace/
+  - /integrations/lovelace/
 ---
 
 Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.
@@ -24,10 +24,11 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## Discuss Lovelace
 
-- Suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema)
+- Suggestions are welcome in the [home-assistant-polymer repository](https://github.com/home-assistant/home-assistant-polymer/)
 - For help with Lovelace, join the #lovelace channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
 
 ## Additional Lovelace Resources
 
 * [Awesome HA](https://www.awesome-ha.com/#lovelace-ui)
 * [Community Custom Cards](https://github.com/custom-cards)
+* [Material Design Icons](https://materialdesignicons.com/tag/community)

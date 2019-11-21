@@ -13,37 +13,40 @@ On the SSH command line, you can use the `hassio` command to retrieve logs, chec
 ## Home Assistant
 
 ```bash
-$ hassio homeassistant info
-$ hassio homeassistant logs
-$ hassio homeassistant check
-$ hassio homeassistant restart
-$ hassio homeassistant start
-$ hassio homeassistant stop
-$ hassio homeassistant update
+hassio homeassistant check
+hassio homeassistant info
+hassio homeassistant logs
+hassio homeassistant options
+hassio homeassistant rebuild
+hassio homeassistant restart
+hassio homeassistant start
+hassio homeassistant stats
+hassio homeassistant stop
+hassio homeassistant update
 ```
 
 ## Supervisor
 
 ```bash
-$ hassio supervisor info
-$ hassio supervisor logs
-$ hassio supervisor reload
-$ hassio supervisor update
+hassio supervisor info
+hassio supervisor logs
+hassio supervisor reload
+hassio supervisor update
 ```
 
 ## Host
 
 ```bash
-$ hassio host reboot
-$ hassio host shutdown
-$ hassio host update
+hassio host reboot
+hassio host shutdown
+hassio host update
 ```
 
 ## Hardware
 
 ```bash
-$ hassio hardware info
-$ hassio hardware audio
+hassio hardware info
+hassio hardware audio
 ```
 
 ## Usage examples

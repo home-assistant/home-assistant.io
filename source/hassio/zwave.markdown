@@ -14,7 +14,7 @@ zwave:
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Hass.io system, you may need to open the SD card on a Windows or Linux system.):
 
-```
+```txt
 dtoverlay=pi3-miniuart-bt
 ```
 

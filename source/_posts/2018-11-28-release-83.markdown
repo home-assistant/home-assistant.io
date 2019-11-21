@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-11-release-83/components.png
 ---
 
-<a href='/components/#version/0.83'><img src='/images/blog/2018-11-release-83/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.83'><img src='/images/blog/2018-11-release-83/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's release day! Today we're happy to release Home Assistant 0.83. If you might have noticed, this is using our new release schedule which evolves around releases on Wednesdays instead of Fridays (this one is one day late). It's the same 2-week release schedule as before, except that it has moved 5 days later.
 
@@ -38,14 +38,14 @@ Note, this release includes a migration to add an index to speed up the logbook 
 - Implemented tplink_lte components and notify service via SMS ([@andtos90] - [#17111]) ([notify docs]) ([tplink_lte docs]) (new-platform)
 - Add Traccar device tracker ([@ludeeus] - [#18200]) ([device_tracker docs]) (new-platform)
 - Add support for Google Home device tracking ([@ludeeus] - [#18190]) ([device_tracker docs]) (new-platform)
-- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) ([sensor.ruter docs]) (new-platform)
+- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) (sensor.ruter docs) (new-platform)
 - Split out geofency with a component and platform. The geofency device_tracker platform no longer takes any configuration. The configuration needs to be applied to the component geofency instead. The platform will be automatically loaded with the component. ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Add support for Lupusec alarm control panel ([@majuss] - [#17691]) ([lupusec docs]) ([alarm_control_panel.lupusec docs]) ([binary_sensor.lupusec docs]) ([switch.lupusec docs]) (new-platform)
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
 - Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
 - W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
-- Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
+- Srpenergy ([@briglx] - [#18036]) (new-platform)
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
 - Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) (new-platform)
 - Readded climate.velbus ([@Cereal2nd] - [#18434]) ([velbus docs]) ([climate.velbus docs]) (new-platform)
@@ -91,17 +91,17 @@ Note, this release includes a migration to add an index to speed up the logbook 
 [@iantrich]: https://github.com/iantrich
 [@marchingphoenix]: https://github.com/marchingphoenix
 [@pbalogh77]: https://github.com/pbalogh77
-[binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
-[emulated_hue docs]: /components/emulated_hue/
-[fibaro docs]: /components/fibaro/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[http docs]: /components/http/
-[logbook docs]: /components/logbook/
-[owntracks docs]: /components/owntracks/
-[sensor.rainmachine docs]: /components/sensor.rainmachine/
-[sensor.seventeentrack docs]: /components/sensor.seventeentrack/
-[shopping_list docs]: /components/shopping_list/
+[binary_sensor.rainmachine docs]: /integrations/rainmachine
+[emulated_hue docs]: /integrations/emulated_hue/
+[fibaro docs]: /integrations/fibaro/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[http docs]: /integrations/http/
+[logbook docs]: /integrations/logbook/
+[owntracks docs]: /integrations/owntracks/
+[sensor.rainmachine docs]: /integrations/rainmachine
+[sensor.seventeentrack docs]: /integrations/seventeentrack
+[shopping_list docs]: /integrations/shopping_list/
 
 ## Release 0.83.2 - November 30
 
@@ -118,10 +118,10 @@ Note, this release includes a migration to add an index to speed up the logbook 
 [@emontnemery]: https://github.com/emontnemery
 [@pbalogh77]: https://github.com/pbalogh77
 [@stonith]: https://github.com/stonith
-[http docs]: /components/http/
-[light.fibaro docs]: /components/light.fibaro/
-[mqtt docs]: /components/mqtt/
-[tts docs]: /components/tts/
+[http docs]: /integrations/http/
+[light.fibaro docs]: /integrations/fibaro
+[mqtt docs]: /integrations/mqtt/
+[tts docs]: /integrations/tts/
 
 ## Release 0.83.3 - December 3
 
@@ -142,10 +142,10 @@ We had an issue where users that are still using the legacy auth for API access 
 [@balloob]: https://github.com/balloob
 [@kennedyshead]: https://github.com/kennedyshead
 [@w1ll1am23]: https://github.com/w1ll1am23
-[asuswrt docs]: /components/asuswrt/
-[google_assistant docs]: /components/google_assistant/
-[sensor.asuswrt docs]: /components/sensor.asuswrt/
-[wink docs]: /components/wink/
+[asuswrt docs]: /integrations/asuswrt/
+[google_assistant docs]: /integrations/google_assistant/
+[sensor.asuswrt docs]: /integrations/asuswrt
+[wink docs]: /integrations/wink/
 
 ## If you need help...
 
@@ -181,7 +181,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
 - Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
 - Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
-- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) (sensor.ruter docs) (beta fix)
 - Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
 - Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
 - Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
@@ -252,7 +252,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Normalize MAC addresses ([@balloob] - [#16916])
 - HmIP thermostat fix with operations ([@pvizeli] - [#18068]) ([climate.homematic docs])
 - Update PR checklist with commented out code check ([@armills] - [#18272])
-- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) ([sensor.ruter docs]) (new-platform)
+- Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) (sensor.ruter docs) (new-platform)
 - Split out geofency with a component and platform ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Use async_add_executor_job at the xiaomi_miio platforms ([@syssi] - [#18294]) ([device_tracker docs]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([sensor.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - Remove skipped device tracker tests ([@armills] - [#18291])
@@ -265,7 +265,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade hdate to 0.7.5 ([@tsvi] - [#18296]) ([sensor.jewish_calendar docs])
 - Add SUPPORT_SEEK for DLNA DMR devices + now (better) providing media_image_url for DLNA DMR devices ([@StevenLooman] - [#18157]) ([upnp docs]) ([media_player.dlna_dmr docs])
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
-- Update pyruter to 1.1.0 to be able to reuse aiohttp session. ([@ludeeus] - [#18310]) ([sensor.ruter docs])
+- Update pyruter to 1.1.0 to be able to reuse aiohttp session. ([@ludeeus] - [#18310]) (sensor.ruter docs)
 - Make flux switch async ([@jawilson] - [#18277]) ([switch.flux docs])
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
 - Added optional precision configuration option to generic_thermostat. ([@partofthething] - [#18317]) ([climate.generic_thermostat docs])
@@ -273,7 +273,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Doc fix: a circular dependency does not raise an error. ([@smurfix] - [#18298])
 - Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
 - W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
-- Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
+- Srpenergy ([@briglx] - [#18036]) (new-platform)
 - Restrict recorder query to include max age ([@ehendrix23] - [#18231]) ([sensor.statistics docs])
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
 - Rename sensor.launch to sensor.launch_library ([@ludeeus] - [#18337]) ([sensor.launch_library docs]) (beta fix)
@@ -380,7 +380,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
 - Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
 - Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
-- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) (sensor.ruter docs) (beta fix)
 - Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
 - Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
 - Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
@@ -671,152 +671,150 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ultrara1n]: https://github.com/ultrara1n
 [@vetegrodd]: https://github.com/vetegrodd
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alarm_control_panel.ialarm docs]: /components/alarm_control_panel.ialarm/
-[alarm_control_panel.lupusec docs]: /components/alarm_control_panel.lupusec/
-[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[alexa docs]: /components/alexa/
-[api docs]: /components/api/
-[asuswrt docs]: /components/asuswrt/
-[august docs]: /components/august/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.fibaro docs]: /components/binary_sensor.fibaro/
-[binary_sensor.insteon docs]: /components/binary_sensor.insteon/
-[binary_sensor.lupusec docs]: /components/binary_sensor.lupusec/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.point docs]: /components/binary_sensor.point/
-[binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
-[binary_sensor.sense docs]: /components/binary_sensor.sense/
-[binary_sensor.template docs]: /components/binary_sensor.template/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.w800rf32 docs]: /components/binary_sensor.w800rf32/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[blink docs]: /components/blink/
-[camera.mqtt docs]: /components/camera.mqtt/
-[climate docs]: /components/climate/
-[climate.daikin docs]: /components/climate.daikin/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.homematic docs]: /components/climate.homematic/
-[climate.melissa docs]: /components/climate.melissa/
-[climate.mill docs]: /components/climate.mill/
-[climate.nest docs]: /components/climate.nest/
-[climate.velbus docs]: /components/climate.velbus/
-[cloud docs]: /components/cloud/
-[coinbase docs]: /components/coinbase/
-[cover.deconz docs]: /components/cover.deconz/
-[cover.fibaro docs]: /components/cover.fibaro/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.myq docs]: /components/cover.myq/
-[daikin docs]: /components/daikin/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[elkm1 docs]: /components/elkm1/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[fibaro docs]: /components/fibaro/
-[geofency docs]: /components/geofency/
-[google_assistant docs]: /components/google_assistant/
-[hangouts docs]: /components/hangouts/
-[hassio docs]: /components/hassio/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[http docs]: /components/http/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[image_processing.tensorflow docs]: /components/image_processing.tensorflow/
-[insteon docs]: /components/insteon/
-[lifx docs]: /components/lifx/
-[light.deconz docs]: /components/light.deconz/
-[light.fibaro docs]: /components/light.fibaro/
-[light.homematic docs]: /components/light.homematic/
-[light.lifx docs]: /components/light.lifx/
-[light.mqtt_json docs]: /components/light.mqtt_json/
-[light.niko_home_control docs]: /components/light.niko_home_control/
-[light.switch docs]: /components/light.switch/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lock docs]: /components/lock/
-[lock.mqtt docs]: /components/lock.mqtt/
-[lock.nello docs]: /components/lock.nello/
-[lock.zwave docs]: /components/lock.zwave/
-[logbook docs]: /components/logbook/
-[lovelace docs]: /components/lovelace/
-[luftdaten docs]: /components/luftdaten/
-[lupusec docs]: /components/lupusec/
-[media_extractor docs]: /components/media_extractor/
-[media_player.directv docs]: /components/media_player.directv/
-[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
-[media_player.epson docs]: /components/media_player.epson/
-[media_player.firetv docs]: /components/media_player.firetv/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.panasonic_bluray docs]: /components/media_player.panasonic_bluray/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.ziggo_mediabox_xl docs]: /components/media_player.ziggo_mediabox_xl/
-[melissa docs]: /components/melissa/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[neato docs]: /components/neato/
-[nest docs]: /components/nest/
-[netgear_lte docs]: /components/netgear_lte/
-[notify docs]: /components/notify/
-[owntracks docs]: /components/owntracks/
-[point docs]: /components/point/
-[prometheus docs]: /components/prometheus/
-[rainmachine docs]: /components/rainmachine/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[scene.deconz docs]: /components/scene.deconz/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.asuswrt docs]: /components/sensor.asuswrt/
-[sensor.coinbase docs]: /components/sensor.coinbase/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.elkm1 docs]: /components/sensor.elkm1/
-[sensor.fibaro docs]: /components/sensor.fibaro/
-[sensor.flunearyou docs]: /components/sensor.flunearyou/
-[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.launch_library docs]: /components/sensor.launch_library/
-[sensor.luftdaten docs]: /components/sensor.luftdaten/
-[sensor.magicseaweed docs]: /components/sensor.magicseaweed/
-[sensor.point docs]: /components/sensor.point/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.rainmachine docs]: /components/sensor.rainmachine/
-[sensor.ruter docs]: /components/sensor.ruter/
-[sensor.season docs]: /components/sensor.season/
-[sensor.seventeentrack docs]: /components/sensor.seventeentrack/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.srp_energy docs]: /components/sensor.srp_energy/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.swiss_hydrological_data docs]: /components/sensor.swiss_hydrological_data/
-[sensor.tautulli docs]: /components/sensor.tautulli/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.transport_nsw docs]: /components/sensor.transport_nsw/
-[sensor.version docs]: /components/sensor.version/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[shopping_list docs]: /components/shopping_list/
-[smhi docs]: /components/smhi/
-[sonos docs]: /components/sonos/
-[switch.deconz docs]: /components/switch.deconz/
-[switch.fibaro docs]: /components/switch.fibaro/
-[switch.flux docs]: /components/switch.flux/
-[switch.homekit_controller docs]: /components/switch.homekit_controller/
-[switch.lupusec docs]: /components/switch.lupusec/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[tibber docs]: /components/tibber/
-[toon docs]: /components/toon/
-[tplink_lte docs]: /components/tplink_lte/
-[upnp docs]: /components/upnp/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[velbus docs]: /components/velbus/
-[verisure docs]: /components/verisure/
-[w800rf32 docs]: /components/w800rf32/
-[weather.ecobee docs]: /components/weather.ecobee/
-[weather.smhi docs]: /components/weather.smhi/
-[wemo docs]: /components/wemo/
-[wink docs]: /components/wink/
-[wirelesstag docs]: /components/wirelesstag/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.ialarm docs]: /integrations/ialarm
+[alarm_control_panel.lupusec docs]: /integrations/lupusec
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[alexa docs]: /integrations/alexa/
+[api docs]: /integrations/api/
+[asuswrt docs]: /integrations/asuswrt/
+[august docs]: /integrations/august/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.fibaro docs]: /integrations/fibaro
+[binary_sensor.insteon docs]: /integrations/insteon
+[binary_sensor.lupusec docs]: /integrations/lupusec
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.point docs]: /integrations/point#binary-sensor
+[binary_sensor.rainmachine docs]: /integrations/rainmachine
+[binary_sensor.sense docs]: /integrations/sense
+[binary_sensor.template docs]: /integrations/binary_sensor.template/
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.w800rf32 docs]: /integrations/w800rf32#binary-sensor
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[blink docs]: /integrations/blink/
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[climate docs]: /integrations/climate/
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.homematic docs]: /integrations/homematic
+[climate.melissa docs]: /integrations/melissa
+[climate.mill docs]: /integrations/mill
+[climate.nest docs]: /integrations/nest#climate
+[climate.velbus docs]: /integrations/velbus
+[cloud docs]: /integrations/cloud/
+[coinbase docs]: /integrations/coinbase/
+[cover.deconz docs]: /integrations/deconz#cover
+[cover.fibaro docs]: /integrations/fibaro
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.myq docs]: /integrations/myq
+[daikin docs]: /integrations/daikin/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[elkm1 docs]: /integrations/elkm1/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fibaro docs]: /integrations/fibaro/
+[geofency docs]: /integrations/geofency/
+[google_assistant docs]: /integrations/google_assistant/
+[hangouts docs]: /integrations/hangouts/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.tensorflow docs]: /integrations/tensorflow
+[insteon docs]: /integrations/insteon/
+[lifx docs]: /integrations/lifx/
+[light.deconz docs]: /integrations/deconz#light
+[light.fibaro docs]: /integrations/fibaro
+[light.homematic docs]: /integrations/homematic
+[light.lifx docs]: /integrations/lifx
+[light.mqtt_json docs]: /integrations/light.mqtt
+[light.niko_home_control docs]: /integrations/niko_home_control
+[light.switch docs]: /integrations/light.switch/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lock docs]: /integrations/lock/
+[lock.mqtt docs]: /integrations/lock.mqtt/
+[lock.nello docs]: /integrations/nello
+[lock.zwave docs]: /integrations/zwave#lock
+[logbook docs]: /integrations/logbook/
+[lovelace docs]: /integrations/lovelace/
+[luftdaten docs]: /integrations/luftdaten/
+[lupusec docs]: /integrations/lupusec/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.directv docs]: /integrations/directv
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.epson docs]: /integrations/epson
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.kodi docs]: /integrations/kodi
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.panasonic_bluray docs]: /integrations/panasonic_bluray
+[media_player.sonos docs]: /integrations/sonos
+[media_player.ziggo_mediabox_xl docs]: /integrations/ziggo_mediabox_xl
+[melissa docs]: /integrations/melissa/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[neato docs]: /integrations/neato/
+[nest docs]: /integrations/nest/
+[netgear_lte docs]: /integrations/netgear_lte/
+[notify docs]: /integrations/notify/
+[owntracks docs]: /integrations/owntracks/
+[point docs]: /integrations/point/
+[prometheus docs]: /integrations/prometheus/
+[rainmachine docs]: /integrations/rainmachine/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[scene.deconz docs]: /integrations/deconz#scene
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.asuswrt docs]: /integrations/asuswrt
+[sensor.coinbase docs]: /integrations/coinbase
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.elkm1 docs]: /integrations/elkm1
+[sensor.fibaro docs]: /integrations/fibaro
+[sensor.flunearyou docs]: /integrations/flunearyou
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.glances docs]: /integrations/glances
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.launch_library docs]: /integrations/launch_library
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.magicseaweed docs]: /integrations/magicseaweed
+[sensor.point docs]: /integrations/point#sensor
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.rainmachine docs]: /integrations/rainmachine
+[sensor.season docs]: /integrations/season
+[sensor.seventeentrack docs]: /integrations/seventeentrack
+[sensor.sql docs]: /integrations/sql
+[sensor.statistics docs]: /integrations/statistics
+[sensor.swiss_hydrological_data docs]: /integrations/swiss_hydrological_data
+[sensor.tautulli docs]: /integrations/tautulli
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.transport_nsw docs]: /integrations/transport_nsw
+[sensor.version docs]: /integrations/version
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[shopping_list docs]: /integrations/shopping_list/
+[smhi docs]: /integrations/smhi/
+[sonos docs]: /integrations/sonos/
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.fibaro docs]: /integrations/fibaro
+[switch.flux docs]: /integrations/flux
+[switch.homekit_controller docs]: /integrations/homekit_controller
+[switch.lupusec docs]: /integrations/lupusec
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.switchmate docs]: /integrations/switchmate
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tibber docs]: /integrations/tibber/
+[toon docs]: /integrations/toon/
+[tplink_lte docs]: /integrations/tplink_lte/
+[upnp docs]: /integrations/upnp/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[verisure docs]: /integrations/verisure/
+[w800rf32 docs]: /integrations/w800rf32/
+[weather.ecobee docs]: /integrations/ecobee
+[weather.smhi docs]: /integrations/smhi
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[wirelesstag docs]: /integrations/wirelesstag/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
