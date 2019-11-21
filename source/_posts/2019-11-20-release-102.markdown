@@ -110,7 +110,7 @@ Users of Xiaomi Vacuum cleaners can now use this great custom Lovelace card:
 - Almond integration ([@balloob] - [#28282]) ([almond docs]) (new-integration)
 - Speech to Text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
 - Add WLED integration ([@frenck] - [#28542]) ([wled docs]) (new-integration)
-- Add azure servicebus notify service ([@hfurubotten] - [#27566]) ([azure_servicebus docs]) (new-integration)
+- Add azure servicebus notify service ([@hfurubotten] - [#27566]) ([azure_service_bus docs]) (new-integration)
 - Add pcal9535a integration ([@Shulyaka] - [#26563]) ([pcal9535a docs]) (new-integration)
 
 ## New Platforms
@@ -252,7 +252,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add transmission info about torrents that is accessible with templating ([@JPHutchins] - [#27111]) ([transmission docs])
 - More header cleanup for websocket proxy ([@pvizeli] - [#28288]) ([hassio docs])
 - Bump avea to 1.4 ([@pattyland] - [#28287]) ([avea docs])
-- Remove GTT component ([@eliseomartelli] - [#28286]) ([gtt docs])
+- Remove GTT component ([@eliseomartelli] - [#28286])
 - Hue: Create new config flow when auth is lost ([@bramkragten] - [#28204]) ([hue docs])
 - Revert "More header cleanup for websocket proxy (#28288)" ([@pvizeli] - [#28293]) ([hassio docs])
 - Add support for Somfy Garage door Rollixo IO DiscreteGarageOpenerIOComponent in Tahoma component ([@yjajkiew] - [#28291]) ([tahoma docs])
@@ -281,7 +281,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Don't set entity_id in ZHA entities ([@Adminiuga] - [#28362]) ([zha docs])
 - Update withings-api to avoid data parsing bugs. ([@vangorra] - [#28382]) ([withings docs])
 - Add services.yaml to onvif component ([@ZiroNL] - [#28349])
-- Fix ([@Anonym-tsk] - [#28369]) ([telegram_bot docs])
+- Fix Telegram Bot ([@Anonym-tsk] - [#28369])
 - Fill services.yaml for squeezebox ([@gngj] - [#28247])
 - Add file list to attributes of folder sensor ([@thoscut] - [#28338]) ([folder docs])
 - Show all UPNP/IGD sensors in one device ([@escoand] - [#27517]) ([upnp docs]) (breaking change)
@@ -372,7 +372,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add device triggers to vacuum ([@balloob] - [#28548]) ([automation docs]) ([device_automation docs]) ([vacuum docs])
 - Fix demo TTS ([@bramkragten] - [#28608]) ([demo docs])
 - Add climate device actions ([@balloob] - [#28552]) ([climate docs]) ([device_automation docs])
-- Add azure servicebus notify service ([@hfurubotten] - [#27566]) ([azure_servicebus docs]) (new-integration)
+- Add azure servicebus notify service ([@hfurubotten] - [#27566]) ([azure_service_bus docs]) (new-integration)
 - Add climate device triggers ([@balloob] - [#28544]) ([automation docs]) ([climate docs]) ([device_automation docs]) ([homekit docs])
 - Add fan device condition ([@balloob] - [#28549]) ([device_automation docs]) ([fan docs])
 - Add vacuum device conditions ([@balloob] - [#28551]) ([device_automation docs]) ([vacuum docs])
@@ -802,7 +802,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /integrations/automation/
 [avea docs]: /integrations/avea/
 [aws docs]: /integrations/aws/
-[azure_servicebus docs]: /integrations/azure_servicebus/
+[azure_service_bus docs]: /integrations/azure_service_bus/
 [bluesound docs]: /integrations/bluesound/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [climate docs]: /integrations/climate/
