@@ -151,7 +151,7 @@ switch:
     switches:
       skylight:
         friendly_name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
+        value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
           data:
