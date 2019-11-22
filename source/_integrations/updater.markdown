@@ -70,7 +70,6 @@ automation:
   trigger:
     - platform: state
       entity_id: binary_sensor.updater
-      from: 'off'
       to: 'on'
   action:
     - service: notify.notify
