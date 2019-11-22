@@ -96,7 +96,7 @@ Whenever you make a change to your scene configuration, you can call the `scene.
 
 Create a new scene without having to configure it by calling the `scene.create` service. This scene will be discarded after reloading the configuration.
 
-You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also may want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot` can be combined but you have to use at least one of them.
+You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also may want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined but you have to use at least one of them.
 
 If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
 
@@ -135,7 +135,7 @@ The following example turns off some entities as soon as a window opens. The sta
   - service: scene.create
     data:
       scene_id: before
-      snapshot:
+      snapshot_entities:
       - climate.ecobee
       - light.ceiling_lights
   - service: light.turn_off
