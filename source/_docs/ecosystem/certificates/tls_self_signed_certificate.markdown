@@ -15,28 +15,47 @@ Change to your Home Assistant [configuration directory](/getting-started/configu
 The certificate **must** be `.pem` extension.
 
 ```bash
-openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out certificate.pem
+openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out fullchain.pem
 ```
 
 For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. 
 
-At the end you will have two files called `privkey.pem` and `certificate.pem`. The key and the certificate.
+At the end you will have two files called `privkey.pem` and `fullchain.pem`. The key and the certificate.
 
 Update the `http:` entry in your `configuration.yaml` file and let it point to your created files. 
 
+Hass.io:
+
 ```yaml
 http:
-  ssl_certificate: /home/your_user/.homeassistant/certificate.pem
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+```
+
+Non-hass.io:
+
+```yaml
+http:
+  ssl_certificate: /home/your_user/.homeassistant/fullchain.pem
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
 
-A restart of Home Assistant is required for the changes to take effect.
+A restart of Home Assistant is required for the new certificate to take effect.
 
 If you get any log error about *ssl_key* or *ssl_certificate* that is **not a file for dictionary value** when run Home Assistant, you need to change owner or access permission of the `.pem` files as following:
-  
+
+Hass.io (through Console or SSH plug-in):
+
 ```bash
-sudo chown homeassistant:homeassistant certificate.pem privkey.pem
-sudo chmod 755 certificate.pem privkey.pem
+chown root:root fullchain.pem privkey.pem
+chmod 600 fullchain.pem privkey.pem
+```
+  
+Non-hass-io:
+
+```bash
+sudo chown homeassistant:homeassistant fullchain.pem privkey.pem
+sudo chmod 600 fullchain.pem privkey.pem
 ```
 
 A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)" could give you some insight about special cases.
@@ -46,7 +65,7 @@ A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.d
 #### iOS
 If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the certificate creation process, then:
 
-* Send **only** the `certificate.pem` file to the iOS device, using airdrop or other transfer method.
+* Send **only** the `fullchain.pem` file to the iOS device, using airdrop or other transfer method.
 * Open the `.pem` file on the iOS device, follow the prompts to trust and install it.
 * If you are using iOS 10.3 or newer then [additional steps](https://support.apple.com/en-us/HT204477) are needed.
 
