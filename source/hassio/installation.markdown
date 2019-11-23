@@ -49,7 +49,7 @@ The following will take you through the steps required to install Hass.io.
 
 6. You will be able to reach your installation at `http://hassio.local:8123` (if your router supports mDNS, otherwise see below).
 
-7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
+7. It is important to provide yourself proper access and the Hassio custom cli tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons a user should install before making changes to configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar and then the Add-on store).
 
 <div class='note'>
 
