@@ -14,13 +14,12 @@ description: Open source home automation that puts local control and privacy fir
       <div class="current-version material-card text">
         <h1>
           Current Version: {{ site.current_major_version }}.{{
-            site.current_minor_version
-          }}.{{ site.current_patch_version }}
+          site.current_minor_version }}.{{ site.current_patch_version }}
         </h1>
         Released:
-        <span class="release-date">{{
-          site.date_released | date: "%B %d, %Y"
-        }}</span>
+        <span class="release-date"
+          >{{ site.date_released | date: "%B %d, %Y" }}</span
+        >
 
         <div class="links">
           <a href="/latest-release-notes/">Release notes</a>
@@ -88,9 +87,17 @@ description: Open source home automation that puts local control and privacy fir
 
       <a
         class="material-card picture-promo"
-        href="/state-of-the-union/"
-        style="background-image: url(/images/frontpage/sotu2019.png);background-size: contain;background-repeat: no-repeat;background-color: #41bdf5;background-position: top left;"
+        href="/blog/2019/11/22/state-of-the-union/"
+        style="background-image: url(/images/frontpage/sotu2019-paulus.jpeg);background-size: cover;background-color: #41bdf5;"
       >
+        <div class="caption">
+          <div class="title">
+            State of the Union 2019
+          </div>
+          <div class="subtitle">
+            Learn why we do what we do and what is next.
+          </div>
+        </div>
       </a>
 
       <a
