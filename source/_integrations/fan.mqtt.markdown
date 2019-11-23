@@ -120,7 +120,7 @@ speed_value_template:
   required: false
   type: string
 speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `"off"`, `low`, `medium` and `high`."
+  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
   required: false
   type: [string, list]
 availability_topic:
@@ -180,11 +180,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<dkv class='note warning'>
+<div class='note warning'>
 
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 
-</dkv>
+</div>
 
 ## Examples
 
