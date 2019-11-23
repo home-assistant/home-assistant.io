@@ -11,7 +11,8 @@ The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to
 This requires to install the pico tts library on the system, typically on debian just do `sudo apt-get install libttspico-utils`
 On some Raspbian release, this package is missing but you can just copy the arm deb package from debian.
 
-On Buster, the package are missing, install this way:
+On Debian Buster, the package is missing, use the following commands to install it:
+
 ```
 wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico0_1.0+git20130326-9_armhf.deb
 wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico-utils_1.0+git20130326-9_armhf.deb
