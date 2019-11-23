@@ -120,7 +120,7 @@ speed_value_template:
   required: false
   type: string
 speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
+  description: "List of speeds this fan is capable of running at. Valid entries are `"off"`, `low`, `medium` and `high`."
   required: false
   type: [string, list]
 availability_topic:
@@ -214,6 +214,7 @@ fan:
     payload_medium_speed: "medium"
     payload_high_speed: "high"
     speeds:
+      - "off"
       - low
       - medium
       - high
