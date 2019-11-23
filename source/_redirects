@@ -736,7 +736,6 @@
 /components/sensor.gpsd /integrations/gpsd
 /components/sensor.greeneye_monitor /integrations/greeneye_monitor
 /components/sensor.gtfs /integrations/gtfs
-/components/sensor.gtt /integrations/gtt
 /components/sensor.habitica /integrations/habitica
 /components/sensor.haveibeenpwned /integrations/haveibeenpwned
 /components/sensor.hddtemp /integrations/hddtemp
@@ -1418,7 +1417,6 @@
 /components/growatt_server /integrations/growatt_server
 /components/gstreamer /integrations/gstreamer
 /components/gtfs /integrations/gtfs
-/components/gtt /integrations/gtt
 /components/habitica /integrations/habitica
 /components/hangouts /integrations/hangouts
 /components/harman_kardon_avr /integrations/harman_kardon_avr

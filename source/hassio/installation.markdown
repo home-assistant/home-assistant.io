@@ -85,12 +85,12 @@ hassio ha update --version=0.XX.X
 
 ## Run the beta version on Hass.io
 
-If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
 1. Backup your installation, using the snapshot functionality Hass.io offers.
-2. Check the RC release notes for breaking changes on [Home Assistant release notes](https://rc--home-assistant-docs.netlify.com/latest-release-notes/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
-4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+2. Check the [Home Assistant RC release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ tab from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
+4. Select _Dashboard_ tab from the _Hass.io_ menu, and then select _Update_.
 
 ## Alternative: install on a generic Linux host
 
@@ -182,10 +182,19 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi2`
  - `raspberrypi3`
  - `raspberrypi3-64`
+ - `raspberrypi4`
+ - `raspberrypi4-64`
  - `odroid-c2`
  - `odroid-cu2`
  - `odroid-xu`
  - `orangepi-prime`
+ - `tinker`
+ - `qemuarm`
+ - `qemuarm-64`
+ - `qemux86`
+ - `qemux86-64`
+
+See the [hassio-installer](https://github.com/home-assistant/hassio-installer) Github page for an up-to-date listing of supported machine types.
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.

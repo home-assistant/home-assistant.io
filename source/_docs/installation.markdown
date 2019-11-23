@@ -55,7 +55,6 @@ The only installation methods that allow you to use Hass.io Add-ons are the Hass
 :-----|:-----|:-----
 [Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
-[Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## Alternative installs
 

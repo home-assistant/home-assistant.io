@@ -8,7 +8,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.25
 ---
 
-The `imap_email_content` sensor platform will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
+The `imap_email_content` integration will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
 
 ## Configuration
 
@@ -20,9 +20,9 @@ sensor:
   - platform: imap_email_content
     server: imap.gmail.com
     port: 993
-    username: USERNAME
-    password: PASSWORD
-    folder: <Folder>
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    folder: YOUR_FOLDER
     senders:
       - example@gmail.com
 ```
@@ -68,7 +68,7 @@ value_template:
     body:
       description: The body of the email.
     subject:
-      description: The subject of the email.
+      description: The subject of the email.git.
     date:
       description: The date and time the email was sent.
 {% endconfiguration %}
@@ -97,4 +97,4 @@ sensor:
 ```
 {% endraw %}
 
-The same template structure can scan the date, body, or sender for matching text before setting the state of the sensor.
+The same template structure can scan the date, body or sender for matching text before setting the state of the sensor.
