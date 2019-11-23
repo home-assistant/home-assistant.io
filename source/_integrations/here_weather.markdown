@@ -20,16 +20,15 @@ This integration consists of the following platforms:
 
 You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/documentation/weather/dev_guide/common/credentials.html).
 
-HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Destination Weather API, one transaction equals one request. More information can be found [here](https://developer.here.com/faqs#payment-subscription)
+HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Destination Weather API, one transaction equals one request. More information can be found [here](https://developer.here.com/faqs#payment-subscription).
 
-By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
+By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs).
 
 ## Sensor
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-# Example entry for configuration.yaml
 sensor:
   - platform: here_weather
     app_id: "YOUR_APP_ID"
@@ -70,7 +69,7 @@ name:
   type: string
   default: "here_weather"
 mode:
-  description: "You can choose between: `forecast_astronomy`, `forecast_hourly`, `forecast_7days`, `forecast_7days_simple`, `observation` or `truck`. The default is `forecast_7days_simple`. You can find more information on the modes [here](https://developer.here.com/api-explorer/rest/auto_weather). The sensors which get created differ between the modes.
+  description: "You can choose between: `forecast_astronomy`, `forecast_hourly`, `forecast_7days`, `forecast_7days_simple`, `observation` or `truck`. The default is `forecast_7days_simple`. You can find more information on the modes [here](https://developer.here.com/api-explorer/rest/auto_weather). The sensors which get created differ between the modes."
   required: false
   type: string
   default: "forecast_7days_simple"
@@ -109,7 +108,6 @@ sensor:
 To enable the weather integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-# Example entry for configuration.yaml
 weather:
   - platform: here_weather
     app_id: "YOUR_APP_ID"
@@ -150,7 +148,7 @@ name:
   type: string
   default: "HERE"
 mode:
-  description: "You can choose between: `forecast_hourly`, `forecast_7days`, `forecast_7days_simple`, `observation` or `truck`. The default is `forecast_7days_simple`. You can find more information on the modes [here](https://developer.here.com/api-explorer/rest/auto_weather). The sensors which get created differ between the modes.
+  description: "You can choose between: `forecast_hourly`, `forecast_7days`, `forecast_7days_simple`, `observation` or `truck`. The default is `forecast_7days_simple`. You can find more information on the modes [here](https://developer.here.com/api-explorer/rest/auto_weather). The sensors which get created differ between the modes."
   required: false
   type: string
   default: "forecast_7days_simple"
