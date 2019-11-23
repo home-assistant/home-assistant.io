@@ -32,7 +32,7 @@ The State of the Union could not have been possible without the time and energy 
 - Frenck for managing the livestream
 - Arjan Vroege for assisting the team
 
-## Highlights
+## Announcements
 
 ### We're #10 open-source project in the world
 
