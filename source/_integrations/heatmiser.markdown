@@ -34,7 +34,7 @@ host:
 port:
   description: The port that the interface is listening on.
   required: true
-  type: integer
+  type: string
 tstats:
   description: A list of thermostats activated on the gateway.
   required: true
@@ -43,7 +43,7 @@ tstats:
     id:
       description: The ID of the thermostat as configured on the device itself.
       required: true
-      type: int
+      type: string
     name:
       description: A friendly name for the thermostat.
       required: true
