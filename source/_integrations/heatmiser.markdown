@@ -17,18 +17,17 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 climate:
   - platform: heatmiser
-    ipaddress: YOUR_IP_ADDRESS
+    host: YOUR_IP_ADDRESS
     port: YOUR_PORT
     tstats:
-      - 1:
-        id: THERMOSTAT_ID
+      - id: THERMOSTAT_ID
         name: THERMOSTAT_NAME
 ```
 
 A single interface can handle up to 32 connected devices.
 
 {% configuration %}
-ipaddress:
+host:
   description: The IP address of your interface.
   required: true
   type: string
@@ -44,7 +43,7 @@ tstats:
     id:
       description: The ID of the thermostat as configured on the device itself.
       required: true
-      type: string
+      type: int
     name:
       description: A friendly name for the thermostat.
       required: true
