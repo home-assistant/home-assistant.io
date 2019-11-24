@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `notify` integration makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
+The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [components list](https://www.home-assistant.io/integrations/#notifications) for one that fits your use case.
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
 
@@ -37,7 +37,7 @@ action:
 
 ### Test if it works
 
-A simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
+After you setup a [notifier](https://www.home-assistant.io/integrations/#notifications) a simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
 
 ```json
 {
