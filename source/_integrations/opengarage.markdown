@@ -41,8 +41,11 @@ covers:
       required: true
       type: map
       keys:
-        protocol:
-          description: "The protocol (`http` or `https`) to use."
+        ssl:
+          description: Use HTTPS instead of HTTP to connect.
+          required: false
+          type: boolean
+          default: false
           required: false
           type: string
           default: http
