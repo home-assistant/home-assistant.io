@@ -8,7 +8,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [components list](/integrations/#notifications) for one that fits your use case.
+The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
 
