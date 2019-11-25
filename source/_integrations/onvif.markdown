@@ -70,4 +70,12 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE`
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE`
 
+### Service `camera.onvif_reboot`
+
+If your ONVIF camera supports the reboot command, you will be able to reboot your camera.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all.
+
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
