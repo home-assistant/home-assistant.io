@@ -48,6 +48,7 @@ volume_step:
 {% endconfiguration %}
 
 Notes:
-- the LS50 Wireless are tested with latest firmware at 08-11-2019 `p6.2101809171.105039422`
+
+- The LS50 Wireless is tested with the latest firmware at 08-11-2019: `p6.2101809171.105039422`
 
 [KEF Speakers]: /integrations/kef/
