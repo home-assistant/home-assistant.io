@@ -23,7 +23,10 @@ cover:
       device_key: opendoor
       name: Left Garage Door
     garage2:
-      host: 192.168.1.13
+      protocol: https
+      verify_ssl: false
+      host: garage.example.com
+      port: 443
       device_key: opendoor
       name: Right Garage Door
 ```
@@ -39,6 +42,16 @@ covers:
       required: true
       type: map
       keys:
+        ssl:
+          description: Use HTTPS instead of HTTP to connect.
+          required: false
+          type: boolean
+          default: false
+        verify_ssl:
+          description: Enable or disable SSL certificate verification. Set to false if you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+          required: false
+          default: true
+          type: boolean
         host:
           description: IP address of device.
           required: true
@@ -123,4 +136,5 @@ customize:
   sensor.garage_car_present:
     icon: mdi:car
 ```
+
 {% endraw %}
