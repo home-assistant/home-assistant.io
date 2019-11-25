@@ -23,7 +23,9 @@ cover:
       device_key: opendoor
       name: Left Garage Door
     garage2:
-      host: 192.168.1.13
+      protocol: https
+      host: garage.example.com
+      port: 443
       device_key: opendoor
       name: Right Garage Door
 ```
@@ -39,6 +41,11 @@ covers:
       required: true
       type: map
       keys:
+        protocol:
+          description: "The protocol (`http` or `https`) to use."
+          required: false
+          type: string
+          default: http
         host:
           description: IP address of device.
           required: true
@@ -123,4 +130,5 @@ customize:
   sensor.garage_car_present:
     icon: mdi:car
 ```
+
 {% endraw %}
