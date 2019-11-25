@@ -24,6 +24,7 @@ cover:
       name: Left Garage Door
     garage2:
       protocol: https
+      verify_ssl: false
       host: garage.example.com
       port: 443
       device_key: opendoor
@@ -46,9 +47,11 @@ covers:
           required: false
           type: boolean
           default: false
+        verify_ssl:
+          description: Enable or disable SSL certificate verification. Set to false if you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
           required: false
-          type: string
-          default: http
+          default: true
+          type: boolean
         host:
           description: IP address of device.
           required: true
