@@ -13,7 +13,9 @@ ha_config_flow: true
 
 ## Configuration
 
-This integration uses the config flow. Under integrations you can add by selecting Unifi LED
+1. In the **Configuration** > **Integrations** menu, click **+** and then select `Unifi LED` from the pop-up menu.
+2. In the pop-up box, enter details about you controller.
+3. Your Unifi LED devices are now added to your home assistant installation.
 
 ## Light
 
