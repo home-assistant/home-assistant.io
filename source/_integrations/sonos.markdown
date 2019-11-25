@@ -10,10 +10,9 @@ ha_release: 0.7.3
 ha_iot_class: Local Push
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers. It exposes a `media_player` entity for every sonos player available as well as a `switch` for each sonos alarm. 
+The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers. It exposes a `media_player` entity for each Sonos player available as well as a `switch` for each Sonos alarm. 
 
 You can configure the Sonos integration by going to the integrations page inside the config panel.
-
 
 ## Services
 
