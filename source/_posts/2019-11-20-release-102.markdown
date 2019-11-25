@@ -224,6 +224,34 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [frontend docs]: /integrations/frontend/
 [netatmo docs]: /integrations/netatmo/
 
+## Release 0.102.2 - November 24
+
+- Fix Plex setup race condition v2 ([@jjlawren] - [#28943]) ([plex docs])
+- Fix ikea lights on deconz ([@pvizeli] - [#28949]) ([deconz docs])
+- Fix manual config ([@cgtobi] - [#28956]) ([netatmo docs])
+- Fix temp not being reported properly ([@shred86] - [#28973]) ([abode docs])
+- Updated frontend to 20191119.6 ([@bramkragten] - [#28996]) ([frontend docs])
+- Alexa gracefully handle climate devices without presets ([@frenck] - [#29010]) ([alexa docs])
+
+[#28943]: https://github.com/home-assistant/home-assistant/pull/28943
+[#28949]: https://github.com/home-assistant/home-assistant/pull/28949
+[#28956]: https://github.com/home-assistant/home-assistant/pull/28956
+[#28973]: https://github.com/home-assistant/home-assistant/pull/28973
+[#28996]: https://github.com/home-assistant/home-assistant/pull/28996
+[#29010]: https://github.com/home-assistant/home-assistant/pull/29010
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@pvizeli]: https://github.com/pvizeli
+[@shred86]: https://github.com/shred86
+[abode docs]: /integrations/abode/
+[alexa docs]: /integrations/alexa/
+[deconz docs]: /integrations/deconz/
+[frontend docs]: /integrations/frontend/
+[netatmo docs]: /integrations/netatmo/
+[plex docs]: /integrations/plex/
+
 ## All changes
 
 - Cover all possible values for venstar operation_mode ([@iamtpage] - [#27949]) ([venstar docs])
