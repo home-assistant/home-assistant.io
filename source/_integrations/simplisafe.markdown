@@ -54,8 +54,37 @@ Remove a SimpliSafe PIN (by label or PIN value).
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
-| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
 | `label_or_pin`              |      no  | The PIN label or value to remove            |
+
+### `simplisafe.set_alarm_duration`
+
+Set the duration (in seconds) of an active alarm.
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `duaration`                 |      no  | The number of seconds to sound the alarm    |
+
+### `simplisafe.set_delay`
+
+Set a duration for how long the base station should delay when transitioning between states.
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `arrival_state`             |      no  | The target "arrival" state (away, home)     | 
+| `transition`                |      no  | The system state transition to affect (entry, exit)               | 
+| `seconds`                   |      no  | The number of seconds to delay              |
+
+### `simplisafe.set_light`
+
+Turn the base station light on/off.
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `light_state`               |      no  | True for on, False for off                  |
 
 ### `simplisafe.set_pin`
 
@@ -63,6 +92,16 @@ Set a SimpliSafe PIN.
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
-| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `system_id`                 |      no  | The ID of the system to remove the PIN from |
 | `label`                     |      no  | The label to show in the SimpliSafe UI      |
 | `pin`                       |      no  | The PIN value to use                        |
+
+### `simplisafe.set_volume_property`
+
+Set a level for one of the base station's various volumes.
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `volume_property`           |      no  | The volume property to set (alarm, chime, voice_prompt)               | 
+| `volume`                    |      no  | A volume (off, low, medium, high)           |
