@@ -4,7 +4,8 @@ description: "Instructions on how to integrate threshold Bayesian sensors into H
 logo: home-assistant.png
 ha_category:
   - Utility
-ha_iot_class: Local Polling
+  - Binary Sensor
+ha_iot_class: Local Push
 ha_release: 0.53
 ha_qa_scale: internal
 ---
@@ -80,6 +81,20 @@ observations:
       description: The target state. Required (for `state`).
       required: false
       type: string
+    delay_on:
+      description: The amount of time state must be ***met*** before this sensor will switch to `on`. Works for all types.
+      required: false
+      type: time
+    delay_off:
+      description: The amount of time the state must be ***not met*** before this sensor will switch to `off`. Works for all types.
+       required: false
+       type: time
+    max_duration:
+      description: >
+        The maximum amount of time the observation can be **on**. Works for all types. 
+        if combined with `delay_off`, the observation will go **off** based on whatever is first.
+      required: false
+      type: time
 {% endconfiguration %}
 
 ## Full examples
@@ -131,7 +146,7 @@ binary_sensor:
       below: 50
 ```
 
-Finally, here's an example for `template` observation platform,
+Here's an example for `template` observation platform,
 as seen in the configuration it requires `value_template` and does not use `entity_id`.
 
 {% raw %}
@@ -149,3 +164,39 @@ binary_sensor:
       prob_given_true: 0.95
 ```
 {% endraw %}
+
+`delay_on`, `delay_off` and `max_duration` exist to prevent the need to create many custom sensors. A common usecase for `delay_off` is to buffer a short-lived or noisy sensor. `delay_on` and `max_duration` can for instance be used to divide the off time of a sensor in increasingly lower probabilities without overlap.
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  name: 'Presence Kitchen'
+  platform: 'bayesian'
+  prior: 0.5
+  probability_threshold: 0.9
+  observations:
+    - platform: state
+      entity_id: binary_sensor.noisy_pir_kitchen
+      to_state: 'on'
+      prob_given_true: 0.95
+      delay_off:
+        miliseconds: 300
+    - platform: state
+      entity_id: binary_sensor.pir_kitchen
+      to_state: 'off'
+      prob_given_true: 0.4 # somewhat more unlikely that there's presence
+      max_duration: 
+        seconds: 10 
+    - platform: state
+      entity_id: binary_sensor.pir_kitchen
+      to_state: 'off'
+      prob_given_true: 0.1 # way more unlikely that there's presence
+      delay_on: 00:00:10 # Both ways of providing time are valid, this is similar to seconds: 10
+      max_duration: 
+        seconds: 50
+    - platform: state
+      entity_id: binary_sensor.pir_kitchen
+      to_state: 'off'
+      prob_given_true: 0.01 # no way there's anyone there
+      delay_on: 00:01:00 
+```
