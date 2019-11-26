@@ -21,7 +21,7 @@ To enable the flume sensor, add the following lines to your `configuration.yaml`
 # Example configuration.yaml entry
 sensor:
   # Flume
-  - platform: Flume
+  - platform: flume
     username: YOUR_FLUME_USERNAME
     password: YOUR_FLUME_PASSWORD
     client_id: YOUR_FLUME_CLIENT_ID
