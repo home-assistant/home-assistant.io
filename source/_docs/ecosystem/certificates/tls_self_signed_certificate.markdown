@@ -1,12 +1,15 @@
 ---
-title: "Self-signed certificate for SSL/TLS"
-description: "Configure a self-signed certificate to use with Home Assistant"
+title: "Certificate Authority and self-signed certificate for SSL/TLS"
+description: "Configure a Certificate Authority and self-signed certificate to use with Home Assistant"
 redirect_from: /cookbook/tls_self_signed_certificate/
 ---
 
 If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. 
-[Let's encrypt]({{site_root}}/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) will only work if you have a DNS entry and remote access is allowed. 
+[Let's encrypt]({{site_root}}/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) will only work if you have a DNS entry and remote access is allowed.
+
 The solution is to use a self-signed certificate. As you most likely don't have a certification authority (CA) your browser will complain about the security. If you have a CA then this will not be an issue.
+
+If you use Chrome browser version 58 or above and/or **don't want to have issues regarding a non-trusted CA or CN (Common Name)**, follow this full tutorial: [Create Root Certificate Authority and self-signed certificate for your Home Assistant. Compatible with Chrome browser > version 58](https://gist.github.com/tiagofreire-pt/4920be8d03a3dfa8201c6afedd00305e). Otherwise, follow this:
 
 To create a certificate locally, you need the [OpenSSL](https://www.openssl.org/) command-line tool.
 
