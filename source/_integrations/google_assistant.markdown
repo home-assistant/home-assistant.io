@@ -193,7 +193,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
-- sensor (temperature setting, only for temperature sensor)
+- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - Alarm Control Panel (Arm/Disarm)
 
 <div class='note warning'>
