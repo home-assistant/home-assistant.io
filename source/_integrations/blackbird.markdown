@@ -52,7 +52,7 @@ sources:
       type: string
 {% endconfiguration %}
 
-### Service `media_player.blackbird_set_all_zones`
+### Service `blackbird.set_all_zones`
 
 Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
 
