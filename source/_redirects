@@ -2054,3 +2054,6 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+
+# App documentation
+/ios/whats-new https://companion.home-assistant.io/en/getting_started/index.html
