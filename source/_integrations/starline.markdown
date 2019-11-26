@@ -9,7 +9,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-ha_release: 0.102
+ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ---
