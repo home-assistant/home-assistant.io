@@ -66,58 +66,15 @@ Set the duration (in seconds) of an active alarm.
 | `system_id`                 |      no  | The ID of a SimpliSafe system               | 
 | `duaration`                 |      no  | The number of seconds to sound the alarm    |
 
-### `simplisafe.set_alarm_volume`
+### `simplisafe.set_delay`
 
-Set the volume of an active alarm.
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `volume`                    |      no  | A volume (off, low, medium, high)           |
-
-### `simplisafe.set_chime_volume`
-
-Set the volume of the door chime.
+Set a duration for how long the base station should delay when transitioning between states.
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
 | `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `volume`                    |      no  | A volume (off, low, medium, high)           |
-
-### `simplisafe.set_entry_delay_away`
-
-Set the entry delay duration ("away" mode).
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `seconds`                   |      no  | The number of seconds to delay              |
-
-### `simplisafe.set_entry_delay_home`
-
-Set the entry delay duration ("home" mode).
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `seconds`                   |      no  | The number of seconds to delay              |
-
-### `simplisafe.set_exit_delay_away`
-
-Set the exit delay duration ("away" mode).
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `seconds`                   |      no  | The number of seconds to delay              |
-
-### `simplisafe.set_exit_delay_home`
-
-Set the exit delay duration ("home" mode).
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `arrival_state`             |      no  | The target "arrival" state (away, home)     | 
+| `transition`                |      no  | The system state transition to affect (entry, exit)               | 
 | `seconds`                   |      no  | The number of seconds to delay              |
 
 ### `simplisafe.set_light`
@@ -139,11 +96,12 @@ Set a SimpliSafe PIN.
 | `label`                     |      no  | The label to show in the SimpliSafe UI      |
 | `pin`                       |      no  | The PIN value to use                        |
 
-### `simplisafe.set_voice_prompt_volume`
+### `simplisafe.set_volume_property`
 
-Set the volume of the voice prompt.
+Set a level for one of the base station's various volumes.
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
 | `system_id`                 |      no  | The ID of a SimpliSafe system               | 
+| `volume_property`           |      no  | The volume property to set (alarm, chime, voice_prompt)               | 
 | `volume`                    |      no  | A volume (off, low, medium, high)           |
