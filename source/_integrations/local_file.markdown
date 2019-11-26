@@ -34,7 +34,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Service `camera.local_file_update_file_path`
+### Service `local_file.update_file_path`
 
 Use this service to change the file displayed by the camera.
 
