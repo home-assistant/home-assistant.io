@@ -28,8 +28,6 @@ sensor:
     client_secret: YOUR_FLUME_CLIENT_SECRET
 ```
 
-# Configuration Variables
-
 {% configuration %}
 username:
   description: Your flume user id.
