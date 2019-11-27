@@ -8,9 +8,7 @@ ha_release: 0.103
 
 The `aten_pe` integration lets you control [ATEN Rack PDUs](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/) from Home Assistant.
 
-In order to use it, SNMP must be enabled on your PDU. For an outlet to appear in Home Assistant, its name must have been configured.
-
-It is recommended to use SNMPv3 to protect your credentials from eavesdropping.
+In order to use it, SNMP must be enabled on your PDU. It is recommended to use SNMPv3 to protect your credentials from eavesdropping.
 
 Tested devices:
   * [PE8324G](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/pe8324/)
