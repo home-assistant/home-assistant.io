@@ -54,10 +54,7 @@ observations:
   type: list
   keys:
     platform:
-      description: >
-        The supported platforms are `state`, `numeric_state`, and `template`.
-        They are modeled after their corresponding triggers for automations,
-        requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`).
+      description: The supported platforms are `state`, `numeric_state`, and `template`. They are modeled after their corresponding triggers for automations, requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`).
       required: true
       type: string
     entity_id:
@@ -90,9 +87,7 @@ observations:
        required: false
        type: time
     max_duration:
-      description: >
-        The maximum amount of time the observation can be **on**. Works for all types. 
-        if combined with `delay_off`, the observation will go **off** based on whatever is first.
+      description: The maximum amount of time the observation can be **on**. Works for all types. if combined with `delay_off`, the observation will go **off** based on whatever is first.
       required: false
       type: time
 {% endconfiguration %}
