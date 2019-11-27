@@ -182,7 +182,7 @@ data:
   delay_secs: 0.6
 ```
 
-### Service `remote.harmony_change_channel`
+### Service `harmony.change_channel`
 
 Sends the change channel command to the Harmony HUB
 
@@ -194,13 +194,13 @@ Sends the change channel command to the Harmony HUB
 A typical service call for changing the channel would be::
 
 ```yaml
-service: remote.change_channel
+service: harmony.change_channel
 data:
   entity_id: remote.tv_room
   channel: 200
 ```
 
-### Service `remote.harmony_sync`
+### Service `harmony.sync`
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
