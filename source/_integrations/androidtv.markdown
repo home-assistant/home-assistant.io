@@ -249,7 +249,9 @@ A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e
 
 ## Custom State Detection
 
-The `state_detection_rules` configuration parameter allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
+The Android TV integration works by polling the Android TV / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state of the device: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
+
+The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
 * `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
   * If this is not a map, then this state will always be reported when this app is the current app
