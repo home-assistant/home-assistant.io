@@ -36,7 +36,7 @@ password:
 
 This platform supports a service to set the temperature for the room connected to heater in the Mill app:
 
-`climate.mill_set_room_temperature`
+`mill.set_room_temperature`
 
 
 | Service data attribute | Optional | Description |
