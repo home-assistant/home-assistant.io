@@ -49,7 +49,7 @@ name:
 observations:
   description: The observations which should influence the likelihood that the given event has occurred.
   required: true
-  type: list
+  type: map
   keys:
     platform:
       description: The supported platforms are `state`, `numeric_state`, and `template`. They are modeled after their corresponding triggers for automations, requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`).
