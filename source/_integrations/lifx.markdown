@@ -65,7 +65,7 @@ script:
 
 The available light effects and their options are listed below.
 
-### Service `light.lifx_effect_pulse`
+### Service `lifx.effect_pulse`
 
 Run a flash effect by changing to a color and then back.
 
@@ -80,7 +80,7 @@ Run a flash effect by changing to a color and then back.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `light.lifx_effect_colorloop`
+### Service `lifx.effect_colorloop`
 
 Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
@@ -94,7 +94,7 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `light.lifx_effect_stop`
+### Service `lifx.effect_stop`
 
 Run an effect that does nothing, thereby stopping any other effect that might be running.
 
