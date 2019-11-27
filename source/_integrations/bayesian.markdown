@@ -49,7 +49,7 @@ name:
 observations:
   description: The observations which should influence the likelihood that the given event has occurred.
   required: true
-  type: map
+  type: list
   keys:
     platform:
       description: The supported platforms are `state`, `numeric_state`, and `template`. They are modeled after their corresponding triggers for automations, requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`).
@@ -184,12 +184,12 @@ binary_sensor:
       entity_id: binary_sensor.pir_kitchen
       to_state: 'off'
       prob_given_true: 0.1 # way more unlikely that there's presence
-      delay_on: 00:00:10 # Both ways of providing time are valid, this is similar to seconds: 10
+      delay_on: "00:00:10" # Both ways of providing time are valid, this is similar to seconds: 10
       max_duration: 
         seconds: 50
     - platform: state
       entity_id: binary_sensor.pir_kitchen
       to_state: 'off'
       prob_given_true: 0.01 # no way there's anyone there
-      delay_on: 00:01:00 
+      delay_on: "00:01:00"
 ```
