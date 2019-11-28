@@ -46,7 +46,7 @@ sandbox:
   type: boolean
 {% endconfiguration %}
 
-The APNS platform will register two services, `notify.NOTIFIER_NAME` and `notify.apns_NOTIFIER_NAME`.
+The APNS platform will register two services, `notify.NOTIFIER_NAME` and `apns.apns_NOTIFIER_NAME`.
 
 ### notify.apns_NOTIFIER_NAME
 
