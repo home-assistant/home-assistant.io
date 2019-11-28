@@ -118,7 +118,7 @@ automation:
       event_data:
         command: testword
     action:
-      service: notify.matrix_notify
+      service: matrix.notify
       data:
         message: 'It looks like you wrote !testword'
   - alias: 'React to an introduction'
@@ -128,7 +128,7 @@ automation:
       event_data:
         command: introduction
     action:
-      service: notify.matrix_notify
+      service: matrix.notify
       data_template:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
@@ -155,7 +155,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `matrix.NOTIFIER_NAME`.
   required: false
   default: notify
   type: string
