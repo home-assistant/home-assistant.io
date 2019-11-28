@@ -132,7 +132,7 @@ model:
 
 ## Platform Services
 
-### Service `light.xiaomi_miio_set_scene`
+### Service `xiaomi_miio.light_set_scene`
 
 Set one of the 4 available fixed scenes.
 
@@ -141,7 +141,7 @@ Set one of the 4 available fixed scenes.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 | `scene`                   |       no | Scene, between 1 and 4.                               |
 
-### Service `light.xiaomi_miio_set_delayed_turn_off`
+### Service `xiaomi_miio.light_set_delayed_turn_off`
 
 Delayed turn off.
 
