@@ -59,7 +59,7 @@ extra_arguments:
 
 Most of the ONVIF cameras support more than one audio/video profile. Each profile provides different image quality. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time, especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in config `profile` variable.
 
-### Service `camera.onvif_ptz`
+### Service `onvif.ptz`
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
 
@@ -70,7 +70,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE`
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE`
 
-### Service `camera.onvif_reboot`
+### Service `onvif.reboot`
 
 If your ONVIF camera supports the reboot command, you will be able to reboot your camera.
 
