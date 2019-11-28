@@ -111,7 +111,7 @@ The Xiaomi IR Remote Platform currently supports two different formats for IR co
 
 ### Raw
 
-A raw command is a command learned from [`remote.xiaomi_miio_learn_command`](/integrations/remote.xiaomi_miio/#remotexiaomi_miio_learn_command).
+A raw command is a command learned from [`xiaomi_miio.remote_learn_command`](/integrations/remote.xiaomi_miio/#xiaomi_miioremote_learn_command).
 
 A raw command is defined as in the following example:
 
@@ -158,7 +158,7 @@ The Xiaomi IR Remote Platform registers two services.
 
 Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/remote.xiaomi_miio/#command-types).
 
-### `remote.xiaomi_miio_learn_command`
+### `xiaomi_miio.remote_learn_command`
 
 Used to learn new commands.
 
