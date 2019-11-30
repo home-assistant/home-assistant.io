@@ -233,6 +233,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20191119.6 ([@bramkragten] - [#28996]) ([frontend docs])
 - Alexa gracefully handle climate devices without presets ([@frenck] - [#29010]) ([alexa docs])
 
+## Release 0.102.3 - November 29
+
+- Fix smartthings cloud webhook ([@bramkragten] - [#29219]) ([smartthings docs])
+
+[#29219]: https://github.com/home-assistant/home-assistant/pull/29219
+[@bramkragten]: https://github.com/bramkragten
+[smartthings docs]: /components/smartthings/
+
 [#28943]: https://github.com/home-assistant/home-assistant/pull/28943
 [#28949]: https://github.com/home-assistant/home-assistant/pull/28949
 [#28956]: https://github.com/home-assistant/home-assistant/pull/28956
