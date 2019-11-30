@@ -5,7 +5,7 @@ logo: geonet-nz.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.100"
+ha_release: 0.103
 ha_config_flow: true
 ---
 
