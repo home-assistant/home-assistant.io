@@ -9,9 +9,9 @@ categories: Community
 og_image: /images/blog/2019-12-home-assistant-for-everyone/social.png
 ---
 
-With Home Assistant we want to help people live their life, while helping out in the background. I've written about this in 2016 when I detailed my view on the [perfect home automation](https://www.home-assistant.io/blog/2016/01/19/perfect-home-automation/). And we've been working towards this ever since.
+With Home Assistant, we want to help people live their life, while helping out in the background. I wrote about this in 2016 when I detailed my view on the [perfect home automation](https://www.home-assistant.io/blog/2016/01/19/perfect-home-automation/). We've been working towards this ever since.
 
-In 2019 we focused on "Make It Easier" ([see State of the Union for details](https://youtu.be/tc17q1Zn0Xs?t=1271)). We made Home Assistant easier to use, configure and contribute to. Every time we make it easier, we become accessible to more people. There is still a ton we can make easier, and that's great because 2020 is around the corner and we need things to do :-)
+In 2019 we focused on "Make It Easier" ([see State of the Union for details](https://youtu.be/tc17q1Zn0Xs?t=1271)). We made Home Assistant easier to use, configure and to contribute to. Every time we make it easier, we become accessible to more people. There is still a ton we can make easier, and that's great because 2020 is around the corner and we need things to do :-)
 
 During Thanksgiving, Home Assistant made it to #1 on [Hacker News](https://news.ycombinator.com/item?id=21665125), a social news website focusing on computer science and entrepreneurship. The comments had lots of users chiming in with their positive experiences. One comment stood out to me and I wanted to share it:
 
@@ -29,9 +29,9 @@ Totally cool beanz and I am totally serious about how much easier this makes my 
 – <a href="https://news.ycombinator.com/item?id=21666909">escapologybb on Hacker News</a>
 </blockquote>
 
-This is just great. I love how this user is able to live an easier life. It's really motivating.
+This is just great. I love how this user can live a more comfortable life. It's really motivating.
 
-I also really like the first reply on the above comment. It highlights how we tend to judge things from our perspective, and that those can be wrong.
+I also really like the first reply to the above comment. It highlights how we tend to judge things from our perspective and don't paint the whole picture.
 
 <blockquote style='font-size:1em'>
 Thanks for your comment. I came to this discussion with my blinkers on, so to speak, pre -judging how I need less automation in my world, and you give concrete evidence how someone's "meh" can be balanced by untold advantages (13.4 million, in fact) of such a system.
@@ -43,10 +43,6 @@ Ps: The way you're applying it is creative and awesome too!
 – <a href="https://news.ycombinator.com/item?id=21667056">cmroanirgo on Hacker News</a>
 </blockquote>
 
-As Home Assistant grows and evolves, let's make sure we don't judge the additions and changes based from just our own perspective and needs. Think about how it can help other (potential) Home Assistant users. It's our goal that a privacy focused home automation platform is within everyones reach, regardless of background, location or income.
-
-As the year is coming to a close, I want to wish everyone a wonderful holiday season without having to solve too many relatives computer problems or fighting big corporations closing local APIs ([like last year](https://www.home-assistant.io/blog/2018/12/17/logitech-harmony-removes-local-api/) 🤦‍♂️). Home Assistant 0.103 is scheduled for December 11, after which we take a break and willl be back to our regular three week release schedule on January 15, with the release of 0.104.
-
-Proost!
+As Home Assistant grows and evolves, let's make sure we don't judge the additions and changes based on just our own perspective and needs. Think about how it can help other (potential) Home Assistant users. It's our goal that a privacy-focused home automation platform is within everyone's reach, regardless of background, location or income.
 
 Paulus
