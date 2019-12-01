@@ -3,7 +3,7 @@ title: "IntesisHome AC Controller"
 description: "Instructions how to integrate IntesisHome AC devices with Home Assistant"
 logo: intesishome.png
 ha_category: Climate
-ha_release: 0.96
+ha_release: 0.103
 ha_iot_class: Cloud Push
 ---
 
@@ -32,8 +32,9 @@ password:
   required: true
   type: string
 device:
-  description: IntesisHome or airconwithme (defaults to IntesisHome if not specified) 
+  description: `IntesisHome` or `airconwithme`. 
   required: false
+  default: IntesisHome
   type: string
 {% endconfiguration %}
 
