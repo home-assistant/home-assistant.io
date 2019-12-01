@@ -40,6 +40,11 @@ name:
   required: false
   default: KEF
   type: string
+port:
+  description: The port of the device
+  required: false
+  default: 50001
+  type: integer
 maximum_volume:
   description: Maximum volume allowed. Number between 0 and 1.
   required: false
