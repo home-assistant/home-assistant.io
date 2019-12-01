@@ -8,6 +8,7 @@ ha_category:
   - Notifications
   - Sensor
   - Switch
+  - Binary Sensor
 ha_release: 0.79
 ha_iot_class: Local Polling
 ---
@@ -20,6 +21,7 @@ There is currently support for the following platforms within Home Assistant:
 - Notifications - via SMS
 - Sensors - device, signal, and traffic information
 - Switch - mobile data on/off
+- Binary sensor - mobile connection status
 
 ## Configuration
 
@@ -44,6 +46,7 @@ default:
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR
 - mobile data switch
+- mobile connection binary sensor
 - device tracker entries
 
 The rest are added to the entity registry, but disabled by default.
