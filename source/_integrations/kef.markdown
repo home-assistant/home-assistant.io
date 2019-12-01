@@ -23,10 +23,7 @@ To add KEF Speakers to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 - platform: kef
   host: IP_ADDRESS
-  type: LS50  # or LSX
-  name: My KEF speakers
-  maximum_volume: 0.6
-  volume_step: 0.05
+  type: LS50
 ```
 
 {% configuration %}
@@ -35,30 +32,46 @@ host:
   required: true
   type: string
 type:
-  description: The speaker type, either LS50 or LSX.
+  description: The speaker type, either `LS50` or `LSX`.
   required: true
   type: string
 name:
   description: The name of the device
   required: false
+  default: KEF
   type: string
 maximum_volume:
   description: Maximum volume allowed. Number between 0 and 1.
   required: false
+  default: 0.5
   type: float
 volume_step:
-  description: Volume step when increasing volume. By default 0.05
+  description: Volume step when increasing volume.
   required: false
+  default: 0.05
   type: float
 inverse_speaker_mode:
   description: Switch channels from L/R to R/L.
   required: false
+  default: false
   type: boolean
 standby_time:
   description: The speakers automatically turn to standby mode after either `20` or `60` minutes. Leave out for the speaker to never go into standby mode.
   required: false
   type: integer
 {% endconfiguration %}
+
+## Advanced configuration example
+
+```yaml
+# Example configuration.yaml entry
+- platform: kef
+  host: IP_ADDRESS
+  type: LS50
+  name: My KEF speakers
+  maximum_volume: 0.6
+  volume_step: 0.05
+```
 
 Notes:
 
