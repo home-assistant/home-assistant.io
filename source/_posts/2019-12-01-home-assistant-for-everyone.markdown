@@ -31,7 +31,7 @@ Totally cool beanz and I am totally serious about how much easier this makes my 
 
 This is just great. I love how this user can live a more comfortable life. It's really motivating.
 
-I also really like the first reply to the above comment. It highlights how we tend to judge things from our perspective and don't paint the whole picture.
+I also really like the first reply to the above comment. It highlights how we tend to judge things from our perspective and that our perspective might not paint the whole picture.
 
 <blockquote style='font-size:1em'>
 Thanks for your comment. I came to this discussion with my blinkers on, so to speak, pre -judging how I need less automation in my world, and you give concrete evidence how someone's "meh" can be balanced by untold advantages (13.4 million, in fact) of such a system.
