@@ -41,5 +41,5 @@ name:
   description: "An identifier for the sensor in the frontend."
   required: false
   type: string
-  default: `season`
+  default: Season
 {% endconfiguration %}
