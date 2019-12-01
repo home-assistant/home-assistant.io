@@ -4,12 +4,13 @@ description: "Instructions on how to integrate Tankerkoenig sensors within Home 
 logo: tankerkoenig.png
 ha_category:
   - Energy
+  - Sensor
 ha_release: 0.102
 ha_iot_class: Cloud Polling
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
-One entity will be created for each fuel station within the given radius and for each fuel type in it.
+One sensor entity will be created for each fuel station within the given radius and for each configured fuel type in it.
 
 You can also add additional stations manually, referencing them via their IDs. To find out the ID for a given fuel station, you can use the [TankstellenFinder](https://creativecommons.tankerkoenig.de/TankstellenFinder/index.html) tool.
 
@@ -19,16 +20,15 @@ To use this sensor you need an API key from [tankerkoenig](https://creativecommo
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: tankerkoenig
-    api_key: YOUR_API_KEY
-    radius: 1
-    fuel_type: 
-      - "diesel"
+tankerkoenig:
+  api_key: YOUR_API_KEY
+  radius: 1
+  fuel_type:
+    - "diesel"
 ```
 
 {% configuration %}
@@ -52,7 +52,7 @@ longitude:
   type: float
   default: longitude of your home zone
 radius:
-  description: The radius in km. in which to search for gas stations. 
+  description: The radius in km. in which to search for gas stations. Cannot be less than 1.
   required: false
   default: 5
   type: integer
@@ -69,19 +69,26 @@ stations:
 
 ## Full example
 
-This is a full example of the sensor:
+This is a full example of the platform:
 
 ```yaml
-sensor:
-  - platform: tankerkoenig
-    api_key: YOUR_API_KEY
-    fuel_types:
-      - "e10"
-      - "diesel"
-    latitude: 52.51627
-    longitude: 13.3777
-    radius: 1
-    scan_interval: "0:10:01"
-    stations:
-      - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
+tankerkoenig:
+  api_key: YOUR_API_KEY
+  fuel_types:
+    - "diesel"
+    - "e10"
+  latitude: 52.51627
+  longitude: 13.3777
+  radius: 1
+  scan_interval: "0:10:01"
+  stations:
+    - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
 ```
+
+Assuming there are two fuel stations within the specified range and location, you would get six sensor entities:
+ * sensor.tankerkoenig_berlin_paulstrasse_20_diesel
+ * sensor.tankerkoenig_berlin_paulstrasse_20_e10
+ * sensor.tankerkoenig_aral_tankstelle_diesel
+ * sensor.tankerkoenig_aral_tankstelle_e10
+ * sensor.tankerkoenig_svg_hamburg_strassen>_diesel
+ * sensor.tankerkoenig_svg_hamburg_strassen_e10
