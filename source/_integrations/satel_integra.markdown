@@ -55,7 +55,7 @@ port:
 code:
   description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs
   required: false
-  type: integer
+  type: string
 partitions:
   description: List of the partitions to operate on.
   required: false
