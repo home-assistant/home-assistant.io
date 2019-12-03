@@ -9,7 +9,7 @@ categories: Public-Service-Announcement
 og_image: /images/blog/2019-12-sonos-shutting-down-snips/social.png
 ---
 
-It's that time of the year. The time when it's cold outside, it's cozy and warm inside, we're spending time with friends and family, and time for big companies to drop local accessable technology ([2015](/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/), [2018](/blog/2018/12/17/logitech-harmony-removes-local-api/)).
+It's that time of the year. The time when it's cold outside, it's cozy and warm inside, we're spending time with friends and family, and time for big companies to drop local accessible technology ([2015](/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/), [2018](/blog/2018/12/17/logitech-harmony-removes-local-api/)).
 
 On November 20, 2019, Sonos [announced](https://investors.sonos.com/news-and-events/investor-news/latest-news/2019/Sonos-Announces-Acquisition-of-Snips/default.aspx) that they had acquired Snips earlier that month. Snips was a popular option for people to get local voice control in their homes.
 
@@ -20,7 +20,7 @@ In the same month of the acquisition, Snips has announced that they are shutting
   Announcement on the <a href="https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145">Snips forums</a>.
 </p>
 
-What is actually worse, is that it looks like they are not shutting down their console completely, they are just shutting down public access. They could support users, but actively decide not to do so. It seems like they don't want us to know this, as they have editted their announcement on the forums.
+What is actually worse, is that it looks like they are not shutting down their console completely, they are just shutting down public access. They could support users, but actively decide not to do so. It seems like they don't want us to know this, as they have edited their announcement on the forums.
 
 <p class='img'>
   <img src='/images/blog/2019-12-sonos-shutting-down-snips/post-history-screenshot.png' alt='Edit history shows they removed the word public access.'>
@@ -45,8 +45,8 @@ Technology often ends up with a winner takes all. Sonos has just made a better c
 
 Audio is an essential part of our homes. We want to play music, be notified of events (i.e., doorbell) and we want to be able to use our voice to control our devices. A system that provides this, needs to run locally and be accessible via an open API.
 
-Sonos could be this system, they have great hardware that works together nicely. However, they are keeping their API tightly controlled, making it impossible for user to build on top of it.
+Sonos could be this system, they have great hardware that works together nicely. However, they are keeping their API tightly controlled, making it impossible for a user to build on top of it.
 
-It is a choice. They could keep the Snips console open to the public. open up their modern local API and embrace the community that cares about local control. Nevertheless, they choose to work against it.
+It is a choice. They could keep the Snips console open to the public, open up their modern local API and embrace the community that cares about local control. Nevertheless, they choose to work against it.
 
 So Sonos, why are you?
