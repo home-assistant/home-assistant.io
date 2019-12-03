@@ -7,7 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ---
 
-The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
+The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,30 +32,30 @@ device:
   required: false
   type: string
 host:
-  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, port is required."
+  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, a port is required."
   required: false
   type: string
 port:
-  description: "The tcp port the remote RFXtrx is available on. If this is set, host is required."
+  description: "The TCP port the remote RFXtrx is available on. If this is set, a host is required."
   required: false
   type: integer
 debug:
-  description: If you want to receive debug output.
+  description: "If you want to receive debug output."
   required: false
   default: false
   type: boolean
 dummy:
-  description: Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
+  description: "Then you need a connected drive to test your settings. Can be useful for debugging and testing."
   required: false
   default: false
   type: boolean
 {% endconfiguration %}
 
-Supported protocols
+## Supported protocols
 
-Not all protocols as advertised are enabled on initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) and enable the required protocol.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) and enable the required protocol.
 
-#### Ser2Net
+### ser2net
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your home assistant config.
 
