@@ -41,6 +41,10 @@ name:
   required: false
   type: string
   default: notify
+url:
+  description: The URL where the Signal Messenger REST API listens for incoming requests. 
+  required: true
+  type: string
 number:
   description: The sender number.
   required: true
@@ -51,6 +55,9 @@ recipients:
   type: string
 {% endconfiguration %}
 
+## Examples
+
+A few examples on how to use this integration.
 
 ### Text message
 
@@ -62,7 +69,7 @@ action:
     message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml"
 ```
 
-### Text message with attachment
+### Text message with an attachment
 
 ```yaml
 ...
