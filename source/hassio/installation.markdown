@@ -8,11 +8,7 @@ The following will take you through the steps required to install Hass.io.
 1. Download the appropriate install option:
 
    - As an image for your device:
-  
-     - [Raspberry Pi Zero][pi1] (not recommended for more than testing)
-     - [Raspberry Pi Zero W][pi0-w] (not recommended for more than testing)
-     - [Raspberry Pi 1 Model B][pi1] (not recommended for more than testing)
-     - [Raspberry Pi 2 Model B][pi2]
+   
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
      - [(RC) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
