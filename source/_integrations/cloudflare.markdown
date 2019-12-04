@@ -36,15 +36,16 @@ email:
   required: true
   type: string
 api_key:
-  description: The global API key for your Cloudflare account.
+  description: The [global API key](https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys#12345682) for your Cloudflare account (it is not an API Token).
   required: true
   type: string
 zone:
-  description: The DNS zone you want to update.
+  description: The DNS zone (domain) you want to update.
   required: true
   type: string
 records:
-  description: A list of records you want to update.
+  description: A list of records (subdomains) you want to update. If you want to update just a main domain just put here your domain, e.g. EXAMPLE.COM.
+  For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-supporting-more-ports/) source) you need to connect directly to your server. In order to do that please create CNAME DNS record e.g. SSH.EXAMPLE.COM with proxy status as "DNS only" (you need to click on orange icon to in order to make it gray) and than just connect to SSH.EXAMPLE.COM using your server ssh port.
   required: true
   type: list
 {% endconfiguration %}
