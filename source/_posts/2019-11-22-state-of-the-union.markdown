@@ -133,4 +133,4 @@ Screenshot of the create automation dialog.
 
 ### Share the love ❤️
 
-Home Assistant is the community and the community is Home Asssitant. Help us spread the Home Assitant love, help others and share your knowledge on YouTube, blogs and other media.
+Home Assistant is the community and the community is Home Assistant. Help us spread the Home Assitant love, help others and share your knowledge on YouTube, blogs and other media.
