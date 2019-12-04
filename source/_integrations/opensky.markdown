@@ -39,7 +39,7 @@ Both events have three attributes:
 - **callsign**: Callsign of the flight.
 - **altitude**: Altitude of the flight in meters.
 
-To receive notifications of the entering flights, add the following lines to your `configuration.yaml` file:
+To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -49,7 +49,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.ios_YOURIPHONENAME
+      service: notify.mobile_app_<device_name>
       data_template:
         message : 'Flight entry of {{ trigger.event.data.callsign }} '
 ```
