@@ -83,7 +83,7 @@ devicename:
 
 <div class='note warning'>
 
-In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+In the example above, `devicename` refers to the detected name of the device.  For example, with `nmap`, this will be the MAC address (with byte separators omitted).
 
 </div>
 

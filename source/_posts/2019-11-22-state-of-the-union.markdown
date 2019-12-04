@@ -122,7 +122,7 @@ _"If I could describe my dream job, it would be being a full-time open source de
 
 ### Create automations using your voice
 
-We have been able to leverage Almond's neural network to **allow users to generate automations using natural language**. This means that you can now create an automation by telling Home Assitant to "turn on the lights when I get home" and we'll convert it to the appropriate automation in Home Assistant.
+We have been able to leverage Almond's neural network to **allow users to generate automations using natural language**. This means that you can now create an automation by telling Home Assistant to "turn on the lights when I get home" and we'll convert it to the appropriate automation in Home Assistant.
 
 [Source code](https://github.com/NabuCasa/thingtalk-hass-generator/).
 
@@ -133,4 +133,4 @@ Screenshot of the create automation dialog.
 
 ### Share the love ❤️
 
-Home Assistant is the community and the community is Home Asssitant. Help us spread the Home Assitant love, help others and share your knowledge on YouTube, blogs and other media.
+Home Assistant is the community and the community is Home Assistant. Help us spread the Home Assistant love, help others and share your knowledge on YouTube, blogs and other media.
