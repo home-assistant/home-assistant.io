@@ -27,12 +27,6 @@ switch:
     lights:
       - light.desk
       - light.lamp
-  - platform: flux
-    name: flux_lifx
-    # will call light.lifx_set_state even when light.bulb is turned off
-    set_state_service: lifx_set_state
-    lights:
-      - light.bulb
 ```
 
 {% configuration %}
