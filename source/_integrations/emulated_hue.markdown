@@ -70,7 +70,7 @@ host_ip:
   required: false
   type: string
 listen_port:
-  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80. See "setcap" note below if this is set below 1024 when Home Assistant is ran as a non-root user."
+  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80. See `setcap` note below if this is set below `1024` when Home Assistant is ran as a non-root user."
   required: false
   type: integer
   default: 8300
