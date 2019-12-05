@@ -104,7 +104,7 @@ Other state examples:
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}
+{% endif %}
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
@@ -325,7 +325,10 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even).
+  - `round(x, "floor")` will always round down to `x` decimals
+  - `round(x, "ceil")` will always round up to `x` decimals
+  - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
@@ -377,7 +380,7 @@ Nested JSON in a response is supported as well:
   },
   "values": {
     "temp": 26.09,
-    "hum": 56.73,
+    "hum": 56.73
   }
 }
 ```

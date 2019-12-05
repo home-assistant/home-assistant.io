@@ -45,6 +45,8 @@ The Almond integration does not update config entries yet. If you make a change 
 
 Stanford offers a hosted version of Almond Server called Almond Web. To use this, go to the integrations page and add Almond using the add integration flow.
 
+Your Home Assistant installation needs to be externally accessible if you want Almond Web to be able to control Home Assistant.
+
 ### Almond Web - Manual installation
 
 It is possible to set up Almond Web manually. You will need to create your own client ID and secret in the web interface.

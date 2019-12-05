@@ -29,7 +29,7 @@ device_tracker:
 The following optional parameters can be used with any platform:
 
 <div class='note'>
-  Device tracker will only look for global settings under the configuration of the first configured platform.
+  Device tracker will only look for global settings under the configuration of the first configured platform. These 3 are the global settings:
 </div>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
@@ -83,7 +83,7 @@ devicename:
 
 <div class='note warning'>
 
-In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+In the example above, `devicename` refers to the detected name of the device.  For example, with `nmap`, this will be the MAC address (with byte separators omitted).
 
 </div>
 

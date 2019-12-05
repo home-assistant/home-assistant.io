@@ -8,7 +8,6 @@ ha_category:
   - Fan
   - Light
   - Switch
-featured: true
 ha_release: pre 0.7
 ---
 
@@ -102,5 +101,5 @@ There are several services which can be used for automations and control of the 
 | `toggle` | Calling this service will toggle the humidifier between on and off states.
 | `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
-| `wemo_set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
-| `wemo_reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.
+| `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
+| `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.

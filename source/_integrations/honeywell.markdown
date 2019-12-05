@@ -8,7 +8,7 @@ ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ---
 
-The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/]) climate systems.
+The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
 It does not support the home security functionality of TCC.
 

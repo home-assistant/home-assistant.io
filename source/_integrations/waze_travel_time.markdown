@@ -64,7 +64,24 @@ vehicle_type:
   description: "Set the vehicle type for the sensor: car, taxi, or motorcycle, otherwise the default is car."
   required: false
   type: string
+avoid_ferries:
+  description: "If this is set to true, Waze will avoid ferries on your route."
+  required: false
+  type: boolean
+  default: false
+avoid_toll_roads:
+  description: "If this is set to true, Waze will avoid toll roads on your route."
+  required: false
+  type: boolean
+  default: false
+avoid_subscription_roads:
+  description: "If this is set to true, Waze will avoid roads needing a vignette / subscription on your route."
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
+
+When using the `avoid_toll_roads`, `avoid_subscription_roads` and `avoid_ferries` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behaviour is that Waze will route you over roads having subscription options, so best is to set both `avoid_toll_roads` and `avoid_subscription_roads` or `avoid_ferries` if needed and experiment to ensure the desired outcome. 
 
 ## Example using dynamic destination
 
@@ -118,6 +135,15 @@ sensor:
     region: 'US'
     units: imperial    # 'metric' for Metric, 'imperial' for Imperial
     vehicle_type: motorcycle  # vehicle type used for routing
+  
+  # Avoiding toll, subscription
+  - platform: waze_travel_time
+    name: Westerscheldetunnel
+    origin: 51.330436, 3.802043
+    destination: 51.445677, 3.749929
+    region: 'EU'
+    avoid_toll_roads: true
+    avoid_subscription_roads: true  
 ```
 {% endraw %}
 

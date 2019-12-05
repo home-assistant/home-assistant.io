@@ -36,7 +36,7 @@ The following devices are known to work with this component.
 
 - HS107 (indoor 2-outlet)
 - HS300 (powerstrip 6-outlet)
-- KP400 (outdoot 2-outlet)
+- KP400 (outdoor 2-outlet)
 
 ### Wall Switches
 

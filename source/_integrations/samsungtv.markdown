@@ -48,6 +48,11 @@ mac:
   description: "The MAC address of the Samsung Smart TV, e.g., `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
   required: false
   type: string
+broadcast_address:
+  description: The broadcast address on which to send the Wake-On-Lan packet.
+  required: false
+  default: 255.255.255.255
+  type: string
 {% endconfiguration %}
 
 Currently known supported models:
@@ -113,6 +118,7 @@ Currently tested but not working models:
 - JU7500 - Unable to see state and unable to control
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
+- MU6400 - Unable to see state and unable to control (using latest 1270 firmware. Had limited functionality on previous firmware)
 - Q60 – turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.

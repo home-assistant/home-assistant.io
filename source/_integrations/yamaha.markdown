@@ -127,7 +127,7 @@ script:
 
 ```
 
-### Service `yamaha_enable_output`
+### Service `enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 

@@ -119,7 +119,9 @@ Adds a new torrent to download. It can either be a URL (http, https or ftp), mag
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance
 | `torrent` | no | Torrent to download
+
 
 ## Templating
 

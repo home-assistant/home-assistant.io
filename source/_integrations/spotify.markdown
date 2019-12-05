@@ -81,7 +81,7 @@ name:
 ## Setup
 
 After the prerequisites and configuration are complete, restart Home Assistant.
-A **Spotify** configurator element will be available. Follow the instructions to
+Under notifications a **Spotify** configurator element will be available. Click on "Link Spotify account" and follow the instructions to
 authorize Home Assistant to access your Spotify account. A Spotify media player
 will then appear. If you are prompted to download a file after completing
 authorization, discard the download. It is not needed.

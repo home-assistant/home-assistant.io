@@ -132,6 +132,8 @@ $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
 
+The response is expected to be a dictionary or a list with a dictionary as its 0th element.
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.

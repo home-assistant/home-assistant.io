@@ -48,11 +48,3 @@ See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 | `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
-
-### Service `check_connection` 
-
-This will force the communication between the bridge and the lock, updating the available attribute.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.

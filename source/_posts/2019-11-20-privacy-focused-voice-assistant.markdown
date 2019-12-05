@@ -85,6 +85,8 @@ We don't want to wait with integrating this until all the pieces run 100% locall
 
 With Almond and Ada, we've put the building blocks in place to create voice assistants. It's now time to use it, improve it and surprise us by sharing the things you'll use it for.
 
+We've added a new section on the forums to discuss [voice setups](https://community.home-assistant.io/c/configuration/voice-assistant).
+
 ## Bonus
 
 I hacked together a quick prototype to allow you to talk to Almond via a Telegram Bot! It's available as a [custom component](https://gist.github.com/balloob/d59cae89d19a14bcec99ce1bde05bd44).
