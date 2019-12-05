@@ -29,7 +29,7 @@ input_select:
       - Home Alone
 ```
 
-{% configuration %}
+```yaml
   input_select:
     description: Alias for the input. Multiple entries are allowed.
     required: true
@@ -52,21 +52,17 @@ input_select:
         description: Icon to display in front of the input element in the frontend.
         required: false
         type: icon
-{% endconfiguration %}
-
-<div class='note'>
+'''
 
 Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 
-</div>
-
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping. To disable restoring the state, set a valid value for `initial`.
 
 ### Services
 
-This integrations provide three services to modify the state of the `input_select`.
+This integration provides three services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -139,7 +135,6 @@ automation:
 
 Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
    
@@ -181,4 +176,3 @@ input_select:
       retain: true
       payload: "{{ states('input_select.thermostat_mode') }}"
 ```
-{% endraw %}
