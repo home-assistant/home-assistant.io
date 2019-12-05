@@ -18,7 +18,6 @@ There is currently support for the following device types within Home Assistant:
 * [Sensor](#sensor) with traffic metrics
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control WiFi
-* [Service](#service) to reboot the Freebox router
 
 ## Configuration
 
@@ -97,7 +96,9 @@ instant upload and download rates in KB/s.
 
 ## Service
 
-A service is available to reboot your Freebox router.
+### Service `freebox.reboot`
+
+This service will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 
