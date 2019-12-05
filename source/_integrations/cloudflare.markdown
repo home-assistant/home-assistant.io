@@ -50,3 +50,5 @@ records:
 {% endconfiguration %}
 
 This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
+
+For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-supporting-more-ports/) source) you need to connect directly to your server (bypassing Cloudflare). In order to do that create CNAME DNS record e.g. SSH.EXAMPLE.COM with proxy status as "DNS only" (to do that click on orange icon, it will change color to gray) and than just connect to SSH.EXAMPLE.COM using your server ssh port.
