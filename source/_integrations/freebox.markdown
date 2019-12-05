@@ -18,6 +18,7 @@ There is currently support for the following device types within Home Assistant:
 * [Sensor](#sensor) with traffic metrics
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control WiFi
+* [Service](#service) to reboot the Freebox router
 
 ## Configuration
 
@@ -62,7 +63,7 @@ The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
-To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+To make the WiFi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
 " permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
@@ -93,6 +94,10 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router. The monitored conditions are
 instant upload and download rates in KB/s.
+
+## Service
+
+A service is available to reboot your Freebox router.
 
 ## Switch
 
