@@ -18,14 +18,12 @@ There is two ways to integrate iCloud in Home Assistant
 
 ### Via the frontend
 
-Menu: *Configuration* -> *Integrations*
-
-Search for "iCloud", add your credentials, click submit.
+Menu: *Configuration* -> *Integrations*. Search for "iCloud", add your credentials, click submit.
 
 If you add the integration for the first time for an account:
-Choose a trusted device from the list and submit.
-It will sends you a text message on your trusted device, add the received code to the next form and submit (if you missed the right code, you will be back to the previous step, and retry).
-You are done !
+1. Choose a trusted device from the list and submit.
+2. It will sends you a text message on your trusted device, add the received code to the next form and submit (if you missed the right code, you will be back to the previous step, and retry).
+3. You are done !
 
 If you already added the integration before, you are done !
 
@@ -87,6 +85,7 @@ If 2 Step Authentication is enabled for your iCloud account. The integration wil
 2 Factor Authentication is the improved version of 2 Step Authentication, this is still not supported by the pyicloud library. Therefore it's not possible to use it yet.
 
 4 services are available:
+
 - **update**: This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. Can be used in automations when manual location update is needed, e.g., to check if anyone is home when door's been opened.
 - **play_sound**: This service will play the Lost iPhone sound on your iDevice. It will still ring if your are on "Mute" or "Do not disturb" mode.
 - **display_message**: This service will display a message on your iDevice. It can also ring your device.
