@@ -15,20 +15,17 @@ Check the **States** <img src='/images/screenshots/developer-tool-states-icon.pn
 ```yaml
 # Example configuration.yaml entry
 group:
-  kitchen:
-    name: Kitchen
-    entities:
-      - switch.kitchen_pin_3
-  climate:
-    name: Climate
-    entities:
-      - sensor.bedroom_temp
-      - sensor.porch_temp
-  awesome_people:
-    name: Awesome People
-    entities:
-      - device_tracker.dad_smith
-      - device_tracker.mom_smith
+  name: Kitchen
+  entities:
+    - switch.kitchen_pin_3
+  name: Climate
+  entities:
+    - sensor.bedroom_temp
+    - sensor.porch_temp
+  name: Awesome People
+  entities:
+    - device_tracker.dad_smith
+    - device_tracker.mom_smith
 ```
 
 {% configuration %}
