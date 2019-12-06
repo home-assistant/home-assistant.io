@@ -70,7 +70,7 @@ adb_server_port:
   default: 5037
   type: integer
 get_sources:
-  description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
+  description: Whether or not to retrieve the running apps as the list of sources.
   required: false
   default: true
   type: boolean
@@ -189,9 +189,9 @@ If the setup for your Android TV or Fire TV device fails, then there is probably
 
 ## Services
 
-### (Fire TV devices only) `media_player.select_source`
+### `media_player.select_source`
 
-For Fire TV devices, you can launch an app using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
+You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
 ```yaml
 start_netflix:
