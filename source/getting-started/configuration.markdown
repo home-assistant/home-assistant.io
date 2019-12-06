@@ -53,6 +53,7 @@ Screenshot of the "General" page in the configuration panel.
 </p>
 
 <div class='note'>
+ 
   If you have watched any videos about setting up Home Assistant using configuration.yaml (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
 
 </div>
