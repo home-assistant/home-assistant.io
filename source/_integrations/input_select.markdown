@@ -62,7 +62,7 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 ### Restore State
 
-If you set a valid value for 'initial:' this integration will start with that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for 'initial' this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
