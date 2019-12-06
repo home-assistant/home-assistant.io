@@ -8,9 +8,7 @@ redirect_from:
 
 Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
 
-In Lovelace, click Configuration in the sidebar, then click Automation. You will now see the automation screen from which you can manage all the automations in Home Assistant.
-
-Click on the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
+In the user interface, click Configuration in the sidebar, then click Automation. You will now see the automation screen from which you can manage all the automations in Home Assistant.
 
 <p class='img'>
 <img src='/images/getting-started/automation-editor.png'>
