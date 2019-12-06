@@ -13,14 +13,14 @@ In Lovelace, click Configuration in the sidebar, then click Automation. You will
 Click on the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
 
 <p class='img'>
-<img src='/source/getting-started/screenshots/10 - automation editor.png'>
+<img src='/images/getting-started/automation-editor.png'>
 The automation editor.
 </p>
 
 Click the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
 
 <p class='img'>
-<img src='/source/getting-started/screenshots/11 - new automation.png'>
+<img src='/images/getting-started/new-automation.png'>
 The start of a new automation.
 </p>
 
@@ -31,7 +31,7 @@ The second step is defining what should trigger our automation to run. In this c
 In the trigger section, click on the dropdown menu and change the trigger type to "Sun." It allows us to choose sunrise or sunset, so go ahead and pick sunset. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before the sun actually sets. Neat!
 
 <p class='img'>
-<img src='/source/getting-started/screenshots/12 - new trigger.png'>
+<img src='/images/getting-started/new-trigger.png'>
 A new automation with a sun trigger filled in.
 </p>
 
@@ -42,7 +42,7 @@ entity_id: all
 ```
 
 <p class='img'>
-<img src='/source/getting-started/screenshots/13 - action.png'>
+<img src='/images/getting-started/action.png'>
 A new automation with the action set up to turn on the lights.
 </p>
 
