@@ -18,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 - **Switch**
 
 In order to activate the support, you will have to enable the integration inside the config panel.
-The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
+The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below. In a multihomed configuration, the broadcast target may be specified to ensure the device discovery takes place on the correct network interface.
 
 ## Supported Devices
 
@@ -68,6 +68,11 @@ discovery:
   required: false
   type: boolean
   default: true
+target:
+  description: The broadcast address to use for automatic discovery.
+  required: false
+  type: string
+  default: '255.255.255.255'
 light:
   description: List of light devices.
   required: false
