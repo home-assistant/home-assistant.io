@@ -31,6 +31,10 @@ host:
   description: "The IP address of the SAJ Solar Inverter."
   required: true
   type: string
+name:
+  description: "An optional name for your SAJ Solar Inverter."
+  required: false
+  type: string
 type:
   description: "Type of connection module: 'ethernet' or 'wifi'"
   required: false
@@ -57,7 +61,7 @@ Sensors available in the library:
 | today_time         | h    | Inverter's running time for today.                                           |
 | today_max_current  | W    | Maximum current power for today. (only for connection via ethernet module)   |
 | total_yield        | kWh  | Total kWh generated to date.                                                 |
-| total_time         | h    | Total running time of the inverter .                                         |
+| total_time         | h    | Total running time of the inverter.                                          |
 | total_co2_reduced  | kg   | Total CO2 in kg reduced.                                                     |
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
@@ -67,6 +71,7 @@ Sensors available in the library:
 ```yaml
 sensor:
   - platform: saj
+    name: MY_INVERTER_NAME
     host: IP_ADDRESS_OF_DEVICE
     type: wifi
     username: USERNAME

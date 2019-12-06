@@ -5,7 +5,7 @@ description: "A guide to remotely accessing Home Assistant and securing the conn
 
 <div class='note'>
 
-If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/suites/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+If you are using Hass.io do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io.
 
 </div>
 
@@ -17,7 +17,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You want to access your Home Assistant instance when you are away from home (ie, not connected to your local network) and secure it with a TLS/SSL certificate.
  * You have a basic understanding of the phrases I have used so far.
  * You are not currently running anything on port 80 on your network (you'd know if you were).
- * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
+ * If you are not using Home Assistant on a Debian/Raspian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is inaccurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
  * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
 
@@ -266,7 +266,7 @@ wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
 ```
 
-You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Hassbian:
+You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
 
 ```text
 sudo systemctl stop home-assistant@homeassistant.service

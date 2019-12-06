@@ -180,11 +180,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<dkv class='note warning'>
+<div class='note warning'>
 
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 
-</dkv>
+</div>
 
 ## Examples
 
@@ -214,6 +214,7 @@ fan:
     payload_medium_speed: "medium"
     payload_high_speed: "high"
     speeds:
+      - "off"
       - low
       - medium
       - high

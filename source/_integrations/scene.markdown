@@ -91,3 +91,31 @@ automation:
 ## Reloading scenes
 
 Whenever you make a change to your scene configuration, you can call the `scene.reload` service to reload the scenes.
+
+## Creating scenes on the fly
+
+Create a new scene without having to configure it by calling the `scene.create` service. This scene will be discarded after reloading the configuration.
+
+You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also need to specify the entities in the same format as when configuring the scene.
+
+If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens but a warning in your log files.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: scene.create
+    data:
+      scene_id: my_scene
+      entities:
+        light.tv_back_light:
+          state: on
+          brightness: 100
+        light.ceiling: off
+        media_player.sony_bravia_tv:
+          state: on
+          source: HDMI 1
+```

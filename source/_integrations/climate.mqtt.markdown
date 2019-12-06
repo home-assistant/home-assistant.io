@@ -149,6 +149,10 @@ temperature_low_state_topic:
   description: The MQTT topic to subscribe for changes in the target low temperature. If this is not set, the target low temperature works in optimistic mode (see below).
   required: false
   type: string
+temperature_low_state_template:
+  description: A template to render the value received on the `temperature_low_state_topic` with.
+  required: false
+  type: template
 temperature_high_command_topic:
   description: The MQTT topic to publish commands to change the high target temperature.
   required: false
@@ -157,6 +161,10 @@ temperature_high_state_topic:
   description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
   required: false
   type: string
+temperature_high_state_template:
+  description: A template to render the value received on the `temperature_high_state_topic` with.
+  required: false
+  type: template
 precision:
   description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
   required: false

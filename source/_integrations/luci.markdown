@@ -11,12 +11,6 @@ _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt]
 
 This is a presence detection scanner for OpenWRT using [luci](https://openwrt.org/docs/techref/luci).
 
-<div class='note'>
-
-This integration requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
-
-</div>
-
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
 
 ```bash

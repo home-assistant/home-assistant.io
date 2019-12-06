@@ -12,7 +12,7 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
 
 <div class='note warning'>
 
-  The following packages must be installed on Hassbian/Raspbian before following the setup for the integration to work:
+  The following packages must be installed on Raspbian before following the setup for the integration to work:
   `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 
 </div>
