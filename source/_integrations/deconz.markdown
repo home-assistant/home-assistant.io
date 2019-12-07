@@ -43,7 +43,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** &rarr; **Gateway** &rarr; **Advanced** &rarr; **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
 You can manually add deCONZ by going to the integrations page.
 
