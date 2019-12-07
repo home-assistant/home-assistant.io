@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.74
 ---
 
-With the `cloudflare` integration you can keep your Cloudflare records up to date. This integration uses python package [pycfdns](https://github.com/ludeeus/pycfdns) developed by [Joakim Sørensen](https://github.com/ludeeus).
+With the `cloudflare` integration you can keep your Cloudflare records up to date.
 
 The integration will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
 
