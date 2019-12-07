@@ -78,7 +78,7 @@ Other settings should not cause any issues.
 For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-supporting-more-ports/) source), you need to connect directly to your server (bypassing Cloudflare). To do that create a `CNAME` DNS record, e.g., `ssh.example.com`, with proxy status as "DNS only" (to do that click on orange icon, it will change color to gray) and then connect to `ssh.example.com` using your server SSH port.
 
 
-### Using Cloudflare domain only for the Home Assistant
+### Using Cloudflare domain only for Home Assistant
 
 If you want to update just a main domain, place in the records list only your domain, e.g. `example.com`. It will update your `A` DNS record with your IP every hour.
 
@@ -92,7 +92,7 @@ cloudflare:
     - EXAMPLE.COM
 ```
 
-#### A mininum DNS record settings are (if you have set up https already):
+#### The minimum DNS record settings are (if you have set up https already):
 
 To redirect from your domain to the IP address of your Home Assistant server set this DNS record:
 ```
