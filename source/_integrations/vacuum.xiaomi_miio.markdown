@@ -250,83 +250,25 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
-### Windows and Android
+### Android (not rooted)
 
-To fetch the token follow these instructions depending on your mobile phone platform.
+> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).  
 
-1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/). Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas.
-2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
-3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
-4. Change the MiToolKit language to English if you need to.
-5. Click "Extract Token".
-6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
-7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
-8. If you don't get a token, close MiToolKit completely, delete the folder MiToolkit\apps\com.xiaomi.smarthome and relaunch MiToolKit to force recreate a new backup (sometimes the files would not be overwritten before deleting the old ones).
+1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
+2. Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
+3. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
-### Linux and Android (not rooted)
 
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from an SQLite file inside your phone.
+### Linux and Rooted Android
 
-Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
-
-```bash
-sudo apt-get install libffi-dev libssl-dev
-```
-
-If your Home Assistant installation is running in a [virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
-
-```bash
-sudo -u homeassistant -H -s
-source /srv/homeassistant/bin/activate
-```
-
-To fetch the token follow these instructions depending on your mobile phone platform.
-
-1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/). Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas.
-2. Enable developer mode, USB debugging and plug the Android phone into the computer.
-3. Get ADB by running `apt-get install android-tools-adb` or `apt-get install adb`.
-4. `adb devices` should list your device. Consult the ADB manual if necessary.
-5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone). Some devices may require single quotes in the command `adb backup '-noapk com.xiaomi.smarthome -f backup.ab'`.
-6. Download the ['ADB Backup Extractor'](https://sourceforge.net/projects/adbextractor/files/latest/download).
-7. Extract the data from the backup: (enter the password, if prompted)
-   ```bash
-   java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar
-   ```
-8. Untar the unpacked data: `tar -xvf unpacked.tar`.
-9. The following command returns the token for your Xiaomi vacuum bot:
-    ```bash
-    sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name like "%Vacuum%";'
-    ```
-
-### Linux and Android (rooted!)
-
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from an SQLite file inside your phone.
-
-Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
-
-```bash
-sudo apt-get install libffi-dev libssl-dev
-```
-
-If your Home Assistant installation is running in a [virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
-
-```bash
-sudo -u homeassistant -H -s
-source /srv/homeassistant/bin/activate
-```
-
-To fetch the token follow these instructions depending on your mobile phone platform.
-
-1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/). Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas.
-2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
-3. Get ADB (e.g, using `apt-get install android-tools-adb`).
-4. The command `adb devices` should list your device.
-5. The command `adb root` (does work for development builds only: ones with `ro.debuggable=1`).
-6. The command `adb shell` (for those using Magisk based root the this command won't work. After entering a shell, type `su` to enter the root shell and try again).
-7. The following command returns a list of all registered devices including IP address and token:
-    ```bash
-    echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db
-    ```
+1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
+2. Ensure successful operation using the latest Mi Home app and give the Vacuum a static IP in your router or however you do that on your LAN.
+3. Install version `v5.4.54` of Mi Home on your rooted Android device and login (you can't have two version of Mi Home installed at the same time).
+4. Ensure you are using the same server every time
+5. Ensure successful operation using 5.4.54 (locate is a nice simple test)
+6. Using adb we will now extract the token from the rooted phone
+7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
+8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
 
 ### iOS
 
@@ -350,45 +292,6 @@ To fetch the token follow these instructions depending on your mobile phone plat
     echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
     ```
 14. Use the resulting string as your token.
-
-### Bluestacks
-
-1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
-4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
-5. Copy `/data/data/com.xiaomi.smarthome/databases/miio2.db` file to your computer using the Bluestacks Tweakers filesystem tool.
-6. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
-7. Open the DB Browser and load the `miio2.db` from your computer.
-8. Select `Browse Data` tab from the DB Browser and switch to table called `devicerecord`
-9. This will display all the connected devices information with the token.
-
-### Selecting token manually (Windows and Android)
-
-The following instruction explained an alternative method, in case the MiToolKit didn't work.
-
-Software Required:
-
-- Android ADB is contained in [Android SDK](https://developer.android.com/studio/releases/platform-tools)
-- [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
-- [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
-- [SQLite Browser](https://sqlitebrowser.org/)
-1. Install an old Version of MiHome (e.g. Mi Home version 5.0.30) on your Android-Device
-2. Open MiHome, log-in and add your devices. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas.
-3. Enable USB-Debugging on your Android
-4. Create a backup from your MiHome App, by using adb
-  ```bash
-  adb backup com.xiaomi.smarthome
-  ```
-  Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
-5. Extract the backup-file with android-backup-extractor
-  ```bash
-  java -jar abe.jar unpack backup.ab backup.tar
-  ```
-  After that, you will be able to open the file with WinRaR or what ever you like.
-6. Go to \apps\com.xiaomi.smarthome\db
-7. Open miio2.db with SQLite Browser
-8. You can find your device tokens in "devicerecord" table
 
 ## Retrieving the Zone Coordinates
 
