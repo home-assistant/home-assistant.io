@@ -127,3 +127,7 @@ dtoverlay=pi3-miniuart-bt
 ## HmIP-RFUSB
 
 HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.
+
+## Web UI
+
+To enable the experimental WebUI for built-in CCU specify a port number for "Regahss Webinterface" on the addon configuration page under the network section. After saving the changes, click on the "Open Web UI" button and proceed with the [Homematic WebUI](https://www.eq-3.de/downloads/download/handbuecher/WebUI_Handbuch_eQ-3.pdf) configuration.
