@@ -206,9 +206,9 @@ The following table shows the units of measurement for each attribute:
 
 <div class='note'>
 
-As per Version 5.4.49 the Android Mi Home app stores the token readable in the log files. It can easily be retrieved in the folder Smarthome on in the Android device. Just open the text file inside the Smarthome/logs folder and search for the token.
+If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 <br/> <br/>
-The iPhone app still stores the token in the SQLite db as of v4.23.4 (Nov 17, 2019).
+The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
 <br/> <br/>
 After resetting the WiFi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
 <br/> <br/>
