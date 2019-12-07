@@ -1,9 +1,9 @@
 ---
 title: "HomeMatic"
-description: "HomeMatic hardware support to turn you Home-Assistant into a CCU."
+description: "HomeMatic hardware support to turn Home Assistant into a CCU."
 ---
 
-You can't import an existing configuration, you'll need re-learn it into Home Assistant. There is an experimental WebUI alias Regahss support since 9.0 - before it was required to use a 3party tool.
+You can't import an existing configuration, you'll need re-learn it into Home Assistant. There is an experimental WebUI alias Regahss support since 9.0. Before it was required to use a third-party tool.
 
 Follow devices will be supported and tested:
 
@@ -71,11 +71,11 @@ wired:
       required: true
       type: string
     key:
-      description: Encrypted key.
+      description: The encrypted key.
       required: true
       type: string
     ip:
-      description: IP address of LAN gateway.
+      description: The IP address of LAN gateway.
       required: true
       type: string
 hmip_enable:
@@ -126,7 +126,7 @@ dtoverlay=pi3-miniuart-bt
 
 ## HmIP-RFUSB
 
-HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.
+HassOS > 1.11 support HmIP-RFUSB by default and don't need any configuration. If you run a Linux installation, you need to follow the installation guide from the documentation to set up the UART USB interface on your computer.
 
 ## Web UI
 
