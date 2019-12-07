@@ -11,9 +11,9 @@ ha_qa_scale: platinum
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the
 bar for high-end studio lightning. With 80 LEDs, that put out a massive
-2500 lumens, and can change the color temperature of the light as well.
+2500 lumens, and can change the color temperature as well.
 
-Te LED light panel is created specifically, and designed for streamers
+The LED light panel is created specifically, and designed for streamers
 and content creators, many of whom operate on platforms like YouTube and Twitch.
 
 ## Configuration
