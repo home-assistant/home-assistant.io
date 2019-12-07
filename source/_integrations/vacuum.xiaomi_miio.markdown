@@ -255,7 +255,7 @@ The information output is:
 > If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).  
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
-2. Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
+2. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
 3. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
 
