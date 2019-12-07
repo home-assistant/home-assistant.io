@@ -25,9 +25,10 @@ Currently supported functionality:
 - Turning on away preset
 - Turning on hold mode preset
 
-The following values are supported for the hold_mode state attribute:
-- `off`: *Enables* the scheduling functionality.
+The following values are supported for the preset_mode state attribute:
+- `none`: *Enables* the scheduling functionality.
 - `temperature`: *Disables* the schedule and holds the set temperature indefinitely.
+- `away`: Places the thermostat in away mode
 
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
