@@ -44,7 +44,7 @@ zone:
   required: true
   type: string
 records:
-  description:  A list of records (subdomains) you want to update.
+  description: A list of records (subdomains) you want to update.
   required: true
   type: list
 {% endconfiguration %}
