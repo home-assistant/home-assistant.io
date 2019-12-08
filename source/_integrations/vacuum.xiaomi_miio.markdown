@@ -344,12 +344,12 @@ To fetch the token follow these instructions depending on your mobile phone plat
     ```sql
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
     ```
-12. Copy the returned 32-digit hexadecimal string to your clipboard.
+12. Copy the returned 96-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command:
     ```bash
     echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
     ```
-14. Use the resulting string as your token.
+14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
 
 ### Bluestacks
 
