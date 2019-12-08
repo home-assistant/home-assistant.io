@@ -58,6 +58,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
+- Remove cloud dependency from mobile_app ([@balloob] - [#29373]) ([mobile_app docs])
 - Change keys for Samsung TV next and prev track command ([@tulindo] - [#28213]) ([samsungtv docs]) (breaking change)
 - Align naming ([@fabaff] - [#28830]) ([wake_on_lan docs]) (breaking change)
 - Pulseaudio: Changed default port from 4712 to 4713 ([@springstan] - [#28857]) ([pulseaudio_loopback docs]) (breaking change)
