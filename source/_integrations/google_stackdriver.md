@@ -43,7 +43,7 @@ log_level:
 labels:
   description: Labels to add to every log entry. If streaming logs from multiple sources to Stackdriver this allows them to be separated by using filters.
   required: true
-  type: dict
+  type: map
 {% endconfiguration %}
 
 <div class='note warning'>
