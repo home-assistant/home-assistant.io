@@ -111,6 +111,8 @@ notify:
 
 ## Services
 
+The following router action services are available. When invoked by a user, administrator access is required.
+
 ### Service `huawei_lte.clear_traffic_statistics`
 
 Clear traffic statistics.
