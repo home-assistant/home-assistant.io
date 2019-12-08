@@ -54,15 +54,15 @@ name:
 
 ## Platform Services
 
-In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
-- `xiaomi_miio.vacuum_remote_control_start`
-- `xiaomi_miio.vacuum_remote_control_stop`
-- `xiaomi_miio.vacuum_remote_control_move`
-- `xiaomi_miio.vacuum_remote_control_move_step`
-- `xiaomi_miio.vacuum_clean_zone`
+- `xiaomi_remote_control_start`
+- `xiaomi_remote_control_stop`
+- `xiaomi_remote_control_move`
+- `xiaomi_remote_control_move_step`
+- `xiaomi_clean_zone`
 
-### Service `xiaomi_miio.vacuum_remote_control_start`
+### Service `vacuum.xiaomi_remote_control_start`
 
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
@@ -70,7 +70,7 @@ Start the remote control mode of the robot. You can then move it with `remote_co
 |---------------------------|----------|---------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific robot                      |
 
-### Service `xiaomi_miio.vacuum_remote_control_stop`
+### Service `vacuum.xiaomi_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
@@ -78,7 +78,7 @@ Exit the remote control mode of the robot.
 |---------------------------|----------|---------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific robot                      |
 
-### Service `xiaomi_miio.vacuum_remote_control_move`
+### Service `vacuum.xiaomi_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
@@ -89,7 +89,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
-### Service `xiaomi_miio.vacuum_remote_control_move_step`
+### Service `vacuum.xiaomi_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
@@ -100,7 +100,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
-### Service `xiaomi_miio.vacuum_clean_zone`
+### Service `vacuum.xiaomi_clean_zone`
 
 Start the cleaning operation in the areas selected for the number of repeats indicated.
 
@@ -110,7 +110,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
 | `repeats`                 |       no | Number of cleaning repeats for each zone between 1 and 3. |
 
-Example of `xiaomi_miio.vacuum_clean_zone` use:
+Example of `vacuum.xiaomi_clean_zone` use:
 
 Inline array:
 {% raw %}
@@ -122,7 +122,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: xiaomi_miio.vacuum_clean_zone
+    - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
@@ -140,7 +140,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: xiaomi_miio.vacuum_clean_zone
+    - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
@@ -159,7 +159,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: xiaomi_miio.vacuum_clean_zone
+    - service: vacuum.xiaomi_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: 1
