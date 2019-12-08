@@ -29,7 +29,8 @@ Add the following lines to your `configuration.yaml` file:
 google_stackdriver:
   key_file: frog32ch_key.json
   labels:
-    source: homeassistant```
+    source: homeassistant
+```
 
 {% configuration %}
 key_file:
