@@ -7,6 +7,10 @@ ha_category:
 ha_release: 0.48
 ---
 
+```
+Snips Console no longer available due to acquisition by Sonos. For more details read ![here](https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145). 
+```
+
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
 The latest documentation can be found here: [Snips Platform Documentation](https://docs.snips.ai/).
