@@ -48,5 +48,5 @@ labels:
 {% endconfiguration %}
 
 <div class='note warning'>
-Depending on how much logging is done by your setup and the log level configured for Stackdriver this could exhaust the free tier. To avoid getting surprises it is recommended to set up an [alert](https://cloud.google.com/stackdriver/pricing#alert-usage) to get notified before the free tier is exhausted.  
+Depending on how much logging is done by your setup and the log level configured for Stackdriver this could exhaust the free tier. To avoid getting surprises it is recommended to set up an <a href="https://cloud.google.com/stackdriver/pricing#alert-usage">alert</a> to get notified before the free tier is exhausted.  
 </div>
