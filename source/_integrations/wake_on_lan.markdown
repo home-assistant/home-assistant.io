@@ -66,7 +66,7 @@ switch:
 
 {% configuration %}
 mac:
-  description: MAC address to send the wake up command to.
+  description: The MAC address to send the wake up command to.
   required: true
   type: string
 name:

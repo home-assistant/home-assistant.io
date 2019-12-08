@@ -23,6 +23,7 @@ $ sudo apt-get install libxml2-dev libxslt-dev \
 
 If you installed Home Assistant in a virtualenv, also run the following command inside it.
 Be patient this will take a while.
+
 ```bash
 pip3 install lxml
 ```
@@ -48,7 +49,7 @@ name:
   default: Phone
   type: string
 host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1. If you have a local DNS server and have assigned a hostname to your FRITZ!Box, you can also use that here instead of the IP address.
   required: false
   default: 169.254.1.1
   type: string

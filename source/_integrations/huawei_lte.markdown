@@ -8,6 +8,7 @@ ha_category:
   - Notifications
   - Sensor
   - Switch
+  - Binary Sensor
 ha_release: 0.79
 ha_iot_class: Local Polling
 ---
@@ -20,6 +21,7 @@ There is currently support for the following platforms within Home Assistant:
 - Notifications - via SMS
 - Sensors - device, signal, and traffic information
 - Switch - mobile data on/off
+- Binary sensor - mobile connection status
 
 ## Configuration
 
@@ -44,6 +46,7 @@ default:
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR
 - mobile data switch
+- mobile connection binary sensor
 - device tracker entries
 
 The rest are added to the entity registry, but disabled by default.
@@ -106,7 +109,27 @@ notify:
       type: [string, list]
 {% endconfiguration %}
 
-### Tested devices
+## Services
+
+The following router action services are available. When invoked by a user, administrator access is required.
+
+### Service `huawei_lte.clear_traffic_statistics`
+
+Clear traffic statistics.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+### Service `huawei_lte.reboot`
+
+Reboot router.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+## Tested devices
 
 Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
 

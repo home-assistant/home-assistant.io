@@ -342,7 +342,7 @@ Set the fan speed/operation mode.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
 | `speed`                   |       no | Fan speed. Valid values are 'Auto', 'Silent', 'Favorite' and 'Idle' |
 
-### Service `fan.xiaomi_miio_set_buzzer_on` (Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro excluded)
 
 Turn the buzzer on.
 
@@ -350,7 +350,7 @@ Turn the buzzer on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_buzzer_off` (Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro excluded)
 
 Turn the buzzer off.
 
@@ -358,7 +358,7 @@ Turn the buzzer off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_led_on` (Air Purifiers only)
+### Service `xiaomi_miio.fan_set_led_on` (Air Purifiers only)
 
 Turn the led on.
 
@@ -366,7 +366,7 @@ Turn the led on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_led_off` (Air Purifiers only)
+### Service `xiaomi_miio.fan_set_led_off` (Air Purifiers only)
 
 Turn the led off.
 
@@ -374,7 +374,7 @@ Turn the led off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_child_lock_on`
+### Service `xiaomi_miio.fan_set_child_lock_on`
 
 Turn the child lock on.
 
@@ -382,7 +382,7 @@ Turn the child lock on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_child_lock_off`
+### Service `xiaomi_miio.fan_set_child_lock_off`
 
 Turn the child lock off.
 
@@ -390,7 +390,7 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_led_brightness` (Air Purifier 2S and Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_led_brightness` (Air Purifier 2S and Air Purifier Pro excluded)
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -399,7 +399,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
-### Service `fan.xiaomi_miio_set_favorite_level` (Air Purifiers only)
+### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
 
 Set the favorite level of the operation mode "favorite".
 
@@ -408,7 +408,7 @@ Set the favorite level of the operation mode "favorite".
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
-### Service `fan.xiaomi_miio_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect on.
 
@@ -416,7 +416,7 @@ Turn the auto detect on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect off.
 
@@ -424,7 +424,7 @@ Turn the auto detect off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_learn_mode_on` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_set_learn_mode_on` (Air Purifier 2 only)
 
 Turn the learn mode on.
 
@@ -432,7 +432,7 @@ Turn the learn mode on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_learn_mode_off` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_set_learn_mode_off` (Air Purifier 2 only)
 
 Turn the learn mode off.
 
@@ -440,7 +440,7 @@ Turn the learn mode off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_volume` (Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_volume` (Air Purifier Pro only)
 
 Set the sound volume.
 
@@ -449,7 +449,7 @@ Set the sound volume.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `volume`                  |       no | Volume, between 0 and 100.                              |
 
-### Service `fan.xiaomi_miio_reset_filter` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
 
@@ -457,7 +457,7 @@ Reset the filter lifetime and usage.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_extra_features` (Air Purifier only)
+### Service `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
 
 Set the extra features.
 
@@ -466,7 +466,7 @@ Set the extra features.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
 
-### Service `fan.xiaomi_miio_set_target_humidity` (Air Humidifier only)
+### Service `xiaomi_miio.fan_set_target_humidity` (Air Humidifier only)
 
 Set the target humidity.
 
