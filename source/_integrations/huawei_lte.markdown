@@ -117,7 +117,7 @@ Clear traffic statistics.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `url`                  | no       | Router URL. |
+| `url`                  | yes, if only one router configured | Router URL. |
 
 ### Service `huawei_lte.reboot`
 
@@ -125,7 +125,7 @@ Reboot router.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `url`                  | no       | Router URL. |
+| `url`                  | yes, if only one router configured | Router URL. |
 
 ## Tested devices
 
