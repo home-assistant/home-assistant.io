@@ -1,7 +1,7 @@
 ---
 title: "Google Stackdriver"
 description: "Setup for Google Stackdriver integration"
-logo: google-stackdriver.png
+logo: google_stackdriver.png
 ha_category:
   - History
 ha_release: 0.104
