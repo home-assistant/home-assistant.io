@@ -62,7 +62,7 @@ The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
-To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+To make the WiFi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
 " permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
@@ -93,6 +93,12 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router. The monitored conditions are
 instant upload and download rates in KB/s.
+
+## Service
+
+### Service `freebox.reboot`
+
+This service will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 
