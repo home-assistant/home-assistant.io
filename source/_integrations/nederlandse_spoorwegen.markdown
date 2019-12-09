@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_release: 0.57
 ---
 
+**Note: Integration is currently not working for new users because the new NS Api requires a primary and secondary key: https://github.com/home-assistant/home-assistant/issues/26622**
+
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
 You must create an application [here](https://www.ns.nl/ews-aanvraagformulier/) to obtain a `password`.
