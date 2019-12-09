@@ -145,20 +145,44 @@ These attributes used to be found under the `customize` section of `homeassistan
 
 You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
-- `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
-- `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+- `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
+- `http://<HA IP Address>:80/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-For Google Home, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
+Verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
-For Amazon Alexa/Echo, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). Since 2019-08 Amazon Echo firmware, Alexa no longer works with port 8300.
+### Platform specific instructions
 
-An additional step is required to run Home Assistant as a non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as a non-root user.
+#### Hass.io and Docker
+
+No further actions are required
+
+#### Python venv
+
+An additional step is required to run Home Assistant as a non-root user and use port 80. 
+
+##### Linux
+
+On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `emulated_hue` to use port 80 as a non-root user:
 
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
+
+##### FreeBSD and FreeNAS
+
+On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
+
+```bash
+sysctl net.inet.ip.portrange.reservedhigh=0
+```
+
+You can make this persist by adding the following to `/etc/sysctl.conf`:
+
+```bash
+net.inet.ip.portrange.reservedhigh=0
+```
 
 ### License
 
