@@ -32,7 +32,7 @@ password:
   required: true
   type: string
 device:
-  description: `IntesisHome` or `airconwithme`. 
+  description: "`IntesisHome` or `airconwithme`."
   required: false
   default: IntesisHome
   type: string
