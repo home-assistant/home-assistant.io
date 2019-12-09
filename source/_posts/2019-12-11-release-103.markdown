@@ -83,13 +83,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 | Bluesound | media_player.bluesound | bluesound.* | [#29111] |
 | Channels | media_player.channels_* | channels.* | [#29139] |
 | Epson | media_player.epson_select_cmode | epson.select_cmode | [#29113] |
-| Monoprice | media_player.monoprice | monoprice: | [#29099] |
+| Monoprice | media_player.monoprice | monoprice.* | [#29099] |
 | Monoprice | media_player.restore | monoprice.restore | [#29099] |
 | Monoprice | media_player.snapshot | monoprice.snapshot | [#29099] |
 | Songpal | media_player.songpal | songpal.* | [#29143] |
 | Soundtouch | media_player.soundtouch_* | soundtouch.* | [#29140] |
 | Squeezebox | media_player.squeezebox_* | squeezebox.* | [#29141] |
-| Xiaomi Miio | *.xiaomi_miio | xiaomi_miio.* | [#29134] |
+| Xiaomi Miio | \*.xiaomi_miio_* | xiaomi_miio.*_* | [#29134] |
 | Yamaha | media_player.yamaha_* | yamaha.* | [#29142] |
 
 - __Mobile App__ - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
