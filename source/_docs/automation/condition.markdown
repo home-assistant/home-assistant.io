@@ -29,3 +29,15 @@ automation:
       entity_id: scene.DespiertaDespacho
 ```
 
+Manually triggering an automation from the services page bypasses conditions in the main body of the automation. To evaluate conditions during a manual trigger, include them in the action.
+
+Example of condition in action:
+
+```yaml
+action:
+- condition: state
+  entity_id: binary_sensor.workday_sensor
+  state: 'on'
+- service: scene.turn_on
+  entity_id: scene.WakeupWorkday
+```
