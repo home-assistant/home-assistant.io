@@ -73,6 +73,18 @@ input_number:
         type: icon
 {% endconfiguration %}
 
+### Services
+
+This integration provides the following services to modify the state of the `input_number` and a service to reload the
+configuration without restarting Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step` 
+| `increment` | `entity_id(s)`<br>`area_id(s)` | Increment the value of specific `input_number` entities by `step`
+| `reload` | | Reload `input_number` configuration |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
+
 ### Restore State
 
 If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.

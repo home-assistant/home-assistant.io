@@ -42,6 +42,18 @@ input_boolean:
         type: icon
 {% endconfiguration %}
 
+### Services
+
+This integration provides the following services to modify the state of the `input_boolean` and a service to reload the
+configuration without restarting Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `turn_on` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `on`
+| `turn_off` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `off`
+| `toggle` | `entity_id(s)`<br>`area_id(s)` | Toggle the value of specific `input_boolean` entities
+| `reload` | | Reload `input_boolean` configuration |
+
 ### Restore State
 
 If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
