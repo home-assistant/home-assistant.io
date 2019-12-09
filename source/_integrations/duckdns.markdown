@@ -31,6 +31,15 @@ duckdns:
     type: string
 {% endconfiguration %}
 
+## Service `set_txt`
+
+Set the TXT record of your DuckDNS subdomain.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `txt` | no | Payload for the TXT record. |
+
+
 <div class='note'>
 
 If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this integration is not required. The add-on will keep your IP updated with DuckDNS.

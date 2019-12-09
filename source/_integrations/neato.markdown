@@ -4,14 +4,28 @@ description: "Instructions on how to integrate your Neato within Home Assistant.
 logo: neato.png
 ha_category:
   - Camera
+  - Sensor
   - Switch
   - Vacuum
+ha_iot_class: Cloud Polling
 ha_release: 0.33
+ha_config_flow: true
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 
-To enable `neato` in your installation, add the following to your `configuration.yaml` file:
+To activate `neato` in your installation, you can set it up from the integration screen or add it to your `configuration.yaml` file.
+
+## Setup the integration via the integrations screen
+
+Menu: *Configuration* -> *Integrations*
+
+Search for or select **Neato** from the list and configure the integration. You will need to enter your username and password and whether you are using a Neato or Vorwerk device.
+After that, all the entities will automatically show up in Home Assistant.
+
+## Setup the integration via configuration.yaml
+
+Add the following to your configuration.yaml:
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,6 +105,10 @@ Some information about the capabilities might be found on the [Neato Developer P
 ## Camera
 
 The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
+
+## Sensor
+
+The `neato` sensor platform allows you to view the battery level for your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 
 ## Switch
 

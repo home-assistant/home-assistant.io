@@ -65,7 +65,7 @@ For single-action buttons (scene selection, etc.), `action` will be `single`, an
 
 ## Scene
 
-This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, and seeTouch RF tabletop keypads.
+This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, Pico, and seeTouch RF tabletop keypads.
 The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
@@ -73,3 +73,19 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 ## Occupancy Sensors
 
 Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+
+## Example Automations
+
+``` yaml
+- alias: "keypad button pressed notification"
+  trigger:
+    - platform: event
+      event_type: lutron_event
+      event_data:
+        id: office_pico_on
+        action: single
+  action:
+    - service: notify.telegram
+      data:
+        message: "pico just turned on!"
+```

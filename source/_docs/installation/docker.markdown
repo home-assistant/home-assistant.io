@@ -40,8 +40,21 @@ Alternatively, `docker-compose` works with any recent release of `docker-ce` on 
 
 ### Windows
 
+Docker containers are completely isolated from its Windows host system. So when you delete a container, all the changes you made to that container are also removed. If you want to have configuration files or other assets remain persistent, try mounting Windows folders on containers.
+
+Before proceeding, make sure you have shared out a drive for docker to mount to. This will allow the saving of config files to persist on the local machine rather than in the docker container (which may be destroyed when upgraded).
+
+<https://docs.docker.com/docker-for-windows/#shared-drives>
+<https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
+
 ```powershell
 $ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+```
+
+It’s easier to understand the trick when put into practice. Here we would like to mount a current working directory (something like `C:\Users\<your login name>\homeassistant` make sure this exists first) into the `homeassistant/home-assistant:stable` image at the `/config` location in the container. We would do that as so:
+
+```powershell
+$ docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config --net=host homeassistant/home-assistant:stable
 ```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):

@@ -16,7 +16,7 @@ The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle
 
 The `bmw_connected_drive` integration also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
 
-For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
+For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/bimmerconnected/bimmer_connected) on GitHub.
 
 This integration provides the following platforms:
 

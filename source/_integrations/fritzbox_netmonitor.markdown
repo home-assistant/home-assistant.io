@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) routers.
 
 <div class='note warning'>
-It might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
+If not running Home Assistant via Hass.io or Docker it might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
 If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code>pip3 install lxml</code>; be patient this will take a while.
 </div>
 

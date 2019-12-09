@@ -29,6 +29,7 @@ Air Purifier Super    | zhimi.airpurifier.sa1  | |
 Air Purifier Super 2  | zhimi.airpurifier.sa2  | |
 Air Humidifier        | zhimi.humidifier.v1    | |
 Air Humidifier CA1    | zhimi.humidifier.ca1   | |
+Air Humidifier CB1    | zhimi.humidifier.cb1   | |
 Air Fresh VA2         | zhimi.airfresh.va2     | |
 
 
@@ -246,6 +247,33 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
   - depth
   - dry
 
+### Air Humidifier CB (zhimi.humidifier.cb1)
+
+- On, Off
+- Operation modes (silent, medium, high, auto)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off), LED brightness (bright, dim, off)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Dry mode (on, off)
+- Attributes
+  - speed
+  - speed_list
+  - model
+  - temperature
+  - humidity
+  - mode
+  - buzzer
+  - child_lock
+  - target_humidity
+  - led_brightness
+  - use_time
+  - hardware_version
+  - motor_speed
+  - depth
+  - dry
+  - supported_features
+ 
 ### Air Fresh VA2
 
 * Power (on, off)
@@ -447,7 +475,7 @@ Set the target humidity.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                  |
 | `humidity`                |       no | Target humidity. Allowed values are 30, 40, 50, 60, 70 and 80   |
 
-### Service `fan.xiaomi_miio_set_dry_on` (Air Humidifier CA only)
+### Service `fan.xiaomi_miio_set_dry_on` (Air Humidifier CA and CB)
 
 Turn the dry mode on.
 
@@ -455,7 +483,7 @@ Turn the dry mode on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_dry_off` (Air Humidifier CA only)
+### Service `fan.xiaomi_miio_set_dry_off` (Air Humidifier CA and CB)
 
 Turn the dry mode off.
 

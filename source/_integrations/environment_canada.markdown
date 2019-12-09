@@ -14,13 +14,15 @@ The `environment_canada` weather platforms provide meteorological data for Canad
 
 The following device types and data are supported:
 
-- [Weather](#weather) - Current conditions and forecasts
-- [Sensor](#sensor) - Current conditions and alerts
-- [Camera](#camera) - Radar imagery
+- [Location Selection](#location-selection)
+- [Weather](#weather)
+- [Sensor](#sensor)
+  - [Alert TTS Script](#alert-tts-script)
+- [Camera](#camera)
 
 <p class='note'>
 
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  On Raspbian you may need to manually install additional prerequisites with the following command:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
 
 </p>
@@ -172,7 +174,7 @@ camera:
 ```
 
 <p class='note'>
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  On Raspbian you may need to manually install additional prerequisites with the following command:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
 </p>
 

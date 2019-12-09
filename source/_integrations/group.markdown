@@ -10,7 +10,7 @@ ha_release: pre 0.7
 
 Groups allow the user to combine multiple entities into one. 
 
-Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
+Check the **States** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +70,7 @@ Some integrations automatically create special groups containing integration ent
 - `group.all_scripts`
 - `group.all_automations`
 
-You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
+You can see list of these groups in  **States** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
 
 ## Group behavior
 

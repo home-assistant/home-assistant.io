@@ -17,7 +17,7 @@ This integration allows you to write Python scripts that are exposed as services
 | `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
 
 [hass-api]: /developers/development_hass_object/
-[logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
+[logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 <div class='note'>
 

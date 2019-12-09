@@ -27,6 +27,8 @@ It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blu
 
 Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
 
+**Note:** You should only do this when Home Assistant has been stopped.
+
 Turn off "Disco lights":
 
 ```bash
@@ -77,8 +79,6 @@ at this point simply add your user (homeassistant) to the dialout group:
 ```bash
 $ sudo usermod -a -G dialout homeassistant
 ```
-
-Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
 
 <div class='note'>
 

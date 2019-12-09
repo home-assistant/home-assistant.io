@@ -16,7 +16,7 @@ To use this component, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
 this check the [official documentation](https://cloud.ibm.com/docs/services/IoT?topic=iot-platform-getting-started#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
-for your home-assistant you'll need 4 pieces of information:
+for your Home Assistant instance you'll need four pieces of information:
 
 - Organization ID
 - Gateway device Type
@@ -36,19 +36,19 @@ watson_iot:
 
 {% configuration %}
 organization:
-  description: The Organization ID for your Watson IoT Platform instance
+  description: The Organization ID for your Watson IoT Platform instance.
   required: true
   type: string
 type:
-  description: The device type for the gateway device to use
+  description: The device type for the gateway device to use.
   required: true
   type: string
 id:
-  description: The device id for the gateway device to use
+  description: The device id for the gateway device to use.
   required: true
   type: string
 token:
-  description: The authentication token for the gateway device
+  description: The authentication token for the gateway device.
   required: true
   type: string
 exclude:

@@ -273,7 +273,7 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
   - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances, there is an issue with keys being generated using the iOS application.
   - You need to make sure to have multicast support on your network. If you are running Home Assistant in a virtual machine (like Proxmox), try `echo 0 >/sys/class/net/vmbr0/bridge/multicast_snooping` on the host and restart the service or reboot the host.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
-- If your gateway's MAC address starts with `04:CF:8C`, there is a good chance that the required port `9898` is closed on your gateway (you can check it with the Nmap utility, using the command `sudo nmap - sU {gateway_ip} -p 9898`). To fix that issue, you need to do these steps:
+- If your gateway's MAC address starts with `04:CF:8C`, there is a good chance that the required port `9898` is closed on your gateway (you can check it with the Nmap utility, using the command `sudo nmap -sU {gateway_ip} -p 9898`). To fix that issue, you need to do these steps:
   - Find a specific screw bit (like a fork) to open the gateway case.
   - Find a USB-UART cable/module and connect it to your computer.
   - Solder 3 wires - RX, TX and GND like [here](https://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).

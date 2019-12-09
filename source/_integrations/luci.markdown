@@ -11,12 +11,6 @@ _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt]
 
 This is a presence detection scanner for OpenWRT using [luci](https://openwrt.org/docs/techref/luci).
 
-<div class='note'>
-
-This integration requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
-
-</div>
-
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
 
 ```bash
@@ -52,6 +46,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

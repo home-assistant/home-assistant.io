@@ -571,7 +571,6 @@
 /components/notify.free_mobile /integrations/free_mobile
 /components/notify.gntp /integrations/gntp
 /components/notify.hangouts /integrations/hangouts
-/components/notify.hipchat /integrations/hipchat
 /components/notify.homematic /integrations/homematic
 /components/notify.html5 /integrations/html5
 /components/notify.huawei_lte /integrations/huawei_lte
@@ -597,7 +596,6 @@
 /components/notify.simplepush /integrations/simplepush
 /components/notify.slack /integrations/slack
 /components/notify.smtp /integrations/smtp
-/components/notify.stride /integrations/stride
 /components/notify.synology_chat /integrations/synology_chat
 /components/notify.syslog /integrations/syslog
 /components/notify.telegram /integrations/telegram
@@ -738,7 +736,6 @@
 /components/sensor.gpsd /integrations/gpsd
 /components/sensor.greeneye_monitor /integrations/greeneye_monitor
 /components/sensor.gtfs /integrations/gtfs
-/components/sensor.gtt /integrations/gtt
 /components/sensor.habitica /integrations/habitica
 /components/sensor.haveibeenpwned /integrations/haveibeenpwned
 /components/sensor.hddtemp /integrations/hddtemp
@@ -752,7 +749,6 @@
 /components/sensor.htu21d /integrations/htu21d
 /components/sensor.huawei_lte /integrations/huawei_lte#sensor
 /components/sensor.hydrawise /integrations/hydrawise#sensor
-/components/sensor.hydroquebec /integrations/hydroquebec
 /components/sensor.ihc /integrations/ihc#sensor
 /components/sensor.imap /integrations/imap
 /components/sensor.imap_email_content /integrations/imap_email_content
@@ -1421,7 +1417,6 @@
 /components/growatt_server /integrations/growatt_server
 /components/gstreamer /integrations/gstreamer
 /components/gtfs /integrations/gtfs
-/components/gtt /integrations/gtt
 /components/habitica /integrations/habitica
 /components/hangouts /integrations/hangouts
 /components/harman_kardon_avr /integrations/harman_kardon_avr
@@ -1433,7 +1428,6 @@
 /components/heos /integrations/heos
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
-/components/hipchat /integrations/hipchat
 /components/history /integrations/history
 /components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
@@ -1458,7 +1452,6 @@
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
-/components/hydroquebec /integrations/hydroquebec
 /components/hyperion /integrations/hyperion
 /components/ialarm /integrations/ialarm
 /components/iaqualink /integrations/iaqualink
@@ -2061,3 +2054,20 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+
+# App documentation
+/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+/docs/ecosystem/ios/ https://companion.home-assistant.io/
+/docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
+/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
+/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
