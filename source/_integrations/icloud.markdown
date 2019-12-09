@@ -37,10 +37,6 @@ icloud:
     password: PASSWORD
 ```
 
-### In case of troubleshooting
-
-Go into your Home Assistant configuration folder and delete the "icloud" folder, then retry.
-
 {% configuration %}
 username:
   description: Your iCloud account email.
@@ -82,6 +78,13 @@ To disable the drainage of the battery, a dynamic interval is being used for eac
 
 If 2 Step Authentication is enabled for your iCloud account. The integration will ask which device you want to use as a trusted device. The integration will send a prompt to that device with the code which you have to enter in Home Assistant. The duration of this authentication is determined by Apple.
 2 Factor Authentication is the improved version of 2 Step Authentication, this is still not supported by the pyicloud library. Therefore it's not possible to use it yet.
+
+
+## In case of troubleshooting
+
+Go into your Home Assistant configuration `.storage` folder and delete the "icloud" folder, then retry.
+
+## Services
 
 4 services are available:
 
