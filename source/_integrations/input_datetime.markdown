@@ -82,7 +82,7 @@ If you set a valid value for `initial` this integration will start with state se
 
 ### Services
 
-Available service: `input_datetime.set_datetime`.
+Available service: `input_datetime.set_datetime` and `input_datetime.reload`.
 
 Service data attribute | Format String | Description
 -|-|-
@@ -91,6 +91,8 @@ Service data attribute | Format String | Description
 `datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
 
 To set both the date and time in the same call, use `date` and `time` together, or use `datetime` by itself. Using `datetime` has the advantage that both can be set using one template.
+
+`input_dateteime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
 
 ## Automation Examples
 
