@@ -180,7 +180,6 @@
 /components/binary_sensor.sleepiq /integrations/sleepiq
 /components/binary_sensor.smartthings /integrations/smartthings#binary-sensor
 /components/binary_sensor.spc /integrations/spc#binary-sensor
-/components/binary_sensor.tahoma /integrations/tahoma
 /components/binary_sensor.tapsaff /integrations/tapsaff
 /components/binary_sensor.tcp /integrations/tcp#binary-sensor
 /components/binary_sensor.tellduslive /integrations/tellduslive
@@ -307,7 +306,6 @@
 /components/cover.scsgate /integrations/scsgate#cover
 /components/cover.smartthings /integrations/smartthings#cover
 /components/cover.supla /integrations/supla
-/components/cover.tahoma /integrations/tahoma
 /components/cover.tellduslive /integrations/tellduslive
 /components/cover.tellstick /integrations/tellstick#cover
 /components/cover.tuya /integrations/tuya
@@ -625,7 +623,6 @@
 /components/scene.lutron /integrations/lutron#scene
 /components/scene.lutron_caseta /integrations/lutron_caseta#scene
 /components/scene.smartthings /integrations/smartthings#scene
-/components/scene.tahoma /integrations/tahoma
 /components/scene.tuya /integrations/tuya
 /components/scene.velux /integrations/velux
 /components/scene.vera /integrations/vera
@@ -883,7 +880,6 @@
 /components/sensor.systemmonitor /integrations/systemmonitor
 /components/sensor.sytadin /integrations/sytadin
 /components/sensor.tado /integrations/tado
-/components/sensor.tahoma /integrations/tahoma
 /components/sensor.tank_utility /integrations/tank_utility
 /components/sensor.tautulli /integrations/tautulli
 /components/sensor.tcp /integrations/tcp#sensor
@@ -1034,7 +1030,6 @@
 /components/switch.switchbot /integrations/switchbot
 /components/switch.switcher_kis /integrations/switcher_kis
 /components/switch.switchmate /integrations/switchmate
-/components/switch.tahoma /integrations/tahoma
 /components/switch.tellduslive /integrations/tellduslive
 /components/switch.tellstick /integrations/tellstick#switch
 /components/switch.telnet /integrations/telnet
@@ -1893,7 +1888,6 @@
 /components/systemmonitor /integrations/systemmonitor
 /components/sytadin /integrations/sytadin
 /components/tado /integrations/tado
-/components/tahoma /integrations/tahoma
 /components/tank_utility /integrations/tank_utility
 /components/tapsaff /integrations/tapsaff
 /components/tautulli /integrations/tautulli
