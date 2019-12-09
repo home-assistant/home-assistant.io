@@ -31,7 +31,7 @@ This integration provides the following platforms:
 2. Open the integrations page and add the StarLine integration.
 3. Fill in your application ID, secret, login and password.
 
-After adding the integration, you can configure the API update interval on the integration page.
+After adding the integration, you can configure the API update interval using [`starline.set_scan_interval`](#set-scan-interval) service.
 
 <div class='note'>
 
