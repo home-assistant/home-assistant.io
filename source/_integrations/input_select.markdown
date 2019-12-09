@@ -74,6 +74,7 @@ This integration provides three services to modify the state of the `input_selec
 | `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
 | `select_previous` | | Select the previous option.
 | `select_next` | | Select the next option.
+| `reload` | | Reload `input_select` configuration |
 
 ### Scenes
 
