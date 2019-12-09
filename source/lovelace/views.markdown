@@ -85,7 +85,7 @@ View config:
 
 ## Paths
 
-You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
+You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
 ### Example
 
