@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Signal Messenger within Home Assi
 logo: signal_messenger.png
 ha_category:
   - Notifications
-ha_release: 0.102
+ha_release: 0.104
 ---
 
 The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOs device.
