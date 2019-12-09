@@ -58,46 +58,64 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Remove cloud dependency from mobile_app ([@balloob] - [#29373]) ([mobile_app docs])
-- Change keys for Samsung TV next and prev track command ([@tulindo] - [#28213]) ([samsungtv docs]) (breaking change)
-- Align naming ([@fabaff] - [#28830]) ([wake_on_lan docs]) (breaking change)
-- Pulseaudio: Changed default port from 4712 to 4713 ([@springstan] - [#28857]) ([pulseaudio_loopback docs]) (breaking change)
-- Improve z-wave thermostat support ([@oandrew] - [#27040]) ([zwave docs]) (breaking change)
-- Add host field to add_torrent service ([@engrbm87] - [#28653]) ([transmission docs]) (breaking change)
-- Update service domain for local_file from 'camera' to 'local_file' ([@raman325] - [#28890]) ([local_file docs]) (breaking change)
-- move service constants to const.py, move custom services to monoprice domain ([@raman325] - [#29099]) ([monoprice docs]) (breaking change)
-- Update service domain for bluesound from 'media_player' to 'bluesound' ([@raman325] - [#29111]) ([bluesound docs]) (breaking change)
-- Update service domain for blackbird from 'media_player' to 'blackbird' ([@raman325] - [#29112]) ([blackbird docs]) (breaking change)
-- Update service domain for epson from 'media_player' to 'epson' ([@raman325] - [#29113]) ([epson docs]) (breaking change)
-- move html5 service to html5 domain ([@raman325] - [#29145]) ([html5 docs]) (breaking change)
-- Update service domain for elkm1 from 'alarm_control_panel' to 'elkm1' ([@raman325] - [#29128]) ([elkm1 docs]) (breaking change)
-- move neato service to neato domain ([@raman325] - [#29148]) ([neato docs]) (breaking change)
-- move icloud services to icloud domain ([@raman325] - [#29144]) ([icloud docs]) (breaking change)
-- move econet services to econet domain ([@raman325] - [#29149]) ([econet docs]) (breaking change)
-- move songpal service to songpal domain ([@raman325] - [#29143]) ([songpal docs]) (breaking change)
-- move facebox service to facebox domain ([@raman325] - [#29151]) ([facebox docs]) (breaking change)
-- move wink service definitions from lock to wink domain ([@raman325] - [#29137]) ([wink docs]) (breaking change)
-- Update service domain for lifx from 'light' to 'lifx' ([@raman325] - [#29136]) ([lifx docs]) (breaking change)
-- move service constants to const.py and move channels services to channels domain ([@raman325] - [#29139]) ([channels docs]) (breaking change)
-- Update service domain for todoist from 'calendar' to 'todoist' ([@raman325] - [#29131]) ([todoist docs]) (breaking change)
-- update envisalink service domain ([@raman325] - [#29126]) ([envisalink docs]) (breaking change)
-- Update service domain for mill from 'climate' to 'mill' ([@raman325] - [#29132]) ([mill docs]) (breaking change)
-- move squeezebox service to squeezebox domain ([@raman325] - [#29141]) ([squeezebox docs]) (breaking change)
-- Add opentherm_gw device support ([@mvn23] - [#28722]) ([opentherm_gw docs]) (breaking change)
-- move yamaha service to yamaha domain ([@raman325] - [#29142]) ([yamaha docs]) (breaking change)
-- Update service domain for ifttt from 'alarm_control_panel' to 'ifttt' ([@raman325] - [#29129]) ([ifttt docs]) (breaking change)
-- Change apns service domain and remove unused variable ([@raman325] - [#29165]) ([apns docs]) (breaking change)
-- Update bluetooth_tracker service name and domain from 'device_tracker' to 'bluetooth_tracker' ([@raman325] - [#29161]) ([bluetooth_tracker docs]) (breaking change)
-- move soundtouch services to soundtouch domain ([@raman325] - [#29140]) ([soundtouch docs]) (breaking change)
-- move wemo services to wemo domain ([@raman325] - [#29135]) ([wemo docs]) (breaking change)
-- Update service domain for alarmdecoder from 'alarm_control_panel' to 'alarmdecoder' ([@raman325] - [#29127]) ([alarmdecoder docs]) (breaking change)
-- update demo service domain and service description ([@raman325] - [#29164]) ([demo docs]) (breaking change)
-- Move intent registration to own integration ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs]) (breaking change)
-- Overhaul Emulated Hue ([@NobleKangaroo] - [#28317]) ([emulated_hue docs]) (breaking change)
-- Clear miflora sensor state on exception ([@ferbar] - [#29276]) ([miflora docs]) (breaking change)
-- Update service domains for xiaomi_miio from base domains to xiaomi_miio domain ([@raman325] - [#29134]) ([xiaomi_miio docs]) (breaking change)
-- Do not select all entities when omitting entity ID in service call ([@balloob] - [#29178]) (breaking change)
-- Update heatmiserv3 integration ([@andylockran] - [#29006]) ([heatmiser docs]) (breaking change)
+**The table below lists service calls and platforms which have been moved to their own components** - (@raman325)
+| Integration: | Old service/platform: | New service/platform: | PR |
+|--------------------|-----------------------------------------------------|------------------------------------|----------|
+| Local File | camera.local_file_update_file_path | local_file.update_file_path | [#28890] |
+| Elk-M1 Controller | alarm_control_panel.elkm1_ | elkm1: | [#29128] |
+| Neato | vacuum.neato | neato: | [#29148] |
+| Envisalink | alarm_control_panel.envisalink_alarm_keypress | envisalink.alarm_keypress | [#29126] |
+| IFTTT | alarm_control_panel.ifttt_push_alarm_state | ifttt.push_alarm_state | [#29129] |
+| AlarmDecoder Alarm | alarm_control_panel.alarmdecoder_alarm_toggle_chime | alarmdecoder.alarm_toggle_chime | [#29127] |
+| Econet | water_heater.econet_* | econet: | [#29149] |
+| APNS | notify.apns_* | apns.* | [#29165] |
+| Facebox | image_processing.facebox_* | facebox.* | [#29151] |
+| Html5 | notify.html5_* | html5.* | [#29145] |
+| Lifx | light.lifx_* | lifx.* | [#29136] |
+| Mill | climate.mill_set_room_temperature | mill.set_room_temperature | [#29132] |
+| Todoist | calendar.todoist_new_task | todoist.new_task | [#29131] |
+| Wink | lock services.yaml | wink services.yaml | [#29137] |
+| Wemo | fan.wemo_* | wemo.* | [#29135] |
+| Bluetooth | device_tracker | bluetooth_tracker | [#29161] |
+| Demo | device_tracker.demo | demo.randomize_device_tracker_data | [#29164] |
+| iCloud | device_tracker.icloud | icloud: | [#29144] |
+| Blackbird | media_player.blackbird_set_all_zones | blackbird.set_all_zones | [#29112] |
+| Bluesound | media_player.bluesound | bluesound.* | [#29111] |
+| Channels | media_player.channels_* | channels.* | [#29139] |
+| Epson | media_player.epson_select_cmode | epson.select_cmode | [#29113] |
+| Monoprice | media_player.monoprice | monoprice: | [#29099] |
+| Monoprice | media_player.restore | monoprice.restore | [#29099] |
+| Monoprice | media_player.snapshot | monoprice.snapshot | [#29099] |
+| Songpal | media_player.songpal | songpal.* | [#29143] |
+| Soundtouch | media_player.soundtouch_* | soundtouch.* | [#29140] |
+| Squeezebox | media_player.squeezebox_* | squeezebox.* | [#29141] |
+| Xiaomi Miio | *.xiaomi_miio | xiaomi_miio.* | [#29134] |
+| Yamaha | media_player.yamaha_* | yamaha.* | [#29142] |
+
+- __Mobile App__ - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
+- __Samsung TV__ - The behaviour for next and previous track commands for Samsung TVs has changed. Before the change the Samsung TV component reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs those two commands do nothing. After the change the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change channel using the media player standard lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])
+- __Wake on LAN__ - The configuration key `mac_address:` was renamed to `mac:` to be in sync with with the service. ([@fabaff] - [#28830]) ([wake_on_lan docs])
+- __PulseAudio Loopback Switch__ - The default port was incorrectly set to 4712, however the official documentation states that the default port is 4713. Therefore, the port has been changed and all previously configured switches now need to listen to port 4713. - ([@springstan] - [#28857]) ([pulseaudio_loopback docs])
+- __Z-Wave__ - This changes the primary command class for z-wave thermostats in discovery schemas from `COMMAND_CLASS_THERMOSTAT_SETPOINT` to `COMMAND_CLASS_THERMOSTAT_MODE`. This will cause a typical dual setpoint thermostat to be correctly represented as a single entity. - ([@oandrew] - [#27040]) ([zwave docs])
+- __Transmission__ - Added host field to `add_torrent` service in order to support multiple Transmission instances. ([@engrbm87] - [#28653]) ([transmission docs])
+- __Opentherm Gateway__ - Adds device support. This change breaks enabled `sensor` and `binary_sensor` entities, which are now disabled by default and can be re-enabled through the Devices panel. It also breaks `entity_id` of the climate entity in some configurations. The `entity_id` is now based on the `gateway_id` rather than the configured `name` to guarantee uniqueness. - ([@mvn23] - [#28722]) ([opentherm_gw docs])
+- __Intent__ - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. -  ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs])
+- __Emulated Hue__ - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the component forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
+- __Miflora__ -  Values for a unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
+  
+  Example configuration yaml
+  ```yaml
+  - id: plant_unreachable
+    alias: plant unreachable
+    trigger:
+    - entity_id: sensor.plant_moisture
+      for: 01:00:00
+      platform: state
+      to: unavailable
+    action:
+   ```
+- __Entity ID__ - It is no longer possible to target all entities by not passing both `entity_id` and `area_id` to your service data. This feature was previously deprecated and has been printing warnings. The correct way to target all entities is to set `entity_id: all` - ([@balloob] - [#29178])
+- __Heatmiser Thermostat__ - This heatmiser component has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
 
 ## Beta Fixes
 
