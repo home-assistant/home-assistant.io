@@ -71,11 +71,12 @@ input_text:
 
 ### Services
 
-This integration provides a single service to modify the state of the `input_text`.
+This integration provides a service to modify the state of the `input_text` and a service to reload the `input_text` configuration without restarting Home Assistant itself.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
+| `reload` | | Reload `input_text` configuration |
 
 ### Restore State
 
