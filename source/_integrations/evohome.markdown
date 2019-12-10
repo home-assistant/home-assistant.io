@@ -18,7 +18,7 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 It does not support the home security functionality of TCC.
 
-It use the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
+It use the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
 If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
@@ -28,11 +28,11 @@ evohome is a multi-zone system. Each zone is represented as a **Climate** device
 
 The controller/location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the controller's current temperature is calculated as an average of all the Zones.
 
-The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.
+The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.  The target temperature cannot be changed.
 
 ### Round Thermostat
 
-Although Round Thermostat is, strictly speaking, a Controller and a single zone, they are merged into a single **Climate** device.
+Although Round Thermostat is, strictly speaking, both a Controller and a single zone; they are merged into a single **Climate** device.
 
 ## Configuration
 
@@ -55,7 +55,7 @@ password:
   required: true
   type: string
 location_idx:
-  description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
+  description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not officially supported.
   required: false
   type: integer
   default: 0
@@ -68,21 +68,47 @@ scan_interval:
 
 This is an IoT cloud-polling device, and the recommended `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
-## Operating modes, and inheritance
+## System modes, Zone overrides and Inheritance
 
-Zones support only three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**.
+Controllers support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all evohome systems support all modes.
 
-Mostly, the zone 'inherits' its functional operating mode from the controller (the actual algorithm for this is a little complicated).
+Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride** but 'inherit' an operating mode from their controller (the actual algorithm for this is a little more complicated than indicated below).
 
-The evohome controller supports seven distinct system modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**; **AutoWithReset** is a hidden mode that will revert all zones to **FollowSchedule** mode.
+For **FollowSchedule**, a zone's `temperature` (target temperature, a.k.a setpoint) is a function of its scheduled temperature and its inherited mode. For example, **AutoWithEco** would be scheduled temperature less 3C.
 
-If the zone is in **FollowSchedule** mode, its `temperature` (target temperature) is a function of its scheduled temperature and its functional mode - for example, **AutoWithEco** is scheduled temperature less 3C.
+If the controller is set to **HeatingOff** (temperature set to a minimum) or **Away** (temperature set to 12C), then the zones will inherit that setpoint regardless of their own mode. For **Away**, the DHW controller will also be turned off.
 
-If the controller is set to **HeatingOff** (target temperature to a minimum) or **Away** (target temperature to 12C), then the zones will inherit that mode regardless of their own setpoint mode.
+If the zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint (or in an hour, if there is no such schedule). Zones can be switched between the two override modes without changing the target temperature.
 
-If the zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the zone can be switched to **PermanentOverride** mode.
+Some controllers have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
-In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE` (but also see `systemModeStatus`, `setpointStatus`, below).
+In Home Assistant schema, all this is done via acombination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
+
+## Services
+
+This integration provide service calls to extend the full functionality of evohome beyond the limitations of Home Assistant's standardised schema.  Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
+
+### evohome.set_system_mode
+
+This service call is used to set the system `mode`, either indefinitely, or for a set period of time, after which it will revert to **Auto** mode.
+
+For some modes, such as **Away**, the duration is in `days`, where 1 day will revert after midnight, and 2 days reverts at midnight tomorrow. For other modes, such as **AutoWithEco**, the duration is in `hours`.
+
+### evohome.reset_system
+
+This service call is used to set the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
+
+### evohome.set_zone_override
+
+This service call is used to set the `temperature` of a zone as identified by its `entity_id`. This change can either be indefinite, or for a set period of time, after which it will revert to **FollowSchedule**. The duration can be in `minutes` from the current time, or `until` a specified time within the next 24 hours.
+
+### evohome.clear_zone_override
+
+This service call is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
+
+### evohome.evohome.force_refresh
+
+This service call is used to pull the latest state data from the vendor's servers.
 
 ## Useful Jinja Templates
 
