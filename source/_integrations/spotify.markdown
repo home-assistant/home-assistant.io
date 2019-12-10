@@ -28,10 +28,10 @@ To create the required Spotify application:
 - Add a **Redirect URI** in one of the following forms:
 
  If you are not using SSL:
-  `http://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
+  `http://<your_home_assistant_url_or_local_ip>/api/spotify`
 
  If you are using SSL:
-  `https://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
+  `https://<your_home_assistant_url_or_local_ip>/api/spotify`
 
 - Click **Save** after adding the URI.
 
