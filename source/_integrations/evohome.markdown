@@ -18,9 +18,9 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 It does not support the home security functionality of TCC.
 
-It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
+It use the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
 
-Honeywell removed support for higher-precision temperatures from the v2 API, and thus reported temperatures are rounded up to the nearest 0.5C.
+If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
 ### evohome
 
