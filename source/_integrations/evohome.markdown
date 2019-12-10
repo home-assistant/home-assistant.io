@@ -18,7 +18,7 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 It does not support the home security functionality of TCC.
 
-It use the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
+It uses the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
 If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
