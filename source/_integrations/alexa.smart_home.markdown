@@ -173,6 +173,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Input all information required. Assuming your Home Assistant can be accessed by https://[YOUR HOME ASSISTANT URL:PORT]
   * `Authorization URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize
   * `Access Token URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/token
+    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
   * `Client ID`:
     - https://pitangui.amazon.com/ if you are in US
     - https://layla.amazon.com/ if you are in EU
