@@ -54,10 +54,32 @@ We hope this brings a more streamlined experience to the use of services,
 for now, and in the future. For a complete list of old vs. new service names,
 a table as been added to the release notes, [below](#updated-service-names).
 
-## Frenck working full time
+## Moving imports of Python packages
 
-As announced during the State of the Union 2019, Frenck will be working
-on Home Assistant full-time.
+Internally, Home Assistant uses a lot of Python packages, that our integrations
+are using. In the past weeks, the locations where all those imports take
+place, was changed. This does not directly resonate with your system
+and is mainly an internal cleanup.
+
+A big shout out to the following contributors that together are responsible
+for making **hundreds** of contributions the past weeks to help us out:
+
+[@Bouni], [@briglx], [@djpremier], [@exxamalte], [@javicalle], [@Michsior14],
+[@Misiu], [@mnigbur], [@Quentame], [@springstan], [@thaohtp], [@tulindo]
+
+Thank you so much!
+
+[@briglx]: https://github.com/briglx
+[@djpremier]: https://github.com/djpremier
+[@javicalle]: https://github.com/javicalle
+[@Michsior14]: https://github.com/Michsior14
+[@mnigbur]: https://github.com/mnigbur
+[@thaohtp]: https://github.com/thaohtp
+
+## Frenck Joins Nabu Casa
+
+As announced during the [State of the Union 2019](https://www.home-assistant.io/blog/2019/11/22/state-of-the-union/),
+Frenck has joined Nabu Casa.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today marks the first day of my full time open-source adventure! 🥳 Heading into my office this morning, full of energy and lots thankfulness for this opportunity! I feel blessed to be able to work on <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> for <a href="https://twitter.com/NabuCasa?ref_src=twsrc%5Etfw">@NabuCasa</a> 🙏 <a href="https://t.co/mjkMYeCNaz">pic.twitter.com/mjkMYeCNaz</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1201411126224998400?ref_src=twsrc%5Etfw">December 2, 2019</a>
 </blockquote>
@@ -106,11 +128,14 @@ Screenshot of automation actions.
 
 ## In other news
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Looking for a present for the holidays? T-shirts with our rainbow logo are now available in our online store. 🌈<br><br>EU: <a href="https://t.co/KiTDuOFgG2">https://t.co/KiTDuOFgG2</a><br>US: <a href="https://t.co/OdtILXBoDh">https://t.co/OdtILXBoDh</a> <a href="https://t.co/BG5mDWhwYN">pic.twitter.com/BG5mDWhwYN</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1202652848703574018?ref_src=twsrc%5Etfw">December 5, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Looking for a present for the holidays? T-shirts with our rainbow logo are now available in our online store. 🌈<br><br>EU: <a href="https://t.co/KiTDuOFgG2">https://t.co/KiTDuOFgG2</a><br>US: <a href="https://t.co/OdtILXBoDh">https://t.co/OdtILXBoDh</a> <a href="https://t.co/BG5mDWhwYN">pic.twitter.com/BG5mDWhwYN</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1202652848703574018?ref_src=twsrc%5Etfw">December 5, 2019</a>
+</blockquote>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> for iOS version 2019.1/2.0 is now (finally) available in an App Store near you! Also releasing today: beautiful new documentation for the app! Check it out at <a href="https://t.co/4RhY8tOand">https://t.co/4RhY8tOand</a>. <a href="https://t.co/YkuhhdRjwu">pic.twitter.com/YkuhhdRjwu</a></p>&mdash; Robbie Trencheny (@Robbie) <a href="https://twitter.com/Robbie/status/1199350406809305088?ref_src=twsrc%5Etfw">November 26, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> for iOS version 2019.1/2.0 is now (finally) available in an App Store near you! Also releasing today: beautiful new documentation for the app! Check it out at <a href="https://t.co/4RhY8tOand">https://t.co/4RhY8tOand</a>. <a href="https://t.co/YkuhhdRjwu">pic.twitter.com/YkuhhdRjwu</a></p>&mdash; Robbie Trencheny (@Robbie) <a href="https://twitter.com/Robbie/status/1199350406809305088?ref_src=twsrc%5Etfw">November 26, 2019</a>
+</blockquote>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Home Assistant: Controlling Addressable LEDs like any other light! (WLED integration) <a href="https://t.co/bJJMkZbdn9">https://t.co/bJJMkZbdn9</a> <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://twitter.com/Frenck?ref_src=twsrc%5Etfw">@Frenck</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a> <a href="https://twitter.com/hashtag/wled?src=hash&amp;ref_src=twsrc%5Etfw">#wled</a> <a href="https://twitter.com/hashtag/ws2812b?src=hash&amp;ref_src=twsrc%5Etfw">#ws2812b</a> <a href="https://twitter.com/hashtag/tutorial?src=hash&amp;ref_src=twsrc%5Etfw">#tutorial</a> <a href="https://twitter.com/hashtag/howto?src=hash&amp;ref_src=twsrc%5Etfw">#howto</a></p>&mdash; Intermit.Tech (@IntermitTech) <a href="https://twitter.com/IntermitTech/status/1198936195948011521?ref_src=twsrc%5Etfw">November 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Home Assistant: Controlling Addressable LEDs like any other light! (WLED integration) <a href="https://t.co/bJJMkZbdn9">https://t.co/bJJMkZbdn9</a> <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://twitter.com/Frenck?ref_src=twsrc%5Etfw">@Frenck</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a> <a href="https://twitter.com/hashtag/wled?src=hash&amp;ref_src=twsrc%5Etfw">#wled</a> <a href="https://twitter.com/hashtag/ws2812b?src=hash&amp;ref_src=twsrc%5Etfw">#ws2812b</a> <a href="https://twitter.com/hashtag/tutorial?src=hash&amp;ref_src=twsrc%5Etfw">#tutorial</a> <a href="https://twitter.com/hashtag/howto?src=hash&amp;ref_src=twsrc%5Etfw">#howto</a></p>&mdash; Intermit.Tech (@IntermitTech) <a href="https://twitter.com/IntermitTech/status/1198936195948011521?ref_src=twsrc%5Etfw">November 25, 2019</a>
+</blockquote>
 
 ## New Integrations
 
@@ -145,40 +170,37 @@ this helps you understand the changes and avoids having issues during an upgrade
 
 All services for use in Home Assistant are moved to their integration naming space.
 
-**The table below lists service calls and platforms which have been moved to their own integrations** - [@raman325]
+**The list below shows service calls and platforms which have been moved to their own integrations** - [@raman325]
 
-| Integration:       | Old service/platform:                               | New service/platform:              | PR       |
-| ------------------ | --------------------------------------------------- | ---------------------------------- | -------- |
-| Local File         | camera.local*file_update_file_path                  | local_file.update_file_path        | [#28890] |
-| Elk-M1 Controller  | alarm_control_panel.elkm1*                          | elkm1:                             | [#29128] |
-| Neato              | vacuum.neato                                        | neato:                             | [#29148] |
-| Envisalink         | alarm*control_panel.envisalink_alarm_keypress       | envisalink.alarm_keypress          | [#29126] |
-| IFTTT              | alarm_control_panel.ifttt_push_alarm_state          | ifttt.push_alarm_state             | [#29129] |
-| AlarmDecoder Alarm | alarm_control_panel.alarmdecoder_alarm_toggle_chime | alarmdecoder.alarm_toggle_chime    | [#29127] |
-| Econet             | water_heater.econet*\_                              | econet:                            | [#29149] |
-| APNS               | notify.apns\__                                      | apns._                             | [#29165] |
-| Facebox            | image*processing.facebox*_                          | facebox._                          | [#29151] |
-| Html5              | notify.html5\__                                     | html5._                            | [#29145] |
-| Lifx               | light.lifx\__                                       | lifx._                             | [#29136] |
-| Mill               | climate.mill*set_room_temperature                   | mill.set_room_temperature          | [#29132] |
-| Todoist            | calendar.todoist_new_task                           | todoist.new_task                   | [#29131] |
-| Wink               | lock services.yaml                                  | wink services.yaml                 | [#29137] |
-| Wemo               | fan.wemo*_                                          | wemo._                             | [#29135] |
-| Bluetooth          | device*tracker                                      | bluetooth_tracker                  | [#29161] |
-| Demo               | device_tracker.demo                                 | demo.randomize_device_tracker_data | [#29164] |
-| iCloud             | device_tracker.icloud                               | icloud:                            | [#29144] |
-| Blackbird          | media_player.blackbird_set_all_zones                | blackbird.set_all_zones            | [#29112] |
-| Bluesound          | media_player.bluesound                              | bluesound.*                        | [#29111] |
-| Channels           | media*player.channels*_                             | channels._                         | [#29139] |
-| Epson              | media*player.epson_select_cmode                     | epson.select_cmode                 | [#29113] |
-| Monoprice          | media_player.monoprice                              | monoprice.*                        | [#29099] |
-| Monoprice          | media*player.restore                                | monoprice.restore                  | [#29099] |
-| Monoprice          | media_player.snapshot                               | monoprice.snapshot                 | [#29099] |
-| Songpal            | media_player.songpal                                | songpal.*                          | [#29143] |
-| Soundtouch         | media*player.soundtouch\*\*                         | soundtouch.*                       | [#29140] |
-| Squeezebox         | media*player.squeezebox*_                           | squeezebox._                       | [#29141] |
-| Xiaomi Miio        | \*.xiaomi*miio*\_                                   | xiaomi*miio.**\*                   | [#29134] |
-| Yamaha             | media_player.yamaha**                               | yamaha.*                           | [#29142] |
+- **Local File**: `camera.local_file_update_file_path` -> `local_file.update_file_path` ([#28890])
+- **Elk-M1 Controller**: `alarm_control_panel.elkm1_*` -> `elkm1.*` ([#29128])
+- **Neato**: `vacuum.neato_custom_cleaning` -> `neato.custom_cleaning` ([#29148])
+- **Envisalink**: `alarm_control_panel.envisalink_alarm_keypress` -> `envisalink.alarm_keypress` ([#29126])
+- **IFTTT**: `alarm_control_panel.ifttt_push_alarm_state` -> `ifttt.push_alarm_state` ([#29129])
+- **AlarmDecoder Alarm**: `alarm_control_panel.alarmdecoder_alarm_toggle_chime` -> `alarmdecoder.alarm_toggle_chime` ([#29127])
+- **Econet**: `water_heater.econet_*` -> `econet.*` ([#29149])
+- **APNS**: `notify.apns_*` -> `apns.apns_*` ([#29165])
+- **Facebox**: `image_processing.facebox_teach_face` -> `facebox.teach_face` ([#29151])
+- **HTML5**: `notify.html5_dismiss` -> `html5.dismiss` ([#29145])
+- **Lifx**: `light.lifx_*` -> `lifx.*` ([#29136])
+- **Mill**: `climate.mill_set_room_temperature` -> `mill.set_room_temperature` ([#29132])
+- **Todoist**: `calendar.todoist_new_task` -> `todoist.new_task` ([#29131])
+- **Wink**: `lock.wink_*` -> `wink.*` ([#29137])
+- **Wemo**: `fan.wemo_*` -> `wemo.*` ([#29135])
+- **Bluetooth**: `device_tracker.update` -> `bluetooth_tracker.update` ([#29161])
+- **Demo**: `device_tracker.randomize_device_tracker_data` -> `demo.randomize_device_tracker_data` ([#29164])
+- **iCloud**: `device_tracker.icloud_*` -> `icloud.*` ([#29144])
+- **Blackbird**: `media_player.blackbird_set_all_zones` -> `blackbird.set_all_zones` ([#29112])
+- **Bluesound**: `media_player.bluesound_*` -> `bluesound.*` ([#29111])
+- **Channels**: `media_player.channels_*` -> `channels.*` ([#29139])
+- **Epson**: `media_player.epson_select_cmode` -> `epson.select_cmode` ([#29113])
+- **Monoprice**: `media_player.monoprice_*` -> `monoprice.*` ([#29099])
+- **Songpal**: `media_player.songpal_set_sound_setting` -> `songpal.set_sound_setting` ([#29143])
+- **Soundtouch**: `media_player.soundtouch_*` -> `soundtouch.*` ([#29140])
+- **Squeezebox**: `media_player.squeezebox_call_method` -> `squeezebox.call_method` ([#29141])
+- **Xiaomi Miio**: `*.xiaomi_miio_*` -> `xiaomi_miio.*` ([#29134])
+- **Xiaomi Miio**: `*.xiaomi_*` -> `xiaomi_miio.*` ([#29134])
+- **Yamaha**: `media_player.yamaha_*` -> `yamaha.*` ([#29142])
 
 ### Other Breaking Changes
 
@@ -222,6 +244,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Beta Fixes
 
 - Delay Plex websocket connection to avoid race ([@jjlawren] - [#28934]) ([plex docs]) (beta fix)
+- Limit available heat/cool modes for HomeKit thermostats ([@neffs] - [#28586]) ([homekit docs]) (beta fix)
+- Increase somfy SCAN_INTERVAL ([@tetienne] - [#29524]) ([somfy docs]) (beta fix)
+- Bump georss_generic_client to 0.3 ([@exxamalte] - [#29532]) ([geo_rss_events docs]) (beta fix)
+- Huawei LTE device tracker fixes ([@scop] - [#29551]) ([huawei_lte docs]) (beta fix)
+- Change source of device_info ([@Santobert] - [#29570]) ([neato docs]) (beta fix)
+- Only update disabled_by when enabled default and entity enabled states differ ([@Kane610] - [#29643]) ([unifi docs]) (beta fix)
+- Fix unit_of_measurement for Starline temperature sensors ([@Anonym-tsk] - [#29740]) ([starline docs]) (beta fix)
+- HomeAssistant-pyozw 0.1.7 ([@pvizeli] - [#29743]) ([zwave docs]) (beta fix)
+- Updated frontend to 20191204.1 ([@bramkragten] - [#29787]) ([frontend docs]) (beta fix)
+- Bump Roku to 4.0.0 ([@bwarden] - [#29809]) ([roku docs]) (beta fix)
+- Add user-agent to fix dwd_weather_warnings setup error ([@springstan] - [#29596]) ([dwd_weather_warnings docs]) (beta fix)
+- Add more logging to help future debug situations ([@Kane610] - [#29800]) ([unifi docs]) (beta fix)
+- UniFi - honor detection time when UniFi wire bug happens ([@Kane610] - [#29820]) ([unifi docs]) (beta fix)
+- UniFi - Handle disabled switches ([@Kane610] - [#29824]) ([unifi docs]) (beta fix)
+- Remove uvloop event policy ([@pvizeli] - [#29835]) (beta fix)
 
 ## All changes
 
@@ -282,7 +319,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update services.yaml for cloudflare component ([@raman325] - [#28888])
 - update services.yaml for keyboard component ([@raman325] - [#28889])
 - bump herepy to 0.6.3.3 ([@eifinger] - [#28907]) ([here_travel_time docs])
-- Update **init**.py ([@SNoof85] - [#28911]) ([freebox docs])
+- Update __init__.py ([@SNoof85] - [#28911]) ([freebox docs])
 - Delay Plex websocket connection to avoid race ([@jjlawren] - [#28934]) ([plex docs]) (beta fix)
 - Bump verisure to vsure 1.5.4 and jsonpath 0.82 ([@persandstrom] - [#28933]) ([verisure docs])
 - Add device trigger support for Aqara WXKG11LM 2016 switch to Deconz ([@kurniawan77] - [#28946]) ([deconz docs])
@@ -576,7 +613,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for nut ([@springstan] - [#29368]) ([nut docs])
 - Move imports to top for mycroft ([@springstan] - [#29355]) ([mycroft docs])
 - Upgrade enturclient to 0.2.1 ([@hfurubotten] - [#29375]) ([entur_public_transport docs])
-- Remove cloud dependency from mobile_app ([@balloob] - [#29373]) ([mobile_app docs])
+- Remove cloud dependency from mobile_app ([@balloob] - [#29373]) ([mobile_app docs]) (breaking change)
 - Move imports to top for opensensemap ([@springstan] - [#29370]) ([opensensemap docs])
 - Move imports to top for mystrom ([@springstan] - [#29356]) ([mystrom docs])
 - Move imports to top for nello ([@springstan] - [#29361]) ([nello docs]) ([nello docs])
@@ -685,6 +722,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for canary ([@springstan] - [#29449]) ([canary docs])
 - Switch iperf3 to generate a new client every time it runs a test ([@rohankapoorcom] - [#29495]) ([iperf3 docs])
 - Update pyhomematic ([@danielperna84] - [#29477]) ([homematic docs])
+- Limit available heat/cool modes for HomeKit thermostats ([@neffs] - [#28586]) ([homekit docs]) (beta fix)
+- Increase somfy SCAN_INTERVAL ([@tetienne] - [#29524]) ([somfy docs]) (beta fix)
+- Bump georss_generic_client to 0.3 ([@exxamalte] - [#29532]) ([geo_rss_events docs]) (beta fix)
+- Huawei LTE device tracker fixes ([@scop] - [#29551]) ([huawei_lte docs]) (beta fix)
+- Change source of device_info ([@Santobert] - [#29570]) ([neato docs]) (beta fix)
+- Only update disabled_by when enabled default and entity enabled states differ ([@Kane610] - [#29643]) ([unifi docs]) (beta fix)
+- Fix unit_of_measurement for Starline temperature sensors ([@Anonym-tsk] - [#29740]) ([starline docs]) (beta fix)
+- HomeAssistant-pyozw 0.1.7 ([@pvizeli] - [#29743]) ([zwave docs]) (beta fix)
+- Updated frontend to 20191204.1 ([@bramkragten] - [#29787]) ([frontend docs]) (beta fix)
+- Bump Roku to 4.0.0 ([@bwarden] - [#29809]) ([roku docs]) (beta fix)
+- Add user-agent to fix dwd_weather_warnings setup error ([@springstan] - [#29596]) ([dwd_weather_warnings docs]) (beta fix)
+- Add more logging to help future debug situations ([@Kane610] - [#29800]) ([unifi docs]) (beta fix)
+- UniFi - honor detection time when UniFi wire bug happens ([@Kane610] - [#29820]) ([unifi docs]) (beta fix)
+- UniFi - Handle disabled switches ([@Kane610] - [#29824]) ([unifi docs]) (beta fix)
+- Remove uvloop event policy ([@pvizeli] - [#29835]) (beta fix)
 
 [#24619]: https://github.com/home-assistant/home-assistant/pull/24619
 [#26099]: https://github.com/home-assistant/home-assistant/pull/26099
@@ -719,6 +771,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#28501]: https://github.com/home-assistant/home-assistant/pull/28501
 [#28521]: https://github.com/home-assistant/home-assistant/pull/28521
 [#28560]: https://github.com/home-assistant/home-assistant/pull/28560
+[#28586]: https://github.com/home-assistant/home-assistant/pull/28586
 [#28635]: https://github.com/home-assistant/home-assistant/pull/28635
 [#28641]: https://github.com/home-assistant/home-assistant/pull/28641
 [#28646]: https://github.com/home-assistant/home-assistant/pull/28646
@@ -1146,32 +1199,46 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#29489]: https://github.com/home-assistant/home-assistant/pull/29489
 [#29490]: https://github.com/home-assistant/home-assistant/pull/29490
 [#29495]: https://github.com/home-assistant/home-assistant/pull/29495
-[@adminiuga]: https://github.com/Adminiuga
-[@anonym-tsk]: https://github.com/Anonym-tsk
-[@bkpepe]: https://github.com/BKPepe
-[@bouni]: https://github.com/Bouni
-[@chrismandich]: https://github.com/ChrisMandich
-[@danielhiversen]: https://github.com/Danielhiversen
-[@dilbert66]: https://github.com/Dilbert66
-[@harlemsquirrel]: https://github.com/HarlemSquirrel
-[@jaynewstrom]: https://github.com/JayNewstrom
-[@jefflirion]: https://github.com/JeffLIrion
-[@k4ds3]: https://github.com/K4ds3
-[@kane610]: https://github.com/Kane610
-[@mariusthvdb]: https://github.com/Mariusthvdb
-[@misiu]: https://github.com/Misiu
-[@mryck]: https://github.com/Mryck
-[@noblekangaroo]: https://github.com/NobleKangaroo
-[@ottowinter]: https://github.com/OttoWinter
-[@pedrolamas]: https://github.com/PedroLamas
-[@quentame]: https://github.com/Quentame
-[@romkabouter]: https://github.com/Romkabouter
-[@snoof85]: https://github.com/SNoof85
-[@santobert]: https://github.com/Santobert
-[@shulyaka]: https://github.com/Shulyaka
-[@sukramj]: https://github.com/SukramJ
-[@tombrien]: https://github.com/TomBrien
-[@usa-reddragon]: https://github.com/USA-RedDragon
+[#29524]: https://github.com/home-assistant/home-assistant/pull/29524
+[#29532]: https://github.com/home-assistant/home-assistant/pull/29532
+[#29551]: https://github.com/home-assistant/home-assistant/pull/29551
+[#29570]: https://github.com/home-assistant/home-assistant/pull/29570
+[#29596]: https://github.com/home-assistant/home-assistant/pull/29596
+[#29643]: https://github.com/home-assistant/home-assistant/pull/29643
+[#29740]: https://github.com/home-assistant/home-assistant/pull/29740
+[#29743]: https://github.com/home-assistant/home-assistant/pull/29743
+[#29787]: https://github.com/home-assistant/home-assistant/pull/29787
+[#29800]: https://github.com/home-assistant/home-assistant/pull/29800
+[#29809]: https://github.com/home-assistant/home-assistant/pull/29809
+[#29820]: https://github.com/home-assistant/home-assistant/pull/29820
+[#29824]: https://github.com/home-assistant/home-assistant/pull/29824
+[#29835]: https://github.com/home-assistant/home-assistant/pull/29835
+[@Adminiuga]: https://github.com/Adminiuga
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@BKPepe]: https://github.com/BKPepe
+[@Bouni]: https://github.com/Bouni
+[@ChrisMandich]: https://github.com/ChrisMandich
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Dilbert66]: https://github.com/Dilbert66
+[@HarlemSquirrel]: https://github.com/HarlemSquirrel
+[@JayNewstrom]: https://github.com/JayNewstrom
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@K4ds3]: https://github.com/K4ds3
+[@Kane610]: https://github.com/Kane610
+[@Mariusthvdb]: https://github.com/Mariusthvdb
+[@Misiu]: https://github.com/Misiu
+[@Mryck]: https://github.com/Mryck
+[@NobleKangaroo]: https://github.com/NobleKangaroo
+[@OttoWinter]: https://github.com/OttoWinter
+[@PedroLamas]: https://github.com/PedroLamas
+[@Quentame]: https://github.com/Quentame
+[@Romkabouter]: https://github.com/Romkabouter
+[@SNoof85]: https://github.com/SNoof85
+[@Santobert]: https://github.com/Santobert
+[@Shulyaka]: https://github.com/Shulyaka
+[@SukramJ]: https://github.com/SukramJ
+[@TomBrien]: https://github.com/TomBrien
+[@USA-RedDragon]: https://github.com/USA-RedDragon
 [@abmantis]: https://github.com/abmantis
 [@adamchengtkc]: https://github.com/adamchengtkc
 [@adrum]: https://github.com/adrum
@@ -1181,7 +1248,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@andersonshatch]: https://github.com/andersonshatch
 [@andylockran]: https://github.com/andylockran
-[@awkwardduck]: https://github.com/awkwardDuck
+[@awkwardDuck]: https://github.com/awkwardDuck
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bannhead]: https://github.com/bannhead
@@ -1233,6 +1300,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@michaeldavie]: https://github.com/michaeldavie
 [@mtdcr]: https://github.com/mtdcr
 [@mvn23]: https://github.com/mvn23
+[@neffs]: https://github.com/neffs
 [@oandrew]: https://github.com/oandrew
 [@ochlocracy]: https://github.com/ochlocracy
 [@olijouve]: https://github.com/olijouve
@@ -1249,10 +1317,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tetienne]: https://github.com/tetienne
 [@thomasgermain]: https://github.com/thomasgermain
 [@timmccor]: https://github.com/timmccor
-[@tofuschnitzel]: https://github.com/tofuSCHNITZEL
+[@tofuSCHNITZEL]: https://github.com/tofuSCHNITZEL
 [@tsvi]: https://github.com/tsvi
 [@tulindo]: https://github.com/tulindo
-[@uspike]: https://github.com/uSpike
+[@uSpike]: https://github.com/uSpike
 [aftership docs]: /integrations/aftership/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
@@ -1297,6 +1365,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [dsmr_reader docs]: /integrations/dsmr_reader/
 [duke_energy docs]: /integrations/duke_energy/
 [dunehd docs]: /integrations/dunehd/
+[dwd_weather_warnings docs]: /integrations/dwd_weather_warnings/
 [dyson docs]: /integrations/dyson/
 [ebox docs]: /integrations/ebox/
 [ecoal_boiler docs]: /integrations/ecoal_boiler/
@@ -1346,6 +1415,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geizhals docs]: /integrations/geizhals/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geo_json_events docs]: /integrations/geo_json_events/
+[geo_rss_events docs]: /integrations/geo_rss_events/
 [geonetnz_volcano docs]: /integrations/geonetnz_volcano/
 [gitter docs]: /integrations/gitter/
 [gogogate2 docs]: /integrations/gogogate2/
@@ -1579,6 +1649,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tuya docs]: /integrations/tuya/
 [twilio_call docs]: /integrations/twilio_call/
 [ubee docs]: /integrations/ubee/
+[unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
 [universal docs]: /integrations/universal/
 [upcloud docs]: /integrations/upcloud/
