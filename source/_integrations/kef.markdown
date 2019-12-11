@@ -5,7 +5,7 @@ logo: kef.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: 0.103
+ha_release: 0.104
 ---
 
 The `kef` platform allows you to control the [KEF LS50 Wireless](https://international.kef.com/products/ls50-wireless) and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
