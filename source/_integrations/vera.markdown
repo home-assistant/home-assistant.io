@@ -36,11 +36,11 @@ To use Vera devices in your installation, add the following to your configuratio
 
 ```yaml
 vera:
-  vera_controller_url: http://192.168.1.161:3480/
+  - base_url: http://192.168.1.161:3480
 ```
 
 {% configuration %}
-vera_controller_url:
+base_url:
   description: The URL for your Vera device.
   required: true
   type: string
@@ -48,7 +48,7 @@ vera_controller_url:
 
 <div class='note'>
 
-  It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
+  It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `base_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 
 </div>
 
@@ -62,11 +62,11 @@ You can find the Vera device id either via the advanced properties of the device
 
 ```yaml
 vera:
-  vera_controller_url: http://192.168.1.161:3480/
-  # Optional to exclude devices - this is a list of vera device ids
-  exclude: [ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
-  # Optional to import switches as lights - this is a list of vera device ids
-  lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
+  - base_url: http://192.168.1.161:3480
+    # Optional to exclude devices - this is a list of vera device ids
+    exclude: [ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
+    # Optional to import switches as lights - this is a list of vera device ids
+    lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
 ```
 
 ### Using Z-Wave devices in automation
@@ -75,7 +75,7 @@ If you want to use a Z-Wave device from the Vera controller in Home Assistant au
 
 ### Sensor
 
-The `vera` platform allows you to get data from your [Vera](https://getvera.com/) sensors from within Home Assistant.
+The `vera` integration allows you to get data from your [Vera](https://getvera.com/) sensors from within Home Assistant.
 
 Please note that some vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that vera will send alerts (email messages to txts) when they are _armed_ and change state.
 
