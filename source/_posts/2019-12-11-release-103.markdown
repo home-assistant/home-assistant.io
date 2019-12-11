@@ -20,7 +20,40 @@ Intro last release of year, talk about release schedule/holiday break.
 
 ## Frontend
 
-Bram todo, automation YAML?
+We gave some love and attention to the automation editor, fixing some bugs and adding some useful features.
+
+### Natural language improvements
+
+We add area support for automations that you create with natural language, and we try to pick the right area or device for you if you mentioned the name.
+
+So you can now say: "Turn the lights on in the living room". And it will add all the light devices of your living room to the automation.
+By clicking `Choose individual devices`, you can add devices or remove some.
+
+<p class='img'>
+<img src='/images/blog/2019-12-0.103/natural-language-area.png' alt='Screenshot of the result of the above query'></a>
+Screenshot of the result of the above query.
+</p>
+
+### YAML support
+
+You can now edit every induividual trigger, conditition or action as YAML. This makes it possible to even do very complicated automations in the automation editor and allows to quickly copy parts of your automation.
+
+You can access the YAML editor through the menu in the top right of the component editor.
+
+<p class='img'>
+<img src='/images/blog/2019-12-0.103/automation-yaml.png' alt='Screenshot of the automation YAML editor'></a>
+Screenshot of the automation YAML editor.
+</p>
+
+### Rearange actions
+
+We also added the ability to rearrange your actions, so you don't have to start all over when you want to add a delay between 2 service calls.
+And talking about the service call action, that has now an entity picker to help you search for the right one.
+
+<p class='img'>
+<img src='/images/blog/2019-12-0.103/automation-actions.png' alt='Screenshot of automation actions'></a>
+Screenshot of automation actions.
+</p>
 
 ## Update service names
 
@@ -61,61 +94,63 @@ Experiencing issues introduced by this release? Please report them in our [issue
 **The table below lists service calls and platforms which have been moved to their own components** - (@raman325)
 | Integration: | Old service/platform: | New service/platform: | PR |
 |--------------------|-----------------------------------------------------|------------------------------------|----------|
-| Local File | camera.local_file_update_file_path | local_file.update_file_path | [#28890] |
-| Elk-M1 Controller | alarm_control_panel.elkm1_ | elkm1: | [#29128] |
+| Local File | camera.local*file_update_file_path | local_file.update_file_path | [#28890] |
+| Elk-M1 Controller | alarm_control_panel.elkm1* | elkm1: | [#29128] |
 | Neato | vacuum.neato | neato: | [#29148] |
-| Envisalink | alarm_control_panel.envisalink_alarm_keypress | envisalink.alarm_keypress | [#29126] |
+| Envisalink | alarm*control_panel.envisalink_alarm_keypress | envisalink.alarm_keypress | [#29126] |
 | IFTTT | alarm_control_panel.ifttt_push_alarm_state | ifttt.push_alarm_state | [#29129] |
 | AlarmDecoder Alarm | alarm_control_panel.alarmdecoder_alarm_toggle_chime | alarmdecoder.alarm_toggle_chime | [#29127] |
-| Econet | water_heater.econet_* | econet: | [#29149] |
-| APNS | notify.apns_* | apns.* | [#29165] |
-| Facebox | image_processing.facebox_* | facebox.* | [#29151] |
-| Html5 | notify.html5_* | html5.* | [#29145] |
-| Lifx | light.lifx_* | lifx.* | [#29136] |
-| Mill | climate.mill_set_room_temperature | mill.set_room_temperature | [#29132] |
+| Econet | water_heater.econet*\_ | econet: | [#29149] |
+| APNS | notify.apns\__ | apns._ | [#29165] |
+| Facebox | image*processing.facebox*_ | facebox._ | [#29151] |
+| Html5 | notify.html5\__ | html5._ | [#29145] |
+| Lifx | light.lifx\__ | lifx._ | [#29136] |
+| Mill | climate.mill*set_room_temperature | mill.set_room_temperature | [#29132] |
 | Todoist | calendar.todoist_new_task | todoist.new_task | [#29131] |
 | Wink | lock services.yaml | wink services.yaml | [#29137] |
-| Wemo | fan.wemo_* | wemo.* | [#29135] |
-| Bluetooth | device_tracker | bluetooth_tracker | [#29161] |
+| Wemo | fan.wemo*_ | wemo._ | [#29135] |
+| Bluetooth | device*tracker | bluetooth_tracker | [#29161] |
 | Demo | device_tracker.demo | demo.randomize_device_tracker_data | [#29164] |
 | iCloud | device_tracker.icloud | icloud: | [#29144] |
 | Blackbird | media_player.blackbird_set_all_zones | blackbird.set_all_zones | [#29112] |
 | Bluesound | media_player.bluesound | bluesound.* | [#29111] |
-| Channels | media_player.channels_* | channels.* | [#29139] |
-| Epson | media_player.epson_select_cmode | epson.select_cmode | [#29113] |
+| Channels | media*player.channels*_ | channels._ | [#29139] |
+| Epson | media*player.epson_select_cmode | epson.select_cmode | [#29113] |
 | Monoprice | media_player.monoprice | monoprice.* | [#29099] |
-| Monoprice | media_player.restore | monoprice.restore | [#29099] |
+| Monoprice | media*player.restore | monoprice.restore | [#29099] |
 | Monoprice | media_player.snapshot | monoprice.snapshot | [#29099] |
 | Songpal | media_player.songpal | songpal.* | [#29143] |
-| Soundtouch | media_player.soundtouch_* | soundtouch.* | [#29140] |
-| Squeezebox | media_player.squeezebox_* | squeezebox.* | [#29141] |
-| Xiaomi Miio | \*.xiaomi_miio_* | xiaomi_miio.*_* | [#29134] |
-| Yamaha | media_player.yamaha_* | yamaha.* | [#29142] |
+| Soundtouch | media*player.soundtouch\*\* | soundtouch.* | [#29140] |
+| Squeezebox | media*player.squeezebox*_ | squeezebox._ | [#29141] |
+| Xiaomi Miio | \*.xiaomi*miio*\_ | xiaomi*miio.**\* | [#29134] |
+| Yamaha | media_player.yamaha** | yamaha.* | [#29142] |
 
-- __Mobile App__ - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
-- __Samsung TV__ - The behaviour for next and previous track commands for Samsung TVs has changed. Before the change the Samsung TV component reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs those two commands do nothing. After the change the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change channel using the media player standard lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])
-- __Wake on LAN__ - The configuration key `mac_address:` was renamed to `mac:` to be in sync with with the service. ([@fabaff] - [#28830]) ([wake_on_lan docs])
-- __PulseAudio Loopback Switch__ - The default port was incorrectly set to 4712, however the official documentation states that the default port is 4713. Therefore, the port has been changed and all previously configured switches now need to listen to port 4713. - ([@springstan] - [#28857]) ([pulseaudio_loopback docs])
-- __Z-Wave__ - This changes the primary command class for z-wave thermostats in discovery schemas from `COMMAND_CLASS_THERMOSTAT_SETPOINT` to `COMMAND_CLASS_THERMOSTAT_MODE`. This will cause a typical dual setpoint thermostat to be correctly represented as a single entity. - ([@oandrew] - [#27040]) ([zwave docs])
-- __Transmission__ - Added host field to `add_torrent` service in order to support multiple Transmission instances. ([@engrbm87] - [#28653]) ([transmission docs])
-- __Opentherm Gateway__ - Adds device support. This change breaks enabled `sensor` and `binary_sensor` entities, which are now disabled by default and can be re-enabled through the Devices panel. It also breaks `entity_id` of the climate entity in some configurations. The `entity_id` is now based on the `gateway_id` rather than the configured `name` to guarantee uniqueness. - ([@mvn23] - [#28722]) ([opentherm_gw docs])
-- __Intent__ - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. -  ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs])
-- __Emulated Hue__ - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the component forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
-- __Miflora__ -  Values for a unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
-  
+- **Mobile App** - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
+- **Samsung TV** - The behaviour for next and previous track commands for Samsung TVs has changed. Before the change the Samsung TV component reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs those two commands do nothing. After the change the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change channel using the media player standard lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])
+- **Wake on LAN** - The configuration key `mac_address:` was renamed to `mac:` to be in sync with with the service. ([@fabaff] - [#28830]) ([wake_on_lan docs])
+- **PulseAudio Loopback Switch** - The default port was incorrectly set to 4712, however the official documentation states that the default port is 4713. Therefore, the port has been changed and all previously configured switches now need to listen to port 4713. - ([@springstan] - [#28857]) ([pulseaudio_loopback docs])
+- **Z-Wave** - This changes the primary command class for z-wave thermostats in discovery schemas from `COMMAND_CLASS_THERMOSTAT_SETPOINT` to `COMMAND_CLASS_THERMOSTAT_MODE`. This will cause a typical dual setpoint thermostat to be correctly represented as a single entity. - ([@oandrew] - [#27040]) ([zwave docs])
+- **Transmission** - Added host field to `add_torrent` service in order to support multiple Transmission instances. ([@engrbm87] - [#28653]) ([transmission docs])
+- **Opentherm Gateway** - Adds device support. This change breaks enabled `sensor` and `binary_sensor` entities, which are now disabled by default and can be re-enabled through the Devices panel. It also breaks `entity_id` of the climate entity in some configurations. The `entity_id` is now based on the `gateway_id` rather than the configured `name` to guarantee uniqueness. - ([@mvn23] - [#28722]) ([opentherm_gw docs])
+- **Intent** - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. - ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs])
+- **Emulated Hue** - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the component forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
+- **Miflora** - Values for a unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
+
   Example configuration yaml
+
   ```yaml
   - id: plant_unreachable
     alias: plant unreachable
     trigger:
-    - entity_id: sensor.plant_moisture
-      for: 01:00:00
-      platform: state
-      to: unavailable
+      - entity_id: sensor.plant_moisture
+        for: 01:00:00
+        platform: state
+        to: unavailable
     action:
-   ```
-- __Entity ID__ - It is no longer possible to target all entities by not passing both `entity_id` and `area_id` to your service data. This feature was previously deprecated and has been printing warnings. The correct way to target all entities is to set `entity_id: all` - ([@balloob] - [#29178])
-- __Heatmiser Thermostat__ - This heatmiser component has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
+  ```
+
+- **Entity ID** - It is no longer possible to target all entities by not passing both `entity_id` and `area_id` to your service data. This feature was previously deprecated and has been printing warnings. The correct way to target all entities is to set `entity_id: all` - ([@balloob] - [#29178])
+- **Heatmiser Thermostat** - This heatmiser component has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
 
 ## Beta Fixes
 
