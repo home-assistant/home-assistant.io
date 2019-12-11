@@ -86,7 +86,7 @@ Therefore, this release marks the last release, which supports Python 3.6.
 If you haven't upgraded your system to Python 3.7 yet, it is recommended to
 do so, to ensure you can keep using Home Assistant in the future.
 
-If you are using Docker or Hass.io, you don't have to worry about his, since
+If you are using Docker or Hass.io, you don't have to worry about this, since
 we provide a matching and working Python version for you.
 
 ## Frenck Joins Nabu Casa
