@@ -49,7 +49,7 @@ See [python-songpal's documentation](https://github.com/rytilahti/python-songpal
 
 In addition to the general [media player services](/integrations/media_player/#services), the following services are provided:
 
-### Service `media_player/songpal_set_sound_setting`
+### Service `songpal/set_sound_setting`
 
 For a list of available settings and their values use [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
 

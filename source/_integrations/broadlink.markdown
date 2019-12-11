@@ -3,6 +3,7 @@ title: "Broadlink"
 description: "Instructions on how to integrate Broadlink within Home Assistant."
 logo: broadlink.png
 ha_category:
+  - Remote
   - Switch
   - Sensor
 ha_release: 0.35
@@ -11,8 +12,160 @@ ha_iot_class: Local Polling
 
 There is currently support for the following device types within Home Assistant:
 
+- [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+## Remote
+
+The `broadlink` remote platform allows you to interact with Broadlink remote control devices.
+
+### Configuration
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+remote:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+```
+
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: Device MAC address.
+  required: true
+  type: string
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  default: 5
+  type: integer
+name:
+  description: Name of the device.
+  required: false
+  default: Broadlink
+  type: string
+{% endconfiguration %}
+  
+### Learn command
+
+Use the `remote.learn_command` service to learn new commands.
+
+| Service data attribute | Optional | Description                               |
+| ---------------------- | -------- | ----------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                         |
+| `device`               | no       | Name of the device to control.            |
+| `command`              | no       | Names of the commands to learn.           |
+| `alternative`          | yes      | Toggle commands?                          |
+| `timeout`              | yes      | Timeout in seconds to learn each command. |
+
+Example 1: Learn a single command
+
+```yaml
+script:
+  learn_mute_tv:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: mute
+```
+
+Example 2: Learn a sequence of commands
+
+```yaml
+script:
+  learn_tv_commands:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command:
+            - turn on
+            - turn off
+            - volume up
+            - volume down
+```
+
+Example 3: Learn a toggle command
+
+The `alternative` flag is useful for capturing commands where the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
+
+```yaml
+script:
+  learn_tv_power_button:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: power
+          alternative: True
+```
+
+In the above example, two codes will be captured for the power command, and will be sent alternately each time the command is called.
+
+### Send command
+
+Use the `remote.send_command` service to send commands.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                                    |
+| `device`               | no       | Name of the device to control.                       |
+| `command`              | no       | Names of the commands to send.                       |
+| `num_repeats`          | yes      | Number of times to repeat the commands.              |
+| `delay_secs`           | yes      | Interval in seconds between one command and another. |
+
+Example 1: Send a single command
+
+```yaml
+script:
+  mute_tv:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: mute
+```
+
+Example 2: Send a command repeatedly
+
+```yaml
+script:
+  turn_up_tv_volume_20:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: volume up
+          num_repeats: 20
+```
+
+Example 3: Send a sequence of commands
+
+```yaml
+script:
+  turn_on_ac:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: air conditioner
+          command:
+            - turn on
+            - turn off display
+```
 
 ## Sensor
 
@@ -292,10 +445,10 @@ switch:
 
 You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`   | no | IP address to send command to.
-| `packet` | no | String or list of strings that contain the packet data.
+| Service data attribute | Optional | Description                                             |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `host`                 | no       | IP address to send command to.                          |
+| `packet`               | no       | String or list of strings that contain the packet data. |
 
 Example:
 

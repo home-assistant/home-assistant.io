@@ -82,53 +82,54 @@ For easier use in automations, all time sensors have a `timestamp` attribute, wh
 
 ### Holiday sensor
 
-The holiday sensor includes two attibutes: *type* and *id*.
+The holiday sensor includes 3 attributes: *type*, *type_id* and *id*.
+The *type_id* is useful for cases to condition automations based on a range of types.
 
 The following is the list of holidays the sensor knows about with their selected type:
 
 
-| ID                   | English                    | Hebrew                | Type                      |
-|----------------------|----------------------------|-----------------------|---------------------------|
-| erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV              |
-| rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV                   |
-| rosh_hashana_ii      | Rosh Hashana II            | ב' ראש השנה           | YOM_TOV                   |
-| tzom_gedaliah        | Tzom Gedaliah              | צום גדליה             | FAST_DAY                  |
-| erev_yom_kippur      | Erev Yom Kippur            | עיוה"כ               | EREV_YOM_TOV              |
-| yom_kippur           | Yom Kippur                 | יום הכפורים           | YOM_TOV                   |
-| erev_sukkot          | Erev Sukkot                | ערב סוכות             | EREV_YOM_TOV              |
-| sukkot               | Sukkot                     | סוכות                 | YOM_TOV                   |
-| hol_hamoed_sukkot    | Hol hamoed Sukkot          | חול המועד סוכות       | HOL_HAMOED                |
-| hoshana_raba         | Hoshana Raba               | הושענא רבה            | EREV_YOM_TOV              |
-| simchat_torah        | Simchat Torah              | שמחת תורה             | YOM_TOV                   |
-| chanukah             | Chanukah                   | חנוכה                 | MELACHA_PERMITTED_HOLIDAY |
-| asara_btevet         | Asara B'Tevet              | צום עשרה בטבת         | FAST_DAY                  |
-| tu_bshvat            | Tu B'Shvat                 | ט"ו בשבט             | MINOR_HOLIDAY             |
-| taanit_esther        | Ta'anit Esther             | תענית אסתר            | FAST_DAY                  |
-| purim                | Purim                      | פורים                 | MELACHA_PERMITTED_HOLIDAY |
-| shushan_purim        | Shushan Purim              | שושן פורים            | MELACHA_PERMITTED_HOLIDAY |
-| erev_pesach          | Erev Pesach                | ערב פסח               | EREV_YOM_TOV              |
-| pesach               | Pesach                     | פסח                   | YOM_TOV                   |
-| hol_hamoed_pesach    | Hol hamoed Pesach          | חול המועד פסח         | HOL_HAMOED                |
-| pesach_vii           | Pesach VII                 | שביעי פסח             | YOM_TOV                   |
-| yom_haatzmaut        | Yom HaAtzma'ut             | יום העצמאות           | MODERN_HOLIDAY            |
-| lag_bomer            | Lag B'Omer                 | ל"ג בעומר            | MINOR_HOLIDAY             |
-| erev_shavuot         | Erev Shavuot               | ערב שבועות            | EREV_YOM_TOV              |
-| shavuot              | Shavuot                    | שבועות                | YOM_TOV                   |
-| tzom_tammuz          | Tzom Tammuz                | צום שבעה עשר בתמוז    | FAST_DAY                  |
-| tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  |
-| tu_bav               | Tu B'Av                    | ט"ו באב              | MINOR_HOLIDAY             |
-| yom_hashoah          | Yom HaShoah                | יום השואה             | MEMORIAL_DAY              |
-| yom_hazikaron        | Yom HaZikaron              | יום הזכרון            | MEMORIAL_DAY              |
-| yom_yerushalayim     | Yom Yerushalayim           | יום ירושלים           | MODERN_HOLIDAY            |
-| shmini_atzeret       | Shmini Atzeret             | שמיני עצרת            | YOM_TOV                   |
-| pesach_viii          | Pesach VIII                | אחרון של פסח          | YOM_TOV                   |
-| shavuot_ii           | Shavuot II                 | שני של שבועות         | YOM_TOV                   |
-| sukkot_ii            | Sukkot II                  | שני של סוכות          | YOM_TOV                   |
-| pesach_ii            | Pesach II                  | שני של פסח            | YOM_TOV                   |
-| family_day           | Family Day                 | יום המשפחה            | ISRAEL_NATIONAL_HOLIDAY   |
-| memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום זכרון... | MEMORIAL_DAY |
-| rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY              |
-| zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום ז'בוטינסקי       | MEMORIAL_DAY              |
+| ID                   | English                    | Hebrew                | Type                          |
+|----------------------|----------------------------|-----------------------|--------------------------------|
+| erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV (2)              |
+| rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV (1)                   |
+| rosh_hashana_ii      | Rosh Hashana II            | ב' ראש השנה           | YOM_TOV (1)                   |
+| tzom_gedaliah        | Tzom Gedaliah              | צום גדליה             | FAST_DAY (5)                  |
+| erev_yom_kippur      | Erev Yom Kippur            | עיוה"כ                | EREV_YOM_TOV (2)              |
+| yom_kippur           | Yom Kippur                 | יום הכפורים           | YOM_TOV (1)                   |
+| erev_sukkot          | Erev Sukkot                | ערב סוכות             | EREV_YOM_TOV (2)              |
+| sukkot               | Sukkot                     | סוכות                 | YOM_TOV (1)                   |
+| hol_hamoed_sukkot    | Hol hamoed Sukkot          | חול המועד סוכות       | HOL_HAMOED (3)                |
+| hoshana_raba         | Hoshana Raba               | הושענא רבה            | EREV_YOM_TOV (2)              |
+| simchat_torah        | Simchat Torah              | שמחת תורה             | YOM_TOV (1)                   |
+| chanukah             | Chanukah                   | חנוכה                 | MELACHA_PERMITTED_HOLIDAY (4) |
+| asara_btevet         | Asara B'Tevet              | צום עשרה בטבת         | FAST_DAY (5)                  |
+| tu_bshvat            | Tu B'Shvat                 | ט"ו בשבט              | MINOR_HOLIDAY (7)             |
+| taanit_esther        | Ta'anit Esther             | תענית אסתר            | FAST_DAY (5)                  |
+| purim                | Purim                      | פורים                 | MELACHA_PERMITTED_HOLIDAY (4) |
+| shushan_purim        | Shushan Purim              | שושן פורים            | MELACHA_PERMITTED_HOLIDAY (4) |
+| erev_pesach          | Erev Pesach                | ערב פסח               | EREV_YOM_TOV (2)              |
+| pesach               | Pesach                     | פסח                   | YOM_TOV (1)                   |
+| hol_hamoed_pesach    | Hol hamoed Pesach          | חול המועד פסח         | HOL_HAMOED (3)                |
+| pesach_vii           | Pesach VII                 | שביעי פסח             | YOM_TOV (1)                   |
+| yom_haatzmaut        | Yom HaAtzma'ut             | יום העצמאות           | MODERN_HOLIDAY (6)            |
+| lag_bomer            | Lag B'Omer                 | ל"ג בעומר             | MINOR_HOLIDAY (7)             |
+| erev_shavuot         | Erev Shavuot               | ערב שבועות            | EREV_YOM_TOV (2)              |
+| shavuot              | Shavuot                    | שבועות                | YOM_TOV (1)                   |
+| tzom_tammuz          | Tzom Tammuz                | צום שבעה עשר בתמוז    | FAST_DAY (5)                  |
+| tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY (5)                  |
+| tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY (7)             |
+| yom_hashoah          | Yom HaShoah                | יום השואה             | MEMORIAL_DAY (8)              |
+| yom_hazikaron        | Yom HaZikaron              | יום הזכרון            | MEMORIAL_DAY (8)              |
+| yom_yerushalayim     | Yom Yerushalayim           | יום ירושלים           | MODERN_HOLIDAY (6)            |
+| shmini_atzeret       | Shmini Atzeret             | שמיני עצרת            | YOM_TOV (1)                   |
+| pesach_viii          | Pesach VIII                | אחרון של פסח          | YOM_TOV (1)                   |
+| shavuot_ii           | Shavuot II                 | שני של שבועות         | YOM_TOV (1)                   |
+| sukkot_ii            | Sukkot II                  | שני של סוכות          | YOM_TOV (1)                   |
+| pesach_ii            | Pesach II                  | שני של פסח            | YOM_TOV (1)                   |
+| family_day           | Family Day                 | יום המשפחה            | ISRAEL_NATIONAL_HOLIDAY (9)   |
+| memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום זכרון... | MEMORIAL_DAY (8) |
+| rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY (8)              |
+| zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום ז'בוטינסקי        | MEMORIAL_DAY (8)              |
 
 
 ## Full configuration sample
