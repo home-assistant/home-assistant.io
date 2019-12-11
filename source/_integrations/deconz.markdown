@@ -393,6 +393,8 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - IKEA Trådfri Bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri Bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
+- Innr BY-265, BY-245
+- OSRAM Classic A60 W clear - LIGHTIFY
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
 - Philips Hue White A19
@@ -436,6 +438,8 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
   - Xiaomi Smart Home Wireless Switch
 - Temperature Sensor
   - Xiaomi Temperature/Humidity Sensor
+- OpenClose Sensor
+  - Xiaomi Window / Door Sensor with Temperature
 
 ### deCONZ Daylight Sensor
 

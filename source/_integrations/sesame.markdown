@@ -12,7 +12,7 @@ The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/
 
 ## Configuration
 
-Your Sesame needs to be paired with a mobile device running the app in *virtual station* mode, or a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point).
+Your Sesame needs to be paired with a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point) purchased separately.
 
 You will also need to generate an API key from [my.candyhouse.co](https://my.candyhouse.co/#/credentials).
 
