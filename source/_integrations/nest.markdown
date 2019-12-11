@@ -324,7 +324,7 @@ The following conditions are available by device:
 
 <div class='note warning'>
 
-This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,
+This feature is not designed to transform your Home Assistant into a security system, neither Home Assistant nor Nest be liable to You for damages,
 or consequential damages of any character arising as a result of use this feature.
 
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,
