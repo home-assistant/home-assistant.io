@@ -1,6 +1,7 @@
 ---
 title: "flume"
 description: "Documentation about the flume sensor."
+logo: flume.jpg
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

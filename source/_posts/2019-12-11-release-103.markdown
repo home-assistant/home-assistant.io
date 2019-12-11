@@ -1,33 +1,80 @@
 ---
 layout: post
-title: "0.103: TBD"
-description: "TBD - UPDATE DATE"
+title: "0.103: Happy Holidays, Service calls, StarLine, GeoNet NZ and Proxmo"
+description: "The final major release of this year! Happy Holidays and see you in 2020!"
 date: 2019-12-04 0:41:02
 date_formatted: "December 11, 2019"
-author: Paulus Schoutsen
-author_twitter: balloob
+author: Franck Nijhof
+author_twitter: frenck
 comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-12-0.103/components.png
 ---
 
-Intro last release of year, talk about release schedule/holiday break.
+<a href='/integrations/#version/0.103'><img src='/images/blog/2019-12-0.103/components.png' style='border: 0;box-shadow: none;'></a>
 
-## Frenck working full time.
+Here it is! Home Assistant 0.103 is released, which is the last major release
+for this year. For the final stretch of this year, we've have focussed on
+cleaning things up. This release contains many things that were still
+in progress (e.g., due to Hacktoberfest), lots of bugfixes; mainly
+things that help to improve the stability and experience of Home Assistant.
+
+We wish you happy holidays! As always, we skip a release cycle at the end
+of the year, making this the final, major release of 2019. This gives all of
+us time to enjoy the holidays with our families as well.
+The first release of 2020, will be on 15 January.
+
+Furthermore, we'd like to take the opportunity to thank all of our contributors,
+no matter how small or big the contribution; code, documentation,
+issue reporting, beta testing, supporters in our
+[forum](https://community.home-assistant.io) and [chat](/join-chat).
+We salute and thank you and wish you the best for the new decade,
+as we are entering 2020! :love:
+
+Cheers!
+
+## Service's have been moved to their respective integration namespaces
+
+For 0.103, an extensive cleanup has been taken place around the names of the
+services. We realize this affects many users; therefore, we made sure all
+changes are nowhere in a single release.
+This change was driven by [@raman325], who did an excellent job of completing
+this in time for 0.103.
+
+We used to have services that were placed inside other domains,
+which wasn't always the case, and therefore inconsistent.
+So, for example, the service to add an item to Todoist was actually a service
+call under the `calendar` domain: `calendar.todoist_new_task`.
+
+This release, all services that were not placed correctly, are moved into their
+respective integration domain. So, for the above example of
+`calendar.todoist_new_task`, has been renamed to `todoist.new_task`.
+
+We hope this brings a more streamlined experience to the use of services,
+for now, and in the future. For a complete list of old vs. new service names,
+a table as been added to the release notes, [below](#updated-service-names).
+
+## Frenck working full time
+
+As announced during the State of the Union 2019, Frenck will be working
+on Home Assistant full-time.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today marks the first day of my full time open-source adventure! 🥳 Heading into my office this morning, full of energy and lots thankfulness for this opportunity! I feel blessed to be able to work on <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> for <a href="https://twitter.com/NabuCasa?ref_src=twsrc%5Etfw">@NabuCasa</a> 🙏 <a href="https://t.co/mjkMYeCNaz">pic.twitter.com/mjkMYeCNaz</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1201411126224998400?ref_src=twsrc%5Etfw">December 2, 2019</a>
 </blockquote>
 
 ## Frontend
 
-We gave some love and attention to the automation editor, fixing some bugs and adding some useful features.
+We gave some love and attention to the automation editor,
+fixing some bugs and adding some useful features.
 
 ### Natural language improvements
 
-We add area support for automations that you create with natural language, and we try to pick the right area or device for you if you mentioned the name.
+We add area support for automations that you create with natural language,
+and we try to pick the right area or device for you if you mentioned the name.
 
-So you can now say: "Turn the lights on in the living room". And it will add all the light devices of your living room to the automation.
-By clicking `Choose individual devices`, you can add devices or remove some.
+So you can now say: "Turn the lights on in the living room", and it adds all
+the light devices of your living room to the automation.
+By clicking `Choose individual devices`, you can add or remove devices.
 
 <p class='img'>
 <img src='/images/blog/2019-12-0.103/natural-language-area.png' alt='Screenshot of the result of the above query'></a>
@@ -36,9 +83,9 @@ Screenshot of the result of the above query.
 
 ### YAML support
 
-You can now edit every induividual trigger, conditition or action as YAML. This makes it possible to even do very complicated automations in the automation editor and allows to quickly copy parts of your automation.
-
-You can access the YAML editor through the menu in the top right of the component editor.
+You can now edit every individual trigger, condition or action as YAML.
+This makes it possible even to do very complicated automations in the
+automation editor and allows you to copy parts of your automation quickly.
 
 <p class='img'>
 <img src='/images/blog/2019-12-0.103/automation-yaml.png' alt='Screenshot of the automation YAML editor'></a>
@@ -47,19 +94,27 @@ Screenshot of the automation YAML editor.
 
 ### Rearange actions
 
-We also added the ability to rearrange your actions, so you don't have to start all over when you want to add a delay between 2 service calls.
-And talking about the service call action, that has now an entity picker to help you search for the right one.
+We also added the ability to rearrange your actions, so you don't have to start
+all over when you want to add a delay between 2 service calls.
+Talking about the service call action, that has now an entity picker
+to help you search for the right one.
 
 <p class='img'>
 <img src='/images/blog/2019-12-0.103/automation-actions.png' alt='Screenshot of automation actions'></a>
 Screenshot of automation actions.
 </p>
 
-## Update service names
+## In other news
 
-Cogneato todo, insert table with old and new service names
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Looking for a present for the holidays? T-shirts with our rainbow logo are now available in our online store. 🌈<br><br>EU: <a href="https://t.co/KiTDuOFgG2">https://t.co/KiTDuOFgG2</a><br>US: <a href="https://t.co/OdtILXBoDh">https://t.co/OdtILXBoDh</a> <a href="https://t.co/BG5mDWhwYN">pic.twitter.com/BG5mDWhwYN</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1202652848703574018?ref_src=twsrc%5Etfw">December 5, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> for iOS version 2019.1/2.0 is now (finally) available in an App Store near you! Also releasing today: beautiful new documentation for the app! Check it out at <a href="https://t.co/4RhY8tOand">https://t.co/4RhY8tOand</a>. <a href="https://t.co/YkuhhdRjwu">pic.twitter.com/YkuhhdRjwu</a></p>&mdash; Robbie Trencheny (@Robbie) <a href="https://twitter.com/Robbie/status/1199350406809305088?ref_src=twsrc%5Etfw">November 26, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Home Assistant: Controlling Addressable LEDs like any other light! (WLED integration) <a href="https://t.co/bJJMkZbdn9">https://t.co/bJJMkZbdn9</a> <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://twitter.com/Frenck?ref_src=twsrc%5Etfw">@Frenck</a> <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a> <a href="https://twitter.com/hashtag/wled?src=hash&amp;ref_src=twsrc%5Etfw">#wled</a> <a href="https://twitter.com/hashtag/ws2812b?src=hash&amp;ref_src=twsrc%5Etfw">#ws2812b</a> <a href="https://twitter.com/hashtag/tutorial?src=hash&amp;ref_src=twsrc%5Etfw">#tutorial</a> <a href="https://twitter.com/hashtag/howto?src=hash&amp;ref_src=twsrc%5Etfw">#howto</a></p>&mdash; Intermit.Tech (@IntermitTech) <a href="https://twitter.com/IntermitTech/status/1198936195948011521?ref_src=twsrc%5Etfw">November 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## New Integrations
+
+The following integrations are added in this release:
 
 - Add support for Hisense AEH-W4A1 wifi module (AC remote control) ([@bannhead] - [#28641]) ([hisense_aehw4a1 docs]) (new-integration)
 - GeoNet NZ Volcanic Alert Level sensor ([@exxamalte] - [#26901]) ([geonetnz_volcano docs]) (new-integration)
@@ -73,70 +128,72 @@ Cogneato todo, insert table with old and new service names
 
 ## New Platforms
 
+The following platforms have been added to existing integrations:
+
 - Add support for SimpliSafe locks ([@bachya] - [#28672]) ([simplisafe docs]) (new-platform)
 - Add fan support to lutron_caseta ([@djj211] - [#29033]) ([lutron_caseta docs]) (new-platform)
 - Add support for Somfy Camera Shutter ([@tetienne] - [#29057]) ([somfy docs]) (new-platform)
 - Add Huawei LTE binary sensor support, mobile connection sensor ([@scop] - [#28226]) ([huawei_lte docs]) (new-platform)
 - Broadlink remote ([@felipediel] - [#26528]) ([broadlink docs]) (new-platform)
 
-## If you need help...
-
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
-
-## Reporting Issues
-
-Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
-
-<!--more-->
-
 ## Breaking Changes
 
-**The table below lists service calls and platforms which have been moved to their own components** - (@raman325)
-| Integration: | Old service/platform: | New service/platform: | PR |
-|--------------------|-----------------------------------------------------|------------------------------------|----------|
-| Local File | camera.local*file_update_file_path | local_file.update_file_path | [#28890] |
-| Elk-M1 Controller | alarm_control_panel.elkm1* | elkm1: | [#29128] |
-| Neato | vacuum.neato | neato: | [#29148] |
-| Envisalink | alarm*control_panel.envisalink_alarm_keypress | envisalink.alarm_keypress | [#29126] |
-| IFTTT | alarm_control_panel.ifttt_push_alarm_state | ifttt.push_alarm_state | [#29129] |
-| AlarmDecoder Alarm | alarm_control_panel.alarmdecoder_alarm_toggle_chime | alarmdecoder.alarm_toggle_chime | [#29127] |
-| Econet | water_heater.econet*\_ | econet: | [#29149] |
-| APNS | notify.apns\__ | apns._ | [#29165] |
-| Facebox | image*processing.facebox*_ | facebox._ | [#29151] |
-| Html5 | notify.html5\__ | html5._ | [#29145] |
-| Lifx | light.lifx\__ | lifx._ | [#29136] |
-| Mill | climate.mill*set_room_temperature | mill.set_room_temperature | [#29132] |
-| Todoist | calendar.todoist_new_task | todoist.new_task | [#29131] |
-| Wink | lock services.yaml | wink services.yaml | [#29137] |
-| Wemo | fan.wemo*_ | wemo._ | [#29135] |
-| Bluetooth | device*tracker | bluetooth_tracker | [#29161] |
-| Demo | device_tracker.demo | demo.randomize_device_tracker_data | [#29164] |
-| iCloud | device_tracker.icloud | icloud: | [#29144] |
-| Blackbird | media_player.blackbird_set_all_zones | blackbird.set_all_zones | [#29112] |
-| Bluesound | media_player.bluesound | bluesound.* | [#29111] |
-| Channels | media*player.channels*_ | channels._ | [#29139] |
-| Epson | media*player.epson_select_cmode | epson.select_cmode | [#29113] |
-| Monoprice | media_player.monoprice | monoprice.* | [#29099] |
-| Monoprice | media*player.restore | monoprice.restore | [#29099] |
-| Monoprice | media_player.snapshot | monoprice.snapshot | [#29099] |
-| Songpal | media_player.songpal | songpal.* | [#29143] |
-| Soundtouch | media*player.soundtouch\*\* | soundtouch.* | [#29140] |
-| Squeezebox | media*player.squeezebox*_ | squeezebox._ | [#29141] |
-| Xiaomi Miio | \*.xiaomi*miio*\_ | xiaomi*miio.**\* | [#29134] |
-| Yamaha | media_player.yamaha** | yamaha.* | [#29142] |
+If you are an existing user, make sure to read the this section **before** upgrading,
+this helps you understand the changes and avoids having issues during an upgrade.
+
+### Updated Service Names
+
+All services for use in Home Assistant are moved to their integration naming space.
+
+**The table below lists service calls and platforms which have been moved to their own integrations** - [@raman325]
+
+| Integration:       | Old service/platform:                               | New service/platform:              | PR       |
+| ------------------ | --------------------------------------------------- | ---------------------------------- | -------- |
+| Local File         | camera.local*file_update_file_path                  | local_file.update_file_path        | [#28890] |
+| Elk-M1 Controller  | alarm_control_panel.elkm1*                          | elkm1:                             | [#29128] |
+| Neato              | vacuum.neato                                        | neato:                             | [#29148] |
+| Envisalink         | alarm*control_panel.envisalink_alarm_keypress       | envisalink.alarm_keypress          | [#29126] |
+| IFTTT              | alarm_control_panel.ifttt_push_alarm_state          | ifttt.push_alarm_state             | [#29129] |
+| AlarmDecoder Alarm | alarm_control_panel.alarmdecoder_alarm_toggle_chime | alarmdecoder.alarm_toggle_chime    | [#29127] |
+| Econet             | water_heater.econet*\_                              | econet:                            | [#29149] |
+| APNS               | notify.apns\__                                      | apns._                             | [#29165] |
+| Facebox            | image*processing.facebox*_                          | facebox._                          | [#29151] |
+| Html5              | notify.html5\__                                     | html5._                            | [#29145] |
+| Lifx               | light.lifx\__                                       | lifx._                             | [#29136] |
+| Mill               | climate.mill*set_room_temperature                   | mill.set_room_temperature          | [#29132] |
+| Todoist            | calendar.todoist_new_task                           | todoist.new_task                   | [#29131] |
+| Wink               | lock services.yaml                                  | wink services.yaml                 | [#29137] |
+| Wemo               | fan.wemo*_                                          | wemo._                             | [#29135] |
+| Bluetooth          | device*tracker                                      | bluetooth_tracker                  | [#29161] |
+| Demo               | device_tracker.demo                                 | demo.randomize_device_tracker_data | [#29164] |
+| iCloud             | device_tracker.icloud                               | icloud:                            | [#29144] |
+| Blackbird          | media_player.blackbird_set_all_zones                | blackbird.set_all_zones            | [#29112] |
+| Bluesound          | media_player.bluesound                              | bluesound.*                        | [#29111] |
+| Channels           | media*player.channels*_                             | channels._                         | [#29139] |
+| Epson              | media*player.epson_select_cmode                     | epson.select_cmode                 | [#29113] |
+| Monoprice          | media_player.monoprice                              | monoprice.*                        | [#29099] |
+| Monoprice          | media*player.restore                                | monoprice.restore                  | [#29099] |
+| Monoprice          | media_player.snapshot                               | monoprice.snapshot                 | [#29099] |
+| Songpal            | media_player.songpal                                | songpal.*                          | [#29143] |
+| Soundtouch         | media*player.soundtouch\*\*                         | soundtouch.*                       | [#29140] |
+| Squeezebox         | media*player.squeezebox*_                           | squeezebox._                       | [#29141] |
+| Xiaomi Miio        | \*.xiaomi*miio*\_                                   | xiaomi*miio.**\*                   | [#29134] |
+| Yamaha             | media_player.yamaha**                               | yamaha.*                           | [#29142] |
+
+### Other Breaking Changes
 
 - **Mobile App** - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
-- **Samsung TV** - The behaviour for next and previous track commands for Samsung TVs has changed. Before the change the Samsung TV component reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs those two commands do nothing. After the change the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change channel using the media player standard lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])
-- **Wake on LAN** - The configuration key `mac_address:` was renamed to `mac:` to be in sync with with the service. ([@fabaff] - [#28830]) ([wake_on_lan docs])
-- **PulseAudio Loopback Switch** - The default port was incorrectly set to 4712, however the official documentation states that the default port is 4713. Therefore, the port has been changed and all previously configured switches now need to listen to port 4713. - ([@springstan] - [#28857]) ([pulseaudio_loopback docs])
+- **Samsung TV** - The behavior for next and previous track commands for Samsung TVs has changed. Before the change, the Samsung TV integration reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs, those two commands do nothing. After the change, the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change the channel using the media player standard Lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])
+- **Wake on LAN** - The configuration key `mac_address:` was renamed to `mac:` to be in sync with the service. ([@fabaff] - [#28830]) ([wake_on_lan docs])
+- **PulseAudio Loopback Switch** - The default port was incorrectly set to 4712, however, the official documentation states that the default port is 4713. Therefore, the port has been changed and all previously configured switches now need to listen to port 4713. - ([@springstan] - [#28857]) ([pulseaudio_loopback docs])
 - **Z-Wave** - This changes the primary command class for z-wave thermostats in discovery schemas from `COMMAND_CLASS_THERMOSTAT_SETPOINT` to `COMMAND_CLASS_THERMOSTAT_MODE`. This will cause a typical dual setpoint thermostat to be correctly represented as a single entity. - ([@oandrew] - [#27040]) ([zwave docs])
 - **Transmission** - Added host field to `add_torrent` service in order to support multiple Transmission instances. ([@engrbm87] - [#28653]) ([transmission docs])
 - **Opentherm Gateway** - Adds device support. This change breaks enabled `sensor` and `binary_sensor` entities, which are now disabled by default and can be re-enabled through the Devices panel. It also breaks `entity_id` of the climate entity in some configurations. The `entity_id` is now based on the `gateway_id` rather than the configured `name` to guarantee uniqueness. - ([@mvn23] - [#28722]) ([opentherm_gw docs])
 - **Intent** - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. - ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs])
-- **Emulated Hue** - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the component forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
-- **Miflora** - Values for a unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
+- **Emulated Hue** - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the integration forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
+- **Miflora** - Values for an unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
 
-  Example configuration yaml
+  Example configuration YAML:
 
   ```yaml
   - id: plant_unreachable
@@ -150,7 +207,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```
 
 - **Entity ID** - It is no longer possible to target all entities by not passing both `entity_id` and `area_id` to your service data. This feature was previously deprecated and has been printing warnings. The correct way to target all entities is to set `entity_id: all` - ([@balloob] - [#29178])
-- **Heatmiser Thermostat** - This heatmiser component has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
+- **Heatmiser Thermostat** - The Heatmiser integration has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the Heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
+
+## If you need help...
+
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+
+## Reporting Issues
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+<!--more-->
 
 ## Beta Fixes
 
