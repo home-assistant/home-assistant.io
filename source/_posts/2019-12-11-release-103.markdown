@@ -2,7 +2,7 @@
 layout: post
 title: "0.103: Happy Holidays, Service calls, StarLine, GeoNet NZ and Proxmox"
 description: "The final major release of this year! Happy Holidays and see you in 2020!"
-date: 2019-12-04 0:41:02
+date: 2019-12-11 17:00:00
 date_formatted: "December 11, 2019"
 author: Franck Nijhof
 author_twitter: frenck
