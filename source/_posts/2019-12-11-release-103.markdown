@@ -14,7 +14,7 @@ og_image: /images/blog/2019-12-0.103/components.png
 <a href='/integrations/#version/0.103'><img src='/images/blog/2019-12-0.103/components.png' style='border: 0;box-shadow: none;'></a>
 
 Here it is! Home Assistant 0.103 is released, which is the last major release
-for this year. For the final stretch of this year, we've have focussed on
+for this year. For the final stretch of this year, we've focussed on
 cleaning things up. This release contains many things that were still
 in progress (e.g., due to Hacktoberfest), lots of bugfixes; mainly
 things that help to improve the stability and experience of Home Assistant.
@@ -36,8 +36,8 @@ Cheers!
 ## Service's have been moved to their respective integration namespaces
 
 For 0.103, an extensive cleanup has been taken place around the names of the
-services. We realize this affects many users; therefore, we made sure all
-changes are nowhere in a single release.
+services. We realize this affects many users; therefore, we made sure all these
+changes are in this release.
 This change was driven by [@raman325], who did an excellent job of completing
 this in time for 0.103.
 
