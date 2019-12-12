@@ -13,13 +13,36 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ### Humidity control services
 
-Available services: `humidifier.set_preset_mode`, `humidifier.set_humidity`, `humidifier.set_fan_mode`, `humidifier.set_operation_mode`, `humidifier.turn_on`, `humidifier.turn_off`
+Available services: `humidifier.set_aux_heat`, `humidifier.set_preset_mode`, `humidifier.set_humidity`, `humidifier.set_fan_mode`, `humidifier.set_operation_mode`, `humidifier.turn_on`, `humidifier.turn_off`
 
 <div class='note'>
 
 Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
 
 </div>
+
+### Service `humidifier.set_aux_heat`
+
+Turn auxiliary heater on/off for humidifier device (i.e. enable producing heated mist)
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control. Else targets all.
+| `aux_heat` | no | New value of auxiliary heater.
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: humidifier.set_aux_heat
+      data:
+        entity_id: humidifier.bedroom
+        aux_heat: true
+```
 
 ### Service `humidifier.set_preset_mode`
 
