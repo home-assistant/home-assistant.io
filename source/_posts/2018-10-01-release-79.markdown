@@ -15,7 +15,7 @@ In case you missed it two weeks ago, check [our plans for the future](/blog/2018
 
 </div>
 
-<a href='/components/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for another great release and we're introducing a brand new feature: device registry. Thanks to [@Kane610] for driving this effort. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
 
@@ -47,7 +47,7 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 ## New Platforms
 
 - Add Huawei LTE router platform, device tracker, and sensor ([@scop] - [#16498]) ([device_tracker docs]) ([huawei_lte docs]) ([sensor.huawei_lte docs]) (new-platform)
-- New EDP re:dy component ([@abmantis] - [#16426]) ([edp_redy docs]) ([sensor.edp_redy docs]) ([switch.edp_redy docs]) (new-platform)
+- New EDP re:dy component ([@abmantis] - [#16426]) (new-platform)
 - Jewish calendar sensor ([@tsvi] - [#16393]) ([sensor.jewish_calendar docs]) (new-platform)
 - Added support for Starling Bank ([@Dullage] - [#16522]) ([sensor.starlingbank docs]) (new-platform)
 - Add Call Data Log platform. Mailboxes no longer require media ([@PhracturedBlue] - [#16579]) ([asterisk_mbox docs]) ([mailbox docs]) ([mailbox.asterisk_cdr docs]) ([mailbox.asterisk_mbox docs]) (new-platform)
@@ -73,12 +73,12 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [@amelchio]: https://github.com/amelchio
 [@awarecan]: https://github.com/awarecan
 [@rohankapoorcom]: https://github.com/rohankapoorcom
-[binary_sensor.nest docs]: /components/binary_sensor.nest/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[light.isy994 docs]: /components/light.isy994/
-[sensor.history_stats docs]: /components/sensor.history_stats/
-[sensor.ring docs]: /components/sensor.ring/
-[zoneminder docs]: /components/zoneminder/
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[light.isy994 docs]: /integrations/isy994
+[sensor.history_stats docs]: /integrations/history_stats
+[sensor.ring docs]: /integrations/ring#sensor
+[zoneminder docs]: /integrations/zoneminder/
 
 ## Release 0.79.2 - October 1
 
@@ -89,8 +89,8 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [#17026]: https://github.com/home-assistant/home-assistant/pull/17026
 [@balloob]: https://github.com/balloob
 [@rohankapoorcom]: https://github.com/rohankapoorcom
-[mqtt docs]: /components/mqtt/
-[switch.zoneminder docs]: /components/switch.zoneminder/
+[mqtt docs]: /integrations/mqtt/
+[switch.zoneminder docs]: /integrations/zoneminder#switch
 
 ## Release 0.79.3 - October 2
 
@@ -172,7 +172,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update developer doc links to developers.home-assistant.io ([@scop] - [#16622]) ([websocket_api docs])
 - Add valid_window=1 to TOTP verify ([@awarecan] - [#16625])
 - Add new devices to HomematicIP Cloud ([@mxworm] - [#16636]) ([binary_sensor.homematicip_cloud docs]) ([sensor.homematicip_cloud docs])
-- New EDP re:dy component ([@abmantis] - [#16426]) ([edp_redy docs]) ([sensor.edp_redy docs]) ([switch.edp_redy docs]) (new-platform)
+- New EDP re:dy component ([@abmantis] - [#16426]) (new-platform)
 - Upgrade Switchmate lib ([@Danielhiversen] - [#16637]) ([switch.switchmate docs])
 - Update pyhomematic to 0.1.49 ([@danielperna84] - [#16649]) ([homematic docs])
 - Upgrade holidays to 0.9.7 ([@fabaff] - [#16651]) ([binary_sensor.workday docs])
@@ -453,126 +453,123 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vikramgorla]: https://github.com/vikramgorla
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zoe1337]: https://github.com/zoe1337
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
-[alexa docs]: /components/alexa/
-[apple_tv docs]: /components/apple_tv/
-[asterisk_mbox docs]: /components/asterisk_mbox/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.homematicip_cloud docs]: /components/binary_sensor.homematicip_cloud/
-[binary_sensor.nest docs]: /components/binary_sensor.nest/
-[binary_sensor.rest docs]: /components/binary_sensor.rest/
-[binary_sensor.spc docs]: /components/binary_sensor.spc/
-[binary_sensor.wirelesstag docs]: /components/binary_sensor.wirelesstag/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[camera.axis docs]: /components/camera.axis/
-[camera.logi_circle docs]: /components/camera.logi_circle/
-[camera.mjpeg docs]: /components/camera.mjpeg/
-[camera.mqtt docs]: /components/camera.mqtt/
-[camera.nest docs]: /components/camera.nest/
-[camera.ring docs]: /components/camera.ring/
-[camera.zoneminder docs]: /components/camera.zoneminder/
-[climate.econet docs]: /components/climate.econet/
-[climate.opentherm_gw docs]: /components/climate.opentherm_gw/
-[climate.wink docs]: /components/climate.wink/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[cover docs]: /components/cover/
-[cover.deconz docs]: /components/cover.deconz/
-[cover.isy994 docs]: /components/cover.isy994/
-[cover.myq docs]: /components/cover.myq/
-[cover.tuya docs]: /components/cover.tuya/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[ecovacs docs]: /components/ecovacs/
-[edp_redy docs]: /components/edp_redy/
-[fan.zha docs]: /components/fan.zha/
-[geo_location docs]: /components/geo_location/
-[google_assistant docs]: /components/google_assistant/
-[hangouts docs]: /components/hangouts/
-[hassio docs]: /components/hassio/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[huawei_lte docs]: /components/huawei_lte/
-[ios docs]: /components/ios/
-[konnected docs]: /components/konnected/
-[light.deconz docs]: /components/light.deconz/
-[light.isy994 docs]: /components/light.isy994/
-[light.rpi_gpio_pwm docs]: /components/light.rpi_gpio_pwm/
-[light.yeelight docs]: /components/light.yeelight/
-[light.zha docs]: /components/light.zha/
-[light.zwave docs]: /components/light.zwave/
-[logi_circle docs]: /components/logi_circle/
-[mailbox docs]: /components/mailbox/
-[mailbox.asterisk_cdr docs]: /components/mailbox.asterisk_cdr/
-[mailbox.asterisk_mbox docs]: /components/mailbox.asterisk_mbox/
-[media_extractor docs]: /components/media_extractor/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.soundtouch docs]: /components/media_player.soundtouch/
-[media_player.webostv docs]: /components/media_player.webostv/
-[mqtt docs]: /components/mqtt/
-[neato docs]: /components/neato/
-[netgear_lte docs]: /components/netgear_lte/
-[notify docs]: /components/notify/
-[openuv docs]: /components/openuv/
-[persistent_notification docs]: /components/persistent_notification/
-[python_script docs]: /components/python_script/
-[rachio docs]: /components/rachio/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.dyson docs]: /components/sensor.dyson/
-[sensor.edp_redy docs]: /components/sensor.edp_redy/
-[sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.huawei_lte docs]: /components/sensor.huawei_lte/
-[sensor.ios docs]: /components/sensor.ios/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.linky docs]: /components/sensor.linky/
-[sensor.logi_circle docs]: /components/sensor.logi_circle/
-[sensor.nest docs]: /components/sensor.nest/
-[sensor.netdata docs]: /components/sensor.netdata/
-[sensor.netgear_lte docs]: /components/sensor.netgear_lte/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.rmvtransport docs]: /components/sensor.rmvtransport/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.starlingbank docs]: /components/sensor.starlingbank/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.twitch docs]: /components/sensor.twitch/
-[sensor.velbus docs]: /components/sensor.velbus/
-[sensor.wirelesstag docs]: /components/sensor.wirelesstag/
-[sensor.yr docs]: /components/sensor.yr/
-[sensor.zha docs]: /components/sensor.zha/
-[shiftr docs]: /components/shiftr/
-[sonos docs]: /components/sonos/
-[spc docs]: /components/spc/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.deconz docs]: /components/switch.deconz/
-[switch.edp_redy docs]: /components/switch.edp_redy/
-[switch.konnected docs]: /components/switch.konnected/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
-[switch.wirelesstag docs]: /components/switch.wirelesstag/
-[switch.zha docs]: /components/switch.zha/
-[tahoma docs]: /components/tahoma/
-[tradfri docs]: /components/tradfri/
-[updater docs]: /components/updater/
-[vacuum.ecovacs docs]: /components/vacuum.ecovacs/
-[vacuum.neato docs]: /components/vacuum.neato/
-[velbus docs]: /components/velbus/
-[wake_on_lan docs]: /components/wake_on_lan/
-[websocket_api docs]: /components/websocket_api/
-[wink docs]: /components/wink/
-[wirelesstag docs]: /components/wirelesstag/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zoneminder docs]: /components/zoneminder/
+[alarm_control_panel.spc docs]: /integrations/spc
+[alexa docs]: /integrations/alexa/
+[apple_tv docs]: /integrations/apple_tv/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[binary_sensor.wirelesstag docs]: /integrations/wirelesstag#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.zha docs]: /integrations/zha
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[camera.axis docs]: /integrations/axis
+[camera.logi_circle docs]: /integrations/logi_circle#camera
+[camera.mjpeg docs]: /integrations/mjpeg
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[camera.nest docs]: /integrations/nest#camera
+[camera.ring docs]: /integrations/ring#camera
+[camera.zoneminder docs]: /integrations/zoneminder#camera
+[climate.econet docs]: /integrations/econet
+[climate.opentherm_gw docs]: /integrations/opentherm_gw
+[climate.wink docs]: /integrations/wink#climate
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover docs]: /integrations/cover/
+[cover.deconz docs]: /integrations/deconz#cover
+[cover.isy994 docs]: /integrations/isy994
+[cover.myq docs]: /integrations/myq
+[cover.tuya docs]: /integrations/tuya
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[ecovacs docs]: /integrations/ecovacs/
+[fan.zha docs]: /integrations/zha
+[geo_location docs]: /integrations/geo_location/
+[google_assistant docs]: /integrations/google_assistant/
+[hangouts docs]: /integrations/hangouts/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[ios docs]: /integrations/ios/
+[konnected docs]: /integrations/konnected/
+[light.deconz docs]: /integrations/deconz#light
+[light.isy994 docs]: /integrations/isy994
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.yeelight docs]: /integrations/yeelight
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[logi_circle docs]: /integrations/logi_circle/
+[mailbox docs]: /integrations/mailbox/
+[mailbox.asterisk_cdr docs]: /integrations/asterisk_cdr
+[mailbox.asterisk_mbox docs]: /integrations/asterisk_mbox
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.soundtouch docs]: /integrations/soundtouch
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[neato docs]: /integrations/neato/
+[netgear_lte docs]: /integrations/netgear_lte/
+[notify docs]: /integrations/notify/
+[openuv docs]: /integrations/openuv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[python_script docs]: /integrations/python_script/
+[rachio docs]: /integrations/rachio/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.linky docs]: /integrations/linky
+[sensor.logi_circle docs]: /integrations/logi_circle#sensor
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.netdata docs]: /integrations/netdata
+[sensor.netgear_lte docs]: /integrations/netgear_lte
+[sensor.qnap docs]: /integrations/qnap
+[sensor.rest docs]: /integrations/rest
+[sensor.rmvtransport docs]: /integrations/rmvtransport
+[sensor.scrape docs]: /integrations/scrape
+[sensor.shodan docs]: /integrations/shodan
+[sensor.starlingbank docs]: /integrations/starlingbank
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.twitch docs]: /integrations/twitch
+[sensor.velbus docs]: /integrations/velbus
+[sensor.wirelesstag docs]: /integrations/wirelesstag#sensor
+[sensor.yr docs]: /integrations/yr
+[sensor.zha docs]: /integrations/zha
+[shiftr docs]: /integrations/shiftr/
+[sonos docs]: /integrations/sonos/
+[spc docs]: /integrations/spc/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.konnected docs]: /integrations/konnected#switch
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.switchmate docs]: /integrations/switchmate
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[switch.wirelesstag docs]: /integrations/wirelesstag#switch
+[switch.zha docs]: /integrations/zha
+[tahoma docs]: /integrations/tahoma/
+[tradfri docs]: /integrations/tradfri/
+[updater docs]: /integrations/updater/
+[vacuum.ecovacs docs]: /integrations/ecovacs#vacuum
+[vacuum.neato docs]: /integrations/neato#vacuum
+[velbus docs]: /integrations/velbus/
+[wake_on_lan docs]: /integrations/wake_on_lan/
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[wirelesstag docs]: /integrations/wirelesstag/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/

@@ -69,6 +69,10 @@ After defining your network key, follow these steps to add (include) a secure Z-
 3. Activate your device to be included by following the instructions provided with the device
 4. With the device in its final location, run a *Heal Network*
 
+<div class='note warning'>
+Secure devices require additional bandwidth, and too many secure devices can slow down your Z-Wave network. We recommend only using secure inclusion for devices that require it, such as locks.
+</div>
+
 ## Removing Devices
 
 To remove (exclude) a Z-Wave device from your system:

@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-06-release-95/social.png
 ---
 
-<a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
 It is time for release 0.95, and guess what? It's good! First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. However, you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
@@ -51,7 +51,7 @@ If you are migrating from the custom integration, [please read the instructions]
 
 One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
-However, we didn't stop there. The [manual installations of Alexa](/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
+However, we didn't stop there. The [manual installations of Alexa](/integrations/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -104,9 +104,9 @@ We have also realized that the default database clean up task never automaticall
 [@balloob]: https://github.com/balloob
 [@pnbruckner]: https://github.com/pnbruckner
 [@w1ll1am23]: https://github.com/w1ll1am23
-[cloud docs]: /components/cloud/
-[life360 docs]: /components/life360/
-[wink docs]: /components/wink/
+[cloud docs]: /integrations/cloud/
+[life360 docs]: /integrations/life360/
+[wink docs]: /integrations/wink/
 
 ## Release 0.95.2 - June 28
 
@@ -128,11 +128,11 @@ We have also realized that the default database clean up task never automaticall
 [@dmulcahey]: https://github.com/dmulcahey
 [@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
-[google_assistant docs]: /components/google_assistant/
-[life360 docs]: /components/life360/
-[netatmo docs]: /components/netatmo/
-[script docs]: /components/script/
-[zha docs]: /components/zha/
+[google_assistant docs]: /integrations/google_assistant/
+[life360 docs]: /integrations/life360/
+[netatmo docs]: /integrations/netatmo/
+[script docs]: /integrations/script/
+[zha docs]: /integrations/zha/
 
 ## Release 0.95.3 - June 28
 
@@ -140,7 +140,7 @@ We have also realized that the default database clean up task never automaticall
 
 [#24835]: https://github.com/home-assistant/home-assistant/pull/24835
 [@balloob]: https://github.com/balloob
-[cloud docs]: /components/cloud/
+[cloud docs]: /integrations/cloud/
 
 ## Release 0.95.4 - June 28
 
@@ -151,9 +151,9 @@ We have also realized that the default database clean up task never automaticall
 [#24838]: https://github.com/home-assistant/home-assistant/pull/24838
 [@balloob]: https://github.com/balloob
 [@zewelor]: https://github.com/zewelor
-[alexa docs]: /components/alexa/
-[cloud docs]: /components/cloud/
-[yeelight docs]: /components/yeelight/
+[alexa docs]: /integrations/alexa/
+[cloud docs]: /integrations/cloud/
+[yeelight docs]: /integrations/yeelight/
 
 ## If you need help...
 
@@ -685,112 +685,112 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@z0mbieprocess]: https://github.com/z0mbieprocess
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
-[adguard docs]: /components/adguard/
-[aftership docs]: /components/aftership/
-[alexa docs]: /components/alexa/
-[ambiclimate docs]: /components/ambiclimate/
-[ambient_station docs]: /components/ambient_station/
-[amcrest docs]: /components/amcrest/
-[androidtv docs]: /components/androidtv/
-[aprs docs]: /components/aprs/
-[asuswrt docs]: /components/asuswrt/
-[automation docs]: /components/automation/
-[awair docs]: /components/awair/
-[blink docs]: /components/blink/
-[broadlink docs]: /components/broadlink/
-[buienradar docs]: /components/buienradar/
-[cast docs]: /components/cast/
-[cloud docs]: /components/cloud/
-[cover docs]: /components/cover/
-[ddwrt docs]: /components/ddwrt/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[deluge docs]: /components/deluge/
-[demo docs]: /components/demo/
-[denonavr docs]: /components/denonavr/
-[device_tracker docs]: /components/device_tracker/
-[discord docs]: /components/discord/
-[discovery docs]: /components/discovery/
-[dlib_face_identify docs]: /components/dlib_face_identify/
-[ebusd docs]: /components/ebusd/
-[elv docs]: /components/switch.pca/
-[environment_canada docs]: /components/environment_canada/
-[esphome docs]: /components/esphome/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[gitlab_ci docs]: /components/gitlab_ci/
-[glances docs]: /components/glances/
-[google docs]: /components/google/
-[google_assistant docs]: /components/google_assistant/
-[google_cloud docs]: /components/google_cloud/
-[heos docs]: /components/heos/
-[homeassistant docs]: /components/homeassistant/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[honeywell docs]: /components/honeywell/
-[hue docs]: /components/hue/
-[incomfort docs]: /components/incomfort/
-[integration docs]: /components/integration/
-[itunes docs]: /components/itunes/
-[keenetic_ndms2 docs]: /components/keenetic_ndms2/
-[lcn docs]: /components/lcn/
-[life360 docs]: /components/life360/
-[lifx docs]: /components/lifx/
-[light docs]: /components/light/
-[linky docs]: /components/linky/
-[locative docs]: /components/locative/
-[logi_circle docs]: /components/logi_circle/
-[manual docs]: /components/manual/
-[manual_mqtt docs]: /components/manual_mqtt/
-[mastodon docs]: /components/mastodon/
-[media_extractor docs]: /components/media_extractor/
-[met docs]: /components/met/
-[meteo_france docs]: /components/meteo_france/
-[meteoalarm docs]: /components/meteoalarm/
-[mqtt docs]: /components/mqtt/
-[netatmo docs]: /components/netatmo/
-[nissan_leaf docs]: /components/nissan_leaf/
-[onboarding docs]: /components/onboarding/
-[opencv docs]: /components/opencv/
-[plaato docs]: /components/plaato/
-[ps4 docs]: /components/ps4/
-[qld_bushfire docs]: /components/qld_bushfire/
-[rainmachine docs]: /components/rainmachine/
-[recorder docs]: /components/recorder/
-[remote docs]: /components/remote/
-[rflink docs]: /components/rflink/
-[rtorrent docs]: /components/rtorrent/
-[samsungtv docs]: /components/samsungtv/
-[sense docs]: /components/sense/
-[simplisafe docs]: /components/simplisafe/
-[sisyphus docs]: /components/sisyphus/
-[sma docs]: /components/sma/
-[smartthings docs]: /components/smartthings/
-[smarty docs]: /components/smarty/
-[solaredge_local docs]: /components/solaredge_local/
-[somfy docs]: /components/somfy/
-[somfy_mylink docs]: /components/somfy_mylink/
-[sonos docs]: /components/sonos/
-[streamlabswater docs]: /components/streamlabswater/
-[switcher_kis docs]: /components/switcher_kis/
-[synologydsm docs]: /components/synologydsm/
-[tahoma docs]: /components/tahoma/
-[tibber docs]: /components/tibber/
-[toon docs]: /components/toon/
-[totalconnect docs]: /components/totalconnect/
-[traccar docs]: /components/traccar/
-[tradfri docs]: /components/tradfri/
-[ubee docs]: /components/ubee/
-[unifi docs]: /components/unifi/
-[velbus docs]: /components/velbus/
-[velux docs]: /components/velux/
-[vera docs]: /components/vera/
-[vlc_telnet docs]: /components/vlc-telnet/
-[waze_travel_time docs]: /components/waze_travel_time/
-[webostv docs]: /components/webostv/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[yeelight docs]: /components/yeelight/
-[yr docs]: /components/yr/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[adguard docs]: /integrations/adguard/
+[aftership docs]: /integrations/aftership/
+[alexa docs]: /integrations/alexa/
+[ambiclimate docs]: /integrations/ambiclimate/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[aprs docs]: /integrations/aprs/
+[asuswrt docs]: /integrations/asuswrt/
+[automation docs]: /integrations/automation/
+[awair docs]: /integrations/awair/
+[blink docs]: /integrations/blink/
+[broadlink docs]: /integrations/broadlink/
+[buienradar docs]: /integrations/buienradar/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[cover docs]: /integrations/cover/
+[ddwrt docs]: /integrations/ddwrt/
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[deluge docs]: /integrations/deluge/
+[demo docs]: /integrations/demo/
+[denonavr docs]: /integrations/denonavr/
+[device_tracker docs]: /integrations/device_tracker/
+[discord docs]: /integrations/discord/
+[discovery docs]: /integrations/discovery/
+[dlib_face_identify docs]: /integrations/dlib_face_identify/
+[ebusd docs]: /integrations/ebusd/
+[elv docs]: /integrations/switch.pca/
+[environment_canada docs]: /integrations/environment_canada/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[gitlab_ci docs]: /integrations/gitlab_ci/
+[glances docs]: /integrations/glances/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[google_cloud docs]: /integrations/google_cloud/
+[heos docs]: /integrations/heos/
+[homeassistant docs]: /integrations/homeassistant/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[hue docs]: /integrations/hue/
+[incomfort docs]: /integrations/incomfort/
+[integration docs]: /integrations/integration/
+[itunes docs]: /integrations/itunes/
+[keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
+[lcn docs]: /integrations/lcn/
+[life360 docs]: /integrations/life360/
+[lifx docs]: /integrations/lifx/
+[light docs]: /integrations/light/
+[linky docs]: /integrations/linky/
+[locative docs]: /integrations/locative/
+[logi_circle docs]: /integrations/logi_circle/
+[manual docs]: /integrations/manual/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[mastodon docs]: /integrations/mastodon/
+[media_extractor docs]: /integrations/media_extractor/
+[met docs]: /integrations/met/
+[meteo_france docs]: /integrations/meteo_france/
+[meteoalarm docs]: /integrations/meteoalarm/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[onboarding docs]: /integrations/onboarding/
+[opencv docs]: /integrations/opencv/
+[plaato docs]: /integrations/plaato/
+[ps4 docs]: /integrations/ps4/
+[qld_bushfire docs]: /integrations/qld_bushfire/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[remote docs]: /integrations/remote/
+[rflink docs]: /integrations/rflink/
+[rtorrent docs]: /integrations/rtorrent/
+[samsungtv docs]: /integrations/samsungtv/
+[sense docs]: /integrations/sense/
+[simplisafe docs]: /integrations/simplisafe/
+[sisyphus docs]: /integrations/sisyphus/
+[sma docs]: /integrations/sma/
+[smartthings docs]: /integrations/smartthings/
+[smarty docs]: /integrations/smarty/
+[solaredge_local docs]: /integrations/solaredge_local/
+[somfy docs]: /integrations/somfy/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+[sonos docs]: /integrations/sonos/
+[streamlabswater docs]: /integrations/streamlabswater/
+[switcher_kis docs]: /integrations/switcher_kis/
+[synologydsm docs]: /integrations/synologydsm/
+[tahoma docs]: /integrations/tahoma/
+[tibber docs]: /integrations/tibber/
+[toon docs]: /integrations/toon/
+[totalconnect docs]: /integrations/totalconnect/
+[traccar docs]: /integrations/traccar/
+[tradfri docs]: /integrations/tradfri/
+[ubee docs]: /integrations/ubee/
+[unifi docs]: /integrations/unifi/
+[velbus docs]: /integrations/velbus/
+[velux docs]: /integrations/velux/
+[vera docs]: /integrations/vera/
+[vlc_telnet docs]: /integrations/vlc_telnet
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[webostv docs]: /integrations/webostv/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[yeelight docs]: /integrations/yeelight/
+[yr docs]: /integrations/yr/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

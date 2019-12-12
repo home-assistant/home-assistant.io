@@ -26,8 +26,8 @@ Luckily, OwnTracks supports iBeacons so I could use them to make presence detect
 
 To do this you first need to set up [MQTT] and [OwnTracks] in Home Assistant - and make sure that HA can track your phone.
 
-[MQTT]: /components/mqtt/#picking-a-broker
-[OwnTracks]: /components/device_tracker.owntracks/
+[MQTT]: /integrations/mqtt/#picking-a-broker
+[OwnTracks]: /integrations/owntracks
 
 You then have to (A) tell Home Assistant where the beacon is located and (B) tell OwnTracks to recognize the beacon.
 
@@ -118,7 +118,7 @@ Presence tracking sounds easy - and it's an important part of Home Automation. T
 
 You can find out more about configuring the OwnTracks application and beacons [here](http://owntracks.org/booklet/features/beacons/)
 
-There is information about configuring Homeassistant to use beacons [here](/components/device_tracker.owntracks/)
+There is information about configuring Homeassistant to use beacons [here](/integrations/owntracks)
 
 #### Connections and disconnecting
 

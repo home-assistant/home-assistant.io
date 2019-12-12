@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-08-0.75/components.png
 ---
 
-<a href='/components/#version/0.75'><img src='/images/blog/2018-08-0.75/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.75'><img src='/images/blog/2018-08-0.75/components.png' style='border: 0;box-shadow: none;'></a>
 
 And just like that, it's August. Time is flying by. People all over the world have been busy to create this release for you. This release again a ton of cool new stuff.
 
@@ -53,7 +53,7 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 
 [#15874]: https://github.com/home-assistant/home-assistant/pull/15874
 [@awarecan]: https://github.com/awarecan
-[hassio docs]: /components/hassio/
+[hassio docs]: /integrations/hassio/
 
 ## If you need help...
 
@@ -152,7 +152,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade youtube_dl to 2018.07.21 ([@fabaff] - [#15718]) ([media_extractor docs])
 - Upgrade numpy to 1.15.0 ([@fabaff] - [#15722]) ([binary_sensor.trend docs]) ([image_processing.opencv docs])
 - Upgrade spiderpy to 1.2.0 ([@peternijssen] - [#15729]) ([spider docs])
-- Upgrade beautifulsoup4 to 4.6.1 ([@fabaff] - [#15727]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
+- Upgrade beautifulsoup4 to 4.6.1 ([@fabaff] - [#15727]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs])
 - Upgrade mutagen to 1.41.0 ([@fabaff] - [#15739]) ([tts docs])
 - Upgrade sqlalchemy to 1.2.10 ([@fabaff] - [#15737]) ([sensor.sql docs])
 - Upgrade voluptuous to 0.11.3 ([@fabaff] - [#15735])
@@ -304,121 +304,120 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@visibilityspots]: https://github.com/visibilityspots
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wingy3181]: https://github.com/wingy3181
-[alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alarmdecoder docs]: /components/alarmdecoder/
-[api docs]: /components/api/
-[apple_tv docs]: /components/apple_tv/
-[arlo docs]: /components/arlo/
-[auth docs]: /components/auth/
-[binary_sensor.alarmdecoder docs]: /components/binary_sensor.alarmdecoder/
-[binary_sensor.ihc docs]: /components/binary_sensor.ihc/
-[binary_sensor.insteon_plm docs]: /components/binary_sensor.insteon_plm/
-[binary_sensor.tahoma docs]: /components/binary_sensor.tahoma/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[calendar.todoist docs]: /components/calendar.todoist/
-[camera docs]: /components/camera/
-[camera.demo docs]: /components/camera.demo/
-[camera.nest docs]: /components/camera.nest/
-[camera.proxy docs]: /components/camera.proxy/
-[climate.heatmiser docs]: /components/climate.heatmiser/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.spider docs]: /components/climate.spider/
-[climate.tuya docs]: /components/climate.tuya/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[cover.aladdin_connect docs]: /components/cover.aladdin_connect/
-[cover.brunt docs]: /components/cover.brunt/
-[cover.tuya docs]: /components/cover.tuya/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.tile docs]: /components/device_tracker.tile/
-[fan docs]: /components/fan/
-[fan.comfoconnect docs]: /components/fan.comfoconnect/
-[fan.dyson docs]: /components/fan.dyson/
-[fan.insteon_local docs]: /components/fan.insteon_local/
-[fan.template docs]: /components/fan.template/
-[fan.tuya docs]: /components/fan.tuya/
-[fan.wink docs]: /components/fan.wink/
-[fan.zha docs]: /components/fan.zha/
-[google_assistant docs]: /components/google_assistant/
-[hassio docs]: /components/hassio/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[ihc docs]: /components/ihc/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[insteon_plm docs]: /components/insteon_plm/
-[light docs]: /components/light/
-[light.deconz docs]: /components/light.deconz/
-[light.futurenow docs]: /components/light.futurenow/
-[light.ihc docs]: /components/light.ihc/
-[light.mqtt docs]: /components/light.mqtt/
-[light.sisyphus docs]: /components/light.sisyphus/
-[light.tplink docs]: /components/light.tplink/
-[mailgun docs]: /components/mailgun/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.pandora docs]: /components/media_player.pandora/
-[media_player.sisyphus docs]: /components/media_player.sisyphus/
-[media_player.sonos docs]: /components/media_player.sonos/
-[mqtt docs]: /components/mqtt/
-[neato docs]: /components/neato/
-[nest docs]: /components/nest/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[notify docs]: /components/notify/
-[rachio docs]: /components/rachio/
-[scene.tuya docs]: /components/scene.tuya/
-[sensor.bme280 docs]: /components/sensor.bme280/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.citybikes docs]: /components/sensor.citybikes/
-[sensor.command_line docs]: /components/sensor.command_line/
-[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.geizhals docs]: /components/sensor.geizhals/
-[sensor.ihc docs]: /components/sensor.ihc/
-[sensor.magicseaweed docs]: /components/sensor.magicseaweed/
-[sensor.modem_callerid docs]: /components/sensor.modem_callerid/
-[sensor.moon docs]: /components/sensor.moon/
-[sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.netgear_lte docs]: /components/sensor.netgear_lte/
-[sensor.nzbget docs]: /components/sensor.nzbget/
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.pyload docs]: /components/sensor.pyload/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.strings.moon.json docs]: /components/sensor.strings.moon.json/
-[sensor.sytadin docs]: /components/sensor.sytadin/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[sisyphus docs]: /components/sisyphus/
-[smappee docs]: /components/smappee/
-[spider docs]: /components/spider/
-[switch docs]: /components/switch/
-[switch.ihc docs]: /components/switch.ihc/
-[switch.insteon_plm docs]: /components/switch.insteon_plm/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.spider docs]: /components/switch.spider/
-[switch.tplink docs]: /components/switch.tplink/
-[tahoma docs]: /components/tahoma/
-[tts docs]: /components/tts/
-[tuya docs]: /components/tuya/
-[vacuum.neato docs]: /components/vacuum.neato/
-[vera docs]: /components/vera/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[websocket_api docs]: /components/websocket_api/
-[wemo docs]: /components/wemo/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[api docs]: /integrations/api/
+[apple_tv docs]: /integrations/apple_tv/
+[arlo docs]: /integrations/arlo/
+[auth docs]: /integrations/auth/
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
+[binary_sensor.tahoma docs]: /integrations/tahoma
+[binary_sensor.trend docs]: /integrations/trend
+[calendar.todoist docs]: /integrations/todoist
+[camera docs]: /integrations/camera/
+[camera.demo docs]: /integrations/camera.demo/
+[camera.nest docs]: /integrations/nest#camera
+[camera.proxy docs]: /integrations/proxy
+[climate.heatmiser docs]: /integrations/heatmiser
+[climate.honeywell docs]: /integrations/honeywell
+[climate.spider docs]: /integrations/spider#climate
+[climate.tuya docs]: /integrations/tuya
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover.aladdin_connect docs]: /integrations/aladdin_connect
+[cover.brunt docs]: /integrations/brunt
+[cover.tuya docs]: /integrations/tuya
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.tile docs]: /integrations/tile
+[fan docs]: /integrations/fan/
+[fan.comfoconnect docs]: /integrations/comfoconnect
+[fan.dyson docs]: /integrations/dyson#fan
+[fan.insteon_local docs]: /integrations/insteon/
+[fan.template docs]: /integrations/fan.template/
+[fan.tuya docs]: /integrations/tuya
+[fan.wink docs]: /integrations/wink#fan
+[fan.zha docs]: /integrations/zha
+[google_assistant docs]: /integrations/google_assistant/
+[hassio docs]: /integrations/hassio/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[ihc docs]: /integrations/ihc/
+[image_processing.opencv docs]: /integrations/opencv
+[insteon_plm docs]: /integrations/insteon/
+[light docs]: /integrations/light/
+[light.deconz docs]: /integrations/deconz#light
+[light.futurenow docs]: /integrations/futurenow
+[light.ihc docs]: /integrations/ihc#light
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.sisyphus docs]: /integrations/sisyphus
+[light.tplink docs]: /integrations/tplink
+[mailgun docs]: /integrations/mailgun/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.pandora docs]: /integrations/pandora
+[media_player.sisyphus docs]: /integrations/sisyphus
+[media_player.sonos docs]: /integrations/sonos
+[mqtt docs]: /integrations/mqtt/
+[neato docs]: /integrations/neato/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[notify docs]: /integrations/notify/
+[rachio docs]: /integrations/rachio/
+[scene.tuya docs]: /integrations/tuya
+[sensor.bme280 docs]: /integrations/bme280
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.command_line docs]: /integrations/sensor.command_line/
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.ihc docs]: /integrations/ihc#sensor
+[sensor.magicseaweed docs]: /integrations/magicseaweed
+[sensor.modem_callerid docs]: /integrations/modem_callerid
+[sensor.moon docs]: /integrations/moon
+[sensor.mvglive docs]: /integrations/mvglive
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.netgear_lte docs]: /integrations/netgear_lte
+[sensor.nzbget docs]: /integrations/nzbget
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.pyload docs]: /integrations/pyload
+[sensor.scrape docs]: /integrations/scrape
+[sensor.sql docs]: /integrations/sql
+[sensor.strings.moon.json docs]: /integrations/sensor.strings.moon.json/
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sisyphus docs]: /integrations/sisyphus/
+[smappee docs]: /integrations/smappee/
+[spider docs]: /integrations/spider/
+[switch docs]: /integrations/switch/
+[switch.ihc docs]: /integrations/ihc#switch
+[switch.insteon_plm docs]: /integrations/insteon/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.spider docs]: /integrations/spider
+[switch.tplink docs]: /integrations/tplink
+[tahoma docs]: /integrations/tahoma/
+[tts docs]: /integrations/tts/
+[tuya docs]: /integrations/tuya/
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vera docs]: /integrations/vera/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
+[zwave docs]: /integrations/zwave/
 [#15706]: https://github.com/home-assistant/home-assistant/pull/15706
 [#15819]: https://github.com/home-assistant/home-assistant/pull/15819
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@superpuffin]: https://github.com/superpuffin
-[rfxtrx docs]: /components/rfxtrx/
-[sensor.dht docs]: /components/sensor.dht/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.dht docs]: /integrations/dht
 [#15830]: https://github.com/home-assistant/home-assistant/pull/15830
 [#15832]: https://github.com/home-assistant/home-assistant/pull/15832
 [@Cinntax]: https://github.com/Cinntax
 [@fabaff]: https://github.com/fabaff
-[envisalink docs]: /components/envisalink/
+[envisalink docs]: /integrations/envisalink/

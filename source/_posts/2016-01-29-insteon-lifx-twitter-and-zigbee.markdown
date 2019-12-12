@@ -17,7 +17,7 @@ This release includes a very frequent requested feature: the ability to organize
 
 <p class='img'>
 <a href='/demo/'><img src='/images/blog/2016-01-release-12/views.png'></a>
-Example of the new views in the frontend. <a href='/components/group/'>Learn more.</a>
+Example of the new views in the frontend. <a href='/integrations/group/'>Learn more.</a>
 </p>
 
 <img src='/images/supported_brands/insteon.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lifx.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/twitter.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/zigbee.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
@@ -43,21 +43,21 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
  - Bugfixes by [@molobrakos], [@MartinHjelmare], [@pavoni], [@trollkarlen], [@zmrow], [@maddox], [@persandstrom], [@happyleavesaoc], [@balloob], [@fabaff], [@stefan-jonasson], [@haraldnagel].
 
 [the demo]: /demo/
-[command sensor]: /components/binary_sensor.command/
-[Insteon hub]: /components/insteon/
-[LIFX]: /components/light.lifx/
-[Nest]: /components/nest/
-[onewire]: /components/sensor.onewire/
-[OwnTracks]: /components/device_tracker.owntracks/
-[Rfxtrx]: /components/light.rfxtrx/
-[Statsd]: /components/statsd/
-[Template]: /components/sensor.template/
-[Thermostat]: /components/climate/
+[command sensor]: /integrations/command_line/
+[Insteon hub]: /integrations/insteon/
+[LIFX]: /integrations/lifx
+[Nest]: /integrations/nest/
+[onewire]: /integrations/onewire
+[OwnTracks]: /integrations/owntracks
+[Rfxtrx]: /integrations/light.rfxtrx/
+[Statsd]: /integrations/statsd/
+[Template]: /integrations/template
+[Thermostat]: /integrations/climate/
 [time automation]: /getting-started/automation-trigger/#time-trigger
-[Twitter]: /components/notify.twitter/
-[Wink]: /components/wink/
-[Zigbee]: /components/zigbee/
-[group]: /components/group/
+[Twitter]: /integrations/twitter
+[Wink]: /integrations/wink/
+[Zigbee]: /integrations/zigbee/
+[group]: /integrations/group/
 [@auchter]: https://github.com/auchter
 [@balloob]: https://github.com/balloob
 [@Bart274]: https://github.com/Bart274

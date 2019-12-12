@@ -9,7 +9,7 @@
   </div>
 
   {%- assign file_parts = page.url | split: '/' | last | split: '.' -%}
-  {%- assign imp_name = file_parts | first -%}
+  {%- assign imp_name = file_parts | last -%}
   {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
 
   <div class="section">
@@ -60,7 +60,7 @@
     <ul class='divided'>
     {%- for category in page.ha_category -%}
       <li>
-        <a href='/components/#{{ category | slugify }}'>{{ category }}</a>
+        <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
       </li>
     {%- endfor -%}
     </ul>

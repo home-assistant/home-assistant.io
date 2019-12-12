@@ -76,30 +76,30 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [@rhooper]: https://github.com/rhooper/
 [@turbokongen]: https://github.com/turbokongen/
 [@w1ll1am23]: https://github.com/w1ll1am23/
-[envi-alarm]: /components/alarm_control_panel.envisalink/
-[envi-binary-sensor]: /components/binary_sensor.envisalink/
-[envi-sensor]: /components/sensor.envisalink/
-[Envisalink]: /components/envisalink/
-[HDMI-CEC]: /components/hdmi_cec/
-[hm-binary-sensor]: /components/binary_sensor.homematic/
-[hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/homematic/
-[hm-sensor]: /components/sensor.homematic/
-[hm-switch]: /components/switch.homematic/
-[Homematic]: /components/homematic/
-[Netatmo]: /components/sensor.netatmo/
-[OneWire]: /components/sensor.onewire/
-[OpenExchangeRates]: /components/sensor.openexchangerates/
-[Pushover]: /components/notify.pushover/
+[envi-alarm]: /integrations/envisalink
+[envi-binary-sensor]: /integrations/envisalink
+[envi-sensor]: /integrations/envisalink
+[Envisalink]: /integrations/envisalink/
+[HDMI-CEC]: /integrations/hdmi_cec/
+[hm-binary-sensor]: /integrations/homematic
+[hm-light]: /integrations/homematic
+[hm-rollershutter]: /integrations/homematic/
+[hm-sensor]: /integrations/homematic
+[hm-switch]: /integrations/homematic
+[Homematic]: /integrations/homematic/
+[Netatmo]: /integrations/netatmo#sensor
+[OneWire]: /integrations/onewire
+[OpenExchangeRates]: /integrations/openexchangerates
+[Pushover]: /integrations/pushover
 [secrets]: /topics/secrets/
-[Vera]: /components/lock.vera/
-[Wink]: /components/wink/
-[zwave-garage-door]: /components/zwave/#cover
-[zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/zwave/#cover
-[Fixer.io]: /components/sensor.fixer/
-[persistent notifications]: /components/persistent_notification/
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[zwave-garage-door]: /integrations/zwave/#cover
+[zwave-light]: /integrations/zwave
+[zwave-rollershutter]: /integrations/zwave/#cover
+[Fixer.io]: /integrations/fixer
+[persistent notifications]: /integrations/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
-[Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/rpi_gpio/#remote-raspberry-pi-cover
+[Sony Bravia TV]: /integrations/braviatv
+[Raspberry Pi GPIO pins]: /integrations/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

@@ -6,7 +6,7 @@ description: "Telldus TellStick service enabler and tools."
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
 
 To use this add-on, you first install it from the list of Built-in add-ons in Hass.io.
-After installation you are presented with a default and example configuration, to alter this you must follow both the JSON format and also be aligned with the [valid parameters for Tellstick configuration file (tellstick.conf)](https://developer.telldus.com/wiki/TellStick_conf).
+After installation you are presented with a default and example configuration, to alter this you must follow both the JSON format and also be aligned with the [valid parameters for Tellstick configuration file (tellstick.conf)](http://developer.telldus.com/wiki/TellStick_conf).
 
 After any changes have been made to the configuration, you need to restart the add-on for the changes to take effect.
 
@@ -19,7 +19,7 @@ tellstick:
     port: [50800, 50801]
 ```
 
-To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tellstick/) and [switches](/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](/components/tellstick/)
+To add [lights](/integrations/tellstick#light), [sensors](/integrations/tellstick#sensor) and [switches](/integrations/tellstick#switch) you follow the guidelines for each type individually that is [described for Home Assistant](/integrations/tellstick/)
 
 The add-on will also enable you to interact with the `tdtool` via a Home Assistant services call, see example below for self-learning device.
 
@@ -86,13 +86,13 @@ code:
   type: string
 {% endconfiguration %}
 
-For more information about the configuration including protocols, see the [telldus documentation](https://developer.telldus.com/wiki/TellStick_conf).
+For more information about the configuration including protocols, see the [telldus documentation](http://developer.telldus.com/wiki/TellStick_conf).
 
 ## Service calls
 
 If you wish to teach a self-learning device in your TellStick configuration:
 
-Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.
+Go to Home Assistant service call in Developer tools and select.
 
 - Service: `hassio.addon_stdin`
 - Enter service Data:

@@ -63,7 +63,7 @@ titlecase: true # Converts page and post titles to titlecase
 # page_asides:
 
 collections:
-  components:
+  integrations:
     output: true
   cookbook:
     output: true
@@ -100,9 +100,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 98
-current_patch_version: 3
-date_released: 2019-09-04
+current_minor_version: 103
+current_patch_version: 0
+date_released: 2019-12-11
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -134,5 +134,6 @@ defaults:
 
 # Support for files Jekyll will normally exclude
 include:
-  - ".well-known"
+  - "_headers"
   - "_redirects"
+  - ".well-known"

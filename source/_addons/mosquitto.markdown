@@ -23,7 +23,7 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 
 <div class='warning note'>
 
-Since version 4.1 of the addon, an explicit ACL definition is now required, [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
+Since version 4.1 of the addon, an explicit ACL definition is now required if you plan to use legacy logins and `"anonymous": true` [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
 
 </div>
 
@@ -42,6 +42,16 @@ customize:
   required: false
   type: [boolean, string]
   default: false
+cafile:
+  description: Path to the CA certificate. If not set, will default to the *certfile* value.
+  required: false
+  default: certfile
+  type: string
+require_certificate:
+  description: Restrict to users with a valid certificate only.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ### Home Assistant user management
@@ -66,6 +76,16 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
   Username: MQTT_USERNAME
   Password: MQTT_PASSWORD
 ```
+
+If you are using the ACL, remember to enter the newly created user and homeassistant in `/share/mosquitto/accesscontrollist` as follows:
+
+```text
+user [YOUR_MQTT_USER]
+topic readwrite #
+user homeassistant
+topic readwrite #
+```
+
 
 Note: .yaml modifications are not required. 
 See [testing your setup](/docs/mqtt/testing/) to verify the steps above.

@@ -11,14 +11,14 @@ Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databa
   "logins": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "password": "securePassword"
     }
   ],
   "rights": [
     {
       "username": "hass",
-      "host": "homeassistant",
+      "host": "%.local.hass.io",
       "database": "homeassistant",
       "grant": "ALL PRIVILEGES ON"
     }
@@ -41,7 +41,7 @@ logins:
       required: true
       type: string
     host:
-      description: Host for account. If you need an account on multiple hosts, use '%'.
+      description: Host for account. Use '%', to accept connections for this account from any host.
       required: true
       type: string
     password:

@@ -9,27 +9,27 @@ og_image: /images/supported_brands/glances.png
 ---
 
 <img src='/images/supported_brands/glances.png' style='border:none; box-shadow: none; float: right;' height='80' />
-Inspired by a [feature requests](https://github.com/home-assistant/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/components/sensor.systemmonitor/) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
+Inspired by a [feature requests](https://github.com/home-assistant/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/integrations/systemmonitor) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
 
 <!--more-->
 
 The basic problem is to get the data from the remote host. Starting with [psutil](https://pypi.python.org/pypi/psutil) that is used by the systemmonitor sensor, a possible solution is only a click away and named [Glances](https://github.com/nicolargo/glances). Glances has a nice curses-based interface and a [RESTful API](https://github.com/nicolargo/glances/wiki/The-Glances-RESTFULL-JSON-API). 
 
-The [Glances sensor](/components/sensor.glances/) sensor uses that API to get all needed data. 
+The [Glances sensor](/integrations/glances) sensor uses that API to get all needed data. 
 
 In this post a default Fedora 22 Workstation installation is used on the host that should be monitored. In fact, it doesn't matter if the system is the local one or a remote one as long as Glances is available. With some adjustments it should work on your own systems too. The difference will be the package and the firewall management tools.
 
 First some extra packages are needed beside Glances, especially the [bottle](http://bottlepy.org/docs/dev/index.html) webserver. I guess that Glances is available for your distribution as well. Otherwise follow those [instructions](https://github.com/nicolargo/glances#installation).
 
 ```bash
-$ sudo dnf -y install glances python-bottle
+sudo dnf -y install glances python-bottle
 ```
 
 On Fedora the Firewall settings are strict. Let's open port 61208 to allow other hosts to connect to that port. This is not needed if you just want to observe your local machine. 
 
 ```bash
-$ sudo firewall-cmd --permanent --add-port=61208/tcp
-$ sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-port=61208/tcp
+sudo firewall-cmd --reload
 ```
 
 Launch `glances` and keep an eye on the output.
@@ -53,7 +53,7 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
 {"used": 203943936}
 ```
 
-Add the [glances sensor](/components/sensor.glances/) entry to your `configuration.yaml` file and restart Home Assistant then.
+Add the [glances sensor](/integrations/glances) entry to your `configuration.yaml` file and restart Home Assistant then.
 
 ```yaml
 # Example configuration.yaml entry

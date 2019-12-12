@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-08-0.98/components.png
 ---
 
-<a href='/components/#version/0.98'><img src='/images/blog/2019-08-0.98/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.98'><img src='/images/blog/2019-08-0.98/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for the 0.98 release. As Home Assistant grows, some features will sometimes be left partially implemented, leaving things to be desired. In this release we've been focusing on tieing up these loose ends, sometimes with new features. Getting better all the time!
 
@@ -69,7 +69,7 @@ For more background on this decision, see [ADR-006](https://github.com/home-assi
 
 ## Webscraping
 
-With this release we have deprecated integrations that rely on webscraping. These will be removed from Home Assistant in a future release. Our [scrape](/components/scrape/) integration will remain part of Home Assistant.
+With this release we have deprecated integrations that rely on webscraping. These will be removed from Home Assistant in a future release. Our [scrape](/integrations/scrape/) integration will remain part of Home Assistant.
 
 Webscraping is fragile, breaks often requires frequent updates and there have been occassions where websites have banned our users.
 
@@ -127,13 +127,13 @@ Screencap of the batcave video.
 [@dmulcahey]: https://github.com/dmulcahey
 [@eliseomartelli]: https://github.com/eliseomartelli
 [@mbo18]: https://github.com/mbo18
-[buienradar docs]: /components/buienradar/
-[darksky docs]: /components/darksky/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[mysensors docs]: /components/mysensors/
-[qbittorrent docs]: /components/qbittorrent/
-[unifi docs]: /components/unifi/
-[zha docs]: /components/zha/
+[buienradar docs]: /integrations/buienradar/
+[darksky docs]: /integrations/darksky/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[mysensors docs]: /integrations/mysensors/
+[qbittorrent docs]: /integrations/qbittorrent/
+[unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
 
 ## Release 0.98.2 - September 2
 
@@ -151,12 +151,12 @@ Screencap of the batcave video.
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@balloob]: https://github.com/balloob
 [@tyjtyj]: https://github.com/tyjtyj
-[alexa docs]: /components/alexa/
-[cloud docs]: /components/cloud/
-[demo docs]: /components/demo/
-[fan docs]: /components/fan/
-[google_maps docs]: /components/google_maps/
-[tuya docs]: /components/tuya/
+[alexa docs]: /integrations/alexa/
+[cloud docs]: /integrations/cloud/
+[demo docs]: /integrations/demo/
+[fan docs]: /integrations/fan/
+[google_maps docs]: /integrations/google_maps/
+[tuya docs]: /integrations/tuya/
 
 ## Release 0.98.3 - September 4
 
@@ -184,14 +184,24 @@ Screencap of the batcave video.
 [@balloob]: https://github.com/balloob
 [@ehendrix23]: https://github.com/ehendrix23
 [@fabaff]: https://github.com/fabaff
-[alexa docs]: https://www.home-assistant.io/components/alexa/
-[deconz docs]: https://www.home-assistant.io/components/deconz/
-[harmony docs]: https://www.home-assistant.io/components/harmony/
-[isy994 docs]: https://www.home-assistant.io/components/isy994/
-[met docs]: https://www.home-assistant.io/components/met/
-[sonos docs]: https://www.home-assistant.io/components/sonos/
-[version docs]: https://www.home-assistant.io/components/version/
-[websocket_api docs]: https://www.home-assistant.io/components/websocket_api/
+[alexa docs]: https://www.home-assistant.io/integrations/alexa/
+[deconz docs]: https://www.home-assistant.io/integrations/deconz/
+[harmony docs]: https://www.home-assistant.io/integrations/harmony/
+[isy994 docs]: https://www.home-assistant.io/integrations/isy994/
+[met docs]: https://www.home-assistant.io/integrations/met/
+[sonos docs]: https://www.home-assistant.io/integrations/sonos/
+[version docs]: https://www.home-assistant.io/integrations/version/
+[websocket_api docs]: https://www.home-assistant.io/integrations/websocket_api/
+
+## Release 0.98.4 - September 4
+
+ - Fix Tuya switches ([@balloob])
+
+## Release 0.98.5 - September 6
+
+We have been notified by Gregor Godbersen that our markdown renderer was vulnerable for an XSS attack if exposed to specially crafted markdown. This was introduced in the Home Assistant 0.98 release. We have verified that Home Assistant 0.98.0 does not render unsafe markdown, yet still wanted to make sure to issue an update as soon as possible.
+
+More information in this [frontend pull request](https://github.com/home-assistant/home-assistant-polymer/pull/3640).
 
 ## If you need help...
 
@@ -208,12 +218,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Deprecated**
 
    Integrations which make use of web scraping and are pending for removal in Home Assistant 0.100.0 [ADR-004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md):
-   - **USPS** - ([@frenck] - [#25743]) ([usps docs])
-   - **SYTADIN** - ([@frenck] - [#25742]) ([sytadin docs])
-   - **UPS** - ([@frenck] - [#25746]) ([ups docs])
-   - **FEDEX** - ([@frenck] - [#25745]) ([fedex docs])
-   - **SRP Energy** - ([@frenck] - [#25754]) ([srp_energy docs])
-   - **Linksys AP** - ([@frenck] - [#25804]) ([linksys_ap docs])
+   - **USPS** - ([@frenck] - [#25743])
+   - **SYTADIN** - ([@frenck] - [#25742])
+   - **UPS** - ([@frenck] - [#25746])
+   - **FEDEX** - ([@frenck] - [#25745])
+   - **SRP Energy** - ([@frenck] - [#25754])
+   - **Linksys AP** - ([@frenck] - [#25804])
 
 - **Ruter** - *Removed* - Ruter Labs which hosted the API has shut down the service. As an alternative, see the Entur public transport integration. - ([@ludeeus] - [#26041])
 - **Googlehome** - *Removed* - In recent months this integration was broken when Google changed the port they serve this information on, in addition to requiring a token header in the request. That method requires the user to have a rooted android device, and even then then the "result" was not the best, since you often need to get that token. As an alternative to the device tracker, users can look into https://community.home-assistant.io/t/monitor-reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/68505 - ([@ludeeus] - [#26035])
@@ -337,15 +347,15 @@ anymore. - ([@abmantis] - [#25971])
 - Implement "Aux Heat" support for Zwave Climate ([@eyager1] - [#25694]) ([zwave docs])
 - Add test case to identify missing MQTT configuration abbreviations ([@emontnemery] - [#25616]) ([mqtt docs])
 - Manufacturer specific channel for SmartThings. ([@Adminiuga] - [#25739]) ([zha docs])
-- Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) ([usps docs]) (breaking change)
-- Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) ([sytadin docs]) (breaking change)
-- Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) ([ups docs]) (breaking change)
-- Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) ([fedex docs]) (breaking change)
-- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) ([srp_energy docs]) (breaking change)
+- Deprecates usps integration (ADR-0004) ([@frenck] - [#25743]) (breaking change)
+- Deprecates sytadin integration (ADR-0004) ([@frenck] - [#25742]) (breaking change)
+- Deprecates ups integration (ADR-0004) ([@frenck] - [#25746]) (breaking change)
+- Deprecates fedex integration (ADR-0004) ([@frenck] - [#25745]) (breaking change)
+- Deprecates srp_energy integration (ADR-0004) ([@frenck] - [#25754]) (breaking change)
 - Updater component is always available and shows on/off depending on whether an update is available or not ([@Santobert] - [#25418]) ([updater docs]) (breaking change)
 - Integration requirement check refactor ([@elupus] - [#25626])
 - Add Mikrotik hub and rework device tracker ([@slackr31337] - [#25664]) ([mikrotik docs]) (breaking change)
-- Deprecates linksys_ap integration (ADR-0004) ([@frenck] - [#25804]) ([linksys_ap docs]) (breaking change)
+- Deprecates linksys_ap integration (ADR-0004) ([@frenck] - [#25804]) (breaking change)
 - Fix Broadlink MP1 unavailable error ([@miroslawkrol] - [#25806]) ([broadlink docs])
 - Add arcus trigonometry functions to templates ([@tomilehto] - [#25510])
 - Add error handling to !include command in yaml ([@thomasloven] - [#25801])
@@ -408,7 +418,7 @@ anymore. - ([@abmantis] - [#25971])
 - Fix bmw_connected_drive and eq3btsmart components by updating their dependencies ([@OliverRepo] - [#26012]) ([bmw_connected_drive docs]) ([eq3btsmart docs])
 - Upgrade luftdaten to 0.6.3 ([@fabaff] - [#26009]) ([luftdaten docs])
 - Upgrade pysnmp to 4.4.11 ([@fabaff] - [#26010]) ([snmp docs])
-- Upgrade beautifulsoup4 to 4.8.0 ([@fabaff] - [#26006]) ([linksys_ap docs]) ([scrape docs]) ([sytadin docs])
+- Upgrade beautifulsoup4 to 4.8.0 ([@fabaff] - [#26006]) ([scrape docs])
 - Allow entities to indicate they should be disabled by default ([@balloob] - [#26011])
 - Hue tweak registered device type + discovery exception ([@balloob] - [#25977]) ([hue docs])
 - Fix config entry has options check ([@balloob] - [#25976]) ([config docs])
@@ -767,118 +777,112 @@ anymore. - ([@abmantis] - [#25971])
 [@zewelor]: https://github.com/zewelor
 [@zhumuht]: https://github.com/zhumuht
 [@zxdavb]: https://github.com/zxdavb
-[alexa docs]: /components/alexa/
-[ambient_station docs]: /components/ambient_station/
-[androidtv docs]: /components/androidtv/
-[arcam_fmj docs]: /components/arcam_fmj/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[broadlink docs]: /components/broadlink/
-[camera docs]: /components/camera/
-[climate docs]: /components/climate/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[coolmaster docs]: /components/coolmaster/
-[deconz docs]: /components/deconz/
-[demo docs]: /components/demo/
-[dialogflow docs]: /components/dialogflow/
-[dsmr docs]: /components/dsmr/
-[ecobee docs]: /components/ecobee/
-[edp_redy docs]: /components/edp_redy/
-[emulated_hue docs]: /components/emulated_hue/
-[environment_canada docs]: /components/environment_canada/
-[eq3btsmart docs]: /components/eq3btsmart/
-[essent docs]: /components/essent/
-[evohome docs]: /components/evohome/
-[fedex docs]: /components/fedex/
-[filter docs]: /components/filter/
-[fritz docs]: /components/fritz/
-[fronius docs]: /components/fronius/
-[geniushub docs]: /components/geniushub/
-[geonetnz_quakes docs]: /components/geonetnz_quakes/
-[google_maps docs]: /components/google_maps/
-[googlehome docs]: /components/googlehome/
-[group docs]: /components/group/
-[heos docs]: /components/heos/
-[homekit_controller docs]: /components/homekit_controller/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[huawei_lte docs]: /components/huawei_lte/
-[hue docs]: /components/hue/
-[input_boolean docs]: /components/input_boolean/
-[ipma docs]: /components/ipma/
-[iqvia docs]: /components/iqvia/
-[islamic_prayer_times docs]: /components/islamic_prayer_times/
-[keba docs]: /components/keba/
-[kodi docs]: /components/kodi/
-[lacrosse docs]: /components/lacrosse/
-[life360 docs]: /components/life360/
-[linksys_ap docs]: /components/linksys_ap/
-[luci docs]: /components/luci/
-[luftdaten docs]: /components/luftdaten/
-[lutron docs]: /components/lutron/
-[lw12wifi docs]: /components/lw12wifi/
-[mastodon docs]: /components/mastodon/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[met docs]: /components/met/
-[meteo_france docs]: /components/meteo_france/
-[mikrotik docs]: /components/mikrotik/
-[minio docs]: /components/minio/
-[modbus docs]: /components/modbus/
-[mqtt docs]: /components/mqtt/
-[netgear_lte docs]: /components/netgear_lte/
-[nissan_leaf docs]: /components/nissan_leaf/
-[opencv docs]: /components/opencv/
-[opentherm_gw docs]: /components/opentherm_gw/
-[pi_hole docs]: /components/pi_hole/
-[plex docs]: /components/plex/
-[plugwise docs]: /components/plugwise/
-[point docs]: /components/point/
-[prometheus docs]: /components/prometheus/
-[proxy docs]: /components/proxy/
-[ps4 docs]: /components/ps4/
-[python_script docs]: /components/python_script/
-[qrcode docs]: /components/qrcode/
-[rainbird docs]: /components/rainbird/
-[recorder docs]: /components/recorder/
-[ring docs]: /components/ring/
-[ruter docs]: /components/ruter/
-[sabnzbd docs]: /components/sabnzbd/
-[scrape docs]: /components/scrape/
-[script docs]: /components/script/
-[shodan docs]: /components/shodan/
-[simplisafe docs]: /components/simplisafe/
-[sisyphus docs]: /components/sisyphus/
-[sma docs]: /components/sma/
-[smhi docs]: /components/smhi/
-[snmp docs]: /components/snmp/
-[sonos docs]: /components/sonos/
-[sql docs]: /components/sql/
-[srp_energy docs]: /components/srp_energy/
-[statistics docs]: /components/statistics/
-[stream docs]: /components/stream/
-[syncthru docs]: /components/syncthru/
-[sytadin docs]: /components/sytadin/
-[tado docs]: /components/tado/
-[tellduslive docs]: /components/tellduslive/
-[template docs]: /components/template/
-[tensorflow docs]: /components/tensorflow/
-[tile docs]: /components/tile/
-[traccar docs]: /components/traccar/
-[trend docs]: /components/trend/
-[tuya docs]: /components/tuya/
-[twentemilieu docs]: /components/twentemilieu/
-[unifi docs]: /components/unifi/
-[updater docs]: /components/updater/
-[upnp docs]: /components/upnp/
-[ups docs]: /components/ups/
-[usps docs]: /components/usps/
-[vacuum docs]: /components/vacuum/
-[velbus docs]: /components/velbus/
-[vera docs]: /components/vera/
-[vesync docs]: /components/vesync/
-[volumio docs]: /components/volumio/
-[websocket_api docs]: /components/websocket_api/
-[wunderground docs]: /components/wunderground/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alexa docs]: /integrations/alexa/
+[ambient_station docs]: /integrations/ambient_station/
+[androidtv docs]: /integrations/androidtv/
+[arcam_fmj docs]: /integrations/arcam_fmj/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[broadlink docs]: /integrations/broadlink/
+[camera docs]: /integrations/camera/
+[climate docs]: /integrations/climate/
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[coolmaster docs]: /integrations/coolmaster/
+[deconz docs]: /integrations/deconz/
+[demo docs]: /integrations/demo/
+[dialogflow docs]: /integrations/dialogflow/
+[dsmr docs]: /integrations/dsmr/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue docs]: /integrations/emulated_hue/
+[environment_canada docs]: /integrations/environment_canada/
+[eq3btsmart docs]: /integrations/eq3btsmart/
+[essent docs]: /integrations/essent/
+[evohome docs]: /integrations/evohome/
+[filter docs]: /integrations/filter/
+[fritz docs]: /integrations/fritz/
+[fronius docs]: /integrations/fronius/
+[geniushub docs]: /integrations/geniushub/
+[geonetnz_quakes docs]: /integrations/geonetnz_quakes/
+[google_maps docs]: /integrations/google_maps/
+[group docs]: /integrations/group/
+[heos docs]: /integrations/heos/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
+[input_boolean docs]: /integrations/input_boolean/
+[ipma docs]: /integrations/ipma/
+[iqvia docs]: /integrations/iqvia/
+[islamic_prayer_times docs]: /integrations/islamic_prayer_times/
+[keba docs]: /integrations/keba/
+[kodi docs]: /integrations/kodi/
+[lacrosse docs]: /integrations/lacrosse/
+[life360 docs]: /integrations/life360/
+[luci docs]: /integrations/luci/
+[luftdaten docs]: /integrations/luftdaten/
+[lutron docs]: /integrations/lutron/
+[lw12wifi docs]: /integrations/lw12wifi/
+[mastodon docs]: /integrations/mastodon/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[met docs]: /integrations/met/
+[meteo_france docs]: /integrations/meteo_france/
+[mikrotik docs]: /integrations/mikrotik/
+[minio docs]: /integrations/minio/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[opencv docs]: /integrations/opencv/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[pi_hole docs]: /integrations/pi_hole/
+[plex docs]: /integrations/plex/
+[plugwise docs]: /integrations/plugwise/
+[point docs]: /integrations/point/
+[prometheus docs]: /integrations/prometheus/
+[proxy docs]: /integrations/proxy/
+[ps4 docs]: /integrations/ps4/
+[python_script docs]: /integrations/python_script/
+[qrcode docs]: /integrations/qrcode/
+[rainbird docs]: /integrations/rainbird/
+[recorder docs]: /integrations/recorder/
+[ring docs]: /integrations/ring/
+[ruter docs]: /integrations/ruter/
+[sabnzbd docs]: /integrations/sabnzbd/
+[scrape docs]: /integrations/scrape/
+[script docs]: /integrations/script/
+[shodan docs]: /integrations/shodan/
+[simplisafe docs]: /integrations/simplisafe/
+[sisyphus docs]: /integrations/sisyphus/
+[sma docs]: /integrations/sma/
+[smhi docs]: /integrations/smhi/
+[snmp docs]: /integrations/snmp/
+[sonos docs]: /integrations/sonos/
+[sql docs]: /integrations/sql/
+[srp_energy docs]: /integrations/srp_energy/
+[statistics docs]: /integrations/statistics/
+[stream docs]: /integrations/stream/
+[syncthru docs]: /integrations/syncthru/
+[sytadin docs]: /integrations/sytadin/
+[tado docs]: /integrations/tado/
+[tellduslive docs]: /integrations/tellduslive/
+[template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
+[tile docs]: /integrations/tile/
+[traccar docs]: /integrations/traccar/
+[trend docs]: /integrations/trend/
+[tuya docs]: /integrations/tuya/
+[twentemilieu docs]: /integrations/twentemilieu/
+[unifi docs]: /integrations/unifi/
+[updater docs]: /integrations/updater/
+[upnp docs]: /integrations/upnp/
+[vacuum docs]: /integrations/vacuum/
+[velbus docs]: /integrations/velbus/
+[vera docs]: /integrations/vera/
+[vesync docs]: /integrations/vesync/
+[volumio docs]: /integrations/volumio/
+[websocket_api docs]: /integrations/websocket_api/
+[wunderground docs]: /integrations/wunderground/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

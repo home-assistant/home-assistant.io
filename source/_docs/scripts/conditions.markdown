@@ -4,7 +4,7 @@ description: "Documentation about all available conditions."
 redirect_from: /getting-started/scripts-conditions/
 ---
 
-Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
+Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation will stop executing. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
@@ -206,7 +206,7 @@ The template condition will test if the [given template][template] renders a val
 ```yaml
 condition:
   condition: template
-  value_template: "{% raw %}{{ (state_attr('device_tracker.iphone', 'battery')|int) > 50 }}{% endraw %}"
+  value_template: "{% raw %}{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}{% endraw %}"
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
@@ -235,13 +235,13 @@ Time condition windows can span across the midnight threshold. In the example ab
 
 <div class='note tip'>
 
-A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
+A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 
 </div>
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 condition:

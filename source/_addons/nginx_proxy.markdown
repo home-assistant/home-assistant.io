@@ -17,7 +17,8 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate`,
     "active": false,
     "default": "nginx_proxy_default*.conf",
     "servers": "nginx_proxy/*.conf"
-  }
+  },
+  "cloudflare": false
 }
 ```
 
@@ -40,6 +41,11 @@ hsts:
   type: string
 customize:
   description: If true, additional NGINX configuration files for the default server and additional servers are read from files in the `/share` directory specified by the `default` and `servers` variables.
+  required: false
+  type: boolean
+  default: false
+cloudflare:
+  description: If enabled, configure Nginx with a list of IP addresses directly from Cloudflare that will be used for `set_real_ip_from` directive Nginx config.
   required: false
   type: boolean
   default: false

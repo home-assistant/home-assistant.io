@@ -92,25 +92,25 @@ homeassistant:
 [@turbokongen]: https://github.com/turbokongen
 [@fabaff]: https://github.com/fabaff
 
-[Foursquare]: /components/foursquare/
-[OhmConnect]: /components/sensor.ohmconnect/
-[FFMPEG]: /components/camera.ffmpeg/
-[SMTP]: /components/notify.smtp/
-[panel_custom]: /components/panel_custom/
-[Verisure]: /components/alarm_control_panel.verisure/
-[Flux LED]: /components/light.flux_led/
-[InfluxDB]: /components/influxdb/
-[particulate]: /components/sensor.serial_pm/
-[LG Netcast TV]: /components/media_player.lg_netcast/
-[mqtt_json]: /components/light.mqtt_json/
-[Fast.com]: /components/sensor.fastdotcom/
-[pilight]: /components/pilight/
-[GPSD]: /components/sensor.gpsd/
-[heat control]: /components/thermostat.heat_control/
-[Proximity]: /components/proximity/
-[Flux]: /components/switch.flux/
-[Proliphix]: /components/proliphix/
-[Fitbit]: /components/sensor.fitbit/
-[Plex]: /components/media_player.plex/
-[Honeywell]: /components/honeywell/
+[Foursquare]: /integrations/foursquare/
+[OhmConnect]: /integrations/ohmconnect
+[FFMPEG]: /integrations/camera.ffmpeg/
+[SMTP]: /integrations/smtp
+[panel_custom]: /integrations/panel_custom/
+[Verisure]: /integrations/verisure#alarm-control-panel
+[Flux LED]: /integrations/flux_led
+[InfluxDB]: /integrations/influxdb/
+[particulate]: /integrations/serial_pm/
+[LG Netcast TV]: /integrations/lg_netcast
+[mqtt_json]: /integrations/light.mqtt
+[Fast.com]: /integrations/fastdotcom
+[pilight]: /integrations/pilight/
+[GPSD]: /integrations/gpsd
+[heat control]: /integrations/thermostat.heat_control/
+[Proximity]: /integrations/proximity/
+[Flux]: /integrations/flux
+[Proliphix]: /integrations/proliphix/
+[Fitbit]: /integrations/fitbit
+[Plex]: /integrations/plex#media-player
+[Honeywell]: /integrations/honeywell/
 [Secrets]: /topics/secrets/

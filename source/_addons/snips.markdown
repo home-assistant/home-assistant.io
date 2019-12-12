@@ -13,11 +13,11 @@ The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
-The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a [Shopping List](/components/shopping_list/) if that integration is enabled.
+The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a [Shopping List](/integrations/shopping_list/) if that integration is enabled.
 
 If using a USB microphone and speakers plugged into the Raspberry Pi output, Snips will work without any change to the configuration. Trying saying things like:
 
-```
+```txt
 Turn on kitchen light
 Open garage door
 What is on my shopping list
@@ -65,7 +65,7 @@ tts_platform:
 
 ### Home Assistant configuration
 
-A simple configuration just requires this. Consult [Snips.ai integration](/components/snips/) for more options.
+A simple configuration just requires this. Consult [Snips.ai integration](/integrations/snips/) for more options.
 
 ```yaml
 snips:
@@ -79,7 +79,7 @@ There is an active [discord](https://discordapp.com/invite/3939Kqx) channel and 
 
 So now you can turn lights on and off, let's check the weather. Log on to the [console](https://console.snips.ai/). If this is your first time, create a new assistant and add the Home Assistant skill, along with the Weather skill by snips. Download your assistant manually and copy it to the `/share` folder on your HassIO installation using the Samba add-on.
 
-Next create a weather sensor, e.g., one for [Dark Sky](/components/darksky/), and put the `api_key` in your `secrets.yaml` file. For this example to work you will need to have a valid API key from [Dark Sky](https://darksky.net/dev).
+Next create a weather sensor, e.g., one for [Dark Sky](/integrations/darksky/), and put the `api_key` in your `secrets.yaml` file. For this example to work you will need to have a valid API key from [Dark Sky](https://darksky.net/dev).
 
 ```yaml
 - platform: darksky

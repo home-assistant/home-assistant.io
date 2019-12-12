@@ -13,8 +13,8 @@ If you're running a Linux-based platform, we strongly recommend you follow the i
 Once Python is installed, execute the following code in a console:
 
 ```bash
-$ pip3 install homeassistant
-$ hass --open-ui
+pip3 install homeassistant
+hass --open-ui
 ```
 
 Running these commands will:

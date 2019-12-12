@@ -49,20 +49,20 @@ Rock on.
 [@robbiet480]: https://github.com/robbiet480
 [@srcLurker]: https://github.com/srcLurker
 [@stefan-jonasson]: https://github.com/stefan-jonasson
-[embedded server]: /components/mqtt/#use-the-embedded-broker
-[Arduino]: /components/switch.arduino/
-[Discovery]: /components/discovery/
-[Growl (GNTP)]: /components/notify.gntp/
-[Hue]: /components/light.hue/
-[input_slider]: /components/input_slider/
-[MessageBird]: /components/notify.message_bird/
-[OwnTracks]: /components/device_tracker.owntracks/
-[PulseAudio loopback]: /components/switch.pulseaudio_loopback/
-[Tellstick]: /components/tellstick/
-[Vera]: /components/vera/
-[Wake on LAN]: /components/switch.wake_on_lan/
-[Z-Wave]: /components/zwave/#services
-[Yamaha receivers]: /components/media_player.yamaha/
+[embedded server]: /integrations/mqtt/#use-the-embedded-broker
+[Arduino]: /integrations/arduino#switch
+[Discovery]: /integrations/discovery/
+[Growl (GNTP)]: /integrations/gntp
+[Hue]: /integrations/hue
+[input_slider]: /integrations/input_number
+[MessageBird]: /integrations/message_bird
+[OwnTracks]: /integrations/owntracks
+[PulseAudio loopback]: /integrations/pulseaudio_loopback
+[Tellstick]: /integrations/tellstick/
+[Vera]: /integrations/vera/
+[Wake on LAN]: /integrations/wake_on_lan#switch
+[Z-Wave]: /integrations/zwave/#services
+[Yamaha receivers]: /integrations/yamaha
 
 ### Breaking changes
  - Automation: support for old deprecated config has been removed
