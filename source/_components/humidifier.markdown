@@ -4,7 +4,7 @@ description: "Instructions on how to setup humidity control devices within Home 
 logo: home-assistant.png
 ha_category:
   - Humidity
-ha_release: 0.102
+ha_release: 0.104
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
