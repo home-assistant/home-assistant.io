@@ -34,6 +34,7 @@ alarmdecoder:
     host: 192.168.1.20
     port: 10000
   panel_display: false
+  autobypass: False
   zones:
     01:
       name: 'Smoke Detector'
@@ -77,6 +78,11 @@ device:
       type: string
 panel_display:
   description: Create a sensor called sensor.alarm_display to match the Alarm Keypad display.
+  required: false
+  default: false
+  type: boolean
+autobypass:
+  description: If this is set to True, then when arming (home or away), it will automatically bypass all open zones (sending "6#")
   required: false
   default: false
   type: boolean
