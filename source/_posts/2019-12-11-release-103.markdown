@@ -160,7 +160,7 @@ The following integrations are added in this release:
 - Add Proxmox VE integration ([@K4ds3] - [#27315]) ([proxmoxve docs]) (new-integration)
 - Add flume support ([@ChrisMandich] - [#27235]) ([flume docs]) (new-integration)
 - StarLine integration ([@Anonym-tsk] - [#27197]) ([starline docs]) (new-integration)
-- Add intent integration to expose intent handle API ([@balloob] - [#29124]) ([conversation docs]) ([intent docs]) (new-integration)
+- Add intent integration to expose intent handle API ([@balloob] - [#29124]) ([conversation docs]) (new-integration)
 - Dsmr reader ([@depl0y] - [#28701]) ([dsmr_reader docs]) ([fleetgo docs]) ([openhardwaremonitor docs]) (new-integration)
 - Add ATEN PE component for ATEN eco PDUs ([@mtdcr] - [#27960]) ([aten_pe docs]) (new-integration)
 
