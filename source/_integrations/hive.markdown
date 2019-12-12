@@ -21,8 +21,8 @@ This integration uses the unofficial API used in the official Hive website [http
 There is currently support for the following services and platforms within Home Assistant:
 
 - [Services](#services)
-  - [Service `hive.boost_heating`](#service-hiveboostheating)
-  - [Service `hive.boost_hot_water`](#service-hiveboosthotwater)
+  - [Service `hive.boost_heating`](#service-hiveboost_heating)
+  - [Service `hive.boost_hot_water`](#service-hiveboost_hot_water)
 - [Platforms](#platforms)
   - [Binary Sensor](#binary-sensor)
   - [Climate](#climate)
