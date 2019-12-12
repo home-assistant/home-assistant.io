@@ -6,16 +6,13 @@ redirect_from: /getting-started/installation-synology/
 
 <div class='note warning'>
 
-Synology only provide Python 3.5.1, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3`
-
+Synology only provides Python 3.5.1, which is not compatible with Home Assistant 0.65.0 or later. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3` <br>
+It is possible to install newer versions of python though manual installations Home Assistant using `pip`. However due to the additional complexity and CPU architectures those are not currently covered.
 </div>
 
-There are 2 alternatives, when using Home Assistant on Synology NAS:
-1. using Docker
-2. directly running on DSM
-
-Option 1 is described on the [Docker installation page](/docs/installation/docker/), whereas Option 2 is described below.
-
+There are 2 options when using Home Assistant on Synology NAS:
+1. Using Docker (Preferred) as described on the [Docker installation page](/docs/installation/docker/)
+2. Directly running on DSM as described on this page
 
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
 
@@ -24,12 +21,23 @@ Running these commands will:
  - Install Home Assistant
  - Enable Home Assistant to be launched on `http://localhost:8123`
 
-Using the Synology webadmin:
+DSM preperation Using the Synology webadmin:
+ - [ ] Install python3 using the Synology Package Center
+ - [ ] Create homeassistant user and add to the "users" group
+ - [ ] Update your firewall (if it is turned on the Synology device):
 
- - Install python3 using the Synology Package Center
- - Create homeassistant user and add to the "users" group
+ - Go to your Synology control panel
+ - Go to security 
+ - Go to firewall
+ - Go to Edit Rules
+ - Click Create
+ - Select Custom: Destination port "TCP"
+ - Type "8123" in port
+ - Click on OK
+ - Click on OK again
+The remaining steps are done through an SSH connection to your device.
 
-SSH onto your synology & login as admin or root
+Login as admin or root
 
  - Log in with your own administrator account
  - Switch to root using:
@@ -39,25 +47,25 @@ $ sudo -i
 ```
 
 
-Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
+- [ ] Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
 ```bash
 # cd /volume1/@appstore/py3k/usr/local/bin
 ```
 
-Install PIP (Python's package management system)
+- [ ] Install PIP (Python's package management system)
 
 ```bash
 # ./python3 -m ensurepip
 ```
 
-Use PIP to install Homeassistant package 0.64.3
+- [ ] Use PIP to install Homeassistant package 0.64.3
 
 ```bash
 # ./python3 -m pip install homeassistant==0.64.3
 ```
 
-Create homeassistant config directory & switch to it
+- [ ] Create homeassistant config directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
@@ -65,9 +73,9 @@ Create homeassistant config directory & switch to it
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```
-Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station".
+Hint: alternatively you can create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station" and write permissions can be appropriately applied.
 
-Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
+Create `hass-daemon` file using the following code (edit the variables in uppercase if necessary)
 
 ```bash
 #!/bin/sh
@@ -140,7 +148,7 @@ case $1 in
             exit 0
         fi
         ;;
-        restart)
+    restart)
         if daemon_status; then
             echo Stopping ${DNAME} ...
             stop_daemon
@@ -168,44 +176,37 @@ case $1 in
         exit 0
         ;;
     *)
+        echo available commands
+        echo start
+        echo stop
+        echo restart - shutdown existing instance and start a new instance
+        echo status - prints if HASS is currently running
+        echo log - outputs the save location of the log file
         exit 1
         ;;
 esac
 
 ```
 
-Create links to python folders to make things easier in the future:
+Optional: Create links to python folders to make things easier in the future:
 
 ```bash
 # ln -s /volume1/@appstore/py3k/usr/local/bin/python3 python3
 # ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant homeassistant
 ```
 
-Set the owner and permissions on your config folder
+- [ ] Set the owner and permissions on your config folder
 
 ```bash
 # chown -R homeassistant:users /volume1/homeassistant
 # chmod -R 664 /volume1/homeassistant
 ```
 
-Make the daemon file executable:
+- [ ] Make the daemon file executable:
 
 ```bash
 # chmod 755 /volume1/homeassistant/hass-daemon
 ```
-
-Update your firewall (if it is turned on the Synology device):
-
- - Go to your Synology control panel
- - Go to security 
- - Go to firewall
- - Go to Edit Rules
- - Click Create
- - Select Custom: Destination port "TCP"
- - Type "8123" in port
- - Click on OK
- - Click on OK again
-
 
 Copy your configuration.yaml file into the config folder
 That's it... you're all set to go
