@@ -22,7 +22,7 @@ To use the `proxmoxve` component, add the following config to your `configuratio
 
 ```yaml
 # Example configuration.yaml entry
-proxmox:
+proxmoxve:
   - host: IP_ADDRESS
     username: USERNAME
     password: PASSWORD
@@ -84,7 +84,7 @@ nodes:
 Example with multiple VMs and no containers:
 
 ```yaml
-proxmox:
+proxmoxve:
   - host: IP_ADDRESS
     username: USERNAME
     password: PASSWORD
