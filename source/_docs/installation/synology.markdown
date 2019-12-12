@@ -21,7 +21,7 @@ Running these commands will:
  - Install Home Assistant
  - Enable Home Assistant to be launched on `http://localhost:8123`
 
-DSM preperation Using the Synology webadmin:
+DSM preparation Using the Synology webadmin:
  - [ ] Install python3 using the Synology Package Center
  - [ ] Create homeassistant user and add to the "users" group
  - [ ] Update your firewall (if it is turned on the Synology device):
