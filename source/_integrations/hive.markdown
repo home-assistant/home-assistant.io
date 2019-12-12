@@ -18,18 +18,14 @@ The `hive` integration is the main integration to set up and integrate all suppo
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
-There is currently support for the following services and platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
-- [Services](#services)
-  - [Service `hive.boost_heating`](#service-hiveboost_heating)
-  - [Service `hive.boost_hot_water`](#service-hiveboost_hot_water)
-- [Platforms](#platforms)
-  - [Binary Sensor](#binary-sensor)
-  - [Climate](#climate)
-  - [Light](#light)
-  - [Sensor](#sensor)
-  - [Switch](#switch)
-  - [Water Heater](#water-heater)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Light](#light)
+- [Sensor](#sensor)
+- [Switch](#switch)
+- [Water Heater](#water-heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
