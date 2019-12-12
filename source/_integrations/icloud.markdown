@@ -8,9 +8,9 @@ ha_release: "0.10"
 ---
 
 
-The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
+The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track the location of their iOS devices.
 
-It does require that your device is registered with "Find My iPhone".
+It does require that your devices are registered with the [Find My](https://www.apple.com/uk/icloud/find-my/) service.
 
 To integrate iCloud in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -49,19 +49,18 @@ gps_accuracy_threshold:
 {% endconfiguration %}
 
 <div class='note warning'>
-
 Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
-
 </div>
 
 <div class='note warning'>
 You may receive an email from Apple stating that someone has logged into your account.
 </div>
 
-To disable the drainage of the battery, a dynamic interval is being used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
+If 2 Step Authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask which device you want to use as the Trusted Device via a notification in the Home Assistant UI. The integration will send an SMS prompt to that device with the auth code to enter in Home Assistant. The duration of this authentication is determined by Apple, but is currently 2 months, so you will only need to verify your account every two months.
 
-If 2 Step Authentication is enabled for your iCloud account. The integration will ask which device you want to use as Trusted Device and integration will send a prompt to that device with the code which you can enter in Home Assistant. The duration of this authentication is determined by Apple, but is now at 2 months, so you will only need to verify your account each two months.
-2 Factor Authentication is the improved version of 2 Step Authentication, this is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
+2 Factor Authentication is the improved version of 2 Step Authentication and is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
+
+To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
 4 services are available for this component:
 - **update**: This service can be used to ask for an update of a certain iDevice. The `account_name` and `device_name` are optional. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iphone location. Can be used in automations when manual location update is needed, e.g., to check if anyone is home when door's been opened.
