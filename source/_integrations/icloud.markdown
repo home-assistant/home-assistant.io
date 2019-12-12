@@ -3,26 +3,18 @@ title: "iCloud"
 description: "Instructions on how to use iCloud to track devices in Home Assistant."
 logo: icloud.png
 ha_category:
-  - Hub
   - Presence Detection
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
 
-There is currently support for the following services and platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
-- [Platforms](#platforms)
-  - [Device Tracker](#device-tracker)
-  - [Sensor](#sensor)
-- [Services](#services)
-  - [Service `icloud.update`](#service-icloudupdate)
-  - [Service `icloud.play_sound`](#service-icloudplay_sound)
-  - [Service `icloud.display_message`](#service-iclouddisplay_message)
-  - [Service `icloud.lost_device`](#service-icloudlost_device)
-
+- [Device Tracker](#device-tracker)
+- [Sensor](#sensor)
 
 It does require that your device is registered with "Find My iPhone".
 
@@ -115,7 +107,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### Service `icloud.update`
 
-This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. Can be used in automations when manual location update is needed, e.g., to check if anyone is home when door's been opened.
+This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door been opened.
 
 ### Service `icloud.play_sound`
 
