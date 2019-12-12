@@ -127,7 +127,7 @@ automation editor and allows you to copy parts of your automation quickly.
 Screenshot of the automation YAML editor.
 </p>
 
-### Rearange actions
+### Rearrange actions
 
 We also added the ability to rearrange your actions, so you don't have to start
 all over when you want to add a delay between 2 service calls.
