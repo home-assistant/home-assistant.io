@@ -22,7 +22,7 @@ The Google Assistant integration (without Home Assistant Cloud) requires a bit m
 
 <div class='note warning'>
 
-To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing.
+To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing. If you make DNS changes to accomplish this, please ensure you have allowed up to the full 48 hours for DNS changes to propogate, otherwise Google may not be able to reach your server.
 
 </div>
 
@@ -65,16 +65,16 @@ If you've added Home Assistant to your phone's home screen, you have to first re
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 2. If you want to support actively reporting of state to Google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
-  1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
-  2. From the Service account list, select New service account.
-  3. In the Service account name field, enter a name.
-  4. In the Service account ID field, enter an ID.
-  5. From the Role list, select Service Accounts > Service Account Token Creator.
-  6. For the Key type, select the JSON option.
-  7. Click Create. A JSON file that contains your key downloads to your computer.
-  8. Use the information in this file or the file directly to add to the `service_account`key in the configuration.
+    1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+    2. From the Service account list, select New service account.
+    3. In the Service account name field, enter a name.
+    4. In the Service account ID field, enter an ID.
+    5. From the Role list, select Service Accounts > Service Account Token Creator.
+    6. For the Key type, select the JSON option.
+    7. Click Create. A JSON file that contains your key downloads to your computer.
+    8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
 3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable HomeGraph API for your project:
-    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/HomeGraph.googleapis.com/overview).
+    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable HomeGraph API.
     3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
     4. Note down the generated API Key and use this in the configuration.
@@ -193,7 +193,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
-- sensor (temperature setting, only for temperature sensor)
+- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - Alarm Control Panel (arm/disarm)
 
 <div class='note warning'>

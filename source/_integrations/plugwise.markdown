@@ -26,6 +26,7 @@ climate:
     password: YOUR_SHORT_IP 
     host: YOUR_SMILE_LOCAL_IP
 ```
+**Please note**: for a legacy Anna (firmware 1.8.x) an additional line is required, see below, this line is not needed for a more recent Anna (firmware 3.1.x).
 
 {% configuration %}
 password:
@@ -51,6 +52,11 @@ port:
   required: false
   type: integer
   default: 80
+legacy_anna:
+  description: Indicate that the Anna is a legacy unit
+  required: false
+  type: boolean
+  default: false
 min_temp:
   description: If you want to adjust the lower boundary, the integration will not allow temperatures below the set value.
   required: false
@@ -72,6 +78,7 @@ climate:
     password: YOUR_SHORT_ID
     host: YOUR_SMILE_LOCAL_IP
     port: YOUR_SMILE_PORT_NUMBER
+    legacy_anna: true
     min_temp: YOUR_MINIMAL_TARGET_TEMPERATURE
     max_temp: YOUR_MAXIMAL_TARGET_TEMPERATURE
 ```

@@ -43,7 +43,7 @@ elkm1:
 
 {% configuration %}
 host:
-  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with.  You may have multiple host sections for connecting multiple controllers.
+  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with (Elk systems default to 115200 baud, but this can be changed during Elk system configuration).  You may have multiple host sections for connecting multiple controllers.
   required: true
   type: string
 username:
@@ -270,18 +270,29 @@ elkm1:
     exclude: [b12-d5]
 ```
 
-Example for a serial port instance on /dev/ttyS1 at 9600 baud:
+Example for a serial port instance on /dev/ttyUSB0 at 115200 baud:
 
 ```yaml
 elkm1:
-  host: serial://dev/ttyS1:9600
-  username: USERNAME
-  password: PASSWORD
-  area:
-    exclude: [5-8]
-  zone:
-    exclude: [11-16, 19-192, 199-208]
-  plc:
-    include: [a1-d16, 192]
-    exclude: [b12-d5]
+  - host: serial:///dev/ttyUSB0:115200
+    # Elk doesn't know which areas/zones/etc are unused, so it can generate
+    # many unwanted Home Assistant Entities.  Be liberal in excluding them:
+    area:
+      exclude: [2-8]
+    zone:
+      exclude: [17-192, 195-208]
+    plc:
+      enabled: false
+    task:
+      enabled: false
+    counter:
+      exclude: [1-64]
+    keypad:
+      exclude: [3-16]
+    setting:
+      exclude: [1-20]
+    output:
+      enabled: false
+    thermostat:
+      enabled: false
 ```

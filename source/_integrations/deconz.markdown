@@ -1,6 +1,6 @@
 ---
 title: "deCONZ"
-description: "Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant."
+description: "Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant."
 logo: deconz.jpeg
 ha_category:
   - Hub
@@ -16,7 +16,7 @@ ha_qa_scale: platinum
 ha_config_flow: true
 ---
 
-[deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
+[deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
 [deCONZ REST API](https://dresden-elektronik.github.io/deconz-rest-doc/).
 
@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Recommended way of running deCONZ
 
-If you are running Hass.io, an official add-on for Deconz is available in the add-on store.
+If you are running Hass.io, an official add-on for deCONZ is available in the add-on store.
 Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
 ### Supported devices
@@ -43,7 +43,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** -> **Gateway** -> **Advanced** -> **Authenticate app** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
 You can manually add deCONZ by going to the integrations page.
 
@@ -61,7 +61,7 @@ logger:
 
 ## Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](https://www.dresden-elektronik.de/rpi/deconz-firmware/?C=M;O=D). 
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D). 
 
 ## Device services
 
@@ -69,7 +69,7 @@ Available services: `configure` and `deconz.device_refresh`.
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [Rest API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
@@ -117,6 +117,10 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
 For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
+
+### Finding your events
+
+Navigate to **Developer tools->Events**. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
 
 ### Device triggers
 
@@ -368,7 +372,7 @@ The `entity_id` name will be `climate.device_name`, where `device_name` is defin
 
 Covers are devices like ventilation dampers or smart window covers.
 
-Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers. You therefore add a cover device as a light device in deCONZ (phoscon app).
+Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers. You therefore add a cover device as a light device in deCONZ (Phoscon App).
 
 The `entity_id` name will be `cover.device_name`, where `device_name` is defined in deCONZ.
 
@@ -389,6 +393,8 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - IKEA Trådfri Bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri Bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
+- Innr BY-265, BY-245
+- OSRAM Classic A60 W clear - LIGHTIFY
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
 - Philips Hue White A19
@@ -432,6 +438,8 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
   - Xiaomi Smart Home Wireless Switch
 - Temperature Sensor
   - Xiaomi Temperature/Humidity Sensor
+- OpenClose Sensor
+  - Xiaomi Window / Door Sensor with Temperature
 
 ### deCONZ Daylight Sensor
 

@@ -5,7 +5,7 @@ description: "Extended instructions how to setup Z-Wave."
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. The following devices have been confirmed to work:
+You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. USB sticks using the new 700 series Z-Wave platform are not compatible. The following devices have been confirmed to work:
 
 <div class='note'>
   

@@ -36,6 +36,7 @@ Fill the form:
 
 * Your **access point ID** (SGTIN)
 * Optional a **name** to identify your access point, this will be used to prefix your device names.
+* The **PIN**, mandatory if one is used in the native HomematicIP App.
 
 The authentification token will be generated and stored internally.
 
@@ -110,6 +111,12 @@ Within this delay the device registration should be completed in the App, otherw
     * Radiator thermostat (*HmIP-eTRV,-2,-C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
     * Temperature and humidity sensor (*HmIP-STH*)
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
+  * There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
+    * Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
+    * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
+    * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
+    * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
+    * Floor Heating Actuator – 12x channels, motorised (*HMIP-FALMOT-C12*)
 
 * homematicip_cloud.cover
   * Shutter actuator for brand-mount (*HmIP-BROLL*)
@@ -160,6 +167,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
+- `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 
 ### Service Examples
 
@@ -232,6 +240,16 @@ action:
   data:
     entity_id: climate.livingroom
     climate_profile_index: 1
+```
+
+Dump the configuration of the Homematic IP Access Point(s).
+
+```yaml
+...
+action:
+  service: homematicip_cloud.dump_hap_config
+  data:
+    anonymize: True
 ```
 
 

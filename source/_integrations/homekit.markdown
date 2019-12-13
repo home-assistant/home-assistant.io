@@ -163,7 +163,7 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
 2. Open the `Home` app.
 3. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.

@@ -46,7 +46,7 @@ source:
 
 ### Supported images for Hass.io and Docker
 
-`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
+`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-xu`
 
 ## Alternatives for showing local version
 

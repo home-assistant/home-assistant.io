@@ -42,9 +42,15 @@ port:
   type: string
 {% endconfiguration %}
 
-You can find out your Freebox host and port by opening the address mafreebox.freebox.fr/api_version in your browser. The
+You can find out your Freebox host and port by opening the address <http://mafreebox.freebox.fr/api_version> in your browser. The
 returned json should contain an api_domain (`host`) and a https_port (`port`).
 Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
+
+<div class='note warning'>
+  
+If you change your Freebox router for a new one, you need to delete the `freebox.conf` file located in your Home Assistant configuration directory to make the association again.
+
+</div>
 
 ### Initial setup
 

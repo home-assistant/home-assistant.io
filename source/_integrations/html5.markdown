@@ -232,7 +232,7 @@ data:
 
 ### Dismiss
 
-You can dismiss notifications by using service notify.html5_dismiss like so:
+You can dismiss notifications by using service html5.dismiss like so:
 
 ```json
 {

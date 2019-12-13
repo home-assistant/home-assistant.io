@@ -501,9 +501,9 @@ The requirement is that you have setup [Wink](/integrations/wink/) from above.
 The following services have only been confirmed on Schlage locks.
 </div>
 
-### Service `wink_set_lock_alarm_mode`
+### Service `set_lock_alarm_mode`
 
-You can use the service wink/wink_set_lock_alarm_mode to set the alarm mode of your lock.
+You can use the service wink/set_lock_alarm_mode to set the alarm mode of your lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -516,14 +516,14 @@ Example:
 script:
   set_locks_to_tamper:
     sequence:
-      - service: wink.wink_set_lock_alarm_mode
+      - service: wink.set_lock_alarm_mode
         data:
           mode: "tamper"
 ```
 
-### Service `wink_set_lock_alarm_sensitivity`
+### Service `set_lock_alarm_sensitivity`
 
-You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
+You can use the service wink/set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -536,14 +536,14 @@ Example:
 script:
   set_locks_to_high_sensitivity:
     sequence:
-      - service: wink.wink_set_lock_alarm_sensitivity
+      - service: wink.set_lock_alarm_sensitivity
         data:
           sensitivity: "high"
 ```
 
-### Service `wink_set_lock_alarm_state`
+### Service `set_lock_alarm_state`
 
-You can use the service wink/wink_set_lock_alarm_state to set the alarm state of your lock.
+You can use the service wink/set_lock_alarm_state to set the alarm state of your lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -556,14 +556,14 @@ Example:
 script:
   disable_all_locks_alarm:
     sequence:
-      - service: wink.wink_set_lock_alarm_state
+      - service: wink.set_lock_alarm_state
         data:
           enabled: false
 ```
 
-### Service `wink_set_lock_beeper_state`
+### Service `set_lock_beeper_state`
 
-You can use the service wink/wink_set_lock_beeper_state to set the beeper state of your lock.
+You can use the service wink/set_lock_beeper_state to set the beeper state of your lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -576,14 +576,14 @@ Example:
 script:
   disable_all_locks_beepers:
     sequence:
-      - service: wink.wink_set_lock_beeper_state
+      - service: wink.set_lock_beeper_state
         data:
           enabled: false
 ```
 
-### Service `wink_set_lock_vacation_mode`
+### Service `set_lock_vacation_mode`
 
-You can use the service wink/wink_set_lock_vacation_mode to set the vacation mode of your lock.
+You can use the service wink/set_lock_vacation_mode to set the vacation mode of your lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -596,14 +596,14 @@ Example:
 script:
   enabled_vacation_mode_on_all_locks:
     sequence:
-      - service: wink.wink_set_lock_vacation_mode
+      - service: wink.set_lock_vacation_mode
         data:
           enabled: false
 ```
 
-### Service `wink_add_new_lock_key_code`
+### Service `add_new_lock_key_code`
 
-You can use the service wink/wink_add_new_lock_key_code to add a new user code to your Wink lock.
+You can use the service wink/add_new_lock_key_code to add a new user code to your Wink lock.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -28,17 +28,14 @@ To create the required Spotify application:
 - Add a **Redirect URI** in one of the following forms:
 
  If you are not using SSL:
-  `http://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
+  `http://<your_home_assistant_url_or_local_ip>/api/spotify`
 
  If you are using SSL:
-  `https://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
-
- The URL is whatever you use to access Home Assistant from outside your network
- (including port if applicable).
+  `https://<your_home_assistant_url_or_local_ip>/api/spotify`
 
 - Click **Save** after adding the URI.
 
-You will likely also need to set the `base_url` attribute of the [HTTP Component](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
+If you are using an externally accessible address you will likely also need to set the `base_url` attribute of the [HTTP Component](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
 ## Configuration
 
@@ -84,7 +81,7 @@ name:
 ## Setup
 
 After the prerequisites and configuration are complete, restart Home Assistant.
-A **Spotify** configurator element will be available. Follow the instructions to
+Under notifications a **Spotify** configurator element will be available. Click on "Link Spotify account" and follow the instructions to
 authorize Home Assistant to access your Spotify account. A Spotify media player
 will then appear. If you are prompted to download a file after completing
 authorization, discard the download. It is not needed.

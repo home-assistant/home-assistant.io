@@ -9,9 +9,8 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The time and date (`time_date`) sensor platform simple displays the time in various formats, the date, or both.
-
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+The time and date (`time_date`) sensor platform adds one or more sensors to your Home Assistant state machine.
+To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data):
 
 ```yaml
 # Example configuration.yaml entry

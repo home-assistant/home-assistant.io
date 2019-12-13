@@ -33,7 +33,7 @@ If your model is not on the list then give it a test, if everything works correc
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
 
-Note that your TV has to reside in the same network as your home assistant instance for this platform to work.
+Note that your TV has to reside in the same network as your Home Assistant instance for this platform to work. If you have multiple network interfaces on your Home Assistant instance, you may need to specify the `broadcast_address`.
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -57,6 +57,11 @@ port:
 mac:
   description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
   required: false
+  type: string
+broadcast_address:
+  description: The broadcast address on which to send the Wake-On-Lan packet.
+  required: false
+  default: 255.255.255.255
   type: string
 app_power:
   description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".

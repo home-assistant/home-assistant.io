@@ -48,6 +48,11 @@ mac:
   description: "The MAC address of the Samsung Smart TV, e.g., `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
   required: false
   type: string
+broadcast_address:
+  description: The broadcast address on which to send the Wake-On-Lan packet.
+  required: false
+  default: 255.255.255.255
+  type: string
 {% endconfiguration %}
 
 Currently known supported models:
@@ -107,11 +112,13 @@ Currently tested but not working models:
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
+- JU6445K - State is always "on" and unable to control (but port 8001 *is* open)
 - JU6800 - Unable to see state and unable to control
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
+- MU6400 - Unable to see state and unable to control (using latest 1270 firmware. Had limited functionality on previous firmware)
 - Q60 – turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.
@@ -144,15 +151,6 @@ No additional actions are required
 
 No additional actions are required
 
-### Hassbian
-
-You will need to activate the venv and install the websocket library:
-
-```bash
-sudo -u homeassistant -H -s
-source /srv/homeassistant/bin/activate
-pip3 install websocket-client
-```
 ### Other install methods
 
 You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:

@@ -14,7 +14,7 @@ As an alternative to the router-based device tracking, it is possible to directl
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
 </div>
 
-You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
+You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
 
 <div class='note'>
 

@@ -33,6 +33,7 @@ The Proximity entity which is created has the following values:
   - 'm'
   - 'mi'
   - 'ft'
+- `nearest`: The device which is nearest to the zone
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
 

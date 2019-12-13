@@ -23,7 +23,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car
 - Lock - Door lock. Enables you to control Tesla's door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
-- Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
+- Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery
 
 ## Configuration
 

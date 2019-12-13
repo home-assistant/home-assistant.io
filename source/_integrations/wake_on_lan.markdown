@@ -61,12 +61,12 @@ To enable this switch in your installation, add the following to your `configura
 # Example configuration.yaml entry
 switch:
   - platform: wake_on_lan
-    mac_address: "00-01-02-03-04-05"
+    mac: "00-01-02-03-04-05"
 ```
 
 {% configuration %}
-mac_address:
-  description: MAC address to send the wake up command to.
+mac:
+  description: The MAC address to send the wake up command to.
   required: true
   type: string
 name:

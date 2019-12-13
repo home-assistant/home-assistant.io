@@ -46,7 +46,7 @@ If you are using Home Assistant Cloud (Nabu Casa) the integration will create a 
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-3. [`base_url` of the http component](/integrations/http#base_url) set the URL that Home Assistant is available on the internet.
+3. [`base_url` of the http integration](/integrations/http#base_url) set the URL that Home Assistant is available on the internet. SmartThings requires the `base_url` and Home Assistant to use the standard HTTPS port (443).
 
 ## Setup instructions
 
