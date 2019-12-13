@@ -254,7 +254,7 @@ sudo apt-get install unixodbc-dev
 pip3 install pyodbc
 ```
 
-If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+If you are in a virtual environment, don't forget to activate it before installing the pyodbc package.
 
 ```bash
 sudo -u homeassistant -H -s
