@@ -33,11 +33,11 @@ binary_sensor:
 
 {% configuration %}
 prior:
-  description: The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?
+  description: "The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?"
   required: true
   type: float
 probability_threshold:
-  description: The probability at which the sensor should trigger to `on`.
+  description: |The probability at which the sensor should trigger to `on`."
   required: false
   type: float
   default: 0.5
