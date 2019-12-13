@@ -94,6 +94,7 @@ A basic entry for a single calendar looks like:
     name: UnImportant Stuff
     track: true
     search: "#UnImportant"
+    offset: "-00:10:00"
 ```
 
 {% configuration %}
@@ -128,9 +129,15 @@ entities:
       type: string
     offset:
       description: >
-        A set of characters that precede a number in the event title
+        Offset can work in two ways:
+        1) A set of characters that precede a number in the event title
         for designating a pre-trigger state change on the sensor.
-        This should be in the format of HH:MM or MM.
+        eg this field contains !! then the event title contains !!-10
+        for a 10 minute offset.
+        The offset in the event title  should be in the format of HH:MM or MM.
+        2) This field can contain the offset directly, in the format [+-]hh:mm:ss
+        In this case, the offset will be applied to all events matched by this
+        sensor.
       required: false
       type: string
       default: "!!"
@@ -164,7 +171,7 @@ Otherwise everything following the hash sign would be considered a YAML comment.
 
 ### Sensor attributes
 
- - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
+ - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts. Alternatively the offset field can be set to "-00:10:00" to apply a 10 minute offset to all matching events.
  - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
  - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
  - **description**: The event description.
