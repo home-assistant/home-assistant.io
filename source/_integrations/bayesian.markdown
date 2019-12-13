@@ -52,23 +52,23 @@ observations:
   type: list
   keys:
     platform:
-      description: The supported platforms are `state`, `numeric_state`, and `template`. They are modeled after their corresponding triggers for automations, requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`).
+      description: "The supported platforms are `state`, `numeric_state`, and `template`. They are modeled after their corresponding triggers for automations, requiring `to_state` (for `state`), `below` and/or `above` (for `numeric_state`) and `value_template` (for `template`)."
       required: true
       type: string
     entity_id:
-      description: Name of the entity to monitor. Required for `state` and `numeric_state`.
+      description: "Name of the entity to monitor. Required for `state` and `numeric_state`."
       required: false
       type: string
     value_template:
-      description: Defines the template to be used. Required for `template`.
+      description: "Defines the template to be used. Required for `template`."
       required: false
       type: template
     prob_given_true:
-      description: The probability of the observation occurring, given the event is `true`.
+      description: "The probability of the observation occurring, given the event is `true`."
       required: true
       type: float
     prob_given_false:
-      description: The probability of the observation occurring, given the event is `false` can be set as well.
+      description: "The probability of the observation occurring, given the event is `false` can be set as well."
       required: false
       type: float
       default: "`1 - prob_given_true` if `prob_given_false` is not set"
@@ -77,7 +77,7 @@ observations:
       required: false
       type: string
     delay_on:
-      description: The amount of time state must be ***met*** before this sensor will switch to `on`. Works for all types.
+      description: "The amount of time state must be ***met*** before this sensor will switch to `on`. Works for all types."
       required: false
       type: time
     delay_off:
