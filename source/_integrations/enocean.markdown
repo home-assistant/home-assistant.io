@@ -63,7 +63,7 @@ This can typically be one of those batteryless wall switches.
 Tested with:
 
 - Eltako FT55 which uses the EnOcean PTM 215 module
-- [TRIO2SYS Wall switches](http://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
+- [TRIO2SYS Wall switches](https://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
 - Omnio WS-CH-102
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:

@@ -7,7 +7,7 @@ ha_category:
   - Sensor
 featured: true
 ha_release: 0.7.4
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ---
 

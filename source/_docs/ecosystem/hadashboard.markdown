@@ -31,4 +31,4 @@ HADashboard is a modular, skinnable dashboard for [Home Assistant](/) that is in
     Glassic Theme
 </p>
 
-For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html). If you're using Hassbian, then the [Hassbian scripts](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/suites/appdaemon.md) make it easy to install AppDaemon.
+For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html).

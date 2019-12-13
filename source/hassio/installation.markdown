@@ -8,11 +8,7 @@ The following will take you through the steps required to install Hass.io.
 1. Download the appropriate install option:
 
    - As an image for your device:
-  
-     - [Raspberry Pi Zero][pi1] (not recommended for more than testing)
-     - [Raspberry Pi Zero W][pi0-w] (not recommended for more than testing)
-     - [Raspberry Pi 1 Model B][pi1] (not recommended for more than testing)
-     - [Raspberry Pi 2 Model B][pi2]
+   
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
      - [(RC) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
@@ -47,7 +43,7 @@ The following will take you through the steps required to install Hass.io.
 
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
-6. You will be able to reach your installation at [http://hassio.local:8123][local] (if your router supports mDNS, otherwise see below).
+6. You will be able to reach your installation at `http://hassio.local:8123` (if your router supports mDNS, otherwise see below).
 
 7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
@@ -85,12 +81,12 @@ hassio ha update --version=0.XX.X
 
 ## Run the beta version on Hass.io
 
-If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
 1. Backup your installation, using the snapshot functionality Hass.io offers.
-2. Check the RC release notes for breaking changes on [Home Assistant release notes](https://rc--home-assistant-docs.netlify.com/latest-release-notes/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
-4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+2. Check the [Home Assistant RC release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ tab from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
+4. Select _Dashboard_ tab from the _Hass.io_ menu, and then select _Update_.
 
 ## Alternative: install on a generic Linux host
 
@@ -101,19 +97,19 @@ The packages you need to have available on your system that will run Hass.io may
 
 ### Debian/Ubuntu
 
- - apparmor-utils
- - apt-transport-https
- - avahi-daemon
- - ca-certificates
- - curl
- - dbus
- - jq
- - socat
- - software-properties-common
+ - `apparmor-utils`
+ - `apt-transport-https`
+ - `avahi-daemon`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `jq`
+ - `socat`
+ - `software-properties-common`
 
 Optional:
 
- - network-manager
+ - `network-manager`
 
 <div class='note warning'>
 
@@ -123,14 +119,14 @@ Optional:
 
 ### Arch Linux
 
- - apparmor
- - avahi
- - ca-certificates
- - curl
- - dbus
- - docker
- - jq
- - socat
+ - `apparmor`
+ - `avahi`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `docker`
+ - `jq`
+ - `socat`
 
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
@@ -147,12 +143,20 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 To prepare your machine for the Hass.io installation, run the following commands:
 
+For Ubuntu:
+
+```bash
+add-apt-repository universe
+```
+
+Debian/Ubuntu:
+
 ```bash
 sudo -i
 apt-get install software-properties-common
-add-apt-repository universe
 apt-get update
 apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+systemctl disable ModemManager
 curl -fsSL get.docker.com | sh
 ```
 
@@ -175,10 +179,19 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi2`
  - `raspberrypi3`
  - `raspberrypi3-64`
+ - `raspberrypi4`
+ - `raspberrypi4-64`
  - `odroid-c2`
  - `odroid-cu2`
  - `odroid-xu`
  - `orangepi-prime`
+ - `tinker`
+ - `qemuarm`
+ - `qemuarm-64`
+ - `qemux86`
+ - `qemux86-64`
+
+See the [hassio-installer](https://github.com/home-assistant/hassio-installer) Github page for an up-to-date listing of supported machine types.
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.

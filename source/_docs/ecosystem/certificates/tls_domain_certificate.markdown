@@ -63,4 +63,4 @@ http:
   ssl_key: /etc/letsencrypt/live/mydomain.com/privkey.pem
 ```
 
-Make sure the files are accessible by the user that runs Home Assistant, eg. `homeassistant` for a HASSbian setup.
+Make sure the files are accessible by the user that runs Home Assistant.

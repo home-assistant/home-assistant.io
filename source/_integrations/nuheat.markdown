@@ -8,7 +8,7 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
+The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -159,7 +159,7 @@ Sets the thermostat's preset mode. Without a preset mode set it run the thermost
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `hold_mode` | no | New value of hold mode.
 
-### Service `resume_program`
+### Service `nuheat.resume_program`
 
 Resumes the currently active schedule.
 

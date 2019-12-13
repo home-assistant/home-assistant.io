@@ -8,7 +8,7 @@ logo: avi-on.png
 ha_release: 0.37
 ---
 
-Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).
+Support for the Avi-on Bluetooth dimmer switch [Avi-On](https://avi-on.com/).
 
 ## Setup
 

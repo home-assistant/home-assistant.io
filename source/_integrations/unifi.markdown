@@ -94,7 +94,7 @@ It is recommended that you run the Unifi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](http://ubnt.com/) [UniFi](https://www.ubnt.com/enterprise/#unifi) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ubnt.com/) [UniFi](https://www.ubnt.com/enterprise/#unifi) controller.
 
 ### Troubleshooting and Time Synchronization
 

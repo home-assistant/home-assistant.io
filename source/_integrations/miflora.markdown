@@ -80,7 +80,7 @@ monitored_conditions:
     conductivity:
       description: Conductivity in the soil.
     battery:
-      description: Battery details.
+      description: Battery details. Cached and only updated once a day.
 name:
   description: The name displayed in the frontend.
   required: false

@@ -8,7 +8,7 @@ ha_release: 0.72
 ha_iot_class: Cloud Polling
 ---
 
-The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com).
+The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot]( https://uptimerobot.com).
 
 ## Configuration
 
@@ -28,6 +28,6 @@ api_key:
   type: string
 {% endconfiguration %}
 
-All the data will be fetch from [Uptime Robot](https://uptimerobot.com).
+All the data will be fetched from [Uptime Robot](https://uptimerobot.com).
 
 To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the Uptime Robot website, at the bottom you will find your "Main API Key".

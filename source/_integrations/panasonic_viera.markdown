@@ -14,6 +14,7 @@ Currently known supported models:
 
 - TC-P65VT30
 - TX-32AS520E
+- TX-32DSX609
 - TX-49DX650B
 - TX-50DX700B
 - TX-55CX700E
@@ -31,6 +32,8 @@ Currently known supported models:
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
+
+Note that your TV has to reside in the same network as your Home Assistant instance for this platform to work. If you have multiple network interfaces on your Home Assistant instance, you may need to specify the `broadcast_address`.
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -54,6 +57,11 @@ port:
 mac:
   description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
   required: false
+  type: string
+broadcast_address:
+  description: The broadcast address on which to send the Wake-On-Lan packet.
+  required: false
+  default: 255.255.255.255
   type: string
 app_power:
   description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".

@@ -12,7 +12,7 @@ The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lig
 
 If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
-Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://seveas.github.io/python-hpilo/).
+Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](https://seveas.github.io/python-hpilo/).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />

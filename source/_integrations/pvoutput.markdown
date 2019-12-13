@@ -8,7 +8,7 @@ ha_release: 0.33
 ha_iot_class: Cloud Polling
 ---
 
-The `pvoutput` sensor platform consumes information from [PVOutput](http://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.
+The `pvoutput` sensor platform consumes information from [PVOutput](https://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.
 
 To add PVOutput details to your installation, add the following to your `configuration.yaml` file:
 

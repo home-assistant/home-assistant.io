@@ -24,7 +24,7 @@ sensor:
 
 {% configuration %}
 station:
-  description: Name of the stop or station. Visit [the MVG live web site](http://www.mvg-live.de) to find valid names.
+  description: Name of the stop or station. Visit [the MVG live web site](https://www.mvg-live.de/ims/dfiStaticAuswahl.svc) to find valid names. Be aware, that not all data of interest might be available (i.e. bus departure-times in Haar).
   required: true
   type: string
 destinations:

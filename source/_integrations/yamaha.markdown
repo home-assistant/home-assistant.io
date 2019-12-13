@@ -7,11 +7,11 @@ ha_category:
 ha_release: 0.16
 ---
 
-The `yamaha` platform allows you to control [Yamaha Network Receivers](http://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
+The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
 
 Supported devices:
 
-- [HTR-4065](http://www.yamaha.com/cchtr4065/)
+- [HTR-4065](https://www.yamaha.com/cchtr4065/)
 - [RX-V473](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v473/specs.html)
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
@@ -127,7 +127,7 @@ script:
 
 ```
 
-### Service `yamaha_enable_output`
+### Service `enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 

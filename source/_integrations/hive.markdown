@@ -18,18 +18,14 @@ The `hive` integration is the main integration to set up and integrate all suppo
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
-There is currently support for the following services and platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
-- [Services](#services)
-  - [Service `hive.boost_heating`](#service-hiveboostheating)
-  - [Service `hive.boost_hot_water`](#service-hiveboosthotwater)
-- [Platforms](#platforms)
-  - [Binary Sensor](#binary-sensor)
-  - [Climate](#climate)
-  - [Light](#light)
-  - [Sensor](#sensor)
-  - [Switch](#switch)
-  - [Water Heater](#water-heater)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Light](#light)
+- [Sensor](#sensor)
+- [Switch](#switch)
+- [Water Heater](#water-heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -125,7 +121,7 @@ The platform supports the following Hive products:
 
 ### Climate
 
-The `hive` climate platform integrates your Hive thermostat into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
+The `hive` climate platform integrates your Hive thermostat and Hive radiator valves into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
 A short boost for Hive Heating can be set by using the **Boost** preset, this will turn on the boost feature for 30 minutes at 0.5 degrees higher than the current temperature.
 
@@ -133,6 +129,7 @@ The platform supports the following Hive products:
 
 - Hive Active Heating
 - Hive Multi-zone
+- Hive Radiator Valve
 
 ### Light
 

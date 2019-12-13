@@ -11,7 +11,7 @@ ha_release: 0.85
 ha_iot_class: Local Polling
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](http://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -42,9 +42,15 @@ port:
   type: string
 {% endconfiguration %}
 
-You can find out your Freebox host and port by opening the address mafreebox.freebox.fr/api_version in your browser. The
+You can find out your Freebox host and port by opening the address <http://mafreebox.freebox.fr/api_version> in your browser. The
 returned json should contain an api_domain (`host`) and a https_port (`port`).
 Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
+
+<div class='note warning'>
+  
+If you change your Freebox router for a new one, you need to delete the `freebox.conf` file located in your Home Assistant configuration directory to make the association again.
+
+</div>
 
 ### Initial setup
 
@@ -70,7 +76,7 @@ Only the routers with Freebox OS are supported:
 ## Presence Detection
 
 This platform offers presence detection by keeping track of the
-devices connected to a [Freebox](http://www.free.fr/) router.
+devices connected to a [Freebox](https://www.free.fr/) router.
 
 ### Notes
 

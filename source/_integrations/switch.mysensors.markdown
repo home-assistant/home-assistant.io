@@ -54,7 +54,7 @@ The MySensors switch platform exposes a service to change an IR code attribute f
 
 | Service | Description |
 | ------- | ----------- |
-| mysensors_send_ir_code | Set an IR code as a state attribute for a MySensors IR device switch and turn the switch on.|
+| mysensors.send_ir_code | Set an IR code as a state attribute for a MySensors IR device switch and turn the switch on.|
 
 The service can be used as part of an automation script. For example:
 
@@ -66,7 +66,7 @@ automation:
       platform: time
       at: '5:30:00'
     action:
-      service: switch.mysensors_send_ir_code
+      service: mysensors.send_ir_code
       entity_id: switch.hvac_1_1
       data:
         V_IR_SEND: '0xC284'  # the IR code to send
@@ -76,7 +76,7 @@ automation:
       platform: time
       at: '0:30:00'
     action:
-      service: switch.mysensors_send_ir_code
+      service: mysensors.send_ir_code
       entity_id: switch.hvac_1_1
       data:
         V_IR_SEND: '0xC288'  # the IR code to send
@@ -88,10 +88,10 @@ automation:
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/relay
+ * https://www.mysensors.org/build/relay
  */
 
 #include <MySensor.h>
@@ -134,10 +134,10 @@ void incomingMessage(const MyMessage &message)
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/ir
+ * https://www.mysensors.org/build/ir
  */
 
 #include <MySensor.h>
@@ -203,4 +203,4 @@ void incomingMessage(const MyMessage &message) {
 ```
 
 [main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download
+[serial api]: https://www.mysensors.org/download

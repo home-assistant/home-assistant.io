@@ -37,4 +37,5 @@ Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0
  - Unitymedia Connect Box (DE)
  - Ziggo Connectbox (NL)
+ - Compal CH7465LG ED 3.0 - Connect box (UPC / Vodafone CZ)
  

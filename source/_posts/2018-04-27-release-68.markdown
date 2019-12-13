@@ -156,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for new platform: climate.modbus ([@Kirchoff] - [#12224]) ([climate.modbus docs]) (new-platform)
 - Hive R3 update ([@KJonline] - [#13357]) ([hive docs]) ([binary_sensor.hive docs]) ([climate.hive docs]) ([light.hive docs]) ([sensor.hive docs]) ([switch.hive docs])
 - Updated foobot_async package version ([@reefab] - [#13942]) ([sensor.foobot docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) (beta fix)
 - Upgrade alpha_vantage to 2.0.0 ([@fabaff] - [#13943]) ([sensor.alpha_vantage docs])
 - Cleanup on exit ([@dgomes] - [#13918]) ([media_player.mediaroom docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
@@ -183,7 +183,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
 - Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) (beta fix)
 - Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
 - Bump skybellpy version to 0.1.2 ([@MisterWil] - [#13974]) ([skybell docs])
 - Fix typo an coding style ([@stephanerosi] - [#13970]) ([device_tracker docs])
@@ -476,7 +476,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.foobot docs]: /integrations/foobot
 [sensor.fritzbox_netmonitor docs]: /integrations/fritzbox#sensor_netmonitor/
 [sensor.hive docs]: /integrations/hive#sensor
-[sensor.hydroquebec docs]: /integrations/hydroquebec
 [sensor.linux_battery docs]: /integrations/linux_battery
 [sensor.miflora docs]: /integrations/miflora
 [sensor.mqtt docs]: /integrations/sensor.mqtt/

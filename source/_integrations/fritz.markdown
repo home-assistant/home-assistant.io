@@ -8,12 +8,12 @@ ha_release: "0.10"
 ---
 
 
-The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) based router.
+The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) based router.
 
 ## Setup
 
 <div class='note warning'>
-If not running Hass.io it might be necessary to install additional packages: <code>sudo apt-get install python3-lxml libxslt-dev libxml2-dev zlib1g-dev</code>
+If not running Home Assistant via Hass.io or Docker it might be necessary to install additional packages: <code>sudo apt-get install python3-lxml libxslt-dev libxml2-dev zlib1g-dev</code>
 If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>pip3 install lxml</code>; be patient this will take a while.</div>
 
 ## Configuration

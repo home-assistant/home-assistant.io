@@ -76,5 +76,5 @@ monitored_conditions:
     total_download:
       description: Total bandwidth upload (Grace + Used) (gigabytes).
     used_remaining:
-      description: Remaining bandwidth calucated from used and supplied total bandwidth (gigabytes).
+      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).
 {% endconfiguration %}

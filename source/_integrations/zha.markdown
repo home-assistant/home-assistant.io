@@ -15,7 +15,7 @@ ha_iot_class: Local Polling
 featured: true
 ---
 
-[Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
+[Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
 integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
@@ -46,10 +46,10 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - Digi XBee Series 3 (xbee3-24) modules
   - Digi XBee Series 2C (S2C) modules
   - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
-- Dresden-Elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
-  - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
-  - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
-  - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
+- dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
+  - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
+  - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
+  - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
@@ -123,7 +123,6 @@ Go to the **Configuration** page and select the **ZHA** integration that was add
 Click on **ADD DEVICES** to start a scan for new devices.
 
 Reset your ZigBee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
-
 
 ## Troubleshooting
 

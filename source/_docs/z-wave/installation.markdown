@@ -142,23 +142,13 @@ ls -1tr /dev/tty*|tail -n 1
 
 The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
-### Hassbian
-
-You do not need to install any software to use Z-Wave.
-
-To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
-
-```bash
-ls -1tr /dev/tty*|tail -n 1
-```
-
 ### Community install methods
 
 #### Raspberry Pi specific
 
 On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
-#### Linux (except Hassbian)
+#### Linux
 
 On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
@@ -276,7 +266,7 @@ If you're getting errors like:
 
     openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 
-Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).
+Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux).
 
 ### Random failures
 

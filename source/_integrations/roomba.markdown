@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.51
 ---
 
-The `roomba` integration allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
+The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-roomba.png' />
@@ -58,6 +58,11 @@ continuous:
   required: false
   type: boolean
   default: true
+delay:
+  description: Custom connection delay (in seconds) for periodic mode
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 <div class='note'>

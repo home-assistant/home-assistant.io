@@ -78,9 +78,7 @@ automations and templates.
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home
-Assistant stopping as long as your entity does **not** have a set value for
-`initial`.  To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
@@ -107,7 +105,7 @@ automation (note that you will need a
 automation:
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', True)) }}"
   action:
     service: light.turn_on
     entity_id: light.bedroom

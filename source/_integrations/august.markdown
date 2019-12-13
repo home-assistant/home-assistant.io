@@ -11,7 +11,7 @@ ha_release: 0.64
 ha_iot_class: Cloud Polling
 ---
 
-The `august` integration allows you to integrate your [August](http://august.com) devices in Home Assistant.
+The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -74,4 +74,4 @@ If you have August Smart Lock with DoorSense, once you have enabled the August c
 
 ### Camera
 
-The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](http://august.com) device in Home Assistant.
+The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](https://august.com/) device in Home Assistant.

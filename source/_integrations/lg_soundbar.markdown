@@ -12,7 +12,7 @@ The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.c
 
 Supported devices:
 
-- The SK range
+- Devices in the SK range with Ethernet and/or Wi-Fi
 
 Compatible devices will be automatically added if the [`discovery`](/integrations/discovery/) integration is enabled.
 

@@ -8,7 +8,7 @@ ha_category:
 ha_release: 0.49
 ---
 
-[LaMetric Time](http://lametric.com) is a smart clock that can be used to access applications, listen to web radio and display notifications.
+[LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
 
 There is currently support for the following device types within Home Assistant:
 

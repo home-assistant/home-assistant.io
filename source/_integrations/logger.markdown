@@ -53,7 +53,15 @@ logger:
 
     # log level for the `aiohttp` Python package
     aiohttp: error
+
+    # log level for both 'glances_api' and 'glances' integration
+    homeassistant.components.glances: fatal
+    glances_api: fatal
 ```
+
+The log entries are in the form  
+*timestamp* *log-level* *thread* [**namespace**] *message*  
+where **namespace** is the *<component_namespace>* currently logging. 
 
 {% configuration %}
   default:
@@ -70,6 +78,9 @@ logger:
         description: Logger namespace of the component. See [log_level](#log-levels).
         type: string
 {% endconfiguration %}
+
+In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces, 
+both of which are at root. They are logged by different APIs.
 
 ### Log Levels
 
@@ -120,12 +131,6 @@ The log information are stored in the
 [configuration directory](/docs/configuration/) as `home-assistant.log`
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
-
-If you are a Hassbian user you can use the example below:
-
-```bash
-$ tail -f /home/homeassistant/.homeassistant/home-assistant.log
-```
 
 If you are a Hass.io user, you can use the example below, when logged in through
 the [SSH add-on](/addons/ssh/):

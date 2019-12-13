@@ -66,6 +66,8 @@ sensor:
       - up_max_bandwidth
       - current_down_bandwidth
       - current_up_bandwidth
+      - uptime
+      - number_of_reboots
 ```
 
 {% configuration %}
@@ -87,4 +89,8 @@ monitored_variables:
       description: Instant measure of the current used bandwidth for download.
     current_up_bandwidth:
       description: Instant measure of the current used bandwidth for upload.
+    uptime:
+      description: Uptime since the last boot.
+    number_of_reboots:
+      description: Number of reboot since the initial configuration of the router.
 {% endconfiguration %}

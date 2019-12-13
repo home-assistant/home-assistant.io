@@ -4,9 +4,9 @@ description: "How to install Home Assistant in a Python virtual environment."
 redirect_from: /getting-started/installation-virtualenv/
 ---
 
-If you already have Python 3.6 or later installed (we suggest 3.7 or later), you can easily give Home Assistant a spin.
+If you already have Python 3.7 or later installed, you can easily give Home Assistant a spin.
 
-It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
+It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.7/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
 <div class='note'>
 

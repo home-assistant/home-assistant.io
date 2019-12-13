@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ha_release: 0.18
 ---
 
-The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Smart TV.
+The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -18,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Media Player
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 
@@ -99,7 +99,7 @@ Avoid using `[ ]` in the `name:` of your device.
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
+Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
@@ -149,7 +149,7 @@ data:
 
 ### Next/Previous buttons
 
-The behaviour of the next and previsous buttons is different depending on the active source:
+The behaviour of the next and previous buttons is different depending on the active source:
 
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
  - otherwise: next/previous buttons act as next/previous track

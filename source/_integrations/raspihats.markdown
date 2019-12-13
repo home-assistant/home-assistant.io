@@ -14,7 +14,7 @@ The `raspihats` integration is the base for all related Raspihats platforms in H
 
 ## Binary Sensor
 
-The `raspihats` binary sensor platform allows you to read sensor values ​​using the digital inputs of the [raspihats](http://www.raspihats.com/) boards.
+The `raspihats` binary sensor platform allows you to read sensor values ​​using the digital inputs of the [raspihats](https://www.raspihats.com/) boards.
 
 ## Configuration
 
@@ -118,11 +118,11 @@ It will output a table like this:
 70: -- -- -- -- -- -- -- 77
 ```
 
-For more details about the `raspihats` add-on boards for Raspberry Pi, visit [raspihats.com](http://www.raspihats.com/).
+For more details about the `raspihats` add-on boards for Raspberry Pi, visit [raspihats.com](https://www.raspihats.com/).
 
 ## Switch
 
-The `raspihats` switch platform allows you to control the digital outputs of your [Raspihats](http://www.raspihats.com/) boards.
+The `raspihats` switch platform allows you to control the digital outputs of your [Raspihats](https://www.raspihats.com/) boards.
 
 ## Configuration
 
@@ -226,4 +226,4 @@ It will output a table like this:
 70: -- -- -- -- -- -- -- 77
 ```
 
-For more details about the Raspihats add-on boards for Raspberry Pi, visit [raspihats.com](http://www.raspihats.com/).
+For more details about the Raspihats add-on boards for Raspberry Pi, visit [raspihats.com](https://www.raspihats.com/).

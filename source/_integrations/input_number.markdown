@@ -75,7 +75,19 @@ input_number:
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+
+### Scenes
+
+To set the value of an input_number in a [Scene](/integrations/scene/):
+
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example Scene
+    entities:
+      input_number.example_number: 13
+```
 
 ## Automation Examples
 

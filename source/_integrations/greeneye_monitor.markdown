@@ -9,7 +9,7 @@ ha_release: 0.82
 ha_iot_class: Local Push
 ---
 
-The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
+The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
 
 Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) and send them to an unused port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your `configuration.yaml`:
 

@@ -7,7 +7,7 @@ ha_release: "0.40"
 ha_iot_class: Local Polling
 ---
 
-The `modem_callerid` sensor platform uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
+The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
 
 When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
 
@@ -19,7 +19,7 @@ To find the path of your USB modem, run:
 ls /dev/ttyACM*
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) give access to the stick with:
 
 ```bash
 sudo usermod -a -G dialout homeassistant
@@ -54,7 +54,7 @@ To find the path of your USB modem, run:
 
 `$ ls /dev/ttyACM*`
 
-If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) give access to the stick with:
 
 `$ sudo usermod -a -G dialout homeassistant`
 

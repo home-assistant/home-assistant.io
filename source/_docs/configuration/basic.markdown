@@ -63,3 +63,7 @@ whitelist_external_dirs:
   required: false
   type: list
 {% endconfiguration %}
+
+### Reload Core Service
+
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.

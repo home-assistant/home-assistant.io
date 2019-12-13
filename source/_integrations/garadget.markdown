@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ---
 
 
-The `garadget` cover platform lets you control [Garadget](http://www.garadget.com/) garage door futurizers through Home Assistant.
+The `garadget` cover platform lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
 
 ## Configuration
 

@@ -11,8 +11,7 @@ The `ffmpeg` integration allows other Home Assistant integrations to process vid
 
 <div class='note'>
 
-You need the `ffmpeg` binary in your system path. On Hassbian you will need to login as the `pi` user and `sudo apt install ffmpeg`. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the [FFmpeg](http://www.ffmpeg.org/) website.
-
+You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the [FFmpeg](http://www.ffmpeg.org/) website.
 </div>
 
 <div class='note'>

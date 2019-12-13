@@ -83,7 +83,7 @@ You can use TTS services like [Google Text-to-Speech](/integrations/google_trans
 
 A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([nginx](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
 
-### Service `soundtouch_play_everywhere`
+### Service `play_everywhere`
 
 Create a multi-room (zone) from a master and play same content on all other
  devices (slaves)
@@ -92,7 +92,7 @@ Create a multi-room (zone) from a master and play same content on all other
 | ---------------------- | -------- | ----------- |
 | `master` | no | `entity_id` of the master device
 
-### Service `soundtouch_create_zone`
+### Service `create_zone`
 
 Create a multi-room (zone) from a master and play on selected slaves
 
@@ -101,7 +101,7 @@ Create a multi-room (zone) from a master and play on selected slaves
 | `master` | no | `entity_id` of the master device|
 | `slaves` | no | List of slaves `entity_id`      |
 
-### Service `soundtouch_add_zone_slave`
+### Service `add_zone_slave`
 
 Add slave(s) to an existing zone
 
@@ -110,7 +110,7 @@ Add slave(s) to an existing zone
 | `master` | no | `entity_id` of the master device |
 | `slaves` | no | List of slaves `entity_id` to add|
 
-### Service `soundtouch_remove_zone_slave`
+### Service `remove_zone_slave`
 
 Remove slave(s) from an existing zone.
 

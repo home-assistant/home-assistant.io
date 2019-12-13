@@ -9,7 +9,7 @@ ha_release: 0.63
 ha_iot_class: Cloud Polling
 ---
 
-The `melissa` integration is the main integration to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
+The `melissa` integration is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
 
 There is currently support for the following device types within Home Assistant:
 

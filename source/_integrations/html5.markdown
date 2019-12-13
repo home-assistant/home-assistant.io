@@ -232,7 +232,7 @@ data:
 
 ### Dismiss
 
-You can dismiss notifications by using service notify.html5_dismiss like so:
+You can dismiss notifications by using service html5.dismiss like so:
 
 ```json
 {
@@ -341,5 +341,5 @@ If you need to verify domain ownership with Google Webmaster Central/Search Cons
 2. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
 3. Place the downloaded `google*.html` file in the `www` directory.
 4. RESTART Home Assistant. **This is important!**
-5. Verify the file can be accessed in the browser, e.g., **https://example.com:8123/local/google123456789.html** (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
+5. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
 6. Go back to Google Webmaster Central/Search Console and proceed with the verification.

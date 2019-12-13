@@ -61,7 +61,7 @@ max_gps_accuracy:
   required: false
   type: integer
 waypoints:
-  description: "Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `true`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions."
+  description: "Owntracks users can define [waypoints](https://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `true`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions."
   required: false
   default: true
   type: boolean
@@ -71,7 +71,7 @@ waypoint_whitelist:
   default: All users who are connected to Home Assistant via Owntracks.
   type: list
 secret:
-  description: "[Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present."
+  description: "[Payload encryption key](https://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present."
   required: false
   type: string
 mqtt_topic:
@@ -109,7 +109,7 @@ owntracks:
 
 ## Using Owntracks regions
 
-Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
+Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](https://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
@@ -123,7 +123,7 @@ Owntracks v2.0.0 removes support for iBeacons on Android.
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
-iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](http://owntracks.org/booklet/guide/beacons/).
+iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
 
 When you enter an iBeacon region, Owntracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
 

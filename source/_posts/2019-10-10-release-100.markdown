@@ -172,6 +172,18 @@ As always, this release of Home Assistant is accompanied with a new release of t
 [songpal docs]: /integrations/songpal/
 [withings docs]: /integrations/withings/
 
+## Release 0.100.3 - October 21
+
+- Use URI provided by Plex for local connections ([@jjlawren] - [#27515]) ([plex docs])
+- Update pymyq to 2.0.0 ([@bachya] - [#28069]) ([myq docs])
+
+[#27515]: https://github.com/home-assistant/home-assistant/pull/27515
+[#28069]: https://github.com/home-assistant/home-assistant/pull/28069
+[@bachya]: https://github.com/bachya
+[@jjlawren]: https://github.com/jjlawren
+[myq docs]: /integrations/myq/
+[plex docs]: /integrations/plex/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).

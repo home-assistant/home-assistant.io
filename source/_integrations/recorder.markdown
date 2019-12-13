@@ -10,7 +10,7 @@ ha_qa_scale: internal
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
 
-Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
+Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in HassIO) and called `home-assistant_v2.db`.
 
@@ -138,7 +138,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| MS SQL Server   | `mssql+pyodbc://username:password@dsnname` |
 
 <div class='note'>
 
@@ -200,7 +200,7 @@ homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
-For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. Please install the correct packages based on your MariaDB version.
+For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. For MariaDB v10.0.34 only `libmariadb-dev-compat` is needed. Please install the correct packages based on your MariaDB version.
 
 On the Python side we use the `mysqlclient`:
 
@@ -250,14 +250,14 @@ A service restart will work as well.
 For MS SQL Server you may have to install a few dependencies:
 
 ```bash
-sudo apt-get install freetds-dev
-pip3 install pymssql
+sudo apt-get install unixodbc-dev
+pip3 install pyodbc
 ```
 
-If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+If you are in a virtual environment, don't forget to activate it before installing the pyodbc package.
 
 ```bash
 sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
-pip3 install pymssql
+pip3 install pyodbc
 ```

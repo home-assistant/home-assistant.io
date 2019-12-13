@@ -218,7 +218,7 @@ In this section you'll find some real-life examples of how to use this sensor, b
 
 #### Using Python request module
 
-As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org//en/latest/) module for the interaction with Home Assistant.
+As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org/en/latest/) module for the interaction with Home Assistant.
 
 ```python
 response = requests.post(

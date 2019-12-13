@@ -10,7 +10,7 @@ ha_release: 0.87
 ha_iot_class: Local Polling
 ---
 
-The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ## Setup
 
@@ -97,6 +97,7 @@ Inside of the event, there is the name of the torrent that is started or complet
 
 Example of configuration of an automation with completed torrents:
 
+{% raw %}
 ```yaml
 - alias: Completed Torrent
   trigger:
@@ -108,6 +109,7 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+{% endraw %}
 
 ## Services
 
@@ -117,4 +119,24 @@ Adds a new torrent to download. It can either be a URL (http, https or ftp), mag
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance
 | `torrent` | no | Torrent to download
+
+
+## Templating
+
+### Sensor `started_torrents`
+
+The state attribute `torrent_info` contains information about the torrents that are currently downloading. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_started_torrents` -> **Attributes**, or by adding a Markdown Card to Lovelace.
+
+{% raw %}
+```yaml
+content: >
+  {% set payload = state_attr('sensor.transmission_started_torrents', 'torrent_info') %}
+
+  {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
+  
+  {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
+type: markdown
+```
+{% endraw %}

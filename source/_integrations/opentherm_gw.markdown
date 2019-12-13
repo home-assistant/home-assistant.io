@@ -19,7 +19,7 @@ The following device types are currently supported within Home Assistant:
 - Climate
 - Sensor
 
-This integration will add a single `climate` entity and multiple `sensor` and `binary_sensor` entities to Home Assistant for each configured gateway.
+This integration will add a single `climate` entity to Home Assistant for each configured gateway. Each gateway also has a collection of `sensor` and `binary_sensor` entities, which are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
 <div class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -27,40 +27,41 @@ The OpenTherm protocol is based on polling. The thermostat sends requests to the
 
 # Configuration
 
-In this example, one gateway is configured with `gateway_id` `living_room`.
-```yaml
-# Example configuration.yaml entry
-opentherm_gw:
-  living_room:
-    device: /dev/ttyUSB0
-```
-
-Each configured gateway accepts the following configuration options.
+The OpenTherm Gateway can be added to Home Assistant through the `Integrations` panel in the `Configuration` page of the web interface.
+The following configuration options are available:
 {% configuration %}
-device:
-  description: "Path to OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html)."
+name:
+  description: "The friendly name used for the OpenTherm Gateway and its entities."
   required: true
   type: string
-name:
-  description: "The friendly name used for the entities added for the gateway."
+path:
+  description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html)."
+  required: true
+  type: string
+id:
+  description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services. The entered value will be slugified."
   required: false
   type: string
-  default: "The `gateway_id` of the gateway."
-climate:
-  description: "Settings for the `opentherm_gw` climate entity."
-  required: false
-  type: map
-  keys:
-    precision:
-      description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
-      required: false
-      type: float
-      default: "`0.5` for Celsius and `1.0` for Fahrenheit."
-    floor_temperature:
-      description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Set this to `true` to override this behavior and round to the lower value according to the configured `precision`."
-      required: false
-      type: boolean
-      default: false
+  default: "The slugified `name` of this OpenTherm Gateway."
+{% endconfiguration %}
+
+<div class='note'>
+The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.
+</div>
+
+# Options
+
+The OpenTherm Gateway can be further configured through the integration settings in the web interface
+The following options are available:
+{% configuration %}
+Precision:
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
+  type: float
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
+Floor Temperature:
+  description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
+  type: boolean
+  default: Disabled
 {% endconfiguration %}
 
 ## Services
@@ -71,7 +72,7 @@ Reset the OpenTherm Gateway.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 
 ### Service `opentherm_gw.set_clock`
 
@@ -79,7 +80,7 @@ Provide the time and day of week to the OpenTherm Gateway. The value provided he
 
 | Service data attribute | Optional | Default | Description |
 | ---------------------- | -------- | ------- | ----------- |
-| `gateway_id` | no | N/A | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | N/A | The `gateway_id` as specified during configuration.
 | `date` | yes | Today's date | Date from which the day of week will be extracted. Format: `YYYY-MM-DD`.
 | `time` | yes | Current time | Time in 24h format.
 
@@ -95,7 +96,7 @@ In a normal situation, the thermostat will calculate and control the central hea
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `temperature` | no | The central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override.
 
 <div class='note'>
@@ -114,7 +115,7 @@ that.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `dhw_override` | no | The domestic hot water override state. Value should be 0 or 1 to enable the override in off or on state, or "A" to disable the override.
 
 ### Service `opentherm_gw.set_gpio_mode`
@@ -124,7 +125,7 @@ For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `id` | no | The GPIO ID, `A` or `B`.
 | `mode` | no | The GPIO mode to be set.
 
@@ -135,7 +136,7 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `id` | no | The LED ID, accepted values are `A` through `F`.
 | `mode` | no | The LED mode to be set.
 
@@ -151,7 +152,7 @@ In a normal situation, the thermostat will control the maximum modulation level 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `level` | no | The maximum modulation level. Accepted values are `-1` through `100`. Set to `-1` to disable the override.
 
 <div class='note'>
@@ -167,7 +168,7 @@ If your thermostat is unable to display an outside temperature and does not supp
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `temperature` | no | The outside temperature to provide to the thermostat. Accepted values are `-40.0` through `64.0`. Any value above `64.0` will clear a previously configured value (suggestion: `99`).
 
 ### Service `opentherm_gw.set_setback_temperature`
@@ -177,12 +178,12 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `temperature` | no  | The setback temperature. Accepted values are `0.0` through `30.0`.
 
 ## Sensors
 
-The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs.
+The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
 <p class='note'>
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
@@ -382,7 +383,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
 
 ## Binary Sensors
 
-The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs.
+The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
 <p class='note'>
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
@@ -521,21 +522,3 @@ Possible LED modes and their meaning are listed here:
 * X. Transmission error has been detected.
 * M. Boiler requires maintenance.
 * P. Raised power mode active on thermostat interface.
-
-# Example
-
-A full configuration example with two configured OpenTherm Gateways - one connected via USB, the other over the network - looks like the one below.
-
-```yaml
-# Full example configuration.yaml entry
-opentherm_gw:
-  living_room:
-    device: /dev/ttyUSB0
-    name: "Living"
-  holiday_home:
-    device: socket://otgw.example.org:2345
-    name: "Holiday Home"
-    climate:
-      precision: 0.5
-      floor_temperature: true
-```

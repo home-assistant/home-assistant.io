@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_release: 0.34
 ---
 
-The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](http://www.logitech.com/en-us/product/harmony-hub).
+The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
 
 Supported units:
 
@@ -182,7 +182,7 @@ data:
   delay_secs: 0.6
 ```
 
-### Service `remote.harmony_change_channel`
+### Service `harmony.change_channel`
 
 Sends the change channel command to the Harmony HUB
 
@@ -194,13 +194,13 @@ Sends the change channel command to the Harmony HUB
 A typical service call for changing the channel would be::
 
 ```yaml
-service: remote.change_channel
+service: harmony.change_channel
 data:
   entity_id: remote.tv_room
   channel: 200
 ```
 
-### Service `remote.harmony_sync`
+### Service `harmony.sync`
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
@@ -218,10 +218,10 @@ sensor:
   - platform: template
     sensors:
       family_room:
-        value_template: '{{ state_attr('remote.family_room', 'current_activity') }}'
+        value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
         friendly_name: 'Family Room'
       bedroom:
-        value_template: '{{ state_attr('remote.bedroom', 'current_activity') }}'
+        value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
         friendly_name: 'bedroom'
 ```
 {% endraw %}
