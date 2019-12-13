@@ -81,7 +81,7 @@ observations:
       required: false
       type: time
     delay_off:
-      description: The amount of time the state must be ***not met*** before this sensor will switch to `off`. Works for all types.
+      description: "The amount of time the state must be ***not met*** before this sensor will switch to `off`. Works for all types."
        required: false
        type: time
     max_duration:
