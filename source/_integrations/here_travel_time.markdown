@@ -89,6 +89,15 @@ traffic_mode:
   required: false
   type: boolean
   default: false
+arrival:
+  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `departure`. Can only be used in combination with `mode: publicTransportTimeTable`"
+  required: false
+  type: time
+departure:
+  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. The default is now (the current date and time)" 
+  required: false
+  type: time
+  default: "now"
 unit_system:
   description: "You can choose between `metric` or `imperial`."
   required: false
