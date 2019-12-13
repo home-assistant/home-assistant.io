@@ -37,7 +37,7 @@ prior:
   required: true
   type: float
 probability_threshold:
-  description: |The probability at which the sensor should trigger to `on`."
+  description: "The probability at which the sensor should trigger to `on`."
   required: false
   type: float
   default: 0.5
