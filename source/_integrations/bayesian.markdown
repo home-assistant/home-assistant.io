@@ -160,6 +160,8 @@ binary_sensor:
 
 `delay_on`, `delay_off` and `max_duration` exist to prevent the need to create many custom sensors. A common usecase for `delay_off` is to buffer a short-lived or noisy sensor. `delay_on` and `max_duration` can for instance be used to divide the off time of a sensor in increasingly lower probabilities without overlap.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -193,3 +195,5 @@ binary_sensor:
       prob_given_true: 0.01 # no way there's anyone there
       delay_on: "00:01:00"
 ```
+
+{% endraw %}
