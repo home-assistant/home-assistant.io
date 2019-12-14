@@ -87,15 +87,15 @@ devices:
           default: true
           type: boolean
         aliases:
-          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
+          description: Alternative RFLink ID's this device is known by.
           required: false
           type: [list, string]
         group_aliases:
-          description: "(**deprecated**) `aliases` which only respond to group commands."
+          description: "`aliases` which only respond to group commands."
           required: false
           type: [list, string]
         no_group_aliases:
-          description: "(**deprecated**) `aliases` which do not respond to group commands."
+          description: "`aliases` which do not respond to group commands."
           required: false
           type: [list, string]
 {% endconfiguration %}
