@@ -33,6 +33,10 @@ To edit `/boot/config.txt` on Hass.io use [this documentation](https://developer
 
 When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
 
+### owserver
+
+Instead of using owfs with a filesystem directly, you can connect to a running owserver on a local or remote host.  When using an interface adapter and the owserver, the `host` option must be configured to point to a server running owserver.  Optionally the `port` can also be specified (default 4304).
+
 ### Units with multiple sensors
 
 This platform works with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
@@ -72,6 +76,14 @@ mount_dir:
   description: Location of device tree if owfs driver used.
   required: false
   type: string
+host:
+  description: Host that runs an owserver
+  required: false
+  type: string
+port:
+  description: port number of running owserver (default 4304)
+  required: false
+  type: port
 {% endconfiguration %}
 
 ### Configuration Example
