@@ -224,7 +224,7 @@ sudo iocage console hass
 ```bash
 ls /dev/cu*
 ```
-This should ouput the following 
+This should output the following
 ```bash
 /dev/cuau0      /dev/cuaU0
 ```

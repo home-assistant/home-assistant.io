@@ -43,7 +43,7 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 ## Recommended
 
-These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
+These install options are fully supported by Home Assistant's documentation. For example, if an integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
 <div class='note'>
 
