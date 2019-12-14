@@ -65,7 +65,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-## Sensors types
+## Sensor types
 
 Sensor type values:
 
