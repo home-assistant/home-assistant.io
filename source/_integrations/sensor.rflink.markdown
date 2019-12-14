@@ -63,10 +63,6 @@ devices:
           description: "Alternative RFLink ID's this device is known by."
           required: false
           type: [list, string]
-        aliasses:
-          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
-          required: false
-          type: [list, string]
 {% endconfiguration %}
 
 ## Sensors types
