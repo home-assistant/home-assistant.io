@@ -55,11 +55,9 @@ records:
 
 This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
-
 ### API Key
 
 Please note that the `api_key` is the [global API key](https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys#12345682) of your Cloudflare account (not the API Token).
-
 
 ### Home Assistant Companion App
 
@@ -72,15 +70,13 @@ If you would like to use [iOS App](https://companion.home-assistant.io/) via Clo
 
 Other settings should not cause any issues.
 
-
 ### SSH over Cloudflare
 
 For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-supporting-more-ports/) source), you need to connect directly to your server (bypassing Cloudflare). To do that create a `CNAME` DNS record, e.g., `ssh.example.com`, with proxy status as "DNS only" (to do that click on orange icon, it will change color to gray) and then connect to `ssh.example.com` using your server SSH port.
 
-
 ### Using Cloudflare domain only for Home Assistant
 
-If you want to update just a main domain, place in the records list only your domain, e.g. `example.com`. It will update your `A` DNS record with your IP every hour.
+If you want to update just a main domain, place in the records list only your domain, e.g., `example.com`. It will update your `A` DNS record with your IP every hour.
 
 ```yaml
 # Example configuration.yaml entry for one domain
@@ -99,11 +95,11 @@ To redirect from your domain to the IP address of your Home Assistant server set
 Type: A
 Name: @
 IPv4 Address: your.ip.address
-```
 You can find your current IP address using [this](https://api.ipify.org/) page.
 
 
 In order to redirect from `https://www` to `https://` you need to set this DNS record:
+
 ```text
 Type: CNAME
 Name: @
