@@ -95,7 +95,7 @@ cloudflare:
 #### The minimum DNS record settings are (if you have set up https already):
 
 To redirect from your domain to the IP address of your Home Assistant server set this DNS record:
-```
+```text
 Type: A
 Name: @
 IPv4 Address: your.ip.address
@@ -104,14 +104,14 @@ You can find your current IP address using [this](https://api.ipify.org/) page.
 
 
 In order to redirect from `https://www` to `https://` you need to set this DNS record:
-```
+```text
 Type: CNAME
 Name: @
 Target: example.com (your actual domain)
 ```
 
 And also create Page Rule:
-```
+```text
 If the URL matches: www.example.com*
 Then the settings are: Forwarding URL
 Status: 302 - Temporary redirect
