@@ -89,7 +89,7 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: {{ minutes }}
+          minutes: {% raw %}{{ minutes }}{% endraw %}
       - alias: Living room lights on
         service: light.turn_on
         data:
