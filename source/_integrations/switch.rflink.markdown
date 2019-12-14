@@ -82,7 +82,7 @@ devices:
           default: 1
           type: integer
         group:
-          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          description: Allow switch to respond to group commands (ALLON/ALLOFF).
           required: false
           default: true
           type: boolean
