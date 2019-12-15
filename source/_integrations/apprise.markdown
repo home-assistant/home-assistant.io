@@ -14,48 +14,8 @@ To use Apprise supported notifications, add the following to your `configuration
 ```yaml
 # Example configuration.yaml entry using URLs
 notify:
-  - name: NOTIFIER_NAME
-    platform: apprise
+  - platform: apprise
     url: YOUR_APPRISE_URLS
-```
-
-Apprise URLs may seem strange at first, but they aren't complicated to create at all. They provide all of the information needed to activate a notification service in one single web-like URL. You specify more than one (causing them all to be notified) by just separating each URL with a comma and/or space.  To see how you can construct your own URL(s) [click here](https://github.com/caronc/apprise/wiki). For example, an [Apprise E-mail URL](https://github.com/caronc/apprise/wiki/Notify_email) configuration entry might look like this:
-
-```yaml
-# An Apprise E-Mail Example (using Google Mail)
-notify:
-  - name: by_email
-    platform: apprise
-    url: mailto://chuck:pass123@gmail.com
-```
-
-You can also pre-define your own isolated (Apprise) configuration files and just reference them through Home Assistance.  The advantage of this is you can keep all of your Apprise URLs in one secure location (even on another server if you want).  It makes it easier to read the entries in addition you can leverage the power of tagging. Tagging is explained a bit later. To specify an isolated Apprise configuration entry, simply use the `config` option.
-
-```yaml
-# Example configuration.yaml entry using externally located Apprise
-# Configuration Files/Sites:
-notify:
-  - name: NOTIFIER_NAME
-    platform: apprise
-    config: YOUR_APPRISE_CONFIG_URLS
-```
-
-Here is what an `config` entry might look like:
-```yaml
-# Apprise Configuration stored on the same server as our Home Assistant
-notify:
-  - name: my_alerts
-    platform: apprise
-    config: /etc/apprise/apprise.conf
-```
-
-The [Apprise Configuration URLs](https://github.com/caronc/apprise/wiki/config) you identify must either be a file path to a configuration file on the same server as the one hosting Home Assistant or a web URL pointing to a self hosted configuration you set up. Here is another way you can leverage remote configurations:
-```yaml
-# Apprise Configuration stored remotely
-notify:
-  - name: my_alerts
-    platform: apprise
-    config: http://myserver/apprise.conf
 ```
 
 {% configuration %}
@@ -73,6 +33,41 @@ config:
   required: false
   type: string
 {% endconfiguration %}
+
+Apprise URLs may seem strange at first, but they aren't complicated to create at all. They provide all of the information needed to activate a notification service in one single web-like URL. You specify more than one (causing them all to be notified) by just separating each URL with a comma and/or space.  To see how you can construct your own URL(s) [click here](https://github.com/caronc/apprise/wiki). For example, an [Apprise E-mail URL](https://github.com/caronc/apprise/wiki/Notify_email) configuration entry might look like this:
+
+```yaml
+# An Apprise E-Mail Example (using Google Mail)
+notify:
+  - platform: apprise
+    url: mailto://chuck:pass123@gmail.com
+```
+
+You can also pre-define your own isolated (Apprise) configuration files and just reference them through Home Assistance.  The advantage of this is you can keep all of your Apprise URLs in one secure location (even on another server if you want).  It makes it easier to read the entries in addition you can leverage the power of tagging. Tagging is explained a bit later. To specify an isolated Apprise configuration entry, simply use the `config` option.
+
+```yaml
+# Example configuration.yaml entry using externally located Apprise
+# Configuration Files/Sites:
+notify:
+  - platform: apprise
+    config: YOUR_APPRISE_CONFIG_URLS
+```
+
+Here is what an `config` entry might look like:
+```yaml
+# Apprise Configuration stored on the same server as our Home Assistant
+notify:
+  - platform: apprise
+    config: /etc/apprise/apprise.conf
+```
+
+The [Apprise Configuration URLs](https://github.com/caronc/apprise/wiki/config) you identify must either be a file path to a configuration file on the same server as the one hosting Home Assistant or a web URL pointing to a self hosted configuration you set up. Here is another way you can leverage remote configurations:
+```yaml
+# Apprise Configuration stored remotely
+notify:
+  - platform: apprise
+    config: http://myserver/apprise.conf
+```
 
 #### Extended Functionality
 
