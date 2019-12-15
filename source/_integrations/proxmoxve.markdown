@@ -45,7 +45,7 @@ port:
   default: 8006
   type: integer
 verify_ssl:
-  description: Whether to do strict validation on SSL certificates.
+  description: Whether to do strict validation on SSL certificates. If you use a self signed SSL certificate you need to set this to false.
   required: false
   default: true
   type: boolean
@@ -97,4 +97,6 @@ proxmoxve:
 
 ## Binary Sensor
 
-The integration will automatically create a binary sensor for each tracked VM or container, the binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+The integration will automatically create a binary sensor for each tracked virtual machone or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+
+The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
