@@ -35,7 +35,7 @@ When an interface adapter is used, sensors can be accessed on Linux hosts via [o
 
 ### owserver
 
-When an interface adapter is used, you can also access sensors on a remote or local linux host that is running owserver.  Owserver by default runs on port 4304.  Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
+When an interface adapter is used, you can also access sensors on a remote or local Linux host that is running owserver.  owserver by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
 ### Units with multiple sensors
 
@@ -77,11 +77,11 @@ mount_dir:
   required: false
   type: string
 host:
-  description: Remote or local host running owserver
+  description: Remote or local host running owserver.
   required: false
   type: string
 port:
-  description: The port number of the owserver (requires host)
+  description: "The port number of the owserver (requires `host`)."
   required: false
   type: integer
 {% endconfiguration %}
