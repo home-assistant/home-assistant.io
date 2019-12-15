@@ -83,7 +83,7 @@ host:
 port:
   description: The port number of the owserver (requires host)
   required: false
-  type: port
+  type: integer
 {% endconfiguration %}
 
 ### Configuration Example
