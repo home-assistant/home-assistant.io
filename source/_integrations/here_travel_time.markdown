@@ -134,9 +134,8 @@ sensor:
     route_mode: fastest
     traffic_mode: false
     unit_system: imperial
+    departure: "17:00:00"
     scan_interval: 2678400 # 1 month
-    
-
 ```
 
 ## Entity Tracking
