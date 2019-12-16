@@ -1,3 +1,4 @@
+.devcontainer/Dockerfile
 FROM ruby:2.6
 
 # Avoid warnings by switching to noninteractive
