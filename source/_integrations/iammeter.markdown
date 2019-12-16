@@ -5,13 +5,11 @@ logo: iammeter-logo.png
 ha_category:
   - Energy
   - Sensor
-ha_release: 0.103
+ha_release: 0.104
 ha_iot_class: Local Polling
 ---
 
 [https://www.iammeter.com](https://www.iammeter.com) is our energy management platform/cloud. Our Bi-Directional Wi-Fi Energy Meters can measure the real-time reading and report to our cloud. These meters can also be easily integrated into home assistant system. We have both single phase (WEM3080, WEM3162) and three phase (WEM3080T) meters.
-
-
 
 ## Configuration
 
@@ -21,16 +19,24 @@ Use the meter's sensors in your installation, and add the following to your conf
 # Example configuration.yaml entry
 sensor:
   - platform: iammeter
-    host: ip address of host
-    name: your device name
+    host: IP_ADDRESS_OF_HOST
+    name: DEVICE_NAME
 ```
 
 {% configuration %}
 host:
-  (string)(Required)
-  The IP address of your iammeter.
+  description: The IP address of your iammeter.
+  required: true
+  type: string
+port:
+  description: port of your ianmeter
+  required: false
+  default: 80
+  type: integer
 name:
-  (string)(Required)
+  description: Name for the sensor entity in Home Assistant.
+  required: true
+  type: string
 {% endconfiguration %}
 
 ## Sensors
