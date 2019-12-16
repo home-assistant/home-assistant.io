@@ -5,7 +5,6 @@ logo: meteo-france.png
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 ha_category:
-  - Hub
   - Sensor
   - Weather
 ha_codeowners:
@@ -15,14 +14,26 @@ ha_codeowners:
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - Sensor
 - Weather
 
 It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
 
-## Configuration
+## Setup the integration
+
+There is two ways to integrate Météo-France in Home Assistant
+
+### Via the frontend
+
+Menu: *Configuration* -> *Integrations*
+
+Search for "Météo-France", add your city, click submit, you are done !
+
+Notice: all `monitored_conditions` will be added, see more details below.
+
+### Via the configuration file
 
 To add Météo-France to your installation, add the following to your `configuration.yaml` file:
 
