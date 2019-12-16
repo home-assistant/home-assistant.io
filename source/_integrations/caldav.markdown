@@ -124,6 +124,11 @@ custom_calendars:
         Regular expression for filtering the events based on
         the content of their summary, description or location.
       type: string
+    all_day:
+      required: false
+      description: Include events that last the whole day.
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ### Sensor attributes
