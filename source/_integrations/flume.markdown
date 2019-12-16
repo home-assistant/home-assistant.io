@@ -14,7 +14,7 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 ## Configuration
 
-You can find your Client ID and Client Secret under "API Access" on the [settings page](https://https://portal.flumetech.com/#settings). 
+You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumetech.com/#settings). 
 
 To enable the flume sensor, add the following lines to your `configuration.yaml` file:
 
