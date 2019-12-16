@@ -5,10 +5,10 @@ logo: home-assistant.png
 ha_category:
   - Network
 ha_iot_class: Assumed State
-ha_release: "0.104"
+ha_release: 0.104
 ---
 
-The `localip` sensor will expose the local (LAN) IP address of your Home Assistant instance.  This can be useful when your instance has a static public hostname (for example, if you use the Nabu Casa service), but have a dynamically allocated local LAN address (for example, configured via DHCP).
+The `localip` sensor will expose the local (LAN) IP address of your Home Assistant instance. This can be useful when your instance has a static public hostname (for example, if you use the Nabu Casa service), but have a dynamically allocated local LAN address (for example, configured via DHCP).
 
 ## Configuration
 
