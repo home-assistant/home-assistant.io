@@ -82,6 +82,12 @@ List of source names:
 - xm
 - sirius
 
+If your source is not listed above, and you want to figure out how to format that source name so you can map it's entry, you can use the onkyo-eiscp python module to discover the exact naming needed. First change your receiver's source to the one that you need to define, and then run:
+
+```bash
+onkyo --host 192.168.0.100 source=query
+```
+
 To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
