@@ -31,20 +31,15 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 ```yaml
 sensor:
   - platform: here_weather
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
 ```
 
 The location to get the weather information for can be provided via `location_name`, `latitude/longitude` or `zip_code`(US Only).
 If none of these is provided the `latitude` and `longitude` of the Homeassistance instance is used.
 
 {% configuration %}
-app_id:
-  description: "Your application's API id (get one by following the instructions above)."
-  required: true
-  type: string
-app_code:
-  description: "Your application's API code (get one by following the instructions above)."
+api_key:
+  description: "Your application's API key (get one by following the instructions above)."
   required: true
   type: string
 location_name:
@@ -96,8 +91,7 @@ scan_interval:
 sensor:
   - platform: here_weather
     name: Mainz in 5 Hours
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     location_name: Mainz
     mode: forecast_hourly
     offset: 5
@@ -110,20 +104,15 @@ To enable the weather integration, add the following lines to your `configuratio
 ```yaml
 weather:
   - platform: here_weather
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
 ```
 
 The location to get the weather information for can be provided via `location_name`, `latitude/longitude` or `zip_code`(US Only).
 If none of these is provided the `latitude` and `longitude` of the Homeassistance instance is used.
 
 {% configuration %}
-app_id:
-  description: "Your application's API id (get one by following the instructions above)."
-  required: true
-  type: string
-app_code:
-  description: "Your application's API code (get one by following the instructions above)."
+api_key:
+  description: "Your application's API key (get one by following the instructions above)."
   required: true
   type: string
 location_name:
@@ -170,8 +159,7 @@ scan_interval:
 weather:
   - platform: here_weather
     name: Mainz Hourly
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     location_name: Mainz
     mode: forecast_hourly
 ```
