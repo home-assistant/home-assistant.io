@@ -18,5 +18,3 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 localip:
 ```
-
-No additional configuration is needed.
