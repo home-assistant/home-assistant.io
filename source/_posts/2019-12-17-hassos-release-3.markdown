@@ -14,15 +14,16 @@ og_image: /images/blog/2019-12-hassos-release-3/blogpost.png
 A bit behind the original timeline, but we happy to announce, we've released version 3 of Hass.io Operating System: HassOS. Just in time for Christmas!
 
 TL;DR; A quick summary of the changes:
-Official RPi4 support
-Linux LT 4.19
-Buildroot LT 2019
-USB-boot capabilities for the RPi3
-SMS integrations with USB/GSM modem
-Qemu Agent support
-Optimized kernel for virtual appliances
-Improved automatic disk expansion
-Initial foundation for offloading the data partition
+
+    - Official RPi4 support
+    - Linux LT 4.19
+    - Buildroot LT 2019
+    - USB-boot capabilities for the RPi3
+    - SMS integrations with USB/GSM modem
+    - Qemu Agent support
+    - Optimized kernel for virtual appliances
+    - Improved automatic disk expansion
+    - Initial foundation for offloading the data partition
 
 ### Raspberry Pi
 
