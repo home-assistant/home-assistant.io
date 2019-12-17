@@ -305,6 +305,39 @@ Closest to some entity:
 
 {% endraw %}
 
+### Coordinates
+
+- `coordinates()` will return the coordinates stored as a state or attributes of an entity. If the state is an `entity_id` it will try to get the coordinates from that.
+
+### Coodinates examples
+
+Get coordinates from entities.
+
+{% raw %}
+```text
+Get coordinates from a device_tracker: {{ coordinates('device_tracker.me') }}
+Get coordinates from a zone: {{ coordinates('zone.work') }}
+```
+{% endraw %}
+
+Get coordinates from nested entities.
+
+{% raw %}
+```yaml
+Given the config
+input_select:
+  dynamic_device_tracker:
+    options:
+      - device_tracker.me
+      - device_tracker.not_me
+    initial: device_tracker.me
+```
+
+```text
+Use the device_tracker currently selected: {{ coordinates('input_select.dynamic_device_tracker') }}
+```
+{% endraw %}
+
 ### Formatting
 
 - `float` will format the output as float.
