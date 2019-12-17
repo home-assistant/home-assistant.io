@@ -1,3 +1,4 @@
+.devcontainer/devcontainer.json
 {
     "name": "home-assistant.io",
     "dockerFile": "Dockerfile",
