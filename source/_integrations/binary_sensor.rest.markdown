@@ -106,8 +106,8 @@ headers:
   description: The headers for the requests.
   required: false
   type: [list, string]
-file_path:
-  description: Path to the file that contains the client-certificate used for authentication. Make sure the file contains private key ant the certificate
+client_certificate:
+  description: Path to the file that contains the client-certificate used for authentication. Make sure the file contains private key and the certificate
   required: false
   type: string
 {% endconfiguration %}
