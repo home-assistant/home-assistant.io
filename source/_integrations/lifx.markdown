@@ -20,7 +20,7 @@ The LIFX bulbs allow a change of color and brightness even when they are turned 
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
 
-### Service `light.lifx_set_state`
+### Service `lifx.set_state`
 
 Change the light to a new state.
 
@@ -54,7 +54,7 @@ script:
   colorloop_start:
     alias: 'Start colorloop'
     sequence:
-      - service: light.lifx_effect_colorloop
+      - service: lifx.effect_colorloop
         data:
           entity_id: group.livingroom
           brightness: 255
