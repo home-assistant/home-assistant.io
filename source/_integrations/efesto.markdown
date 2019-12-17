@@ -3,7 +3,7 @@ title: "Efesto"
 description: "Instructions on how to integrate Efesto heating devices within Home Assistant."
 logo: efesto.png
 ha_category: Climate
-ha_release: 0.103
+ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ---
