@@ -27,13 +27,13 @@ TL;DR; A quick summary of the changes:
 
 We now officially support the Raspberry Pi 4 on this stable version of HassOS! The Raspberry Pi 4 is a great and powerful device to get you started on Hass.io and Home Assistant.
 
-[@rbray89](https://github.com/rbray89) worked hard on this release to add the very often requested USB-boot support! Please note, this is currently limited to RPi3 devices. Carefully read how the USB boot [works](https://github.com/home-assistant/hassos/blob/rel-3/Documentation/boards/raspberrypi.md#usb-boot) and be aware of the limited [supported hardware](https://community.home-assistant.io/t/hass-io-transfer-from-sd-card-to-ssd-or-usb/97452/19)
+[@rbray89](https://github.com/rbray89) worked hard on this release to add the very often requested USB boot support! Please note, this is currently limited to RPi3 devices. Carefully read how the USB boot [works](https://github.com/home-assistant/hassos/blob/rel-3/Documentation/boards/raspberrypi.md#usb-boot) and be aware of the limited [supported hardware](https://community.home-assistant.io/t/hass-io-transfer-from-sd-card-to-ssd-or-usb/97452/19).
 
 ## Hypervisors / Running HassOS on a Virtual Machine
 
-The HassOS image for virtual appliances did get some beautiful updates as well. We have optimized the Linux kernel to support more virtual hardware.
+The HassOS image for virtual appliances did get some useful updates as well. We have optimized the Linux kernel to support more virtual hardware.
 
-We have now included the Qemu Agent in HassOS. So if you are running on a Hypervisor that is Qemu based (e.g., Proxmox), you now have a lot more information in your Hypervisor control panel, proper shutdown support and improved support for backing up/snapshotting your virtual machine.
+We have now included the QEMU Agent in HassOS. So if you are running on a Hypervisor that is QEMU based (e.g., Proxmox or Libvirt), you now have a lot more information in your Hypervisor control panel, proper shutdown support and improved support for backing up/snapshotting your virtual machine.
 
 Finally, the automated disk expansion got some updates. So if you need more disk space in your virtual appliance, add it in your Hypervisor and HassOS automatically pick it up at the next boot.
 
@@ -43,6 +43,6 @@ We want to emphasize that running Hass.io as a virtual machine is the **only** s
 
 If you are already running HassOS, you have the full flavor of Hass.io, and thus, all the comfort it has to offer, making this upgrade a breeze!
 
-To update via the user interface, go to the Home Assistant frontend, click on **Hass.io** in the sidebar to go into the Hass.io Panel. Next, click on the System tab and press the **UPDATE** button in the "Host system" panel. In case the update isn't showing up yet, push the **RELOAD** button on the "Hass.io supervisor" box first, which makes your system look for updates instantly.
+To update via the user interface, go to the Home Assistant frontend, click on **Hass.io** in the sidebar to go into the Hass.io panel. Next, click on the System tab and press the **UPDATE** button in the "Host system" panel. In case the update isn't showing up yet, push the **RELOAD** button on the "Hass.io supervisor" box first, which makes your system look for updates instantly.
 
 Another option is to use our powerful CLI, that is shipped with the SSH add-on. Run the following command to trigger the upgrade: `hassio os update --version 3.7`.
