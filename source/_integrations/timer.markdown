@@ -96,6 +96,9 @@ Manually finish a running timer earlier than scheduled. You can also use `entity
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
+### Service `timer.reload`
+Reload `timer`'s configuration without restarting Home Assistant itself. This service takes no service data attributes.
+
 ### Use the service
 
 Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **timer** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
