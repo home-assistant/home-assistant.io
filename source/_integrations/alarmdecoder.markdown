@@ -82,7 +82,7 @@ panel_display:
   default: false
   type: boolean
 autobypass:
-  description: If this is set to True, then when arming (home or away), it will automatically bypass all open zones (sending "6#")
+  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#')".
   required: false
   default: false
   type: boolean
