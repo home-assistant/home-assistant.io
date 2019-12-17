@@ -30,7 +30,7 @@ We support now officially the Raspberry Pi 4 on this stable version of HassOS! T
 
 [@rbray89](https://github.com/rbray89) worked hard on this release to add the very often requested USB-boot support! Please note, this is currently limited to RPi3 devices. carefully read how the USB boot [works](https://github.com/home-assistant/hassos/blob/rel-3/Documentation/boards/raspberrypi.md#usb-boot) and be aware of the limited [supported hardware](https://community.home-assistant.io/t/hass-io-transfer-from-sd-card-to-ssd-or-usb/97452/19)
 
-### Hypervisors / Running HassOS on a Virtual Machine
+## Hypervisors / Running HassOS on a Virtual Machine
 
 The HassOS image for virtual appliances did get some beautiful updates as well. We have optimized the Linux kernel to support more virtual hardware.
 
