@@ -11,8 +11,8 @@ The following will take you through the steps required to install Hass.io.
    
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
-     - [(RC) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
-     - [(RC) Raspberry Pi 4 Model B 64bit][pi4-64]
+     - [Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
+     - [Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
      - [Odroid-XU4][odroid-xu4]
@@ -26,6 +26,12 @@ The following will take you through the steps required to install Hass.io.
      - [VDI][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
     
+   - Not recommended Hardware:
+  
+     - [Raspberry Pi][pi1]
+     - [Raspberry Pi Zero-W][pi0-w]
+     - [Raspberry Pi 2][pi2]
+
 2. Install Hass.io:
 
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
@@ -202,21 +208,21 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi0-w-2.12.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi-2.12.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-3.5.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-64-3.5.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
-[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz
-[opi-prime]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_opi-prime-2.12.img.gz
-[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_intel-nuc-2.12.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vmdk.gz
-[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vhdx.gz
-[vdi]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vdi.gz
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi0-w-3.7.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi-3.7.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi2-3.7.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi3-3.7.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi3-64-3.7.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi4-3.7.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_rpi4-64-3.7.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_tinker-3.7.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_odroid-c2-3.7.img.gz
+[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_odroid-xu4-3.7.img.gz
+[opi-prime]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_opi-prime-3.7.img.gz
+[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_intel-nuc-3.7.img.gz
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_ova-3.7.vmdk.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_ova-3.7.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_ova-3.7.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
