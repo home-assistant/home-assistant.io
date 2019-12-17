@@ -10,6 +10,7 @@ ha_category:
 ha_codeowners:
   - '@victorcerutti'
   - '@oncleben31'
+ha_config_flow: true
 ---
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
@@ -23,15 +24,13 @@ It displays the current weather along with a 4 days forecast and can create sens
 
 ## Setup the integration
 
-There is two ways to integrate Météo-France in Home Assistant
+There is two ways to integrate Météo-France in Home Assistant.
 
 ### Via the frontend
 
 Menu: *Configuration* -> *Integrations*
 
-Search for "Météo-France", add your city, click submit, you are done !
-
-Notice: all `monitored_conditions` will be added, see more details below.
+Search for "Météo-France", add your city, click submit, you are done!
 
 ### Via the configuration file
 
