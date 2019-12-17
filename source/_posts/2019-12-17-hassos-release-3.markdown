@@ -40,7 +40,7 @@ Finally, the automated disk expansion got some updates. So if you need more disk
 
 We want to emphasize that running Hass.io as a virtual machine is the **only** supported method to run Hass.io on a virtualized system. We've lately seen some funky tutorials on how to run Hass.io inside a container like Docker or LXC, which we **DO NOT** recommend, you will end up having issues.
 
-### How to update to HassOS 3
+## How to update to HassOS 3
 
 If you are already running HassOS, you have the full flavor of Hass.io, and thus, all the comfort it has to offer, making this upgrade a breeze!
 
