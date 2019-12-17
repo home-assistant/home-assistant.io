@@ -3,18 +3,154 @@ title: "Broadlink"
 description: "Instructions on how to integrate Broadlink within Home Assistant."
 logo: broadlink.png
 ha_category:
+  - Cover
   - Remote
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ---
 
 There is currently support for the following device types within Home Assistant:
 
+- [Cover](#cover)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+## Cover
+
+The `broadlink` cover platform allows you to use Broadlink RM [devices](http://www.ibroadlink.com/) to interact with IR or RF covers.
+It create covers with optional timer based cover position control.
+
+### Configuration
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+```
+
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
+  required: true
+  type: string
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  default: 5
+  type: integer
+covers:
+  description: An array that contains all covers.
+  required: false
+  type: list
+  keys:
+    identifier:
+      description: Name of cover as slug.
+      required: true
+      type: string
+      keys:
+        friendly_name:
+          description: The name used to display the cover in the frontend.
+          required: false
+          type: string
+        command_open:
+          description: Base64 encoded code to send to RM device on open command.
+          required: false
+          type: string
+        command_close:
+          description: Base64 encoded code to send to RM device on close command.
+          required: false
+          type: string
+        command_stop:
+          description: Base64 encoded code to send to RM device on stop command.
+          required: false
+          type: string
+        opening_time:
+          description: The time in seconds to fully open the cover.
+          required: false
+          type: float
+        closing_time:
+          description: The time in seconds to fully close the cover.
+          required: false
+          type: float
+        start_pos:
+          description: The cover initial position. Range 0 to 100.
+          required: false
+          type: integer
+          default: 0
+        tilt_command_open:
+          description: Base64 encoded code to send to RM device on tilt open command.
+          required: false
+          type: string
+        tilt_command_close:
+          description: Base64 encoded code to send to RM device on tilt close command.
+          required: false
+          type: string
+        tilt_command_stop:
+          description: Base64 encoded code to send to RM device on tilt stop command.
+          required: false
+          type: string
+        tilt_opening_time:
+          description: The time in seconds to fully tilt open the cover.
+          required: false
+          type: float
+        tilt_closing_time:
+          description: The time in seconds to fully tilt close the cover.
+          required: false
+          type: float
+        tilt_start_pos:
+          description: The cover initial tilt position. Range 0 to 100.
+          required: false
+          type: integer
+          default: 0
+{% endconfiguration %}
+
+### Example configuration.yaml entry
+
+Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
+
+```yaml
+cover:
+  - platform: broadlink
+    host: 192.168.1.2
+    mac: 'B4:43:0D:CC:0F:58'
+    timeout: 10
+    covers:
+      # Cover without position control.
+      dining_room_window:
+        friendly_name: "Dining room window"
+        command_open:  'sgOEAwwYDBgMGwYDBgLGRcNCgMGQsYGAAF3AAAAAA='
+        command_close: 'sgOEAwsZCxDAwYDBgYDBcNDBcMGBgMGAAF3AAAAAA='
+        command_stop:  'sgSEYFw0MFxgNCxkerghuhttgXDAwYGAAF3AAAAAA='
+      # Cover with position control. 
+      kitchen_window:
+        friendly_name: "Kitchen Window"
+        command_open:  'sgBuAQwYDBgMGBgMDBgMFMGAwYDBgMDAAF3AAAAAAAAAAAAAA='
+        command_close: 'sgAeAQ0XDRcNFw0WDRcZCNFCxkLGQsNFw0ABdwAAAAAAAAAA'
+        command_stop:  'sgDgAAwYFw0XDQsGA0LGYDAwMFxgNCxgYAAXcAAAAAAAAAAA='
+        opening_time: 9.5
+        closing_time: 9
+      # Cover with position and tilt open / close control
+      living_room_window:
+        friendly_name: "Living Room Window"
+        command_open:  'sgCwAaBRNQsVCwsWChYKFgsVCwwUFgsF3AAAAAAAAAAA'
+        command_close: 'sgByAgsVCxUWCwsVDxYLFRULFcgyhCxUWAAAAAAAAAAA'
+        command_stop:  'sgDsABULFgoWCgwVFRYULFQdVFgoMFBYAAAAAAAAAAAA'
+        opening_time: 18
+        closing_time: 12
+        tilt_command_open: 'sgOEAwwYDBgMGBwLGQsYGAwMGAwYDBgMGBcNAAAA'
+        tilt_command_close: 'sgDsABULFgoWCgoLFRQwdrVFgoMFBYAAAAAAAAAA'
+```
 
 ## Remote
 
@@ -359,9 +495,7 @@ slots:
 
 Information about how to install on Windows can be found [here](/integrations/broadlink#sensor#microsoft-windows-installation).
 
-### How to obtain IR/RF packets?
-
-Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+### Example configuration.yaml entry
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -464,6 +598,12 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
+## How to obtain IR/RF codes?
+
+### Using Home Assistant User Interface
+
+Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+
 ### Using E-Control remotes
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
@@ -512,7 +652,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 8. Convert the HEX codes to base64.
     Use [this](https://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
-### Using iOS and Windows to obtain codes
+### Using IOS E-Control app and Windows
 
 1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
@@ -523,7 +663,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
    - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
-3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
+3. Plug your iPhone into your Windows PC, open iTunes and create a non-encrypted backup of your device.
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
@@ -560,7 +700,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
 
-### Using Windows to obtain codes with Broadlink Manager
+### Using Windows with Broadlink Manager
 
 1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
 2. Open the application and hit "scan" to activate your broadlink device.
@@ -605,7 +745,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     ```
 This is the code we need to transmit again to replicate the same remote function.
 
-### Using Node red to Transmit Codes
+### Using Node-RED to transmit codes
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
 2. In the Action field, select - Set from msg.payload -.
@@ -632,11 +772,11 @@ The "status" : "OK" at the end is a feedback that the Broadlink RM device is con
 
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
 
-### Using broadlink_cli to obtain codes
+### Using python broadlink_cli
 
 It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
 
-### Conversion of codes from other projects
+### Converting codes from other projects
 
 For old/awkward devices another possibility is to try to get codes by using data gathered by the LIRC project.
 
