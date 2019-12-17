@@ -9,7 +9,7 @@ ha_release: 0.49
 ha_iot_class: Local Push
 ---
 
-The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to turn them on.
+The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
 
 There is currently support for the following device types within Home Assistant:
 
