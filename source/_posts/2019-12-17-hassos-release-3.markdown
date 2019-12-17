@@ -9,7 +9,6 @@ categories: Announcements
 og_image: /images/blog/2019-12-hassos-release-3/blogpost.png
 ---
 
-## HassOS update: Raspberry Pi 4 now officially supported!
 
 A bit behind the original timeline, but we happy to announce, we've released version 3 of Hass.io Operating System: HassOS. Just in time for Christmas!
 
