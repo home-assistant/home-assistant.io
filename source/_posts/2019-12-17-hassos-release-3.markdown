@@ -9,7 +9,6 @@ categories: Announcements
 og_image: /images/blog/2019-12-hassos-release-3/blogpost.png
 ---
 
-
 A bit behind the original timeline, but we happy to announce, we've released version 3 of Hass.io Operating System: HassOS. Just in time for Christmas!
 
 TL;DR; A quick summary of the changes:
@@ -26,9 +25,9 @@ TL;DR; A quick summary of the changes:
 
 ## Raspberry Pi
 
-We support now officially the Raspberry Pi 4 on this stable version of HassOS! The Raspberry Pi 4 is a great and powerful device to get you started on Hass.io and Home Assistant.
+We now officially support the Raspberry Pi 4 on this stable version of HassOS! The Raspberry Pi 4 is a great and powerful device to get you started on Hass.io and Home Assistant.
 
-[@rbray89](https://github.com/rbray89) worked hard on this release to add the very often requested USB-boot support! Please note, this is currently limited to RPi3 devices. carefully read how the USB boot [works](https://github.com/home-assistant/hassos/blob/rel-3/Documentation/boards/raspberrypi.md#usb-boot) and be aware of the limited [supported hardware](https://community.home-assistant.io/t/hass-io-transfer-from-sd-card-to-ssd-or-usb/97452/19)
+[@rbray89](https://github.com/rbray89) worked hard on this release to add the very often requested USB-boot support! Please note, this is currently limited to RPi3 devices. Carefully read how the USB boot [works](https://github.com/home-assistant/hassos/blob/rel-3/Documentation/boards/raspberrypi.md#usb-boot) and be aware of the limited [supported hardware](https://community.home-assistant.io/t/hass-io-transfer-from-sd-card-to-ssd-or-usb/97452/19)
 
 ## Hypervisors / Running HassOS on a Virtual Machine
 
@@ -46,4 +45,4 @@ If you are already running HassOS, you have the full flavor of Hass.io, and thus
 
 To update via the user interface, go to the Home Assistant frontend, click on **Hass.io** in the sidebar to go into the Hass.io Panel. Next, click on the System tab and press the **UPDATE** button in the "Host system" panel. In case the update isn't showing up yet, push the **RELOAD** button on the "Hass.io supervisor" box first, which makes your system look for updates instantly.
 
-Another option is to our powerful CLI that is shipped with the SSH add-on. Run the following command to trigger the upgrade: `hassio os update --version 3.7`.
+Another option is to use our powerful CLI, that is shipped with the SSH add-on. Run the following command to trigger the upgrade: `hassio os update --version 3.7`.
