@@ -9,7 +9,7 @@ categories: Announcements
 og_image: /images/blog/2019-12-hassos-release-3/blogpost.png
 ---
 
-A bit behind the original timeline, but we happy to announce, we've released version 3 of Hass.io Operating System: HassOS. Just in time for Christmas!
+A bit behind the original timeline, but we happy to announce, we're released version 3 of Hass.io Operating System: HassOS. Just in time for Christmas!
 
 TL;DR; A quick summary of the changes:
 
