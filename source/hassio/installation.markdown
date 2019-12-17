@@ -26,7 +26,7 @@ The following will take you through the steps required to install Hass.io.
      - [VDI][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
     
-  - Not recommended Hardware:
+   - Not recommended Hardware:
   
      - [Raspberry Pi][pi1]
      - [Raspberry Pi Zero-W][pi0-w]
