@@ -24,7 +24,7 @@ TL;DR; A quick summary of the changes:
     - Improved automatic disk expansion
     - Initial foundation for offloading the data partition
 
-### Raspberry Pi
+## Raspberry Pi
 
 We support now officially the Raspberry Pi 4 on this stable version of HassOS! The Raspberry Pi 4 is a great and powerful device to get you started on Hass.io and Home Assistant.
 
