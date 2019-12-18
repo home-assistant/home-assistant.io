@@ -59,6 +59,6 @@ Hass.io runs partly on your local machine, but for most parts inside multiple co
 
 If you run VMWare, ProxMox or other virtualization environments, you can use the HassOS OVA/VMDK to run a virtual machine with. Or, if you like to use a Ubuntu VM, that will work with the supported generic Linux installer.
 
-We **DO NOT** support any kind of LCX hacks like listed here: <https://github.com/whiskerz007/proxmox_hassio_lxc>. These setups try to put everything inside a **single** container, which will cause you issues.
+We **DO NOT** support any kind of LXC hacks like listed here: <https://github.com/whiskerz007/proxmox_hassio_lxc>. These setups try to put everything inside a **single** container, [which will cause you issues](https://community.home-assistant.io/t/hassio-installation-on-lxd-lxc-container-ubuntu-18-04/151543/2). Hass.io is not designed to run fully inside a containerized system, like LXC.
 
 We hope this clarifies our earlier statement.
