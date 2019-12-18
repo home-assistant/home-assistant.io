@@ -72,7 +72,7 @@ Thank you so much!
 [@briglx]: https://github.com/briglx
 [@djpremier]: https://github.com/djpremier
 [@javicalle]: https://github.com/javicalle
-[@Michsior14]: https://github.com/Michsior14
+[@michsior14]: https://github.com/Michsior14
 [@mnigbur]: https://github.com/mnigbur
 [@thaohtp]: https://github.com/thaohtp
 
@@ -244,6 +244,42 @@ All services for use in Home Assistant are moved to their integration naming spa
 - **Entity ID** - It is no longer possible to target all entities by not passing both `entity_id` and `area_id` to your service data. This feature was previously deprecated and has been printing warnings. The correct way to target all entities is to set `entity_id: all` - ([@balloob] - [#29178])
 - **Heatmiser Thermostat** - The Heatmiser integration has been updated to the latest version of the heatmiserV3 library, meaning less code inside HA, and more leverage on the library. The current version of the Heatmiser integration went out of date with the introduction of voluptuous. This has now been fixed, but it breaks the old config syntax slightly. See the updated docs for the new config format. - ([@andylockran] - [#29006]) ([heatmiser docs])
 
+## Release 0.103.1 - December 18
+
+- Install requirements of after_dependencies when loading integrations ([@balloob] - [#29491])
+- Bump aioambient to 1.0.2 ([@bachya] - [#29850]) ([ambient_station docs])
+- Fix setup for tank_utility component ([@springstan] - [#29902]) ([tank_utility docs])
+- Fix setup error for logbook ([@springstan] - [#29908])
+- Support entity_id: all in lifx.set_state ([@amelchio] - [#29919]) ([lifx docs])
+- Fix mobile app device identifiers ([@JBassett] - [#29920]) ([mobile_app docs])
+- Fix loading flume integration ([@ChrisMandich] - [#29926]) ([flume docs])
+- Fix support for legacy Z-Wave thermostats ([@oandrew] - [#29955]) ([zwave docs])
+- Bump simplisafe-python to 5.3.6 ([@bachya] - [#30055]) ([simplisafe docs])
+
+[#29491]: https://github.com/home-assistant/home-assistant/pull/29491
+[#29850]: https://github.com/home-assistant/home-assistant/pull/29850
+[#29902]: https://github.com/home-assistant/home-assistant/pull/29902
+[#29908]: https://github.com/home-assistant/home-assistant/pull/29908
+[#29919]: https://github.com/home-assistant/home-assistant/pull/29919
+[#29920]: https://github.com/home-assistant/home-assistant/pull/29920
+[#29926]: https://github.com/home-assistant/home-assistant/pull/29926
+[#29955]: https://github.com/home-assistant/home-assistant/pull/29955
+[#30055]: https://github.com/home-assistant/home-assistant/pull/30055
+[@chrismandich]: https://github.com/ChrisMandich
+[@jbassett]: https://github.com/JBassett
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@oandrew]: https://github.com/oandrew
+[@springstan]: https://github.com/springstan
+[ambient_station docs]: /integrations/ambient_station/
+[flume docs]: /integrations/flume/
+[lifx docs]: /integrations/lifx/
+[mobile_app docs]: /integrations/mobile_app/
+[simplisafe docs]: /integrations/simplisafe/
+[tank_utility docs]: /integrations/tank_utility/
+[zwave docs]: /integrations/zwave/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -332,7 +368,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update services.yaml for cloudflare component ([@raman325] - [#28888])
 - update services.yaml for keyboard component ([@raman325] - [#28889])
 - bump herepy to 0.6.3.3 ([@eifinger] - [#28907]) ([here_travel_time docs])
-- Update __init__.py ([@SNoof85] - [#28911]) ([freebox docs])
+- Update **init**.py ([@SNoof85] - [#28911]) ([freebox docs])
 - Delay Plex websocket connection to avoid race ([@jjlawren] - [#28934]) ([plex docs]) (beta fix)
 - Bump verisure to vsure 1.5.4 and jsonpath 0.82 ([@persandstrom] - [#28933]) ([verisure docs])
 - Add device trigger support for Aqara WXKG11LM 2016 switch to Deconz ([@kurniawan77] - [#28946]) ([deconz docs])
@@ -1226,32 +1262,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#29820]: https://github.com/home-assistant/home-assistant/pull/29820
 [#29824]: https://github.com/home-assistant/home-assistant/pull/29824
 [#29835]: https://github.com/home-assistant/home-assistant/pull/29835
-[@Adminiuga]: https://github.com/Adminiuga
-[@Anonym-tsk]: https://github.com/Anonym-tsk
-[@BKPepe]: https://github.com/BKPepe
-[@Bouni]: https://github.com/Bouni
-[@ChrisMandich]: https://github.com/ChrisMandich
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@Dilbert66]: https://github.com/Dilbert66
-[@HarlemSquirrel]: https://github.com/HarlemSquirrel
-[@JayNewstrom]: https://github.com/JayNewstrom
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@K4ds3]: https://github.com/K4ds3
-[@Kane610]: https://github.com/Kane610
-[@Mariusthvdb]: https://github.com/Mariusthvdb
-[@Misiu]: https://github.com/Misiu
-[@Mryck]: https://github.com/Mryck
-[@NobleKangaroo]: https://github.com/NobleKangaroo
-[@OttoWinter]: https://github.com/OttoWinter
-[@PedroLamas]: https://github.com/PedroLamas
-[@Quentame]: https://github.com/Quentame
-[@Romkabouter]: https://github.com/Romkabouter
-[@SNoof85]: https://github.com/SNoof85
-[@Santobert]: https://github.com/Santobert
-[@Shulyaka]: https://github.com/Shulyaka
-[@SukramJ]: https://github.com/SukramJ
-[@TomBrien]: https://github.com/TomBrien
-[@USA-RedDragon]: https://github.com/USA-RedDragon
+[@adminiuga]: https://github.com/Adminiuga
+[@anonym-tsk]: https://github.com/Anonym-tsk
+[@bkpepe]: https://github.com/BKPepe
+[@bouni]: https://github.com/Bouni
+[@chrismandich]: https://github.com/ChrisMandich
+[@danielhiversen]: https://github.com/Danielhiversen
+[@dilbert66]: https://github.com/Dilbert66
+[@harlemsquirrel]: https://github.com/HarlemSquirrel
+[@jaynewstrom]: https://github.com/JayNewstrom
+[@jefflirion]: https://github.com/JeffLIrion
+[@k4ds3]: https://github.com/K4ds3
+[@kane610]: https://github.com/Kane610
+[@mariusthvdb]: https://github.com/Mariusthvdb
+[@misiu]: https://github.com/Misiu
+[@mryck]: https://github.com/Mryck
+[@noblekangaroo]: https://github.com/NobleKangaroo
+[@ottowinter]: https://github.com/OttoWinter
+[@pedrolamas]: https://github.com/PedroLamas
+[@quentame]: https://github.com/Quentame
+[@romkabouter]: https://github.com/Romkabouter
+[@snoof85]: https://github.com/SNoof85
+[@santobert]: https://github.com/Santobert
+[@shulyaka]: https://github.com/Shulyaka
+[@sukramj]: https://github.com/SukramJ
+[@tombrien]: https://github.com/TomBrien
+[@usa-reddragon]: https://github.com/USA-RedDragon
 [@abmantis]: https://github.com/abmantis
 [@adamchengtkc]: https://github.com/adamchengtkc
 [@adrum]: https://github.com/adrum
@@ -1261,7 +1297,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@andersonshatch]: https://github.com/andersonshatch
 [@andylockran]: https://github.com/andylockran
-[@awkwardDuck]: https://github.com/awkwardDuck
+[@awkwardduck]: https://github.com/awkwardDuck
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bannhead]: https://github.com/bannhead
@@ -1330,10 +1366,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tetienne]: https://github.com/tetienne
 [@thomasgermain]: https://github.com/thomasgermain
 [@timmccor]: https://github.com/timmccor
-[@tofuSCHNITZEL]: https://github.com/tofuSCHNITZEL
+[@tofuschnitzel]: https://github.com/tofuSCHNITZEL
 [@tsvi]: https://github.com/tsvi
 [@tulindo]: https://github.com/tulindo
-[@uSpike]: https://github.com/uSpike
+[@uspike]: https://github.com/uSpike
 [aftership docs]: /integrations/aftership/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
