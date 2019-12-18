@@ -4,10 +4,17 @@ description: "Instructions on how to use iCloud to track devices in Home Assista
 logo: icloud.png
 ha_category:
   - Presence Detection
+  - Sensor
+ha_iot_class: Cloud Polling
 ha_release: "0.10"
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
+
+There is currently support for the following platforms within Home Assistant:
+
+- [Device Tracker](#device-tracker)
+- [Sensor](#sensor)
 
 It does require that your device is registered with "Find My iPhone".
 
@@ -84,11 +91,32 @@ If 2 Step Authentication is enabled for your iCloud account. The integration wil
 
 Go into your Home Assistant configuration `.storage` folder and delete the "icloud" folder, then retry.
 
+## Platforms
+
+### Device Tracker
+
+The iCloud integration will track available devices on your iCloud account.
+
+### Sensor
+
+The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+
 ## Services
 
 4 services are available:
 
-- **update**: This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. Can be used in automations when manual location update is needed, e.g., to check if anyone is home when door's been opened.
-- **play_sound**: This service will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
-- **display_message**: This service will display a message on your iDevice. It can also ring your device.
-- **lost_device**: This service will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+### Service `icloud.update`
+
+This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door been opened.
+
+### Service `icloud.play_sound`
+
+This service will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
+
+### Service `icloud.display_message`
+
+This service will display a message on your iDevice. It can also ring your device.
+
+### Service `icloud.lost_device`
+
+This service will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
