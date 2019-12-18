@@ -49,12 +49,16 @@ Another option is to use our powerful CLI, that is shipped with the SSH add-on. 
 
 ## Update 2019-12-18
 
-After some confusion about the statement of support virtual envourements, let's clerify it.
+After some confusion about the statement of supporting virtual environments and running Hass.io on top of a custom Linux; so let's clarify it.
 
-Supported ways to run Hass.io:
- - https://www.home-assistant.io/hassio/installation/
+The supported ways to run Hass.io are documented here: <https://www.home-assistant.io/hassio/installation/>
 
-This include (there is a lot of text) also the [Generic Linux](https://github.com/home-assistant/hassio-installer) installer.
-Hass.io run on your local machine and parts of it inside a container. All this kind of installation respect this.
+This also includes running Hass.io on Linux using the [Generic Linux](https://github.com/home-assistant/hassio-installer) installer, which is a supported method.
 
-If you run VMWare, ProxMox or other virtualisation envourements, you can use the HassOS OVA or run a virtual machine with i.e. Ubuntu they run the supported generic installer. We **DO NOT** support any kind of LCX hacks like https://github.com/whiskerz007/proxmox_hassio_lxc.
+Hass.io runs partly on your local machine, but for most parts inside multiple containers. All installation types we list, respect this.
+
+If you run VMWare, ProxMox or other virtualization environments, you can use the HassOS OVA/VMDK to run a virtual machine with. Or, if you like to use a Ubuntu VM, that will work with the supported generic Linux installer.
+
+We **DO NOT** support any kind of LCX hacks like listed here: <https://github.com/whiskerz007/proxmox_hassio_lxc>. These setups try to put everything inside a **single** container, which will cause you issues.
+
+We hope this clarifies our earlier statement.
