@@ -46,3 +46,15 @@ If you are already running HassOS, you have the full flavor of Hass.io, and thus
 To update via the user interface, go to the Home Assistant frontend, click on **Hass.io** in the sidebar to go into the Hass.io panel. Next, click on the System tab and press the **UPDATE** button in the "Host system" panel. In case the update isn't showing up yet, push the **RELOAD** button on the "Hass.io supervisor" box first, which makes your system look for updates instantly.
 
 Another option is to use our powerful CLI, that is shipped with the SSH add-on. Run the following command to trigger the upgrade: `hassio os update --version 3.7`.
+
+## Update 2019-12-18
+
+After some confusion about the statement of support virtual envourements, let's clerify it.
+
+Supported ways to run Hass.io:
+ - https://www.home-assistant.io/hassio/installation/
+
+This include (there is a lot of text) also the [Generic Linux](https://github.com/home-assistant/hassio-installer) installer.
+Hass.io run on your local machine and parts of it inside a container. All this kind of installation respect this.
+
+If you run VMWare, ProxMox or other virtualisation envourements, you can use the HassOS OVA or run a virtual machine with i.e. Ubuntu they run the supported generic installer. We **DO NOT** support any kind of LCX hacks like https://github.com/whiskerz007/proxmox_hassio_lxc.
