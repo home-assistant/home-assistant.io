@@ -1,0 +1,18 @@
+---
+layout: post
+title: "0.104: "
+description: ""
+date: 2019-12-18 01:00:00
+date_formatted: "January 14, 2020"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2020-01-0.104/components.png
+---
+
+<a href='/integrations/#version/0.104'><img src='/images/blog/2020-01-0.104/components.png' style='border: 0;box-shadow: none;'></a>
+
+Other news:
+
+https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/
