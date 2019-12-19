@@ -133,6 +133,10 @@ host:
   description: IP address of CCU/Homegear device.
   required: true
   type: string
+port:
+  description: "Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010"
+  required: false
+  type: integer
 username:
   description: When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
   required: false
@@ -172,6 +176,7 @@ homematic:
   hosts:
     ccu2:
       host: 127.0.0.1
+      port: 2001
       username: Admin
       password: secret
 
