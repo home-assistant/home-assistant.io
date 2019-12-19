@@ -19,7 +19,7 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
 
 ## Setup
 
-You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.11.0`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. Hass.io is not yet supported but an addon is under development.
+You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.13.2`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. Hass.io is not yet supported but an addon is under development.
 
 This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
