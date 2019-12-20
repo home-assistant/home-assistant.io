@@ -18,6 +18,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
+[How to obtain IR/RF codes ?](#how-to-obtain-irrf-codes)
+
+[Microsoft Windows Installation](#microsoft-windows-installation)
+
 ## Cover
 
 The `broadlink` cover platform allows you to use Broadlink RM [devices](http://www.ibroadlink.com/) to interact with IR or RF covers.
@@ -390,22 +394,6 @@ sensor:
       - temperature
 ```
 
-### Microsoft Windows installation
-
-<div class='note'>
-
-The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
-
-</div>
-
-The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
-
-Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
-
-```bash
-pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto
-```
-
 ## Switch
 
 This `Broadlink` switch platform allow to you control Broadlink [devices](https://www.ibroadlink.com/).
@@ -600,7 +588,7 @@ script:
 
 ## How to obtain IR/RF codes?
 
-### Using Home Assistant User Interface
+### Using Home Assistant Web Interface
 
 Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
@@ -786,3 +774,19 @@ Assuming that your (or similar) device is in one of these databases:
 - https://github.com/probonopd/irdb/tree/master/
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
+
+## Microsoft Windows installation
+
+<div class='note'>
+
+The pycrypto library needs to be available on your platform. On a typical windows system `pip install pycrypto` will fail, as a compiler needs to be installed first.
+
+</div>
+
+The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
+
+Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
+
+```bash
+pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto
+```
