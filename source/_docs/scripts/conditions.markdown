@@ -93,7 +93,7 @@ condition:
   above: 17
   below: 25
   # If your sensor value needs to be adjusted
-  value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
+  value_template: {% raw %}'{{ float(state.state) + 2 }}'{% endraw %}
 ```
 
 ### State condition
@@ -206,7 +206,7 @@ The template condition tests if the [given template][template] renders a value e
 ```yaml
 condition:
   condition: template
-  value_template: "{% raw %}{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}{% endraw %}"
+  value_template: "{% raw %}'{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}'{% endraw %}"
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
