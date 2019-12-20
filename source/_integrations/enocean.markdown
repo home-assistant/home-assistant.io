@@ -299,7 +299,7 @@ sensor:
 
 ### Window handle
 
-As of now the Hoppe SecuSignal window handle from Somfy has been succesfully tested. However any mechanical window handle that follows the enocean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
+As of now, the Hoppe SecuSignal window handle from Somfy has been successfully tested. However, any mechanical window handle that follows the EnOcean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
 
 To configure a window handle, add the following code to your `configuration.yaml`:
 
