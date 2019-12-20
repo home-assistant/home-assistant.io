@@ -280,6 +280,26 @@ All services for use in Home Assistant are moved to their integration naming spa
 [tank_utility docs]: /integrations/tank_utility/
 [zwave docs]: /integrations/zwave/
 
+## Release 0.103.3 - December 20
+
+- Fix update port and api key on deconz discovery config entry u… ([@frenck] - [#30088]) ([deconz docs])
+- Patch rachio ([@omriasta] - [#30031]) ([rachio docs])
+- Fix failure in transform method ([@depl0y] - [#30023]) ([dsmr_reader docs])
+- Fix homekit handling of 0 light brightness and fan speed ([@fuzzie360] - [#29962]) ([homekit docs])
+
+[#30088]: https://github.com/home-assistant/home-assistant/pull/30088
+[#30031]: https://github.com/home-assistant/home-assistant/pull/30031
+[#30023]: https://github.com/home-assistant/home-assistant/pull/30023
+[#29962]: https://github.com/home-assistant/home-assistant/pull/29962
+[@frenck]: https://github.com/frenck
+[@omriasta]: https://github.com/omriasta
+[@depl0y]: https://github.com/depl0y
+[@fuzzie360]: https://github.com/fuzzie360
+[deconz docs]: https://www.home-assistant.io/integrations/deconz/
+[rachio docs]: https://www.home-assistant.io/integrations/rachio/
+[dsmr_reader docs]: https://www.home-assistant.io/integrations/dsmr_reader/
+[homekit docs]: https://www.home-assistant.io/integrations/homekit/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
