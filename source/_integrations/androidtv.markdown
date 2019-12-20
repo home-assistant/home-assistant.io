@@ -247,6 +247,17 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
+### `androidtv.adb_filesync`
+
+You can use the `androidtv.adb_filesync` service to transfer files between your Android TV / Fire TV device and your Home Assistant instance. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
+| `direction`            |       no | Whether to push a file to the device or pull a file from the device; must be `push` or `pull`.
+| `device_path`          |       no | The filepath on the Android TV / Fire TV device.
+| `local_path`           |       no | The filepath on your Home Assistant instance.
+
 ## Custom State Detection
 
 The Android TV integration works by polling the Android TV / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
