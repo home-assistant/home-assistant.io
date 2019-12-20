@@ -34,7 +34,6 @@ The following devices have been confirmed to work out of the box:
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
-
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
 If it does, it will most likely work. 
 The available profiles are usually listed somewhere in the device manual. 
@@ -190,7 +189,6 @@ device_class:
   default: powersensor
 {% endconfiguration %}
 
-
 ### Power sensor
 
 This has been tested with a Permundo PSC234 switch, but any device sending EEP **A5-12-01** messages will work.
@@ -205,7 +203,6 @@ sensor:
     id: [0x01,0x90,0x84,0x3C]
     device_class: powersensor
 ```
-
 
 ### Humidity sensor
 
@@ -299,11 +296,13 @@ sensor:
     range_min: 0
     range_max: 250
 ```
+
 ### Window handle
 
 As of now the Hoppe SecuSignal window handle from Somfy has been succesfully tested. However any mechanical window handle that follows the enocean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
 
 To configure a window handle, add the following code to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry for window handle EEP F6-10-00
 sensor:
@@ -312,13 +311,14 @@ sensor:
     id: [0xDE,0xAD,0xBE,0xEF]
     device_class: windowhandle
 ```
+
 The configuration does not have any optional parameters.
 
 The window handle sensor can have the following states:
+
 - **closed**: The window handle is in closed position (typically down, or 6 o'clock)
 - **open**: The window handle is in open position (typically left or right, or 3 o'clock or 9 o'clock)
 - **tilt**: The window handle is in tilt position (typically up or 12 o'clock)
-
 
 ## Switch
 
