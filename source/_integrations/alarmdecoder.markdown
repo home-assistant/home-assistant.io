@@ -35,11 +35,11 @@ alarmdecoder:
     port: 10000
   panel_display: false
   zones:
-    1:
+    01:
       name: 'Smoke Detector'
       type: 'smoke'
       rfid: '0123456'
-    2:
+    02:
       name: 'Front Door'
       type: 'opening'
 ```
