@@ -138,7 +138,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| MS SQL Server   | `mssql+pyodbc://username:password@dsnname` |
 
 <div class='note'>
 
@@ -250,14 +250,14 @@ A service restart will work as well.
 For MS SQL Server you may have to install a few dependencies:
 
 ```bash
-sudo apt-get install freetds-dev
-pip3 install pymssql
+sudo apt-get install unixodbc-dev
+pip3 install pyodbc
 ```
 
-If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+If you are in a virtual environment, don't forget to activate it before installing the pyodbc package.
 
 ```bash
 sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
-pip3 install pymssql
+pip3 install pyodbc
 ```

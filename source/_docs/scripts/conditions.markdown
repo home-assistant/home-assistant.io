@@ -4,13 +4,13 @@ description: "Documentation about all available conditions."
 redirect_from: /getting-started/scripts-conditions/
 ---
 
-Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation will stop executing. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
+Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
 ### AND condition
 
-Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
+Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
 ```yaml
 condition:
@@ -24,7 +24,7 @@ condition:
       below: 20
 ```
 
-If you do not want to combine AND and OR conditions, you can also just list them sequentially.
+If you do not want to combine AND and OR conditions, you can list them sequentially.
 
 The following configuration works the same as the one listed above:
 
@@ -42,7 +42,7 @@ Currently you need to format your conditions like this to be able to edit them u
 
 ### OR condition
 
-Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
+Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
 ```yaml
 condition:
@@ -58,7 +58,7 @@ condition:
 
 ### MIXED AND and OR conditions
 
-Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
+Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
 
 ```yaml
@@ -80,7 +80,7 @@ condition:
 
 ### Numeric state condition
 
-This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.
+This type of condition attempts to parse the state of the specified entity as a number, and triggers if the value matches the thresholds.
 
 If both `below` and `above` are specified, both tests have to pass.
 
@@ -134,8 +134,8 @@ condition:
 
 #### Sun elevation condition
 
-The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night etc. when a trigger occurs.
-For an in depth explanation of sun elevation see [sun elevation trigger][sun_elevation_trigger].
+The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
+For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
@@ -162,9 +162,9 @@ The sun condition can also test if the sun has already set or risen when a trigg
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
 <div class='note warning'>
-The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with highly skewed local time zone.
+The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone.
 
-It is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
+In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
 ```yaml
@@ -195,13 +195,13 @@ condition:
       after: sunrise
 ```
 
-A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
+A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
 <img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
 ### Template condition
 
-The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
+The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
 ```yaml
 condition:
@@ -216,7 +216,7 @@ Within an automation, template conditions also have access to the `trigger` vari
 
 ### Time condition
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week
+The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
 
 ```yaml
 condition:
@@ -241,7 +241,7 @@ A better weekday condition could be by using the [Workday Binary Sensor](/integr
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 condition:

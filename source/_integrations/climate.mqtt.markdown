@@ -123,7 +123,7 @@ action_topic:
   type: string
 action_template:
   description: A template to render the value received on the `action_topic` with.
-  requred: false
+  required: false
   type: template
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.

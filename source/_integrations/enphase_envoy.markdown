@@ -29,6 +29,14 @@ ip_address:
   description: The local IP address of your Envoy. Leave blank to use the default host name 'envoy', but this may not always be reliable. You should be able to just browse to this IP address.
   required: false
   type: string
+username:
+  description: Access more information beyond the basics, such as Inverter data.  Some Envoy devices do not use the standard username which is used by the API.  This lets the user use a different username than the default of 'envoy'.
+  required: false
+  type: string
+password:
+  description: Password to be used with the username configuration variable.
+  required: false
+  type: string
 monitored_conditions:
   description: The list of conditions to monitor. If you have an Envoy that doesn't support consumption metrics (ie. Envoy-C), it's best only configure the production metrics.
   required: false

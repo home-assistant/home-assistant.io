@@ -30,7 +30,7 @@ To use the SolarEdge sensors in your installation, add the following to your con
 # Example configuration.yaml entry
 sensor:
   - platform: solaredge_local
-    ip_address: IP_ADDRES
+    ip_address: IP_ADDRESS
 ```
 
 {% configuration %}
