@@ -56,7 +56,7 @@ aspect_ratio:
   type: string
 entity:
   required: false
-  description: Entity to use for `state_image`.
+  description: Entity to use for `state_image` and `state_filter`.
   type: string
 show_state:
   required: false
@@ -320,6 +320,7 @@ Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS
 state_filter:
   "on": brightness(110%) saturate(1.2)
   "off": brightness(50%) hue-rotate(45deg)
+entity: switch.decorative_lights
 ```
 
 ## Examples
