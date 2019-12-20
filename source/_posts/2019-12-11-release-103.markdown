@@ -212,7 +212,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 - **Soundtouch**: `media_player.soundtouch_*` -> `soundtouch.*` ([#29140])
 - **Squeezebox**: `media_player.squeezebox_call_method` -> `squeezebox.call_method` ([#29141])
 - **Xiaomi Miio**: `*.xiaomi_miio_*` -> `xiaomi_miio.*` ([#29134])
-- **Xiaomi Miio**: `*.xiaomi_*` -> `xiaomi_miio.*` ([#29134])
+- **Xiaomi Miio** (this includes Roborock vacuums): `*.xiaomi_*` -> `xiaomi_miio.*` ([#29134])
 - **Yamaha**: `media_player.yamaha_*` -> `yamaha.*` ([#29142])
 
 ### Other Breaking Changes
