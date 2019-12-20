@@ -35,11 +35,11 @@ alarmdecoder:
     port: 10000
   panel_display: false
   zones:
-    01:
+    1:
       name: 'Smoke Detector'
       type: 'smoke'
       rfid: '0123456'
-    02:
+    2:
       name: 'Front Door'
       type: 'opening'
 ```
@@ -81,7 +81,7 @@ panel_display:
   default: false
   type: boolean
 autobypass:
-  description: "If this is set to `true`, then, when arming (home or away), it will automatically bypass all open zones (sending '6#')".
+  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#')".
   required: false
   default: false
   type: boolean
