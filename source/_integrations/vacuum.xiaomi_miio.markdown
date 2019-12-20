@@ -20,7 +20,11 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
 - remote control of your robot.
-- `xiaomi_clean_zone`
+- `xiaomi_miio.vacuum_clean_zone`
+- `xiaomi_miio.vacuum_remote_control_start`
+- `xiaomi_miio.vacuum_remote_control_stop`
+- `xiaomi_miio.vacuum_remote_control_move`
+- `xiaomi_miio.vacuum_remote_control_move_step`
 
 ## Configuration
 
