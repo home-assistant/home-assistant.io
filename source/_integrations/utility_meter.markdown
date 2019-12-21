@@ -44,7 +44,7 @@ offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 0
-  type: time 
+  type: time
   type: integer
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
@@ -65,7 +65,7 @@ offset:
   # At least one of these must be specified:
   days: 1
   hours: 0
-  minutes: 0 
+  minutes: 0
 ```
 
 ## Services
@@ -151,8 +151,8 @@ When using the [DSMR component](/integrations/dsmr) to get data from the utility
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
-- `sensor.power_consumption_low` for off-peak power
-- `sensor.power_consumption_normal` for peak power
+- `sensor.energy_consumption_tarif_1` for tarif 1 power (for example off-peak)
+- `sensor.energy_consumption_tarif_2` for for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
 So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
@@ -160,26 +160,26 @@ So, tracking daily and monthly consumption for each sensor, will require setting
 ```yaml
 utility_meter:
   daily_power_offpeak:
-    source: sensor.power_consumption_low
+    source: sensor.energy_consumption_tarif_1
     cycle: daily
   daily_power_peak:
-    source: sensor.power_consumption_normal
+    source: sensor.energy_consumption_tarif_2
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
     cycle: daily
   monthly_power_offpeak:
-    source: sensor.power_consumption_low
+    source: sensor.energy_consumption_tarif_1
     cycle: monthly
   monthly_power_peak:
-    source: sensor.power_consumption_normal
+    source: sensor.energy_consumption_tarif_2
     cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage. 
+Additionally, you can add template sensors to compute daily and monthly total usage.
 
 {% raw %}
 ```yaml

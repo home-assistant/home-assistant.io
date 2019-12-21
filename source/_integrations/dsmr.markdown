@@ -10,7 +10,7 @@ ha_iot_class: Local Push
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
-- Currently support DSMR V2.2, V3, V4 and V5 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
+- Currently support DSMR V2.2, V3, V4, V5 and V5 Belgian through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
 - For official information about the P1 port refer to: <https://www.wijhebbenzon.nl/media/kunena/attachments/3055/DSMRv5.0FinalP1.pdf>
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
@@ -35,6 +35,7 @@ USB serial converters:
 - <https://sites.google.com/site/nta8130p1smartmeter/webshop>
 - <https://www.sossolutions.nl/slimme-meter-kabel>
 - <https://tweakers.net/gallery/269738/aanbod/>
+- <https://nl.aliexpress.com/item/32945187155.html>
 
 Serial to network proxies:
 
@@ -60,7 +61,7 @@ sensor:
     required: false
     type: string
   dsmr_version:
-    description: "Version of DSMR used by meter. Choices: 2.2, 4, 5. Defaults to 2.2."
+    description: "Version of DSMR used by meter. Choices: 2.2, 4, 5, 5B (For Belgian Meter). Defaults to 2.2."
     required: false
     type: string
   precision:
@@ -83,10 +84,10 @@ group:
   meter_readings:
     name: Meter readings
     entities:
-      - sensor.power_consumption_low
-      - sensor.power_consumption_normal
-      - sensor.power_production_low
-      - sensor.power_production_normal
+      - sensor.energy_consumption_tarif_1
+      - sensor.energy_consumption_tarif_2
+      - sensor.energy_production_tarif_1
+      - sensor.energy_production_tarif_2
       - sensor.gas_consumption
 ```
 
@@ -102,10 +103,10 @@ group:
   meter_readings:
     name: Meter readings
     entities:
-      - sensor.power_consumption_low
-      - sensor.power_consumption_normal
-      - sensor.power_production_low
-      - sensor.power_production_normal
+      - sensor.energy_consumption_tarif_1
+      - sensor.energy_consumption_tarif_2
+      - sensor.energy_production_tarif_1
+      - sensor.energy_production_tarif_2
       - sensor.gas_consumption
 ```
 
