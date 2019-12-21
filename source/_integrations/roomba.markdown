@@ -5,6 +5,7 @@ logo: irobot_roomba.png
 ha_category:
   - Vacuum
 ha_release: 0.51
+featured: true
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
