@@ -38,6 +38,11 @@ keba:
       description: Keba host.
       required: true
       type: string
+    name:
+      description: Personalized name of your charging station.
+      required: false
+      type: string
+      default: "Keba Charging Station"
     rfid:
       description: RFID tag used for authorization.
       required: false
