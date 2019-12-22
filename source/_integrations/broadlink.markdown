@@ -464,6 +464,8 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
+You still need to set up a `switch` entity for your broadlink device even if you plan to use only `broadlink.send` service.
+
 ### Using E-Control remotes
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
