@@ -6,6 +6,7 @@ ha_category:
   - Hub
 ha_iot_class: Cloud Polling
 ha_release: 0.95
+featured: true
 ---
 
 The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/integrations/tahoma/) component.
