@@ -312,6 +312,28 @@ All services for use in Home Assistant are moved to their integration naming spa
 [ring docs]: /integrations/ring/
 [starlingbank docs]: /integrations/starlingbank/
 
+## Release 0.103.4 - December 22
+
+- Remove requirement from entity integration ([@balloob] - [#30113]) ([doods docs]) ([image_processing docs]) ([seven_segments docs]) ([tensorflow docs])
+- Move imports into setup function in homekit __init__.py ([@springstan] - [#30137]) ([homekit docs])
+- Fix deconz SSDP updating Hassio discovery ([@frenck] - [#30153]) ([deconz docs])
+- Allow battery value of 0 as well as make sure to not create a battery tracker if one already exist ([@Kane610] - [#30155]) ([deconz docs])
+
+[#30113]: https://github.com/home-assistant/home-assistant/pull/30113
+[#30137]: https://github.com/home-assistant/home-assistant/pull/30137
+[#30153]: https://github.com/home-assistant/home-assistant/pull/30153
+[#30155]: https://github.com/home-assistant/home-assistant/pull/30155
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@springstan]: https://github.com/springstan
+[deconz docs]: /integrations/deconz/
+[doods docs]: /integrations/doods/
+[homekit docs]: /integrations/homekit/
+[image_processing docs]: /integrations/image_processing/
+[seven_segments docs]: /integrations/seven_segments/
+[tensorflow docs]: /integrations/tensorflow/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
