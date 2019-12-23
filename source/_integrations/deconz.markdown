@@ -479,6 +479,7 @@ The `entity_id` name will be `switch.device_name`, where `device_name` is define
 ### Verified supported switches
 
 - Innr SP120
+- Innr ZB-ONOFFPlug-D0005 aka .[SmartThings Smart Plug (2019)](https://www.amazon.co.uk/gp/product/B07TK4CC42/) is just a plug without power measurements.
 - Osram Lightify plug
 - Osram Outdoor plug
 - Heiman siren
