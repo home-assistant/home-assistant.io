@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Sensor
   - Switch
+  - Light
 ha_iot_class: Local Push
 ha_release: "0.50"
 ---
@@ -21,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 - Cover
+- Light
 
 ## Configuration
 
@@ -35,7 +37,7 @@ velbus:
   port: 'PORT_STRING'
 ```
 
-## Port Sstring
+## Port String
 
 The port string used in the user interface or the configuration file can have 2 formats:
 
