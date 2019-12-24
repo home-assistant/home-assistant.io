@@ -71,15 +71,16 @@ input_text:
 
 ### Services
 
-This integration provides a single service to modify the state of the `input_text`.
+This integration provides a service to modify the state of the `input_text` and a service to reload the `input_text` configuration without restarting Home Assistant itself.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
+| `reload` | | Reload `input_text` configuration |
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Scenes
 

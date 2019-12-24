@@ -46,6 +46,12 @@ You can find out your Freebox host and port by opening the address <http://mafre
 returned json should contain an api_domain (`host`) and a https_port (`port`).
 Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
+<div class='note warning'>
+  
+If you change your Freebox router for a new one, you need to delete the `freebox.conf` file located in your Home Assistant configuration directory to make the association again.
+
+</div>
+
 ### Initial setup
 
 <div class='note warning'>
@@ -56,7 +62,7 @@ The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
-To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+To make the WiFi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
 " permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
@@ -87,6 +93,12 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router. The monitored conditions are
 instant upload and download rates in KB/s.
+
+## Service
+
+### Service `freebox.reboot`
+
+This service will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 

@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Push
+logo: orange-pi.png
 ---
 
 The `orangepi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.

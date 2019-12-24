@@ -50,7 +50,7 @@ Your webhook should be available from the internet, if you have a cloud subscrip
 
 As you may have already read, we'll be sunsetting Hassbian.
 
-Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
+Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](https://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
 
 A big thank you to all those who worked on Hassbian - specifically [@landrash](https://github.com/landrash), who was the primary driver of this for so long, and [@ludeeus](https://github.com/ludeeus).
 

@@ -111,9 +111,9 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 ```
 {% endraw %}
 
-## Service `facebox_teach_face`
+## Service `facebox.teach_face`
 
-The service `facebox_teach_face` can be used to teach Facebox faces.
+The service `facebox.teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -141,7 +141,7 @@ You can use an automation to receive a notification when you train a face:
   alias: Face taught
   trigger:
   - event_data:
-      service: facebox_teach_face
+      service: facebox.teach_face
     event_type: call_service
     platform: event
   condition: []

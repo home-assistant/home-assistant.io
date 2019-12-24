@@ -59,7 +59,7 @@ transporter_toslink:
         media_content_type: "music"
 ```
 
-### Service `squeezebox_call_method`
+### Service `call_method`
 
 Call a custom Squeezebox JSONRPC API.
 

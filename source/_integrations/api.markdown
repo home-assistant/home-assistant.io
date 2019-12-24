@@ -10,12 +10,6 @@ ha_release: 0.7
 
 The `api` integration exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
 
-<div class='note warning'>
-
-It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
-
-</div>
-
 ```yaml
 # Example configuration.yaml entry
 api:

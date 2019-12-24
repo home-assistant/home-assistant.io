@@ -180,7 +180,6 @@
 /components/binary_sensor.sleepiq /integrations/sleepiq
 /components/binary_sensor.smartthings /integrations/smartthings#binary-sensor
 /components/binary_sensor.spc /integrations/spc#binary-sensor
-/components/binary_sensor.tahoma /integrations/tahoma
 /components/binary_sensor.tapsaff /integrations/tapsaff
 /components/binary_sensor.tcp /integrations/tcp#binary-sensor
 /components/binary_sensor.tellduslive /integrations/tellduslive
@@ -307,7 +306,6 @@
 /components/cover.scsgate /integrations/scsgate#cover
 /components/cover.smartthings /integrations/smartthings#cover
 /components/cover.supla /integrations/supla
-/components/cover.tahoma /integrations/tahoma
 /components/cover.tellduslive /integrations/tellduslive
 /components/cover.tellstick /integrations/tellstick#cover
 /components/cover.tuya /integrations/tuya
@@ -625,7 +623,6 @@
 /components/scene.lutron /integrations/lutron#scene
 /components/scene.lutron_caseta /integrations/lutron_caseta#scene
 /components/scene.smartthings /integrations/smartthings#scene
-/components/scene.tahoma /integrations/tahoma
 /components/scene.tuya /integrations/tuya
 /components/scene.velux /integrations/velux
 /components/scene.vera /integrations/vera
@@ -736,7 +733,6 @@
 /components/sensor.gpsd /integrations/gpsd
 /components/sensor.greeneye_monitor /integrations/greeneye_monitor
 /components/sensor.gtfs /integrations/gtfs
-/components/sensor.gtt /integrations/gtt
 /components/sensor.habitica /integrations/habitica
 /components/sensor.haveibeenpwned /integrations/haveibeenpwned
 /components/sensor.hddtemp /integrations/hddtemp
@@ -884,7 +880,6 @@
 /components/sensor.systemmonitor /integrations/systemmonitor
 /components/sensor.sytadin /integrations/sytadin
 /components/sensor.tado /integrations/tado
-/components/sensor.tahoma /integrations/tahoma
 /components/sensor.tank_utility /integrations/tank_utility
 /components/sensor.tautulli /integrations/tautulli
 /components/sensor.tcp /integrations/tcp#sensor
@@ -1035,7 +1030,6 @@
 /components/switch.switchbot /integrations/switchbot
 /components/switch.switcher_kis /integrations/switcher_kis
 /components/switch.switchmate /integrations/switchmate
-/components/switch.tahoma /integrations/tahoma
 /components/switch.tellduslive /integrations/tellduslive
 /components/switch.tellstick /integrations/tellstick#switch
 /components/switch.telnet /integrations/telnet
@@ -1418,7 +1412,6 @@
 /components/growatt_server /integrations/growatt_server
 /components/gstreamer /integrations/gstreamer
 /components/gtfs /integrations/gtfs
-/components/gtt /integrations/gtt
 /components/habitica /integrations/habitica
 /components/hangouts /integrations/hangouts
 /components/harman_kardon_avr /integrations/harman_kardon_avr
@@ -1895,7 +1888,6 @@
 /components/systemmonitor /integrations/systemmonitor
 /components/sytadin /integrations/sytadin
 /components/tado /integrations/tado
-/components/tahoma /integrations/tahoma
 /components/tank_utility /integrations/tank_utility
 /components/tapsaff /integrations/tapsaff
 /components/tautulli /integrations/tautulli
@@ -2056,3 +2048,20 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+
+# App documentation
+/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+/docs/ecosystem/ios/ https://companion.home-assistant.io/
+/docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
+/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
+/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues

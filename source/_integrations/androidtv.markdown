@@ -70,12 +70,12 @@ adb_server_port:
   default: 5037
   type: integer
 get_sources:
-  description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
+  description: Whether or not to retrieve the running apps as the list of sources.
   required: false
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
@@ -189,9 +189,9 @@ If the setup for your Android TV or Fire TV device fails, then there is probably
 
 ## Services
 
-### (Fire TV devices only) `media_player.select_source`
+### `media_player.select_source`
 
-For Fire TV devices, you can launch an app using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
+You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
 ```yaml
 start_netflix:
@@ -249,7 +249,9 @@ A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e
 
 ## Custom State Detection
 
-The `state_detection_rules` configuration parameter allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
+The Android TV integration works by polling the Android TV / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
+
+The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
 * `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
   * If this is not a map, then this state will always be reported when this app is the current app

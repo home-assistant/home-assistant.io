@@ -23,6 +23,12 @@ Since the sensor change their ID after each powercycle/battery change you can ch
 sudo pylacrosse -d /dev/ttyUSB0 scan
 ```
 
+Or, when using Docker containers:
+
+```bash
+docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
+```
+
 ## Configuration
 
 To use your `lacrosse` compatible sensor in your installation, add the following to your `configuration.yaml` file:

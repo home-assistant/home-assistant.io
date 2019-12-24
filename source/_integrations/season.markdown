@@ -37,4 +37,9 @@ type:
   required: false
   type: string
   default: astronomical
+name:
+  description: "An identifier for the sensor in the frontend."
+  required: false
+  type: string
+  default: Season
 {% endconfiguration %}

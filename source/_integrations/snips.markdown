@@ -7,6 +7,12 @@ ha_category:
 ha_release: 0.48
 ---
 
+<div class='note warning'>
+  
+The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
+
+</div>
+
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
 The latest documentation can be found here: [Snips Platform Documentation](https://docs.snips.ai/).
@@ -27,7 +33,7 @@ The Snips platform can be installed via the Snips APT/Debian repository.
 sudo apt-get update
 sudo apt-get install -y dirmngr
 sudo bash -c  'echo "deb https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
+sudo apt-key adv --fetch-keys https://raspbian.snips.ai/531DD1A7B702B14D.pub
 sudo apt-get update
 sudo apt-get install -y snips-platform-voice
 ```

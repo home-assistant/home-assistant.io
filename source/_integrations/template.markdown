@@ -311,7 +311,7 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/integrations/time_date) to get a daily update:
+This template contains no entities that will trigger an update (as `now()` is a function), so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/integrations/time_date) to get a daily update:
 
 {% raw %}
 
@@ -328,8 +328,25 @@ sensor:
 
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
+In this case it is also possible to convert the entity-less template above into one that will be updated automatically:
 
+{% raw %}
+
+````yaml
+sensor:
+  - platform: template
+    sensors:
+      nonsmoker:
+        value_template: "{{ (( as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
+        friendly_name: 'Not smoking'
+        unit_of_measurement: "Days"
+````
+
+{% endraw %}
+
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
+Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
+ 
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}

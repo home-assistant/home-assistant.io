@@ -12,6 +12,8 @@ It's recommended when installing Python packages that you use a [virtual environ
 
 This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 
+Before you begin the guide below, ensure that you have a *so-called standard* build environment that includes things like `make`, `gcc`, `python3`, including Python 3 `setuptools` and `pip` modules. Less obvious is the need to install `openssl-dev` (for opensslv.h) and `libffi-dev` (for cffi.h) for things to build later on.
+
 </div>
 
 {% comment %}

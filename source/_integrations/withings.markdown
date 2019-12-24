@@ -22,7 +22,7 @@ Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: Your email address
-- Callback Uri: `https://your-domain-name/` - Withings will check if this URL is accessible (HTTP HEAD) upon submitting the form.
+- Callback Uri: `https://your-domain-name/auth/external/callback` - Withings will check if this URL is accessible (HTTP HEAD) upon submitting the form.
 - Company: Home Assistant
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
@@ -33,7 +33,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 # Example configuration.yaml entry
 withings:
   client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
+  client_secret: CONSUMER_SECRET
   profiles:
     - USER_PROFILE_NAME
 ```
@@ -43,20 +43,19 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 ### Step 3 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
+  - Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 - Restart Home Assistant.
 - Go to the integrations page.
-- Add a Withings integration.
-- Select the profile you intend to pull data. This will take you to the Withings site.
-- On the Withings site, choose the profile you selected in the previous step (if prompted).
-  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying data for profile 2, but it will be labeled as profile 1.
-- Authorize the application. Your browser will redirect you to your Home Assistant URL.
+- Add a Withings integration. This will open a new tab/window on the withings site.
+- On the Withings site, choose the profile of the data you want to sync.
+- Authorize the application. Your browser will redirect you to the redirect uri you provided during account setup.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the
   `http://domain` portion of the URL to something you know is accessible, locally or publically. For example, `http://localhost:8123`.
   This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
   Changing the domain will not affect how data is synchronized.
+- Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the withings site.
+  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
 - Data will synchronize immediately and update every 5 minutes.
-
-Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 
 ## Configuration
 
@@ -64,7 +63,7 @@ Note: In order for "Check Config" to be visible, you must enable "Advanced Mode"
 # Example configuration.yaml entry
 withings:
     client_id: CLIENT_ID
-    client_secret: CLIENT_SECRET
+    client_secret: CONSUMER_SECRET
     profiles:
         - USER_PROFILE_NAME
 ```
@@ -81,9 +80,4 @@ profiles:
   description: Withings supports multiple profiles per account. Provide the person's name whom you want Home Assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
   required: true
   type: map
-base_url:
-  description: Overrides Home Assistant's default base URL to use when authorizing with Withings.
-  required: false
-  type: string
-  default: The base URL provided in the Home Assistant `api` component.
 {% endconfiguration %}
