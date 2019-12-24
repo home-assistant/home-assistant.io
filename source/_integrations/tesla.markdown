@@ -27,7 +27,11 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To use Tesla in your installation, add the following to your `configuration.yaml` file:
+Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
+
+Enter username and password and then continue.
+
+Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
