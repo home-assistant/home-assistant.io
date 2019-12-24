@@ -84,6 +84,7 @@ port:
   description: "The port number of the owserver (requires `host`)."
   required: false
   type: integer
+  default: 4304
 {% endconfiguration %}
 
 ### Configuration Example
