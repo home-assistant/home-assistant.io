@@ -22,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Dimmer](#dimmer)
 
 ## Configuration
 
@@ -303,6 +304,53 @@ switch:
           id: 34
           state: 'off'
 ```
+
+## Dimmer
+
+Pilight dimmer devices, which can have different brightness values can be used as light component. 
+The configuration parameters are the same for dimmers and switches. 
+
+{% configuration %}
+lights:
+  description: The list that contains all command lights.
+  required: true
+  type: string
+  keys:
+    entry:
+      description: Name of the command light, which are the same like for switches. Multiple entries are possible.
+      required: true
+      type: list
+{% endconfiguration %}
+
+### Example
+
+```yaml
+light:
+  - platform: pilight
+    lights:
+      test2:
+        on_code:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          'on': 1
+        off_code:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          'off': 1
+        on_code_receive:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          state: 'on'
+        off_code_receive:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          state: 'off'
+```
+
 
 ## Troubleshooting
 
