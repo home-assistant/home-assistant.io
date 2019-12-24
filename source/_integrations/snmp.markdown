@@ -40,6 +40,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | OPNSense | 19.1 | `1.3.6.1.2.1.4.22.1.2` |
 | pfSense | 2.2.4 | `1.3.6.1.2.1.4.22.1.2` |
 | Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
+| TP-Link | Archer VR1600v | `1.3.6.1.2.1.3.1.1.2.16.1` |
 | TP-Link | Archer VR2600v | `1.3.6.1.2.1.3.1.1.2.19.1` |
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
