@@ -280,6 +280,60 @@ All services for use in Home Assistant are moved to their integration naming spa
 [tank_utility docs]: /integrations/tank_utility/
 [zwave docs]: /integrations/zwave/
 
+## Release 0.103.2 - December 19
+
+- Fix dependency installation recursinog ([@balloob])
+
+## Release 0.103.3 - December 20
+
+- Fix update port and api key on deconz discovery config entry u… ([@frenck] - [#30088]) ([deconz docs])
+- Patch rachio ([@omriasta] - [#30031]) ([rachio docs])
+- Fix failure in transform method ([@depl0y] - [#30023]) ([dsmr_reader docs])
+- Fix homekit handling of 0 light brightness and fan speed ([@fuzzie360] - [#29962]) ([homekit docs])
+- Bump starlingbank to 3.2 ([@springstan] - [#30098]) ([starlingbank docs])
+- Bump ring to 0.2.5 ([@balloob] - [#30103]) ([ring docs])
+
+[#29962]: https://github.com/home-assistant/home-assistant/pull/29962
+[#30023]: https://github.com/home-assistant/home-assistant/pull/30023
+[#30031]: https://github.com/home-assistant/home-assistant/pull/30031
+[#30088]: https://github.com/home-assistant/home-assistant/pull/30088
+[#30098]: https://github.com/home-assistant/home-assistant/pull/30098
+[#30103]: https://github.com/home-assistant/home-assistant/pull/30103
+[@balloob]: https://github.com/balloob
+[@depl0y]: https://github.com/depl0y
+[@frenck]: https://github.com/frenck
+[@fuzzie360]: https://github.com/fuzzie360
+[@omriasta]: https://github.com/omriasta
+[@springstan]: https://github.com/springstan
+[deconz docs]: /integrations/deconz/
+[dsmr_reader docs]: /integrations/dsmr_reader/
+[homekit docs]: /integrations/homekit/
+[rachio docs]: /integrations/rachio/
+[ring docs]: /integrations/ring/
+[starlingbank docs]: /integrations/starlingbank/
+
+## Release 0.103.4 - December 22
+
+- Remove requirement from entity integration ([@balloob] - [#30113]) ([doods docs]) ([image_processing docs]) ([seven_segments docs]) ([tensorflow docs])
+- Move imports into setup function in homekit __init__.py ([@springstan] - [#30137]) ([homekit docs])
+- Fix deconz SSDP updating Hassio discovery ([@frenck] - [#30153]) ([deconz docs])
+- Allow battery value of 0 as well as make sure to not create a battery tracker if one already exist ([@Kane610] - [#30155]) ([deconz docs])
+
+[#30113]: https://github.com/home-assistant/home-assistant/pull/30113
+[#30137]: https://github.com/home-assistant/home-assistant/pull/30137
+[#30153]: https://github.com/home-assistant/home-assistant/pull/30153
+[#30155]: https://github.com/home-assistant/home-assistant/pull/30155
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@springstan]: https://github.com/springstan
+[deconz docs]: /integrations/deconz/
+[doods docs]: /integrations/doods/
+[homekit docs]: /integrations/homekit/
+[image_processing docs]: /integrations/image_processing/
+[seven_segments docs]: /integrations/seven_segments/
+[tensorflow docs]: /integrations/tensorflow/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).

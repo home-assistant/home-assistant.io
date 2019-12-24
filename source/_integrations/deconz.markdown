@@ -389,11 +389,12 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 
 - IKEA Trådfri bulb E14 WS Opal 400lm
 - IKEA Trådfri bulb E14 WS Opal 600lm
-- IKEA Trådfri Bulb E27 WS clear 950lm
-- IKEA Trådfri Bulb E27 WS Opal 980lm
-- IKEA Trådfri Bulb E27 WS Opal 1000lm
-- IKEA Trådfri Bulb E27 WS & RGB Opal 600lm
-- IKEA Trådfri Bulb GU10 W 400lm
+- IKEA Trådfri bulb E27 WS clear 806lm
+- IKEA Trådfri bulb E27 WS clear 950lm
+- IKEA Trådfri bulb E27 WS Opal 980lm
+- IKEA Trådfri bulb E27 WS Opal 1000lm
+- IKEA Trådfri bulb E27 WS & RGB Opal 600lm
+- IKEA Trådfri bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
 - Innr BY-265, BY-245
 - OSRAM Classic A60 W clear - LIGHTIFY
@@ -479,6 +480,7 @@ The `entity_id` name will be `switch.device_name`, where `device_name` is define
 ### Verified supported switches
 
 - Innr SP120
+- Innr ZB-ONOFFPlug-D0005/SmartThings Smart Plug (2019) (without power measurements)
 - Osram Lightify plug
 - Osram Outdoor plug
 - Heiman siren

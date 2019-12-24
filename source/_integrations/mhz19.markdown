@@ -53,7 +53,7 @@ enable_uart=1
 Then (after a reboot): you can setup the sensor using:
 
 ```yaml
-  serial_device: /dev/tty.S0
+  serial_device: /dev/ttyS0
 ```
 
 ## Calibration

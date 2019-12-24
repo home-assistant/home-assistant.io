@@ -138,7 +138,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pyodbc://username:password@dsnname` |
+| MS SQL Server   | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
 
@@ -247,7 +247,7 @@ A service restart will work as well.
 
 ### MS SQL Server
 
-For MS SQL Server you may have to install a few dependencies:
+For MS SQL Server you will have to install a few dependencies:
 
 ```bash
 sudo apt-get install unixodbc-dev
@@ -261,3 +261,11 @@ sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
 pip3 install pyodbc
 ```
+
+You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instrucitons for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+
+<div class='note'>
+
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
+
+</div>

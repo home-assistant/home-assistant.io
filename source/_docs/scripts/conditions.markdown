@@ -93,7 +93,7 @@ condition:
   above: 17
   below: 25
   # If your sensor value needs to be adjusted
-  value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
+  value_template: {% raw %}'{{ float(state.state) + 2 }}'{% endraw %}
 ```
 
 ### State condition
