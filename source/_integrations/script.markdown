@@ -65,6 +65,8 @@ sequence:
 
 ### Full Configuration
 
+{% raw %}
+
 ```yaml
 script: 
   wakeup:
@@ -89,12 +91,14 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: {% raw %}{{ minutes }}{% endraw %}
+          minutes: {{ minutes }}
       - alias: Living room lights on
         service: light.turn_on
         data:
           entity_id: group.living_room
 ```
+
+{% endraw %}
 
 ### Passing variables to scripts
 
