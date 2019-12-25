@@ -103,6 +103,11 @@ notify:
   required: false
   type: map
   keys:
+    name:
+      description: Name of the notification service.
+      default: "`huawei_lte`"
+      required: false
+      type: string
     recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: false
