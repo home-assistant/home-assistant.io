@@ -129,6 +129,24 @@ Reboot router.
 | ---------------------- | -------- | ----------- |
 | `url`                  | yes, if only one router configured | Router URL. |
 
+### Service `huawei_lte.suspend_integration`
+
+Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
+Useful e.g. if accessing the router web interface from another source such as a web browser is temporarily required.
+Invoke the `huawei_lte.resume_integration` service to resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+### Service `huawei_lte.resume_integration`
+
+Resume suspended integration.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
 ## Tested devices
 
 Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
