@@ -105,7 +105,7 @@ notify:
   keys:
     name:
       description: Name of the notification service.
-      default: `huawei_lte`
+      default: "`huawei_lte`"
       required: false
       type: string
     recipient:
