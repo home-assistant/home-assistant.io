@@ -18,9 +18,9 @@ The requirements are:
 - You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_chatbot) and define there your API key and the allowed chat ids to interact with.
 - The `chat_id` of an allowed user. 
 
-**Method 1.** You can get your id by sending any message to the [GetIDs Bot](https://t.me/getidsbot). Also you can add bot to the group and get group's chat_id.
+**Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
-**Method 2.** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 
@@ -51,7 +51,7 @@ The result set will include your chat ID as `id` in the `chat` section:
 }
 ```
 
-**Method 3.** Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
+**Method 3:** Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
 
 ```python
 $ python3
