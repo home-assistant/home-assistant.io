@@ -71,7 +71,7 @@ notify:
     name:
       description: The name of the notification service.
       required: false
-      default: notify
+      default: `netgear_lte`
       type: string
 sensor:
   description: Configuration options for sensors.
