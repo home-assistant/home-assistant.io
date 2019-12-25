@@ -105,7 +105,7 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tilt (2.0.10)
-    tzinfo (2.0.0)
+    tzinfo (2.0.1)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
