@@ -635,6 +635,32 @@ Now you can add as many template nodes, each having a specific code, and add any
 ### Using broadlink_cli to obtain codes
 
 It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
+First use discovery to find your Broadlink device:
+
+```bash
+./broadlink_discovery 
+Discovering...
+###########################################
+RM2
+# broadlink_cli --type 0x2737 --host 192.168.1.137 --mac 36668342f7c8
+Device file data (to be used with --device @filename in broadlink_cli) : 
+0x2737 192.168.1.137 36668342nnnn
+temperature = 0.0
+```
+
+Then use this info in a cli-command:
+
+```bash
+./broadlink_cli  --learn --device "0x2737 192.168.1.137 36668342nnnn"
+Learning...
+```
+
+Press a button on the remote and you get a code:
+
+```txt
+260058000001219512131114113910141114111411141114103911391114103911391139103911391039113911141039111411391015103911141114113910141139111410391114110005250001274b11000c520001274b11000d05
+Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
+```
 
 ### Conversion of codes from other projects
 

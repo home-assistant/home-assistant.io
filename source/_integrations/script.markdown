@@ -65,6 +65,8 @@ sequence:
 
 ### Full Configuration
 
+{% raw %}
+
 ```yaml
 script: 
   wakeup:
@@ -95,6 +97,8 @@ script: 
         data:
           entity_id: group.living_room
 ```
+
+{% endraw %}
 
 ### Passing variables to scripts
 
