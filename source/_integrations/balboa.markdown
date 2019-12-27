@@ -25,10 +25,10 @@ Home Assistant offers Balboa Spa integration through **Configuration** -> **Inte
 
 ## Known limitations
 
-- The WiFi Module is a direct connection to the control panel of the spa.  Certain combinations of settings are not possible due to limitations of the spa.
+- The WiFi Module is a direct connection to the control panel of the spa. Certain combinations of settings are not possible due to limitations of the spa.
 - Turning on certain pumps, depending on the spa configuration, may cause other pumps to come online as well.
 - The spa WiFi Module will need to be configured initially by the phone app to authenticate and get an IP on your network.
-- The WiFi Module will automatically disconnect from Home Assistant periodically, and then be automatically reconnected.  This is built-in to the hardware.
+- The WiFi Module will automatically disconnect from Home Assistant periodically, and then be automatically reconnected. The disconnect is built-in to the hardware.
 
 ## Debugging integration
 
