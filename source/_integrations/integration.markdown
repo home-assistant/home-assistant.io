@@ -59,7 +59,7 @@ method:
   default: trapezoidal
 {% endconfiguration %}
 
-If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
+In case you have an appliance which produces 'spikey' consumption (like an on/off electrical boiler) you should opt for the left method I order to get accurate readings. 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
 
 ## Energy
 
