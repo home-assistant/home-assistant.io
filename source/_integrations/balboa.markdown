@@ -10,7 +10,7 @@ ha_release: 0.104
 ha_iot_class: Local Push
 ---
 
-This integration adds "local push" support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
+This integration adds "local push" support for [Balboa](https://www.balboawatergroup.com) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
