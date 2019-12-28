@@ -394,7 +394,7 @@ Only acknowledges the 'NO' answer:
 ```
 {% endraw %}
 
-Telegram callbacks also support arguments and commands the same way as normal messages:
+Telegram callbacks also support arguments and commands the same way as normal messages.
 
 {% raw %}
 ```yaml
@@ -408,10 +408,13 @@ Telegram callbacks also support arguments and commands the same way as normal me
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
+        show_alert: true
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'I repeat: {{trigger.event.data["args"]}}'
 ```
 {% endraw %}
+
+In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`
 
 
 For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/docs/ecosystem/appdaemon/tutorial/) is advised.
