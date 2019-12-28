@@ -252,6 +252,16 @@ action:
     anonymize: True
 ```
 
+Reset energy counter of measuring actuators.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.reset_energy_counter
+  data:
+    entity_id: switch.livingroom
+```
+
 
 ## Additional info
 
