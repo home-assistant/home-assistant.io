@@ -334,6 +334,14 @@ All services for use in Home Assistant are moved to their integration naming spa
 [seven_segments docs]: /integrations/seven_segments/
 [tensorflow docs]: /integrations/tensorflow/
 
+## Release 0.103.5 - December 28
+
+- Bump ring to 0.2.8 to fix Oauth issues ([@tchellomello] - [#30245]) ([ring docs])
+
+[#30245]: https://github.com/home-assistant/home-assistant/pull/30245
+[@tchellomello]: https://github.com/tchellomello
+[ring docs]: /components/ring/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
