@@ -153,7 +153,7 @@ On the Raspberry Pi you will need to enable the serial interface in the `raspi-c
 On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
-$ sudo apt-get install libudev-dev
+$ sudo apt-get install libudev-dev build-essential
 ```
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.
