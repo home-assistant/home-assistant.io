@@ -247,14 +247,21 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
-### `androidtv.adb_filesync`
+### `androidtv.download` and `androidtv.upload`
 
-You can use the `androidtv.adb_filesync` service to transfer files between your Android TV / Fire TV device and your Home Assistant instance. 
+You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name of Android TV / Fire TV entity.
+| `device_path`          |       no | The filepath on the Android TV / Fire TV device.
+| `local_path`           |       no | The filepath on your Home Assistant instance.
+
+Similarly, you can use the `androidtv.upload` service to upload a file from Home Assistant instance to Android TV / Fire TV devices.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
-| `direction`            |       no | Whether to push a file to the device or pull a file from the device; must be `push` or `pull`.
 | `device_path`          |       no | The filepath on the Android TV / Fire TV device.
 | `local_path`           |       no | The filepath on your Home Assistant instance.
 
