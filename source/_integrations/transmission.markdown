@@ -70,18 +70,18 @@ scan_interval:
 The Transmission Integration will add the following sensors and switches.
 
 Sensors:
-- current_status: The status of your Transmission daemon.
-- download_speed: The current download speed [MB/s].
-- upload_speed: The current upload speed [MB/s].
-- active_torrents: The current number of active torrents.
-- paused_torrents: The current number of paused torrents.
-- total_torrents: The total number of torrents present in the client.
-- started_torrents: The current number of started torrents (downloading).
-- completed_torrents: The current number of completed torrents (seeding)
+- transmission_current_status: The status of your Transmission daemon.
+- transmission_download_speed: The current download speed [MB/s].
+- transmission_upload_speed: The current upload speed [MB/s].
+- transmission_active_torrents: The current number of active torrents.
+- transmission_paused_torrents: The current number of paused torrents.
+- transmission_total_torrents: The total number of torrents present in the client.
+- transmission_started_torrents: The current number of started torrents (downloading).
+- transmission_completed_torrents: The current number of completed torrents (seeding)
 
 Switches:
-- on_off: A switch to start/stop all torrents
-- turtle_mode: A switch to enable turtle mode.
+- transmission_switch: A switch to start/stop all torrents
+- transmission_turtle_mode: A switch to enable turtle mode.
 
 
 ## Event Automation
