@@ -95,7 +95,7 @@ automation:
       data:
         entity_id: climate.kitchen
         temperature: 24
-        hvac_mode: heat
+        hvac_mode: "heat"
 ```
 
 ```yaml
@@ -110,7 +110,7 @@ automation:
         entity_id: climate.kitchen
         target_temp_high: 24
         target_temp_low: 20
-        hvac_mode: heat_cool
+        hvac_mode: "heat_cool"
 ```
 
 ### Service `climate.set_humidity`
@@ -179,7 +179,7 @@ automation:
     - service: climate.set_hvac_mode
       data:
         entity_id: climate.kitchen
-        hvac_mode: heat
+        hvac_mode: "heat"
 ```
 
 ### Service `climate.set_swing_mode`
