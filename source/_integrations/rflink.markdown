@@ -48,7 +48,7 @@ wait_for_ack:
   default: true
   type: boolean
 ignore_devices:
-  description: List of device id's to ignore. Supports wildcards (`*`) at the end.
+  description: List of device id's to ignore. Supports wildcards (`*`, `?`).
   required: false
   type: [list, string]
 reconnect_interval:
@@ -136,10 +136,6 @@ rflink:
 ```
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
-
-<div class='note'>
-Wildcards only work at the end of the ID, not in the middle or front!
-</div>
 
 ### Device support
 
