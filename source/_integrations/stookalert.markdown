@@ -32,5 +32,5 @@ scan_interval:
   description: "The rate in seconds at which the Stookalert API should be polled for new data."
   required: false
   type: integer
-  default: 600
+  default: 3600
 {% endconfiguration %}
