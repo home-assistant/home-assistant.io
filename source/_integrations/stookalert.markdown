@@ -5,7 +5,7 @@ logo: stookalert.png
 ha_category:
   - binary-sensor
   - environment
-ha_release: 0.104
+ha_release: 0.103
 ha_iot_class: Cloud Polling
 ---
 
