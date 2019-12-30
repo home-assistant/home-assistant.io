@@ -33,4 +33,4 @@ scan_interval:
   required: false
   type: integer
   default: 600
-{% endconfiguration %}
+{% endconfiguration %
