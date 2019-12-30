@@ -97,6 +97,6 @@ proxmoxve:
 
 ## Binary Sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machone or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
 
 The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
