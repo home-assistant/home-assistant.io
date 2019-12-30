@@ -19,7 +19,7 @@ The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.c
 This integration provides the following platforms:
 
 - Binary sensors - such as parking and charger connection.
-- Sensors - such as Battery level, Inside/Outside temperature, odometer, and estimated range.
+- Sensors - such as Battery level, Inside/Outside temperature, odometer, estimated range, and charging rate.
 - Device tracker - to track location of your car
 - Lock - Door lock. Enables you to control Tesla's door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
