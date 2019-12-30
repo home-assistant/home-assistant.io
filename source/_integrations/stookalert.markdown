@@ -33,4 +33,9 @@ scan_interval:
   required: false
   type: integer
   default: 3600
+name:
+  description: The sensor name to use in the frontend.
+  required: false
+  default: "Stookalert"
+  type: string
 {% endconfiguration %}
