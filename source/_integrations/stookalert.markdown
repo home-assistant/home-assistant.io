@@ -28,11 +28,6 @@ province:
   description: a province to use for the binary sensor's state. Currently only provinces in the Netherlands are supported. Valid values are `drenthe`, `flevoland`, `friesland`, `gelderland`, `groningen`, `limburg`, `noord-brabant`, `noord-holland`, `overijssel`, `utrecht`, `zeeland` or `zuid-holland`.
   required: true
   type: string
-scan_interval:
-  description: "The rate in seconds at which the Stookalert API should be polled for new data."
-  required: false
-  type: integer
-  default: 3600
 name:
   description: The sensor name to use in the frontend.
   required: false
