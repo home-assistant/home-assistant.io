@@ -51,6 +51,16 @@ zone_names:
   description: Mapping of zone names to custom ones, allowing one to rename e.g., `Main_Zone` to `Family Room`.
   required: false
   type: list
+volume_min:
+  description: Minimum volume of the device in decibels.
+  required: false
+  type: float
+  default: -100.0
+volume_max:
+  description: Maximum volume of the device in decibels.
+  required: false
+  type: float
+  default: 0.0
 {% endconfiguration %}
 
 ### Discovery notes
