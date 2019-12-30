@@ -207,6 +207,7 @@ Example configuration:
 ```yaml
 alexa:
   smart_home:
+    locale: en-US
     endpoint: https://api.amazonalexa.com/v3/events
     client_id: !secret alexa_client_id
     client_secret: !secret alexa_client_secret
@@ -225,6 +226,8 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
+
+Set the `locale` to the locale of your Alexa devices. Supported locales are: `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`. Default is `en-US`.
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e. "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
