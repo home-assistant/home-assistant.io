@@ -20,12 +20,12 @@ pw groupadd -n homeassistant -g 8123
 echo 'homeassistant:8123:8123::::::/bin/csh:' | adduser -f -
 ```
 
-Install the necessary Python packages and virtualenv:
+Install the sugessted packages and virtualenv:
 
 ```bash
 pkg update
 pkg upgrade
-pkg install -y python37 py37-sqlite3 ca_root_nss
+pkg install -y autoconf bash ca_root_nss gmake pkgconf python37 python37
 python3.7 -m ensurepip
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
