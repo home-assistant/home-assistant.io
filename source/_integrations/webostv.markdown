@@ -21,7 +21,7 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 
-Pairing information will be saved to a configuration file in $HOME/.aiopylgtv (or in the working directory if $HOME is not set). This process is IP address-sensitive, in case the IP address of your TV would change in future.
+Pairing information will be saved to a configuration file `webostv.conf` in the Home Assistant configuration directory. This process is IP address-sensitive, in case the IP address of your TV would change in future.
 
 ### Configuration
 
