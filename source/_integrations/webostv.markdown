@@ -35,7 +35,7 @@ webostv:
 {% configuration %}
 host:
   description: "The IP of the LG webOS Smart TV, e.g., `192.168.0.10`."
-  required: false
+  required: true
   type: string
 name:
   description: The name you would like to give to the LG webOS Smart TV.
@@ -60,8 +60,6 @@ customize:
       required: false
       type: list
 {% endconfiguration %}
-
-If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
 
 ### Example
 
