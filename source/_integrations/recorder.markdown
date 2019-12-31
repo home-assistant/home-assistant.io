@@ -121,28 +121,35 @@ If you only want to hide events from your history, take a look at the [`history`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)
-| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
+| Service data attribute | Optional | Description                                                                                                                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                 |
+| `repack`               | yes      | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses. |
 
 ## Custom database engines
 
-| Database engine | `db_url`                                                 |
-| :---------------|:---------------------------------------------------------|
-| SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
-| PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
-| PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
-| PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
+| Database engine        | `db_url`                                                                                     |
+| :--------------------- | :------------------------------------------------------------------------------------------- |
+| SQLite                 | `sqlite:////PATH/TO/DB_NAME`                                                                 |
+| MariaDB                | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
+| MariaDB (omit pymysql) | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MySQL                  | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
+| MySQL                  | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| PostgreSQL             | `postgresql://SERVER_IP/DB_NAME`                                                             |
+| PostgreSQL             | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
+| PostgreSQL (Socket)    | `postgresql://@/DB_NAME`                                                                     |
+| MS SQL Server          | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
 
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+
+</div>
+
+<div class='note'>
+
+If using an external MariaDB backend (eg. running on a separate NAS) with home-assistant, you should omit `pymysql` from the url. `pymysql` is not included in the base docker image, and is not necessary for this to work.
 
 </div>
 
