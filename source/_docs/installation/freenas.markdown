@@ -18,7 +18,7 @@ Install the suggested packages and virtualenv:
 ```bash
 pkg update
 pkg upgrade
-pkg install -y autoconf bash ca_root_nss gmake pkgconf python37  py37-sqlite3
+pkg install -y autoconf bash ca_root_nss gmake pkgconf python37 py37-sqlite3
 python3.7 -m ensurepip
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
@@ -108,7 +108,7 @@ vi /usr/local/etc/rc.d/homeassistant
 #       UnChange: `sysrc -x homeassistant_config_dir`
 
 # -------------------------------------------------------
-# Copy this file to '/usr/local/etc/rc.d/homeassistant' 
+# Copy this file to '/usr/local/etc/rc.d/homeassistant'
 # `chmod +x /usr/local/etc/rc.d/homeassistant`
 # `sysrc homeassistant_enable=yes`
 # `service homeassistant start`
@@ -253,8 +253,8 @@ vi /etc/devfs.rules
 
 Add the following lines 
 ```bash
-[devfsrules_jail_allow_usb=7]  
-add path 'cu\*' mode 0660 group 8123 unhide 
+[devfsrules_jail_allow_usb=7]
+add path 'cu\*' mode 0660 group 8123 unhide
 ```
 
 Reload devfs
