@@ -13,13 +13,6 @@ Enter the Home Assistant jail. If you don't know which name you have given the j
 iocage exec HomeAssistant
 ```
 
-Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
-
-```bash
-pw groupadd -n homeassistant -g 8123
-echo 'homeassistant:8123:8123::::::/bin/csh:' | adduser -f -
-```
-
 Install the sugessted packages and virtualenv:
 
 ```bash
@@ -29,6 +22,13 @@ pkg install -y autoconf bash ca_root_nss gmake pkgconf python37 python37
 python3.7 -m ensurepip
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
+```
+
+Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
+
+```bash
+pw groupadd -n homeassistant -g 8123
+echo 'homeassistant:8123:8123::::::/usr/local/bin/bash:' | adduser -f -
 ```
 
 Create the installation directory:
@@ -44,7 +44,7 @@ Install Home Assistant itself:
 su homeassistant
 cd /usr/local/share/homeassistant
 virtualenv -p python3.7 .
-source ./bin/activate.csh
+source ./bin/activate
 pip3 install homeassistant
 ```
 
@@ -310,7 +310,7 @@ Then, enter the `venv`:
 ```bash
 su homeassistant
 cd /usr/local/share/homeassistant
-source ./bin/activate.csh
+source ./bin/activate
 ```
 
 Upgrade Home Assistant:
