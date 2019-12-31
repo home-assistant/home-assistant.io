@@ -13,12 +13,12 @@ Enter the Home Assistant jail. If you don't know which name you have given the j
 iocage exec HomeAssistant
 ```
 
-Install the sugessted packages and virtualenv:
+Install the suggested packages and virtualenv:
 
 ```bash
 pkg update
 pkg upgrade
-pkg install -y autoconf bash ca_root_nss gmake pkgconf python37 python37
+pkg install -y autoconf bash ca_root_nss gmake pkgconf python37  py37-sqlite3
 python3.7 -m ensurepip
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
