@@ -56,11 +56,11 @@ ssl:
   default: true
   type: boolean
 volumes:
-  description: Array of volumes to monitor. Defaults to all volumes.
+  description: Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores. eg.volume_1
   required: false
   type: list
 disks:
-  description: Array of disks to monitor. Defaults to all disks.
+  description: Array of disks to monitor. Defaults to all disks. Use only disk names like sda, sdb
   required: false
   type: list
 monitored_conditions:
