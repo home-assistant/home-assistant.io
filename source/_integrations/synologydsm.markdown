@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 name:
-  description: The name of your device
+  description: The name to use in the frontend for your Synology device.
   required: false
   default: Synology DSM
   type: string
@@ -56,11 +56,11 @@ ssl:
   default: true
   type: boolean
 volumes:
-  description: Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores. eg.volume_1
+  description: "Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores, e.g., `volume 1` with `volume_1`."
   required: false
   type: list
 disks:
-  description: Array of disks to monitor. Defaults to all disks. Use only disk names like sda, sdb
+  description: "Array of disks to monitor. Defaults to all disks. Use only disk names like `sda`, `sdb`, etc."
   required: false
   type: list
 monitored_conditions:
