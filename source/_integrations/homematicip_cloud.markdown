@@ -102,6 +102,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
   * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
   * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
+  * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -154,6 +155,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
   * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
   * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
+  * Switch Actuator for heating systems – 2 channels (*HmIP-WHS2*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
