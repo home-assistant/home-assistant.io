@@ -16,13 +16,12 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Notifications](#notifications)
 
-## Media Player
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 
-Pairing information will be saved to the `filename:` provided in the configuration. This process is IP address-sensitive, in case the IP address of your TV would change in future.
+Pairing information will be saved to a configuration file in $HOME/.aiopylgtv (or in the working directory if $HOME is not set). This process is IP address-sensitive, in case the IP address of your TV would change in future.
 
 ### Configuration
 
@@ -30,8 +29,7 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: webostv
+webostv:
 ```
 
 {% configuration %}
@@ -43,15 +41,11 @@ name:
   description: The name you would like to give to the LG webOS Smart TV.
   required: false
   type: string
-filename:
-  description: "The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file."
+standby_connection:
+  description: Keep connection alive when TV is in standby (this should be set to try if and only if the "Standby+" option is enabled in the TV UI.)
   required: false
-  type: string
-  default: webostv.conf
-timeout:
-  description: The timeout for communication with the TV in seconds.
-  required: false
-  type: time
+  type: boolean
+  default: false
 turn_on_action:
   description: Defines an [action](/docs/automation/action/) to turn the TV on.
   required: false
@@ -75,22 +69,24 @@ A full configuration example will look like the sample below:
 
 ```yaml
 # Example configuration.yaml entry
+webostv:
+  host: 192.168.0.10
+  name: Living Room TV
+  standby_connection: true
+  turn_on_action:
+    service: persistent_notification.create
+    data:
+      message: "Turn on action"
+  customize:
+    sources:
+      - livetv
+      - youtube
+      - makotv
+      - netflix
+        
 media_player:
-  - platform: webostv
-    host: 192.168.0.10
-    name: Living Room TV
-    filename: webostv.conf
-    timeout: 5
-    turn_on_action:
-      service: persistent_notification.create
-      data:
-        message: "Turn on action"
-    customize:
-      sources:
-        - livetv
-        - youtube
-        - makotv
-        - netflix
+
+notify:
 ```
 
 Avoid using `[ ]` in the `name:` of your device.
@@ -107,14 +103,17 @@ On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by 
 # Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` domain
 
+webostv:
+  host: 192.168.0.10
+  #other settings
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: "B4:E6:2A:1E:11:0F"
+
 media_player:
-  - platform: webostv
-    host: 192.168.0.10
-    #other settings
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: "B4:E6:2A:1E:11:0F"
+
+notify:
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
@@ -157,57 +156,6 @@ The behaviour of the next and previous buttons is different depending on the act
 ## Notifications
 
 The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.
-
-When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
-
-To add a TV to your installation, add the following to your `configuration.yaml` file and follow the configurator instructions:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: webostv
-    host: 192.168.0.112
-    name: livingroom_tv
-    filename: webostv.conf
-```
-
-{% configuration %}
-host:
-  description: The IP of the LG webOS Smart TV, e.g., 192.168.0.10
-  required: true
-  type: string
-name:
-  description: The name you would like to give to the LG webOS Smart TV.
-  required: true
-  type: string
-filename:
-  description: "The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file."
-  required: false
-  type: string
-  default: webostv.conf
-icon:
-  description: The path to an image file to use as the icon in notifications.
-  required: false
-  type: [string, icon]
-{% endconfiguration %}
-
-A possible automation could be:
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-automation:
-  - alias: Open a window
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.netatmo_livingroom_co2
-      above: 999
-    action:
-      service: notify.livingroom_tv
-      data:
-        message: "You should open a window! (Livingroom Co2: {{ states('sensor.netatmo_livingroom_co2') }}ppm)"
-```
-{% endraw %}
 
 The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
 
