@@ -4,7 +4,7 @@ description: "Instructions on how to integrate GIOŚ (Polish Chief Inspectorate 
 logo: gios.png
 ha_category:
   - Health
-ha_release: 0.103
+ha_release: 0.104
 ha_iot_class: Cloud Polling
 ---
 
