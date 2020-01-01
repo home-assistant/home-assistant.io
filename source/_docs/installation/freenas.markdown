@@ -184,12 +184,17 @@ pkg install libudev-devd
 
 Then you can install the zwave package
 ```bash
-pip3 install homeassistant-pyozw==0.1.4
+su homeassistant
+cd /usr/local/share/homeassistant
+source ./bin/activate.csh
+pip3 install homeassistant-pyozw==0.1.7
+deactivate
+exit
 ```
 
 Stop the hass Jail
 ```bash
-sudo iocage stop hass
+sudo iocage stop HomeAssistant
 ```
 
 Edit the devfs rules on the Freenas Host
@@ -213,12 +218,12 @@ Set it to 7
 
 Start the hass jail
 ```bash
-sudo iocage start hass
+sudo iocage start HomeAssistant
 ```
 
 Connect to the hass jail and verify that you see the modem devices
 ```bash
-sudo iocage console hass
+sudo iocage console HomeAssistant
 ```
 
 ```bash
