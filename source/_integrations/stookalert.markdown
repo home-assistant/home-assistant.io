@@ -24,7 +24,7 @@ binary_sensor:
 
 {% configuration %}
 province:
-  description: a province to use for the binary sensor's state. Currently only provinces in the Netherlands are supported. Valid values are `drenthe`, `flevoland`, `friesland`, `gelderland`, `groningen`, `limburg`, `noord-brabant`, `noord-holland`, `overijssel`, `utrecht`, `zeeland` or `zuid-holland`.
+  description: a province to use for the binary sensor's state. Currently only provinces in the Netherlands are supported. Valid values are `Drenthe`, `Flevoland`, `Friesland`, `Gelderland`, `Groningen`, `Limburg`, `Noord-Brabant`, `Noord-Holland`, `Overijssel`, `Utrecht`, `Zeeland` or `Zuid-Holland`.
   required: true
   type: string
 name:
