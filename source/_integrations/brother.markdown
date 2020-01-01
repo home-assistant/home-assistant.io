@@ -26,6 +26,7 @@ type:
   description: Specify type of the printer.
   required: false
   default: laser
+  type: string
 {% endconfiguration %}
 
 <div class="note warning">
