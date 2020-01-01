@@ -27,6 +27,10 @@ Please be aware that Fitbit has very low rate limits, 150 per user per hour. The
 
 The unit system that the sensor will use is based on the country you set in your Fitbit profile.
 
+To use devices from multiple Fitbit accounts use unique `name` and
+`filename` entries. Note that every Fitbit account needs to setup a developer
+account to optain a separate `client_id` and `client_secret`.
+
 {% configuration %}
 monitored_resources:
   description: Resource to monitor.
@@ -42,6 +46,16 @@ unit_system:
   description: Unit system to use for measurements. Accepts `default`, `metric`, `en_US` or `en_GB`.
   required: false
   default: "`default`"
+  type: string
+filename:
+  description: Configuration filename. Useful when multiple Fitbit integration instances are used.
+  required: false
+  default: "fitbit.conf"
+  type: string
+name:
+  description: Name prefix for sensors of this account. Useful when multiple Fitbit integration instances are used.
+  required: false
+  default: None
   type: string
 {% endconfiguration %}
 
