@@ -30,5 +30,7 @@ type:
 {% endconfiguration %}
 
 <div class="note warning">
+  
 Some very old Brother printers use different data format and these models are not supported. Integration will show information about that during configuration.
+
 </div>
