@@ -10,7 +10,6 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-  - Input Number
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
