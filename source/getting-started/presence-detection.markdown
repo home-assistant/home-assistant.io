@@ -17,7 +17,7 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 
 There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
-It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android we suggest to use the [Home Assistant Companion app](/ios/).
+It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android we suggest to use the [Home Assistant Companion app][companion].
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
@@ -46,5 +46,6 @@ The map view will hide all devices that are home.
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
 [ha-map]: /integrations/map/
+[companion]: https://companion.home-assistant.io/
 
 ### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)
