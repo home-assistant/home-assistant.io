@@ -24,3 +24,15 @@ address:
   required: true
   type: string
 {% endconfiguration %}
+
+## Example Automations
+
+``` yaml
+- alias: "blinds closed at night"
+  trigger:
+    platform: time
+    at: "18:00:00"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.10877
+```
