@@ -97,7 +97,7 @@ A few notes:
 
 #### Service `denonavr.get_command`
 
-Generic commands are supported, in particular any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g. `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch hdmi outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g. "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle. A comprehensive list of telnet protocol commands is available at https://ca.denon.com/ca/product/hometheater/receivers/avrx4400h?docname=AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx and a full list of IR codes at http://www.denon-hifi.nl/uk/product/hometheater/avreceivers/avr3313?docname=AVR3313_IR_CODE_V01.pdf
+Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g. "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle. A comprehensive list of telnet protocol commands is available at https://ca.denon.com/ca/product/hometheater/receivers/avrx4400h?docname=AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx and a full list of IR codes at http://www.denon-hifi.nl/uk/product/hometheater/avreceivers/avr3313?docname=AVR3313_IR_CODE_V01.pdf
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
