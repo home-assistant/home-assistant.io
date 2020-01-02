@@ -94,4 +94,14 @@ A few notes:
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
 - Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/scarface-4711/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under "Development Tools/States" in the front panel.
 
+
+#### Service `denonavr.get_command`
+
+Generic commands are supported, in particular any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g. `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch hdmi outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g. "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle. A comprehensive list of telnet protocol commands is available at https://ca.denon.com/ca/product/hometheater/receivers/avrx4400h?docname=AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx and a full list of IR codes at http://www.denon-hifi.nl/uk/product/hometheater/avreceivers/avr3313?docname=AVR3313_IR_CODE_V01.pdf
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
+| `command`              |       no | Command to send to device, e.g. `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+
 [Denon]: /integrations/denon
