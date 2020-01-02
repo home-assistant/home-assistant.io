@@ -122,7 +122,7 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
-If you did an alternative install on Linux then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`.
+If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after HomeAssistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 
@@ -215,13 +215,16 @@ ls /dev/cu.usbmodem*
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-## Ubuntu and Debian based host system
+## Random unreachable Z-Wave nodes: ModemManager interference
 
-If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
+If this applies to your situation:
+- Some or all Z-Wave nodes are unreachable after restarting Home Assistant; not necessarily after every restart but seemingly random.
+- The Z-Wave stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back.
+- Your host OS is Debian-based/Ubuntu (for example: you installed Ubuntu, then Docker, then Hass.io).
 
-The ModemManager might be claiming or interfering with a USB Z-Wave stick, like the much used Aeotec ones. If you experience issues where the stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back, chances are high that the ModemManager is causing the issue.
+Then chances are high that the ModemManager in the host OS is causing the issue, claiming or interfering with the USB Z-Wave stick like the much used Aeotec ones. In this case you need to disable ModemManager.
 
- Execute the following command on your host system to disable the ModemManager:
+Connect to your host OS (e.g. Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
 
  ```bash
 systemctl disable ModemManager.service
