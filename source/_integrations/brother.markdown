@@ -15,7 +15,7 @@ The integration monitors every supported part.
 
 ## Configuration
 
-To add `Brother Printer` to your installation, go to **Configuration** >> **Integrations** in the UI, click button with `+` sign and from the list of integrations select **Brother Printer**.
+To add `Brother Printer` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Brother Printer**.
 
 {% configuration %}
 host:
