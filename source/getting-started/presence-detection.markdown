@@ -17,7 +17,7 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 
 There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
-It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android we suggest to use the [Home Assistant Companion app][companion].
+It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android, we suggest using the [Home Assistant Companion app][companion].
 
 During setup of Home Assistant Companion on your mobile device, the app will ask for permission to allow the device's location to be provided to Home Assistant. Allowing this will create a `device_tracker` entity for that device which can be used in automations and conditions.
 
