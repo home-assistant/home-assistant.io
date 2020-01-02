@@ -151,6 +151,42 @@ The behaviour of the next and previous buttons is different depending on the act
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
  - otherwise: next/previous buttons act as next/previous track
 
+### Generic commands and buttons
+
+Available services: `button`, `command`
+
+#### Service `webostv.button`
+
+| Service data attribute | Optional | Description                                             |
+|------------------------|----------|---------------------------------------------------------|
+| `entity_id`            |       no | Target a specific webostv media player.                 |
+| `button`               |       no | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+        
+#### Service `webostv.command`
+
+| Service data attribute | Optional | Description                                             |
+|------------------------|----------|---------------------------------------------------------|
+| `entity_id`            |       no | Target a specific webostv media player.                 |
+| `command`              |       no | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py |
+        
+#### Example
+
+```
+script:
+  home_button:
+    sequence:
+      - service: webostv.button
+        data:
+          entity_id:  media_player.lg_webos_smart_tv
+          button: "HOME"
+
+  rewind_command:
+    sequence:
+      - service: webostv.command
+        data:
+          entity_id:  media_player.lg_webos_smart_tv
+          command: "media.controls/rewind"
+```
 ## Notifications
 
 The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.
