@@ -31,6 +31,6 @@ type:
 
 <div class="note warning">
   
-Some very old Brother printers use different data format and these models are not supported. Integration will show information about that during configuration.
+Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
 
 </div>
