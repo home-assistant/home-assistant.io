@@ -14,7 +14,7 @@ the `homeassistant` integration provides services for controlling Home Assistant
 
 #### Service `homeassistant.check_config`
 
-Reads the config files and checks them for correctness, but **DOES NOT** load them into home assistant. Creates a persistant notification and log entry if errors are found.
+Reads the config files and checks them for correctness, but **does not** load them into home assistant. Creates a persistant notification and log entry if errors are found.
 
 #### Service `homeassistant.check_config`
 
