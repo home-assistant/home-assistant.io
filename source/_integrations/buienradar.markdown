@@ -103,6 +103,12 @@ delta:
   required: false
   default: 600
   type: integer
+country_code:
+  description: You can (optionally) specify the country code (NL or BE) of the
+    country to display on the camera.
+  required: false
+  default: NL
+  type: string
 {% endconfiguration %}
 
 ### The `name` Variable
