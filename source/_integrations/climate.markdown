@@ -28,7 +28,7 @@ Turn auxiliary heater on/off for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `aux_heat` | no | New value of auxiliary heater.
 
 #### Automation example
@@ -53,7 +53,7 @@ reflecting a situation where the climate device is set to save energy. For examp
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `preset_mode` | no | New value of preset mode.
 
 #### Automation example
@@ -76,7 +76,7 @@ Set target temperature of climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `temperature` | no | New target temperature for climate device (commonly referred to as a *setpoint*). Do not use if `hvac_mode` is `heat_cool`.
 | `target_temp_high` | yes | The highest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`.
 | `target_temp_low` | yes | The lowest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`.
@@ -119,7 +119,7 @@ Set target humidity of climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `humidity` | no | New target humidity for climate device
 
 #### Automation example
@@ -142,7 +142,7 @@ Set fan operation for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `fan_mode` | no | New value of fan mode
 
 #### Automation example
@@ -165,7 +165,7 @@ Set climate device's HVAC mode
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `hvac_mode` | no | New value of HVAC mode
 
 #### Automation example
@@ -188,7 +188,7 @@ Set swing operation mode for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `swing_mode` | no | New value of swing mode
 
 #### Automation example
@@ -211,7 +211,7 @@ Turn climate device on. This is only supported if the climate device supports be
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 
 ### Service `climate.turn_off`
 
@@ -219,4 +219,4 @@ Turn climate device off. This is only supported if the climate device has the hv
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+| `entity_id` | no | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
