@@ -19,9 +19,8 @@ There are different ways of setting up presence detection. Usually the easiest w
 
 It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android we suggest to use the [Home Assistant Companion app][companion].
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
-</div>
+During setup of Home Assistant Companion on your mobile device, the app will ask for permission to allow the device's location to be provided to Home Assistant. Allowing this will create a `device_tracker` entity for that device which can be used in automations and conditions.
+
 
 ### Zones
 
