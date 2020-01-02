@@ -10,7 +10,7 @@ ha_iot_class: Local Polling
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
 
-It usually provides information about the device's state, the left amount of ink or toner and remaining life of drum or other parts of the printer.
+It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
 The integration monitors every supported part.
 
 ## Configuration
