@@ -17,34 +17,34 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all. |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`. |
 
 #### Service `media_player.volume_mute`
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target a specific media player. Defaults to all. |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`. |
 | `is_volume_muted`      |       no | True/false for mute/unmute                       |
 
 #### Service `media_player.volume_set`
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target a specific media player. Defaults to all. |
+| `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
 | `volume_level`         |       no | Float for volume level. Range 0..1               |
 
 #### Service `media_player.media_seek`
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.       |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`.       |
 | `seek_position`        |       no | Position to seek to. The format is platform dependent. |
 
 #### Service `media_player.play_media`
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is integration dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
 | `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
 
@@ -52,7 +52,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.     |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`.     |
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
 #### Service `media_player.select_sound_mode`
