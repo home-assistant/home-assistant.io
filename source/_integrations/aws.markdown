@@ -161,7 +161,7 @@ The SQS event payload will contain everything passed in the service call payload
 ```json
 {
   "title": "Test message!",
-  "target": "https://sqs.us-east-1.amazonaws.com/123456789012/queue2%22,
+  "target": "https://sqs.us-east-1.amazonaws.com/123456789012/queue2%22",
   "data": {
     "test": "okay"
   },
