@@ -44,7 +44,7 @@ verify_ssl:
   type: boolean
   default: true
 api_key:
-  description: API Key for interacting with the Pi-hole. This is not required if you want to just query the Pi-hole for usage statistics.
+  description: API Key for interacting with the Pi-hole. This is not required if you want to just query the Pi-hole for usage statistics.  API Key may need to be set to null ( "" ) when using the Pi Hole addon for HASSIO
   required: false
   type: string
   default: None
@@ -57,7 +57,8 @@ api_key:
 pi_hole:
   host: 'localhost:4865'
   ssl: false
-  verify_ssl: false
+  verify_ssl: false 
+  api_key: ""
 ```
 
 ## Services
