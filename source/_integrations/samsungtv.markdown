@@ -21,8 +21,12 @@ To add a TV to your installation without relying on the [discovery component](/i
 ```yaml
 # Example configuration.yaml entry
 samsungtv:
-  - platform: media_player
-    host: IP_ADDRESS
+  - host: IP_ADDRESS
+    name: My Samsung TV
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: "11:22:33:44:55:66"
 ```
 
 {% configuration %}
