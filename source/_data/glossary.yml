@@ -33,7 +33,7 @@
 - topic: hass
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
 - topic: Hass.io
-  description: "[Hass.io](/hassio/) is an full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
+  description: "[Hass.io](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
 - topic: Hass.io Supervisor
   description: "The Hass.io Supervisor is a program that manages a Hass.io installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the HassOS operating system."
 - topic: HassOS
