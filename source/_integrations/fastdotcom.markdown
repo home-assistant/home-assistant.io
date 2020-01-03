@@ -75,6 +75,6 @@ action:
 
 ## Notes
 
-- When running on Raspberry Pi, the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- When running on Raspberry Pi 3 or older, the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - The sensor will return the maximum measured speed during a 15-second test.
 - Speed tests consume data depending on your internet speed, make sure to consider this if your internet connection has limited bandwidth.

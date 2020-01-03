@@ -33,7 +33,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `stream_source`        |      no  | The input source for the stream, e.g., `rtsp://my.stream.feed:554`. |
-| `filename`             |      no  | The file name string. Variable is `entity_id`, e.g., `/tmp/my_stream.mp4`. |
+| `filename`             |      no  | The file name string. e.g., `/tmp/my_stream.mp4`. |
 | `duration`             |      yes | Target recording length (in seconds). Default: 30 |
 | `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream for `stream_source`. Default: 0 |
 
