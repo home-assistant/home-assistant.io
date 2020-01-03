@@ -13,13 +13,13 @@ The `canada_hydrometric` integration provides hydrometric data for Canadian wate
 
 ## Location Selection
 
-The platform automatically determines the closest hydrometric station. However, in some cases you may need to override the automatic selection to use the desired station.
+The platform automatically determines the closest hydrometric station. However, in some cases, you may need to override the automatic selection to use the desired station.
 
 The location to use is determined according to the following hierarchy:
 
-  - Station ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+ - Station ID specified in platform configuration (optional)
+ - Closest station to latitude/longitude specified in platform configuration (optional)
+ - Closest station to latitude/longitude specified in Home Assistant core configuration
 
 ## Sensor
 
@@ -51,9 +51,4 @@ station:
   description: The station code of a specific station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `ON/02KF005`, where `ON`is a provincial abbreviation and `02KF005` is a station code.
   required: false
   type: string
-scan_interval:
-  description: The time between updates in seconds.
-  required: false
-  type: integer
-  default: 600
 {% endconfiguration %}
