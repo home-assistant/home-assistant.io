@@ -1,7 +1,7 @@
 - topic: Action
   description: "An [Action](/docs/automation/action/) is an event that can be fired as a response to a trigger,  once all conditions have been met."
 - topic: Add-on
-  description: "Hass.io add-ons, often referred to as just: Add-ons, provide additional services that can be installed in a Hass.io ecosystem. For example, an MQTT broker, database service or a file server. Not to be confused with integrations. Integrations connect Home Assistant with devices and service, add-ons can provide those services."
+  description: "Hass.io add-ons, often referred to as just: Add-ons, provide additional, standalone, applications that can run beside Home Assistant on a Hass.io installation. Most of these, add-on provided, applications can be integrated into Home Assistant using integrations. Examples of add-ons are: an MQTT broker, database service or a file server."
 - topic: Automation
   description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as a sunset to cause an event, such as a light turning on."
 - topic: Binary sensor
@@ -35,9 +35,9 @@
 - topic: Hass.io
   description: "[Hass.io](/hassio/) is an full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
 - topic: Hass.io Supervisor
-  description: "The Hass.io Supervisor is a program that manages the Hass.io ecosystem, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating your HassOS operating system."
+  description: "The Hass.io Supervisor is a program that manages a Hass.io installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the HassOS operating system."
 - topic: HassOS
-  description: "HassOS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Hass.io ecosystem on single board computers like the Raspberry Pi or Virtual Machines. The Hass.io Supervisor can keep it up to date, removing the need for you to manage an operating system."
+  description: "HassOS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Hass.io ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Hass.io Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
   description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
