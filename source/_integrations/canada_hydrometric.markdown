@@ -17,9 +17,9 @@ The platform automatically determines the closest hydrometric station. However, 
 
 The location to use is determined according to the following hierarchy:
 
- - Station ID specified in platform configuration (optional)
- - Closest station to latitude/longitude specified in platform configuration (optional)
- - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Station ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant core configuration
 
 ## Sensor
 
