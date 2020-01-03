@@ -143,7 +143,7 @@ The URLs on the event will be based on the configuration used to connect to your
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices).
 
 The schedules can be found by navigating to the following area of the Doorbird app (Android or IOS):
 
