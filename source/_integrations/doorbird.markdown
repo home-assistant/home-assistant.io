@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-It is recommended to setup a new account on your Doorbird App for use with Home Assistant. This can be added via the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended:
+It is recommended to set up a new account on your Doorbird App for use with Home Assistant. This can be added via the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended:
 
 - "Watch Always" (live view)
 - "History" (last motion)
