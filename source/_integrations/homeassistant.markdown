@@ -8,27 +8,27 @@ ha_qa_scale: internal
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
 
-### Services
+## Services
 
-the `homeassistant` integration provides services for controlling Home Assistant itself, as well as generic controls for any entity
+The `homeassistant` integration provides services for controlling Home Assistant itself, as well as generic controls for any entity.
 
-#### Service `homeassistant.check_config`
+### Service `homeassistant.check_config`
 
-Reads the config files and checks them for correctness, but **does not** load them into home assistant. Creates a persistant notification and log entry if errors are found.
+Reads the config files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
 
-#### Service `homeassistant.check_config`
+### Service `homeassistant.reload_core_config`
 
 Loads the main config file (`configuration.yaml`) and all linked files. Once loaded the new configuration is applied.
 
-#### Service `homeassistant.restart`
+### Service `homeassistant.restart`
 
 Restarts the Home Assistant instance (also reloading the configuration on start).
 
-#### Service `homeassistant.stop`
+### Service `homeassistant.stop`
 
 Stops the Home Assistant instance. Home Assistant must be restarted from the Host device to run again.
 
-#### Service `homeassistant.set_location`
+### Service `homeassistant.set_location`
 
 Update the location of the Home Assistant default zone (usually "Home").
 
@@ -37,7 +37,7 @@ Update the location of the Home Assistant default zone (usually "Home").
 | `latitude`                |       no | Latitude of your location.                            |
 | `longitude`               |       no | Longitude of your location.                           |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -47,7 +47,7 @@ action:
     longitude: 117.22743
 ```
 
-#### Service `homeassistant.toggle` 
+### Service `homeassistant.toggle` 
 
 Generic service to toggle devices on/off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
 
@@ -55,7 +55,7 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | The entity_id of the device to toggle on/off.         |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -72,7 +72,7 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | The entity_id of the device to turn on.               |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -81,7 +81,7 @@ action:
     entity_id: light.living_room
 ```
 
-#### Service `homeassistant.turn_off` 
+### Service `homeassistant.turn_off` 
 
 Generic service to turn devices off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
 
@@ -89,7 +89,7 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | The entity_id of the device to turn off.              |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -98,15 +98,15 @@ action:
     entity_id: light.living_room
 ```
 
-#### Service `homeassistant.update_entity` 
+### Service `homeassistant.update_entity` 
 
 Force one or more entities to update its data rather than wait for the next scheduled update.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | One or multiple entity_ids to update. Can be a list.  |
+| `entity_id`               |       no | One or multiple entity_ids to update. It can be a list.  |
 
-##### Example
+#### Example
 
 ```yaml
 action:
