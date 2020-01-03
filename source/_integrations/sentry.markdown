@@ -19,11 +19,11 @@ sentry:
 
 {% configuration %}
 dsn:
-description: The DSN provided to you by Sentry.
-required: true
-type: string
+  description: The DSN provided to you by Sentry.
+  required: true
+  type: string
 environment:
-description: An environment name to associate with events.
-required: false
-type: string
+  description: An environment name to associate with events.
+  required: false
+  type: string
 {% endconfiguration %}
