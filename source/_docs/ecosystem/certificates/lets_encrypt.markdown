@@ -330,7 +330,6 @@ Now edit your configuration.yaml file to reflect the SSL entries and your base U
 
 ```yaml
 http:
-  api_password: YOUR_PASSWORD
   ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
   ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
   base_url: examplehome.duckdns.org
