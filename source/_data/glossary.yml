@@ -1,5 +1,7 @@
 - topic: Action
-  description: "[Actions](/docs/automation/action/) are events that fires once all triggers and conditions have been met."
+  description: "An [Action](/docs/automation/action/) is an event that can be fired as a response to a trigger,  once all conditions have been met."
+- topic: Add-on
+  description: "Hass.io add-ons, often referred to as just: Add-ons, provide additional services that can be installed in a Hass.io ecosystem. For example, an MQTT broker, database service or a file server. Not to be confused with integrations. Integrations connect Home Assistant with devices and service, add-ons can provide those services."
 - topic: Automation
   description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as a sunset to cause an event, such as a light turning on."
 - topic: Binary sensor
@@ -7,7 +9,7 @@
 - topic: Component
   description: "Integrations (see below) used to be known as components."
 - topic: Condition
-  description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."  
+  description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."
 - topic: Cookbook
   description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
 - topic: Cover
@@ -31,7 +33,11 @@
 - topic: hass
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
 - topic: Hass.io
-  description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended."
+  description: "[Hass.io](/hassio/) is an full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
+- topic: Hass.io Supervisor
+  description: "The Hass.io Supervisor is a program that manages the Hass.io ecosystem, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating your HassOS operating system."
+- topic: HassOS
+  description: "HassOS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Hass.io ecosystem on single board computers like the Raspberry Pi or Virtual Machines. The Hass.io Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
   description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
@@ -45,7 +51,7 @@
 - topic: Platform
   description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
 - topic: Scene
-  description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red." 
+  description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red."
 - topic: Script
   description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
 - topic: Sensor
