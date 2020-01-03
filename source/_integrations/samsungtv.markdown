@@ -22,11 +22,6 @@ To add a TV to your installation without relying on the [discovery component](/i
 # Example configuration.yaml entry
 samsungtv:
   - host: IP_ADDRESS
-    name: My Samsung TV
-    turn_on_action:
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: "11:22:33:44:55:66"
 ```
 
 {% configuration %}
@@ -48,6 +43,21 @@ turn_on_action:
   required: false
   type: list
 {% endconfiguration %}
+
+#### Wake up TV
+
+To wake up the TV when switched off you can use the [wake-on-lan](/integrations/wake_on_lan/) integration and call a service. This is not possible with every device.
+
+```yaml
+wake_on_lan:
+
+samsungtv:
+  - host: IP_ADDRESS
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: "11:22:33:44:55:66"
+```
 
 ### Supported models
 
