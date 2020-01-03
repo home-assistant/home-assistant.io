@@ -53,7 +53,7 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | The entity_id of the device to toggle on/off.         |
+| `entity_id`               |       yes | The entity_id of the device to toggle on/off.         |
 
 #### Example
 
@@ -70,7 +70,7 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | The entity_id of the device to turn on.               |
+| `entity_id`               |       yes | The entity_id of the device to turn on.               |
 
 #### Example
 
@@ -87,7 +87,7 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | The entity_id of the device to turn off.              |
+| `entity_id`               |       yes | The entity_id of the device to turn off.              |
 
 #### Example
 
