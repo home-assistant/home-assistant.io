@@ -18,7 +18,6 @@ To use the `sentry` integration in your installation, add the following to your 
 # Example configuration.yaml entry
 sentry:
   dsn: SENTRY_DSN
-  environment: development # optional
 ```
 
 {% configuration %}
