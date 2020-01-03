@@ -24,7 +24,7 @@ It is recommended to set up a new account on your Doorbird App for use with Home
 - "Watch Always" (live view)
 - "History" (last motion)
 - "Motion" (last motion)
-- "API-Operator" (this needed to be anabled as a minimum)
+- "API-Operator" (this needed to be enabled as a minimum)
 
 ## Configuration
 
