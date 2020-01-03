@@ -153,7 +153,7 @@ Settings (cog icon) -> Administration -> LOGIN LOGIN (using your App Administrat
 - `Trigger Relay ("Relay 1" or "Relay 2")`
 - `HTTP(S) Calls (button, motion/movement, RFID)`
 
-Click on the dropdown button in the top left and choose your specific "Schedule for actions" (listed above). Depending on your slection, you may have to click on the center title to see the sub-categories menu. 
+Click on the dropdown button in the top left and choose your specific "Schedule for actions" (listed above). Depending on your selection, you may have to click on the center title to see the sub-categories menu.
 
 On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
