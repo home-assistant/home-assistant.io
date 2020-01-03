@@ -114,6 +114,7 @@ Example of `xiaomi_miio.vacuum_clean_zone` use:
 
 Inline array:
 {% raw %}
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -128,10 +129,12 @@ automation:
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
+
 {% endraw %}
 
 Array with inline zone:
 {% raw %}
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -148,9 +151,11 @@ automation:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
 ```
+
 {% endraw %}
 
 Array mode:
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -225,7 +230,6 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 2. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
 3. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
-
 ### Linux and Rooted Android
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
@@ -250,14 +254,18 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
 11. Input and run this query:
+
     ```sql
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
     ```
+
 12. Copy the returned 96-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command:
+
     ```bash
     echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
     ```
+
 14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
 
 ### Bluestacks
@@ -323,7 +331,7 @@ The information output is:
 
 Using the map editor you are able to acquire the co-ordinates required for zoned clean up. Here is an example script for zoned clean up:
 
-```
+```yaml
 vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:
