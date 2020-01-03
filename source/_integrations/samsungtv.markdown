@@ -20,39 +20,29 @@ To add a TV to your installation without relying on the [discovery component](/i
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: samsungtv
+samsungtv:
+  - platform: media_player
     host: IP_ADDRESS
 ```
 
 {% configuration %}
 host:
-  description: "The IP of the Samsung Smart TV, e.g., `192.168.0.10`."
+  description: "The hostname or IP of the Samsung Smart TV, e.g., `192.168.0.10`."
   required: true
   type: string
 port:
   description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - for installs other than Hass.io or Docker you may need to install a Python package, see below.
   required: false
   type: integer
-  default: 55000
+  default: automatically detected
 name:
   description: The name you would like to give to the Samsung Smart TV.
   required: false
   type: string
-timeout:
-  description: The timeout for communication with the TV in seconds.
+turn_on_action:
+  description: "Defines an [action](/docs/automation/action/) to turn the TV on."
   required: false
-  type: time
-  default: 0 (no timeout)
-mac:
-  description: "The MAC address of the Samsung Smart TV, e.g., `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
-  required: false
-  type: string
-broadcast_address:
-  description: The broadcast address on which to send the Wake-On-Lan packet.
-  required: false
-  default: 255.255.255.255
-  type: string
+  type: list
 {% endconfiguration %}
 
 ### Supported models
@@ -142,16 +132,14 @@ None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Sa
 Changing channels can be done by calling the `media_player.play_media` service
 with the following payload:
 
-```javascript
-{
-  "entity_id": "media_player.office_tv",
-  "media_content_id": "590",
-  "media_content_type": "channel"
-}
+```yaml
+entity_id: media_player.samsung_tv
+media_content_id: 590
+media_content_type: channel
 ```
 #### Selecting a source
 
-Source selection is not yet implemented.
+It's possible to switch between the 2 sources `TV` and `HDMI`.
 
 ### Hass.io
 
