@@ -29,6 +29,7 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
+    password: CAMERA_PASSWORD
 ```
 
 {% configuration %}
