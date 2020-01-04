@@ -34,6 +34,9 @@ greeneye_monitor:
       temperature_sensors:
         - number: 1
           name: back_porch_temperature
+      voltage:
+        - number: 1
+          name: house_volts
 ```
 
 By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/integrations/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/integrations/influxdb) integration and exclude the GEM sensors from `recorder`.
@@ -70,6 +73,18 @@ monitors:
           required: false
           type: boolean
           default: false
+    voltage:
+      description: Configuration for voltage sensor
+      required: false
+      keys:
+        number:
+          description: A channel number that exists in the GEM. There is only one voltage sensor on current models of the GEM.
+          required: true
+          type: integer
+        name:
+          description: The name that should be used for the voltage sensor in Home Assistant.
+          required: true
+          type: string
     temperature_sensors:
       description: Configuration for temperature sensors
       required: false
