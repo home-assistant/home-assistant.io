@@ -17,7 +17,6 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: openerz
-    name: Cardboard
     zip: "8001"
     waste_type: cardboard
 ```
