@@ -3,7 +3,7 @@ title: "OpenERZ Sensor"
 description: "Instructions on how to integrate a OpenERZ API for Zurich city waste disposal with Home Assistant"
 ha_category:
   - Sensor
-ha_release: 0.103.6
+ha_release: 0.104
 ha_iot_class: Cloud Polling
 ---
 
@@ -17,13 +17,18 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: openerz
+    name: Cardboard
     zip: "8001"
     waste_type: cardboard
 ```
 
-Available (and tested) waste types are: paper, cardboard, waste, cargotram, etram, organic, textile.
+Available (and tested) waste types are: `paper`, `cardboard`, `waste`, `cargotram`, `etram`, `organic` and `textile`.
 
 {% configuration %}
+name:
+  description: The name to be used when displaying this sensor.
+  required: false
+  type: string
 zip:
   description: Postcode of the pickup location.
   required: true
