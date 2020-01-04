@@ -37,7 +37,7 @@ key_file:
   description: The filename of the Google Service Account JSON file.
   required: true
   type: string
-log_level:
+level:
   description: Log level that should be streamed to Stackdriver.
   required: false
   type: string
