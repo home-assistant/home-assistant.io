@@ -87,6 +87,10 @@ notify:
     chat_id: CHAT_ID_2
 ```
 
+Refer to the platforms mentioned in the
+[Telegram chatbot page](/integrations/telegram_chatbot/) for
+`telegram_bot` configuration.
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
