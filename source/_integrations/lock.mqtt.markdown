@@ -51,6 +51,16 @@ payload_unlock:
   required: false
   type: string
   default: UNLOCK
+state_locked:
+  description: The value that represents the lock to be in locked state
+  required: false
+  type: string
+  default: locked
+state_unlocked:
+  description: The value that represents the lock to be in unlocked state
+  required: false
+  type: string
+  default: unlocked
 optimistic:
   description: Flag that defines if lock works in optimistic mode.
   required: false
