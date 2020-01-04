@@ -60,6 +60,11 @@ ssl:
   required: false
   type: boolean
   default: false
+verify_ssl:
+  description: Enable or disable SSL/TLS certificate checking.
+  required: false
+  type: boolean
+  default: true
 bed:
   description: If the printer has a heated bed.
   required: false
