@@ -105,9 +105,9 @@ switch:
   signal_repetitions: 2
   devices:
     0b1100ce3213c7f210010f70:
-      name: Movment1
+      name: Movement1
     0b11000a02ef2gf210010f50:
-      name: Movment2
+      name: Movement2
     0b1111e003af16aa10000060:
       name: Door
       fire_event: true
