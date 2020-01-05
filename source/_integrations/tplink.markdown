@@ -16,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Light**
 - **Switch**
+- **Strip**
 
 In order to activate the support, you will have to enable the integration inside the config panel.
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
@@ -32,11 +33,12 @@ The following devices are known to work with this component.
 - HS105
 - HS110
 
-### Multi-Plug Strips
+### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
 - HS300 (powerstrip 6-outlet)
 - KP400 (outdoor 2-outlet)
+- KP200 (indoor 2-outlet)
 
 ### Wall Switches
 
