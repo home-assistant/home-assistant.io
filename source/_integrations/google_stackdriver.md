@@ -42,7 +42,7 @@ level:
   required: false
   type: string
 labels:
-  description: Labels to add to every log entry. If streaming logs from multiple sources to Stackdriver this allows them to be separated by using filters.
+  description: Labels to add to every log entry. If streaming logs from multiple sources to Stackdriver, this allows them to be separated by using filters.
   required: false
   type: map
 {% endconfiguration %}
