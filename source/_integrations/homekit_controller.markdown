@@ -13,6 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Fan
+  - Health
 ha_release: 0.68
 ha_iot_class: Local Polling
 ---
@@ -36,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor (HomeKit motion, contact and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
+- Air Quality
 
 HomeKit IP accessories for these device types may work with some caveats:
 
