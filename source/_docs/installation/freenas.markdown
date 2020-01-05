@@ -13,15 +13,12 @@ Enter the Home Assistant jail. If you don't know which name you have given the j
 iocage exec HomeAssistant
 ```
 
-Install the suggested packages and virtualenv:
+Install the suggested packages:
 
 ```bash
 pkg update
 pkg upgrade
 pkg install -y autoconf bash ca_root_nss gmake pkgconf python37 py37-sqlite3
-python3.7 -m ensurepip
-pip3 install --upgrade pip
-pip3 install --upgrade virtualenv
 ```
 
 Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
@@ -38,13 +35,14 @@ mkdir -p /usr/local/share/homeassistant
 chown -R homeassistant:homeassistant /usr/local/share/homeassistant
 ```
 
-Install Home Assistant itself:
+Create the virtualenv and install Home Assistant itself:
 
 ```bash
 su homeassistant
 cd /usr/local/share/homeassistant
-virtualenv -p python3.7 .
+python3.7 -m venv .
 source ./bin/activate
+pip3 install --upgrade pip
 pip3 install homeassistant
 ```
 
