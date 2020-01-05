@@ -12,6 +12,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+  - Fan
 ha_release: 0.68
 ha_iot_class: Local Polling
 ---
@@ -34,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Switch (HomeKit switches)
 - Binary Sensor (HomeKit motion, contact and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
+- Fan
 
 HomeKit IP accessories for these device types may work with some caveats:
 
