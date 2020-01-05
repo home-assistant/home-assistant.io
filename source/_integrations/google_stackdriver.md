@@ -4,6 +4,7 @@ description: "Setup for Google Stackdriver integration"
 logo: google_stackdriver.png
 ha_category:
   - History
+ha_iot_class: "Cloud Push"
 ha_release: 0.104
 ---
 
@@ -27,8 +28,6 @@ Add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 google_stackdriver:
   key_file: frog32ch_key.json
-  labels:
-    source: homeassistant
 ```
 
 {% configuration %}
