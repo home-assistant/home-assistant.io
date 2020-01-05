@@ -79,6 +79,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - EH5600
 - ES5500
 - ES5700
+- ES6100
 - ES6300
 - ES6800
 - F4580
