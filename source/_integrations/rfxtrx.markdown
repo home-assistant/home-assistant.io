@@ -57,7 +57,7 @@ Not all protocols as advertised are enabled on the initial setup of your transce
 
 ### ser2net
 
-You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your home assistant config.
+You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant config.
 
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT

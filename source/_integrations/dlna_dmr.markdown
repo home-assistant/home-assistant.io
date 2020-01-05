@@ -42,7 +42,7 @@ name:
   required: false
   type: string
 callback_url_override:
-  description: Override the advertised callback URL. In case the home assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
+  description: Override the advertised callback URL. In case the Home Assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
   required: false
   type: string
 {% endconfiguration %}

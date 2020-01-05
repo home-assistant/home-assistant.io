@@ -9,7 +9,7 @@ The MQTT integration needs you to run an MQTT broker for Home Assistant to conne
 ### Run your own
 
 This is the most private option, but it requires a little bit of work to setup. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
-For hass.io users, the recommended setup method is to use the [Mosquitto MQTT broker addon](/addons/mosquitto).
+For Hass.io users, the recommended setup method is to use the [Mosquitto MQTT broker addon](/addons/mosquitto).
 
 ```yaml
 # Example configuration.yaml entry

@@ -61,5 +61,5 @@ notify:
     service_plan_id: SINCH_SERVICE_PLAN_ID
     api_key: SINCH_API_KEY
     default_recipient: [PHONE_NO1, PHONE_NO2]
-    sender: Home assistant
+    sender: Home Assistant
 ```

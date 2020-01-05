@@ -1,6 +1,6 @@
 ---
-title: "HASS Configurator"
-description: "Instructions on how to install and use the HASS Configurator"
+title: "Configurator"
+description: "Instructions on how to install and use the Configurator"
 redirect_from: /ecosystem/hass-configurator/
 ---
 
@@ -11,7 +11,7 @@ This is essentially a browser-based alternative to modifying your configuration 
 
 <p class='img'>
 <img src='/images/hassio/screenshots/addon-hass-configurator.png'>
-Screenshot of the HASS Configurator.
+Screenshot of the Configurator.
 </p>
 
 ### Feature list

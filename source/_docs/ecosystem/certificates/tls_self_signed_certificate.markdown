@@ -40,7 +40,7 @@ http:
   ssl_key: /ssl/privkey.pem
 ```
 
-Non-hass.io:
+Non-Hass.io:
 
 ```yaml
 http:
