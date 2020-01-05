@@ -50,4 +50,4 @@ password:
 
 ## Light
 
-The light panels output state and brightness are synchronized with home assistant.
+The light panels output state and brightness are synchronized with Home Assistant.

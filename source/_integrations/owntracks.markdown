@@ -33,7 +33,7 @@ In the OwnTracks app, open sidebar and click on preferences, then on connection.
    - Device ID: `<Device name>`
    - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
 
-Your tracker device will be known in home assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
+Your tracker device will be known in Home Assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
 ### Configuring the app - iOS
 

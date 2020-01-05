@@ -108,7 +108,7 @@ The integration will trigger an event when a device with the [button](https://sm
 | Attribute                 | Description
 |---------------------------|------------------------------------------------------------------|
 `component_id`              | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
-`device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).
+`device_id`                 | The unique id of the device in SmartThings. This can be located in the Home Assistant device registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
 `name`                      | The name given to the device in SmartThings.

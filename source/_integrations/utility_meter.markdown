@@ -16,7 +16,7 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <div class='note'>
-Sensors created with this integration are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
 ## Configuration

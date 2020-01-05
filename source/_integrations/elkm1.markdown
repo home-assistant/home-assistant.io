@@ -55,7 +55,7 @@ password:
   required: false
   type: string
 prefix:
-  description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the home assistant instance.
+  description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   require: false
   type: string
 temperature_unit:

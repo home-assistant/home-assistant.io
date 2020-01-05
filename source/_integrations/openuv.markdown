@@ -208,7 +208,7 @@ automation:
       service: openuv.update_protection_data
 ```
 
-Another method (useful when monitoring locations other than the HASS latitude
+Another method (useful when monitoring locations other than the Home Assistant latitude
 and longitude, in locations where there is a large amount of sunlight per day,
 etc.) might be to simply query the API less often:
 
