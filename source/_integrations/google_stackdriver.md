@@ -19,7 +19,6 @@ You need to create a Service Account key in the [Google Cloud API Console](https
 
 This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant config folder.
 
-
 ## Configuration
 
 Add the following lines to your `configuration.yaml` file:
