@@ -16,7 +16,6 @@ There is currently support for the following device types within Home Assistant:
 
 - **Light**
 - **Switch**
-- **Strip**
 
 In order to activate the support, you will have to enable the integration inside the config panel.
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
