@@ -9,7 +9,7 @@ ha_release: 0.104
 
 The `google_stackdriver` integration allows you to stream logs to [Google Stackdriver Logging](https://cloud.google.com/logging/). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to log up to 50 GiB.
 
-## First time setup
+## First-time setup
 
 This assumes you already have a Google Cloud project. If you don't, please create one in the [Google Cloud Console](https://console.cloud.google.com/projectcreate)
 
