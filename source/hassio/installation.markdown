@@ -16,7 +16,6 @@ The following will take you through the steps required to install Hass.io.
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
      - [Odroid-XU4][odroid-xu4]
-     - [OrangePi-Prime][opi-prime]
      - [Intel-Nuc][intel-nuc]
     
    - As a virtual appliance: 
@@ -218,7 +217,6 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [tinker]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_tinker-3.7.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_odroid-c2-3.7.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_odroid-xu4-3.7.img.gz
-[opi-prime]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_opi-prime-3.7.img.gz
 [intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_intel-nuc-3.7.img.gz
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_ova-3.7.vmdk.gz
 [vhdx]: https://github.com/home-assistant/hassos/releases/download/3.7/hassos_ova-3.7.vhdx.gz
