@@ -36,6 +36,6 @@ name:
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
 
-```python
+```shell
 python3 -c "import pytz;print(pytz.all_timezones)"
 ```
