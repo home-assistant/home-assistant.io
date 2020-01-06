@@ -139,7 +139,7 @@ You can then use the following `python_script` to save the video file:
 # replace the camera.front_door by your camera entity
 ring_cam = hass.states.get("camera.front_door")
 
-subdir_name = "ring_{}".format(ring_cam.attributes.get("friendly_name"))
+subdir_name = f"ring_{ring_cam.attributes.get('friendly_name')}"
 
 # get video URL
 data = {

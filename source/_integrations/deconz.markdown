@@ -233,9 +233,7 @@ class DeconzHelper(hass.Hass):
         event_id = data["id"]
         event_received = datetime.now()
 
-        self.log(
-            "Deconz event received from {}. Event was: {}".format(event_id, event_data)
-        )
+        self.log(f"Deconz event received from {event_id}. Event was: {event_data}")
         self.set_state(
             "sensor.deconz_event",
             state=event_id,

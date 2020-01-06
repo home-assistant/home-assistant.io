@@ -33,7 +33,7 @@ It is not possible to use Python imports with this integration. If you want to d
 
 ```python
 name = data.get("name", "world")
-logger.info("Hello {}".format(name))
+logger.info("Hello %s", name)
 hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
