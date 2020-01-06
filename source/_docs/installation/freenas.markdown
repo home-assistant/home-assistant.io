@@ -118,6 +118,7 @@ rcvar=${name}_enable
 
 pidfile_child="/var/run/${name}.pid"
 pidfile="/var/run/${name}_daemon.pid"
+logfile="/var/log/${name}.log"
 
 load_rc_config ${name}
 : ${homeassistant_enable:="NO"}
