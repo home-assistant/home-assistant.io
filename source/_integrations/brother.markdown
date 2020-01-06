@@ -4,7 +4,7 @@ description: "Instructions on how to integrate a Brother printer into Home Assis
 logo: brother.png
 ha_category:
   - System Monitor
-ha_release: 0.105
+ha_release: 0.104
 ha_iot_class: Local Polling
 ---
 
