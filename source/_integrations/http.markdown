@@ -222,9 +222,13 @@ As already shown on the [API](/developers/rest_api/) page, it's very simple to u
 
 ```python
 response = requests.post(
-        'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
-        data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
+    "http://localhost:8123/api/states/binary_sensor.radio",
+    headers={
+        "Authorization": "Bearer LONG_LIVED_ACCESS_TOKEN",
+        "content-type": "application/json",
+    },
+    data=json.dumps({"state": "on", "attributes": {"friendly_name": "Radio"}}),
+)
 print(response.text)
 ```
 
