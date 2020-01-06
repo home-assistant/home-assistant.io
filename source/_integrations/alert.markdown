@@ -51,7 +51,7 @@ entity_id:
 title:
   description: >
     A title to be used for the notification if the notifier supports it
-    with [template][template] support.
+    with [template](/docs/configuration/templating/) support.
   required: false
   type: template
 state:
@@ -80,13 +80,13 @@ skip_first:
 message:
   description: >
     A message to be sent after an alert transitions from `off` to `on`
-    with [template][template] support.
+    with [template](/docs/configuration/templating/) support.
   required: false
   type: template
 done_message:
   description: >
-    A message sent after an alert transitions from `on` to `off` with 
-    [template][template] support. Is only sent if an alert notification 
+    A message sent after an alert transitions from `on` to `off` with
+    [template](/docs/configuration/templating/) support. Is only sent if an alert notification
     was sent for transitioning from `off` to `on`.
   required: false
   type: template
@@ -205,7 +205,7 @@ sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 ### Message Templates
 
 It may be desirable to have the alert notifications include information
-about the state of the entity. [Templates](/docs/configuration/templating/)
+about the state of the entity. [Templates][template]
 can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
