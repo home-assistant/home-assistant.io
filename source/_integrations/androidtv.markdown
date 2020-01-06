@@ -185,7 +185,9 @@ If the setup for your Android TV or Fire TV device fails, then there is probably
 
 5. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to WiFi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 
-6. If you are using the [Python ADB implementation](#2-python-adb-implementation) approach, as mentioned above, there may be some issues with newer devices. In this case, you should use the [ADB server](#1-adb-server) approach instead.
+6. If your device drops off WiFi, breaking the ADB connection and causing the entity to become unavailable in Home Assistant, you could install a wake lock utility (such as [Wakelock](https://github.com/d4rken/wakelock-revamp)) to prevent this from happening. Some users have reported this problem with Xiaomi Mi Box devices.
+
+7. If you are using the [Python ADB implementation](#2-python-adb-implementation) approach, as mentioned above, there may be some issues with newer devices. In this case, you should use the [ADB server](#1-adb-server) approach instead.
 
 ## Services
 

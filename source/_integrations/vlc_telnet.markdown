@@ -62,4 +62,4 @@ media_player:
 
 ##### Additional configuration for Rasperry Pi
 
-You can run a VLC Media Player inside your Hassio installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hassio installation.
+You can run a VLC Media Player inside your Hass.io installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hass.io installation.

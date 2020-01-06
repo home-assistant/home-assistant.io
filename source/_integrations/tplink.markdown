@@ -30,13 +30,14 @@ The following devices are known to work with this component.
 - HS100
 - HS103
 - HS105
-- HS110
+- HS110 (The only device capable or reporting energy usage data to template sensors)
 
-### Multi-Plug Strips
+### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
 - HS300 (powerstrip 6-outlet)
 - KP400 (outdoor 2-outlet)
+- KP200 (indoor 2-outlet)
 
 ### Wall Switches
 
@@ -128,7 +129,7 @@ tplink:
 
 ## Extracting Energy Sensor data
 
-In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/integrations/switch.template/).
+In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/switch.template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
 
 {% raw %}

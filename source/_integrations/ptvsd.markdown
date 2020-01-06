@@ -32,7 +32,7 @@ port:
   default: 5678
   type: integer
 wait:
-  description: If true, wait for the debugger to connect before starting up home assistant.
+  description: If true, wait for the debugger to connect before starting up Home Assistant.
   required: false
   default: false
   type: boolean
@@ -40,9 +40,9 @@ wait:
 
 ### Security
 
-Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitrary code* on the home assistant server, which is very unsafe.
+Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitrary code* on the Home Assistant server, which is very unsafe.
 
-If the home assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
+If the Home Assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
 
 Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
 

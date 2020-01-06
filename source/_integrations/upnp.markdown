@@ -54,7 +54,7 @@ ports:
   description: Map of ports to map from internal to external. Pass 'hass' as internal port to use the port Home Assistant runs on. Note that you have to enable port_mapping if you wish to map ports.
   required: false
   type: map
-  default: Open same port on external router as that HASS runs locally and forwards it.
+  default: Open same port on external router as that Home Assistant runs locally and forwards it.
 {% endconfiguration %}
 
 ## Troubleshooting

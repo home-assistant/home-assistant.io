@@ -11,14 +11,14 @@ The steps below only apply if you've installed Home Assistant via Hass.io. If yo
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the HASS Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel, open the add-on store.
 </p>
 
-Under the "Core" section you will find HASS Configurator.
+Under the "Core" section you will find Configurator.
 
  - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
  - Now start the add-on by clicking on START.

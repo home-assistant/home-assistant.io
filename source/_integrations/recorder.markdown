@@ -12,7 +12,7 @@ The `recorder` integration is responsible for storing details in a database, whi
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
-The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in HassIO) and called `home-assistant_v2.db`.
+The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in Hass.io) and called `home-assistant_v2.db`.
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
