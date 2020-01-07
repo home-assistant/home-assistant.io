@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.49
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
