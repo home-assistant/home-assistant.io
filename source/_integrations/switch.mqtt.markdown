@@ -192,9 +192,15 @@ The configuration will look like the example below:
 switch:
   - platform: mqtt
     name: bathroom
-    state_topic: "home/bathroom/gpio/13"
-    command_topic: "home/bathroom/gpio/13"
-    payload_on: "1"
-    payload_off: "0"
+    state_topic: "home/bathroom/relay01/State"
+    command_topic: "home/bathroom/cmd"
+    payload_on: "GPIO,13,1"
+    payload_off: "GPIO,13,0"
 ```
 {% endraw %}
+
+EasyEsp mqtt Setup
+Controller Setup --> Protokoll --> OpenHABMqtt
+Controller Subscribe --> home/%sysname%/#
+Controller Publish --> Home/%sysname%/%tskname%/%valname%
+
