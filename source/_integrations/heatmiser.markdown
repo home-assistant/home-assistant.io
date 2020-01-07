@@ -1,10 +1,10 @@
 ---
-title: "Heatmiser Thermostat"
-description: "Instructions on how to integrate Heatmiser thermostats within Home Assistant."
+title: Heatmiser Thermostat
+description: Instructions on how to integrate Heatmiser thermostats within Home Assistant.
 logo: heatmiser.png
 ha_category:
   - Climate
-ha_release: "0.10"
+ha_release: '0.10'
 ha_iot_class: Local Polling
 ---
 

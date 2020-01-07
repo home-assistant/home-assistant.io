@@ -1,6 +1,6 @@
 ---
-title: "Alert"
-description: "Instructions on how to setup automatic alerts within Home Assistant."
+title: Alert
+description: Instructions on how to setup automatic alerts within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

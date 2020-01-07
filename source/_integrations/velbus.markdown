@@ -1,6 +1,6 @@
 ---
-title: "Velbus"
-description: "Access and control your Velbus devices."
+title: Velbus
+description: Access and control your Velbus devices.
 logo: velbus.png
 ha_category:
   - Hub
@@ -9,7 +9,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: "0.50"
+ha_release: '0.50'
 ---
 
 The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.

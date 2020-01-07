@@ -1,6 +1,6 @@
 ---
-title: "Irish Rail Transport"
-description: "Instructions on how to integrate timetable data for traveling on Irish Rail within Home Assistant."
+title: Irish Rail Transport
+description: Instructions on how to integrate timetable data for traveling on Irish Rail within Home Assistant.
 logo: irishrail.png
 ha_category:
   - Transport

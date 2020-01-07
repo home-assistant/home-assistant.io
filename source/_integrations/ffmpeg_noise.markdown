@@ -1,6 +1,6 @@
 ---
-title: "FFmpeg Noise Binary Sensor"
-description: "Instructions on how to integrate an FFmpeg-based noise binary sensor"
+title: FFmpeg Noise Binary Sensor
+description: Instructions on how to integrate an FFmpeg-based noise binary sensor
 logo: ffmpeg.png
 ha_category:
   - Image Processing

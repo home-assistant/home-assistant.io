@@ -1,6 +1,6 @@
 ---
-title: "Spider"
-description: "Instructions on how to setup the Spider hub within Home Assistant."
+title: Spider
+description: Instructions on how to setup the Spider hub within Home Assistant.
 logo: spider.png
 ha_category:
   - Hub

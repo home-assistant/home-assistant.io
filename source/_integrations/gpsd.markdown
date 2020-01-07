@@ -1,6 +1,6 @@
 ---
-title: "GPSD"
-description: "Instructions on how to integrate GPSD into Home Assistant."
+title: GPSD
+description: Instructions on how to integrate GPSD into Home Assistant.
 logo: gpsd.png
 ha_category:
   - Utility
@@ -64,4 +64,3 @@ name:
   type: string
   default: GPS
 {% endconfiguration %}
-

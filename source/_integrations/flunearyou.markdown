@@ -1,6 +1,6 @@
 ---
-title: "Flu Near You"
-description: "Instructions on how to use Flu Near You data within Home Assistant"
+title: Flu Near You
+description: Instructions on how to use Flu Near You data within Home Assistant
 logo: flunearyou.png
 ha_category:
   - Health

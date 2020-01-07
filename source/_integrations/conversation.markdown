@@ -1,9 +1,9 @@
 ---
-title: "Conversation"
-description: "Instructions on how to have conversations with your Home Assistant."
+title: Conversation
+description: Instructions on how to have conversations with your Home Assistant.
 logo: home-assistant.png
 ha_category:
-  - "Voice"
+  - Voice
 ha_qa_scale: internal
 ha_release: 0.7
 ---

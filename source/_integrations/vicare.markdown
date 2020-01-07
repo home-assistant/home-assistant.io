@@ -1,6 +1,6 @@
 ---
-title: "Viessmann climate controller"
-description: "Instructions how to integrate Viessmann heating devices with Home Assistant"
+title: Viessmann climate controller
+description: Instructions how to integrate Viessmann heating devices with Home Assistant
 logo: viessmann.png
 ha_category: Climate
 ha_release: 0.99
@@ -114,5 +114,3 @@ Sets the target temperature of domestic hot water to the given temperature.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | New target temperature for water heater
-
-

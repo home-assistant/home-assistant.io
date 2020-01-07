@@ -1,6 +1,6 @@
 ---
-title: "Ubee Router"
-description: "Instructions on how to integrate Ubee routers into Home Assistant."
+title: Ubee Router
+description: Instructions on how to integrate Ubee routers into Home Assistant.
 logo: ubee.png
 ha_category:
   - Presence Detection

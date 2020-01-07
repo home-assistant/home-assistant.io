@@ -1,6 +1,6 @@
 ---
-title: "Trend Binary Sensor"
-description: "Instructions on how to integrate Trend binary sensors into Home Assistant."
+title: Trend Binary Sensor
+description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
   - Utility
 logo: home-assistant.png

@@ -1,6 +1,6 @@
 ---
-title: "Flux Light Adjustment"
-description: "Instructions on how to have switches call command line commands."
+title: Flux Light Adjustment
+description: Instructions on how to have switches call command line commands.
 ha_category:
   - Automation
 ha_release: 0.21

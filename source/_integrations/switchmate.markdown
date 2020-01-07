@@ -1,6 +1,6 @@
 ---
-title: "Switchmate"
-description: "Instructions on how to set up Switchmate switches."
+title: Switchmate
+description: Instructions on how to set up Switchmate switches.
 logo: switchmate-logo-rgb.png
 ha_category:
   - Switch

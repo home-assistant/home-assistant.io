@@ -1,6 +1,6 @@
 ---
-title: "Switch"
-description: "Instructions on how to set up your switches with Home Assistant."
+title: Switch
+description: Instructions on how to set up your switches with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Switch

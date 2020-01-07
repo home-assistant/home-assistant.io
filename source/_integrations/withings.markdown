@@ -1,6 +1,6 @@
 ---
-title: "Withings"
-description: "Instructions on how to integrate Withings health products within Home Assistant."
+title: Withings
+description: Instructions on how to integrate Withings health products within Home Assistant.
 logo: withings.png
 ha_category:
   - Health

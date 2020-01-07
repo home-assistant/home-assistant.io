@@ -1,6 +1,6 @@
 ---
-title: "Swiss Hydrological Data"
-description: "Instructions on how to integrate hydrological data of Swiss waters within Home Assistant."
+title: Swiss Hydrological Data
+description: Instructions on how to integrate hydrological data of Swiss waters within Home Assistant.
 logo: swiss-hydrological-data.png
 ha_category:
   - Environment

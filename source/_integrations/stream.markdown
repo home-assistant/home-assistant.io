@@ -1,10 +1,10 @@
 ---
-title: "Stream"
-description: "Instructions on how to integrate live streams within Home Assistant."
+title: Stream
+description: Instructions on how to integrate live streams within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Other
-ha_release: "0.90"
+ha_release: '0.90'
 ha_iot_class: Local Push
 ha_qa_scale: internal
 ---

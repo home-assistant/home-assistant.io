@@ -1,6 +1,6 @@
 ---
-title: "SynologyDSM Sensor"
-description: "Instructions on how to integrate the SynologyDSM sensor within Home Assistant."
+title: SynologyDSM Sensor
+description: Instructions on how to integrate the SynologyDSM sensor within Home Assistant.
 logo: synology.png
 ha_category:
   - System Monitor

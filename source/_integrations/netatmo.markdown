@@ -1,6 +1,6 @@
 ---
-title: "Netatmo"
-description: "Instructions on how to integrate Netatmo integration into Home Assistant."
+title: Netatmo
+description: Instructions on how to integrate Netatmo integration into Home Assistant.
 logo: netatmo.png
 ha_category:
   - Hub
@@ -10,7 +10,7 @@ ha_category:
   - Sensor
   - Climate
   - Camera
-ha_release: "0.20"
+ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ---
 

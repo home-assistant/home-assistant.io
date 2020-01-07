@@ -1,6 +1,6 @@
 ---
-title: "Jewish Calendar"
-description: "Instructions on how to integrate the Jewish Calendar integration within Home Assistant."
+title: Jewish Calendar
+description: Instructions on how to integrate the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Local Polling

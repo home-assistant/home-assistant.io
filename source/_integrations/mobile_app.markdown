@@ -1,9 +1,9 @@
 ---
-title: "Mobile App"
-description: "The Mobile App integration allows a generic platform for integrating with mobile apps."
+title: Mobile App
+description: The Mobile App integration allows a generic platform for integrating with mobile apps.
 logo: home-assistant.png
 ha_category:
-  - "Other"
+  - Other
 ha_release: 0.89
 ha_qa_scale: internal
 ---

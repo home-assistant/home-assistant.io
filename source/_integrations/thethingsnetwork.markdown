@@ -1,6 +1,6 @@
 ---
-title: "The Things Network"
-description: "Instructions for how to integrate The Things Network within Home Assistant."
+title: The Things Network
+description: Instructions for how to integrate The Things Network within Home Assistant.
 logo: thethingsnetwork.png
 ha_category:
   - Hub

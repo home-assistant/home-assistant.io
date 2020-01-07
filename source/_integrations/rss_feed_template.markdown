@@ -1,6 +1,6 @@
 ---
-title: "RSS feed template"
-description: "Use this integration to generate RSS feeds showing your latest data."
+title: RSS feed template
+description: Use this integration to generate RSS feeds showing your latest data.
 logo: home-assistant.png
 ha_category:
   - Front End

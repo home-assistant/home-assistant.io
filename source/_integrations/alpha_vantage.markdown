@@ -1,11 +1,11 @@
 ---
-title: "Alpha Vantage"
-description: "Instructions on how to setup Alpha Vantage within Home Assistant."
+title: Alpha Vantage
+description: Instructions on how to setup Alpha Vantage within Home Assistant.
 logo: alpha_vantage.png
 ha_category:
   - Finance
 ha_iot_class: Cloud Polling
-ha_release: "0.60"
+ha_release: '0.60'
 ---
 
 The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
@@ -89,4 +89,3 @@ sensor:
         to: USD
         name: Bitcoin
 ```
-

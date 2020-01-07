@@ -1,6 +1,6 @@
 ---
-title: "SSDP - Simple Service Discovery Protocol"
-description: "Discover integrations on the network using the SSDP protocol."
+title: SSDP - Simple Service Discovery Protocol
+description: Discover integrations on the network using the SSDP protocol.
 ha_category:
   - Network
 ha_release: 0.94

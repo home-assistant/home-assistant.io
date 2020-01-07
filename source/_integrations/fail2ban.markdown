@@ -1,13 +1,12 @@
 ---
-title: "Fail2Ban Sensor"
-description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
+title: Fail2Ban Sensor
+description: Instructions on how to integrate a fail2ban sensor into Home Assistant.
 ha_category:
   - Network
 ha_iot_class: Local Polling
 logo: fail2ban.png
 ha_release: 0.57
 ---
-
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 

@@ -1,6 +1,6 @@
 ---
-title: "Russound RNET"
-description: "Instructions on how to integrate Russound RNET devices into Home Assistant."
+title: Russound RNET
+description: Instructions on how to integrate Russound RNET devices into Home Assistant.
 logo: russound.png
 ha_category:
   - Media Player

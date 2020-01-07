@@ -1,6 +1,6 @@
 ---
-title: "Shodan Sensor"
-description: "Instructions on how to integrate Shodan sensors into Home Assistant."
+title: Shodan Sensor
+description: Instructions on how to integrate Shodan sensors into Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

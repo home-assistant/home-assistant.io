@@ -1,6 +1,6 @@
 ---
-title: "Presence based lights"
-description: "Instructions on how to automate your lights with Home Assistant."
+title: Presence based lights
+description: Instructions on how to automate your lights with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -53,4 +53,4 @@ device_sun_light_trigger:
   light_profile: relax
   device_group: group.my_devices
   disable_turn_off: 1
-``` 
+```

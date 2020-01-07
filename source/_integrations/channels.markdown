@@ -1,13 +1,12 @@
 ---
-title: "Channels"
-description: "Instructions on how to integrate Channels into Home Assistant."
+title: Channels
+description: Instructions on how to integrate Channels into Home Assistant.
 logo: channels.png
 ha_category:
   - Media Player
 ha_release: 0.65
 ha_iot_class: Local Polling
 ---
-
 
 The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
 

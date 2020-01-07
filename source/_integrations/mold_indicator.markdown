@@ -1,10 +1,10 @@
 ---
-title: "Mold Indicator"
-description: "How to use the mold growth indication integration in Home Assistant"
+title: Mold Indicator
+description: How to use the mold growth indication integration in Home Assistant
 logo: home-assistant.png
 ha_category:
   - Environment
-ha_release: "0.20"
+ha_release: '0.20'
 ha_iot_class: Local Polling
 ha_qa_scale: internal
 ---

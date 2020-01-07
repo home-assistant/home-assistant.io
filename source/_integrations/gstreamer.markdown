@@ -1,6 +1,6 @@
 ---
-title: "Gstreamer"
-description: "Instructions on how to integrate Gstreamer into Home Assistant."
+title: Gstreamer
+description: Instructions on how to integrate Gstreamer into Home Assistant.
 ha_category:
   - Media Player
 logo: gstreamer.png

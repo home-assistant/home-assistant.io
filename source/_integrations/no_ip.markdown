@@ -1,6 +1,6 @@
 ---
-title: "NO-IP.com"
-description: "Keep your computer registered with the NO-IP.com dynamic DNS."
+title: NO-IP.com
+description: Keep your computer registered with the NO-IP.com dynamic DNS.
 logo: noip.png
 ha_category:
   - Network

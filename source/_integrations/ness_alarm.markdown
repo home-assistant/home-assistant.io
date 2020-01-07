@@ -1,6 +1,6 @@
 ---
-title: "Ness Alarm"
-description: "Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant."
+title: Ness Alarm
+description: Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant.
 logo: ness.png
 ha_category:
   - Alarm
@@ -110,4 +110,3 @@ Trigger a panic
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `code` | No | The user code to use to trigger the panic.
-

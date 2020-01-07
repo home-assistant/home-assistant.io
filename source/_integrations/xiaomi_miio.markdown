@@ -1,6 +1,6 @@
 ---
-title: "Xiaomi Mi WiFi Repeater 2"
-description: "Instructions how to integrate your Xiaomi Mi WiFi Repeater 2 within Home Assistant."
+title: Xiaomi Mi WiFi Repeater 2
+description: Instructions how to integrate your Xiaomi Mi WiFi Repeater 2 within Home Assistant.
 logo: xiaomi.png
 ha_category:
   - Presence Detection

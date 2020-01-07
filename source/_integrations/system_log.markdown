@@ -1,6 +1,6 @@
 ---
-title: "System Log"
-description: "Summary of errors and warnings in Home Assistant during runtime."
+title: System Log
+description: Summary of errors and warnings in Home Assistant during runtime.
 logo: home-assistant.png
 ha_category:
   - Other
@@ -140,4 +140,3 @@ automation:
         level: info
 ```
 {% endraw %}
-

@@ -1,6 +1,6 @@
 ---
-title: "Lutron"
-description: "Instructions on how to use Lutron devices with Home Assistant."
+title: Lutron
+description: Instructions on how to use Lutron devices with Home Assistant.
 logo: lutron.png
 ha_category:
   - Hub

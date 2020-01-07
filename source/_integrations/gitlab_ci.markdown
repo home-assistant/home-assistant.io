@@ -1,10 +1,10 @@
 ---
-title: "GitLab-CI Sensor"
-description: "How to integrate GitLab-CI Job status within Home Assistant."
+title: GitLab-CI Sensor
+description: How to integrate GitLab-CI Job status within Home Assistant.
 logo: gitlab.png
 ha_category:
   - Sensor
-ha_release: 0.80
+ha_release: 0.8
 ha_iot_class: Cloud Polling
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Thinking Cleaner"
-description: "Instructions on how to integrate a ThinkingCleaner within Home Assistant."
+title: Thinking Cleaner
+description: Instructions on how to integrate a ThinkingCleaner within Home Assistant.
 logo: thinkingcleaner.png
 ha_category:
   - Sensor

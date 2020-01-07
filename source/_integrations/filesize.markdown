@@ -1,6 +1,6 @@
 ---
-title: "File size Sensor"
-description: "Component for monitoring the size of a file."
+title: File size Sensor
+description: Component for monitoring the size of a file.
 logo: file.png
 ha_category:
   - Utility

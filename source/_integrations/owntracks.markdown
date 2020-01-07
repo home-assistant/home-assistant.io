@@ -1,6 +1,6 @@
 ---
-title: "Owntracks"
-description: "Instructions on how to use Owntracks to track devices in Home Assistant."
+title: Owntracks
+description: Instructions on how to use Owntracks to track devices in Home Assistant.
 logo: owntracks.png
 ha_category:
   - Presence Detection

@@ -1,6 +1,6 @@
 ---
-title: "Tautulli activity sensor"
-description: "Instructions on how to set up Tautulli sensors in Home Assistant."
+title: Tautulli activity sensor
+description: Instructions on how to set up Tautulli sensors in Home Assistant.
 logo: tautulli.png
 ha_category:
   - Sensor

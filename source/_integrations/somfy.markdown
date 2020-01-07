@@ -1,6 +1,6 @@
 ---
-title: "Somfy"
-description: "Instructions on how to set up the Somfy hub within Home Assistant."
+title: Somfy
+description: Instructions on how to set up the Somfy hub within Home Assistant.
 logo: somfy.png
 ha_category:
   - Hub

@@ -1,6 +1,6 @@
 ---
-title: "Asuswrt"
-description: "Instructions on how to integrate Asuswrt into Home Assistant."
+title: Asuswrt
+description: Instructions on how to integrate Asuswrt into Home Assistant.
 logo: asus.png
 ha_category:
   - Hub
@@ -142,4 +142,3 @@ $ /bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases
 ```
 
 The started script is also accessible and editable in the Router's web interface. `Advanced Settings -> Customization -> Scripts -> Custom User Script -> Run After Router Started`
-

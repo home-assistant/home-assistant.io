@@ -1,6 +1,6 @@
 ---
-title: "AirVisual"
-description: "Instructions on how to use AirVisual data within Home Assistant"
+title: AirVisual
+description: Instructions on how to use AirVisual data within Home Assistant
 logo: airvisual.jpg
 ha_category:
   - Health
@@ -163,4 +163,3 @@ Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
-

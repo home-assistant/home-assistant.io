@@ -1,6 +1,6 @@
 ---
 title: NUT Sensor
-description: "Instructions on how to set up NUT sensors within Home Assistant."
+description: Instructions on how to set up NUT sensors within Home Assistant.
 logo: nut.png
 ha_category:
   - System Monitor

@@ -1,8 +1,8 @@
 ---
-title: "PTVSD Debugger (Visual Studio Code)"
-description: "Debugging from Visual Studio Code."
+title: PTVSD Debugger (Visual Studio Code)
+description: Debugging from Visual Studio Code.
 logo: visual-studio.png
-ha_category: 
+ha_category:
   - Utility
 ha_release: 0.93
 ---

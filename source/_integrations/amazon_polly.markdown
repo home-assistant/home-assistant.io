@@ -1,6 +1,6 @@
 ---
-title: "Amazon Polly"
-description: "Instructions on how to setup Amazon Polly with Home Assistant."
+title: Amazon Polly
+description: Instructions on how to setup Amazon Polly with Home Assistant.
 logo: polly.png
 ha_category:
   - Text-to-speech

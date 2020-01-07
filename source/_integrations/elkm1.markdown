@@ -1,6 +1,6 @@
 ---
-title: "Elk-M1 Controller"
-description: "Instructions to setup the Elk-M1 controller."
+title: Elk-M1 Controller
+description: Instructions to setup the Elk-M1 controller.
 logo: elkproducts.png
 ha_release: 0.81
 ha_category:

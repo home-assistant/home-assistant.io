@@ -1,6 +1,6 @@
 ---
-title: "ClickSend SMS"
-description: "Instructions on how to add ClickSend notifications to Home Assistant."
+title: ClickSend SMS
+description: Instructions on how to add ClickSend notifications to Home Assistant.
 logo: clicksend.png
 ha_category:
   - Notifications

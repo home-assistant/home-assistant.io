@@ -1,6 +1,6 @@
 ---
-title: "Elgato Avea"
-description: "Instructions on how to integrate Elgato Avea with Home Assistant."
+title: Elgato Avea
+description: Instructions on how to integrate Elgato Avea with Home Assistant.
 logo: avea.png
 ha_category:
   - Light

@@ -1,10 +1,10 @@
 ---
-title: "Aruba ClearPass"
-description: "Instructions on how to integrate Aruba ClearPass into Home Assistant."
+title: Aruba ClearPass
+description: Instructions on how to integrate Aruba ClearPass into Home Assistant.
 logo: aruba.png
 ha_category:
   - Presence Detection
-ha_release: "0.90"
+ha_release: '0.90'
 ha_iot_class: Local Polling
 ---
 

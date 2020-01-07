@@ -1,6 +1,6 @@
 ---
-title: "Configurator"
-description: "Instructions on how to integrate the configurator in your components."
+title: Configurator
+description: Instructions on how to integrate the configurator in your components.
 logo: home-assistant.png
 ha_category:
   - Other

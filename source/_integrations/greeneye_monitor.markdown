@@ -1,6 +1,6 @@
 ---
-title: "GreenEye Monitor"
-description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
+title: GreenEye Monitor
+description: Instructions on how to integrate your GreenEye Monitor within Home Assistant.
 logo: brultech.png
 ha_category:
   - Hub

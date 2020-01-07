@@ -1,6 +1,6 @@
 ---
-title: "Fido Sensor"
-description: "Instructions on how to integrate Fido data usage within Home Assistant."
+title: Fido Sensor
+description: Instructions on how to integrate Fido data usage within Home Assistant.
 logo: fido.png
 ha_category:
   - Network

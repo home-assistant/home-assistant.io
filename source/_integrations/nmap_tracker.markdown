@@ -1,12 +1,11 @@
 ---
-title: "Nmap"
-description: "Instructions on how to integrate Nmap into Home Assistant."
+title: Nmap
+description: Instructions on how to integrate Nmap into Home Assistant.
 logo: nmap.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
 ---
-
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 

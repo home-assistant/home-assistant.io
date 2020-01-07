@@ -1,6 +1,6 @@
 ---
-title: "LaMetric"
-description: "Instructions on how to integrate LaMetric with Home Assistant."
+title: LaMetric
+description: Instructions on how to integrate LaMetric with Home Assistant.
 logo: lametric.png
 ha_category:
   - Hub

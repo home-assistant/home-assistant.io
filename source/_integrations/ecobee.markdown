@@ -1,6 +1,6 @@
 ---
-title: "Ecobee"
-description: "Instructions for how to integrate ecobee thermostats and sensors within Home Assistant."
+title: Ecobee
+description: Instructions for how to integrate ecobee thermostats and sensors within Home Assistant.
 logo: ecobee.png
 ha_category:
   - Sensor

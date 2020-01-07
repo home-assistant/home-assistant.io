@@ -1,10 +1,10 @@
 ---
-title: "Dark Sky Sensor"
-description: "How to integrate Dark Sky within Home Assistant."
+title: Dark Sky Sensor
+description: How to integrate Dark Sky within Home Assistant.
 logo: dark_sky.png
 ha_category:
   - Weather
-ha_release: "0.30"
+ha_release: '0.30'
 ha_iot_class: Cloud Polling
 ---
 

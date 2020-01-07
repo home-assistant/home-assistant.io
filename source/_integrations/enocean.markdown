@@ -1,6 +1,6 @@
 ---
-title: "EnOcean"
-description: "Connect EnOcean devices to Home Assistant"
+title: EnOcean
+description: Connect EnOcean devices to Home Assistant
 logo: enocean.png
 ha_category:
   - Hub

@@ -1,6 +1,6 @@
 ---
-title: "Uptime Robot"
-description: "Instructions on how to set up Uptime Robot within Home Assistant."
+title: Uptime Robot
+description: Instructions on how to set up Uptime Robot within Home Assistant.
 logo: uptimerobot.png
 ha_category:
   - System Monitor

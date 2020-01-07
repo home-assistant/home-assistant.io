@@ -1,6 +1,6 @@
 ---
-title: "Skybeacon sensor"
-description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
+title: Skybeacon sensor
+description: Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.37

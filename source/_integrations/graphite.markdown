@@ -1,6 +1,6 @@
 ---
-title: "Graphite"
-description: "Instructions on how to record Home Assistant history in Graphite."
+title: Graphite
+description: Instructions on how to record Home Assistant history in Graphite.
 logo: graphite.png
 ha_category:
   - History
@@ -33,4 +33,3 @@ prefix:
   type: string
   default: ha
 {% endconfiguration %}
-

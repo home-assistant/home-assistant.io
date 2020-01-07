@@ -1,6 +1,6 @@
 ---
-title: "Remotes"
-description: "Instructions on how to setup your remotes with Home Assistant."
+title: Remotes
+description: Instructions on how to setup your remotes with Home Assistant.
 ha_release: 0.34
 ---
 

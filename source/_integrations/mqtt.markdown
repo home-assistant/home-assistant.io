@@ -1,6 +1,6 @@
 ---
-title: "MQTT"
-description: "Instructions on how to setup MQTT within Home Assistant."
+title: MQTT
+description: Instructions on how to setup MQTT within Home Assistant.
 logo: mqtt.png
 ha_category:
   - Hub
@@ -46,4 +46,3 @@ This allows you to connect to the MQTT broker with user `homeassistant` and pass
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
 - [Processing JSON](/docs/mqtt/processing_json/)
-

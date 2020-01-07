@@ -1,12 +1,11 @@
 ---
-title: "iCloud"
-description: "Instructions on how to use iCloud to track devices in Home Assistant."
+title: iCloud
+description: Instructions on how to use iCloud to track devices in Home Assistant.
 logo: icloud.png
 ha_category:
   - Presence Detection
-ha_release: "0.10"
+ha_release: '0.10'
 ---
-
 
 The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track the location of their iOS devices.
 

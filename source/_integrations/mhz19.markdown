@@ -1,6 +1,6 @@
 ---
-title: "MH-Z19 CO2 Sensor"
-description: "Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant."
+title: MH-Z19 CO2 Sensor
+description: Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant.
 logo: mhz19_logo.png
 ha_category:
   - DIY

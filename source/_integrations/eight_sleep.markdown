@@ -1,6 +1,6 @@
 ---
-title: "Eight Sleep"
-description: "Interface an Eight Sleep smart cover or mattress to Home Assistant"
+title: Eight Sleep
+description: Interface an Eight Sleep smart cover or mattress to Home Assistant
 logo: eight_sleep.png
 ha_category:
   - Health

@@ -1,6 +1,6 @@
 ---
-title: "Mailgun"
-description: "Instructions on how to add Mailgun mail notifications to Home Assistant."
+title: Mailgun
+description: Instructions on how to add Mailgun mail notifications to Home Assistant.
 logo: mailgun.png
 ha_category:
   - Notifications

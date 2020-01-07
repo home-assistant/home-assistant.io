@@ -1,6 +1,6 @@
 ---
-title: "SMA Solar WebConnect"
-description: "Instructions on how to connect your SMA Solar Inverter to Home Assistant."
+title: SMA Solar WebConnect
+description: Instructions on how to connect your SMA Solar Inverter to Home Assistant.
 ha_category:
   - Energy
 logo: sma.png

@@ -1,6 +1,6 @@
 ---
-title: "Core integration"
-description: "Description of the homeassistant integration."
+title: Core integration
+description: Description of the homeassistant integration.
 logo: home-assistant.png
 ha_release: 0.0
 ha_qa_scale: internal

@@ -1,6 +1,6 @@
 ---
-title: "Waze Travel Time"
-description: "Instructions on how to add Waze travel time to Home Assistant."
+title: Waze Travel Time
+description: Instructions on how to add Waze travel time to Home Assistant.
 logo: waze.png
 ha_category:
   - Transport
@@ -152,4 +152,3 @@ sensor:
 If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
 in Lovelace [iframe](/lovelace/iframe/) then use
 [https://embed.waze.com/iframe](https://embed.waze.com/iframe) and not the live map URL itself.
-

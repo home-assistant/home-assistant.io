@@ -1,13 +1,12 @@
 ---
-title: "Currencylayer"
-description: "Instructions on integrating exchange rates from https://currencylayer.com/ within Home Assistant."
+title: Currencylayer
+description: Instructions on integrating exchange rates from https://currencylayer.com/ within Home Assistant.
 ha_category:
   - Finance
 logo: currencylayer.png
 ha_iot_class: Cloud Polling
 ha_release: 0.32
 ---
-
 
 The `currencylayer` sensor will show you the current exchange rate from [Currencylayer](https://currencylayer.com/) that provides real-time exchange rates for [170 currencies](https://currencylayer.com/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.
 

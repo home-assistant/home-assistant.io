@@ -1,6 +1,6 @@
 ---
-title: "Synology Camera"
-description: "Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant."
+title: Synology Camera
+description: Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant.
 logo: synology.png
 ha_category:
   - Camera

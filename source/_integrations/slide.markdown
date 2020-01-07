@@ -1,6 +1,6 @@
 ---
-title: "Slide"
-description: "Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant."
+title: Slide
+description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
 logo: slide.png
 ha_category:
   - Hub
@@ -35,4 +35,3 @@ scan_interval:
   default: 30 seconds
   type: integer
 {% endconfiguration %}
-

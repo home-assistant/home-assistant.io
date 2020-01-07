@@ -1,6 +1,6 @@
 ---
-title: "Zeroconf/Avahi/Bonjour"
-description: "Exposes Home Assistant using the Zeroconf protocol."
+title: Zeroconf/Avahi/Bonjour
+description: Exposes Home Assistant using the Zeroconf protocol.
 ha_category:
   - Network
 ha_qa_scale: internal

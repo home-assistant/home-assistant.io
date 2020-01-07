@@ -1,6 +1,6 @@
 ---
 title: Brunt Cover
-description: "Instructions on how to set up Brunt Blind Engine within Home Assistant."
+description: Instructions on how to set up Brunt Blind Engine within Home Assistant.
 logo: brunt.png
 ha_category:
   - Cover

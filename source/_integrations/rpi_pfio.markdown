@@ -1,6 +1,6 @@
 ---
-title: "PiFace Digital I/O"
-description: "Instructions on how to integrate the PiFace Digital I/O module into Home Assistant."
+title: PiFace Digital I/O
+description: Instructions on how to integrate the PiFace Digital I/O module into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

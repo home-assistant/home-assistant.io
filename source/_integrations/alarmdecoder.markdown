@@ -1,6 +1,6 @@
 ---
-title: "AlarmDecoder Alarm"
-description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device."
+title: AlarmDecoder Alarm
+description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
 logo: alarmdecoder.png
 ha_category:
   - Alarm

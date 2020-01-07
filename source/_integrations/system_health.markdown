@@ -1,9 +1,9 @@
 ---
-title: "System Health"
-description: "System Health integration will report system info and allow to run system diagnostics."
+title: System Health
+description: System Health integration will report system info and allow to run system diagnostics.
 logo: home-assistant.png
 ha_category:
-  - "Other"
+  - Other
 ha_qa_scale: internal
 ha_release: 0.87
 ---

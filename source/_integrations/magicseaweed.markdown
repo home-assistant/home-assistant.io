@@ -1,6 +1,6 @@
 ---
-title: "Magicseaweed Sensor"
-description: "How to integrate Magicseaweed within Home Assistant."
+title: Magicseaweed Sensor
+description: How to integrate Magicseaweed within Home Assistant.
 logo: magicseaweed.png
 ha_category:
   - Sensor

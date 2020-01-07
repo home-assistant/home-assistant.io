@@ -1,6 +1,6 @@
 ---
-title: "ESPHome"
-description: "Support for ESPHome devices using the native ESPHome API."
+title: ESPHome
+description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 logo: esphome.png
 ha_category:

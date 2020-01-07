@@ -1,6 +1,6 @@
 ---
-title: "Asterisk Voicemail"
-description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
+title: Asterisk Voicemail
+description: Instructions on how to integrate your existing Asterisk voicemail within Home Assistant.
 logo: asterisk.png
 ha_category:
   - Mailbox

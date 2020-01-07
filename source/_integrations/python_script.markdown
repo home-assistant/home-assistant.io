@@ -1,6 +1,6 @@
 ---
-title: "Python Scripts"
-description: "Instructions on how to setup Python scripts within Home Assistant."
+title: Python Scripts
+description: Instructions on how to setup Python scripts within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
