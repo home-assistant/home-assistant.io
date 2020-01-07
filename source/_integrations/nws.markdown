@@ -29,7 +29,7 @@ latitude:
   required: true
   type: float
 longitude:
-  description: "The provided value will be taken from the Home Assistant configuration.
+  description: "The provided value will be taken from the Home Assistant configuration."
   required: true
   type: float
 station:
