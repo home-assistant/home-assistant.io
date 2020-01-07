@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_release: 0.104
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.

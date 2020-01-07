@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_iot_class: Cloud Polling
 ha_release: 0.104
+ha_config_flow: true
 ---
 
 The `sentry` integration integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.

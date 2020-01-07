@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
+ha_config_flow: true
 ---
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the
