@@ -1,6 +1,6 @@
 ---
-title: "GIOŚ"
-description: "Instructions on how to integrate GIOŚ (Polish Chief Inspectorate Of Environmental Protection) air quality service into Home Assistant."
+title: GIOŚ
+description: Instructions on how to integrate GIOŚ (Polish Chief Inspectorate Of Environmental Protection) air quality service into Home Assistant.
 logo: gios.png
 ha_category:
   - Health

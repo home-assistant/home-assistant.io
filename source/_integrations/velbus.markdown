@@ -104,5 +104,3 @@ The actual linking can be realized by two automation rules. One rule to control 
   - entity_id: light.led_push_button_10
     service: light.toggle
 ```
-
-

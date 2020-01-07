@@ -6,7 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.10"
+ha_release: '0.10'
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.

@@ -1,6 +1,6 @@
 ---
-title: "Sentry"
-description: "Record errors to Sentry."
+title: Sentry
+description: Record errors to Sentry.
 logo: sentry.png
 ha_category:
   - System Monitor

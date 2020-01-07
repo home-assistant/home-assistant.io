@@ -1,6 +1,6 @@
 ---
-title: "Local IP Address"
-description: "Instructions on how to integrate the Local IP Address sensor into Home Assistant."
+title: Local IP Address
+description: Instructions on how to integrate the Local IP Address sensor into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Network
