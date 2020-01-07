@@ -33,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 and will be automatically added when HA connects to your Vera controller.
 
 ## Configuration
+
 <div class='note info'>
 
 The Vera integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is deprecated.
@@ -51,8 +52,6 @@ The Vera integration is configured exclusively through the front-end. Manual set
     * Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices by providing a list of device ids.
 
 You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (under the developer tools).
-
-
 
 ### Using Z-Wave devices in automation
 
