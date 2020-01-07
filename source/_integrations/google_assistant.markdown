@@ -102,8 +102,6 @@ google_assistant:
     light.living_room:
       expose: false
       room: LIVING_ROOM
-    group.all_automations:
-      expose: false
 ```
 
 {% configuration %}
@@ -195,10 +193,6 @@ Currently, the following domains are available to be used with Google Assistant,
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - Alarm Control Panel (arm/disarm)
-
-<div class='note warning'>
-  The domain `groups` contains groups containing all items, such as `group.all_automations`. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations.
-</div>
 
 ### Secure Devices
 

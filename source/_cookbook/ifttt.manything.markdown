@@ -21,7 +21,7 @@ automation:
     # if we leave the house during the day.
     trigger:
       - platform: state
-        entity_id: group.all_devices
+        entity_id: all
         to: 'not_home'
     condition:
       - platform: state
@@ -36,7 +36,7 @@ automation:
     # when we get home unless it's nighttime.
     trigger:
       - platform: state
-        entity_id: group.all_devices
+        entity_id: all
         to: 'home'
     condition:
       - condition: state
@@ -59,9 +59,9 @@ For ManyThing support, you need to set up an `on` and `off` event.
 
 You can use the developer tools to test your [Maker Service](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant UI, open the sidebar, click on the first icon in the developer tools. This should get you to the 'Call Service' screen. Fill in the following values:
 
-Field | Value
------ | -----
-domain | `ifttt`
-service | `trigger`
-Service Data | `{"event": "manything_on"}`
+| Field        | Value                       |
+| ------------ | --------------------------- |
+| domain       | `ifttt`                     |
+| service      | `trigger`                   |
+| Service Data | `{"event": "manything_on"}` |
 
