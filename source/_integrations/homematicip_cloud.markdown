@@ -172,6 +172,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
+- `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
 ### Service Examples
 
@@ -254,6 +255,16 @@ action:
   service: homematicip_cloud.dump_hap_config
   data:
     anonymize: True
+```
+
+Reset energy counter of measuring actuators.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.reset_energy_counter
+  data:
+    entity_id: switch.livingroom
 ```
 
 
