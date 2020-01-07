@@ -5,13 +5,14 @@ logo: nws.png
 ha_category: Weather
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.
 
 ## Configuration
 
-To add NWS to your installation, go to Configuration >> Integrations in the UI and select National Weather Service (NWS) integration.
+To add NWS to your installation, go to **Configuration** >> **Integrations** in the UI and select National Weather Service (NWS) integration.
 
 According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 
