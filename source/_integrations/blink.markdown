@@ -117,17 +117,17 @@ Force a refresh of the Blink system.
 Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
-|------------------------|----------|----------------------------------------|
-| `name`                 |     no   | Name of camera to take new image with. |
+| ---------------------- | -------- | -------------------------------------- |
+| `name`                 | no       | Name of camera to take new image with. |
 
 ### `blink.save_video`
 
 Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `whitelist_external_dirs` in your `configuration.yaml` file (see example below).
 
 | Service Data Attribute | Optional | Description                              |
-|------------------------|----------|------------------------------------------|
-| `name`                 |    no    | Name of camera containing video to save. |
-| `filename`             |    no    | Location of save file.                   |
+| ---------------------- | -------- | ---------------------------------------- |
+| `name`                 | no       | Name of camera containing video to save. |
+| `filename`             | no       | Location of save file.                   |
 
 
 ```yaml
@@ -176,7 +176,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
   alias: Arm Blink When Away
   trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: all
       to: 'not_home'
   action:
       service: alarm_control_panel.alarm_arm_away
@@ -192,7 +192,7 @@ Similar to the previous example, this automation will disarm blink when arriving
   alias: Disarm Blink When Home
   trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: all
       to: 'home'
   action:
       service: alarm_control_panel.alarm_disarm
