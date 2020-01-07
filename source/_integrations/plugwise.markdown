@@ -1,5 +1,5 @@
 ---
-title: Plugwise
+title: Plugwise Anna
 description: Plugwise Climate integration.
 logo: plugwise.png
 ha_category: Climate

@@ -1,5 +1,5 @@
 ---
-title: iZone climate control
+title: iZone
 description: Instructions on how to integrate iZone climate control devices with Home Assistant.
 ha_category:
   - Climate

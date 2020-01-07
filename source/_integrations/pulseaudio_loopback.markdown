@@ -1,5 +1,5 @@
 ---
-title: PulseAudio Loopback Switch
+title: PulseAudio Loopback
 description: Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system.
 logo: pulseaudio.png
 ha_category:

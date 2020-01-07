@@ -1,5 +1,5 @@
 ---
-title: London Air Quality
+title: London Air
 description: Display the current status of London air quality by area and pollution type.
 logo: waqi.png
 ha_category:

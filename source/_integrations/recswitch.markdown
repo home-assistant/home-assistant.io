@@ -1,5 +1,5 @@
 ---
-title: Ankuoo Rec Switch
+title: Ankuoo REC Switch
 description: Instructions on how to integrate Ankuoo Rec Switch into Home Assistant.
 logo: ankuoo_recswitch.png
 ha_release: 0.81

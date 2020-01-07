@@ -1,5 +1,5 @@
 ---
-title: iTunes
+title: Apple iTunes
 description: Instructions on how to integrate iTunes into Home Assistant.
 logo: itunes.png
 ha_category:

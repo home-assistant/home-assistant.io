@@ -1,5 +1,5 @@
 ---
-title: NX584 Alarm Control Panel
+title: NX584
 description: Instructions on how to integrate NX584 into Home Assistant.
 logo: networx.png
 ha_category:

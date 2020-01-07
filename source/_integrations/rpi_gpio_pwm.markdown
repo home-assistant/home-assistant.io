@@ -1,5 +1,5 @@
 ---
-title: PWM LED Light
+title: pigpio Daemon PWM LED
 description: Instructions on how to setup PWM LEDs within Home Assistant.
 ha_category:
   - DIY

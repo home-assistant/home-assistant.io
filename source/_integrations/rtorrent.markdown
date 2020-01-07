@@ -1,5 +1,5 @@
 ---
-title: rtorrent Sensor
+title: rTorrent
 description: Instructions on how to integrate rtorrent sensors within Home Assistant.
 logo: rtorrent.png
 ha_category:

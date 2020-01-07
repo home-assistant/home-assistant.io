@@ -1,5 +1,5 @@
 ---
-title: Sensibo A/C controller
+title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 logo: sensibo.png
 ha_category:

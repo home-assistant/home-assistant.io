@@ -1,5 +1,5 @@
 ---
-title: ISY994 Controller
+title: Universal Devices ISY994
 description: Instructions on how to setup the ISY994 controller within Home Assistant.
 logo: universal_devices.png
 ha_category:

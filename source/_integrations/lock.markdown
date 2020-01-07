@@ -1,5 +1,5 @@
 ---
-title: Locks
+title: Lock
 description: Instructions on how to setup your locks with Home Assistant.
 logo: home-assistant.png
 ha_category:

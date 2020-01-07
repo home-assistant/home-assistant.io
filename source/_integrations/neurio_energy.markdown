@@ -1,5 +1,5 @@
 ---
-title: Neurio
+title: Neurio energy
 description: Instructions on how to integrate Neurio within Home Assistant.
 logo: neurio.png
 ha_category:

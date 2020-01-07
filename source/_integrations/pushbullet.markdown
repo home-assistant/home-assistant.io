@@ -1,5 +1,5 @@
 ---
-title: Pushbullet Mirrors
+title: Pushbullet
 description: Instructions on how to read user pushes in Home Assistant
 logo: pushbullet.png
 ha_category:

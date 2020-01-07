@@ -1,5 +1,5 @@
 ---
-title: Sony Projector Switch
+title: Sony Projector
 description: Instructions on how to integrate Sony Projector switches into Home Assistant.
 logo: sony.png
 ha_category:

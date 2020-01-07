@@ -1,5 +1,5 @@
 ---
-title: Salda Smarty 2X/3X/4X P/V Ventilation
+title: Salda Smarty
 description: Instructions on how to integrate Salda Smarty 2X/3X/4X P/V ventilation systems into Home Assistant.
 logo: salda.png
 ha_category:

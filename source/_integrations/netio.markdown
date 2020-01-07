@@ -1,5 +1,5 @@
 ---
-title: Netio Switch
+title: Netio
 description: Instructions on how to integrate Netio switches into Home Assistant.
 logo: netio.png
 ha_category:

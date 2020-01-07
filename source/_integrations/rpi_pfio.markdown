@@ -1,5 +1,5 @@
 ---
-title: PiFace Digital I/O
+title: PiFace Digital I/O (PFIO)
 description: Instructions on how to integrate the PiFace Digital I/O module into Home Assistant.
 logo: raspberry-pi.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Nanoleaf Light Panel
+title: Nanoleaf
 description: Instructions how to integrate Nanoleaf Light Panels into Home Assistant.
 logo: nanoleaf_light.png
 ha_category:

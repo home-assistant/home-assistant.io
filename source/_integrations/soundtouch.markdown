@@ -1,5 +1,5 @@
 ---
-title: Soundtouch
+title: Bose Soundtouch
 description: Instructions on how to integrate Bose Soundtouch devices into Home Assistant.
 logo: soundtouch.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Nuki Smart Lock
+title: Nuki
 description: Instructions on how to integrate a Nuki Smart Lock devices.
 logo: nuki.png
 ha_category:

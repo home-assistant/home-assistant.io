@@ -1,5 +1,5 @@
 ---
-title: NMBS Sensor
+title: NMBS
 description: Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant.
 logo: sncb_nmbs.gif
 ha_category:

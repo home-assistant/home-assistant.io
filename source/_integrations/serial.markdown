@@ -1,5 +1,5 @@
 ---
-title: Serial Sensor
+title: Serial
 description: Instructions on how to integrate data from serial connected sensors into Home Assistant.
 logo: home-assistant.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: mFi
+title: Ubiquiti mFi mPort
 description: Instructions on how to integrate mFi within Home Assistant.
 logo: ubiquiti.png
 ha_category:

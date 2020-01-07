@@ -1,5 +1,5 @@
 ---
-title: OpenWeatherMap
+title: Openweathermap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 logo: openweathermap.png
 ha_category:

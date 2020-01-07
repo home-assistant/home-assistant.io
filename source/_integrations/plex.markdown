@@ -1,5 +1,5 @@
 ---
-title: Plex
+title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
 logo: plex.png
 ha_category:

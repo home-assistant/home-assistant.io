@@ -1,5 +1,5 @@
 ---
-title: One wire Sensor
+title: 1-Wire
 description: Instructions on how to integrate One wire (1-wire) sensors into Home Assistant.
 logo: onewire.png
 ha_category:

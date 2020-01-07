@@ -1,5 +1,5 @@
 ---
-title: IMAP Unread E-mail
+title: IMAP
 description: Instructions on how to integrate IMAP unread email into Home Assistant.
 logo: smtp.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Lupus Electronics Home Security
+title: Lupus Electronics LUPUSEC
 description: Instructions on integrating Lupusec home security with Home Assistant.
 logo: lupusec.png
 ha_category:

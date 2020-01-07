@@ -1,5 +1,5 @@
 ---
-title: Soma
+title: Soma Connect
 description: Instructions on how to set up the Soma Connect within Home Assistant.
 logo: soma.png
 ha_category:

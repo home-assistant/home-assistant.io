@@ -1,5 +1,5 @@
 ---
-title: Iperf3 Sensor
+title: Iperf3
 description: How to use Iperf3 within Home Assistant to measure your network bandwidth.
 logo: iperf3.png
 ha_category:
