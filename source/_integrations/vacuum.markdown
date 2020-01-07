@@ -1,5 +1,5 @@
 ---
-title: Vacuum cleaner robots
+title: Vacuum
 description: Instructions on how to setup and use vacuum's in Home Assistant.
 ha_release: 0.51
 ---

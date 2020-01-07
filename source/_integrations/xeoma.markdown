@@ -1,5 +1,5 @@
 ---
-title: Xeoma Camera
+title: Xeoma
 description: Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant
 logo: xeoma.png
 ha_category:

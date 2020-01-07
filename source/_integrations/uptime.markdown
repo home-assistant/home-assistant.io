@@ -1,5 +1,5 @@
 ---
-title: Uptime Sensor
+title: Uptime
 description: Instructions on how to integrate an uptime sensor into Home Assistant.
 ha_category:
   - Utility

@@ -1,5 +1,5 @@
 ---
-title: Telnet Switch
+title: Telnet
 description: Instructions on how to integrate telnet switches into Home Assistant.
 ha_category:
   - Switch

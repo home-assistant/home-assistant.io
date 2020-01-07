@@ -1,5 +1,5 @@
 ---
-title: Travis-CI Sensor
+title: Travis-CI
 description: Instructions on how to integrate the test build results reported by Travis-CI within Home Assistant.
 logo: travisci.svg
 ha_category:

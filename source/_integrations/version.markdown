@@ -1,5 +1,5 @@
 ---
-title: Version Sensor
+title: Version
 description: Instructions on how to integrate a version sensor into Home Assistant.
 ha_category:
   - Utility

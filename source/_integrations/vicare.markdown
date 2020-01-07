@@ -1,5 +1,5 @@
 ---
-title: Viessmann climate controller
+title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
 logo: viessmann.png
 ha_category: Climate

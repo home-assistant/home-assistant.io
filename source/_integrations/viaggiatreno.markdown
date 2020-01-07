@@ -1,5 +1,5 @@
 ---
-title: ViaggiaTreno Italian Railroads
+title: Trenitalia ViaggiaTreno
 description: Instructions on how to integrate Italian Railroads data (from ViaggiaTreno API) into Home Assistant.
 logo: train.png
 ha_category:

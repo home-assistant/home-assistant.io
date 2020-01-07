@@ -1,5 +1,5 @@
 ---
-title: Volumio Media Player
+title: Volumio
 description: How to set up the Volumio media player platform
 logo: volumio.png
 ha_category:

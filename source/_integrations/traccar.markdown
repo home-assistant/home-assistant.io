@@ -1,5 +1,5 @@
 ---
-title: Traccar GPS tracker
+title: Traccar
 description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 logo: traccar.png
 ha_release: 0.83
