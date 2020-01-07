@@ -6,6 +6,7 @@ ha_category:
   - Network
 ha_iot_class: Local Polling
 ha_release: 0.105
+ha_config_flow: true
 ---
 
 The `local_ip` sensor will expose the local (LAN) IP address of your Home Assistant instance. This can be useful when your instance has a static public hostname (for example, if you use the Nabu Casa service), but have a dynamically allocated local LAN address (for example, configured via DHCP).
