@@ -56,6 +56,10 @@ password:
   description:  Password for the thermostat.
   required: false
   type: string
+pin:
+  description: Pin for Lockscreen (required if lock screen enabled)
+  required: false
+  type: string
 ssl:
   description: Whether to use SSL or not when communicating.
   required: false
@@ -83,6 +87,7 @@ climate:
     ssl: true
     username: OPTIONAL_AUTH_USER_HERE
     password: OPTIONAL_AUTH_PASS_HERE
+    pin: LOCKSCREEN_PIN
     timeout: 5
     humidifier: false
 ```
