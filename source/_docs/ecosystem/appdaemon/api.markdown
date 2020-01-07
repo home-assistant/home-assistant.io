@@ -13,13 +13,16 @@ The first step is to create a unique file within the apps directory (as defined 
 ```python
 import homeassistant.appapi as appapi
 
+
 class MotionLights(appapi.AppDaemon):
+    """Motion lights implementation."""
 ```
 
 When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
 
 ```python
   def initialize(self):
+      """Perform initialization."""
 ```
 
 The initialize function allows the app to register any callbacks it might need for responding to state changes, and also any setup activities. When the `initialize()` function returns, the App will be dormant until any of its callbacks are activated.
@@ -50,17 +53,17 @@ import datetime
 
 # Declare Class
 class NightLight(appapi.AppDaemon):
-  #initialize() function which will be called at startup and reload
-  def initialize(self):
-    # Create a time object for 7pm
-    time = datetime.time(19, 00, 0)
-    # Schedule a daily callback that will call run_daily() at 7pm every night
-    self.run_daily(self.run_daily_callback, time)
+    # initialize() function which will be called at startup and reload
+    def initialize(self):
+        # Create a time object for 7pm
+        time = datetime.time(19, 00, 0)
+        # Schedule a daily callback that will call run_daily() at 7pm every night
+        self.run_daily(self.run_daily_callback, time)
 
-   # Our callback function will be called by the scheduler every day at 7pm
-  def run_daily_callback(self, kwargs):
-    # Call to Home Assistant to turn the porch light on
-    self.turn_on("light.porch")
+    # Our callback function will be called by the scheduler every day at 7pm
+    def run_daily_callback(self, kwargs):
+        # Call to Home Assistant to turn the porch light on
+        self.turn_on("light.porch")
 ```
 
 To summarize - an App's lifecycle consists of being initialized, which allows it to set one or more state and/or schedule callbacks. When those callbacks are activated, the App will typically use one of the Service Calling calls to effect some change to the devices of the system and then wait for the next relevant state change. That's all there is to it!
@@ -273,7 +276,7 @@ In most cases, the attribute `state` has the most important value in it, e.g., f
 #### Synopsis
 
 ```python
-get_state(entity = None, attribute = None)
+get_state(entity=None, attribute=None)
 ```
 
 `get_state()` is used to query the state of any integration within Home Assistant. State updates are continuously tracked so this call runs locally and does not require AppDaemon to call back to Home Assistant and as such is very efficient.
@@ -311,10 +314,10 @@ state = self.get_state("switch")
 state = self.get_state("light.office_1")
 
 # Return the brightness attribute for light.office_1
-state = self.get_state("light.office_1", attribute = "brightness")
+state = self.get_state("light.office_1", attribute="brightness")
 
 # Return the entire state for light.office_1
-state = self.get_state("light.office_1", attribute = "all")
+state = self.get_state("light.office_1", attribute="all")
 ```
 
 ### set_state()
@@ -348,7 +351,7 @@ A list of keyword values to be changed or added to the entities state. e.g., `st
 #### Examples
 
 ```python
-status = self.set_state("light.office_1", state = "on", attributes = {"color_name": "red"})
+status = self.set_state("light.office_1", state="on", attributes={"color_name": "red"})
 ```
 
 ### About Callbacks
@@ -409,8 +412,9 @@ AppDaemons's state callbacks allow an App to listen to a wide variety of events,
 When calling back into the App, the App must provide a class function with a known signature for AppDaemon to call. The callback will provide various information to the function to enable the function to respond appropriately. For state callbacks, a class defined callback function should look like this:
 
 ```python
-  def my_callback(self, entity, attribute, old, new, **kwargs):
-    <do some useful work here>
+def my_callback(self, entity, attribute, old, new, **kwargs):
+    """Handle state callback."""
+    # do some useful work here
 ```
 
 You can call the function whatever you like - you will reference it in the `listen_state()` call, and you can create as many callback functions as you need.
@@ -450,7 +454,7 @@ A dictionary containing any constraints and/or additional user specific keyword 
 #### Synopsis
 
 ```python
-handle = listen_state(callback, entity = None, **kwargs)
+handle = listen_state(callback, entity=None, **kwargs)
 ```
 
 #### Returns
@@ -492,8 +496,9 @@ Note: `old` and `new` can be used singly or together.
 If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os `state` is used), an in conjunction with the `old` or `new` parameters, or both. When the callback is called, it is supplied with the values of `entity`, `attr`, `old` and `new` that were current at the time the actual event occurred, since the assumption is that none of them have changed in the intervening period.
 
 ```python
-  def my_callback(self, **kwargs):
-    <do some useful work here>
+def my_callback(self, **kwargs):
+    """Handle state change."""
+    # do some useful work here
 ```
 
 (Scheduler callbacks are documented in detail later in this document)
@@ -515,20 +520,25 @@ self.handle = self.listen_state(self.my_callback, "light")
 self.handle = self.listen_state(self.my_callback, "light.office_1")
 
 # Listen for a state change involving light.office1 and return the entire state as a dict
-self.handle = self.listen_state(self.my_callback, "light.office_1", attribute = "all")
+self.handle = self.listen_state(self.my_callback, "light.office_1", attribute="all")
 
 # Listen for a state change involving the brightness attribute of light.office1
-self.handle = self.listen_state(self.my_callback, "light.office_1", attribute = "brightness")
+self.handle = self.listen_state(
+    self.my_callback, "light.office_1", attribute="brightness"
+)
 
 # Listen for a state change involving light.office1 turning on and return the state attribute
-self.handle = self.listen_state(self.my_callback, "light.office_1", new = "on")
+self.handle = self.listen_state(self.my_callback, "light.office_1", new="on")
 
 # Listen for a state change involving light.office1 changing from brightness 100 to 200 and return the state attribute
-self.handle = self.listen_state(self.my_callback, "light.office_1", old = "100", new = "200")
+self.handle = self.listen_state(
+    self.my_callback, "light.office_1", old="100", new="200"
+)
 
 # Listen for a state change involving light.office1 changing to state on and remaining on for a minute
-self.handle = self.listen_state(self.my_callback, "light.office_1", new = "on", duration = 60)
-
+self.handle = self.listen_state(
+    self.my_callback, "light.office_1", new="on", duration=60
+)
 ```
 
 ### cancel_listen_state()
@@ -592,8 +602,9 @@ AppDaemon contains a powerful scheduler that is able to run with 1 second resolu
 As with State Change callbacks, Scheduler Callbacks expect to call into functions with a known and specific signature and a class defined Scheduler callback function should look like this:
 
 ```python
-  def my_callback(self, **kwargs):
-    <do some useful work here>
+def my_callback(self, **kwargs):
+    """Handle scheduler callback."""
+    # do some useful work here
 ```
 
 You can call the function whatever you like; you will reference it in the Scheduler call, and you can create as many callback functions as you need.
@@ -643,7 +654,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 
 ```python
 self.handle = self.run_in(self.run_in_c)
-self.handle = self.run_in(self.run_in_c, title = "run_in5")
+self.handle = self.run_in(self.run_in_c, title="run_in5")
 ```
 #### run_once()
 
@@ -678,6 +689,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run at 4pm today, or 4pm tomorrow if it is already after 4pm
 import datetime
+
 ...
 runtime = datetime.time(16, 0, 0)
 handle = self.run_once(self.run_once_c, runtime)
@@ -716,6 +728,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run at 4pm today
 import datetime
+
 ...
 runtime = datetime.time(16, 0, 0)
 today = datetime.date.today()
@@ -755,6 +768,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run daily at 7pm
 import datetime
+
 ...
 time = datetime.time(19, 0, 0)
 self.run_daily(self.run_daily_c, runtime)
@@ -767,7 +781,7 @@ Execute a callback at the same time every hour. If the time has already passed, 
 #### Synopsis
 
 ```python
-self.handle = self.run_hourly(callback, time = None, **kwargs)
+self.handle = self.run_hourly(callback, time=None, **kwargs)
 ```
 
 #### Returns
@@ -793,6 +807,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run every hour, on the hour
 import datetime
+
 ...
 time = datetime.time(0, 0, 0)
 self.run_daily(self.run_daily_c, runtime)
@@ -804,7 +819,7 @@ Execute a callback at the same time every minute. If the time has already passed
 #### Synopsis
 
 ```python
-self.handle = self.run_minutely(callback, time = None, **kwargs)
+self.handle = self.run_minutely(callback, time=None, **kwargs)
 ```
 
 #### Returns
@@ -830,6 +845,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run Every Minute on the minute
 import datetime
+
 ...
 time = datetime.time(0, 0, 0)
 self.run_minutely(self.run_minutely_c, time)
@@ -872,6 +888,7 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Run every 17 minutes starting in 2 hours time
 import datetime
+
 ...
 self.run_every(self.run_every_c, time, 17 * 60)
 ```
@@ -944,11 +961,11 @@ For example:
 
 ```python
 # Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g., run between 60 and 120 seconds from now
-self.handle = self.run_in(callback, 120, random_start = -60, **kwargs)
+self.handle = self.run_in(callback, 120, random_start=-60, **kwargs)
 # Run a callback in 2 minutes plus a random number of seconds between 0 and 60, e.g., run between 120 and 180 seconds from now
-self.handle = self.run_in(callback, 120, random_end = 60, **kwargs)
+self.handle = self.run_in(callback, 120, random_end=60, **kwargs)
 # Run a callback in 2 minutes plus or minus a random number of seconds between 0 and 60, e.g., run between 60 and 180 seconds from now
-self.handle = self.run_in(callback, 120, random_start = -60, random_end = 60, **kwargs)
+self.handle = self.run_in(callback, 120, random_start=-60, random_end=60, **kwargs)
 ```
 
 ## Sunrise and Sunset
@@ -987,15 +1004,17 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 
 ```python
 import datetime
-...
+
+# ...
+
 # Run 45 minutes before sunset
-self.run_at_sunrise(self.sun, offset = datetime.timedelta(minutes = -45).total_seconds(), "Sunrise -45 mins")
+self.run_at_sunrise(self.sun, offset=datetime.timedelta(minutes=-45).total_seconds())
 # or you can just do the math yourself
-self.run_at_sunrise(self.sun, offset = 30 * 60, "Sunrise +30 mins")
+self.run_at_sunrise(self.sun, offset=30 * 60)  # Sunrise +30 mins
 # Run at a random time +/- 60 minutes from sunrise
-self.run_at_sunrise(self.sun, random_start = -60*60, random_end = 60*60, "Sunrise, random +/- 60 mins")
+self.run_at_sunrise(self.sun, random_start=-60 * 60, random_end=60 * 60)
 # Run at a random time between 30 and 60 minutes before sunrise
-self.run_at_sunrise(self.sun, random_start = -60*60, random_end = 30*60, "Sunrise, random - 30 - 60 mins")
+self.run_at_sunrise(self.sun, random_start=-60 * 60, random_end=30 * 60)
 ```
 
 ### run_at_sunset()
@@ -1031,14 +1050,18 @@ Arbitrary keyword parameters to be provided to the callback function when it is 
 ```python
 # Example using timedelta
 import datetime
-...
-self.run_at_sunset(self.sun, datetime.timedelta(minutes = -45).total_seconds(), "Sunset -45 mins")
+
+# ...
+
+self.run_at_sunset(
+    self.sun, datetime.timedelta(minutes=-45).total_seconds()
+)  # Sunset -45 mins
 # or you can just do the math yourself
-self.run_at_sunset(self.sun, 30 * 60, "Sunset +30 mins")
+self.run_at_sunset(self.sun, 30 * 60)  # Sunset +30 mins
 # Run at a random time +/- 60 minutes from sunset
-self.run_at_sunset(self.sun, random_start = -60*60, random_end = 60*60, "Sunset, random +/- 60 mins")
+self.run_at_sunset(self.sun, random_start=-60 * 60, random_end=60 * 60)
 # Run at a random time between 30 and 60 minutes before sunset
-self.run_at_sunset(self.sun, random_start = -60*60, random_end = 30*60, "Sunset, random - 30 - 60 mins")
+self.run_at_sunset(self.sun, random_start=-60 * 60, random_end=30 * 60)
 ```
 ### sunrise()
 
@@ -1096,7 +1119,7 @@ result = self.sun_up()
 
 ```python
 if self.sun_up():
-    do something
+    do_something()
 ```
 
 ### sun_down()
@@ -1117,7 +1140,7 @@ result = self.sun_down()
 
 ```python
 if self.sun_down():
-    do something
+    do_something()
 ```
 
 ## Calling Services
@@ -1153,8 +1176,8 @@ Each service has different parameter requirements. This argument allows you to s
 #### Examples
 
 ```python
-self.call_service("light/turn_on", entity_id = "light.office_lamp", color_name = "red")
-self.call_service("notify/notify", title = "Hello", message = "Hello World")
+self.call_service("light/turn_on", entity_id="light.office_lamp", color_name="red")
+self.call_service("notify/notify", title="Hello", message="Hello World")
 ```
 ### turn_on()
 
@@ -1192,7 +1215,7 @@ A comma separated list of key value pairs to allow specification of parameters o
 ```python
 self.turn_on("switch.patio_lights")
 self.turn_on("scene.bedroom_on")
-self.turn_on("light.office_1", color_name = "green")
+self.turn_on("light.office_1", color_name="green")
 ```
 
 ### turn_off()
@@ -1246,7 +1269,7 @@ Fully qualified entity_id of the thing to be toggled, e.g., `light.office_lamp` 
 
 ```python
 self.toggle("switch.patio_lights")
-self.toggle("light.office_1", color_name = "green")
+self.toggle("light.office_1", color_name="green")
 ```
 
 ### select_value()
@@ -1365,8 +1388,9 @@ In addition to the Home Assistant supplied events, AppDaemon adds 2 more events.
 As with State Change and Scheduler callbacks, Event Callbacks expect to call into functions with a known and specific signature and a class defined Scheduler callback function should look like this:
 
 ```python
-  def my_callback(self, event_name, data, kwargs):
-    <do some useful work here>
+def my_callback(self, event_name, data, kwargs):
+    """Handle event callback."""
+    # do some useful work here
 ```
 
 You can call the function whatever you like - you will reference it in the Scheduler call, and you can create as many callback functions as you need.
@@ -1396,7 +1420,7 @@ Listen event sets up a callback for a specific event, or any event.
 #### Synopsis
 
 ```python
-handle = listen_event(function, event = None, **kwargs):
+handle = listen_event(function, event=None, **kwargs)
 ```
 #### Returns
 
@@ -1425,9 +1449,11 @@ Filtering will work with any event type, but it will be necessary to figure out 
 ```python
 self.listen_event(self.mode_event, "MODE_CHANGE")
 # Listen for a minimote event activating scene 3:
-self.listen_event(self.generic_event, "zwave.scene_activated", scene_id = 3)
+self.listen_event(self.generic_event, "zwave.scene_activated", scene_id=3)
 # Listen for a minimote event activating scene 3 from a specific minimote:
-self.listen_event(self.generic_event, "zwave.scene_activated", entity_id = "minimote_31", scene_id = 3)
+self.listen_event(
+    self.generic_event, "zwave.scene_activated", entity_id="minimote_31", scene_id=3
+)
 ```
 
 ### cancel_listen_event()
@@ -1518,6 +1544,7 @@ Functions called as an event callback will be supplied with 2 arguments:
 
 ```python
 def service(self, event_name, data):
+    """Handle event."""
 ```
 
 #### event_name
@@ -1560,7 +1587,7 @@ automation:
 This can be triggered with a call to AppDaemon's fire_event() as follows:
 
 ```python
-self.fire_event("MODE_CHANGE", mode = "Day")
+self.fire_event("MODE_CHANGE", mode="Day")
 ```
 
 ## Presence
@@ -1585,7 +1612,7 @@ An iterable list of all device trackers.
 ```python
 trackers = self.get_trackers()
 for tracker in trackers:
-    do something
+    do_something(tracker)
 ```
 
 ### get_tracker_state()
@@ -1618,7 +1645,7 @@ Fully qualified entity_id of the device tracker to query, e.g., `device_tracker.
 ```python
 trackers = self.get_trackers()
 for tracker in trackers:
-  self.log("{} is {}".format(tracker, self.get_tracker_state(tracker)))
+    self.log("{} is {}".format(tracker, self.get_tracker_state(tracker)))
 ```
 
 ### everyone_home()
@@ -1638,7 +1665,7 @@ Returns `True` if everyone is at home, `False` otherwise.
 
 ```python
 if self.everyone_home():
-    do something
+    do_something()
 ```
 ### anyone_home()
 
@@ -1658,7 +1685,7 @@ Returns `True` if anyone is at home, `False` otherwise.
 
 ```python
 if self.anyone_home():
-    do something
+    do_something()
 ```
 ### noone_home()
 
@@ -1678,7 +1705,7 @@ Returns `True` if no one is home, `False` otherwise.
 
 ```python
 if self.noone_home():
-    do something
+    do_something()
 ```
 
 ## Miscellaneous Helper Functions
@@ -1837,9 +1864,9 @@ A representation of the start and end time respectively in a string format with 
 
 ```python
 if self.now_is_between("17:30:00", "08:00:00"):
-    do something
+    do_something()
 if self.now_is_between("sunset - 00:45:00", "sunrise + 00:45:00"):
-    do something
+    do_something_else()
 ```
 
 ### friendly_name()
@@ -1860,7 +1887,11 @@ The friendly name of the entity if it exists or the entity id if not.
 
 ```python
 tracker = "device_tracker.andrew"
-self.log("{}  ({}) is {}".format(tracker, self.friendly_name(tracker), self.get_tracker_state(tracker)))
+self.log(
+    "{}  ({}) is {}".format(
+        tracker, self.friendly_name(tracker), self.get_tracker_state(tracker)
+    )
+)
 ```
 
 ### split_entity()
@@ -1888,7 +1919,7 @@ A list with 2 entries, the device and entity respectively.
 ```python
 device, entity = self.split_entity(entity_id)
 if device == "scene":
-    do something specific to scenes
+    do_something_specific_to_scenes()
 ```
 
 
@@ -1935,7 +1966,7 @@ A list of split devices with 1 or more entries.
 
 ```python
 for sensor in self.split_device_list(self.args["sensors"]):
-    do something for each sensor, e.g., make a state subscription
+    do_something(sensor)  # e.g. make a state subscription
 ```
 
 
@@ -1948,7 +1979,7 @@ AppDaemon uses 2 separate logs - the general log and the error log. An AppDaemon
 #### Synopsis
 
 ```python
-log(message, level = "INFO")
+log(message, level="INFO")
 ```
 
 #### Returns
@@ -1969,7 +2000,7 @@ The log level of the message - takes a string representing the standard logger l
 
 ```python
 self.log("Log Test: Parameter is {}".format(some_variable))
-self.log("Log Test: Parameter is {}".format(some_variable), level = "ERROR")
+self.log("Log Test: Parameter is {}".format(some_variable), level="ERROR")
 ```
 
 ### error()
@@ -1977,7 +2008,7 @@ self.log("Log Test: Parameter is {}".format(some_variable), level = "ERROR")
 #### Synopsis
 
 ```python
-error(message, level = "WARNING")
+error(message, level="WARNING")
 ```
 #### Returns
 
@@ -1997,7 +2028,7 @@ The log level of the message - takes a string representing the standard logger l
 
 ```python
 self.error("Some Warning string")
-self.error("Some Critical string", level = "CRITICAL")
+self.error("Some Critical string", level="CRITICAL")
 ```
 
 ## Sharing information between Apps
@@ -2007,7 +2038,7 @@ Sharing information between different Apps is very simple if required. Each app 
 In addition, Apps have access to the entire configuration if required, meaning they can access AppDaemon configuration items as well as parameters from other Apps. To use this, there is a class attribute called `self.config`. It contains a `ConfigParser` object, which is similar in operation to a `Dictionary`. To access any apps parameters, simply reference the ConfigParser object using the Apps name (form the config file) as the first key, and the parameter required as the second, for instance:
 
 ```python
-other_apps_arg = self.config["some_app"]["some_parameter"].
+other_apps_arg = self.config["some_app"]["some_parameter"]
 ```
 
 To get AppDaemon's config parameters, use the key "AppDaemon", e.g.:

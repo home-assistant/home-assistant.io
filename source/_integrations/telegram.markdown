@@ -53,7 +53,7 @@ The result set will include your chat ID as `id` in the `chat` section:
 
 **Method 3:** Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
 
-```python
+```shell
 $ python3
 >>> import telegram
 >>> bot = telegram.Bot(token='YOUR_API_TOKEN')
