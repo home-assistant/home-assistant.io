@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.95
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental

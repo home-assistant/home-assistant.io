@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.92
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:

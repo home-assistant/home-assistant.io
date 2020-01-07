@@ -9,6 +9,7 @@ ha_category:
 ha_release: 0.81
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
+ha_config_flow: true
 ---
 
 [UniFi](https://unifi-sdn.ubnt.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.

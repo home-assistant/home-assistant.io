@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_release: 0.85
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.

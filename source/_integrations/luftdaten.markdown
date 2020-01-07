@@ -8,6 +8,7 @@ ha_category:
 ha_release: 0.82
 ha_iot_class: Cloud Polling
 ha_qa_scale: gold
+ha_config_flow: true
 ---
 
 The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.

@@ -7,6 +7,7 @@ ha_category:
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

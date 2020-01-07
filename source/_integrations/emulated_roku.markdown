@@ -6,6 +6,7 @@ ha_category:
   - Hub
 ha_release: 0.86
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,
