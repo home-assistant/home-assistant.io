@@ -1,5 +1,5 @@
 ---
-title: Envisalink Alarm Control Panel
+title: Envisalink
 description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board.
 logo: eyezon.png
 ha_category:

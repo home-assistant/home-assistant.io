@@ -1,5 +1,5 @@
 ---
-title: Alarm Control Panels
+title: Alarm Control Panel
 description: Instructions on how to integrate Alarm Control Panels into Home Assistant.
 logo: home-assistant.png
 ha_category:

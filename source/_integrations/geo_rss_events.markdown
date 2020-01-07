@@ -1,5 +1,5 @@
 ---
-title: GeoRSS Events Sensor
+title: GeoRSS
 description: Instructions on how to set up GeoRSS sensors within Home Assistant.
 logo: rss.png
 ha_category:

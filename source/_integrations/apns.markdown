@@ -1,5 +1,5 @@
 ---
-title: APNS
+title: Apple Push Notification Service (APNS)
 description: Instructions on how to add APNS notifications to Home Assistant.
 logo: apple.png
 ha_category:

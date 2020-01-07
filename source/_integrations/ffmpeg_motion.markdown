@@ -1,5 +1,5 @@
 ---
-title: FFmpeg Motion Binary Sensor
+title: FFmpeg Motion
 description: Instructions on how to integrate an FFmpeg-based motion binary sensor
 logo: ffmpeg.png
 ha_category:

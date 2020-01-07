@@ -1,5 +1,5 @@
 ---
-title: Dark Sky Sensor
+title: Dark Sky
 description: How to integrate Dark Sky within Home Assistant.
 logo: dark_sky.png
 ha_category:

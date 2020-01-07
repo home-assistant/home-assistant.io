@@ -1,5 +1,5 @@
 ---
-title: Push Notifications
+title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
 logo: html5.png
 ha_category:

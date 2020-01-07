@@ -1,5 +1,5 @@
 ---
-title: Frontend
+title: Home Assistant Frontend
 description: Offers a frontend to Home Assistant.
 logo: home-assistant.png
 ha_category:

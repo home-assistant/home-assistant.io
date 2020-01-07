@@ -1,5 +1,5 @@
 ---
-title: gc100
+title: Global Caché GC-100
 description: Instructions on how to integrate gc100 with Home Assistant.
 ha_category:
   - Hub

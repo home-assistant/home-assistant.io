@@ -1,5 +1,5 @@
 ---
-title: Heatmiser Thermostat
+title: Heatmiser
 description: Instructions on how to integrate Heatmiser thermostats within Home Assistant.
 logo: heatmiser.png
 ha_category:

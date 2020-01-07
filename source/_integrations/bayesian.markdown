@@ -1,5 +1,5 @@
 ---
-title: Bayesian Binary Sensor
+title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 logo: home-assistant.png
 ha_category:

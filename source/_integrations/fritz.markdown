@@ -1,5 +1,5 @@
 ---
-title: FRITZ!Box
+title: AVM Fritzbox
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 logo: avm.png
 ha_category:

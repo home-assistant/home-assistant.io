@@ -1,5 +1,5 @@
 ---
-title: Fortigate
+title: FortiGate
 description: Instructions on how to integrate FortiGate Firewalls into Home Assistant.
 logo: fortinet.jpg
 ha_category:

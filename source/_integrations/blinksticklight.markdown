@@ -1,5 +1,5 @@
 ---
-title: Blinkstick Light
+title: BlinkStick
 description: Instructions on how to setup Blinkstick lights within Home Assistant.
 logo: blinkstick.png
 ha_category:

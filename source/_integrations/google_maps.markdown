@@ -1,5 +1,5 @@
 ---
-title: Google Maps Location Sharing
+title: Google Maps
 description: Instructions how to use Google Maps Location Sharing to track devices in Home Assistant.
 logo: google_maps.png
 ha_release: 0.67

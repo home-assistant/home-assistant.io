@@ -1,5 +1,5 @@
 ---
-title: Foobot Air Quality Monitor
+title: Foobot
 description: Instructions on how to setup Foobot Air Quality sensor in Home Assistant.
 logo: foobot.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: DNS IP Sensor
+title: DNS IP
 description: Instructions on how to integrate a DNS IP sensor into Home Assistant.
 logo: home-assistant.png
 ha_category:

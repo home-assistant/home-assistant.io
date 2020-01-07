@@ -1,5 +1,5 @@
 ---
-title: DuneHD media players
+title: DuneHD
 description: Instructions on how to integrate DuneHD media players into Home Assistant.
 logo: dunehd.png
 ha_category:

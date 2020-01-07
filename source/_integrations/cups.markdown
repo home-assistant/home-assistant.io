@@ -1,5 +1,5 @@
 ---
-title: CUPS Sensor
+title: CUPS
 description: Instructions on how to integrate CUPS sensors into Home Assistant.
 logo: cups.png
 ha_category:

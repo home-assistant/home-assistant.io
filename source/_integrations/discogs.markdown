@@ -1,5 +1,5 @@
 ---
-title: Discogs Sensor
+title: Discogs
 description: Instructions on how to set up Discogs sensors within Home Assistant.
 ha_category:
   - Multimedia

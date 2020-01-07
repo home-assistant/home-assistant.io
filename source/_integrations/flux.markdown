@@ -1,5 +1,5 @@
 ---
-title: Flux Light Adjustment
+title: Flux
 description: Instructions on how to have switches call command line commands.
 ha_category:
   - Automation

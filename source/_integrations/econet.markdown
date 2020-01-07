@@ -1,5 +1,5 @@
 ---
-title: EcoNet water heater
+title: Rheem EcoNET Water Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
 logo: econet.png
 ha_category:

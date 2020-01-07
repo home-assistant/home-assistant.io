@@ -1,5 +1,5 @@
 ---
-title: Abode Home Security
+title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 logo: abode.jpg
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Currencylayer
+title: currencylayer
 description: Instructions on integrating exchange rates from https://currencylayer.com/ within Home Assistant.
 ha_category:
   - Finance

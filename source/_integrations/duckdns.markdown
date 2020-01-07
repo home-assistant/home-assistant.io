@@ -1,5 +1,5 @@
 ---
-title: DuckDNS
+title: Duck DNS
 description: Keep your computer registered with the DuckDNS dynamic DNS.
 logo: duckdns.png
 ha_category:

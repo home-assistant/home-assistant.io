@@ -1,5 +1,5 @@
 ---
-title: Clickatell SMS
+title: Clickatell
 description: Instructions on how to add Clickatell notifications to Home Assistant.
 logo: clickatell.png
 ha_category:

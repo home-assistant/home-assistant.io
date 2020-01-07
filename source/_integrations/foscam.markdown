@@ -1,5 +1,5 @@
 ---
-title: Foscam IP Camera
+title: Foscam
 description: Instructions on how to integrate Foscam IP cameras within Home Assistant.
 logo: foscam.png
 ha_category:

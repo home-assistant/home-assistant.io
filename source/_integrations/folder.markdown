@@ -1,5 +1,5 @@
 ---
-title: Folder sensor
+title: Folder
 description: Sensor for monitoring the contents of a folder.
 logo: file.png
 ha_category:
