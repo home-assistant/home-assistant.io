@@ -97,11 +97,6 @@ device_class:
   required: false
   type: string
   default: tv
-suppress_warning:
-  description: Set to `true` to disable self-signed certificate warnings.
-  required: false
-  default: false
-  type: string
 {% endconfiguration %}
 
 ## Notes and limitations
