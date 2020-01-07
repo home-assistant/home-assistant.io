@@ -42,15 +42,15 @@ That's it. You should no be able to use the Google Voice assistant.
 
 {% configuration %}
 client_secrets:
-  description: The file downloaded from the [Google Actions Console][GActionsConsole], you can redownload them under the "Develop - Device registration" tab. By default the add-on look in the "hassio/share" folder.
+  description: The file downloaded from the [Google Actions Console](https://console.actions.google.com/), you can redownload them under the "Develop - Device registration" tab. By default the add-on look in the "hassio/share" folder.
   required: true
   type: string
 project_id:
-  description: The project id can be found in your "google_assistant.json" file or under project settings in the [Google Actions Console][GActionsConsole].
+  description: The project id can be found in your "google_assistant.json" file or under project settings in the [Google Actions Console](https://console.actions.google.com/).
   required: true
   type: string
 model_id:
-  description: The model id can also be found under the "Develop - Device registration tab" in the [Google Actions Console][GActionsConsole].
+  description: The model id can also be found under the "Develop - Device registration tab" in the [Google Actions Console](https://console.actions.google.com/).
   required: true
   type: string
 {% endconfiguration %}

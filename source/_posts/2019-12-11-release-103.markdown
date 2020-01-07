@@ -315,7 +315,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 ## Release 0.103.4 - December 22
 
 - Remove requirement from entity integration ([@balloob] - [#30113]) ([doods docs]) ([image_processing docs]) ([seven_segments docs]) ([tensorflow docs])
-- Move imports into setup function in homekit __init__.py ([@springstan] - [#30137]) ([homekit docs])
+- Move imports into setup function in homekit **init**.py ([@springstan] - [#30137]) ([homekit docs])
 - Fix deconz SSDP updating Hassio discovery ([@frenck] - [#30153]) ([deconz docs])
 - Allow battery value of 0 as well as make sure to not create a battery tracker if one already exist ([@Kane610] - [#30155]) ([deconz docs])
 
@@ -323,7 +323,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 [#30137]: https://github.com/home-assistant/home-assistant/pull/30137
 [#30153]: https://github.com/home-assistant/home-assistant/pull/30153
 [#30155]: https://github.com/home-assistant/home-assistant/pull/30155
-[@Kane610]: https://github.com/Kane610
+[@kane610]: https://github.com/Kane610
 [@balloob]: https://github.com/balloob
 [@frenck]: https://github.com/frenck
 [@springstan]: https://github.com/springstan
@@ -341,6 +341,27 @@ All services for use in Home Assistant are moved to their integration naming spa
 [#30245]: https://github.com/home-assistant/home-assistant/pull/30245
 [@tchellomello]: https://github.com/tchellomello
 [ring docs]: /components/ring/
+
+## Release 0.103.6 - January 6
+
+- Handle wired bug on restart ([@Kane610] - [#30276]) ([unifi docs])
+- Bump pysmartthings 0.7.0 ([@andrewsayre] - [#30302]) ([smartthings docs])
+- Bump env_canada to 0.0.31 ([@michaeldavie] - [#30409]) ([environment_canada docs])
+- Fix google sync ([@balloob] - [#30524]) ([cloud docs]) ([google_assistant docs])
+
+[#30276]: https://github.com/home-assistant/home-assistant/pull/30276
+[#30302]: https://github.com/home-assistant/home-assistant/pull/30302
+[#30409]: https://github.com/home-assistant/home-assistant/pull/30409
+[#30524]: https://github.com/home-assistant/home-assistant/pull/30524
+[@kane610]: https://github.com/Kane610
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@michaeldavie]: https://github.com/michaeldavie
+[cloud docs]: /integrations/cloud/
+[environment_canada docs]: /integrations/environment_canada/
+[google_assistant docs]: /integrations/google_assistant/
+[smartthings docs]: /integrations/smartthings/
+[unifi docs]: /integrations/unifi/
 
 ## If you need help...
 
