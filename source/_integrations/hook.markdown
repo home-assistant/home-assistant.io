@@ -1,6 +1,6 @@
 ---
-title: "Hook Switch"
-description: "Instructions on how to integrate the Hook Smart Home Hub into Home Assistant."
+title: Hook Switch
+description: Instructions on how to integrate the Hook Smart Home Hub into Home Assistant.
 logo: hook.png
 ha_category:
   - Switch

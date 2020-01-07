@@ -1,6 +1,6 @@
 ---
-title: "Image Processing"
-description: "Instructions on how to setup image processing with Home Assistant."
+title: Image Processing
+description: Instructions on how to setup image processing with Home Assistant.
 ha_release: 0.36
 ---
 

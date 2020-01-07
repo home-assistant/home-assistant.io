@@ -1,6 +1,6 @@
 ---
-title: "Automation"
-description: "Instructions on how to setup automation within Home Assistant."
+title: Automation
+description: Instructions on how to setup automation within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

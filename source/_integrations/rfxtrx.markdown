@@ -1,6 +1,6 @@
 ---
-title: "RFXtrx"
-description: "Instructions on how to integrate RFXtrx into Home Assistant."
+title: RFXtrx
+description: Instructions on how to integrate RFXtrx into Home Assistant.
 logo: rfxtrx.png
 ha_category:
   - Hub

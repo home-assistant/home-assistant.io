@@ -1,6 +1,6 @@
 ---
-title: "History Graph"
-description: "Instructions for setting up History Graph."
+title: History Graph
+description: Instructions for setting up History Graph.
 ha_category:
   - History
 logo: home-assistant.png

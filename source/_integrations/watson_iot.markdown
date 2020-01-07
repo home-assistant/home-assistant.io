@@ -1,6 +1,6 @@
 ---
-title: "IBM Watson IoT Platform"
-description: "Record events in the IBM Watson IoT Platform."
+title: IBM Watson IoT Platform
+description: Record events in the IBM Watson IoT Platform.
 logo: ibm.png
 ha_category:
   - History

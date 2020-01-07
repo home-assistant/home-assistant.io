@@ -1,6 +1,6 @@
 ---
-title: "Google Cloud Platform"
-description: "Google Cloud Platform integration."
+title: Google Cloud Platform
+description: Google Cloud Platform integration.
 logo: google_cloud.png
 ha_category: Text-to-speech
 ha_release: 0.95

@@ -1,11 +1,11 @@
 ---
-title: "eQ-3 MAX! Cube"
-description: "Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube."
+title: eQ-3 MAX! Cube
+description: Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube.
 logo: maxcube.png
 ha_category:
   - Climate
   - Binary Sensor
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Local Polling
 ---
 

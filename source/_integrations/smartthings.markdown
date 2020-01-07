@@ -1,6 +1,6 @@
 ---
-title: "SmartThings"
-description: "Instructions on setting up Samsung SmartThings within Home Assistant."
+title: SmartThings
+description: Instructions on setting up Samsung SmartThings within Home Assistant.
 featured: true
 logo: samsung_smartthings.png
 ha_category:

@@ -1,6 +1,6 @@
 ---
-title: "Owlet"
-description: "Instructions on how to integrate Owlet baby monitor into Home Assistant."
+title: Owlet
+description: Instructions on how to integrate Owlet baby monitor into Home Assistant.
 logo: owlet.svg
 ha_category:
   - Health

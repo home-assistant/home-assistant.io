@@ -1,6 +1,6 @@
 ---
-title: "17track.net"
-description: "Instructions on how to use 17track.net data within Home Assistant"
+title: 17track.net
+description: Instructions on how to use 17track.net data within Home Assistant
 logo: 17track.png
 ha_category:
   - Postal Service

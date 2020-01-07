@@ -1,6 +1,6 @@
 ---
-title: "GeoJSON Events"
-description: "Instructions on how to integrate GeoJSON feeds into Home Assistant."
+title: GeoJSON Events
+description: Instructions on how to integrate GeoJSON feeds into Home Assistant.
 logo: geo_location.png
 ha_category:
   - Geolocation

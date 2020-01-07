@@ -1,6 +1,6 @@
 ---
-title: "PVOutput Sensor"
-description: "Instructions on how to use PVOutput within Home Assistant."
+title: PVOutput Sensor
+description: Instructions on how to use PVOutput within Home Assistant.
 logo: pvoutput.png
 ha_category:
   - Energy

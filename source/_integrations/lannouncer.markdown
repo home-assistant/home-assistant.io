@@ -1,6 +1,6 @@
 ---
-title: "Lannouncer"
-description: "Instructions on how to add Lannouncer notifications to Home Assistant."
+title: Lannouncer
+description: Instructions on how to add Lannouncer notifications to Home Assistant.
 logo: lannouncer.png
 ha_category:
   - Notifications

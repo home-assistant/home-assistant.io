@@ -1,6 +1,6 @@
 ---
-title: "LIFX"
-description: "Instructions on how to integrate LIFX into Home Assistant."
+title: LIFX
+description: Instructions on how to integrate LIFX into Home Assistant.
 logo: lifx.png
 ha_category:
   - Light

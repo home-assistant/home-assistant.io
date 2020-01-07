@@ -1,6 +1,6 @@
 ---
-title: "Toon"
-description: "Instructions on how to integrate Toon within Home Assistant."
+title: Toon
+description: Instructions on how to integrate Toon within Home Assistant.
 ha_category:
   - Climate
   - Binary Sensor

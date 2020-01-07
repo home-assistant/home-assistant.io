@@ -1,10 +1,10 @@
 ---
-title: "ComEd Hourly Pricing"
-description: "Instructions on how to set up the ComEd Hourly Pricing sensor in Home Assistant."
+title: ComEd Hourly Pricing
+description: Instructions on how to set up the ComEd Hourly Pricing sensor in Home Assistant.
 logo: comed.png
 ha_category:
   - Energy
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ---
 

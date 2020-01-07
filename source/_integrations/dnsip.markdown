@@ -1,11 +1,11 @@
 ---
-title: "DNS IP Sensor"
-description: "Instructions on how to integrate a DNS IP sensor into Home Assistant."
+title: DNS IP Sensor
+description: Instructions on how to integrate a DNS IP sensor into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Network
 ha_iot_class: Cloud Polling
-ha_release: "0.40"
+ha_release: '0.40'
 ---
 
 The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its value. There are two operational modes:

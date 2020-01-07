@@ -1,6 +1,6 @@
 ---
-title: "Uptime Sensor"
-description: "Instructions on how to integrate an uptime sensor into Home Assistant."
+title: Uptime Sensor
+description: Instructions on how to integrate an uptime sensor into Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Local Push

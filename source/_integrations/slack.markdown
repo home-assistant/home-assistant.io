@@ -1,12 +1,11 @@
 ---
-title: "Slack"
-description: "Instructions on how to add Slack notifications to Home Assistant."
+title: Slack
+description: Instructions on how to add Slack notifications to Home Assistant.
 logo: slack.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
 ---
-
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 

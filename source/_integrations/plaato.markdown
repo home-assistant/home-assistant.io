@@ -1,6 +1,6 @@
 ---
-title: "Plaato Airlock"
-description: "Instructions on how to integrate Plaato Airlock sensors within Home Assistant."
+title: Plaato Airlock
+description: Instructions on how to integrate Plaato Airlock sensors within Home Assistant.
 logo: plaato.png
 ha_release: 0.95
 ha_category:

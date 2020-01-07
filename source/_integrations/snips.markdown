@@ -1,6 +1,6 @@
 ---
-title: "Snips"
-description: "Instructions on how to integrate Snips within Home Assistant."
+title: Snips
+description: Instructions on how to integrate Snips within Home Assistant.
 logo: snips.png
 ha_category:
   - Voice

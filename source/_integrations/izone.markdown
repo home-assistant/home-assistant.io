@@ -1,9 +1,9 @@
 ---
-title: "iZone climate control"
-description: "Instructions on how to integrate iZone climate control devices with Home Assistant."
+title: iZone climate control
+description: Instructions on how to integrate iZone climate control devices with Home Assistant.
 ha_category:
   - Climate
-ha_release: "0.100"
+ha_release: '0.100'
 ha_iot_class: Local Push
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "ISY994 Controller"
-description: "Instructions on how to setup the ISY994 controller within Home Assistant."
+title: ISY994 Controller
+description: Instructions on how to setup the ISY994 controller within Home Assistant.
 logo: universal_devices.png
 ha_category:
   - Hub

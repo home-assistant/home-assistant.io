@@ -1,6 +1,6 @@
 ---
 title: Social Blade Sensor
-description: "Instructions on how to set up Social Blade Sensor within Home Assistant."
+description: Instructions on how to set up Social Blade Sensor within Home Assistant.
 logo: socialblade.png
 ha_category:
   - Multimedia

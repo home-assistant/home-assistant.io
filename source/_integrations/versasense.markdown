@@ -1,6 +1,6 @@
 ---
-title: "VersaSense"
-description: "Integrate your VersaSense MicroPnP devices."
+title: VersaSense
+description: Integrate your VersaSense MicroPnP devices.
 date: 2019-11-19 14:00
 logo: versasense.png
 ha_release: 0.103

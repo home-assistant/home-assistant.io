@@ -1,6 +1,6 @@
 ---
-title: "Shell command"
-description: "Instructions on how to integrate Shell commands into Home Assistant."
+title: Shell command
+description: Instructions on how to integrate Shell commands into Home Assistant.
 ha_category:
   - Automation
 logo: home-assistant.png

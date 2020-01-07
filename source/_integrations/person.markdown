@@ -1,6 +1,6 @@
 ---
-title: "Person"
-description: "Instructions on how to set up people tracking within Home Assistant."
+title: Person
+description: Instructions on how to set up people tracking within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Presence Detection
@@ -97,4 +97,4 @@ customize:
     entity_picture: "/local/ada.jpg"
 ```
 
-See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder. 
+See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.

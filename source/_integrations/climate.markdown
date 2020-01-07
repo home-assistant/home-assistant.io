@@ -1,6 +1,6 @@
 ---
-title: "Climate"
-description: "Instructions on how to setup climate control devices within Home Assistant."
+title: Climate
+description: Instructions on how to setup climate control devices within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Climate

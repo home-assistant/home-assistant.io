@@ -1,6 +1,6 @@
 ---
-title: "GPSLogger"
-description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
+title: GPSLogger
+description: Instructions on how to use GPSLogger to track devices in Home Assistant.
 logo: gpslogger.png
 ha_category:
   - Presence Detection

@@ -1,6 +1,6 @@
 ---
-title: "SPC"
-description: "Instructions on how to setup Vanderbilt SPC devices within Home Assistant."
+title: SPC
+description: Instructions on how to setup Vanderbilt SPC devices within Home Assistant.
 ha_category:
   - Hub
   - Alarm

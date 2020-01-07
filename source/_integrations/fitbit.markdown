@@ -1,6 +1,6 @@
 ---
-title: "Fitbit"
-description: "Instructions on how to integrate Fitbit devices within Home Assistant."
+title: Fitbit
+description: Instructions on how to integrate Fitbit devices within Home Assistant.
 logo: fitbit.png
 ha_category:
   - Health

@@ -1,6 +1,6 @@
 ---
-title: "Counter"
-description: "Instructions on how to integrate counters into Home Assistant."
+title: Counter
+description: Instructions on how to integrate counters into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

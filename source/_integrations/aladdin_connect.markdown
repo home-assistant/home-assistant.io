@@ -1,6 +1,6 @@
 ---
-title: "Genie Aladdin Connect Cover"
-description: "Instructions how to integrate Genie Aladdin Connect garage door covers into Home Assistant."
+title: Genie Aladdin Connect Cover
+description: Instructions how to integrate Genie Aladdin Connect garage door covers into Home Assistant.
 logo: aladdin_connect.png
 ha_category:
   - Cover

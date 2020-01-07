@@ -1,10 +1,10 @@
 ---
-title: "SMHI"
-description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
+title: SMHI
+description: Instructions on how to integrate SMHI forecasts within Home Assistant.
 logo: smhi.png
 ha_category:
- - Hub
- - Weather
+  - Hub
+  - Weather
 ha_release: 0.81
 ha_iot_class: Cloud Polling
 ---

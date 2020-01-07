@@ -1,6 +1,6 @@
 ---
-title: "Mediaroom"
-description: "Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant."
+title: Mediaroom
+description: Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant.
 logo: mediaroom.png
 ha_category:
   - Media Player

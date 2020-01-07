@@ -1,6 +1,6 @@
 ---
-title: "Switchbot"
-description: "Instructions on how to set up Switchbot switches."
+title: Switchbot
+description: Instructions on how to set up Switchbot switches.
 logo: switchbot.png
 ha_category:
   - Switch

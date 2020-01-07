@@ -1,6 +1,6 @@
 ---
-title: "Google Maps Travel Time"
-description: "Instructions on how to add Google Maps travel time to Home Assistant."
+title: Google Maps Travel Time
+description: Instructions on how to add Google Maps travel time to Home Assistant.
 logo: google_maps.png
 ha_category:
   - Transport

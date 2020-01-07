@@ -1,11 +1,11 @@
 ---
-title: "Digital Ocean"
-description: "Instructions on how to integrate the Digital Ocean within Home Assistant."
+title: Digital Ocean
+description: Instructions on how to integrate the Digital Ocean within Home Assistant.
 ha_category:
   - System Monitor
   - Binary Sensor
   - Switch
-ha_release: "0.30"
+ha_release: '0.30'
 logo: digital_ocean.png
 ha_iot_class: Local Polling
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Proxmox VE"
-description: "Access your ProxmoxVE instance in Home Assistant."
+title: Proxmox VE
+description: Access your ProxmoxVE instance in Home Assistant.
 logo: proxmoxve.png
 ha_category:
   - Binary Sensor

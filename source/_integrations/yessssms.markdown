@@ -1,6 +1,6 @@
 ---
-title: "Yesss SMS"
-description: "Instructions on how to add Yesss-SMS notifications to Home Assistant."
+title: Yesss SMS
+description: Instructions on how to add Yesss-SMS notifications to Home Assistant.
 logo: yesssat.png
 ha_category:
   - Notifications

@@ -1,6 +1,6 @@
 ---
-title: "Pioneer Network Receivers"
-description: "Instructions on how to integrate a Pioneer Network Receivers into Home Assistant."
+title: Pioneer Network Receivers
+description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
 logo: pioneer.png
 ha_category:
   - Media Player

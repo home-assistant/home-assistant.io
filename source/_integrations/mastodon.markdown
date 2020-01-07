@@ -1,6 +1,6 @@
 ---
-title: "Mastodon"
-description: "Instructions on how to add Instapush notifications to Home Assistant."
+title: Mastodon
+description: Instructions on how to add Instapush notifications to Home Assistant.
 logo: mastodon.png
 ha_category:
   - Notifications

@@ -1,6 +1,6 @@
 ---
-title: "SQL Sensor"
-description: "Instructions how to integrate SQL sensors into Home Assistant."
+title: SQL Sensor
+description: Instructions how to integrate SQL sensors into Home Assistant.
 logo: sql.png
 ha_category:
   - Utility

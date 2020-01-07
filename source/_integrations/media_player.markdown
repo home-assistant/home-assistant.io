@@ -1,6 +1,6 @@
 ---
-title: "Media Player"
-description: "Instructions on how to setup your media players with Home Assistant."
+title: Media Player
+description: Instructions on how to setup your media players with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Media Player
@@ -72,5 +72,3 @@ Currently only supported on [Spotify](/integrations/spotify), [MPD](/integration
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
-
-

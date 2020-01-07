@@ -1,6 +1,6 @@
 ---
-title: "Rejseplanen Public Transport"
-description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
+title: Rejseplanen Public Transport
+description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
 logo: rejseplanen.png
 ha_category:
   - Transport

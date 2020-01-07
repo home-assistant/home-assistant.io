@@ -1,6 +1,6 @@
 ---
-title: "HomeKit"
-description: "Instructions on how to set up the HomeKit integration in Home Assistant."
+title: HomeKit
+description: Instructions on how to set up the HomeKit integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64

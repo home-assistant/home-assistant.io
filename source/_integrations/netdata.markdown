@@ -1,6 +1,6 @@
 ---
-title: "Netdata"
-description: "Instructions on how to integrate Netdata within Home Assistant."
+title: Netdata
+description: Instructions on how to integrate Netdata within Home Assistant.
 logo: netdata.png
 ha_category:
   - System Monitor

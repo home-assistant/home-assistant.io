@@ -1,10 +1,10 @@
 ---
-title: "Cisco Webex Teams"
-description: "Instructions on how to add Cisco Webex Teams notifications to Home Assistant."
+title: Cisco Webex Teams
+description: Instructions on how to add Cisco Webex Teams notifications to Home Assistant.
 logo: cisco_webex_teams.png
 ha_category:
   - Notifications
-ha_release: "0.40"
+ha_release: '0.40'
 ---
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).

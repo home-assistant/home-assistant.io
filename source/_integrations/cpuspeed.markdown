@@ -1,6 +1,6 @@
 ---
-title: "CPU speed"
-description: "Instructions on how to integrate CPU speed within Home Assistant."
+title: CPU speed
+description: Instructions on how to integrate CPU speed within Home Assistant.
 logo: cpu.png
 ha_category:
   - System Monitor

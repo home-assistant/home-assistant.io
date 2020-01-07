@@ -1,6 +1,6 @@
 ---
-title: "GeoNet NZ Quakes"
-description: "Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant."
+title: GeoNet NZ Quakes
+description: Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant.
 logo: geonet-nz.png
 ha_category:
   - Geolocation

@@ -1,11 +1,11 @@
 ---
-title: "Xfinity Gateway"
-description: "Instructions on how to integrate Xfinity Gateways into Home Assistant."
+title: Xfinity Gateway
+description: Instructions on how to integrate Xfinity Gateways into Home Assistant.
 ha_category:
   - Presence Detection
 logo: xfinity.svg
-ha_release: 0.90
-ha_iot_class: "Local Polling"
+ha_release: 0.9
+ha_iot_class: Local Polling
 ---
 
 The `xfinity` device tracker platform offers presence detection by looking at connected devices to an Xfinity gateway.

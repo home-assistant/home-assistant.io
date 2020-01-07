@@ -1,6 +1,6 @@
 ---
-title: "Supla"
-description: "Instructions for integration with Supla Cloud's Web API"
+title: Supla
+description: Instructions for integration with Supla Cloud's Web API
 logo: supla.png
 ha_release: 0.92
 ha_category:

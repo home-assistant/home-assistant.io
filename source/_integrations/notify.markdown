@@ -1,6 +1,6 @@
 ---
-title: "Notifications"
-description: "Instructions on how to add user notifications to Home Assistant."
+title: Notifications
+description: Instructions on how to add user notifications to Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Notifications

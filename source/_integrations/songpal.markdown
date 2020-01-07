@@ -1,6 +1,6 @@
 ---
-title: "Sony SongPal compatible devices"
-description: "Instructions on how to integrate Sony Songpal devices into Home Assistant."
+title: Sony SongPal compatible devices
+description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
 logo: sony.png
 ha_category:
   - Media Player
@@ -58,6 +58,3 @@ For a list of available settings and their values use [`songpal sound`](https://
 | `entity_id`            |      yes | Target entity, leave unset for all devices       |
 | `name`                 |       no | Configuration variable, e.g., `nightmode`         |
 | `value`                |       no | New configuration value, e.g., `on`               |
-
-
-

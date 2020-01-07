@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hub"
-description: "Setup for Azure Event Hub integration"
+title: Azure Event Hub
+description: Setup for Azure Event Hub integration
 logo: azure_event_hub.svg
 ha_category:
   - History

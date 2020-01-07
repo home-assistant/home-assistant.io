@@ -1,6 +1,6 @@
 ---
-title: "Essent"
-description: "Instructions on how to integrate Essent within Home Assistant."
+title: Essent
+description: Instructions on how to integrate Essent within Home Assistant.
 logo: essent.png
 ha_category:
   - Energy
@@ -31,4 +31,3 @@ password:
   description: Your password for [Mijn Essent](https://www.essent.nl/content/particulier/klantenservice/mijn_essent/).
   type: string
 {% endconfiguration %}
-

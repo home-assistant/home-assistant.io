@@ -1,6 +1,6 @@
 ---
-title: "Generic Thermostat"
-description: "Turn Home Assistant into a thermostat"
+title: Generic Thermostat
+description: Turn Home Assistant into a thermostat
 logo: home-assistant.png
 ha_category:
   - Climate

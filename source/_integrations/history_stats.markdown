@@ -1,6 +1,6 @@
 ---
-title: "History Statistics Sensor"
-description: "Instructions about how to integrate historical statistics into Home Assistant."
+title: History Statistics Sensor
+description: Instructions about how to integrate historical statistics into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Utility

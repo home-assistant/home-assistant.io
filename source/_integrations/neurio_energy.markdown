@@ -1,6 +1,6 @@
 ---
-title: "Neurio"
-description: "Instructions on how to integrate Neurio within Home Assistant."
+title: Neurio
+description: Instructions on how to integrate Neurio within Home Assistant.
 logo: neurio.png
 ha_category:
   - Energy

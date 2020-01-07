@@ -1,6 +1,6 @@
 ---
-title: "StarLine"
-description: "Instructions on how to setup your StarLine account with Home Assistant."
+title: StarLine
+description: Instructions on how to setup your StarLine account with Home Assistant.
 logo: starline.png
 ha_category:
   - Car

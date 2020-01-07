@@ -1,6 +1,6 @@
 ---
-title: "NuHeat"
-description: "Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant."
+title: NuHeat
+description: Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant.
 logo: nuheat.png
 ha_category:
   - Climate

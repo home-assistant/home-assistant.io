@@ -1,6 +1,6 @@
 ---
-title: "SmartHab"
-description: "Instructions on how to integrate SmartHab devices into Home Assistant"
+title: SmartHab
+description: Instructions on how to integrate SmartHab devices into Home Assistant
 logo: smarthab.png
 ha_release: 0.94
 ha_category:

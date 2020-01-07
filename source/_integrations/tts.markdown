@@ -1,6 +1,6 @@
 ---
-title: "Text-to-Speech (TTS)"
-description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
+title: Text-to-Speech (TTS)
+description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
 ha_release: 0.35
 ---
 

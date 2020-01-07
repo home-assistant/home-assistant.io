@@ -1,6 +1,6 @@
 ---
-title: "Baidu Text-to-Speech"
-description: "Instructions on how to setup Baidu TTS with Home Assistant."
+title: Baidu Text-to-Speech
+description: Instructions on how to setup Baidu TTS with Home Assistant.
 logo: baiducloud.png
 ha_category:
   - Text-to-speech

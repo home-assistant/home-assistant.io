@@ -1,6 +1,6 @@
 ---
-title: "Météo-France"
-description: "Instructions on how to integrate Météo-France within Home Assistant."
+title: Météo-France
+description: Instructions on how to integrate Météo-France within Home Assistant.
 logo: meteo-france.png
 ha_release: 0.89
 ha_iot_class: Cloud Polling

@@ -1,6 +1,6 @@
 ---
-title: "Fronius"
-description: "Instructions on how to connect your Fronius Inverter to Home Assistant."
+title: Fronius
+description: Instructions on how to connect your Fronius Inverter to Home Assistant.
 ha_category:
   - Energy
   - Sensor

@@ -1,6 +1,6 @@
 ---
-title: "Syslog"
-description: "Instructions on how to add syslog notifications to Home Assistant."
+title: Syslog
+description: Instructions on how to add syslog notifications to Home Assistant.
 logo: syslog.png
 ha_category:
   - Notifications

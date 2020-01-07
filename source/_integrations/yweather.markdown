@@ -1,6 +1,6 @@
 ---
-title: "Yahoo Weather"
-description: "Instructions on how to integrate Yahoo Weather within Home Assistant."
+title: Yahoo Weather
+description: Instructions on how to integrate Yahoo Weather within Home Assistant.
 logo: yahooweather.png
 ha_category:
   - Weather

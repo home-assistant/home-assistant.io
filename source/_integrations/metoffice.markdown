@@ -1,6 +1,6 @@
 ---
-title: "Met Office"
-description: "Instructions on how to integrate Met Office weather conditions into Home Assistant."
+title: Met Office
+description: Instructions on how to integrate Met Office weather conditions into Home Assistant.
 logo: metoffice.jpg
 ha_category:
   - Weather

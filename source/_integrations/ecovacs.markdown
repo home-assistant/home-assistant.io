@@ -1,6 +1,6 @@
 ---
-title: "Ecovacs"
-description: "Instructions on how to integrate Ecovacs vacuums within Home Assistant."
+title: Ecovacs
+description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
 logo: ecovacs.png
 ha_category:
   - Hub

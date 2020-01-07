@@ -1,6 +1,6 @@
 ---
-title: "Logger"
-description: "Instructions on how to enable the logger integration for Home Assistant."
+title: Logger
+description: Instructions on how to enable the logger integration for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Utility

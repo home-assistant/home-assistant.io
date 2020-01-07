@@ -1,6 +1,6 @@
 ---
-title: "Zestimate"
-description: "Instructions on how to integrate the Zestimate sensor into Home Assistant."
+title: Zestimate
+description: Instructions on how to integrate the Zestimate sensor into Home Assistant.
 ha_category:
   - Sensor
 logo: zillow.png

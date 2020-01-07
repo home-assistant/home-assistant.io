@@ -1,6 +1,6 @@
 ---
-title: "Luftdaten"
-description: "Instructions on how to setup Luftdaten sensors in Home Assistant."
+title: Luftdaten
+description: Instructions on how to setup Luftdaten sensors in Home Assistant.
 logo: luftdaten.png
 ha_category:
   - Health

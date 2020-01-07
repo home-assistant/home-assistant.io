@@ -1,13 +1,12 @@
 ---
-title: "DuneHD media players"
-description: "Instructions on how to integrate DuneHD media players into Home Assistant."
+title: DuneHD media players
+description: Instructions on how to integrate DuneHD media players into Home Assistant.
 logo: dunehd.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.34
 ---
-
 
 The `dunehd` media player platform allows you to control a [Dune HD media player](https://dune-hd.com/eng/products/full_hd_media_players) from Home Assistant. Support is based on the official [IP protocol](https://dune-hd.com/support/ip_control/dune_ip_control_overview.txt) published by Dune.
 

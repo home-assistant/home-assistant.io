@@ -1,6 +1,6 @@
 ---
-title: "ThermoWorks Smoke Sensor"
-description: "Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway."
+title: ThermoWorks Smoke Sensor
+description: Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway.
 logo: thermoworks.png
 ha_category:
   - Sensor

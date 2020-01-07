@@ -1,12 +1,12 @@
 ---
-title: "Tibber"
-description: "Instructions on how to integrate Tibber within Home Assistant."
+title: Tibber
+description: Instructions on how to integrate Tibber within Home Assistant.
 logo: tibber.png
 ha_category:
   - Energy
   - Sensor
   - Notifications
-ha_release: 0.80
+ha_release: 0.8
 ha_qa_scale: silver
 ha_iot_class: Cloud Polling
 ---

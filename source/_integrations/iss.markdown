@@ -1,6 +1,6 @@
 ---
-title: "International Space Station"
-description: "Know if or when ISS will be above your home location"
+title: International Space Station
+description: Know if or when ISS will be above your home location
 logo: nasa.png
 ha_category:
   - Binary Sensor

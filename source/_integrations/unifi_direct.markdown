@@ -1,13 +1,12 @@
 ---
-title: "Ubiquiti Unifi direct AP"
-description: "Instructions on how to use a Unifi WAP as a device tracker."
+title: Ubiquiti Unifi direct AP
+description: Instructions on how to use a Unifi WAP as a device tracker.
 logo: ubiquiti.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.59
 ---
-
 
 This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ubnt.com/products/#unifi). This device tracker differs form [Ubiquiti Unifi WAP](/integrations/unifi) because it doesn't require the Unifi controller software.
 
@@ -38,4 +37,3 @@ password:
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
-

@@ -1,6 +1,6 @@
 ---
-title: "Emulated Hue Bridge"
-description: "Instructions on how to emulate a Hue Bridge within Home Assistant."
+title: Emulated Hue Bridge
+description: Instructions on how to emulate a Hue Bridge within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Hub

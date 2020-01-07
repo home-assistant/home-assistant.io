@@ -1,6 +1,6 @@
 ---
-title: "DuckDNS"
-description: "Keep your computer registered with the DuckDNS dynamic DNS."
+title: DuckDNS
+description: Keep your computer registered with the DuckDNS dynamic DNS.
 logo: duckdns.png
 ha_category:
   - Network

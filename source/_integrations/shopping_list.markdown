@@ -1,10 +1,10 @@
 ---
-title: "Shopping List"
-description: "Instructions on how to integrate a Shopping list into Home Assistant using Intent."
+title: Shopping List
+description: Instructions on how to integrate a Shopping list into Home Assistant using Intent.
 logo: home-assistant.png
 ha_category:
   - Intent
-ha_release: "0.50"
+ha_release: '0.50'
 ha_qa_scale: internal
 ---
 

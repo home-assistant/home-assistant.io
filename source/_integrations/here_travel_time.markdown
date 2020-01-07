@@ -1,12 +1,12 @@
 ---
-title: "HERE Travel Time"
-description: "Instructions on how to add HERE travel time to Home Assistant."
+title: HERE Travel Time
+description: Instructions on how to add HERE travel time to Home Assistant.
 logo: HERE_logo.svg
 ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.100"
+ha_release: '0.100'
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).

@@ -1,6 +1,6 @@
 ---
-title: "flume"
-description: "Documentation about the flume sensor."
+title: flume
+description: Documentation about the flume sensor.
 logo: flume.jpg
 ha_category:
   - Sensor

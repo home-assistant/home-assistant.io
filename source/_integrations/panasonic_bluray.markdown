@@ -1,6 +1,6 @@
 ---
-title: "Panasonic Blu-Ray Player"
-description: "Instructions on how to integrate a Panasonic Blu-Ray player into Home Assistant."
+title: Panasonic Blu-Ray Player
+description: Instructions on how to integrate a Panasonic Blu-Ray player into Home Assistant.
 logo: panasonic.png
 ha_category:
   - Media Player

@@ -1,6 +1,6 @@
 ---
-title: "Blink"
-description: "Instructions for how to integrate Blink camera/security system within Home Assistant."
+title: Blink
+description: Instructions for how to integrate Blink camera/security system within Home Assistant.
 logo: blink.png
 ha_category:
   - Hub
@@ -8,7 +8,7 @@ ha_category:
   - Binary Sensor
   - Camera
   - Sensor
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Volumio Media Player"
-description: "How to set up the Volumio media player platform"
+title: Volumio Media Player
+description: How to set up the Volumio media player platform
 logo: volumio.png
 ha_category:
   - Media Player

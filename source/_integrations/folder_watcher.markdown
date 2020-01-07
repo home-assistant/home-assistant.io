@@ -1,6 +1,6 @@
 ---
-title: "Folder Watcher"
-description: "Component for monitoring changes within the filesystem."
+title: Folder Watcher
+description: Component for monitoring changes within the filesystem.
 logo: home-assistant.png
 ha_category:
   - System Monitor

@@ -1,6 +1,6 @@
 ---
-title: "Trafikverket Train"
-description: "Instructions how to integrate Trafikverket Train within Home Assistant."
+title: Trafikverket Train
+description: Instructions how to integrate Trafikverket Train within Home Assistant.
 logo: trafikverket.png
 ha_category:
   - Transport

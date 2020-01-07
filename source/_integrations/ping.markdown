@@ -1,6 +1,6 @@
 ---
-title: "Ping (ICMP)"
-description: "Instructions on how to integrate Ping (ICMP)-based into Home Assistant."
+title: Ping (ICMP)
+description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Network

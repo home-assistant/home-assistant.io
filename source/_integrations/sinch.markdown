@@ -1,6 +1,6 @@
 ---
-title: "Sinch SMS"
-description: "Instructions on how to add Sinch notifications to Home Assistant."
+title: Sinch SMS
+description: Instructions on how to add Sinch notifications to Home Assistant.
 logo: sinch.png
 ha_category:
   - Notifications

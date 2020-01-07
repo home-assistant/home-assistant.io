@@ -1,6 +1,6 @@
 ---
-title: "Cloudflare"
-description: "Automatically update your Cloudflare DNS records."
+title: Cloudflare
+description: Automatically update your Cloudflare DNS records.
 logo: cloudflare.png
 ha_category:
   - Network

@@ -1,6 +1,6 @@
 ---
-title: "Google Assistant"
-description: "Setup for Google Assistant integration"
+title: Google Assistant
+description: Setup for Google Assistant integration
 logo: google-assistant.png
 ha_category:
   - Voice

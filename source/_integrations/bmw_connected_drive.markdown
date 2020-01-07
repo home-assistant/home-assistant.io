@@ -1,6 +1,6 @@
 ---
-title: "BMW Connected Drive"
-description: "Instructions on how to setup your BMW Connected Drive account with Home Assistant."
+title: BMW Connected Drive
+description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 logo: bmw.png
 ha_category:
   - Car

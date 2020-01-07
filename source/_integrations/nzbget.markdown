@@ -1,6 +1,6 @@
 ---
-title: "NZBGet"
-description: "Instructions on how to integrate NZBGet within Home Assistant."
+title: NZBGet
+description: Instructions on how to integrate NZBGet within Home Assistant.
 ha_category:
   - Downloading
 logo: nzbget.png

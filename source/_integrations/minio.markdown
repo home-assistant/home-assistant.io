@@ -1,6 +1,6 @@
 ---
-title: "Minio"
-description: "Integration for interacting with Minio object storage."
+title: Minio
+description: Integration for interacting with Minio object storage.
 logo: minio.png
 ha_category: Utility
 ha_iot_class: Cloud Push

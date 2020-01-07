@@ -1,6 +1,6 @@
 ---
-title: "GitHub Sensor"
-description: "How to integrate the GitHub sensor into Home Assistant."
+title: GitHub Sensor
+description: How to integrate the GitHub sensor into Home Assistant.
 logo: github.png
 ha_category:
   - Sensor

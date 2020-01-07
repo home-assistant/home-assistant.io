@@ -1,6 +1,6 @@
 ---
-title: "IKEA Trådfri (Tradfri)"
-description: "Access and control your IKEA Trådfri Gateway and its connected Zigbee-based devices."
+title: IKEA Trådfri (Tradfri)
+description: Access and control your IKEA Trådfri Gateway and its connected Zigbee-based devices.
 featured: true
 logo: ikea.svg
 ha_iot_class: Local Polling

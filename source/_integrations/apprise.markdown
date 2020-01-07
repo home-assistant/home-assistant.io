@@ -1,6 +1,6 @@
 ---
-title: "Apprise"
-description: "Instructions on how to add Apprise notifications to Home Assistant."
+title: Apprise
+description: Instructions on how to add Apprise notifications to Home Assistant.
 logo: apprise.png
 ha_category:
   - Notifications

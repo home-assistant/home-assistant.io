@@ -1,6 +1,6 @@
 ---
-title: "Version Sensor"
-description: "Instructions on how to integrate a version sensor into Home Assistant."
+title: Version Sensor
+description: Instructions on how to integrate a version sensor into Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Local Push

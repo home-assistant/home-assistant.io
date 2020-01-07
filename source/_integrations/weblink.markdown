@@ -1,6 +1,6 @@
 ---
-title: "Weblink"
-description: "Instructions on how to setup Links within Home Assistant."
+title: Weblink
+description: Instructions on how to setup Links within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Front End

@@ -1,6 +1,6 @@
 ---
-title: "Proximity"
-description: "Instructions on how to setup Proximity monitoring within Home Assistant."
+title: Proximity
+description: Instructions on how to setup Proximity monitoring within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

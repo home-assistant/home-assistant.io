@@ -1,6 +1,6 @@
 ---
-title: "Eddystone Beacon"
-description: "Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data."
+title: Eddystone Beacon
+description: Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.
 logo: eddystone.png
 ha_category:
   - DIY

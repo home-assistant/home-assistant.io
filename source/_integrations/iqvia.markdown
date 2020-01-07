@@ -1,6 +1,6 @@
 ---
-title: "IQVIA"
-description: "Instructions on how to use IQVIA data within Home Assistant"
+title: IQVIA
+description: Instructions on how to use IQVIA data within Home Assistant
 logo: iqvia.png
 ha_category:
   - Health
