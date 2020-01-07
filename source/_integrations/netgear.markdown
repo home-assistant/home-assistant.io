@@ -1,6 +1,6 @@
 ---
-title: "Netgear"
-description: "Instructions on how to integrate Netgear routers into Home Assistant."
+title: Netgear
+description: Instructions on how to integrate Netgear routers into Home Assistant.
 logo: netgear.png
 ha_category:
   - Presence Detection

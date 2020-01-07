@@ -1,6 +1,6 @@
 ---
-title: "Minut Point"
-description: "Instructions on how to integrate Minut Point into Home Assistant."
+title: Minut Point
+description: Instructions on how to integrate Minut Point into Home Assistant.
 logo: minut.svg
 ha_category:
   - Hub

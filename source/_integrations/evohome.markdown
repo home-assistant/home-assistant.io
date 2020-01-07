@@ -1,11 +1,11 @@
 ---
-title: "Honeywell evohome/TCC systems"
-description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
+title: Honeywell evohome / Total Connect Comfort
+description: Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant.
 logo: honeywell.png
 ha_category:
   - Hub
   - Climate
-ha_release: 0.80
+ha_release: 0.8
 ha_iot_class: Cloud Polling
 ---
 

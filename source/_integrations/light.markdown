@@ -1,6 +1,6 @@
 ---
-title: "Light"
-description: "Instructions on how to setup your lights with Home Assistant."
+title: Light
+description: Instructions on how to setup your lights with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Light
@@ -91,4 +91,3 @@ Toggles the state of one or multiple lights using [groups]({{site_root}}/integra
 Takes the same arguments as [`turn_on`](#service-lightturn_on) service.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
-

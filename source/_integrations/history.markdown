@@ -1,6 +1,6 @@
 ---
-title: "History"
-description: "Instructions on how to enable history support for Home Assistant."
+title: History
+description: Instructions on how to enable history support for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - History

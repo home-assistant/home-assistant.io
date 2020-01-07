@@ -1,6 +1,6 @@
 ---
-title: "Remote Raspberry Pi GPIO"
-description: "Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant."
+title: remote_rpi_gpio
+description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

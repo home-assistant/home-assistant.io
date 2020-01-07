@@ -1,6 +1,6 @@
 ---
-title: "Wake on LAN"
-description: "Instructions on how to setup the Wake on LAN integration in Home Assistant."
+title: Wake on LAN
+description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
 logo: ethernet.png
 ha_category:
   - Network

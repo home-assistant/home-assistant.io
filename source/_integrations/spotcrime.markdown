@@ -1,6 +1,6 @@
 ---
-title: "Spot Crime"
-description: "Instructions on how to integrate spotcrime.com into Home Assistant."
+title: Spot Crime
+description: Instructions on how to integrate spotcrime.com into Home Assistant.
 ha_release: 0.65
 ha_iot_class: Cloud Polling
 ---

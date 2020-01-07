@@ -1,6 +1,6 @@
 ---
-title: "Integration Sensor"
-description: "Instructions on how to integrate Integration Sensor into Home Assistant."
+title: Integration - Riemann sum integral
+description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Utility
   - Energy

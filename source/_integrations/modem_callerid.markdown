@@ -1,9 +1,9 @@
 ---
-title: "Caller ID Sensor"
-description: "Instructions on how to integrate the Caller ID sensor into Home Assistant."
+title: Modem Caller ID
+description: Instructions on how to integrate the Caller ID sensor into Home Assistant.
 ha_category:
   - Sensor
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Local Polling
 ---
 

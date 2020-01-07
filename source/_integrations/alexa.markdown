@@ -1,11 +1,11 @@
 ---
-title: "Amazon Alexa"
-description: "Instructions on how to connect Alexa/Amazon Echo to Home Assistant."
+title: Amazon Alexa
+description: Instructions on how to connect Alexa/Amazon Echo to Home Assistant.
 logo: amazon-alexa.png
 ha_category:
   - Voice
 featured: true
-ha_release: "0.10"
+ha_release: '0.10'
 ---
 
 ## Automatic setup via Home Assistant Cloud

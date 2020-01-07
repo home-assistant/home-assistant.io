@@ -1,6 +1,6 @@
 ---
-title: "Input Number"
-description: "Instructions on how to integrate the Input Number integration into Home Assistant."
+title: Input Number
+description: Instructions on how to integrate the Input Number integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

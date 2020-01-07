@@ -1,6 +1,6 @@
 ---
-title: "USGS Earthquakes"
-description: "Instructions on how to integrate the U.S. Geological Survey Earthquake Hazards Program Feed feed into Home Assistant."
+title: U.S. Geological Survey Earthquake Hazards (USGS)
+description: Instructions on how to integrate the U.S. Geological Survey Earthquake Hazards Program Feed feed into Home Assistant.
 logo: us-geological-survey.png
 ha_category:
   - Geolocation

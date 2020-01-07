@@ -1,11 +1,11 @@
 ---
-title: "Kaiterra"
-description: "Instructions on how to integrate your Kaiterra device into Home Assistant."
+title: Kaiterra
+description: Instructions on how to integrate your Kaiterra device into Home Assistant.
 logo: kaiterra.svg
 ha_iot_class: Cloud Polling
 ha_category:
   - Health
-ha_release: "0.100"
+ha_release: '0.100'
 ---
 
 The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).

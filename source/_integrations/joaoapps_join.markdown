@@ -1,6 +1,6 @@
 ---
-title: "Joaoapps Join"
-description: "Instructions for how to integrate the Join by Joaoapps service within Home Assistant."
+title: Joaoapps Join
+description: Instructions for how to integrate the Join by Joaoapps service within Home Assistant.
 logo: joaoapps_join.png
 ha_category:
   - Hub

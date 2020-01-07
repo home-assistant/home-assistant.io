@@ -1,6 +1,6 @@
 ---
-title: "AdGuard Home"
-description: "Instructions on how to integrate AdGuard Home with Home Assistant."
+title: AdGuard Home
+description: Instructions on how to integrate AdGuard Home with Home Assistant.
 logo: adguard.png
 ha_category:
   - Network

@@ -1,6 +1,6 @@
 ---
-title: "Person"
-description: "Instructions on how to set up people tracking within Home Assistant."
+title: Person
+description: Instructions on how to set up people tracking within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Presence Detection

@@ -1,6 +1,6 @@
 ---
-title: "Downloader"
-description: "Instructions on how to setup the downloader integration with Home Assistant."
+title: Downloader
+description: Instructions on how to setup the downloader integration with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Downloading

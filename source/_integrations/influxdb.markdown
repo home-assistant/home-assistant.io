@@ -1,6 +1,6 @@
 ---
-title: "InfluxDB"
-description: "Record events in InfluxDB."
+title: InfluxDB
+description: Record events in InfluxDB.
 logo: influxdb.png
 ha_category:
   - History

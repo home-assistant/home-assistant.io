@@ -1,6 +1,6 @@
 ---
-title: "FFmpeg"
-description: "Instructions on how to integrate FFmpeg within Home Assistant."
+title: FFmpeg
+description: Instructions on how to integrate FFmpeg within Home Assistant.
 logo: ffmpeg.png
 ha_category:
   - Image Processing

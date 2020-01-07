@@ -1,6 +1,6 @@
 ---
-title: "Lutron Caseta"
-description: "Instructions on how to use Lutron Caseta devices with Home Assistant."
+title: Lutron Caseta
+description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 logo: lutron.png
 ha_category:
   - Hub

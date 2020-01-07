@@ -1,13 +1,12 @@
 ---
-title: "CoolMasterNet Climate"
-description: "Instructions on how to integrate CoolMasterNet within Home Assistant."
+title: CoolMasterNet
+description: Instructions on how to integrate CoolMasterNet within Home Assistant.
 logo: coolautomation.png
 ha_category:
   - Climate
 ha_release: 0.88
 ha_iot_class: Local Polling
 ---
-
 
 The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
 

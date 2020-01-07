@@ -1,6 +1,6 @@
 ---
-title: "Utility Meter"
-description: "Instructions on how to integrate the Utility Meter into Home Assistant."
+title: Utility Meter
+description: Instructions on how to integrate the Utility Meter into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.87

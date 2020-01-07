@@ -1,6 +1,6 @@
 ---
-title: "Scrape Sensor"
-description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
+title: Scrape
+description: Instructions on how to integrate Web scrape sensors into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Sensor

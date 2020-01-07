@@ -1,6 +1,6 @@
 ---
-title: "HTTP"
-description: "Offers a web framework to serve files."
+title: HTTP
+description: Offers a web framework to serve files.
 logo: http.png
 ha_category:
   - Other

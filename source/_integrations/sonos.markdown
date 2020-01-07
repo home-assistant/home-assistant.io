@@ -1,6 +1,6 @@
 ---
-title: "Sonos"
-description: "Instructions on how to integrate Sonos devices into Home Assistant."
+title: Sonos
+description: Instructions on how to integrate Sonos devices into Home Assistant.
 logo: sonos.png
 ha_category:
   - Media Player

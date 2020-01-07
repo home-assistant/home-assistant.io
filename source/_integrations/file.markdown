@@ -1,6 +1,6 @@
 ---
-title: "File"
-description: "Instructions on how to integrate sensors which read from files into Home Assistant."
+title: File
+description: Instructions on how to integrate sensors which read from files into Home Assistant.
 logo: file.png
 ha_category:
   - Utility

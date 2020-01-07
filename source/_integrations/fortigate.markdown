@@ -1,6 +1,6 @@
 ---
-title: "Fortigate"
-description: "Instructions on how to integrate FortiGate Firewalls into Home Assistant."
+title: FortiGate
+description: Instructions on how to integrate FortiGate Firewalls into Home Assistant.
 logo: fortinet.jpg
 ha_category:
   - Presence Detection

@@ -1,6 +1,6 @@
 ---
-title: "Todoist"
-description: "Instructions on how to integrate Todoist into Home Assistant."
+title: Todoist
+description: Instructions on how to integrate Todoist into Home Assistant.
 logo: todoist.png
 ha_category:
   - Calendar

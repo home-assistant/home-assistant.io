@@ -1,6 +1,6 @@
 ---
-title: Repetier-Server Component
-description: "Instructions how to add Repetier-Server sensors to Home Assistant."
+title: Repetier-Server
+description: Instructions how to add Repetier-Server sensors to Home Assistant.
 logo: repetier.png
 ha_category:
   - Hub

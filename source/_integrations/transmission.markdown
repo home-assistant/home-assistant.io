@@ -1,6 +1,6 @@
 ---
-title: "Transmission"
-description: "Instructions on how to integrate Transmission within Home Assistant."
+title: Transmission
+description: Instructions on how to integrate Transmission within Home Assistant.
 logo: transmission.png
 ha_category:
   - Downloading

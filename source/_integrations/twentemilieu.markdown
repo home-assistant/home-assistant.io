@@ -1,6 +1,6 @@
 ---
-title: "Twente Milieu"
-description: "Instructions on how to integrate Twente Milieu with Home Assistant."
+title: Twente Milieu
+description: Instructions on how to integrate Twente Milieu with Home Assistant.
 logo: twentemilieu.png
 ha_category:
   - Sensor

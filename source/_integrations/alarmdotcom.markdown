@@ -1,6 +1,6 @@
 ---
-title: "Alarm.com Alarm Control Panel"
-description: "Instructions on how to integrate Alarm.com into Home Assistant."
+title: Alarm.com
+description: Instructions on how to integrate Alarm.com into Home Assistant.
 logo: alarmdotcom.png
 ha_category:
   - Alarm

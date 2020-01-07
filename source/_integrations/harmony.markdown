@@ -1,6 +1,6 @@
 ---
-title: "Harmony Hub Remote"
-description: "Instructions on how to integrate Harmony Hub remotes into Home Assistant."
+title: Logitech Harmony Hub
+description: Instructions on how to integrate Harmony Hub remotes into Home Assistant.
 logo: logitech.png
 ha_category:
   - Remote

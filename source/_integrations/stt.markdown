@@ -1,7 +1,7 @@
 ---
-title: "Speech-to-Text (STT)"
-description: "Instructions on how to set up Speech-to-Text (STT) with Home Assistant."
-ha_release: "0.102"
+title: Speech-to-Text (STT)
+description: Instructions on how to set up Speech-to-Text (STT) with Home Assistant.
+ha_release: '0.102'
 ---
 
 Speech-to-Text (SST) allows you to stream speech data to the SST API and get text back.

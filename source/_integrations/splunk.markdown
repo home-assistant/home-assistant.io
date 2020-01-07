@@ -1,6 +1,6 @@
 ---
-title: "Splunk"
-description: "Record events in Splunk."
+title: Splunk
+description: Record events in Splunk.
 logo: splunk.png
 ha_category:
   - History

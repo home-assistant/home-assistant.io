@@ -1,9 +1,9 @@
 ---
-title: "Shiftr.io"
-description: "Transfer events to Shiftr.io."
+title: shiftr.io
+description: Transfer events to Shiftr.io.
 logo: shiftr.png
 ha_category:
-  - "History"
+  - History
 ha_release: 0.48
 ---
 

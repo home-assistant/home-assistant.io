@@ -1,9 +1,9 @@
 ---
-title: "StatsD"
-description: "Record events in StatsD."
+title: StatsD
+description: Record events in StatsD.
 logo: statsd.png
 ha_category:
-  - "History"
+  - History
 ha_release: 0.12
 ---
 

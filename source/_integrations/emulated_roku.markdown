@@ -1,6 +1,6 @@
 ---
-title: "Emulated Roku"
-description: "Instructions on how to set up Emulated Roku within Home Assistant."
+title: Emulated Roku
+description: Instructions on how to set up Emulated Roku within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Hub

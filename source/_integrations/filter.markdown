@@ -1,6 +1,6 @@
 ---
-title: "Filter Sensor"
-description: "Instructions on how to integrate Data Filter Sensors into Home Assistant."
+title: Filter
+description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
   - Utility
 ha_release: 0.65

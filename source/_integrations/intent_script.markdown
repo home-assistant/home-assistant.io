@@ -1,10 +1,10 @@
 ---
-title: "Intent Script"
-description: "Instructions on how to setup scripts to run on intents."
+title: Intent Script
+description: Instructions on how to setup scripts to run on intents.
 logo: home-assistant.png
 ha_category:
   - Intent
-ha_release: "0.50"
+ha_release: '0.50'
 ha_qa_scale: internal
 ---
 

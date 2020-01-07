@@ -1,6 +1,6 @@
 ---
-title: "MySensors"
-description: "Instructions on how to integrate MySensors sensors into Home Assistant."
+title: MySensors
+description: Instructions on how to integrate MySensors sensors into Home Assistant.
 logo: mysensors.png
 ha_category:
   - DIY

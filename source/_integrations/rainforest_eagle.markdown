@@ -1,6 +1,6 @@
 ---
-title: "Rainforest Eagle-200"
-description: "Instructions on how to setup the Rainforest Eagle-200 with Home Assistant."
+title: Rainforest Eagle-200
+description: Instructions on how to setup the Rainforest Eagle-200 with Home Assistant.
 logo: rainforest_automation_logo.png
 ha_category:
   - Energy

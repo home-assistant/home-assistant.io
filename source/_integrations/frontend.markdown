@@ -1,6 +1,6 @@
 ---
-title: "Frontend"
-description: "Offers a frontend to Home Assistant."
+title: Home Assistant Frontend
+description: Offers a frontend to Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Other

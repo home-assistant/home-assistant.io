@@ -1,6 +1,6 @@
 ---
-title: "Google Hangouts"
-description: "Hangouts chatbot support"
+title: Google Hangouts
+description: Hangouts chatbot support
 logo: hangouts.png
 ha_category:
   - Hub

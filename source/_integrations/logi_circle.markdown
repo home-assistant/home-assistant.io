@@ -1,6 +1,6 @@
 ---
-title: "Logi Circle"
-description: "Instructions on how to integrate your Logi Circle cameras within Home Assistant."
+title: Logi Circle
+description: Instructions on how to integrate your Logi Circle cameras within Home Assistant.
 logo: logi_circle.png
 ha_category:
   - Camera

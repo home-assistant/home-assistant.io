@@ -1,6 +1,6 @@
 ---
-title: "Reddit"
-description: "How to integrate the Reddit sensor into Home Assistant."
+title: Reddit
+description: How to integrate the Reddit sensor into Home Assistant.
 logo: reddit.png
 ha_category:
   - Sensor

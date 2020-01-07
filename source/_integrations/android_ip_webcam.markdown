@@ -1,6 +1,6 @@
 ---
-title: "Android IP Webcam"
-description: "Connect Android devices as an IP webcam to Home Assistant"
+title: Android IP Webcam
+description: Connect Android devices as an IP webcam to Home Assistant
 logo: android_ip_webcam.png
 ha_category:
   - Hub
@@ -8,7 +8,7 @@ ha_category:
   - Camera
   - Sensor
   - Switch
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Local Polling
 ---
 

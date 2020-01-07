@@ -1,10 +1,9 @@
 ---
-title: "Nello Lock"
-description: "Instructions on how to integrate Nello intercom devices."
+title: Nello
+description: Instructions on how to integrate Nello intercom devices.
 logo: nello.png
 ha_category:
   - Lock
-
 ha_release: 0.52
 ha_iot_class: Cloud Polling
 ---

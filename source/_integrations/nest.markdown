@@ -1,6 +1,6 @@
 ---
-title: "Nest"
-description: "Instructions on how to integrate Nest into Home Assistant."
+title: Nest
+description: Instructions on how to integrate Nest into Home Assistant.
 logo: nest.png
 ha_category:
   - Hub

@@ -1,6 +1,6 @@
 ---
-title: "LCN"
-description: "Instructions on how to integrate LCN components with Home Assistant."
+title: LCN
+description: Instructions on how to integrate LCN components with Home Assistant.
 logo: lcn.png
 ha_category:
   - Hub

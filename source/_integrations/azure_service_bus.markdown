@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Bus"
-description: "Setup for Azure Service Bus integration"
+title: Azure Service Bus
+description: Setup for Azure Service Bus integration
 logo: azure_service_bus.svg
 ha_category:
   - Notifications

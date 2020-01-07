@@ -1,6 +1,6 @@
 ---
-title: "Tado"
-description: "Instructions on how to integrate Tado devices with Home Assistant."
+title: Tado
+description: Instructions on how to integrate Tado devices with Home Assistant.
 logo: tado.png
 ha_category:
   - Hub

@@ -1,6 +1,6 @@
 ---
-title: "Input Datetime"
-description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
+title: Input Datetime
+description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation

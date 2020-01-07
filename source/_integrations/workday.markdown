@@ -1,6 +1,6 @@
 ---
-title: "Workday Binary Sensor"
-description: "Steps to configure the binary workday sensor."
+title: Workday
+description: Steps to configure the binary workday sensor.
 logo: home-assistant.png
 ha_category:
   - Utility

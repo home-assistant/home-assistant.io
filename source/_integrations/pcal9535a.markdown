@@ -1,6 +1,6 @@
 ---
-title: "PCAL9535A I2C GPIO expander"
-description: "Instructions on how to integrate the PCAL9535A GPIO pin expander with I2C interface into Home Assistant."
+title: PCAL9535A I/O Expander
+description: Instructions on how to integrate the PCAL9535A GPIO pin expander with I2C interface into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

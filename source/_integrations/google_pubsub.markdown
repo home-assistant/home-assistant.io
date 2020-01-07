@@ -1,6 +1,6 @@
 ---
-title: "Google Pub/Sub"
-description: "Setup for Google Pub/Sub integration"
+title: Google Pub/Sub
+description: Setup for Google Pub/Sub integration
 logo: google-pubsub.png
 ha_category:
   - History
@@ -77,4 +77,3 @@ filter:
 ### Saving the data using a Google Cloud Function
 
 To save your data automatically to BigQuery, follow the [instructions here](https://github.com/timvancann/home-assistant-pubsub-cloud-function). The current [free tier](https://cloud.google.com/free/) of GCP should allow to store up to 10GB of data.
-

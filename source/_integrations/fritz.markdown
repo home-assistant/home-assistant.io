@@ -1,12 +1,11 @@
 ---
-title: "FRITZ!Box"
-description: "Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant."
+title: AVM Fritzbox
+description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 logo: avm.png
 ha_category:
   - Presence Detection
-ha_release: "0.10"
+ha_release: '0.10'
 ---
-
 
 The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) based router.
 

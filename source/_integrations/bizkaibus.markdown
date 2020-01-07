@@ -1,8 +1,8 @@
 ---
-title: "Bizkaibus next bus tracking sensor"
-description: "Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant."
+title: Bizkaibus
+description: Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant.
 logo: bizkaibus.png
-ha_category: 
+ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling

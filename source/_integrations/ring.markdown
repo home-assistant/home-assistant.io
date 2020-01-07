@@ -1,6 +1,6 @@
 ---
-title: "Ring"
-description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
+title: Ring
+description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 logo: ring.png
 ha_category:
   - Doorbell

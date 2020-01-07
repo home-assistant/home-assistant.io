@@ -1,6 +1,6 @@
 ---
-title: "IHC"
-description: "Instructions on how to integrate the IHC integrations with Home Assistant"
+title: IHC Controller
+description: Instructions on how to integrate the IHC integrations with Home Assistant
 logo: ihc.png
 ha_category:
   - Hub

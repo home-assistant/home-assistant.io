@@ -1,6 +1,6 @@
 ---
-title: "Time & Date"
-description: "Instructions on how to integrate the time and the date within Home Assistant."
+title: Time & Date
+description: Instructions on how to integrate the time and the date within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Calendar

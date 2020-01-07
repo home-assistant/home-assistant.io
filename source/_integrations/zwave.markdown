@@ -1,6 +1,6 @@
 ---
-title: "Z-Wave"
-description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
+title: Z-Wave
+description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 logo: z-wave.png
 ha_category:
   - Hub

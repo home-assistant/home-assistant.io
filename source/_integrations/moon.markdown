@@ -1,6 +1,6 @@
 ---
-title: "Moon Sensor"
-description: "Instructions on how to integrate the moon sensor into Home Assistant."
+title: Moon
+description: Instructions on how to integrate the moon sensor into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Environment

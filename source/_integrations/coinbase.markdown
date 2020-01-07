@@ -1,6 +1,6 @@
 ---
-title: "Coinbase"
-description: "Instructions for how to add Coinbase sensors to Home Assistant."
+title: Coinbase
+description: Instructions for how to add Coinbase sensors to Home Assistant.
 logo: coinbase.png
 ha_category:
   - Finance

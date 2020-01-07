@@ -1,13 +1,12 @@
 ---
-title: "CUPS Sensor"
-description: "Instructions on how to integrate CUPS sensors into Home Assistant."
+title: CUPS
+description: Instructions on how to integrate CUPS sensors into Home Assistant.
 logo: cups.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.32
 ---
-
 
 The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the informations using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
 

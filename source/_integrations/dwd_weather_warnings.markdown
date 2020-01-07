@@ -1,7 +1,6 @@
 ---
-title: "DWD Weather warnings"
-description: "Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant."
-#logo: dwdwarnapp.png
+title: Deutsche Wetter Dienst (DWD) Weather Warnings
+description: Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.51

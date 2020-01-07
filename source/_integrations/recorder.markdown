@@ -1,9 +1,9 @@
 ---
-title: "Recorder"
-description: "Instructions on how to configure the data recorder for Home Assistant."
+title: Recorder
+description: Instructions on how to configure the data recorder for Home Assistant.
 logo: home-assistant.png
 ha_category:
-  - "History"
+  - History
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---

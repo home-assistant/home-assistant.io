@@ -1,10 +1,10 @@
 ---
-title: "Torque (OBD2)"
-description: "Instructions on how to integrate Torque sensors into Home Assistant."
+title: Torque
+description: Instructions on how to integrate Torque sensors into Home Assistant.
 logo: torque.png
 ha_category:
   - Car
-ha_release: "0.10"
+ha_release: '0.10'
 ha_iot_class: Cloud Polling
 ---
 

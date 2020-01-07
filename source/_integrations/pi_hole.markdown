@@ -1,6 +1,6 @@
 ---
-title: "Pi-hole"
-description: "Instructions on how to integrate Pi-hole with Home Assistant."
+title: Pi-hole
+description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling

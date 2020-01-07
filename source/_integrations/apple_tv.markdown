@@ -1,6 +1,6 @@
 ---
-title: "Apple TV"
-description: "Instructions on how to integrate Apple TV devices into Home Assistant."
+title: Apple TV
+description: Instructions on how to integrate Apple TV devices into Home Assistant.
 logo: apple.png
 ha_category:
   - Multimedia

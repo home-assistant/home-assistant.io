@@ -1,6 +1,6 @@
 ---
-title: "Tesla"
-description: "Instructions on how to integrate Tesla car into Home Assistant."
+title: Tesla
+description: Instructions on how to integrate Tesla car into Home Assistant.
 logo: tesla.png
 ha_category:
   - Car

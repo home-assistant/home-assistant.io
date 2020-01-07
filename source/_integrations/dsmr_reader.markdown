@@ -1,6 +1,6 @@
 ---
-title: "DSMR Reader"
-description: "Instructions on how to integrate DSMR Reader."
+title: DSMR Reader
+description: Instructions on how to integrate DSMR Reader.
 ha_category:
   - Energy
 ha_iot_class: Cloud Polling

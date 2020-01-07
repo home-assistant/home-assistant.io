@@ -1,6 +1,6 @@
 ---
-title: "Xbox Live"
-description: "Instructions on how to set up Xbox Live sensors in Home Assistant."
+title: Xbox Live
+description: Instructions on how to set up Xbox Live sensors in Home Assistant.
 logo: xbox-live.png
 ha_category:
   - Social
@@ -42,4 +42,3 @@ xuid:
   required: true
   type: list
 {% endconfiguration %}
-

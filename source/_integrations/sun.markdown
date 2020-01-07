@@ -1,6 +1,6 @@
 ---
-title: "Sun"
-description: "Instructions on how to track the sun within Home Assistant."
+title: Sun
+description: Instructions on how to track the sun within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Environment

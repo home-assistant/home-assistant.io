@@ -1,6 +1,6 @@
 ---
-title: "HTU21D Temperature and humidity sensor"
-description: "Instructions on how to integrate a HTU21D Temperature and humidity sensor into Home Assistant."
+title: HTU21D(F) Sensor
+description: Instructions on how to integrate a HTU21D Temperature and humidity sensor into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

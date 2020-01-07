@@ -1,6 +1,6 @@
 ---
-title: "Islamic Prayer Times"
-description: "Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant."
+title: Islamic Prayer Times
+description: Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

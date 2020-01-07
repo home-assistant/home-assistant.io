@@ -1,6 +1,6 @@
 ---
-title: "Watson TTS"
-description: "Instructions on how to setup IBM Watson TTS with Home Assistant."
+title: IBM Watson TTS
+description: Instructions on how to setup IBM Watson TTS with Home Assistant.
 logo: watson_tts.png
 ha_category:
   - Text-to-speech

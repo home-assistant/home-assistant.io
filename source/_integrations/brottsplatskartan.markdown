@@ -1,6 +1,6 @@
 ---
-title: "Brottsplatskartan"
-description: "Instructions on how to integrate brottsplatskartan.se into Home Assistant."
+title: Brottsplatskartan
+description: Instructions on how to integrate brottsplatskartan.se into Home Assistant.
 ha_category:
   - Social
 logo: brottsplatskartan.png

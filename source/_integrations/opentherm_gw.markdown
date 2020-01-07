@@ -1,6 +1,6 @@
 ---
-title: "OpenTherm Gateway"
-description: "Control your OpenTherm Gateway from Home Assistant."
+title: OpenTherm Gateway
+description: Control your OpenTherm Gateway from Home Assistant.
 logo: opentherm.png
 ha_category:
   - Hub

@@ -1,6 +1,6 @@
 ---
-title: "Plex"
-description: "Instructions on how to integrate Plex into Home Assistant."
+title: Plex Media Server
+description: Instructions on how to integrate Plex into Home Assistant.
 logo: plex.png
 ha_category:
   - Media Player
@@ -10,7 +10,6 @@ ha_release: 0.7.4
 ha_iot_class: Local Push
 ha_config_flow: true
 ---
-
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 

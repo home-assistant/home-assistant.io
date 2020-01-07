@@ -1,6 +1,6 @@
 ---
-title: "Rachio"
-description: "Instructions on how to use Rachio with Home Assistant."
+title: Rachio
+description: Instructions on how to use Rachio with Home Assistant.
 logo: rachio.png
 ha_category:
   - Irrigation
