@@ -6,6 +6,7 @@ ha_release: 0.95
 ha_category:
   - Sensor
 ha_iot_class: Cloud Push
+ha_config_flow: true
 ---
 
 This integration sets up integration with [Plaato Airlock](https://www.plaato.io/).

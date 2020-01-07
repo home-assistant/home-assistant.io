@@ -11,6 +11,7 @@ ha_category:
 featured: true
 ha_release: 0.9
 ha_iot_class: Cloud Poll
+ha_config_flow: true
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

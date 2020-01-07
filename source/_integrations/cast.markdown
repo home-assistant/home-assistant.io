@@ -7,6 +7,7 @@ ha_category:
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 You can enable the Cast integration by going to the Integrations page inside the config panel.

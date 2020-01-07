@@ -14,6 +14,7 @@ ha_category:
   - Sensor
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.

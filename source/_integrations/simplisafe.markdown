@@ -6,6 +6,7 @@ ha_release: 0.81
 ha_category:
   - Alarm
   - Lock
+ha_config_flow: true
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.

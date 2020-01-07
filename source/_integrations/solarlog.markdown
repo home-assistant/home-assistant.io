@@ -5,6 +5,7 @@ logo: solar-log.png
 ha_category: Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.

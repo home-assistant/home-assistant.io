@@ -8,6 +8,7 @@ ha_category:
   - Sensor
 ha_release: 0.96
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `Notion` component retrieves data from [Notion](https://getnotion.com) wireless

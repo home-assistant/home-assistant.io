@@ -7,6 +7,7 @@ ha_category:
   - Energy
   - Sensor
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `linky` sensor platform is retrieving the consumption of your home from the [Linky electric meter](https://www.enedis.fr/linky-compteur-communicant).

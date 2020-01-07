@@ -9,6 +9,7 @@ ha_category:
 ha_release: 0.102
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
+ha_config_flow: true
 ---
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich

@@ -5,6 +5,7 @@ logo: icloud.png
 ha_category:
   - Presence Detection
 ha_release: '0.10'
+ha_config_flow: true
 ---
 
 The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track the location of their iOS devices.
