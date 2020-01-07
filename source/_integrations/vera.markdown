@@ -32,20 +32,11 @@ There is currently support for the following device types within Home Assistant:
 and will be automatically added when HA connects to your Vera controller.
 
 ## Configuration
+<div class='note info'>
 
-To use Vera devices in your installation, add the following to your `configuration.yaml` file using the IP and port number of your Vera controller:
+The Vera integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is deprecated.
 
-```yaml
-vera:
-  vera_controller_url: http://192.168.1.161:3480/
-```
-
-{% configuration %}
-vera_controller_url:
-  description: The URL for your Vera device.
-  required: true
-  type: string
-{% endconfiguration %}
+</div>
 
 <div class='note'>
 
@@ -53,22 +44,14 @@ vera_controller_url:
 
 </div>
 
-### Configure devices
-
-By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
-
-Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices using the `exclude:` parameter as shown below.
+1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Vera' and click 'Configure'.
+2. Enter the url for the controller and click 'Submit'.
+    * By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this by providing a list of light ids.
+    * Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices by providing a list of device ids.
 
 You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (under the developer tools).
 
-```yaml
-vera:
-  vera_controller_url: http://192.168.1.161:3480/
-  # Optional to exclude devices - this is a list of vera device ids
-  exclude: [ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
-  # Optional to import switches as lights - this is a list of vera device ids
-  lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
-```
+
 
 ### Using Z-Wave devices in automation
 
