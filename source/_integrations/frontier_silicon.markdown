@@ -1,5 +1,5 @@
 ---
-title: Frontier Silicon Internet Radios
+title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
 logo: frontier.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: BOM Australia
+title: Australian Bureau of Meteorology (BOM)
 description: Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.
 logo: bom.png
 ha_category:

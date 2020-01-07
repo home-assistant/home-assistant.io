@@ -1,5 +1,5 @@
 ---
-title: freedns.afraid.org
+title: FreeDNS
 description: Keep your DNS record up to date with FreeDNS.
 logo: afraid_freedns.png
 ha_category:

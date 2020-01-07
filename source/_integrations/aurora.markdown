@@ -1,5 +1,5 @@
 ---
-title: Aurora sensor
+title: Aurora
 description: Know when auroras might be visible at your location
 ha_category:
   - Environment

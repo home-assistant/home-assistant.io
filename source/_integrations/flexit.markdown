@@ -1,5 +1,5 @@
 ---
-title: Flexit A/C controller
+title: Flexit
 description: Instructions on how to integrate Flexit A/C unit into Home Assistant.
 logo: flexit.png
 ha_category:

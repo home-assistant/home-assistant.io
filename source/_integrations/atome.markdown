@@ -1,5 +1,5 @@
 ---
-title: Atome Linky Sensor
+title: Atome Linky
 description: Integrate Atome Linky consumption data within Home Assistant.
 logo: total_direct_energie.png
 ha_release: 0.99

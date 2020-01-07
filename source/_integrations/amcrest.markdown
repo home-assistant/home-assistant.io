@@ -1,5 +1,5 @@
 ---
-title: Amcrest IP Camera
+title: Amcrest
 description: Instructions on how to integrate Amcrest IP cameras within Home Assistant.
 logo: amcrest.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Eufy
+title: eufy
 description: Instructions on how to integrate Eufy devices into Home Assistant.
 logo: eufy.png
 ha_category:

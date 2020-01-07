@@ -1,5 +1,5 @@
 ---
-title: DSMR or Slimme meter
+title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
 logo: netbeheernederland.jpg
 ha_category:

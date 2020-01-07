@@ -1,5 +1,5 @@
 ---
-title: Entur public transport
+title: Entur
 description: Instructions for how to set up monitoring of public transport departures in Norway.
 logo: entur.svg
 ha_category:

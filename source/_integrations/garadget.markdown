@@ -1,5 +1,5 @@
 ---
-title: Garadget Cover
+title: Garadget
 description: Instructions on how to integrate Garadget covers within Home Assistant.
 logo: garadget.png
 ha_category:

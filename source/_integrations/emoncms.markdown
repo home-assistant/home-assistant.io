@@ -1,5 +1,5 @@
 ---
-title: Emoncms Sensor
+title: Emoncms
 description: Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.
 logo: emoncms.png
 ha_category:

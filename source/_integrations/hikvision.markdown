@@ -1,5 +1,5 @@
 ---
-title: Hikvision Binary Sensor
+title: Hikvision
 description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
 logo: hikvision.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Acer Projector Switch
+title: Acer Projector
 description: Instructions on how to integrate Acer Projector switches into Home Assistant.
 logo: acer.png
 ha_category:

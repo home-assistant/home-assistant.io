@@ -1,5 +1,5 @@
 ---
-title: ARWN Sensor
+title: Ambient Radio Weather Network
 description: Instructions on how to integrate ARWN within Home Assistant.
 ha_category:
   - Sensor

@@ -1,5 +1,5 @@
 ---
-title: Fail2Ban Sensor
+title: Fail2Ban
 description: Instructions on how to integrate a fail2ban sensor into Home Assistant.
 ha_category:
   - Network

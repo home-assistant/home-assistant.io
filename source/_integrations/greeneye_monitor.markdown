@@ -1,5 +1,5 @@
 ---
-title: GreenEye Monitor
+title: GreenEye Monitor (GEM)
 description: Instructions on how to integrate your GreenEye Monitor within Home Assistant.
 logo: brultech.png
 ha_category:

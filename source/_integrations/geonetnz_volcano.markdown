@@ -1,5 +1,5 @@
 ---
-title: GeoNet NZ Volcanic Alert Level
+title: GeoNet NZ Volcano
 description: Instructions on how to integrate the GeoNet New Zealand Volcanic Alert Level feed into Home Assistant.
 logo: geonet-nz.png
 ha_category:

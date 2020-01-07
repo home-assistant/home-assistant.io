@@ -1,5 +1,5 @@
 ---
-title: Gogogate2 Cover
+title: Gogogate2
 description: Instructions on how to integrate Gogogate2-Enabled garage door covers into Home Assistant.
 logo: gogogate2.png
 ha_category:

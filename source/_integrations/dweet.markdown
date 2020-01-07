@@ -1,5 +1,5 @@
 ---
-title: Dweet.io
+title: dweet.io
 description: Transfer events to Dweet.io.
 logo: dweet.png
 ha_category:

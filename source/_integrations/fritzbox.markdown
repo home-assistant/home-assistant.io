@@ -1,5 +1,5 @@
 ---
-title: Fritzbox
+title: AVM FRITZ!Box
 description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
 logo: avm.png
 ha_category:

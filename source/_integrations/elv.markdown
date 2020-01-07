@@ -1,5 +1,5 @@
 ---
-title: ELV PCA 301 Switch
+title: ELV PCA
 description: Instructions on how to integrate ELV PCA 301 switches into Home Assistant.
 logo: elv.png
 ha_category: Switch

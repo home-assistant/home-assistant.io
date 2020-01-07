@@ -1,5 +1,5 @@
 ---
-title: BME280 Sensor
+title: Bosch BME280 Environmental Sensor
 description: Instructions on how to integrate a BME280 sensor into Home Assistant.
 logo: raspberry-pi.png
 ha_category:

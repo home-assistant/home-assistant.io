@@ -1,5 +1,5 @@
 ---
-title: Hikvision Camera Switch
+title: Hikvision
 description: Instructions on how to integrate Hikvision camera switches into Home Assistant.
 logo: hikvision.png
 ha_category:

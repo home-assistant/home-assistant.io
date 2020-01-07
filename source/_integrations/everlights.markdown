@@ -1,5 +1,5 @@
 ---
-title: EverLights Light
+title: EverLights
 description: Instructions on how to set up EverLights within Home Assistant.
 logo: everlights.png
 ha_category:

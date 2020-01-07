@@ -1,5 +1,5 @@
 ---
-title: Dublin Bus Transport
+title: Dublin Bus
 description: Instructions on how to integrate timetable data for traveling on Dublin Bus within Home Assistant.
 logo: dublin_bus.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: FinTS Sensor
+title: FinTS
 description: Instructions on how to use the FinTS sensor.
 ha_category:
   - Finance

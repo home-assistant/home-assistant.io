@@ -1,5 +1,5 @@
 ---
-title: Asterisk Call Data Recorder
+title: Asterisk Call Detail Records
 description: Instructions on how to integrate an Asterisk CDR within Home Assistant.
 logo: asterisk.png
 ha_category:

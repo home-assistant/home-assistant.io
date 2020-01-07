@@ -1,5 +1,5 @@
 ---
-title: Ambiclimate A/C controller
+title: Ambiclimate
 description: Instructions on how to integrate Ambiclimate A/C controller into Home Assistant.
 logo: ambiclimate.png
 ha_category: Climate

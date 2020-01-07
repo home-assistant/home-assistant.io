@@ -1,5 +1,5 @@
 ---
-title: Covers
+title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
 logo: home-assistant.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Device Tracker FortiOS
+title: Home Assistant Device Tracker to support FortiOS
 description: Instructions on how to use Fortinet FortiOS to track devices in Home Assistant.
 logo: fortinet.jpg
 ha_category:

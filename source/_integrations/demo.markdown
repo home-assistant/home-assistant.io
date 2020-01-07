@@ -1,5 +1,5 @@
 ---
-title: Demo platforms
+title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
 logo: home-assistant.png
 ha_category:
