@@ -6,6 +6,7 @@ ha_category:
   - Weather
 ha_release: 0.85
 ha_iot_class: Cloud Push
+ha_config_flow: true
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

@@ -10,6 +10,7 @@ ha_category:
   - Switch
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.

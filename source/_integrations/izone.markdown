@@ -5,6 +5,7 @@ ha_category:
   - Climate
 ha_release: '0.100'
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.

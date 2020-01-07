@@ -6,6 +6,7 @@ ha_category:
   - Network
 ha_release: 0.44
 ha_iot_class: Configurable
+ha_config_flow: true
 ---
 
 The `cert_expiry` sensor fetches information from a configured URL and displays the certificate expiry in days.

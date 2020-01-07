@@ -6,6 +6,7 @@ ha_release: 0.83
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Hass.io addon.

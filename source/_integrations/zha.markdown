@@ -13,6 +13,7 @@ ha_category:
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
+ha_config_flow: true
 ---
 
 [Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)

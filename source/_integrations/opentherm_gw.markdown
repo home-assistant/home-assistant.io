@@ -9,6 +9,7 @@ ha_category:
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.

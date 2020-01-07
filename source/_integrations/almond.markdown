@@ -6,6 +6,7 @@ ha_category:
   - Voice
 ha_iot_class: Local Polling
 ha_release: '0.102'
+ha_config_flow: true
 ---
 
 [Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available on Lovelace via the microphone icon in the top right.

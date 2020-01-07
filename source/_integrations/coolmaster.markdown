@@ -6,6 +6,7 @@ ha_category:
   - Climate
 ha_release: 0.88
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
