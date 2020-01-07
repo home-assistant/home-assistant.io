@@ -73,13 +73,12 @@ You will need the authentication token returned by this command to configure Hom
 
 ## Configuration
 
-To add your Vizio TV to your installation, add the following to your `configuration.yaml` file:
+To add your Vizio device to your installation, you can either use the Home-Assistant Integrations UI or add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: vizio
-    host: IP_ADDRESS
+vizio:
+  - host: IP_ADDRESS
     access_token: AUTH_TOKEN
 ```
 
