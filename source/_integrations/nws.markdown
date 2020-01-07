@@ -11,30 +11,13 @@ The `nws` platform uses the [National Weather Service](https://www.weather.gov) 
 
 ## Configuration
 
+To add NWS to your installation, go to Configuration >> Integrations in the UI and select National Weather Service (NWS) integration.
+
 According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 
-To add NWS to your installation using the closest station, add the following to your `configuration.yaml` file:
+A list of nearby stations is provided during integration setup via UI. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php).
 
-```yaml
-# Example configuration.yaml entry
-weather:
-  - platform: nws
-    api_key: YOUR_API_KEY
-```
-
-To specify a station, for example, KADW (Andrews Air Force Base), use the following:
-
-```yaml
-# Example configuration.yaml entry
-weather:
-  - platform: nws
-    api_key: YOUR_API_KEY
-    station: KADW
-```
-
-A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
-
-The default forecast is day and night, `mode: daynight`, while `mode: hourly` gives the forecast hourly.  The forecast is obtained from the latitude and longitude value, not the station.
+This integration creates two weather entities, one with 2 forecasts daily (day and night) and one with hourly forecasts. The daynight entity uses the time at which the forecast starts as the provided time.
 
 {% configuration %}
 api_key:
@@ -42,30 +25,17 @@ api_key:
   required: true
   type: string
 latitude:
-  description: "Manually specify latitude. By default, the value will be taken from the Home Assistant configuration."
-  required: false
+  description: "The provided value will be taken from the Home Assistant configuration."
+  required: true
   type: float
-  default: "Provided by Home Assistant configuration."
 longitude:
-  description: Manually specify longitude. By default, the value will be taken from the Home Assistant configuration.
-  required: false
+  description: "The provided value will be taken from the Home Assistant configuration.
+  required: true
   type: float
-  default: "Provided by Home Assistant configuration."
-name:
-  description: "Name to use in the frontend."
-  required: false
-  type: string
-  default: "Station name."
-mode:
-  description: "The forecast type. Can be `daynight` or `hourly`."
-  required: false
-  type: string
-  default: daynight
 station:
-  description: "METAR station code."
-  required: false
+  description: "METAR station code. A list of nearby stations will be provided. The list is sorted by distance in ascending order."
+  required: true
   type: string
-  default: "Closest station to `latitude` and `longitude` as returned by NWS API."
 {% endconfiguration %}
 
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
