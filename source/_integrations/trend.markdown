@@ -1,5 +1,5 @@
 ---
-title: Trend Binary Sensor
+title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
   - Utility

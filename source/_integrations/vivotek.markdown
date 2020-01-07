@@ -1,5 +1,5 @@
 ---
-title: Vivotek Camera
+title: Vivotek
 description: Instructions on how to integrate Vivotek cameras within Home Assistant.
 ha_category:
   - Camera

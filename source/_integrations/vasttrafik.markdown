@@ -1,5 +1,5 @@
 ---
-title: Västtrafik Public Transport
+title: Västtrafik
 description: Instructions on how to integrate timetable data for traveling in Sweden within Home Assistant.
 logo: vasttrafik.png
 ha_category:

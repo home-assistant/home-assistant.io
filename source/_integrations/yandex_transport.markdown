@@ -1,5 +1,5 @@
 ---
-title: Yandex transport
+title: Yandex Transport
 description: Instructions on how to set up Yandex transport with Home Assistant.
 logo: yandex.png
 ha_category:

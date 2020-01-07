@@ -1,5 +1,5 @@
 ---
-title: TEMPer Sensor
+title: TEMPer
 description: Instructions on how to integrate TEMPer sensors into Home Assistant.
 ha_category:
   - DIY

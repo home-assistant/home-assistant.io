@@ -1,5 +1,5 @@
 ---
-title: Times of the Day Binary Sensor
+title: Times of the Day
 description: Instructions on how to integrate Times of the Day binary sensors within Home Assistant.
 ha_category:
   - Binary Sensor

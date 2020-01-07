@@ -1,5 +1,5 @@
 ---
-title: Tank Utility Sensor
+title: Tank Utility
 description: How to integrate Tank Utility sensors within Home Assistant.
 logo: tank_utility.png
 ha_category:

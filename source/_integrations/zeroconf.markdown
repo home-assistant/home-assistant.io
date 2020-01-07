@@ -1,5 +1,5 @@
 ---
-title: Zeroconf/Avahi/Bonjour
+title: Zero-configuration networking (zeroconf)
 description: Exposes Home Assistant using the Zeroconf protocol.
 ha_category:
   - Network

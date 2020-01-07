@@ -1,5 +1,5 @@
 ---
-title: Tfiac AC
+title: Tfiac
 description: Instructions on how to integrate Tfiac AC devices with Home Assistant.
 logo: tfiac.png
 ha_category:

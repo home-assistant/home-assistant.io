@@ -1,5 +1,5 @@
 ---
-title: WirelessTag
+title: Wireless Sensor Tags
 description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
 logo: wirelesstag.png
 ha_category:

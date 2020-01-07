@@ -1,5 +1,5 @@
 ---
-title: Xiaomi Cameras
+title: Xiaomi
 description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
 logo: xiaomi.png
 ha_category:

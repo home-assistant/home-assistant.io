@@ -1,5 +1,5 @@
 ---
-title: Torque (OBD2)
+title: Torque
 description: Instructions on how to integrate Torque sensors into Home Assistant.
 logo: torque.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Time of Flight sensor using VL53L1X
+title: Time of Flight
 description: Instructions on how to integrate a VL53L1X ToF sensor into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
