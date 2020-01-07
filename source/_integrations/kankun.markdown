@@ -1,5 +1,5 @@
 ---
-title: Kankun SP3 Wifi Switch
+title: Kankun
 description: Instructions for the Kankun SP3 Wifi switch
 ha_category:
   - Switch

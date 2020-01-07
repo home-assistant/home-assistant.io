@@ -1,5 +1,5 @@
 ---
-title: Sigfox Sensor
+title: Sigfox
 description: Display messages from Sigfox devices in Home Assistant.
 logo: sigfox.png
 ha_category:

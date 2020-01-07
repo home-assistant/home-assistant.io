@@ -1,5 +1,5 @@
 ---
-title: Public Transit (Nextbus)
+title: NextBus
 description: Instructions on how to use public transit data from Nextbus in Home Assistant.
 logo: train.png
 ha_category:

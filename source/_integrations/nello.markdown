@@ -1,5 +1,5 @@
 ---
-title: Nello Lock
+title: Nello
 description: Instructions on how to integrate Nello intercom devices.
 logo: nello.png
 ha_category:

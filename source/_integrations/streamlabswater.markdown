@@ -1,5 +1,5 @@
 ---
-title: Streamlabs Water
+title: StreamLabs
 description: Instructions on how to integrate Streamlabs Water devices with Home Assistant.
 logo: streamlabswater.png
 ha_category:

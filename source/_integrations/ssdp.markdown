@@ -1,5 +1,5 @@
 ---
-title: SSDP - Simple Service Discovery Protocol
+title: Simple Service Discovery Protocol (SSDP)
 description: Discover integrations on the network using the SSDP protocol.
 ha_category:
   - Network

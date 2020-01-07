@@ -1,5 +1,5 @@
 ---
-title: Opple Light
+title: Opple
 description: Instructions on how to integrate Opple lights into Home Assistant.
 logo: opple.png
 ha_category:

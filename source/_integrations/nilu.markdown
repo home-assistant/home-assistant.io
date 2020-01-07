@@ -1,5 +1,5 @@
 ---
-title: Norwegian Institute for Air Research
+title: Norwegian Institute for Air Research (NILU)
 description: Instructions on how to integrate air pollution data from NILU within Home Assistant.
 logo: nilu_logo.png
 ha_category:

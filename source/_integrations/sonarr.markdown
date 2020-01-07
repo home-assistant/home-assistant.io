@@ -1,5 +1,5 @@
 ---
-title: Sonarr Sensor
+title: Sonarr
 description: Instructions on how to integrate Sonarr sensors with Home Assistant
 logo: sonarr.png
 ha_category:

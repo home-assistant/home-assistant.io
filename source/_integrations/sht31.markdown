@@ -1,5 +1,5 @@
 ---
-title: Sensirion SHT31 Sensor
+title: Sensirion SHT31
 description: Instructions on how to integrate SHT31 sensors within Home Assistant.
 ha_category:
   - DIY

@@ -1,5 +1,5 @@
 ---
-title: Lyft Sensor
+title: Lyft
 description: How to integrate Lyft in Home Assistant
 logo: lyft.png
 ha_category:

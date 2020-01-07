@@ -1,5 +1,5 @@
 ---
-title: Season Sensor
+title: Season
 description: Instructions on how to add season sensors into Home Assistant.
 ha_category:
   - Utility

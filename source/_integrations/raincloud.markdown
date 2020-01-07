@@ -1,5 +1,5 @@
 ---
-title: Melnor Raincloud
+title: Melnor RainCloud
 description: Instructions on how to integrate your Melnor Raincloud sprinkler system within Home Assistant.
 logo: raincloud.jpg
 ha_category:

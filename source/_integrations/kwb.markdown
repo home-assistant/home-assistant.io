@@ -1,5 +1,5 @@
 ---
-title: KWB Easyfire Sensor
+title: KWB Easyfire
 description: Instructions on how to integrate the KWB Easyfire sensor into Home Assistant.
 logo: kwb.png
 ha_category:

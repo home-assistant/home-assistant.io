@@ -1,5 +1,5 @@
 ---
-title: Radarr Sensor
+title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
 logo: radarr.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Solar-Log Sensor
+title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
 logo: solar-log.png
 ha_category: Sensor

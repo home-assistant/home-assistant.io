@@ -1,5 +1,5 @@
 ---
-title: Caller ID Sensor
+title: Modem Caller ID
 description: Instructions on how to integrate the Caller ID sensor into Home Assistant.
 ha_category:
   - Sensor

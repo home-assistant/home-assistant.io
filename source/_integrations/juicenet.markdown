@@ -1,5 +1,5 @@
 ---
-title: Juicenet
+title: JuiceNet
 description: Instructions on how to setup WiFi-equipped Juicenet charging stations with Home Assistant.
 logo: juicenet.png
 ha_category:

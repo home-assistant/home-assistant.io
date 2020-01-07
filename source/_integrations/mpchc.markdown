@@ -1,5 +1,5 @@
 ---
-title: MPC-HC
+title: Media Player Classic Home Cinema (MPC-HC)
 description: Instructions on how to integrate MPC-HC into Home Assistant.
 logo: mpchc.png
 ha_category:

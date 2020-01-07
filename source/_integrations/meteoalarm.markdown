@@ -1,5 +1,5 @@
 ---
-title: MeteoAlarm Sensor
+title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
 logo: meteoalarm.png
 ha_category: Binary Sensor

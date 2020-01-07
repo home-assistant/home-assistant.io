@@ -1,5 +1,5 @@
 ---
-title: LG Netcast TV
+title: LG Netcast
 description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within Home Assistant.
 logo: lg.png
 ha_category:

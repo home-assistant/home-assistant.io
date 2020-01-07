@@ -1,5 +1,5 @@
 ---
-title: OTP Sensor
+title: One-Time Password (OTP)
 description: Instructions on how to add One-Time Password (OTP) sensors into Home Assistant.
 logo: home-assistant.png
 ha_category:

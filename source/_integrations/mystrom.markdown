@@ -1,5 +1,5 @@
 ---
-title: myStrom WiFi Bulb
+title: myStrom
 description: Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant.
 logo: mystrom.png
 ha_category:

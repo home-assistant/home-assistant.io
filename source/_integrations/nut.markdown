@@ -1,5 +1,5 @@
 ---
-title: NUT Sensor
+title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
 logo: nut.png
 ha_category:

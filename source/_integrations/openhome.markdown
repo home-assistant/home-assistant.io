@@ -1,5 +1,5 @@
 ---
-title: Linn / Openhome
+title: Linn / OpenHome
 description: Instructions on how to integrate Linn Ds and Openhome renderers into Home Assistant.
 logo: linn.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Solax Sensor
+title: SolaX Power
 description: Instructions on how to integrate Solax sensor within Home Assistant.
 logo: solax-logo.png
 ha_category:

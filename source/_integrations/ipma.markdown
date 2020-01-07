@@ -1,5 +1,5 @@
 ---
-title: IPMA
+title: Instituto Português do Mar e Atmosfera (IPMA)
 description: Instructions on how to integrate Instituto Português do Mar e Atmosfera weather conditions into Home Assistant.
 logo: ipma.png
 ha_category:

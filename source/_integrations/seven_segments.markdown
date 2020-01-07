@@ -1,5 +1,5 @@
 ---
-title: Seven segments display
+title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
 logo: home-assistant.png
 ha_category:

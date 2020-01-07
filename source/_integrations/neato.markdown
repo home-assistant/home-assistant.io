@@ -1,5 +1,5 @@
 ---
-title: Neato Robotics
+title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 logo: neato.png
 ha_category:

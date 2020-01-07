@@ -1,5 +1,5 @@
 ---
-title: Simulated sensor
+title: Simulated
 description: Component for simulating a numerical sensor.
 logo: home-assistant.png
 ha_category:

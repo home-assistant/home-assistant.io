@@ -1,5 +1,5 @@
 ---
-title: Shodan Sensor
+title: Shodan
 description: Instructions on how to integrate Shodan sensors into Home Assistant.
 ha_category:
   - Sensor

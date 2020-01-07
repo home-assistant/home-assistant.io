@@ -1,5 +1,5 @@
 ---
-title: Nmap
+title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
 logo: nmap.png
 ha_category:

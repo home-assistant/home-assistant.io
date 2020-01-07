@@ -1,5 +1,5 @@
 ---
-title: RFXtrx
+title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 logo: rfxtrx.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: NamecheapDNS
+title: Namecheap FreeDNS
 description: Keep your namecheap dynamic DNS up to date
 logo: namecheap.png
 ha_category:

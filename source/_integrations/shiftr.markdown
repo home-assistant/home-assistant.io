@@ -1,5 +1,5 @@
 ---
-title: Shiftr.io
+title: shiftr.io
 description: Transfer events to Shiftr.io.
 logo: shiftr.png
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Sony SongPal compatible devices
+title: Sony Songpal
 description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
 logo: sony.png
 ha_category:

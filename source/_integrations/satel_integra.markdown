@@ -1,5 +1,5 @@
 ---
-title: Satel Integra Alarm
+title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
 logo: satel.jpg
 ha_category:

@@ -1,5 +1,5 @@
 ---
-title: Panel Custom
+title: Custom Panel
 description: Instructions on how to add customized panels to the frontend of Home Assistant.
 logo: home-assistant.png
 ha_category:

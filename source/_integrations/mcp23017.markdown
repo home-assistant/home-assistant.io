@@ -1,5 +1,5 @@
 ---
-title: MCP23017 I2C GPIO expander
+title: MCP23017 I/O Expander
 description: Instructions on how to integrate the MCP23017 GPIO pin expander with I2C interface into Home Assistant.
 logo: raspberry-pi.png
 ha_category:

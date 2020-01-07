@@ -1,5 +1,5 @@
 ---
-title: JSON MQTT Device Tracker
+title: MQTT JSON
 description: Instructions on how to use JSON MQTT to track devices in Home Assistant.
 logo: mqtt.png
 ha_category:
