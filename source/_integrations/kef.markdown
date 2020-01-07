@@ -1,6 +1,6 @@
 ---
-title: "KEF Speakers"
-description: "Instructions on how to integrate KEF Speakers into Home Assistant."
+title: KEF
+description: Instructions on how to integrate KEF Speakers into Home Assistant.
 logo: kef.png
 ha_category:
   - Media Player

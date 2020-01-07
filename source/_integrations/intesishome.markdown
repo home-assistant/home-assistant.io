@@ -1,6 +1,6 @@
 ---
-title: "IntesisHome AC Controller"
-description: "Instructions how to integrate IntesisHome AC devices with Home Assistant"
+title: IntesisHome
+description: Instructions how to integrate IntesisHome AC devices with Home Assistant
 logo: intesishome.png
 ha_category: Climate
 ha_release: 0.104
