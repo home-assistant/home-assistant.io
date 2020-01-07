@@ -1,21 +1,17 @@
 ---
-layout: page
 title: "Sure Petcare"
-description: "Instructions how to integrate the Sure Petcare cat and pet flaps into Home Assistant."
+description: "Instructions on how to integrate the Sure Petcare cat and pet flaps into Home Assistant."
 date: 2019-06-08 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-logo:
 ha_category:
   - Binary Sensor
   - Sensor
-ha_release: 0.95
+ha_release: '0.104.0'
 ha_iot_class: Cloud Polling
 ---
 
-The `surepetcare` component allows you to get information aber your Sure Petcare Connect Pet or Cat Flap.
+The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
+
+## Configuration
 
 To add a flap and pet, add the following to your `configuration.yaml` file:
 
@@ -85,6 +81,6 @@ surepetcare:
     type: device_class
 {% endconfiguration %}
 
-#### {% linkable_title Getting the IDs of your household, flaps and pets %}
+## Getting the IDs of your household, flaps and pets
 
 For now, please use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With default setting, the IDs will be written as JSON to `~/.surepet.cache`.
