@@ -4,7 +4,7 @@ description: "Instructions on how to integrate TMB iBus sensor within Home Assis
 logo: tmb.png
 ha_category:
   - Transport
-ha_release: 0.101
+ha_release: 0.104
 ha_iot_class: Local Polling
 ---
 
@@ -23,7 +23,6 @@ sensor:
   stops:
     - line: V25
       stop: 3258
-      name: Work stop
 ```
 
 {% configuration %}
@@ -50,8 +49,9 @@ stops:
       type: integer
     name:
       description: Name you want to use to identifier that stop.
-      required: true
+      required: false
       type: string
+      default: "LINE - STOP"
 {% endconfiguration %}
 
 Data provided by [TMB](https://tmb.cat/).
