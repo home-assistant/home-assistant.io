@@ -66,7 +66,7 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
+Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
