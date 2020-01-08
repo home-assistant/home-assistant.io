@@ -1,6 +1,6 @@
 ---
-title: "Environment Canada Weather"
-description: "Weather data from Environment Canada."
+title: Environment Canada
+description: Weather data from Environment Canada.
 logo: environment_canada.png
 ha_category:
   - Weather
@@ -8,6 +8,8 @@ ha_category:
   - Camera
 ha_release: 0.95
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaeldavie'
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).

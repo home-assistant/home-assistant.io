@@ -1,11 +1,13 @@
 ---
-title: "Keyboard Remote"
-description: "Instructions on how to use a keyboard to remote control Home Assistant."
+title: Keyboard Remote
+description: Instructions on how to use a keyboard to remote control Home Assistant.
 logo: keyboard.png
 ha_category:
   - Other
 ha_release: 0.29
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@bendavid'
 ---
 
 Receive signals from a keyboard and use it as a remote control.

@@ -1,6 +1,6 @@
 ---
-title: "Plum Lightpad"
-description: "Instructions on setting up Plum Lightpads within Home Assistant."
+title: Plum Lightpad
+description: Instructions on setting up Plum Lightpads within Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Local Push

@@ -1,11 +1,14 @@
 ---
-title: "Hisense AEH-W4A1"
-description: "Instructions to setup the Hisense AEH W4A1 WiFi module for ACs."
+title: Hisense AEH-W4A1
+description: Instructions to setup the Hisense AEH W4A1 WiFi module for ACs.
 logo: hisense.png
 ha_release: 0.103
 ha_category:
   - Climate
 ha_iot_class: Local Poll
+ha_config_flow: true
+ha_codeowners:
+  - '@bannhead'
 ---
 
 The Hisense AEH-W4A1 is a WiFi module used to give WiFi connectivity to some Hisense ACs and rebranded models (Smart Cool, Beko and others).

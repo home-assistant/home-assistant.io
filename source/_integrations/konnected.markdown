@@ -1,13 +1,15 @@
 ---
-title: "Konnected"
-description: "Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel"
+title: Konnected
+description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 logo: konnected.png
 ha_category:
   - Alarm
   - Binary Sensor
   - Switch
   - Sensor
-ha_release: "0.70"
+ha_release: '0.70'
+ha_codeowners:
+  - '@heythisisnate'
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.

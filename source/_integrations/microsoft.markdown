@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Text-to-Speech"
-description: "Instructions on how to set up Microsoft Text-to-Speech with Home Assistant."
+title: Microsoft Text-to-Speech (TTS)
+description: Instructions on how to set up Microsoft Text-to-Speech with Home Assistant.
 logo: microsoft.png
 ha_category:
   - Text-to-speech

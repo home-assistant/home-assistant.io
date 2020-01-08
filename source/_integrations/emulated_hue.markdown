@@ -1,12 +1,14 @@
 ---
-title: "Emulated Hue Bridge"
-description: "Instructions on how to emulate a Hue Bridge within Home Assistant."
+title: Emulated Hue
+description: Instructions on how to emulate a Hue Bridge within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Hub
 ha_release: 0.27
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@NobleKangaroo'
 ---
 
 <div class='note warning'>
@@ -55,9 +57,8 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-  host_ip: YOUR.HASSIO.IP.ADDRESS
   listen_port: 80
-  # Alexa stopped working on different ports. Search for "Philipps Hue Bridge V1 (round)" in the Alexa App to discover devices.
+  # Amazon Echo/Alexa stopped working on different ports. Search for "Philips Hue Bridge V1 (round)" in the Alexa App to discover devices.
 ```
 
 {% configuration %}
@@ -71,7 +72,7 @@ host_ip:
   required: false
   type: string
 listen_port:
-  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80." 
+  description: "The port the Hue bridge API web server will run on. This can be any free port on your system. However, all new Alexa devices require listen_port: 80. See `setcap` note below if this is set below `1024` when Home Assistant is ran as a non-root user."
   required: false
   type: integer
   default: 8300
@@ -146,17 +147,44 @@ These attributes used to be found under the `customize` section of `homeassistan
 
 You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
- - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
- - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+- `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
+- `http://<HA IP Address>:80/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-For Google Home, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
+Verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
-An additional step is required to run Home Assistant as a non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as a non-root user.
+### Platform specific instructions
+
+#### Hass.io and Docker
+
+No further actions are required
+
+#### Python venv
+
+An additional step is required to run Home Assistant as a non-root user and use port 80. 
+
+##### Linux
+
+On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `emulated_hue` to use port 80 as a non-root user:
 
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
+
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
+
+##### FreeBSD and FreeNAS
+
+On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
+
+```bash
+sysctl net.inet.ip.portrange.reservedhigh=0
+```
+
+You can make this persist by adding the following to `/etc/sysctl.conf`:
+
+```bash
+net.inet.ip.portrange.reservedhigh=0
+```
 
 ### License
 

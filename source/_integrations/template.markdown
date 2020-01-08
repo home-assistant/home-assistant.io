@@ -1,12 +1,14 @@
 ---
-title: "Template Sensor"
-description: "Instructions on how to integrate Template Sensors into Home Assistant."
+title: Template
+description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
 logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@PhracturedBlue'
 ---
 
 The `template` platform supports sensors which get their values from other entities.

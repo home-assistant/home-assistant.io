@@ -236,6 +236,8 @@ The following software has built-in support for MQTT discovery:
 
 ### Examples
 
+#### Motion detection (binary sensor)
+
 A motion detection device which can be represented by a [binary sensor](/integrations/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
@@ -259,6 +261,18 @@ Delete the sensor by sending an empty message.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
+#### Sensors with multiple values
+
+Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
+
+- Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+
+#### Switches
+
 Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
@@ -276,27 +290,45 @@ Set the state.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
 ```
 
-Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
-
-- Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
-- Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
-- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+#### Abbreviating topic names
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
+- Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
-Setting up a climate integration (heat only) with abbreviated configuration variable names to reduce payload length.
+#### Lighting
+
+Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
+
+- Configuration topic: `homeassistant/light/kitchen/config`
+- Command topic: `homeassistant/light/kitchen/set`
+- State topic: `homeassistant/light/kitchen/state`
+- Example state payload: `{"state": "ON", "brightness": 255}`
+- Configuration payload:
+
+  ```json
+  {
+    "~": "homeassistant/light/kitchen",
+    "name": "Kitchen",
+    "unique_id": "kitchen_light",
+    "cmd_t": "~/set",
+    "stat_t": "~/state",
+    "schema": "json",
+    "brightness": true
+  }
+  ```
+
+#### Climate control
+
+Setting up a climate integration (heat only):
 
 - Configuration topic: `homeassistant/climate/livingroom/config`
 - Configuration payload:
 
-```yaml
+```json
 {
   "name":"Livingroom",
   "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
@@ -320,7 +352,7 @@ Setting up a climate integration (heat only) with abbreviated configuration vari
 - State topic: `homeassistant/climate/livingroom/state`
 - State payload:
 
-```yaml
+```json
 {
   "mode":"off",
   "target_temp":"21.50",

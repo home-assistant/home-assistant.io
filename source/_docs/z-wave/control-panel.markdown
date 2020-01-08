@@ -78,11 +78,11 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
+* **Entity Information** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
-The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
+The **Polling intensity** says how many poll intervals this device is polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
@@ -154,7 +154,7 @@ for x in range(0, 10):
     translations["%s" % x] = "\\x3%s" % x
 
 for c in sys.argv[1]:
-    print(translations[c], end='')
+    print(translations[c], end="")
 ```
 
 ## OZW Log

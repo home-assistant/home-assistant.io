@@ -1,6 +1,6 @@
 ---
-title: "iGlo"
-description: "Instructions on how to integrate iGlo lights into Home Assistant."
+title: iGlo
+description: Instructions on how to integrate iGlo lights into Home Assistant.
 logo: iglo.png
 ha_category:
   - Light

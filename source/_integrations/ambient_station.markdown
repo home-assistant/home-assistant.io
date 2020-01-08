@@ -1,11 +1,14 @@
 ---
-title: "Ambient Weather Station Sensor"
-description: "How to integrate Ambient Weather station within Home Assistant."
+title: Ambient Weather Station
+description: How to integrate Ambient Weather station within Home Assistant.
 logo: ambient_weather.png
 ha_category:
   - Weather
 ha_release: 0.85
 ha_iot_class: Cloud Push
+ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

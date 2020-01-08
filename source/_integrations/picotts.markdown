@@ -1,6 +1,6 @@
 ---
-title: "Pico Text-to-Speech"
-description: "Instructions on how to setup Pico Text-to-Speech with Home Assistant."
+title: Pico TTS
+description: Instructions on how to setup Pico Text-to-Speech with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Text-to-speech
@@ -13,7 +13,7 @@ On some Raspbian release, this package is missing but you can just copy the arm 
 
 On Debian Buster, the package is missing, use the following commands to install it:
 
-```
+```bash
 wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico0_1.0+git20130326-9_armhf.deb
 wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico-utils_1.0+git20130326-9_armhf.deb
 sudo apt-get install -f ./libttspico0_1.0+git20130326-9_armhf.deb ./libttspico-utils_1.0+git20130326-9_armhf.deb

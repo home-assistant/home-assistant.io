@@ -1,6 +1,6 @@
 ---
-title: "Hyperion"
-description: "Instructions on how to integrate Hyperion into Home Assistant."
+title: Hyperion
+description: Instructions on how to integrate Hyperion into Home Assistant.
 logo: hyperion.png
 ha_category:
   - Light

@@ -1,6 +1,6 @@
 ---
-title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
+title: Zigbee Home Automation
+description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 logo: zigbee.png
 ha_category:
   - Hub
@@ -13,6 +13,10 @@ ha_category:
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
+ha_config_flow: true
+ha_codeowners:
+  - '@dmulcahey'
+  - '@adminiuga'
 ---
 
 [Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
@@ -56,7 +60,21 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
-## Configuration
+## Configuration - GUI
+
+From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
+
+Use the plus button in the bottom right to add a new integration called **ZHA**.
+
+In the popup:
+
+  - USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
+  - Radio type - select device type **ezsp**, **deconz** or **xbee**
+  - Submit
+
+The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
+
+## Configuration - Manual
 
 To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
 
@@ -102,7 +120,13 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
-Alternatively you can trigger a scan for devices through the Web UI via `Configuration > ZHA > Add Devices`.
+## Adding devices
+
+Go to the **Configuration** page and select the **ZHA** integration that was added by the configuration steps above.
+
+Click on **ADD DEVICES** to start a scan for new devices.
+
+Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
 ## Troubleshooting
 
@@ -125,10 +149,39 @@ Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://git
 
 ### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
 To remove modemmanager from an Debian/Ubuntu host run this command:
 
 ```bash
 sudo apt-get purge modemmanager
+```
+
+### Can't connect to USB device and using Docker
+
+If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose.
+
+#### Docker Compose
+
+Install Docker-Compose for your platform (linux - `sudo apt-get install docker-compose`).
+
+Create a `docker-compose.yml` with the following data:
+
+```yaml
+version: '2'
+services:
+  homeassistant:
+    # customisable name
+    container_name: home-assistant
+    
+    # must be image for your platform, this is the rpi3 variant
+    image: homeassistant/raspberrypi3-homeassistant
+    volumes:
+      - <DIRECTORY HOLDING HOME ASSISTANT CONFIG FILES>:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      # your usb device forwarding to the docker image
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: always
+    network_mode: host
 ```

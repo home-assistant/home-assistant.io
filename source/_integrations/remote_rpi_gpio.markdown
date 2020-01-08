@@ -1,6 +1,6 @@
 ---
-title: "Remote Raspberry Pi GPIO"
-description: "Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant."
+title: remote_rpi_gpio
+description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -105,7 +105,7 @@ invert_logic:
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
 <div class='note warning'>
-Note that a pin managed by HASS is expected to be exclusive to HASS.
+Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
 </div>
 
 A common question is what does port refer to, this number is the actual GPIO #, not the pin #.

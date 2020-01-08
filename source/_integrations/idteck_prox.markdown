@@ -1,6 +1,6 @@
 ---
-title: "IDTECK Prox Card Reader"
-description: "How to use IDTECK proximity card readers."
+title: IDTECK Proximity Reader
+description: How to use IDTECK proximity card readers.
 logo: idteck.jpg
 ha_category:
   - Other

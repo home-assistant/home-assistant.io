@@ -1,6 +1,6 @@
 ---
-title: "AlarmDecoder Alarm"
-description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device."
+title: AlarmDecoder
+description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
 logo: alarmdecoder.png
 ha_category:
   - Alarm
@@ -77,6 +77,11 @@ device:
       type: string
 panel_display:
   description: Create a sensor called sensor.alarm_display to match the Alarm Keypad display.
+  required: false
+  default: false
+  type: boolean
+autobypass:
+  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#')."
   required: false
   default: false
   type: boolean

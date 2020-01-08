@@ -14,7 +14,7 @@ automation:
     offset: "-00:45:00"
   condition:
     condition: state
-    entity_id: group.all_devices
+    entity_id: all
     state: home
   action:
     service: light.turn_on

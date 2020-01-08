@@ -1,6 +1,6 @@
 ---
-title: "Weather Underground (WUnderground)"
-description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
+title: Weather Underground (WUnderground)
+description: Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant.
 logo: wunderground.png
 ha_category:
   - Weather

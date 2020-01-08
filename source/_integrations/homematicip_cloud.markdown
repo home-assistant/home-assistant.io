@@ -1,6 +1,6 @@
 ---
-title: "HomematicIP Cloud"
-description: "Instructions for integrating HomematicIP into Home Assistant."
+title: HomematicIP Cloud
+description: Instructions for integrating HomematicIP into Home Assistant.
 logo: homematicip_cloud.png
 ha_category:
   - Hub
@@ -13,6 +13,9 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.66
+ha_config_flow: true
+ha_codeowners:
+  - '@SukramJ'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -102,6 +105,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
   * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
   * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
+  * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -123,6 +127,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Shutter actuator for flush-mount (*HmIP-FROLL*)
   * Blind Actuator for brand switches (*HmIP-BBL*)
   * Blind Actuator for flush-mount (*HmIP-FBL*)
+  * Garage door module for Tormatic (*HmIP-MOD_TM*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -153,6 +158,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
   * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
   * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
+  * Switch Actuator for heating systems – 2 channels (*HmIP-WHS2*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
@@ -168,6 +174,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
+- `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
 ### Service Examples
 
@@ -250,6 +257,16 @@ action:
   service: homematicip_cloud.dump_hap_config
   data:
     anonymize: True
+```
+
+Reset energy counter of measuring actuators.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.reset_energy_counter
+  data:
+    entity_id: switch.livingroom
 ```
 
 

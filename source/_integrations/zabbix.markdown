@@ -1,6 +1,6 @@
 ---
-title: "Zabbix"
-description: "Instructions on how to integrate Zabbix into Home Assistant."
+title: Zabbix
+description: Instructions on how to integrate Zabbix into Home Assistant.
 logo: zabbix.png
 ha_category:
   - System Monitor

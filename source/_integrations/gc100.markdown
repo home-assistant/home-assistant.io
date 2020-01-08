@@ -1,6 +1,6 @@
 ---
-title: "gc100"
-description: "Instructions on how to integrate gc100 with Home Assistant."
+title: Global Caché GC-100
+description: Instructions on how to integrate gc100 with Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor

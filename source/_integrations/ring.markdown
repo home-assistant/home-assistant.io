@@ -1,6 +1,6 @@
 ---
-title: "Ring"
-description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
+title: Ring
+description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 logo: ring.png
 ha_category:
   - Doorbell
@@ -137,19 +137,19 @@ You can then use the following `python_script` to save the video file:
 ```python
 # obtain ring doorbell camera object
 # replace the camera.front_door by your camera entity
-ring_cam = hass.states.get('camera.front_door')
+ring_cam = hass.states.get("camera.front_door")
 
-subdir_name = 'ring_{}'.format(ring_cam.attributes.get('friendly_name'))
+subdir_name = f"ring_{ring_cam.attributes.get('friendly_name')}"
 
 # get video URL
 data = {
-    'url': ring_cam.attributes.get('video_url'),
-    'subdir': subdir_name,
-    'filename': ring_cam.attributes.get('friendly_name')
+    "url": ring_cam.attributes.get("video_url"),
+    "subdir": subdir_name,
+    "filename": ring_cam.attributes.get("friendly_name"),
 }
 
 # call downloader integration to save the video
-hass.services.call('downloader', 'download_file', data)
+hass.services.call("downloader", "download_file", data)
 ```
 
 ## Sensor

@@ -37,7 +37,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is need if you want to use Smart Home Skill API. Part of your Smart Home Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
-- Smart Home API also needs your Home Assistant instance can be accessed from Internet. We strongly suggest you host HTTPS server and use validation certificate. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Smart Home API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport), this is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 
 ### Create Your Amazon Alexa Smart Home Skill
 
@@ -171,8 +171,9 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
 - Input all information required. Assuming your Home Assistant can be accessed by https://[YOUR HOME ASSISTANT URL:PORT]
-  * `Authorization URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize
-  * `Access Token URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/token
+  * `Authorization URI`: https://[YOUR HOME ASSISTANT URL]/auth/authorize
+  * `Access Token URI`: https://[YOUR HOME ASSISTANT URL]/auth/token
+    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
   * `Client ID`:
     - https://pitangui.amazon.com/ if you are in US
     - https://layla.amazon.com/ if you are in EU
@@ -206,6 +207,7 @@ Example configuration:
 ```yaml
 alexa:
   smart_home:
+    locale: en-US
     endpoint: https://api.amazonalexa.com/v3/events
     client_id: !secret alexa_client_id
     client_secret: !secret alexa_client_secret
@@ -224,6 +226,8 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
+
+Set the `locale` to the locale of your Alexa devices. Supported locales are: `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`. Default is `en-US`.
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e. "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 

@@ -99,18 +99,6 @@ devices:
           required: false
           default: true
           type: boolean
-        aliasses:
-          description: (**deprecated**) Alternative RFLink ID's this device is known by.
-          required: false
-          type: [list, string]
-        group_aliasses:
-          description: "(**deprecated**) `aliases` which only respond to group commands."
-          required: false
-          type: [list, string]
-        no_group_aliasses:
-          description: "(**deprecated**) `aliases` which do not respond to group commands."
-          required: false
-          type: [list, string]
 {% endconfiguration %}
 
 ### Light state

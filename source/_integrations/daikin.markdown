@@ -1,6 +1,6 @@
 ---
-title: "Daikin AC"
-description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
+title: Daikin AC
+description: Instructions on how to integrate Daikin AC devices with Home Assistant.
 logo: daikin.png
 ha_category:
   - Climate
@@ -8,7 +8,11 @@ ha_category:
   - Switch
 ha_release: 0.59
 ha_iot_class: Local Polling
-ha_qa_scale: platinum
+ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@fredrike'
+  - '@rofrantz'
 ---
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.

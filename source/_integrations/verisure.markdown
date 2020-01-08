@@ -1,6 +1,6 @@
 ---
-title: "Verisure"
-description: "Instructions on how to setup Verisure devices within Home Assistant."
+title: Verisure
+description: Instructions on how to setup Verisure devices within Home Assistant.
 logo: verisure.png
 ha_category:
   - Hub

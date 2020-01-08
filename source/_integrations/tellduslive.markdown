@@ -1,6 +1,6 @@
 ---
-title: "Telldus Live"
-description: "Instructions on how to integrate Telldus Live into Home Assistant."
+title: Telldus Live
+description: Instructions on how to integrate Telldus Live into Home Assistant.
 logo: tellduslive.svg
 ha_category:
   - Hub
@@ -11,8 +11,10 @@ ha_category:
   - Switch
 ha_release: 0.11
 ha_config_flow: true
-ha_qa_scale: gold
 ha_iot_class: Cloud Polling
+ha_quality_scale: gold
+ha_codeowners:
+  - '@fredrike'
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.

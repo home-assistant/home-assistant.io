@@ -1,11 +1,12 @@
 ---
-title: "Geofency"
-description: "Instructions for how to use Geofency to track devices in Home Assistant."
+title: Geofency
+description: Instructions for how to use Geofency to track devices in Home Assistant.
 logo: geofency.png
 ha_category:
   - Presence Detection
 ha_release: 0.53
 ha_iot_class: Cloud Push
+ha_config_flow: true
 ---
 
 This integration sets up integration with [Geofency](https://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.

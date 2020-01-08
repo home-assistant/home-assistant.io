@@ -1,11 +1,13 @@
 ---
-title: "Shell command"
-description: "Instructions on how to integrate Shell commands into Home Assistant."
+title: Shell Command
+description: Instructions on how to integrate Shell commands into Home Assistant.
 ha_category:
   - Automation
 logo: home-assistant.png
-ha_qa_scale: internal
 ha_release: 0.7.6
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].

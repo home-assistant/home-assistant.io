@@ -1,6 +1,6 @@
 ---
-title: "StarLine"
-description: "Instructions on how to setup your StarLine account with Home Assistant."
+title: StarLine
+description: Instructions on how to setup your StarLine account with Home Assistant.
 logo: starline.png
 ha_category:
   - Car
@@ -12,6 +12,8 @@ ha_category:
 ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@anonym-tsk'
 ---
 
 The `starline` integration lets you retrieve data of your StarLine security system from the StarLine portal. You will need a working StarLine account.
@@ -31,7 +33,7 @@ This integration provides the following platforms:
 2. Open the integrations page and add the StarLine integration.
 3. Fill in your application ID, secret, login and password.
 
-After adding the integration, you can configure the API update interval on the integration page.
+After adding the integration, you can configure the API update interval using [`starline.set_scan_interval`](#set-scan-interval) service.
 
 <div class='note'>
 

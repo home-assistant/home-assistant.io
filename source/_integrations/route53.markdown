@@ -1,6 +1,6 @@
 ---
-title: "route53"
-description: "Automatically update your AWS Route53 DNS records."
+title: AWS Route53
+description: Automatically update your AWS Route53 DNS records.
 logo: route53.png
 ha_category:
   - Network

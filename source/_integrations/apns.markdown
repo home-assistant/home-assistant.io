@@ -1,6 +1,6 @@
 ---
-title: "APNS"
-description: "Instructions on how to add APNS notifications to Home Assistant."
+title: Apple Push Notification Service (APNS)
+description: Instructions on how to add APNS notifications to Home Assistant.
 logo: apple.png
 ha_category:
   - Notifications
@@ -48,7 +48,7 @@ sandbox:
 
 The APNS platform will register two services, `notify.NOTIFIER_NAME` and `apns.apns_NOTIFIER_NAME`.
 
-### notify.apns_NOTIFIER_NAME
+### apns.apns_NOTIFIER_NAME
 
 This service will register device IDs with Home Assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in `[NOTIFIER_NAME]_apns.yaml`.
 

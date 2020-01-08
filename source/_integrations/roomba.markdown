@@ -1,10 +1,12 @@
 ---
-title: "iRobot Roomba"
-description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
+title: iRobot Roomba
+description: Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant.
 logo: irobot_roomba.png
 ha_category:
   - Vacuum
 ha_release: 0.51
+ha_codeowners:
+  - '@pschmitt'
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.

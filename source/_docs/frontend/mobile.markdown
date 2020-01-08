@@ -4,9 +4,9 @@ description: "Android/iOS instructions to add Home Assistant to your homescreen.
 redirect_from: /getting-started/mobile/
 ---
 
-Home Assistant has [a companion apps for Android and iOS](/docs/ecosystem/ios/).
+Home Assistant has [a companion app for both Android and iOS](/docs/ecosystem/ios/).
 
-On both Android and iOS, you can add the Home Assistant "web app" to your homescreen as if it was native (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
+As an alternative to the iOS and Android companion apps, you can add the Home Assistant "web app" to your homescreen as if it was native (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
 
 ### Android
 

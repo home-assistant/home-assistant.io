@@ -1,10 +1,12 @@
 ---
-title: "Keenetic NDMS2 Routers"
-description: "Instructions on how to integrate Keenetic NDMS2 Routers into Home Assistant."
+title: Keenetic NDMS2 Routers
+description: Instructions on how to integrate Keenetic NDMS2 Routers into Home Assistant.
 logo: keenetic.png
 ha_category:
   - Presence Detection
 ha_release: 0.54
+ha_codeowners:
+  - '@foxel'
 ---
 
 This integration offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)

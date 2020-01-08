@@ -1,6 +1,6 @@
 ---
-title: "Raspberry Pi Camera"
-description: "Instructions on how to integrate Raspberry Pi within Home Assistant."
+title: Raspberry Pi Camera
+description: Instructions on how to integrate Raspberry Pi within Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

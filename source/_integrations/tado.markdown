@@ -1,6 +1,6 @@
 ---
-title: "Tado"
-description: "Instructions on how to integrate Tado devices with Home Assistant."
+title: Tado
+description: Instructions on how to integrate Tado devices with Home Assistant.
 logo: tado.png
 ha_category:
   - Hub
@@ -9,9 +9,11 @@ ha_category:
   - Sensor
 ha_release: 0.41
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaelarnauts'
 ---
 
-The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website.
+The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,16 +34,21 @@ tado:
 
 {% configuration %}
 username:
-  description: Your username for my.tado.com.
+  description: Your username for [my.tado.com](https://my.tado.com/).
   required: true
   type: string
 password:
-  description: Your password for my.tado.com.
+  description: Your password for [my.tado.com](https://my.tado.com/).
   required: true
   type: string
+fallback:
+  description: Indicates if you want to fallback to Smart Schedule on the next Schedule change, or stay in Manual mode until you set the mode back to Auto.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
-The tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/webapp/#/account/sign-in), which is used by their website and now by this component.
+The tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is not supported.
 

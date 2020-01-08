@@ -1,6 +1,6 @@
 ---
-title: "World Tides"
-description: "Instructions on how to add Tides information to Home Assistant."
+title: World Tides
+description: Instructions on how to add Tides information to Home Assistant.
 logo: worldtidesinfo.png
 ha_category:
   - Environment

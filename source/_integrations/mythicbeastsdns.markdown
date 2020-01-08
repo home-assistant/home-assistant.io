@@ -1,6 +1,6 @@
 ---
-title: "Mythic Beasts DNS"
-description: "Keep your mythic beasts DNS updated"
+title: Mythic Beasts DNS
+description: Keep your mythic beasts DNS updated
 ha_category:
   - Network
 ha_release: 0.85

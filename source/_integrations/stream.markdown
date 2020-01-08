@@ -1,12 +1,14 @@
 ---
-title: "Stream"
-description: "Instructions on how to integrate live streams within Home Assistant."
+title: Stream
+description: Instructions on how to integrate live streams within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Other
-ha_release: "0.90"
+ha_release: '0.90'
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@hunterjm'
 ---
 
 The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
@@ -33,7 +35,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `stream_source`        |      no  | The input source for the stream, e.g., `rtsp://my.stream.feed:554`. |
-| `filename`             |      no  | The file name string. Variable is `entity_id`, e.g., `/tmp/my_stream.mp4`. |
+| `filename`             |      no  | The file name string. e.g., `/tmp/my_stream.mp4`. |
 | `duration`             |      yes | Target recording length (in seconds). Default: 30 |
 | `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream for `stream_source`. Default: 0 |
 

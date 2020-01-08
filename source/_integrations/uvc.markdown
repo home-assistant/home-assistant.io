@@ -1,6 +1,6 @@
 ---
-title: "UniFi Video Camera"
-description: "Instructions on how to integrate UVC cameras within Home Assistant."
+title: Ubiquiti UniFi Video
+description: Instructions on how to integrate UVC cameras within Home Assistant.
 logo: ubiquiti.png
 ha_category:
   - Camera

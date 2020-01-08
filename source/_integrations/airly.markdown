@@ -1,11 +1,14 @@
 ---
-title: "Airly"
-description: "Instructions on how to integrate Airly within Home Assistant."
+title: Airly
+description: Instructions on how to integrate Airly within Home Assistant.
 logo: airly.png
 ha_category:
   - Health
 ha_release: 0.101
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bieniu'
 ---
 
 The `airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location. 

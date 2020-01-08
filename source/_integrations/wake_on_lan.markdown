@@ -1,6 +1,6 @@
 ---
-title: "Wake on LAN"
-description: "Instructions on how to setup the Wake on LAN integration in Home Assistant."
+title: Wake on LAN
+description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
 logo: ethernet.png
 ha_category:
   - Network
@@ -9,7 +9,7 @@ ha_release: 0.49
 ha_iot_class: Local Push
 ---
 
-The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to turn them on.
+The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -61,12 +61,12 @@ To enable this switch in your installation, add the following to your `configura
 # Example configuration.yaml entry
 switch:
   - platform: wake_on_lan
-    mac: "00-01-02-03-04-05"
+    mac: MAC_ADDRESS
 ```
 
 {% configuration %}
 mac:
-  description: The MAC address to send the wake up command to.
+  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
   required: true
   type: string
 name:

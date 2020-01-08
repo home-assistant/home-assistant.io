@@ -1,11 +1,11 @@
 ---
-title: "Device Tracker"
-description: "Instructions on how to setup device tracking within Home Assistant."
+title: Device Tracker
+description: Instructions on how to setup device tracking within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Presence Detection
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.

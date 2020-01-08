@@ -1,6 +1,6 @@
 ---
-title: "Transport NSW"
-description: "Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant."
+title: Transport NSW
+description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
 logo: transport_nsw.png
 ha_category:
   - Transport

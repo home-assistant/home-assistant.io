@@ -1,6 +1,6 @@
 ---
-title: "Folder sensor"
-description: "Sensor for monitoring the contents of a folder."
+title: Folder
+description: Sensor for monitoring the contents of a folder.
 logo: file.png
 ha_category:
   - Utility

@@ -19,7 +19,7 @@ So here are guidelines:
  - Do not talk about YAML if it can be partially/fully done in UI.
  - Do not tell people about stuff they can do later. This can be added to a
    2nd tier guide.
- - The first page of the guide is for installation, hence hass.io specific.
+ - The first page of the guide is for installation, hence Hass.io specific.
    Other pages should not refer to it except for the page introducing the last
    page that introduces `configuration.yaml`.
 
@@ -33,7 +33,7 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 ### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. The Raspberry Pi 3 Model B+ is a good, affordable starting point for your home automation journey. Links below lead to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The Raspberry Pi 4 Model B is a good, affordable starting point for your home automation journey. Links below lead to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
 - [Raspberry Pi 4 Model B (2GB)](https://amzn.to/2XULT2z) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
@@ -42,7 +42,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 
 ### Software requirements
 
-- Download the HassOS image for [your device](/hassio/installation/)
+- Download and extract the HassOS image for [your device](/hassio/installation/)
 - Download [balenaEtcher] to write the image to an SD card
 
 [balenaEtcher]: https://www.balena.io/etcher

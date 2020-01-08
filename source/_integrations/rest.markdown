@@ -1,6 +1,6 @@
 ---
-title: "RESTful Sensor"
-description: "Instructions on how to integrate REST sensors into Home Assistant."
+title: RESTful
+description: Instructions on how to integrate REST sensors into Home Assistant.
 logo: restful.png
 ha_category:
   - Sensor

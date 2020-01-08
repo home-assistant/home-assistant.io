@@ -10,7 +10,7 @@ ha_iot_class: Cloud Push
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
 
-This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/telegram_polling) method or with the [webhooks](/integrations/telegram_webhooks) one, and trigger events when receiving messages.
+This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/telegram_polling) platform or with the [webhooks](/integrations/telegram_webhooks) one, and trigger events when receiving messages.
 
 If you don't need to receive messages, you can use the [broadcast](/integrations/telegram_broadcast) platform instead.
 
@@ -328,7 +328,7 @@ Message editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/edit_msg'
+      command: '/edit_msg'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -360,7 +360,7 @@ Keyboard editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/remove button'
+      command: '/remove button'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -385,7 +385,7 @@ Only acknowledges the 'NO' answer:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/do_nothing'
+      command: '/do_nothing'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -394,6 +394,29 @@ Only acknowledges the 'NO' answer:
 ```
 {% endraw %}
 
+Telegram callbacks also support arguments and commands the same way as normal messages.
+
+{% raw %}
+```yaml
+- alias: 'Telegram bot repeats arguments on callback query'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/repeat'
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        show_alert: true
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: 'I repeat: {{trigger.event.data["args"]}}'
+```
+{% endraw %}
+
+In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`
+
+
 For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/docs/ecosystem/appdaemon/tutorial/) is advised.
 
 This is how the previous 4 automations would be through a simple AppDaemon app:
@@ -401,76 +424,90 @@ This is how the previous 4 automations would be through a simple AppDaemon app:
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
+
 class TelegramBotEventListener(hass.Hass):
     """Event listener for Telegram bot events."""
 
     def initialize(self):
         """Listen to Telegram Bot events of interest."""
-        self.listen_event(self.receive_telegram_text, 'telegram_text')
-        self.listen_event(self.receive_telegram_callback, 'telegram_callback')
+        self.listen_event(self.receive_telegram_text, "telegram_text")
+        self.listen_event(self.receive_telegram_callback, "telegram_callback")
 
     def receive_telegram_text(self, event_id, payload_event, *args):
         """Text repeater."""
-        assert event_id == 'telegram_text'
-        user_id = payload_event['user_id']
-        msg = 'You said: ``` %s ```' % payload_event['text']
-        keyboard = [[("Edit message", "/edit_msg"),
-                     ("Don't", "/do_nothing")],
-                    [("Remove this button", "/remove button")]]
-        self.call_service('telegram_bot/send_message',
-                          title='*Dumb automation*',
-                          target=user_id,
-                          message=msg,
-                          disable_notification=True,
-                          inline_keyboard=keyboard)
+        assert event_id == "telegram_text"
+        user_id = payload_event["user_id"]
+        msg = "You said: ``` %s ```" % payload_event["text"]
+        keyboard = [
+            [("Edit message", "/edit_msg"), ("Don't", "/do_nothing")],
+            [("Remove this button", "/remove button")],
+        ]
+        self.call_service(
+            "telegram_bot/send_message",
+            title="*Dumb automation*",
+            target=user_id,
+            message=msg,
+            disable_notification=True,
+            inline_keyboard=keyboard,
+        )
 
     def receive_telegram_callback(self, event_id, payload_event, *args):
         """Event listener for Telegram callback queries."""
-        assert event_id == 'telegram_callback'
-        data_callback = payload_event['data']
-        callback_id = payload_event['id']
-        chat_id = payload_event['chat_id']
+        assert event_id == "telegram_callback"
+        data_callback = payload_event["data"]
+        callback_id = payload_event["id"]
+        chat_id = payload_event["chat_id"]
         # keyboard = ["Edit message:/edit_msg, Don't:/do_nothing",
         #             "Remove this button:/remove button"]
-        keyboard = [[("Edit message", "/edit_msg"),
-                     ("Don't", "/do_nothing")],
-                    [("Remove this button", "/remove button")]]
+        keyboard = [
+            [("Edit message", "/edit_msg"), ("Don't", "/do_nothing")],
+            [("Remove this button", "/remove button")],
+        ]
 
-        if data_callback == '/edit_msg':  # Message editor:
+        if data_callback == "/edit_msg":  # Message editor:
             # Answer callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='Editing the message!',
-                              callback_query_id=callback_id,
-                              show_alert=True)
+            self.call_service(
+                "telegram_bot/answer_callback_query",
+                message="Editing the message!",
+                callback_query_id=callback_id,
+                show_alert=True,
+            )
 
             # Edit the message origin of the callback query
-            msg_id = payload_event['message']['message_id']
-            user = payload_event['from_first']
-            title = '*Message edit*'
-            msg = 'Callback received from %s. Message id: %s. Data: ``` %s ```'
-            self.call_service('telegram_bot/edit_message',
-                              chat_id=chat_id,
-                              message_id=msg_id,
-                              title=title,
-                              message=msg % (user, msg_id, data_callback),
-                              inline_keyboard=keyboard)
+            msg_id = payload_event["message"]["message_id"]
+            user = payload_event["from_first"]
+            title = "*Message edit*"
+            msg = "Callback received from %s. Message id: %s. Data: ``` %s ```"
+            self.call_service(
+                "telegram_bot/edit_message",
+                chat_id=chat_id,
+                message_id=msg_id,
+                title=title,
+                message=msg % (user, msg_id, data_callback),
+                inline_keyboard=keyboard,
+            )
 
-        elif data_callback == '/remove button':  # Keyboard editor:
+        elif data_callback == "/remove button":  # Keyboard editor:
             # Answer callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='Callback received for editing the '
-                                      'inline keyboard!',
-                              callback_query_id=callback_id)
+            self.call_service(
+                "telegram_bot/answer_callback_query",
+                message="Callback received for editing the " "inline keyboard!",
+                callback_query_id=callback_id,
+            )
 
             # Edit the keyboard
             new_keyboard = keyboard[:1]
-            self.call_service('telegram_bot/edit_replymarkup',
-                              chat_id=chat_id,
-                              message_id='last',
-                              inline_keyboard=new_keyboard)
+            self.call_service(
+                "telegram_bot/edit_replymarkup",
+                chat_id=chat_id,
+                message_id="last",
+                inline_keyboard=new_keyboard,
+            )
 
-        elif data_callback == '/do_nothing':  # Only Answer to callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='OK, you said no!',
-                              callback_query_id=callback_id)
+        elif data_callback == "/do_nothing":  # Only Answer to callback query
+            self.call_service(
+                "telegram_bot/answer_callback_query",
+                message="OK, you said no!",
+                callback_query_id=callback_id,
+            )
 ```

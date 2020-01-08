@@ -1,11 +1,13 @@
 ---
-title: "Vivotek Camera"
-description: "Instructions on how to integrate Vivotek cameras within Home Assistant."
+title: Vivotek
+description: Instructions on how to integrate Vivotek cameras within Home Assistant.
 ha_category:
   - Camera
 logo: vivotek.jpg
 ha_release: 0.99
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@HarlemSquirrel'
 ---
 
 The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
@@ -42,6 +44,11 @@ username:
 password:
   description: The password for accessing your camera.
   required: true
+  type: string
+authentication:
+  description: "Type for authenticating the requests `basic` or `digest`."
+  required: false
+  default: basic
   type: string
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
@@ -81,6 +88,7 @@ camera:
     ssl: true
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
+    authentication: digest
     security_level: admin
     verify_ssl: false
     framerate: 5

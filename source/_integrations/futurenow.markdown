@@ -1,6 +1,6 @@
 ---
-title: "P5 FutureNow Lights"
-description: "Instructions on how to set up P5 FutureNow relay/dimmer units as lights within Home Assistant."
+title: P5 FutureNow
+description: Instructions on how to set up P5 FutureNow relay/dimmer units as lights within Home Assistant.
 logo: p5.png
 ha_category:
   - Light

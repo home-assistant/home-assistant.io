@@ -1,13 +1,12 @@
 ---
-title: "Piglow"
-description: "Instructions on how to setup Piglow LED's within Home Assistant."
+title: Piglow
+description: Instructions on how to setup Piglow LED's within Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_release: 0.37
 ha_iot_class: Local Polling
 ---
-
 
 The `piglow` platform lets you control the [Piglow](https://shop.pimoroni.com/products/piglow) lights on your Raspberry Pi from within Home Assistant.
 

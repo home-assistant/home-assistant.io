@@ -1,11 +1,13 @@
 ---
-title: "Counter"
-description: "Instructions on how to integrate counters into Home Assistant."
+title: Counter
+description: Instructions on how to integrate counters into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.53
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.

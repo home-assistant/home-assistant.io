@@ -1,10 +1,12 @@
 ---
-title: "RFXtrx"
-description: "Instructions on how to integrate RFXtrx into Home Assistant."
+title: RFXCOM RFXtrx
+description: Instructions on how to integrate RFXtrx into Home Assistant.
 logo: rfxtrx.png
 ha_category:
   - Hub
 ha_release: pre 0.7
+ha_codeowners:
+  - '@danielhiversen'
 ---
 
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -57,7 +59,7 @@ Not all protocols as advertised are enabled on the initial setup of your transce
 
 ### ser2net
 
-You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your home assistant config.
+You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant config.
 
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT

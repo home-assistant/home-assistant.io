@@ -1,11 +1,13 @@
 ---
-title: "Tile"
-description: "Instructions on how to use Tile to track devices in Home Assistant."
+title: Tile
+description: Instructions on how to use Tile to track devices in Home Assistant.
 logo: tile.png
 ha_release: 0.58
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `tile` platform allows Home Assistant to utilize [Tile® Bluetooth trackers](https://www.thetileapp.com).

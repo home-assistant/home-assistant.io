@@ -1,6 +1,6 @@
 ---
-title: "Pilight"
-description: "Instructions on how to setup Pilight within Home Assistant."
+title: Pilight
+description: Instructions on how to setup Pilight within Home Assistant.
 logo: pilight.png
 ha_category:
   - DIY
@@ -22,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
 ## Configuration
 
@@ -301,6 +302,52 @@ switch:
           systemcode: 14462
           unit: 6
           id: 34
+          state: 'off'
+```
+
+## Light
+
+Pilight dimmer devices, which can have different brightness values, can be used as a light. 
+The configuration parameters are the same for dimmers and switches. 
+
+{% configuration %}
+lights:
+  description: The list that contains all command lights.
+  required: true
+  type: string
+  keys:
+    entry:
+      description: Name of the command light, which are the same like for switches. Multiple entries are possible.
+      required: true
+      type: list
+{% endconfiguration %}
+
+### Example
+
+```yaml
+light:
+  - platform: pilight
+    lights:
+      test2:
+        on_code:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          'on': 1
+        off_code:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          'off': 1
+        on_code_receive:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
+          state: 'on'
+        off_code_receive:
+          protocol: kaku_dimmer
+          id: 23298822
+          unit: 10
           state: 'off'
 ```
 

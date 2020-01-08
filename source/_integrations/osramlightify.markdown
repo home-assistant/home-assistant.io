@@ -1,6 +1,6 @@
 ---
-title: "Osram Lightify"
-description: "Instructions on how to integrate Osram Lightify into Home Assistant."
+title: Osramlightify
+description: Instructions on how to integrate Osram Lightify into Home Assistant.
 logo: osramlightify.png
 ha_category:
   - Light

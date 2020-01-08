@@ -1,6 +1,6 @@
 ---
-title: "Abode Home Security"
-description: "Instructions on integrating Abode home security with Home Assistant."
+title: Abode
+description: Instructions on integrating Abode home security with Home Assistant.
 logo: abode.jpg
 ha_category:
   - Hub
@@ -15,6 +15,8 @@ ha_category:
 ha_release: 0.52
 ha_iot_class: Cloud Push
 ha_config_flow: true
+ha_codeowners:
+  - '@shred86'
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.

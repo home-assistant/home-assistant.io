@@ -1,6 +1,6 @@
 ---
-title: "Jandy iAqualink"
-description: "Instructions on how to configure Jandy iAqualink integration."
+title: Jandy iAqualink
+description: Instructions on how to configure Jandy iAqualink integration.
 logo: iaqualink.png
 ha_category:
   - Binary Sensor
@@ -10,6 +10,9 @@ ha_category:
   - Switch
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@flz'
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.

@@ -58,7 +58,7 @@ Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
 # Example .gitignore file for your config dir.
-# A * ensures that everything will be ignored.
+# An * ensures that everything will be ignored.
 *
 
 # You can whitelist files/folders with !, these will not be ignored.

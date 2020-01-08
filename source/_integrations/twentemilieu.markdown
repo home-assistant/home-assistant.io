@@ -1,6 +1,6 @@
 ---
-title: "Twente Milieu"
-description: "Instructions on how to integrate Twente Milieu with Home Assistant."
+title: Twente Milieu
+description: Instructions on how to integrate Twente Milieu with Home Assistant.
 logo: twentemilieu.png
 ha_category:
   - Sensor
@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.97
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste

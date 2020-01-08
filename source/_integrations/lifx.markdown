@@ -1,11 +1,12 @@
 ---
-title: "LIFX"
-description: "Instructions on how to integrate LIFX into Home Assistant."
+title: LIFX
+description: Instructions on how to integrate LIFX into Home Assistant.
 logo: lifx.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
+ha_config_flow: true
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
@@ -20,7 +21,7 @@ The LIFX bulbs allow a change of color and brightness even when they are turned 
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
 
-### Service `light.lifx_set_state`
+### Service `lifx.set_state`
 
 Change the light to a new state.
 
@@ -54,7 +55,7 @@ script:
   colorloop_start:
     alias: 'Start colorloop'
     sequence:
-      - service: light.lifx_effect_colorloop
+      - service: lifx.effect_colorloop
         data:
           entity_id: group.livingroom
           brightness: 255

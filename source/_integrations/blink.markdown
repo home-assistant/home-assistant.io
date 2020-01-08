@@ -1,6 +1,6 @@
 ---
-title: "Blink"
-description: "Instructions for how to integrate Blink camera/security system within Home Assistant."
+title: Blink
+description: Instructions for how to integrate Blink camera/security system within Home Assistant.
 logo: blink.png
 ha_category:
   - Hub
@@ -8,8 +8,10 @@ ha_category:
   - Binary Sensor
   - Camera
   - Sensor
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fronzbot'
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
@@ -117,17 +119,17 @@ Force a refresh of the Blink system.
 Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
-|------------------------|----------|----------------------------------------|
-| `name`                 |     no   | Name of camera to take new image with. |
+| ---------------------- | -------- | -------------------------------------- |
+| `name`                 | no       | Name of camera to take new image with. |
 
 ### `blink.save_video`
 
 Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `whitelist_external_dirs` in your `configuration.yaml` file (see example below).
 
 | Service Data Attribute | Optional | Description                              |
-|------------------------|----------|------------------------------------------|
-| `name`                 |    no    | Name of camera containing video to save. |
-| `filename`             |    no    | Location of save file.                   |
+| ---------------------- | -------- | ---------------------------------------- |
+| `name`                 | no       | Name of camera containing video to save. |
+| `filename`             | no       | Location of save file.                   |
 
 
 ```yaml
@@ -167,7 +169,7 @@ sequence:
 
 ### Arm Blink When Away
 
-This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](/integrations/camera#service-enable_motion_detection) but pelase note that motion will only be captured if the sync module is armed.
+This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](/integrations/camera#service-enable_motion_detection) but please note that motion will only be captured if the sync module is armed.
 
 Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/integrations/device_tracker) set up for presence detection.
 
@@ -176,7 +178,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
   alias: Arm Blink When Away
   trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: all
       to: 'not_home'
   action:
       service: alarm_control_panel.alarm_arm_away
@@ -192,7 +194,7 @@ Similar to the previous example, this automation will disarm blink when arriving
   alias: Disarm Blink When Home
   trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: all
       to: 'home'
   action:
       service: alarm_control_panel.alarm_disarm

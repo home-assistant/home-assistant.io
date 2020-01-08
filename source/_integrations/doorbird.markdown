@@ -1,6 +1,6 @@
 ---
-title: "DoorBird"
-description: "Instructions on how to integrate your DoorBird video doorbell with Home Assistant."
+title: DoorBird
+description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
 logo: doorbird.png
 ha_category:
   - Doorbell
@@ -8,6 +8,8 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@oblogic7'
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -19,13 +21,12 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-It is recommended to set up a new account on your Doorbird for use with Home Assistant. This can be added via the Doorbird App by choosing Administration -> (User) Add. This user, needs specific permissions enabled, depending on what functionality you want:
+It is recommended to set up a new account on your Doorbird App for use with Home Assistant. This can be added via the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended:
 
-- Live view -> Watch Always
-- Last motion -> Motion + History
-- Last ring -> History
-
-In addition, the "API-Operator" permission needs to be enabled as well.
+- "Watch Always" (live view)
+- "History" (last motion)
+- "Motion" (last motion)
+- "API-Operator" (this needed to be enabled as a minimum)
 
 ## Configuration
 
@@ -144,20 +145,21 @@ The URLs on the event will be based on the configuration used to connect to your
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently there are schedules available for doorbell, motion, relay, and RFID events (on supported devices).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices).
 
-For iOS, the schedules can be found by navigating to the following areas of the app:
+The schedules can be found by navigating to the following area of the Doorbird app (Android or IOS):
 
-- Doorbell  | Settings > Administration > Specific Device > Schedule for Doorbell
-- Motion    | Settings > Administration > Specific Device > 3D Motion Sensor (Settings) > Schedule for Actions
-- Relay     | Settings > Administration > Specific Device > Relays > Schedule
-- RFID      | Settings > Administration > Specific Device > RFID Transponder > Settings > Select Transponder > Schedule
+Settings (cog icon) -> Administration -> LOGIN LOGIN (using your App Administration details) -> (under "EXPERT SETTINGS") Schedule for doorbell
 
-Once you are on the desired schedule, click the dropdown button in the upper left to switch to the HTTP Calls view. Now if you click on the heading just above the schedule, you can select the event you would like to be called for the particular schedule that is being viewed.
+- `Push notification`
+- `Trigger Relay ("Relay 1" or "Relay 2")`
+- `HTTP(S) Calls (button, motion/movement, RFID)`
+
+Click on the dropdown button in the top left and choose your specific "Schedule for actions" (listed above). Depending on your selection, you may have to click on the center title to see the sub-categories menu.
 
 On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
-Remember to complete the schedule assignment steps above for each event type that you registered.
+Note: Remember to complete the schedule assignment steps above for each event type that you registered.
 
 ### Automation Example
 

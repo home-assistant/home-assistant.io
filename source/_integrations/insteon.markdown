@@ -1,6 +1,6 @@
 ---
-title: "Insteon"
-description: "Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant."
+title: Insteon
+description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
 logo: insteon.png
 ha_category:
   - Hub
@@ -270,10 +270,10 @@ Mini-Remote devices do not appear as Home Assistant entities, they generate even
 
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
+  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `h`. For a one-button remote this field is not used.
 - **insteon.button_off**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
+  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `h`. For a one-button remote this field is not used.
 
 This allows the mini-remotes to be configured as triggers for automations. Here is an example of how to use these events for automations:
 

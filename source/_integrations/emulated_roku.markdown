@@ -1,11 +1,12 @@
 ---
-title: "Emulated Roku"
-description: "Instructions on how to set up Emulated Roku within Home Assistant."
+title: Emulated Roku
+description: Instructions on how to set up Emulated Roku within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Hub
 ha_release: 0.86
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,

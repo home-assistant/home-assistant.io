@@ -1,6 +1,6 @@
 ---
-title: "PJLink"
-description: "Instructions on how to integrate PJLink enabled projectors into Home Assistant."
+title: PJLink
+description: Instructions on how to integrate PJLink enabled projectors into Home Assistant.
 logo: pjlink.png
 ha_category:
   - Media Player

@@ -216,7 +216,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state.attributes.elevation }}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     # Can be a positive or negative number
     below: -4.0
   action:

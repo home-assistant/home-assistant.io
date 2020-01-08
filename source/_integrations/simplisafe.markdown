@@ -1,14 +1,17 @@
 ---
-title: "SimpliSafe"
-description: "Instructions on how to integrate SimpliSafe into Home Assistant."
+title: SimpliSafe
+description: Instructions on how to integrate SimpliSafe into Home Assistant.
 logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
   - Lock
+ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
-The `simplisafe` integration integrates SimpliSafe home security (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
+The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -1,6 +1,6 @@
 ---
-title: "Tesla"
-description: "Instructions on how to integrate Tesla car into Home Assistant."
+title: Tesla
+description: Instructions on how to integrate Tesla car into Home Assistant.
 logo: tesla.png
 ha_category:
   - Car
@@ -12,6 +12,9 @@ ha_category:
   - Switch
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@zabuldon'
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
@@ -19,7 +22,7 @@ The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.c
 This integration provides the following platforms:
 
 - Binary sensors - such as parking and charger connection.
-- Sensors - such as Battery level, Inside/Outside temperature, odometer, and estimated range.
+- Sensors - such as Battery level, Inside/Outside temperature, odometer, estimated range, and charging rate.
 - Device tracker - to track location of your car
 - Lock - Door lock. Enables you to control Tesla's door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
@@ -27,7 +30,11 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To use Tesla in your installation, add the following to your `configuration.yaml` file:
+Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
+
+Enter username and password and then continue.
+
+Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

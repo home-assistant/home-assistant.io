@@ -1,6 +1,6 @@
 ---
-title: "Pandora"
-description: "Instructions on how to integrate Pandora radio into Home Assistant."
+title: Pandora
+description: Instructions on how to integrate Pandora radio into Home Assistant.
 logo: pandora.png
 ha_category:
   - Media Player
@@ -60,4 +60,3 @@ That's it! Now you will find a media player. If you click it you will find all y
 <p class='img'>
 <img src='/images/screenshots/pandora_player.png' />
 </p>
-

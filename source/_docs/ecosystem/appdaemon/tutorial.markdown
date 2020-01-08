@@ -58,18 +58,17 @@ different scenes in a different version of the App.
 ```python
     import appdaemon.plugins.hass.hassapi as hass
 
+
     class OutsideLights(hass.Hass):
+        def initialize(self):
+            self.run_at_sunrise(self.sunrise_cb)
+            self.run_at_sunset(self.before_sunset_cb, offset=-900)
 
-      def initialize(self):
-        self.run_at_sunrise(self.sunrise_cb)
-        self.run_at_sunset(self.before_sunset_cb, offset=-900)
+        def sunrise_cb(self, kwargs):
+            self.turn_on(self.args["off_scene"])
 
-      def sunrise_cb(self, kwargs):
-        self.turn_on(self.args["off_scene"])
-
-      def before_sunset_cb(self, kwargs):
-        self.turn_on(self.args["on_scene"])
-
+        def before_sunset_cb(self, kwargs):
+            self.turn_on(self.args["on_scene"])
 ```
 
 This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.
@@ -81,18 +80,18 @@ Our next example is to turn on a light when motion is detected and it is dark, a
 ```python
 import appdaemon.appapi as appapi
 
+
 class FlashyMotionLights(appapi.AppDaemon):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
 
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
 ```
 
 This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.
@@ -102,26 +101,26 @@ Now lets extend this with a somewhat artificial example to show something that i
 ```python
 import homeassistant.appapi as appapi
 
+
 class MotionLights(appapi.AppDaemon):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
+            self.flashcount = 0
+            self.run_in(self.flash_warning, 1)
 
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-      self.flashcount = 0
-      self.run_in(self.flash_warning, 1)
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
 
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
-
-  def flash_warning(self, kwargs):
-    self.toggle("light.living_room")
-    self.flashcount += 1
-    if self.flashcount < 10:
-      self.run_in(self.flash_warning, 1)
+    def flash_warning(self, kwargs):
+        self.toggle("light.living_room")
+        self.flashcount += 1
+        if self.flashcount < 10:
+            self.run_in(self.flash_warning, 1)
 ```
 
 Of course if I wanted to make this App or its predecessor reusable I would have provide parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.

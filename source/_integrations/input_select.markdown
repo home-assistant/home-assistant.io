@@ -1,11 +1,13 @@
 ---
-title: "Input Select"
-description: "Instructions on how to integrate the Input Select integration into Home Assistant."
+title: Input Select
+description: Instructions on how to integrate the Input Select integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.13
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
@@ -62,11 +64,11 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
-This integrations provide three services to modify the state of the `input_select`.
+This integration provides three services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -74,6 +76,7 @@ This integrations provide three services to modify the state of the `input_selec
 | `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
 | `select_previous` | | Select the previous option.
 | `select_next` | | Select the next option.
+| `reload` | | Reload `input_select` configuration |
 
 ### Scenes
 

@@ -1,11 +1,13 @@
 ---
-title: "Input Datetime"
-description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
+title: Input Datetime
+description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_datetime` integration allows the user to define date and time values
@@ -78,13 +80,11 @@ automations and templates.
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home
-Assistant stopping as long as your entity does **not** have a set value for
-`initial`.  To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
-Available service: `input_datetime.set_datetime`.
+Available service: `input_datetime.set_datetime` and `input_datetime.reload`.
 
 Service data attribute | Format String | Description
 -|-|-
@@ -93,6 +93,8 @@ Service data attribute | Format String | Description
 `datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
 
 To set both the date and time in the same call, use `date` and `time` together, or use `datetime` by itself. Using `datetime` has the advantage that both can be set using one template.
+
+`input_dateteime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
 
 ## Automation Examples
 

@@ -73,6 +73,11 @@ registers:
       description: Unit to attach to value.
       required: false
       type: integer
+    device_class:
+      description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+      required: false
+      type: device_class
+      default: None
     count:
       description: Number of registers to read.
       required: false

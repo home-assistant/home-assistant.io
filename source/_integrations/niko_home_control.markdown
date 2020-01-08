@@ -1,6 +1,6 @@
 ---
-title: "Niko Home Control Light"
-description: "Instructions on how to integrate Niko Home Control lights into Home Assistant."
+title: Niko Home Control
+description: Instructions on how to integrate Niko Home Control lights into Home Assistant.
 logo: niko.png
 ha_category:
   - Light

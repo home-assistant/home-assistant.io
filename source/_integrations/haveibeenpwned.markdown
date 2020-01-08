@@ -1,6 +1,6 @@
 ---
-title: "HaveIBeenPwned Sensor"
-description: "Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant."
+title: HaveIBeenPwned
+description: Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant.
 logo: haveibeenpwned.png
 ha_category:
   - Sensor

@@ -1,6 +1,6 @@
 ---
-title: "Water Heater"
-description: "Instructions on how to setup water heater devices within Home Assistant."
+title: Water Heater
+description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
 ---
 

@@ -1,11 +1,13 @@
 ---
-title: "Philips TV"
-description: "Instructions on how to add Philips TVs to Home Assistant."
+title: Philips TV
+description: Instructions on how to add Philips TVs to Home Assistant.
 logo: philips.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.34
+ha_codeowners:
+  - '@elupus'
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html).

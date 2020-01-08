@@ -1,6 +1,6 @@
 ---
-title: "ROVA Sensor"
-description: "Instructions on how to integrate ROVA sensor within Home Assistant."
+title: ROVA
+description: Instructions on how to integrate ROVA sensor within Home Assistant.
 logo: rova.jpg
 ha_category:
   - Sensor

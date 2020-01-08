@@ -1,6 +1,6 @@
 ---
-title: "OpenEnergyMonitor WiFi Thermostat"
-description: "Instructions on how to integrate an OpenEnergyMonitor thermostat with Home Assistant."
+title: OpenEnergyMonitor WiFi Thermostat
+description: Instructions on how to integrate an OpenEnergyMonitor thermostat with Home Assistant.
 logo: oem.png
 ha_category:
   - Climate

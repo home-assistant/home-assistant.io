@@ -292,7 +292,7 @@ Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
-It will also work as a filter over a iterable group of entities or groups:
+It will also work as a filter over an iterable group of entities or groups:
 
 ```text
 Closest out of given entities: 

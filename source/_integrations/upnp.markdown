@@ -1,12 +1,15 @@
 ---
-title: "UPnP"
-description: "Internet Gateway Device (IGD) Protocol for Home Assistant."
+title: UPnP
+description: Internet Gateway Device (IGD) Protocol for Home Assistant.
 logo: upnp.png
 ha_category:
   - Network
   - Sensor
 ha_release: 0.18
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The `upnp` integration enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
@@ -54,7 +57,7 @@ ports:
   description: Map of ports to map from internal to external. Pass 'hass' as internal port to use the port Home Assistant runs on. Note that you have to enable port_mapping if you wish to map ports.
   required: false
   type: map
-  default: Open same port on external router as that HASS runs locally and forwards it.
+  default: Open same port on external router as that Home Assistant runs locally and forwards it.
 {% endconfiguration %}
 
 ## Troubleshooting

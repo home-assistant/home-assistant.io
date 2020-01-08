@@ -1,6 +1,6 @@
 ---
-title: "Mopar"
-description: "Instructions on how to integrate Mopar vehicles into Home Assistant."
+title: Mopar
+description: Instructions on how to integrate Mopar vehicles into Home Assistant.
 logo: mopar.png
 ha_category:
   - Car

@@ -1,12 +1,11 @@
 ---
-title: "Telegram"
-description: "Instructions on how to add Telegram notifications to Home Assistant."
+title: Telegram
+description: Instructions on how to add Telegram notifications to Home Assistant.
 logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.7.5
 ---
-
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
@@ -16,9 +15,11 @@ The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
 - You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_chatbot) and define there your API key and the allowed chat ids to interact with.
-- The `chat_id` of an allowed user.
+- The `chat_id` of an allowed user. 
 
-The quickest way to retrieve your `chat_id` is visiting `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+**Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
+
+**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 
@@ -49,9 +50,9 @@ The result set will include your chat ID as `id` in the `chat` section:
 }
 ```
 
-Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
+**Method 3:** Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
 
-```python
+```shell
 $ python3
 >>> import telegram
 >>> bot = telegram.Bot(token='YOUR_API_TOKEN')
@@ -84,6 +85,10 @@ notify:
     platform: telegram
     chat_id: CHAT_ID_2
 ```
+
+Refer to the platforms mentioned in the
+[Telegram chatbot page](/integrations/telegram_chatbot/) for
+`telegram_bot` configuration.
 
 {% configuration %}
 name:

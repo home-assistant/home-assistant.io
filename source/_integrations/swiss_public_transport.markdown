@@ -1,11 +1,13 @@
 ---
-title: "Swiss Public Transport"
-description: "Instructions on how to integrate timetable data for traveling in Switzerland within Home Assistant."
+title: Swiss public transport
+description: Instructions on how to integrate timetable data for traveling in Switzerland within Home Assistant.
 logo: train.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.

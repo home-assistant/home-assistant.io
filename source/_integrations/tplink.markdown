@@ -1,6 +1,6 @@
 ---
-title: "TP-Link Smart Home Devices"
-description: "Instructions on integrating TP-Link Smart Home Devices to Home Assistant."
+title: TP-Link Kasa Smart
+description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 logo: tp-link.png
 ha_category:
   - Hub
@@ -8,6 +8,9 @@ ha_category:
   - Light
 ha_release: 0.89
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@rytilahti'
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
@@ -30,13 +33,14 @@ The following devices are known to work with this component.
 - HS100
 - HS103
 - HS105
-- HS110
+- HS110 (The only device capable or reporting energy usage data to template sensors)
 
-### Multi-Plug Strips
+### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
 - HS300 (powerstrip 6-outlet)
 - KP400 (outdoor 2-outlet)
+- KP200 (indoor 2-outlet)
 
 ### Wall Switches
 
@@ -128,7 +132,7 @@ tplink:
 
 ## Extracting Energy Sensor data
 
-In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/integrations/switch.template/).
+In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/switch.template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
 
 {% raw %}

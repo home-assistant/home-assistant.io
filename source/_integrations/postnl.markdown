@@ -1,6 +1,6 @@
 ---
-title: PostNL Sensor
-description: "Instructions on how to set up PostNL sensors within Home Assistant."
+title: PostNL
+description: Instructions on how to set up PostNL sensors within Home Assistant.
 logo: postnl.png
 ha_category:
   - Postal Service

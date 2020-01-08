@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Face"
-description: "Instructions on how to integrate Microsoft Face integration into Home Assistant."
+title: Microsoft Face
+description: Instructions on how to integrate Microsoft Face integration into Home Assistant.
 logo: microsoft.png
 ha_category:
   - Image Processing

@@ -1,12 +1,14 @@
 ---
-title: "Honeywell evohome/TCC systems"
-description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
+title: Honeywell evohome / Total Connect Comfort
+description: Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant.
 logo: honeywell.png
 ha_category:
   - Hub
   - Climate
-ha_release: 0.80
+ha_release: 0.8
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@zxdavb'
 ---
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -86,11 +88,11 @@ In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE` (but also 
 
 The actual operating mode of evohome entities can be tracked via their state attributes, which includes a JSON data structure for the current state called `status`.
 
-For the Controller, see `systemModeStatus`:
+For the Controller, see `system_mode_status`:
 
 {% raw %}
 ```text
-{% if state_attr('climate.my_home', 'status').systemModeStatus.mode == "Away" %}
+{% if state_attr('climate.my_home', 'status').system_mode_status.mode == "Away" %}
   The system is in Away mode
 {% else %}
   The system is not in Away mode
@@ -102,7 +104,7 @@ For the Zones, it is `setpointStatus`:
 
 {% raw %}
 ```text
-{{ state_attr('climate.kitchen', 'status').setpointStatus.setpointMode }}
+{{ state_attr('climate.kitchen', 'status').setpoint_status.setpoint_mode }}
 ```
 {% endraw %}
 
@@ -110,7 +112,7 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% raw %}
 ```text
-{{ state_attr('climate.kitchen', 'status').setpoints.next.temperature }}
+{{ state_attr('climate.kitchen', 'status').setpoints.next_sp_temp }}
 ```
 {% endraw %}
 
@@ -118,8 +120,8 @@ All evohome entities may have faults, and these can be turned into sensors, or:
 
 {% raw %}
 ```text
-{% if state_attr('climate.bedroom', 'status').activeFaults %}
-  {% if state_attr('climate.bedroom', 'status').activeFaults[0].faultType == 'TempZoneActuatorLowBattery' %}
+{% if state_attr('climate.bedroom', 'status').active_faults %}
+  {% if state_attr('climate.bedroom', 'status').active_faults[0].fault_type == 'TempZoneActuatorLowBattery' %}
     There is a low battery
   {% endif %}
     There is a Fault!

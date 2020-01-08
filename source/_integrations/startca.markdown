@@ -1,6 +1,6 @@
 ---
-title: "Start.ca"
-description: "Instructions on how to integrate Start.ca data usage within Home Assistant."
+title: Start.ca
+description: Instructions on how to integrate Start.ca data usage within Home Assistant.
 logo: startca.png
 ha_category:
   - Network
@@ -76,5 +76,5 @@ monitored_conditions:
     total_download:
       description: Total bandwidth upload (Grace + Used) (gigabytes).
     used_remaining:
-      description: Remaining bandwidth calucated from used and supplied total bandwidth (gigabytes).
+      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).
 {% endconfiguration %}

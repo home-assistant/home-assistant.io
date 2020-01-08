@@ -1,6 +1,6 @@
 ---
-title: "Default Config"
-description: "The default config integration will initate a default configuration for Home Assistant."
+title: Default Config
+description: The default config integration will initate a default configuration for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Other

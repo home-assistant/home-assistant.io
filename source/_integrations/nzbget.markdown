@@ -1,11 +1,13 @@
 ---
-title: "NZBGet"
-description: "Instructions on how to integrate NZBGet within Home Assistant."
+title: NZBGet
+description: Instructions on how to integrate NZBGet within Home Assistant.
 ha_category:
   - Downloading
 logo: nzbget.png
 ha_iot_class: Local Polling
 ha_release: 0.17
+ha_codeowners:
+  - '@chriscla'
 ---
 
 The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.

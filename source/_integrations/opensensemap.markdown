@@ -1,6 +1,6 @@
 ---
-title: "OpenSenseMap"
-description: "Instructions on how to setup openSenseMap sensors in Home Assistant."
+title: openSenseMap
+description: Instructions on how to setup openSenseMap sensors in Home Assistant.
 logo: opensensemap.png
 ha_category:
   - Health
@@ -36,4 +36,3 @@ name:
   default: Station name
   type: string
 {% endconfiguration %}
-

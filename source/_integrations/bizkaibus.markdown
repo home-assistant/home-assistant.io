@@ -1,12 +1,14 @@
 ---
-title: "Bizkaibus next bus tracking sensor"
-description: "Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant."
+title: Bizkaibus
+description: Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant.
 logo: bizkaibus.png
-ha_category: 
+ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.93
+ha_codeowners:
+  - '@UgaitzEtxebarria'
 ---
 
 The `bizkaibus` sensor will give you the time until the next bus in the selected stop.

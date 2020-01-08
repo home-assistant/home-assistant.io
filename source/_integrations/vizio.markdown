@@ -1,11 +1,13 @@
 ---
-title: "Vizio SmartCast Device"
-description: "Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant."
+title: Vizio SmartCast TV
+description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
 logo: vizio-smartcast.png
 ha_category:
   - Media Player
 ha_release: 0.49
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@raman325'
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
@@ -97,11 +99,6 @@ device_class:
   required: false
   type: string
   default: tv
-suppress_warning:
-  description: Set to `true` to disable self-signed certificate warnings.
-  required: false
-  default: false
-  type: string
 {% endconfiguration %}
 
 ## Notes and limitations

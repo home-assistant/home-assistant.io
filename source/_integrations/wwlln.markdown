@@ -1,11 +1,13 @@
 ---
-title: "World Wide Lightning Location Network (WWLLN)"
-description: "Instructions on how to integrate WWLLN within Home Assistant."
+title: World Wide Lightning Location Network (WWLLN)
+description: Instructions on how to integrate WWLLN within Home Assistant.
 logo: wwlln.jpg
 ha_category: Geolocation
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `wwlln` integration displays lightning strike information from the
@@ -65,7 +67,7 @@ the standard ones:
 | latitude         | Latitude of the lightning strike.                                             |
 | longitude        | Longitude of the lightning strike.                                            |
 | source           | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
-| external_id      | The external ID used in the feed to identify the earthquake in the feed.      |
+| external_id      | The external ID used in the feed to identify the lightning strike in the feed.      |
 | publication_date | Date and time when this event occurred.                                       |
 
 ## Full Configuration

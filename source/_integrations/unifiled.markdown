@@ -1,11 +1,13 @@
 ---
-title: "UniFi LED"
-description: "Instructions on how to configure the UniFi LED integration with UniFi LED Controller by Ubiquiti."
+title: Ubiquiti UniFi LED
+description: Instructions on how to configure the UniFi LED integration with UniFi LED Controller by Ubiquiti.
 logo: ubiquiti.png
 ha_category:
   - Light
 ha_release: 0.102
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@florisvdk'
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system of controller managed led light panels and dimmers.
@@ -50,4 +52,4 @@ password:
 
 ## Light
 
-The light panels output state and brightness are synchronized with home assistant.
+The light panels output state and brightness are synchronized with Home Assistant.

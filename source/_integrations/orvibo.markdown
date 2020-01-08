@@ -1,6 +1,6 @@
 ---
-title: "Orvibo Switch"
-description: "Instructions on how to integrate Orvibo sockets within Home Assistant."
+title: Orvibo
+description: Instructions on how to integrate Orvibo sockets within Home Assistant.
 logo: orvibo.png
 ha_category:
   - Switch
