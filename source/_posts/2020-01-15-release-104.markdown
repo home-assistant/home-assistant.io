@@ -13,6 +13,22 @@ og_image: /images/blog/2020-01-0.104/components.png
 
 <a href='/integrations/#version/0.104'><img src='/images/blog/2020-01-0.104/components.png' style='border: 0;box-shadow: none;'></a>
 
+## Entity handling
+
+Draft:
+One major change: we're restoring all entity registry entities on Home Assistant startup
+this allows Homekit/Google/Alexa to always find all entities to expose and Lovelace will no longer show yellow/red boxes.
+All entities are being restored as "unavailable"
+they can be differentiated from normal unavailable entities by the "restored" state attribute
+
+## Reload all the input things
+
+All input integrations now have reload services to reload the YAML config without restart.
+
+## Ignore discovered config flows
+
+It's now able to ignore certain config flows that are discovered. It requires the integration to be updated. Hue, Deconz and Homekit have been updated.
+
 ## In other news
 
 ODroid N2 support ?
