@@ -11,6 +11,7 @@ ha_category:
   - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
