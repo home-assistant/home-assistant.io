@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `mpd` platform allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs.

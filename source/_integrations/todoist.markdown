@@ -6,6 +6,8 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.54
+ha_codeowners:
+  - '@boralyl'
 ---
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) and generate binary sensors. A different sensor will be created for each individual project, or you can specify "custom" projects which match against criteria you set (more on that below). These sensors will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.

@@ -6,6 +6,8 @@ ha_category:
   - Hub
 ha_release: 0.24
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@Julius2342'
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.

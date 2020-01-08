@@ -8,6 +8,9 @@ ha_category:
   - Hub
   - Sensor
   - Weather
+ha_codeowners:
+  - '@victorcerutti'
+  - '@oncleben31'
 ---
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.

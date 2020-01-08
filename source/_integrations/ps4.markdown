@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.89
 ha_config_flow: true
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@ktnrg45'
 ---
 
 The `ps4` integration allows you to control a

@@ -8,6 +8,8 @@ ha_category:
   - Camera
 ha_release: 0.95
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaeldavie'
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).

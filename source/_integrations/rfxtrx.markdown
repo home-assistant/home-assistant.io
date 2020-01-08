@@ -5,6 +5,8 @@ logo: rfxtrx.png
 ha_category:
   - Hub
 ha_release: pre 0.7
+ha_codeowners:
+  - '@danielhiversen'
 ---
 
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.

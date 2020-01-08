@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@NobleKangaroo'
 ---
 
 <div class='note warning'>

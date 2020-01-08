@@ -6,6 +6,8 @@ ha_category:
   - Transport
 ha_release: 0.84
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@hfurubotten'
 ---
 
 The `entur_public_transport` sensor gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.

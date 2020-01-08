@@ -6,6 +6,8 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.85
+ha_codeowners:
+  - '@thibmaek'
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.

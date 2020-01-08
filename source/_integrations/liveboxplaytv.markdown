@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: 0.38
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@pschmitt'
 ---
 
 The `liveboxplaytv` platform allows you to control [Orange Livebox Play TV appliances](https://boutique.orange.fr/internet/decodeur-tv-livebox).

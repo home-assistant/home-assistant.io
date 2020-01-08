@@ -6,6 +6,8 @@ ha_category:
   - Climate
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@zxdavb'
 ---
 
 The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.

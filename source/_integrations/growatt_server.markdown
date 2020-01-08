@@ -7,6 +7,8 @@ ha_category:
   - Energy
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@indykoning'
 ---
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).

@@ -6,6 +6,8 @@ ha_category:
   - System Monitor
 ha_release: 0.28
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `linux_battery` sensor platform is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.

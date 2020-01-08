@@ -14,6 +14,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
+ha_codeowners:
+  - '@SukramJ'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.

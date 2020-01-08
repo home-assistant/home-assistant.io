@@ -5,6 +5,8 @@ logo: minio.png
 ha_category: Utility
 ha_iot_class: Cloud Push
 ha_release: 0.98
+ha_codeowners:
+  - '@tkislan'
 ---
 
 This integration adds interaction with [Minio](https://min.io).

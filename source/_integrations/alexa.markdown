@@ -6,6 +6,9 @@ ha_category:
   - Voice
 featured: true
 ha_release: '0.10'
+ha_codeowners:
+  - '@home-assistant/cloud'
+  - '@ochlocracy'
 ---
 
 ## Automatic setup via Home Assistant Cloud

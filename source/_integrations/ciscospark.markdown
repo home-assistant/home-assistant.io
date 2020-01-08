@@ -5,6 +5,8 @@ logo: ciscospark.png
 ha_category:
   - Notifications
 ha_release: '0.40'
+ha_codeowners:
+  - '@fbradyirl'
 ---
 
 The `ciscospark` notification platform allows you to deliver notifications from Home Assistant to [Cisco Spark](https://ciscospark.com/).

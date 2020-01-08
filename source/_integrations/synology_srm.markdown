@@ -5,6 +5,8 @@ logo: synology.png
 ha_category:
   - Presence Detection
 ha_release: 0.87
+ha_codeowners:
+  - '@aerialls'
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.

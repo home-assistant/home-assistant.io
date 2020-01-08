@@ -6,6 +6,8 @@ ha_category:
   - Cover
 ha_release: 0.27
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.

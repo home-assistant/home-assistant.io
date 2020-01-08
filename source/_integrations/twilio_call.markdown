@@ -5,6 +5,8 @@ logo: twilio.png
 ha_category:
   - Notifications
 ha_release: 0.37
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).

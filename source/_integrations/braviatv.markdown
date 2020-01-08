@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: 0.23
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).

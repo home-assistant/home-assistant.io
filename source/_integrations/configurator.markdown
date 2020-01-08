@@ -6,6 +6,8 @@ ha_category:
   - Other
 ha_release: 0.7
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 <div class='note'>

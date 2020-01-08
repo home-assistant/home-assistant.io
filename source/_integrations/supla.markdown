@@ -7,6 +7,8 @@ ha_category:
   - Hub
   - Cover
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@mwegrzynek'
 ---
 
 The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, it's own firmware and commercially available devices (produced for example by [Zamel](https://supla.zamel.pl/))

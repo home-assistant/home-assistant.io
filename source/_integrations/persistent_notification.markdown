@@ -6,6 +6,8 @@ ha_category:
   - Other
 ha_release: 0.23
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.

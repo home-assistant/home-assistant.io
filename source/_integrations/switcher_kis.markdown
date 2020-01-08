@@ -6,6 +6,8 @@ ha_category:
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@tomerfi'
 ---
 
 This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).

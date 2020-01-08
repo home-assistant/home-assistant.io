@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The time and date (`time_date`) sensor platform adds one or more sensors to your Home Assistant state machine.

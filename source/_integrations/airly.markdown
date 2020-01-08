@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.101
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bieniu'
 ---
 
 The `airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location. 

@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.89
 ha_config_flow: true
 ha_quality_scale: internal
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The Mobile App integration allows Home Assistant mobile apps to easily integrate with Home Assistant.

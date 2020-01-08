@@ -6,6 +6,8 @@ ha_category:
   - Automation
 ha_release: 0.7
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 Please see the [docs section](/docs/automation/) for in-depth

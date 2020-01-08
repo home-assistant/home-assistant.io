@@ -10,6 +10,9 @@ ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_quality_scale: platinum
+ha_codeowners:
+  - '@fredrike'
+  - '@rofrantz'
 ---
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.

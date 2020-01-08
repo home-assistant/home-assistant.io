@@ -6,6 +6,8 @@ ha_category:
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.34
+ha_codeowners:
+  - '@ehendrix23'
 ---
 
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).

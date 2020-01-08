@@ -5,6 +5,8 @@ logo: upc.png
 ha_category:
   - Presence Detection
 ha_release: 0.36
+ha_codeowners:
+  - '@pvizeli'
 ---
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria and the Netherlands (under Ziggo).

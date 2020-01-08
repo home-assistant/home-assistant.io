@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@rohankapoorcom'
 ---
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.

@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.18
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The `upnp` integration enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.

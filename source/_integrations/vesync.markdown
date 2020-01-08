@@ -6,6 +6,9 @@ ha_category:
   - Switch
 ha_release: 0.66
 ha_config_flow: true
+ha_codeowners:
+  - '@markperdue'
+  - '@webdjoe'
 ---
 
 The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.

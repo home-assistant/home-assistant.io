@@ -6,6 +6,8 @@ ha_category:
   - Camera
 ha_iot_class: Local Push
 ha_release: 0.74
+ha_codeowners:
+  - '@dgomes'
 ---
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
