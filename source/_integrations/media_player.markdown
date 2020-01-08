@@ -73,7 +73,6 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
 
-
 ### Device Class
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
