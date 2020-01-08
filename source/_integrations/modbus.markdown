@@ -150,5 +150,6 @@ modbus:
 ## Building on top of Modbus
 
  - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
+ - [Modbus Climate](/integrations/climate.modbus/)
  - [Modbus Sensor](/integrations/sensor.modbus/)
  - [Modbus Switch](/integrations/switch.modbus/)
