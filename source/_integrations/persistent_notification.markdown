@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.23
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.

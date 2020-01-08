@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.39
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.

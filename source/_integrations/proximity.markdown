@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.13
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.

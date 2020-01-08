@@ -4,8 +4,8 @@ description: Instructions on how to setup groups within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Organization
-ha_qa_scale: internal
 ha_release: pre 0.7
+ha_quality_scale: internal
 ---
 
 Groups allow the user to combine multiple entities into one. 

@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `input_datetime` integration allows the user to define date and time values

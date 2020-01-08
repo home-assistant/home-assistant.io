@@ -8,7 +8,7 @@ ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.32
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `random` integration simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.

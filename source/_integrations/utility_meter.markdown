@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Push
 logo: energy_meter.png
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).

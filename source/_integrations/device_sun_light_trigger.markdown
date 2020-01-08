@@ -4,8 +4,8 @@ description: Instructions on how to automate your lights with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: pre 0.7
+ha_quality_scale: internal
 ---
 
 Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The integration will:
