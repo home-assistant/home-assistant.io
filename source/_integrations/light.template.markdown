@@ -25,8 +25,9 @@ light:
     lights:
       theater_lights:
         friendly_name: "Theater Lights"
-        level_template: "{{ sensor.theater_brightness.attributes.lux|int }}"
-        value_template: "{{ sensor.theater_brightness.attributes.lux|int > 0 }}"
+        level_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
+        value_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        temperature_template: "{{states('input_number.temperature_input') | int}}"
         turn_on:
           service: script.theater_lights_on
         turn_off:
@@ -35,6 +36,11 @@ light:
           service: script.theater_lights_level
           data_template:
             brightness: "{{ brightness }}"
+        set_temperature:
+          service: input_number.set_value
+          data_template:
+            value: "{{ color_temp }}"
+            entity_id: input_number.temperature_input
 ```
 
 {% endraw %}
@@ -63,6 +69,11 @@ light:
         required: false
         type: template
         default: optimistic
+      temperature_template:
+        description: Defines a template to get the color temperature of the light.
+        required: false
+        type: template
+        default: optimistic
       icon_template:
         description: Defines a template for an icon or picture, e.g. showing a different icon for different states.
         required: false
@@ -82,6 +93,10 @@ light:
         type: action
       set_level:
         description: Defines an action to run when the light is given a brightness command.
+        required: false
+        type: action
+      set_temperature:
+        description: Defines an action to run when the light is given a color temperature command.
         required: false
         type: action
 {% endconfiguration %}
