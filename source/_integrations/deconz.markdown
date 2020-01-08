@@ -103,7 +103,7 @@ Note: deCONZ automatically signals Home Assistant when new sensors are added, bu
 
 ## Remote control devices
 
-Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event` and in case of the Aqara Magic Cube also `gesture`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counter clockwise rotation. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -117,6 +117,20 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
 For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
+
+Specific gestures for the Aqara Magic Cube are:
+
+| Gesture | Description |
+|---------|-------------|
+| 0 | Awake |
+| 1 | Shake |
+| 2 | Free fall |
+| 3 | Flip 90 |
+| 4 | Flip 180 |
+| 5 | Move on any side |
+| 6 | Double tap on any side |
+| 7 | Turn clockwise |
+| 8 | Turn counter clockwise |
 
 ### Finding your events
 
@@ -139,6 +153,7 @@ Currently supported devices as device triggers:
 - Aqara Mini Switch
 - Aqara Round Switch
 - Aqara Square Switch
+- Aqara Magic Cube
 
 #### Requesting support for new device trigger
 
@@ -197,6 +212,18 @@ automation:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
+
+  - alias: 'Turn lamp on when turning cube clockwise'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_control_1
+        gesture: 7
+    action:
+      service: light.turn_on
+      entity_id: light.lamp
 ```
 
 {% endraw %}
@@ -445,7 +472,6 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
   - Philips Hue Motion Sensor
   - IKEA Trådfri Remote
   - Philips Hue Dimmer Switch
-  - Xiaomi Cube
   - Xiaomi Aqara Smart Light Switch
   - Xiaomi Aqara Smart Wireless Switch
   - Xiaomi Smart Home Wireless Switch
