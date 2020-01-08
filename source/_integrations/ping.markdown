@@ -7,7 +7,7 @@ ha_category:
   - Binary Sensor
   - Presence Detection
 ha_release: 0.43
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 There is currently support for the following device types within Home Assistant:

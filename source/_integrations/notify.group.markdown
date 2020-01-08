@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Notifications
 ha_release: 0.26
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.

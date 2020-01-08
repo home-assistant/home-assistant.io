@@ -6,7 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_release: 0.52
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.

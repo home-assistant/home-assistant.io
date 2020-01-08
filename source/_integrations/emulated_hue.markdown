@@ -6,7 +6,7 @@ ha_category:
   - Hub
 ha_release: 0.27
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 <div class='note warning'>

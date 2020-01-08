@@ -5,7 +5,7 @@ ha_category: Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
 logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `template` platform creates vacuums that combine integrations and provides the

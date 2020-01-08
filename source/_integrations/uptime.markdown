@@ -6,7 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_release: 0.56
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `uptime` sensor platform displays the time since the last Home Assistant restart.

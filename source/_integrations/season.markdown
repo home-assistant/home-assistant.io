@@ -6,7 +6,7 @@ ha_category:
 logo: home-assistant.png
 ha_iot_class: Local Polling
 ha_release: 0.53
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `season` sensor will display the current astronomical or meteorological season (Spring, Summer, Autumn, Winter) based on the user's setting in the configuration file.

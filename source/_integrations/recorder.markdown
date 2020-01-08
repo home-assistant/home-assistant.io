@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).

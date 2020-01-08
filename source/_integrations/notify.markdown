@@ -4,8 +4,8 @@ description: Instructions on how to add user notifications to Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Notifications
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
 ---
 
 The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
