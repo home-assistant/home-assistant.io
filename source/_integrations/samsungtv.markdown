@@ -133,6 +133,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - Q60 – turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.
+- Q9F - turning on works, turning off does not work. State is correct. Nothing else works. Port 8001
 
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
 
