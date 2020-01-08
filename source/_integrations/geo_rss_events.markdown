@@ -6,6 +6,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.55
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.

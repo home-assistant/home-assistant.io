@@ -6,7 +6,9 @@ ha_category:
   - Environment
 ha_iot_class: Local Polling
 ha_release: 0.38
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `moon` integration tracks the phases of the moon.

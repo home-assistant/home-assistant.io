@@ -4,8 +4,10 @@ description: Instructions on how to setup automation within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 Please see the [docs section](/docs/automation/) for in-depth

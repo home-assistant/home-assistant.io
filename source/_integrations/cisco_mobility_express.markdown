@@ -5,6 +5,8 @@ logo: cisco.png
 ha_category:
   - Presence Detection
 ha_release: '0.90'
+ha_codeowners:
+  - '@fbradyirl'
 ---
 
 This is a presence detection scanner for [Cisco](https://www.cisco.com) Mobility Express wireless controllers.

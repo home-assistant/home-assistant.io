@@ -6,6 +6,9 @@ ha_category:
   - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rytilahti'
+  - '@zewelor'
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.

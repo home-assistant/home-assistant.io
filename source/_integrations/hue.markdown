@@ -6,10 +6,12 @@ ha_category:
   - Hub
   - Light
 ha_iot_class: Local Polling
-ha_qa_scale: platinum
 featured: true
 ha_release: '0.60'
 ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@balloob'
 ---
 
 Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).

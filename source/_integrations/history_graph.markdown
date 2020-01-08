@@ -5,7 +5,9 @@ ha_category:
   - History
 logo: home-assistant.png
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@andrey-git'
 ---
 
 <p class='img'>

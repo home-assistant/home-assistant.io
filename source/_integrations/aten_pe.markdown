@@ -5,6 +5,8 @@ logo: aten.png
 ha_category:
   - Switch
 ha_release: 0.103
+ha_codeowners:
+  - '@mtdcr'
 ---
 
 The `aten_pe` integration lets you control [ATEN Rack PDUs](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/) from Home Assistant.

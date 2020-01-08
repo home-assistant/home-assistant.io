@@ -7,6 +7,8 @@ ha_category:
   - Alarm
   - Lock
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.

@@ -5,6 +5,8 @@ logo: shiftr.png
 ha_category:
   - History
 ha_release: 0.48
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `shiftr` integration makes it possible to transfer details collected with Home Assistant to [Shiftr.io](https://shiftr.io) and visualize the flow of the information. Keep in mind that your details will be public!

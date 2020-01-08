@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@vangorra'
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).

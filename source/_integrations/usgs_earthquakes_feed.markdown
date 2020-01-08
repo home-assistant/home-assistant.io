@@ -6,6 +6,8 @@ ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.84
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.

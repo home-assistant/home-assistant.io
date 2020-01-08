@@ -5,6 +5,8 @@ logo: apache_kafka.png
 ha_category:
   - History
 ha_release: 0.97
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `apache_kafka` integration sends all state changes to a

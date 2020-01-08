@@ -9,6 +9,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@zxdavb'
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.

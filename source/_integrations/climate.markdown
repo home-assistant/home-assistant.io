@@ -4,8 +4,8 @@ description: Instructions on how to setup climate control devices within Home As
 logo: home-assistant.png
 ha_category:
   - Climate
-ha_qa_scale: internal
 ha_release: 0.19
+ha_quality_scale: internal
 ---
 
 The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.

@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_release: 0.97
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@kifeo'
 ---
 
 This is a FortiGate presence sensor based on device detection of the FortiGate API

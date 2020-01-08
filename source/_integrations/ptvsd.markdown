@@ -5,6 +5,8 @@ logo: visual-studio.png
 ha_category:
   - Utility
 ha_release: 0.93
+ha_codeowners:
+  - '@swamp-ig'
 ---
 
 The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.

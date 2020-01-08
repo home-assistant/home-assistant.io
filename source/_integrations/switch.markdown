@@ -4,8 +4,8 @@ description: Instructions on how to set up your switches with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Switch
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.

@@ -8,8 +8,10 @@ ha_category:
   - Switch
 ha_release: 0.81
 ha_iot_class: Local Polling
-ha_qa_scale: platinum
 ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@kane610'
 ---
 
 [UniFi](https://unifi-sdn.ubnt.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.

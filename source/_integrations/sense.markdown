@@ -8,6 +8,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.82
+ha_codeowners:
+  - '@kbickar'
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

@@ -14,6 +14,9 @@ ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
 ha_config_flow: true
+ha_codeowners:
+  - '@dmulcahey'
+  - '@adminiuga'
 ---
 
 [Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)

@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.38
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.

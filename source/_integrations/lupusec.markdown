@@ -9,6 +9,8 @@ ha_category:
   - Switch
 ha_release: 0.83
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@majuss'
 ---
 
 The `lupusec` integration allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).

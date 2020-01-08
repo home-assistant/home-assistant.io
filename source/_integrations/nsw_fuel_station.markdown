@@ -6,6 +6,8 @@ ha_category:
   - Car
 ha_release: 0.72
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@nickw444'
 ---
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.

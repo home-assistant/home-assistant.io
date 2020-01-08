@@ -6,6 +6,8 @@ ha_category:
   - Voice
 featured: true
 ha_release: 0.56
+ha_codeowners:
+  - '@home-assistant/cloud'
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.

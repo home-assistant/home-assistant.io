@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
+ha_codeowners:
+  - '@eifinger'
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).

@@ -6,7 +6,7 @@ ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.49
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `otp` sensor generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.

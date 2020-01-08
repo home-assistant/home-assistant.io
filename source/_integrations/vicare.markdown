@@ -5,6 +5,8 @@ logo: viessmann.png
 ha_category: Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@oischinger'
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.

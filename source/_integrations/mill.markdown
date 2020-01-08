@@ -6,6 +6,8 @@ ha_category:
   - Climate
 ha_release: 0.81
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@danielhiversen'
 ---
 
 Integrates Mill heater into Home Assistant.

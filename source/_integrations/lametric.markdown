@@ -6,6 +6,8 @@ ha_category:
   - Hub
   - Notifications
 ha_release: 0.49
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 [LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.

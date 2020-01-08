@@ -8,6 +8,8 @@ ha_category:
   - Cover
   - Light
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@outadoc'
 ---
 
 If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 

@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.63
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease

@@ -8,6 +8,8 @@ ha_category:
   - Switch
 ha_release: 0.94
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@jardiamj'
 ---
 
 The `mcp23017` integration is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.

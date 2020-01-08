@@ -4,8 +4,8 @@ description: Instructions on how to setup your media players with Home Assistant
 logo: home-assistant.png
 ha_category:
   - Media Player
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
 ---
 
 Interacts with media players on your network.
@@ -66,9 +66,16 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
+Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
+
+### Device Class
+
+The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
+
+- **tv**: Device is a television type device.
+- **speaker**: Device is speaker or stereo type device.

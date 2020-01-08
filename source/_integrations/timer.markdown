@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.57
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.

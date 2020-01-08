@@ -5,6 +5,8 @@ logo: sinch.png
 ha_category:
   - Notifications
 ha_release: 0.101
+ha_codeowners:
+  - '@bendikrb'
 ---
 
 The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.

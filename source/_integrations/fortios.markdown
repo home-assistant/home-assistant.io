@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_release: 0.97
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@kimfrellsen'
 ---
 
 This integration enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).

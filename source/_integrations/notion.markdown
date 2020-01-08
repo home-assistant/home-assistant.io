@@ -9,6 +9,8 @@ ha_category:
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `Notion` component retrieves data from [Notion](https://getnotion.com) wireless

@@ -5,6 +5,8 @@ logo: keenetic.png
 ha_category:
   - Presence Detection
 ha_release: 0.54
+ha_codeowners:
+  - '@foxel'
 ---
 
 This integration offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)

@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@flamm3blemuff1n'
 ---
 
 The `VersaSense` integration supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.

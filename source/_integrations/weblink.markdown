@@ -5,7 +5,9 @@ logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.13
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `weblink` integration allows you to display links in the Home Assistant frontend.

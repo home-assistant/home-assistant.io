@@ -5,6 +5,8 @@ logo: geo_location.png
 ha_category: Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.95
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `qld_bushfire` platform lets you integrate a 

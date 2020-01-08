@@ -6,6 +6,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@k4ds3'
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.

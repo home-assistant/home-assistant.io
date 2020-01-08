@@ -6,6 +6,8 @@ ha_category: Geolocation
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `wwlln` integration displays lightning strike information from the

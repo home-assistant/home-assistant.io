@@ -12,8 +12,10 @@ ha_category:
   - Switch
 ha_release: 0.61
 ha_iot_class: Local Push
-ha_qa_scale: platinum
 ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@kane610'
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.

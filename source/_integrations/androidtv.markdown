@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: 0.7.6
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@JeffLIrion'
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.

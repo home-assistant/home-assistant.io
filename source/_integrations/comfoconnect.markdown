@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_release: 0.48
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@michaelarnauts'
 ---
 
 The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-tr)/[Q450](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-tr)/[Q600](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)

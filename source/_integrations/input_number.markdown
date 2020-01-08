@@ -5,7 +5,9 @@ logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.

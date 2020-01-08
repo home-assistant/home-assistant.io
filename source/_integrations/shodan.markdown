@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 logo: shodan.png
 ha_release: 0.51
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `shodan` sensor platform is displaying the total of result of a

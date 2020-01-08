@@ -11,6 +11,8 @@ ha_category:
   - Sensor
 ha_release: 0.59
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@philklei'
 ---
 
 The `Tahoma` integration platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.

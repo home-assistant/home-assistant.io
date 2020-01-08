@@ -4,8 +4,10 @@ description: Instructions on how to integrate the Input Boolean integration into
 logo: home-assistant.png
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: 0.11
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.

@@ -6,6 +6,8 @@ ha_iot_class: Local Polling
 ha_category:
   - Sensor
 ha_release: 0.99
+ha_codeowners:
+  - '@dshokouhi'
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).

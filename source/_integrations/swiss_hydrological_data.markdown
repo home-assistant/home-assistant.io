@@ -6,6 +6,8 @@ ha_category:
   - Environment
 ha_iot_class: Cloud Polling
 ha_release: 0.22
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.

@@ -6,7 +6,7 @@ ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also

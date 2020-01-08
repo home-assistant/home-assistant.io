@@ -5,6 +5,10 @@ logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
 ha_release: 0.98
+ha_codeowners:
+  - '@laetificat'
+  - '@CoMPaTech'
+  - '@bouwew'
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.

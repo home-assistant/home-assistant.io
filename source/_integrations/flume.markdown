@@ -6,6 +6,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
+ha_codeowners:
+  - '@ChrisMandich'
 ---
 
 The `flume` sensor will show you the current [flume](https://portal.flumetech.com/) status for the given Device ID.
