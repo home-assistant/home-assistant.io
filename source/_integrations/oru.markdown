@@ -6,6 +6,8 @@ ha_release: 0.101
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bvlaicu'
 ---
 
 [Orange and Rockland Utility](https://oru.com) is an energy provider in NY and NJ, USA.

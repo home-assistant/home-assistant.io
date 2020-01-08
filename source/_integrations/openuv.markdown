@@ -9,6 +9,8 @@ ha_category:
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).

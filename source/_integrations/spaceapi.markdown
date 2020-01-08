@@ -5,6 +5,8 @@ logo: spaceapi.png
 ha_category:
   - Social
 ha_release: '0.70'
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).

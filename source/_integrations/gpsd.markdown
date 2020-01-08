@@ -6,6 +6,8 @@ ha_category:
   - Utility
 ha_release: 0.26
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.

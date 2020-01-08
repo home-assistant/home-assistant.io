@@ -5,6 +5,8 @@ logo: gitter.png
 ha_category:
   - Sensor
 ha_release: 0.47
+ha_codeowners:
+  - '@fabaff'
 ---
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.

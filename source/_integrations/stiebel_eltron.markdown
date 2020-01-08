@@ -6,6 +6,8 @@ ha_category:
   - Climate
 ha_release: 0.92
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fucm'
 ---
 
 The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).

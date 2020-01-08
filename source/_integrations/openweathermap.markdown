@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_release: 0.32
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.

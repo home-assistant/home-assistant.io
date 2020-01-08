@@ -6,6 +6,8 @@ ha_category:
   - Health
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) can be created.

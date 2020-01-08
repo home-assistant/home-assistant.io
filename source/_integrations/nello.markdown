@@ -6,6 +6,8 @@ ha_category:
   - Lock
 ha_release: 0.52
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@pschmitt'
 ---
 
 The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.

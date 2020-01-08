@@ -6,6 +6,8 @@ ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.92
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 

@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@escoand'
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).

@@ -5,6 +5,8 @@ logo: smtp.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `smtp` platform allows you to deliver notifications from Home Assistant to an e-mail recipient.

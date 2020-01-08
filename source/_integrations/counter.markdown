@@ -6,6 +6,8 @@ ha_category:
   - Automation
 ha_release: 0.53
 ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.

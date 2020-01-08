@@ -6,6 +6,8 @@ ha_category:
   - Health
 ha_release: 0.83
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its

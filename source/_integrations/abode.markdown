@@ -15,6 +15,8 @@ ha_category:
 ha_release: 0.52
 ha_iot_class: Cloud Push
 ha_config_flow: true
+ha_codeowners:
+  - '@shred86'
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.

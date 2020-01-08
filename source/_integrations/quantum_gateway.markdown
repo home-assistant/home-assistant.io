@@ -5,6 +5,8 @@ ha_category:
   - Presence Detection
 logo: fios.svg
 ha_release: 0.81
+ha_codeowners:
+  - '@cisasteelersfan'
 ---
 
 The `quantum_gateway` device tracker platform offers presence detection by looking at connected devices to a Verizon Fios gateway.

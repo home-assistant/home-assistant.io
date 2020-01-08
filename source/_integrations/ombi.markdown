@@ -6,6 +6,8 @@ ha_category:
   - Sensor
 ha_release: '0.100'
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@larssont'
 ---
 
 The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.

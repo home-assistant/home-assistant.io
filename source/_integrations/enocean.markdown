@@ -10,6 +10,8 @@ ha_category:
   - Switch
 ha_release: 0.21
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@bdurrer'
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.

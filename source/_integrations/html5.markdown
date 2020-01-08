@@ -5,6 +5,8 @@ logo: html5.png
 ha_category:
   - Notifications
 ha_release: 0.27
+ha_codeowners:
+  - '@robbiet480'
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.

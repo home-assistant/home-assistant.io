@@ -6,6 +6,8 @@ ha_category:
 logo: home-assistant.png
 ha_release: 0.7.6
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].

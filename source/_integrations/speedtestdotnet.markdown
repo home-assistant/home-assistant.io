@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@rohankapoorcom'
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.

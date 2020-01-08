@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.103
 ha_config_flow: true
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 

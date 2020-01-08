@@ -5,6 +5,9 @@ logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fbradyirl'
+  - '@mzdrale'
 ---
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt/)._

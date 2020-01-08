@@ -5,6 +5,8 @@ logo: flock.png
 ha_category:
   - Notifications
 ha_release: 0.71
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.

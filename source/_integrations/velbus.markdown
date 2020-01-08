@@ -11,6 +11,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '0.50'
 ha_config_flow: true
+ha_codeowners:
+  - '@cereal2nd'
 ---
 
 The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.

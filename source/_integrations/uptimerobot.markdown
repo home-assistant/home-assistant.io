@@ -6,6 +6,8 @@ ha_category:
   - System Monitor
 ha_release: 0.72
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@ludeeus'
 ---
 
 The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot]( https://uptimerobot.com).

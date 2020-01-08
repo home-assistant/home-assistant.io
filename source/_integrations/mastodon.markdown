@@ -5,6 +5,8 @@ logo: mastodon.png
 ha_category:
   - Notifications
 ha_release: 0.67
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.

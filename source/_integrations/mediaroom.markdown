@@ -6,6 +6,8 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.63
+ha_codeowners:
+  - '@dgomes'
 ---
 
 The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.

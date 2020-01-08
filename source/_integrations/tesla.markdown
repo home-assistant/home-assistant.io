@@ -12,6 +12,8 @@ ha_category:
   - Switch
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@zabuldon'
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.

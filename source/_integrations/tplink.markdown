@@ -9,6 +9,8 @@ ha_category:
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@rytilahti'
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.

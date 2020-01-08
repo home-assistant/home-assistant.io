@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_codeowners:
+  - '@OttoWinter'
 ---
 
 This integration allows you to connect your [ESPHome](https://esphome.io) devices directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

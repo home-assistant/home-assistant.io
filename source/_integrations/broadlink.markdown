@@ -8,6 +8,9 @@ ha_category:
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+  - '@felipediel'
 ---
 
 There is currently support for the following device types within Home Assistant:

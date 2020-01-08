@@ -6,6 +6,8 @@ ha_iot_class: Cloud Polling
 ha_category:
   - Health
 ha_release: '0.100'
+ha_codeowners:
+  - '@Michsior14'
 ---
 
 The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).
