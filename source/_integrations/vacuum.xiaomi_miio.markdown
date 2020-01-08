@@ -179,6 +179,35 @@ automation:
           - 26496
 ```
 
+### Service `vacuum.send_command`
+
+Send a platform-specific command to the vacuum cleaner.
+
+| Service data attribute    | Optional | Description                                               |
+|---------------------------|----------|-----------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific robot                              |
+| `command`                 |       no | Command to execute, e.g. app_segment_clean, get_room_mapping.|
+| `params`                  |      yes | Parameters for the command.                               |
+
+Example script of `vacuum.send_command` to clean a specific room, use:
+
+```yaml
+vacuum_kitchen:
+  alias: "Clean the kitchen"
+  sequence:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: app_segment_clean
+        params: [18]
+```
+
+Where params specify room numbers. For multiple rooms params can be specified like [17,18]. Valid room numbers can be retrieved using miio command line tool. It will only give room numbers and not the room names. To get the room names one can just test the app_segment_clean command and see which room it cleans. 
+
+```bash
+miio protocol call <ip of the vacuum> get_room_mapping
+```
+
 ## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
