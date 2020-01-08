@@ -22,13 +22,17 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-Currently only doorbells are supported by this sensor.
-
 <p class='note'>
 This component does NOT allow for live viewing of your Ring camera within Home Assistant.
 </p>
 
 ## Configuration
+
+Go to the integrations page in your config and click on new integration -> Ring.
+
+## YAML configuratino
+
+YAML configuration is around for people that prefer YAML, but it's not prefered! The YAML method does not work with two-factor authentication and it requires you to store your username/password. The normal method only requires you to enter username/password once.
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 
@@ -48,36 +52,11 @@ password:
   description: The password for accessing your Ring account.
   required: true
   type: string
-scan_interval:
-  description: How frequently to query for new video, or current sensor values in seconds
-  required: false
-  type: integer
-  default: 10
 {% endconfiguration %}
 
 ## Binary Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: ring
-```
-
-{% configuration %}
-monitored_conditions:
-  description: Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
-  required: false
-  type: list
-  keys:
-    ding:
-      description: Return a boolean value when the doorbell button was pressed.
-    motion:
-      description: Return a boolean value when a movement was detected by the Ring doorbell.
-{% endconfiguration %}
-
-Currently it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Camera
 
@@ -85,24 +64,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 Please note that downloading and playing Ring video will require a Ring Protect plan.
 </div>
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: ring
-```
-
-{% configuration %}
-ffmpeg_arguments:
-  description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
-  required: false
-  type: string
-{% endconfiguration %}
-
-**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/) documentation.
-
-Currently it supports doorbell and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently it supports doorbell and stickup cameras.
 
 ## Saving the videos captured by your Ring Door Bell
 
@@ -154,58 +116,12 @@ hass.services.call("downloader", "download_file", data)
 
 ## Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: ring
-```
-
-{% configuration %}
-monitored_conditions:
-  type: list
-  required: false
-  description: Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
-  keys:
-    battery:
-       description: Return the battery level from device.
-    last_activity:
-       description: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera.
-    last_ding:
-       description: Return the timestamp from the last time the Ring doorbell button was pressed.
-    last_motion:
-       description: Return the timestamp from the last motion event captured by the Ring doorbell camera.
-    volume:
-       description: Return the volume level from the device.
-    wifi_signal_category:
-       description: Return the WiFi signal level from the device.
-    wifi_signal_strength:
-       description: Return the WiFi signal strength (dBm) from the device.
-{% endconfiguration %}
-
-Currently it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Switch
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: ring
-```
-
-This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
 
 ## Light
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: ring
-```
-
-This will add a light for every camera that supports a light (such as a flood light).
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a flood light).
