@@ -19,7 +19,7 @@ Currently supported services are:
 - `locate`
 - `clean_spot`
 - `set_fan_speed` 
-  Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo`.
+  Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusivly for mopping).
 - `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
 
