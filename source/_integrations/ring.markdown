@@ -31,9 +31,9 @@ This component does NOT allow for live viewing of your Ring camera within Home A
 
 Go to the integrations page in your config and click on new integration -> Ring.
 
-## YAML configuratino
+## YAML configuration
 
-YAML configuration is around for people that prefer YAML, but it's not prefered! The YAML method does not work with two-factor authentication and it requires you to store your username/password. The normal method only requires you to enter username/password once.
+YAML configuration is around for people that prefer YAML, but it's not preferred! The YAML method does not work with two-factor authentication and it requires you to store your username/password. The normal method only requires you to enter username/password once.
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 
@@ -57,7 +57,7 @@ password:
 
 ## Binary Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
 
 ## Camera
 
@@ -65,7 +65,7 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 Please note that downloading and playing Ring video will require a Ring Protect plan.
 </div>
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently it supports doorbell and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
 ## Saving the videos captured by your Ring Door Bell
 
@@ -117,7 +117,7 @@ hass.services.call("downloader", "download_file", data)
 
 ## Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports doorbell, external chimes and stickup cameras.
 
 ## Switch
 
@@ -125,4 +125,4 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Light
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a flood light).
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a floodlight).
