@@ -11,11 +11,15 @@ The `edl21` integration lets you read German EDL21 smart meters using [SML](http
 In order to connect to the smart meter, an infrared transceiver is required.
 
 Compatible transceivers:
-  * [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
-  * [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
+
+- [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
+- [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
 
 Tested smart meters:
-  * Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
+
+- Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
+
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
