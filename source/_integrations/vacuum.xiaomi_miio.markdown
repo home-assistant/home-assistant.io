@@ -19,7 +19,7 @@ Currently supported services are:
 - `locate`
 - `clean_spot`
 - `set_fan_speed` 
-   (On Xiaomi app version 5.6.34 changed from -> to; Quiet -> Silent, Balanced -> Standard, Turbo -> Medium, Max -> Turbo)
+  Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo`.
 - `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
 
