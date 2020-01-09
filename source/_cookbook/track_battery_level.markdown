@@ -29,6 +29,29 @@ sensor:
 ```
 {% endraw %}
 
+### Android
+
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      battery_phone:
+        friendly_name: AndroidPhone Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.xxxxx', 'battery_level') %}
+                {{ state_attr('device_tracker.xxxxx', 'battery_level')|round }}
+            {% else %}
+                {{ states('device_tracker.xxxxx') }}
+            {%- endif %}
+        device_class: battery
+```
+{% endraw %}
+
+Replace 'device_tracker.xxxxx' with your phone name as shown under Configuration/Devices Device Info/Entities, for example: 'device_tracker.mi_a1'
+
 #### MQTT
 If you have configured Owntracks to send reports via MQTT you can use the received data via a MQTT sensor.
 Replace username with your MQTT username (for the embedded MQTT it's simply homeassistant), and deviceid with the set Device ID in Owntracks.
