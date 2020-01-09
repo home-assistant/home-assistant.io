@@ -81,6 +81,9 @@ View config:
       icon: mdi:bulb
     - entity: switch.decorative_lights
       image: /local/lights.png
+  visible:
+    - user: dxxxx0363xxxx504b99xxxxac4xxxx8f
+    - user: axxxx0578xxxxaw45f3xxxx2qsxxxx5e
 ```
 
 ## Paths
