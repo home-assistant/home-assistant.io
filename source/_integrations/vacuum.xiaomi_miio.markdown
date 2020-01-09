@@ -318,7 +318,7 @@ The information output is:
 
 ## Example on how to clean a specific room
 
-Example script using [`vacuum.send_command`](https://www.home-assistant.io/integrations/vacuum/) to clean a specific room:
+Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
 
 ```yaml
 vacuum_kitchen:
@@ -331,9 +331,9 @@ vacuum_kitchen:
         params: [18]
 ```
 
-Where params specify room numbers. For multiple rooms params can be specified like [17,18].
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
 
-Valid room numbers can be retrieved using miio command line tool. It will only give room numbers and not the room names. To get the room names one can just test the app_segment_clean command and see which room it cleans. 
+Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans. 
 
 ```bash
 miio protocol call <ip of the vacuum> get_room_mapping
