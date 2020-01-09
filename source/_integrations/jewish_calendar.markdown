@@ -60,6 +60,7 @@ havdalah_minutes_after_sunset:
 - weekly_portion: Shows the weekly portion (parshat hashavu'a).
 - holiday: If it is a holiday, shows the name of the holiday _(see below for more info)_.
 - omer_count: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
+- daf_yomi: Shows the date's daf yomi page.
 
 ### Time sensors
 
