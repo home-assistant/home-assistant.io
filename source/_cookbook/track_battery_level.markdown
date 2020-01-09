@@ -29,8 +29,7 @@ sensor:
 ```
 {% endraw %}
 
-### Android
-
+### Android Devices
 
 {% raw %}
 ```yaml
@@ -53,6 +52,7 @@ sensor:
 Replace 'device_tracker.xxxxx' with your phone name as shown under Configuration/Devices Device Info/Entities, for example: 'device_tracker.mi_a1'
 
 #### MQTT
+
 If you have configured Owntracks to send reports via MQTT you can use the received data via a MQTT sensor.
 Replace username with your MQTT username (for the embedded MQTT it's simply homeassistant), and deviceid with the set Device ID in Owntracks.
 
