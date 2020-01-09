@@ -63,7 +63,7 @@ input_datetime:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
         type: [datetime, time, date]
-        default: 1970-01-01 00:00 | 1970-01-01 | 00:00
+        default: 1970-01-01 00:00 | 00:00 | 1970-01-01
 {% endconfiguration %}
 
 ### Attributes
