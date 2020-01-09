@@ -22,34 +22,34 @@ to your configuration.yaml:
 ```yaml
 opnsense:
   url: http://router/api
-  api_secret: APIsecret
-  api_key: apiKEY
+  api_secret: API_SECRET
+  api_key: API_KEY
 ```
 
-Where the `api_key` and `api_secret` values are aquired from your OPNsense
-router using the web interface. For more inforation on this procedure refer
-to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys)
+Where the `api_key` and `api_secret` values are acquired from your OPNsense
+router using the web interface. For more information on this procedure, refer
+to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
 {% configuration %}
 url:
-  description: The url for the OPNsense api endpoint of your router
+  description: The URL for the OPNsense api endpoint of your router.
   type: string
   required: true
 api_key:
-  description: The API key used to authenticate with your OPNsense API endpoint
+  description: The API key used to authenticate with your OPNsense API endpoint.
   type: string
   required: true
 api_secret:
-  description: The API secret used to authenticate with your OPNsense API endpoint
+  description: The API secret used to authenticate with your OPNsense API endpoint.
   type: string
   required: true
 verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API's SSL
+  description: Set to true to enable the validation of the OPNsense API's SSL.
   type: boolean
   required: false
   default: false
 tracker_interfaces:
-  description: List of the OPNsense router's interfaces to use for tracking devices
+  description: List of the OPNsense router's interfaces to use for tracking devices.
   type: list
   required: false
   default: ['LAN']
@@ -58,4 +58,4 @@ tracker_interfaces:
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to an OPNsense router
+This platform allows you to detect presence by looking at devices connected to an OPNsense router.
