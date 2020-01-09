@@ -166,6 +166,10 @@ precision:
   required: false
   type: float
   default: 0.1 for Celsius and 1.0 for Fahrenheit.
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
