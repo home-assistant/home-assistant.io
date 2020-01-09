@@ -19,17 +19,17 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The preferred way to setup the Orange Livebox platform is by enabling the discovery component.
-Add your equipment via the Integration menu
+The preferred way to setup the Orange Livebox integration is by enabling the discovery component.
+Add your equipment via the Integration menu.
 
-If you have enabled the [discovery component](/components/discovery/),
+If you have enabled the [discovery component](/integrations/discovery/),
 your Livebox should be detected automatically. Otherwise, you can set it
 up manually in your `configuration.yaml` file:
 
 ```yaml
 livebox:
   host: IP_ADDRESS
-  password: 'PASSWORD'
+  password: PASSWORD
 ```
 
 {% configuration %}
@@ -54,8 +54,8 @@ password:
   type: string
 {% endconfiguration %}
 
-You can find out your Livebox host and port by opening the address livebox.home/ws in your browser. The
-returned json should contain an api_domain (`host`) and a http_port (`port`).
+You can find out your Livebox host and port by opening the address `http://livebox.home/ws` in your browser. The
+returned json should contain an "api_domain" (`host`) and a "http_port" (`port`).
 
 ### Initial setup
 
@@ -63,7 +63,7 @@ returned json should contain an api_domain (`host`) and a http_port (`port`).
 You must have set a password for your Livebox router web administration page. 
 </div>
 
-The first time Home Assistant will connect to your Livebox, you will need to specify the password of livebox.
+The first time Home Assistant will connect to your Livebox, you will need to specify the password of Livebox.
 
 ### Supported routers
 
@@ -77,15 +77,16 @@ Only the routers with Livebox OS are supported:
 This platform offers presence detection by keeping track of the
 devices connected to a [Livebox](http://www.orange.fr/) router.
 
-Ability to disable this option by integration options
+Ability to disable this option by integration options.
 
 ### Notes
 
 Note that the Livebox waits for some time before marking a device as
 inactive, meaning that there will be a small delay (1 or 2 minutes)
-between the time you disconnect a device and the time it will appear
+between the time you disconnect a device and the time, it will appear
 as "away" in Home Assistant. You should take this into account when specifying
 the `consider_home` parameter.
+
 On the contrary, the Livebox immediately reports devices newly connected, so
 they should appear as "home" almost instantly, as soon as Home Assistant
 refreshes the devices states.
@@ -94,4 +95,3 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Livebox router. The monitored conditions are
 instant upload and download rates in Mb/s.
-
