@@ -31,6 +31,8 @@ sensor:
 
 ### Android Devices
 
+On your Android device, once the official [Home Assistant companion app](https://companion.home-assistant.io/) is installed and connected to your Home Assistance instance, you will be able to display the battery level in the frontend by adding a [template sensor](https://www.home-assistant.io/integrations/template) to your configuration yaml file. You can also use the battery [sensor device class](https://www.home-assistant.io/integrations/sensor/#device-class) to dynamically change the icon with the battery level.
+
 {% raw %}
 ```yaml
 sensor:
