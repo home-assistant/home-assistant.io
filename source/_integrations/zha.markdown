@@ -33,10 +33,6 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Cover
 
-
-
-```
-
 ## ZHA exception and deviation handling
 
 Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://www.zigbee.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) to for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
