@@ -1,5 +1,5 @@
 ---
-title: DOODS - Distributed Outside Object Detection Service
+title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
   - Image Processing
