@@ -15,7 +15,7 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
 
 ## Remote Access
 
-If you want secure remote access, the easiest option is to use [Home Assistant cloud](/cloud/). Other options are to use [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) to expose your instance to the internet, use a [VPN](http://www.pivpn.io/), [Tor](/docs/ecosystem/tor/) or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/).
+If you want secure remote access, the easiest option is to use [Home Assistant cloud](/cloud/). Other options are to use [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) to expose your instance to the internet, use a [VPN](https://pivpn.dev/), [Tor](/docs/ecosystem/tor/) or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/).
 
 ### Extras for manual installations
 
