@@ -24,7 +24,7 @@ It displays the current weather along with a 4 days forecast and can create sens
 
 ## Setup the integration
 
-There is two ways to integrate Météo-France in Home Assistant.
+There are two ways to integrate Météo-France in Home Assistant.
 
 ### Via the frontend
 
