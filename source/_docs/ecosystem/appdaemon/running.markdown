@@ -11,13 +11,13 @@ As configured, `AppDaemon` comes with a single HelloWorld App that will send a g
 Assuming you have set the config up as described above for Docker, you can run it with the command:
 
 ```bash
-$ docker run -d -v <Path to Config>/conf:/conf --name appdaemon appdaemon:latest
+$ docker run -d -v <Path to Config>/conf:/conf --name appdaemon acockburn/appdaemon:latest
 ```
 
 In the example above you would use:
 
 ```bash
-$ docker run -d -v /Users/foo/ha-config:/conf --name appdaemon appdaemon:latest
+$ docker run -d -v /Users/foo/ha-config:/conf --name appdaemon acockburn/appdaemon:latest
 ```
 
 Where you place the `conf` and `conf/apps` directory is up to you - it can be in downloaded repository, or anywhere else on the host, as long as you use the correct mapping in the `docker run` command.
