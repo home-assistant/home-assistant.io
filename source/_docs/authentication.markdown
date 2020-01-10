@@ -86,6 +86,14 @@ While you should hopefully be storing your passwords in a password manager, if y
 
 When you start Home Assistant next, you'll be required to set up authentication again.
 
+### Lost user password
+
+1. login to the homeassistant docker or console
+2. hass --script auth -c /config change_password <user> <password>
+3. Restart HA
+
+You can use “hass --script auth -c /config list” command to list the users
+
 ### Error: invalid client id or redirect url
 
 <img src='/images/docs/authentication/error-invalid-client-id.png' alt='Screenshot of Error: invalid client id or redirect url'>
