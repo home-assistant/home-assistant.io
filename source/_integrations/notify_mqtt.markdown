@@ -3,7 +3,7 @@ title: "Notify MQTT"
 description: "Instructions on how to add MQTT notifications to Home Assistant."
 ha_category:
   - Notifications
-ha_release: 0.103.7
+ha_release: 0.104
 ---
 
 The `notify_mqtt` notification platform allows you to publish notifications from Home Assistant to an MQTT topic. This is primarily intended to help those who have an existing notification infrastructure set up in [Node-RED](https://nodered.org/) or another MQTT-friendly tool, but may find other uses.
