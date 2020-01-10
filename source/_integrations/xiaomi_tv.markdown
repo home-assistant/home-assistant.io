@@ -36,6 +36,11 @@ name:
   required: false
   default: Xiaomi TV
   type: string
+assume_state:
+  description: Assume the state of tv or not.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 If you do not set a host in the configuration file, local TVs will automatically be discovered.
@@ -51,5 +56,6 @@ media_player:
 ```
 
 <div class='note info'>
-The platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful, because the selected source of the TV will remain the same. It will essentially turn your TV into a dumb TV.
+If the `assume_state` (default) is `true` the platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful because the selected source of the TV will remain the same. It will essentially turn your TV into a dumb TV.
+If the `assume_state` is `false` your TV will turn off and not able to turn on again using this module. You have to power the TV on using IR, Bluetooth remote control or HDMI-CEC.
 </div>
