@@ -56,3 +56,14 @@ sensors:
       value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
 ```
 {% endraw %}
+
+### Note
+Inverter models with newer firmware (and also those using devices like PocketWifi no longer expose an API when connected to SSID, they do however continue to expose it on their own broadcasted SSID, in order to use this sensor in this case it is neccessary to setup a reverse proxy with something like nginx and use a raspberry pi (or similar) with two network connections (one wifi that connects to the inverters SSID).
+
+Example nginx configuration
+
+```
+location / {
+  proxy_pass http://5.8.8.8;
+}
+```
