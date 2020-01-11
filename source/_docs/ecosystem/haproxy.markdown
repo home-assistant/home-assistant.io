@@ -57,7 +57,8 @@ defaults
 	timeout connect 5000
 	timeout client  50000
 	timeout server  50000
-	timeout http-request 5s  #protection from Slowloris attacks
+	timeout tunnel  60000    # long enough for websocket pings every 55 seconds
+	timeout http-request 5s  # protection from Slowloris attacks
 
 frontend www-http
 	bind *:80
@@ -68,7 +69,7 @@ frontend www-https
 	bind *:443 ssl crt /etc/haproxy/certs/MYCERT.pem
 	acl hass-acl hdr(host) -i SUBDOMAIN.DOMAIN.COM
 	use_backend hass-backend if hass-acl
-	
+
 backend hass-backend
 	server hass <Home Assistant Server IP>:8123
 
