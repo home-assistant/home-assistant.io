@@ -34,7 +34,7 @@ Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more 
 
 ### Via the frontend
 
-Menu: *Configuration* -> *Integrations*. Search for "Freebox", add your host and port, click submit.
+Menu: **Configuration** -> **Integrations**. Search for "Freebox", add your host and port, click submit.
 
 If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
 
@@ -58,13 +58,17 @@ port:
 {% endconfiguration %}
 
 <div class='note warning'>
-If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the component again.
+  
+  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the component again.
+
 </div>
 
 ### Initial setup
 
 <div class='note warning'>
-You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
+
+  You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
+
 </div>
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
