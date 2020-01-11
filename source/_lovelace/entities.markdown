@@ -222,6 +222,42 @@ hide_if_unavailable:
   default: false
 {% endconfiguration %}
 
+### Conditional
+
+Special row that displays based on entity states.
+
+{% configuration %}
+type:
+  required: true
+  description: conditional
+  type: string
+conditions:
+  required: true
+  description: List of entity IDs and matching states.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: HA entity ID.
+      type: string
+    state:
+      required: false
+      description: Entity state is equal to this value.*
+      type: string
+    state_not:
+      required: false
+      description: Entity state is unequal to this value.*
+      type: string
+row:
+  required: true
+  description: Row to display if all conditions match.
+  type: map
+{% endconfiguration %}
+
+*one is required (`state` or `state_not`)
+
+Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
 ### Divider
 
 {% configuration %}
