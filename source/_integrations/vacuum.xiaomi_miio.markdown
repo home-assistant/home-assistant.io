@@ -316,6 +316,30 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
+
+## Example on how to clean a specific room
+
+Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
+
+```yaml
+vacuum_kitchen:
+  alias: "Clean the kitchen"
+  sequence:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: app_segment_clean
+        params: [18]
+```
+
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
+
+Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans. 
+
+```bash
+miio protocol call <ip of the vacuum> get_room_mapping
+```
+
 ## Retrieving Zoned Cleaning Coordinates
 
 ### Using FloleVac (Android)
