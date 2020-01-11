@@ -94,12 +94,6 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>CentOS/RHEL</div>
   </a>
-  <a class='option-card' href='/docs/installation/windows/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/windows.png' />
-    </div>
-    <div class='title'>Windows</div>
-  </a>
   <a class='option-card' href='/docs/installation/macos/'>
     <div class='img-container'>
       <img src='/images/supported_brands/apple.png' />
