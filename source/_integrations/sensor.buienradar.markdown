@@ -113,8 +113,6 @@ monitored_conditions:
       description: "The minimum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
     maxrain_1d:
       description: "The maximum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
-    snow_1d:
-      description: "The forecasted amount of snow in [cm](https://en.wikipedia.org/wiki/Centimetre)."
     windazimuth_1d:
       description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise. (derived from winddirection_1d)
     winddirection_1d:
