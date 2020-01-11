@@ -58,11 +58,13 @@ sensors:
 {% endraw %}
 
 ### Note
-Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is neccessary to setup a reverse proxy with something like Nginx and use a raspberry pi (or similar) with two network connections (one being wifi that connects to the inverters SSID).
+
+Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is necessary to set up a reverse proxy with something like Nginx and use a raspberry pi (or similar) with two network connections (one being wifi that connects to the inverters SSID).
+
 
 Example Nginx configuration
 
-``` text
+```text
 location / {
   proxy_pass http://5.8.8.8;
 }
