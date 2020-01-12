@@ -55,7 +55,7 @@ or a template based request:
 # Example configuration.yaml entry
 sensor:
   - platform: rest
-    resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
+    resource_template: {% raw %}'http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}'{% endraw %}
 ```
 
 {% configuration %}
