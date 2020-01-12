@@ -90,6 +90,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove `suppress_warning` from config options for vizio component ([@raman325] - [#30536]) ([vizio docs]) (breaking change)
 - Entity Component to no longer generate automatic groups ([@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) ([device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch docs]) ([vacuum docs]) (breaking change)
 - Bump pyRFXtrx to 0.25 ([@Ernst79] - [#30566]) ([rfxtrx docs]) (breaking change)
+- Add Ring config flow ([@balloob] - [#30564]) ([ring docs]) (breaking change) (beta fix)
+- Update ON/OFF condition and triggers to match documentation and UI, issue #30462 ([@davet2001] - [#30663]) ([binary_sensor docs]) (breaking change) (beta fix)
+
+## Beta Fixes
+
+- Fix upnp raw sensor state formatting when None ([@pnbruckner] - [#30444]) ([upnp docs]) (beta fix)
+- Implement capability attributes ([@balloob] - [#30545]) ([fan docs]) ([media_player docs]) ([vacuum docs]) ([water_heater docs]) (beta fix)
+- Add Ring config flow ([@balloob] - [#30564]) ([ring docs]) (breaking change) (beta fix)
+- Fix problem with restoring POE control ([@Kane610] - [#30597]) ([unifi docs]) (beta fix)
+- Set body size for Proxy / streams to 16mb ([@pvizeli] - [#30608]) ([http docs]) (beta fix)
+- Bump Adafruit_BBIO to 1.1.1 ([@springstan] - [#30630]) ([bbb_gpio docs]) (beta fix)
+- Do not save last_seen if older than prev_seen ([@pnbruckner] - [#30647]) ([life360 docs]) (beta fix)
+- Fix HomeKit with entity registry restoration where supported_features is a non-None falsey ([@Jc2k] - [#30657]) ([homekit docs]) (beta fix)
+- Fix ZHA temperature sensor restoration ([@Adminiuga] - [#30661]) ([zha docs]) (beta fix)
+- Update ON/OFF condition and triggers to match documentation and UI, issue #30462 ([@davet2001] - [#30663]) ([binary_sensor docs]) (breaking change) (beta fix)
+- Upgrade Ring to new version ([@balloob] - [#30666]) ([ring docs]) (beta fix)
+- Fix Error with HomematicIP Cloud Cover ([@SukramJ] - [#30667]) ([homematicip_cloud docs]) (beta fix)
+- Ring OTP improvement ([@balloob] - [#30688]) ([ring docs]) (beta fix)
+- Log error when integration is missing platform setup ([@balloob] - [#30690]) (beta fix)
+- Fix update person validation ([@balloob] - [#30691]) ([person docs]) (beta fix)
 
 ## All changes
 
@@ -385,7 +405,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix modbus service description ([@vzahradnik] - [#30005])
 - Fix persistent setup error notification content ([@frenck] - [#29995])
 - Make tplink light more responsive ([@vangorra] - [#28652]) ([tplink docs])
-- Z-Wave: Fibaro FGR\*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
+- Z-Wave: Fibaro FGR*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
 - Upgrade matrix-client to 0.3.2 ([@fabaff] - [#30027]) ([matrix docs])
 - Upgrade zeroconf to 0.24.1 ([@fabaff] - [#30028]) ([zeroconf docs])
 - Update Envoy sensor to configure credentials and grab Inverter Date from updated API ([@gtdiehl] - [#28837]) ([enphase_envoy docs])
@@ -462,7 +482,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Refactor ZHA channel logging ([@Adminiuga] - [#30259]) ([zha docs])
 - Fix ble_tracker randomly pygatt thrown error ([@liollury] - [#28671]) ([bluetooth_le_tracker docs])
 - Fix creating smappee sensors when remote is not active ([@mockersf] - [#30270]) ([smappee docs])
-- Upgrade rflink to 0.0.50, ignore_devices now supports \* and ? anywhere ([@scop] - [#30268]) ([rflink docs])
+- Upgrade rflink to 0.0.50, ignore_devices now supports * and ? anywhere ([@scop] - [#30268]) ([rflink docs])
 - Accept homekit_controller pairing codes both with and without dashes ([@Jc2k] - [#30273]) ([homekit_controller docs])
 - Add homekit_controller service.sensor.smoke ([@Jc2k] - [#30269]) ([homekit_controller docs])
 - Upgrade beautifulsoup4 to 4.8.2 ([@fabaff] - [#30274]) ([scrape docs])
@@ -499,7 +519,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Migrate xiaomi_miio tests from coroutine to async/await ([@frenck] - [#30329])
 - Migrate emulated_hue tests from coroutine to async/await ([@frenck] - [#30331])
 - Migrate webostv to new library and make integration async with callback state updates ([@bendavid] - [#29296]) ([webostv docs]) (breaking change)
-- Migrate input\_\* tests from coroutine to async/await ([@frenck] - [#30336])
+- Migrate input_* tests from coroutine to async/await ([@frenck] - [#30336])
 - Remove use of bin_type in Tesla component ([@alandtse] - [#30315]) ([tesla docs])
 - Upgrade youtube_dl to version 2020.01.01 ([@BKPepe] - [#30341]) ([media_extractor docs])
 - Upgrade zeroconf to 0.24.4 ([@fabaff] - [#30347]) ([zeroconf docs])
@@ -522,7 +542,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Migrate cast tests from coroutine to async/await ([@frenck] - [#30374])
 - Migrate ffmpeg tests from coroutine to async/await ([@frenck] - [#30375])
 - Migrate discovery tests from coroutine to async/await ([@frenck] - [#30376])
-- Migrate google\_\* tests from coroutine to async/await ([@frenck] - [#30377])
+- Migrate google_* tests from coroutine to async/await ([@frenck] - [#30377])
 - Add charging rate sensor to Tesla ([@alandtse] - [#30286]) ([tesla docs])
 - Restore state for Rfxtrx devices ([@Ernst79] - [#30309]) ([rfxtrx docs])
 - Remove unnessecary rfxtrx light property def ([@Ernst79] - [#30397]) ([rfxtrx docs])
@@ -611,6 +631,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Allow specific status codes while notifying mobile_app devices ([@rccoleman] - [#30496]) ([mobile_app docs])
 - Correct integration names in manifests (A-B) ([@frenck] - [#30527])
 - Fire restarted event on restarting active timer ([@mnigbur] - [#30475]) ([timer docs]) (breaking change)
+- Bump synologydsm to 0.3.0 ([@Quentame] - [#30529]) ([synologydsm docs])
 - Add pilight dimmer as light component ([@Trekky12] - [#30107]) ([pilight docs]) (new-platform)
 - Add "autobypass" option when arming AlarmDecoder integration ([@lexam79] - [#30002]) ([alarmdecoder docs])
 - Update vizio component to prepare for config flow and zeroconf support ([@raman325] - [#30522]) ([vizio docs])
@@ -655,6 +676,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Stookalert integration ([@fwestenberg] - [#30306]) ([stookalert docs]) (new-integration)
 - The MFI Dimmer Switch model is missing from the list, causing the mfi Wall switches not to be recognized. ([@mohmacht] - [#30572]) ([mfi docs])
 - Add last_online and level attribute to steam online ([@mfaraco] - [#30321]) ([steam_online docs])
+- Fix upnp raw sensor state formatting when None ([@pnbruckner] - [#30444]) ([upnp docs]) (beta fix)
+- Implement capability attributes ([@balloob] - [#30545]) ([fan docs]) ([media_player docs]) ([vacuum docs]) ([water_heater docs]) (beta fix)
+- Add Ring config flow ([@balloob] - [#30564]) ([ring docs]) (breaking change) (beta fix)
+- Fix problem with restoring POE control ([@Kane610] - [#30597]) ([unifi docs]) (beta fix)
+- Set body size for Proxy / streams to 16mb ([@pvizeli] - [#30608]) ([http docs]) (beta fix)
+- Bump Adafruit_BBIO to 1.1.1 ([@springstan] - [#30630]) ([bbb_gpio docs]) (beta fix)
+- Do not save last_seen if older than prev_seen ([@pnbruckner] - [#30647]) ([life360 docs]) (beta fix)
+- Fix HomeKit with entity registry restoration where supported_features is a non-None falsey ([@Jc2k] - [#30657]) ([homekit docs]) (beta fix)
+- Fix ZHA temperature sensor restoration ([@Adminiuga] - [#30661]) ([zha docs]) (beta fix)
+- Update ON/OFF condition and triggers to match documentation and UI, issue #30462 ([@davet2001] - [#30663]) ([binary_sensor docs]) (breaking change) (beta fix)
+- Upgrade Ring to new version ([@balloob] - [#30666]) ([ring docs]) (beta fix)
+- Fix Error with HomematicIP Cloud Cover ([@SukramJ] - [#30667]) ([homematicip_cloud docs]) (beta fix)
+- Ring OTP improvement ([@balloob] - [#30688]) ([ring docs]) (beta fix)
+- Log error when integration is missing platform setup ([@balloob] - [#30690]) (beta fix)
+- Fix update person validation ([@balloob] - [#30691]) ([person docs]) (beta fix)
 
 [#23789]: https://github.com/home-assistant/home-assistant/pull/23789
 [#24426]: https://github.com/home-assistant/home-assistant/pull/24426
@@ -1151,6 +1187,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30439]: https://github.com/home-assistant/home-assistant/pull/30439
 [#30440]: https://github.com/home-assistant/home-assistant/pull/30440
 [#30442]: https://github.com/home-assistant/home-assistant/pull/30442
+[#30444]: https://github.com/home-assistant/home-assistant/pull/30444
 [#30445]: https://github.com/home-assistant/home-assistant/pull/30445
 [#30451]: https://github.com/home-assistant/home-assistant/pull/30451
 [#30453]: https://github.com/home-assistant/home-assistant/pull/30453
@@ -1190,6 +1227,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30522]: https://github.com/home-assistant/home-assistant/pull/30522
 [#30526]: https://github.com/home-assistant/home-assistant/pull/30526
 [#30527]: https://github.com/home-assistant/home-assistant/pull/30527
+[#30529]: https://github.com/home-assistant/home-assistant/pull/30529
 [#30532]: https://github.com/home-assistant/home-assistant/pull/30532
 [#30536]: https://github.com/home-assistant/home-assistant/pull/30536
 [#30538]: https://github.com/home-assistant/home-assistant/pull/30538
@@ -1198,6 +1236,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30542]: https://github.com/home-assistant/home-assistant/pull/30542
 [#30543]: https://github.com/home-assistant/home-assistant/pull/30543
 [#30544]: https://github.com/home-assistant/home-assistant/pull/30544
+[#30545]: https://github.com/home-assistant/home-assistant/pull/30545
 [#30546]: https://github.com/home-assistant/home-assistant/pull/30546
 [#30547]: https://github.com/home-assistant/home-assistant/pull/30547
 [#30550]: https://github.com/home-assistant/home-assistant/pull/30550
@@ -1206,6 +1245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30553]: https://github.com/home-assistant/home-assistant/pull/30553
 [#30558]: https://github.com/home-assistant/home-assistant/pull/30558
 [#30561]: https://github.com/home-assistant/home-assistant/pull/30561
+[#30564]: https://github.com/home-assistant/home-assistant/pull/30564
 [#30566]: https://github.com/home-assistant/home-assistant/pull/30566
 [#30569]: https://github.com/home-assistant/home-assistant/pull/30569
 [#30571]: https://github.com/home-assistant/home-assistant/pull/30571
@@ -1218,33 +1258,45 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30589]: https://github.com/home-assistant/home-assistant/pull/30589
 [#30590]: https://github.com/home-assistant/home-assistant/pull/30590
 [#30591]: https://github.com/home-assistant/home-assistant/pull/30591
+[#30597]: https://github.com/home-assistant/home-assistant/pull/30597
+[#30608]: https://github.com/home-assistant/home-assistant/pull/30608
+[#30630]: https://github.com/home-assistant/home-assistant/pull/30630
+[#30647]: https://github.com/home-assistant/home-assistant/pull/30647
+[#30657]: https://github.com/home-assistant/home-assistant/pull/30657
+[#30661]: https://github.com/home-assistant/home-assistant/pull/30661
+[#30663]: https://github.com/home-assistant/home-assistant/pull/30663
+[#30666]: https://github.com/home-assistant/home-assistant/pull/30666
+[#30667]: https://github.com/home-assistant/home-assistant/pull/30667
+[#30688]: https://github.com/home-assistant/home-assistant/pull/30688
+[#30690]: https://github.com/home-assistant/home-assistant/pull/30690
+[#30691]: https://github.com/home-assistant/home-assistant/pull/30691
 [@1v0dev]: https://github.com/1v0dev
-[@aarondavidschneider]: https://github.com/AaronDavidSchneider
-[@adminiuga]: https://github.com/Adminiuga
-[@alexxander0]: https://github.com/Alexxander0
-[@bkpepe]: https://github.com/BKPepe
-[@cereal2nd]: https://github.com/Cereal2nd
-[@djmoren]: https://github.com/DjMoren
-[@emacee]: https://github.com/Emacee
-[@ernst79]: https://github.com/Ernst79
-[@frengerh]: https://github.com/FrengerH
-[@harlemsquirrel]: https://github.com/HarlemSquirrel
-[@hypfer]: https://github.com/Hypfer
-[@inusasha]: https://github.com/InuSasha
-[@jc2k]: https://github.com/Jc2k
-[@jefflirion]: https://github.com/JeffLIrion
-[@kane610]: https://github.com/Kane610
-[@kerwood]: https://github.com/Kerwood
-[@lars-p]: https://github.com/Lars-P
-[@mariusthvdb]: https://github.com/Mariusthvdb
-[@p-verbrugge]: https://github.com/P-Verbrugge
-[@paulannekov]: https://github.com/PaulAnnekov
-[@quentame]: https://github.com/Quentame
-[@snoof85]: https://github.com/SNoof85
-[@santobert]: https://github.com/Santobert
-[@sukramj]: https://github.com/SukramJ
-[@trekky12]: https://github.com/Trekky12
-[@vividboarder]: https://github.com/ViViDboarder
+[@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
+[@Adminiuga]: https://github.com/Adminiuga
+[@Alexxander0]: https://github.com/Alexxander0
+[@BKPepe]: https://github.com/BKPepe
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@DjMoren]: https://github.com/DjMoren
+[@Emacee]: https://github.com/Emacee
+[@Ernst79]: https://github.com/Ernst79
+[@FrengerH]: https://github.com/FrengerH
+[@HarlemSquirrel]: https://github.com/HarlemSquirrel
+[@Hypfer]: https://github.com/Hypfer
+[@InuSasha]: https://github.com/InuSasha
+[@Jc2k]: https://github.com/Jc2k
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@Kane610]: https://github.com/Kane610
+[@Kerwood]: https://github.com/Kerwood
+[@Lars-P]: https://github.com/Lars-P
+[@Mariusthvdb]: https://github.com/Mariusthvdb
+[@P-Verbrugge]: https://github.com/P-Verbrugge
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@Quentame]: https://github.com/Quentame
+[@SNoof85]: https://github.com/SNoof85
+[@Santobert]: https://github.com/Santobert
+[@SukramJ]: https://github.com/SukramJ
+[@Trekky12]: https://github.com/Trekky12
+[@ViViDboarder]: https://github.com/ViViDboarder
 [@aamcrae]: https://github.com/aamcrae
 [@agners]: https://github.com/agners
 [@alandtse]: https://github.com/alandtse
@@ -1271,6 +1323,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@csfreak]: https://github.com/csfreak
 [@cwildt]: https://github.com/cwildt
 [@dannerph]: https://github.com/dannerph
+[@davet2001]: https://github.com/davet2001
 [@dcramer]: https://github.com/dcramer
 [@dmulcahey]: https://github.com/dmulcahey
 [@dshokouhi]: https://github.com/dshokouhi
@@ -1354,6 +1407,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /integrations/automation/
 [aws docs]: /integrations/aws/
 [axis docs]: /integrations/axis/
+[bbb_gpio docs]: /integrations/bbb_gpio/
 [binary_sensor docs]: /integrations/binary_sensor/
 [bitcoin docs]: /integrations/bitcoin/
 [bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
@@ -1448,6 +1502,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [kef docs]: /integrations/kef/
 [keyboard_remote docs]: /integrations/keyboard_remote/
 [kodi docs]: /integrations/kodi/
+[life360 docs]: /integrations/life360/
 [light docs]: /integrations/light/
 [lightwave docs]: /integrations/lightwave/
 [linky docs]: /integrations/linky/
@@ -1538,6 +1593,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [swiss_public_transport docs]: /integrations/swiss_public_transport/
 [switch docs]: /integrations/switch/
 [switcher_kis docs]: /integrations/switcher_kis/
+[synologydsm docs]: /integrations/synologydsm/
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
@@ -1575,6 +1631,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vivotek docs]: /integrations/vivotek/
 [vizio docs]: /integrations/vizio/
 [volumio docs]: /integrations/volumio/
+[water_heater docs]: /integrations/water_heater/
 [webostv docs]: /integrations/webostv/
 [websocket_api docs]: /integrations/websocket_api/
 [wemo docs]: /integrations/wemo/
