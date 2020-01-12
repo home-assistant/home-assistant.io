@@ -34,12 +34,25 @@ api_url:
   required: true
   type: string
 ws_url:
-  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088`.
+  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088/ws/spc`.
   required: true
   type: string
 {% endconfiguration %}
 
-Supported sensors will be automatically discovered and added, however they will be hidden by default.
+Supported sensors will be automatically discovered and added, however they will be hidden by default, and unless unhidden they will not produce any history or work in automations.
+
+To unhide them add/edit /config/customize.yaml and add an entry for all sensors you want to include like this, replacing the sensor name with the name you find in developer-tools -> States `<ha-url>:8123/developer-tools/states`:
+```
+binary_sensor.your_sensor: 
+  hidden: false
+```
+
+And if you haven't done so already, add the following two lines to your /config/configuration.yaml:
+```
+homeassistant:
+  customize: !include customize.yaml
+```
+
 
 ## Alarm
 
