@@ -75,6 +75,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - D6300SF
 - D6500
 - D6505
+- D6900 (WOL did not work)
 - D7000
 - D8000
 - EH5300
@@ -114,7 +115,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 - UE49KU6470 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
-- UE46ES5500 (partially supported, turn on doesn't works)
+- UE46ES5500 (partially supported, turn on doesn't work)
 
 #### Models tested but not yet working
 
