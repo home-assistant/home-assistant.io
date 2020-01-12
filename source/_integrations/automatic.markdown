@@ -52,6 +52,11 @@ devices:
   required: false
   type: list
 {% endconfiguration %}
+<div class='note'>
+  
+The device name must be the name given by Automatic -ahem- *automatically*. This is typically the model year, make and model. This is *not* the nickname you have give the vehicle in the `vehicles` section of the app's settings.
+  
+</div>  
 
 Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the [Automatic Real-Time Events documentation](https://developer.automatic.com/api-reference/#real-time-events).
 
