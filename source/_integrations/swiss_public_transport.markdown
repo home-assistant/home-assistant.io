@@ -44,8 +44,7 @@ stationboard:
   required: false
   type: string
 limit:
-  description: Limit the number of connection/departure objects the library
-  should load.
+  description: Limit the number of connection/departure objects the library should load.
   required: false
   default: 5
   type: integer
