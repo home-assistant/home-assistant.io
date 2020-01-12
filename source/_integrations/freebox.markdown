@@ -25,12 +25,12 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-If you have enabled the [discovery component](/integrations/discovery/), your Freebox should be detected automatically.
+If you have enabled the [discovery integration](/integrations/discovery/), your Freebox should be detected automatically.
 Otherwise, you can set it up manually via the frontend or via your `configuration.yaml` file.
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
-The returned json should contain an api_domain (`host`) and a https_port (`port`).
-Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
+The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
+Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
 ### Via the frontend
 
@@ -59,7 +59,7 @@ port:
 
 <div class='note warning'>
   
-  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the component again.
+  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
 
 </div>
 
