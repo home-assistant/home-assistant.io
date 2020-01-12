@@ -10,6 +10,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Cover
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -30,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Switch
 - Fan
+- Cover
 
 ## ZHA exception and deviation handling
 
