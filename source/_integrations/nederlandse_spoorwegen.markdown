@@ -18,7 +18,7 @@ The `nederlandse_spoorwegen` integration can be configured using `configuration.
 # Example configuration.yaml entry
 sensor:
 - platform: nederlandse_spoorwegen
-  aki_key: NS_API_KEY
+  api_key: NS_API_KEY
   routes:
     - name: Rotterdam-Amsterdam
       from: Rtd
