@@ -10,9 +10,13 @@ ha_codeowners:
   - '@fabaff'
 ---
 
-The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.
+The `swiss_public_transport` sensor can be run in two mode: In connection mode (the only mode in Home Assistant up to 0.103) and the stationboard mode.
 
-The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours.
+The conenction mode will give you the next five departure times from a given location to another one in Switzerland (use from and to in your configuration to configure a sensor in this mode).
+
+The stationboard mode will give you the next five departures from a given station (use stationboard in your configuration to configure a sensor for this mode). The sensors state is the next departure which is by itself not every useful. However, the departures attribute has a list of the next departures.
+
+The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 connection requests and 5000 stationboard requests per 24 hours.
 
 The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station.
 
@@ -28,13 +32,23 @@ sensor:
 
 {% configuration %}
 from:
-  description: The ID of the station of the start station.
-  required: true
+  description: The ID or name of the station of the start station.
+  required: false
   type: string
 to:
-  description: The ID of the station of the end station.
-  required: true
+  description: The ID or name of the station of the end station.
+  required: false
   type: string
+stationboard:
+  description: The ID or name of the station for a stationboard sensor.
+  required: false
+  type: string
+limit:
+  description: Limit the number of connection/departure objects the library
+  should load.
+  required: false
+  default: 5
+  type: integer
 name:
   description: The name of the sensor.
   required: false
