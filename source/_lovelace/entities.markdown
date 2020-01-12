@@ -241,12 +241,12 @@ conditions:
       description: HA entity ID.
       type: string
     state:
-      required: false
-      description: Entity state is equal to this value.*
+      required: false*
+      description: Entity state is equal to this value.
       type: string
     state_not:
-      required: false
-      description: Entity state is unequal to this value.*
+      required: false*
+      description: Entity state is unequal to this value.
       type: string
 row:
   required: true
