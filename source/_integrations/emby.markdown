@@ -42,9 +42,4 @@ port:
   required: false
   default: 8096 (No SSL),  8920 (SSL)
   type: integer
-auto_hide:
-  description: Automatically hide devices that are unavailable from the Home Assistant Interface.
-  required: false
-  default: false
-  type: boolean
 {% endconfiguration %}
