@@ -257,29 +257,29 @@ sensor:
 The temperature sensor supports these additional configuration properties.
 
 {% configuration %}
-temp_min:
+min_temp:
   description: The minimal temperature in °C your sensor supports.
   required: false
   type: integer
   default: 0
-temp_max:
+max_temp:
   description: The maximum temperature in °C your sensor supports.
   required: false
   type: integer
   default: 40
-range_min:
-  description: The range value your sensor reports for `temp_min`
+range_from:
+  description: The range value your sensor reports for `min_temp`
   required: false
   type: integer
   default: 255
-range_max:
-  description: The range value your sensor reports for `temp_max`
+range_to:
+  description: The range value your sensor reports for `max_temp`
   required: false
   type: integer
   default: 0
 {% endconfiguration %}
 
-Note that the default configuration values of _range_min_ and _range_max_ are not typos, the range is backwards for most sensors.
+Note that the default configuration values of _range_from_ and _range_to_ are not typos, the range is backwards for most sensors.
 However, some EEPs have a different, inverted range, which goes from 0 to 250. This includes the following EEPs:
 
 - **A5-04-01**
@@ -295,8 +295,8 @@ sensor:
     platform: enocean
     id: [0x01,0x90,0x84,0x3C]
     device_class: temperature
-    range_min: 0
-    range_max: 250
+    range_from: 0
+    range_to: 250
 ```
 
 ### Window handle
