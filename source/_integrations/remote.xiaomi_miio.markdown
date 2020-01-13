@@ -47,11 +47,6 @@ timeout:
   required: false
   type: integer
   default: 30
-hidden:
-  description: Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing.
-  required: false
-  type: boolean
-  default: true
 commands:
   description: A list of commands
   required: false
@@ -74,7 +69,6 @@ remote:
     token: YOUR_TOKEN
     slot: 1
     timeout: 30
-    hidden: false
     commands:
       activate_towel_heater:
         command:
