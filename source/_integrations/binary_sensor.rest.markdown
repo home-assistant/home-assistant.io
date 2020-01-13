@@ -66,7 +66,7 @@ resource:
   default: string
 resource_template:
   description: The resource or endpoint that contains the value with template support.
-  required: true
+  required: false
   type: template
 method:
   description: The method of the request.
