@@ -35,6 +35,8 @@ ODroid N2 support ?
 
 https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/
 
+https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/
+
 ## New Integrations
 
 - Add Elgato Key Light integration ([@frenck] - [#29592]) ([elgato docs]) (new-integration)
