@@ -15,11 +15,11 @@ There are several powerful ways to use this integration, including grouping exis
 
 For example, if you want to expose a true alarm panel to Google Home, Alexa, or Homekit - but limit its ability to disarm when there's no one home, you can do that using a template.
 
-Another use case could be grouping a series of internal and external locks together to represent "Home" and "Away" lock states.
+Another use case could be grouping a series of sensors and services together to represent various "armed" and "disarmed" states and actions.
 
 This can simplify the GUI and make it easier to write automations.
 
-In optimistic mode, the alarm control panel will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the template. Try to enable it, if experiencing incorrect lock operation.
+In optimistic mode, the alarm control panel will immediately change state after every command. Otherwise, the alarm control panel will wait for state confirmation from the template. Try to enable it, if experiencing incorrect operation.
 
 ## Configuration
 
@@ -62,7 +62,7 @@ alarm_control_panel:
     type: string
     default: Template Alarm Control Panel
   value_template:
-    description: Defines a template to set the state of the alarm panel.
+    description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `triggered` and `unavailable` are used."
     required: false
     type: template
   disarm:
