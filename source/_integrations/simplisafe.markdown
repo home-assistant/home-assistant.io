@@ -60,35 +60,6 @@ Remove a SimpliSafe PIN (by label or PIN value).
 | `system_id`                 |      no  | The ID of a SimpliSafe system               | 
 | `label_or_pin`              |      no  | The PIN label or value to remove            |
 
-### `simplisafe.set_alarm_duration`
-
-Set the duration (in seconds) of an active alarm.
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `duaration`                 |      no  | The number of seconds to sound the alarm    |
-
-### `simplisafe.set_delay`
-
-Set a duration for how long the base station should delay when transitioning between states.
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `arrival_state`             |      no  | The target "arrival" state (away, home)     | 
-| `transition`                |      no  | The system state transition to affect (entry, exit)               | 
-| `seconds`                   |      no  | The number of seconds to delay              |
-
-### `simplisafe.set_light`
-
-Turn the base station light on/off.
-
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `light_state`               |      no  | True for on, False for off                  |
-
 ### `simplisafe.set_pin`
 
 Set a SimpliSafe PIN.
@@ -99,12 +70,25 @@ Set a SimpliSafe PIN.
 | `label`                     |      no  | The label to show in the SimpliSafe UI      |
 | `pin`                       |      no  | The PIN value to use                        |
 
-### `simplisafe.set_volume_property`
+### `simplisafe.system_properties`
 
-Set a level for one of the base station's various volumes.
+Set one or more system properties.
 
-| Service Data Attribute    | Optional | Description                                 |
-|---------------------------|----------|---------------------------------------------|
-| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `volume_property`           |      no  | The volume property to set (alarm, chime, voice_prompt)               | 
-| `volume`                    |      no  | A volume (off, low, medium, high)           |
+For any property denoting a volume, the following values should be used:
+
+* Off: `0`
+* Low: `1`
+* Medium: `2`
+* High: `3`
+
+| Service Data Attribute    | Optional | Description                                                                  |
+|---------------------------|----------|------------------------------------------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system                                                | 
+| `alarm_duration`            |      yes | The number of seconds a triggered alarm should sound                         |
+| `chime_volume`              |      yes | The volume of the door chime                                                 |
+| `entry_delay_away`          |      yes | The number of seconds to delay triggering when entering with an "away" state |
+| `entry_delay_home`          |      yes | The number of seconds to delay triggering when entering with a "home" state  |
+| `exit_delay_away`           |      yes | The number of seconds to delay triggering when exiting with an "away" state  |
+| `exit_delay_home`           |      yes | The number of seconds to delay triggering when exiting with a "home" state   |
+| `light`                     |      yes | Whether the light on the base station should display when armed              |
+| `voice_prompt_volume`       |      yes | The volume of the base station's voice prompts                               |
