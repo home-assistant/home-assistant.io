@@ -10,16 +10,15 @@ ha_release: 0.57
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
-You must create an application [here](https://www.ns.nl/ews-aanvraagformulier/) to obtain a `password`.
+To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `RetrieveTripInformationPublicAPI` API.
 
-Add the data to your `configuration.yaml` file as shown in the example:
+The `nederlandse_spoorwegen` integration can be configured using `configuration.yaml` as shown below:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
 - platform: nederlandse_spoorwegen
-  email: you@example.com
-  password: !secret ns_password
+  api_key: NS_API_KEY
   routes:
     - name: Rotterdam-Amsterdam
       from: Rtd
@@ -31,16 +30,12 @@ sensor:
 ```
 
 {% configuration %}
-email:
-  description: The email address you used to request the API password.
-  required: true
-  type: string
-password:
-  description: The API password provided by the Nederlandse Spoorwegen.
+api_key:
+  description: The API key provided by the Nederlandse Spoorwegen.
   required: true
   type: string
 routes:
-  description: List of traveling routes.
+  description: List of travel routes.
   required: false
   type: list
   keys:
@@ -49,15 +44,15 @@ routes:
       required: true
       type: string
     from:
-      description: The start station.
+      description: The departure station.
       required: true
       type: string
     to:
-      description: Direction of the traveling.
+      description: The arrival station.
       required: true
       type: string
     via:
-      description: Optional other station you wish to visit in between.
+      description: A station the route needs to pass through.
       required: false
       type: string
 {% endconfiguration %}
