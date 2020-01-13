@@ -63,3 +63,184 @@ cameras:
       required: true
       type: string
 {% endconfiguration %}
+
+## Lovelace
+
+If you want a shiny lovelace card, with proper buttons, here is a snippet of a lovelace card:
+
+```yaml
+
+camera_image: camera.c6n_d12345678
+camera_view: live
+elements:
+  - icon: 'mdi:arrow-up'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      bottom: 50px
+      right: 25px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_ptz
+      service_data:
+        direction: up
+        entity_id: camera.c6n_d12345678
+    type: icon
+  - icon: 'mdi:arrow-down'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      bottom: 0px
+      right: 25px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_ptz
+      service_data:
+        direction: down
+        entity_id: camera.c6n_d12345678
+    type: icon
+  - icon: 'mdi:arrow-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      bottom: 25px
+      right: 50px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_ptz
+      service_data:
+        direction: left
+        entity_id: camera.c6n_d12345678
+    type: icon
+  - icon: 'mdi:arrow-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      bottom: 25px
+      right: 0px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_ptz
+      service_data:
+        direction: right
+        entity_id: camera.c6n_d12345678
+    type: icon
+  - icon: 'mdi:run-fast'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      top: 25px
+      right: 25px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_follow_move_on
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:run'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      top: 25px
+      right: 0px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_follow_move_off
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:eye'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      top: 50px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_privacy_off
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:eye-off'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      top: 50px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_privacy_on
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:volume-high'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      top: 75px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_audio_off
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:volume-off'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      top: 75px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_audio_on
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:led-on'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      top: 100px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_state_off
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:led-off'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      top: 100px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_state_on
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:brightness-4'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 25px
+      top: 100px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_ir_off
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+  - icon: 'mdi:brightness-5'
+    style:
+      background: 'rgba(255, 255, 255, 0.5)'
+      right: 0px
+      top: 100px
+    tap_action:
+      action: call-service
+      service: camera.ezviz_switch_ir_on
+      service_data:
+        entity_id: camera.c6n_d12345678
+      confirmation: true
+    type: icon
+entity: camera.c6n_d12345678
+type: picture-elements
+```
