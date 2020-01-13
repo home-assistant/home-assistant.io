@@ -164,15 +164,14 @@ Within this delay the device registration should be completed in the App, otherw
   
 ## What to do, if a device is missing in Home-Assistant
 
-In order for a device to be integrated in the Home-Assistant, this must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream libs](https://github.com/coreGreenberet/homematicip-rest-api) github repository.
+In order for a device to be integrated in the Home-Assistant, this must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) github repository.
 
 1.	Create a dump of your access point configuration in Home-Assistant: 
 Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
-The default dump is anonymized.
-2.	The Dump is written to your config directory (`hmip_config_XXXX.json`)
-3.  Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) in this github repository and attach the dump file.
+The default dump is anonymized and is written to your config directory (`hmip_config_XXXX.json`)
+2.  Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) in this github repository and attach the dump file.
 
-Please be patient and wait for implementation and a new release of the upstrem library.
+Please be patient and wait for the implementation and a new release of the upstream library.
 Afterwards this device can be implemented in Home-Assistant.
   
 ## Services
