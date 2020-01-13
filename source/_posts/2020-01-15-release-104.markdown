@@ -31,7 +31,9 @@ It's now able to ignore certain config flows that are discovered. It requires th
 
 ## In other news
 
-ODroid N2 support ?
+Hass.io release https://twitter.com/pvizeli/status/1216668319396368384?s=09
+
+IoT Link, which brings the state of your Windows machine into Home Assistant, has released v2.0 with Home Assistant MQTT discovery support. https://iotlink.gitlab.io/index.html
 
 https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/
 
