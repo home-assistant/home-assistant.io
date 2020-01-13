@@ -167,7 +167,7 @@ Within this delay the device registration should be completed in the App, otherw
 In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) GitHub repository.
 
 1.	Create a dump of your access point configuration in Home-Assistant: 
-Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+  Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
 The default dump is anonymized and is written to your config directory (`hmip_config_XXXX.json`)
 2.  Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) in this github repository and attach the dump file.
 
