@@ -171,7 +171,7 @@ In order for a device to be integrated into Home Assistant, it must first be imp
 The default dump is anonymized and is written to your config directory (`hmip_config_XXXX.json`)
 2. Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
-Please be patient and wait for the implementation and a new release of the upstream library.
+Please be patient, wait for the implementation and a new release of the upstream library.
 Afterward, this device can be implemented into Home Assistant.
   
 ## Services
