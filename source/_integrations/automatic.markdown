@@ -52,6 +52,7 @@ devices:
   required: false
   type: list
 {% endconfiguration %}
+
 <div class='note'>
   
 The device name must be the name given by Automatic automatically. This is typically the model year, make and model. This is *not* the nickname you have to give the vehicle in the `vehicles` section of the app's settings.
