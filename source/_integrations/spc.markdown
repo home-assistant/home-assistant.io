@@ -34,12 +34,11 @@ api_url:
   required: true
   type: string
 ws_url:
-  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088`.
+  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088/ws/spc`.
   required: true
   type: string
 {% endconfiguration %}
 
-Supported sensors will be automatically discovered and added, however they will be hidden by default.
 
 ## Alarm
 
