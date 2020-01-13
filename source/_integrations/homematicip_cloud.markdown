@@ -162,7 +162,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Weather Sensor – plus (*HmIP-SWO-PL*)
   * Weather Sensor – pro (*HmIP-SWO-PR*)
   
-## What to do, if a device is missing in Home-Assistant
+## What to do, if a device is missing in Home Assistant
 
 In order for a device to be integrated in the Home-Assistant, this must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) github repository.
 
