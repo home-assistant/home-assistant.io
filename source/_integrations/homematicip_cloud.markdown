@@ -172,7 +172,7 @@ The default dump is anonymized and is written to your config directory (`hmip_co
 2. Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
 Please be patient and wait for the implementation and a new release of the upstream library.
-Afterwards this device can be implemented in Home-Assistant.
+Afterward, this device can be implemented into Home Assistant.
   
 ## Services
 
