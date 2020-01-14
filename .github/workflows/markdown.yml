@@ -4,8 +4,7 @@ on: [push, pull_request]
 
 jobs:
   remark:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checking out files from GitHub
         uses: actions/checkout@v1
