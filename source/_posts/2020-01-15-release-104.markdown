@@ -158,8 +158,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
        state_locked: "locked"
        state_unlocked: "unlocked"
    ```
-- __LG webOS Smart TV__
-  - Migrate webostv to new library and make integration async with callback state updates. Since the connection handling has become non-trivial, it is now moved to `init.py` to be shared between the media_player and notify platforms, so the component setup now has to be done from the webostv domain instead of in media_player. The host configuration option is now required (as auto-discovery was anyways not functional) and the timeout and filename options have been removed as there is no real need to change the defaults. - ([@bendavid] - [#29296]) ([webostv docs])
+- __LG webOS Smart TV__ - The component setup now uses the `webostv` domain instead of `media_player`. The host configuration option is now required and the timeout and filename options have been removed. The state handling for webOStv has also been cleaned up. An entity will have STATE_ON when the tv is on instead of STATE_PLAYING or STATE_PAUSED as was previously the case. Users will need to update automations that depend on entity state.  - ([@bendavid] - [#29296] [#30416]) ([webostv docs])
 
      Example configuration:
      ```yaml
@@ -173,8 +172,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
                mac: "00:00:00:00:00:00"
          standby_connection: true
      ```
-   
-  - Cleanup of state handling in webostv. Entity will have STATE_ON when tv is on instead of STATE_PLAYING or STATE_PAUSED as was previously the case. Users will need to update automations that depend on entity state. - ([@bendavid] - [#30416]) ([webostv docs]) 
 - __Axis__ - Axis integration will no longer accept manual configuration of devices, all configuration of the Axis integration will now be handled from the integrations pane. - ([@Kane610] - [#30365]) ([axis docs]) 
 
   TL;DR This will no longer work:
