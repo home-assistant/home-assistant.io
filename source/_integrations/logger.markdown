@@ -47,6 +47,12 @@ logger:
     # log level for MQTT integration
     homeassistant.components.mqtt: warning
     
+    # log level for all python scripts
+    homeassistant.components.python_script: warning
+    
+    # individual log level for this python script
+    homeassistant.components.python_script.my_new_script.py: debug
+    
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
