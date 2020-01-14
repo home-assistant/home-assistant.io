@@ -37,3 +37,52 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+## Services
+
+SleepIQ exposes a few services to control your Sleep Number bed via automations:
+
+This changes a bed's sleep number to the specified value. This value should be a multiple of 5 between 5 and 100. Other values will work, but they will be rounded to the nearest multiple of 5 by the Sleep Number API.
+
+```yaml
+- service: sleepiq.set_sleep_number
+  data:
+    sleep_number: 45
+    bed: 'Master Bedroom'
+    side: 'right'
+```
+
+{% configuration %}
+  sleep_number:
+    required: true
+    description: The new sleep number, as a multiple of 5 between 5 and 100.
+    type: integer
+  bed:
+    required: false
+    description: The name of the bed. If unspecified, affects all beds. Case-insensitive.
+    type: string
+  side:
+    required: false
+    description: The side to change. If unspecified, both sides will change. Case-insensitive.
+    type: string
+{% endconfiguration %}
+
+This service changes a side's sleep number to its "favorite" preset.
+
+```yaml
+- service: sleepiq.set_to_favorite_sleep_number
+  data:
+    bed: 'Master Bedroom'
+    side: 'left'
+```
+
+{% configuration %}
+  bed:
+    required: false
+    description: The name of the bed. If unspecified, affects all beds. Case-insensitive.
+    type: string
+  side:
+    required: false
+    description: The side to change. If unspecified, both sides will change. Case-insensitive.
+    type: string
+{% endconfiguration %}
