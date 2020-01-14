@@ -15,6 +15,7 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
+     - [Odroid-N2 (Beta)][odroid-n2]
      - [Odroid-XU4][odroid-xu4]
      - [Intel-Nuc][intel-nuc]
     
@@ -216,6 +217,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi4-64-3.8.img.gz
 [tinker]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_tinker-3.8.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_odroid-c2-3.8.img.gz
+[odroid-n2]: https://github.com/home-assistant/hassos/releases/download/4.0/hassos_odroid-n2-4.0.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_odroid-xu4-3.8.img.gz
 [intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_intel-nuc-3.8.img.gz
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_ova-3.8.vmdk.gz
