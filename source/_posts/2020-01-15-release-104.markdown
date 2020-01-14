@@ -74,27 +74,28 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- __UPNP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses. They are now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs]) 
+- __Default groups__ - Entity integrations will no longer automatically maintain the hidden groups with all of their entities. The following groups are no longer automatically created and maintained:
+
+   - group.all_automations
+   - group.calendar
+   - group.all_covers
+   - group.all_devices
+   - group.all_fans
+   - group.all_lights
+   - group.all_locks
+   - group.all_plants
+   - group.remember_the_milk_accounts (???)
+   - group.all_remotes
+   - group.all_scripts
+   - group.all_switches
+   - group.all_vacuum_cleaners
+
+  The automation and script config panels have been updated to show and manage   all automations/scripts. If you want to show cards in your UI with all   entities for a single domain, use the auto-entities card. If you want to   target all entities in a service call, use 'all' as value for entity_id.  - (  [@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) (  [device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant   docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch   docs]) ([vacuum docs])
+- __UPNP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs]) 
 - __Worx Landroid__ - The worxlandroid sensor has been changed to not return the hard coded state values "manual-stop", "charging", "charging-complete", "going-home", "mowing" and instead use the states given from the landroid to Home Assistant. This includes the state "idle" which means that something is broken with the mower and you can use this as notification to check the physical state of the mower. Users need to update any automations that depend on the state of the sensor. - ([@geraldhansen] - [#27453]) ([worxlandroid docs]) 
 - __Tahoma__ - _Removed_ - The Tahoma integration has been removed. Somfy has blocked their unofficial API which now breaks this integration. Use the Somfy integration instead, which uses the official API. - ([@tetienne] - [#29745]) ([tahoma docs]) 
-- __Apple iCloud__ - The iCloud component leaves the device_tracker platform to become an integration. - ([@Quentame] - [#28968]) ([icloud docs])
+- __Apple iCloud__ - The iCloud component is no longer part of the device_tracker platform and is now an integration which is configurable via the UI. - ([@Quentame] - [#28968]) ([icloud docs])
 
-  Old configuration:
-
-  ```yaml
-  device_tracker:
-    - platform: icloud
-      username: __email__
-      password: __password__
-  ```
-
-    New configuration:
-
-  ```yaml
-  icloud:
-    - username: __email__
-      password: __password__
-  ```
   Services:
   - SERVICE_ICLOUD_PLAY_SOUND = "play_sound"
   - SERVICE_ICLOUD_DISPLAY_MESSAGE = "display_message"
@@ -118,7 +119,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     - host: backup.pi.hole
   ```
 
-- __HERE Travel Time__ - HERE has deprecated the usage of app_code. New users can only generate an api_key. Existing users have to follow the migration guide in order to retrieve the now needed api_key. - ([@eifinger] - [#29966]) ([here_travel_time docs])
+- __HERE Travel Time__ - HERE has deprecated the usage of app_code. New users can only generate an api_key. Existing users have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) in order to retrieve the now required api_key. - ([@eifinger] - [#29966]) ([here_travel_time docs])
     
     Example configuration:
   ```yaml
@@ -131,7 +132,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
       destination_longitude: "9.335892"
   ```
 
-- __ZHA__ - The default divisor for active_power has changed.  Now, multiplier and divisor both default to 1, if the device does not support these attributes or we fail to get those attributes from the device. - ([@Adminiuga] - [#30130]) ([zha docs]) 
+- __ZHA__ - The default divisor for active_power has changed.  Now, multiplier and divisor both default to 1 if the device does not support these attributes or we fail to get those attributes from the device. - ([@Adminiuga] - [#30130]) ([zha docs]) 
 - __Keba__ - The unique_ids of the entities have changed and are now more future proof. The default name and entity_id of the entities have also changed. Users need to clear stale entries from the entity registry and update concerned automations and scripts. - ([@dannerph] - [#30125]) ([keba docs]) 
 - __Tesla__ - Config flow has been added for Tesla. Device tracker entity names have changed due to the conversion to config_flow. They now follow the naming convention of the rest of the Tesla entities. The `id` device tracker entity attribute was also removed because it is a duplicate of `trackr_id`. - ([@alandtse] - [#28744]) ([tesla docs]) 
 - __Huawei LTE__ - The Huawei LTE notify service name is now configurable. The default name for the Huawei LTE notify service has changed to `notify.huawei_lte` to avoid conflicts with other notify services. An option to provide a name for the service has also been added. - ([@scop] - [#30208]) ([huawei_lte docs])
@@ -145,16 +146,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
          name: sms
    ```
 
-- __Amcrest__ - Removed Amcrest sensors and switches that were deprecated in previous releases. Warnings have been in place since deprecated so, although this is technically a breaking change, any users of this integration, that have been using the deprecated features, should have had plenty of time to remove them from their configuration. - ([@pnbruckner] - [#30308]) ([amcrest docs])
+- __Amcrest__ *(Removed)* - Amcrest sensors and switches that were deprecated in previous releases have now been removed. - ([@pnbruckner] - [#30308]) ([amcrest docs])
 
    Example configuration:
    ```yaml
    amcrest:
    - ...
      sensors:
-       # This sensor type is no longer supported and must be    removed.
+       # This sensor type is no longer supported and must be removed.
        - motion_detector
-     # All switch types are no longer supported and must be    removed.
+     # All switch types are no longer supported and must be removed.
      switches:
        - motion_detection
        - motion_recording
@@ -171,22 +172,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
        state_locked: "locked"
        state_unlocked: "unlocked"
    ```
-- __LG webOS Smart TV__ - Migrate webostv to new library and make integration async with callback state updates. Since the connection handling has become non-trivial, it is now moved to `init.py` to be shared between the media_player and notify platforms, so the component setup now has to be done from the webostv domain instead of in media_player. The host configuration option is now required (as auto-discovery was anyways not functional) and the timeout and filename options have been removed as there is no real need to change the defaults. - ([@bendavid] - [#29296]) ([webostv docs])
+- __LG webOS Smart TV__
+  - Migrate webostv to new library and make integration async with callback state updates. Since the connection handling has become non-trivial, it is now moved to `init.py` to be shared between the media_player and notify platforms, so the component setup now has to be done from the webostv domain instead of in media_player. The host configuration option is now required (as auto-discovery was anyways not functional) and the timeout and filename options have been removed as there is no real need to change the defaults. - ([@bendavid] - [#29296]) ([webostv docs])
 
-  Example configuration:
-  ```yaml
-  webostv:
-      name: LG TV
-      host: 192.168.1.53
-      #other settings
-      turn_on_action:
-          service: wake_on_lan.send_magic_packet
-          data:
-            mac: "00:00:00:00:00:00"
-      standby_connection: true
-  ```
-
-- __LG webOS Smart TV__ - Cleanup of state handling in webostv. Entity will have STATE_ON when tv is on instead of STATE_PLAYING or STATE_PAUSED as was previously the case. Users will need to update automations that depend on entity state. - ([@bendavid] - [#30416]) ([webostv docs]) 
+     Example configuration:
+     ```yaml
+     webostv:
+         name: LG TV
+         host: 192.168.1.53
+         #other settings
+         turn_on_action:
+             service: wake_on_lan.send_magic_packet
+             data:
+               mac: "00:00:00:00:00:00"
+         standby_connection: true
+     ```
+   
+  - Cleanup of state handling in webostv. Entity will have STATE_ON when tv is on instead of STATE_PLAYING or STATE_PAUSED as was previously the case. Users will need to update automations that depend on entity state. - ([@bendavid] - [#30416]) ([webostv docs]) 
 - __Axis__ - Axis integration will no longer accept manual configuration of devices, all configuration of the Axis integration will now be handled from the integrations pane. - ([@Kane610] - [#30365]) ([axis docs]) 
 
   TL;DR This will no longer work:
@@ -207,28 +209,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
       device_class: tv
   ```
 
-- __Default groups__ - Entity integrations will no longer automatically maintain the hidden groups with all of their entities. The following groups are no longer automatically created and maintained:
-
-   - group.all_automations
-   - group.calendar
-   - group.all_covers
-   - group.all_devices
-   - group.all_fans
-   - group.all_lights
-   - group.all_locks
-   - group.all_plants
-   - group.remember_the_milk_accounts (???)
-   - group.all_remotes
-   - group.all_scripts
-   - group.all_switches
-   - group.all_vacuum_cleaners
-
-  The automation and script config panels have been updated to show and manage all automations/scripts. If you want to show cards in your UI with all entities for a single domain, use the auto-entities card. If you want to target all entities in a service call, use 'all' as value for entity_id.  - (  [@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) (  [device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant   docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch   docs]) ([vacuum docs])
-
-
 - __RFXtrx__ - Bump pyRFXtrx to 0.25. This update switches the commands for 'open' and 'close' for rfxtrx covers of the 'Rollertrol' type, as they were switched (clicking open resulted in closing of the cover and vice versa). Existing automations should be updated. - ([@Ernst79] - [#30566]) ([rfxtrx docs]) 
 - __Ring__ - Ring is now configurable via a config entry. This means it will no longer store the username and password and you're able to configure accounts that use 2FA. It's no longer possible to set scan interval, monitored conditions or ffmpeg arguments. The defaults are used. - ([@balloob] - [#30564]) ([ring docs])  
-- __Binary Sensor__ - Update ON/OFF condition and triggers to match documentation and UI. This change inverts the logic of automations relating to binary sensor locks, but only for automations triggered on the lock state (rather than triggering a lock/unlock action).
+- __Binary Sensor (Locks)__ - Updated ON/OFF condition and triggers to match the documentation and UI. This change inverts the logic of automations relating to binary sensor with the `lock` device class, but only for automations triggered on the lock state (rather than triggering a lock/unlock action).
 
   For users who had already created automations, they will need to be checked and probably inverted. The text displayed in the trigger or condition dropdowns in lovelace will now be correct.
   
