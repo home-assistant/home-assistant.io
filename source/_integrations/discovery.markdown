@@ -47,7 +47,7 @@ Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integr
 
 </div>
 
-`discovery` is included in the default configuration. To load this component manually, add the following lines to your `configuration.yaml` file:
+To load this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
