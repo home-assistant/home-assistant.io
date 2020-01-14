@@ -20,6 +20,7 @@ One major change: we're restoring all entity registry entities on Home Assistant
 this allows Homekit/Google/Alexa to always find all entities to expose and Lovelace will no longer show yellow/red boxes.
 All entities are being restored as "unavailable"
 they can be differentiated from normal unavailable entities by the "restored" state attribute
+You can only remove entities that are in restored state, so not currrently provided by an integration, otherwise first remove the integration or disable the entity.
 
 ## Reload all the input things
 
@@ -28,6 +29,50 @@ All input integrations now have reload services to reload the YAML config withou
 ## Ignore discovered config flows
 
 It's now able to ignore certain config flows that are discovered. It requires the integration to be updated. Hue, Deconz and Homekit have been updated.
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/ignore-discovery.png' alt='Screenshot of a discovered Hue bridge'></a>
+Screenshot of a discovered Hue bridge.
+</p>
+
+## Frontend
+
+### Add device to Lovelace
+
+We added a button to the device page to add all entities of a device to Lovelace. We will suggest you cards based on the type of entities so you can add them to a view of your choice with 1 click. If you are using Lovelace in YAML mode, you can copy-paste the YAML to your config.
+We also added the same functionalities to the unused entities page of Lovelace. So that can now also recommend cards and can be used by YAML users!
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/add-device-lovelace.png' alt='Screenshot of a card suggestion for a light device'></a>
+Screenshot of a card suggestion for a light device.
+</p>
+
+### Multi select entity management
+
+We made it easier to change multiple entities at once, you can select multiple entities and remove, enable or disable them with one click.
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/entities-multi-select.png' alt='Screenshot of the entities config page with multi selection'></a>
+Screenshot of the entities config page with multi selection.
+</p>
+
+### ZHA Config Panel
+
+@dmulcahey did a lot of work on the ZHA config panel. The navigation for the ZHA configuration panel has been redesigned to provide a better user experience on mobile and desktop. As part of the redesign full Zigbee group management has been added. You can now create and manage Zigbee groups right from the UI. In a future release we will add the ability to bind devices directly to groups as well.
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/zha-config-panel.png' alt='Screenshot of the ZHA config panel'></a>
+Screenshot of the ZHA config panel.
+</p>
+
+### Remove Lovelace Config
+
+You can now go back to the generated mode by clearing the config in the raw config editor and saving it.
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/remove-lovelace-config.png' alt='Screenshot of the remove Lovelace confirm dialog'></a>
+Screenshot of the remove Lovelace confirm dialog.
+</p>
 
 ## In other news
 
@@ -409,7 +454,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix modbus service description ([@vzahradnik] - [#30005])
 - Fix persistent setup error notification content ([@frenck] - [#29995])
 - Make tplink light more responsive ([@vangorra] - [#28652]) ([tplink docs])
-- Z-Wave: Fibaro FGR*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
+- Z-Wave: Fibaro FGR\*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
 - Upgrade matrix-client to 0.3.2 ([@fabaff] - [#30027]) ([matrix docs])
 - Upgrade zeroconf to 0.24.1 ([@fabaff] - [#30028]) ([zeroconf docs])
 - Update Envoy sensor to configure credentials and grab Inverter Date from updated API ([@gtdiehl] - [#28837]) ([enphase_envoy docs])
@@ -486,7 +531,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Refactor ZHA channel logging ([@Adminiuga] - [#30259]) ([zha docs])
 - Fix ble_tracker randomly pygatt thrown error ([@liollury] - [#28671]) ([bluetooth_le_tracker docs])
 - Fix creating smappee sensors when remote is not active ([@mockersf] - [#30270]) ([smappee docs])
-- Upgrade rflink to 0.0.50, ignore_devices now supports * and ? anywhere ([@scop] - [#30268]) ([rflink docs])
+- Upgrade rflink to 0.0.50, ignore_devices now supports \* and ? anywhere ([@scop] - [#30268]) ([rflink docs])
 - Accept homekit_controller pairing codes both with and without dashes ([@Jc2k] - [#30273]) ([homekit_controller docs])
 - Add homekit_controller service.sensor.smoke ([@Jc2k] - [#30269]) ([homekit_controller docs])
 - Upgrade beautifulsoup4 to 4.8.2 ([@fabaff] - [#30274]) ([scrape docs])
@@ -523,7 +568,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Migrate xiaomi_miio tests from coroutine to async/await ([@frenck] - [#30329])
 - Migrate emulated_hue tests from coroutine to async/await ([@frenck] - [#30331])
 - Migrate webostv to new library and make integration async with callback state updates ([@bendavid] - [#29296]) ([webostv docs]) (breaking change)
-- Migrate input_* tests from coroutine to async/await ([@frenck] - [#30336])
+- Migrate input\_\* tests from coroutine to async/await ([@frenck] - [#30336])
 - Remove use of bin_type in Tesla component ([@alandtse] - [#30315]) ([tesla docs])
 - Upgrade youtube_dl to version 2020.01.01 ([@BKPepe] - [#30341]) ([media_extractor docs])
 - Upgrade zeroconf to 0.24.4 ([@fabaff] - [#30347]) ([zeroconf docs])
@@ -546,7 +591,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Migrate cast tests from coroutine to async/await ([@frenck] - [#30374])
 - Migrate ffmpeg tests from coroutine to async/await ([@frenck] - [#30375])
 - Migrate discovery tests from coroutine to async/await ([@frenck] - [#30376])
-- Migrate google_* tests from coroutine to async/await ([@frenck] - [#30377])
+- Migrate google\_\* tests from coroutine to async/await ([@frenck] - [#30377])
 - Add charging rate sensor to Tesla ([@alandtse] - [#30286]) ([tesla docs])
 - Restore state for Rfxtrx devices ([@Ernst79] - [#30309]) ([rfxtrx docs])
 - Remove unnessecary rfxtrx light property def ([@Ernst79] - [#30397]) ([rfxtrx docs])
@@ -1275,32 +1320,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#30690]: https://github.com/home-assistant/home-assistant/pull/30690
 [#30691]: https://github.com/home-assistant/home-assistant/pull/30691
 [@1v0dev]: https://github.com/1v0dev
-[@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
-[@Adminiuga]: https://github.com/Adminiuga
-[@Alexxander0]: https://github.com/Alexxander0
-[@BKPepe]: https://github.com/BKPepe
-[@Cereal2nd]: https://github.com/Cereal2nd
-[@DjMoren]: https://github.com/DjMoren
-[@Emacee]: https://github.com/Emacee
-[@Ernst79]: https://github.com/Ernst79
-[@FrengerH]: https://github.com/FrengerH
-[@HarlemSquirrel]: https://github.com/HarlemSquirrel
-[@Hypfer]: https://github.com/Hypfer
-[@InuSasha]: https://github.com/InuSasha
-[@Jc2k]: https://github.com/Jc2k
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@Kane610]: https://github.com/Kane610
-[@Kerwood]: https://github.com/Kerwood
-[@Lars-P]: https://github.com/Lars-P
-[@Mariusthvdb]: https://github.com/Mariusthvdb
-[@P-Verbrugge]: https://github.com/P-Verbrugge
-[@PaulAnnekov]: https://github.com/PaulAnnekov
-[@Quentame]: https://github.com/Quentame
-[@SNoof85]: https://github.com/SNoof85
-[@Santobert]: https://github.com/Santobert
-[@SukramJ]: https://github.com/SukramJ
-[@Trekky12]: https://github.com/Trekky12
-[@ViViDboarder]: https://github.com/ViViDboarder
+[@aarondavidschneider]: https://github.com/AaronDavidSchneider
+[@adminiuga]: https://github.com/Adminiuga
+[@alexxander0]: https://github.com/Alexxander0
+[@bkpepe]: https://github.com/BKPepe
+[@cereal2nd]: https://github.com/Cereal2nd
+[@djmoren]: https://github.com/DjMoren
+[@emacee]: https://github.com/Emacee
+[@ernst79]: https://github.com/Ernst79
+[@frengerh]: https://github.com/FrengerH
+[@harlemsquirrel]: https://github.com/HarlemSquirrel
+[@hypfer]: https://github.com/Hypfer
+[@inusasha]: https://github.com/InuSasha
+[@jc2k]: https://github.com/Jc2k
+[@jefflirion]: https://github.com/JeffLIrion
+[@kane610]: https://github.com/Kane610
+[@kerwood]: https://github.com/Kerwood
+[@lars-p]: https://github.com/Lars-P
+[@mariusthvdb]: https://github.com/Mariusthvdb
+[@p-verbrugge]: https://github.com/P-Verbrugge
+[@paulannekov]: https://github.com/PaulAnnekov
+[@quentame]: https://github.com/Quentame
+[@snoof85]: https://github.com/SNoof85
+[@santobert]: https://github.com/Santobert
+[@sukramj]: https://github.com/SukramJ
+[@trekky12]: https://github.com/Trekky12
+[@vividboarder]: https://github.com/ViViDboarder
 [@aamcrae]: https://github.com/aamcrae
 [@agners]: https://github.com/agners
 [@alandtse]: https://github.com/alandtse
