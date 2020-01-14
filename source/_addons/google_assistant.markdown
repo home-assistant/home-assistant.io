@@ -28,7 +28,7 @@ To enable access to the Google Assistant API, do the following:
 1. Start the add-on. Check the log and click refresh till it says: "ENGINE Bus STARTED".
 1. Now click "Open Web UI" and follow the authentication process. You will get an empty response after you have send your token.
 
-That's it. You should no be able to use the Google Voice assistant. 
+That's it. You should now be able to use the Google Voice assistant. 
 
 ### Add-on configuration
 
