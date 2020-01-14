@@ -94,21 +94,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __UPNP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs]) 
 - __Worx Landroid__ - The worxlandroid sensor has been changed to not return the hard coded state values "manual-stop", "charging", "charging-complete", "going-home", "mowing" and instead use the states given from the landroid to Home Assistant. This includes the state "idle" which means that something is broken with the mower and you can use this as notification to check the physical state of the mower. Users need to update any automations that depend on the state of the sensor. - ([@geraldhansen] - [#27453]) ([worxlandroid docs]) 
 - __Tahoma__ - _Removed_ - The Tahoma integration has been removed. Somfy has blocked their unofficial API which now breaks this integration. Use the Somfy integration instead, which uses the official API. - ([@tetienne] - [#29745]) ([tahoma docs]) 
-- __Apple iCloud__ - The iCloud component is no longer part of the device_tracker platform and is now an integration which is configurable via the UI. - ([@Quentame] - [#28968]) ([icloud docs])
+- __Apple iCloud__ - The iCloud component is no longer part of the device_tracker platform and is now an integration which is configurable via the UI. The iCloud cookie folder moved from `[HA_dir]/icloud` to `[HA_dir]/.storage/icloud`.- ([@Quentame] - [#28968]) ([icloud docs])
 
-  Services:
-  - SERVICE_ICLOUD_PLAY_SOUND = "play_sound"
-  - SERVICE_ICLOUD_DISPLAY_MESSAGE = "display_message"
-  - SERVICE_ICLOUD_LOST_DEVICE = "lost_device"
-  - SERVICE_ICLOUD_UPDATE = "update"
-
-  These services have been renamed:
-  - 'icloud_lost_device' --> 'lost_device'
-  - 'icloud_update' --> 'update'
-  
-  'icloud_reset' has been removed
-
-  The iCloud cookie folder moved from `[HA_dir]/icloud` to `[HA_dir]/.storage/icloud`.
 - __Pi-hole__ - The default value for host was removed, and now must be specified manually. - ([@johnluetke] - [#27569]) ([pi_hole docs]) 
     
     Example configuration:
