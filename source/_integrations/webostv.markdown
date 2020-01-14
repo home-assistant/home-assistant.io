@@ -171,7 +171,7 @@ Available services: `button`, `command`
         
 #### Example
 
-```
+```yaml
 script:
   home_button:
     sequence:
@@ -187,6 +187,7 @@ script:
           entity_id:  media_player.lg_webos_smart_tv
           command: "media.controls/rewind"
 ```
+
 ## Notifications
 
 The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.
