@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.104: "
-description: ""
-date: 2020-01-08 01:00:00
+title: "0.104: Sentry, Signal Messenger, IntesisHome, Sure Petcare, KEF"
+description: "Starting this new year with a packed release! Improved entity loading on startup and multi-select entities in Lovelace, ability to ignore a discovered device."
+date: 2020-01-15 00:00:00
 date_formatted: "January 15, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,76 +13,166 @@ og_image: /images/blog/2020-01-0.104/components.png
 
 <a href='/integrations/#version/0.104'><img src='/images/blog/2020-01-0.104/components.png' style='border: 0;box-shadow: none;'></a>
 
-## Entity handling
+The first release of the new decade! Happy New Year!
 
-Draft:
-One major change: we're restoring all entity registry entities on Home Assistant startup
-this allows Homekit/Google/Alexa to always find all entities to expose and Lovelace will no longer show yellow/red boxes.
-All entities are being restored as "unavailable"
-they can be differentiated from normal unavailable entities by the "restored" state attribute
-You can only remove entities that are in restored state, so not currrently provided by an integration, otherwise first remove the integration or disable the entity.
+We are starting this new year with a packed release! So let us dive in!
 
-## Reload all the input things
+- [Improved entity handling on startup](/blog/2020/01/15/release-104/#improved-entity-handling-on-startup)
+- [Ignore discovered devices & services](/blog/2020/01/15/release-104/#ignore-discovered-devices--services)
+- [Reload all the input things & bye generated groups](/blog/2020/01/15/release-104/#reload-all-the-input-things--bye-generated-groups)
+- [Add a device to Lovelace](/blog/2020/01/15/release-104/#add-a-device-to-lovelace)
+- [Multi-select entity management](/blog/2020/01/15/release-104/#multi-select-entity-management)
+- [ZHA configuration panel improvements](/blog/2020/01/15/release-104/#zha-configuration-panel-improvements)
+- [Removing your Lovelace configuration](/blog/2020/01/15/release-104/#removing-your-lovelace-configuration)
+- [In other news](/blog/2020/01/15/release-104/#in-other-news)
+- [New Integrations](/blog/2020/01/15/release-104/#new-integrations)
+- [New Platforms](/blog/2020/01/15/release-104/#new-platforms)
+- [Breaking Changes](/blog/2020/01/15/release-104/#breaking-changes)
+- [Beta Fixes](/blog/2020/01/15/release-104/#beta-fixes)
+- [All changes](/blog/2020/01/15/release-104/#all-changes)
 
-All input integrations now have reload services to reload the YAML config without restart.
+## Improved entity handling on startup
 
-## Ignore discovered config flows
+We are now restoring all entities, stored in the registry,
+on Home Assistant startup.
 
-It's now able to ignore certain config flows that are discovered. It requires the integration to be updated. Hue, Deconz and Homekit have been updated.
+During the startup of Home Assistant, all your configured integrations are
+loaded. Each of those integrations results in one or more devices
+and entities. However, there was a catch!
+
+The loading of some integrations could take a while, which caused some entities
+not to be available immediately. Sometimes, this affected multiple things, like
+missing devices in HomeKit/Google/Alexa or those big red boxes in our Lovelace
+UI. We are sure, at some point, we've all experienced that.
+
+As of this release, all these entities, if registered in our entity registry,
+will be restored as "unavailable". That allows other parts of our system to use
+them immediately, solving a lot of common issues during startup.
+
+These restored entities can be differentiated from normal "unavailable" entities
+by an additional state attribute added to those entities: "restored".
+
+<p class='img'>
+<img src='/images/blog/2020-01-0.104/remove-entity.png' alt='Screenshot of a removing an unavailable entity'></a>
+Screenshot of a removing an unavailable entity.
+</p>
+
+As a result, entities will no longer "disappear", so restored and unavailable
+entities are removable, as shown in the screenshot above. Please note that,
+unless the entity is disabled or the providing integration removed, entities
+can not be deleted.
+
+## Ignore discovered devices & services
+
+Got that one device that gets discovered over an over again?
+
+It is now possible to ignore a specific discovered device with a single click!
 
 <p class='img'>
 <img src='/images/blog/2020-01-0.104/ignore-discovery.png' alt='Screenshot of a discovered Hue bridge'></a>
 Screenshot of a discovered Hue bridge.
 </p>
 
-## Frontend
+It requires the integration to be updated to support this. For this release,
+the Hue, Axis, deCONZ, WLED and HomeKit integrations are updated to support
+this new feature.
 
-### Add device to Lovelace
+## Reload all the input things & bye generated groups
 
-We added a button to the device page to add all entities of a device to Lovelace. We will suggest you cards based on the type of entities so you can add them to a view of your choice with 1 click. If you are using Lovelace in YAML mode, you can copy-paste the YAML to your config.
-We also added the same functionalities to the unused entities page of Lovelace. So that can now also recommend cards and can be used by YAML users!
+All [`input_*` integrations](/integrations/#search/input) now have a `reload`
+service to reload your YAML configuration for these integrations, without
+the need to restart Home Assistant.
+
+Furthermore, time to say bye-bye, to all generated entity groups
+(`group.all_*`). Chances are, you have never heard of those because they were
+hidden. However, if you rely on those groups for your automations, you
+need to adjust those automations.
+Check out the [breaking changes section](#breaking-changes) for more information.
+
+## Add a device to Lovelace
+
+We added a button to the device page to add all entities of a device to Lovelace
+in a blip! Home Assistant suggests cards based on the type of entities the
+device provides so that you can add them to a view of your choice instantly.
+
+If you are using Lovelace in YAML mode, you still use this new feature. The
+generated YAML can be copied and pasted into your configuration file.
 
 <p class='img'>
 <img src='/images/blog/2020-01-0.104/add-device-lovelace.png' alt='Screenshot of a card suggestion for a light device'></a>
 Screenshot of a card suggestion for a light device.
 </p>
 
-### Multi select entity management
+This same functionality is also added to the unused entities page of Lovelace.
 
-We made it easier to change multiple entities at once, you can select multiple entities and remove, enable or disable them with one click.
+## Multi-select entity management
+
+Entity management has never been easier; It now allows for changing multiple
+entities at once. Select multiple entities and remove, enable or disable them
+with one click.
 
 <p class='img'>
-<img src='/images/blog/2020-01-0.104/entities-multi-select.png' alt='Screenshot of the entities config page with multi selection'></a>
-Screenshot of the entities config page with multi selection.
+<img src='/images/blog/2020-01-0.104/entities-multi-select.png' alt='Screenshot of the entities configuration page with multi selection'></a>
+Screenshot of the entities configuration page with multi selection.
 </p>
 
-### ZHA Config Panel
+## ZHA configuration panel improvements
 
-@dmulcahey did a lot of work on the ZHA config panel. The navigation for the ZHA configuration panel has been redesigned to provide a better user experience on mobile and desktop. As part of the redesign full Zigbee group management has been added. You can now create and manage Zigbee groups right from the UI. In a future release we will add the ability to bind devices directly to groups as well.
+[@dmulcahey][@dmulcahey] did a lot of work on the ZHA config panel this release.
+
+The navigation for the ZHA configuration panel has been redesigned to provide
+a better user experience on mobile and desktop.
+
+As part of the redesign, full Zigbee group management has been added, allowing
+you to create and manage Zigbee groups right from the UI.
 
 <p class='img'>
-<img src='/images/blog/2020-01-0.104/zha-config-panel.png' alt='Screenshot of the ZHA config panel'></a>
-Screenshot of the ZHA config panel.
+<img src='/images/blog/2020-01-0.104/zha-config-panel.png' alt='Screenshot of the ZHA configuration panel'></a>
+Screenshot of the ZHA configuration panel.
 </p>
 
-### Remove Lovelace Config
+In a future releases, the ability to bind devices directly to groups,
+will be added as well.
 
-You can now go back to the generated mode by clearing the config in the raw config editor and saving it.
+## Removing your Lovelace configuration
+
+Want to start your Lovelace configuration from scratch? Or go back to the
+automatically generated Lovelace interface?
+
+Now you can by clearing the Lovelace configuration in the raw configuration
+editor and saving it.
 
 <p class='img'>
-<img src='/images/blog/2020-01-0.104/remove-lovelace-config.png' alt='Screenshot of the remove Lovelace confirm dialog'></a>
-Screenshot of the remove Lovelace confirm dialog.
+<img src='/images/blog/2020-01-0.104/remove-lovelace-config.png' alt='Screenshot of the remove Lovelace confirmation dialog'></a>
+Screenshot of the remove Lovelace confirmation dialog.
 </p>
 
 ## In other news
 
-Hass.io release https://twitter.com/pvizeli/status/1216668319396368384?s=09
+### Meanwhile, HassOS 3.8 got released!
 
-IoT Link, which brings the state of your Windows machine into Home Assistant, has released v2.0 with Home Assistant MQTT discovery support. https://iotlink.gitlab.io/index.html
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">HassOS Release-3 build 8 (Stable) released today. Changelog: <a href="https://t.co/kXOXNPldJF">https://t.co/kXOXNPldJF</a> - Next we start the first 4.0 Beta builds include the N2 support and Linux LT 5.4</p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1216668319396368384?ref_src=twsrc%5Etfw">January 13, 2020</a>
+</blockquote>
 
-https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/
+### Custom now playing poster Lovelace card
 
-https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/
+Brad Crc made this [impressive demo](https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/)
+of setting up a custom now playing poster card in Lovelace floor plans.
+This allows you to show currently playing media in your floor plan!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1ZU4WMgwU6s" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### Bas showing his Lovelace theme on his setup
+
+Bas Nijholt kept seeing his own theme popping up on Reddit, so he decided it was
+time for him to show off his Lovelace dashboard, featuring this lovely theme.
+
+<blockquote class="reddit-card"><a href="https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/">I keep seeing my own theme on Reddit, so now it's my turn! [OC]</a> from <a href="http://www.reddit.com/r/homeassistant">r/homeassistant</a></blockquote>
+<script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
+
+His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/).
 
 ## New Integrations
 
@@ -111,9 +201,8 @@ https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_them
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## Reporting Issues
-
-Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues).
+Make sure to fill in all fields of the issue template, that is helping us a lot!
 
 <!--more-->
 
@@ -121,28 +210,40 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Default groups__ - Entity integrations will no longer automatically maintain the hidden groups with all of their entities. The following groups are no longer automatically created and maintained:
 
-   - group.all_automations
-   - group.calendar
-   - group.all_covers
-   - group.all_devices
-   - group.all_fans
-   - group.all_lights
-   - group.all_locks
-   - group.all_plants
-   - group.remember_the_milk_accounts (???)
-   - group.all_remotes
-   - group.all_scripts
-   - group.all_switches
-   - group.all_vacuum_cleaners
+  - `group.all_automations`
+  - `group.all_covers`
+  - `group.all_devices`
+  - `group.all_fans`
+  - `group.all_lights`
+  - `group.all_locks`
+  - `group.all_plants`
+  - `group.all_remotes`
+  - `group.all_scripts`
+  - `group.all_switches`
+  - `group.all_vacuum_cleaners`
+  - `group.calendar`
+  - `group.remember_the_milk_accounts`
 
-  The automation and script config panels have been updated to show and manage   all automations/scripts. If you want to show cards in your UI with all   entities for a single domain, use the auto-entities card. If you want to   target all entities in a service call, use 'all' as value for entity_id.  - (  [@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) (  [device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant   docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch   docs]) ([vacuum docs])
-- __UPNP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs]) 
-- __Worx Landroid__ - The worxlandroid sensor has been changed to not return the hard coded state values "manual-stop", "charging", "charging-complete", "going-home", "mowing" and instead use the states given from the landroid to Home Assistant. This includes the state "idle" which means that something is broken with the mower and you can use this as notification to check the physical state of the mower. Users need to update any automations that depend on the state of the sensor. - ([@geraldhansen] - [#27453]) ([worxlandroid docs])
-- __Apple iCloud__ - The iCloud component is no longer part of the device_tracker platform and is now an integration which is configurable via the UI. The iCloud cookie folder moved from `[HA_dir]/icloud` to `[HA_dir]/.storage/icloud`.- ([@Quentame] - [#28968]) ([icloud docs])
+  The automation and script configuration panels are updated to show and manage all automations/scripts. If you want to show cards in your Lovelace UI with all entities for a single domain, use the auto-entities card. If you want to target all entities in a service call, use `all` as value for `entity_id`.
 
-- __Pi-hole__ - The default value for host was removed, and now must be specified manually. - ([@johnluetke] - [#27569]) ([pi_hole docs]) 
-    
+  ([@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) ([device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant  docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch docs]) ([vacuum docs]).
+
+- __UPnP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
+
+- __Worx Landroid__ - The `worxlandroid` sensor has been changed to not return the hardcoded state values `manual-stop`, `charging`, `charging-complete`, `going-home`, `mowing`, instead use the states given from the Landroid to Home Assistant.
+
+  This includes the state `idle`, which means that something is broken with the mower. You can use this as a notification to check the physical state of the mower.
+
+  You need to update any automations that depend on the state of the sensor.
+  
+  ([@geraldhansen] - [#27453]) ([worxlandroid docs])
+
+- __Apple iCloud__ - The iCloud component is no longer part of the device tracker platform and is now an integration, which is configurable via the UI. The iCloud cookie folder moved from `[HA_dir]/icloud` to `[HA_dir]/.storage/icloud`.- ([@Quentame] - [#28968]) ([icloud docs])
+
+- __Pi-hole__ - The default value for `host` is removed, and now must be specified manually. - ([@johnluetke] - [#27569]) ([pi_hole docs])
+
     Example configuration:
+
   ```yaml
   pi_hole:
     - host: pi.hole
@@ -150,9 +251,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
     - host: backup.pi.hole
   ```
 
-- __HERE Travel Time__ - HERE has deprecated the usage of app_code. New users can only generate an api_key. Existing users have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) in order to retrieve the now required api_key. - ([@eifinger] - [#29966]) ([here_travel_time docs])
-    
+- __HERE Travel Time__ - HERE has deprecated the usage of `app_code` and new users can only generate an `api_key`. If you are already using HERE Travel Time, you have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) to retrieve the, now required, `api_key`. - ([@eifinger] - [#29966]) ([here_travel_time docs])
+
     Example configuration:
+
   ```yaml
   sensor:
     - platform: here_travel_time
@@ -163,12 +265,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
       destination_longitude: "9.335892"
   ```
 
-- __ZHA__ - The default divisor for active_power has changed.  Now, multiplier and divisor both default to 1 if the device does not support these attributes or we fail to get those attributes from the device. - ([@Adminiuga] - [#30130]) ([zha docs]) 
-- __Keba__ - The unique_ids of the entities have changed and are now more future proof. The default name and entity_id of the entities have also changed. Users need to clear stale entries from the entity registry and update concerned automations and scripts. - ([@dannerph] - [#30125]) ([keba docs]) 
-- __Tesla__ - Config flow has been added for Tesla. Device tracker entity names have changed due to the conversion to config_flow. They now follow the naming convention of the rest of the Tesla entities. The `id` device tracker entity attribute was also removed because it is a duplicate of `trackr_id`. - ([@alandtse] - [#28744]) ([tesla docs]) 
+- __ZHA__ - The default divisor for `active_power` has changed. Now, multiplier and divisor both default to 1 if the device does not support these attributes or when getting those attributes from the device fails. - ([@Adminiuga] - [#30130]) ([zha docs])
+
+- __Keba__ - The unique_ids of the entities have changed and are now more future proof. The default `name` and `entity_id` of the entities have also changed. You need to clear stale entries from the entity registry and update concerned automations and scripts. - ([@dannerph] - [#30125]) ([keba docs])
+
+- __Tesla__ - Config flow has been added for Tesla. Device tracker entity names have changed due to this. They now follow the naming convention of the rest of the Tesla entities. The `id` device tracker entity attribute was also removed because it is a duplicate of `trackr_id`. - ([@alandtse] - [#28744]) ([tesla docs])
 - __Huawei LTE__ - The Huawei LTE notify service name is now configurable. The default name for the Huawei LTE notify service has changed to `notify.huawei_lte` to avoid conflicts with other notify services. An option to provide a name for the service has also been added. - ([@scop] - [#30208]) ([huawei_lte docs])
 
    Example configuration:
+
    ```yaml
    huawei_lte:
      - url: ...
@@ -180,6 +285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Amcrest__ *(Removed)* - Amcrest sensors and switches that were deprecated in previous releases have now been removed. - ([@pnbruckner] - [#30308]) ([amcrest docs])
 
    Example configuration:
+
    ```yaml
    amcrest:
    - ...
@@ -191,9 +297,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
        - motion_detection
        - motion_recording
    ```
-- __MQTT__ - Add separate command and state topics for mqtt lock. Two new properties were introduced with `state_locked` (default: LOCKED) and `state_unlocked` (default: UNLOCKED). If you were using the same topic as `state_topic` as for the `command_topic` you can reestablish the old behaviour by setting `state_locked` to *LOCK* and `state_unlocked` to *UNLOCK*. Effectively this change allows you to distinguish commands and states in two topics with different values. - ([@tuxbox] - [#29808]) ([mqtt docs])
+
+- __MQTT__ - Added separate command and state topics for the MQTT lock. Two new properties are introduced with `state_locked` (default: LOCKED) and `state_unlocked` (default: UNLOCKED). If you are using the same topic as `state_topic` as for the `command_topic` you can reestablish the old behavior by setting `state_locked` to *LOCK* and `state_unlocked` to *UNLOCK*. Effectively, this change allows you to distinguish commands and states in two topics with different values. - ([@tuxbox] - [#29808]) ([mqtt docs])
 
    Example configuration:
+
    ```yaml
    lock:
      - platform: mqtt
@@ -203,9 +311,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
        state_locked: "locked"
        state_unlocked: "unlocked"
    ```
-- __LG webOS Smart TV__ - The component setup now uses the `webostv` domain instead of `media_player`. The host configuration option is now required and the timeout and filename options have been removed. The state handling for webOStv has also been cleaned up. An entity will have STATE_ON when the tv is on instead of STATE_PLAYING or STATE_PAUSED as was previously the case. Users will need to update automations that depend on entity state.  - ([@bendavid] - [#29296] [#30416]) ([webostv docs])
+
+- __LG webOS Smart TV__ - The component setup now uses the `webostv` domain instead of `media_player`. The host configuration option is now required and the timeout and filename options have been removed. The state handling for webOStv has also been cleaned up. An entity will have `on` when the tv is on instead of `playing` or `paused` as was previously the case. You need to update automations that depend on the entity state. - ([@bendavid] - [#29296] [#30416]) ([webostv docs])
 
      Example configuration:
+
      ```yaml
      webostv:
          name: LG TV
@@ -217,18 +327,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
                mac: "00:00:00:00:00:00"
          standby_connection: true
      ```
-- __Axis__ - Axis integration will no longer accept manual configuration of devices, all configuration of the Axis integration will now be handled from the integrations pane. - ([@Kane610] - [#30365]) ([axis docs]) 
+
+- __Axis__ - Axis integration will no longer accept manual configuration of devices, all configuration of the Axis integration will now be handled from the integrations panel. - ([@Kane610] - [#30365]) ([axis docs])
 
   TL;DR This will no longer work:
+
   ```yaml
   axis:
   ```
 
-- __WLED__ - Improves WLED pure white support for RGBW. When using WLED with RGBW strips, setting the color in Home Assistant to white, will turn off the RGB LEDs of the strip and use the W channel only. - ([@frenck] - [#30477]) ([wled docs]) 
-- __Timer__ - Fire restarted event on restarting active timer. This can break automations that should trigger on every timer start event. - ([@mnigbur] - [#30475]) ([timer docs]) 
-- __Vizio__ - Removed `suppress_warning` from config options for vizio component. The pyvizio component now suppresses insecure HTTPS request warnings in a way that doesn't affect global requests from other components, HA, etc. There is no need to globally suppress insecure warnings now. - ([@raman325] - [#30536]) ([vizio docs]) 
+- __WLED__ - Improved WLED pure white support for RGBW LED strips. When using WLED with RGBW strips, setting the color in Home Assistant to white, will turn off the RGB LEDs of the strip and use the W channel only. - ([@frenck] - [#30477]) ([wled docs])
+
+- __Timer__ - Fire restarted event on restarting an active timer. This can break automations that should trigger on every timer start event. - ([@mnigbur] - [#30475]) ([timer docs])
+
+- __Vizio__ - Removed `suppress_warning` from configuration options for Vizio integration. The `pyvizio` package now suppresses insecure HTTPS request warnings in a way that doesn't affect global requests from other integrations or Home Assistant itself. There is no need to globally suppress insecure warnings now. - ([@raman325] - [#30536]) ([vizio docs])
 
   Example configuration:
+
   ```yaml
   media_player:
     - platform: vizio
@@ -237,13 +352,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
       device_class: tv
   ```
 
-- __RFXtrx__ - Bump pyRFXtrx to 0.25. This update switches the commands for 'open' and 'close' for rfxtrx covers of the 'Rollertrol' type, as they were switched (clicking open resulted in closing of the cover and vice versa). Existing automations should be updated. - ([@Ernst79] - [#30566]) ([rfxtrx docs]) 
-- __Ring__ - Ring is now configurable via a config entry. This means it will no longer store the username and password and you're able to configure accounts that use 2FA. It's no longer possible to set scan interval, monitored conditions or ffmpeg arguments. The defaults are used. - ([@balloob] - [#30564]) ([ring docs])  
-- __Binary Sensor (Locks)__ - Updated ON/OFF condition and triggers to match the documentation and UI. This change inverts the logic of automations relating to binary sensor with the `lock` device class, but only for automations triggered on the lock state (rather than triggering a lock/unlock action).
+- __RFXtrx__ - Bump pyRFXtrx to 0.25. This update switches the commands for `open` and `close` for RFXtrx covers of the "Rollertrol" type, as they were switched (clicking open resulted in closing of the cover and vice versa). Existing automations should be updated. - ([@Ernst79] - [#30566]) ([rfxtrx docs])
 
-  For users who had already created automations, they will need to be checked and probably inverted. The text displayed in the trigger or condition dropdowns in lovelace will now be correct.
+- __Ring__ - Ring is now configurable via a config entry. This means it will no longer store the username and password and you're able to configure accounts that use 2FA. It's no longer possible to set scan interval, monitored conditions or FFmpeg arguments. The defaults are used. - ([@balloob] - [#30564]) ([ring docs])
+
+- __Binary Sensor (Locks)__ - Updated ON/OFF condition and triggers to match the documentation and UI. This change inverts the logic of automations relating to binary sensor with the `lock` device class, but only for automations triggering on the lock state (rather than triggering a lock/unlock action).
+
+  If you already created automations, you will need to check those, as they probably need to be inverted. The text displayed in the trigger or condition dropdowns in Lovelace will now be correct.
   
-  One possible scenario is if a user has set an automation using the state of   one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])  
+  One possible scenario is if you have set an automation using the state of one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])
 
 ## Beta Fixes
 
