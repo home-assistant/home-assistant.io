@@ -6,6 +6,8 @@ ha_category:
   - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@garbled1'
 ---
 
 The `onewire` platform supports sensors which are using the One wire (1-wire) bus for communication.
