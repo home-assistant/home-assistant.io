@@ -33,7 +33,7 @@ We are starting this new year with a packed release! So let us dive in!
 
 ## Improved entity handling on startup
 
-We're are now restoring all entities, stored in the registry,
+We are now restoring all entities, stored in the registry,
 on Home Assistant startup.
 
 During the startup of Home Assistant, all your configured integrations are
@@ -46,7 +46,7 @@ missing devices in HomeKit/Google/Alexa or those big red boxes in our Lovelace
 UI. We are sure, at some point, we've all experienced that.
 
 As of this release, all these entities, if registered in our entity registry,
-will be restored as "unavailable". Allowing other parts of our system to use
+will be restored as "unavailable". That allows other parts of our system to use
 them immediately, solving a lot of common issues during startup.
 
 These restored entities can be differentiated from normal "unavailable" entities
@@ -131,7 +131,8 @@ you to create and manage Zigbee groups right from the UI.
 Screenshot of the ZHA configuration panel.
 </p>
 
-In a future release we will add the ability to bind devices directly to groups as well.
+In a future releases, the ability to bind devices directly to groups,
+will be added as well.
 
 ## Removing your Lovelace configuration
 
@@ -227,11 +228,11 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
   ([@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) ([device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant  docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch docs]) ([vacuum docs]).
 
-- __UPNP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
+- __UPnP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
 
-- __Worx Landroid__ - The `worxlandroid` sensor has been changed to not return the hard coded state values `manual-stop`, `charging`, `charging-complete`, `going-home`, `mowing`, instead use the states given from the Landroid to Home Assistant.
+- __Worx Landroid__ - The `worxlandroid` sensor has been changed to not return the hardcoded state values `manual-stop`, `charging`, `charging-complete`, `going-home`, `mowing`, instead use the states given from the Landroid to Home Assistant.
 
-  This includes the state `idle` which means that something is broken with the mower. You can use this as notification to check the physical state of the mower.
+  This includes the state `idle`, which means that something is broken with the mower. You can use this as a notification to check the physical state of the mower.
 
   You need to update any automations that depend on the state of the sensor.
   
@@ -250,7 +251,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
     - host: backup.pi.hole
   ```
 
-- __HERE Travel Time__ - HERE has deprecated the usage of `app_code` and new users can only generate an `api_key`. If you are already using HERE Travel Time you have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) to retrieve the, now required, `api_key`. - ([@eifinger] - [#29966]) ([here_travel_time docs])
+- __HERE Travel Time__ - HERE has deprecated the usage of `app_code` and new users can only generate an `api_key`. If you are already using HERE Travel Time, you have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) to retrieve the, now required, `api_key`. - ([@eifinger] - [#29966]) ([here_travel_time docs])
 
     Example configuration:
 
@@ -311,7 +312,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
        state_unlocked: "unlocked"
    ```
 
-- __LG webOS Smart TV__ - The component setup now uses the `webostv` domain instead of `media_player`. The host configuration option is now required and the timeout and filename options have been removed. The state handling for webOStv has also been cleaned up. An entity will have `on` when the tv is on instead of `playing` or `pauzed` as was previously the case. You need to update automations that depend on entity state. - ([@bendavid] - [#29296] [#30416]) ([webostv docs])
+- __LG webOS Smart TV__ - The component setup now uses the `webostv` domain instead of `media_player`. The host configuration option is now required and the timeout and filename options have been removed. The state handling for webOStv has also been cleaned up. An entity will have `on` when the tv is on instead of `playing` or `paused` as was previously the case. You need to update automations that depend on the entity state. - ([@bendavid] - [#29296] [#30416]) ([webostv docs])
 
      Example configuration:
 
@@ -359,7 +360,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
   If you already created automations, you will need to check those, as they probably need to be inverted. The text displayed in the trigger or condition dropdowns in Lovelace will now be correct.
   
-  One possible scenario is, if a you have set an automation using the state of one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])
+  One possible scenario is if you have set an automation using the state of one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])
 
 ## Beta Fixes
 
