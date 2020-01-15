@@ -5,7 +5,7 @@ logo: sector_alarm.png
 ha_category:
   - Alarm
   - Sensor
-ha_release: 0.101
+ha_release: 0.105
 ha_iot_class: Cloud Polling
 ---
 
@@ -23,7 +23,7 @@ To add Sector Alarm sensors and alarm to your installation, add the following to
 sector_alarm:
   email: EMAIL_ADDRESS
   password: PASSWORD
-  alarm_id: ALARM_ID
+  id: ALARM_ID
   code: ALARM_CODE
 ```
 
@@ -36,7 +36,7 @@ password:
   description: Your Sector Alarm login password.
   required: true
   type: string
-alarm_Id:
+id:
   description: Your Sector Alarm panel id that you can find in the URL after you have logged in.
   required: true
   type: integer
