@@ -223,7 +223,6 @@ Simple ping pong example.
 
 ```yaml
 alias: 'Telegram bot that reply pong to ping'
-hide_entity: true
 trigger:
   platform: event
   event_type: telegram_command
@@ -301,7 +300,6 @@ Text repeater:
 {% raw %}
 ```yaml
 - alias: 'Telegram bot that repeats text'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_text
@@ -323,7 +321,6 @@ Message editor:
 {% raw %}
 ```yaml
 - alias: 'Telegram bot that edits the last sent message'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -355,7 +352,6 @@ Keyboard editor:
 {% raw %}
 ```yaml
 - alias: 'Telegram bot that edits the keyboard'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -380,7 +376,6 @@ Only acknowledges the 'NO' answer:
 {% raw %}
 ```yaml
 - alias: 'Telegram bot that simply acknowledges'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -399,7 +394,6 @@ Telegram callbacks also support arguments and commands the same way as normal me
 {% raw %}
 ```yaml
 - alias: 'Telegram bot repeats arguments on callback query'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
