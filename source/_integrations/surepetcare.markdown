@@ -7,6 +7,8 @@ ha_category:
   - Sensor
 ha_release: 0.104
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@benleb'
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.

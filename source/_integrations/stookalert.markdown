@@ -1,12 +1,14 @@
 ---
-title: "Stookalert"
-description: "Instructions on how to use Stookalert data within Home Assistant"
+title: RIVM Stookalert
+description: Instructions on how to use Stookalert data within Home Assistant
 logo: stookalert.png
 ha_category:
   - Binary Sensor
   - Environment
 ha_release: 0.104
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fwestenberg'
 ---
 
 The `stookalert` sensor platform queries the [RIVM stookalert](https://www.rivm.nl/stookalert) API for unfavorable weather conditions or poor air quality. With a Stookalert, the RIVM calls on people not to burn wood. This can prevent health problems in people in the area.
