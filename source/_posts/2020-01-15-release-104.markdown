@@ -59,12 +59,12 @@ Screenshot of a removing an unavailable entity.
 
 As a result, entities will no longer "disappear", so restored and unavailable
 entities are removable, as shown in the screenshot above. Please note that,
-unless the entity is disabled or the providing integration removed, entities
-can not be deleted.
+if an integration provides an unavailable entity, the providing integration
+needs to be removed first, or else, those entities can not be deleted.
 
 ## Ignore discovered devices & services
 
-Got that one device that gets discovered over an over again?
+Got that one device that gets discovered over and over again?
 
 It is now possible to ignore a specific discovered device with a single click!
 
@@ -95,7 +95,7 @@ We added a button to the device page to add all entities of a device to Lovelace
 in a blip! Home Assistant suggests cards based on the type of entities the
 device provides so that you can add them to a view of your choice instantly.
 
-If you are using Lovelace in YAML mode, you still use this new feature. The
+If you are using Lovelace in YAML mode, you still can use this new feature. The
 generated YAML can be copied and pasted into your configuration file.
 
 <p class='img'>
