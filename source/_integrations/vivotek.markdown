@@ -45,6 +45,11 @@ password:
   description: The password for accessing your camera.
   required: true
   type: string
+authentication:
+  description: "Type for authenticating the requests `basic` or `digest`."
+  required: false
+  default: basic
+  type: string
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
   required: false
@@ -83,6 +88,7 @@ camera:
     ssl: true
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
+    authentication: digest
     security_level: admin
     verify_ssl: false
     framerate: 5

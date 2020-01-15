@@ -105,6 +105,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
   * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
   * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
+  * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -126,6 +127,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Shutter actuator for flush-mount (*HmIP-FROLL*)
   * Blind Actuator for brand switches (*HmIP-BBL*)
   * Blind Actuator for flush-mount (*HmIP-FBL*)
+  * Garage door module for Tormatic (*HmIP-MOD_TM*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -156,6 +158,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
   * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
   * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
+  * Switch Actuator for heating systems – 2 channels (*HmIP-WHS2*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
@@ -183,6 +186,7 @@ Afterward, this device can be implemented into Home Assistant.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
+- `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
 ### Service Examples
 
@@ -265,6 +269,16 @@ action:
   service: homematicip_cloud.dump_hap_config
   data:
     anonymize: True
+```
+
+Reset energy counter of measuring actuators.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.reset_energy_counter
+  data:
+    entity_id: switch.livingroom
 ```
 
 

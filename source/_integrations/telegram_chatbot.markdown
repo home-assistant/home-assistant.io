@@ -328,7 +328,7 @@ Message editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/edit_msg'
+      command: '/edit_msg'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -360,7 +360,7 @@ Keyboard editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/remove button'
+      command: '/remove button'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -385,7 +385,7 @@ Only acknowledges the 'NO' answer:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/do_nothing'
+      command: '/do_nothing'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -393,6 +393,29 @@ Only acknowledges the 'NO' answer:
         message: 'OK, you said no!'
 ```
 {% endraw %}
+
+Telegram callbacks also support arguments and commands the same way as normal messages.
+
+{% raw %}
+```yaml
+- alias: 'Telegram bot repeats arguments on callback query'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/repeat'
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        show_alert: true
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: 'I repeat: {{trigger.event.data["args"]}}'
+```
+{% endraw %}
+
+In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`
+
 
 For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/docs/ecosystem/appdaemon/tutorial/) is advised.
 

@@ -72,7 +72,7 @@ adb_server_port:
   default: 5037
   type: integer
 get_sources:
-  description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
+  description: Whether or not to retrieve the running apps as the list of sources.
   required: false
   default: true
   type: boolean
@@ -193,9 +193,9 @@ If the setup for your Android TV or Fire TV device fails, then there is probably
 
 ## Services
 
-### (Fire TV devices only) `media_player.select_source`
+### `media_player.select_source`
 
-For Fire TV devices, you can launch an app using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
+You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
 ```yaml
 start_netflix:
@@ -250,6 +250,24 @@ The full list of key commands can be found [here](https://github.com/JeffLIrion/
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
+
+### `androidtv.download` and `androidtv.upload`
+
+You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name of Android TV / Fire TV entity.
+| `device_path`          |       no | The filepath on the Android TV / Fire TV device.
+| `local_path`           |       no | The filepath on your Home Assistant instance.
+
+Similarly, you can use the `androidtv.upload` service to upload a file from Home Assistant instance to Android TV / Fire TV devices.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
+| `device_path`          |       no | The filepath on the Android TV / Fire TV device.
+| `local_path`           |       no | The filepath on your Home Assistant instance.
 
 ## Custom State Detection
 

@@ -1650,7 +1650,7 @@ for tracker in trackers:
 
 ### everyone_home()
 
-A convenience function to determine if everyone is home. Use this in preference to getting the state of `group.all_devices()` as it avoids a race condition when using state change callbacks for device trackers.
+A convenience function to determine if everyone is home.
 
 #### Synopsis
 
@@ -1669,7 +1669,7 @@ if self.everyone_home():
 ```
 ### anyone_home()
 
-A convenience function to determine if one or more person is home. Use this in preference to getting the state of `group.all_devices()` as it avoids a race condition when using state change callbacks for device trackers.
+A convenience function to determine if one or more person is home.
 
 #### Synopsis
 
@@ -1689,7 +1689,7 @@ if self.anyone_home():
 ```
 ### noone_home()
 
-A convenience function to determine if no people are at home. Use this in preference to getting the state of group.all_devices() as it avoids a race condition when using state change callbacks for device trackers.
+A convenience function to determine if no people are at home.
 
 #### Synopsis
 

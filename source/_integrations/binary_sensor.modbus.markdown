@@ -52,6 +52,11 @@ coils:
       description: Coil number.
       required: true
       type: integer
+    device_class:
+      description: The [type/class](/integrations/binary_sensor/#device-class) of the binary sensor to set the icon in the frontend.
+      required: false
+      type: device_class
+      default: None
 {% endconfiguration %}
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
