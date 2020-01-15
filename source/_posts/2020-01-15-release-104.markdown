@@ -667,7 +667,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Upgrade Sphinx to 2.2.2 and sphinx-autodoc-typehintsi to 1.10.3 ([@fabaff] - [#29906])
 - Fix incorrect file format yr test fixure ([@frenck] - [#29910])
 - Fixes invalid JSON syntax in devcontainer ([@frenck] - [#29911])
-- Add integration platform helper ([@balloob] - [#29914]) ([intent docs])
+- Add integration platform helper ([@balloob] - [#29914])
 - Update Tahoma component's tahoma-api requirement's version ([@DjMoren] - [#29918]) ([tahoma docs])
 - Implement Alexa.EventDetectionSensor for Alexa ([@ochlocracy] - [#28276]) ([alexa docs])
 - Update androidtv version to improve source selection support ([@raman325] - [#29579]) ([androidtv docs])
@@ -1814,7 +1814,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [input_number docs]: /integrations/input_number/
 [input_select docs]: /integrations/input_select/
 [input_text docs]: /integrations/input_text/
-[intent docs]: /integrations/intent/
 [intesishome docs]: /integrations/intesishome/
 [ipma docs]: /integrations/ipma/
 [iqvia docs]: /integrations/iqvia/
@@ -1832,7 +1831,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [lightwave docs]: /integrations/lightwave/
 [linky docs]: /integrations/linky/
 [liveboxplaytv docs]: /integrations/liveboxplaytv/
-[localip docs]: /integrations/localip/
+[localip docs]: /integrations/local_ip/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
 [lovelace docs]: /integrations/lovelace/
@@ -1895,7 +1894,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [sentry docs]: /integrations/sentry/
 [shodan docs]: /integrations/shodan/
 [shopping_list docs]: /integrations/shopping_list/
-[signalmessenger docs]: /integrations/signalmessenger/
+[signalmessenger docs]: /integrations/signal_messenger/
 [simplisafe docs]: /integrations/simplisafe/
 [sleepiq docs]: /integrations/sleepiq/
 [smappee docs]: /integrations/smappee/
@@ -1923,7 +1922,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tank_utility docs]: /integrations/tank_utility/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/
