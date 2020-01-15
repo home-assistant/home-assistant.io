@@ -88,7 +88,11 @@ where **namespace** is the *<component_namespace>* currently logging.
 {% endconfiguration %}
 
 In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces, 
-both of which are at root. They are logged by different APIs.
+both of which are at root. They are logged by different APIs. 
+
+If you want to know the namespaces in your own environment then check your log files on startup. 
+You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`. 
+Those are the namespaces available for you to set a `log level` against. 
 
 ### Log Levels
 
@@ -146,3 +150,6 @@ the [SSH add-on](/addons/ssh/):
 ```bash
 $ tail -f /config/home-assistant.log
 ```
+
+Docker users can see the logs directly from the host command line with `docker logs my_container_id` - 
+check the options available with `--help`.
