@@ -40,3 +40,7 @@ code:
   required: false
   type: integer
 {% endconfiguration %}
+
+<div class='note warning'>
+  Please make sure that your alarm.com language is set to English before open any issue.
+</div>
