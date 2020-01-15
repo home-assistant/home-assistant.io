@@ -37,15 +37,15 @@ password:
   description: The password you use for your Garmin Connect instance.
   required: true
   type: string
-monitored_resources:
-  description: Resource(s) to monitor.
+monitored_conditions:
+  description: Condition(s) to monitor.
   required: false
   default: "`totalSteps`"
   type: list
 
 {% endconfiguration %}
 
-The full configuration example below shows all available resources. One sensor is exposed for every entry.
+The full configuration example below shows all available conditions you can monitor. Each entry is exposed as a sensor.
 
 Not every sensor holds meaningful values, it depends on the tracking device you use, and the apps you have connected.
 
@@ -57,7 +57,7 @@ sensor:
   - platform: garmin_connect
     email: GARMIN_CONNECT_EMAIL
     password: GARMIN_CONNECT_PASSWORD
-    monitored_resources:
+    monitored_conditions:
       - totalSteps
       - dailyStepGoal
       - totalKilocalories
