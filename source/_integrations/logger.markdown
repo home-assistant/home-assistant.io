@@ -151,5 +151,11 @@ the [SSH add-on](/addons/ssh/):
 $ tail -f /config/home-assistant.log
 ```
 
-Docker users can see the logs directly from the host command line with `docker logs my_container_id` - 
-check the options available with `--help`.
+On Docker you can use your host command line directly - follow the logs dynamically with:
+
+```bash
+# follow the log dynamically
+docker logs --follow  MY_CONTAINER_ID
+```
+
+To see other options use `--help` instead, or simply leave with no options to display the entire log.
