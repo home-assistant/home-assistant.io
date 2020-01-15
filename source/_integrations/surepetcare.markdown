@@ -5,7 +5,7 @@ date: 2019-06-08 20:00
 ha_category:
   - Binary Sensor
   - Sensor
-ha_release: 0.104.0
+ha_release: 0.104
 ha_iot_class: Cloud Polling
 ---
 

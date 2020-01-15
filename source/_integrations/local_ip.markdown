@@ -5,7 +5,7 @@ logo: home-assistant.png
 ha_category:
   - Network
 ha_iot_class: Local Polling
-ha_release: 0.105
+ha_release: 0.104
 ha_config_flow: true
 ---
 
