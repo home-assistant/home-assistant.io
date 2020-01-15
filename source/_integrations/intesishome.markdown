@@ -5,6 +5,8 @@ logo: intesishome.png
 ha_category: Climate
 ha_release: 0.104
 ha_iot_class: Cloud Push
+ha_codeowners:
+  - '@jnimmo'
 ---
 
 The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com) and [Airconwithme](https://www.airconwithme.com) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.

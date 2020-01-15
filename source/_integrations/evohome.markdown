@@ -1,5 +1,5 @@
 ---
-title: Honeywell evohome / Total Connect Comfort
+title: Honeywell Total Connect Comfort (Europe)
 description: Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant.
 logo: honeywell.png
 ha_category:

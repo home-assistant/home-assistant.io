@@ -7,6 +7,8 @@ ha_category:
   - Notifications
 ha_iot_class: Local Polling
 ha_release: 0.18
+ha_codeowners:
+  - '@bendavid'
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.

@@ -1,12 +1,14 @@
 ---
 title: Sentry
 description: Record errors to Sentry.
-logo: sentry.png
+logo: sentry.svg
 ha_category:
   - System Monitor
 ha_iot_class: Cloud Polling
 ha_release: 0.104
 ha_config_flow: true
+ha_codeowners:
+  - '@dcramer'
 ---
 
 The `sentry` integration integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.

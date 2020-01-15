@@ -9,6 +9,7 @@ logo: home-assistant.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
+  - '@tetienne'
 ---
 
 The `template` platform supports sensors which get their values from other entities.
