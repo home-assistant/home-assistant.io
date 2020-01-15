@@ -148,13 +148,30 @@ Screenshot of the remove Lovelace confirmation dialog.
 
 ## In other news
 
-Hass.io release https://twitter.com/pvizeli/status/1216668319396368384?s=09
+### Meanwhile, HassOS 3.8 got released!
 
-IoT Link, which brings the state of your Windows machine into Home Assistant, has released v2.0 with Home Assistant MQTT discovery support. https://iotlink.gitlab.io/index.html
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">HassOS Release-3 build 8 (Stable) released today. Changelog: <a href="https://t.co/kXOXNPldJF">https://t.co/kXOXNPldJF</a> - Next we start the first 4.0 Beta builds include the N2 support and Linux LT 5.4</p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1216668319396368384?ref_src=twsrc%5Etfw">January 13, 2020</a>
+</blockquote>
 
-https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/
+### Custom now playing poster Lovelace card
 
-https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/
+Brad Crc made this [impressive demo](https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/)
+of setting up a custom now playing poster card in Lovelace floor plans.
+This allows you to show currently playing media in your floor plan!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1ZU4WMgwU6s" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### Bas showing his Lovelace theme on his setup
+
+Bas Nijholt kept seeing his own theme popping up on Reddit, so he decided it was
+time for him to show off his Lovelace dashboard, featuring this lovely theme.
+
+<blockquote class="reddit-card"><a href="https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/">I keep seeing my own theme on Reddit, so now it's my turn! [OC]</a> from <a href="http://www.reddit.com/r/homeassistant">r/homeassistant</a></blockquote>
+<script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
+
+His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/).
 
 ## New Integrations
 
