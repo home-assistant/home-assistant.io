@@ -32,11 +32,11 @@ Please be aware that Garmin Connect has very low rate limits, max. once every 10
 
 {% configuration %}
 email:
-  description: The email address you use for your Garmin Connect instance`.
+  description: The email address you use for your Garmin Connect instance.
   required: true
   type: string
 password:
-  description: The password you use for your Garmin Connect instance`.
+  description: The password you use for your Garmin Connect instance.
   required: true
   type: string
 resources:
