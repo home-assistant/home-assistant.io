@@ -154,6 +154,11 @@ Screenshot of the remove Lovelace confirmation dialog.
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">HassOS Release-3 build 8 (Stable) released today. Changelog: <a href="https://t.co/kXOXNPldJF">https://t.co/kXOXNPldJF</a> - Next we start the first 4.0 Beta builds include the N2 support and Linux LT 5.4</p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1216668319396368384?ref_src=twsrc%5Etfw">January 13, 2020</a>
 </blockquote>
 
+Besides the release of HassOS 3.8, the first beta version of HassOS 4.0 is
+now available as well. This beta release adds support for Hardkernel's ODROID-N2!
+
+The ODROID-N2 is a great and powerful alternative for the Raspberry Pi.
+
 ### Custom now playing poster Lovelace card
 
 Brad Crc made this [impressive demo](https://www.reddit.com/r/homeassistant/comments/e7wo0j/floor_plan_how_to_show_currently_playing_media/)
