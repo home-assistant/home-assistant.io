@@ -386,6 +386,22 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Ring OTP improvement ([@balloob] - [#30688]) ([ring docs]) (beta fix)
 - Log error when integration is missing platform setup ([@balloob] - [#30690]) (beta fix)
 - Fix update person validation ([@balloob] - [#30691]) ([person docs]) (beta fix)
+- Fix discovery for oauth2 flow implementations ([@frenck] - [#30700]) (beta fix)
+- Revert "Forget auth token when going offline so we can reconnect (#26630)" ([@pnbruckner] - [#30705]) ([amcrest docs]) (beta fix)
+- Fix Ring wifi sensors ([@balloob] - [#30735]) ([ring docs]) (beta fix)
+- update aiopylgtv to 0.2.5 ([@bendavid] - [#30702]) ([webostv docs]) (beta fix)
+- update aiopylgtv to 0.2.6 ([@bendavid] - [#30739]) ([webostv docs]) (beta fix)
+- Bump ZHA quirks to 0.0.31 ([@dmulcahey] - [#30740]) ([zha docs]) (beta fix)
+- Update Ring to 0.6.0 ([@balloob] - [#30748]) ([ring docs]) (beta fix)
+- Set default locale for cloud Alexa config ([@balloob] - [#30749]) ([alexa docs]) ([cloud docs]) (beta fix)
+- Bump teslajsonpy to 0.2.3 ([@alandtse] - [#30750]) ([tesla docs]) (beta fix)
+- Update pyhomematic to 0.1.63 ([@danielperna84] - [#30594]) ([homematic docs]) (beta fix)
+- Refactor HomeMatic / Fix issue with 0.104/dev ([@pvizeli] - [#30752]) ([homematic docs]) (beta fix)
+- bump aiokef to 0.2.5 which uses locks ([@basnijholt] - [#30753]) ([kef docs]) (beta fix)
+- Fix HomeKit behavior with lights supporting color and temperature ([@frenck] - [#30756]) ([homekit docs]) (beta fix)
+- Revert #29701 ([@pvizeli] - [#30766]) ([zwave docs]) (beta fix)
+- Refactor Ring data handling ([@balloob] - [#30777]) ([ring docs]) (beta fix)
+- Restore unit_of_measurement from entity registry ([@Jc2k] - [#30780]) (beta fix)
 
 ## All changes
 
@@ -681,7 +697,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Fix modbus service description ([@vzahradnik] - [#30005])
 - Fix persistent setup error notification content ([@frenck] - [#29995])
 - Make tplink light more responsive ([@vangorra] - [#28652]) ([tplink docs])
-- Z-Wave: Fibaro FGR\*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
+- Z-Wave: Fibaro FGR*-222: Add venetian blind support ([@andre-richter] - [#29701]) ([zwave docs])
 - Upgrade matrix-client to 0.3.2 ([@fabaff] - [#30027]) ([matrix docs])
 - Upgrade zeroconf to 0.24.1 ([@fabaff] - [#30028]) ([zeroconf docs])
 - Update Envoy sensor to configure credentials and grab Inverter Date from updated API ([@gtdiehl] - [#28837]) ([enphase_envoy docs])
@@ -758,7 +774,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Refactor ZHA channel logging ([@Adminiuga] - [#30259]) ([zha docs])
 - Fix ble_tracker randomly pygatt thrown error ([@liollury] - [#28671]) ([bluetooth_le_tracker docs])
 - Fix creating smappee sensors when remote is not active ([@mockersf] - [#30270]) ([smappee docs])
-- Upgrade rflink to 0.0.50, ignore_devices now supports \* and ? anywhere ([@scop] - [#30268]) ([rflink docs])
+- Upgrade rflink to 0.0.50, ignore_devices now supports * and ? anywhere ([@scop] - [#30268]) ([rflink docs])
 - Accept homekit_controller pairing codes both with and without dashes ([@Jc2k] - [#30273]) ([homekit_controller docs])
 - Add homekit_controller service.sensor.smoke ([@Jc2k] - [#30269]) ([homekit_controller docs])
 - Upgrade beautifulsoup4 to 4.8.2 ([@fabaff] - [#30274]) ([scrape docs])
@@ -795,7 +811,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Migrate xiaomi_miio tests from coroutine to async/await ([@frenck] - [#30329])
 - Migrate emulated_hue tests from coroutine to async/await ([@frenck] - [#30331])
 - Migrate webostv to new library and make integration async with callback state updates ([@bendavid] - [#29296]) ([webostv docs]) (breaking change)
-- Migrate input\_\* tests from coroutine to async/await ([@frenck] - [#30336])
+- Migrate input_* tests from coroutine to async/await ([@frenck] - [#30336])
 - Remove use of bin_type in Tesla component ([@alandtse] - [#30315]) ([tesla docs])
 - Upgrade youtube_dl to version 2020.01.01 ([@BKPepe] - [#30341]) ([media_extractor docs])
 - Upgrade zeroconf to 0.24.4 ([@fabaff] - [#30347]) ([zeroconf docs])
@@ -818,7 +834,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Migrate cast tests from coroutine to async/await ([@frenck] - [#30374])
 - Migrate ffmpeg tests from coroutine to async/await ([@frenck] - [#30375])
 - Migrate discovery tests from coroutine to async/await ([@frenck] - [#30376])
-- Migrate google\_\* tests from coroutine to async/await ([@frenck] - [#30377])
+- Migrate google_* tests from coroutine to async/await ([@frenck] - [#30377])
 - Add charging rate sensor to Tesla ([@alandtse] - [#30286]) ([tesla docs])
 - Restore state for Rfxtrx devices ([@Ernst79] - [#30309]) ([rfxtrx docs])
 - Remove unnessecary rfxtrx light property def ([@Ernst79] - [#30397]) ([rfxtrx docs])
@@ -967,6 +983,22 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Ring OTP improvement ([@balloob] - [#30688]) ([ring docs]) (beta fix)
 - Log error when integration is missing platform setup ([@balloob] - [#30690]) (beta fix)
 - Fix update person validation ([@balloob] - [#30691]) ([person docs]) (beta fix)
+- Fix discovery for oauth2 flow implementations ([@frenck] - [#30700]) (beta fix)
+- Revert "Forget auth token when going offline so we can reconnect (#26630)" ([@pnbruckner] - [#30705]) ([amcrest docs]) (beta fix)
+- Fix Ring wifi sensors ([@balloob] - [#30735]) ([ring docs]) (beta fix)
+- update aiopylgtv to 0.2.5 ([@bendavid] - [#30702]) ([webostv docs]) (beta fix)
+- update aiopylgtv to 0.2.6 ([@bendavid] - [#30739]) ([webostv docs]) (beta fix)
+- Bump ZHA quirks to 0.0.31 ([@dmulcahey] - [#30740]) ([zha docs]) (beta fix)
+- Update Ring to 0.6.0 ([@balloob] - [#30748]) ([ring docs]) (beta fix)
+- Set default locale for cloud Alexa config ([@balloob] - [#30749]) ([alexa docs]) ([cloud docs]) (beta fix)
+- Bump teslajsonpy to 0.2.3 ([@alandtse] - [#30750]) ([tesla docs]) (beta fix)
+- Update pyhomematic to 0.1.63 ([@danielperna84] - [#30594]) ([homematic docs]) (beta fix)
+- Refactor HomeMatic / Fix issue with 0.104/dev ([@pvizeli] - [#30752]) ([homematic docs]) (beta fix)
+- bump aiokef to 0.2.5 which uses locks ([@basnijholt] - [#30753]) ([kef docs]) (beta fix)
+- Fix HomeKit behavior with lights supporting color and temperature ([@frenck] - [#30756]) ([homekit docs]) (beta fix)
+- Revert #29701 ([@pvizeli] - [#30766]) ([zwave docs]) (beta fix)
+- Refactor Ring data handling ([@balloob] - [#30777]) ([ring docs]) (beta fix)
+- Restore unit_of_measurement from entity registry ([@Jc2k] - [#30780]) (beta fix)
 
 [#23789]: https://github.com/home-assistant/home-assistant/pull/23789
 [#24426]: https://github.com/home-assistant/home-assistant/pull/24426
@@ -1534,6 +1566,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [#30589]: https://github.com/home-assistant/home-assistant/pull/30589
 [#30590]: https://github.com/home-assistant/home-assistant/pull/30590
 [#30591]: https://github.com/home-assistant/home-assistant/pull/30591
+[#30594]: https://github.com/home-assistant/home-assistant/pull/30594
 [#30597]: https://github.com/home-assistant/home-assistant/pull/30597
 [#30608]: https://github.com/home-assistant/home-assistant/pull/30608
 [#30630]: https://github.com/home-assistant/home-assistant/pull/30630
@@ -1546,33 +1579,48 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [#30688]: https://github.com/home-assistant/home-assistant/pull/30688
 [#30690]: https://github.com/home-assistant/home-assistant/pull/30690
 [#30691]: https://github.com/home-assistant/home-assistant/pull/30691
+[#30700]: https://github.com/home-assistant/home-assistant/pull/30700
+[#30702]: https://github.com/home-assistant/home-assistant/pull/30702
+[#30705]: https://github.com/home-assistant/home-assistant/pull/30705
+[#30735]: https://github.com/home-assistant/home-assistant/pull/30735
+[#30739]: https://github.com/home-assistant/home-assistant/pull/30739
+[#30740]: https://github.com/home-assistant/home-assistant/pull/30740
+[#30748]: https://github.com/home-assistant/home-assistant/pull/30748
+[#30749]: https://github.com/home-assistant/home-assistant/pull/30749
+[#30750]: https://github.com/home-assistant/home-assistant/pull/30750
+[#30752]: https://github.com/home-assistant/home-assistant/pull/30752
+[#30753]: https://github.com/home-assistant/home-assistant/pull/30753
+[#30756]: https://github.com/home-assistant/home-assistant/pull/30756
+[#30766]: https://github.com/home-assistant/home-assistant/pull/30766
+[#30777]: https://github.com/home-assistant/home-assistant/pull/30777
+[#30780]: https://github.com/home-assistant/home-assistant/pull/30780
 [@1v0dev]: https://github.com/1v0dev
-[@aarondavidschneider]: https://github.com/AaronDavidSchneider
-[@adminiuga]: https://github.com/Adminiuga
-[@alexxander0]: https://github.com/Alexxander0
-[@bkpepe]: https://github.com/BKPepe
-[@cereal2nd]: https://github.com/Cereal2nd
-[@djmoren]: https://github.com/DjMoren
-[@emacee]: https://github.com/Emacee
-[@ernst79]: https://github.com/Ernst79
-[@frengerh]: https://github.com/FrengerH
-[@harlemsquirrel]: https://github.com/HarlemSquirrel
-[@hypfer]: https://github.com/Hypfer
-[@inusasha]: https://github.com/InuSasha
-[@jc2k]: https://github.com/Jc2k
-[@jefflirion]: https://github.com/JeffLIrion
-[@kane610]: https://github.com/Kane610
-[@kerwood]: https://github.com/Kerwood
-[@lars-p]: https://github.com/Lars-P
-[@mariusthvdb]: https://github.com/Mariusthvdb
-[@p-verbrugge]: https://github.com/P-Verbrugge
-[@paulannekov]: https://github.com/PaulAnnekov
-[@quentame]: https://github.com/Quentame
-[@snoof85]: https://github.com/SNoof85
-[@santobert]: https://github.com/Santobert
-[@sukramj]: https://github.com/SukramJ
-[@trekky12]: https://github.com/Trekky12
-[@vividboarder]: https://github.com/ViViDboarder
+[@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
+[@Adminiuga]: https://github.com/Adminiuga
+[@Alexxander0]: https://github.com/Alexxander0
+[@BKPepe]: https://github.com/BKPepe
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@DjMoren]: https://github.com/DjMoren
+[@Emacee]: https://github.com/Emacee
+[@Ernst79]: https://github.com/Ernst79
+[@FrengerH]: https://github.com/FrengerH
+[@HarlemSquirrel]: https://github.com/HarlemSquirrel
+[@Hypfer]: https://github.com/Hypfer
+[@InuSasha]: https://github.com/InuSasha
+[@Jc2k]: https://github.com/Jc2k
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@Kane610]: https://github.com/Kane610
+[@Kerwood]: https://github.com/Kerwood
+[@Lars-P]: https://github.com/Lars-P
+[@Mariusthvdb]: https://github.com/Mariusthvdb
+[@P-Verbrugge]: https://github.com/P-Verbrugge
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@Quentame]: https://github.com/Quentame
+[@SNoof85]: https://github.com/SNoof85
+[@Santobert]: https://github.com/Santobert
+[@SukramJ]: https://github.com/SukramJ
+[@Trekky12]: https://github.com/Trekky12
+[@ViViDboarder]: https://github.com/ViViDboarder
 [@aamcrae]: https://github.com/aamcrae
 [@agners]: https://github.com/agners
 [@alandtse]: https://github.com/alandtse
@@ -1598,6 +1646,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [@colinfrei]: https://github.com/colinfrei
 [@csfreak]: https://github.com/csfreak
 [@cwildt]: https://github.com/cwildt
+[@danielperna84]: https://github.com/danielperna84
 [@dannerph]: https://github.com/dannerph
 [@davet2001]: https://github.com/davet2001
 [@dcramer]: https://github.com/dcramer
