@@ -195,7 +195,7 @@ Resumes the currently active schedule.
 
 | Service data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all. |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Either `entity_id` or `area` must be specified. Use `entity_id: all` to target all. |
 | `resume_all`           | no       | true or false                                                                                          |
 
 ### Service `ecobee.set_fan_min_on_time`
@@ -204,5 +204,5 @@ Sets the minimum amount of time that the fan will run per hour.
 
 | Service data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all. |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Either `entity_id` or `area` must be specified. Use `entity_id: all` to target all. |
 | `fan_min_on_time`      | no       | integer (e.g. 5)                                                                                       |
