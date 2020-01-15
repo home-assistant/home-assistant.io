@@ -83,11 +83,9 @@ arp_ping:
 {% endconfiguration %}
 
 <div class='note info'>
-  
-  As of version 6.43 of RouterOS Mikrotik introduced a new login method (plain) in addition to the old login method (token). With Version 6.45.1 the old token login method got deprecated.
-  In order to support both login mechanisms, the new config option `login_method` has been introduced. If this option is not set, the component will try to login with the plain method first and the token method if that fails.
-  That can cause log entries on the router like `login failure for user homeassistant from 192.168.23.10 via api` but doesn't keep the component from working. 
-  To get rid of these entries, set the `login_method` to `plain` for Routers with OS versions > 6.43 or `token` for routers with OS versions < 6.43.
+
+  As of version 6.43 of RouterOS Mikrotik introduced a new login method (`plain`) in addition to the old login method (`token`). With Version 6.45.1 the old `token` login method got deprecated.
+  In order to support both login mechanisms, the new config option `login_method` has been introduced.
 
 </div>
 
