@@ -1,7 +1,7 @@
 ---
 title: Sure Petcare
 description: Instructions on how to integrate the Sure Petcare cat and pet flaps into Home Assistant.
-date: 2019-06-08 20:00
+logo: sure_petcare.png
 ha_category:
   - Binary Sensor
   - Sensor
