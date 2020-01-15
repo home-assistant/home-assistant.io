@@ -102,12 +102,12 @@ device_class:
 volume_step:
   description: The number of steps that the volume will be increased or decreased by at a time.
   required: false
-  type: int
+  type: integer
   default: 1
 timeout:
   description: The number of seconds that the Vizio component will wait for a response from the device before timing out.
   required: false
-  type: int
+  type: integer
   default: 5
 {% endconfiguration %}
 
