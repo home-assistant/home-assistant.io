@@ -94,7 +94,6 @@ To help detect and debug flic button clicks, you can use this automation that se
 ```yaml
 automation:
   - alias: FLIC Html5 notify on every click
-    hide_entity: false
     trigger:
       platform: event
       event_type: flic_click

@@ -63,7 +63,6 @@ automation:
 
 # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
   - alias: 'Xiaomi Cube Action'
-    hide_entity: false
     initial_state: false
     trigger:
       platform: event
