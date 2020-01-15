@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.104: "
-description: ""
+title: "0.104: Sentry, Signal Messenger, IntesisHome, Sure Petcare, KEF, Stookalert"
+description: "Starting this new year with a packed release! Improved entity loading on startup and multi-select entities in Lovelace, ability to ignore a discovered device."
 date: 2020-01-15 00:00:00
 date_formatted: "January 15, 2020"
 author: Franck Nijhof
