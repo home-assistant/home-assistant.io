@@ -1,7 +1,7 @@
 ---
-title: Wiffi
+title: STALL WIFFI
 logo: wiffi.png
-description: Support for Wiffi devices from stall.biz, e.g. Weatherman, Rainyman, ...
+description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyman, ...
 featured: true
 ha_category:
   - DIY
@@ -12,22 +12,22 @@ ha_codeowners:
   - '@mampfes'
 ---
 
-This integration allows you to connect your [Wiffi](https://stall.biz) devices directly to Home Assistant.
+This integration allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.
 
 ## Set up the integration via the integrations screen
 
 Menu: *Configuration* > *Integrations*
 
-Press on **wiffi** and configure the integration:
+Press on **STALL WIFFI** and configure the integration:
 
-* Enter the server port for json telegrams sent by the wiffi device.
+* Enter the server port for JSON telegrams sent by the WIFFI device.
 
-## Configure wiffi device
+## Configure the WIFFI device
 
-1. Set "CCU-IP Adresse myCCUIP" to IP address of Home Assistant.
-2. Set port for json telegrams to configured server port using parameter "send_json".
+1. Set "CCU-IP Adresse myCCUIP" to the IP address of Home Assistant.
+2. Set port for JSON telegrams to configured server port using parameter "send_json".
 
-Home Assistant will open a TCP server socket on the configured port and listens for incoming telegrams from wiffi devices. Entities from new devices will be automatically added.
+Home Assistant will open a TCP server socket on the configured port and listens for incoming telegrams from WIFFI devices. Entities from new devices will be automatically added.
 
 ## Configuration via `configuration.yaml`
 
