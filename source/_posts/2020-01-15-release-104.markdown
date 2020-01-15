@@ -179,7 +179,7 @@ time for him to show off his Lovelace dashboard, featuring this lovely theme.
 <blockquote class="reddit-card"><a href="https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/">I keep seeing my own theme on Reddit, so now it's my turn! [OC]</a> from <a href="http://www.reddit.com/r/homeassistant">r/homeassistant</a></blockquote>
 <script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
 
-His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/).
+His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/) and so is [his config](https://github.com/basnijholt/home-assistant-config).
 
 ## New Integrations
 
