@@ -155,9 +155,11 @@ Screenshot of the remove Lovelace confirmation dialog.
 </blockquote>
 
 Besides the release of HassOS 3.8, the first beta version of HassOS 4.0 is
-now available as well. This beta release adds support for Hardkernel's ODROID-N2!
+now available as well. This beta release adds support for
+[Hardkernel's ODROID-N2](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram/)!
 
-The ODROID-N2 is a great and powerful alternative for the Raspberry Pi.
+The [ODROID-N2](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram/)
+is a great and powerful alternative for the Raspberry Pi.
 
 ### Custom now playing poster Lovelace card
 
