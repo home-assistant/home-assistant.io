@@ -6,11 +6,15 @@ ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
 ### Setup
+
+You can add your TV by using the web interface via [ssdp](/integrations/ssdp) discovery or manual config.
+For more control over the integration you can also use an entry in the configuration files.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
