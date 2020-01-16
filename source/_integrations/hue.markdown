@@ -38,19 +38,19 @@ hue:
 
 {% configuration %}
 host:
-description: The IP address of the bridge (e.g., 192.168.1.10). Required if not using the `discovery` integration to discover Hue bridges.
-required: true
-type: string
+  description: The IP address of the bridge (e.g., 192.168.1.10). Required if not using the `discovery` integration to discover Hue bridges.
+  required: true
+  type: string
 allow_unreachable:
-description: This will allow unreachable bulbs to report their state correctly.
-required: false
-type: boolean
-default: false
+  description: This will allow unreachable bulbs to report their state correctly.
+  required: false
+  type: boolean
+  default: false
 allow_hue_groups:
-description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
-required: false
-type: boolean
-default: true
+  description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples
