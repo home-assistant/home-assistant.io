@@ -405,6 +405,49 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Refactor Ring data handling ([@balloob] - [#30777]) ([ring docs]) (beta fix)
 - Restore unit_of_measurement from entity registry ([@Jc2k] - [#30780]) (beta fix)
 
+## Release 0.104.1 - January 16
+
+- 0.104.0 ([@frenck] - [#30803])
+- Update emulated_roku to 0.1.9 ([@jdeluyck] - [#30791]) ([emulated_roku docs])
+- update to aiopylgtv 0.2.7 ([@bendavid] - [#30797]) ([webostv docs])
+- Fix setup error of Mikrotik ([@springstan] - [#30810]) ([mikrotik docs])
+- Handle no host info in ignored config entries ([@balloob] - [#30822]) ([hue docs])
+- Fix mpd time issue ([@pvizeli] - [#30825]) ([mpd docs])
+- Fix play_media in webostv ([@bendavid] - [#30828]) ([webostv docs])
+- Fix iCloud when no family members (issue #30829) ([@Quentame] - [#30836]) ([icloud docs])
+- Reinstate and deprecate filename option for hue config ([@balloob] - [#30846]) ([hue docs])
+- Fixes issue about messages not being reset after sending it to microsoft teams. ([@peroyvind] - [#30849]) ([msteams docs])
+- Fix sensor type creation with multiple Ambient weather stations ([@bachya] - [#30850]) ([ambient_station docs])
+
+[#30791]: https://github.com/home-assistant/home-assistant/pull/30791
+[#30797]: https://github.com/home-assistant/home-assistant/pull/30797
+[#30803]: https://github.com/home-assistant/home-assistant/pull/30803
+[#30810]: https://github.com/home-assistant/home-assistant/pull/30810
+[#30822]: https://github.com/home-assistant/home-assistant/pull/30822
+[#30825]: https://github.com/home-assistant/home-assistant/pull/30825
+[#30828]: https://github.com/home-assistant/home-assistant/pull/30828
+[#30836]: https://github.com/home-assistant/home-assistant/pull/30836
+[#30846]: https://github.com/home-assistant/home-assistant/pull/30846
+[#30849]: https://github.com/home-assistant/home-assistant/pull/30849
+[#30850]: https://github.com/home-assistant/home-assistant/pull/30850
+[@Quentame]: https://github.com/Quentame
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bendavid]: https://github.com/bendavid
+[@frenck]: https://github.com/frenck
+[@jdeluyck]: https://github.com/jdeluyck
+[@peroyvind]: https://github.com/peroyvind
+[@pvizeli]: https://github.com/pvizeli
+[@springstan]: https://github.com/springstan
+[ambient_station docs]: /integrations/ambient_station/
+[emulated_roku docs]: /integrations/emulated_roku/
+[hue docs]: /integrations/hue/
+[icloud docs]: /integrations/icloud/
+[mikrotik docs]: /integrations/mikrotik/
+[mpd docs]: /integrations/mpd/
+[msteams docs]: /integrations/msteams/
+[webostv docs]: /integrations/webostv/
+
 ## All changes
 
 - Move imports to top for decora_wifi ([@springstan] - [#29439]) ([decora_wifi docs])
