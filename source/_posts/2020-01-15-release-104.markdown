@@ -235,6 +235,8 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
   ([@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) ([device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant  docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch docs]) ([vacuum docs]).
 
+- __Hue__ - Hue will no longer import existing authentication from disk. It has not written this authentication to disk since March 2018. The config option has been deprecated and will be removed in 0.106. ([@balloob] - [#30000]) ([hue docs])
+
 - __UPnP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
 
 - __Worx Landroid__ - The `worxlandroid` sensor has been changed to not return the hardcoded state values `manual-stop`, `charging`, `charging-complete`, `going-home`, `mowing`, instead use the states given from the Landroid to Home Assistant.
