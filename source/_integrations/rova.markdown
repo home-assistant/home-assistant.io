@@ -1,6 +1,6 @@
 ---
-title: "ROVA Sensor"
-description: "Instructions on how to integrate ROVA sensor within Home Assistant."
+title: ROVA
+description: Instructions on how to integrate ROVA sensor within Home Assistant.
 logo: rova.jpg
 ha_category:
   - Sensor
@@ -79,12 +79,12 @@ sensor:
 To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/integrations/notify/).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for Rova waste collection reminder
 automation:
   - id: rova-garbage-bio-reminder
     alias: 'Send Rova Bio waste collection reminder'
-    hide_entity: true
     trigger:
       - platform: time
         at: '19:00:00'
@@ -98,6 +98,7 @@ automation:
         data:
           message: 'Reminder: put out biowaste bin'
 ```
+
 {% endraw %}
 
 <div class='note warning'>

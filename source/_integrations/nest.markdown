@@ -1,6 +1,6 @@
 ---
-title: "Nest"
-description: "Instructions on how to integrate Nest into Home Assistant."
+title: Nest
+description: Instructions on how to integrate Nest into Home Assistant.
 logo: nest.png
 ha_category:
   - Hub
@@ -10,6 +10,9 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@awarecan'
 ---
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.

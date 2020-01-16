@@ -1,11 +1,13 @@
 ---
-title: "Group"
-description: "Instructions on how to setup groups within Home Assistant."
+title: Group
+description: Instructions on how to setup groups within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Organization
-ha_qa_scale: internal
 ha_release: pre 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 Groups allow the user to combine multiple entities into one. 
@@ -59,18 +61,6 @@ control:
   required: false
   type: string
 {% endconfiguration %}
-
-## Default groups
-
-Some integrations automatically create special groups containing integration entities. These groups are named like `group.all_...`, for example:
-
-- `group.all_switches`
-- `group.all_lights`
-- `group.all_devices`
-- `group.all_scripts`
-- `group.all_automations`
-
-You can see list of these groups in  **States** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
 
 ## Group behavior
 
@@ -147,41 +137,4 @@ Notice in the example below that in order to refer to the group "Living Room", y
     entities:
       - group.living_room
       - group.bedroom
-```
-
-Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must [customize](/docs/configuration/customizing-devices/) them to be visible in your custom groups and views.
-
-```yaml
-# Example configuration.yaml to include default groups in custom view
-customize:
-  group.all_automations:
-    hidden: false
-  group.all_scripts:
-    hidden: false
-group:
-  automation_view:
-    name: Automation
-    view: true
-    entities:
-      - group.all_automations
-      - group.all_scripts
-```
-
-## Customize group order
-You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
-
-```yaml
-# Example configuration.yaml to order groups with order:
-customize:
-  group.all_automations:
-    order: 1
-  group.all_scripts:
-    order: 2
-group:
-  automation_view:
-    name: Automation
-    view: true
-    entities:
-      - group.all_automations
-      - group.all_scripts
 ```

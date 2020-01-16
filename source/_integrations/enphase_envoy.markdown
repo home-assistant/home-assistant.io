@@ -1,6 +1,6 @@
 ---
-title: "Enphase Envoy"
-description: "Instructions on how to setup Enphase Envoy with Home Assistant."
+title: Enphase Envoy
+description: Instructions on how to setup Enphase Envoy with Home Assistant.
 logo: enphase-logo.svg
 ha_category:
   - Energy

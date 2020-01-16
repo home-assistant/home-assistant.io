@@ -1,11 +1,13 @@
 ---
-title: "AirVisual"
-description: "Instructions on how to use AirVisual data within Home Assistant"
+title: AirVisual
+description: Instructions on how to use AirVisual data within Home Assistant
 logo: airvisual.jpg
 ha_category:
   - Health
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) can be created.
@@ -163,4 +165,3 @@ Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
-

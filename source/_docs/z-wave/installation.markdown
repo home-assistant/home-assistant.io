@@ -122,7 +122,7 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
-If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after HomeAssistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
+If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 

@@ -1,11 +1,13 @@
 ---
-title: "Vivotek Camera"
-description: "Instructions on how to integrate Vivotek cameras within Home Assistant."
+title: Vivotek
+description: Instructions on how to integrate Vivotek cameras within Home Assistant.
 ha_category:
   - Camera
 logo: vivotek.jpg
 ha_release: 0.99
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@HarlemSquirrel'
 ---
 
 The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.

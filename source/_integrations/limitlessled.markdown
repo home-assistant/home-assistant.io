@@ -1,6 +1,6 @@
 ---
-title: "LimitlessLED"
-description: "Instructions on how to setup LimitlessLED within Home Assistant."
+title: LimitlessLED
+description: Instructions on how to setup LimitlessLED within Home Assistant.
 logo: limitlessled_logo.png
 ha_category:
   - Light

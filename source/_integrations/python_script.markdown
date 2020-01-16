@@ -1,11 +1,11 @@
 ---
-title: "Python Scripts"
-description: "Instructions on how to setup Python scripts within Home Assistant."
+title: Python Scripts
+description: Instructions on how to setup Python scripts within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.47
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 This integration allows you to write Python scripts that are exposed as services in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as a service. The content is not cached so you can easily develop: edit file, save changes, call service. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
@@ -32,9 +32,9 @@ It is not possible to use Python imports with this integration. If you want to d
  - Create a file `hello_world.py` in the folder and give it this content:
 
 ```python
-name = data.get('name', 'world')
-logger.info("Hello {}".format(name))
-hass.bus.fire(name, { "wow": "from a Python script!" })
+name = data.get("name", "world")
+logger.info("Hello %s", name)
+hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
  - Start Home Assistant
@@ -50,11 +50,11 @@ The following example shows how to call a service from `python_script`. This scr
 
 ```python
 # turn_on_light.py
-entity_id = data.get('entity_id')
-rgb_color = data.get('rgb_color', [255, 255, 255])
+entity_id = data.get("entity_id")
+rgb_color = data.get("rgb_color", [255, 255, 255])
 if entity_id is not None:
-    service_data = {'entity_id': entity_id, 'rgb_color': rgb_color, 'brightness': 255 }
-    hass.services.call('light', 'turn_on', service_data, False)
+    service_data = {"entity_id": entity_id, "rgb_color": rgb_color, "brightness": 255}
+    hass.services.call("light", "turn_on", service_data, False)
 ```
 The above `python_script` can be called using the following JSON as an input.
 

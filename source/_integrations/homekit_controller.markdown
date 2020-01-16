@@ -1,6 +1,6 @@
 ---
-title: "HomeKit controller support"
-description: "Instructions for how to integrate your HomeKit devices within Home Assistant."
+title: HomeKit Controller
+description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 logo: apple-homekit.png
 ha_category:
   - Hub
@@ -12,8 +12,13 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+  - Fan
+  - Health
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@Jc2k'
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -34,6 +39,8 @@ There is currently support for the following device types within Home Assistant:
 - Switch (HomeKit switches)
 - Binary Sensor (HomeKit motion, contact and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
+- Fan
+- Air Quality
 
 HomeKit IP accessories for these device types may work with some caveats:
 

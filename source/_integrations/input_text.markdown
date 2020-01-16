@@ -1,11 +1,13 @@
 ---
-title: "Input Text"
-description: "Instructions on how to integrate the Input Text integration into Home Assistant."
+title: Input Text
+description: Instructions on how to integrate the Input Text integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.53
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
@@ -52,7 +54,6 @@ input_text:
         description: Initial value when Home Assistant starts.
         required: false
         type: string
-        default: empty
       icon:
         description: Icon to display in front of the input element in the frontend.
         required: false

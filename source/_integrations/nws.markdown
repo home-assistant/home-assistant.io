@@ -1,10 +1,12 @@
 ---
-title: "NWS"
-description: "Instructions on how to integrate National Weather Service data within Home Assistant."
+title: National Weather Service (NWS)
+description: Instructions on how to integrate National Weather Service data within Home Assistant.
 logo: nws.png
 ha_category: Weather
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@MatthewFlamm'
 ---
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.

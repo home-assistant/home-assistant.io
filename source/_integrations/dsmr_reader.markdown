@@ -1,10 +1,12 @@
 ---
-title: "DSMR Reader"
-description: "Instructions on how to integrate DSMR Reader."
+title: DSMR Reader
+description: Instructions on how to integrate DSMR Reader.
 ha_category:
   - Energy
 ha_iot_class: Cloud Polling
 ha_release: 0.103
+ha_codeowners:
+  - '@depl0y'
 ---
 
 The `dsmr_reader` sensor platform allows you to easily add all sensors that [DSMR Reader](https://dsmr-reader.readthedocs.io/en/latest/) exposes to MQTT. It adds a separate sensor for every field in the MQTT topics.

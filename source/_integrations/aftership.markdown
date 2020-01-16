@@ -1,6 +1,6 @@
 ---
-title: AfterShip Sensor
-description: "Instructions on how to set up AfterShip sensors within Home Assistant."
+title: AfterShip
+description: Instructions on how to set up AfterShip sensors within Home Assistant.
 logo: aftership.png
 ha_category:
   - Postal Service

@@ -18,8 +18,9 @@ Currently supported services are:
 - `return_to_base`
 - `locate`
 - `clean_spot`
-- `set_fan_speed`
-- remote control of your robot.
+- `set_fan_speed` 
+  Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusively for mopping).
+- `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
 
 ## Configuration
@@ -114,6 +115,7 @@ Example of `xiaomi_miio.vacuum_clean_zone` use:
 
 Inline array:
 {% raw %}
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -128,10 +130,12 @@ automation:
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
+
 {% endraw %}
 
 Array with inline zone:
 {% raw %}
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -148,9 +152,11 @@ automation:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
 ```
+
 {% endraw %}
 
 Array mode:
+
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -225,7 +231,6 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 2. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
 3. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
-
 ### Linux and Rooted Android
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
@@ -250,14 +255,18 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
 11. Input and run this query:
+
     ```sql
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
     ```
+
 12. Copy the returned 96-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command:
+
     ```bash
     echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
     ```
+
 14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
 
 ### Bluestacks
@@ -307,6 +316,30 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
+
+## Example on how to clean a specific room
+
+Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
+
+```yaml
+vacuum_kitchen:
+  alias: "Clean the kitchen"
+  sequence:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: app_segment_clean
+        params: [18]
+```
+
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
+
+Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans. 
+
+```bash
+miio protocol call <ip of the vacuum> get_room_mapping
+```
+
 ## Retrieving Zoned Cleaning Coordinates
 
 ### Using FloleVac (Android)
@@ -323,7 +356,7 @@ The information output is:
 
 Using the map editor you are able to acquire the co-ordinates required for zoned clean up. Here is an example script for zoned clean up:
 
-```
+```yaml
 vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:

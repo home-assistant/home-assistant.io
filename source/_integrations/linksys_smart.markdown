@@ -1,6 +1,6 @@
 ---
-title: "Linksys Smart Wifi Router"
-description: "Instructions on how to integrate Linksys Smart Wifi Router into Home Assistant."
+title: Linksys Smart Wi-Fi
+description: Instructions on how to integrate Linksys Smart Wifi Router into Home Assistant.
 ha_category:
   - Presence Detection
 logo: linksys.png

@@ -1,6 +1,6 @@
 ---
-title: "Homeworks Hub"
-description: "How to use Lutron Homeworks Series 4 & 8 with Home Assistant."
+title: Lutron Homeworks
+description: How to use Lutron Homeworks Series 4 & 8 with Home Assistant.
 logo: lutron.png
 ha_category:
   - Hub

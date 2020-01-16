@@ -1,13 +1,16 @@
 ---
-title: "Glances"
-description: "Instructions on how to integrate Glances sensors into Home Assistant."
+title: Glances
+description: Instructions on how to integrate Glances sensors into Home Assistant.
 logo: glances.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.7.3
+ha_config_flow: true
+ha_codeowners:
+  - '@fabaff'
+  - '@engrbm87'
 ---
-
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 

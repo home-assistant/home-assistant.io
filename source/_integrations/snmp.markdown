@@ -1,6 +1,6 @@
 ---
-title: "SNMP"
-description: "Instructions on how to integrate SNMP into Home Assistant."
+title: SNMP
+description: Instructions on how to integrate SNMP into Home Assistant.
 logo: network-snmp.png
 ha_category:
   - Network

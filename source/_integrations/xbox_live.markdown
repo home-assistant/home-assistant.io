@@ -1,11 +1,13 @@
 ---
-title: "Xbox Live"
-description: "Instructions on how to set up Xbox Live sensors in Home Assistant."
+title: Xbox Live
+description: Instructions on how to set up Xbox Live sensors in Home Assistant.
 logo: xbox-live.png
 ha_category:
   - Social
 ha_iot_class: Cloud Polling
 ha_release: 0.28
+ha_codeowners:
+  - '@MartinHjelmare'
 ---
 
 The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.
@@ -42,4 +44,3 @@ xuid:
   required: true
   type: list
 {% endconfiguration %}
-

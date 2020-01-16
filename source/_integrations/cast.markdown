@@ -1,12 +1,13 @@
 ---
-title: "Google Cast"
-description: "Instructions on how to integrate Google Cast into Home Assistant."
+title: Google Cast
+description: Instructions on how to integrate Google Cast into Home Assistant.
 logo: google_cast.png
 ha_category:
   - Media Player
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
 You can enable the Cast integration by going to the Integrations page inside the config panel.

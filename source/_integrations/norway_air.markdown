@@ -1,6 +1,6 @@
 ---
-title: "Norway Air Quality"
-description: "Display the current status of Norway air quality."
+title: Om Luftkvalitet i Norge (Norway Air)
+description: Display the current status of Norway air quality.
 logo: metno.png
 ha_category:
   - Health

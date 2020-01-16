@@ -1,6 +1,6 @@
 ---
-title: "Aurora sensor"
-description: "Know when auroras might be visible at your location"
+title: Aurora
+description: Know when auroras might be visible at your location
 ha_category:
   - Environment
 ha_release: 0.39

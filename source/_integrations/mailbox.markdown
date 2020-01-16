@@ -1,6 +1,6 @@
 ---
-title: "Mailbox"
-description: "Instructions on how to setup your mailboxes with Home Assistant."
+title: Mailbox
+description: Instructions on how to setup your mailboxes with Home Assistant.
 ha_release: 0.51
 ---
 

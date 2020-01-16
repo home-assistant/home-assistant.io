@@ -1,6 +1,6 @@
 ---
-title: "HDDTemp"
-description: "Instructions on how to integrate hard drive temperature information into Home Assistant."
+title: hddtemp
+description: Instructions on how to integrate hard drive temperature information into Home Assistant.
 ha_category:
   - System Monitor
 ha_release: 0.32

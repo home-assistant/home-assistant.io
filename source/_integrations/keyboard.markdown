@@ -1,6 +1,6 @@
 ---
-title: "Keyboard"
-description: "Instructions on how to simulate key presses with Home Assistant."
+title: Keyboard
+description: Instructions on how to simulate key presses with Home Assistant.
 logo: keyboard.png
 ha_category:
   - Automation

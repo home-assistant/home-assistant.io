@@ -1,6 +1,6 @@
 ---
-title: "Deluge"
-description: "Instructions on how to integrate Deluge within Home Assistant."
+title: Deluge
+description: Instructions on how to integrate Deluge within Home Assistant.
 logo: deluge.png
 ha_category:
   - Downloading

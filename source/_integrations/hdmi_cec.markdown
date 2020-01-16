@@ -1,6 +1,6 @@
 ---
-title: "HDMI CEC"
-description: "Instructions on how to interact with HDMI CEC via Home Assistant."
+title: HDMI-CEC
+description: Instructions on how to interact with HDMI-CEC via Home Assistant.
 ha_category:
   - Automation
 logo: hdmi.png

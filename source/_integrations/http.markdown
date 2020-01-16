@@ -1,6 +1,6 @@
 ---
-title: "HTTP"
-description: "Offers a web framework to serve files."
+title: HTTP
+description: Offers a web framework to serve files.
 logo: http.png
 ha_category:
   - Other
@@ -8,7 +8,9 @@ ha_category:
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
@@ -222,9 +224,13 @@ As already shown on the [API](/developers/rest_api/) page, it's very simple to u
 
 ```python
 response = requests.post(
-        'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
-        data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
+    "http://localhost:8123/api/states/binary_sensor.radio",
+    headers={
+        "Authorization": "Bearer LONG_LIVED_ACCESS_TOKEN",
+        "content-type": "application/json",
+    },
+    data=json.dumps({"state": "on", "attributes": {"friendly_name": "Radio"}}),
+)
 print(response.text)
 ```
 

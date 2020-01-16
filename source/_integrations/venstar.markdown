@@ -1,13 +1,12 @@
 ---
-title: "Venstar Thermostat"
-description: "Instructions for how to integrate Venstar WiFi thermostats within Home Assistant."
+title: Venstar
+description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
 logo: venstar.png
 ha_category:
   - Climate
 ha_release: 0.62
 ha_iot_class: Local Polling
 ---
-
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
 Venstar thermostats feature a local API that allows for automation without the need for their Skyport cloud service.
@@ -56,6 +55,10 @@ password:
   description:  Password for the thermostat.
   required: false
   type: string
+pin:
+  description: Pin for Lockscreen (required if lock screen enabled)
+  required: false
+  type: string
 ssl:
   description: Whether to use SSL or not when communicating.
   required: false
@@ -83,6 +86,7 @@ climate:
     ssl: true
     username: OPTIONAL_AUTH_USER_HERE
     password: OPTIONAL_AUTH_PASS_HERE
+    pin: LOCKSCREEN_PIN
     timeout: 5
     humidifier: false
 ```

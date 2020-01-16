@@ -1,12 +1,14 @@
 ---
-title: "Samsung Smart TV"
-description: "Instructions on how to integrate a Samsung Smart TV into Home Assistant."
+title: Samsung Smart TV
+description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 logo: samsung.png
 ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@escoand'
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
@@ -81,12 +83,14 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - D6300SF
 - D6500
 - D6505
+- D6900 (WOL did not work)
 - D7000
 - D8000
 - EH5300
 - EH5600
 - ES5500
 - ES5700
+- ES6100
 - ES6300
 - ES6800
 - F4580
@@ -119,7 +123,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 - UE49KU6470 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
-- UE46ES5500 (partially supported, turn on doesn't works)
+- UE46ES5500 (partially supported, turn on doesn't work)
 
 #### Models tested but not yet working
 
@@ -137,9 +141,10 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
 - MU6400 - Unable to see state and unable to control (using latest 1270 firmware. Had limited functionality on previous firmware)
-- Q60 – turning on works, turning off does not work, State is always "off".
+- Q60 – Turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.
+- Q9F - Turning on works, turning off does not work. State is correct. Nothing else works. Port 8001.
 
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
 

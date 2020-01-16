@@ -1,11 +1,13 @@
 ---
-title: "Logger"
-description: "Instructions on how to enable the logger integration for Home Assistant."
+title: Logger
+description: Instructions on how to enable the logger integration for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Utility
-ha_qa_scale: internal
 ha_release: 0.8
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -45,6 +47,12 @@ logger:
     # log level for MQTT integration
     homeassistant.components.mqtt: warning
     
+    # log level for all python scripts
+    homeassistant.components.python_script: warning
+    
+    # individual log level for this python script
+    homeassistant.components.python_script.my_new_script.py: debug
+    
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
@@ -80,7 +88,11 @@ where **namespace** is the *<component_namespace>* currently logging.
 {% endconfiguration %}
 
 In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces, 
-both of which are at root. They are logged by different APIs.
+both of which are at root. They are logged by different APIs. 
+
+If you want to know the namespaces in your own environment then check your log files on startup. 
+You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`. 
+Those are the namespaces available for you to set a `log level` against. 
 
 ### Log Levels
 
@@ -138,3 +150,12 @@ the [SSH add-on](/addons/ssh/):
 ```bash
 $ tail -f /config/home-assistant.log
 ```
+
+On Docker you can use your host command line directly - follow the logs dynamically with:
+
+```bash
+# follow the log dynamically
+docker logs --follow  MY_CONTAINER_ID
+```
+
+To see other options use `--help` instead, or simply leave with no options to display the entire log.

@@ -6,7 +6,7 @@ ha_category:
   - Utility
 ha_release: 0.33
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `websocket_api` sensor platform shows how many clients are connected to the stream API.

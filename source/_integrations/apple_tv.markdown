@@ -1,6 +1,6 @@
 ---
-title: "Apple TV"
-description: "Instructions on how to integrate Apple TV devices into Home Assistant."
+title: Apple TV
+description: Instructions on how to integrate Apple TV devices into Home Assistant.
 logo: apple.png
 ha_category:
   - Multimedia
@@ -134,12 +134,12 @@ Restart Home Assistant, and you should now be able to use `play_url` as before.
 
 ### My Apple TV turns on when I restart Home Assistant
 
-The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
+The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI-CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
 
 So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design, and there is no real fix for it. There's also no known way to turn off the Apple TV via the protocol used for communication. You have the following options:
 
 - Do not use this platform
-- Disable HDMI CEC on your Apple TV
+- Disable HDMI-CEC on your Apple TV
 - Use "fake standby"
 
 The first two points are quite obvious. Fake standby is a concept implemented in this platform that disables all requests to the device and makes it appear as being "off" in the web interface. This will make sure that the device is not woken up, but it will of course not show any information or allow you to control it. It is however easy to turn it on (or off) in the web interface or to use an automation with `turn_on`. To make it more useful, you can write automations that turn it on or off depending on some other device, like the input source on your receiver.
@@ -156,9 +156,9 @@ Turning the device on/off in the user interface will *not* turn the physical dev
 
 To play media on an Apple TV with device authentication enabled (e.g., ATV4 with tvOS 10.2+), Home Assistant must be properly authenticated. This method starts the process and presents the credentials needed for playback as a persistent notification. Please see guide above for usage.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Apple TVs.
+| Service data attribute | Optional | Description                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------ |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Apple TVs. |
 
 ### Service `apple_tv_scan`
 

@@ -1,11 +1,11 @@
 ---
-title: "Person"
-description: "Instructions on how to set up people tracking within Home Assistant."
+title: Person
+description: Instructions on how to set up people tracking within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Presence Detection
-ha_qa_scale: internal
 ha_release: 0.88
+ha_quality_scale: internal
 ---
 
 The person integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
@@ -87,6 +87,8 @@ person:
       - device_tracker.beacon
 ```
 
+If you change the YAML, you can reload it by calling the `person.reload` service.
+
 ### Customizing the picture for a person
 
 By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
@@ -97,4 +99,4 @@ customize:
     entity_picture: "/local/ada.jpg"
 ```
 
-See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder. 
+See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.

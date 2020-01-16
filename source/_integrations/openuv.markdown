@@ -1,6 +1,6 @@
 ---
-title: "OpenUV"
-description: "Instructions on how to integrate OpenUV within Home Assistant."
+title: Openuv
+description: Instructions on how to integrate OpenUV within Home Assistant.
 logo: openuv.jpg
 ha_category:
   - Health
@@ -9,6 +9,8 @@ ha_category:
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
@@ -208,7 +210,7 @@ automation:
       service: openuv.update_protection_data
 ```
 
-Another method (useful when monitoring locations other than the HASS latitude
+Another method (useful when monitoring locations other than the Home Assistant latitude
 and longitude, in locations where there is a large amount of sunlight per day,
 etc.) might be to simply query the API less often:
 

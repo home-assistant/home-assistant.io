@@ -1,6 +1,6 @@
 ---
-title: "LCN"
-description: "Instructions on how to integrate LCN components with Home Assistant."
+title: LCN
+description: Instructions on how to integrate LCN components with Home Assistant.
 logo: lcn.png
 ha_category:
   - Hub
@@ -13,6 +13,8 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@alengwenus'
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.

@@ -1,6 +1,6 @@
 ---
-title: "Axis"
-description: "Integration between network devices from Axis Communications with Home Assistant."
+title: Axis
+description: Integration between network devices from Axis Communications with Home Assistant.
 logo: axis.png
 ha_category:
   - Camera
@@ -9,6 +9,8 @@ ha_category:
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@kane610'
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.

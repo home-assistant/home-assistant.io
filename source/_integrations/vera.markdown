@@ -1,6 +1,6 @@
 ---
-title: "Vera"
-description: "Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant."
+title: Vera
+description: Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant.
 logo: vera.png
 ha_category:
   - Hub
@@ -15,7 +15,7 @@ ha_category:
 ha_release: pre 0.7
 ---
 
-The [Vera](https://getvera.com/) hub is a controller mainly connecting to Z-Wave devices.
+The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.
 
 There is currently support for the following device types within Home Assistant:
 

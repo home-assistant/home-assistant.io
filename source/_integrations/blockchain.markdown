@@ -1,13 +1,12 @@
 ---
-title: "Blockchain.info"
-description: "Instructions on how to integrate Blockchain.info data within Home Assistant."
+title: Blockchain.info
+description: Instructions on how to integrate Blockchain.info data within Home Assistant.
 logo: blockchain.png
 ha_category:
   - Finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ---
-
 
 The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.info](https://blockchain.info).
 
@@ -28,4 +27,3 @@ addresses:
   required: true
   type: [string, list]
 {% endconfiguration %}
-

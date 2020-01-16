@@ -1,6 +1,6 @@
 ---
-title: "Skybell"
-description: "Instructions on how to integrate your Skybell HD devices within Home Assistant."
+title: SkyBell
+description: Instructions on how to integrate your Skybell HD devices within Home Assistant.
 logo: skybell.png
 ha_category:
   - Doorbell

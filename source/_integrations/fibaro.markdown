@@ -1,6 +1,6 @@
 ---
-title: "Fibaro"
-description: "Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant."
+title: Fibaro
+description: Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant.
 logo: fibaro.png
 ha_category:
   - Hub

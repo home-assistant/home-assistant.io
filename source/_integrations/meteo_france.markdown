@@ -1,6 +1,6 @@
 ---
-title: "Météo-France"
-description: "Instructions on how to integrate Météo-France within Home Assistant."
+title: Météo-France
+description: Instructions on how to integrate Météo-France within Home Assistant.
 logo: meteo-france.png
 ha_release: 0.89
 ha_iot_class: Cloud Polling
@@ -8,6 +8,9 @@ ha_category:
   - Hub
   - Sensor
   - Weather
+ha_codeowners:
+  - '@victorcerutti'
+  - '@oncleben31'
 ---
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.

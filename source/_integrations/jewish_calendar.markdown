@@ -1,10 +1,12 @@
 ---
-title: "Jewish Calendar"
-description: "Instructions on how to integrate the Jewish Calendar integration within Home Assistant."
+title: Jewish Calendar
+description: Instructions on how to integrate the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Local Polling
 ha_release: 0.79
+ha_codeowners:
+  - '@tsvi'
 ---
 
 The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.

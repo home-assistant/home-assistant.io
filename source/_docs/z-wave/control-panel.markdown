@@ -154,7 +154,7 @@ for x in range(0, 10):
     translations["%s" % x] = "\\x3%s" % x
 
 for c in sys.argv[1]:
-    print(translations[c], end='')
+    print(translations[c], end="")
 ```
 
 ## OZW Log

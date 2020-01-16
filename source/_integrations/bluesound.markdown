@@ -1,6 +1,6 @@
 ---
-title: "Bluesound"
-description: "Instructions on how to integrate Bluesound devices into Home Assistant."
+title: Bluesound
+description: Instructions on how to integrate Bluesound devices into Home Assistant.
 logo: bluesound.png
 ha_category:
   - Media Player

@@ -1,6 +1,6 @@
 ---
-title: "TensorFlow"
-description: "Detect and recognize objects with TensorFlow."
+title: TensorFlow
+description: Detect and recognize objects with TensorFlow.
 logo: tensorflow.png
 ha_category:
   - Image Processing

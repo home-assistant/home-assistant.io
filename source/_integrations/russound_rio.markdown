@@ -1,6 +1,6 @@
 ---
-title: "Russound RIO"
-description: "Instructions on how to integrate Russound RIO devices into Home Assistant."
+title: Russound RIO
+description: Instructions on how to integrate Russound RIO devices into Home Assistant.
 logo: russound.png
 ha_category:
   - Media Player

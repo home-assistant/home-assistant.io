@@ -1,6 +1,6 @@
 ---
-title: "Flux Led/MagicLight"
-description: "Instructions on how to setup Flux led/MagicLight within Home Assistant."
+title: Flux LED/MagicLight
+description: Instructions on how to setup Flux led/MagicLight within Home Assistant.
 logo: magic_light.png
 ha_category:
   - Light

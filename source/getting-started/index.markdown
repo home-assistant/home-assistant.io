@@ -19,7 +19,7 @@ So here are guidelines:
  - Do not talk about YAML if it can be partially/fully done in UI.
  - Do not tell people about stuff they can do later. This can be added to a
    2nd tier guide.
- - The first page of the guide is for installation, hence hass.io specific.
+ - The first page of the guide is for installation, hence Hass.io specific.
    Other pages should not refer to it except for the page introducing the last
    page that introduces `configuration.yaml`.
 

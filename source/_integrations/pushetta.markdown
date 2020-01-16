@@ -1,6 +1,6 @@
 ---
-title: "Pushetta"
-description: "Instructions on how to add Pushetta notifications to Home Assistant."
+title: Pushetta
+description: Instructions on how to add Pushetta notifications to Home Assistant.
 logo: pushetta.png
 ha_category:
   - Notifications

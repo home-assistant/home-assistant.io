@@ -1,6 +1,6 @@
 ---
-title: "Local File"
-description: "Instructions how to use Local File as a Camera within Home Assistant."
+title: Local File
+description: Instructions how to use Local File as a Camera within Home Assistant.
 logo: file.png
 ha_category:
   - Camera

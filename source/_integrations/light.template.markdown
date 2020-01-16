@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.46
 ha_iot_class: Local Push
 logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `template` platform creates lights that combine integrations and provides the

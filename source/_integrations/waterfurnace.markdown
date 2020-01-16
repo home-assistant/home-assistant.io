@@ -1,6 +1,6 @@
 ---
-title: "WaterFurnace"
-description: "Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant."
+title: WaterFurnace
+description: Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant.
 logo: waterfurnace.png
 ha_category:
   - Sensor

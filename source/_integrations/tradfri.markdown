@@ -1,6 +1,6 @@
 ---
-title: "IKEA Trådfri (Tradfri)"
-description: "Access and control your IKEA Trådfri Gateway and its connected Zigbee-based devices."
+title: IKEA TRÅDFRI (TRADFRI)
+description: Access and control your IKEA Trådfri Gateway and its connected Zigbee-based devices.
 featured: true
 logo: ikea.svg
 ha_iot_class: Local Polling
@@ -11,9 +11,11 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_codeowners:
+  - '@ggravlingen'
 ---
 
-The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
+The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
 
 You will be prompted to configure the gateway through the Home Assistant interface. The configuration process is very simple: when prompted, enter the security key printed on the sticker on the bottom of the IKEA Trådfri Gateway, then click *configure*.
 

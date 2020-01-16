@@ -1,10 +1,13 @@
 ---
-title: "OpenWRT (luci)"
-description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
+title: OpenWRT (luci)
+description: Instructions on how to integrate OpenWRT routers into Home Assistant.
 logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fbradyirl'
+  - '@mzdrale'
 ---
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt/)._

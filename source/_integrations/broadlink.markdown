@@ -1,6 +1,6 @@
 ---
-title: "Broadlink"
-description: "Instructions on how to integrate Broadlink within Home Assistant."
+title: Broadlink
+description: Instructions on how to integrate Broadlink within Home Assistant.
 logo: broadlink.png
 ha_category:
   - Remote
@@ -8,6 +8,9 @@ ha_category:
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+  - '@felipediel'
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -1,6 +1,6 @@
 ---
-title: "HomematicIP Cloud"
-description: "Instructions for integrating HomematicIP into Home Assistant."
+title: HomematicIP Cloud
+description: Instructions for integrating HomematicIP into Home Assistant.
 logo: homematicip_cloud.png
 ha_category:
   - Hub
@@ -13,6 +13,9 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.66
+ha_config_flow: true
+ha_codeowners:
+  - '@SukramJ'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -102,6 +105,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
   * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
   * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
+  * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -154,11 +158,24 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
   * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
   * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
+  * Switch Actuator for heating systems – 2 channels (*HmIP-WHS2*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
   * Weather Sensor – plus (*HmIP-SWO-PL*)
   * Weather Sensor – pro (*HmIP-SWO-PR*)
+  
+## What to do, if a device is missing in Home Assistant
+
+In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) GitHub repository.
+
+1. Create a dump of your access point configuration in Home Assistant: 
+  Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+  The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
+2. Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
+
+Please be patient, wait for the implementation and a new release of the upstream library.
+Afterward, this device can be implemented into Home Assistant.
   
 ## Services
 
@@ -169,6 +186,7 @@ Within this delay the device registration should be completed in the App, otherw
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
+- `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
 ### Service Examples
 
@@ -251,6 +269,16 @@ action:
   service: homematicip_cloud.dump_hap_config
   data:
     anonymize: True
+```
+
+Reset energy counter of measuring actuators.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.reset_energy_counter
+  data:
+    entity_id: switch.livingroom
 ```
 
 

@@ -633,7 +633,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in comfoconnect component ([@Bouni] - [#27886]) ([comfoconnect docs])
 - Move imports in coinmarketcap component ([@Bouni] - [#27885]) ([coinmarketcap docs])
 - Move imports in coinbase component ([@Bouni] - [#27884]) ([coinbase docs])
-- Move imports in ciscospark component ([@Bouni] - [#27879]) ([ciscospark docs])
+- Move imports in ciscospark component ([@Bouni] - [#27879])
 - Move imports in cisco_webex_teams component ([@Bouni] - [#27878]) ([cisco_webex_teams docs])
 - Move imports in cmus component ([@Bouni] - [#27883]) ([cmus docs])
 - Move imports in cloud component ([@Bouni] - [#27881]) ([cloud docs])
@@ -1586,7 +1586,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [cisco_ios docs]: /integrations/cisco_ios/
 [cisco_mobility_express docs]: /integrations/cisco_mobility_express/
 [cisco_webex_teams docs]: /integrations/cisco_webex_teams/
-[ciscospark docs]: /integrations/ciscospark/
 [cloud docs]: /integrations/cloud/
 [cmus docs]: /integrations/cmus/
 [co2signal docs]: /integrations/co2signal/

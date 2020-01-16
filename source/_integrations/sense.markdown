@@ -1,6 +1,6 @@
 ---
 title: Sense
-description: "Instructions on how to integrate Sense within Home Assistant."
+description: Instructions on how to integrate Sense within Home Assistant.
 logo: sense.png
 ha_category:
   - Energy
@@ -8,6 +8,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.82
+ha_codeowners:
+  - '@kbickar'
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

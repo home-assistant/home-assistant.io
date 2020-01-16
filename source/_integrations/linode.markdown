@@ -1,6 +1,6 @@
 ---
-title: "Linode"
-description: "Instructions on how to set up Linode within Home Assistant."
+title: Linode
+description: Instructions on how to set up Linode within Home Assistant.
 ha_category:
   - System Monitor
   - Binary Sensor

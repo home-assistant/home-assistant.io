@@ -1,6 +1,6 @@
 ---
-title: "Arduino"
-description: "Instructions on how to setup an Arduino boards within Home Assistant."
+title: Arduino
+description: Instructions on how to setup an Arduino boards within Home Assistant.
 logo: arduino.png
 ha_category:
   - DIY
@@ -8,6 +8,8 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection.

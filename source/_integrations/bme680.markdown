@@ -1,6 +1,6 @@
 ---
-title: "BME680 Sensor"
-description: "Instructions on how to integrate a BME680 sensor into Home Assistant."
+title: Bosch BME680 Environmental Sensor
+description: Instructions on how to integrate a BME680 sensor into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

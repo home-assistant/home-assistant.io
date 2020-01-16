@@ -1,12 +1,12 @@
 ---
-title: "History Statistics Sensor"
-description: "Instructions about how to integrate historical statistics into Home Assistant."
+title: History Stats
+description: Instructions about how to integrate historical statistics into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [history](/integrations/history/).

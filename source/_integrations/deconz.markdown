@@ -1,6 +1,6 @@
 ---
-title: "deCONZ"
-description: "Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant."
+title: deCONZ
+description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 logo: deconz.jpeg
 ha_category:
   - Hub
@@ -12,8 +12,10 @@ ha_category:
   - Switch
 ha_release: 0.61
 ha_iot_class: Local Push
-ha_qa_scale: platinum
 ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@kane610'
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -103,7 +105,7 @@ Note: deCONZ automatically signals Home Assistant when new sensors are added, bu
 
 ## Remote control devices
 
-Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event` and in case of the Aqara Magic Cube also `gesture`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counter clockwise rotation. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -117,6 +119,20 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
 For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
+
+Specific gestures for the Aqara Magic Cube are:
+
+| Gesture | Description |
+|---------|-------------|
+| 0 | Awake |
+| 1 | Shake |
+| 2 | Free fall |
+| 3 | Flip 90 |
+| 4 | Flip 180 |
+| 5 | Move on any side |
+| 6 | Double tap on any side |
+| 7 | Turn clockwise |
+| 8 | Turn counter clockwise |
 
 ### Finding your events
 
@@ -139,6 +155,7 @@ Currently supported devices as device triggers:
 - Aqara Mini Switch
 - Aqara Round Switch
 - Aqara Square Switch
+- Aqara Magic Cube
 
 #### Requesting support for new device trigger
 
@@ -197,6 +214,18 @@ automation:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
+
+  - alias: 'Turn lamp on when turning cube clockwise'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_control_1
+        gesture: 7
+    action:
+      service: light.turn_on
+      entity_id: light.lamp
 ```
 
 {% endraw %}
@@ -223,6 +252,7 @@ import appdaemon.plugins.hass.hassapi as hass
 import datetime
 from datetime import datetime
 
+
 class DeconzHelper(hass.Hass):
     def initialize(self) -> None:
         self.listen_event(self.event_received, "deconz_event")
@@ -232,8 +262,15 @@ class DeconzHelper(hass.Hass):
         event_id = data["id"]
         event_received = datetime.now()
 
-        self.log("Deconz event received from {}. Event was: {}".format(event_id, event_data))
-        self.set_state("sensor.deconz_event", state = event_id, attributes = {"event_data": event_data, "event_received": str(event_received)})
+        self.log(f"Deconz event received from {event_id}. Event was: {event_data}")
+        self.set_state(
+            "sensor.deconz_event",
+            state=event_id,
+            attributes={
+                "event_data": event_data,
+                "event_received": str(event_received),
+            },
+        )
 ```
 
 {% endraw %}
@@ -255,23 +292,23 @@ remote_control:
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
-class RemoteControl(hass.Hass):
 
+class RemoteControl(hass.Hass):
     def initialize(self):
-        if 'event' in self.args:
-            self.listen_event(self.handle_event, self.args['event'])
+        if "event" in self.args:
+            self.listen_event(self.handle_event, self.args["event"])
 
     def handle_event(self, event_name, data, kwargs):
-        if data['id'] == self.args['id']:
-            self.log(data['event'])
-            if data['event'] == 1002:
-                self.log('Button on')
-            elif data['event'] == 2002:
-                self.log('Button dim up')
-            elif data['event'] == 3002:
-                self.log('Button dim down')
-            elif data['event'] == 4002:
-                self.log('Button off')
+        if data["id"] == self.args["id"]:
+            self.log(data["event"])
+            if data["event"] == 1002:
+                self.log("Button on")
+            elif data["event"] == 2002:
+                self.log("Button dim up")
+            elif data["event"] == 3002:
+                self.log("Button dim down")
+            elif data["event"] == 4002:
+                self.log("Button off")
 ```
 
 {% endraw %}
@@ -298,34 +335,36 @@ sonos_remote_control:
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
-class SonosRemote(hass.Hass):
 
+class SonosRemote(hass.Hass):
     def initialize(self):
-        self.sonos = self.args['sonos']
-        if 'event' in self.args:
-            self.listen_event(self.handle_event, self.args['event'])
+        self.sonos = self.args["sonos"]
+        if "event" in self.args:
+            self.listen_event(self.handle_event, self.args["event"])
 
     def handle_event(self, event_name, data, kwargs):
-        if data['id'] == self.args['id']:
-            if data['event'] == 1002:
-                self.log('Button toggle')
-                self.call_service("media_player/media_play_pause", entity_id = self.sonos)
+        if data["id"] == self.args["id"]:
+            if data["event"] == 1002:
+                self.log("Button toggle")
+                self.call_service("media_player/media_play_pause", entity_id=self.sonos)
 
-            elif data['event'] == 2002:
-                self.log('Button volume up')
-                self.call_service("media_player/volume_up", entity_id = self.sonos)
+            elif data["event"] == 2002:
+                self.log("Button volume up")
+                self.call_service("media_player/volume_up", entity_id=self.sonos)
 
-            elif data['event'] == 3002:
-                self.log('Button volume down')
-                self.call_service("media_player/volume_down", entity_id = self.sonos)
+            elif data["event"] == 3002:
+                self.log("Button volume down")
+                self.call_service("media_player/volume_down", entity_id=self.sonos)
 
-            elif data['event'] == 4002:
-                self.log('Button previous')
-                self.call_service("media_player/media_previous_track", entity_id = self.sonos)
+            elif data["event"] == 4002:
+                self.log("Button previous")
+                self.call_service(
+                    "media_player/media_previous_track", entity_id=self.sonos
+                )
 
-            elif data['event'] == 5002:
-                self.log('Button next')
-                self.call_service("media_player/media_next_track", entity_id = self.sonos)
+            elif data["event"] == 5002:
+                self.log("Button next")
+                self.call_service("media_player/media_next_track", entity_id=self.sonos)
 ```
 
 {% endraw %}
@@ -435,7 +474,6 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
   - Philips Hue Motion Sensor
   - IKEA Trådfri Remote
   - Philips Hue Dimmer Switch
-  - Xiaomi Cube
   - Xiaomi Aqara Smart Light Switch
   - Xiaomi Aqara Smart Wireless Switch
   - Xiaomi Smart Home Wireless Switch

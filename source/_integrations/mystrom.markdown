@@ -1,6 +1,6 @@
 ---
-title: "myStrom WiFi Bulb"
-description: "Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant."
+title: myStrom
+description: Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant.
 logo: mystrom.png
 ha_category:
   - Light
@@ -8,6 +8,8 @@ ha_category:
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.

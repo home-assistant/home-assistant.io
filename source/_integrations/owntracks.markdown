@@ -1,10 +1,11 @@
 ---
-title: "Owntracks"
-description: "Instructions on how to use Owntracks to track devices in Home Assistant."
+title: OwnTracks
+description: Instructions on how to use Owntracks to track devices in Home Assistant.
 logo: owntracks.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.4
+ha_config_flow: true
 ---
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
@@ -33,7 +34,7 @@ In the OwnTracks app, open sidebar and click on preferences, then on connection.
    - Device ID: `<Device name>`
    - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
 
-Your tracker device will be known in home assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
+Your tracker device will be known in Home Assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
 ### Configuring the app - iOS
 

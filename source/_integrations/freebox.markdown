@@ -1,6 +1,6 @@
 ---
-title: "Freebox"
-description: "Instructions on how to integrate Freebox routers into Home Assistant."
+title: Freebox
+description: Instructions on how to integrate Freebox routers into Home Assistant.
 logo: freebox.svg
 ha_category:
   - Network
@@ -9,6 +9,8 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@snoof85'
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).

@@ -1,6 +1,6 @@
 ---
-title: "Dyson"
-description: "Instructions on how to integrate Dyson into Home Assistant."
+title: Dyson
+description: Instructions on how to integrate Dyson into Home Assistant.
 logo: dyson.png
 ha_category:
   - Hub
@@ -169,3 +169,4 @@ Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
 - Pure Cool 2018 Models (TP04 and DP04)
+- Pure Cool Cryptomic (TP06)

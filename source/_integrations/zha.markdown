@@ -1,6 +1,6 @@
 ---
-title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
+title: Zigbee Home Automation
+description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 logo: zigbee.png
 ha_category:
   - Hub
@@ -10,9 +10,14 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Cover
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
+ha_config_flow: true
+ha_codeowners:
+  - '@dmulcahey'
+  - '@adminiuga'
 ---
 
 [Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
@@ -26,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Switch
 - Fan
+- Cover
 
 ## ZHA exception and deviation handling
 
@@ -122,7 +128,7 @@ Go to the **Configuration** page and select the **ZHA** integration that was add
 
 Click on **ADD DEVICES** to start a scan for new devices.
 
-Reset your ZigBee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
+Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
 ## Troubleshooting
 
@@ -145,7 +151,7 @@ Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://git
 
 ### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
 To remove modemmanager from an Debian/Ubuntu host run this command:
 

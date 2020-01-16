@@ -1,6 +1,6 @@
 ---
-title: "Tikteck"
-description: "Instructions on how to setup Tikteck LED bulbs within Home Assistant."
+title: Tikteck
+description: Instructions on how to setup Tikteck LED bulbs within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling

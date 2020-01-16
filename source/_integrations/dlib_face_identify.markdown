@@ -1,6 +1,6 @@
 ---
-title: "Dlib Face Identify"
-description: "Instructions on how to integrate Dlib Face Identify into Home Assistant."
+title: Dlib Face Identify
+description: Instructions on how to integrate Dlib Face Identify into Home Assistant.
 logo: dlib.png
 ha_category:
   - Image Processing

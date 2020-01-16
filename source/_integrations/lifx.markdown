@@ -1,11 +1,12 @@
 ---
-title: "LIFX"
-description: "Instructions on how to integrate LIFX into Home Assistant."
+title: LIFX
+description: Instructions on how to integrate LIFX into Home Assistant.
 logo: lifx.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
+ha_config_flow: true
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.

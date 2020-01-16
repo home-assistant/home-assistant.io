@@ -1,11 +1,13 @@
 ---
-title: "Input Datetime"
-description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
+title: Input Datetime
+description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `input_datetime` integration allows the user to define date and time values
@@ -61,7 +63,7 @@ input_datetime:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
         type: [datetime, time, date]
-        default: 1970-01-01 00:00 | 1970-01-01 | 00:00
+        default: 1970-01-01 00:00 | 00:00 | 1970-01-01
 {% endconfiguration %}
 
 ### Attributes

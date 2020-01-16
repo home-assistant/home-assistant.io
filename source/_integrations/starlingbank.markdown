@@ -1,6 +1,6 @@
 ---
-title: "Starling Bank"
-description: "How to integrate your Starling Bank account within Home Assistant."
+title: Starling Bank
+description: How to integrate your Starling Bank account within Home Assistant.
 logo: starlingbank.png
 ha_category:
   - Finance

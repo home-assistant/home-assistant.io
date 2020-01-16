@@ -1,6 +1,6 @@
 ---
-title: "Dovado"
-description: "How to integrate Dovado within Home Assistant."
+title: Dovado
+description: How to integrate Dovado within Home Assistant.
 ha_category:
   - System Monitor
   - Notifications

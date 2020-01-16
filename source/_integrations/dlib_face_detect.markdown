@@ -1,6 +1,6 @@
 ---
-title: "Dlib Face Detect"
-description: "Instructions on how to integrate Dlib Face Detect into Home Assistant."
+title: Dlib Face Detect
+description: Instructions on how to integrate Dlib Face Detect into Home Assistant.
 logo: dlib.png
 ha_category:
   - Image Processing

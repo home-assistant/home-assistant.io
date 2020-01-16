@@ -1,12 +1,11 @@
 ---
-title: "Telegram"
-description: "Instructions on how to add Telegram notifications to Home Assistant."
+title: Telegram
+description: Instructions on how to add Telegram notifications to Home Assistant.
 logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.7.5
 ---
-
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
@@ -53,7 +52,7 @@ The result set will include your chat ID as `id` in the `chat` section:
 
 **Method 3:** Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
 
-```python
+```shell
 $ python3
 >>> import telegram
 >>> bot = telegram.Bot(token='YOUR_API_TOKEN')
@@ -86,6 +85,10 @@ notify:
     platform: telegram
     chat_id: CHAT_ID_2
 ```
+
+Refer to the platforms mentioned in the
+[Telegram chatbot page](/integrations/telegram_chatbot/) for
+`telegram_bot` configuration.
 
 {% configuration %}
 name:

@@ -1,11 +1,13 @@
 ---
-title: "History"
-description: "Instructions on how to enable history support for Home Assistant."
+title: History
+description: Instructions on how to enable history support for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -161,6 +163,7 @@ in seconds since the UNIX epoch. Convert them manually using
 
 ```python
 from datetime import datetime
+
 datetime.fromtimestamp(1422830502)
 ```
 

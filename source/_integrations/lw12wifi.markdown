@@ -1,6 +1,6 @@
 ---
-title: "Lagute LW-12"
-description: "Instructions on how to setup Lagute LW-12 Wifi LED controller within Home Assistant."
+title: LAGUTE LW-12
+description: Instructions on how to setup Lagute LW-12 Wifi LED controller within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -37,4 +37,3 @@ name:
   type: string
   default: LW-12 FC
 {% endconfiguration %}
-

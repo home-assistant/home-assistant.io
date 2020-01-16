@@ -1,12 +1,14 @@
 ---
-title: "LG webOS Smart TV"
-description: "Instructions on how to integrate a LG webOS Smart TV within Home Assistant."
+title: LG webOS Smart TV
+description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
 logo: webos.png
 ha_category:
   - Media Player
   - Notifications
 ha_iot_class: Local Polling
 ha_release: 0.18
+ha_codeowners:
+  - '@bendavid'
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -171,7 +173,7 @@ Available services: `button`, `command`
         
 #### Example
 
-```
+```yaml
 script:
   home_button:
     sequence:
@@ -187,6 +189,7 @@ script:
           entity_id:  media_player.lg_webos_smart_tv
           command: "media.controls/rewind"
 ```
+
 ## Notifications
 
 The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.

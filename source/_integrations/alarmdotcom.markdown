@@ -1,6 +1,6 @@
 ---
-title: "Alarm.com Alarm Control Panel"
-description: "Instructions on how to integrate Alarm.com into Home Assistant."
+title: Alarm.com
+description: Instructions on how to integrate Alarm.com into Home Assistant.
 logo: alarmdotcom.png
 ha_category:
   - Alarm
@@ -40,3 +40,7 @@ code:
   required: false
   type: integer
 {% endconfiguration %}
+
+<div class='note warning'>
+  Please make sure that your alarm.com language is set to English before open any issue.
+</div>

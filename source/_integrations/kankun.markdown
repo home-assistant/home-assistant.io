@@ -1,6 +1,6 @@
 ---
-title: "Kankun SP3 Wifi Switch"
-description: "Instructions for the Kankun SP3 Wifi switch"
+title: Kankun
+description: Instructions for the Kankun SP3 Wifi switch
 ha_category:
   - Switch
 ha_release: 0.36

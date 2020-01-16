@@ -1,11 +1,13 @@
 ---
-title: "Sensibo A/C controller"
-description: "Instructions on how to integrate Sensibo A/C controller into Home Assistant."
+title: Sensibo
+description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 logo: sensibo.png
 ha_category:
   - Climate
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@andrey-git'
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.

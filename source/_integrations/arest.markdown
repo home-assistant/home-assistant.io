@@ -1,6 +1,6 @@
 ---
-title: "aREST"
-description: "Instructions on how to integrate aREST within Home Assistant."
+title: aREST
+description: Instructions on how to integrate aREST within Home Assistant.
 logo: arest.png
 ha_category:
   - DIY
@@ -9,6 +9,8 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.9
+ha_codeowners:
+  - '@fabaff'
 ---
 
 There is currently support for the following device types within Home Assistant:

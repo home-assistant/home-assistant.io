@@ -1,12 +1,16 @@
 ---
-title: "Elgato Key Light"
-description: "Instructions on how to integrate an Elgato Key Light with Home Assistant."
+title: Elgato Key Light
+description: Instructions on how to integrate an Elgato Key Light with Home Assistant.
 logo: elgato.jpg
 ha_category:
   - Light
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_qa_scale: platinum
+ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
+ha_quality_scale: platinum
 ---
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the

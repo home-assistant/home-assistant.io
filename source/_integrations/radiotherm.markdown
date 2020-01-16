@@ -1,6 +1,6 @@
 ---
-title: "Radio Thermostat (3M Filtrete) Thermostat"
-description: "Instructions on how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant."
+title: Radio Thermostat
+description: Instructions on how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.
 logo: radiotherm.png
 ha_category:
   - Climate
@@ -58,4 +58,4 @@ climate:
     - 192.168.99.137
     - 192.168.99.202
 ```
-Humidity is now available as the `current_humidity` attribute for each `climate.$HOST` entity. This only works for RadioThermostat devices that have a built in humidity sensor. 
+Humidity is now available as the `current_humidity` attribute for each `climate.$HOST` entity. This only works for RadioThermostat devices that have a built in humidity sensor.

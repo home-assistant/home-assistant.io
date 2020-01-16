@@ -1,12 +1,11 @@
 ---
-title: "Thomson"
-description: "Instructions on how to integrate Thomson routers into Home Assistant."
+title: Thomson
+description: Instructions on how to integrate Thomson routers into Home Assistant.
 logo: technicolor.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
 ---
-
 
 Thomson produced networking equipment (under the brand name SpeedTouch) till 2010 and was then renamed to Technicolor.
 

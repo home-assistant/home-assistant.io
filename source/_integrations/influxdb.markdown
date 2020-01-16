@@ -1,12 +1,14 @@
 ---
-title: "InfluxDB"
-description: "Record events in InfluxDB."
+title: InfluxDB
+description: Record events in InfluxDB.
 logo: influxdb.png
 ha_category:
   - History
   - Sensor
 ha_release: 0.9
 ha_iot_class: Configurable
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
