@@ -1,0 +1,18 @@
+---
+layout: post
+title: "0.105: TBD - Update date"
+description: "TBD"
+date: 2020-01-16 00:00:00
+date_formatted: "February 5, 2020"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2020-02-0.105/components.png
+---
+
+<a href='/integrations/#version/0.105'><img src='/images/blog/2020-02-0.105/components.png' style='border: 0;box-shadow: none;'></a>
+
+## In other news
+
+https://www.youtube.com/watch?v=727tFhqpFAE
