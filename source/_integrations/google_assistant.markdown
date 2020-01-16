@@ -28,7 +28,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 </div>
 
-You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide one, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.
+You will need to create a service account [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)  which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide the service account, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.  See Step 2 after the note for more details.
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
@@ -75,7 +75,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
     6. For the Key type, select the JSON option.
     7. Click Create. A JSON file that contains your key downloads to your computer.
     8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable HomeGraph API for your project:
+3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable HomeGraph API for your project (Please note: this is now deprecated refer to Step 2 above, this feature will be removed in 0.105):
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable HomeGraph API.
     3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
@@ -89,7 +89,6 @@ Now add your setup to your `configuration.yaml` file, such as:
 # Example configuration.yaml entry
 google_assistant:
   project_id: YOUR_PROJECT_ID
-  api_key: YOUR_API_KEY
   service_account: !include SERVICE_ACCOUNT.JSON
   report_state: true
   exposed_domains:
@@ -117,7 +116,7 @@ secure_devices_pin:
   type: string
   default: ""
 api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.
+  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a service_account now.
   required: false
   type: string
 service_account:
