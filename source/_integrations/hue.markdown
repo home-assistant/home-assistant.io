@@ -7,11 +7,11 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 featured: true
-ha_release: '0.60'
+ha_release: "0.60"
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@balloob'
+  - "@balloob"
 ---
 
 Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
@@ -46,10 +46,6 @@ allow_unreachable:
   required: false
   type: boolean
   default: false
-filename:
-  description: Make this unique if specifying multiple Hue bridges.
-  required: false
-  type: string
 allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
@@ -70,18 +66,14 @@ hue:
 
 ### Multiple Hue bridges
 
-Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up. If you prefer to configure them manually and use multiple Hue bridges, then you need to provide a configuration file for every bridge. The bridges can't share a single configuration file.
-
-Add `filename` to your Hue configuration entry in your `configuration.yaml` file:
+Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up.
 
 ```yaml
 # Example configuration.yaml entry
 hue:
   bridges:
     - host: BRIDGE1_IP_ADDRESS
-      filename: phue.conf
     - host: BRIDGE2_IP_ADDRESS
-      filename: phue2.conf
 ```
 
 ### Using Hue Groups in Home Assistant
@@ -135,12 +127,12 @@ script:
           scene_name: "Porch Orange"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `group_name` | no | The group/room name of the lights. Find this in the official Hue app.
-| `scene_name` | no | The name of the scene. Find this in the official Hue app.
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `group_name`           | no       | The group/room name of the lights. Find this in the official Hue app. |
+| `scene_name`           | no       | The name of the scene. Find this in the official Hue app.             |
 
-*Note*: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
+_Note_: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
 
 ### Finding Group and Scene Names
 
