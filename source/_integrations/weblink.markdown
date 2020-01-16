@@ -14,7 +14,10 @@ The `weblink` integration allows you to display links in the Home Assistant fron
 
 <div class='note'>
 
-The below documentation applies to the classic "States" user interface. Starting with Home Assistant 0.86, Lovelace is the new default interface. For information on configuring weblinks in Lovelace please follow [these instructions](/lovelace/entities/#weblink) instead.
+The below documentation applies to the classic "States" user interface.
+The `weblink` integration has been **deprecated** and pending for removal in Home Assistant 0.107.0.
+
+Starting with Home Assistant 0.86, Lovelace is the new default interface. For information on configuring weblinks in Lovelace please follow [these instructions](/lovelace/entities/#weblink) instead.
 
 </div>
 
