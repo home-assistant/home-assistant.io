@@ -2,6 +2,11 @@
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
+## Changes in 0.104.0
+- ❤️ Add ability to remove Lovelace config [#4430](https://github.com/home-assistant/home-assistant-polymer/pull/4430) @bramkragten
+- ❤️ Add support to add all device entities to Lovelace [#4356](https://github.com/home-assistant/home-assistant-polymer/pull/4356) @bramkragten
+- 📣 Upgrade MDI icons to 4.7.95 [#4341](https://github.com/home-assistant/home-assistant-polymer/pull/4341) @bonanitech
+
 ## Changes in 0.101.0
 - ❤️ [entities card]: Add actions on rows [#4023](https://github.com/home-assistant/home-assistant-polymer/pull/4023) @iantrich
 - ❤️ [entities card]: New `icon` option for title [#4024](https://github.com/home-assistant/home-assistant-polymer/pull/4024) @iantrich
