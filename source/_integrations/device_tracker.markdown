@@ -23,7 +23,6 @@ device_tracker:
     password: YOUR_PASSWORD
     new_device_defaults:
       track_new_devices: true
-      hide_if_away: false
 ```
 
 The following optional parameters can be used with any platform:
@@ -36,7 +35,6 @@ The following optional parameters can be used with any platform:
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `interval_seconds`   | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
 | `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
-| `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `true`), `hide_if_away` (default: `false`)                                                                                                                                                                                                                                                     |
 
 <div class='note'>
 
@@ -78,7 +76,6 @@ devicename:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   track: true
-  hide_if_away: false
 ```
 
 <div class='note warning'>
@@ -95,7 +92,6 @@ In the example above, `devicename` refers to the detected name of the device.  F
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
-| `hide_if_away` | false                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
 
 ## Device states
