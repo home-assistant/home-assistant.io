@@ -23,7 +23,7 @@ It use the [evohome-async](https://github.com/zxdavb/evohome-async) client libra
 
 If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
-### evohome
+### Evohome
 
 Evohome is a multi-zone system. Each zone is represented as a **Climate** entity: it will expose the zone's operating mode, temperature and setpoint.
 
@@ -85,9 +85,9 @@ Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto
 
 In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
 
-## Services
+## Service Handlers
 
-This integration provide service calls to extend the full functionality of evohome beyond the limitations of Home Assistant's standardised schema. Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
+This integration provide service calls to expose the full functionality of evohome beyond the limitations of Home Assistant's standardised schema. Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
 
 ### evohome.set_system_mode
 
@@ -99,7 +99,7 @@ For some modes, such as **Away**, the duration is in `days`, where 1 day will re
 
 This service call is used to set the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
-### evohome.evohome.refresh_system
+### evohome.refresh_system
 
 This service call is used to pull the latest state data from the vendor's servers.
 
