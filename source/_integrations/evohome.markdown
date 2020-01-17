@@ -5,6 +5,7 @@ logo: honeywell.png
 ha_category:
   - Hub
   - Climate
+  - Water Heater
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -18,7 +19,7 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 It does not support the home security functionality of TCC.
 
-It uses the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
+It use the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
 If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
@@ -98,6 +99,10 @@ For some modes, such as **Away**, the duration is in `days`, where 1 day will re
 
 This service call is used to set the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
+### evohome.evohome.refresh_system
+
+This service call is used to pull the latest state data from the vendor's servers.
+
 ### evohome.set_zone_override
 
 This service call is used to set the `temperature` of a zone as identified by its `entity_id`. This change can either be indefinite, or for a set period of time, after which it will revert to **FollowSchedule**. The duration can be in `minutes` from the current time, or `until` a specified time within the next 24 hours.
@@ -105,10 +110,6 @@ This service call is used to set the `temperature` of a zone as identified by it
 ### evohome.clear_zone_override
 
 This service call is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
-
-### evohome.evohome.force_refresh
-
-This service call is used to pull the latest state data from the vendor's servers.
 
 ## Useful Jinja Templates
 
