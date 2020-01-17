@@ -6,7 +6,7 @@ ha_category:
   - Hub
   - Climate
   - Water Heater
-ha_release: 0.8
+ha_release: 0.80
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'
@@ -25,15 +25,15 @@ If your system is compatible with this integration, then you will be able to acc
 
 ### evohome
 
-evohome is a multi-zone system. Each zone is represented as a **Climate** device: it will expose the zone's operating mode, temperature and setpoint.
+Evohome is a multi-zone system. Each zone is represented as a **Climate** entity: it will expose the zone's operating mode, temperature and setpoint.
 
-The controller/location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the controller's current temperature is calculated as an average of all the Zones.
+The location (controller) is also represented as a **Climate** entity: it will expose the location's operating mode (see below for details). Note that the entity's current temperature is calculated as an average of all the Zones.
 
-The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.  The target temperature cannot be changed.
+The DHW controller is represented as a **WaterHeater** entity: It will report its current temperature, and it can be turned on or off. The setpoint is not reported, and cannot cannot be changed.
 
 ### Round Thermostat
 
-Although Round Thermostat is, strictly speaking, both a Controller and a single zone; they are merged into a single **Climate** device.
+Such systems usually have only one Round Thermostat, although they can have two. Systems with one such thermostat are merged into a single **Climate** entity. Systems with two thermostats will have a 3rd entity for the TCC locations, much like evohome, above.
 
 ## Configuration
 
@@ -67,7 +67,7 @@ scan_interval:
   default: 300
 {% endconfiguration %}
 
-This is an IoT cloud-polling device, and the recommended `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+This is an IoT cloud-polling integration, and the recommended `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
 ## System modes, Zone overrides and Inheritance
 
@@ -83,11 +83,11 @@ If the zone's temperature is changed, then it will be a **TemporaryOverride** th
 
 Some controllers have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
-In Home Assistant schema, all this is done via acombination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
+In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
 
 ## Services
 
-This integration provide service calls to extend the full functionality of evohome beyond the limitations of Home Assistant's standardised schema.  Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
+This integration provide service calls to extend the full functionality of evohome beyond the limitations of Home Assistant's standardised schema. Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
 
 ### evohome.set_system_mode
 
