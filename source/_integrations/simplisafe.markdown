@@ -5,6 +5,7 @@ logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
+  - Binary Sensor
   - Lock
 ha_config_flow: true
 ---
@@ -14,7 +15,24 @@ The `simplisafe` integration integrates [SimpliSafe home security](https://simpl
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
-- **Lock**: Reports on `Door Locks` and can be used to lock and unlock a lock.
+- **Binary Sensor**: Reports on various system sensors.
+- **Lock**: Reports on door locks and can be used to lock and unlock a lock.
+
+The following binary sensors are currently included:
+
+* CO
+* Entry
+* Glass Breakage
+* Leak
+* Motion
+* Smoke
+* Temperature
+
+<div class='note warning'>
+Because the integration is based on a private API, it will currently not poll the
+SimpliSafe cloud more than once every 30 seconds; therefore, use of the integration's
+binary sensors in automations may be limited.
+</div>
 
 ## Configuration
 
