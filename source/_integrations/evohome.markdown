@@ -19,7 +19,7 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 It does not support the home security functionality of TCC.
 
-It use the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
+It uses the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
 If your system is compatible with this integration, then you will be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
@@ -85,9 +85,9 @@ Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto
 
 In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
 
-## Service Handlers
+## Service Calls
 
-This integration provide service calls to expose the full functionality of evohome beyond the limitations of Home Assistant's standardised schema. Mostly, this is with having specified durations of mode changes, after which time the entities revert to **Auto** or **FollowSchedule**.
+This integration provide service calls to expose the full functionality of evohome beyond the limitations of Home Assistant's standardised schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
 ### evohome.set_system_mode
 
