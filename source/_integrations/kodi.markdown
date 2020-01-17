@@ -1,15 +1,17 @@
 ---
-title: "Kodi"
-description: "Instructions on how to integrate Kodi into Home Assistant."
+title: Kodi
+description: Instructions on how to integrate Kodi into Home Assistant.
 logo: kodi.png
 ha_category:
   - Notifications
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@armills'
 ---
 
-The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
+The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 The preferred way to set up the Kodi platform is by enabling the [discovery component](/integrations/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
@@ -97,7 +99,7 @@ Add music to the default playlist (i.e. playlistid=0).
 
 #### Service `kodi.call_method`
 
-Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
+Call a [Kodi JSONRPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

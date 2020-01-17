@@ -831,7 +831,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch docs]: /integrations/switch/
 [switchbot docs]: /integrations/switchbot/
 [systemmonitor docs]: /integrations/systemmonitor/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tellduslive docs]: /integrations/tellduslive/
 [tfiac docs]: /integrations/tfiac/
 [tibber docs]: /integrations/tibber/

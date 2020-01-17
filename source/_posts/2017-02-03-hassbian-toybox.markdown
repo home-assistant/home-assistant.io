@@ -16,7 +16,7 @@ Changes from previous image are big and small but lets start with the interestin
 A set of script written to add extra functionality to your Raspberry Pi installation. 
 This scripts are run as the `pi` user and installs a set of tools or packages.
 Currently includes:
- - Install Libcec. Adds local [HDMI CEC support][cec].
+ - Install Libcec. Adds local [HDMI-CEC support][cec].
  - Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
  - Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.
  - Install Samba. Installs the Samba packages and shares your configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it's usage is not recommended if your installation is publicly available.
@@ -54,7 +54,7 @@ To get started with the new image, check out the installation instructions in th
  
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
-[hassbian-avahi]: hassbian.local
+[hassbian-avahi]: https://hassbian.local
 [landrash-github]: https://github.com/Landrash
 [gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

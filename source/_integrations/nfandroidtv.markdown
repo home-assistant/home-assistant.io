@@ -1,6 +1,6 @@
 ---
-title: "Notifications for Android TV / FireTV"
-description: "Notifications for Android TV / FireTV"
+title: Notifications for Android TV / FireTV
+description: Notifications for Android TV / FireTV
 logo: nfandroidtv.png
 ha_category:
   - Notifications

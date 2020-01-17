@@ -1,6 +1,6 @@
 ---
-title: "MyQ Cover"
-description: "Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant."
+title: MyQ
+description: Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant.
 logo: myq.png
 ha_category:
   - Cover
@@ -20,7 +20,6 @@ cover:
   - platform: myq
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    type: chamberlain
 ```
 
 {% configuration %}
@@ -32,9 +31,4 @@ password:
   description: Your MyQ account password.
   required: true
   type: string
-type:
-  description: "Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`."
-  required: true
-  type: string
 {% endconfiguration %}
-

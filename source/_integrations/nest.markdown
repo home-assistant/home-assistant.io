@@ -1,6 +1,6 @@
 ---
-title: "Nest"
-description: "Instructions on how to integrate Nest into Home Assistant."
+title: Nest
+description: Instructions on how to integrate Nest into Home Assistant.
 logo: nest.png
 ha_category:
   - Hub
@@ -10,6 +10,9 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@awarecan'
 ---
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
@@ -324,7 +327,7 @@ The following conditions are available by device:
 
 <div class='note warning'>
 
-This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,
+This feature is not designed to transform your Home Assistant into a security system, neither Home Assistant nor Nest be liable to You for damages,
 or consequential damages of any character arising as a result of use this feature.
 
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,

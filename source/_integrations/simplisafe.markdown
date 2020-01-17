@@ -1,17 +1,22 @@
 ---
-title: "SimpliSafe"
-description: "Instructions on how to integrate SimpliSafe into Home Assistant."
+title: SimpliSafe
+description: Instructions on how to integrate SimpliSafe into Home Assistant.
 logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
+  - Lock
+ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
-The `simplisafe` integration integrates SimpliSafe home security (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
+The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm
+- **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
+- **Lock**: Reports on `Door Locks` and can be used to lock and unlock a lock.
 
 ## Configuration
 
@@ -52,7 +57,7 @@ Remove a SimpliSafe PIN (by label or PIN value).
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
-| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `system_id`                 |      no  | The ID of a SimpliSafe system               | 
 | `label_or_pin`              |      no  | The PIN label or value to remove            |
 
 ### `simplisafe.set_pin`
@@ -61,6 +66,29 @@ Set a SimpliSafe PIN.
 
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
-| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `system_id`                 |      no  | The ID of the system to remove the PIN from |
 | `label`                     |      no  | The label to show in the SimpliSafe UI      |
 | `pin`                       |      no  | The PIN value to use                        |
+
+### `simplisafe.system_properties`
+
+Set one or more system properties.
+
+For any property denoting a volume, the following values should be used:
+
+* Off: `0`
+* Low: `1`
+* Medium: `2`
+* High: `3`
+
+| Service Data Attribute    | Optional | Description                                                                  |
+|---------------------------|----------|------------------------------------------------------------------------------|
+| `system_id`                 |      no  | The ID of a SimpliSafe system                                                | 
+| `alarm_duration`            |      yes | The number of seconds a triggered alarm should sound                         |
+| `chime_volume`              |      yes | The volume of the door chime                                                 |
+| `entry_delay_away`          |      yes | The number of seconds to delay triggering when entering with an "away" state |
+| `entry_delay_home`          |      yes | The number of seconds to delay triggering when entering with a "home" state  |
+| `exit_delay_away`           |      yes | The number of seconds to delay triggering when exiting with an "away" state  |
+| `exit_delay_home`           |      yes | The number of seconds to delay triggering when exiting with a "home" state   |
+| `light`                     |      yes | Whether the light on the base station should display when armed              |
+| `voice_prompt_volume`       |      yes | The volume of the base station's voice prompts                               |

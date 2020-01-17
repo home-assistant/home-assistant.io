@@ -1,6 +1,6 @@
 ---
-title: "Rejseplanen Public Transport"
-description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
+title: Rejseplanen
+description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
 logo: rejseplanen.png
 ha_category:
   - Transport
@@ -23,7 +23,7 @@ If you don't know the name of the stop follow this guide:
 - Now insert the coordinates for the location in the url, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
 - You will now see the 30 stops closest to your location.
 
-You will se a output like this:
+You will see an output like this:
 
 ```text
 "StopLocation":[{
@@ -72,8 +72,11 @@ departure_type:
 
 ## Direction
 
-If you use the `direction` filter it's important to put correct destination or else the sensor will not work at all.
-The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check [http://rejseplanen.dk](http://rejseplanen.dk), make a search and use the destinations from there in your configuration. Make sure you use the exact name as the destination(s).
+If you use the `direction` filter it's important to put correct final destination(s) or else the sensor will not work at all.
+The `direction` has to be the final destination(s) for the `Departure type` - ***NOT the stop where you want to get off***. 
+
+- Check [https://rejseplanen.dk/](https://rejseplanen.dk/)
+- Make a search and use **all variations** for the final destination(s) for the needed `Departure type` in your configuration under `direction`. Make sure you use the exact name for final destination(s).
 
 A working example on how to use this sensor with direction:
 
@@ -98,7 +101,7 @@ sensor:
       - 'København H'
 ```
 
-It fails because the destination from the departure is NOT København H, but 'CPH Lufthavn', 'Helsingør St.' and others.
+It fails because the final destination for the train from the departure station is NOT 'københavn H', but 'CPH Lufthavn' and 'Helsingør St.'.
 
 ## Examples
 

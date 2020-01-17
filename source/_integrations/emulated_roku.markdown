@@ -1,11 +1,12 @@
 ---
-title: "Emulated Roku"
-description: "Instructions on how to set up Emulated Roku within Home Assistant."
+title: Emulated Roku
+description: Instructions on how to set up Emulated Roku within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Hub
 ha_release: 0.86
 ha_iot_class: Local Push
+ha_config_flow: true
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,
@@ -23,7 +24,7 @@ Windows is not supported because Home Assistant uses `ProactorEventLoop` which d
 
 This integration opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
-Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
+Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's IP or DNS name)
 
 </div>
 

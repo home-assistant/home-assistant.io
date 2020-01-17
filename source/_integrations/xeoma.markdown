@@ -1,6 +1,6 @@
 ---
-title: "Xeoma Camera"
-description: "Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant"
+title: Xeoma
+description: Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant
 logo: xeoma.png
 ha_category:
   - Camera
@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.62
 ---
 
-The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](http://felenasoft.com/xeoma) video surveillance server.
+The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.
 
 ## Configuration
 

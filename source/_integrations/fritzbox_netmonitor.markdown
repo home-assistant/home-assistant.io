@@ -1,6 +1,6 @@
 ---
-title: "FRITZ!Box Net Monitor"
-description: "Instructions on how to integrate an AVM FRITZ!Box monitor into Home Assistant."
+title: AVM FRITZ!Box Net Monitor
+description: Instructions on how to integrate an AVM FRITZ!Box monitor into Home Assistant.
 logo: avm.png
 ha_category:
   - System Monitor
@@ -8,12 +8,7 @@ ha_release: 0.36
 ha_iot_class: Local Polling
 ---
 
-The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers.
-
-<div class='note warning'>
-It might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code>pip3 install lxml</code>; be patient this will take a while.
-</div>
+The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) routers.
 
 To use the Fritz!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,8 +37,7 @@ The following statistics will be exposed as attributes.
 |:----------------------|:------------------------------------------------------------|
 |is_linked              |True if the FritzBox is physically linked to the provider    |
 |is_connected           |True if the FritzBox has established an internet-connection  |
-|wan_access_type        |Connection-type, can be `DSL` or `Cable`                     |
-|external_ip            |External ip address                                          |
+|external_ip            |External IP address                                          |
 |uptime                 |Uptime in seconds                                            |
 |bytes_sent             |Bytes sent                                                   |
 |bytes_received         |Bytes received                                               |

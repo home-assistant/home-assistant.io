@@ -1,6 +1,6 @@
 ---
-title: "DLNA DMR"
-description: "Instructions on how to integrate a DLNA DMR device into Home Assistant."
+title: DLNA Digital Media Renderer
+description: Instructions on how to integrate a DLNA DMR device into Home Assistant.
 logo: dlna.png
 ha_category:
   - Media Player
@@ -42,7 +42,7 @@ name:
   required: false
   type: string
 callback_url_override:
-  description: Override the advertised callback URL. In case the home assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
+  description: Override the advertised callback URL. In case the Home Assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
   required: false
   type: string
 {% endconfiguration %}

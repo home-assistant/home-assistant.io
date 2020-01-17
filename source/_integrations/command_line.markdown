@@ -1,6 +1,6 @@
 ---
-title: "Command line Binary Sensor"
-description: "Instructions on how to integrate Command binary sensors within Home Assistant."
+title: Command Line
+description: Instructions on how to integrate Command binary sensors within Home Assistant.
 logo: command_line.png
 ha_category:
   - Utility
@@ -88,7 +88,7 @@ binary_sensor:
 
 ### Check RasPlex
 
-Check if [RasPlex](http://www.rasplex.com/) is `online`.
+Check if [RasPlex](https://www.rasplex.com/) is `online`.
 
 ```yaml
 binary_sensor:

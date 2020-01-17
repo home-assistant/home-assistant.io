@@ -21,15 +21,15 @@ See the [open ports](/docs/security/porosity/) of a Hass.io instance with variou
 
 ## HTTP SSL/TLS
 
-Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibilty**, this is configurable in the [`http` integration](/integrations/http/).
+Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibility**, this is configurable in the [`http` integration](/integrations/http/).
 
 ## SSH
 
 The SSH connection for [debugging](https://developers.home-assistant.io/docs/en/hassio_debugging.html) on port 22222 is not enabled by default and can only be used with keys.
 
-Is SSH used with the [SSH server add-on](/addons/ssh/) then the user is responsible for the configuration and security. 
+If SSH is used with the [SSH server add-on](/addons/ssh/) then the user is responsible for the configuration and security. 
 
 ## Source code
 
-Due to the lack of resources we are not able to review all of our dependencies and inspect them for malicious behavior, leakage of information or compliance with GDPR. But we have a keen interest in the development of our dependencies are try to work closely with the upstream developer.
+Due to the lack of resources we are not able to review all of our dependencies and inspect them for malicious behavior, leakage of information or compliance with GDPR. But we have a keen interest in the development of our dependencies and try to work closely with the upstream developer.
 

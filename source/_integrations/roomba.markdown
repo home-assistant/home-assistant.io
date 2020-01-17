@@ -1,16 +1,22 @@
 ---
-title: "iRobot Roomba"
-description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
+title: iRobot Roomba
+description: Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant.
 logo: irobot_roomba.png
 ha_category:
   - Vacuum
 ha_release: 0.51
+ha_codeowners:
+  - '@pschmitt'
 ---
 
-The `roomba` integration allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
+The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
+
+<p class='img'>
+<img src='/images/screenshots/more-info-dialog-roomba.png' />
+</p>
 
 <div class='note'>
-This platform has only been tested with an iRobot Roomba 980 but should work fine with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
+This platform has been tested and is confirmed to be working with the iRobot Roomba 980 and 890 models, but should also work fine with any Wi-Fi enabled Roomba like the 690 or the 960.
 </div>
 
 ## Configuration
@@ -54,6 +60,11 @@ continuous:
   required: false
   type: boolean
   default: true
+delay:
+  description: Custom connection delay (in seconds) for periodic mode
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 <div class='note'>

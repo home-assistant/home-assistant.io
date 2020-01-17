@@ -1,11 +1,11 @@
 ---
-title: "Locks"
-description: "Instructions on how to setup your locks with Home Assistant."
+title: Lock
+description: Instructions on how to setup your locks with Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Lock
-ha_qa_scale: internal
 ha_release: 0.9
+ha_quality_scale: internal
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.

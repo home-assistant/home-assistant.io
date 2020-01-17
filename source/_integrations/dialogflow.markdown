@@ -1,10 +1,11 @@
 ---
-title: "Dialogflow"
-description: "Instructions on how integrate Dialogflow with Home Assistant."
+title: Dialogflow
+description: Instructions on how integrate Dialogflow with Home Assistant.
 logo: dialogflow.png
 ha_category:
   - Voice
 ha_release: 0.56
+ha_config_flow: true
 ---
 
 The `dialogflow` integration is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
@@ -15,17 +16,17 @@ Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with
 
 Using Dialogflow will be easy to create conversations like:
 
- > User: What is the temperature at home?
- >
- > Bot: The temperature is 34 degrees
+_User: What is the temperature at home?_
 
- > User: Turn on the light
- >
- > Bot: In which room?
- >
- > User: In the kitchen
- >
- > Bot: Turning on kitchen light
+_Bot: The temperature is 34 degrees_
+
+_User: Turn on the light_
+
+_Bot: In which room?_
+
+_User: In the kitchen_
+
+_Bot: Turning on kitchen light_
 
 To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 

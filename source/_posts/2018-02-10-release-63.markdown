@@ -651,7 +651,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
 [light.limitlessled docs]: /integrations/limitlessled
-[media_player.yamaha docs]: /integrations/yamah
+[media_player.yamaha docs]: /integrations/yamaha
 [sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
 [sensor.wunderground docs]: /integrations/wunderground
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392

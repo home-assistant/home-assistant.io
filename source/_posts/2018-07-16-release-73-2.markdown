@@ -33,7 +33,7 @@ After research, the following integrations have been impacted. Although the odds
 - [scene.lifx_cloud](/integrations/lifx_cloud)
 - [switch.hook](/integrations/hook)
 - [switch.rest](/integrations/switch.rest/)
-- [telegram_bot.polling](/integrations/polling)
+- [telegram_bot.polling](/integrations/telegram_polling)
 - [tts.voicerss](/integrations/voicerss)
 
 Also impacted, but integrations are read only:

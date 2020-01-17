@@ -1,6 +1,6 @@
 ---
-title: "Netgear"
-description: "Instructions on how to integrate Netgear routers into Home Assistant."
+title: Netgear
+description: Instructions on how to integrate Netgear routers into Home Assistant.
 logo: netgear.png
 ha_category:
   - Presence Detection
@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_release: pre 0.7
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
+This platform allows you to detect presence by looking at connected devices to a [Netgear](https://www.netgear.com/) device.
 
 <div class='note'>
 

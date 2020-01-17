@@ -1,6 +1,6 @@
 ---
-title: "DSMR or Slimme meter"
-description: "Instructions on how to integrate DSMR Smartmeter within Home Assistant."
+title: DSMR Slimme Meter
+description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
 logo: netbeheernederland.jpg
 ha_category:
   - Energy
@@ -12,7 +12,7 @@ A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter
 
 - Currently support DSMR V2.2, V3, V4 and V5 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
-- For official information about the P1 port refer to: <https://www.wijhebbenzon.nl/media/kunena/attachments/3055/DSMRv5.0FinalP1.pdf>
+- For official information about the P1 port refer to: <https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf>
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 <p class='img'>
@@ -119,18 +119,6 @@ or
 ```sh
 # Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv2.2 smart meters
 2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
-```
-
-[HASSbian](/docs/installation/hassbian/installation/) users have to give dialout permission to the user `homeassistant`:
-
-```bash
-$ sudo usermod -a -G dialout homeassistant
-```
-
-and after that you need to reboot!
-
-```bash
-$ sudo reboot
 ```
 
 Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:

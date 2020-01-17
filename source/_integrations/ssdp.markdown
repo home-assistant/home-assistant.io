@@ -1,9 +1,10 @@
 ---
-title: "SSDP - Simple Service Discovery Protocol"
-description: "Discover integrations on the network using the SSDP protocol."
+title: Simple Service Discovery Protocol (SSDP)
+description: Discover integrations on the network using the SSDP protocol.
 ha_category:
   - Network
 ha_release: 0.94
+logo: home-assistant.png
 ---
 
 The `ssdp` "Simple Service Discovery Protocol" integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the config panel.
@@ -12,7 +13,7 @@ Integrations can opt-in to be found by adding [an SSDP section](https://develope
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -23,5 +24,6 @@ ssdp:
 
 The following integrations are automatically discovered by the SSDP integration:
 
- - Deconz
- - Philips Hue
+ - [deCONZ](../deconz/)
+ - [Huawei LTE](../huawei_lte/)
+ - [Philips Hue](../hue/)

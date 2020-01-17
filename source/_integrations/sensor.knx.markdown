@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors. 
+The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors. 
 
 Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 

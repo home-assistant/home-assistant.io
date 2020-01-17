@@ -1,6 +1,6 @@
 ---
-title: "Fritzbox"
-description: "Instructions on how to integrate the AVM Fritzbox Smart Home components."
+title: AVM FRITZ!Box
+description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
 logo: avm.png
 ha_category:
   - Binary Sensor

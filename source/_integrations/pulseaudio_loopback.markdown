@@ -1,6 +1,6 @@
 ---
-title: "PulseAudio Loopback Switch"
-description: "Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
+title: PulseAudio Loopback
+description: Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system.
 logo: pulseaudio.png
 ha_category:
   - Switch
@@ -46,7 +46,7 @@ host:
 port:
   description: The port that Pulseaudio is listening on.
   required: false
-  default: 4712
+  default: 4713
   type: integer
 buffer_size:
   description: How much data to load from Pulseaudio at once.

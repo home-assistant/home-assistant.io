@@ -1,11 +1,13 @@
 ---
-title: "Nuki Smart Lock"
-description: "Instructions on how to integrate a Nuki Smart Lock devices."
+title: Nuki
+description: Instructions on how to integrate a Nuki Smart Lock devices.
 logo: nuki.png
 ha_category:
   - Lock
 ha_release: 0.38
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@pvizeli'
 ---
 
 The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via either a [software bridge](https://play.google.com/store/apps/details?id=io.nuki.bridge) or a [physical bridge](https://nuki.io/en/bridge/).
@@ -39,14 +41,6 @@ token:
 
 ## Services
 
-### Service `open`
-
-This will unlatch the door, ie. open it (provided this works with your type of door).
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-
 ### Service `lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
@@ -56,11 +50,3 @@ See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 | `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
-
-### Service `check_connection` 
-
-This will force the communication between the bridge and the lock, updating the available attribute.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.

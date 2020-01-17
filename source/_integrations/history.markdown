@@ -1,11 +1,13 @@
 ---
-title: "History"
-description: "Instructions on how to enable history support for Home Assistant."
+title: History
+description: Instructions on how to enable history support for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -14,8 +16,7 @@ component for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
 no history will be available for these entities.
 
-To enable the history option in your installation,
-add the following to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Basic configuration.yaml entry
@@ -162,6 +163,7 @@ in seconds since the UNIX epoch. Convert them manually using
 
 ```python
 from datetime import datetime
+
 datetime.fromtimestamp(1422830502)
 ```
 

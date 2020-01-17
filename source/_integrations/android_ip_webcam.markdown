@@ -1,6 +1,6 @@
 ---
-title: "Android IP Webcam"
-description: "Connect Android devices as an IP webcam to Home Assistant"
+title: Android IP Webcam
+description: Connect Android devices as an IP webcam to Home Assistant
 logo: android_ip_webcam.png
 ha_category:
   - Hub
@@ -8,7 +8,7 @@ ha_category:
   - Camera
   - Sensor
   - Switch
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Local Polling
 ---
 
@@ -202,4 +202,4 @@ camera:
 
 The `android_ip_webcam` sensor platform lets you observe states of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 
-You can setup your own sensors by examining the JSON file from the webcam server: http://IP:8080/sensors.json
+You can setup your own sensors by examining the JSON file from the webcam server: `http://IP:8080/sensors.json`

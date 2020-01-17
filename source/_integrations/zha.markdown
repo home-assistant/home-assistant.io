@@ -1,6 +1,6 @@
 ---
-title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
+title: Zigbee Home Automation
+description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 logo: zigbee.png
 ha_category:
   - Hub
@@ -10,12 +10,17 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Cover
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
+ha_config_flow: true
+ha_codeowners:
+  - '@dmulcahey'
+  - '@adminiuga'
 ---
 
-[Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
+[Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
 integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
@@ -26,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Switch
 - Fan
+- Cover
 
 ## ZHA exception and deviation handling
 
@@ -46,14 +52,31 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - Digi XBee Series 3 (xbee3-24) modules
   - Digi XBee Series 2C (S2C) modules
   - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
-- Dresden-Elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
-  - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
-  - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
-  - [RaspBee Raspberry Pi Shield from Dresden-Elektronik](https://www.dresden-elektronik.de/raspbee/)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
-  - ZiGate USB modules (require firmware 3.1a or later)
+- dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
+  - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
+  - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
+  - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
+  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
+  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
+  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
+  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
-## Configuration
+## Configuration - GUI
+
+From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
+
+Use the plus button in the bottom right to add a new integration called **ZHA**.
+
+In the popup:
+
+  - USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
+  - Radio type - select device type **ezsp**, **deconz** or **xbee**
+  - Submit
+
+The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
+
+## Configuration - Manual
 
 To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
 
@@ -65,6 +88,11 @@ zha:
   usb_path: /dev/ttyUSB2
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 ```
+
+If you are use ZiGate, you have to use some special usb_path configuration:
+  - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
+  - PiZigate : `pizigate:/dev/serial0`
+  - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 
 {% configuration %}
 radio_type:
@@ -94,16 +122,68 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
-In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
+## Adding devices
+
+Go to the **Configuration** page and select the **ZHA** integration that was added by the configuration steps above.
+
+Click on **ADD DEVICES** to start a scan for new devices.
+
+Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
 ## Troubleshooting
 
+### Add Philips Hue bulbs that have previously been added to another bridge
+
+Philips Hue bulbs that have previously been added to another bridge won't show up during search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
+
+#### Philips Hue Dimmer Switch
+
+Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset your bulbs. For this to work, the remote doesn't have to be paired with your previous bridge.
+
+1. Turn on your Hue bulb you want to reset
+2. Hold the Dimmer Switch near your bulb (< 10 cm)
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons of the Dimmer Switch for about 10 seconds until your bulb starts to blink
+4. Your bulb should stop blinking and eventually turning on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
+
+#### hue-thief
+
+Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
+
 ### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
 To remove modemmanager from an Debian/Ubuntu host run this command:
 
 ```bash
 sudo apt-get purge modemmanager
+```
+
+### Can't connect to USB device and using Docker
+
+If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose.
+
+#### Docker Compose
+
+Install Docker-Compose for your platform (linux - `sudo apt-get install docker-compose`).
+
+Create a `docker-compose.yml` with the following data:
+
+```yaml
+version: '2'
+services:
+  homeassistant:
+    # customisable name
+    container_name: home-assistant
+    
+    # must be image for your platform, this is the rpi3 variant
+    image: homeassistant/raspberrypi3-homeassistant
+    volumes:
+      - <DIRECTORY HOLDING HOME ASSISTANT CONFIG FILES>:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      # your usb device forwarding to the docker image
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: always
+    network_mode: host
 ```

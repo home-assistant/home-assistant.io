@@ -1,6 +1,6 @@
 ---
-title: "BloomSky"
-description: "Instructions on how to integrate the BloomSky within Home Assistant."
+title: BloomSky
+description: Instructions on how to integrate the BloomSky within Home Assistant.
 logo: bloomsky.png
 ha_category:
   - Environment

@@ -1,6 +1,6 @@
 ---
-title: "HomeKit"
-description: "Instructions on how to set up the HomeKit integration in Home Assistant."
+title: HomeKit
+description: Instructions on how to set up the HomeKit integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64
@@ -82,6 +82,10 @@ homekit:
         required: false
         type: boolean
         default: false
+      advertise_ip:
+        description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
+        required: false
+        type: string
       filter:
         description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
@@ -159,9 +163,9 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
-1. Open the `Home` app.
-2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
+2. Open the `Home` app.
+3. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
 5. Enter the `PIN` code.
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
@@ -324,6 +328,19 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 </div>
 
+## Docker Network Isolation
+
+The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
+
+To use `advertise_ip`, add the option to your `homekit` config:
+
+```yaml
+homekit:
+  advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+```
+
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
+
 ## Supported Components
 
 The following integrations are currently supported:
@@ -352,7 +369,7 @@ The following integrations are currently supported:
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
-| water_heater | WaterHeater | All water_heater devices. |
+| water_heater | WaterHeater | All `water_heater` devices. |
 
 ## Troubleshooting
 
@@ -403,6 +420,8 @@ Remember that the iOS device needs to be in the same local network as the Home A
 
 Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
 
+You can also try to use `avahi-daemon` in reflector mode together with the option `advertise_ip`, see above.
+
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
@@ -440,7 +459,7 @@ To use the HomeKit integration with to different Home Assistant instances on the
 
 #### Specific entity doesn't work
 
-Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component:%20homekit)
 
 #### Accessories are all listed as not responding
 
@@ -472,7 +491,7 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 #### Resetting accessories
 
-On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever HomeAssistant add supports for new HomeKit features to existing entities.
+On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 

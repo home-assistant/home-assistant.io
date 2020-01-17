@@ -1,6 +1,6 @@
 ---
-title: "Goalfeed"
-description: "Instructions on how to setup Goalfeed events within Home Assistant."
+title: Goalfeed
+description: Instructions on how to setup Goalfeed events within Home Assistant.
 logo: goalfeed.png
 ha_category:
   - Other

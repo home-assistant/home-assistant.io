@@ -22,7 +22,7 @@ The following configuration has been tested on Synology 413j running DSM 6.0-732
 Running these commands will:
 
  - Install Home Assistant
- - Enable Home Assistant to be launched on [http://localhost:8123](http://localhost:8123)
+ - Enable Home Assistant to be launched on `http://localhost:8123`
 
 Using the Synology webadmin:
 

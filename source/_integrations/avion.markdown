@@ -1,6 +1,6 @@
 ---
-title: "Avi-on"
-description: "Instructions on how to setup GE Avi-on Bluetooth dimmers within Home Assistant."
+title: Avi-on
+description: Instructions on how to setup GE Avi-on Bluetooth dimmers within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Assumed State
@@ -8,7 +8,7 @@ logo: avi-on.png
 ha_release: 0.37
 ---
 
-Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).
+Support for the Avi-on Bluetooth dimmer switch [Avi-On](https://avi-on.com/).
 
 ## Setup
 

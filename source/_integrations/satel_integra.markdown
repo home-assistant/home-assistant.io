@@ -1,6 +1,6 @@
 ---
-title: "Satel Integra Alarm"
-description: "Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel."
+title: Satel Integra
+description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
 logo: satel.jpg
 ha_category:
   - Hub
@@ -52,6 +52,10 @@ port:
   required: false
   default: 7094
   type: integer
+code:
+  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  required: false
+  type: string
 partitions:
   description: List of the partitions to operate on.
   required: false

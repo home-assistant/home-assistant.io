@@ -1,6 +1,6 @@
 ---
-title: "Sonarr Sensor"
-description: "Instructions on how to integrate Sonarr sensors with Home Assistant"
+title: Sonarr
+description: Instructions on how to integrate Sonarr sensors with Home Assistant
 logo: sonarr.png
 ha_category:
   - Downloading

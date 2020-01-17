@@ -790,7 +790,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rflink docs]: /integrations/rflink/
 [route53 docs]: /integrations/route53/
 [sabnzbd docs]: /integrations/sabnzbd/
-[sensor.api_streams docs]: /integrations/sensor.websocket_apis/
+[sensor.api_streams docs]: /integrations/sensor.websocket_api/
 [sensor.bloomsky docs]: /integrations/bloomsky/#sensor
 [sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [sensor.dnsip docs]: /integrations/dnsip
@@ -843,7 +843,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zwave docs]: /integrations/zwave
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [tts docs]: /integrations/tts/
 [twilio docs]: /integrations/twilio/
 [unifi docs]: /integrations/unifi/

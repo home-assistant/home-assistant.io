@@ -1,6 +1,6 @@
 ---
-title: "HDMI CEC"
-description: "Instructions on how to interact with HDMI CEC via Home Assistant."
+title: HDMI-CEC
+description: Instructions on how to interact with HDMI-CEC via Home Assistant.
 ha_category:
   - Automation
 logo: hdmi.png
@@ -38,7 +38,7 @@ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-
 
 ##### Symlinking examples:
 
-For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
+For the default virtual environment of a [Manual install for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
 ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*/site-packages

@@ -81,7 +81,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `auth`
 * `auth_provider.homeassistant`
 * `onboarding`
-* `hassio` (for hassio users)
+* `hassio` (for Hass.io users)
 * `cloud` (for nabucasa users)
 
 When you start Home Assistant next, you'll be required to set up authentication again.
@@ -97,12 +97,12 @@ This is because we only allow an IP address as a client ID when your IP address 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. On Windows, edit the `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, or on Linux the `/etc/hosts` file,  and add following entry:
 
 ```text
-12.34.56.78 hassbian.home
+12.34.56.78 homeassistant.home
 ```
 
 Replace `12.34.56.78` with your Home Assistant's public IP address.
 
-This will allow you to open Home Assistant at `http://hassbian.home:8123/`
+This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
 
 ### Stuck on Loading data
 

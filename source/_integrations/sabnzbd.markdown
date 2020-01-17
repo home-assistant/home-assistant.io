@@ -1,11 +1,11 @@
 ---
-title: "SABnzbd"
-description: "Instructions on how to integrate SABnzbd with Home Assistant."
+title: SABnzbd
+description: Instructions on how to integrate SABnzbd with Home Assistant.
 logo: sabnzbd.png
 ha_category:
   - Downloading
   - Sensor
-ha_release: 0.70
+ha_release: 0.7
 ha_iot_class: Local Polling
 ---
 
@@ -101,7 +101,7 @@ sabnzbd:
     - total_size
 ```
 
-This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named
+This will attempt to access your SABnzbd instance at `https://192.168.1.32:9090` and will create sensors named
 `sensor.sab_status`, `sensor.sab_speed`, etc.
 
 ## Services

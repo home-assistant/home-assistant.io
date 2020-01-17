@@ -1,6 +1,6 @@
 ---
-title: "Asterisk Voicemail"
-description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
+title: Asterisk Voicemail
+description: Instructions on how to integrate your existing Asterisk voicemail within Home Assistant.
 logo: asterisk.png
 ha_category:
   - Mailbox
@@ -34,7 +34,7 @@ password:
   required: true
   type: string
 host:
-  description: The ip-address of the server that is running the Asterisk PBX
+  description: The IP-address of the server that is running the Asterisk PBX
   required: true
   type: string
 port:

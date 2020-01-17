@@ -1,6 +1,6 @@
 ---
-title: "Blinkt! Light"
-description: "Instructions on how to setup Blinkt! RGB LED lights within Home Assistant."
+title: Blinkt!
+description: Instructions on how to setup Blinkt! RGB LED lights within Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -19,4 +19,3 @@ To enable `blinkt` in your installation, add the following to your `configuratio
 light:
   - platform: blinkt
 ```
-

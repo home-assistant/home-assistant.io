@@ -42,8 +42,8 @@ For more information, visit the [serial api] of MySensors.
 
 ```cpp
 /*
-* Documentation: http://www.mysensors.org
-* Support Forum: http://forum.mysensors.org
+* Documentation: https://www.mysensors.org
+* Support Forum: https://forum.mysensors.org
 */
 
 #define MY_RADIO_NRF24
@@ -187,8 +187,8 @@ void sendHeatpumpCommand() {
 
 ```cpp
 /*
-* Documentation: http://www.mysensors.org
-* Support Forum: http://forum.mysensors.org
+* Documentation: https://www.mysensors.org
+* Support Forum: https://forum.mysensors.org
 */
 
 #include <MySensor.h>
@@ -257,4 +257,4 @@ void incomingMessage(const MyMessage &message) {
 ```
 
 [main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download
+[serial api]: https://www.mysensors.org/download

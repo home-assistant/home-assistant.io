@@ -130,9 +130,9 @@ server {
 
 
     # These shouldn't need to be changed
-    listen [::]:443 default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
+    listen [::]:443 ssl default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
-    ssl on;
+    # ssl on; # Uncomment if you are using nginx < 1.15.0
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
     ssl_prefer_server_ciphers on;

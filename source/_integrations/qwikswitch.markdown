@@ -1,6 +1,6 @@
 ---
-title: "QwikSwitch QSUSB Hub"
-description: "Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant."
+title: QwikSwitch QSUSB
+description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
 logo: qwikswitch.png
 ha_category:
   - Hub
@@ -8,10 +8,12 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_release: "0.20"
+ha_release: '0.20'
+ha_codeowners:
+  - '@kellerza'
 ---
 
-The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
+The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -80,7 +82,7 @@ sensors:
       default: false
       type: string
     class:
-      description: The [class](components/binary_sensor) or binary_sensor. Only applicable to binary_sensors.
+      description: The [class](/integrations/binary_sensor/#device-class) or binary_sensor. Only applicable to binary_sensors.
       required: false
       default: door
       type: string
@@ -137,6 +139,6 @@ qwikswitch:
 
 ### Switch
 
-The `qwikswitch` platform allows you to control your [QwikSwitch](http://www.qwikswitch.co.za/) relays as switches from within Home Assistant.
+The `qwikswitch` platform allows you to control your [QwikSwitch](https://www.qwikswitch.co.za/) relays as switches from within Home Assistant.
 
 If the device name in the QS Mobile application ends with `Switch` it will be created as a switch, otherwise as a light.

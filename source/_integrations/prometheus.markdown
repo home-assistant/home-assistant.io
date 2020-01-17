@@ -1,6 +1,6 @@
 ---
-title: "Prometheus"
-description: "Record events in Prometheus."
+title: Prometheus
+description: Record events in Prometheus.
 logo: prometheus.png
 ha_category:
   - History

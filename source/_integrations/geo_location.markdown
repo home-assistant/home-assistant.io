@@ -1,6 +1,6 @@
 ---
-title: "Geolocation"
-description: "Instructions on how to integrate geolocation aware platforms into Home Assistant."
+title: Geolocation
+description: Instructions on how to integrate geolocation aware platforms into Home Assistant.
 logo: geo_location.png
 ha_release: 0.78
 ---

@@ -1,11 +1,11 @@
 ---
-title: "Timer"
-description: "Instructions on how to integrate timers into Home Assistant."
+title: Timer
+description: Instructions on how to integrate timers into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.57
-ha_qa_scale: internal
+ha_quality_scale: internal
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.
@@ -95,6 +95,10 @@ Manually finish a running timer earlier than scheduled. You can also use `entity
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+
+### Service `timer.reload`
+
+Reload `timer`'s configuration without restarting Home Assistant itself. This service takes no service data attributes.
 
 ### Use the service
 

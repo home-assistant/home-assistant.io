@@ -1,6 +1,6 @@
 ---
-title: "DuckDNS"
-description: "Keep your computer registered with the DuckDNS dynamic DNS."
+title: Duck DNS
+description: Keep your computer registered with the DuckDNS dynamic DNS.
 logo: duckdns.png
 ha_category:
   - Network
@@ -30,6 +30,15 @@ duckdns:
     required: true
     type: string
 {% endconfiguration %}
+
+## Service `set_txt`
+
+Set the TXT record of your DuckDNS subdomain.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `txt` | no | Payload for the TXT record. |
+
 
 <div class='note'>
 

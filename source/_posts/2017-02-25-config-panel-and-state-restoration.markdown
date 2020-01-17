@@ -160,7 +160,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Lock - Nuki: Reduce battery drain on Nuki Lock ([@pschmitt])
 - Notify - Webostv: Only try to pair notify.webostv when not paired ([@andersonshatch])
 - KNX: Fix slow status updates from the knx bus ([@keerts])
-- HDMI CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
+- HDMI-CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
 - Sensor - Moon: Remove unit of measurement ([@fabaff])
 - Z-Wave: Add initial Z-Wave config panel ([@balloob])
 - History: Allow printing the number of states returned by history and time it took to extract and add day ([@andrey-git])
@@ -283,7 +283,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /integrations/webhooks/
+[telegram]: /integrations/telegram_webhooks/
 [pushsafer]: /integrations/pushsafer
 [openhome]: /integrations/openhome
 [ups]: /integrations/ups

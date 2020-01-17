@@ -1,13 +1,13 @@
 ---
-title: "OpenCV"
-description: "Instructions on how to integrate OpenCV image processing into Home Assistant."
+title: OpenCV
+description: Instructions on how to integrate OpenCV image processing into Home Assistant.
 logo: opencv.png
 ha_category:
   - Image Processing
 ha_release: 0.47
 ---
 
-[OpenCV](http://www.opencv.org) is an open source computer vision image and video processing library.
+[OpenCV](https://www.opencv.org/) is an open source computer vision image and video processing library.
 
 Some pre-defined classifiers can be found [here](https://github.com/opencv/opencv/tree/master/data).
 

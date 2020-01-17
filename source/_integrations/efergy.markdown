@@ -1,6 +1,6 @@
 ---
-title: "Efergy"
-description: "Instructions on how to integrate Efergy devices within Home Assistant."
+title: Efergy
+description: Instructions on how to integrate Efergy devices within Home Assistant.
 logo: efergy.png
 ha_category:
   - Energy

@@ -1,12 +1,14 @@
 ---
-title: "Solax Sensor"
-description: "Instructions on how to integrate Solax sensor within Home Assistant."
+title: SolaX Power
+description: Instructions on how to integrate Solax sensor within Home Assistant.
 logo: solax-logo.png
 ha_category:
   - Energy
   - Sensor
 ha_release: 0.94
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@squishykid'
 ---
 
 The `solax` integration connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
@@ -54,3 +56,16 @@ sensors:
       value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
 ```
 {% endraw %}
+
+### Note
+
+Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is necessary to set up a reverse proxy with something like Nginx and use a raspberry pi (or similar) with two network connections (one being wifi that connects to the inverters SSID).
+
+
+Example Nginx configuration
+
+```text
+location / {
+  proxy_pass http://5.8.8.8;
+}
+```

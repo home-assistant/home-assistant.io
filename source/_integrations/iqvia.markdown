@@ -1,11 +1,14 @@
 ---
-title: "IQVIA"
-description: "Instructions on how to use IQVIA data within Home Assistant"
+title: IQVIA
+description: Instructions on how to use IQVIA data within Home Assistant
 logo: iqvia.png
 ha_category:
   - Health
 ha_release: 0.63
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease

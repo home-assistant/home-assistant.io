@@ -1,18 +1,174 @@
 ---
-title: "Broadlink"
-description: "Instructions on how to integrate Broadlink within Home Assistant."
+title: Broadlink
+description: Instructions on how to integrate Broadlink within Home Assistant.
 logo: broadlink.png
 ha_category:
+  - Remote
   - Switch
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+  - '@felipediel'
 ---
 
 There is currently support for the following device types within Home Assistant:
 
+- [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+## Remote
+
+The `broadlink` remote platform allows you to interact with Broadlink remote control devices.
+
+### Configuration
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+remote:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+```
+
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: Device MAC address.
+  required: true
+  type: string
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  default: 5
+  type: integer
+name:
+  description: Name of the device.
+  required: false
+  default: Broadlink
+  type: string
+{% endconfiguration %}
+  
+### Learn command
+
+Use the `remote.learn_command` service to learn new commands.
+
+| Service data attribute | Optional | Description                               |
+| ---------------------- | -------- | ----------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                         |
+| `device`               | no       | Name of the device to control.            |
+| `command`              | no       | Names of the commands to learn.           |
+| `alternative`          | yes      | Toggle commands?                          |
+| `timeout`              | yes      | Timeout in seconds to learn each command. |
+
+Example 1: Learn a single command
+
+```yaml
+script:
+  learn_mute_tv:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: mute
+```
+
+Example 2: Learn a sequence of commands
+
+```yaml
+script:
+  learn_tv_commands:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command:
+            - turn on
+            - turn off
+            - volume up
+            - volume down
+```
+
+Example 3: Learn a toggle command
+
+The `alternative` flag is useful for capturing commands where the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
+
+```yaml
+script:
+  learn_tv_power_button:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: power
+          alternative: True
+```
+
+In the above example, two codes will be captured for the power command, and will be sent alternately each time the command is called.
+
+### Send command
+
+Use the `remote.send_command` service to send commands.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                                    |
+| `device`               | no       | Name of the device to control.                       |
+| `command`              | no       | Names of the commands to send.                       |
+| `num_repeats`          | yes      | Number of times to repeat the commands.              |
+| `delay_secs`           | yes      | Interval in seconds between one command and another. |
+
+Example 1: Send a single command
+
+```yaml
+script:
+  mute_tv:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: mute
+```
+
+Example 2: Send a command repeatedly
+
+```yaml
+script:
+  turn_up_tv_volume_20:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: volume up
+          num_repeats: 20
+```
+
+Example 3: Send a sequence of commands
+
+```yaml
+script:
+  turn_on_ac:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: air conditioner
+          command:
+            - turn on
+            - turn off display
+```
 
 ## Sensor
 
@@ -36,7 +192,7 @@ host:
   required: true
   type: string
 mac:
-  description: Device mac address.
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
   required: true
   type: string
 name:
@@ -119,7 +275,7 @@ pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCryp
 
 ## Switch
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](https://www.ibroadlink.com/).
 
 ### Configuration
 
@@ -139,7 +295,7 @@ host:
   required: true
   type: string
 mac:
-  description: Device MAC address.
+  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
   required: true
   type: string
 timeout:
@@ -292,10 +448,10 @@ switch:
 
 You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`   | no | IP address to send command to.
-| `packet` | no | String or list of strings that contain the packet data.
+| Service data attribute | Optional | Description                                             |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `host`                 | no       | IP address to send command to.                          |
+| `packet`               | no       | String or list of strings that contain the packet data. |
 
 Example:
 
@@ -357,7 +513,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     Not every code works.
 
 8. Convert the HEX codes to base64.
-    Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+    Use [this](https://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
 ### Using iOS and Windows to obtain codes
 
@@ -367,7 +523,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
    - Download and install Python 2.7 on your windows PC.
    - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
-   - Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
+   - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
    - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
 3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
@@ -482,6 +638,32 @@ Now you can add as many template nodes, each having a specific code, and add any
 ### Using broadlink_cli to obtain codes
 
 It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
+First use discovery to find your Broadlink device:
+
+```bash
+./broadlink_discovery 
+Discovering...
+###########################################
+RM2
+# broadlink_cli --type 0x2737 --host 192.168.1.137 --mac 36668342f7c8
+Device file data (to be used with --device @filename in broadlink_cli) : 
+0x2737 192.168.1.137 36668342nnnn
+temperature = 0.0
+```
+
+Then use this info in a cli-command:
+
+```bash
+./broadlink_cli  --learn --device "0x2737 192.168.1.137 36668342nnnn"
+Learning...
+```
+
+Press a button on the remote and you get a code:
+
+```txt
+260058000001219512131114113910141114111411141114103911391114103911391139103911391039113911141039111411391015103911141114113910141139111410391114110005250001274b11000c520001274b11000d05
+Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
+```
 
 ### Conversion of codes from other projects
 

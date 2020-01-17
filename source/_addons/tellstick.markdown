@@ -92,7 +92,7 @@ For more information about the configuration including protocols, see the [telld
 
 If you wish to teach a self-learning device in your TellStick configuration:
 
-Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.
+Go to Home Assistant service call in Developer tools and select.
 
 - Service: `hassio.addon_stdin`
 - Enter service Data:

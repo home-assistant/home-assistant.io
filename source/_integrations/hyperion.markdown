@@ -1,6 +1,6 @@
 ---
-title: "Hyperion"
-description: "Instructions on how to integrate Hyperion into Home Assistant."
+title: Hyperion
+description: Instructions on how to integrate Hyperion into Home Assistant.
 logo: hyperion.png
 ha_category:
   - Light
@@ -76,7 +76,7 @@ automation:
         effect: "Full color mood blobs"
 ```
 
-To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
+To have the lights playing an effect when pausing, idle or turn off a media player like plex you can use this example:
 
 ```yaml
 - alias: Set hyperion effect after playback

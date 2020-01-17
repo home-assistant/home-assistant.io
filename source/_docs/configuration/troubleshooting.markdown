@@ -4,15 +4,15 @@ description: "Common problems with tweaking your configuration and their solutio
 redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
-It can happen that you run into trouble while configuring Home Assistant. Perhaps a integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
+It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
 
 Before we dive into common issues, make sure you know where your configuration directory is. Home Assistant will print out the configuration directory it is using when starting up.
 
-Whenever a integration or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
+Whenever an integration or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
 
 ### My integration does not show up
 
-When a integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
+When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
 If you have incorrect entries in your configuration files you can use the [`check_config`](/docs/tools/check_config/) script to assist in identifying them: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
 
@@ -22,7 +22,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
  
  - You can test your configuration using the command line with: `hass --script check_config`.
    - On Hass.io you can use the [hassio command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
-   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `homeassistant` is the name of the container.
+   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
  - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
  - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).

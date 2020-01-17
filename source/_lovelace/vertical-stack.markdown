@@ -11,6 +11,10 @@ type:
   required: true
   description: vertical-stack
   type: string
+title:
+  required: false
+  description: Title of Stack
+  type: string
 cards:
   required: true
   description: List of cards.
@@ -23,6 +27,7 @@ Basic example:
 
 ```yaml
 type: vertical-stack
+title: Backyard
 cards:
   - type: picture-entity
     entity: camera.demo_camera

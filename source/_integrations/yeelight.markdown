@@ -1,11 +1,14 @@
 ---
-title: "Yeelight Wifi Bulb"
-description: "Instructions on how to setup Yeelight Wifi devices within Home Assistant."
+title: Yeelight
+description: Instructions on how to setup Yeelight Wifi devices within Home Assistant.
 logo: yeelight.png
 ha_category:
   - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rytilahti'
+  - '@zewelor'
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
@@ -106,16 +109,16 @@ custom_effects:
 
 #### Music mode 
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
-**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from HASS the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
+**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### Initial setup
 
 <div class='note'>
 
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
-In the bulb property, you have to enable "LAN Mode" (previously called "Developer mode"). LAN mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
+In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
-Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
+Information on how to enable "LAN Control" can be found [here](https://www.yeelight.com/faqs/lan_control).
 
 </div>
 

@@ -1,12 +1,14 @@
 ---
-title: "Version Sensor"
-description: "Instructions on how to integrate a version sensor into Home Assistant."
+title: Version
+description: Instructions on how to integrate a version sensor into Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_release: 0.52
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.
@@ -46,7 +48,7 @@ source:
 
 ### Supported images for Hass.io and Docker
 
-`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
+`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-xu`
 
 ## Alternatives for showing local version
 

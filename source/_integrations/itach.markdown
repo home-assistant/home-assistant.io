@@ -1,6 +1,6 @@
 ---
-title: "iTach Remote"
-description: "Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant."
+title: Global Caché iTach TCP/IP to IR
+description: Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant.
 logo: globalcache.png
 ha_category:
   - Remote
@@ -79,4 +79,4 @@ Note: Global Cache devices expect data in their own format of "sendir...". This 
 API Docs:
 
 - [iTach](https://www.globalcache.com/files/docs/API-iTach.pdf)
-- [GC-100](http://www.globalcache.com/files/docs/API-GC-100.pdf)
+- [GC-100](https://www.globalcache.com/files/docs/API-GC-100.pdf)

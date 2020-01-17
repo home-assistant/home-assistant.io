@@ -4,7 +4,7 @@ description: "Setup and first steps for Jupyter Notebooks and Home Assistant."
 redirect_from: /ecosystem/notebooks/installation/
 ---
 
-To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/getting-started/installation-virtualenv/) in order to properly manage dependencies.
+To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/docs/installation/virtualenv/) in order to properly manage dependencies.
 
 ```bash
 $ pip3 install jupyter matplotlib
@@ -27,7 +27,7 @@ $ jupyter notebook
 [I 17:22:18.922 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 
-Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "New" -> "Python3" to open a new notebook.
+Open `http://localhost:8888/` in your browser. Press "New" -> "Python3" to open a new notebook.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
@@ -43,5 +43,3 @@ The downloadable version of this notebook is available in the [Home Assistant no
 
 
 As you can see is the Jupyter notebook workflow is very similar to working directly with a Python shell. One advantage of notebooks is that you can go back and forth between cells as you please and save your work.
-
-

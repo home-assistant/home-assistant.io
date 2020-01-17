@@ -1,6 +1,6 @@
 ---
-title: "BH1750 Light sensor"
-description: "Instructions on how to integrate a BH1750 light sensor into Home Assistant."
+title: BH1750
+description: Instructions on how to integrate a BH1750 light sensor into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY

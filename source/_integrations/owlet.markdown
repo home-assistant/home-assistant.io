@@ -1,6 +1,6 @@
 ---
-title: "Owlet"
-description: "Instructions on how to integrate Owlet baby monitor into Home Assistant."
+title: Owlet
+description: Instructions on how to integrate Owlet baby monitor into Home Assistant.
 logo: owlet.svg
 ha_category:
   - Health
@@ -8,6 +8,8 @@ ha_category:
   - Sensor
 ha_release: 0.89
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@oblogic7'
 ---
 
 [Owlet Care](https://owletcare.com/) baby monitors check your baby's oxygen level and heart rate while sleeping.

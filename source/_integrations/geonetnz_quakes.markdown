@@ -1,11 +1,14 @@
 ---
-title: "GeoNet NZ Quakes"
-description: "Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant."
+title: GeoNet NZ Quakes
+description: Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant.
 logo: geonet-nz.png
 ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.98
+ha_config_flow: true
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
@@ -29,7 +32,7 @@ The data is updated every 5 minutes.
 
 <div class='note'>
 
-The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](http://creativecommons.org/licenses/by/3.0/nz/).
+The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](https://creativecommons.org/licenses/by/3.0/nz/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer notice](https://www.geonet.org.nz/disclaimer) and [data policy](https://www.geonet.org.nz/policy) for more information.
 

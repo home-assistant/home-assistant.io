@@ -1,6 +1,6 @@
 ---
-title: "LaCrosse Sensor"
-description: "Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant."
+title: LaCrosse
+description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
 logo: home-assistant.png
 ha_category:
   - DIY
@@ -21,6 +21,12 @@ Since the sensor change their ID after each powercycle/battery change you can ch
 
 ```bash
 sudo pylacrosse -d /dev/ttyUSB0 scan
+```
+
+Or, when using Docker containers:
+
+```bash
+docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
 
 ## Configuration

@@ -1,6 +1,6 @@
 ---
-title: "Lutron"
-description: "Instructions on how to use Lutron devices with Home Assistant."
+title: Lutron
+description: Instructions on how to use Lutron devices with Home Assistant.
 logo: lutron.png
 ha_category:
   - Hub
@@ -10,6 +10,8 @@ ha_category:
   - Switch
 ha_release: 0.37
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@JonGilmore'
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -65,7 +67,7 @@ For single-action buttons (scene selection, etc.), `action` will be `single`, an
 
 ## Scene
 
-This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, and seeTouch RF tabletop keypads.
+This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, Pico, and seeTouch RF tabletop keypads.
 The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
@@ -73,3 +75,19 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 ## Occupancy Sensors
 
 Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+
+## Example Automations
+
+``` yaml
+- alias: "keypad button pressed notification"
+  trigger:
+    - platform: event
+      event_type: lutron_event
+      event_data:
+        id: office_pico_on
+        action: single
+  action:
+    - service: notify.telegram
+      data:
+        message: "pico just turned on!"
+```

@@ -77,6 +77,16 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
   Password: MQTT_PASSWORD
 ```
 
+If you are using the ACL, remember to enter the newly created user and homeassistant in `/share/mosquitto/accesscontrollist` as follows:
+
+```text
+user [YOUR_MQTT_USER]
+topic readwrite #
+user homeassistant
+topic readwrite #
+```
+
+
 Note: .yaml modifications are not required. 
 See [testing your setup](/docs/mqtt/testing/) to verify the steps above.
 

@@ -1,16 +1,18 @@
 ---
-title: "Config"
-description: "Instructions on how to setup the configuration panel for Home Assistant."
+title: Config
+description: Instructions on how to setup the configuration panel for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.39
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
-To enable the configuration panel, add the following to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,4 +66,3 @@ This section enables you to control your Z-Wave network and devices from within 
 ### Customization
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
-

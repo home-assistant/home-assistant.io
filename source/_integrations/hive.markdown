@@ -1,6 +1,6 @@
 ---
-title: "Hive"
-description: "Instructions on how to integrate Hive devices with Home Assistant."
+title: Hive
+description: Instructions on how to integrate Hive devices with Home Assistant.
 logo: hive.png
 ha_category:
   - Hub
@@ -12,24 +12,23 @@ ha_category:
   - Water Heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@Rendili'
+  - '@KJonline'
 ---
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
 This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
-There is currently support for the following services and platforms within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
-- [Services](#services)
-  - [Service `hive.boost_heating`](#service-hiveboostheating)
-  - [Service `hive.boost_hot_water`](#service-hiveboosthotwater)
-- [Platforms](#platforms)
-  - [Binary Sensor](#binary-sensor)
-  - [Climate](#climate)
-  - [Light](#light)
-  - [Sensor](#sensor)
-  - [Switch](#switch)
-  - [Water Heater](#water-heater)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Light](#light)
+- [Sensor](#sensor)
+- [Switch](#switch)
+- [Water Heater](#water-heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 

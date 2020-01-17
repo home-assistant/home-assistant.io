@@ -8,19 +8,15 @@ The following will take you through the steps required to install Hass.io.
 1. Download the appropriate install option:
 
    - As an image for your device:
-  
-     - [Raspberry Pi Zero][pi1] (not recommended for more than testing)
-     - [Raspberry Pi Zero W][pi0-w] (not recommended for more than testing)
-     - [Raspberry Pi 1 Model B][pi1] (not recommended for more than testing)
-     - [Raspberry Pi 2 Model B][pi2]
+   
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
-     - [(RC) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
-     - [(RC) Raspberry Pi 4 Model B 64bit][pi4-64]
+     - [Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
+     - [Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
+     - [Odroid-N2 (Beta)][odroid-n2]
      - [Odroid-XU4][odroid-xu4]
-     - [OrangePi-Prime][opi-prime]
      - [Intel-Nuc][intel-nuc]
     
    - As a virtual appliance: 
@@ -30,15 +26,22 @@ The following will take you through the steps required to install Hass.io.
      - [VDI][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
     
+   - Not recommended Hardware:
+  
+     - [Raspberry Pi][pi1]
+     - [Raspberry Pi Zero-W][pi0-w]
+     - [Raspberry Pi 2][pi2]
+
 2. Install Hass.io:
 
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
 3. Optional - set up the WiFi or static IP. There are two possible places for that: 
-- On a blank USB stick with Fat32 partition (partition label: "CONFIG"), while in / directory, create `network/my-network` file 
-- or on Hassio SD card first, bootable partition (might not be auto mounted in Linux) create `CONFIG/network/my-network` file 
-For the content of this file follow the [HassOS howto][hassos-network].
+   - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
+   - on the Hass.io SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
+
+   For the content of this file, follow the [HassOS howto][hassos-network].
 
 4. For image-based installs insert the SD card (and optional USB stick) into the device.
 
@@ -46,9 +49,9 @@ For the content of this file follow the [HassOS howto][hassos-network].
 
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
-6. You will be able to reach your installation at [http://hassio.local:8123][local] (if your router supports mDNS, otherwise see below).
+6. You will be able to reach your installation at `http://hassio.local:8123` (if your router supports mDNS, otherwise see below).
 
-7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
+7. It is important to provide yourself proper access, including the Hass.io CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Hass.io**, which is located in the sidebar and then the add-on store.
 
 <div class='note'>
 
@@ -63,10 +66,6 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 </div>
 
 Now you can [configure][configure] your install.
-
-### Migrating from a non-Hass.io install
-
-If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 
 ## Updating a Hass.io installation
 
@@ -88,12 +87,12 @@ hassio ha update --version=0.XX.X
 
 ## Run the beta version on Hass.io
 
-If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
 1. Backup your installation, using the snapshot functionality Hass.io offers.
-2. Check the RC release notes for breaking changes on [Home Assistant release notes](https://rc--home-assistant-docs.netlify.com/latest-release-notes/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
-4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+2. Check the [Home Assistant RC release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ tab from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
+4. Select _Dashboard_ tab from the _Hass.io_ menu, and then select _Update_.
 
 ## Alternative: install on a generic Linux host
 
@@ -104,19 +103,19 @@ The packages you need to have available on your system that will run Hass.io may
 
 ### Debian/Ubuntu
 
- - apparmor-utils
- - apt-transport-https
- - avahi-daemon
- - ca-certificates
- - curl
- - dbus
- - jq
- - socat
- - software-properties-common
+ - `apparmor-utils`
+ - `apt-transport-https`
+ - `avahi-daemon`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `jq`
+ - `socat`
+ - `software-properties-common`
 
 Optional:
 
- - network-manager
+ - `network-manager`
 
 <div class='note warning'>
 
@@ -126,14 +125,14 @@ Optional:
 
 ### Arch Linux
 
- - apparmor
- - avahi
- - ca-certificates
- - curl
- - dbus
- - docker
- - jq
- - socat
+ - `apparmor`
+ - `avahi`
+ - `ca-certificates`
+ - `curl`
+ - `dbus`
+ - `docker`
+ - `jq`
+ - `socat`
 
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
@@ -150,12 +149,20 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 To prepare your machine for the Hass.io installation, run the following commands:
 
+For Ubuntu:
+
+```bash
+add-apt-repository universe
+```
+
+Debian/Ubuntu:
+
 ```bash
 sudo -i
 apt-get install software-properties-common
-add-apt-repository universe
 apt-get update
 apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+systemctl disable ModemManager
 curl -fsSL get.docker.com | sh
 ```
 
@@ -178,10 +185,19 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
  - `raspberrypi2`
  - `raspberrypi3`
  - `raspberrypi3-64`
+ - `raspberrypi4`
+ - `raspberrypi4-64`
  - `odroid-c2`
  - `odroid-cu2`
  - `odroid-xu`
  - `orangepi-prime`
+ - `tinker`
+ - `qemuarm`
+ - `qemuarm-64`
+ - `qemux86`
+ - `qemux86-64`
+
+See the [hassio-installer](https://github.com/home-assistant/hassio-installer) Github page for an up-to-date listing of supported machine types.
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
@@ -192,21 +208,21 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi0-w-2.12.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi-2.12.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-3.5.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.5/hassos_rpi4-64-3.5.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
-[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz
-[opi-prime]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_opi-prime-2.12.img.gz
-[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_intel-nuc-2.12.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vmdk.gz
-[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vhdx.gz
-[vdi]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vdi.gz
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi0-w-3.8.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi-3.8.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi2-3.8.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi3-3.8.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi3-64-3.8.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi4-3.8.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_rpi4-64-3.8.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_tinker-3.8.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_odroid-c2-3.8.img.gz
+[odroid-n2]: https://github.com/home-assistant/hassos/releases/download/4.0/hassos_odroid-n2-4.0.img.gz
+[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_odroid-xu4-3.8.img.gz
+[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_intel-nuc-3.8.img.gz
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_ova-3.8.vmdk.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_ova-3.8.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/3.8/hassos_ova-3.8.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

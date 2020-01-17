@@ -1,6 +1,6 @@
 ---
-title: "Netatmo"
-description: "Instructions on how to integrate Netatmo integration into Home Assistant."
+title: Netatmo
+description: Instructions on how to integrate Netatmo integration into Home Assistant.
 logo: netatmo.png
 ha_category:
   - Hub
@@ -10,7 +10,7 @@ ha_category:
   - Sensor
   - Climate
   - Camera
-ha_release: "0.20"
+ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ---
 
@@ -250,6 +250,18 @@ camera:
     - camera_name1
     - camera_name2
 ```
+
+### Services (only for camera)
+
+The services below permit to control whether the camera should monitor and alert on motion detection. Also, it allows to control the status of the flood light (only for Presence model).
+
+| Service | Description |
+| ------- | ----------- |
+| enable_motion_detection | Enable motion detection and alert. 
+| disable_motion_detection | Disable motion detection and alert. 
+| set_light_auto | Presence model only : Set flood light on automatic mode.
+| set_light_on | Presence model only : Set flood light on.
+| set_light_off | Presence model only : Set flood light off.
 
 ## Climate
 

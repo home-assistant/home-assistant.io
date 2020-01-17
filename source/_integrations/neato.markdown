@@ -1,14 +1,18 @@
 ---
-title: "Neato Robotics"
-description: "Instructions on how to integrate your Neato within Home Assistant."
+title: Neato Botvac
+description: Instructions on how to integrate your Neato within Home Assistant.
 logo: neato.png
 ha_category:
   - Camera
   - Sensor
   - Switch
   - Vacuum
+ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
+ha_codeowners:
+  - '@dshokouhi'
+  - '@Santobert'
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
@@ -77,11 +81,11 @@ Currently supported services are:
 
 And a specific Platform Service:
 
-- `vacuum.neato_custom_cleaning`
+- `neato.custom_cleaning`
 
 ### Platform Services
 
-#### Service `vacuum.neato_custom_cleaning`
+#### Service `neato.custom_cleaning`
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 

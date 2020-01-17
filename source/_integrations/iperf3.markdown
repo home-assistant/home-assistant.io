@@ -1,21 +1,23 @@
 ---
-title: "Iperf3 Sensor"
-description: "How to use Iperf3 within Home Assistant to measure your network bandwidth."
+title: Iperf3
+description: How to use Iperf3 within Home Assistant to measure your network bandwidth.
 logo: iperf3.png
 ha_category:
   - System Monitor
   - Sensor
 ha_release: 0.71
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rohankapoorcom'
 ---
 
-The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
+The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
 Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
 
 ## Setup
 
-This integration requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
+This integration requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](https://software.es.net/iperf/obtaining.html) for installation instructions.
 
 ## Configuration
 

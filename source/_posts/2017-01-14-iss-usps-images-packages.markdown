@@ -176,7 +176,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [packages]: /topics/packages/
 [pico]: /integrations/picotts
 [ping]: /integrations/ping
-[plates]: /integrations/openalpr_local_local
+[plates]: /integrations/openalpr_local/
 [rest]: /integrations/rest_command/
 [sma]: /integrations/sma#sensors
 [sonarr]: /integrations/sonarr
@@ -189,4 +189,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [yandex]: /integrations/yandextts
 [yeelight]: /integrations/yeelight
 [zengge]: /integrations/zengge
-

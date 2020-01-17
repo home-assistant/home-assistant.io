@@ -1,6 +1,6 @@
 ---
-title: "PWM LED Light"
-description: "Instructions on how to setup PWM LEDs within Home Assistant."
+title: pigpio Daemon PWM LED
+description: Instructions on how to setup PWM LEDs within Home Assistant.
 ha_category:
   - DIY
 ha_iot_class: Local Push
@@ -67,7 +67,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### RGB LED connected to PCA9685 controller
 
-This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to control a RGB LED.
+This example uses a [PCA9685 controller](https://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to control a RGB LED.
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,7 +82,7 @@ light:
 
 ### RGBW LED connected to PCA9685 controller
 
-This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to interact with a RGBW LED.
+This example uses a [PCA9685 controller](https://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to interact with a RGBW LED.
 
 ```yaml
 # Example configuration.yaml entry

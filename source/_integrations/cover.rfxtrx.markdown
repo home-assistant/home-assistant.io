@@ -23,7 +23,7 @@ cover:
     automatic_add: true
 ```
 
-Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.
+Launch your homeassistant and go the website (e.g `http://localhost:8123`). Push your remote and your device should be added.
 
 Once added it will show an ID (e.g `0b11000102ef9f210010f70`) and you can verify that it works from the frontend. Then you should update your configuration to:
 

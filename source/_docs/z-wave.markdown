@@ -4,7 +4,7 @@ description: "Using Z-Wave with Home Assistant."
 redirect_from: /getting-started/z-wave/
 ---
 
-[Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](/docs/z-wave/controllers/) to be plugged into the host.
+[Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](/docs/z-wave/controllers/) to be plugged into the host.
 
 There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.
 
@@ -36,4 +36,4 @@ You can get more information on the [available services](/docs/z-wave/services/)
 
 When you toggle a switch or control a light locally you may find that it takes some time for that to be reflected in Home Assistant. That's because Lutron had patents on the status updates using the *Hail* command class, the traditional way of allowing devices to tell the controller that something happened locally. The same result can be achieved through the *Association* command class, or *Central Scene* command class (though, *Central Scene* isn't [fully supported](https://github.com/OpenZWave/open-zwave/pull/1125) in OpenZWave). 
 
-If you search [the Z-Wave products database](http://products.z-wavealliance.org/) for your product and it lists one of those in the **Controlled** command classes (not the **Supported** command classes), then your device will be able to report state changes when they happen. If it doesn't then updates may either happen eventually, or you may need to (carefully) [enable polling](/docs/z-wave/control-panel/#entities-of-this-node).
+If you search [the Z-Wave products database](https://products.z-wavealliance.org/) for your product and it lists one of those in the **Controlled** command classes (not the **Supported** command classes), then your device will be able to report state changes when they happen. If it doesn't then updates may either happen eventually, or you may need to (carefully) [enable polling](/docs/z-wave/control-panel/#entities-of-this-node).

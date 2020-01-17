@@ -1,6 +1,6 @@
 ---
-title: "SmartThings"
-description: "Instructions on setting up Samsung SmartThings within Home Assistant."
+title: Smartthings
+description: Instructions on setting up Samsung SmartThings within Home Assistant.
 featured: true
 logo: samsung_smartthings.png
 ha_category:
@@ -16,6 +16,9 @@ ha_category:
   - Switch
 ha_release: 0.87
 ha_iot_class: Cloud Push
+ha_config_flow: true
+ha_codeowners:
+  - '@andrewsayre'
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:
@@ -46,7 +49,7 @@ If you are using Home Assistant Cloud (Nabu Casa) the integration will create a 
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-3. [`base_url` of the http component](/integrations/http#base_url) set the URL that Home Assistant is available on the internet.
+3. [`base_url` of the http integration](/integrations/http#base_url) set the URL that Home Assistant is available on the internet. SmartThings requires the `base_url` and Home Assistant to use the standard HTTPS port (443).
 
 ## Setup instructions
 
@@ -108,8 +111,8 @@ The integration will trigger an event when a device with the [button](https://sm
 | Attribute                 | Description
 |---------------------------|------------------------------------------------------------------|
 `component_id`              | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
-`device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
-`location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
+`device_id`                 | The unique id of the device in SmartThings. This can be located in the Home Assistant device registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).
+`location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
 `name`                      | The name given to the device in SmartThings.
 

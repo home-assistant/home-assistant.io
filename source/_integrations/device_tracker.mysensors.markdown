@@ -25,10 +25,10 @@ For more information, visit the [serial api] of MySensors.
 
 ```cpp
 /**
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/gps
+ * https://www.mysensors.org/build/gps
  */
 
 // Enable debug prints to serial monitor
@@ -97,4 +97,4 @@ void loop()
 ```
 
 [main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download
+[serial api]: https://www.mysensors.org/download

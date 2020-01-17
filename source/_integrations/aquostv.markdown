@@ -1,6 +1,6 @@
 ---
-title: "Sharp Aquos TV"
-description: "Instructions on how to integrate a Sharp Aquos TV into Home Assistant."
+title: Sharp Aquos TV
+description: Instructions on how to integrate a Sharp Aquos TV into Home Assistant.
 logo: sharp_aquos.png
 ha_category:
   - Media Player
@@ -56,7 +56,7 @@ power_on_enabled:
 
 When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
 Then you will be able to turn on with Home Assistant.
-Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
+Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consume more power.
 
 </div>
 

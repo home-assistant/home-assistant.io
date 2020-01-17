@@ -29,9 +29,11 @@ notify:
   - platform: pushbullet
     api_key: ***
     name: pushbullet
-  
+
+wemo:
+  discovery: true
+
 switch:
-  - platform: wemo
   - platform: mqtt
     state_topic: "home/killhass"
     command_topic: "home/killhass"

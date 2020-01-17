@@ -1,16 +1,18 @@
 ---
-title: "Flu Near You"
-description: "Instructions on how to use Flu Near You data within Home Assistant"
+title: Flu Near You
+description: Instructions on how to use Flu Near You data within Home Assistant
 logo: flunearyou.png
 ha_category:
   - Health
 ha_release: 0.83
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bachya'
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its
-territories to get information regarding reported flu symptoms from Flu Near
-You. The platform can return user-reported information as well reports from the
+territories to get information regarding reported flu symptoms from [Flu Near
+You](https://flunearyou.org/). The platform can return user-reported information as well reports from the
 Center for Disease Control (CDC).
 
 ## Configuration

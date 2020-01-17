@@ -48,19 +48,18 @@ Press Enter to Continue
 If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:
 
 ```text
-address=/mydomain.com/<hass ip>
+address=/mydomain.com/<hass IP>
 ```
 
 ### Edit your Home Assistant configuration to use your certificates
 
-The [`http`](/integrations/http/) section must contain the full path to the needed files. 
+The [`http`](/integrations/http/) section must contain the full path to the needed files.
 
 ```yaml
 http:
-  api_password: YOUR_SECRET_PASSWORD
   base_url: https://mydomain.com:8123
   ssl_certificate: /etc/letsencrypt/live/mydomain.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/mydomain.com/privkey.pem
 ```
 
-Make sure the files are accessible by the user that runs Home Assistant, eg. `homeassistant` for a HASSbian setup.
+Make sure the files are accessible by the user that runs Home Assistant.

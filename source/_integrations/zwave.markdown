@@ -1,6 +1,6 @@
 ---
-title: "Z-Wave"
-description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
+title: Z-Wave
+description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 logo: z-wave.png
 ha_category:
   - Hub
@@ -15,9 +15,12 @@ ha_category:
 featured: true
 ha_iot_class: Local Push
 ha_release: 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@home-assistant/z-wave'
 ---
 
-The [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
+The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
 There is currently support for the following device types within Home Assistant:
 

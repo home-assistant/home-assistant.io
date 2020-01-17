@@ -11,7 +11,7 @@ Synology NAS are the perfect companion to running Home Assistant. But by default
 Starting with DSM 6.2.1+, you can create "custom headers" in the Application Portal:
 * Go to Application Portal and edit your entry
 * Click on "custom headers" tab and click the dropdon on the "Create" button
-* Select "Websocket". This will automaticly add the required headers for websocket to this reverse proxy.
+* Select "Websocket". This will automatically add the required headers for websocket to this reverse proxy.
 * Click "OK". Home Assistant should work now with the reverse proxy.
 
 It's not necessary anymore to change the template anymore since Version DSM 6.2.1. Changing the `Portal.mustache` is not recommended! You should use the following part only if you're using a Version before DSM 6.2.1. on your Synology.

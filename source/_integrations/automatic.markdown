@@ -1,15 +1,16 @@
 ---
-title: "Automatic"
-description: "Instructions for how to integrate Automatic ODB readers into Home Assistant."
+title: Automatic
+description: Instructions for how to integrate Automatic ODB readers into Home Assistant.
 logo: automatic.png
 ha_category:
   - Car
 ha_release: 0.28
 ha_iot_class: Cloud Push
+ha_codeowners:
+  - '@armills'
 ---
 
-
-The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](http://automatic.com/) cloud service.
+The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](https://automatic.com/) cloud service.
 
 ## Setup
 
@@ -51,6 +52,12 @@ devices:
   required: false
   type: list
 {% endconfiguration %}
+
+<div class='note'>
+  
+The device name must be the name given by Automatic automatically. This is typically the model year, make and model. This is *not* the nickname you have to give the vehicle in the `vehicles` section of the app's settings.
+  
+</div>  
 
 Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the [Automatic Real-Time Events documentation](https://developer.automatic.com/api-reference/#real-time-events).
 

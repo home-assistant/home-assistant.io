@@ -1,12 +1,13 @@
 ---
-title: "SMHI"
-description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
+title: SMHI
+description: Instructions on how to integrate SMHI forecasts within Home Assistant.
 logo: smhi.png
 ha_category:
- - Hub
- - Weather
+  - Hub
+  - Weather
 ha_release: 0.81
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ---
 
 The `smhi` integration adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
@@ -29,7 +30,7 @@ You can only add locations through the integrations page, not in configuration f
 
 <div class='note warning'>
 
-Only location close to Sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
+Only location close to Sweden can be added. See [SMHI.se area](https://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
 
 </div>
 
@@ -51,4 +52,4 @@ name:
   default: Home
 {% endconfiguration %}
 
-Details about the API are available in the [SMHI API documentation](http://opendata.smhi.se/apidocs/metfcst/index.html).
+Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/apidocs/metfcst/index.html).

@@ -79,7 +79,7 @@ For example, the below automation will be triggered when the sun goes from below
 
 ```yaml
 # Example automations.yaml entry
-- id: my_unique_id  # <-- Required for editor to work.
+- id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
   alias: Hello world
   trigger:
   - platform: state 

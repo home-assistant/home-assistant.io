@@ -1,20 +1,19 @@
 /*
-  Cache-Control: public, max-age: 0, s-max-age=3600, must-revalidate
+  Cache-Control: public, max-age: 0, s-maxage=3600, must-revalidate
   Content-Security-Policy: form-action https:
   Feature-Policy: vibrate 'none'; geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none'
-  Referrer-Policy: strict-origin-when-cross-origin
+  Referrer-Policy: no-referrer-when-downgrade
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
 /*.css
-  Cache-Control: public, max-age: 604800, s-max-age=604800
+  Cache-Control: public, max-age: 604800, s-maxage=604800
 /*.js
-  Cache-Control: public, max-age: 604800, s-max-age=604800
+  Cache-Control: public, max-age: 604800, s-maxage=604800
 /assets/*
-  Cache-Control: public, max-age: 0, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 0, s-maxage=604800, must-revalidate
 /fonts/*
-  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-maxage=604800, must-revalidate
 /images/*
-  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-maxage=604800, must-revalidate
 /static/*
-  Cache-Control: public, max-age: 1800, s-max-age=604800, must-revalidate
+  Cache-Control: public, max-age: 1800, s-maxage=604800, must-revalidate

@@ -1,11 +1,13 @@
 ---
-title: "Yandex transport"
-description: "Instructions on how to set up Yandex transport with Home Assistant."
+title: Yandex Transport
+description: Instructions on how to set up Yandex transport with Home Assistant.
 logo: yandex.png
 ha_category:
   - Sensor
   - Transport
-ha_release: "0.100"
+ha_release: '0.100'
+ha_codeowners:
+  - '@rishatik92'
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
@@ -25,7 +27,7 @@ To activate Yandex Transport, add the following lines to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: yandex_tranport
+  - platform: yandex_transport
     stop_id: YOUR_STOP_ID
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: "Netio Switch"
-description: "Instructions on how to integrate Netio switches into Home Assistant."
+title: Netio
+description: Instructions on how to integrate Netio switches into Home Assistant.
 logo: netio.png
 ha_category:
   - Switch
@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.24
 ---
 
-The `netio` switch platform allows you to control your [Netio](http://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or WiFi that reports consumptions (Netio4all).
+The `netio` switch platform allows you to control your [Netio](https://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or WiFi that reports consumptions (Netio4all).
 
 To use Netio devices in your installation, add the following to your `configuration.yaml` file:
 

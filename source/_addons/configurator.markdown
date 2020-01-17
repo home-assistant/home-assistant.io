@@ -1,5 +1,5 @@
 ---
-title: "HASS Configurator"
+title: "Configurator"
 description: "Browser-based configuration file editor for Home Assistant."
 featured: true
 og_image: /images/hassio/screenshots/addon-hass-configurator.png
@@ -11,7 +11,7 @@ More information and a standalone version for regular Home Assistant installatio
 
 <p class='img'>
 <img src='/images/hassio/screenshots/addon-hass-configurator.png'>
-Screenshot of the HASS Configurator.
+Screenshot of the Configurator.
 </p>
 
 ### Feature list

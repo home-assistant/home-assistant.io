@@ -82,7 +82,7 @@ homeassistant:
 ```
 
 This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than accross several.
+See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
 
 ### Customizing entities with packages
 

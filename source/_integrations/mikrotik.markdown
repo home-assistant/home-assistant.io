@@ -1,6 +1,6 @@
 ---
-title: "MikroTik"
-description: "Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant."
+title: MikroTik
+description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 logo: mikrotik.png
 ha_category:
   - Hub
@@ -8,7 +8,7 @@ ha_category:
 ha_release: 0.44
 ---
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -83,11 +83,9 @@ arp_ping:
 {% endconfiguration %}
 
 <div class='note info'>
-  
-  As of version 6.43 of RouterOS Mikrotik introduced a new login method (plain) in addition to the old login method (token). With Version 6.45.1 the old token login method got deprecated.
-  In order to support both login mechanisms, the new config option `login_method` has been introduced. If this option is not set, the component will try to login with the plain method first and the token method if that fails.
-  That can cause log entries on the router like `login failure for user homeassistant from 192.168.23.10 via api` but doesn't keep the component from working. 
-  To get rid of these entries, set the `login_method` to `plain` for Routers with OS versions > 6.43 or `token` for routers with OS versions < 6.43.
+
+  As of version 6.43 of RouterOS Mikrotik introduced a new login method (`plain`) in addition to the old login method (`token`). With Version 6.45.1 the old `token` login method got deprecated.
+  In order to support both login mechanisms, the new config option `login_method` has been introduced.
 
 </div>
 
@@ -112,10 +110,10 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 
 ## The user privileges in RouterOS
 
-To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API only:
+To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API  and perform ping test only:
 
 ```bash
-/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
+/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
 /user add group=homeassistant name=homeassistant
 /user set password="YOUR_PASSWORD" homeassistant
 ```

@@ -1,6 +1,6 @@
 ---
-title: "PrezziBenzina Sensor"
-description: "Instructions on how to integrate PrezziBenzina sensors within Home Assistant."
+title: Prezzi Benzina
+description: Instructions on how to integrate PrezziBenzina sensors within Home Assistant.
 logo: prezzibenzina.png
 ha_category:
   - Energy

@@ -1,6 +1,6 @@
 ---
-title: "Concord232"
-description: "Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant."
+title: Concord232
+description: Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant.
 logo: interlogix.png
 ha_category:
   - Alarm
@@ -43,7 +43,7 @@ code:
   required: false
   type: string
 mode:
-  description: audible/silent if defined, specifies wether Alarm Panel should be audible or silent when armed in Home Mode.
+  description: audible/silent if defined, specifies whether Alarm Panel should be audible or silent when armed in Home Mode.
   required: false
   type: string
   default: audible

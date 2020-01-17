@@ -1,13 +1,13 @@
 ---
-title: "PowerView Scenes"
-description: "Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant."
+title: Hunter Douglas PowerView
+description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
 logo: hunter-douglas-powerview.png
 ha_category:
   - Scene
 ha_release: 0.15
 ---
 
-Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
+Implements the [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
 
 Scenes can be activated using the service `scene.turn_on`.
 
@@ -24,3 +24,15 @@ address:
   required: true
   type: string
 {% endconfiguration %}
+
+## Example Automations
+
+``` yaml
+- alias: "blinds closed at night"
+  trigger:
+    platform: time
+    at: "18:00:00"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.10877
+```

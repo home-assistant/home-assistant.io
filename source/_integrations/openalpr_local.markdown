@@ -1,13 +1,13 @@
 ---
-title: "OpenALPR Local"
-description: "Instructions on how to integrate licences plates with OpenALPR local into Home Assistant."
+title: OpenALPR Local
+description: Instructions on how to integrate licences plates with OpenALPR local into Home Assistant.
 logo: openalpr.png
 ha_category:
   - Image Processing
 ha_release: 0.36
 ---
 
-[OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you
+[OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you
 to process licences plates from a camera. You can use them to open a garage door
 or trigger any other [automation](/integrations/automation/).
 

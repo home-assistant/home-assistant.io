@@ -1,10 +1,12 @@
 ---
-title: "SpaceAPI"
-description: "Instructions on how to configure the SpaceAPI for Home Assistant."
+title: Space API
+description: Instructions on how to configure the SpaceAPI for Home Assistant.
 logo: spaceapi.png
 ha_category:
   - Social
-ha_release: "0.70"
+ha_release: '0.70'
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
@@ -276,7 +278,7 @@ In this section you find some real-life examples of how to use this component.
 
 ### Eastermundigen
 
-A possible configuration entry for [Eastermundigen](http://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
+A possible configuration entry for [Eastermundigen](https://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
 
 ```yaml
 # Example configuration.yaml entry
