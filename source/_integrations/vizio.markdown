@@ -90,6 +90,10 @@ host:
   description: IP address of your device.
   required: true
   type: string
+name:
+  description: Unique nickname for your device that will be used to generate the device's entity ID.
+  required: false
+  type: string
 access_token:
   description: Authentication token you received in the last step of the pairing process (if applicable).
   required: false
