@@ -104,11 +104,6 @@ volume_step:
   required: false
   type: integer
   default: 1
-timeout:
-  description: The number of seconds that the Vizio component will wait for a response from the device before timing out.
-  required: false
-  type: integer
-  default: 5
 {% endconfiguration %}
 
 ## Notes and limitations
