@@ -90,6 +90,11 @@ host:
   description: IP address of your device.
   required: true
   type: string
+name:
+  description: Nickname for your device that will be used to generate the device's entity ID. If multiple Vizio devices are configured, the value must be unique for each entry.
+  required: false
+  type: string
+  default: Vizio SmartCast
 access_token:
   description: Authentication token you received in the last step of the pairing process (if applicable).
   required: false
