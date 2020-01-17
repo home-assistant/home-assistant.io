@@ -1,38 +1,37 @@
 ---
 title: Synology
-description: Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant.
+description: Instructions on how to integrate Synology Surveillance Station within Home Assistant.
 logo: synology.png
 ha_category:
   - Camera
+  - Switch
 ha_release: 0.31
 ha_iot_class: Local Polling
 ---
 
-The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
+The `synology` platform allows you to integrate your [Synology](https://www.synology.com/) Surveillance Station with Home Assistant.
 
-<div class='note'>
+There is currently support for the following device:
 
-Synology has disabled the livestreaming API and the integration is currently broken if you are using Surveillance Station version 8.2.3-5828.
-There is an unsupported preview fix available. (8.2.3-5829) - Instructions can be found [here](https://www.vcloudinfo.com/2019/04/how-to-manually-upgrade-your-synology-surveillance-system-firmware.html) for updating manually.
-
-</div>
+- [Camera](/integrations/synology/#camera)
+- [Switch](/integrations/synology/#switch)
 
 ## Configuration
 
-To enable your Surveillance Station cameras in your installation, add the following to your `configuration.yaml` file:
+To enable your Surveillance Station in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Minimum configuration.yaml entry
-camera:
-  - platform: synology
-    url: IP_ADDRESS_OF_SYNOLOGY_NAS
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
+synology:
+  name: "Synology NAS"
+  url: SYNOLOGY_URL
+  username: USERNAME
+  password: PASSWORD
+  verify_ssl: true
 ```
 
 {% configuration %}
 name:
-  description: A name for this Synology camera.
+  description: A name for this Synology.
   required: false
   type: string
   default: Synology Camera
@@ -53,10 +52,6 @@ timeout:
   required: false
   type: integer
   default: 5
-whitelist:
-  description: A list of which cameras you want to add, the names must be the same as in Surveillance Station. If omitted all cameras are added.
-  required: false
-  type: list
 verify_ssl:
   description: Verify SSL/TLS certificate for HTTPS request.
   required: false
@@ -64,19 +59,60 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
+### Camera
+
+<div class='note'>
+
+Synology has disabled the livestreaming API and the integration is currently broken if you are using Surveillance Station version 8.2.3-5828.
+There is an unsupported preview fix available. (8.2.3-5829) - Instructions can be found [here](https://www.vcloudinfo.com/2019/04/how-to-manually-upgrade-your-synology-surveillance-system-firmware.html) for updating manually.
+
+</div>
+
+Once you have enabled the `synology` component, add the following to your `configuration.yaml` file:
+
+```yaml
+camera:
+  - platform: synology
+```
+
+{% configuration %}
+whitelist:
+  description: A list of which cameras you want to add, the names must be the same as in Surveillance Station. If omitted all cameras are added.
+  required: false
+  type: list
+{% endconfiguration %}
+
+### Switch
+
+Once you have enabled the `synology` component, add the following to your `configuration.yaml` file:
+
+```yaml
+switch:
+  - platform: synology
+```
+
+#### Switch Types
+
+- Switch for enabling or disabling the [Surveillance Station Home Mode](https://www.synology.com/en-global/knowledgebase/Surveillance/help/SurveillanceStation/home_mode)  
+
 ## Full example
 
 A full sample configuration for the `synology` camera platform is shown below:
 
 ```yaml
 # Example configuration.yaml entry
+synology:
+  name: "Synology NAS"
+  url: SYNOLOGY_URL
+  username: USERNAME
+  password: PASSWORD
+  verify_ssl: true
+
 camera:
   - platform: synology
-    url: https://192.168.1.120:5001
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    timeout: 15
-    verify_ssl: false
+
+switch:
+  - platform: synology
 ```
 
 <div class='note'>
