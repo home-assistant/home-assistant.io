@@ -71,17 +71,17 @@ This is an IoT cloud-polling integration, and the recommended `scan_interval` is
 
 ## System modes, Zone overrides and Inheritance
 
-Controllers support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all evohome systems support all modes.
+Evohome locations support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all evohome systems support all modes.
 
-Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride** but 'inherit' an operating mode from their controller (the actual algorithm for this is a little more complicated than indicated below).
+Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride** but 'inherit' an operating mode from their location (the actual algorithm for this is a little more complicated than indicated below - please see your vendor's documentation).
 
 For **FollowSchedule**, a zone's `temperature` (target temperature, a.k.a setpoint) is a function of its scheduled temperature and its inherited mode. For example, **AutoWithEco** would be scheduled temperature less 3C.
 
-If the controller is set to **HeatingOff** (temperature set to a minimum) or **Away** (temperature set to 12C), then the zones will inherit that setpoint regardless of their own mode. For **Away**, the DHW controller will also be turned off.
+If the location is set to **HeatingOff** (temperature set to a minimum) or **Away** (temperature set to 12C), then the zones will inherit that setpoint regardless of their own mode. For **Away**, the DHW controller will also be turned off.
 
 If the zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint (or in an hour, if there is no such schedule). Zones can be switched between the two override modes without changing the target temperature.
 
-Some controllers have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
+Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
 In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
 
@@ -115,7 +115,7 @@ This service call is used to set a zone, as identified by its `entity_id`, to **
 
 The actual operating mode of evohome entities can be tracked via their state attributes, which includes a JSON data structure for the current state called `status`.
 
-For the Controller, see `system_mode_status`:
+For the location (controller), see `system_mode_status`:
 
 {% raw %}
 ```text
