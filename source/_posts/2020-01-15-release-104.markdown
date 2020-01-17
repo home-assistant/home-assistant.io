@@ -237,7 +237,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
 - __Hue__ - Hue will no longer import existing authentication from disk. It has not written this authentication to disk since March 2018. The config option has been deprecated and will be removed in 0.106. ([@balloob] - [#30000]) ([hue docs])
 
-- __Deconz__ - Due to changes to configuration handling, deconz groups will be assigned new identifiers in Home Assistant. As a result, deconz groups will be duplicated. Remove any group devices from the registry prior to upgrading or alternatively delete the obsolete entries after the upgrade to eliminate the duplicates. ([#30875]) ([deconz docs])
+- __deCONZ__ - Due to changes to configuration handling, deCONZ groups will be assigned new identifiers in Home Assistant. As a result, deCONZ groups will be duplicated. Remove any group devices from the registry prior to upgrading or alternatively delete the obsolete entries after the upgrade to eliminate the duplicates. ([#30875]) ([deconz docs])
 
 - __UPnP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
 
