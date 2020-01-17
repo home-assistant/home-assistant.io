@@ -12,7 +12,7 @@ ha_codeowners:
   - '@heythisisnate'
 ---
 
-The `konnected` integration lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
+The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
@@ -22,7 +22,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [`discovery`](/integrations/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+This integration uses the [`ssdp`](/integrations/ssdp) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
 
 <div class='note info'>
 
@@ -32,7 +32,11 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Configuration
 
-A `konnected` section must be present in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
+Home Assistant offers Konnected integration through **Configuration** -> **Integrations** -> **Konnected.io**.
+
+The config flow will guide you through a setup process that lets you configure the behavior of each zone and generate a config entry. 
+
+If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the config will automatically be imported into a config entry or used to start a config flow.  Details of the config fields and values can be found below - these apply to both the config flow and the yaml.
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +73,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the NodeMCU WiFi module with colons/punctuation removed, for example `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the home-assistant.log for log messages from automatically discovered devices.
+      description: The MAC address of the Konnected device with colons/punctuation removed, for example `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the home-assistant.log for log messages from automatically discovered devices.
       required: true
       type: string
     binary_sensors:
@@ -78,10 +82,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7` and `9`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are `1`, `2`, `3`, `4`, `5` and `6`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         type:
           description: Any [binary sensor](/integrations/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
@@ -101,10 +105,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values for sensors are `1`, `2`, `5`, `6`, `7` and `9`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values for sensors are `1`, `2`, `3`, `4`, `5` and `6`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         name:
           description: The name of the device used in the front end.
@@ -124,10 +128,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 8.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board or the word `out` to specify the dedicated ALARM/OUT terminal on the Konnected board. Valid values are `1`, `2`, `3`, `4`, `5` and `out`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         name:
           description: The name of the device used in the front end.
@@ -170,7 +174,10 @@ devices:
 #### Configuration Notes
 
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
+- **pin** represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`.  Pin based configuration is only allowed with esp8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
+- **zone** represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
+- The Konnected Alarm Panel Pro does not support configuration via pin.
 
 ### Extended Configuration 
 
