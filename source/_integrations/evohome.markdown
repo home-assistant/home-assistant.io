@@ -14,8 +14,8 @@ ha_codeowners:
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
 
-- The Honeywell evohome CH/DHW system, and
-- The Honeywell Round Thermostat
+- the Honeywell evohome CH/DHW system, and
+- the Honeywell Round Thermostat
 
 It does not support the home security functionality of TCC.
 
