@@ -75,11 +75,9 @@ If you've added Home Assistant to your phone's home screen, you have to first re
     6. For the Key type, select the JSON option.
     7. Click Create. A JSON file that contains your key downloads to your computer.
     8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable HomeGraph API for your project (Please note: this is now deprecated refer to Step 2 above, this feature will be removed in 0.105):
-    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
-    2. Select your project and click Enable HomeGraph API.
-    3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
-    4. Note down the generated API Key and use this in the configuration.
+    9. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    10. Select your project and click Enable HomeGraph API.
+
 
 ### Configuration
 
@@ -116,7 +114,7 @@ secure_devices_pin:
   type: string
   default: ""
 api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a service_account now.
+  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a `service_account` now.
   required: false
   type: string
 service_account:
