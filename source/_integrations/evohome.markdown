@@ -16,6 +16,7 @@ The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Tota
 
 - the Honeywell evohome CH/DHW system, and
 - the Honeywell Round Thermostat
+- the Honeywell Mobile Access Kit
 
 It does not support the home security functionality of TCC.
 
