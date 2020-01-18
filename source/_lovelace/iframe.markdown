@@ -15,25 +15,12 @@ You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
   Windy weather radar as iframe.
 </p>
 
-{% configuration %}
-type:
-  required: true
-  description: iframe
-  type: string
-url:
-  required: true
-  description: Website URL.
-  type: string
-aspect_ratio:
-  required: false
-  description: Height-width-ratio.
-  type: string
-  default: "50%"
-title:
-  required: false
-  description: The card title.
-  type: string
-{% endconfiguration %}
+| Name         | Required | Description        | Type   | Default |
+| ------------ | -------- | ------------------ | ------ | ------- |
+| type         | true     | `iframe`           | string | none    |
+| url          | true     | Website URL        | string | none    |
+| aspect_ratio | false    | Height-width-ratio | string | "50%"   |
+| title        | false    | The card title     | string | none    |
 
 ### Examples
 
