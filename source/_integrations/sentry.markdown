@@ -33,3 +33,12 @@ environment:
   required: false
   type: string
 {% endconfiguration %}
+
+### Getting the DSN
+
+Follow these steps to get the DSN:
+- Go to **Projects**.
+- Click **Create project**.
+- Fill out **Give your project a name** and **choose Assign a Team** fields and click Create project button.
+- Click **Get your DSN** link in top of the page.
+- Your DSN is now visable and looks like https://sdasdasdasdsadsadas@sentry.io/sdsdfsdf
