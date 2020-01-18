@@ -450,6 +450,42 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [msteams docs]: /integrations/msteams/
 [webostv docs]: /integrations/webostv/
 
+## Release 0.104.2 - January 17
+
+- 0.104.0 ([@frenck] - [#30803])
+- add multistate back ([@dmulcahey] - [#30889]) ([zha docs])
+- Fix missing switch groups of HomematicIP Cloud ([@SukramJ] - [#30903]) ([homematicip_cloud docs])
+- Fix issue with group unique id when normalising bridge id ([@Kane610] - [#30904]) ([deconz docs])
+- Fix Alexa semantics for covers with tilt support. ([@ochlocracy] - [#30911]) ([alexa docs])
+- camera endpoint likes to timeout, catch it. ([@balloob] - [#30919]) ([ring docs])
+- Fix service device refresh calling state update ([@Kane610] - [#30920]) ([deconz docs])
+- Updated frontend to 20200108.2 ([@bramkragten] - [#30921]) ([frontend docs])
+- Fix hue accepting filename ([@balloob] - [#30924]) ([hue docs])
+
+[#30803]: https://github.com/home-assistant/home-assistant/pull/30803
+[#30889]: https://github.com/home-assistant/home-assistant/pull/30889
+[#30903]: https://github.com/home-assistant/home-assistant/pull/30903
+[#30904]: https://github.com/home-assistant/home-assistant/pull/30904
+[#30911]: https://github.com/home-assistant/home-assistant/pull/30911
+[#30919]: https://github.com/home-assistant/home-assistant/pull/30919
+[#30920]: https://github.com/home-assistant/home-assistant/pull/30920
+[#30921]: https://github.com/home-assistant/home-assistant/pull/30921
+[#30924]: https://github.com/home-assistant/home-assistant/pull/30924
+[@Kane610]: https://github.com/Kane610
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@dmulcahey]: https://github.com/dmulcahey
+[@frenck]: https://github.com/frenck
+[@ochlocracy]: https://github.com/ochlocracy
+[alexa docs]: /integrations/alexa/
+[deconz docs]: /integrations/deconz/
+[frontend docs]: /integrations/frontend/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hue docs]: /integrations/hue/
+[ring docs]: /integrations/ring/
+[zha docs]: /integrations/zha/
+
 ## All changes
 
 - Move imports to top for decora_wifi ([@springstan] - [#29439]) ([decora_wifi docs])
