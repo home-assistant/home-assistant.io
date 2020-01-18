@@ -373,6 +373,8 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
   One possible scenario is if you have set an automation using the state of one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])
 
+- __Google Assistant__ - The `api_key` for manual installs is now deprecated and will be removed in 0.105.  To correct this you will need to remove `api_key` from the `configuration.yaml` and switch to using `service_account` instead. - ([@elupus] - [#30402]) ([google_assistant docs])
+
 ## Beta Fixes
 
 - Fix upnp raw sensor state formatting when None ([@pnbruckner] - [#30444]) ([upnp docs]) (beta fix)
