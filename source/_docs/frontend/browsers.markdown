@@ -64,11 +64,17 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
 
+## webOS
+
+| Browser               | Release        | State      | Comments                 |
+| :-------------------- |:---------------|:-----------|:-------------------------|
+| [LG webOS TV Built-in]| 2019-2020      | fails      | loads empty page         |
+
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
 [Conkeror]: http://conkeror.org/
 [Edge]: https://www.microsoft.com/en-us/windows/microsoft-edge
-[elinks]: http://elinks.or.cz/ 
+[elinks]: http://elinks.or.cz/
 [Epiphany]: https://wiki.gnome.org/Apps/Web
 [Firefox]: https://www.mozilla.org/en-US/firefox/
 [IE]: https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads
@@ -83,3 +89,4 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Uzbl]: https://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
 [Waterfox]: https://www.waterfoxproject.org
+[LG webOS TV Built-In]: https://www.lg.com/uk/support/solutions/tv/smart-tv/internet-browsing
