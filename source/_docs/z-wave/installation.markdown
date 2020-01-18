@@ -215,7 +215,7 @@ ls /dev/cu.usbmodem*
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-## Random unreachable Z-Wave nodes: ModemManager interference
+### Random unreachable Z-Wave nodes: ModemManager interference
 
 If this applies to your situation:
 - Some or all Z-Wave nodes are unreachable after restarting Home Assistant; not necessarily after every restart but seemingly random.
