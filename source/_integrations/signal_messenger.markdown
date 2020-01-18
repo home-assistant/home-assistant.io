@@ -79,5 +79,6 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     message: "Alarm in the living room!"
-    attachment: "/tmp/surveillance_camera.jpg"
+    data:
+      attachment: "/tmp/surveillance_camera.jpg"
 ```
