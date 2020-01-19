@@ -97,7 +97,7 @@ sensors:
       withings_weight_lbs_USER_PROFILE_NAME:
         friendly_name: "withings weight_lbs_USER_PROFILE_NAME"
         unit_of_measurement: 'lbs'
-        value_template: "{{ (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        value_template: {% raw %}"{{ (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"{% endraw %}
         icon_template: mdi:weight-pound
 
   - platform: template
@@ -105,7 +105,7 @@ sensors:
       withings_bone_mass_lbs_USER_PROFILE_NAME:
         friendly_name: "withings bone_mass_lbs_USER_PROFILE_NAME"
         unit_of_measurement: 'lbs'
-        value_template: "{{ (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        value_template: {% raw %}"{{ (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"{% endraw %}
         icon_template: mdi:weight-pound
         
   - platform: template
@@ -113,7 +113,7 @@ sensors:
       withings_fat_free_mass_lbs_USER_PROFILE_NAME:
         friendly_name: "withings fat_free_mass_lbs_USER_PROFILE_NAME"
         unit_of_measurement: 'lbs'
-        value_template: "{{ (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        value_template: {% raw %}"{{ (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"{% endraw %}
         icon_template: mdi:weight-pound
         
   - platform: template
@@ -121,7 +121,7 @@ sensors:
       withings_fat_mass_lbs_USER_PROFILE_NAME:
         friendly_name: "withings fat_mass_lbs_USER_PROFILE_NAME"
         unit_of_measurement: 'lbs'
-        value_template: "{{ (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        value_template: {% raw %}"{{ (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"{% endraw %}
         icon_template: mdi:weight-pound
         
   - platform: template
@@ -129,6 +129,6 @@ sensors:
       withings_muscle_mass_lbs_USER_PROFILE_NAME:
         friendly_name: "withings muscle_mass_lbs_USER_PROFILE_NAME"
         unit_of_measurement: 'lbs'
-        value_template: "{{ (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        value_template: {% raw %}"{{ (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"{% endraw %}
         icon_template: mdi:weight-pound
 ```
