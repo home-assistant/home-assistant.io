@@ -333,7 +333,12 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
+- Filter `value_one|bitwise_left(value_two)` perform a bitwise left(\<\<) operation with two values.
+- Filter `value_one|bitwise_right(value_two)` perform a bitwise right(>>) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `strtoint` convert a string from any format to integer.
+- Filter `hex` convert a integer to hexadecimal string.
 
 ### Regular expressions
 
