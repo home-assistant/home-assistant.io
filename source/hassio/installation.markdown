@@ -117,6 +117,19 @@ Optional:
 
  - `network-manager`
 
+<div class='note'>
+   The default installation of `network-manager` will set a random Mac address over wifi on each restart. This will be troublesome in any situation where you would like to set a static IP. Edit `/etc/NetworkManager/NetworkManager.conf` and configure as follows:
+   ```[main]
+plugins=ifupdown,keyfile
+
+[ifupdown]
+managed=false
+
+[device]
+wifi.scan-rand-mac-address=no```
+
+</div>
+
 <div class='note warning'>
 
    Without the NetworkManager, you will be not able to control your host network setup over the UI. The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
