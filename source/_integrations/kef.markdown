@@ -15,7 +15,7 @@ The `kef` platform allows you to control the [KEF LS50 Wireless](https://interna
 Supported devices:
 
 - KEF LS50 Wireless
-- KEF LSX (untested)
+- KEF LSX
 
 To add KEF Speakers to your installation, add the following to your `configuration.yaml` file:
 
