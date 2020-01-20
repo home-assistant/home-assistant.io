@@ -16,7 +16,7 @@ The `nextcloud` platform pulls summary [Nextcloud](https://nextcloud.com/) infor
 
 This integration requires access to the monitor API of a Nextcloud instance (This is generally an admin user).
 
-You should also generate an App password from the Nextcloud web UI: `Settings > Security > Devices & sessions > Create new app password`.
+You should also generate an App password from the Nextcloud web UI: **Settings** > **Security** > **Devices & sessions** > **Create new app password**.
 
 Once you have generated the App password, add the following to your `configuration.yaml` file:
 
