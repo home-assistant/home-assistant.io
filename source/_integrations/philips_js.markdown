@@ -10,7 +10,7 @@ ha_codeowners:
   - '@elupus'
 ---
 
-The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices wont have json-interface running on port 1925. This is true at least for some models before year 2011
+The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices won't have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
 To add your TV to your installation, add the following to your `configuration.yaml` file:
 
