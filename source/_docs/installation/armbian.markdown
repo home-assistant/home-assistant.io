@@ -9,7 +9,7 @@ Setup Python and `pip`:
 
 ```bash
 sudo apt-get update
-sudo apt-get install python3-dev python3-pip
+sudo apt-get install build-essential libssl-dev libffi-dev python3-dev python3-pip
 ```
 
 Now that you installed python, there are two ways to install Home Assistant:
@@ -17,7 +17,8 @@ Now that you installed python, there are two ways to install Home Assistant:
 2. Alternatively, you can install Home Assistant for the user you created when first booting Armbian:
 
 ```bash
-sudo pip3 install homeassistant
+sudo -H pip3 install wheel
+sudo -H pip3 install homeassistant
 hass --open-ui
 ```
 
