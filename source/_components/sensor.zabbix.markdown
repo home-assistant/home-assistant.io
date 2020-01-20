@@ -2,7 +2,6 @@
 layout: page
 title: "Zabbix Sensor"
 description: "Instructions on how to integrate Zabbix Triggers and Item sensors within Home Assistant."
-date: 2020-01-20 11:57
 sidebar: true
 comments: false
 sharing: true
