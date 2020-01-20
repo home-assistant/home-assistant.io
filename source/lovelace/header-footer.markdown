@@ -7,7 +7,7 @@ Some Lovelace cards have support for header and footer widgets. These widgets fi
 
 ## Picture header & footer
 
-Widget to show a picture as a header or a footer. Picture can have touch actions assocated with it.
+Widget to show a picture as a header or a footer. A picture can have touch actions associated with it.
 
 <p class='img'><img src='/images/lovelace/header-footer/screenshot-picture-header.png' alt="Screenshot of an entities card with a picture header.">
 Screenshot of an entities card with a picture header.
