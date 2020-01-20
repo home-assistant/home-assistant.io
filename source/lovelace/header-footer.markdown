@@ -7,14 +7,18 @@ Some Lovelace cards have support for header and footer widgets. These widgets fi
 
 ## Picture header & footer
 
-Show a picture as a header or a footer. Picture can have touch actions assocated with it.
+Widget to show a picture as a header or a footer. Picture can have touch actions assocated with it.
+
+<p class='img'><img src='/images/lovelace/header-footer/screenshot-picture-header.png' alt="Screenshot of an entities card with a picture header.">
+Screenshot of an entities card with a picture header.
+</p>
 
 ```yaml
 type: picture
-image: 'https://le-reve.com/wp-content/uploads/Balloons_Banner.png'
+image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
 ```
 
-{% configuration %}
+{% configuration header-footer %}
 type:
   required: true
   description: picture

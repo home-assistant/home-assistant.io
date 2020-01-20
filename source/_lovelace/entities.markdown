@@ -288,6 +288,9 @@ Entity rows:
 type: entities
 title: Entities card sample
 show_header_toggle: true
+header:
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  type: picture
 entities:
   - entity: alarm_control_panel.alarm
     name: Alarm Panel
