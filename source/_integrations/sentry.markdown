@@ -11,6 +11,12 @@ ha_codeowners:
   - '@dcramer'
 ---
 
+<div class='note warning'>
+  
+  The free Sentry account allows 5000 events per month. Depending on the amount of events sent to Sentry you will either have to upgrade your Sentry account or have a period without data flowing from Home Assistant to Sentry.
+  
+</div>
+
 The `sentry` integration integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.
 
 ## Configuration
