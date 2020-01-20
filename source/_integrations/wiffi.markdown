@@ -5,7 +5,7 @@ description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyma
 featured: true
 ha_category:
   - DIY
-ha_release: 0.104
+ha_release: 0.105
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
