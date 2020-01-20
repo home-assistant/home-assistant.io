@@ -22,11 +22,9 @@ To enable your Surveillance Station in your installation, add the following to y
 
 ```yaml
 synology:
-  name: "Synology NAS"
   url: SYNOLOGY_URL
   username: USERNAME
   password: PASSWORD
-  verify_ssl: true
 ```
 
 {% configuration %}
@@ -63,7 +61,7 @@ verify_ssl:
 
 <div class='note'>
 
-Synology has disabled the livestreaming API and the integration is currently broken if you are using Surveillance Station version 8.2.3-5828.
+Synology has disabled the live streaming API and the integration is currently broken if you are using Surveillance Station version 8.2.3-5828.
 There is an unsupported preview fix available. (8.2.3-5829) - Instructions can be found [here](https://www.vcloudinfo.com/2019/04/how-to-manually-upgrade-your-synology-surveillance-system-firmware.html) for updating manually.
 
 </div>
@@ -102,11 +100,9 @@ A full sample configuration for the `synology` camera platform is shown below:
 ```yaml
 # Example configuration.yaml entry
 synology:
-  name: "Synology NAS"
   url: SYNOLOGY_URL
   username: USERNAME
   password: PASSWORD
-  verify_ssl: true
 
 camera:
   - platform: synology
