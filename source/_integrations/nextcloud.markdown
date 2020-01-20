@@ -14,9 +14,9 @@ The `nextcloud` platform pulls summary [Nextcloud](https://nextcloud.com/) infor
 
 ## Configuration
 
-This integration requires access to the monitor api of a Nextcloud instance (This is generally an admin user).
+This integration requires access to the monitor API of a Nextcloud instance (This is generally an admin user).
 
-You should also generate an App password from the nextcloud web ui. `Settings > Security > Devices & sessions > Create new app password`
+You should also generate an App password from the Nextcloud web UI: `Settings > Security > Devices & sessions > Create new app password`.
 
 Once you have generated the App password, add the following to your `configuration.yaml` file:
 
@@ -32,20 +32,15 @@ sensor:
 
 {% configuration %}
 url:
-  description: The full url to your nextcloud instance.
+  description: The full URL to your Nextcloud instance.
   required: true
   type: string
 username:
-  description: The username of a nextcloud user that has access to the nextcloud monitor api.
+  description: The username of a Nextcloud user that has access to the Nextcloud monitor API.
   required: true
   type: string
 password:
   description: The app password generated from the Nextcloud security settings page.
   required: true
   type: string
-scan_interval:
-  description: API polling interval in seconds.
-  required: false
-  type: integer
-  default: 60
 {% endconfiguration %}
