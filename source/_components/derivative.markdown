@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Derivative Sensor into Home Assis
 ha_category:
   - Utility
   - Energy
-ha_release: 0.99
+ha_release: 0.105
 ha_iot_class: Local Push
 logo: derivative.png
 ha_qa_scale: internal
