@@ -104,7 +104,7 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
 - [iOS](/ecosystem/ios/)
-- [SceneGen](/ecosystem/scenegen/)
+- SceneGen
 
 ### Breaking changes
 
