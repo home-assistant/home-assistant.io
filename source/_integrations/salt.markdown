@@ -16,7 +16,7 @@ The `salt` platform offers presence detection by looking at connected devices to
 The router only allows one user session at a time. If you log into the router's web interface, the platform will stop updating until you log out.
 </div>
 
-# Configuration
+## Configuration
 
 To use a Salt Fiber Box router in your installation, add the following to your `configuration.yaml` file:
 
