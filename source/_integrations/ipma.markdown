@@ -44,5 +44,5 @@ mode:
   description: "The forecast type. Can be `hourly` or `daily`."
   required: false
   type: string
-  default: `daily`
+  default: "`daily`"
 {% endconfiguration %}
