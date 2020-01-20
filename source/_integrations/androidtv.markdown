@@ -77,7 +77,7 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If you provide an empty string as the friendly name, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
@@ -116,7 +116,8 @@ media_player:
     adbkey: "/config/android/adbkey"
     apps:
       com.amazon.tv.launcher: "Fire TV"
-      some.background.app: ""  # this will never show up in the sources list
+      some.background.app:  # this will never show up in the sources list
+      another.background.app: ""  # this will also never show up in the sources list
     turn_on_command: "input keyevent 3"
     turn_off_command: "input keyevent 223"
     state_detection_rules:
