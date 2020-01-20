@@ -106,7 +106,7 @@ webostv:
 Please note, the above provides a minimal example, however, all options are
 available for each individual TV.
 
-### Turn on action
+## Turn on action
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
@@ -133,11 +133,11 @@ notify:
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
-### Sources
+## Sources
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
 
-### Change channel through play_media service
+## Change channel through play_media service
 
 The `play_media` service can be used in a script to switch to the specified tv channel. It selects the best matching channel according to the `media_content_id` parameter:
 
@@ -161,32 +161,32 @@ data:
   media_content_type: "channel"
 ```
 
-### Next/Previous buttons
+## Next/Previous buttons
 
 The behaviour of the next and previous buttons is different depending on the active source:
 
 - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
 - otherwise: next/previous buttons act as next/previous track
 
-### Generic commands and buttons
+## Services
 
 Available services: `button`, `command`
 
-#### Service `webostv.button`
+### Service `webostv.button`
 
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
 | `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
-#### Service `webostv.command`
+### Service `webostv.command`
 
 | Service data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
 | `command`              | no       | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
 
-#### Example
+### Example
 
 ```yaml
 script:
