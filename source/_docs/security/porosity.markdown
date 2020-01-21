@@ -52,7 +52,7 @@ That port 22 and 8123 are open was expected. On port 22222 is an additional SSH 
 
 ## Mosquitto MQTT broker Add-on
 
-While setting up the [Mosquitto MQTT broker add-on](/addons/mosquitto/) no settings very modified, the add-on was running with the default settings.
+While setting up the [Mosquitto MQTT broker add-on](/addons/mosquitto/) no settings were modified, the add-on was running with the default settings.
 
 ```bash
 $ sudo nmap -A -n --reason -Pn -T5 -p1-65535 192.168.0.215
