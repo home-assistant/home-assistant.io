@@ -162,6 +162,12 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
+<div class='note warning'>
+
+  Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+
+</div>
+
 ## Binary Sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
