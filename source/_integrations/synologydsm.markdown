@@ -50,6 +50,11 @@ password:
   description: The password of the user to connect to the Synology NAS.
   required: true
   type: string
+api_version:
+  description: Define DSM version to allow backward compatibility with 5.x
+  default: 6
+  type: integer
+  required: false
 ssl:
   description: Determine if HTTPS should be used.
   required: false
@@ -109,9 +114,9 @@ monitored_conditions:
     disk_status:
       description: Displays the status of the hard disk (creates a new entry for each disk).
     disk_exceed_bad_sector_thr:
-      description: Displays true / false to indicate if the hard disk exceeded the maximum bad sector threshold (creates a new entry for each disk).
+      description: Displays true / false to indicate if the hard disk exceeded the maximum bad sector threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
     disk_below_remain_life_thr:
-      description: Displays true / false to indicate if the hard disk dropped below the remain life threshold (creates a new entry for each disk).
+      description: Displays true / false to indicate if the hard disk dropped below the remain life threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
     disk_temp:
       description: Displays the temperature of the hard disk (creates a new entry for each disk, uses the unit_system to display in C or F).
     volume_status:
