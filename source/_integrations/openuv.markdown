@@ -42,9 +42,6 @@ file:
 ```yaml
 openuv:
   api_key: YOUR_OPENUV_API_KEY
-  elevation: 1609.3
-  latitude: 51.528308
-  longitude: -0.3817765
 ```
 
 {% configuration %}
