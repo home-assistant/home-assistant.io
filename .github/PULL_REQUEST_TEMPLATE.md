@@ -6,7 +6,7 @@
     additional information section.
 -->
 
-Lorem ipsum
+
 
 ## Type of change
 <!--
