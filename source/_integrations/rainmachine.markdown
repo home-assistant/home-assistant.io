@@ -33,21 +33,6 @@ rainmachine:
       password: YOUR_PASSWORD
 ```
 
-To configure additional functionality, add configuration options beneath a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine` sections of `configuration.yaml` as below:
-
-```yaml
-rainmachine:
-  controllers:
-    - ip_address: 192.168.1.100
-      password: YOUR_PASSWORD
-      binary_sensors:
-        # binary sensor configuration options...
-      sensors:
-        # sensor configuration options...
-      switches:
-        # switch configuration options...
-```
-
 {% configuration %}
 ip_address:
   description: The IP address or hostname of your RainMachine unit.
@@ -72,36 +57,11 @@ scan_interval:
   required: false
   type: integer
   default: 60
-binary_sensors:
-  description: Binary sensor-related configuration options.
+zone_run_time:
+  description: The default number of seconds that a zone should run when turned on.
   required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all (`extra_water_on_hot_days`, `flow_sensor`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
-sensors:
-  description: Sensor-related configuration options.
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all (`flow_sensor_clicks_cubic_meter`, `flow_sensor_consumed_liters`, `flow_sensor_start_index`, `flow_sensor_watering_clicks`,`freeze_protect_temp`)
-switches:
-  description: Switch-related configuration options.
-  required: false
-  type: map
-  keys:
-    zone_run_time:
-      description: The default number of seconds that a zone should run when turned on.
-      required: false
-      type: integer
-      default: 600
+  type: integer
+  default: 600
 {% endconfiguration %}
 
 ## Services
