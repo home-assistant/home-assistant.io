@@ -15,14 +15,15 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 
 ### Setup
 
-You can add your TV by using the web interface via [ssdp](/integrations/ssdp) discovery or manual config.
-For more control over the integration you can also use an entry in the configuration files.
+Go to the integrations page in your config and click on new integration -> Samsung TV.
+If you have enabled [ssdp](/integrations/ssdp) discovery and your TV is on, it's likely that you just have to confirm the detected device.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
-### Configuration
+### YAML Configuration
 
-To add a TV to your installation without relying on the [discovery component](/integrations/discovery/), add the following to your `configuration.yaml` file:
+YAML configuration is around for people that prefer YAML.
+To use a TV add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
