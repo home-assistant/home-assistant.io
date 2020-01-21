@@ -23,7 +23,7 @@
 
 ## Additional information
 <!--
-    Details are important, and maintainers in the process.
+    Details are important, and help maintainers processing your PR.
     Please be sure to fill out additional details, if applicable.
 -->
 
