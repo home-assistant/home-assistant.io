@@ -488,6 +488,29 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [ring docs]: /integrations/ring/
 [zha docs]: /integrations/zha/
 
+## Release 0.104.3 - January 21
+
+- Catch all Ring timeout errors ([@balloob] - [#30960]) ([ring docs])
+- Update emulated_roku to 0.2.0 ([@jdeluyck] - [#30974]) ([emulated_roku docs])
+- Ring camera fix ([@steve-gombos] - [#30975]) ([ring docs])
+- Fix capability_attributes when supported_features is None ([@JeffLIrion] - [#30993]) ([water_heater docs])
+- Fix deCONZ update entry from Hassio discovery ([@frenck] - [#31015]) ([deconz docs])
+
+[#30960]: https://github.com/home-assistant/home-assistant/pull/30960
+[#30974]: https://github.com/home-assistant/home-assistant/pull/30974
+[#30975]: https://github.com/home-assistant/home-assistant/pull/30975
+[#30993]: https://github.com/home-assistant/home-assistant/pull/30993
+[#31015]: https://github.com/home-assistant/home-assistant/pull/31015
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@jdeluyck]: https://github.com/jdeluyck
+[@steve-gombos]: https://github.com/steve-gombos
+[deconz docs]: /integrations/deconz/
+[emulated_roku docs]: /integrations/emulated_roku/
+[ring docs]: /integrations/ring/
+[water_heater docs]: /integrations/water_heater/
+
 ## All changes
 
 - Move imports to top for decora_wifi ([@springstan] - [#29439]) ([decora_wifi docs])
