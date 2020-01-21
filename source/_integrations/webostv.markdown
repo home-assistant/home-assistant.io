@@ -43,11 +43,6 @@ name:
   description: The name you would like to give to the LG webOS Smart TV.
   required: false
   type: string
-standby_connection:
-  description: Keep connection alive when TV is in standby (this should be set to true if and only if the "Standby+" option is enabled in the TV UI.)
-  required: false
-  type: boolean
-  default: false
 turn_on_action:
   description: Defines an [action](/docs/automation/action/) to turn the TV on.
   required: false
@@ -72,7 +67,6 @@ A full configuration example will look like the sample below:
 webostv:
   host: 192.168.0.10
   name: Living Room TV
-  standby_connection: true
   turn_on_action:
     service: persistent_notification.create
     data:
