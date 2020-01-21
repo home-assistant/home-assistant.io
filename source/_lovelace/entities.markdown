@@ -67,6 +67,14 @@ format:
   required: false
   description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
   type: string
+header:
+  required: false
+  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  type: map
+footer:
+  required: false
+  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  type: map
 tap_action:
   required: false
   description: Action to take on tap
@@ -280,6 +288,9 @@ Entity rows:
 type: entities
 title: Entities card sample
 show_header_toggle: true
+header:
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  type: picture
 entities:
   - entity: alarm_control_panel.alarm
     name: Alarm Panel
