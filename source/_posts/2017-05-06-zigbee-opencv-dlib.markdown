@@ -483,7 +483,6 @@ influxdb:
 [sensor.zamg docs]: /integrations/zamg#sensor
 [sensor.zha docs]: /integrations/zha
 [switch.flux docs]: /integrations/flux
-[switch.hook docs]: /integrations/hook
 [switch.thinkingcleaner docs]: /integrations/thinkingcleaner#switch
 [switch.wemo docs]: /integrations/wemo
 [switch.zha docs]: /integrations/zha

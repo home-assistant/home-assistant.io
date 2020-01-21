@@ -492,7 +492,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KlaasH]: https://github.com/KlaasH
 [cover.zwave docs]: /integrations/zwave#cover
 [recorder docs]: /integrations/recorder/
-[switch.hook docs]: /integrations/hook
 [switch.wemo docs]: /integrations/wemo
 [telegram_bot docs]: /integrations/telegram_chatbot/
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
