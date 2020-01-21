@@ -51,7 +51,7 @@ password:
   required: true
   type: string
 api_version:
-  description: Define DSM version to allow backward compatibility with 5.x
+  description: Define DSM version to allow backward compatibility with 5.x.
   default: 6
   type: integer
   required: false
