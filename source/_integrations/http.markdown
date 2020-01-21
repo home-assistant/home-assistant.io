@@ -32,10 +32,6 @@ http:
 ```
 
 {% configuration %}
-api_password:
-  description: "**Deprecated since 0.90 release. Configuration moved to [Legacy API password auth provider](/docs/authentication/providers/#legacy-api-password).** Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation."
-  required: false
-  type: string
 server_host:
   description: "Only listen to incoming requests on specific IP/host. By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6."
   required: false
@@ -163,6 +159,12 @@ If you want to use Home Assistant to host or serve static files then create a di
 <div class='note'>
 
   If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+
+</div>
+
+<div class='note warning'>
+
+  Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 

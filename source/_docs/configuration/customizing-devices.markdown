@@ -27,6 +27,7 @@ Under the *Configuration* menu you'll find the *Customization* menu. If this men
 homeassistant:
   customize: !include customize.yaml
 ```
+
 #### Possible values
 
 {% configuration customize %}
@@ -34,17 +35,8 @@ friendly_name:
   description: Name of the entity as displayed in the UI.
   required: false
   type: string
-homebridge_name:
-  description: Name of the entity in `HomeBridge`.
-  required: false
-  type: string
 hidden:
   description: Set to `true` to hide the entity.
-  required: false
-  type: boolean
-  default: false
-homebridge_hidden:
-  description: Set to `true` to hide the entity from `HomeBridge`.
   required: false
   type: boolean
   default: false
@@ -133,7 +125,6 @@ homeassistant:
     "scene.month_*_colors":
       hidden: true
       emulated_hue_hidden: false
-      homebridge_hidden: true
 ```
 
 ### Reloading customize
