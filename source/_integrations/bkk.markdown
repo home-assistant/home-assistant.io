@@ -4,7 +4,7 @@ description: "Instructions on how to integrate data from the BKK Futar API into 
 logo: bkk.png
 ha_category:
   - Transport
-ha_release: 0.49
+ha_release: 0.105
 ---
 
 The `BKK Futar` sensor displays the next departure times for a given Budapet public transportation stop.
