@@ -26,17 +26,17 @@ stop:
   type: string
 grouped:
   description: show routes grouped on UI
-  required: no
+  required: false
   type: boolean
   default: false
 only_departures:
   description: show only departures
-  required: no
+  required: false
   type: boolean
   default: true
 minutes_after:
   description: minutes from current time to query departures for
-  required: no
+  required: false
   type: integer
   default: 120
 {% endconfiguration %}
