@@ -1,12 +1,13 @@
 ---
 title: "SMS"
 description: "SMS notification via GSM modem."
+icon: [https://wammu.eu/media/images/wammu-32x32.png]
 ha_category:
   - Notifications
 ha_release: 0.104.5
 ---
 
-The `sms` integration allows to have a local execution SMS notification. This is ideal when the internet is offline or when the power goes out.
+The `sms` integration allows to have a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
 
 To enable those notifications in your installation, add the following to your `configuration.yaml` file:
 
