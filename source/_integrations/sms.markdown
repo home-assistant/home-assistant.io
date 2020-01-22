@@ -4,7 +4,11 @@ description: "SMS notification via GSM modem."
 icon: gammu.png
 ha_category:
   - Notifications
-ha_release: 0.104.5
+ha_release: 0.104.4
+ha_iot_class: Local Polling
+ha_config_flow: false
+ha_codeowners:
+  - '@ocalvo'
 ---
 
 The `sms` integration allows to have a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
