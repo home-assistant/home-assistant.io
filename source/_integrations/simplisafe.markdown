@@ -67,7 +67,7 @@ Set the duration (in seconds) of an active alarm.
 | Service Data Attribute    | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
 | `system_id`                 |      no  | The ID of a SimpliSafe system               | 
-| `duaration`                 |      no  | The number of seconds to sound the alarm    |
+| `duration`                 |      no  | The number of seconds to sound the alarm    |
 
 ### `simplisafe.set_delay`
 
