@@ -10,7 +10,7 @@ ha_release: 0.57
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
-To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `RetrieveTripInformationPublicAPI` API.
+To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `Reisinformatie` API which is part of the `Ns-App` product.
 
 The `nederlandse_spoorwegen` integration can be configured using `configuration.yaml` as shown below:
 
