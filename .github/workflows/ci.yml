@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.npm
-          key: npm-${{ hasFiles('**/package-lock.json') }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
       - name: Installing dependencies
