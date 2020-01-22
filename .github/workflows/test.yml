@@ -1,4 +1,4 @@
-name: CI
+name: home-assistant.io Test
 
 on: [push, pull_request]
 
@@ -60,16 +60,3 @@ jobs:
       - name: Building site
         run: |
           bundle exec rake generate
-  # deploy:
-  #   name: Deploy website
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   steps:
-  #     - name: Deploying site
-  #       uses: netlify/actions/cli@master
-  #       env:
-  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  #         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-  #       with:
-  #         args: deploy --dir=public --prod
-  #         secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'

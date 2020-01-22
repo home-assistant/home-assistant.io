@@ -1,6 +1,11 @@
-name: CD
+name: home-assistant.io Deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - current
+      - next
+      - rc
 
 jobs:
   deploy:
@@ -36,8 +41,27 @@ jobs:
       - name: Build site
         run: |
           bundle exec rake generate
-      - name: Deploy site to next
+      - name: Deploy to live site
         uses: netlify/actions/cli@master
+        if: github.ref == 'refs/heads/current' && github.repository == 'home-assistant/home-assistant.io'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_CURRENT_SITE_ID }}
+        with:
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+      - name: Deploy to rc site
+        uses: netlify/actions/cli@master
+        if: github.ref == 'refs/heads/rc' && github.repository == 'home-assistant/home-assistant.io'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_RC_SITE_ID }}
+        with:
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+      - name: Deploy to next site
+        uses: netlify/actions/cli@master
+        if: github.ref == 'refs/heads/next' && github.repository == 'home-assistant/home-assistant.io'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_NEXT_SITE_ID }}
