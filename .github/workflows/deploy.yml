@@ -43,7 +43,7 @@ jobs:
           bundle exec rake generate
       - name: Deploy to live site
         uses: netlify/actions/cli@master
-        if: github.ref == 'refs/heads/current' && github.repository == 'home-assistant/home-assistant.io'
+        if: github.ref == 'refs/heads/current' && github.repository == 'frenck/home-assistant.io'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_CURRENT_SITE_ID }}
@@ -52,7 +52,7 @@ jobs:
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
       - name: Deploy to rc site
         uses: netlify/actions/cli@master
-        if: github.ref == 'refs/heads/rc' && github.repository == 'home-assistant/home-assistant.io'
+        if: github.ref == 'refs/heads/rc' && github.repository == 'frenck/home-assistant.io'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_RC_SITE_ID }}
@@ -61,7 +61,7 @@ jobs:
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
       - name: Deploy to next site
         uses: netlify/actions/cli@master
-        if: github.ref == 'refs/heads/next' && github.repository == 'home-assistant/home-assistant.io'
+        if: github.ref == 'refs/heads/next' && github.repository == 'frenck/home-assistant.io'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_NEXT_SITE_ID }}
