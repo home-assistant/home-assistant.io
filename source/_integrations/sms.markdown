@@ -9,6 +9,11 @@ ha_release: 0.104.5
 
 The `sms` integration allows to have a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
 
+This integration provides the following platforms:
+- Notify
+
+## Configuration
+
 To enable those notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -31,30 +36,25 @@ sms_person2: "+1NNNNNNNNNN"
 ```
 Replace the NNN for the actual phone numbers
 
-{% configuration %}
-device:
-  description: The gsm modem device.
-  required: true
-  type: string
-{% endconfiguration %}
-
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 It requires hassos version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher.
+
 Check that the modem is recognized by running:
 ```
 ls -l /dev/*USB*
 ```
-# Required Hardware
+
+## Required Hardware
+
 You will need a USB GSM stick modem.
-## List of modems known to work:
+
+### List of modems known to work:
 - [Huawei E3372-510](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
-## [List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
+### [List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
 
-## Home Assistant config
-
-## Note about Raspberry PI 4
+### Note about Raspberry PI 4
 On Raspberry PI 4, you need a udev rule in the config USB stick, for the [Huawei E3372-510 stick](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) for it to be recognized.
 This config is:
 ```
@@ -70,4 +70,9 @@ ACTION=="add" \
 ## More details:
 - [Original thread discussion](https://community.home-assistant.io/t/send-sms-with-usb-gsm-modem-when-alarm-triggered/28942/38)
 
-#
+{% configuration %}
+device:
+  description: The gsm modem device.
+  required: true
+  type: string
+{% endconfiguration %}
