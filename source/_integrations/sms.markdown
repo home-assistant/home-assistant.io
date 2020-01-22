@@ -1,7 +1,7 @@
 ---
 title: "SMS"
 description: "SMS notification via GSM modem."
-icon: [https://wammu.eu/media/images/wammu-32x32.png]
+icon: gammu.png
 ha_category:
   - Notifications
 ha_release: 0.104.5
