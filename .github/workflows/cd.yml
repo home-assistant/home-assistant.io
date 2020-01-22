@@ -1,0 +1,47 @@
+name: CD
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [markdown-lint]
+    steps:
+      - name: Check out files from GitHub
+        uses: actions/checkout@v2
+      - name: Setting up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Setup Ruby Gems cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            gems-
+      - name: Installing dependencies
+        run: |
+          gem install bundler -v 2.0.1
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Setting up Jekyll cache
+        uses: actions/cache@v1
+        with:
+          path: source/.jekyll-cache
+          key: jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{ hashFiles('**/_config.yml') }}
+          restore-keys: |
+            jekyll-${{ hashFiles('**/Gemfile.lock') }}-
+            jekyll-
+      - name: Build site
+        run: |
+          bundle exec rake generate
+      - name: Deploy site to next
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_NEXT_SITE_ID }}
+        with:
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'

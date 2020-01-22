@@ -60,12 +60,6 @@ jobs:
       - name: Building site
         run: |
           bundle exec rake generate
-      - name: Uploading build
-        uses: actions/upload-artifact@v1
-        if: github.ref == 'refs/heads/next'
-        with:
-          name: site
-          path: public
   # deploy:
   #   name: Deploy website
   #   runs-on: ubuntu-latest
