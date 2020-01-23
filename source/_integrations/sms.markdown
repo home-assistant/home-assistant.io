@@ -64,7 +64,7 @@ This config is:
 ```
 udev\10-gsm-modem.rules
 ```
-```
+```txt
 ACTION=="add" \
 , ATTRS{idVendor}=="12d1" \
 , ATTRS{idProduct}=="14fe" \
