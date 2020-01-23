@@ -31,7 +31,7 @@ notify:
     phone_number: PHONE_NUMBER
   - platform: sms
     name: sms_person2
-    phone_number: !secret notify_sms_person2
+    phone_number: PHONE_NUMBER
 ```
 And the screts yaml:
 ```
