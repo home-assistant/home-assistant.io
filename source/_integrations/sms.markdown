@@ -42,7 +42,7 @@ Replace the NNN for the actual phone numbers
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-It requires hassos version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher.
+It requires HassOS version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher.
 
 Check that the modem is recognized by running:
 ```
