@@ -4,7 +4,7 @@ description: "Detect people with Sighthound Cloud."
 logo: sighthound-logo.png
 ha_category:
   - Image Processing
-ha_release: 0.103
+ha_release: 0.105
 ha_iot_class: Cloud Polling
 ---
 
