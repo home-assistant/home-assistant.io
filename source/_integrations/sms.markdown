@@ -45,7 +45,7 @@ To use notifications, please see the [getting started with automation page](/get
 It requires HassOS version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher.
 
 Check that the modem is recognized by running:
-```
+```bash
 ls -l /dev/*USB*
 ```
 
