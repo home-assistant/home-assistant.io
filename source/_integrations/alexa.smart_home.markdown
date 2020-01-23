@@ -61,7 +61,9 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
 
-
+<p class='img'>
+  <img src='/images/integrations/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
+</p>
 
 - In next screen, make sure *v3* is selected in `Payload version`.
 - Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
