@@ -4,7 +4,7 @@ description: "SMS notification via GSM modem."
 icon: gammu.png
 ha_category:
   - Notifications
-ha_release: 0.104.4
+ha_release: 0.105
 ha_iot_class: Local Polling
 ha_config_flow: false
 ha_codeowners:
