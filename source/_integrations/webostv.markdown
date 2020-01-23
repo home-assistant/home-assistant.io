@@ -153,6 +153,18 @@ The behaviour of the next and previous buttons is different depending on the act
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
  - otherwise: next/previous buttons act as next/previous track
 
+### Sound output
+
+The current sound output of the TV can be found under the state attributes.
+To change the sound output the following service is available:
+
+#### Service `webostv.select_sound_output`
+
+| Service data attribute | Optional | Description                                             |
+|------------------------|----------|---------------------------------------------------------|
+| `entity_id`            |       no | Target a specific webostv media player.                 |
+| `sound_output`         |       no | Name of the sound output to switch to. 	                |
+
 ### Generic commands and buttons
 
 Available services: `button`, `command`
