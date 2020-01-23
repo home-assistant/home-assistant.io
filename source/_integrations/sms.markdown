@@ -11,7 +11,7 @@ ha_codeowners:
   - '@ocalvo'
 ---
 
-The `sms` integration allows to have a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
+The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
 
 This integration provides the following platforms:
 - Notify
