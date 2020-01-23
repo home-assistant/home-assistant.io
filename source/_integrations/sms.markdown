@@ -48,7 +48,7 @@ Check that the modem is recognized by running:
 ```bash
 ls -l /dev/*USB*
 ```
-Note: In hassio you need to install the SSH add on.
+Note: In Hass.io you need to install the SSH add on.
 
 ## Required Hardware
 
