@@ -28,7 +28,7 @@ sms:
 notify:
   - platform: sms
     name: sms_person1
-    phone_number: !secret notify_sms_person1
+    phone_number: PHONE_NUMBER
   - platform: sms
     name: sms_person2
     phone_number: !secret notify_sms_person2
