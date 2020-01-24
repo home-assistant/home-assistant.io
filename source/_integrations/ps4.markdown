@@ -205,16 +205,17 @@ Emulate button press on PlayStation 4. This emulates the commands available for 
 
 Full list of supported commands.
 
-| Command  | Button Emulated  |
-| -------- | ---------------- |
-| `ps`     | PS (PlayStation) |
-| `option` | Option           |
-| `enter`  | Enter            |
-| `back`   | Back             |
-| `up`     | Swipe Up         |
-| `down`   | Swipe Down       |
-| `left`   | Swipe Left       |
-| `right`  | Swipe Right      |
+| Command   | Button Emulated    |
+| --------- | ------------------ |
+| `ps`      | PS (PlayStation)   |
+| `ps_hold` | PS Hold/Long Press |
+| `option`  | Option             |
+| `enter`   | Enter              |
+| `back`    | Back               |
+| `up`      | Swipe Up           |
+| `down`    | Swipe Down         |
+| `left`    | Swipe Left         |
+| `right`   | Swipe Right        |
 
 ## Troubleshooting
 
