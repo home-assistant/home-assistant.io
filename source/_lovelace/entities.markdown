@@ -75,6 +75,10 @@ footer:
   required: false
   description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
   type: map
+action_name:
+  required: false
+  description: Button label. (Only applies to `script` and `scene` rows)
+  type: string
 tap_action:
   required: false
   description: Action to take on tap
