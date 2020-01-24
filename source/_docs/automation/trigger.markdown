@@ -22,12 +22,6 @@ automation:
       mood: happy
 ```
 
-<div class='note warning'>
-
-Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' platform below instead.
-
-</div>
-
 ### Home Assistant trigger
 
 Triggers when Home Assistant starts up or shuts down.
