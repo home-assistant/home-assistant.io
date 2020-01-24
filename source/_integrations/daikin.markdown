@@ -56,12 +56,12 @@ hosts:
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
-- [**target temperature**](https://www.home-assistant.io/integrations/climate#service-climateset_temperature)
-- [**turn on/off**](https://www.home-assistant.io/integrations/climate#service-climateturn_on)
-- [**fan mode**](https://www.home-assistant.io/integrations/climate#service-climateset_fan_mode) (speed)
-- [**swing mode**](https://www.home-assistant.io/integrations/climate#service-climateset_swing_mode)
-- [**set_preset_mode**](https://www.home-assistant.io/integrations/climate#service-climateset_preset_mode) (away, none)
+- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
+- [**target temperature**](/integrations/climate#service-climateset_temperature)
+- [**turn on/off**](/integrations/climate#service-climateturn_on)
+- [**fan mode**](/integrations/climate#service-climateset_fan_mode) (speed)
+- [**swing mode**](/integrations/climate#service-climateset_swing_mode)
+- [**set_preset_mode**](/integrations/climate#service-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
 

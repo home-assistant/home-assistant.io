@@ -46,7 +46,7 @@ host:
 port:
   description: The port that Pulseaudio is listening on.
   required: false
-  default: 4713
+  default: 4712
   type: integer
 buffer_size:
   description: How much data to load from Pulseaudio at once.

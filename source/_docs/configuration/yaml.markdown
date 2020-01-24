@@ -10,7 +10,6 @@ For integrations that you want to use in Home Assistant, you add code in your `c
 
 The following example entry assumes that you would like to set up the [notify component](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
-
 ```yaml
 notify:
   platform: pushbullet
@@ -66,11 +65,12 @@ sensor:
 ## Including values
 
 ### Environmental variables
+
 You can include values from your system's environment variables with `!env_var`. Note that this will only work in a scenario where it is possible to specify these. Hass.io users are recommended to use `!include` statements instead.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD
+example:
+  password: !env_var PASSWORD
 ```
 
 #### Default value
@@ -78,8 +78,8 @@ http:
 If an environment variable is not set, you can fallback to a default value.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD default_password
+example:
+  password: !env_var PASSWORD default_password
 ```
 
 ### Including entire files
@@ -102,7 +102,7 @@ If you see the following message:
 found character '\t' that cannot start any token
 ```
 
-This means that you've mistakenly entered a tab character, instead of spaces. 
+This means that you've mistakenly entered a tab character, instead of spaces.
 
 ### Upper and lower case
 

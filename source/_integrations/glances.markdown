@@ -112,4 +112,4 @@ Glances integration will add the following sensors:
 - docker_cpu_use: The total CPU usage in percent of Docker containers.
 - docker_memory_use: The total memory used by Docker containers.
 
-Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
+Not all platforms are able to provide all metrics. For instance `cpu_temp` requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

@@ -44,7 +44,7 @@ name:
   required: false
   type: string
 standby_connection:
-  description: Keep connection alive when TV is in standby (this should be set to try if and only if the "Standby+" option is enabled in the TV UI.)
+  description: Keep connection alive when TV is in standby (this should be set to true if and only if the "Standby+" option is enabled in the TV UI.)
   required: false
   type: boolean
   default: false

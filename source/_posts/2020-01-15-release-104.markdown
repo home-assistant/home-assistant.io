@@ -179,7 +179,7 @@ time for him to show off his Lovelace dashboard, featuring this lovely theme.
 <blockquote class="reddit-card"><a href="https://www.reddit.com/r/homeassistant/comments/enpeik/i_keep_seeing_my_own_theme_on_reddit_so_now_its/">I keep seeing my own theme on Reddit, so now it's my turn! [OC]</a> from <a href="http://www.reddit.com/r/homeassistant">r/homeassistant</a></blockquote>
 <script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
 
-His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/).
+His theme is [publicly available on GitHub](https://github.com/basnijholt/lovelace-ios-dark-mode-theme/) and so is [his config](https://github.com/basnijholt/home-assistant-config).
 
 ## New Integrations
 
@@ -235,6 +235,10 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 
   ([@balloob] - [#23789]) ([automation docs]) ([calendar docs]) ([cover docs]) ([device_tracker docs]) ([fan docs]) ([light docs]) ([lock docs]) ([plant  docs]) ([remember_the_milk docs]) ([remote docs]) ([script docs]) ([switch docs]) ([vacuum docs]).
 
+- __Hue__ - Hue will no longer import existing authentication from disk. It has not written this authentication to disk since March 2018. The config option has been deprecated and will be removed in 0.106. ([@balloob] - [#30000]) ([hue docs])
+
+- __deCONZ__ - Due to changes to configuration handling, deCONZ groups will be assigned new identifiers in Home Assistant. As a result, deCONZ groups will be duplicated. Remove any group devices from the registry prior to upgrading or alternatively delete the obsolete entries after the upgrade to eliminate the duplicates. ([#30875]) ([deconz docs])
+
 - __UPnP__ - UPnP/IGD units of measurement have been aligned with other integrations and common uses, they're now kB and kB/s instead of kbyte and kbyte/sec respectively. - ([@scop] - [#29552]) ([upnp docs])
 
 - __Worx Landroid__ - The `worxlandroid` sensor has been changed to not return the hardcoded state values `manual-stop`, `charging`, `charging-complete`, `going-home`, `mowing`, instead use the states given from the Landroid to Home Assistant.
@@ -242,7 +246,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
   This includes the state `idle`, which means that something is broken with the mower. You can use this as a notification to check the physical state of the mower.
 
   You need to update any automations that depend on the state of the sensor.
-  
+
   ([@geraldhansen] - [#27453]) ([worxlandroid docs])
 
 - __Apple iCloud__ - The iCloud component is no longer part of the device tracker platform and is now an integration, which is configurable via the UI. The iCloud cookie folder moved from `[HA_dir]/icloud` to `[HA_dir]/.storage/icloud`.- ([@Quentame] - [#28968]) ([icloud docs])
@@ -366,8 +370,10 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - __Binary Sensor (Locks)__ - Updated ON/OFF condition and triggers to match the documentation and UI. This change inverts the logic of automations relating to binary sensor with the `lock` device class, but only for automations triggering on the lock state (rather than triggering a lock/unlock action).
 
   If you already created automations, you will need to check those, as they probably need to be inverted. The text displayed in the trigger or condition dropdowns in Lovelace will now be correct.
-  
+
   One possible scenario is if you have set an automation using the state of one lock to trigger an action on other lock(s). This change would cause the action to trigger on `locking` if it was previously triggering on `unlocking`. - ([@davet2001] - [#30663]) ([binary_sensor docs])
+
+- __Google Assistant__ - The `api_key` for manual installs is now deprecated and will be removed in 0.105.  To correct this you will need to remove `api_key` from the `configuration.yaml` and switch to using `service_account` instead. - ([@elupus] - [#30402]) ([google_assistant docs])
 
 ## Beta Fixes
 
@@ -402,6 +408,108 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Revert #29701 ([@pvizeli] - [#30766]) ([zwave docs]) (beta fix)
 - Refactor Ring data handling ([@balloob] - [#30777]) ([ring docs]) (beta fix)
 - Restore unit_of_measurement from entity registry ([@Jc2k] - [#30780]) (beta fix)
+
+## Release 0.104.1 - January 16
+
+- 0.104.0 ([@frenck] - [#30803])
+- Update emulated_roku to 0.1.9 ([@jdeluyck] - [#30791]) ([emulated_roku docs])
+- update to aiopylgtv 0.2.7 ([@bendavid] - [#30797]) ([webostv docs])
+- Fix setup error of Mikrotik ([@springstan] - [#30810]) ([mikrotik docs])
+- Handle no host info in ignored config entries ([@balloob] - [#30822]) ([hue docs])
+- Fix mpd time issue ([@pvizeli] - [#30825]) ([mpd docs])
+- Fix play_media in webostv ([@bendavid] - [#30828]) ([webostv docs])
+- Fix iCloud when no family members (issue #30829) ([@Quentame] - [#30836]) ([icloud docs])
+- Reinstate and deprecate filename option for hue config ([@balloob] - [#30846]) ([hue docs])
+- Fixes issue about messages not being reset after sending it to microsoft teams. ([@peroyvind] - [#30849]) ([msteams docs])
+- Fix sensor type creation with multiple Ambient weather stations ([@bachya] - [#30850]) ([ambient_station docs])
+
+[#30791]: https://github.com/home-assistant/home-assistant/pull/30791
+[#30797]: https://github.com/home-assistant/home-assistant/pull/30797
+[#30803]: https://github.com/home-assistant/home-assistant/pull/30803
+[#30810]: https://github.com/home-assistant/home-assistant/pull/30810
+[#30822]: https://github.com/home-assistant/home-assistant/pull/30822
+[#30825]: https://github.com/home-assistant/home-assistant/pull/30825
+[#30828]: https://github.com/home-assistant/home-assistant/pull/30828
+[#30836]: https://github.com/home-assistant/home-assistant/pull/30836
+[#30846]: https://github.com/home-assistant/home-assistant/pull/30846
+[#30849]: https://github.com/home-assistant/home-assistant/pull/30849
+[#30850]: https://github.com/home-assistant/home-assistant/pull/30850
+[@Quentame]: https://github.com/Quentame
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bendavid]: https://github.com/bendavid
+[@frenck]: https://github.com/frenck
+[@jdeluyck]: https://github.com/jdeluyck
+[@peroyvind]: https://github.com/peroyvind
+[@pvizeli]: https://github.com/pvizeli
+[@springstan]: https://github.com/springstan
+[ambient_station docs]: /integrations/ambient_station/
+[emulated_roku docs]: /integrations/emulated_roku/
+[hue docs]: /integrations/hue/
+[icloud docs]: /integrations/icloud/
+[mikrotik docs]: /integrations/mikrotik/
+[mpd docs]: /integrations/mpd/
+[msteams docs]: /integrations/msteams/
+[webostv docs]: /integrations/webostv/
+
+## Release 0.104.2 - January 17
+
+- 0.104.0 ([@frenck] - [#30803])
+- add multistate back ([@dmulcahey] - [#30889]) ([zha docs])
+- Fix missing switch groups of HomematicIP Cloud ([@SukramJ] - [#30903]) ([homematicip_cloud docs])
+- Fix issue with group unique id when normalising bridge id ([@Kane610] - [#30904]) ([deconz docs])
+- Fix Alexa semantics for covers with tilt support. ([@ochlocracy] - [#30911]) ([alexa docs])
+- camera endpoint likes to timeout, catch it. ([@balloob] - [#30919]) ([ring docs])
+- Fix service device refresh calling state update ([@Kane610] - [#30920]) ([deconz docs])
+- Updated frontend to 20200108.2 ([@bramkragten] - [#30921]) ([frontend docs])
+- Fix hue accepting filename ([@balloob] - [#30924]) ([hue docs])
+
+[#30803]: https://github.com/home-assistant/home-assistant/pull/30803
+[#30889]: https://github.com/home-assistant/home-assistant/pull/30889
+[#30903]: https://github.com/home-assistant/home-assistant/pull/30903
+[#30904]: https://github.com/home-assistant/home-assistant/pull/30904
+[#30911]: https://github.com/home-assistant/home-assistant/pull/30911
+[#30919]: https://github.com/home-assistant/home-assistant/pull/30919
+[#30920]: https://github.com/home-assistant/home-assistant/pull/30920
+[#30921]: https://github.com/home-assistant/home-assistant/pull/30921
+[#30924]: https://github.com/home-assistant/home-assistant/pull/30924
+[@Kane610]: https://github.com/Kane610
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@dmulcahey]: https://github.com/dmulcahey
+[@frenck]: https://github.com/frenck
+[@ochlocracy]: https://github.com/ochlocracy
+[alexa docs]: /integrations/alexa/
+[deconz docs]: /integrations/deconz/
+[frontend docs]: /integrations/frontend/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hue docs]: /integrations/hue/
+[ring docs]: /integrations/ring/
+[zha docs]: /integrations/zha/
+
+## Release 0.104.3 - January 21
+
+- Catch all Ring timeout errors ([@balloob] - [#30960]) ([ring docs])
+- Update emulated_roku to 0.2.0 ([@jdeluyck] - [#30974]) ([emulated_roku docs])
+- Ring camera fix ([@steve-gombos] - [#30975]) ([ring docs])
+- Fix capability_attributes when supported_features is None ([@JeffLIrion] - [#30993]) ([water_heater docs])
+- Fix deCONZ update entry from Hassio discovery ([@frenck] - [#31015]) ([deconz docs])
+
+[#30960]: https://github.com/home-assistant/home-assistant/pull/30960
+[#30974]: https://github.com/home-assistant/home-assistant/pull/30974
+[#30975]: https://github.com/home-assistant/home-assistant/pull/30975
+[#30993]: https://github.com/home-assistant/home-assistant/pull/30993
+[#31015]: https://github.com/home-assistant/home-assistant/pull/31015
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@jdeluyck]: https://github.com/jdeluyck
+[@steve-gombos]: https://github.com/steve-gombos
+[deconz docs]: /integrations/deconz/
+[emulated_roku docs]: /integrations/emulated_roku/
+[ring docs]: /integrations/ring/
+[water_heater docs]: /integrations/water_heater/
 
 ## All changes
 

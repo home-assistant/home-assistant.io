@@ -243,7 +243,7 @@ queries:
       required: true
       type: string
     value_template:
-      description: Defines a [template](/docs/configuration/templating/#processing incoming data) to extract a value from the payload.
+      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
       required: false
       type: template
     database:
