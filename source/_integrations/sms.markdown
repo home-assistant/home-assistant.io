@@ -28,10 +28,10 @@ sms:
 notify:
   - platform: sms
     name: sms_person1
-    phone_number: PHONE_NUMBER
+    recipient: PHONE_NUMBER
   - platform: sms
     name: sms_person2
-    phone_number: PHONE_NUMBER
+    recipient: PHONE_NUMBER
 ```
 {% configuration %}
 device:
@@ -42,9 +42,13 @@ device:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-It requires HassOS version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher.
+If the ingtegration is used in HassOS then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
+For non Hass.io installations you must install gammu-dev component:
+```bash
+sudo apt-get install libgammu-dev
+```
 
-Check that the modem is recognized by running:
+Before running for the first time, check that the modem is recognized by the system by running:
 ```bash
 ls -l /dev/*USB*
 ```
