@@ -1,5 +1,5 @@
 ---
-title: "SMS"
+title: "SMS notifications via GSM modem"
 description: "SMS notification via GSM modem."
 icon: gammu.png
 ha_category:
