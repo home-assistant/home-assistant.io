@@ -114,6 +114,7 @@ influxdb:
 - Don't use len(SEQUENCE) as condition value ([@fabaff] - [#7249])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Rfxtrx upgrade lib 0.18 ([@danielhiversen] - [#7273]) ([rfxtrx docs])
 - WIP: HassIO allow to access to container logs. ([@pvizeli] - [#7271])
 - Update aiolifx ([@amelchio] - [#7279]) ([light.lifx docs])
