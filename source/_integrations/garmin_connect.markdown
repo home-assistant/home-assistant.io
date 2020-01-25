@@ -5,7 +5,7 @@ logo: garmin_connect.png
 ha_category:
   - Health
 ha_iot_class: Cloud Polling
-ha_release: 0.104
+ha_release: 0.105
 ha_codeowners:
   - '@cyberjunky'
 ---
@@ -14,119 +14,97 @@ The Garmin Connect sensor allows you to expose data from [Garmin Connect](https:
 
 ## Configuration
 
-Enable the sensor by adding the following to your `configuration.yaml` file:
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: garmin_connect
-    email: GARMIN_CONNECT_EMAIL
-    password: GARMIN_CONNECT_PASSWORD
-```
+To add Garmin Connect to your installation, go to Configuration >> Integrations in the UI and enable the Garmin Connect integration by entering your credentials.
 
-Restart Home Assistant once this is complete.
+After succesful login a standard set of sensors are enabled.
+You can enable more if needed by using the Integrations page.
 
-Please be aware that Garmin Connect has very low rate limits, max. once every 10 minutes.
 
-{% configuration %}
-email:
-  description: The email address you use for your Garmin Connect instance.
-  required: true
-  type: string
-password:
-  description: The password you use for your Garmin Connect instance.
-  required: true
-  type: string
-monitored_conditions:
-  description: Condition(s) to monitor.
-  required: false
-  default: "`totalSteps`"
-  type: list
+Please be aware that Garmin Connect has very low rate limits, max. once every ~10 minutes.
 
-{% endconfiguration %}
 
-The full configuration example below shows all available conditions you can monitor. Each entry is exposed as a sensor.
+## Available Sensors
 
 Not every sensor holds meaningful values, it depends on the tracking device you use, and the apps you have connected.
 
-## Full Configuration
+Enabled by default:
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: garmin_connect
-    email: GARMIN_CONNECT_EMAIL
-    password: GARMIN_CONNECT_PASSWORD
-    monitored_conditions:
-      - totalSteps
-      - dailyStepGoal
-      - totalKilocalories
-      - activeKilocalories
-      - bmrKilocalories
-      - consumedKilocalories
-      - burnedKilocalories
-      - remainingKilocalories
-      - netRemainingKilocalories
-      - netCalorieGoal
-      - totalDistanceMeters
-      - wellnessStartTimeLocal
-      - wellnessEndTimeLocal
-      - wellnessDescription
-      - wellnessDistanceMeters
-      - wellnessActiveKilocalories
-      - wellnessKilocalories
-      - highlyActiveSeconds
-      - activeSeconds
-      - sedentarySeconds
-      - sleepingSeconds
-      - measurableAwakeDuration
-      - measurableAsleepDuration
-      - floorsAscendedInMeters
-      - floorsDescendedInMeters
-      - floorsAscended
-      - floorsDescended
-      - userFloorsAscendedGoal
-      - minHeartRate
-      - maxHeartRate
-      - restingHeartRate
-      - minAvgHeartRate
-      - maxAvgHeartRate
-      - abnormalHeartRateAlertsCount
-      - lastSevenDaysAvgRestingHeartRate
-      - averageStressLevel
-      - maxStressLevel
-      - stressQualifier
-      - stressDuration
-      - restStressDuration
-      - activityStressDuration
-      - uncategorizedStressDuration
-      - totalStressDuration
-      - lowStressDuration
-      - mediumStressDuration
-      - highStressDuration
-      - stressPercentage
-      - restStressPercentage
-      - activityStressPercentage
-      - uncategorizedStressPercentage
-      - lowStressPercentage
-      - mediumStressPercentage
-      - highStressPercentage
-      - moderateIntensityMinutes
-      - vigorousIntensityMinutes
-      - intensityMinutesGoal
-      - bodyBatteryChargedValue
-      - bodyBatteryDrainedValue
-      - bodyBatteryHighestValue
-      - bodyBatteryLowestValue
-      - bodyBatteryMostRecentValue
-      - averageSpo2
-      - lowestSpo2
-      - latestSpo2
-      - latestSpo2ReadingTimeLocal
-      - averageMonitoringEnvironmentAltitude
-      - durationInMilliseconds
-      - highestRespirationValue
-      - lowestRespirationValue
-      - latestRespirationValue
-      - latestRespirationTimeGMT
+```text
+Total Steps
+Daily Step Goal
+Total KiloCalories
+Active KiloCalories
+BMR KiloCalories
+Consumed KiloCalories
+Burned KiloCalories
+Total Distance Mtr
+Active Time
+Sedentary Time
+Sleeping Time
+Awake Duration
+Sleep Duration
+Floors Ascended
+Floors Descended
+Floors Ascended Goal
+Min Heart Rate
+Max Heart Rate
+Resting Heart Rate
+Avg Stress Level
+Max Stress Level
+Rest Stress Duration
+Activity Stress Duration
+Uncat. Stress Duration
+Total Stress Duration
+Low Stress Duration
+Medium Stress Duration
+High Stress Duration
+Body Battery Charged
+Body Battery Drained
+Body Battery Highest
+Body Battery Lowest
+Body Battery Most Recent
+Average SPO2
+Lowest SPO2
+Latest SPO2
+Highest Respiration
+Lowest Respiration
+Latest Respiration
+```
+
+
+Disabled by default:
+
+```text
+Remaining KiloCalories
+Net Remaining KiloCalories
+Net Calorie Goal
+Wellness Start Time
+Wellness End Time
+Wellness Description
+Wellness Distance Mtr
+Wellness Active KiloCalories
+Wellness KiloCalories
+Highly Active Time
+Floors Ascended Mtr
+Floors Descended Mtr
+Min Avg Heart Rate
+Max Avg Heart Rate
+Abnormal HR Counts
+Last 7 Days Avg Heart Rate
+Stress Qualifier
+Stress Duration
+Stress Percentage
+Rest Stress Percentage
+Activity Stress Percentage
+Uncat. Stress Percentage
+Low Stress Percentage
+Medium Stress Percentage
+High Stress Percentage
+Latest SPO2 Time
+Average Altitude
+Moderate Intensity
+Vigorous Intensity
+Intensity Goal
+Latest Respiration Update
 ```
