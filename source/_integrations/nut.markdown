@@ -60,6 +60,11 @@ sensor:
     description: Contains all entries to display.
     required: true
     type: list
+  scan_interval:
+    description: "The rate in seconds at which the NUT server should be polled for new data."
+    required: false
+    type: integer
+    default: 60
 {% endconfiguration %}
 
 ## Example
