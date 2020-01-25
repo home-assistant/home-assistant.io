@@ -103,7 +103,7 @@ go_unavailable_timeout:
   description: "Timeout to report this device as unavailable. This option hides a bad link quality"
   required: false
   default: 7200
-  type: time_period
+  type: integer
 {% endconfiguration %}
 
 <div class='note warning'>
