@@ -113,7 +113,7 @@ turn_off_command:
 media_player:
   # Use the Python ADB implementation with a user-provided key to setup an
   # Android TV device. Provide some app names and don't display other apps
-  # in the sources menuo. Override the default turn on/off commands, and
+  # in the sources menu. Override the default turn on/off commands, and
   # provide custom state detection rules.
   - platform: androidtv
     name: Android TV
