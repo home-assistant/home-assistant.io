@@ -57,7 +57,7 @@ recorder:
         event_types:
           description: The list of event types to be excluded from recordings.
           required: false
-          type: list		  
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
