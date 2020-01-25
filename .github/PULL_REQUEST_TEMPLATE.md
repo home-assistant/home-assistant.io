@@ -10,7 +10,7 @@
 
 ## Type of change
 <!--
-    What types of changes does your PR introduce to our documention/website?
+    What types of changes does your PR introduce to our documentation/website?
     Put an `x` in the boxes that apply. You can also fill these out after
     creating the PR.
 -->
