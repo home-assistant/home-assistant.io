@@ -144,6 +144,6 @@ An automation example to report a battery failure:
     to: unavailable
   action:
   - data_template:
-      message: "Flower 1 Moisture is {{states('sensor.kiwi_moisture') }}"
+      message: "Flower 1 moisture is {{states('sensor.flower1_moisture') }} for more than 24 hours"
     service: notify.notifier_telegram_someone
 ```
