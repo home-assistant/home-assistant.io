@@ -1,9 +1,9 @@
 ---
-title: "Documentation"
-description: "Documentation for Home Assistant"
+title: "Документация"
+description: "Документация к Home Assistant"
 ---
 
-The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
+Документация охватывает темы от простых до продвинутых, связанных с установкой, настройкой и использованием Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/hassio/'>
@@ -16,7 +16,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='/images/supported_brands/pencil.png' />
     </div>
-    <div class='title'>Configuration</div>
+    <div class='title'>Настройка</div>
   </a>
   <a class='option-card' href='/docs/z-wave/'>
     <div class='img-container'>
@@ -34,7 +34,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>Lovelace user interface</div>
+    <div class='title'>Интерфейс пользователя Lovelace</div>
   </a>
   <a class='option-card' href='/docs/ecosystem/ios/'>
     <div class='img-container'>
@@ -46,4 +46,4 @@ The documentation covers beginner to advanced topics around the installation, se
 
 <br/>
 
-To see what Home Assistant can do, take a look at the [demo page](/demo).
+Чтобы узнать, на что способен Home Assistant, загляните на [демо страницу](/demo).
