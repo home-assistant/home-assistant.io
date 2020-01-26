@@ -89,7 +89,7 @@ Setting target values is currently not supported.
 ## Sensor
 
 The `Atag` sensor platform provides additional metrics reported by the One, which are not part of either the Water-Heater or Climate platforms.
-By default the following sensors are enabled.
+By default, the following sensors are enabled:
 
 ```yaml
 sensors:
