@@ -83,7 +83,7 @@ The hold modes (manual, auto, extend) are currently available as a sensor only. 
 
 ## Water Heater
 
-The Water Heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such a running shower or tap water.
+The Water Heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
 Setting target values is currently not supported.
 
 ## Sensor
