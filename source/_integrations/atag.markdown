@@ -19,11 +19,9 @@ The integration implements the following platforms.
 
 ## Configuration
 
-The Atag integration can be enabled directly from the config flow UI.
-In a regular setup only the IP address has to be provided (UDP discovery planned for future release).
+The Atag integration can be enabled directly from Home Assistant. Navigate to `configuration`, then `integrations` and click `Add Integration`. Click `Atag` to initiate the configuration. Only the IP Address has to be provided, but be sure to add your email address if you experience connectivity issues.
 
-Alternatively, the integration can be set up through the `configuration.yaml` file.
-This way additional (non-default) sensors can be enabled. Only the `host` field is required.
+Alternatively, the integration can be set up through `configuration.yaml`. Only the `host` field is required.
 
 ```yaml
 # Minimal setup through configuration.yaml
@@ -44,19 +42,11 @@ port:
   description: Port to reach the Atag API. Only needed if connecting through alternative routes.
   required: false
   type: integer
-scan_interval:
-  description: Polling frequency in seconds. Defaults to 30, increasing may overload the device.
-  required:  false
-  type: integer
 sensors:
-  description: List of sensors to add. Uses default list if not specified. See below for the full list.
+  description: List of sensors to enable. Uses default list if not specified. See below for the full list.
   type: list
   required: false
 {% endconfiguration %}
-
-<div class='note warning'>
-Setting `scan-interval` below 30 may overload the device. Make sure to use the default if you experience difficulties (e.g. network disconnects)
-</div>
 
 <div class='note'>
 Changes to configuration.yaml may not be picked up automatically. Make sure to manually delete the config entry in the UI in case your configuration is not updated.
@@ -104,7 +94,8 @@ sensors:
   - flame_level
 ```
 
-Alternatively the user can provide a list of sensors to enable (requires setup through `configuration.yaml`).
+Additional sensors can be enabled in the UI. Navigate to `configuration`, then `integrations`, and click `Atag`. Additional sensors can be enabled by toggling the respective buttons.
+Alternatively the or directly by specifiying them in `configuration.yaml`.
 <div class='note'>
 This data is not always easily interpretable, as many fields are results of undocumented binary OR divisions.
 </div>
