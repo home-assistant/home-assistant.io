@@ -29,6 +29,9 @@ qvrpro:
   username: pyqvruser
   password: password
   exclude_channels: 2,5,6
+  
+camera:
+  - platform: qvrpro
 ```
 
 {% configuration %}
@@ -50,5 +53,10 @@ exclude_channels:
   type: list
 {% endconfiguration %}
 
-Follow steps in [QVR Pro camera](/components/camera.qvrpro/)
-documentation to enable the cameras for the specified channels.
+Enabling the QVR Pro camera platform will add all QVR Pro channels by
+default. Please see `exclude_channels` if you would like to exclude
+specific channels from showing up in Home Assistant.
+
+<p class="note warning">
+The QVR Pro user must have Surveillance Management permission.
+</p>
