@@ -33,7 +33,7 @@ atag:
 
 {% configuration %}
 host:
-  description: Atag host or ip address.
+  description: Atag host or IP address.
   required: true
   type: string
 email:
