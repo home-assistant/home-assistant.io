@@ -14,6 +14,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
+ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
 ---
@@ -288,6 +289,8 @@ Push button devices are only available with a battery sensor. This is due to a l
 It's not possible to detect a key press event on these devices at the moment.
 
   * Remote Control - 8 buttons (*HmIP-RC8*)
+  * Wall-mount Remote Control for brand switches - 2-button (*HmIP-BRC2*)
+  * Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
   * Wall-mount Remote Control - 2-button (*HmIP-WRC2*)
   * Wall-mount Remote Control - 6-button (*HmIP-WRC6*)
   * Key Ring Remote Control - 4 buttons (*HmIP-KRC4*)
