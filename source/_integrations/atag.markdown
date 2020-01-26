@@ -41,7 +41,7 @@ email:
   required: false
   type: string
 port:
-  description: Port to reach the Atag Api. Only needed if connecting through alternative routes.
+  description: Port to reach the Atag API. Only needed if connecting through alternative routes.
   required: false
   type: integer
 scan_interval:
