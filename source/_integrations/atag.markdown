@@ -22,7 +22,7 @@ The integration implements the following platforms.
 The Atag integration can be enabled directly from the config flow UI.
 In a regular setup only the IP address has to be provided (UDP discovery planned for future release).
 
-Alternatively the integration can be setup through configuration.yaml.
+Alternatively, the integration can be set up through the `configuration.yaml` file.
 This way additional (non-default) sensors can be enabled. Only the `host` field is required.
 
 ```yaml
