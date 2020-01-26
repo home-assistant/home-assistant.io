@@ -54,6 +54,32 @@ port:
   type: string
 {% endconfiguration %}
 
+### Service `velbus.sync_clock`
+
+You can use the service `velbus.sync clock` to synchronize the clock of the velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
+
+### Service `velbus.set_memo_text`
+
+You can use the service `velbus.set_memo_text` to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
+| `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
+
+Example:
+
+```yaml
+script:
+  trash_memo:
+    alias: Trash memo text
+    sequence:
+    - data:
+        address: 65
+        memo_text: "It's trash day"
+      service: velbus.set_memo_text
+```
+
 ## Example automation
 
 The Velbus integration allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable entity of Home Assistant.
