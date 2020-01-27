@@ -156,14 +156,14 @@ The behaviour of the next and previous buttons is different depending on the act
 ### Sound output
 
 The current sound output of the TV can be found under the state attributes.
-To change the sound output the following service is available:
+To change the sound output, the following service is available:
 
 #### Service `webostv.select_sound_output`
 
 | Service data attribute | Optional | Description                                             |
 |------------------------|----------|---------------------------------------------------------|
 | `entity_id`            |       no | Target a specific webostv media player.                 |
-| `sound_output`         |       no | Name of the sound output to switch to. 	                |
+| `sound_output`         |       no | Name of the sound output to switch to.                  |
 
 ### Generic commands and buttons
 
