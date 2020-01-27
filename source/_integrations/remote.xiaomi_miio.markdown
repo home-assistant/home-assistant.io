@@ -85,6 +85,25 @@ remote:
           - pronto:pronto_hex:[optional_repeat]
 ```
 
+## Add command as entity button in Lovelace UI
+
+```yaml
+type: entity-button
+tap_action:
+  action: call-service
+  service: remote.send_command
+  service_data:
+    command: activate_towel_heater
+    entity_id: remote.xiaomi_miio_ir
+hold_action:
+  action: more-info
+show_icon: true
+show_name: true
+entity: remote.xiaomi_miio_ir
+icon: 'mdi:radiator'
+name: Activate Towel Heater
+```
+
 ## Use named commands to create UI buttons
 
 ```yaml
