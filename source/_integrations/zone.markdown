@@ -39,7 +39,7 @@ zone:
 {% configuration %}
 name:
   description: The friendly name of the zone.
-  required: false
+  required: true
   type: string
 latitude:
   description: The latitude of the center point of the zone.
