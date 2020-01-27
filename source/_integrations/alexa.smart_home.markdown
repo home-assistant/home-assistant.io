@@ -6,7 +6,8 @@ ha_category:
   - Voice
 ha_release: "0.54"
 ---
-Amazon Alexa provides a Smart Home API for richer home automation control and supports the ability to use simple intuitive utterances without saying the skill name, such as:
+
+Amazon Alexa provides a Smart Home API for richer home automation control and supports the ability to use simple, intuitive utterances without saying the skill name, such as:
 
 <kbd>
 
@@ -18,9 +19,9 @@ _Alexa, is the garage door open?_
  
 
 
-It takes considerable effort to configure. Your Home Assistant instance must be accessible from Internet, and you need to create Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
+It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
-The [Emulated Hue integration][emulated-hue-component] provides a simpler alternative to use utterances such as, <kbd>_Alexa, turn on the kitchen light._</kbd> However, it has some limitations since everything looks like a light bulb.
+The [Emulated Hue integration][emulated-hue-component] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 <div class='note'>
 
@@ -50,7 +51,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 ### Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a SSL/TLS certificate. A self-signed certificate will work but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
@@ -132,7 +133,7 @@ Next you need create a Lambda function.
 
 #### Test the Lambda function
 
-Now, you have created the Lambda function, before you can test it, you have to set up your Home Assistant. Put following minimal configuration to your configuration.yaml, it will exposures all of your supported device and automation to Alexa. Check the [configuration section](#alexa-smart-home-component-configuration) if you want more control of the exposure. 
+Now, you have created the Lambda function, before you can test it, you have to set up your Home Assistant. Put following minimal configuration to your configuration.yaml, it will exposures all of your supported device and automation to Alexa. Check the [configuration section](#alexa-smart-home-component-configuration) if you want more control of the exposure.
 
 ```yaml
 alexa:
@@ -213,7 +214,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * A new window will open to direct you to your Home Assistant's login screen.
   * After you success login, you will be redirected back to Alexa app.
   * You can discovery your devices now. 
-- Now, you can ask your Echo or in Alexa App, <kbd>_Alexa, turn on bedroom_</kbd> 🎉 
+- Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉 
 
 ### Alexa Smart Home Component Configuration
 
@@ -258,7 +259,7 @@ alexa:
           type: string
         endpoint:
           description: >-
-            To enable proactive events you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information. 
+            To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information. 
              * North America: `https://api.amazonalexa.com/v3/events`
              * Europe: `https://api.eu.amazonalexa.com/v3/events`
              * Far East: `https://api.fe.amazonalexa.com/v3/events`        
@@ -320,10 +321,10 @@ alexa:
 
 
 #### Alexa Locale
+
 The `locale` should match the location and language used for your Amazon echo devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`.
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
-
 
 #### Proactive Events
 
@@ -372,7 +373,8 @@ See the [troubleshooting](#troubleshooting) if for issues setting up the integra
 
 
 #### Alexa Display Categories
-Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices. 
+
+Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
 ```yaml
 light.kitchen_light:
@@ -423,6 +425,7 @@ The following integrations are currently supported:
 - [Vacuum](#vacuum)
 
 #### Alarm Control Panel
+
 Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alarm Control Panel entity.
 
 <kbd>
@@ -434,8 +437,9 @@ _Alexa, is my home armed?_
 
 </kbd>
 
-##### Arming 
-Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming. e.g. switching from `armed_home` to `armed_night`.
+##### Arming
+
+The Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming. e.g. switching from `armed_home` to `armed_night`.
 
 The Alarm Control Panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
@@ -448,18 +452,20 @@ The Alarm Control Panel may default the `code_arm_required` attribute to `true` 
 </div>
 
 ##### Disarming
-Users must opt in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the Alarm Control Panel. 
+
+Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the Alarm Control Panel.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_security_system_pin.png' target='_blank'>
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa. 
+To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
-#### Alert, Automation, Group, Input Boolean 
+#### Alert, Automation, Group, Input Boolean
+
 Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switches.
 
 <kbd>
@@ -472,6 +478,7 @@ _Alexa, Downstairs to on._
  
  
 #### Binary Sensor
+
 Requires [Proactive Events](#proactive-events) enabled.
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
@@ -494,6 +501,7 @@ _Alexa, is the bedroom window open?_
 </kbd>
 
 ##### Routines
+
 Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered with Binary Sensors exposed as contact or motion sensors.
@@ -501,6 +509,7 @@ Alexa Routines can be triggered with Binary Sensors exposed as contact or motion
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
 ##### Doorbell Announcement
+
 Requires [Proactive Events](#proactive-events) enabled.
 
 Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App. 
@@ -515,20 +524,19 @@ alexa:
         display_categories: DOORBELL
 ```
 
-Alexa will announce on all echo devices <samp>_Someone is at the [entity name]_.</samp> when a `binary_sensor` state changes from `off` to `on`.
+Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when a `binary_sensor` state changes from `off` to `on`.
 
 <div class='note info'>
 Each Amazon Echo device will need the communication and announcements setting enabled, and the Do Not Disturb feature turned off.
 </div>
-
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
   <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
 </p>
 
-
 ##### Presence Detection with Binary Sensor
+
 Requires [Proactive Events](#proactive-events) enabled.
 
 Configure a `binary_sensor` that has a `device_class` attribute of `motion` or `presence` and configure `display_category` to `CAMERA` in the [`entity_config`](#entity_config) to gain access the presence detected notification settings in the Alexa App.
