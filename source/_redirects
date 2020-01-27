@@ -984,7 +984,6 @@
 /components/switch.homekit_controller /integrations/homekit_controller
 /components/switch.homematic /integrations/homematic
 /components/switch.homematicip_cloud /integrations/homematicip_cloud
-/components/switch.hook /integrations/hook
 /components/switch.hydrawise /integrations/hydrawise#switch
 /components/switch.ihc /integrations/ihc#switch
 /components/switch.insteon /integrations/insteon
@@ -1435,7 +1434,6 @@
 /components/homematicip_cloud /integrations/homematicip_cloud
 /components/homeworks /integrations/homeworks
 /components/honeywell /integrations/honeywell
-/components/hook /integrations/hook
 /components/horizon /integrations/horizon
 /components/hp_ilo /integrations/hp_ilo
 /components/html5 /integrations/html5
