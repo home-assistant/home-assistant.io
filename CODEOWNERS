@@ -237,7 +237,6 @@ source/_integrations/openuv.markdown @bachya
 source/_integrations/openweathermap.markdown @fabaff
 source/_integrations/orangepi_gpio.markdown @pascallj
 source/_integrations/oru.markdown @bvlaicu
-source/_integrations/owlet.markdown @oblogic7
 source/_integrations/panel_custom.markdown @home-assistant/frontend
 source/_integrations/panel_iframe.markdown @home-assistant/frontend
 source/_integrations/pcal9535a.markdown @Shulyaka

@@ -455,7 +455,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add more ebusd Vaillant "bai" sensors ([@sashao] - [#26750]) ([ebusd docs])
 - Add xbox live custom update interval ([@MartinHjelmare] - [#26939]) ([xbox_live docs])
 - Guard against non supported entities ([@balloob] - [#26941]) ([alexa docs])
-- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892]) ([owlet docs])
+- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892])
 - Revert Nest HVAC mode when disabling Eco mode ([@joe248] - [#26934]) ([nest docs])
 - Fix ecobee integration ([@marthoc] - [#26951]) ([ecobee docs])
 - Add CO2 level reading for Kaiterra integration ([@Michsior14] - [#26935]) ([kaiterra docs])
@@ -955,7 +955,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openuv docs]: /integrations/openuv/
 [otp docs]: /integrations/otp/
-[owlet docs]: /integrations/owlet/
 [persistent_notification docs]: /integrations/persistent_notification/
 [pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/

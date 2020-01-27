@@ -738,7 +738,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for pencom ([@springstan] - [#29348]) ([pencom docs])
 - Include telegram_bot message id for all messages ([@luca-angemi] - [#29315]) ([telegram_bot docs])
 - Ignore state of climate entities in prometheus ([@springstan] - [#29346]) ([prometheus docs])
-- Move imports to top for owlet ([@springstan] - [#29352]) ([owlet docs])
+- Move imports to top for owlet ([@springstan] - [#29352])
 - Rendering complex template objects to leave non-template values alone ([@balloob] - [#29353])
 - Move imports to top for opple ([@springstan] - [#29372]) ([opple docs])
 - Move imports to top for orvibo ([@springstan] - [#29371]) ([orvibo docs])
@@ -1665,7 +1665,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [openuv docs]: /integrations/openuv/
 [opple docs]: /integrations/opple/
 [orvibo docs]: /integrations/orvibo/
-[owlet docs]: /integrations/owlet/
 [owntracks docs]: /integrations/owntracks/
 [panasonic_viera docs]: /integrations/panasonic_viera/
 [pencom docs]: /integrations/pencom/
