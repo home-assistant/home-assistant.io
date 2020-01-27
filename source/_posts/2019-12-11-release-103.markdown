@@ -715,7 +715,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Emulated Hue code owner ([@NobleKangaroo] - [#29319]) ([emulated_hue docs])
 - Broadlink remote ([@felipediel] - [#26528]) ([broadlink docs]) (new-platform)
 - Move imports to top for python_script ([@springstan] - [#29331]) ([python_script docs])
-- Move imports to top for postnl ([@springstan] - [#29330]) ([postnl docs])
+- Move imports to top for postnl ([@springstan] - [#29330])
 - Move imports to top for prezzibenzina ([@springstan] - [#29329]) ([prezzibenzina docs])
 - Move imports to top for quantum_gateway ([@springstan] - [#29327]) ([quantum_gateway docs])
 - Move imports to top for qnap ([@springstan] - [#29326]) ([qnap docs])
@@ -1674,7 +1674,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [plum_lightpad docs]: /integrations/plum_lightpad/
 [point docs]: /integrations/point/
-[postnl docs]: /integrations/postnl/
 [prezzibenzina docs]: /integrations/prezzibenzina/
 [prometheus docs]: /integrations/prometheus/
 [proxmoxve docs]: /integrations/proxmoxve/
