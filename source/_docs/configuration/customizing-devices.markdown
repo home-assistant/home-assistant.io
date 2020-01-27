@@ -81,7 +81,7 @@ Device class is currently supported by the following components:
 * [Binary Sensor](/integrations/binary_sensor/)
 * [Sensor](/integrations/sensor/)
 * [Cover](/integrations/cover/)
-* [Media Player](integrations/media_player/)
+* [Media Player](/integrations/media_player/)
 
 ### Manual customization
 
