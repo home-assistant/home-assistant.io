@@ -56,7 +56,7 @@ if entity_id is not None:
     service_data = {"entity_id": entity_id, "rgb_color": rgb_color, "brightness": 255}
     hass.services.call("light", "turn_on", service_data, False)
 ```
-The above `python_script` can be called using the following JSON as an input.
+The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
 entity_id: light.bedroom

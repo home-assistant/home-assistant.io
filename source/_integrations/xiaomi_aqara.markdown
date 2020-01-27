@@ -68,6 +68,8 @@ xiaomi_aqara:
     - key: xxxxxxxxxxxxxxxx
 ```
 
+For one gateway to avoid errors, don't provide the MAC address.
+
 ### Multiple Gateways
 
 ```yaml

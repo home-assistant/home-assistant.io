@@ -54,6 +54,10 @@ recorder:
           description: The list of entity ids to be excluded from recordings.
           required: false
           type: list
+        event_types:
+          description: The list of event types to be excluded from recordings.
+          required: false
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -85,6 +89,8 @@ recorder:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+    event_types:
+      - call_service # Don't record service calls
 ```
 
 define domains and entities to record by using the `include` configuration (aka. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
