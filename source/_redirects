@@ -818,7 +818,6 @@
 /components/sensor.pocketcasts /integrations/pocketcasts
 /components/sensor.point /integrations/point#sensor
 /components/sensor.pollen /integrations/iqvia
-/components/sensor.postnl /integrations/postnl
 /components/sensor.prezzibenzina /integrations/prezzibenzina
 /components/sensor.pushbullet /integrations/pushbullet#sensor
 /components/sensor.pvoutput /integrations/pvoutput
@@ -1699,7 +1698,6 @@
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
 /components/polling /integrations/telegram_polling
-/components/postnl /integrations/postnl
 /components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
 /components/prometheus /integrations/prometheus
