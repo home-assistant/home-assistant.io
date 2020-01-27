@@ -252,6 +252,7 @@ alexa:
           description: The locale of your Alexa devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`. See [Alexa Locale](#alexa-locale) for additional information.
           required: false
           type: string
+          default: en-US
         endpoint:
           description: >-
             To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information. 
@@ -316,7 +317,21 @@ alexa:
 
 #### Alexa Locale
 
-The `locale` should match the location and language used for your Amazon echo devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`.
+The `locale` should match the location and language used for your Amazon echo devices. 
+
+The supported locales are: 
+- `de-DE`
+- `en-AU`
+- `en-CA`
+- `en-GB`
+- `en-IN`
+- `en-US`
+- `es-ES`
+- `es-MX`
+- `fr-CA`
+- `fr-FR`
+- `it-IT`
+- `ja-JP`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
