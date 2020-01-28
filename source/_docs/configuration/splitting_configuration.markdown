@@ -6,7 +6,7 @@ redirect_from: /topics/splitting_configuration/
 
 So you've been using Home Assistant for a while now and your configuration.yaml file brings people to tears or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
 
-First off, several community members have sanitized (read: without api keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
+First off, several community members have sanitized (read: without API keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
 
 As commenting code doesn't always happen, please read on for the details.
 
@@ -56,6 +56,7 @@ zwave:
 mqtt:
   broker: 127.0.0.1
 ```
+
 As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
 
 While some of these integrations can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
@@ -148,18 +149,20 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
-### Debugging multiple configuration files
+## Debugging multiple configuration files
 
 If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
+
 - Listing all loaded files: `hass --script check_config --files`
 - Viewing a component's config: `hass --script check_config --info light`
 - Or all components' config:  `hass --script check_config --info all`
 
 You can get help from the command line using: `hass --script check_config --help`
 
-### Advanced Usage
+## Advanced Usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
@@ -182,7 +185,7 @@ These work recursively. As an example using `!include_dir_* automation`, will in
     └── configuration.yaml (not included)
 ```
 
-#### Example: `!include_dir_list`
+### Example: `!include_dir_list`
 
 `configuration.yaml`
 
@@ -244,7 +247,7 @@ It is important to note that each file must contain only **one** entry when usin
 It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
 the -id: line must be removed from each of the split files.
 
-#### Example: `!include_dir_named`
+### Example: `!include_dir_named`
 
 `configuration.yaml`
 
@@ -321,7 +324,7 @@ speech:
     {% endif %}{% endraw %}
 ```
 
-#### Example: `!include_dir_merge_list`
+### Example: `!include_dir_merge_list`
 
 `configuration.yaml`
 
@@ -376,7 +379,7 @@ automation: !include_dir_merge_list automation/
 
 It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
 
-#### Example: `!include_dir_merge_named`
+### Example: `!include_dir_merge_named`
 
 `configuration.yaml`
 

@@ -128,7 +128,7 @@ contact:
       required: false
       type: string
 issue_report_channels:
-  description: "The reporting channel for issues. Valid values are email, issue_mail, twitter or ml"
+  description: "The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
   required: true
   type: list
 state:
