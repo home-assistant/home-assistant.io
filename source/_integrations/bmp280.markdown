@@ -43,6 +43,6 @@ To get more information on how to set up the I2C interface on your Raspberry Pi,
 
 ## Choosing the appropriate I2C address
 
-Please note that the actual I2C address of this device depends on the state of the `SD0` pin. If its pulled down (to the `GND` rail) it will be `0x77`, if it's pulled up (to the `VCC` pin) it will be `0x76`. 
+Please note that the I2C address of this device depends on the state of the `SDO` pin. If it is pulled down (to the `GND` rail) it will be `0x76`, if it's pulled up (to the `VCC` rail) it will be `0x77`. 
 
 If you leave it floating then the address will be unpredictable or even worse, it can change over time. So it is recommended to hook up this pin to either the positive or the negative rail of your host device.
