@@ -144,7 +144,7 @@ views:
 
 ## Panel
 
-Setting panel true sets the view to panel mode. In this mode the first card is rendered full width Other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`.
+Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`.
 
 #### Example
 
