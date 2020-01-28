@@ -18,7 +18,8 @@ There is currently support for the following device types within Home Assistant:
 - **Light** - The yeelight platform for supporting lights.
 - **Sensor** - The yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
 
-### Example configuration (Automatic)
+## Example configuration (Automatic)
+
 After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
 
 ```yaml
@@ -29,7 +30,7 @@ light.yeelight_color2_XXXXXXXXXXXX:
   friendly_name: Downstairs Toilet
 ```
 
-### Example configuration (Manual)
+## Example configuration (Manual)
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -107,7 +108,8 @@ custom_effects:
            type: list
 {% endconfiguration %}
 
-#### Music mode 
+### Music mode
+
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
 **Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
@@ -149,7 +151,7 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 
-## Platform Services
+## Services
 
 ### Service `yeelight.set_mode`
 
@@ -203,7 +205,7 @@ Changes the light to the specified color temperature. If the light is off, it wi
 
 ### Service `yeelight.set_color_flow_scene`
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different Yeelight api call. If the light was off, it will be turned on. There might be some firmware differences, in handling complex flows, etc.
+Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences, in handling complex flows, etc.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -261,13 +263,13 @@ This example shows how you can add your custom effects in your configuration. To
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
 Where the array values are as per the following:
-  - RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being                                                               in milliseconds (minimum of 50) and final brightness to transition to 0-100                                                             (%)
-  - HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in                                                             milliseconds (minimum 50) and final brightness 0-100 (%)
-  - TemperatureTransition: [temp, duration, brightness]     with temp being the final color temperature between 1700 and 6500, duration                                                             in milliseconds (minimum 50) and final brightness to transition to 0-100 (%)
-  - SleepTransition: [duration]                             with duration being in integer for effect time in milliseconds (minimum 50)
+
+- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 0-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 0-100 (%).
+- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 0-100 (%).
+- SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
-
 
 ```yaml
 yeelight:

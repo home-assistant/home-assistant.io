@@ -90,7 +90,7 @@ data:
 
 When the Home Assistant Roku integration is enabled and has found a Roku device, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 
-The api calls are like this:
+The API calls are like this:
 
 ```txt
 GET http:// ROKU_IP:8060/query/apps
@@ -102,7 +102,7 @@ POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_I
 
 More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/discovery/external-control-api.md)
 
-To use this in Home Assistant, for instance in an automation, the format is as follows. Note that ```source: ``` is the appID you discovered in the API call:
+To use this in Home Assistant, for instance in an automation, the format is as follows. Note that `source:` is the appID you discovered in the API call:
 
 ```yaml
 action:

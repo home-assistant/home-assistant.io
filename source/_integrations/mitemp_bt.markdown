@@ -19,7 +19,7 @@ Depending on the operating system you're running, you have to configure the prop
 - On other Linux systems:
   - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
   - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or    `bluez-deprecated`.
-- Windows and MacOS are currently not supported by the `btlewrap` library.
+- Windows and macOS are currently not supported by the `btlewrap` library.
 
 ## Configuration
 

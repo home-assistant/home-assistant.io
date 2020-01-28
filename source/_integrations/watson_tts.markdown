@@ -40,7 +40,7 @@ watson_url:
   description: "The endpoint to which the service will connect."
   required: false
   type: string
-  default: https://stream.watsonplatform.net/text-to-speech/api
+  default: `https://stream.watsonplatform.net/text-to-speech/api`
 watson_apikey:
   description: "Your secret apikey generated on the IBM Cloud admin console."
   required: true
