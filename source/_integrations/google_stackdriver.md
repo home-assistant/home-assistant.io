@@ -5,7 +5,7 @@ logo: google_stackdriver.png
 ha_category:
   - History
 ha_iot_class: "Cloud Push"
-ha_release: 0.104
+ha_release: 0.105
 ---
 
 The `google_stackdriver` integration allows you to stream logs to [Google Stackdriver Logging](https://cloud.google.com/logging/). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to log up to 50 GiB.
