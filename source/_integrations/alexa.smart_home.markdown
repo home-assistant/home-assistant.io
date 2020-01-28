@@ -26,31 +26,29 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 </div>
 
-## Amazon Alexa Smart Home
-
-##### Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant
+**Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant**
 
 - [Requirements](#requirements)
-- [Create your Amazon Alexa Smart Home Skill](#create-your-amazon-alexa-smart-home-skill)
-- [Create your Lambda function](#create-your-lambda-function)
+- [Create an Amazon Alexa Smart Home Skill](#create-an-amazon-alexa-smart-home-skill)
+- [Create an AWS Lambda Function](#create-an-aws-lambda-function)
   - [Create an IAM Role for Lambda](#create-an-iam-role-for-lambda)
-  - [Add the code for your Lambda function](#add-the-code-for-your-lambda-function)
-  - [Test the Lambda function](#test-the-lambda-function)
-- [Configure the smart home service endpoint](#configure-the-smart-home-service-endpoint)
-- [Account linking](#account-linking)
+  - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
+  - [Test the Lambda Function](#test-the-lambda-function)
+- [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
+- [Account Linking](#account-linking)
 - [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
-- [Supported integrations](#supported-integrations)
-- [Alexa web-based app](#alexa-web-based-app)
+- [Supported Integrations](#supported-integrations)
+- [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
 
-### Requirements
+## Requirements
 
 - The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
-### Create Your Amazon Alexa Smart Home Skill
+## Create an Amazon Alexa Smart Home Skill
 
 - Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.
 - Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
@@ -64,7 +62,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - In next screen, make sure *v3* is selected in `Payload version`.
 - Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
 
-### Create Your Lambda Function
+## Create an AWS Lambda Function
 
 Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
 
@@ -80,7 +78,7 @@ Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/sm
 
 OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 
-#### Create an IAM Role for Lambda
+### Create an IAM Role for Lambda
 
 First thing you need to do after sing in [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, you have to specific define and assign the permissions.
 
@@ -95,7 +93,7 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
 - You can skip `Add tags` page, click `Next: Review`.
 - Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
 
-#### Add the Code for your Lambda function
+### Add Code to the Lambda Function
 
 Next you need create a Lambda function.
 
@@ -111,7 +109,7 @@ Next you need create a Lambda function.
 - Click `Create function`, then you can config detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
-- Click your Lambda Function icon in the middle of the diagram, scroll down you will see a `Function code` window.
+- Click your Lambda function icon in the middle of the diagram, scroll down you will see a `Function code` window.
 - Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
 - Scroll down a little bit, you will find `Environment variables`, you need add 4 environment variables:
   * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
@@ -126,7 +124,7 @@ Next you need create a Lambda function.
 - Now scroll up to the top, click `Save` button.
 - You need copy the ARN displayed in the top of the page, which is the identify of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
 
-#### Test the Lambda function
+### Test the Lambda Function
 
 Now, you have created the Lambda function, before you can test it, you have to set up your Home Assistant. Put following minimal configuration to your configuration.yaml, it will exposures all of your supported device and automation to Alexa. Check the [configuration section](#alexa-smart-home-component-configuration) if you want more control of the exposure.
 
@@ -165,7 +163,7 @@ Now, you can login to your Home Assistant and [generate a long-lived access toke
 
 This time, you will get a list of your devices as the response. 🎉
 
-### Configure the Smart Home Service Endpoint
+## Configure the Smart Home Service Endpoint
 
 Now removed the long-lived access token if you want, copied the ARN of your Lambda function, then back to [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
 
@@ -174,7 +172,7 @@ Now removed the long-lived access token if you want, copied the ARN of your Lamb
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
-### Account Linking
+## Account Linking
 
 Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa request be able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
 
@@ -211,7 +209,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * You can discovery your devices now. 
 - Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
 
-### Alexa Smart Home Component Configuration
+## Alexa Smart Home Component Configuration
 
 Example configuration:
 
@@ -315,7 +313,7 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-#### Alexa Locale
+### Alexa Locale
 
 The `locale` should match the location and language used for your Amazon echo devices. 
 
@@ -335,7 +333,7 @@ The supported locales are:
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-#### Proactive Events
+### Proactive Events
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e. "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
@@ -343,7 +341,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-#### Configure Filter
+### Configure Filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind only [supported components](#supported-integrations) can be added.
 
@@ -380,7 +378,7 @@ Filters are applied as follows:
 
 See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
 
-#### Alexa Display Categories
+### Alexa Display Categories
 
 Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
@@ -395,7 +393,7 @@ Devices such as cameras, doorbells, garage doors, and alarm control panels requi
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
 
-### Supported Integrations
+## Supported Integrations
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
@@ -432,7 +430,7 @@ The following integrations are currently supported:
 - [Timer](#timer)
 - [Vacuum](#vacuum)
 
-#### Alarm Control Panel
+### Alarm Control Panel
 
 Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alarm Control Panel entity.
 
@@ -441,7 +439,7 @@ Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alar
 * _"Alexa, disarm my home."_
 * _"Alexa, is my home armed?"_
 
-##### Arming
+#### Arming
 
 The Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming. e.g. switching from `armed_home` to `armed_night`.
 
@@ -455,7 +453,7 @@ The Alarm Control Panel may default the `code_arm_required` attribute to `true` 
 
 </div>
 
-##### Disarming
+#### Disarming
 
 Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the Alarm Control Panel.
 
@@ -468,7 +466,7 @@ To use the exiting code configured for the Alarm Control Panel the `code` must b
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
-#### Alert, Automation, Group, Input Boolean
+### Alert, Automation, Group, Input Boolean
 
 Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switches.
 
@@ -476,7 +474,7 @@ Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switc
 * _"Alexa, turn off energy saving automations."_
 * _"Alexa, Downstairs to on."_
  
-#### Binary Sensor
+### Binary Sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -495,7 +493,7 @@ Ask Alexa for the state of a contact sensor.
 
 * _"Alexa, is the bedroom window open?"_
 
-##### Routines
+#### Routines
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -503,7 +501,7 @@ Alexa Routines can be triggered with Binary Sensors exposed as contact or motion
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-##### Doorbell Announcement
+#### Doorbell Announcement
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -529,7 +527,7 @@ Each Amazon Echo device will need the communication and announcements setting en
   <img height='460' src='/images/integrations/alexa/alexa_app_doorbell_announcement.png' alt='Screenshot: Alexa App Doorbell Notification'/></a>
 </p>
 
-##### Presence Detection with Binary Sensor
+#### Presence Detection with Binary Sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -560,17 +558,17 @@ Each Echo device will need the communication and Announcements setting enabled, 
 
 [Image Processing](#image-processing) entities also support this notification.
 
-#### Climate
+### Climate
 
 Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
-##### Set Thermostat Temperature
+#### Set Thermostat Temperature
 
 Alexa, set thermostat to 20.
 Alexa, set the AC to 75.
 Alexa, make it warmer in here.
 Alexa, make it cooler in here.
 
-##### Thermostat Mode
+#### Thermostat Mode
 
 * _"Alexa, set living room thermostat to automatic."_
 
@@ -582,7 +580,7 @@ To change the thermostat mode the exact utterance must be used:
 
 * _"Alexa, set [entity name] to [mode utterance]."_
 
-If the climate entity supports on/off, use _turn on_ and _turn off_ utterances with the entity name or the mode utterance.
+If the climate entity supports on/off, use _"turn on"_ and _"turn off"_ utterances with the entity name or the mode utterance.
 
 * _"Alexa, turn on the [mode utterance]."_
 * _"Alexa, turn off the [entity name]."_
@@ -598,7 +596,7 @@ Alexa supports the following utterances value for climate thermostat mode:
 |`DRY`              | _dehumidify_|
 |`OFF`              | _off_|
 
-#### Cover
+### Cover
 
 Covers should be configured with the appropriate `device_class`.
 
@@ -608,9 +606,9 @@ Covers with the `device_class` of `garage` are shown as a [Garage Door](#garage-
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to correctly expose a `cover` to Alexa.
 
-##### Open/Close/Raise/Lower
+#### Open/Close/Raise/Lower
 
-Home Assistant configures covers with semantics that provide _raise_, _lower_, _open_, _close_ utterances for covers. In addition to semantics _turn on_ / _turn off_ utterances will also work.
+Home Assistant configures covers with semantics that provide _raise_, _lower_, _open_, _close_ utterances for covers. In addition to semantics _"turn on"_ / _"turn off"_ utterances will also work.
 
 * _"Alexa, open the garage door."_
 * _"Alexa, close the curtain."_
@@ -621,7 +619,7 @@ The _raise_, _lower_, _open_, _close_ semantics are assigned based on the featur
 
 If the cover does not support tilt, all semantics _raise_, _lower_, _open_, _close_ are assigned to the position functionality.
 
-##### Set Cover Position
+#### Set Cover Position
 
 Covers that `SUPPORT_SET_POSITION` can be controlled using percentages.
 
@@ -635,7 +633,7 @@ Covers that `SUPPORT_SET_POSITION` can be controlled using percentages.
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
-##### Set Cover Tilt
+#### Set Cover Tilt
 
 Covers that `SUPPORT_SET_POSITION_TILT` can be controlled using percentages.
 
@@ -649,7 +647,7 @@ Covers that `SUPPORT_SET_POSITION_TILT` can be controlled using percentages.
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
-##### Garage Doors
+#### Garage Doors
 
 Covers with a `device_class` of `garage` support the Open by Voice PIN feature in the Alexa app. Configure a 4 digit PIN code to open the garage door in the Alexa app.
 
@@ -658,11 +656,11 @@ Covers with a `device_class` of `garage` support the Open by Voice PIN feature i
   <img height='460' src='/images/integrations/alexa/alexa_app_garage_door_pin.png' alt='Screenshot: Alexa App Garage Door Open by voice'/></a>
 </p>
 
-#### Fan
+### Fan
 
 Control fan speed, direction, and oscillation.
 
-##### Fan Speed
+#### Fan Speed
 
 The fan device must support the `speed` attribute. `speed` can be set using a percentage or a range value determined from the `speed_list` attribute.
 
@@ -691,14 +689,14 @@ The following synonyms can be used for _fan speed_
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
-##### Fan Direction
+#### Fan Direction
 
 The fan device must support the `direction` attribute.
 
 * _"Alexa, set the fan direction to forward."_
 * _"Alexa, set the fan direction to reverse."_
 
-##### Fan Oscillation
+#### Fan Oscillation
 
 The fan device must support the `oscillating` attribute.
 
@@ -712,11 +710,11 @@ The fan device must support the `oscillating` attribute.
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
-#### Image Processing
+### Image Processing
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-##### Presence Detection Notification
+#### Presence Detection Notification
 
 All `image_processing` entities support the presence detected notification settings in the Alexa App. Any state change will trigger the notification.
 
@@ -733,7 +731,7 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 </div>
 
-#### Input Number
+### Input Number
 
 Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
@@ -751,25 +749,23 @@ The following table lists the possible friendly name synonyms available for a In
 |45|_forty five_|
 |90|_ninety_, _maximum_, _max_|
 
-#### Light
+### Light
 
 * _"Alexa, dim the bathroom light."_
 * _"Alexa, set the bedroom light to fifty percent."_
 
-#### Lock
+### Lock
 
 * _"Alexa, lock my front door."_
 * _"Alexa, unlock the dungeon."_
 
-##### Locking
-
-##### Unlocking
+#### Unlocking
 
 To unlock, Alexa will require a 4 digit voice personal identification number (PIN) for unlocking. Configure a 4 digit PIN in the Alexa app to unlock locks.
 
-#### Media Player
+### Media Player
 
-##### Change Channel
+#### Change Channel
 
 * _"Alexa, change the channel to 200 on the Living Room TV."_
 * _"Alexa, change the channel to PBS on the TV."_
@@ -777,7 +773,7 @@ To unlock, Alexa will require a 4 digit voice personal identification number (PI
 * _"Alexa, channel up on the TV."_
 * _"Alexa, channel down on the TV."_
 
-##### Speaker Volume
+#### Speaker Volume
 
 * _"Alexa, set the volume of the speakers to 50."_
 * _"Alexa, turn the volume down on the stereo by 20."_
@@ -787,7 +783,7 @@ To unlock, Alexa will require a 4 digit voice personal identification number (PI
 * _"Alexa, lower the volume on the stereo."_
 * _"Alexa, volume up 20 on the speakers."_
 
-##### Equalizer Mode
+#### Equalizer Mode
 
 Supports changing the Media Player `sound_mode` from the preset `sound_mode_list`.
 
@@ -795,7 +791,7 @@ Supports changing the Media Player `sound_mode` from the preset `sound_mode_list
 
 Alexa only supports the following modes: `movie`, `music`, `night`, `sport`, `tv`.
 
-##### Inputs
+#### Inputs
 
 Supports changing the Media Player `source` from the preset `source_list`.
 
@@ -805,31 +801,31 @@ Home Assistant will attempt to translate the the `media_player` `source_list` in
 
 `AUX 1`, `AUX 2`, `AUX 3`, `AUX 4`, `AUX 5`, `AUX 6`, `AUX 7`, `BLURAY`, `CABLE`, `CD`, `COAX 1`, `COAX 2`, `COMPOSITE 1`, `DVD`, `GAME`, `HD RADIO`, `HDMI 1`, `HDMI 2`, `HDMI 3`, `HDMI 4`, `HDMI 5`, `HDMI 6`, `HDMI 7`, `HDMI 8`, `HDMI 9`, `HDMI 10`, `HDMI ARC`, `INPUT 1`, `INPUT 2`, `INPUT 3`, `INPUT 4`, `INPUT 5`, `INPUT 6`, `INPUT 7`, `INPUT 8`, `INPUT 9`, `INPUT 10`, `IPOD`, `LINE 1`, `LINE 2`, `LINE 3`, `LINE 4`, `LINE 5`, `LINE 6`, `LINE 7`, `MEDIA PLAYER`, `OPTICAL 1`, `OPTICAL 2`, `PHONO`, `PLAYSTATION`, `PLAYSTATION 3`, `PLAYSTATION 4`, `SATELLITE`, `SMARTCAST`, `TUNER`, `TV`, `USB DAC`, `VIDEO 1`, `VIDEO 2`, `VIDEO 3`, `XBOX`
 
-##### Playback State
+#### Playback State
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-##### Seek
+#### Seek
 
 * _"Alexa, skip 30 seconds on device."_
 * _"Alexa, go back 10 seconds on device."_
 
-#### Scene
+### Scene
 
-Activate scenes with scene name, or turn on utterance. Home Assistant does not support deactivate or turn off for scenes at this time.
+Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes at this time.
 
 * _"Alexa, Party Time."_
 * _"Alexa, turn on Party Time."_
 
-#### Script
+### Script
 
-Run script with script name, or turn on utterance.  Deactivate a running script with turn off utterance.
+Run script with script name, or _"turn on"_ utterance.  Deactivate a running script with _"turn off"_ utterance.
 
 * _"Alexa, Party Time."_
 * _"Alexa, turn on Party Time."_
 * _"Alexa, turn off Party Time."_
 
-#### Sensor
+### Sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -839,14 +835,14 @@ Only temperature sensors are configured at this time.
 * _"Alexa, what's the upstairs temperature?"_
 * _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
-#### Switch
+### Switch
 
-Support turn on and turn off utterances.
+Support _"turn on"_ and _"turn off"_ utterances.
 
 * _"Alexa, turn on the vacuum."_
 * _"Alexa, turn off the lights."_
 
-#### Timer
+### Timer
 
 Start, Pause, and Restart Timer entities in Home Assistant.
 
@@ -858,15 +854,15 @@ Start, Pause, and Restart Timer entities in Home Assistant.
 To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name. 
 </div>
 
-#### Vacuum
+### Vacuum
 
-Support turn on and turn off utterances. Pause and Resume
+Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 
 * _"Alexa, turn on the vacuum."_
 * _"Alexa, pause the vacuum."_
 * _"Alexa, restart the vacuum."_
 
-### Alexa web-based app
+## Alexa Web-Based App
 
 The following is a list of regions and the corresponding URL for the web-based Alexa app:
   * United States: `https://alexa.amazon.com`
@@ -878,23 +874,23 @@ The following is a list of regions and the corresponding URL for the web-based A
   * India: `https://alexa.amazon.in`
   * Spain: `https://alexa.amazon.es`
 
-### Troubleshooting
+## Troubleshooting
 
-#### Binary Sensor not available in Routine Trigger
+### Binary Sensor not available in Routine Trigger
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-#### Token invalid and no refresh token available
+### Token Invalid and no Refresh Token Available
 
 Disable and re-enable the skill using the Alexa App; then restart Home Assistant.
 
-### Debugging
+## Debugging
 
 The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml`:
 
-If using an Alexa with a Alexa Smart Home Skill and Lambda Function such as haaska:
+If using an Alexa with a Alexa Smart Home Skill and Lambda function such as haaska:
 
 ```yaml
 logger:
