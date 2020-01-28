@@ -8,7 +8,7 @@ The following will take you through the steps required to install Hass.io.
 1. Download the appropriate install option:
 
    - As an image for your device:
-   
+
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
      - [Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
@@ -18,16 +18,16 @@ The following will take you through the steps required to install Hass.io.
      - [Odroid-N2 (Beta)][odroid-n2]
      - [Odroid-XU4][odroid-xu4]
      - [Intel-Nuc][intel-nuc]
-    
-   - As a virtual appliance: 
+
+   - As a virtual appliance:
   
      - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX][vhdx]
      - [VDI][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
-    
+
    - Not recommended Hardware:
-  
+
      - [Raspberry Pi][pi1]
      - [Raspberry Pi Zero-W][pi0-w]
      - [Raspberry Pi 2][pi2]
@@ -37,7 +37,7 @@ The following will take you through the steps required to install Hass.io.
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
-3. Optional - set up the WiFi or static IP. There are two possible places for that: 
+3. Optional - set up the WiFi or static IP. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
    - on the Hass.io SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
@@ -73,7 +73,7 @@ Best practice for updating a Hass.io installation:
 
 1. Backup your installation, using the snapshot functionality Hass.io offers.
 2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on. 
+3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
 
@@ -103,19 +103,19 @@ The packages you need to have available on your system that will run Hass.io may
 
 ### Debian/Ubuntu
 
- - `apparmor-utils`
- - `apt-transport-https`
- - `avahi-daemon`
- - `ca-certificates`
- - `curl`
- - `dbus`
- - `jq`
- - `socat`
- - `software-properties-common`
+- `apparmor-utils`
+- `apt-transport-https`
+- `avahi-daemon`
+- `ca-certificates`
+- `curl`
+- `dbus`
+- `jq`
+- `socat`
+- `software-properties-common`
 
 Optional:
 
- - `network-manager`
+- `network-manager`
 
 <div class='note warning'>
 
@@ -125,14 +125,14 @@ Optional:
 
 ### Arch Linux
 
- - `apparmor`
- - `avahi`
- - `ca-certificates`
- - `curl`
- - `dbus`
- - `docker`
- - `jq`
- - `socat`
+- `apparmor`
+- `avahi`
+- `ca-certificates`
+- `curl`
+- `dbus`
+- `docker`
+- `jq`
+- `socat`
 
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
@@ -179,25 +179,25 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 ```
 
 #### Other machine types
- 
- - `intel-nuc`
- - `raspberrypi`
- - `raspberrypi2`
- - `raspberrypi3`
- - `raspberrypi3-64`
- - `raspberrypi4`
- - `raspberrypi4-64`
- - `odroid-c2`
- - `odroid-cu2`
- - `odroid-xu`
- - `orangepi-prime`
- - `tinker`
- - `qemuarm`
- - `qemuarm-64`
- - `qemux86`
- - `qemux86-64`
 
-See the [hassio-installer](https://github.com/home-assistant/hassio-installer) Github page for an up-to-date listing of supported machine types.
+- `intel-nuc`
+- `raspberrypi`
+- `raspberrypi2`
+- `raspberrypi3`
+- `raspberrypi3-64`
+- `raspberrypi4`
+- `raspberrypi4-64`
+- `odroid-c2`
+- `odroid-cu2`
+- `odroid-xu`
+- `orangepi-prime`
+- `tinker`
+- `qemuarm`
+- `qemuarm-64`
+- `qemux86`
+- `qemux86-64`
+
+See the [hassio-installer](https://github.com/home-assistant/hassio-installer) GitHub page for an up-to-date listing of supported machine types.
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
