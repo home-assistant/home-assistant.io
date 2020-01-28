@@ -30,10 +30,10 @@ description: "Changelog of the Lovelace UI."
 - ❤️ [horizontal stack card]: New `title` option [#3839](https://github.com/home-assistant/home-assistant-polymer/pull/3839) @iantrich
 - ❤️ New `double_tap_action` option [#3879](https://github.com/home-assistant/home-assistant-polymer/pull/3879) @iantrich
 - ❤️ New `confirmation` option for actions [#4006](https://github.com/home-assistant/home-assistant-polymer/pull/4006) @iantrich
-- ❤️ Theming: New CSS switch sytle: `switch-checked-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
-- ❤️ Theming: New CSS switch sytle: `switch-unchecked-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
-- ❤️ Theming: New CSS switch sytle: `switch-unchecked-button-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
-- ❤️ Theming: New CSS switch sytle: `switch-unchecked-track-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
+- ❤️ Theming: New CSS switch style: `switch-checked-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
+- ❤️ Theming: New CSS switch style: `switch-unchecked-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
+- ❤️ Theming: New CSS switch style: `switch-unchecked-button-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
+- ❤️ Theming: New CSS switch style: `switch-unchecked-track-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
 - 📣 Upgrade MDI icons to 4.5.95 [#3977](https://github.com/home-assistant/home-assistant-polymer/pull/3977) @bonanitech
 - 📣 Display card errors in YAML instead of JSON [#4018](https://github.com/home-assistant/home-assistant-polymer/pull/4018) @iantrich
 - ⚠️ revert lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich

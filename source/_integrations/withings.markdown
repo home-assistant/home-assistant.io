@@ -53,7 +53,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 - On the Withings site, choose the profile of the data you want to sync.
 - Authorize the application. Your browser will redirect you to the redirect uri you provided during account setup.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the
-  `http://domain` portion of the URL to something you know is accessible, locally or publically. For example, `http://localhost:8123`.
+  `http://domain` portion of the URL to something you know is accessible, locally or publicly. For example, `http://localhost:8123`.
   This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
   Changing the domain will not affect how data is synchronized.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the withings site.
