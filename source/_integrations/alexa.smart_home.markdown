@@ -5,6 +5,9 @@ logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.54"
+ha_codeowners:
+  - '@home-assistant/cloud'
+  - '@ochlocracy'
 ---
 
 Amazon Alexa provides a Smart Home API for richer home automation control without requiring the the user to say the skill name, such as:
@@ -388,7 +391,7 @@ light.kitchen_light:
 ```
 
 <div class='note info'>
-Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the display category provided by Home Assistant will limit features provided by Amazon Alexa.
+Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
 </div>
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
@@ -448,7 +451,6 @@ The Alarm Control Panel state `armed_custom_bypass` isn't supported by Alexa and
 <div class="note">
 
 Alexa does not support arming with voice PIN at this time. Therefore if the Alarm Control Panel requires a `code` for arming or the `code_arm_required` attribute is `true` the entity will not be exposed during discovery.
-<br/>
 The Alarm Control Panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the Alarm Control Panel during discovery.
 
 </div>
@@ -593,7 +595,7 @@ Alexa supports the following utterances value for climate thermostat mode:
 |`COOL`             | _"cool"_, _"cooling"_|
 |`HEAT`             | _"heat"_, _"heating"_|
 |`ECO`              | _"eco"_, _"economical"_|
-|`DRY`              | _"dehumidify"_|
+|`DRY`              | _"dry"_, _"dehumidify"_|
 |`OFF`              | _"off"_|
 
 ### Cover
@@ -677,8 +679,8 @@ The following table lists the possible friendly name synonyms available for a fa
 |Fan Range|Friendly Name Synonyms|
 |---|---|
 |0|_"zero"_, _"off"_|
-|1|_"one"_, _"thirty three percent"_, _"low"_, _"minimum"_, _"min"_|
-|2|_"two"_, _"sixty six percent"_, _"medium"_|
+|1|_"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_|
+|2|_"two"_, _"sixty-six percent"_, _"medium"_|
 |3|_"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_|
 
 The following synonyms can be used for _"fan speed"_
@@ -890,7 +892,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml`:
 
-If using an Alexa with a Alexa Smart Home Skill and Lambda function such as haaska:
+If using Alexa with a Alexa Smart Home Skill and Lambda function such as haaska:
 
 ```yaml
 logger:
