@@ -101,7 +101,7 @@ Next you need create a Lambda function.
 - **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
   * **US East (N.Virginia)** region for English (US) or English (CA) skills
   * **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
-  * **US West (Oregon)** region for Japanese and English (AU) skills. 
+  * **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
@@ -206,7 +206,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * Click `Enable`.
   * A new window will open to direct you to your Home Assistant's login screen.
   * After you success login, you will be redirected back to Alexa app.
-  * You can discovery your devices now. 
+  * You can discovery your devices now.
 - Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
 
 ## Alexa Smart Home Component Configuration
@@ -253,7 +253,7 @@ alexa:
           default: en-US
         endpoint:
           description: >-
-            To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information. 
+            To enable proactive events, you send a message to the Alexa event gateway, send it to the event endpoint that aligns with the geographic availability of your smart home skill. Following is the list of endpoints and the regions they cover. See [Proactive Events](#proactive-events) for more information.
              * North America: `https://api.amazonalexa.com/v3/events`
              * Europe: `https://api.eu.amazonalexa.com/v3/events`
              * Far East: `https://api.fe.amazonalexa.com/v3/events`
@@ -261,7 +261,7 @@ alexa:
           type: string
         client_id:
           description: See [Proactive Events](#proactive-events) for more information.
-          required: false 
+          required: false
           type: string
         client_secret:
           description: See [Proactive Events](#proactive-events) for more information.
@@ -315,9 +315,9 @@ alexa:
 
 ### Alexa Locale
 
-The `locale` should match the location and language used for your Amazon echo devices. 
+The `locale` should match the location and language used for your Amazon echo devices.
 
-The supported locales are: 
+The supported locales are:
 - `de-DE`
 - `en-AU`
 - `en-CA`
@@ -388,7 +388,7 @@ light.kitchen_light:
 ```
 
 <div class='note info'>
-Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the display category provided by Home Assistant will limit features provided by Amazon Alexa. 
+Devices such as cameras, doorbells, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the display category provided by Home Assistant will limit features provided by Amazon Alexa.
 </div>
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
@@ -401,8 +401,8 @@ The following integrations are currently supported:
 - [Alarm Control Panel](#alarm-control-panel)
 - [Alert](#alert-automation-group-input-boolean)
 - [Automation](#alert-automation-group-input-boolean)
-- [Binary Sensor](#binary-sensor) 
-  - [Doorbell Announcement](#doorbell-announcement) 
+- [Binary Sensor](#binary-sensor)
+  - [Doorbell Announcement](#doorbell-announcement)
   - [Presence Detection](#presence-detection-with-binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -589,12 +589,12 @@ Alexa supports the following utterances value for climate thermostat mode:
 
 |HA Climate Mode   | Alexa Mode Utterances    |
 |---                |---    |
-|`AUTO`             | _auto_, _automatic_|
-|`COOL`             | _cool_, _cooling_|
-|`HEAT`             | _heat_, _heating_|
-|`ECO`              | _eco_, _economical_|
-|`DRY`              | _dehumidify_|
-|`OFF`              | _off_|
+|`AUTO`             | _"auto"_, _"automatic"_|
+|`COOL`             | _"cool"_, _"cooling"_|
+|`HEAT`             | _"heat"_, _"heating"_|
+|`ECO`              | _"eco"_, _"economical"_|
+|`DRY`              | _"dehumidify"_|
+|`OFF`              | _"off"_|
 
 ### Cover
 
@@ -608,20 +608,20 @@ Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#cus
 
 #### Open/Close/Raise/Lower
 
-Home Assistant configures covers with semantics that provide _raise_, _lower_, _open_, _close_ utterances for covers. In addition to semantics _"turn on"_ / _"turn off"_ utterances will also work.
+Home Assistant configures covers with semantics that provide _"raise"_, _"lower"_, _"open"_, _"close"_ utterances for covers. In addition to semantics _"turn on"_ / _"turn off"_ utterances will also work.
 
 * _"Alexa, open the garage door."_
 * _"Alexa, close the curtain."_
 * _"Alexa, lower the shades."_
 * _"Alexa, raise the roof!"_
 
-The _raise_, _lower_, _open_, _close_ semantics are assigned based on the features supported by the cover. If the cover supports tilt functionality, _open/close_ semantics are assigned to the tilt functionality, and _raise/lower_ semantics are assigned to the position functionality. 
+Semantics are assigned based on the features supported by the cover. If the cover supports tilt functionality, the semantics _"open"_ and _"close"_ are assigned to the tilt functionality, and the semantics _"raise"_ and _"lower"_ are assigned to the position functionality.
 
-If the cover does not support tilt, all semantics _raise_, _lower_, _open_, _close_ are assigned to the position functionality.
+If the cover does not support tilt, all semantics _"raise"_, _"lower"_, _"open"_, _"close"_ are assigned to the position functionality.
 
 #### Set Cover Position
 
-Covers that `SUPPORT_SET_POSITION` can be controlled using percentages.
+Covers that support a set position can be controlled using percentages.
 
 * _"Alexa, set the [entity name] position to thirty percent."_
 * _"Alexa, increase [entity name] position by ten percent."_
@@ -629,13 +629,13 @@ Covers that `SUPPORT_SET_POSITION` can be controlled using percentages.
 
 |Locale|Friendly Name Synonyms|
 |---|---|
-|`en-US`|_position_, _opening_|
+|`en-US`|_"position"_, _"opening"_|
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Set Cover Tilt
 
-Covers that `SUPPORT_SET_POSITION_TILT` can be controlled using percentages.
+Covers that support tilt position can be controlled using percentages.
 
 * _"Alexa, set the [entity name] tilt to thirty percent."_
 * _"Alexa, increase [entity name] tilt by ten percent."_
@@ -643,7 +643,7 @@ Covers that `SUPPORT_SET_POSITION_TILT` can be controlled using percentages.
 
 |Locale|Friendly Name Synonyms|
 |---|---|
-|`en-US`|_tilt_, _angle_, _direction_|
+|`en-US`|_"tilt"_, _"angle"_, _"direction"_|
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -676,16 +676,16 @@ The following table lists the possible friendly name synonyms available for a fa
  
 |Fan Range|Friendly Name Synonyms|
 |---|---|
-|0|_zero_, _off_|
-|1|_one_, _thirty three percent_, _low_, _minimum_, _min_|
-|2|_two_, _sixty six percent_, _medium_|
-|3|_three_, _one hundred percent_, _high_, _maximum_, _max_|
+|0|_"zero"_, _"off"_|
+|1|_"one"_, _"thirty three percent"_, _"low"_, _"minimum"_, _"min"_|
+|2|_"two"_, _"sixty six percent"_, _"medium"_|
+|3|_"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_|
 
-The following synonyms can be used for _fan speed_
+The following synonyms can be used for _"fan speed"_
 
 |Locale|Friendly Name Synonyms|
 |---|---|
-|`en-US`|_fan speed_, _airflow speed_, _wind speed_, _air speed_, _air velocity_, _power level_|
+|`en-US`|_"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_|
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -706,7 +706,7 @@ The fan device must support the `oscillating` attribute.
 
 |Locale|Friendly Name Synonyms|
 |---|---|
-|`en-US`|_oscillate_, _swivel_, _oscillation_, _spin_, _back and forth_|
+|`en-US`|_"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_|
 
 Currently Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -743,11 +743,11 @@ The following table lists the possible friendly name synonyms available for a In
  
 |Fan Range|Friendly Name Synonyms|
 |---|---|
-|-90|_negative ninety_, _minimum_, _min_|
-|-45|_negative forty five_|
-|0|_zero_|
-|45|_forty five_|
-|90|_ninety_, _maximum_, _max_|
+|-90|_"negative ninety"_, _"minimum"_, _"min"_|
+|-45|_"negative forty five"_|
+|0|_"zero"_|
+|45|_"forty five"_|
+|90|_"ninety"_, _"maximum"_, _"max"_|
 
 ### Light
 
@@ -851,7 +851,7 @@ Start, Pause, and Restart Timer entities in Home Assistant.
 * _"Alexa, restart the microwave."_
 
 <div class="note">
-To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name. 
+To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name.
 </div>
 
 ### Vacuum
