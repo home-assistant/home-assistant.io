@@ -65,6 +65,8 @@ Ensure that you allocate the Home Assistant system a fixed IP on your network be
 
 Restart Home Assistant for the configured changes to take effect. When you access the Home Assistant frontend you will now need to use `https`, even when accessing local instances, for example at `https://192.168.0.1:8123`.
 
+Note: Some routers prevent "hairpinning", or communication from a given host to itself through an external IP. This will prevent you from being able to access Home Assistant through duckdns from within your local network. For troubleshooting purposes, you can attempt to access your system from an external network via VPN, or through your mobile network after disabling WIFI on your mobile device.
+
 ## Generate Let's Encrypt certificate for Duck DNS sub sub domains 
 
 To generate certificates for nr.my-domain.duckdns.org update the domain JSON settings to:
