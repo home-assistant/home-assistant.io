@@ -51,7 +51,7 @@ This integration supports the following services (see [Climate](/integrations/cl
   - `off` to disable control from Home Assistant
 
 <div class='note'>
-HVAC mode provides returns regular or weather-based mode. (i.e. not manual, auto, extend, fireplace).
+HVAC mode provides returns regular or weather-based mode (i.e., not manual, auto, extend, fireplace).
 The hold modes (manual, auto, extend) are currently available as a sensor only. Setting these modes is planned for a future update.
 </div>
 
