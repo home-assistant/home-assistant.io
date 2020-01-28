@@ -17,7 +17,7 @@ The `rpi_gpio` integration is the base for all related GPIO platforms in Home As
 
 The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## Configuration
+### Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -72,7 +72,7 @@ It uses two pins on the Raspberry Pi.
 
 Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
 
-## Configuration
+### Configuration
 
 To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -145,13 +145,13 @@ cover:
 
 ## Remote Raspberry Pi Cover
 
-If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/integrations/cover.mqtt/). Follow the Github instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
+If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/integrations/cover.mqtt/). Follow the GitHub instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
 
 ## Switch
 
 The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## Configuration
+### Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 

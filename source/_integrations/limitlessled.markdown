@@ -18,7 +18,7 @@ An archive of the extensive API can be found [here](https://github.com/Fantasmos
 
 ### Setup
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
 
