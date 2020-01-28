@@ -57,7 +57,7 @@ views:
       default: true
 {% endconfiguration %}
 
-## Options For Visible
+### Options For Visible
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -87,7 +87,7 @@ View config:
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string /lovelace/ to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
-### Example
+#### Example
 
 View config:
 
@@ -111,7 +111,7 @@ Picture card config:
 
 If you define an icon the title will be used as a tool-tip.
 
-### Example
+#### Example
 
 ```yaml
 - title: Garden
@@ -122,7 +122,7 @@ If you define an icon the title will be used as a tool-tip.
 
 You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The url path is still accessible)
 
-### Example
+#### Example
 
 ```yaml
 views:
@@ -142,11 +142,11 @@ views:
       ...
 ```
 
-## Panel mode
+## Panel
 
-This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
+Setting panel true sets the view to panel mode. In this mode the first card is rendered full width Other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`.
 
-### Example
+#### Example
 
 ```yaml
 - title: Map
@@ -162,7 +162,7 @@ This renders the first card on full width, other cards in this view will not be 
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
-### Example
+#### Example
 
 ```yaml
 - title: Home
