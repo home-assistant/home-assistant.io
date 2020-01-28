@@ -27,7 +27,7 @@ Home Assistant is open source software and available under the [Apache 2.0](http
 This sections just contains some random numbers of the Home Assistant eco-system. Sorry, only the main repository counts.
 
 | Description                                                                 | 2015    | 2016      | 2017       |
-| --------------------------------------------------------------------------- | ------- |
+| --------------------------------------------------------------------------- | ------- | --------- | ---------- |
 | [Forum posts](https://community.home-assistant.io/)                         | 352     | 33004     | 171981     |
 | [Forum topics](https://community.home-assistant.io/)                        | 83      | 4863      | 21512      |
 | [Forum members](https://community.home-assistant.io/)                       | 92      | 3931      | 16663      |
