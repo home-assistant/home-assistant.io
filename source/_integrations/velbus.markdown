@@ -54,6 +54,11 @@ port:
   type: string
 {% endconfiguration %}
 
+## Services
+
+- `velbus.sync clock`: Synchronize Velbus time to local clock.
+- `velbus.set_memo_text`: Show memo text on Velbus display modules.
+
 ### Service `velbus.sync_clock`
 
 You can use the service `velbus.sync clock` to synchronize the clock of the velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
