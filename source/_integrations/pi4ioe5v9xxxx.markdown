@@ -81,7 +81,7 @@ invert_logic:
 
 The `pi4ioe5v9xxxx` switch platform allows you to write to the I/O pins of your I2C I/O expander.
 
-The pin numbers are from 1 to X where: 1-8 correspond to port A (A1-A8) and 9-16 to port B (B1-B8), etc.
+The pin numbers are from 1 to X, where 1-8 correspond to port A (A1-A8) and 9-16 to port B (B1-B8), etc.
 
 ### Configuration
 
