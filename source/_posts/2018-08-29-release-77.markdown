@@ -130,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -142,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 ## All changes
 
@@ -244,7 +244,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -256,7 +256,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557

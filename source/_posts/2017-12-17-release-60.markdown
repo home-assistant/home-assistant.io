@@ -56,7 +56,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Fix allday events in custom_calendars ([@maxlaverse] - [#11272]) ([calendar.caldav docs])
 - Fix unpredictable entity names in concord232 binary_sensor ([@rwa] - [#11292]) ([binary_sensor.concord232 docs])
 - Fix leak sensors always showing Unknown until Wet ([@OverloadUT] - [#11313]) ([binary_sensor.isy994 docs])
-- Don't block on sevice call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
+- Don't block on service call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
 - iOS 10 should be served javascript_version:es5 ([@mnoorenberghe] - [#11387])
 
 ## If you need help...
