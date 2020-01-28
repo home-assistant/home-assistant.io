@@ -161,7 +161,7 @@ Click `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, you will get a
 
 Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable`, do not forget click `Save` button before you `Test` again.
 
-This time, you will get a list of your devices as the response. 🎉
+This time, you will get a list of your devices in the response. 🎉
 
 ## Configure the Smart Home Service Endpoint
 
@@ -563,10 +563,10 @@ Each Echo device will need the communication and Announcements setting enabled, 
 Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
 #### Set Thermostat Temperature
 
-Alexa, set thermostat to 20.
-Alexa, set the AC to 75.
-Alexa, make it warmer in here.
-Alexa, make it cooler in here.
+* _"Alexa, set thermostat to 20."_
+* _"Alexa, set the AC to 75."_
+* _"Alexa, make it warmer in here."_
+* _"Alexa, make it cooler in here."_
 
 #### Thermostat Mode
 
