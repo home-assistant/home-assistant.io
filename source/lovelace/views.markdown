@@ -169,7 +169,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
   theme: happy
 ```
 
-### Background
+## Background
 
 You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
