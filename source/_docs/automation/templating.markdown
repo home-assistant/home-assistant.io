@@ -34,27 +34,19 @@ automation 2:
       
 automation 3:
   trigger:
-    # Multiple Entities for which you want to perform the same action.
+    # Multiple entities for which you want to perform the same action.
     - platform: state
       entity_id:
         - light.bedroom_closet
-      to: 'on'
-      # Trigger when someone leaves the closet light on for 10 minutes.
-      for: '00:10:00'
-    - platform: state
-      entity_id:
         - light.kiddos_closet
-      to: 'on'
-      for: '00:10:00'
-    - platform: state
-      entity_id:
         - light.linen_closet
       to: 'on'
+      # Trigger when someone leaves one of those lights on for 10 minutes.
       for: '00:10:00'
   action:
     - service: light.turn_off
       data_template:
-        # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
+        # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
 ```
 {% endraw %}
@@ -76,11 +68,17 @@ It is possible to use `data` and `data_template` concurrently but be aware that 
 
 ## Trigger State Object
 
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity could be one of the more common questions. Here are a few ways for the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
 * `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
+
+<div class='note'>
+  
+  Be aware that if you reference a trigger state object in an automation action, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually change the state of the trigger entity at Developer Tools > States.
+  
+</div>
 
 ## Available Trigger Data
 
