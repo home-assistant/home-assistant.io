@@ -101,6 +101,10 @@ turn_off_command:
   type: string
 {% endconfiguration %}
 
+<div class='note'>
+By default the device is polled for state changes every 10 seconds. You can increase this interval by specifying [`scan_interval`](/docs/configuration/platform_options/#scan-interval).
+</div>
+
 ### Full Configuration
 
 ```yaml
