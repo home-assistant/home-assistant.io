@@ -6,7 +6,7 @@ ha_category:
   - Finance
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.106.0
+ha_release: 0.106
 ha_config_flow: true
 ha_codeowners:
   - '@eifinger'
