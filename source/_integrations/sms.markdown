@@ -42,17 +42,21 @@ device:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-If the ingtegration is used in HassOS then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
-For non Hass.io installations you must install gammu-dev component:
+If the ingegration is used in HassOS then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
+
+For installations not running on Hass.io or Docker, you must install `gammu-dev` package:
+
 ```bash
 sudo apt-get install libgammu-dev
 ```
 
 Before running for the first time, check that the modem is recognized by the system by running:
+
 ```bash
 ls -l /dev/*USB*
 ```
-Note: In Hass.io you need to install the SSH add on.
+
+Note: In Hass.io you need to install the SSH add-on.
 
 ## Required Hardware
 
@@ -66,8 +70,11 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 [List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
 
 ### Note about Raspberry PI 4
+
 On Raspberry PI 4, you need a udev rule in the config USB stick, for the [Huawei E3372-510 stick](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) for it to be recognized.
+
 Set this content in file udev\10-gsm-modem.rules in the configuration USB:
+
 ```txt
 ACTION=="add" \
 , ATTRS{idVendor}=="12d1" \
@@ -76,4 +83,5 @@ ACTION=="add" \
 ```
 
 ## More details:
+
 - [Original thread discussion](https://community.home-assistant.io/t/send-sms-with-usb-gsm-modem-when-alarm-triggered/28942/38)
