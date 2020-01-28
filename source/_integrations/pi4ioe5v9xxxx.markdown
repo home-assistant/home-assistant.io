@@ -1,5 +1,5 @@
 ---
-title: "pi4ioe5v9xxxx IO expander"
+title: "pi4ioe5v9xxxx IO Expander"
 description: "Instructions on how to integrate the pi4ioe5v9xxxx IO pin expander with I2C interface into Home Assistant."
 logo: diodes.png
 ha_category:
