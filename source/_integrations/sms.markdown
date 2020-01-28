@@ -73,7 +73,7 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 
 On Raspberry PI 4, you need a udev rule in the config USB stick, for the [Huawei E3372-510 stick](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) for it to be recognized.
 
-Set this content in file udev\10-gsm-modem.rules in the configuration USB:
+Set this content in file `udev\10-gsm-modem.rules` in the configuration USB:
 
 ```txt
 ACTION=="add" \
