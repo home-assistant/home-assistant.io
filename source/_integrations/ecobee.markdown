@@ -130,7 +130,7 @@ A _preset_ is an override of the target temperature defined in the
 currently active climate. The temperature targeted in the preset mode may be
 explicitly set (temperature preset), it may be derived from a reference
 climate (home, away, sleep, etc.), or it may be derived from a vacation
-defined by the thermostat. All holds are temporary. Temperature and
+defined by the thermostat. The preset_modes list on Ecobee thermostat is defined as smart1 through smartx.  The numbers enumerate the valid modes that have been defined in the list.  All holds are temporary. Temperature and
 climate holds expire when the thermostat transitions to the next climate
 defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
