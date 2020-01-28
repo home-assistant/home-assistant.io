@@ -83,9 +83,9 @@ View config:
       image: /local/lights.png
 ```
 
-## Paths
+## Path
 
-You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
+You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string /lovelace/ to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
 ### Example
 
@@ -107,7 +107,7 @@ Picture card config:
     navigation_path: /lovelace/living_room
 ```
 
-## Icons
+## Icon
 
 If you define an icon the title will be used as a tool-tip.
 
@@ -158,7 +158,7 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## Themes
+## Theme
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
