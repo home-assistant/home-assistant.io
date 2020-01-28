@@ -85,7 +85,7 @@ View config:
 
 ## Path
 
-You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string /lovelace/ to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
+You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
 #### Example
 
