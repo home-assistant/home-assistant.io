@@ -40,14 +40,14 @@ port:
 
 The `Atag` climate platform provides current and target temperature information for the heating system, boiler status and HVAC mode.
 
-### Component services
+### Integration services
 
 This integration supports the following services (see [Climate](/integrations/climate/)).
 
 - [`set_temperature`](/integrations/climate/#service-climateset_temperature)
 - [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
   - `heat` for regular thermostat mode
-  - `auto` for weather based mode
+  - `auto` for weather-based mode
   - `off` to disable control from Home Assistant
 
 <div class='note'>
@@ -62,9 +62,8 @@ Setting target values is currently not supported.
 
 ## Sensor
 
-The `Atag` sensor platform provides additional metrics reported by the One, which are not part of either the Water-Heater or Climate platforms.
-You can disable unwanted entities in the UI if needed. Navigate to `Configuration`, `Entities` and select the entity you wish to disable.
-The following entities will be added to Home Assistant:
+Not all metrics reported by the One are part of either the Water-Heater or Climate platform. Additional sensors are added to Home Assistant to monitor these metrics, which can be disabled in the UI if preferred. Navigate to `Configuration`, `Entities` and select the entity you wish to disable.
+The following sensors will be added to Home Assistant:
 
 ### Sensors enabled by default
 
