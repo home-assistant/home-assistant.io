@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Minecraft server into Home Assis
 logo: minecraft.png
 ha_release: 0.106
 ha_category: 
-  - Binary sensor
+  - Binary Sensor
   - Sensor
 ha_iot_class: Local Polling
 ha_quality_scale: silver
