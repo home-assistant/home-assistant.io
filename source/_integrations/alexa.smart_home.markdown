@@ -40,7 +40,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
 - [Account Linking](#account-linking)
 - [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
-- [Supported Integrations](#supported-integrations)
+- [Supported Platforms](#supported-platforms)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -346,7 +346,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 
 ### Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported components](#supported-integrations) can be added.
+By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
 {% raw %}
 ```yaml
