@@ -30,7 +30,7 @@ Start a new cleaning task. For the Xiaomi Vacuum and Neato use `vacuum.start` in
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.turn_off`
 
@@ -38,7 +38,7 @@ Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.start_pause`
 
@@ -46,7 +46,7 @@ Start, pause or resume a cleaning task.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.start`
 
@@ -54,7 +54,7 @@ Start or resume a cleaning task.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.pause`
 
@@ -62,7 +62,7 @@ Pause a cleaning task.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.stop`
 
@@ -70,7 +70,7 @@ Stop the current activity of the vacuum.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.return_to_base`
 
@@ -78,7 +78,7 @@ Tell the vacuum to return home.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.locate`
 
@@ -86,7 +86,7 @@ Locate the vacuum cleaner robot.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.clean_spot`
 
@@ -94,7 +94,7 @@ Tell the vacuum cleaner to do a spot clean-up.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 
 #### Service `vacuum.set_fan_speed`
 
@@ -102,7 +102,7 @@ Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 | `fan_speed`               |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
 #### Service `vacuum.send_command`
@@ -111,6 +111,6 @@ Send a platform-specific command to the vacuum cleaner.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
 | `command`                 |       no | Command to execute.                                   |
 | `params`                  |      yes | Parameters for the command.                           |
