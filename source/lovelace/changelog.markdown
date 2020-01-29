@@ -3,6 +3,32 @@ title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
 ---
 ## Changes in 0.104.0
+* ✨ [entities card]: New `header` special row type (#4496) @balloob
+* ✨ [entities card]: New `footer` special row type (#4496) @balloob
+* ✨ [entities card]: New `conditional` special row type (#4569) @iantrich
+* ✨ [entities card]: Add `keys` option to header/footer to display buttons (#4601) @balloob
+* ✨ [entities card]: Add `action_name` option for scene/script rows (#4571) @iantrich
+* ✨ [entities card]: Add `never_triggered` option to `secondary_info` option for automation rows (#4442) @Mariusthvdb
+* ✨ Update Material Design Icons to v4.8.95 (#4520) @goyney
+* 💄 [entities card]: Automatically strip Area name from entities in Lovelace generated/auto mode (#4597) @balloob
+* 💄 [entities card]: Fix alignment of header toggle (#4532) @bramkragten
+* 💄 [light card]: Align height of card regardless of brightness support (#4582) @iantrich
+* 💄 [map card]: Ignore zones when fitting map (#4447) @klejejs
+* 💄 Additional active/error/climate icon states (#4510) @iantrich
+* ♿ Close card editor on ESC (#4570) @iantrich
+* ♿ Add tabindex to Lovelace elements (#4160) @iantrich
+* 🐛 Fix action directive double tab iOS issues (#4639) @bramkragten
+* 🐛 [gauge card]: Fix severity toggle (#4600) @iantrich
+* 🐛 [markdown card]: Fix visual editor for when all `content` removed (#4583) @iantrich
+* 🐛 [alarm panel card]: Fix preview updates (#4592) @bramkragten
+* 🐛 [thermostat card]: Fix display of current/set temperature when at 0 (#4498) @iantrich
+* 🐛 [picture glance card]: Fix `camera_view` option in editor (#4495) @iantrich
+* 🐛 Fix various card editor switches (#4584) @iantrich
+* 🐛 Fix Lovelace reload button on error page (#4557) @bramkragten
+* 🚸 [shopping list card]: Show error if integration is not loaded (#4523) @ludeeus
+* 🚸 Prompt user to confirm logout (#4501) @iantrich
+
+## Changes in 0.104.0
 - ❤️ Add ability to remove Lovelace config [#4430](https://github.com/home-assistant/home-assistant-polymer/pull/4430) @bramkragten
 - ❤️ Add support to add all device entities to Lovelace [#4356](https://github.com/home-assistant/home-assistant-polymer/pull/4356) @bramkragten
 - 📣 Upgrade MDI icons to 4.7.95 [#4341](https://github.com/home-assistant/home-assistant-polymer/pull/4341) @bonanitech
