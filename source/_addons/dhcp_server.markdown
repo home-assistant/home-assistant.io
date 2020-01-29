@@ -23,8 +23,13 @@ Create a simple DHCP server for your network and allow setting fixed IPs for dev
   "hosts": [
     {
       "name": "webcam_xy",
-      "mac": "aa:bb:ee:cc",
+      "mac": "aa:bb:ee:cc:dd:ee",
       "ip": "192.168.1.40"
+    },
+    {
+      "name": "webcam_zz",
+      "mac": "11:22:33:44:55:66",
+      "ip": "192.158.1.41"
     }
   ]
 }
