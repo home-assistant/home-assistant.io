@@ -12,10 +12,10 @@ ha_codeowners:
 
 Amazon Alexa provides a Smart Home API for richer home automation control without requiring the user to say the skill name, such as:
 
-* _"Alexa, turn off the light."_
-* _"Alexa, set the thermostat to cool."_
-* _"Alexa, is the garage door open?"_
- 
+- _"Alexa, turn off the light."_
+- _"Alexa, set the thermostat to cool."_
+- _"Alexa, is the garage door open?"_
+
 It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
 
 The [Emulated Hue integration][emulated-hue-component] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
@@ -29,7 +29,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 </div>
 
-**Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant**
+Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 - [Requirements](#requirements)
 - [Create an Amazon Alexa Smart Home Skill](#create-an-amazon-alexa-smart-home-skill)
@@ -102,9 +102,9 @@ Next you need create a Lambda function.
 
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
 - **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
-  * **US East (N.Virginia)** region for English (US) or English (CA) skills
-  * **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
-  * **US West (Oregon)** region for Japanese and English (AU) skills.
+  - **US East (N.Virginia)** region for English (US) or English (CA) skills
+  - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
+  - **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
@@ -115,10 +115,10 @@ Next you need create a Lambda function.
 - Click your Lambda function icon in the middle of the diagram, scroll down you will see a `Function code` window.
 - Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
 - Scroll down a little bit, you will find `Environment variables`, you need add 4 environment variables:
-  * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
-  * NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
-  * DEBUG *(optional)*: set to *True* to log the debug message
-  * LONG_LIVED_ACCESS_TOKEN *(optional, not recommend)*: you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
+  - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
+  - NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
+  - DEBUG *(optional)*: set to *True* to log the debug message
+  - LONG_LIVED_ACCESS_TOKEN *(optional, not recommend)*: you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 
 <p class='img'>
   <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
@@ -182,20 +182,20 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
-- Input all information required. Assuming your Home Assistant can be accessed by https://[YOUR HOME ASSISTANT URL:PORT]
-  * `Authorization URI`: https://[YOUR HOME ASSISTANT URL]/auth/authorize
-  * `Access Token URI`: https://[YOUR HOME ASSISTANT URL]/auth/token
+- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
+  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
+  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
     - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
-  * `Client ID`:
-    - https://pitangui.amazon.com/ if you are in US
-    - https://layla.amazon.com/ if you are in EU
-    - https://alexa.amazon.co.jp/ if you are in JP and AU (not verified yet)
+  - `Client ID`:
+    - `https://pitangui.amazon.com/` if you are in US
+    - `https://layla.amazon.com/` if you are in EU
+    - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
 
     The trailing slash is important here.
 
-  * `Client Secret`: input anything you like, Home Assistant does not check this field
-  * `Client Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
-  * `Scope`: input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
+  - `Client Secret`: input anything you like, Home Assistant does not check this field
+  - `Client Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
+  - `Scope`: input `smart_home`, Home Assistant is not using it yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
 <p class='img'>
@@ -204,12 +204,12 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 
 - Click `Save` button in the top right corner.
 - Next, you will use Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
-  * Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
-  * Click the Smart Home skill you just created.
-  * Click `Enable`.
-  * A new window will open to direct you to your Home Assistant's login screen.
-  * After you success login, you will be redirected back to Alexa app.
-  * You can discovery your devices now.
+  - Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
+  - Click the Smart Home skill you just created.
+  - Click `Enable`.
+  - A new window will open to direct you to your Home Assistant's login screen.
+  - After you success login, you will be redirected back to Alexa app.
+  - You can discovery your devices now.
 - Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
 
 ## Alexa Smart Home Component Configuration
@@ -238,6 +238,7 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
+
 {% configuration %}
 alexa:
   description: Alexa configuration
@@ -321,6 +322,7 @@ alexa:
 The `locale` should match the location and language used for your Amazon echo devices.
 
 The supported locales are:
+
 - `de-DE`
 - `en-AU`
 - `en-CA`
@@ -349,6 +351,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported components](#supported-integrations) can be added.
 
 {% raw %}
+
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 alexa:
@@ -360,6 +363,7 @@ alexa:
         exclude_entities:
           - light.kitchen_light
 ```
+
 {% endraw %}
 
 Filters are applied as follows:
@@ -368,14 +372,14 @@ Filters are applied as follows:
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
-   * Include domain specified
+   - Include domain specified
       - if domain is included, and entity not excluded, pass
       - if domain is not included, and entity not included, fail
-   * Exclude domain specified
+   - Exclude domain specified
       - if domain is excluded, and entity not included, fail
       - if domain is not excluded, and entity not excluded, pass
       - if both include and exclude domains specified, the exclude domains are ignored
-   * Neither include or exclude domain specified
+   - Neither include or exclude domain specified
       - if entity is included, pass (as #2 above)
       - if entity include and exclude, the entity exclude is ignored
 
@@ -401,6 +405,7 @@ See [Alexa Display Categories][alexa-display-categories] for a complete list
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
 The following integrations are currently supported:
+
 - [Alarm Control Panel](#alarm-control-panel)
 - [Alert](#alert-automation-group-input-boolean)
 - [Automation](#alert-automation-group-input-boolean)
@@ -437,10 +442,10 @@ The following integrations are currently supported:
 
 Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alarm Control Panel entity.
 
-* _"Alexa, arm my home in away mode."_
-* _"Alexa, arm my home."_
-* _"Alexa, disarm my home."_
-* _"Alexa, is my home armed?"_
+- _"Alexa, arm my home in away mode."_
+- _"Alexa, arm my home."_
+- _"Alexa, disarm my home."_
+- _"Alexa, is my home armed?"_
 
 #### Arming
 
@@ -472,28 +477,28 @@ The existing code is never communicated to Alexa from Home Assistant. During dis
 
 Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switches.
 
-* _"Alexa, turn on the front door alert."_
-* _"Alexa, turn off energy saving automations."_
-* _"Alexa, Downstairs to on."_
- 
+- _"Alexa, turn on the front door alert."_
+- _"Alexa, turn off energy saving automations."_
+- _"Alexa, Downstairs to on."_
+
 ### Binary Sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
 
-|`device_class`|Alexa Sensor Type|
-| :---: | :---: |
-|`door`|Contact|
-|`garage_door`|Contact|
-|`opening`|Contact|
-|`window`|Contact|
-|`motion`|Motion|
-|`presense`|Motion|
+| `device_class` | Alexa Sensor Type |
+| :------------: | :---------------: |
+|     `door`     |      Contact      |
+| `garage_door`  |      Contact      |
+|   `opening`    |      Contact      |
+|    `window`    |      Contact      |
+|    `motion`    |      Motion       |
+|   `presense`   |      Motion       |
 
 Ask Alexa for the state of a contact sensor.
 
-* _"Alexa, is the bedroom window open?"_
+- _"Alexa, is the bedroom window open?"_
 
 #### Routines
 
@@ -508,6 +513,7 @@ Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#cus
 Requires [Proactive Events](#proactive-events) enabled.
 
 Configure a `binary_sensor` with `display_category` of `DOORBELL` in the [`entity_config`](#entity_config) to gain access to the doorbell notification settings in the Alexa App.
+
 ```yaml
 alexa:
   smart_home:
@@ -563,16 +569,17 @@ Each Echo device will need the communication and Announcements setting enabled, 
 ### Climate
 
 Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
+
 #### Set Thermostat Temperature
 
-* _"Alexa, set thermostat to 20."_
-* _"Alexa, set the AC to 75."_
-* _"Alexa, make it warmer in here."_
-* _"Alexa, make it cooler in here."_
+- _"Alexa, set thermostat to 20."_
+- _"Alexa, set the AC to 75."_
+- _"Alexa, make it warmer in here."_
+- _"Alexa, make it cooler in here."_
 
 #### Thermostat Mode
 
-* _"Alexa, set living room thermostat to automatic."_
+- _"Alexa, set living room thermostat to automatic."_
 
 - `DRY` is shown in Alexa app as `DEHUMIDIFY`
 - `ECO` is handled as a `preset` in Home Assistant, and will not display in the Alexa app.
@@ -580,23 +587,23 @@ Single, double, and triple set-point thermostats are supported. The temperature 
 
 To change the thermostat mode, the exact utterance must be used:
 
-* _"Alexa, set [entity name] to [mode utterance]."_
+- _"Alexa, set [entity name] to [mode utterance]."_
 
 If the climate entity supports on/off, use _"turn on"_ and _"turn off"_ utterances with the entity name or the mode utterance.
 
-* _"Alexa, turn on the [mode utterance]."_
-* _"Alexa, turn off the [entity name]."_
+- _"Alexa, turn on the [mode utterance]."_
+- _"Alexa, turn off the [entity name]."_
 
 Alexa supports the following utterances value for climate thermostat mode:
 
-|HA Climate Mode   | Alexa Mode Utterances    |
-|---                |---    |
-|`AUTO`             | _"auto"_, _"automatic"_|
-|`COOL`             | _"cool"_, _"cooling"_|
-|`HEAT`             | _"heat"_, _"heating"_|
-|`ECO`              | _"eco"_, _"economical"_|
-|`DRY`              | _"dry"_, _"dehumidify"_|
-|`OFF`              | _"off"_|
+| HA Climate Mode | Alexa Mode Utterances   |
+| --------------- | ----------------------- |
+| `AUTO`          | _"auto"_, _"automatic"_ |
+| `COOL`          | _"cool"_, _"cooling"_   |
+| `HEAT`          | _"heat"_, _"heating"_   |
+| `ECO`           | _"eco"_, _"economical"_ |
+| `DRY`           | _"dry"_, _"dehumidify"_ |
+| `OFF`           | _"off"_                 |
 
 ### Cover
 
@@ -612,10 +619,10 @@ Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#cus
 
 Home Assistant configures covers with semantics that provide _"raise"_, _"lower"_, _"open"_, _"close"_ utterances for covers. In addition to semantics _"turn on"_ / _"turn off"_ utterances will also work.
 
-* _"Alexa, open the garage door."_
-* _"Alexa, close the curtain."_
-* _"Alexa, lower the shades."_
-* _"Alexa, raise the roof!"_
+- _"Alexa, open the garage door."_
+- _"Alexa, close the curtain."_
+- _"Alexa, lower the shades."_
+- _"Alexa, raise the roof!"_
 
 Semantics are assigned based on the features supported by the cover. If the cover supports tilt functionality, the semantics _"open"_ and _"close"_ are assigned to the tilt functionality, and the semantics _"raise"_ and _"lower"_ are assigned to the position functionality.
 
@@ -625,13 +632,13 @@ If the cover does not support tilt, all semantics _"raise"_, _"lower"_, _"open"_
 
 Covers that support a set position can be controlled using percentages.
 
-* _"Alexa, set the [entity name] position to thirty percent."_
-* _"Alexa, increase [entity name] position by ten percent."_
-* _"Alexa, decrease [entity name] position by twenty percent."_
+- _"Alexa, set the [entity name] position to thirty percent."_
+- _"Alexa, increase [entity name] position by ten percent."_
+- _"Alexa, decrease [entity name] position by twenty percent."_
 
-|Locale|Friendly Name Synonyms|
-|---|---|
-|`en-US`|_"position"_, _"opening"_|
+| Locale  | Friendly Name Synonyms    |
+| ------- | ------------------------- |
+| `en-US` | _"position"_, _"opening"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -639,13 +646,13 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 Covers that support tilt position can be controlled using percentages.
 
-* _"Alexa, set the [entity name] tilt to thirty percent."_
-* _"Alexa, increase [entity name] tilt by ten percent."_
-* _"Alexa, decrease [entity name] tilt by twenty percent."_
+- _"Alexa, set the [entity name] tilt to thirty percent."_
+- _"Alexa, increase [entity name] tilt by ten percent."_
+- _"Alexa, decrease [entity name] tilt by twenty percent."_
 
-|Locale|Friendly Name Synonyms|
-|---|---|
-|`en-US`|_"tilt"_, _"angle"_, _"direction"_|
+| Locale  | Friendly Name Synonyms             |
+| ------- | ---------------------------------- |
+| `en-US` | _"tilt"_, _"angle"_, _"direction"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -666,28 +673,28 @@ Control fan speed, direction, and oscillation.
 
 The fan device must support the `speed` attribute. `speed` can be set using a percentage or a range value determined from the `speed_list` attribute.
 
-* _"Alexa, set the fan speed to three."_
-* _"Alexa, set the fan speed to fifty percent."_
-* _"Alexa, set the fan power level to fifty percent."_
-* _"Alexa, turn up the speed on the tower fan."_
-* _"Alexa, set the air speed on the tower fan to maximum."_
+- _"Alexa, set the fan speed to three."_
+- _"Alexa, set the fan speed to fifty percent."_
+- _"Alexa, set the fan power level to fifty percent."_
+- _"Alexa, turn up the speed on the tower fan."_
+- _"Alexa, set the air speed on the tower fan to maximum."_
 
 The `speed_list` attribute is used to determine the range value. For example, using a `speed_list` consisting of `[off, low, medium, high]` the range values would be `0:off`, `1:low`, `2:medium`, `3:high`.
 
 The following table lists the possible friendly name synonyms available for a fan with `speed_list: [off, low, medium, high]`.
- 
-|Fan Range|Friendly Name Synonyms|
-|---|---|
-|0|_"zero"_, _"off"_|
-|1|_"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_|
-|2|_"two"_, _"sixty-six percent"_, _"medium"_|
-|3|_"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_|
+
+| Fan Range | Friendly Name Synonyms                                             |
+| --------- | ------------------------------------------------------------------ |
+| 0         | _"zero"_, _"off"_                                                  |
+| 1         | _"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_   |
+| 2         | _"two"_, _"sixty-six percent"_, _"medium"_                         |
+| 3         | _"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_ |
 
 The following synonyms can be used for _"fan speed"_
 
-|Locale|Friendly Name Synonyms|
-|---|---|
-|`en-US`|_"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_|
+| Locale  | Friendly Name Synonyms                                                                             |
+| ------- | -------------------------------------------------------------------------------------------------- |
+| `en-US` | _"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -695,20 +702,20 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 The fan device must support the `direction` attribute.
 
-* _"Alexa, set the fan direction to forward."_
-* _"Alexa, set the fan direction to reverse."_
+- _"Alexa, set the fan direction to forward."_
+- _"Alexa, set the fan direction to reverse."_
 
 #### Fan Oscillation
 
 The fan device must support the `oscillating` attribute.
 
-* _"Alexa, is oscillate on for the tower fan?"_
-* _"Alexa, turn on swivel for the tower fan."_
-* _"Alexa, turn on oscillation mode for the table fan."_
+- _"Alexa, is oscillate on for the tower fan?"_
+- _"Alexa, turn on swivel for the tower fan."_
+- _"Alexa, turn on oscillation mode for the table fan."_
 
-|Locale|Friendly Name Synonyms|
-|---|---|
-|`en-US`|_"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_|
+| Locale  | Friendly Name Synonyms                                                   |
+| ------- | ------------------------------------------------------------------------ |
+| `en-US` | _"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
@@ -737,29 +744,29 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
-* _"Alexa, set [entity name] to forty five [unit of measurement]."_
-* _"Alexa, increase the [entity name] by two."_
-* _"Alexa, set the [entity name] to maximum."_
+- _"Alexa, set [entity name] to forty five [unit of measurement]."_
+- _"Alexa, increase the [entity name] by two."_
+- _"Alexa, set the [entity name] to maximum."_
 
 The following table lists the possible friendly name synonyms available for a Input Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
- 
-|Fan Range|Friendly Name Synonyms|
-|---|---|
-|-90|_"negative ninety"_, _"minimum"_, _"min"_|
-|-45|_"negative forty five"_|
-|0|_"zero"_|
-|45|_"forty five"_|
-|90|_"ninety"_, _"maximum"_, _"max"_|
+
+| Fan Range | Friendly Name Synonyms                    |
+| --------- | ----------------------------------------- |
+| -90       | _"negative ninety"_, _"minimum"_, _"min"_ |
+| -45       | _"negative forty five"_                   |
+| 0         | _"zero"_                                  |
+| 45        | _"forty five"_                            |
+| 90        | _"ninety"_, _"maximum"_, _"max"_          |
 
 ### Light
 
-* _"Alexa, dim the bathroom light."_
-* _"Alexa, set the bedroom light to fifty percent."_
+- _"Alexa, dim the bathroom light."_
+- _"Alexa, set the bedroom light to fifty percent."_
 
 ### Lock
 
-* _"Alexa, lock my front door."_
-* _"Alexa, unlock the dungeon."_
+- _"Alexa, lock my front door."_
+- _"Alexa, unlock the dungeon."_
 
 #### Unlocking
 
@@ -769,27 +776,27 @@ To unlock, Alexa will require a 4 digit voice personal identification number (PI
 
 #### Change Channel
 
-* _"Alexa, change the channel to 200 on the Living Room TV."_
-* _"Alexa, change the channel to PBS on the TV."_
-* _"Alexa, next channel on the Living Room TV."_
-* _"Alexa, channel up on the TV."_
-* _"Alexa, channel down on the TV."_
+- _"Alexa, change the channel to 200 on the Living Room TV."_
+- _"Alexa, change the channel to PBS on the TV."_
+- _"Alexa, next channel on the Living Room TV."_
+- _"Alexa, channel up on the TV."_
+- _"Alexa, channel down on the TV."_
 
 #### Speaker Volume
 
-* _"Alexa, set the volume of the speakers to 50."_
-* _"Alexa, turn the volume down on the stereo by 20."_
-* _"Alexa, turn the volume down on Living Room TV."_
-* _"Alexa, mute speakers."_
-* _"Alexa, unmute speakers."_
-* _"Alexa, lower the volume on the stereo."_
-* _"Alexa, volume up 20 on the speakers."_
+- _"Alexa, set the volume of the speakers to 50."_
+- _"Alexa, turn the volume down on the stereo by 20."_
+- _"Alexa, turn the volume down on Living Room TV."_
+- _"Alexa, mute speakers."_
+- _"Alexa, unmute speakers."_
+- _"Alexa, lower the volume on the stereo."_
+- _"Alexa, volume up 20 on the speakers."_
 
 #### Equalizer Mode
 
 Supports changing the Media Player `sound_mode` from the preset `sound_mode_list`.
 
-* _"Alexa, set mode to movie on the TV."_
+- _"Alexa, set mode to movie on the TV."_
 
 Alexa only supports the following modes: `movie`, `music`, `night`, `sport`, `tv`.
 
@@ -797,7 +804,7 @@ Alexa only supports the following modes: `movie`, `music`, `night`, `sport`, `tv
 
 Supports changing the Media Player `source` from the preset `source_list`.
 
-* _"Alexa, change the input to DVD on the Living Room TV."_
+- _"Alexa, change the input to DVD on the Living Room TV."_
 
 Home Assistant will attempt to translate the the `media_player` `source_list` into a valid `source` name for Alexa. Alexa only supports the following input names:
 
@@ -809,23 +816,23 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 #### Seek
 
-* _"Alexa, skip 30 seconds on device."_
-* _"Alexa, go back 10 seconds on device."_
+- _"Alexa, skip 30 seconds on device."_
+- _"Alexa, go back 10 seconds on device."_
 
 ### Scene
 
 Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes at this time.
 
-* _"Alexa, Party Time."_
-* _"Alexa, turn on Party Time."_
+- _"Alexa, Party Time."_
+- _"Alexa, turn on Party Time."_
 
 ### Script
 
 Run script with script name, or _"turn on"_ utterance.  Deactivate a running script with _"turn off"_ utterance.
 
-* _"Alexa, Party Time."_
-* _"Alexa, turn on Party Time."_
-* _"Alexa, turn off Party Time."_
+- _"Alexa, Party Time."_
+- _"Alexa, turn on Party Time."_
+- _"Alexa, turn off Party Time."_
 
 ### Sensor
 
@@ -833,24 +840,24 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Only temperature sensors are configured at this time.
 
-* _"Alexa, what's the temperature in the kitchen?"_
-* _"Alexa, what's the upstairs temperature?"_
-* _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
+- _"Alexa, what's the temperature in the kitchen?"_
+- _"Alexa, what's the upstairs temperature?"_
+- _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
 ### Switch
 
 Support _"turn on"_ and _"turn off"_ utterances.
 
-* _"Alexa, turn on the vacuum."_
-* _"Alexa, turn off the lights."_
+- _"Alexa, turn on the vacuum."_
+- _"Alexa, turn off the lights."_
 
 ### Timer
 
 Start, Pause, and Restart Timer entities in Home Assistant.
 
-* _"Alexa, pause the microwave."_
-* _"Alexa, hold the sous vide."_
-* _"Alexa, restart the microwave."_
+- _"Alexa, pause the microwave."_
+- _"Alexa, hold the sous vide."_
+- _"Alexa, restart the microwave."_
 
 <div class="note">
 To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name.
@@ -860,21 +867,22 @@ To avoid issues with Alexa built in timer functionality. The timer entity can no
 
 Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 
-* _"Alexa, turn on the vacuum."_
-* _"Alexa, pause the vacuum."_
-* _"Alexa, restart the vacuum."_
+- _"Alexa, turn on the vacuum."_
+- _"Alexa, pause the vacuum."_
+- _"Alexa, restart the vacuum."_
 
 ## Alexa Web-Based App
 
 The following is a list of regions and the corresponding URL for the web-based Alexa app:
-  * United States: `https://alexa.amazon.com`
-  * United Kingdom: `https://alexa.amazon.co.uk`
-  * Germany: `https://alexa.amazon.de`
-  * Japan: `https://alexa.amazon.co.jp`
-  * Canada: `https://alexa.amazon.ca`
-  * Australia: `https://alexa.amazon.com.au`
-  * India: `https://alexa.amazon.in`
-  * Spain: `https://alexa.amazon.es`
+
+- United States: `https://alexa.amazon.com`
+- United Kingdom: `https://alexa.amazon.co.uk`
+- Germany: `https://alexa.amazon.de`
+- Japan: `https://alexa.amazon.co.jp`
+- Canada: `https://alexa.amazon.ca`
+- Australia: `https://alexa.amazon.com.au`
+- India: `https://alexa.amazon.in`
+- Spain: `https://alexa.amazon.es`
 
 ## Troubleshooting
 

@@ -15,7 +15,7 @@ zwave:
   device_config: !include zwave_device_config.yaml
 ```
 
-{% configuration zwave %}
+{% configuration Z-Wave %}
 usb_path:
   description: The port where your device is connected to your Home Assistant host. Z-Wave sticks will generally be `/dev/ttyACM0` and GPIO hats will generally be `/dev/ttyAMA0`.
   required: false
@@ -32,12 +32,12 @@ config_path:
   type: string
   default: the 'config' that is installed by python-openzwave
 polling_interval:
-  description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
+  description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the Z-Wave network and cause problems.
   required: false
   type: integer
   default: 60000
 debug:
-  description: Print verbose z-wave info to log.
+  description: Print verbose Z-Wave info to log.
   required: false
   type: boolean
   default: false

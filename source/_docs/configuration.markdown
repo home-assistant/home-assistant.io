@@ -9,19 +9,19 @@ The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if y
 
 The location of the folder differs between operating systems:
 
-| OS | Path |
-| -- | ---- |
-| macOS | `~/.homeassistant` |
-| Linux | `~/.homeassistant` |
+| OS      | Path                       |
+| ------- | -------------------------- |
+| macOS   | `~/.homeassistant`         |
+| Linux   | `~/.homeassistant`         |
 | Windows | `%APPDATA%/.homeassistant` |
-| Hass.io | `/config` |
-| Docker | `/config` |
+| Hass.io | `/config`                  |
+| Docker  | `/config`                  |
 
-If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
+If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
 
 <div class='note tip'>
 
