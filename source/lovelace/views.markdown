@@ -22,7 +22,7 @@ views:
       type: string
     badges:
       required: false
-      description: List of entities IDs or `badge` objects to display as badges.
+      description: List of entities IDs or `badge` objects to display as badges. Note: Badges do not show when view is in panel mode.
       type: list
     cards:
       required: false
@@ -144,7 +144,7 @@ views:
 
 ## Panel
 
-Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`.
+Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`. Note that badges will not appear in Panel Mode.
 
 #### Example
 
