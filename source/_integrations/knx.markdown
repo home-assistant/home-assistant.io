@@ -43,6 +43,7 @@ Optional, recommended for large KNX installations (>100 devices) and/or if you w
 knx:
   config_file: '/path/to/xknx.yaml'
 ```
+
 {% configuration %}
 config_file:
   description: The path for XKNX configuration file.
@@ -108,7 +109,7 @@ fire_event:
   type: boolean
   default: false
 fire_event_filter:
-  description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
+  description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the Home Assistant event bus.
   required: inclusive
   type: [list, string]
 state_updater:

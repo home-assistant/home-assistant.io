@@ -351,7 +351,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 [#18091]: https://github.com/home-assistant/home-assistant/pull/18091

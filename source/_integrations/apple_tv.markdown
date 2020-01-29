@@ -26,7 +26,7 @@ Currently, you must have Home Sharing enabled for this to work. Support for pair
 To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:
 
 ```shell
-$ sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 ```
 
 If you want to discover new devices automatically, just make sure you have `discovery:` in your `configuration.yaml` file. To manually add one or more Apple TVs to your installation, add the following to your `configuration.yaml` file:
@@ -78,7 +78,7 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 Make sure Home Sharing is enabled on the Apple TV.
 
-To scan for devices and determine the `login_id`, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
+To scan for devices and determine the `login_id`, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**.
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -106,9 +106,9 @@ Just copy and paste the `login_id` from the device you want to add. For more det
 
 If you, when playing media with `play_url`, get the following error message:
 
-*“This AirPlay connection requires iOS 7.1 or later, OS X 10.10 or later, or iTunes 11.2 or later.”*
+“This AirPlay connection requires iOS 7.1 or later, macOS 10.10 or later, or iTunes 11.2 or later.”
 
-then device authentication is required, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
+then device authentication is required, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**.
 
 <img src='/images/screenshots/developer-tools.png' />
 

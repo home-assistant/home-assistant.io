@@ -27,10 +27,9 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **api** and enable it.
+Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
-
 
 To use a MikroTik router in your installation, add the following to your `configuration.yaml` file:
 
@@ -85,7 +84,7 @@ arp_ping:
 <div class='note info'>
 
   As of version 6.43 of RouterOS Mikrotik introduced a new login method (`plain`) in addition to the old login method (`token`). With Version 6.45.1 the old `token` login method got deprecated.
-  In order to support both login mechanisms, the new config option `login_method` has been introduced.
+  In order to support both login mechanisms, the new configuration option `login_method` has been introduced.
 
 </div>
 
@@ -118,7 +117,7 @@ To use this device tracker you need restricted privileges only. To enhance the s
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file:
+## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file
 
 ```yaml
 mikrotik:

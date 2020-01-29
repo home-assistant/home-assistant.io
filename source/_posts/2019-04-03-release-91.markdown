@@ -24,7 +24,7 @@ We're still in the process of updating more cameras to support the stream compon
 
 A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
 
-And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
+And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occasionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
 ## Notable breaking change
 
@@ -272,7 +272,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber, Add price level ([@Danielhiversen] - [#22085]) ([tibber docs])
 - Fix AttributeError traceback with darksky ([@iamtpage] - [#22101]) ([darksky docs])
 - Add service description for services. ([@cgtobi] - [#21897])
-- Handle occassional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
+- Handle occasional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
 - Loosen field retrieval from Pollen.com ([@bachya] - [#22132]) ([pollen docs])
 - Handle possible exception during Ambient PWS reconnect ([@bachya] - [#22134]) ([ambient_station docs])
 - Additional sensors and fixed icons, attributes and device classes. ([@endor-force] - [#22139]) ([trafikverket_weatherstation docs])
@@ -303,7 +303,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add ZHA channel name property ([@Adminiuga] - [#22218]) ([zha docs])
 - Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842]) ([google_assistant docs])
 - Change .now() to .utcnow() ([@rdbahm] - [#22233]) ([season docs])
-- Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
+- Upgrade tibber library, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
 - Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([recorder docs]) ([sql docs])
 - Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266]) ([plex docs])
 - Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279]) ([androidtv docs])
