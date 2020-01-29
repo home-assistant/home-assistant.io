@@ -892,7 +892,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
 
-If using Alexa with a Alexa Smart Home Skill and Lambda function such as haaska:
+If using Alexa with an Alexa Smart Home Skill and Lambda function such as haaska:
 
 ```yaml
 logger:
