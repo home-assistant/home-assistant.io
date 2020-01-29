@@ -258,13 +258,13 @@ type:
   type: string
 url:
   required: true
-  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
+  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)"
   type: string
 name:
   required: false
   description: Link label
   type: string
-  default: url path
+  default: URL path
 icon:
   required: false
   description: "Icon to display (e.g., `mdi:home`)"

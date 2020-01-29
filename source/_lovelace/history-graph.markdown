@@ -4,7 +4,7 @@ sidebar_label: History Graph
 description: "History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config."
 ---
 
-History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
+History graph is a basic card, allowing you to display a graph for each of the entities in the list specified configuration.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
