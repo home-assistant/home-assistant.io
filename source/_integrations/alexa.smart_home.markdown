@@ -10,7 +10,7 @@ ha_codeowners:
   - '@ochlocracy'
 ---
 
-Amazon Alexa provides a Smart Home API for richer home automation control without requiring the the user to say the skill name, such as:
+Amazon Alexa provides a Smart Home API for richer home automation control without requiring the user to say the skill name, such as:
 
 * _"Alexa, turn off the light."_
 * _"Alexa, set the thermostat to cool."_
@@ -346,7 +346,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 
 ### Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind only [supported components](#supported-integrations) can be added.
+By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported components](#supported-integrations) can be added.
 
 {% raw %}
 ```yaml
@@ -396,7 +396,7 @@ Devices such as cameras, doorbells, garage doors, and alarm control panels requi
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
 
-## Supported Integrations
+## Supported Platforms
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
@@ -444,13 +444,13 @@ Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alar
 
 #### Arming
 
-The Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming. e.g. switching from `armed_home` to `armed_night`.
+The Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming, e.g., switching from `armed_home` to `armed_night`.
 
 The Alarm Control Panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
 <div class="note">
 
-Alexa does not support arming with voice PIN at this time. Therefore if the Alarm Control Panel requires a `code` for arming or the `code_arm_required` attribute is `true` the entity will not be exposed during discovery.
+Alexa does not support arming with voice PIN at this time. Therefore if the Alarm Control Panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
 The Alarm Control Panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the Alarm Control Panel during discovery.
 
 </div>
@@ -578,7 +578,7 @@ Single, double, and triple set-point thermostats are supported. The temperature 
 - `ECO` is handled as a `preset` in Home Assistant, and will not display in the Alexa app.
 - `FAN_ONLY` is not supported by the Alexa voice model and is shown as `OFF` in the Alexa App.
 
-To change the thermostat mode the exact utterance must be used:
+To change the thermostat mode, the exact utterance must be used:
 
 * _"Alexa, set [entity name] to [mode utterance]."_
 
@@ -633,7 +633,7 @@ Covers that support a set position can be controlled using percentages.
 |---|---|
 |`en-US`|_"position"_, _"opening"_|
 
-Currently Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Set Cover Tilt
 
@@ -647,7 +647,7 @@ Covers that support tilt position can be controlled using percentages.
 |---|---|
 |`en-US`|_"tilt"_, _"angle"_, _"direction"_|
 
-Currently Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Garage Doors
 
@@ -689,7 +689,7 @@ The following synonyms can be used for _"fan speed"_
 |---|---|
 |`en-US`|_"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_|
 
-Currently Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Fan Direction
 
@@ -710,7 +710,7 @@ The fan device must support the `oscillating` attribute.
 |---|---|
 |`en-US`|_"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_|
 
-Currently Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 ### Image Processing
 
@@ -890,7 +890,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 ## Debugging
 
-The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml`:
+The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
 
 If using Alexa with a Alexa Smart Home Skill and Lambda function such as haaska:
 
