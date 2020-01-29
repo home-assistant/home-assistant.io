@@ -21,9 +21,12 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
-- [Build custom commands](/integrations/alexa.intent/)
+- [Create an Alexa Smart Home Skill to control lights, etc.](/integrations/alexa.smart_home/)
+  - Supports utterances without requiring the skill name, such as "Alexa, turn off the light."
+  - Support for controlling devices through Alexa routines.
+  - Support for viewing and controlling devices with the Alexa mobile app.
+- [Create a Custom Alexa Skill to build custom commands](/integrations/alexa.intent/)
 - [Create a new Flash Briefing source](/integrations/alexa.flash_briefings/)
-- [Use the Smart Home API to control lights, etc.](/integrations/alexa.smart_home/)
 - Alternative: use the [Emulated Hue integration][emulated-hue-component] to trick Alexa into thinking Home Assistant is a Philips Hue hub.
 
 ### Requirements
