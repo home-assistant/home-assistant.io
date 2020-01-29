@@ -22,7 +22,7 @@ views:
       type: string
     badges:
       required: false
-      description: List of entities IDs or `badge` objects to display as badges. Note: Badges do not show when view is in panel mode.
+      description: List of entities IDs or `badge` objects to display as badges. Note that badges do not show when view is in panel mode.
       type: list
     cards:
       required: false
