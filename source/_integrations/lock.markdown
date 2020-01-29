@@ -61,4 +61,4 @@ Go to the **Developer Tools**, then to **Call Service** in the frontend, and cho
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific lock. Either `entity_id` or `area` must be specified. Use `entity_id: all` to target all.
+| `entity_id`            |      yes | Only act on specific lock. Use `entity_id: all` to target all.

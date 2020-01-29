@@ -65,7 +65,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Either `entity_id` or `area` must be specified. Use `entity_id: all` to target all.
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all.
 | `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE`
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE`
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE`
