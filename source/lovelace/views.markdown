@@ -57,17 +57,6 @@ views:
       default: true
 {% endconfiguration %}
 
-### Options For Visible
-
-If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
-  type: string
-{% endconfiguration %}
-
 #### Example
 
 View config:
@@ -141,6 +130,16 @@ views:
     cards:
       ...
 ```
+### Options For Visible
+
+If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  type: string
+{% endconfiguration %}
 
 ## Panel
 
