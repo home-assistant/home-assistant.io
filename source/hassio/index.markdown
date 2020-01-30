@@ -20,7 +20,7 @@ The advantages of using Hass.io:
 - Active community that is helpful and sharing add-ons including AppDaemon, Homebridge and InfluxDB.<br><br>[Browse the forums &raquo;][forums]<br>[Join the Hass.io chat &raquo;][chat]<br>[Browse community add-on repositories &raquo;][comm-add-ons]<br><br>
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qnCRcGTznXs" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/sVqyDtEjudk" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ### Upgrading
