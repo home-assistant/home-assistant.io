@@ -77,6 +77,15 @@ data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 
+Please note that, if the values of the data template are strings, you need to enclose them between double quotes like this:
+
+
+```yaml
+service: notify.notify
+data_template:
+    message: "{{ states('sensor.temperature') }}"
+```
+
 It is even possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
 
 ```yaml
