@@ -45,7 +45,8 @@ Press Enter to Continue
 
 ### Make mydomain.com point to your Home Assistant instance
 
-If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:
+* Deploy IP addres to A field using your domain registrar. Remember, it may take a few minutes for the setting to take effect. It can work with ZeroTier address to.
+* If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:
 
 ```text
 address=/mydomain.com/<hass IP>
