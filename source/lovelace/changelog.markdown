@@ -5,16 +5,18 @@ description: "Changelog of the Lovelace UI."
 ## Changes in 0.105.0
 * ✨ [entities card]: New `header` special row type (#4496) @balloob
 * ✨ [entities card]: New `footer` special row type (#4496) @balloob
+* ✨ [entities card]: Add `picture` option to header/footer (#4496) @balloob
 * ✨ [entities card]: New `conditional` special row type (#4569) @iantrich
-* ✨ [entities card]: Add `buttons` option to header/footer to display buttons (#4601) @balloob
+* ✨ [entities card]: Add `buttons` option to header/footer (#4601) @balloob
 * ✨ [entities card]: Add `action_name` option for scene/script rows (#4571) @iantrich
 * ✨ [entities card]: Add `never_triggered` option to `secondary_info` option for automation rows (#4442) @Mariusthvdb
+* ✨ [entities card]: Add `state_color` option to color active/error/climate icons. Does not change the behavior of lights. Default is now `false` (#4510) @iantrich
 * ✨ Update Material Design Icons to v4.8.95 (#4520) @goyney
 * 💄 [entities card]: Automatically strip Area name from entities in Lovelace generated/auto mode (#4597) @balloob
 * 💄 [entities card]: Fix alignment of header toggle (#4532) @bramkragten
 * 💄 [light card]: Align height of card regardless of brightness support (#4582) @iantrich
 * 💄 [map card]: Ignore zones when fitting map (#4447) @klejejs
-* 💄 Additional active/error/climate icon states (#4510) @iantrich
+* 💄 Additional active/error/climate icon domains/states (#4510) @iantrich
 * ♿ Close card editor on ESC (#4570) @iantrich
 * ♿ Add tabindex to Lovelace elements (#4160) @iantrich
 * 🐛 Fix action directive double tab iOS issues (#4639) @bramkragten
