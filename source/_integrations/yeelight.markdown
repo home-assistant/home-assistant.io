@@ -11,16 +11,16 @@ ha_codeowners:
   - '@zewelor'
 ---
 
-The `yeelight` integration allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Light** - The yeelight platform for supporting lights.
-- **Sensor** - The yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
+- **Light** - The Yeelight platform for supporting lights.
+- **Sensor** - The Yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
 
 ## Example configuration (Automatic)
 
-After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
+After the lights are connected to the Wi-Fi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
 
 ```yaml
 # Example customize.yaml entry
@@ -139,10 +139,10 @@ This integration is tested to work with the following models. If you have a diff
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
-| ?          | YLDD04YL     | Lightstrip (Color)
-| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
+| ?          | YLDD04YL     | Lightstrip (Color)                               |
+| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - Wi-Fi Version!       |
 | `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
-| `RGBW`     | MJDP02YL     | Mi Led smart Lamp - white and color WIFI Version |
+| `RGBW`     | MJDP02YL     | Mi Led smart Lamp - white and color Wi-Fi Version|
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |

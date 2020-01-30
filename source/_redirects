@@ -2060,3 +2060,23 @@
 /docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
 /docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
 /ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
+
+# Add-ons
+/addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
+/addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
+/addons/configurator https://github.com/home-assistant/hassio-addons/blob/master/configurator/README.md
+/addons/dhcp_server https://github.com/home-assistant/hassio-addons/blob/master/dhcp_server/README.md
+/addons/dnsmasq https://github.com/home-assistant/hassio-addons/blob/master/dnsmasq/README.md
+/addons/duckdns https://github.com/home-assistant/hassio-addons/blob/master/duckdns/README.md
+/addons/git_pull https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md
+/addons/google_assistant https://github.com/home-assistant/hassio-addons/blob/master/google_assistant/README.md
+/addons/homematic https://github.com/home-assistant/hassio-addons/blob/master/homematic/README.md
+/addons/lets_encrypt https://github.com/home-assistant/hassio-addons/blob/master/letsencrypt/README.md
+/addons/mariadb https://github.com/home-assistant/hassio-addons/blob/master/mariadb/README.md
+/addons/mosquitto https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md
+/addons/nginx_proxy https://github.com/home-assistant/hassio-addons/blob/master/nginx_proxy/README.md
+/addons/rpc_shutdown https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md
+/addons/samba https://github.com/home-assistant/hassio-addons/blob/master/samba/README.md
+/addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
+/addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
+/addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md

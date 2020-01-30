@@ -8,6 +8,7 @@ description: "Installation of Home Assistant on your FreeNAS."
 This has been tested on FreeNAS 11.2 and should also work on FreeBSD 11.x as well. These instructions assume you already have a running and accessible jail. For more information on creating a jail read the official FreeNAS User Guide regarding [Jails](https://www.ixsystems.com/documentation/freenas/11.2/jails.html). Once you have the jail available, follow the steps below. Directories used follow standard BSD conventions but can be adjusted as you wish.
 
 Enter the Home Assistant jail. If you don't know which name you have given the jail, you can use the `iocage list` command to check.
+
 ```bash
 # If the jail is called 'HomeAssistant'
 iocage exec HomeAssistant
@@ -87,13 +88,13 @@ vi /usr/local/etc/rc.d/homeassistant
 # KEYWORD: shutdown
 #
 # homeassistant_user: The user account used to run the homeassistant daemon.
-#		This is optional, however do not specifically set this to an
-#		empty string as this will cause the daemon to run as root.
-#		Default: homeassistant
+#   This is optional, however do not specifically set this to an
+#   empty string as this will cause the daemon to run as root.
+#   Default: homeassistant
 # homeassistant_group: The group account used to run the homeassistant daemon.
-#		This is optional, however do not specifically set this to an
-#		empty string as this will cause the daemon to run with group wheel.
-#		Default: homeassistant
+#   This is optional, however do not specifically set this to an
+#   empty string as this will cause the daemon to run with group wheel.
+#   Default: homeassistant
 #
 # homeassistant_venv: Directory where homeassistant virtualenv is installed.
 #       Default:  "/usr/local/share/homeassistant"
@@ -217,11 +218,11 @@ You can also restart the jail to ensure that Home Assistant starts on boot.
 
 <div class='note'>
 
-USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-Wave stick in Home Assistant. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
+USB Z-Wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-Wave stick in Home Assistant. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
 
 </div>
 
-# Adding support for Z-wave stick
+## Adding support for Z-Wave stick
 
 The following two packages need to be installed in the jail
 
@@ -230,7 +231,8 @@ pkg install gmake
 pkg install libudev-devd
 ```
 
-Then you can install the zwave package
+Then you can install the Z-Wave package
+
 ```bash
 su homeassistant
 cd /usr/local/share/homeassistant
@@ -240,36 +242,42 @@ deactivate
 exit
 ```
 
-Stop the hass Jail
+Stop the Home Assistant Jail
+
 ```bash
 sudo iocage stop HomeAssistant
 ```
 
-Edit the devfs rules on the Freenas Host
+Edit the devfs rules on the FreenNAS Host
+
 ```bash
 vi /etc/devfs.rules
 ```
 
-Add the following lines 
+Add the following lines
+
 ```bash
 [devfsrules_jail_allow_usb=7]
 add path 'cu\*' mode 0660 group 8123 unhide
 ```
 
 Reload devfs
+
 ```bash
 sudo service devfs restart
 ```
 
-Edit the ruleset used by the jail in the Freenas GUI by going to Jails -> hass -> Edit ->  Jail Properties ->  devfs_ruleset
+Edit the ruleset used by the jail in the FreeNAS GUI by going to Jails -> `hass` -> Edit ->  Jail Properties ->  devfs_ruleset
 Set it to 7
 
-Start the hass jail
+Start the Home Assistant jail
+
 ```bash
 sudo iocage start HomeAssistant
 ```
 
-Connect to the hass jail and verify that you see the modem devices
+Connect to the Home Assistant jail and verify that you see the modem devices
+
 ```bash
 sudo iocage console HomeAssistant
 ```
@@ -277,15 +285,19 @@ sudo iocage console HomeAssistant
 ```bash
 ls /dev/cu*
 ```
+
 This should output the following
+
 ```bash
 /dev/cuau0      /dev/cuaU0
 ```
 
-Add the zwave config to your `configuration.yaml` and restart HA
+Add the Z-Wave config to your `configuration.yaml` and restart Home Assistant
+
 ```bash
 vi /home/homeassistant/.homeassistant/configuration.yaml
 ```
+
 ```yaml
 zwave:
   usb_path: /dev/cuaU0
@@ -296,8 +308,8 @@ zwave:
 service homeassistant restart
 ```
 
+## Updating
 
-# Updating
 Before updating, read the changelog to see what has changed and how it affects your Home Assistant instance. Enter the jail using `iocage exec <jailname>`. Stop the Home Assistant service:
 
 ```bash

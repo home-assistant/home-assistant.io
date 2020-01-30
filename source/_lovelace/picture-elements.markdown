@@ -765,7 +765,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: HA entity ID.
+      description: Home Assistant entity ID.
       type: string
     state:
       required: false
