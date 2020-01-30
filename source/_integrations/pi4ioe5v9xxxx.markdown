@@ -47,7 +47,7 @@ binary_sensor:
 {% configuration %}
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
-  required: true
+  required: false
   type: integer
   default: "`1`"
 i2c_address:
@@ -106,7 +106,7 @@ switch:
 {% configuration %}
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
-  required: true
+  required: false
   type: integer
   default: "`1`"
 i2c_address:
