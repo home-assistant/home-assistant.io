@@ -6,7 +6,7 @@ description: "Changelog of the Lovelace UI."
 * ✨ [entities card]: New `header` special row type (#4496) @balloob
 * ✨ [entities card]: New `footer` special row type (#4496) @balloob
 * ✨ [entities card]: New `conditional` special row type (#4569) @iantrich
-* ✨ [entities card]: Add `keys` option to header/footer to display buttons (#4601) @balloob
+* ✨ [entities card]: Add `buttons` option to header/footer to display buttons (#4601) @balloob
 * ✨ [entities card]: Add `action_name` option for scene/script rows (#4571) @iantrich
 * ✨ [entities card]: Add `never_triggered` option to `secondary_info` option for automation rows (#4442) @Mariusthvdb
 * ✨ Update Material Design Icons to v4.8.95 (#4520) @goyney
