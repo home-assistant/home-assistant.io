@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights, first edition!"
-description: "Re-branding Home Assistant to make naming things easier!"
+description: "A different take on the UI, a smart toilet roll holder and the DIY smart mailbox"
 date: 2020-01-31 00:00:00
 date_formatted: "January 31, 2020"
 author: Franck Nijhof
