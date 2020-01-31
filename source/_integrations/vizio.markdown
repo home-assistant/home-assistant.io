@@ -72,7 +72,7 @@ To add your Vizio TV to your installation, add the following to your `configurat
 # Example configuration.yaml entry
 media_player:
   - platform: vizio
-    host: 192.168.0.10:9000
+    host: "192.168.0.10:9000"
     access_token: MYAUTHTOKEN
 ```
 
@@ -86,7 +86,7 @@ access_token:
   required: false
   type: string
 device_class:
-  description: The class of your device. Valid options are `tv` or `soundbar`
+  description: The class of your device. Valid options are `tv` or `soundbar`.
   required: false
   type: string
   default: tv
