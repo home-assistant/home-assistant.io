@@ -4,7 +4,7 @@ description: Instructions on how to integrate your Carson.live Account within Ho
 ha_category:
   - Camera
   - Lock
-ha_release: 0.105.0
+ha_release: 0.105
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
