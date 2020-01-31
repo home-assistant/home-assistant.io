@@ -13,7 +13,7 @@ ha_iot_class: Local Polling
 
 ## Configuration
 
-Use the meter's sensors in your installation, and add the following to your configuration.yaml file:
+To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
