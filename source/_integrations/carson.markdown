@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-Go to the integrations page in your config and click on new integration -> Carson.
+Go to the integrations page in your config and click on new **integration** -> **Carson**.
 
 By default, the Carson integration will retrieve accessible cameras from the Carson Interface (e.g. Cameras that you also see within the Carson App).
 However, it is also possible to retrieve the cameras directly via the Eagle Eye API (which Carson uses for Integration), which may allow access to
