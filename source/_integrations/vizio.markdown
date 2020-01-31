@@ -85,7 +85,7 @@ access_token:
   required: false
   type: string
 device_class:
-  description: The class of your device. Valid options are `tv` or `soundbar`.
+  description: "The class of your device. Valid options are `tv` or `soundbar`."
   required: false
   type: string
   default: tv
