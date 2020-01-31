@@ -16,34 +16,16 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 
 ### Install pyvizio locally
 
-#### Installation
+> Note: If the `pip3` command is not found, try `pip` instead
 
-Use `pip`: 
-```bash
-pip3 install pyvizio
-```
-or
-```bash
-pip install pyvizio
-```
-if `pip3` is not found.
-
-#### Upgrade
-
-Use `pip`: 
-```bash
-pip3 install --upgrade pyvizio
-```
-or
-```bash
-pip install --upgrade pyvizio
-```
-if `pip3` is not found.
+- To install, run `pip3 install pyvizio` in your terminal.
+- To upgrade, run `pip3 install --upgrade pyvizio` in your terminal.
 
 ### Discover devices
+
 Find your device using the following command:
 ```bash
-pyvizio --ip=0 discover
+$ pyvizio --ip=0 discover
 ```
 
 and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g. `pyvizio --ip=0 discover --timeout=10`).
