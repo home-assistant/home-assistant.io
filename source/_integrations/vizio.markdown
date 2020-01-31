@@ -16,8 +16,7 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 
 ### Install pyvizio locally
 
-> Note: If the `pip3` command is not found, try `pip` instead
-
+NOTE: If the `pip3` command is not found, try `pip` instead
 - To install, run `pip3 install pyvizio` in your terminal.
 - To upgrade, run `pip3 install --upgrade pyvizio` in your terminal.
 
