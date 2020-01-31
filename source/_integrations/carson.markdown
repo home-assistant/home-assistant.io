@@ -62,4 +62,4 @@ Please see the [camera integration](/integrations/camera) for more information a
 Once you have enabled the Carson integration, you can start using the lock platform. You will see all the doors available to you.
 Doors can be opened (both via service `lock.open` and `lock.unlock`). Note, that Carson does **not** support the `lock.lock` service, since doors "auto-lock" after a short amount of time.
 
-Please see the [lock integration](/integrations/lock) for more information about using camera-related services.
+Please see the [lock integration](/integrations/lock) for more information about using lock-related services.
