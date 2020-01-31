@@ -78,7 +78,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: `IP Address:Port` for your device (port is optional but recommended).
+  description: "`IP Address:Port` for your device (port is optional but recommended)."
   required: true
   type: string
 access_token:
@@ -86,7 +86,7 @@ access_token:
   required: false
   type: string
 device_class:
-  description: The class of your device. Valid options are `tv` or `soundbar`.
+  description: "The class of your device. Valid options are `tv` or `soundbar`."
   required: false
   type: string
   default: tv
