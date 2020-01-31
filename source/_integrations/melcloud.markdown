@@ -4,7 +4,7 @@ description: MELCloud integration
 logo: home-assistant.png
 ha_category:
   - Climate
-ha_release: '0.106'
+ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
