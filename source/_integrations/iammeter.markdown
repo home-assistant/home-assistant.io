@@ -9,7 +9,7 @@ ha_release: 0.104
 ha_iot_class: Local Polling
 ---
 
-[IAMMETER](https://www.iammeter.com) is cloud energy management platform. Our Bi-Directional Wi-Fi Energy Meters can measure the real-time reading and report to IAMMETER server. These meters can also be easily integrated into home assistant system. We have both single phase (WEM3080, WEM3162) and three phase (WEM3080T) meters.
+`iammeter` provides real-time reading of single phase (WEM3080, WEM3162) and three phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
 
 ## Configuration
 
