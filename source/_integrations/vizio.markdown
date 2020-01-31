@@ -19,11 +19,11 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 #### Installation
 
 Use `pip`: 
-```
+```bash
 pip3 install pyvizio
 ```
 or
-```
+```bash
 pip install pyvizio
 ```
 if `pip3` is not found.
@@ -31,22 +31,22 @@ if `pip3` is not found.
 #### Upgrade
 
 Use `pip`: 
-```
+```bash
 pip3 install --upgrade pyvizio
 ```
 or
-```
+```bash
 pip install --upgrade pyvizio
 ```
 if `pip3` is not found.
 
 ### Discover devices
 Find your device using the following command:
-```txt
+```bash
 pyvizio --ip=0 discover
 ```
 
-and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g. `pyvizio --ip=0 discover --timeout=10).
+and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g. `pyvizio --ip=0 discover --timeout=10`).
 
 ## Pairing
 
@@ -96,7 +96,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: `IP address:Port` for your device (port is optional but recommended).
+  description: `IP Address:Port` for your device (port is optional but recommended).
   required: true
   type: string
 access_token:
