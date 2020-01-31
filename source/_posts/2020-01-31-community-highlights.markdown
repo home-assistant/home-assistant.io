@@ -1,5 +1,5 @@
 ---
-title: "Community Highlights, Week 5, 2020"
+title: "Community Highlights, first edition!"
 description: "Re-branding Home Assistant to make naming things easier!"
 date: 2020-01-31 00:00:00
 date_formatted: "January 31, 2020"
@@ -14,10 +14,12 @@ a few times, a blog post appeared about the amazingly awesome stuff our communit
 
 Recently, that idea was picked up again by adding an "In Other News" section to the release notes on each Home Assistant release. However, the development pace of Home Assistant is high! As a result, that section is always hidden all the way down somewhere in those release notes. A bit unfortunate, since there is so much cool stuff to be found!
 
-So, today, we present you: the Community Highlights of week number 5, 2020!
+So, today, we present you: the Community Highlights, the first edition!
+
+Technically, not the first, but we rebooted this series, right?
 
 We hope you enjoy this, please let us know in the comments below!  
-Or join us for a little chat in our [#lougne at Discord][chat]
+Or join us for a little chat in our [#lounge at Discord][chat]
 
 ../Frenck
 
@@ -56,7 +58,7 @@ He demonstrates his mailbox in the video below.
 
 Have you seen (or made) something awesome, interesting, unique, amazing, inspirational, unusual or funny, using Home Assistant?
 
-Please drop us a line and we might include it in next week's edition.
+Please drop us a line and we might include it in next edition.
 
 Share it with us via Social Media:
 
@@ -64,9 +66,9 @@ Share it with us via Social Media:
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
 - Tag [@homeasssistant][instagram] on Instagram
-- Or via chat, drop us a line in the [#lougne at Discord][chat]
+- Or via chat, drop us a line in the [#lounge at Discord][chat]
 
-See you next week!
+See you next edition!
 
 [chat]: https://www.home-assistant.io/join-chat
 [community-highlights-2015]: https://www.home-assistant.io/blog/2015/12/05/community-highlights/
