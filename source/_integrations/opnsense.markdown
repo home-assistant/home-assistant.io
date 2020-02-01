@@ -52,7 +52,7 @@ tracker_interfaces:
   description: List of the OPNsense router's interfaces to use for tracking devices.
   type: list
   required: false
-  default: ['LAN']
+  default: []
 {% endconfiguration %}
 
 
