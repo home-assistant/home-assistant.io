@@ -58,9 +58,9 @@ He demonstrates his mailbox in the video below.
 
 Have you seen (or made) something awesome, interesting, unique, amazing, inspirational, unusual or funny, using Home Assistant?
 
-Please drop us a line and we might include it in next edition.
+[Click here to send us your Community Highlight suggestion](/suggest-community-highlight).
 
-Share it with us via Social Media:
+Also, don't forget to share your creations with us via Social Media:
 
 - Twitter it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
