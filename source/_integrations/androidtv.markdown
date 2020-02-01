@@ -12,6 +12,12 @@ ha_codeowners:
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
+<div class='note info'>
+  
+Some regular and pure Android boxes (not Android TV ones) allow this integration enabling just "USB debugging", with exactly the same control over network (ethernet or wifi) as this integration intents for Android TV implementation. Your mileage may vary.
+
+</div>
+
 ## Device preparation
 
 To set up your device, you will need to find its IP address and enable ADB debugging. For Android TV devices, please consult the documentation for your device.
