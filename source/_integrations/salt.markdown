@@ -9,11 +9,14 @@ ha_codeowners:
   - '@bjornorri'
 ha_release: '0.105.0'
 ---
-The `salt` platform offers presence detection by looking at connected devices to a [Salt Fiber Box](https://fiber.salt.ch/en/fiber/equipment/fiber-box) router from [Salt](https://www.salt.ch) which is an internet provider in Switzerland.
+
+The `salt` platform offers presence detection by looking at connected devices to a [Salt Fiber Box](https://fiber.salt.ch/en/fiber/equipment/fiber-box) router from [Salt](https://www.salt.ch), which is an internet provider in Switzerland.
 
 <div class='note'>
-The router only allows one user session at a time. If you log into the router's web interface the platform will stop updating until you log out.
+The router only allows one user session at a time. If you log into the router's web interface, the platform will stop updating until you log out.
 </div>
+
+## Configuration
 
 To use a Salt Fiber Box router in your installation, add the following to your `configuration.yaml` file:
 
