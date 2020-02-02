@@ -125,6 +125,7 @@ sources:
 #### VSX-528
 
 ```yaml
+port: 8102
 sources:
   'CD': '01'
   'Tuner': '02'
