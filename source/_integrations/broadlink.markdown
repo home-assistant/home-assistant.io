@@ -116,6 +116,9 @@ script:
 
 In the above example, two codes will be captured for the power command, and will be sent alternately each time the command is called.
 
+#### Where the learned codes are stored
+The learned commands are stored in folder \configuration\.storage in a file called broadlink_remote_xxxxxxxxxxx_codes.json. From here you can copy the codes for use in e.g. a Broadlink switch. Warning: files in the .storage folder should never be edited manually, so just view the file.
+
 ### Send command
 
 Use the `remote.send_command` service to send commands.
