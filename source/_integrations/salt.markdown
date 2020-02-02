@@ -21,19 +21,19 @@ To use a Salt Fiber Box router in your installation, add the following to your `
 # Example configuration.yaml entry
 device_tracker:
   - platform: salt
+    host: 192.168.1.1
+    username: admin
     password: YOUR_PASSWORD
 ```
 
 {% configuration %}
 host:
-  description: The IP address of your router.
-  required: false
-  default: 192.168.1.1
+  description: The IP address of your router, e.g. `192.168.1.1`.
+  required: true
   type: string
 username:
-  description: The username used to log into the router's web interface.
-  required: false
-  default: admin
+  description: The username used to log into the router's web interface, e.g. `admin`.
+  required: true
   type: string
 password:
   description: The password used to log into the router's web interface.
