@@ -121,3 +121,23 @@ sources:
   'MHL': '48'
   'Game': '49'
 ```
+
+#### VSX-528
+
+```yaml
+sources:
+  'CD': '01'
+  'Tuner': '02'
+  'DVD': '04'
+  'TV': '05'
+  'Sat/Cbl': '06'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'HDMI/MHL': '48'
+  'BD': '25'
+  'Adapter': '33'
+  'Netradio': '38'
+  'Media Server': '44'
+  'Favorites': '45'
+  'Game': '49'
+```
