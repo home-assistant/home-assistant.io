@@ -19,24 +19,35 @@ To add NWS to your installation using the closest station, add the following to 
 
 ```yaml
 # Example configuration.yaml entry
-weather:
-  - platform: nws
-    api_key: YOUR_API_KEY
+nws:
+  api_key: YOUR_API_KEY
 ```
 
 To specify a station, for example, KADW (Andrews Air Force Base), use the following:
 
 ```yaml
 # Example configuration.yaml entry
-weather:
-  - platform: nws
-    api_key: YOUR_API_KEY
-    station: KADW
+nws:
+ api_key: YOUR_API_KEY
+ station: KADW
 ```
 
 A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
 
-The default forecast is day and night, `mode: daynight`, while `mode: hourly` gives the forecast hourly.  The forecast is obtained from the latitude and longitude value, not the station.
+Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each:
+
+```yaml
+# Example configuration.yaml entry
+nws:
+ - api_key: YOUR_API_KEY
+   latitude: 38.5
+   longitude: -76.5
+ - api_key: YOUR_API_KEY
+   latitude: 39
+   longitude: -76.5
+```
+
+Two weather entities are created for each entry in the configuration: one for hourly forecasts and one for day and night forecasts. The time supplied for each forecast is the start time for the forecast.
 
 {% configuration %}
 api_key:
@@ -53,16 +64,6 @@ longitude:
   required: false
   type: float
   default: "Provided by Home Assistant configuration."
-name:
-  description: "Name to use in the frontend."
-  required: false
-  type: string
-  default: "Station name."
-mode:
-  description: "The forecast type. Can be `daynight` or `hourly`."
-  required: false
-  type: string
-  default: daynight
 station:
   description: "METAR station code."
   required: false
