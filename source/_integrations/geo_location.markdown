@@ -13,16 +13,16 @@ Entities can have associated geolocation coordinates (latitude and longitude) so
 
 The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
 
-| Platform                                          | Source                        |
-|---------------------------------------------------|-------------------------------|
-| GeoJSON Events                                    | `geo_json_events`               |
-| GeoNet New Zealand Quakes                         | `geonetnz_quakes`               |
-| Global Disaster Alert and Coordination System (GDACS) | `gdacs`                     |
-| IGN Sismología                                    | `ign_sismologia`                |
-| NSW Rural Fire Service Incidents                  | `nsw_rural_fire_service_feed`   |
-| Queensland Bushfire Alert                         | `qld_bushfire`                  |
-| U.S. Geological Survey Earthquake Hazards Program | `usgs_earthquakes_feed`         |
-| The World Wide Lightning Location Network         | `wwlln`                         |
+| Platform                                              | Source                        |
+|-------------------------------------------------------|-------------------------------|
+| GeoJSON Events                                        | `geo_json_events`             |
+| GeoNet New Zealand Quakes                             | `geonetnz_quakes`             |
+| Global Disaster Alert and Coordination System (GDACS) | `gdacs`                       |
+| IGN Sismología                                        | `ign_sismologia`              |
+| NSW Rural Fire Service Incidents                      | `nsw_rural_fire_service_feed` |
+| Queensland Bushfire Alert                             | `qld_bushfire`                |
+| U.S. Geological Survey Earthquake Hazards Program     | `usgs_earthquakes_feed`       |
+| The World Wide Lightning Location Network             | `wwlln`                       |
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
