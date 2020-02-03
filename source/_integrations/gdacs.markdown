@@ -58,7 +58,6 @@ categories:
   description: The categories of alerts to be included. Valid categories are 'Drought', 'Earthquake', 'Flood', 'Tropical Cyclone', 'Tsunami', 'Volcano'.
   required: false
   type: list
-  default: None. Any alert regardless of its category will be included.
 radius:
   description: The radius around your location to monitor; defaults to 500 km or mi (depending on the unit system defined in your `configuration.yaml`).
   required: false
