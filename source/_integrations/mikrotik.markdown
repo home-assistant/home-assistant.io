@@ -66,7 +66,7 @@ port:
   required: false
   default: 8728 (or 8729 if SSL is enabled)
   type: integer
-ssl:
+verify_ssl:
   description: Use SSL to connect to the API.
   required: false
   default: false
