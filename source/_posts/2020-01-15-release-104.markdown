@@ -1026,7 +1026,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Set required_features field when registering fan services ([@Jc2k] - [#30516]) ([fan docs]) ([homekit_controller docs])
 - Add Brother Printer integration ([@bieniu] - [#30359]) ([brother docs]) (new-integration)
 - Format all manifests with prettier ([@frenck] - [#30521])
-- Fix AVM FRITZ!DECT switch total consumption ([@Alexxander0] - [#30478]) ([fritzdect docs])
+- Fix AVM FRITZ!DECT switch total consumption ([@Alexxander0] - [#30478])
 - Register 'androidtv.download' and 'androidtv.upload' services ([@JeffLIrion] - [#30086]) ([androidtv docs])
 - Allow specific status codes while notifying mobile_app devices ([@rccoleman] - [#30496]) ([mobile_app docs])
 - Correct integration names in manifests (A-B) ([@frenck] - [#30527])
@@ -1886,7 +1886,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [filter docs]: /integrations/filter/
 [freebox docs]: /integrations/freebox/
 [fritz docs]: /integrations/fritz/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [geofency docs]: /integrations/geofency/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/

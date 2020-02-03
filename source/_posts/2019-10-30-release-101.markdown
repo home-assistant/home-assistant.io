@@ -627,7 +627,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Refactor the conversation integration ([@balloob] - [#27839]) ([conversation docs]) ([shopping_list docs])
 - Use pre-commit in CI and tox ([@scop] - [#27743])
 - Introduce new OAuth2 config flow helper ([@balloob] - [#27727]) ([somfy docs]) (breaking change)
-- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs]) ([fritzdect docs])
+- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs])
 - Move imports in cppm_tracker component ([@Bouni] - [#27889]) ([cppm_tracker docs])
 - Move imports in concord232 component ([@Bouni] - [#27887]) ([concord232 docs])
 - Move imports in comfoconnect component ([@Bouni] - [#27886]) ([comfoconnect docs])
@@ -1645,7 +1645,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [fritzbox docs]: /integrations/fritzbox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [frontier_silicon docs]: /integrations/frontier_silicon/
 [futurenow docs]: /integrations/futurenow/
