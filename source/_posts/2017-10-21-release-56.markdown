@@ -211,7 +211,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update directpy to 0.2 ([@arsaboo] - [#9948])
 - Update enocean to 0.40 ([@arsaboo] - [#9949]) ([enocean docs])
 - Update hikvision to 1.2 ([@arsaboo] - [#9953]) ([switch.hikvisioncam docs])
-- Update fritzhome to 1.0.3 ([@arsaboo] - [#9951]) ([switch.fritzdect docs])
+- Update fritzhome to 1.0.3 ([@arsaboo] - [#9951])
 - Update fritzconnection to 0.6.5 ([@arsaboo] - [#9950]) ([device_tracker.fritz docs]) ([sensor.fritzbox_callmonitor docs]) ([sensor.fritzbox_netmonitor docs])
 - Upgraded pyhomematic ([@danielperna84] - [#9956]) ([homematic docs])
 - Add emeter attributes ([@gollo] - [#9903]) ([light.tplink docs])
@@ -520,7 +520,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [shiftr docs]: /integrations/shiftr/
 [skybell docs]: /integrations/skybell/
 [switch.flux docs]: /integrations/flux
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.hikvisioncam docs]: /integrations/hikvisioncam
 [switch.rainmachine docs]: /integrations/rainmachine#switch
 [switch.skybell docs]: /integrations/skybell#switch
