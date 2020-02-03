@@ -59,3 +59,21 @@ time_window:
   required: false
   type: time
 {% endconfiguration %}
+
+## Temperature example
+
+For example, you have a temperature sensor `sensor.temperature` that outputs a value every few seconds, but rounds to the nearest half number.
+That means that two consecutive output values might be the same (so the derivative is `Δy/Δx=0` because `Δy=0` !)
+However, the temperature might actually be changing over time.
+In order to capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
+An example config that uses `time_window` is
+
+```yaml
+sensor:
+  - platform: derivative
+    source: sensor.temperature
+    name: Temperature change per hour
+    round: 1
+    unit_time: h
+    time_window: "00:30:00"  # we look at the change over the last half hour
+```
