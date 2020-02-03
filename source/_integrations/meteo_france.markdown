@@ -20,7 +20,7 @@ There is currently support for the following platforms within Home Assistant:
 - Sensor
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
+It displays the current weather along with a 4 days forecast and can create sensors, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
 
 ## Setup the integration
 
@@ -47,31 +47,6 @@ meteo_france:
     description: Name of the city ([see below](#about-city-configuration)).
     required: true
     type: string
-  monitored_conditions:
-    description: The conditions types to monitor.
-    required: true
-    type: list
-    keys:
-      temperature:
-        description: The current temperature.
-      weather:
-        description: A human-readable text summary of the current conditions.
-      wind_speed:
-        description: The wind speed.
-      uv:
-        description: The current UV index.
-      next_rain:
-        description: Time to the next rain if happening for the next hour ([see note below](#about-next_rain-condition-sensor)).
-      freeze_chance:
-        description: Probability of temperature below 0°C for the day.
-      rain_chance:
-        description: Probability of rain for the day.
-      snow_chance:
-        description: Probability of snow for the day.
-      thunder_chance:
-        description: Probability of thunderstorm for the day.
-      weather_alert:
-        description: Weather alert status.
 {% endconfiguration %}
 
 ### About `city` configuration
@@ -123,25 +98,12 @@ The sensor attributes give access to each type of alerts and date of the bulleti
 
 ### Complete example
 
-This is an example for 3 cities forecast with different monitored conditions:
+This is an example for 3 cities forecast:
 
 ```yaml
 # Complete example configuration.yaml entry
 meteo_france:
   - city: 'Rouen'
-    monitored_conditions:
-        - rain_chance
-        - freeze_chance
-        - thunder_chance
-        - snow_chance
-        - weather
-        - next_rain
-        - wind_speed
-        - temperature
-        - uv
-        - weather_alert
   - city: 'Oslo, norvege'
-    monitored_conditions:
-      - temperature
   - city: '51100'
 ```
