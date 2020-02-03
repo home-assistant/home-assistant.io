@@ -13,6 +13,76 @@ og_image: /images/blog/2020-02-0.105/components.png
 
 <a href='/integrations/#version/0.105'><img src='/images/blog/2020-02-0.105/components.png' style='border: 0;box-shadow: none;'></a>
 
+## States UI deprecated
+
+Lovelace was officially introduced as a replacement for the states UI over a year ago, so it is time to drop support for the states UI.
+In version 0.107 we will remove the states UI from Home Assistant completely, if you are not using Lovelace yet, we advise you to switch.
+Lovelace is by default almost the same as states UI, with the bonus of a lot of flexibility if you want it.
+
+## Lovelace
+
+We added 2 new types to the entities card, a header and a footer. At the moment we have two options for these, an image and buttons.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/entities-card-header-footer.png' alt='Screenshot of the new header and footer for entities card'></a>
+Screenshot of the new header and footer for entities card.
+</p>
+
+In generated mode, entities that start with the name of the area or group they are in will be shown without the name of the area or group.
+So if you have a light named "Living room lights" that is in the area "Living room" they will be shown as "lights" in a card with the header "Living room".
+
+We no longer show `device_tracker` entities in generated mode. We advise you to bind one or more device trackers to a person that will be shown in the UI.
+
+The entities card no longer colors icons based on states, except for lights. If you would like the old behavior back or want to disable it for lights too, you can do so with the option `state_color`.
+Other cards still show colors for states, and we added this functionality for a lot more domains.
+
+We added a lot of accessibility features to Lovelace, you can navigate almost everything with the tab key.
+We will continue to work on this so that people with disabilities can also enjoy Home Assistant.
+
+For a full list of changes see the [Lovelace changelog](/lovelace/changelog/).
+
+## Configuration section changes
+
+In this release, we started the overhaul of the configuration panel.
+We have accumulated a lot of functionality in the last releases in the config section, now it is time to bring it all together.
+
+The next release we will make changes to make things easier to find and connect the different elements with each other.
+This release we implemented config sections and a new tabbed UI as well as some visual tweaks.
+
+We also updated the device page to show the automations, scripts, and scenes a device is used in and added the ability to easily create new ones with the device.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/device-info-page.png' alt='Screenshot of the new device info page'></a>
+Screenshot of the new device info page.
+</p>
+
+In the more info dialog, we changed the settings button to open the entity settings dialog, and added a related tab there as well. So you can see what device, integration, area, scenes, scripts, automations, entities, and groups belong to that entity.
+For scenes, scripts and automations that are created in the UI we also added an edit button right in the more info dialog so you can easily edit it without searching for it.
+
+### Zones editor
+
+We also added a brand new zone editor. You can no longer find your zones in the integration list, but they moved to their own section.
+The editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
+In the editor, you can move your zones with drag and drop and change the size of your zones by dragging the circle.
+
+You can also easily add and remove zones and change names.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/zone-editor.gif' alt='Screenshot of the zones editor'></a>
+Screenshot of the zones editor.
+</p>
+
+## Other frontend changes
+
+There is a lot more done on the frontend that we can't all mention, some highlights:
+
+- Logbook panel is a lot quicker
+- Maps no longer fit zones, but only entities
+- ZHA panel no supports binding devices to groups
+- Ability to add new areas on the device page
+- Material Design Icons are updated to v4.8.95
+- A lot of bug fixes
+
 ## In other news
 
 https://www.youtube.com/watch?v=727tFhqpFAE
@@ -26,7 +96,6 @@ Zone editor
 Links to editors
 
 Unique ID automation/scene.
-
 
 ## New Integrations
 
@@ -167,7 +236,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade youtube_dl to version 2020.01.15 ([@BKPepe] - [#30767]) ([media_extractor docs])
 - Use storage based collections for Timer platform ([@Adminiuga] - [#30765]) ([timer docs])
 - Search: Add search to default config and don't resolve area ([@bramkragten] - [#30762]) ([default_config docs]) ([search docs])
-- Allow input_* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
+- Allow input\_\* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
 - Add Config Flow support, Device Registry support, available property to vizio component ([@raman325] - [#30653]) ([vizio docs]) (breaking change)
 - Update pyubee to 0.8 ([@mzdrale] - [#30785]) ([ubee docs])
 - Add support for vacuums to Alexa. ([@ochlocracy] - [#30764]) ([alexa docs])
@@ -221,7 +290,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade importlib-metadata to version 1.4.0 ([@BKPepe] - [#31027])
 - Upgrade pyyaml to 5.3 ([@BKPepe] - [#31026])
 - Allow ZHA device creation for the Zigbee coordinator ([@dmulcahey] - [#31032]) ([zha docs])
-- Remove all empty *_setup_platform() from integrations ([@frenck] - [#31025])
+- Remove all empty \*\_setup_platform() from integrations ([@frenck] - [#31025])
 - Bump pyintesishome to v1.6 ([@jnimmo] - [#31044]) ([intesishome docs])
 - Update pyipma to 2.0 ([@abmantis] - [#30746]) ([ipma docs])
 - Add xiaomi miio sensors cgllc.airmonitor.s1 & cgllc.airmonitor.b1 ([@zhumuht] - [#30345]) ([xiaomi_miio docs])
@@ -613,26 +682,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31283]: https://github.com/home-assistant/home-assistant/pull/31283
 [#31288]: https://github.com/home-assistant/home-assistant/pull/31288
 [#31293]: https://github.com/home-assistant/home-assistant/pull/31293
-[@Adminiuga]: https://github.com/Adminiuga
-[@Anonym-tsk]: https://github.com/Anonym-tsk
-[@BKPepe]: https://github.com/BKPepe
-[@Cereal2nd]: https://github.com/Cereal2nd
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@Kane610]: https://github.com/Kane610
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MatthewFlamm]: https://github.com/MatthewFlamm
-[@Mic92]: https://github.com/Mic92
-[@MiniLau]: https://github.com/MiniLau
-[@NobleKangaroo]: https://github.com/NobleKangaroo
-[@Olen]: https://github.com/Olen
-[@Poeschl]: https://github.com/Poeschl
-[@Quentame]: https://github.com/Quentame
-[@StevenLooman]: https://github.com/StevenLooman
-[@SukramJ]: https://github.com/SukramJ
-[@Watchfox]: https://github.com/Watchfox
-[@WoLpH]: https://github.com/WoLpH
-[@YarmoM]: https://github.com/YarmoM
+[@adminiuga]: https://github.com/Adminiuga
+[@anonym-tsk]: https://github.com/Anonym-tsk
+[@bkpepe]: https://github.com/BKPepe
+[@cereal2nd]: https://github.com/Cereal2nd
+[@danielhiversen]: https://github.com/Danielhiversen
+[@jefflirion]: https://github.com/JeffLIrion
+[@kane610]: https://github.com/Kane610
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@matthewflamm]: https://github.com/MatthewFlamm
+[@mic92]: https://github.com/Mic92
+[@minilau]: https://github.com/MiniLau
+[@noblekangaroo]: https://github.com/NobleKangaroo
+[@olen]: https://github.com/Olen
+[@poeschl]: https://github.com/Poeschl
+[@quentame]: https://github.com/Quentame
+[@stevenlooman]: https://github.com/StevenLooman
+[@sukramj]: https://github.com/SukramJ
+[@watchfox]: https://github.com/Watchfox
+[@wolph]: https://github.com/WoLpH
+[@yarmom]: https://github.com/YarmoM
 [@aaska]: https://github.com/aaska
 [@abmantis]: https://github.com/abmantis
 [@afaucogney]: https://github.com/afaucogney
@@ -703,7 +772,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@scop]: https://github.com/scop
 [@shred86]: https://github.com/shred86
 [@springstan]: https://github.com/springstan
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [@teharris1]: https://github.com/teharris1
 [@tetienne]: https://github.com/tetienne
 [@thibmaek]: https://github.com/thibmaek
