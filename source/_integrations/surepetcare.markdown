@@ -20,11 +20,11 @@ To add a flap and pet, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 surepetcare:
-  username: x@y.com
-  password: v3rys3cr3t!
-  household_id: 1337
-  flaps: [{id: 2337, name: Flap}]
-  pets: [{id: 3337, name: Pet}]
+  username: "username@surepetcare.io"
+  password: sure_password
+  feeders: [12345, 67890]
+  flaps: [13579]
+  pets: [24680]
 ```
 
 {% configuration %}
@@ -36,11 +36,20 @@ surepetcare:
     description: The Sure Petcare Password
     required: true
     type: string
-  household_id:
-    description: The Sure Petcare household_id
-    required: true
-    type: integer
   flaps:
+    description: The Sure Petcare flaps
+    required: true
+    type: map
+    keys:
+      id:
+        description: The Sure Petcare id of a flap
+        required: true
+        type: integer
+      name:
+        description: A name for the flap
+        required: true
+        type: string
+  feeders:
     description: The Sure Petcare flaps
     required: true
     type: map
@@ -85,4 +94,7 @@ surepetcare:
 
 ## Getting the IDs of your household, flaps and pets
 
-For now, please use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With default setting, the IDs will be written as JSON to `~/.surepet.cache`.
+There are (at least) two ways:
+
+* Use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With default setting, the IDs will be written as JSON to `~/.surepet.cache`.
+* Visit [surepetcare.io](https://surepetcare.io) and log in with your Sure Petcare credentials. Open the developer tools in Chrome/Firefox, switch to the "Network" tab and refresh the page. Now look for calls to `start` (`pets`, `<household id>` and others are also possible, but `starts` shows you all information at once). Click on this call and in the JSON displayed you will find all the needed IDs.
