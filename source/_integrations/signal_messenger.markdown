@@ -80,5 +80,6 @@ action:
   data:
     message: "Alarm in the living room!"
     data:
-      attachment: "/tmp/surveillance_camera.jpg"
+      attachments:
+        - "/tmp/surveillance_camera.jpg"
 ```
