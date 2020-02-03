@@ -46,8 +46,8 @@ For a full list of changes see the [Lovelace changelog](/lovelace/changelog/).
 In this release, we started the overhaul of the configuration panel.
 We have accumulated a lot of functionality in the last releases in the config section, now it is time to bring it all together.
 
-We created a [mockup](https://www.figma.com/file/4LZqQZRynDZGTgA2rN35Te/Home-Assistant-config-mockup?node-id=0%3A1) of how we want our configuration panel to look like and will be working towards that the coming time.
-This release we implemented the config sections and tabs as well as some visual tweaks.
+The next release we will make changes to make things easier to find and connect the different elements with each other.
+This release we implemented config sections and a new tabbed UI as well as some visual tweaks.
 
 We also updated the device page to show the automations, scripts, and scenes a device is used in and added the ability to easily create new ones with the device.
 
