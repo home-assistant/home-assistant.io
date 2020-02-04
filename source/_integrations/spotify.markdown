@@ -106,7 +106,7 @@ The devices won't show up in the dev-console as sources unless they are powered 
 
 ## URI Links For Playlists/Etc.
 You can send playlists to spotify via the `"media_content_type": "playlist"` and something like (depending on your content ID)
-`"media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF"`
+`"media_content_id": "spotify:playlist:37i9dQZF1DWSkkUxEhrBdF"`
 which are part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media)
 service. You can test this from the services
