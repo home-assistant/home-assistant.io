@@ -2,7 +2,7 @@
 layout: post
 title: "0.105: TBD - Update date"
 description: "TBD"
-date: 2020-01-16 00:00:00
+date: 2020-02-04 00:00:00
 date_formatted: "February 5, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,89 +13,122 @@ og_image: /images/blog/2020-02-0.105/components.png
 
 <a href='/integrations/#version/0.105'><img src='/images/blog/2020-02-0.105/components.png' style='border: 0;box-shadow: none;'></a>
 
-## States UI deprecated
+In case you have missed it, we decided to change the names we use here at Home Assistant, you can read all about it in [this blog post](/blog/2020/01/29/changing-the-home-assistant-brand/).
 
-Lovelace was officially introduced as a replacement for the states UI over a year ago, so it is time to drop support for the states UI.
-In version 0.107 we will remove the states UI from Home Assistant completely, if you are not using Lovelace yet, we advise you to switch.
-Lovelace is by default almost the same as states UI, with the bonus of a lot of flexibility if you want it.
+Therefore, this is release 0.105 of the Home Assistant Core!
 
-## Lovelace
+## The old "States UI" is now deprecated
 
-We added 2 new types to the entities card, a header and a footer. At the moment we have two options for these, an image and buttons.
+In June 2018, we released [Home Assistant 0.72](/blog/2018/06/22/release-72/), which introduced Lovelace. It became our official default user interface in January 2019, with the release of [Home Assistant 0.86](/blog/2019/01/23/lovelace-released/).
+
+This means, it is now over a year ago that Lovelace was officially introduced as a replacement for the states UI, so it is time to say goodbye to the old states UI. This release deprecates it and in version 0.107, the states UI will be removed from Home Assistant completely.
+
+If you are not using Lovelace yet, we advise you to switch to it today. Lovelace is, by default, almost the same as old states UI with the bonus of a lot of flexibility, if you want it.
+
+In addition to this, all configuration options for the States UI are deprecated as well. Please be sure to read the [breaking changes](#breaking-changes) to see if you have options that need to be removed from your configuration.
+
+## Safe mode
+
+We are humans, and we do make typos. However, if we make a typo in our configuration, we might end up with Home Assistant being completely unreachable. That really is not helpful. You lose access to Home Assistant and have to do a deep dive via other methods to find out: Why did this happen?
+
+This release introduces a "Safe mode" for Home Assistant. If during startup, Home Assistant has problems reading your configuration (for whatever reason), it will still continue to start using bit and pieces from the configuration of the last time it did start.
+
+When this happens, Home Assistant will start in "Safe mode". In this mode, nothing is loaded, but it does give you access to the Home Assistant frontend, settings and add-ons (for example, the VSCode or Configurator add-on). This gives you the possibility to correct the issue
+and restart Home Assistant to re-try.
 
 <p class='img'>
-<img src='/images/blog/2020-02-0.105/entities-card-header-footer.png' alt='Screenshot of the new header and footer for entities card'></a>
-Screenshot of the new header and footer for entities card.
+<img src='/images/blog/2020-02-0.105/safe-mode.png' alt='Screenshot of Home Assistant started in safe mode'></a>
+Screenshot of Home Assistant started in safe mode.
 </p>
 
-In generated mode, entities that start with the name of the area or group they are in will be shown without the name of the area or group.
-So if you have a light named "Living room lights" that is in the area "Living room" they will be shown as "lights" in a card with the header "Living room".
+Please note, that this feature isn't perfect yet, and only works if Home Assistant was able to start successfully, after upgrading to this release, at least once.
 
-We no longer show `device_tracker` entities in generated mode. We advise you to bind one or more device trackers to a person that will be shown in the UI.
+We believe this feature makes Home Assistant more robust, easier to use and more forgiving, even if you made a mistake.
 
-The entities card no longer colors icons based on states, except for lights. If you would like the old behavior back or want to disable it for lights too, you can do so with the option `state_color`.
-Other cards still show colors for states, and we added this functionality for a lot more domains.
+## Configuration panel changes
 
-We added a lot of accessibility features to Lovelace, you can navigate almost everything with the tab key.
-We will continue to work on this so that people with disabilities can also enjoy Home Assistant.
+In this release, we started the overhaul of the configuration panel. We have accumulated a lot of functionality in the configuration section in the last releases; now, it is time to bring it all together.
 
-For a full list of changes see the [Lovelace changelog](/lovelace/changelog/).
+In upcoming releases, we will make changes to make things easier to find and connect the different elements with each other, making it easier to navigate around. For now, we implemented configuration sections, a new tabbed UI, as well as some visual tweaks.
 
-## Configuration section changes
-
-In this release, we started the overhaul of the configuration panel.
-We have accumulated a lot of functionality in the last releases in the config section, now it is time to bring it all together.
-
-The next release we will make changes to make things easier to find and connect the different elements with each other.
-This release we implemented config sections and a new tabbed UI as well as some visual tweaks.
-
-We also updated the device page to show the automations, scripts, and scenes a device is used in and added the ability to easily create new ones with the device.
+Also updated, the device page to show the automations, scripts, and scenes a device is used in and added the ability to create new ones with the device easily.
 
 <p class='img'>
 <img src='/images/blog/2020-02-0.105/device-info-page.png' alt='Screenshot of the new device info page'></a>
 Screenshot of the new device info page.
 </p>
 
-In the more info dialog, we changed the settings button to open the entity settings dialog, and added a related tab there as well. So you can see what device, integration, area, scenes, scripts, automations, entities, and groups belong to that entity.
-For scenes, scripts and automations that are created in the UI we also added an edit button right in the more info dialog so you can easily edit it without searching for it.
+In the more info dialog of entities, we changed the settings button to open the entity settings dialog, and added a related tab as well!
+This allows you to can see what device, integration, area, scenes, scripts, automations, entities, and groups belong to that entity.
 
-### Zones editor
+For scenes, scripts and automations that are created in the UI, an edit button is added, right in the more info dialog so you can easily edit it without searching for it.
 
-We also added a brand new zone editor. You can no longer find your zones in the integration list, but they moved to their own section.
-The editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
-In the editor, you can move your zones with drag and drop and change the size of your zones by dragging the circle.
+## Header & Footer for the entities card
 
-You can also easily add and remove zones and change names.
+Two new types are added to the entities card, a header and a footer. At this moment, we have two options for these, an image and buttons.
+
+It allows you to create some very cool looking cards, but also provides you the option to put buttons in the bottom of the card. Very useful for buttons that activate scenes, for example.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/entities-card-header-footer.png' alt='Screenshot of the new header and footer for entities card'></a>
+Screenshot of the new header and footer for entities card.
+</p>
+
+## Improved zones editor
+
+A brand new zone editor! You can no longer find your zones in the integration list, but they moved to their own section in the configuration panel.
+
+In this new editor, you can move your zones with drag and drop and even change the size of your zones by dragging the circle.
+
+Adding, and removing zones or changing the name of a zone, is now easier than ever.
 
 <p class='img'>
 <img src='/images/blog/2020-02-0.105/zone-editor.gif' alt='Screenshot of the zones editor'></a>
 Screenshot of the zones editor.
 </p>
 
-## Other frontend changes
+The new editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
 
-There is a lot more done on the frontend that we can't all mention, some highlights:
+## Icons no longer change color based on state
+
+A change that is not really apparent at first, but you probably notice it sooner or later.
+
+The entities card no longer changes the colors of icons based on states, except for lights.
+
+If you would like the old behavior back or want to disable it for lights too, you can do so with the option `state_color`.
+Other cards still show colors for states, and we added this functionality for a lot more entity types (domains).
+
+## Other Lovelace and frontend improvements
+
+There is a lot more done on Lovelace, more than we can mention, some other highlights:
+
+- In generated mode, entities that start with the name of the area or group they are in will be shown without the name of the area or group.
+So if you have a light named "Living room lights" that is in the area "Living room" they will be shown as "lights" in a card with the header "Living room".
+
+- We no longer show `device_tracker` entities in generated mode. We advise you to bind one or more device trackers to a person that will be shown in the UI.
+
+- We added many accessibility features to Lovelace; you can navigate almost everything with the tab key.
+We will continue to work on this so that people with disabilities can also enjoy Home Assistant.
+
+For a full list of changes, see the [Lovelace changelog](/lovelace/changelog/).
+
+Even more frontend improvements:
 
 - Logbook panel is a lot quicker
 - Maps no longer fit zones, but only entities
 - ZHA panel no supports binding devices to groups
 - Ability to add new areas on the device page
 - Material Design Icons are updated to v4.8.95
-- A lot of bug fixes
+- A lot, like a really large amount, of bug fixes!
 
 ## In other news
 
-https://www.youtube.com/watch?v=727tFhqpFAE
+This section is now empty, but don't be sad! The in "In other news" section now its own dedicated blog post,
+which we will put our regularly:
 
-Restructure the config UI. Grouped by inputs and outputs (as discussed in State of the Union)
+Want to read the first edition? _[Community Highlights, first edition!](/blog/2020/01/31/community-highlights/)_
 
-Device info page big time improved
-
-Zone editor
-
-Links to editors
-
-Unique ID automation/scene.
+Have you seen (or made) something awesome, interesting, unique, amazing, inspirational, unusual or funny, using Home Assistant? [Send us your Community Highlight suggestion](/suggest-community-highlight), so that we can include it in the next blog post.
 
 ## New Integrations
 
@@ -117,25 +150,32 @@ Unique ID automation/scene.
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## Reporting Issues
-
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
 ## Breaking Changes
 
-- __Safe Mode__ - `--demo-mode` has been removed. A new safe mode has now been introduced which loads the bare minimum necessary to load the Home Assistant frontend and allows for managing the configuration. This is not yet perfect. An invalid core configuration can still cause Home Assistant to refuse to start up. ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs])
-- __Spotify__ - Spotify is now available to be added from the integrations UI! Removing the current Spotify platform and setting up the integration from scratch is recommended. The device aliases and the `spotify.play_playlist` service, have been removed. Be sure to remove calls to that service from your automations.
+- __Safe Mode__ - `--demo-mode` has been removed. A new safe mode has now been introduced, which loads the bare minimum necessary to load the Home Assistant frontend and allows for managing the configuration. This is not yet perfect. An invalid core configuration can still cause Home Assistant to refuse to start up. ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs])
+
+- __Spotify__ - Spotify is now available to be added from the integrations UI! Removing the current Spotify platform and setting up the integration from scratch is recommended.
+  
+  The device aliases and the `spotify.play_playlist` service, have been removed. Be sure to remove calls to that service from your automations.
 
   If you use the Spotify platform at this moment:
 
-  - Remove the current configuration from your configuration.yaml file.
-  - Remove the .spotify-token-cache file from your configuration directory. It is no longer used, however, it does contain security credentials.
-  - Follow the documentation on how to set up the new Spotify integration from scratch.  - ([@frenck] - [#30717]) ([spotify docs]) 
+  - Remove the current configuration from your `configuration.yaml` file.
+  - Remove the `.spotify-token-cache` file from your configuration directory. It is no longer used, however, it does contain security credentials.
+  - Follow the documentation on how to set up the new Spotify integration from scratch.
+  
+  Please note, if you have an existing Spotify Developer Application, you need to edit it. The URL's have changed. Consult the integration documentation for the new URL's to use.
+
+  ([@frenck] - [#30717]) ([spotify docs])
+
 - __Automation__ *Deprecated* - The `hide_entity` configuration option on an automation is now deprecated and will be removed in Home Assistant 0.107. With Lovelace now being the standard, this option has become obsolete. Please ensure your automations are not using this option. An example of an *invalid* configuration is below. - ([@frenck] - [#30799]) ([automation docs])
 
-  Bad configuration example yaml:
+  Bad configuration example YAML:
+
   ```yaml
   automation:
     - alias: "Home Automation Gone Wrong"
@@ -147,52 +187,62 @@ Experiencing issues introduced by this release? Please report them in our [issue
         service: light.turn_off
         entity_id: all
   ```
+
 - __Group__ *Deprecated* - Group configurations options, services and service options related to the old states UI are now deprecated and pending for removal in Home Assistant 0.107.0.
 
   This includes:
-  - The `view` and `control` configuartion options for a group
+
+  - The `view` and `control` configuration options for a group
   - The `group.set_visibility` service call
   - The `control`, `visible`, and `view` options on the `group.set` service call.
 
-  Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs]) 
-- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs]) 
-- __Device Tracker__ *Deprecated* - The `hide_if_away` configuration option for device trackers has been deprecated and pending for removal in Home Assistant 0.107.0.
+  Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs])
 
-  Please ensure this configuration option is not used in your configuration and isn't present in the also deprecated, `known_devices.yaml` file. - ([@frenck] - [#30833]) ([device_tracker docs]) 
-- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs]) 
+- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs])
 
-- __Neato__ - This change adds a neato boundary name to the state if it exists, requiring the user to potentially update any automations. - ([@Olen] - [#29915]) ([neato docs]) 
-- __Xiaomi miio (fan)__ - This change adjusts some fan speed values according to the Xiaomi app version 5.6.34. and therefore users will need to update anything that utilizes the following fan speed values:
+- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs])
+
+- __Neato__ - This change adds a neato boundary name to the state if it exists, requiring to potentially update automations. - ([@Olen] - [#29915]) ([neato docs])
+
+- __Xiaomi miio (fan)__ - This change adjusts some fan speed values according to the Xiaomi app version 5.6.34. and therefore, you will need to update anything that utilizes the following fan speed values:
 
   - Quiet -> Silent
   - Balanced -> Standard
   - Turbo -> Medium
-  - Max -> Turbo 
+  - Max -> Turbo
 
-  In addition, the `hidden` configuration option for the `xiaomi_miio` integration has been removed. (This would only effect remotes.) - ([@tiagofreire-pt] - [#30614]) ([@frenck] - [#30727]) ([xiaomi_miio docs])
-- __Samsung Smart TV__ - Samsung Smart TV is now available to be added from the integrations UI! If you would rather add it manually please note the new configuration below. - ([@escoand] - [#28306]) ([samsungtv docs])
+  In addition, the `hidden` configuration option for the `xiaomi_miio` integration has been removed. (This would only affect remotes.) - ([@tiagofreire-pt] - [#30614]) ([@frenck] - [#30727]) ([xiaomi_miio docs])
 
-  Example configuration yaml:
+- __Samsung Smart TV__ - Samsung Smart TV is now available to be added from the integrations UI! If you would rather add it manually, please note the new configuration below. - ([@escoand] - [#28306]) ([samsungtv docs])
+
+  Example configuration YAML:
+
   ```yaml
   samsungtv:
     - host: 192.168.12.34
   ```
+
 - __Netatmo__ - Netatmo is now available from the integrations UI and takes advantage of OAuth2 account linking! There are a good number of changes to note:
-  - For authentication only client id and secret are required, no need to pass your username and password anymore
-  - Public weather sensors are removed and will be added back in a separate PR
-  - Service `set_schedule` now requires the name of the home
-  - Webhooks are removed and will be added back in a separate update
-  - Services to toggle the light/set it to auto have been removed until implemented in pyatmo
 
-  Users with an existing configuration will need to remove/update that and run the config flow dialogue to get their sensors/etc. back using the configuration.yaml option. - ([@cgtobi] - [#29851]) ([netatmo docs])  (new-platform)
+  - For authentication, only client id and secret are required, no need to pass your username and password anymore.
+  - Public weather sensors are removed and will be added back in a separate PR.
+  - Service `set_schedule` now requires the name of the home.
+  - Webhooks are removed and will be added back in a separate update.
+  - Services to toggle the light/set it to auto have been removed until implemented in `pyatmo`.
 
-    Example configuration yaml:
+  If you have an existing configuration, you will need to remove/update that and run the configuration flow dialogue to get their sensors/etc, back using the `configuration.yaml` option.
+  
+  ([@cgtobi] - [#29851]) ([netatmo docs])  (new-platform)
+
+    Example configuration YAML:
+
   ```yaml
   netatmo:
     client_id: your_client_id
     client_secret: your_client_secret
   ```
-- __Nederlandse Spoorwegen (NS)__ - The Nederlandse Spoorwegen API and NSAPI have recently changed and this change accomodates for that. The `nederlandse_spoorwegen` sensor now requires a single API token instead of username and password credentials. - ([@YarmoM] - [#30599]) ([nederlandse_spoorwegen docs]) 
+
+- __Nederlandse Spoorwegen (NS)__ - The Nederlandse Spoorwegen API and NSAPI have recently changed and this change accommodates for that. The `nederlandse_spoorwegen` sensor now requires a single API token instead of username and password credentials. - ([@YarmoM] - [#30599]) ([nederlandse_spoorwegen docs])
 
   The following platform attributes are renamed for consistency with `time` naming:
 
@@ -201,7 +251,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `arrival_platform` becomes `arrival_platform_planned`
   - `arrival_platform_changed` becomes `arrival_platform_actual`
 
-  Example configuration yaml:
+  Example configuration YAML:
+
   ```yaml
   - platform: nederlandse_spoorwegen
     password: !secret ns_api_key
@@ -210,22 +261,43 @@ Experiencing issues introduced by this release? Please report them in our [issue
       from: Rsw
       to: Rtd
   ```
-- __Simplisfafe__ - Many changes here! Simplisafe's cloud API anticipates receiving updates all at once, which our method did not do which and could result in failed updates. This change consolidates all of the service calls into a single admin service, and makes `set_pin` and `remove_pin` require admin rights. It is no longer possible to configure `scan_interval` for the integration and a code-defined interval has been set, as there was potential for users setting this too low and possibly ruin the integration for everyone. Also, the integration now makes us of `triggered` and `arming` states. Control panel entities no longer have an `alarm_active` attribute. - ([@bachya] - [#30567], [#30909], [#31060]) ([simplisafe docs]) 
+
+- __Simplisafe__ - Many changes here!
+
+  Simplisafe's cloud API anticipates receiving updates all at once, which our method did not do, which and could result in failed updates. This change consolidates all of the service calls into a single admin service, and makes `set_pin` and `remove_pin` require admin rights.
   
-  Example configuration yaml:
+  It is no longer possible to configure `scan_interval` for the integration and a code-defined interval has been set, as there was potential for users setting this too low and possibly ruin the integration for everyone.
+  
+  Also, the integration now makes us of `triggered` and `arming` states. Control panel entities no longer have an `alarm_active` attribute.
+  
+  ([@bachya] - [#30567], [#30909], [#31060]) ([simplisafe docs])
+  
+  Example configuration YAML:
+
   ```yaml
   simplisafe:
     accounts:
       username: !secret ss_username
       password: !secret ss_password
 
-- __Egardia__ - Binary sensors for the Egardia integration were hidden by default, which is no longer the case. This could affect automations which rely on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30728]) ([egardia docs]) 
-- __Emby__ - The `auto_hide` configuration option has been removed from the Emby platform. Please be sure to remove it from your configuration. - ([@frenck] - [#30729]) ([emby docs]) 
-- __Fibaro__ - Entities from the Fibaro integration were hidden in Home Assistant if they were hidden in Fibaro, which is no longer the case. This could affect automations that relies on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30730]) ([fibaro docs]) 
-- __AVM FRITZ!Box Net Monitor__ - The attribute `wan_access_type` has been removed from fritzbox_netmonitor as the new version of the fritzconnection component no longer exposes it. As a result, the information will no longer be available in the HA sensor. - ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) 
-- __MQTT Fan__ - This fixes supported_features for an MQTT fan. Setting speed now requires only a speed command topic. Before this change only a speed state topic had to be set to support the setting of a speed. The speed state topic is not taken into account as it just decides if Home Assistant gets feedback for state and speed update. Likewise, setting oscillation now requires only a oscillation command topic. Before this change only a oscillation state topic had to be set to support the setting of the oscillation. The oscillation state topic is not taken into account as it just decides if Home Assistant gets feedback for state and oscillation update. - ([@springstan] - [#28680]) ([mqtt docs]) 
+- __Egardia__ - Binary sensors for the Egardia integration were hidden by default, which is no longer the case. This could affect automations that rely on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30728]) ([egardia docs])
 
-  Example configuration yaml:
+- __Emby__ - The `auto_hide` configuration option has been removed from the Emby platform. Please be sure to remove it from your configuration. - ([@frenck] - [#30729]) ([emby docs])
+
+- __Fibaro__ - Entities from the Fibaro integration were hidden in Home Assistant if they were hidden in Fibaro, which is no longer the case. This could affect automations that rely on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30730]) ([fibaro docs])
+
+- __AVM FRITZ!Box Net Monitor__ - The attribute `wan_access_type` has been removed from `fritzbox_netmonitor` as the new version of the fritzconnection integration no longer exposes it. As a result, the information will no longer be available in the Home Assistant sensor. - ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs])
+
+- __MQTT Fan__ - This fixes `supported_features` for an MQTT fan. Setting speed now requires only a speed command topic.
+
+  Before this change, only a speed state topic had to be set to support the setting of a speed. The speed state topic is not taken into account as it just decides if Home Assistant gets feedback for state and speed updates.
+
+  Likewise, setting oscillation now requires only an oscillation command topic. Before this change, only an oscillation state topic had to be set to support the setting of the oscillation. The oscillation state topic is not taken into account as it just decides if Home Assistant gets feedback for state and oscillation update.
+
+  ([@springstan] - [#28680]) ([mqtt docs])
+
+  Example configuration YAML:
+
   ```yaml
   fan:
     - platform: mqtt
@@ -241,20 +313,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
       retain: false
       optimistic: false
   ```
+
 - __Vizio SmartCast TV__ - The Vizio integration is now available to be added from the integrations UI! When adding a soundbar the options are now between `tv` or `speaker` in order to align with the device classes defined in the media_player component and to add Amazon Alexa and Google Assistant support. If you prefer to enter the configuration manually make note of the changes below. - ([@raman325] - [#30653], [#30802]) ([vizio docs])
 
-  Example configuration yaml:
+  Example configuration YAML:
+
   ```yaml
   vizio:
     - host: IP_ADDRESS
       access_token: AUTH_TOKEN
       device_type: speaker
   ```
-- __Statistics__ - If max_age is configured, this change will keep updating the statistics even when none of the observed entities change their state. That means that after some time all recorded states are purged and the statistics sensor itself changes to state unknown instead of just keeping its old state indefinitely. Also, some attributes (`total`, `min_age`, `change`, `change_rate`, `mean`, `stdev`) will change to `unknown`.
 
-  Users should ensure that any automations that interrogate the statistics sensor's state and attributes can handle unknown. - ([@exxamalte] - [#27372]) ([statistics docs])
+- __Statistics__ - If max_age is configured, this change will keep updating the statistics even when none of the observed entities change their state. That means that after some time, all recorded states are purged and the statistics sensor itself changes to state unknown instead of just keeping its old state indefinitely. Also, some attributes (`total`, `min_age`, `change`, `change_rate`, `mean`, `stdev`) will change to `unknown`.
 
-  Example configuration.yaml:
+  Users should ensure that any automations that interrogate the statistics sensor's state and attributes can handle `unknown`.
+
+  ([@exxamalte] - [#27372]) ([statistics docs])
+
+  Example `configuration.yaml`:
+
   ```yaml
   sensor:
     - platform: statistics
@@ -262,14 +340,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
       max_age:
         minutes: 10
   ```
-- __PulseAudio Loopback__ *Revert* - The default port was incorrectly changed to 4713, however the official documentation states that the default port is 4712 for module-cli-protocol which is used in this integration. Therefore, the port has been changed back to 4712 and all previously configured switches now need to listen to port 4712. - ([@springstan] - [#30939]) ([pulseaudio_loopback docs]) 
-- __Apple iCloud__ - `account_name` is removed from the manual configuration, nothing changes when using the integration UI. - ([@Quentame] - [#30898]) ([icloud docs]) 
-- __Evohome__ - Honeywell TCC systems that consist of a single thermostat (i.e. non-evohome systems) will now be split into two climate entities instead of one: a) the whole-house zone (for target temperature), and b) the location (for Away, Eco modes). Functionality will not be lost, but this will affect automations, etc.: the entity_id of these may need changing. - ([@zxdavb] - [#30968]) ([evohome docs]) 
-- __Sonos__ - The following Sonos services now need to be called by a user with admin access: `sonos.join`, `sonos.unjoin`, `sonos.snapshot`, `sonos.restore`. Sonos services now no longer will default to "all" entities if no `entity_id` is passed in. This has been aligned with the other services in Home Assistant. To target all, add `entity_id: all`. - ([@balloob] - [#30813]) ([sonos docs]) 
-- __LG webOS Smart TV__ - After the discovery of some additional commands, client library now has much better tracking of TV power state. As a result of the client library changes, the standby_connection parameter is no longer needed/present (since the relevant behaviour can be steered automatically by the client library now) - ([@bendavid] - [#31042]) ([webostv docs]) 
+
+- __PulseAudio Loopback__ *Revert* - The default port was incorrectly changed to 4713, however, the official documentation states that the default port is 4712 for `module-cli-protocol` which is used in this integration. Therefore, the port has been changed back to 4712 and all previously configured switches now need to listen to port 4712. - ([@springstan] - [#30939]) ([pulseaudio_loopback docs])
+
+- __Apple iCloud__ - `account_name` is removed from the manual configuration; nothing changes when using the integration UI. - ([@Quentame] - [#30898]) ([icloud docs])
+
+- __Evohome__ - Honeywell TCC systems that consist of a single thermostat (i.e., non-evohome systems) will now be split into two climate entities instead of one: a) the whole-house zone (for target temperature), and b) the location (for Away, Eco modes). Functionality will not be lost, but this will affect automations, etc.: the entity_id of these may need changing. - ([@zxdavb] - [#30968]) ([evohome docs])
+
+- __Sonos__ - The following Sonos services now need to be called by a user with admin access: `sonos.join`, `sonos.unjoin`, `sonos.snapshot`, `sonos.restore`. Sonos services now no longer will default to "all" entities if no `entity_id` is passed in. This has been aligned with the other services in Home Assistant. To target all, add `entity_id: all`. - ([@balloob] - [#30813]) ([sonos docs])
+
+- __LG webOS Smart TV__ - After the discovery of some additional commands, the client library now has much better tracking of TV power state. As a result of the client library changes, the standby_connection parameter is no longer needed/present (since the relevant behavior can be steered automatically by the client library now) - ([@bendavid] - [#31042]) ([webostv docs])
+
 - __Zone__ - If you're using YAML to configure zones, specifying a name is now required. - ([@balloob] - [#30774]) ([zone docs])
   
-  Example configuration yaml:
+  Example configuration YAML:
+
   ```yaml
   - name: Hellmouth
     latitude: 0.2133478
@@ -277,9 +362,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
     radius: 200
     icon: mdi:fire
   ```
+
 - __Openuv__ - Openuv is now available to be added from the integrations UI! It is no longer possible to specify monitored conditions within the OpenUV integration; all entities are added by default. - ([@bachya] - [#31019]) ([openuv docs])
 
   Example configuration yaml:
+
   ```yaml
   openuv:
     api_key: !secret openuv_api_key
@@ -287,19 +374,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __RainMachine__ - RainMachine is now available to be added from the integrations UI! It is no longer possible to specify monitored conditions within the RainMachine integration; all entities are added by default. Additionally, the `zone_run_time` parameter is now configured directly within the controller within `configuration.yaml`. - ([@bachya] - [#31066]) ([rainmachine docs])
 
-  Example configuration yaml:
+  Example configuration YAML:
+
   ```yaml
   rainmachine:
     controllers:
       - ip_address: !secret rainmachine_ip_address
         password: !secret rainmachine_password
   ```
-- __MaryTTS__ - The codec and locale configuration changed to the official config keys from MaryTTS. - ([@Poeschl] - [#30805]) ([marytts docs]) 
+
+- __MaryTTS__ - The codec and locale configuration changed to the official config keys from MaryTTS. - ([@Poeschl] - [#30805]) ([marytts docs])
+
   - `en-GB`, `en-US` becomes `en_GB`,`en_US`
   - `aiff`,`au`,`wav` becomes `AIFF_FILE`,`AU_FILE`, `WAVE_FILE`
-  The MaryTTS network logic has been extracted into a external package and the effects setting has been added.
 
-  Example configuration yaml:
+  The MaryTTS network logic has been extracted into an external package and the effects setting has been added.
+
+  Example configuration YAML:
+
   ```yaml
   tts:
     - platform: marytts
@@ -321,6 +413,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
         FIRFilter: "type:3;fc1:500.0;fc2:2000.0",
         JetPilot: ""
   ```
+
 - __ZHA remotes__ - `binary_sensor` and `switch` entities are not going to be available for some Zigbee "remotes", but they were not supposed to be available to begin with. - ([@Adminiuga] - [#31146]) ([zha docs])
   
   Affected devices:
@@ -331,15 +424,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - 45856GE Jasco Products, DeviceType: 0x0103
   - Aqara Model lumi.remote.b486opcn01, removes switch entity
   - Aqara Model lumi.remote.b686opcn01, removes switch entity
-  - Sercom Corp, SZ-ESW01, removes switch entity  
-- __NMBS__ - The generated `unique_id` and `entity_id` have changed for the live sensor. If you were using the live sensor, you will need to update automations and scripts with the newly generated ids, and you might have to clear old entries from the entity registry. - ([@thibmaek] - [#31078]) ([nmbs docs]) 
+  - Sercom Corp, SZ-ESW01, removes switch entity
+
+- __NMBS__ - The generated `unique_id` and `entity_id` have changed for the live sensor. If you were using the live sensor, you will need to update automations and scripts with the newly generated ids, and you might have to clear old entries from the entity registry. - ([@thibmaek] - [#31078]) ([nmbs docs])
+
 ### Removed
+
 Hats over your heart for these shuttered integrations. Pour one out for:
 
-- __PostNL__ *Removed* - PostNL changed their unofficial API and implemented protection which breaks the integration. It has been confirmed through them that there is no workaround and no likely solution any time in the near future so it is being removed. - ([@peternijssen] - [#30902]) ([postnl docs]) 
-- __Cisco Spark__ *Removed* - Cisco Spark has been rebranded to Cisco Webex Teams. Cisco Webex Teams is available as integration in Home Assistant which can be used as a replacement. - ([@frenck] - [#30738]) ([ciscospark docs]) 
-- __Owlet__ - *Removed* - The API that the Owlet component was based on has been deprecated by the vendor. There is no other public API provided by the vendor that the component can be upgraded to use, so the component has been removed. - ([@oblogic7] - [#31160]) ([owlet docs]) 
-- __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046]) ([hook docs]) 
+- __PostNL__ *Removed* - PostNL changed their unofficial API and implemented protection, which breaks the integration. It has been confirmed through them that there is no workaround and no likely solution any time in the near future, so it is being removed. - ([@peternijssen] - [#30902])
+
+- __Cisco Spark__ *Removed* - Cisco Spark has been rebranded to Cisco Webex Teams. Cisco Webex Teams is available as integration in Home Assistant, which can be used as a replacement. - ([@frenck] - [#30738])
+
+- __Owlet__ - *Removed* - The API that the Owlet component was based on has been deprecated by the vendor. There is no other public API provided by the vendor that the component can be upgraded to use, so the component has been removed. - ([@oblogic7] - [#31160])
+
+- __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046])
 
 ## All changes
 
