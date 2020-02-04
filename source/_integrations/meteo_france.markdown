@@ -18,10 +18,10 @@ The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.
 
 There is currently support for the following platforms within Home Assistant:
 
-- Sensor
+- [Sensor](#sensor)
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
+It displays the current weather along with a 4 days forecast and create sensors, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
 
 ## Setup the integration
 
@@ -45,7 +45,7 @@ meteo_france:
 
 {% configuration %}
   city:
-    description: Name of the city ([see below](#about-city-configuration)).
+    description: French postal code or name of the city ([see below](#about-city-configuration)).
     required: true
     type: string
 {% endconfiguration %}
@@ -66,6 +66,20 @@ For example `Montreal, Canada` will return a city in Ardèche, France, whereas `
 meteo_france:
   - city: 'montreal,amerique'
 ```
+
+## Sensor
+
+All these sensors will be created :
+- `temperature`: The current temperature.
+- `weather`: A human-readable text summary of the current conditions.
+- `wind_speed`: The wind speed.
+- `uv`: The current UV index.
+- `next_rain`: Time to the next rain if happening for the next hour ([see note below](#about-next_rain-condition-sensor)).
+- `freeze_chance`: Probability of temperature below 0°C for the day.
+- `rain_chance`: Probability of rain for the day.
+- `snow_chance`: Probability of snow for the day.
+- `thunder_chance`: Probability of thunderstorm for the day.
+- `weather_alert`: Weather alert status ([see note below](#about-weather_alert-sensor)).
 
 ### About `next_rain` condition sensor
 
@@ -104,7 +118,7 @@ This is an example for 3 cities forecast:
 ```yaml
 # Complete example configuration.yaml entry
 meteo_france:
+  - city: '69004'
   - city: 'Rouen'
   - city: 'Oslo, norvege'
-  - city: '51100'
 ```
