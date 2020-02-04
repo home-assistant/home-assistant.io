@@ -10,6 +10,7 @@ ha_category:
 ha_codeowners:
   - '@victorcerutti'
   - '@oncleben31'
+  - '@Quentame'
 ha_config_flow: true
 ---
 
