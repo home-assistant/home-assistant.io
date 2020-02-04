@@ -125,45 +125,221 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Add neato boundary name to state if it exists ([@Olen] - [#29915]) ([neato docs]) (breaking change)
-- Fix statistics sensor honouring max_age ([@exxamalte] - [#27372]) ([statistics docs]) (breaking change)
-- Change nomenclature for Roborock fan speeds ([@tiagofreire-pt] - [#30614]) ([xiaomi_miio docs]) (breaking change)
-- Add Samsung TV config flow ([@escoand] - [#28306]) ([samsungtv docs]) (breaking change)
-- Refactor Netatmo integration ([@cgtobi] - [#29851]) ([netatmo docs]) (breaking change) (new-platform)
-- Update NSAPI to version 3.0.0 ([@YarmoM] - [#30599]) ([nederlandse_spoorwegen docs]) (breaking change)
-- Consolidate SimpliSafe property services ([@bachya] - [#30567]) ([simplisafe docs]) (breaking change)
-- Remove hidden property from xiaomi_miio.remote integration ([@frenck] - [#30727]) ([xiaomi_miio docs]) (breaking change)
-- Remove hidden property from egardia integration ([@frenck] - [#30728]) ([egardia docs]) (breaking change)
-- Remove hidden property from emby integration ([@frenck] - [#30729]) ([emby docs]) (breaking change)
-- Remove hidden property from fibaro integration ([@frenck] - [#30730]) ([fibaro docs]) (breaking change)
-- Removes Cisco Spark integration ([@frenck] - [#30738]) ([ciscospark docs]) (breaking change)
-- Fix 'NewIPAddress' error in component fritz ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) (breaking change)
-- Fix supported_features in MQTT fan ([@springstan] - [#28680]) ([mqtt docs]) (breaking change)
-- Add Safe Mode ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs]) (breaking change) (new-integration)
-- Add Config Flow support, Device Registry support, available property to vizio component ([@raman325] - [#30653]) ([vizio docs]) (breaking change)
-- Mark hide_entity deprecated in automation integration ([@frenck] - [#30799]) ([automation docs]) (breaking change)
-- Deprecate states UI options in group integration ([@frenck] - [#30831]) ([group docs]) (breaking change)
-- Deprecate weblink integration ([@frenck] - [#30834]) ([weblink docs]) (breaking change)
-- Deprecate hide_if_away from device_tracker ([@frenck] - [#30833]) ([device_tracker docs]) (breaking change)
-- Deprecate history_graph integration ([@frenck] - [#30835]) ([history_graph docs]) (breaking change)
-- Remove option to configure SimpliSafe scan interval ([@bachya] - [#30909]) ([simplisafe docs]) (breaking change)
-- remove PostNL component as it is no longer working ([@peternijssen] - [#30902]) ([postnl docs]) (breaking change)
-- Use default media player device classes for vizio component ([@raman325] - [#30802]) ([vizio docs]) (breaking change)
-- Revert "Pulseaudio: Changed default port from 4712 to 4713 (#28857)" ([@springstan] - [#30939]) ([pulseaudio_loopback docs]) (breaking change)
-- Fix can't add multiple iCloud accounts (remove account name) ([@Quentame] - [#30898]) ([icloud docs]) (breaking change)
-- initial commit ([@zxdavb] - [#30968]) ([evohome docs]) (breaking change)
-- Add foundation for integration services ([@balloob] - [#30813]) ([sonos docs]) (breaking change)
-- Improve state tracking for WebOsTV ([@bendavid] - [#31042]) ([webostv docs]) (breaking change)
-- Migrate zone to use collection helpers ([@balloob] - [#30774]) ([zone docs]) (breaking change)
-- Remove monitored conditions from OpenUV ([@bachya] - [#31019]) ([openuv docs]) (breaking change)
-- Deprecate hook integration ([@springstan] - [#31046]) ([hook docs]) (breaking change)
-- Remove monitored conditions from RainMachine ([@bachya] - [#31066]) ([rainmachine docs]) (breaking change)
-- Use speak2mary for MaryTTS integration and enable sound effects ([@Poeschl] - [#30805]) ([marytts docs]) (breaking change)
-- Rewrite of Spotify integration ([@frenck] - [#30717]) ([spotify docs]) (breaking change)
-- Update ZHA remotes registry to proper identify "remotes ([@Adminiuga] - [#31146]) ([zha docs]) (breaking change)
-- Remove Owlet component ([@oblogic7] - [#31160]) ([owlet docs]) (breaking change)
-- Add additional alarm states to SimpliSafe ([@bachya] - [#31060]) ([simplisafe docs]) (breaking change)
-- Create truly live unique id ([@thibmaek] - [#31078]) ([nmbs docs]) (breaking change)
+- __Safe Mode__ - `--demo-mode` has been removed. A new safe mode has now been introduced which loads the bare minimum necessary to load the Home Assistant frontend and allows for managing the configuration. This is not yet perfect. An invalid core configuration can still cause Home Assistant to refuse to start up. ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs])
+- __Spotify__ - Spotify is now available to be added from the integrations UI! Removing the current Spotify platform and setting up the integration from scratch is recommended. The device aliases and the `spotify.play_playlist` service, have been removed. Be sure to remove calls to that service from your automations.
+
+  If you use the Spotify platform at this moment:
+
+  - Remove the current configuration from your configuration.yaml file.
+  - Remove the .spotify-token-cache file from your configuration directory. It is no longer used, however, it does contain security credentials.
+  - Follow the documentation on how to set up the new Spotify integration from scratch.  - ([@frenck] - [#30717]) ([spotify docs]) 
+- __Automation__ *Deprecated* - The `hide_entity` configuration option on an automation is now deprecated and will be removed in Home Assistant 0.107. With Lovelace now being the standard, this option has become obsolete. Please ensure your automations are not using this option. An example of an *invalid* configuration is below. - ([@frenck] - [#30799]) ([automation docs])
+
+  Bad configuration example yaml:
+  ```yaml
+  automation:
+    - alias: "Home Automation Gone Wrong"
+      hide_entity: true  <-- remove this
+      trigger:
+        platform: state
+        entity_id: all
+      action:
+        service: light.turn_off
+        entity_id: all
+  ```
+- __Group__ *Deprecated* - Group configurations options, services and service options related to the old states UI are now deprecated and pending for removal in Home Assistant 0.107.0.
+
+  This includes:
+  - The `view` and `control` configuartion options for a group
+  - The `group.set_visibility` service call
+  - The `control`, `visible`, and `view` options on the `group.set` service call.
+
+  Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs]) 
+- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs]) 
+- __Device Tracker__ *Deprecated* - The `hide_if_away` configuration option for device trackers has been deprecated and pending for removal in Home Assistant 0.107.0.
+
+  Please ensure this configuration option is not used in your configuration and isn't present in the also deprecated, `known_devices.yaml` file. - ([@frenck] - [#30833]) ([device_tracker docs]) 
+- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs]) 
+
+- __Neato__ - This change adds a neato boundary name to the state if it exists, requiring the user to potentially update any automations. - ([@Olen] - [#29915]) ([neato docs]) 
+- __Xiaomi miio (fan)__ - This change adjusts some fan speed values according to the Xiaomi app version 5.6.34. and therefore users will need to update anything that utilizes the following fan speed values:
+
+  - Quiet -> Silent
+  - Balanced -> Standard
+  - Turbo -> Medium
+  - Max -> Turbo 
+
+  In addition, the `hidden` configuration option for the `xiaomi_miio` integration has been removed. (This would only effect remotes.) - ([@tiagofreire-pt] - [#30614]) ([@frenck] - [#30727]) ([xiaomi_miio docs])
+- __Samsung Smart TV__ - Samsung Smart TV is now available to be added from the integrations UI! If you would rather add it manually please note the new configuration below. - ([@escoand] - [#28306]) ([samsungtv docs])
+
+  Example configuration yaml:
+  ```yaml
+  samsungtv:
+    - host: 192.168.12.34
+  ```
+- __Netatmo__ - Netatmo is now available from the integrations UI and takes advantage of OAuth2 account linking! There are a good number of changes to note:
+  - For authentication only client id and secret are required, no need to pass your username and password anymore
+  - Public weather sensors are removed and will be added back in a separate PR
+  - Service `set_schedule` now requires the name of the home
+  - Webhooks are removed and will be added back in a separate update
+  - Services to toggle the light/set it to auto have been removed until implemented in pyatmo
+
+  Users with an existing configuration will need to remove/update that and run the config flow dialogue to get their sensors/etc. back using the configuration.yaml option. - ([@cgtobi] - [#29851]) ([netatmo docs])  (new-platform)
+
+    Example configuration yaml:
+  ```yaml
+  netatmo:
+    client_id: your_client_id
+    client_secret: your_client_secret
+  ```
+- __Nederlandse Spoorwegen (NS)__ - The Nederlandse Spoorwegen API and NSAPI have recently changed and this change accomodates for that. The `nederlandse_spoorwegen` sensor now requires a single API token instead of username and password credentials. - ([@YarmoM] - [#30599]) ([nederlandse_spoorwegen docs]) 
+
+  The following platform attributes are renamed for consistency with `time` naming:
+
+  - `departure_platform` becomes `departure_platform_planned`
+  - `departure_platform_changed` becomes `departure_platform_actual`
+  - `arrival_platform` becomes `arrival_platform_planned`
+  - `arrival_platform_changed` becomes `arrival_platform_actual`
+
+  Example configuration yaml:
+  ```yaml
+  - platform: nederlandse_spoorwegen
+    password: !secret ns_api_key
+    routes:
+    - name: Rijswijk-Rotterdam
+      from: Rsw
+      to: Rtd
+  ```
+- __Simplisfafe__ - Many changes here! Simplisafe's cloud API anticipates receiving updates all at once, which our method did not do which and could result in failed updates. This change consolidates all of the service calls into a single admin service, and makes `set_pin` and `remove_pin` require admin rights. It is no longer possible to configure `scan_interval` for the integration and a code-defined interval has been set, as there was potential for users setting this too low and possibly ruin the integration for everyone. Also, the integration now makes us of `triggered` and `arming` states. Control panel entities no longer have an `alarm_active` attribute. - ([@bachya] - [#30567], [#30909], [#31060]) ([simplisafe docs]) 
+  
+  Example configuration yaml:
+  ```yaml
+  simplisafe:
+    accounts:
+      username: !secret ss_username
+      password: !secret ss_password
+
+- __Egardia__ - Binary sensors for the Egardia integration were hidden by default, which is no longer the case. This could affect automations which rely on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30728]) ([egardia docs]) 
+- __Emby__ - The `auto_hide` configuration option has been removed from the Emby platform. Please be sure to remove it from your configuration. - ([@frenck] - [#30729]) ([emby docs]) 
+- __Fibaro__ - Entities from the Fibaro integration were hidden in Home Assistant if they were hidden in Fibaro, which is no longer the case. This could affect automations that relies on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30730]) ([fibaro docs]) 
+- __AVM FRITZ!Box Net Monitor__ - The attribute `wan_access_type` has been removed from fritzbox_netmonitor as the new version of the fritzconnection component no longer exposes it. As a result, the information will no longer be available in the HA sensor. - ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) 
+- __MQTT Fan__ - This fixes supported_features for an MQTT fan. Setting speed now requires only a speed command topic. Before this change only a speed state topic had to be set to support the setting of a speed. The speed state topic is not taken into account as it just decides if Home Assistant gets feedback for state and speed update. Likewise, setting oscillation now requires only a oscillation command topic. Before this change only a oscillation state topic had to be set to support the setting of the oscillation. The oscillation state topic is not taken into account as it just decides if Home Assistant gets feedback for state and oscillation update. - ([@springstan] - [#28680]) ([mqtt docs]) 
+
+  Example configuration yaml:
+  ```yaml
+  fan:
+    - platform: mqtt
+      name: "room2"
+      state_topic: "stat/bvent/POWER"
+      command_topic: "cmnd/bvent/POWER"
+      availability_topic: "tele/bvent/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      payload_on: "ON"
+      payload_off: "OFF"
+      qos: 1
+      retain: false
+      optimistic: false
+  ```
+- __Vizio SmartCast TV__ - The Vizio integration is now available to be added from the integrations UI! When adding a soundbar the options are now between `tv` or `speaker` in order to align with the device classes defined in the media_player component and to add Amazon Alexa and Google Assistant support. If you prefer to enter the configuration manually make note of the changes below. - ([@raman325] - [#30653], [#30802]) ([vizio docs])
+
+  Example configuration yaml:
+  ```yaml
+  vizio:
+    - host: IP_ADDRESS
+      access_token: AUTH_TOKEN
+      device_type: speaker
+  ```
+- __Statistics__ - If max_age is configured, this change will keep updating the statistics even when none of the observed entities change their state. That means that after some time all recorded states are purged and the statistics sensor itself changes to state unknown instead of just keeping its old state indefinitely. Also, some attributes (`total`, `min_age`, `change`, `change_rate`, `mean`, `stdev`) will change to `unknown`.
+
+  Users should ensure that any automations that interrogate the statistics sensor's state and attributes can handle unknown. - ([@exxamalte] - [#27372]) ([statistics docs])
+
+  Example configuration.yaml:
+  ```yaml
+  sensor:
+    - platform: statistics
+      entity_id: sensor.pulse_counter
+      max_age:
+        minutes: 10
+  ```
+- __PulseAudio Loopback__ *Revert* - The default port was incorrectly changed to 4713, however the official documentation states that the default port is 4712 for module-cli-protocol which is used in this integration. Therefore, the port has been changed back to 4712 and all previously configured switches now need to listen to port 4712. - ([@springstan] - [#30939]) ([pulseaudio_loopback docs]) 
+- __Apple iCloud__ - `account_name` is removed from the manual configuration, nothing changes when using the integration UI. - ([@Quentame] - [#30898]) ([icloud docs]) 
+- __Evohome__ - Honeywell TCC systems that consist of a single thermostat (i.e. non-evohome systems) will now be split into two climate entities instead of one: a) the whole-house zone (for target temperature), and b) the location (for Away, Eco modes). Functionality will not be lost, but this will affect automations, etc.: the entity_id of these may need changing. - ([@zxdavb] - [#30968]) ([evohome docs]) 
+- __Sonos__ - The following Sonos services now need to be called by a user with admin access: `sonos.join`, `sonos.unjoin`, `sonos.snapshot`, `sonos.restore`. Sonos services now no longer will default to "all" entities if no `entity_id` is passed in. This has been aligned with the other services in Home Assistant. To target all, add `entity_id: all`. - ([@balloob] - [#30813]) ([sonos docs]) 
+- __LG webOS Smart TV__ - After the discovery of some additional commands, client library now has much better tracking of TV power state. As a result of the client library changes, the standby_connection parameter is no longer needed/present (since the relevant behaviour can be steered automatically by the client library now) - ([@bendavid] - [#31042]) ([webostv docs]) 
+- __Zone__ - If you're using YAML to configure zones, specifying a name is now required. - ([@balloob] - [#30774]) ([zone docs])
+  
+  Example configuration yaml:
+  ```yaml
+  - name: Hellmouth
+    latitude: 0.2133478
+    longitude: 6.7242336
+    radius: 200
+    icon: mdi:fire
+  ```
+- __Openuv__ - Openuv is now available to be added from the integrations UI! It is no longer possible to specify monitored conditions within the OpenUV integration; all entities are added by default. - ([@bachya] - [#31019]) ([openuv docs])
+
+  Example configuration yaml:
+  ```yaml
+  openuv:
+    api_key: !secret openuv_api_key
+  ```
+
+- __RainMachine__ - RainMachine is now available to be added from the integrations UI! It is no longer possible to specify monitored conditions within the RainMachine integration; all entities are added by default. Additionally, the `zone_run_time` parameter is now configured directly within the controller within `configuration.yaml`. - ([@bachya] - [#31066]) ([rainmachine docs])
+
+  Example configuration yaml:
+  ```yaml
+  rainmachine:
+    controllers:
+      - ip_address: !secret rainmachine_ip_address
+        password: !secret rainmachine_password
+  ```
+- __MaryTTS__ - The codec and locale configuration changed to the official config keys from MaryTTS. - ([@Poeschl] - [#30805]) ([marytts docs]) 
+  - `en-GB`, `en-US` becomes `en_GB`,`en_US`
+  - `aiff`,`au`,`wav` becomes `AIFF_FILE`,`AU_FILE`, `WAVE_FILE`
+  The MaryTTS network logic has been extracted into a external package and the effects setting has been added.
+
+  Example configuration yaml:
+  ```yaml
+  tts:
+    - platform: marytts
+      host: 'localhost'
+      port: 59125
+      codec: 'WAVE_FILE'
+      voice: 'cmu-slt-hsmm'
+      language: 'en_US'
+      effect:
+        Volume: "amount:2.0;",
+        TractScaler: "amount:1.5;",
+        F0Scale: "f0Scale:2.0;",
+        F0Add: "f0Add:50.0;",
+        Rate: "durScale:1.5;",
+        Robot: "amount:100.0;",
+        Whisper: "amount:100.0;",
+        Stadium: "amount:100.0",
+        Chorus: "delay1:466;amp1:0.54;delay2:600;amp2:-0.10;delay3:250;amp3:0.30",
+        FIRFilter: "type:3;fc1:500.0;fc2:2000.0",
+        JetPilot: ""
+  ```
+- __ZHA remotes__ - `binary_sensor` and `switch` entities are not going to be available for some Zigbee "remotes", but they were not supposed to be available to begin with. - ([@Adminiuga] - [#31146]) ([zha docs])
+  
+  Affected devices:
+
+  - Centralite 3130 remote dimmer, DeviceType: 0x0001, removes binary_sensor entity
+  - OSRAM LIGTIFY Dimming Switch, DeviceType: 0x0001, removes binary_sensor entity
+  - Securifi Ltd. Penut Plug, DeviceType: 0x0000, removes binary_sensor entity
+  - 45856GE Jasco Products, DeviceType: 0x0103
+  - Aqara Model lumi.remote.b486opcn01, removes switch entity
+  - Aqara Model lumi.remote.b686opcn01, removes switch entity
+  - Sercom Corp, SZ-ESW01, removes switch entity  
+- __NMBS__ - The generated `unique_id` and `entity_id` have changed for the live sensor. If you were using the live sensor, you will need to update automations and scripts with the newly generated ids, and you might have to clear old entries from the entity registry. - ([@thibmaek] - [#31078]) ([nmbs docs]) 
+### Removed
+Hats over your heart for these shuttered integrations. Pour one out for:
+
+- __PostNL__ *Removed* - PostNL changed their unofficial API and implemented protection which breaks the integration. It has been confirmed through them that there is no workaround and no likely solution any time in the near future so it is being removed. - ([@peternijssen] - [#30902]) ([postnl docs]) 
+- __Cisco Spark__ *Removed* - Cisco Spark has been rebranded to Cisco Webex Teams. Cisco Webex Teams is available as integration in Home Assistant which can be used as a replacement. - ([@frenck] - [#30738]) ([ciscospark docs]) 
+- __Owlet__ - *Removed* - The API that the Owlet component was based on has been deprecated by the vendor. There is no other public API provided by the vendor that the component can be upgraded to use, so the component has been removed. - ([@oblogic7] - [#31160]) ([owlet docs]) 
+- __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046]) ([hook docs]) 
 
 ## All changes
 
