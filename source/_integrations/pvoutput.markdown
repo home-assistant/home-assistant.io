@@ -47,6 +47,8 @@ It's recommended to set `scan_interval:` according to a value greater than 60 se
 
 To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: pvoutput
@@ -72,3 +74,5 @@ sensor:
         friendly_name: 'Generated'
         unit_of_measurement: 'kWh'
 ```
+
+{% endraw %}
