@@ -47,7 +47,7 @@ state:
   required: true
   type: string
 name:
-  description: Name displayed on the frontend.
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](https://www.home-assistant.io/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](https://www.home-assistant.io/lovelace/entities/#name).
   required: false
   default: unnamed statistics
   type: string
