@@ -11,23 +11,6 @@ ha_iot_class: Local Polling
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
-## Prerequisites
-
-To build the package you have to install some dependencies first.
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get install libxml2-dev libxslt-dev \
-  python3-setuptools zlib1g-dev build-essential
-```
-
-If you installed Home Assistant in a virtualenv, also run the following command inside it.
-Be patient this will take a while.
-
-```bash
-pip3 install lxml
-```
-
 ## Setup
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.

@@ -11,15 +11,11 @@ ha_codeowners:
 ---
 
 Please see the [docs section](/docs/automation/) for in-depth
-documentation on how to use the automation component.
+documentation on how to use the automation integration.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
 </p>
-
-This allows one to reload the automation without restarting Home Assistant
-itself. If you don't want to see the automation rule in your frontend use
-`hide_entity: true` to hide it.
 
 You can also use `initial_state: 'false'` so that the automation
 is not automatically turned on after a Home Assistant reboot.
@@ -27,7 +23,6 @@ is not automatically turned on after a Home Assistant reboot.
 ```yaml
 automation:
   - alias: Door alarm
-    hide_entity: true
     initial_state: true
     trigger:
       - platform: state

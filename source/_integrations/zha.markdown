@@ -10,6 +10,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Cover
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -20,16 +21,17 @@ ha_codeowners:
 ---
 
 [Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
-integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
+integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules that is compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
-- Sensor
+- Cover
+- Fan
 - Light
 - Lock
+- Sensor
 - Switch
-- Fan
 
 ## ZHA exception and deviation handling
 

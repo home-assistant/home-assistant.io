@@ -67,6 +67,18 @@ format:
   required: false
   description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
   type: string
+header:
+  required: false
+  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  type: map
+footer:
+  required: false
+  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  type: map
+action_name:
+  required: false
+  description: Button label. (Only applies to `script` and `scene` rows)
+  type: string
 tap_action:
   required: false
   description: Action to take on tap
@@ -222,6 +234,42 @@ hide_if_unavailable:
   default: false
 {% endconfiguration %}
 
+### Conditional
+
+Special row that displays based on entity states.
+
+{% configuration %}
+type:
+  required: true
+  description: conditional
+  type: string
+conditions:
+  required: true
+  description: List of entity IDs and matching states.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: HA entity ID.
+      type: string
+    state:
+      required: false
+      description: Entity state is equal to this value.*
+      type: string
+    state_not:
+      required: false
+      description: Entity state is unequal to this value.*
+      type: string
+row:
+  required: true
+  description: Row to display if all conditions match.
+  type: map
+{% endconfiguration %}
+
+*one is required (`state` or `state_not`)
+
+Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
 ### Divider
 
 {% configuration %}
@@ -280,6 +328,9 @@ Entity rows:
 type: entities
 title: Entities card sample
 show_header_toggle: true
+header:
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  type: picture
 entities:
   - entity: alarm_control_panel.alarm
     name: Alarm Panel

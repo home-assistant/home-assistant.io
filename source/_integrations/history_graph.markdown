@@ -10,6 +10,11 @@ ha_codeowners:
   - '@andrey-git'
 ---
 
+<div class='note'>
+  This integration is deprecated and pending removal in Home Assistant 0.107.0,
+  as it was only used by the old states UI (not our current Lovelace UI).
+</div>
+
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
 </p>

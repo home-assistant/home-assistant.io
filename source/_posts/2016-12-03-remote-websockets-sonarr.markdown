@@ -36,14 +36,14 @@ The support for multiple hosts is a result of allowing mixed configurations with
 
 This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
 
-## All changes 
+## All changes
 
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
 - Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
 - Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
-- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
+- Switch: Hook support by hooksmarthome.com ([@dasos])
 - Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
 - Light: Support for light effects ([@Diaoul])
 - Sensor: New [Threshold][threshold] sensor ([@fabaff])
@@ -212,7 +212,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [gpslogger]: /integrations/gpslogger
 [harmony]: /integrations/harmony
 [homematic]: /integrations/homematic/
-[hook]: /integrations/hook
 [nest-cam]: /integrations/nest#camera
 [nest]: /integrations/nest/
 [nginx]: /ecosystem/nginx/
@@ -226,4 +225,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [threshold]: /integrations/threshold
 [websockets]: /developers/websocket_api/
 [waqi]: /integrations/waqi
-
