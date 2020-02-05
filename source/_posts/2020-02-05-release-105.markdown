@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.105: TBD - Update date"
-description: "TBD"
+title: "0.105: Safe mode, Headers & Footers, New Zones Editor, Garmin, Sighthound"
+description: "5 new integrations, tons of Lovelace updates, a new zones editor and safe mode that saves your day!"
 date: 2020-02-05 00:00:00
 date_formatted: "February 5, 2020"
 author: Franck Nijhof
@@ -47,7 +47,7 @@ We believe this feature makes Home Assistant more robust, easier to use and more
 
 ## Revamped Supervisor panel
 
-Remember we used to have a Hass.io panel? Well, with the [new naming]((/blog/2020/01/29/changing-the-home-assistant-brand/)) for Home Assistant, it has been renamed to the Supervisor panel.
+Remember we used to have a Hass.io panel? Well, with the [new naming](/blog/2020/01/29/changing-the-home-assistant-brand/) for Home Assistant, it has been renamed to the Supervisor panel.
 
 So [@ludeeus] has been busy! He rewrote the entire Supervisor panel to match our current frontend technologies and added some really slick new visual elements to it.
 
@@ -484,6 +484,52 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 
 - __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046])
 
+## Beta Fixes
+
+- ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
+- Add zones services.yaml ([@balloob] - [#31298]) (beta fix)
+- Add zone to defaul config ([@balloob] - [#31303]) ([default_config docs]) (beta fix)
+- Handle service calls that do not refer entity IDs ([@balloob] - [#31317]) (beta fix)
+- Updated frontend to 20200130.0 ([@bramkragten] - [#31318]) ([frontend docs]) (beta fix)
+- Fix HTTP config serialization ([@balloob] - [#31319]) ([http docs]) (beta fix)
+- Guard Z-Wave light HS conversion on None ([@balloob] - [#31320]) ([zwave docs]) (beta fix)
+- Fix wemo lights ([@balloob] - [#31323]) ([wemo docs]) (beta fix)
+- Emulated Hue: changed fallback device-type to fix Alexa compatibility issues (#30013) ([@xtools-at] - [#31330]) ([emulated_hue docs]) (beta fix)
+- Fix async bug in amcrest when registering services ([@pnbruckner] - [#31334]) ([amcrest docs]) (beta fix)
+- Guard for callbacks in service helper ([@balloob] - [#31339]) ([camera docs]) (beta fix)
+- Fix incorrect annotation async flock notify ([@balloob] - [#31342]) ([flock docs]) (beta fix)
+- Update Hue data fetching ([@balloob] - [#31338]) ([hue docs]) (beta fix)
+- Upgrade pysma, fix #27154 ([@kellerza] - [#31346]) ([sma docs]) (beta fix)
+- Partially Revert "Deprecate hide_if_away from device_tracker (#30833) ([@frenck] - [#31348]) ([device_tracker docs]) (beta fix)
+- Protect for unknown state attributes. ([@ochlocracy] - [#31354]) ([alexa docs]) (beta fix)
+- bump quirks ([@dmulcahey] - [#31355]) ([zha docs]) (beta fix)
+- Fix wemo device types for lights ([@balloob] - [#31360]) ([wemo docs]) (beta fix)
+- Updated wemo lights fix for #31360 ([@DanTLehman] - [#31369]) ([wemo docs]) (beta fix)
+- Fix auto_bypass in alarmdecoder ([@springstan] - [#30961]) ([alarmdecoder docs]) (beta fix)
+- deCONZ - Add support for new switch type ([@Kane610] - [#31362]) ([deconz docs]) (beta fix)
+- Add dump service to MQTT integration ([@balloob] - [#31370]) ([mqtt docs]) (beta fix)
+- Filter int in fan speed_list when yielding RangeController in Alexa ([@ochlocracy] - [#31375]) ([alexa docs]) (beta fix)
+- deCONZ - Services normalize bridge id ([@Kane610] - [#31378]) ([deconz docs]) (beta fix)
+- Revert "Bump alarmdecoder to 1.13.9 (#30303)" ([@springstan] - [#31385]) ([alarmdecoder docs]) (beta fix)
+- Fix service annotations ([@balloob] - [#31402]) ([input_select docs]) ([media_player docs]) (beta fix)
+- deCONZ - Fix magic cube awake gesture ([@FrengerH] - [#31403]) ([deconz docs]) (beta fix)
+- Fix rflink commands containing equals sign ([@akasma74] - [#31412]) ([rflink docs]) (beta fix)
+- Emulated Hue + Alexa: Fix devices not discovered and error response (#30013 & #29899) ([@xtools-at] - [#31413]) ([emulated_hue docs]) (beta fix)
+- Fix device name Google Assistant when using aliases ([@frenck] - [#31416]) ([google_assistant docs]) (breaking change) (beta fix)
+- always call set_volume with integer values ([@bendavid] - [#31418]) ([webostv docs]) (beta fix)
+- Rework Mikrotik device scanning following Unifi ([@engrbm87] - [#27484]) ([mikrotik docs]) (breaking change) (beta fix)
+- Update NSAPI to 3.0.2 ([@YarmoM] - [#30971]) ([nederlandse_spoorwegen docs]) (breaking change) (beta fix)
+- Samsung TV refinements ([@escoand] - [#31248]) ([samsungtv docs]) (beta fix)
+- Fix theme color ([@quthla] - [#31366]) ([frontend docs]) (beta fix)
+- Keep track of the derivative for unit_time ([@basnijholt] - [#31397]) ([derivative docs]) (beta fix)
+- Update libpurecool upstream library to latest version ([@etheralm] - [#31457]) ([dyson docs]) (beta fix)
+- Updated frontend to 20200130.1 ([@bramkragten] - [#31460]) ([frontend docs]) (beta fix)
+- Update vizio host check to handle entries that don't have port ([@raman325] - [#31463]) ([vizio docs]) (beta fix)
+- Fix coordinator reference ([@balloob] - [#31467]) ([hue docs]) (beta fix)
+- Fix iCloud device battery level can be None ([@Quentame] - [#31468]) ([icloud docs]) (beta fix)
+- Automation device/entity extraction to include triggers + conditions ([@balloob] - [#31474]) ([automation docs]) (beta fix)
+- Re-branding of Hass.io panel to Supervisor ([@frenck] - [#31480]) ([hassio docs]) (breaking change) (beta fix)
+
 ## All changes
 
 - Add Doorbird events to logbook ([@oblogic7] - [#30588]) ([doorbird docs])
@@ -515,7 +561,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Use storage based collections for input_number entities ([@Adminiuga] - [#30576]) ([input_number docs])
 - pushover: improve error when image download fails ([@Mic92] - [#30615]) ([pushover docs])
 - Add support for Dyson TP06 fan ([@etheralm] - [#30611]) ([dyson docs])
-- Refactor Netatmo integration ([@cgtobi] - [#29851]) ([netatmo docs]) (breaking change) (new-platform)
+- Refactor Netatmo integration ([@cgtobi] - [#29851]) ([netatmo docs]) (breaking change)
 - Use storage collections for input_select entity management ([@Adminiuga] - [#30604]) ([input_number docs]) ([input_select docs])
 - Fix test_scenes_with_entity ([@scop] - [#30684])
 - Update iCloud sensors when service finish its update ([@Quentame] - [#30680]) ([icloud docs])
@@ -544,7 +590,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Update Hue SSDP discovery ([@balloob] - [#30695]) ([hue docs])
 - Fix hassfest allowing omitting discovery methods when using OAuth2Flow ([@frenck] - [#30732])
 - Update config flow test scaffolding ([@balloob] - [#30694])
-- Removes Cisco Spark integration ([@frenck] - [#30738]) ([ciscospark docs]) (breaking change)
+- Removes Cisco Spark integration ([@frenck] - [#30738]) (breaking change)
 - Fix translation from HA playlist to UPnP playlistItem ([@StevenLooman] - [#30743]) ([dlna_dmr docs])
 - Fix 'NewIPAddress' error in component fritz ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) (breaking change)
 - Fix small typo in alarmdotcom component ([@akinomeroglu] - [#30758]) ([alarmdotcom docs])
@@ -555,7 +601,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Upgrade youtube_dl to version 2020.01.15 ([@BKPepe] - [#30767]) ([media_extractor docs])
 - Use storage based collections for Timer platform ([@Adminiuga] - [#30765]) ([timer docs])
 - Search: Add search to default config and don't resolve area ([@bramkragten] - [#30762]) ([default_config docs]) ([search docs])
-- Allow input\_\* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
+- Allow input_* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
 - Add Config Flow support, Device Registry support, available property to vizio component ([@raman325] - [#30653]) ([vizio docs]) (breaking change)
 - Update pyubee to 0.8 ([@mzdrale] - [#30785]) ([ubee docs])
 - Add support for vacuums to Alexa. ([@ochlocracy] - [#30764]) ([alexa docs])
@@ -574,7 +620,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Update pyatmo to 3.2.2 and add available attribute ([@cgtobi] - [#30882]) ([netatmo docs])
 - Extract collection entity registry cleaner into a helper ([@Adminiuga] - [#30844]) ([input_boolean docs]) ([input_datetime docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([person docs]) ([timer docs])
 - Remove option to configure SimpliSafe scan interval ([@bachya] - [#30909]) ([simplisafe docs]) (breaking change)
-- remove PostNL component as it is no longer working ([@peternijssen] - [#30902]) ([postnl docs]) (breaking change)
+- remove PostNL component as it is no longer working ([@peternijssen] - [#30902]) (breaking change)
 - Adds icon endpoint to NO_AUTH ([@ludeeus] - [#30910]) ([hassio docs])
 - Add battery voltage state attribute for ZHA devices ([@Adminiuga] - [#30901]) ([zha docs])
 - Refactor rounding for ZHA electrical measurement sensor ([@Adminiuga] - [#30923]) ([zha docs])
@@ -609,7 +655,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Upgrade importlib-metadata to version 1.4.0 ([@BKPepe] - [#31027])
 - Upgrade pyyaml to 5.3 ([@BKPepe] - [#31026])
 - Allow ZHA device creation for the Zigbee coordinator ([@dmulcahey] - [#31032]) ([zha docs])
-- Remove all empty \*\_setup_platform() from integrations ([@frenck] - [#31025])
+- Remove all empty *_setup_platform() from integrations ([@frenck] - [#31025])
 - Bump pyintesishome to v1.6 ([@jnimmo] - [#31044]) ([intesishome docs])
 - Update pyipma to 2.0 ([@abmantis] - [#30746]) ([ipma docs])
 - Add xiaomi miio sensors cgllc.airmonitor.s1 & cgllc.airmonitor.b1 ([@zhumuht] - [#30345]) ([xiaomi_miio docs])
@@ -635,7 +681,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Simplify automation services ([@balloob] - [#30996]) ([automation docs])
 - Remove monitored conditions from OpenUV ([@bachya] - [#31019]) ([openuv docs]) (breaking change)
 - Add myself to owners for components I contributed ([@jkeljo] - [#31020]) ([greeneye_monitor docs]) ([sisyphus docs])
-- Deprecate hook integration ([@springstan] - [#31046]) ([hook docs]) (breaking change)
+- Deprecate hook integration ([@springstan] - [#31046]) (breaking change)
 - Add keep-alive which is required for some hlk-sw16 variants ([@jameshilliard] - [#31062]) ([hlk_sw16 docs])
 - pydaikin version bump ([@fredrike] - [#31080]) ([daikin docs])
 - Remove monitored conditions from RainMachine ([@bachya] - [#31066]) ([rainmachine docs]) (breaking change)
@@ -672,7 +718,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - improvements to zha cover ([@billyburly] - [#31144]) ([zha docs])
 - Fix state handling for older webos versions ([@bendavid] - [#31099]) ([webostv docs])
 - Separate iCloud class ([@Quentame] - [#31022]) ([icloud docs])
-- Remove Owlet component ([@oblogic7] - [#31160]) ([owlet docs]) (breaking change)
+- Remove Owlet component ([@oblogic7] - [#31160]) (breaking change)
 - Fix the ihc.set_runtime_value_int service function not working with templates ([@dingusdk] - [#31145]) ([ihc docs])
 - Add additional alarm states to SimpliSafe ([@bachya] - [#31060]) ([simplisafe docs]) (breaking change)
 - Refactor RainMachine switch platform ([@bachya] - [#31148]) ([rainmachine docs])
@@ -743,10 +789,54 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Find related items scripts/automations ([@balloob] - [#31293]) ([automation docs]) ([script docs]) ([search docs])
 - Use all new helper functions ([@Kane610] - [#31278]) ([deconz docs])
 - Fix service helper not handling sync methods ([@balloob] - [#31254])
+- ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
+- Add zones services.yaml ([@balloob] - [#31298]) (beta fix)
+- Add zone to defaul config ([@balloob] - [#31303]) ([default_config docs]) (beta fix)
+- Handle service calls that do not refer entity IDs ([@balloob] - [#31317]) (beta fix)
+- Updated frontend to 20200130.0 ([@bramkragten] - [#31318]) ([frontend docs]) (beta fix)
+- Fix HTTP config serialization ([@balloob] - [#31319]) ([http docs]) (beta fix)
+- Guard Z-Wave light HS conversion on None ([@balloob] - [#31320]) ([zwave docs]) (beta fix)
+- Fix wemo lights ([@balloob] - [#31323]) ([wemo docs]) (beta fix)
+- Emulated Hue: changed fallback device-type to fix Alexa compatibility issues (#30013) ([@xtools-at] - [#31330]) ([emulated_hue docs]) (beta fix)
+- Fix async bug in amcrest when registering services ([@pnbruckner] - [#31334]) ([amcrest docs]) (beta fix)
+- Guard for callbacks in service helper ([@balloob] - [#31339]) ([camera docs]) (beta fix)
+- Fix incorrect annotation async flock notify ([@balloob] - [#31342]) ([flock docs]) (beta fix)
+- Update Hue data fetching ([@balloob] - [#31338]) ([hue docs]) (beta fix)
+- Upgrade pysma, fix #27154 ([@kellerza] - [#31346]) ([sma docs]) (beta fix)
+- Partially Revert "Deprecate hide_if_away from device_tracker (#30833) ([@frenck] - [#31348]) ([device_tracker docs]) (beta fix)
+- Protect for unknown state attributes. ([@ochlocracy] - [#31354]) ([alexa docs]) (beta fix)
+- bump quirks ([@dmulcahey] - [#31355]) ([zha docs]) (beta fix)
+- Fix wemo device types for lights ([@balloob] - [#31360]) ([wemo docs]) (beta fix)
+- Updated wemo lights fix for #31360 ([@DanTLehman] - [#31369]) ([wemo docs]) (beta fix)
+- Fix auto_bypass in alarmdecoder ([@springstan] - [#30961]) ([alarmdecoder docs]) (beta fix)
+- deCONZ - Add support for new switch type ([@Kane610] - [#31362]) ([deconz docs]) (beta fix)
+- Add dump service to MQTT integration ([@balloob] - [#31370]) ([mqtt docs]) (beta fix)
+- Filter int in fan speed_list when yielding RangeController in Alexa ([@ochlocracy] - [#31375]) ([alexa docs]) (beta fix)
+- deCONZ - Services normalize bridge id ([@Kane610] - [#31378]) ([deconz docs]) (beta fix)
+- Revert "Bump alarmdecoder to 1.13.9 (#30303)" ([@springstan] - [#31385]) ([alarmdecoder docs]) (beta fix)
+- Fix service annotations ([@balloob] - [#31402]) ([input_select docs]) ([media_player docs]) (beta fix)
+- deCONZ - Fix magic cube awake gesture ([@FrengerH] - [#31403]) ([deconz docs]) (beta fix)
+- Fix rflink commands containing equals sign ([@akasma74] - [#31412]) ([rflink docs]) (beta fix)
+- Emulated Hue + Alexa: Fix devices not discovered and error response (#30013 & #29899) ([@xtools-at] - [#31413]) ([emulated_hue docs]) (beta fix)
+- Fix device name Google Assistant when using aliases ([@frenck] - [#31416]) ([google_assistant docs]) (breaking change) (beta fix)
+- always call set_volume with integer values ([@bendavid] - [#31418]) ([webostv docs]) (beta fix)
+- Rework Mikrotik device scanning following Unifi ([@engrbm87] - [#27484]) ([mikrotik docs]) (breaking change) (beta fix)
+- Update NSAPI to 3.0.2 ([@YarmoM] - [#30971]) ([nederlandse_spoorwegen docs]) (breaking change) (beta fix)
+- Samsung TV refinements ([@escoand] - [#31248]) ([samsungtv docs]) (beta fix)
+- Fix theme color ([@quthla] - [#31366]) ([frontend docs]) (beta fix)
+- Keep track of the derivative for unit_time ([@basnijholt] - [#31397]) ([derivative docs]) (beta fix)
+- Update libpurecool upstream library to latest version ([@etheralm] - [#31457]) ([dyson docs]) (beta fix)
+- Updated frontend to 20200130.1 ([@bramkragten] - [#31460]) ([frontend docs]) (beta fix)
+- Update vizio host check to handle entries that don't have port ([@raman325] - [#31463]) ([vizio docs]) (beta fix)
+- Fix coordinator reference ([@balloob] - [#31467]) ([hue docs]) (beta fix)
+- Fix iCloud device battery level can be None ([@Quentame] - [#31468]) ([icloud docs]) (beta fix)
+- Automation device/entity extraction to include triggers + conditions ([@balloob] - [#31474]) ([automation docs]) (beta fix)
+- Re-branding of Hass.io panel to Supervisor ([@frenck] - [#31480]) ([hassio docs]) (breaking change) (beta fix)
 
 [#26456]: https://github.com/home-assistant/home-assistant/pull/26456
 [#26834]: https://github.com/home-assistant/home-assistant/pull/26834
 [#27372]: https://github.com/home-assistant/home-assistant/pull/27372
+[#27484]: https://github.com/home-assistant/home-assistant/pull/27484
 [#28306]: https://github.com/home-assistant/home-assistant/pull/28306
 [#28336]: https://github.com/home-assistant/home-assistant/pull/28336
 [#28643]: https://github.com/home-assistant/home-assistant/pull/28643
@@ -870,8 +960,10 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [#30954]: https://github.com/home-assistant/home-assistant/pull/30954
 [#30958]: https://github.com/home-assistant/home-assistant/pull/30958
 [#30959]: https://github.com/home-assistant/home-assistant/pull/30959
+[#30961]: https://github.com/home-assistant/home-assistant/pull/30961
 [#30963]: https://github.com/home-assistant/home-assistant/pull/30963
 [#30968]: https://github.com/home-assistant/home-assistant/pull/30968
+[#30971]: https://github.com/home-assistant/home-assistant/pull/30971
 [#30977]: https://github.com/home-assistant/home-assistant/pull/30977
 [#30984]: https://github.com/home-assistant/home-assistant/pull/30984
 [#30990]: https://github.com/home-assistant/home-assistant/pull/30990
@@ -979,6 +1071,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [#31241]: https://github.com/home-assistant/home-assistant/pull/31241
 [#31242]: https://github.com/home-assistant/home-assistant/pull/31242
 [#31245]: https://github.com/home-assistant/home-assistant/pull/31245
+[#31248]: https://github.com/home-assistant/home-assistant/pull/31248
 [#31250]: https://github.com/home-assistant/home-assistant/pull/31250
 [#31254]: https://github.com/home-assistant/home-assistant/pull/31254
 [#31255]: https://github.com/home-assistant/home-assistant/pull/31255
@@ -1001,30 +1094,72 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [#31283]: https://github.com/home-assistant/home-assistant/pull/31283
 [#31288]: https://github.com/home-assistant/home-assistant/pull/31288
 [#31293]: https://github.com/home-assistant/home-assistant/pull/31293
-[@adminiuga]: https://github.com/Adminiuga
-[@anonym-tsk]: https://github.com/Anonym-tsk
-[@bkpepe]: https://github.com/BKPepe
-[@cereal2nd]: https://github.com/Cereal2nd
-[@danielhiversen]: https://github.com/Danielhiversen
-[@jefflirion]: https://github.com/JeffLIrion
-[@kane610]: https://github.com/Kane610
-[@martinhjelmare]: https://github.com/MartinHjelmare
-[@matthewflamm]: https://github.com/MatthewFlamm
-[@mic92]: https://github.com/Mic92
-[@minilau]: https://github.com/MiniLau
-[@noblekangaroo]: https://github.com/NobleKangaroo
-[@olen]: https://github.com/Olen
-[@poeschl]: https://github.com/Poeschl
-[@quentame]: https://github.com/Quentame
-[@stevenlooman]: https://github.com/StevenLooman
-[@sukramj]: https://github.com/SukramJ
-[@watchfox]: https://github.com/Watchfox
-[@wolph]: https://github.com/WoLpH
-[@yarmom]: https://github.com/YarmoM
+[#31295]: https://github.com/home-assistant/home-assistant/pull/31295
+[#31298]: https://github.com/home-assistant/home-assistant/pull/31298
+[#31303]: https://github.com/home-assistant/home-assistant/pull/31303
+[#31317]: https://github.com/home-assistant/home-assistant/pull/31317
+[#31318]: https://github.com/home-assistant/home-assistant/pull/31318
+[#31319]: https://github.com/home-assistant/home-assistant/pull/31319
+[#31320]: https://github.com/home-assistant/home-assistant/pull/31320
+[#31323]: https://github.com/home-assistant/home-assistant/pull/31323
+[#31330]: https://github.com/home-assistant/home-assistant/pull/31330
+[#31334]: https://github.com/home-assistant/home-assistant/pull/31334
+[#31338]: https://github.com/home-assistant/home-assistant/pull/31338
+[#31339]: https://github.com/home-assistant/home-assistant/pull/31339
+[#31342]: https://github.com/home-assistant/home-assistant/pull/31342
+[#31346]: https://github.com/home-assistant/home-assistant/pull/31346
+[#31348]: https://github.com/home-assistant/home-assistant/pull/31348
+[#31354]: https://github.com/home-assistant/home-assistant/pull/31354
+[#31355]: https://github.com/home-assistant/home-assistant/pull/31355
+[#31360]: https://github.com/home-assistant/home-assistant/pull/31360
+[#31362]: https://github.com/home-assistant/home-assistant/pull/31362
+[#31366]: https://github.com/home-assistant/home-assistant/pull/31366
+[#31369]: https://github.com/home-assistant/home-assistant/pull/31369
+[#31370]: https://github.com/home-assistant/home-assistant/pull/31370
+[#31375]: https://github.com/home-assistant/home-assistant/pull/31375
+[#31378]: https://github.com/home-assistant/home-assistant/pull/31378
+[#31385]: https://github.com/home-assistant/home-assistant/pull/31385
+[#31397]: https://github.com/home-assistant/home-assistant/pull/31397
+[#31402]: https://github.com/home-assistant/home-assistant/pull/31402
+[#31403]: https://github.com/home-assistant/home-assistant/pull/31403
+[#31412]: https://github.com/home-assistant/home-assistant/pull/31412
+[#31413]: https://github.com/home-assistant/home-assistant/pull/31413
+[#31416]: https://github.com/home-assistant/home-assistant/pull/31416
+[#31418]: https://github.com/home-assistant/home-assistant/pull/31418
+[#31457]: https://github.com/home-assistant/home-assistant/pull/31457
+[#31460]: https://github.com/home-assistant/home-assistant/pull/31460
+[#31463]: https://github.com/home-assistant/home-assistant/pull/31463
+[#31467]: https://github.com/home-assistant/home-assistant/pull/31467
+[#31468]: https://github.com/home-assistant/home-assistant/pull/31468
+[#31474]: https://github.com/home-assistant/home-assistant/pull/31474
+[#31480]: https://github.com/home-assistant/home-assistant/pull/31480
+[@Adminiuga]: https://github.com/Adminiuga
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@BKPepe]: https://github.com/BKPepe
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@DanTLehman]: https://github.com/DanTLehman
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@FrengerH]: https://github.com/FrengerH
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@Mic92]: https://github.com/Mic92
+[@MiniLau]: https://github.com/MiniLau
+[@NobleKangaroo]: https://github.com/NobleKangaroo
+[@Olen]: https://github.com/Olen
+[@Poeschl]: https://github.com/Poeschl
+[@Quentame]: https://github.com/Quentame
+[@StevenLooman]: https://github.com/StevenLooman
+[@SukramJ]: https://github.com/SukramJ
+[@Watchfox]: https://github.com/Watchfox
+[@WoLpH]: https://github.com/WoLpH
+[@YarmoM]: https://github.com/YarmoM
 [@aaska]: https://github.com/aaska
 [@abmantis]: https://github.com/abmantis
 [@afaucogney]: https://github.com/afaucogney
 [@ajmarks]: https://github.com/ajmarks
+[@akasma74]: https://github.com/akasma74
 [@akinomeroglu]: https://github.com/akinomeroglu
 [@alandtse]: https://github.com/alandtse
 [@alistairg]: https://github.com/alistairg
@@ -1052,6 +1187,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [@dokmic]: https://github.com/dokmic
 [@doudz]: https://github.com/doudz
 [@dshokouhi]: https://github.com/dshokouhi
+[@engrbm87]: https://github.com/engrbm87
 [@escoand]: https://github.com/escoand
 [@etheralm]: https://github.com/etheralm
 [@exxamalte]: https://github.com/exxamalte
@@ -1069,6 +1205,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [@jkeljo]: https://github.com/jkeljo
 [@jnimmo]: https://github.com/jnimmo
 [@joegross]: https://github.com/joegross
+[@kellerza]: https://github.com/kellerza
 [@ktnrg45]: https://github.com/ktnrg45
 [@l3d00m]: https://github.com/l3d00m
 [@ludeeus]: https://github.com/ludeeus
@@ -1082,6 +1219,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [@peternijssen]: https://github.com/peternijssen
 [@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
+[@quthla]: https://github.com/quthla
 [@raman325]: https://github.com/raman325
 [@rdehuyss]: https://github.com/rdehuyss
 [@reuank]: https://github.com/reuank
@@ -1091,7 +1229,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [@scop]: https://github.com/scop
 [@shred86]: https://github.com/shred86
 [@springstan]: https://github.com/springstan
-[@starkillerog]: https://github.com/starkillerOG
+[@starkillerOG]: https://github.com/starkillerOG
 [@teharris1]: https://github.com/teharris1
 [@tetienne]: https://github.com/tetienne
 [@thibmaek]: https://github.com/thibmaek
@@ -1100,6 +1238,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [@tulindo]: https://github.com/tulindo
 [@uvjustin]: https://github.com/uvjustin
 [@vangorra]: https://github.com/vangorra
+[@xtools-at]: https://github.com/xtools-at
 [@zewelor]: https://github.com/zewelor
 [@zhumuht]: https://github.com/zhumuht
 [@zombielinux]: https://github.com/zombielinux
@@ -1107,6 +1246,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [abode docs]: /integrations/abode/
 [adguard docs]: /integrations/adguard/
 [airly docs]: /integrations/airly/
+[alarmdecoder docs]: /integrations/alarmdecoder/
 [alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [almond docs]: /integrations/almond/
@@ -1118,8 +1258,8 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [aws docs]: /integrations/aws/
 [brother docs]: /integrations/brother/
 [buienradar docs]: /integrations/buienradar/
+[camera docs]: /integrations/camera/
 [cast docs]: /integrations/cast/
-[ciscospark docs]: /integrations/ciscospark/
 [cloud docs]: /integrations/cloud/
 [command_line docs]: /integrations/command_line/
 [config docs]: /integrations/config/
@@ -1138,6 +1278,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [environment_canada docs]: /integrations/environment_canada/
 [evohome docs]: /integrations/evohome/
 [fibaro docs]: /integrations/fibaro/
+[flock docs]: /integrations/flock/
 [fritz docs]: /integrations/fritz/
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
@@ -1158,7 +1299,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [homematic docs]: /integrations/homematic/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
 [honeywell docs]: /integrations/honeywell/
-[hook docs]: /integrations/hook/
 [http docs]: /integrations/http/
 [huawei_lte docs]: /integrations/huawei_lte/
 [hue docs]: /integrations/hue/
@@ -1182,6 +1322,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [luftdaten docs]: /integrations/luftdaten/
 [marytts docs]: /integrations/marytts/
 [media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
 [mikrotik docs]: /integrations/mikrotik/
 [mill docs]: /integrations/mill/
 [mobile_app docs]: /integrations/mobile_app/
@@ -1196,11 +1337,9 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [openuv docs]: /integrations/openuv/
 [opnsense docs]: /integrations/opnsense/
 [oru docs]: /integrations/oru/
-[owlet docs]: /integrations/owlet/
 [pcal9535a docs]: /integrations/pcal9535a/
 [person docs]: /integrations/person/
 [plugwise docs]: /integrations/plugwise/
-[postnl docs]: /integrations/postnl/
 [prometheus docs]: /integrations/prometheus/
 [proxmoxve docs]: /integrations/proxmoxve/
 [ps4 docs]: /integrations/ps4/
@@ -1211,6 +1350,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [recorder docs]: /integrations/recorder/
 [reddit docs]: /integrations/reddit/
 [remote docs]: /integrations/remote/
+[rflink docs]: /integrations/rflink/
 [ring docs]: /integrations/ring/
 [safe_mode docs]: /integrations/safe_mode/
 [samsungtv docs]: /integrations/samsungtv/
@@ -1222,6 +1362,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [simplisafe docs]: /integrations/simplisafe/
 [sinch docs]: /integrations/sinch/
 [sisyphus docs]: /integrations/sisyphus/
+[sma docs]: /integrations/sma/
 [sms docs]: /integrations/sms/
 [solarlog docs]: /integrations/solarlog/
 [soma docs]: /integrations/soma/
