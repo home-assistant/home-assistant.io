@@ -77,10 +77,15 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
+exclude_unnamed_apps:
+  description: If this is true, then only the apps you specify in the `apps` configuration parameter and [those specified in the backend library](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) will be shown in the sources list.
+  required: false
+  default: false
+  type: boolean
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
@@ -107,15 +112,19 @@ turn_off_command:
 # Example configuration.yaml entry
 media_player:
   # Use the Python ADB implementation with a user-provided key to setup an
-  # Android TV device. Provide an app name, override the default turn on/off
-  # commands, and provide custom state detection rules.
+  # Android TV device. Provide some app names and don't display other apps
+  # in the sources menu. Override the default turn on/off commands, and
+  # provide custom state detection rules.
   - platform: androidtv
     name: Android TV
     device_class: androidtv
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
+    exclude_unnamed_apps: true
     apps:
       com.amazon.tv.launcher: "Fire TV"
+      some.background.app:  # this will never show up in the sources list
+      another.background.app: ""  # this will also never show up in the sources list
     turn_on_command: "input keyevent 3"
     turn_off_command: "input keyevent 223"
     state_detection_rules:
