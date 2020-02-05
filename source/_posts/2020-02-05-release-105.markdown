@@ -2,7 +2,7 @@
 layout: post
 title: "0.105: TBD - Update date"
 description: "TBD"
-date: 2020-02-04 00:00:00
+date: 2020-02-05 00:00:00
 date_formatted: "February 5, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -84,7 +84,7 @@ Adding, and removing zones or changing the name of a zone, is now easier than ev
 
 <p class='img'>
 <img src='/images/blog/2020-02-0.105/zone-editor.gif' alt='Screenshot of the zones editor'></a>
-Screenshot of the zones editor.
+Screen recording of the zones editor.
 </p>
 
 The new editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
@@ -123,8 +123,8 @@ Even more frontend improvements:
 
 ## In other news
 
-This section is now empty, but don't be sad! The in "In other news" section now its own dedicated blog post,
-which we will put our regularly:
+This section is now empty, but don't be sad! The in "In other news" section now has its own dedicated blog post,
+which we will put out regularly:
 
 Want to read the first edition? _[Community Highlights, first edition!](/blog/2020/01/31/community-highlights/)_
 
