@@ -1,5 +1,5 @@
 ---
-title: Honeywell Total Connect Comfort (TCC)
+title: Honeywell Total Connect Comfort (US)
 description: Instructions on how to integrate Honeywell thermostats within Home Assistant.
 logo: honeywell.png
 ha_category:

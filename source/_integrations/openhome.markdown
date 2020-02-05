@@ -40,4 +40,3 @@ action:
       media_content_id: "http://media-ice.musicradio.com:80/ClassicFMMP3"
       media_content_type: music
 ```
-

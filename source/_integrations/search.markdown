@@ -4,7 +4,8 @@ description: Internal search module for Home Assistant.
 ha_category: []
 ha_release: 0.105
 logo: home-assistant.png
-ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `search` integration is an internally used integration by the

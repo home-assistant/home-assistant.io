@@ -6,6 +6,8 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.57
+ha_codeowners:
+  - '@YarmoM'
 ---
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.

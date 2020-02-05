@@ -1,6 +1,6 @@
 ---
-title: "Derivative Sensor"
-description: "Instructions on how to integrate Derivative Sensor into Home Assistant."
+title: Derivative
+description: Instructions on how to integrate Derivative Sensor into Home Assistant.
 ha_category:
   - Utility
   - Energy
@@ -8,6 +8,8 @@ ha_release: 0.105
 ha_iot_class: Local Push
 logo: derivative.png
 ha_qa_scale: internal
+ha_codeowners:
+  - '@afaucogney'
 ---
 
 The `derivative` platform creates a sensor that estimates the derivative of the values provided by a source sensor.

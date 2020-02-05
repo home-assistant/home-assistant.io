@@ -5,7 +5,6 @@ logo: home-assistant.png
 ha_category:
   - Organization
 ha_release: 0.69
-ha_config_flow: true
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
