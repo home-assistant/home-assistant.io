@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.105
 ha_codeowners:
   - '@cyberjunky'
+ha_config_flow: true
 ---
 
 The Garmin Connect sensor allows you to expose data from [Garmin Connect](https://connect.garmin.com) to Home Assistant.

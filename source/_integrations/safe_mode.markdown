@@ -4,7 +4,8 @@ description: Allows Home Assistant to start up in safe mode.
 ha_category: []
 ha_release: 0.105
 logo: home-assistant.png
-ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `safe_mode` integration is an internally used integration by the

@@ -12,6 +12,9 @@ ha_category:
   - Camera
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@cgtobi'
+ha_config_flow: true
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.
