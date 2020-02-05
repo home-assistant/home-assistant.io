@@ -35,13 +35,7 @@ This integration provides a binary sensor for the following information from a M
 This integration provides sensors for the following information from a Minecraft server:
 
 - Latency time
-- Description
 - Version
 - Protocol version
-- Number of online players
+- Number of online players (player names are available in state attributes)
 - Number of maximum players
-- List of online player names
-
-<div class='note'>
-The server description and the list of online players might get truncated, if they are too long.
-</div>
