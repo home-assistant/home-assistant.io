@@ -115,8 +115,17 @@ A change that is not really apparent at first, but you probably notice it sooner
 
 The entities card no longer changes the colors of icons based on states, except for lights.
 
-If you would like the old behavior back or want to disable it for lights too, you can do so with the option `state_color`.
-Other cards still show colors for states, and we added this functionality for a lot more entity types (domains).
+Reasoning comes from a request, to make icons to become yellow for all types when an entity is active, and not for just a few entity types. However, this would get out of control very quickly, as shown in the screenshot below.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/out-of-control.png' alt="Yellow icon color on everything, isn't the solution either"></a>
+Yellow icon color on everything, isn't the solution either.
+</p>
+
+So, that is why we disabled it, by default, for all entity types, except lights. However, we did add a new option: `state_color`.
+Using this option, you can decide if you want to old behavior back, add it to more entity types or maybe even disable it for lights too!
+
+Other cards will now display icons from more domains with an active color.
 
 ## Other Lovelace and frontend improvements
 
