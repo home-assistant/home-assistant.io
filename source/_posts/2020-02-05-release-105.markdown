@@ -161,6 +161,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Safe Mode__ - `--demo-mode` has been removed. A new safe mode has now been introduced, which loads the bare minimum necessary to load the Home Assistant frontend and allows for managing the configuration. This is not yet perfect. An invalid core configuration can still cause Home Assistant to refuse to start up. ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs])
 
+- __Google Assistant__ - Entities exposed to Google Assistant, that have aliases configured (YAML only feature), will now expose the configured name, instead of the first configured alias.
+
+  Because of that, it might be that entities that have a name and aliases set for Google Assistant, may show up with a "new" name.
+
+  This mitigates an issue with Google Assistant, which seems to ignore the configured name when aliases are configured. - ([@frenck] - [#30799]) ([google_assistant docs])
+
+- __Hass.io/Supervisor__ - The "Hass.io" menu item in the side bar has been renamed to Supervisor. This was done to match the announced re-branding. While not really a breaking change, it still is a change that might cause confusion at first. - ([@frenck] - [#31480])
+
 - __Spotify__ - Spotify is now available to be added from the integrations UI! Removing the current Spotify platform and setting up the integration from scratch is recommended.
   
   The device aliases and the `spotify.play_playlist` service, have been removed. Be sure to remove calls to that service from your automations.
@@ -245,7 +253,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
     client_secret: your_client_secret
   ```
 
-- __Nederlandse Spoorwegen (NS)__ - The Nederlandse Spoorwegen API and NSAPI have recently changed and this change accommodates for that. The `nederlandse_spoorwegen` sensor now requires a single API token instead of username and password credentials. - ([@YarmoM] - [#30599]) ([nederlandse_spoorwegen docs])
+- __Nederlandse Spoorwegen (NS)__ - The Nederlandse Spoorwegen API and NSAPI have recently changed and this change accommodates for that. The `nederlandse_spoorwegen` sensor now requires a single API token instead of username and password credentials.
+
+  The "RetrieveTripInformationPublic" API ("Public-Travel-Information" product) will be deprecated on 31-01-2020. You MUST create a new API token for the "Reisinformatie" API ("Ns-App" product) and use that one instead.
+
+  ([@YarmoM] - [#30599] [#30971]) ([nederlandse_spoorwegen docs])
 
   The following platform attributes are renamed for consistency with `time` naming:
 
@@ -430,6 +442,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - Sercom Corp, SZ-ESW01, removes switch entity
 
 - __NMBS__ - The generated `unique_id` and `entity_id` have changed for the live sensor. If you were using the live sensor, you will need to update automations and scripts with the newly generated ids, and you might have to clear old entries from the entity registry. - ([@thibmaek] - [#31078]) ([nmbs docs])
+
+- __MikroTik__ - MikroTik Integration can now be added from the integrations UI! It also supports importing existing configurations from `configuration.yaml` (refer to the docs to update your configuration). Now uses the entity registry for managing devices (`known_devices.yaml` will not be used anymore), this causes devices to be re-discovered. - ([@engrbm87] - [#27484]) ([mikrotik docs])
 
 ### Removed
 
