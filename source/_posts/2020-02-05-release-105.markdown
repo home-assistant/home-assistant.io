@@ -136,7 +136,7 @@ Even more frontend improvements:
 
 - Logbook panel is a lot quicker
 - Maps no longer fit zones, but only entities
-- ZHA panel no supports binding devices to groups
+- ZHA panel now supports binding devices to groups
 - Ability to add new areas on the device page
 - Material Design Icons are updated to v4.8.95
 - A lot, like a really large amount, of bug fixes!
