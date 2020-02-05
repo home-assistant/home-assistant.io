@@ -530,6 +530,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Automation device/entity extraction to include triggers + conditions ([@balloob] - [#31474]) ([automation docs]) (beta fix)
 - Re-branding of Hass.io panel to Supervisor ([@frenck] - [#31480]) ([hassio docs]) (breaking change) (beta fix)
 - Remove tests for deprecated key ([@balloob] - [#31491]) (beta fix)
+- Fix Google API key test ([@balloob] - [#31492]) (beta fix)
 
 ## All changes
 
@@ -834,6 +835,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Automation device/entity extraction to include triggers + conditions ([@balloob] - [#31474]) ([automation docs]) (beta fix)
 - Re-branding of Hass.io panel to Supervisor ([@frenck] - [#31480]) ([hassio docs]) (breaking change) (beta fix)
 - Remove tests for deprecated key ([@balloob] - [#31491]) (beta fix)
+- Fix Google API key test ([@balloob] - [#31492]) (beta fix)
 
 [#26456]: https://github.com/home-assistant/home-assistant/pull/26456
 [#26834]: https://github.com/home-assistant/home-assistant/pull/26834
@@ -1136,6 +1138,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [#31474]: https://github.com/home-assistant/home-assistant/pull/31474
 [#31480]: https://github.com/home-assistant/home-assistant/pull/31480
 [#31491]: https://github.com/home-assistant/home-assistant/pull/31491
+[#31492]: https://github.com/home-assistant/home-assistant/pull/31492
 [@Adminiuga]: https://github.com/Adminiuga
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@BKPepe]: https://github.com/BKPepe
