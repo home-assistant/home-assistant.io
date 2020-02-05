@@ -31,7 +31,7 @@ In addition to this, all configuration options for the States UI are deprecated 
 
 We are humans, and we do make typos. However, if we make a typo in our configuration, we might end up with Home Assistant being completely unreachable. That really is not helpful. You lose access to Home Assistant and have to do a deep dive via other methods to find out: Why did this happen?
 
-This release introduces a "Safe mode" for Home Assistant. If during startup, Home Assistant has problems reading your configuration (for whatever reason), it will still continue to start using bit and pieces from the configuration of the last time it did start.
+This release introduces a "Safe mode" for Home Assistant. If during startup, Home Assistant has problems reading your configuration (for whatever reason), it will still continue to start using bits and pieces from the configuration of the last time it did start.
 
 When this happens, Home Assistant will start in "Safe mode". In this mode, nothing is loaded, but it does give you access to the Home Assistant frontend, settings and add-ons (for example, the VSCode or Configurator add-on). This gives you the possibility to correct the issue
 and restart Home Assistant to re-try.
@@ -172,7 +172,6 @@ Have you seen (or made) something awesome, interesting, unique, amazing, inspira
 ## New Platforms
 
 - Template alarm panel ([@alistairg] - [#30487]) ([template docs]) (new-platform)
-- Refactor Netatmo integration ([@cgtobi] - [#29851]) ([netatmo docs]) (breaking change) (new-platform)
 - ZHA cover device support ([@billyburly] - [#30639]) ([zha docs]) (new-platform)
 
 ## If you need help...
