@@ -320,6 +320,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     accounts:
       username: !secret ss_username
       password: !secret ss_password
+  ```
 
 - __Egardia__ - Binary sensors for the Egardia integration were hidden by default, which is no longer the case. This could affect automations that rely on the hidden state attribute of entities created by this integration. - ([@frenck] - [#30728]) ([egardia docs])
 
