@@ -88,6 +88,9 @@ Screen recording of the zones editor.
 </p>
 
 The new editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
+Additionally, if you define zones in your YAML configuration, please be aware that setting a [`name` is now required](#breaking-changes).
+
+As an extra added bonus, a new service was added: `zone.reload`. This service allows you to reload your zone configuration without restarting Home Assistant.
 
 ## Icons no longer change color based on state
 
