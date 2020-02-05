@@ -45,6 +45,23 @@ Please note, that this feature isn't perfect yet, and only works if Home Assista
 
 We believe this feature makes Home Assistant more robust, easier to use and more forgiving, even if you made a mistake.
 
+## Revamped Supervisor panel
+
+Remember we used to have a Hass.io panel? Well, with the [new naming]((/blog/2020/01/29/changing-the-home-assistant-brand/)) for Home Assistant, it has been renamed to the Supervisor panel.
+
+So [@ludeeus] has been busy! He rewrote the entire Supervisor panel to match our current frontend technologies and added some really slick new visual elements to it.
+
+Thanks, [@ludeeus], it looks incredible!
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.105/supervisor.png' alt='Screenshot of the revamped Supervisor panel'></a>
+Screenshot of the revamped Supervisor panel.
+</p>
+
+The new icons on the add-ons really make the add-on dashboard & store stand out. Also, new status indicators on the add-on cards make it easy to spot add-ons that need to be upgraded, or in case of visiting the add-on store, are installed already.
+
+Please note, you need to be running Home Assistant Core 0.105 to see the new icons.
+
 ## Configuration panel changes
 
 In this release, we started the overhaul of the configuration panel. We have accumulated a lot of functionality in the configuration section in the last releases; now, it is time to bring it all together.
