@@ -85,6 +85,10 @@ server {
     location / {
         proxy_pass http://localhost:8124;
         proxy_set_header Host $host;
+        
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
     }
 
     location /api/websocket {
