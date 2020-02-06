@@ -169,7 +169,6 @@ The same thing can also be expressed as a filter:
 
 ### Time
 
-Note: UNIX timestamp is the number of seconds that have elapsed since the Unix epoch and therefore can be substituted with `int` or `float` value when used as an argument of functions below.  
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
@@ -179,7 +178,11 @@ Note: UNIX timestamp is the number of seconds that have elapsed since the Unix e
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g. if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
-- Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+```yaml
+{{ 120 | timestamp_local }}
+```
 
 ### To/From JSON
 
