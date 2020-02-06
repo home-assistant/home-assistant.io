@@ -47,7 +47,7 @@ These install options are fully supported by Home Assistant's documentation. For
 
 <div class='note'>
 
-The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and manual installer. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and [manual installer](https://www.home-assistant.io/hassio/installation/#alternative-install-on-a-generic-linux-host). All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
 
 </div>
 
