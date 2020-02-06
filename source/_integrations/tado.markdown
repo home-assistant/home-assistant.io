@@ -31,6 +31,14 @@ tado:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
+In case of multiple accounts:
+```yaml
+tado:
+  - username: YOUR_USERNAME1
+    password: YOUR_PASSWORD1
+  - username: YOUR_USERNAME2
+    password: YOUR_PASSWORD2
+```
 
 {% configuration %}
 username:
