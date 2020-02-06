@@ -185,7 +185,6 @@ source/_integrations/lcn.markdown @alengwenus
 source/_integrations/life360.markdown @pnbruckner
 source/_integrations/linky.markdown @Quentame
 source/_integrations/linux_battery.markdown @fabaff
-source/_integrations/liveboxplaytv.markdown @pschmitt
 source/_integrations/local_ip.markdown @issacg
 source/_integrations/logger.markdown @home-assistant/core
 source/_integrations/logi_circle.markdown @evanjd

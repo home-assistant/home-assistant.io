@@ -174,7 +174,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
 - Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841])
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
-- Fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+- Fix #9839 ([@pschmitt] - [#9880])
 - Upgrade python-telegram-bot to 8.1.1 ([@azogue] - [#9882]) ([telegram_bot docs])
 - Xknx improvements ([@Julius2342] - [#9871]) ([knx docs]) ([climate.knx docs])
 - zha: Update to bellows 0.4.0 ([@rcloran] - [#9890]) ([zha docs]) ([sensor.zha docs])
@@ -472,7 +472,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.denon docs]: /integrations/denon
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.dunehd docs]: /integrations/dunehd
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.monoprice docs]: /integrations/monoprice
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.yamaha docs]: /integrations/yamaha

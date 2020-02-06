@@ -45,7 +45,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Sensor: [QNAP][qnap] Sensor ([@colinodell])
 - Switch: Add support for FRITZ!DECT wireless switches based on fritzhome ([@BastianPoe])
 - Sensor: Add [moon][moon] sensor ([@fabaff])
-- Media player: Support for the [Orange Livebox Play TV][orange] appliance ([@pschmitt])
+- Media player: Support for the Orange Livebox Play TV appliance ([@pschmitt])
 - Media player: [Apple TV][apple-tv] support ([@postlund])
 - MQTT: [MQTT discovery][mqtt-discovery] support ([@balloob], [@fabaff])
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
@@ -211,7 +211,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt-discovery]: /integrations/mqtt/#discovery
 [nuki]: /integrations/nuki
 [openevse]: /integrations/openevse
-[orange]: /integrations/liveboxplaytv
 [owm]: /integrations/openweathermap#sensor
 [python-yeelight]: https://gitlab.com/stavros/python-yeelight
 [qnap]: /integrations/qnap

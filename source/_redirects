@@ -521,7 +521,6 @@
 /components/media_player.kodi /integrations/kodi
 /components/media_player.lg_netcast /integrations/lg_netcast
 /components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.liveboxplaytv /integrations/liveboxplaytv
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
 /components/media_player.mpchc /integrations/mpchc
@@ -1523,7 +1522,6 @@
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
 /components/litejet /integrations/litejet
-/components/liveboxplaytv /integrations/liveboxplaytv
 /components/llamalab_automate /integrations/llamalab_automate
 /components/local_file /integrations/local_file
 /components/locative /integrations/locative

@@ -141,7 +141,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Improve NetAtmo sensors update logic ([@glpatcern] - [#14866]) ([sensor.netatmo docs])
 - removed unused return ([@ludeeus] - [#15402]) ([cloudflare docs])
 - Fix confused brightness of xiaomi_aqara gateway light ([@amelchio] - [#15314]) ([light.xiaomi_aqara docs])
-- Fix liveboxplaytv empty channel list ([@pschmitt] - [#15404]) ([media_player.liveboxplaytv docs])
+- Fix liveboxplaytv empty channel list ([@pschmitt] - [#15404])
 - Fix credentials lookup ([@balloob] - [#15409])
 - Change Ring binary_sensor frequency polling to avoid rate limit exceeded errors ([@tchellomello] - [#15414]) ([binary_sensor.ring docs])
 - Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
@@ -374,7 +374,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.lg_netcast docs]: /integrations/lg_netcast
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.philips_js docs]: /integrations/philips_js
 [mysensors docs]: /integrations/mysensors/
 [onboarding docs]: /integrations/onboarding/
