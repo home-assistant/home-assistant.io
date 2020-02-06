@@ -8,7 +8,7 @@ ha_release: 0.106
 ha_iot_class: Cloud Polling
 ---
 
-The bunq sensor platform allows you to monitor the balance of your bunq bank accounts in Home Assistant. A sensor is added for each account that is part of your account.
+The bunq sensor platform allows you to monitor the balance of your bunq bank accounts in Home Assistant. A sensor is added for each bank account you have.
 
 * Get a notification if your balance reaches a certain limit.
 * Track your saving goals.
