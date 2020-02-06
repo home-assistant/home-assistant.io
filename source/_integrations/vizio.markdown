@@ -1,5 +1,5 @@
 ---
-title: Vizio SmartCast TV
+title: Vizio SmartCast
 description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
 logo: vizio-smartcast.png
 ha_category:
@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
 ---
@@ -14,6 +15,8 @@ ha_codeowners:
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
 
 ## Find your device
+
+If `zeroconf` discovery is enabled, your device will get discovered automatically. To discover your device manually, read the subsections below.
 
 ### Install pyvizio locally
 
@@ -33,9 +36,16 @@ and note its IP address and port number. If you have trouble finding a device yo
 
 ## Pairing
 
-Before adding your device to Home Assistant, you may need to pair it manually. In particular, it is unclear how a sound bar would notify you of a valid auth token. In this case, it might be best to first skip the pairing process entirely, specify a `device_class` of `speaker` in your configuration, and try interacting with the entity to see if you have any success. If the media player controls aren't working, and if specifying different ports as mentioned above doesn't work, you will need to find a way to obtain the auth token during this process.
+This integration requires an access token in order to communicate with TVs. An access token can be obtained by going through a pairing process, either manually, or through the HA frontend.
 
-To obtain an auth token, follow these steps:
+### Pair using the HA frontend
+
+ - Using `configuration.yaml`: If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration modal, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to copy the access token out of the form when it is displayed and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
+- Using discovery or manual setup through the Integrations menu: To initiate the pairing process, simply submit your initial configuration with an empty Access Token value.
+
+### Pair manually
+
+To obtain an auth token manually, follow these steps:
 
 Make sure that your device is on before continuing.
 
@@ -87,7 +97,7 @@ name:
   type: string
   default: Vizio SmartCast
 access_token:
-  description: Authentication token you received in the last step of the pairing process (if applicable).
+  description: Authentication token you received in the last step of the pairing process. This token is only needed to integrate with TVs, and you can opt not to provide it in your config and instead go through the pairing process via the HA frontend.
   required: false
   type: string
 device_class:
