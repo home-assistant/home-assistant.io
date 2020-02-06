@@ -506,6 +506,47 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [radiotherm docs]: /integrations/radiotherm/
 [sonos docs]: /integrations/sonos/
 
+## Release 0.105.2 - February 6
+
+- 0.105.0 ([@frenck] - [#31489]) ([abode docs]) ([adguard docs]) ([airly docs])
+- Fix automation sun import ([@balloob] - [#31521]) ([automation docs])
+- Fix migrating huawei_lte entry without recipient ([@chmielowiec] - [#31522]) ([huawei_lte docs])
+- Only normalise Garmin connect data to minutes if the value is not None ([@d0ugal] - [#31526]) ([garmin_connect docs])
+- Fix iCloud determine_interval: add default interval to max_interval ([@Quentame] - [#31533]) ([icloud docs])
+- Limit OAuth scopes for Netatmo and Home Assistant Cloud ([@frenck] - [#31538]) ([netatmo docs])
+- Use min and m as units in Garmin Connect for consistency and correctness ([@scop] - [#31543]) ([garmin_connect docs]) (breaking change)
+- Deprecate old netatmo keys ([@balloob] - [#31544]) ([netatmo docs])
+- update aiopylgtv to 0.3.3 ([@bendavid] - [#31545]) ([webostv docs])
+- Guard for reloading with no zone config ([@balloob] - [#31547]) ([zone docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31521]: https://github.com/home-assistant/home-assistant/pull/31521
+[#31522]: https://github.com/home-assistant/home-assistant/pull/31522
+[#31526]: https://github.com/home-assistant/home-assistant/pull/31526
+[#31533]: https://github.com/home-assistant/home-assistant/pull/31533
+[#31538]: https://github.com/home-assistant/home-assistant/pull/31538
+[#31543]: https://github.com/home-assistant/home-assistant/pull/31543
+[#31544]: https://github.com/home-assistant/home-assistant/pull/31544
+[#31545]: https://github.com/home-assistant/home-assistant/pull/31545
+[#31547]: https://github.com/home-assistant/home-assistant/pull/31547
+[@Quentame]: https://github.com/Quentame
+[@balloob]: https://github.com/balloob
+[@bendavid]: https://github.com/bendavid
+[@chmielowiec]: https://github.com/chmielowiec
+[@d0ugal]: https://github.com/d0ugal
+[@frenck]: https://github.com/frenck
+[@scop]: https://github.com/scop
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[automation docs]: /integrations/automation/
+[garmin_connect docs]: /integrations/garmin_connect/
+[huawei_lte docs]: /integrations/huawei_lte/
+[icloud docs]: /integrations/icloud/
+[netatmo docs]: /integrations/netatmo/
+[webostv docs]: /integrations/webostv/
+[zone docs]: /integrations/zone/
+
 ## Beta Fixes
 
 - ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
