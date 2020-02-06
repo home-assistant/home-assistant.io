@@ -26,10 +26,19 @@ There is currently support for the following device types within Home Assistant:
 To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry with multiple accounts
 tado:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - username: YOUR_USERNAME1
+    password: YOUR_PASSWORD1
+  - username: YOUR_USERNAME2
+    password: YOUR_PASSWORD2
+```
+In case of single account works also
+```yaml
+# Example configuration.yaml entry with single account
+tado:
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
