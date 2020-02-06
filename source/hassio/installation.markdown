@@ -41,7 +41,7 @@ The following will take you through the steps required to install Home Assistant
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
    - on the Home Assistant SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
-   For the content of this file, follow the [HassOS howto][hassos-network].
+   For the content of this file, follow the [Home Assistant Operating System howto][hassos-network].
 
 4. For image-based installs insert the SD card (and optional USB stick) into the device.
 
