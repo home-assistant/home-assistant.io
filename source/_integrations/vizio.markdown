@@ -36,7 +36,7 @@ and note its IP address and port number. If you have trouble finding a device yo
 
 ## Pairing
 
-This integration requires an access token in order to communicate with TVs. An access token can be obtained by going through a pairing process, either manually, or through the HA frontend.
+This integration requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the HA frontend.
 
 ### Pair using the HA frontend
 
@@ -115,7 +115,7 @@ name:
   type: string
   default: Vizio SmartCast
 access_token:
-  description: Authentication token you received in the last step of the pairing process. This token is only needed to integrate with TVs, and you can opt not to provide it in your config and instead go through the pairing process via the HA frontend.
+  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your config and instead go through the pairing process via the HA frontend.
   required: false
   type: string
 device_class:
