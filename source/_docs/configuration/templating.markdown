@@ -172,7 +172,7 @@ The same thing can also be expressed as a filter:
 Note: UNIX timestamp is the number of seconds that have elapsed since the Unix epoch and therefore can be substituted with `int` or `float` value when used as an argument of functions below.
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
-- `utcnow()` returns a datetime object that represents UTC time.
+- `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
