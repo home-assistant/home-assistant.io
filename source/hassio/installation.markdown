@@ -1,9 +1,9 @@
 ---
-title: "Installing Hass.io"
-description: "Instructions on how to install Hass.io."
+title: "Installing Home Assistant"
+description: "Instructions on how to install Home Assistant."
 ---
 
-The following will take you through the steps required to install Hass.io.
+The following will take you through the steps required to install Home Assistant.
 
 1. Download the appropriate install option:
 
@@ -32,14 +32,14 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi Zero-W][pi0-w]
      - [Raspberry Pi 2][pi2]
 
-2. Install Hass.io:
+2. Install Home Assistant:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
 3. Optional - set up the WiFi or static IP. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
-   - on the Hass.io SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
+   - on the Home Assistant SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
    For the content of this file, follow the [HassOS howto][hassos-network].
 
@@ -51,7 +51,7 @@ The following will take you through the steps required to install Hass.io.
 
 6. You will be able to reach your installation at `http://hassio.local:8123` (if your router supports mDNS, otherwise see below).
 
-7. It is important to provide yourself proper access, including the Hass.io CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Hass.io**, which is located in the sidebar and then the add-on store.
+7. It is important to provide yourself proper access, including the Home Assistant CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Supervisor**, which is located in the sidebar and then the add-on store.
 
 <div class='note'>
 
@@ -67,39 +67,39 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 
 Now you can [configure][configure] your install.
 
-## Updating a Hass.io installation
+## Updating a Home Assistant installation
 
-Best practice for updating a Hass.io installation:
+Best practice for updating a Home Assistant installation:
 
-1. Backup your installation, using the snapshot functionality Hass.io offers.
+1. Backup your installation, using the snapshot functionality Home Assistant offers.
 2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
 3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
-5. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+5. Select _Dashboard_ from the _Home Assistant_ menu, and then select _Update_.
 
-## Run a specific version on Hass.io
+## Run a specific version on Home Assistant
 
-SSH to your Hass.io system, or connect to the console, and run:
+SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
 hassio ha update --version=0.XX.X
 ```
 
-## Run the beta version on Hass.io
+## Run the beta version on Home Assistant
 
 If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
-1. Backup your installation, using the snapshot functionality Hass.io offers.
+1. Backup your installation, using the snapshot functionality Home Assistant offers.
 2. Check the [Home Assistant RC release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ tab from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
-4. Select _Dashboard_ tab from the _Hass.io_ menu, and then select _Update_.
+3. Select _System_ tab from the _Home Assistant_ menu, then select _Join Beta Channel_ under _Home Assistant supervisor_, then select _Reload_.
+4. Select _Dashboard_ tab from the _Home Assistant_ menu, and then select _Update_.
 
 ## Alternative: install on a generic Linux host
 
-For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
-Examples given here are tested on Ubuntu and Arch Linux, but the instructions should work as a guideline for installing on other Linux distrubutions.
+For advanced users, it is also possible to try Home Assistant on your [Linux server or inside a virtual machine][linux].
+Examples given here are tested on Ubuntu and Arch Linux, but the instructions should work as a guideline for installing on other Linux distributions.
 
-The packages you need to have available on your system that will run Hass.io may vary.
+The packages you need to have available on your system that will run Home Assistant may vary.
 
 ### Debian/Ubuntu
 
@@ -119,7 +119,7 @@ Optional:
 
 <div class='note warning'>
 
-   Without the NetworkManager, you will be not able to control your host network setup over the UI. The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+   Without the NetworkManager, you will be not able to control your host network setup over the UI. The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example, you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
 </div>
 
@@ -138,8 +138,8 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 <div class='note warning'>
 
-  Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
-  Be sure to install the official Docker-CE from the above listed URL.
+  Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
+  Be sure to install the official Docker-CE from the above-listed URL.
   
   Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
@@ -147,7 +147,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 ### Preparation
 
-To prepare your machine for the Hass.io installation, run the following commands:
+To prepare your machine for the Home Assistant installation, run the following commands:
 
 For Ubuntu:
 
@@ -166,7 +166,7 @@ systemctl disable ModemManager
 curl -fsSL get.docker.com | sh
 ```
 
-The following script will then install Hass.io on a variety of operating systems and machine types.
+The following script will then install Home Assistant on a variety of operating systems and machine types.
 
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
@@ -203,7 +203,7 @@ See the [hassio-installer](https://github.com/home-assistant/hassio-installer) G
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </div>
 
-A detailed guide about running Hass.io as a virtual machine is available in the [blog][hassio-vm].
+A detailed guide about running Home Assistant as a virtual machine is available in the [blog][hassio-vm].
 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
