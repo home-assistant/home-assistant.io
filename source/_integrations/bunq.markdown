@@ -29,3 +29,10 @@ sensor:
   - platform: bunq
     api_key: 'API_KEY'
 ```
+
+{% configuration %}
+api_key:
+  description: Your personal api key.
+  required: true
+  type: string
+{% endconfiguration %}
