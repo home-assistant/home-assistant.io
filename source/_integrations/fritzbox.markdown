@@ -66,7 +66,7 @@ To get AVM Fritzbox switch and thermostat follow the instructions above.
 
 ### Attributes
 
-The are several attributes that can be useful for automations and templates.
+There are several attributes that can be useful for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
@@ -88,7 +88,7 @@ To get AVM Fritzbox temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the
 
 ### Attributes
 
-The are several attributes that can be useful for automations and templates.
+There are several attributes that can be useful for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |

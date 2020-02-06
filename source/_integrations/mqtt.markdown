@@ -44,7 +44,7 @@ This allows you to connect to the MQTT broker with user `homeassistant` and pass
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)
-- [Publish service](/docs/mqtt/service/)
+- [Publish & Dump services](/docs/mqtt/service/)
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)

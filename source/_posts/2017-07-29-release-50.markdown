@@ -119,7 +119,7 @@ conversation:
       - The kitchen is magic
 ```
 
-- Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) ([switch.fritzdect docs]) (breaking change)
+- Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) (breaking change)
 - Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
 - The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
@@ -170,7 +170,7 @@ conversation:
 - bump python-mirobo version for more robust protocol handling, make the platform to update on startup ([@rytilahti] - [#8602]) ([switch.xiaomi_vacuum docs])
 - Binary sensor ping fixed for hassio ([@gollo] - [#8573]) ([binary_sensor.ping docs])
 - Simplified percent conversion, better logging ([@open-homeautomation] - [#8568]) ([sensor.knx docs])
-- make attributes in the fritzdect module easier to process ([@thomasklingbeil] - [#8436]) ([switch.fritzdect docs]) (breaking change)
+- make attributes in the fritzdect module easier to process ([@thomasklingbeil] - [#8436]) (breaking change)
 - Allow set_cover_position in scenes ([@peckham] - [#8613])
 - better but still not great ([@cribbstechnologies] - [#8618])
 - Upgrade youtube_dl to 2017.7.23 ([@fabaff] - [#8617]) ([media_extractor docs])
@@ -391,7 +391,6 @@ conversation:
 [shopping_list docs]: /integrations/shopping_list/
 [snips docs]: /integrations/snips/
 [statsd docs]: /integrations/statsd/
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.mqtt docs]: /integrations/switch.mqtt/
 [switch.wink docs]: /integrations/wink#switch
 [switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/

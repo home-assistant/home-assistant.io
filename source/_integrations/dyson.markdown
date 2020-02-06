@@ -10,6 +10,8 @@ ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 0.47
+ha_codeowners:
+  - '@etheralm'
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.

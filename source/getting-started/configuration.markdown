@@ -44,8 +44,8 @@ Now let's make a change using the configurator: we are going to change the name,
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on "Server Control" and click on the CHECK CONFIG button. When it's valid, it will show the text "Configuration valid!"
- - Now Restart Home Assistant using the RESTART button in the Server management section on the same page. In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on "Server Controls" and click on the "CHECK CONFIG" button. When it's valid, it will show the text "Configuration valid!". In order for the "CHECK CONFIG" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Now Restart Home Assistant using the "RESTART" button in the Server management section on the same page.
 
 <p class='img'>
 <img src='/images/screenshots/configuration-validation.png' />

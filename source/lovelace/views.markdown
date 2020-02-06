@@ -22,7 +22,7 @@ views:
       type: string
     badges:
       required: false
-      description: List of entities IDs or `badge` objects to display as badges.
+      description: List of entities IDs or `badge` objects to display as badges. Note that badges do not show when view is in panel mode.
       type: list
     cards:
       required: false
@@ -55,17 +55,6 @@ views:
       description: "Hide/show the view tab from all users or a list of individual `visible` objects."
       type: [boolean, list]
       default: true
-{% endconfiguration %}
-
-### Options For Visible
-
-If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
-  type: string
 {% endconfiguration %}
 
 #### Example
@@ -141,10 +130,20 @@ views:
     cards:
       ...
 ```
+### Options For Visible
+
+If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  type: string
+{% endconfiguration %}
 
 ## Panel
 
-Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`.
+Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`. Note that badges will not appear in Panel Mode.
 
 #### Example
 

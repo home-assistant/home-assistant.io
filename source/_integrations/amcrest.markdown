@@ -9,6 +9,8 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.49
+ha_codeowners:
+  - '@pnbruckner'
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
