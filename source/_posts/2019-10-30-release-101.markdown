@@ -567,7 +567,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in keyboard component ([@Quentame] - [#27791]) ([keyboard docs])
 - Move imports in linux_battery component ([@Quentame] - [#27789]) ([linux_battery docs])
 - Move imports in ampio component ([@Bouni] - [#27788]) ([ampio docs])
-- Move imports in liveboxplaytv component ([@Quentame] - [#27790]) ([liveboxplaytv docs])
+- Move imports in liveboxplaytv component ([@Quentame] - [#27790])
 - Move imports in amcrest component ([@Bouni] - [#27787]) ([amcrest docs])
 - Move imports in imap + imap_email_content component ([@Quentame] - [#27793]) ([imap docs]) ([imap_email_content docs])
 - Move imports in netgear_lte component ([@Quentame] - [#27777]) ([netgear_lte docs])
@@ -1715,7 +1715,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [linode docs]: /integrations/linode/
 [linux_battery docs]: /integrations/linux_battery/
 [lirc docs]: /integrations/lirc/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
 [logbook docs]: /integrations/logbook/
