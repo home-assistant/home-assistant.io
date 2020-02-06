@@ -75,7 +75,7 @@ Best practice for updating a Home Assistant installation:
 2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
 3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
-5. Select _Dashboard_ from the _Home Assistant_ menu, and then select _Update_.
+5. Select _Dashboard_ from the _Supervisor_ menu, and then select _Update_.
 
 ## Run a specific version on Home Assistant
 
