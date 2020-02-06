@@ -33,7 +33,9 @@ tado:
   - username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
 ```
-In case of single account works also
+
+In case of single account works as well:
+
 ```yaml
 # Example configuration.yaml entry with single account
 tado:
