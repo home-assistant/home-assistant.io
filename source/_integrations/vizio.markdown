@@ -43,7 +43,25 @@ This integration requires an access token in order to communicate with TVs. An a
  - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration modal, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the modal and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
 - **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, simply submit your initial configuration with an empty Access Token value.
 
-### Pair manually
+### Pair manually using the CLI
+
+The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace <IP> with your IP and <PORT> is typically 7345 or 9000.
+
+```bash
+#!bin/bash
+
+VIZIO_IP="<IP>"
+VIZIO_PORT="<PORT>"
+
+curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID":"pyvizio","DEVICE_NAME":"Python Vizio"}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/start
+
+read -p "PIN:  " VIZIO_PIN
+read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
+
+curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
+```
+
+### Pair manually using pyvizio
 
 To obtain an auth token manually, follow these steps:
 
