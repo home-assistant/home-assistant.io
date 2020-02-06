@@ -30,7 +30,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
- * [Samsung TVs](/integrations/samsungtv)
  * [Sonos speakers](/integrations/sonos)
  * [Telldus Live](/integrations/tellduslive/)
  * [Wink](/integrations/wink/)
@@ -54,7 +53,7 @@ To load this integration, add the following lines to your `configuration.yaml` f
 discovery:
   ignore:
     - sonos
-    - samsung_tv
+    - samsung_printer
   enable:
     - homekit
 ```
@@ -93,7 +92,6 @@ Valid values for ignore are:
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
- * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
  * `tellstick`: Telldus Live
