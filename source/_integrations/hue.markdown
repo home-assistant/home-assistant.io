@@ -21,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - Lights
 - Motion sensors (including temperature and light level sensors)
 
-Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the States developer tool ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue bridge in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
+The hub can be set up by navigating to the Configuration tab in the sidebar and selecting Integrations. You will see "Philips Hue" in the discovered section. Click configure and you will be presented with the initiation dialog. This will prompt you to press the Hue button on your bridge to register the hub in Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP address of the bridge. If the IP address for the bridge changes, you will need to register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your Hue bridge so that it always has the same IP address.
 
