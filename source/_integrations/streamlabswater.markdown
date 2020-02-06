@@ -9,7 +9,7 @@ ha_release: '0.95'
 ha_iot_class: Cloud Polling
 ---
 
-The `Streamlabs Water` integration platform is used to interact with [Streamlabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [Streamlabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.
+The `Streamlabs Water` integration platform is used to interact with [Streamlabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [Streamlabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode. Please note, this API is not free. In order to access the API from streamlabs to make this component work, you need to be subscribed to their "Enhanced" subscription. Which at the time of writing costs $5.99 USD a month, or $59 USD a year.
 
 There is currently support for the following device types within Home Assistant:
 
