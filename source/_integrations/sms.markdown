@@ -41,7 +41,7 @@ device:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-If the ingegration is used in HassOS then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
+If the integration is used in HassOS then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
 
 For installations not running on Hass.io or Docker, you must install `gammu-dev` package:
 
