@@ -32,7 +32,6 @@ host:
   type: string
 smarthub_model:
   description: The model of your BT Smarthub 1 or 2. If this option is omitted, it will attempt to detect the hub model.
-  default: null
   required: false
   type: integer
 {% endconfiguration %}
