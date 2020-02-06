@@ -40,8 +40,8 @@ This integration requires an access token in order to communicate with TVs. An a
 
 ### Pair using the HA frontend
 
- - Using `configuration.yaml`: If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration modal, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to copy the access token out of the form when it is displayed and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
-- Using discovery or manual setup through the Integrations menu: To initiate the pairing process, simply submit your initial configuration with an empty Access Token value.
+ - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration modal, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the modal and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
+- **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, simply submit your initial configuration with an empty Access Token value.
 
 ### Pair manually
 
