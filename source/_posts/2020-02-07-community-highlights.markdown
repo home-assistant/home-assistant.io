@@ -44,7 +44,7 @@ You can read Zane's full blog post here:
 
 He also made his Home Assistant configuration [publicly available on GitHub](https://github.com/zaneclaes/van-home-assistant-config).
  
-_Thanks, [Robbie Trencheny](https://twitter.com/robbie) & [cgtobi](https://twitter.com/cgtobi) sending this item in! 👍_
+_Thanks, [Robbie Trencheny](https://twitter.com/robbie) & [cgtobi](https://twitter.com/cgtobi) for sending in this item in! 👍_
 
 ## An auto-generating Lovelace UI theme
 
