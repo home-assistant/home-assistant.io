@@ -15,8 +15,6 @@ The second edition of the Community Highlights is here to provide you a fresh so
 
 So, what changes did you make to your Home Assistant setup this week?
 
-../Frenck
-
 ## DIY Smart Candles
 
 For starters, if you are looking for a cool DIY project, [3ATIVE](https://twitter.com/3ATIVE) shared a YouTube tutorial on how to make sweet little smart candles that work with Home Assistant.
