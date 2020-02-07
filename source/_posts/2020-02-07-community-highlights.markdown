@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 2nd edition"
-description: "Lorem ipsum"
+description: "DIY smart candles, automating a van, a self generating Lovelace theme and visualizing with Grafana"
 date: 2020-02-07 00:00:00
 date_formatted: "February 07, 2020"
 author: Franck Nijhof
@@ -48,7 +48,7 @@ _Thanks, [Robbie Trencheny](https://twitter.com/robbie) & [cgtobi](https://twitt
 
 ## An auto-generating Lovelace UI theme
 
-Dwain Scheeren shared a preview of his Lovelace theme on the Home Assistant Community Forum. The cool think about this theme, is that it automatically generates itself!
+Dwain Scheeren shared a preview of his Lovelace theme on the [Home Assistant Community Forum]((https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593)). The cool think about this theme, is that it automatically generates itself!
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Wdh0q8K3JSk" frameborder="0" allowfullscreen></iframe>
@@ -58,7 +58,7 @@ Unfortunately, the source code for this isn't available yet, however, Dwain wrot
 
 You can follow the development of this theme on the [dedicated topic for it on our Community Forum](https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593).
 
-## Visualizing everything
+## Visualizing everything in Grafana
 
 [Ivana Huckova](https://twitter.com/ivanahuckova) had a Hack Day at [Grafana](https://www.grafana.com) (the company she works for) and decided to work on her home to visualize everything (in Grafana, of course).
 
