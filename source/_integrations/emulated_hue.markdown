@@ -106,6 +106,14 @@ entities:
   description: Customization for entities.
   required: false
   type: list
+client_username:
+  description: Custom client `username` send out by `emulated_hue` during paring process. This may be used too prevent malicious apps from bypassing paring process due to default `username` being public. This option is especially useful if the paring process is actually enabled with `link_button_entity` option.
+  required: false
+  type: string
+link_button_entity:
+  description: ID of on/off entity (like `input_boolean`) that represents "link button state". When the entity is *ON*, `emulated_hue` accepts any paring request. If it is *OFF*, `emulated_hue` rejects any paring request in the same way as Hue Bridge does. If this option is omitted, `emulated_hue` behaves as if the "link button" was always *ON*.
+  required: false
+  type: string
 {% endconfiguration %}
 
 A full configuration sample looks like the one below.
@@ -128,6 +136,8 @@ emulated_hue:
       name: "Bedside Lamp"
     light.ceiling_lights:
       hidden: true
+  link_button_entity: input_boolean.hue_link_button
+  client_username: "30197ed87b6fb3d7c2a8c1fcdcdb3291"
 ```
 
 The following are attributes that can be applied in the `entities` section:
@@ -158,7 +168,7 @@ No further actions are required
 
 #### Python venv
 
-An additional step is required to run Home Assistant as a non-root user and use port 80. 
+An additional step is required to run Home Assistant as a non-root user and use port 80.
 
 ##### Linux
 
