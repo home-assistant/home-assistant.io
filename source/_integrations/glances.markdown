@@ -90,11 +90,11 @@ version:
 
 ## Integration Entities
 
-Glances integration will add the following sensors:
+Glances integration will add the detected sensors automatically. Below is a list of some sensors that are created, availablity of these sensors depends on the platform:
 
-- disk_use_percent: The used disk space in percent.
-- disk_use: The used disk space.
-- disk_free: The free disk space.
+- disk_use_percent: The used disk space in percent (for each detected mount point).
+- disk_use: The used disk space (for each detected mount point).
+- disk_free: The free disk space (for each detected mount point).
 - memory_use_percent: The used memory in percent.
 - memory_use: The used memory.
 - memory_free: The free memory.
@@ -107,7 +107,7 @@ Glances integration will add the following sensors:
 - process_thread: The number of threads.
 - process_sleeping: The number of sleeping processes.
 - cpu_use_percent: The used CPU in percent.
-- cpu_temp: The CPU temperature (may not be available on all platforms).
+- sensor_temp: A temperature sensor is created for each device that provides temperature.
 - docker_active: The count of active Docker containers.
 - docker_cpu_use: The total CPU usage in percent of Docker containers.
 - docker_memory_use: The total memory used by Docker containers.
