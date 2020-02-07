@@ -45,7 +45,7 @@ client_id:
 client_secret:
   description: The `client secret` from your Netatmo app.
   required: true
-  type: integer
+  type: string
 {% endconfiguration %}
 
 Once that is configured you can enable it from the integrations page.
