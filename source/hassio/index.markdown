@@ -25,7 +25,7 @@ The advantages of using Home Assistant:
 
 ### Upgrading
 
-Home Assistant users can update via the 'Supervisor' panel in the UI. However, please note that updates take some time to roll into the Home Assistant builds. Therefore, there is often a slight delay (a day or two) between the availability of a Home Assistant Core update and the update being available in Home Assistant, so be patient. When a Home Assistant update is available, it will be shown as a notification in the sidebar panel in the web interface.
+Home Assistant users can update via the 'Supervisor' panel in the UI when a new version is released. However, please note that updates take some time to roll into the Home Assistant builds. Therefore, there is often a slight delay (a day or two) between the availability of a Home Assistant Core update and the update being available in Home Assistant, so be patient.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
@@ -41,6 +41,6 @@ Home Assistant dashboard with upgrade notification (under the hamburger menu -> 
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[HassOS]: https://github.com/home-assistant/hassos
-[Docker]: https://www.docker.com/
+[Home Assistant]: https://github.com/home-assistant/homeassistant
+[Home Assistant Core]: https://www.home-assistant.io/docs/installation/
 [install]: /hassio/installation/
