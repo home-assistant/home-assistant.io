@@ -24,7 +24,9 @@ You need an API key which is free but requires [registration](https://darksky.ne
 
 ## Configuration
 
-To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
+There are two ways you can integrate Dark Sky into Home Assistant: as a sensor and a weather entity. The [sensor](/integrations/sensor) entity allows you to add the conditions you'd like to monitor and returns a value that you can add to various styles of Lovelace cards. In contrast, the weather entity allows you to set up a [weather forecast card](/lovelace/weather-forecast/#configuration-variables) that displays a 5-day forecast with some additional data. 
+
+To add Dark Sky to your installation as a sensor, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -235,6 +237,48 @@ All language options are described in this table that you can use for the dark s
 
 <div class='note warning'>
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
-</div>
+</div>  
+
+To add Dark Sky to your installation as a weather entity, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+weather:
+  - platform: darksky
+    api_key: YOUR_API_KEY
+```
+
+{% configuration %}
+api_key:
+  description: "Your API key for [Dark Sky](https://darksky.net/dev/)."
+  required: true
+  type: string
+latitude:
+  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration
+longitude:
+  description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration
+units:
+  description: "Manually specify unit system. Valid values are: `auto`, `us`, `si`, `ca`, `uk` and `uk2`."
+  required: false
+  type: string
+  default: "`si` if Home Assistant unit system is metric, `us` if imperial."
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: Dark Sky
+mode:
+  description: "The forecast type. Can be `hourly` or `daily`."
+  required: false
+  type: string
+  default: hourly
+{% endconfiguration %}
+
 
 More details about the API are available in the [Dark Sky API documentation](https://darksky.net/dev/docs).
