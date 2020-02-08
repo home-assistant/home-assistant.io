@@ -8,7 +8,7 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
+The `recorder` , which then are handled by the [`history` integration](/integrations/history/).
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
@@ -31,6 +31,14 @@ recorder:
       description: The URL that points to your database.
       required: false
       type: string
+    db_max_retries:
+      description: The max amount of times, the recorder retries to connect to the database.
+      required: false
+      type: int
+    db_retry_wait:
+      description: The time in seconds, that the recorder sleeps when trying to connect to the database.
+      required: false
+      type: int
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
