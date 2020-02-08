@@ -55,9 +55,10 @@ switch:
         required: false
         type: [string, list]
       value_template:
-        description: Defines a template to set the state of the switch.
-        required: true
+        description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+        required: false
         type: template
+        default: optimistic
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
