@@ -12,22 +12,21 @@ ha_codeowners:
   - '@zxdavb'
 ---
 
-The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
+The **evohome** integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
 
 - the Honeywell Evohome CH/DHW system, and
-- the Honeywell Round Thermostat
-- the Honeywell Mobile Access Kit
+- the Honeywell Mobile Access Kit with a Round Thermostat
 
 It does not support the home security functionality of TCC.
 
 It uses the [evohome-async](https://github.com/zxdavb/evohome-async) client library.
 
-For your system to be compatible with this integration, then you must be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
+For your system to be compatible with this integration, then you must be able to access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the 'international').
 
 ## Locations and Zones
 
 TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
- - the system location (e.g. house) is used for operating modes such as home, away, economy, etc.
+ - the system location (e.g. a house) is used for operating modes such as home, away, economy, etc.
  - heating zones (e.g. rooms) are used for target temperature
 
 ### Evohome
@@ -42,7 +41,7 @@ Note that there is limited support for schedules: they cannot be changed and the
 
 ### Round Thermostat
 
-Such systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one location for mode (away, economy, etc.), and another for the zone setpoint.
+These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one for location mode (away, economy, etc.), and another for the zone setpoint.
 
 ## Configuration
 
@@ -57,7 +56,7 @@ evohome:
 
 {% configuration %}
 username:
-  description: The username (email address) that has access to [Honeywell TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
+  description: The username (email address) that has access to the [TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
   required: true
   type: string
 password:
