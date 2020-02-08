@@ -38,11 +38,11 @@ The Evohome location (controller) is also represented as a **Climate** entity wh
 
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature, and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported, and cannot be changed.
 
-Note that there is limited support for schedules: they cannot be changed and there is no facility to backup/restore that data (see [here](https://evohome.readthedocs.io/en/latest/) for such functionality)
+Note that there is limited support for schedules: they cannot be changed and there is no facility to backup/restore that data (see [here](https://evohome.readthedocs.io/en/latest/) for such functionality).
 
 ### Round Thermostat
 
-Such systems use an internet gateway rather than an Evohome controller.  They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one location mode (away, economy, etc.), and another for the zone setpoint.
+Such systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one location mode (away, economy, etc.), and another for the zone setpoint.
 
 ## Configuration
 
@@ -50,7 +50,7 @@ To set up this integration, add the following to your **configuration.yaml** fil
 
 ```yaml
 # Example configuration.yaml entry
-Evohome:
+evohome:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
