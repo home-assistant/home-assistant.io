@@ -10,7 +10,7 @@ ha_release: 0.84
 ha_iot_class: Assumed State
 ---
 
-The `lightwave` integration links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights and switches.
+The `lightwave` integration links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights, switches and TRVs.
 
 This integration uses the official API published by Lightwave on their website [https://api.lightwaverf.com/](https://api.lightwaverf.com/).
 To add your Lightwave devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
@@ -44,7 +44,21 @@ Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form 
 
 The first use of a light or switch will try to register with your Lightwave WiFi Link hub. If the hub has not been registered a message on your hub will be displayed asking you to pair the device. You have 12 seconds to push the button on your hub to accept this. Once done, you should be able to control your lights and switches via Home Assistant. This only needs to be done if the hub has not been registered.
 
-The Lightwave Home Assistant integration currently supports the following Lightwave devices:
+# TRVs
+Lightwave Thermostatic Radiator Values (TRV) are supported but require an additional proxy to capture the current TRV temperature.
+See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
+```
+# Example TRV configuration.yaml for TRVs
+lightwave:
+  host: 192.168.1.2
+  trv_proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
+  trv_proxy_port: 7878          # Do not change, unless a port clash
+  lights:
+    R99D1:
+      name: Bedroom Light
+  trv:
+    R1Dh:                       # The ID of the TRV.
+      name: Bedroom TRV
+      serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
+```
 
-- Lightwave lights
-- Lightwave switches
