@@ -94,7 +94,7 @@ For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function o
 - **Auto** setpoints are scheduled temperatures (the default)
 - **AutoWithEco** setpoints are scheduled temperatures, less 3 °C
 
-If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** at the next scheduled setpoint (or in an hour, if there is no such schedule). A **PermanentOverride** is a permanent change until some intervention is made. For example, zones can be switched between the two override modes without changing the target temperature.
+If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a permanent change until some subsequent intervention is made. For example, zones can be switched between the two override modes without changing the target temperature.
 
 For some location modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
