@@ -32,7 +32,7 @@ Add the ***Full configuration example*** in your `configuration.yaml` file, but 
 
 The following steps and changes are needed to configure Your AC:
 
-- Cycle trough all of your AC modes and write them in `supported_modes`. Some possible values are left commented in the example.
+- Cycle trough all of your AC modes and write them in `supported_modes`.
 - Cycle trough your fan speeds and and write them down in `supported_fan_speeds`
 - If your AC doesn't support horizontal swinging remove `- "horizontal"` and `- "both"` from supported_swing_list
 - Enter your `hvac_model`
