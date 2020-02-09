@@ -4,7 +4,7 @@ description: Control Your Air Conditioner via Home Assistant and Tasmota IR Tran
 logo: home-assistant.png
 ha_category:
   - Climate
-ha_release: pre 0.105.0
+ha_release: 0.106
 ha_codeowners:
   - '@hristo-atanasov'
 ha_quality_scale: silver
