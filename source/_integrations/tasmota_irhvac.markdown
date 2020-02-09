@@ -73,7 +73,7 @@ temperature_sensor:
   required: true
   type: string
 protocol:
-  description: The value of "Vendor:" key in "IRHVAC"
+  description: "The value of **Vendor:** key in **IRHVAC**"
   required: true
   default: ELECTRA_AC
   type: string
@@ -93,17 +93,17 @@ target_temp:
   default: 26
   type: float
 hvac_model:
-  description: Set your AC model. The value of "model:" key in "IRHVAC". The value should be quoted.
+  description: "Set your AC model. The value of **model:** key in **IRHVAC**. The value should be double quoted."
   required: false
   default: "-1"
   type: string
 initial_operation_mode:
-  description: The initial operation mode. Used if no retained current operation mode set in HA on starting up, or when turning the AC on trough voice commands via Google Home or Alexa. Valid values are "heat", "cool", "dry", "fan_only", "auto" or "off". Value has to be double quoted.
+  description: The initial operation mode. Used if no retained current operation mode set in HA on starting up, or when turning the AC on trough voice commands via Google Home or Alexa. Valid values are `heat`, `cool`, `dry`, `fan_only`, `auto` or `off`. Value has to be double quoted.
   required: false
-  default: Off
+  default: "off"
   type: string
 away_temp:
-  description: "Set the temperature used by `preset_mode: away`.
+  description: "Set the temperature used by `preset_mode: away`."
   required: false
   default: 24
   type: float
@@ -113,7 +113,7 @@ precision:
   default: 1
   type: float
 supported_modes:
-  description: List of the supported by Your AC operation modes. Valid values can be obtained by cycling trough all modes on Your AC's remote and are then found in "mode" key in "IRHVAC". Values have to be double quoted, on new line and prefixed with dash ("-"). Default values might not work for you.
+  description: List of the supported by Your AC operation modes. Valid values can be obtained by cycling trough all modes on Your AC's remote and are then found in **mode** key in **IRHVAC**. Values have to be double quoted, on new line and prefixed with dash ("-"). Default values might not work for you.
   required: false
   type: list
   default:
