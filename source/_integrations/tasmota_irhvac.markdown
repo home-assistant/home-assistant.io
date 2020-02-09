@@ -1,14 +1,13 @@
 ---
-title: Tasmota Irhvac
-description: Control Your Air Conditioner via Home Assistant and Tasmota IR Transceiver
+title: "Tasmota Irhvac"
+description: "Control Your Air Conditioner via Home Assistant and Tasmota IR Transceiver"
+ha_release: "0.106"
 logo: tasmota.svg
-ha_category:
-  - Climate
-ha_release: 0.106
+ha_category: Climate
+ha_iot_class: "Local Push"
+ha_quality_scale: silver
 ha_codeowners:
   - '@hristo-atanasov'
-ha_quality_scale: silver
-ha_iot_class: Local Push
 ---
 
 The `tasmota_irhvac` climate is a platform for controlling IR Air Conditioners via Home Assistant, using Tasmota IRHVAC command and compatible hardware. It can control hundreds of Air Conditioners, out of the box, via Tasmota IR transceivers. What makes it unique is that if You use the original IR remote of Your AC, it will update the new state in Home Assistant. This way you can always have the ral current state of the AC. `tasmota_irhvac` is based on the functionality of the latest “tasmota-ircustom.bin” v8.1 and its IRHVAC command.
