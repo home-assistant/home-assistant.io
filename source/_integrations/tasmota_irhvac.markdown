@@ -1,7 +1,6 @@
 ---
 title: Tasmota Irhvac
 description: Control Your Air Conditioner via Home Assistant and Tasmota IR Transceiver
-logo: home-assistant.png
 ha_category:
   - Climate
 ha_release: 0.106
