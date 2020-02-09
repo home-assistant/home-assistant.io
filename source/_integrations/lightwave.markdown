@@ -45,8 +45,10 @@ Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form 
 The first use of a light or switch will try to register with your Lightwave WiFi Link hub. If the hub has not been registered a message on your hub will be displayed asking you to pair the device. You have 12 seconds to push the button on your hub to accept this. Once done, you should be able to control your lights and switches via Home Assistant. This only needs to be done if the hub has not been registered.
 
 # TRVs
+
 Lightwave Thermostatic Radiator Values (TRV) are supported but require an additional proxy to capture the current TRV temperature.
 See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
+
 ```yaml
 # Example TRV configuration.yaml for TRVs
 lightwave:
@@ -61,4 +63,3 @@ lightwave:
       name: Bedroom TRV
       serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
 ```
-
