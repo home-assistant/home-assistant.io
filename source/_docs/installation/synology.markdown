@@ -17,7 +17,7 @@ There are 2 alternatives, when using Home Assistant on Synology NAS:
 
 Option 1 is described on the [Docker installation page](/docs/installation/docker/).
 
-Option 3 uses the Synology Based Virtual Machine Manager. You can import the VDI image to be found at the [Hass.io installation page](https://www.home-assistant.io/hassio/installation/). Download the image and add it to the image store. The go to "Virtual Machine" in the interface and create a new VM with the image you just added.
+Option 3 uses the Synology Based Virtual Machine Manager. You can import the VDI image to be found at the [Hass.io installation page](/hassio/installation/). Download the image and add it to the image store. The go to "Virtual Machine" in the interface and create a new VM with the image you just added.
 
 The main benefit from this method is that you can assign Home Assistant its own IP number, so there is no risk regarding TCP/UDP port conflicts. USB dongles an be connected to the VM without the need to install a driver in DSM.
 
@@ -242,4 +242,3 @@ $ sudo /volume1/homeassistant/hass-daemon restart
 ```bash
 $  /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
 ```
-
