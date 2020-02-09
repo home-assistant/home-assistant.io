@@ -108,7 +108,7 @@ initial_operation_mode:
   default: "off"
   type: string
 away_temp:
-  description: Set the temperature used by `preset_mode: away`.
+  description: "Set the temperature used by `preset_mode: away`."
   required: false
   default: 24
   type: float
