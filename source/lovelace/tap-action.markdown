@@ -2,13 +2,20 @@
 title: "Actions"
 description: "Define what a card does when interacted with."
 ---
-Some Lovelace cards have support for tap actions. These actions define what will happen when you tap or hold on a card. 
+Some Lovelace cards have support for tap actions. These actions define what will happen when you tap or hold on a card.
 
 Actions can be enabled on:
-* Entities
-* 
 
-# Tap-Action
+* Entities
+* Entity Button
+* Glance
+* Picture
+* Picture Elements
+* Picture Entity
+* Picture Glance
+
+## Tap-Action
+
 {% configuration tap-action %}
 tap_action:
   required: false
@@ -42,7 +49,8 @@ tap_action:
       default: none
 {% endconfiguration %}
 
-# Hold Action
+## Hold Action
+
 {% configuration hold_action %}
 hold_action:
   required: false
@@ -76,7 +84,8 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-# Double-Tap Action
+## Double-Tap Action
+
 {% configuration double_tap_action %}
 double_tap_action:
   required: false
