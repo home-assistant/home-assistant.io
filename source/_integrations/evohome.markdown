@@ -129,7 +129,7 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 ```
 {% endraw %}
 
-For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight, and 2 days reverts at midnight tomorrow.
+For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
 
 {% raw %}
 ```yaml
@@ -145,13 +145,15 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 
 This service call will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
+Not all systems support this feature.
+
 ### evohome.refresh_system
 
-This service call will pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
+This service call will immediately pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
 
 ### evohome.set_zone_override
 
-This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided, then the change is permanent (**PermanentOverride**).
+This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided (c.f. a duration of 0, below), then the change is permanent (**PermanentOverride**).
 
 {% raw %}
 ```yaml
