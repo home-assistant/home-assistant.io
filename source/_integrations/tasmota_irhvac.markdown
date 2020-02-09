@@ -182,7 +182,7 @@ default_beep_mode:
   default: Off
   type: string
 default_sleep_mode:
-  description: If your AC supports sleep mode, and you always want to use it, set it to the value of the `Sleep` key in `HVAC`. This option cannot be changed trough HA UI. Recommended value `-1` or the value of `Sleep` key in `HVAC` when sleep mode is turned ff.
+  description: If your AC supports sleep mode, and you always want to use it, set it to the value of the `Sleep` key in `HVAC`. This option cannot be changed trough HA UI. Recommended value `-1` or the value of `Sleep` key in `HVAC` when sleep mode is turned Off.
   required: false
   default: "-1"
   type: string
