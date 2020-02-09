@@ -26,6 +26,8 @@ You need an API key which is free but requires [registration](https://darksky.ne
 
 There are two ways you can integrate Dark Sky into Home Assistant: as a sensor and a weather entity. The [sensor](/integrations/sensor) entity allows you to add the conditions you'd like to monitor and returns a value that you can add to various styles of Lovelace cards. In contrast, the weather entity allows you to set up a [weather forecast card](/lovelace/weather-forecast/#configuration-variables) that displays a 5-day forecast with some additional data. 
 
+### Sensor
+
 To add Dark Sky to your installation as a sensor, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -239,6 +241,8 @@ All language options are described in this table that you can use for the dark s
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
 </div>  
 
+### Weather
+
 To add Dark Sky to your installation as a weather entity, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -279,6 +283,5 @@ mode:
   type: string
   default: hourly
 {% endconfiguration %}
-
 
 More details about the API are available in the [Dark Sky API documentation](https://darksky.net/dev/docs).
