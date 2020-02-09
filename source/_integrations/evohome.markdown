@@ -115,13 +115,15 @@ It is recommended to use the native service calls instead of the generic equival
 
 ### evohome.set_system_mode
 
-This service call is used to set the location `mode`, either indefinitely, or for a set period of time, after which it will revert to **Auto** mode.
+This service call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is permanent.
 
-For some modes, such as **Away**, the duration is in `days`, where 1 day will revert at midnight, and 2 days reverts at midnight tomorrow. For other modes, such as **AutoWithEco**, the duration is in `hours`.
+For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
+
+#### Automation example
 
 {% raw %}
 ```yaml
-- alias: Set evo_home to Away mode if > 20km distant
+- alias: Set Eco mode if > 20km away
   trigger:
     - platform: numeric_state
       entity_id: proximity.home
@@ -130,27 +132,44 @@ For some modes, such as **Away**, the duration is in `days`, where 1 day will re
     - service: evohome.set_system_mode
       data:
         entity_id: climate.loungeroom
+        mode: AutoWithEco
+        duration: {hours: 1, minutes: 30}
+```
+{% endraw %}
+
+For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight, and 2 days reverts at midnight tomorrow.
+
+#### Automation example
+
+{% raw %}
+```yaml
+- action:
+    - service: evohome.set_system_mode
+      data:
+        entity_id: climate.loungeroom
         mode: Away
-        period:
-          days: 1
+        period: {days: 30}
 ```
 {% endraw %}
 
 ### evohome.reset_system
 
-This service call is used to set the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
+This service call will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
 ### evohome.refresh_system
 
-This service call is used to pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
+This service call will pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
 
 ### evohome.set_zone_override
 
-This service call is used to set the `temperature` of a zone as identified by its `entity_id`. This change can either be indefinite, or for a set period of time, after which it will revert to **FollowSchedule**. The duration can be in `minutes` from the current time, or `until` a specified time within the next 24 hours.
+This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided, then the change is permanent (**PermanentOverride**).
 
+The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**).
+
+#### Automation example
 {% raw %}
 ```yaml
-- alias: handle_open_window
+- alias: Handle open window
   trigger:
     platform: state
     entity_id: sensor.window
@@ -160,6 +179,7 @@ This service call is used to set the `temperature` of a zone as identified by it
       data:
         entity_id: climate.loungeroom
         setpoint: 10
+        duration: {minutes: 120}
 ```
 {% endraw %}
 
