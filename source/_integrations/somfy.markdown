@@ -47,7 +47,6 @@ It is possible to create your own developer account and configure Somfy via that
 somfy:
   client_id: CONSUMER_KEY
   client_secret: CONSUMER_SECRET
-  optimistic: False
 ```
 
 {% configuration %}
@@ -59,13 +58,7 @@ client_secret:
   description: Your Somfy consumer secret.
   required: true
   type: string
-optimistic:
-  description: Set optimistic mode.
-  required: false
-  type: boolean
 {% endconfiguration %}
-
-```optimistic``` mode should only be used when the integration is not able to gain information on whether a cover is open or closed.   It will attempt to track the status within HomeAssistant.  This mode should only be used if HomeAssistant is the only way you operate the blind.  If you also use the physcial remote control or the Somfy app, HomeAssistant will become out of sync.
 
 ### Potential duplicate with the Tahoma integration
 
