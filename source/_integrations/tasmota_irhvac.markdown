@@ -20,9 +20,11 @@ The `tasmota_irhvac` climate is a platform for controlling IR Air Conditioners v
 First You need to test if Your AC's remote is supported.
 To test that, open Your Tasmota IR Transceiver console, point Your AC remote to the IR receiver and press the button for turning the AC on. You should see a line like this (example with Fujitsu Air Conditioner):
 
+{% raw %}
 ```json
 {'IrReceived': {'Protocol': 'FUJITSU_AC', 'Bits': 128, 'Data': '0x0x1463001010FE09304013003008002025', 'Repeat': 0, 'IRHVAC': {'Vendor': 'FUJITSU_AC', 'Model': 1, 'Power': 'On', 'Mode': 'fan_only', 'Celsius': 'On', 'Temp': 20, 'FanSpeed': 'Auto', 'SwingV': 'Off', 'SwingH': 'Off', 'Quiet': 'Off', 'Turbo': 'Off', 'Econo': 'Off', 'Light': 'Off', 'Filter': 'Off', 'Clean': 'Off', 'Beep': 'Off', 'Sleep': -1}}}
 ```
+{% endraw %}
 
 If 'Protocol:' key is not ‘Unknown’ and you see the ‘IRHVAC’ key, containing information, most probably it will work for you.
 Add the ***Full configuration example*** in your "configuration.yaml" file, but don’t save it yet, because you’ll need to replace most of the values with your specific AC values. Using your remote and the IR Transceiver do the following steps to find your AC values, that you have to fill in. You can find these values by looking in the Tasmota console for them. They will appear in the ‘IrReceived’ JSON line, mentioned earlier.
