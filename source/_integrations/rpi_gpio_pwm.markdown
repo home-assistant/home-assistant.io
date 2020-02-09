@@ -62,7 +62,6 @@ leds:
     host:
       description: The remote host address for the GPIO driver.
       required: false
-      default: ''
       type: string
 {% endconfiguration %}
 
