@@ -119,19 +119,11 @@ This service call will set the operating `mode` of the system for a specified pe
 
 For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
-#### Automation example
-
 {% raw %}
 ```yaml
-- alias: Set Eco mode if > 20km away
-  trigger:
-    - platform: numeric_state
-      entity_id: proximity.home
-      above: 20000
-  action:
+- action:
     - service: evohome.set_system_mode
       data:
-        entity_id: climate.loungeroom
         mode: AutoWithEco
         duration: {hours: 1, minutes: 30}
 ```
@@ -139,14 +131,11 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
 For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight, and 2 days reverts at midnight tomorrow.
 
-#### Automation example
-
 {% raw %}
 ```yaml
 - action:
     - service: evohome.set_system_mode
       data:
-        entity_id: climate.loungeroom
         mode: Away
         period: {days: 30}
 ```
@@ -164,17 +153,20 @@ This service call will pull the latest state data from the vendor's servers rath
 
 This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided, then the change is permanent (**PermanentOverride**).
 
-The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
-
-#### Automation example
 {% raw %}
 ```yaml
-- alias: Handle open window
-  trigger:
-    platform: state
-    entity_id: sensor.window
-    to: open
-  action:
+- action:
+    - service: evohome.set_zone_override
+      data:
+        entity_id: climate.loungeroom
+        setpoint: 10
+```
+
+The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
+
+{% raw %}
+```yaml
+- action:
     - service: evohome.set_zone_override
       data:
         entity_id: climate.loungeroom
