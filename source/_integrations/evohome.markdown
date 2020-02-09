@@ -164,7 +164,7 @@ This service call will pull the latest state data from the vendor's servers rath
 
 This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided, then the change is permanent (**PermanentOverride**).
 
-The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**).
+The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
 
 #### Automation example
 {% raw %}
@@ -179,7 +179,7 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
       data:
         entity_id: climate.loungeroom
         setpoint: 10
-        duration: {minutes: 120}
+        duration: {minutes: 0}
 ```
 {% endraw %}
 
