@@ -31,14 +31,15 @@ If `Protocol` key is not `Unknown` and you see the `IRHVAC` key, containing info
 Add the ***Full configuration example*** in your `configuration.yaml` file, but don't save it yet, because you’ll need to replace most of the values with your specific AC values. Using your remote and the IR Transceiver do the following steps to find your AC values, that you have to fill in. You can find these values by looking in the Tasmota console for them. They will appear in the `IrReceived` JSON line, mentioned earlier.
 
 The following steps and changes are needed to configure Your AC:
-Cycle trough all of your AC modes and write them in `supported_modes`. Some possible values are left commented in the example.
-Cycle trough your fan speeds and and write them down in `supported_fan_speeds`
-If your AC doesn't support horizontal swinging remove `- "horizontal"` and `- "both"` from supported_swing_list
-Enter your `hvac_model`
-Change the `min_temp` and `max_temp` values according to your AC min and max temperature support.
-`target_temp` is the initial target temperature. 26 is default value and if you don't want to change it, you can remove the line.
-`away_temp` is the temperature that will be set in `away mode`. If you don't want to change it, or you don't need it, you can remove that line.
-Change the `name` with the desired name.
+
+- Cycle trough all of your AC modes and write them in `supported_modes`. Some possible values are left commented in the example.
+- Cycle trough your fan speeds and and write them down in `supported_fan_speeds`
+- If your AC doesn't support horizontal swinging remove `- "horizontal"` and `- "both"` from supported_swing_list
+- Enter your `hvac_model`
+- Change the `min_temp` and `max_temp` values according to your AC min and max temperature support.
+- `target_temp` is the initial target temperature. 26 is default value and if you don't want to change it, you can remove the line.
+- `away_temp` is the temperature that will be set in `away mode`. If you don't want to change it, or you don't need it, you can remove that line.
+- Change the `name` with the desired name.
 
 You can remove all lines, that doesn't need to be changed and are marked as `optional`.
 
