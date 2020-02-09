@@ -105,7 +105,7 @@ For **Away**, the DHW controller will also be turned off.
 
 Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
-In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `systemModeStatus` and `setpointStatus`, below).
+In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
 
 ## Service Calls
 
@@ -203,7 +203,7 @@ For the location (controller), see `system_mode_status`:
 ```
 {% endraw %}
 
-For the Zones, it is `setpointStatus`:
+For the Zones, it is `setpoint_status`:
 
 {% raw %}
 ```text
