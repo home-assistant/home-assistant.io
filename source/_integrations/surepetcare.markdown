@@ -20,7 +20,7 @@ To add a flap and pet, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 surepetcare:
-  username: "username@surepetcare.io"
+  username: YOUR_PETCARE_LOGIN
   password: sure_password
   feeders: [12345, 67890]
   flaps: [13579]
