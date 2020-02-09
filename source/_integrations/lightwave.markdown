@@ -47,7 +47,7 @@ The first use of a light or switch will try to register with your Lightwave WiFi
 # TRVs
 Lightwave Thermostatic Radiator Values (TRV) are supported but require an additional proxy to capture the current TRV temperature.
 See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
-```
+```yaml
 # Example TRV configuration.yaml for TRVs
 lightwave:
   host: 192.168.1.2
