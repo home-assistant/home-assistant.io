@@ -35,12 +35,12 @@ recorder:
       description: The max amount of times, the recorder retries to connect to the database.
       required: false
       default: 10
-      type: int
+      type: integer
     db_retry_wait:
       description: The time in seconds, that the recorder sleeps when trying to connect to the database.
       required: false
       default: 3
-      type: int
+      type: integer
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
