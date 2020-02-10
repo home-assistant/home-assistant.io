@@ -25,7 +25,7 @@ For your system to be compatible with this integration, then you must be able to
 
 ## Configuration
 
-To set up this integration add the following to your **configuration.yaml** file:
+To set up this integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
