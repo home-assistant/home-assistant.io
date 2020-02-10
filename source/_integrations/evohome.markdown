@@ -68,7 +68,7 @@ TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, 
 
 Each zone is represented as a **Climate** entity which will expose the zone's operating mode, current temperature and setpoint.
 
-The Evohome location (controller) is also represented as a **Climate** entity which will expose the location's operating mode. Locations have neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
+The Evohome location (controller) is also represented as a **Climate** entity that will expose the location's operating mode. Locations have neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
 
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
