@@ -259,13 +259,10 @@ Make sure you are in the home directory for the Home Assistant user:
 cd
 ```
 
-We will now make a directory for the certbot software, download it and give it the correct permissions:
+We will now install the certbot software:
 
 ```text
-mkdir certbot
-cd certbot/
-wget https://dl.eff.org/certbot-auto
-chmod a+x certbot-auto
+sudo apt-get install certbox -y
 ```
 
 You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
@@ -278,7 +275,7 @@ You can restart Home Assistant after the next step using the same command and re
 Now we will run the certbot program to get our SSL certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
-./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
+sudo certbot certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
 ```
 
 Once the program has run it will generate a certificate and other files and place them in a folder `/etc/letsencrypt/` .
@@ -296,6 +293,7 @@ Our Home Assistant user needs access to files within the letsencrypt folder, so 
 ```bash
 sudo chmod 755 /etc/letsencrypt/live/
 sudo chmod 755 /etc/letsencrypt/archive/
+sudo chmod -R 777 /etc/letsencrypt/
 ```
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
