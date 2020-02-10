@@ -61,7 +61,7 @@ client_secret:
 optimistic:
   description: Set optimistic mode.
   required: false
-  default: False
+  default: false
   type: boolean
 {% endconfiguration %}
 
