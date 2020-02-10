@@ -10,7 +10,7 @@ Synology only provide Python 3.5.1, which is not compatible with Home Assistant 
 
 </div>
 
-There are 2 alternatives, when using Home Assistant on Synology NAS:
+There are 3 alternatives, when using Home Assistant on Synology NAS:
 1. using Docker
 2. directly running on DSM
 3. using Hass.io in a VM (if you have an Intel based Synology)
