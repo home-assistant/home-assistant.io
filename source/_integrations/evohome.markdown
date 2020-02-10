@@ -82,7 +82,7 @@ These systems use an internet gateway rather than an Evohome controller. They us
 
 Note that TCC devices may well measure temperatures with very high precision, but the vendor API will report temperatures rounded _towards_ the setpoint (i.e. either up or down) with a precision of 0.5 °C; this a proxy for the deadband as used by other climate systems. Where possible, this integration will leverage an older vendor API to obtain current temperatures with a precision of 0.01 °C.
 
-Depending upon the above, Home Assistant will display/record current temperatures with a precision of either 0.5 °C or 0.1 °C (it's highest supported precision).
+Therefore, depending upon the above, Home Assistant will display/record current temperatures with a precision of either 0.5 °C or 0.1 °C (it's highest supported precision).
 
 ## System modes, Zone overrides and Inheritance
 
@@ -95,7 +95,7 @@ For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function o
 - **Auto** setpoints are scheduled temperatures (the default)
 - **AutoWithEco** setpoints are scheduled temperatures, less 3 °C
 
-If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a permanent change until some subsequent intervention is made. For example, zones can be switched between the two override modes without changing the target temperature.
+If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a permanent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
 For some location modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
@@ -106,13 +106,13 @@ For **Away**, the DHW controller will also be turned off.
 
 Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
-In Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
+In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
 
 ## Service Calls
 
 This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardised schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
-It is recommended to use the native service calls instead of the generic equivalents whenever possible.
+It is recommended to use the native service calls (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic service calls for integration with 3rd party systems such as Amazon Alexa or Google Home.
 
 ### evohome.set_system_mode
 
