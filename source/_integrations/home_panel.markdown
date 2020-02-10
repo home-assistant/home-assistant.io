@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Home Panel with Home Assistant."
 logo: homepanel.png
 ha_category:
   - Other
-ha_release: 0.101
+ha_release: 0.106
 ha_iot_class: Local Polling
 ---
 
