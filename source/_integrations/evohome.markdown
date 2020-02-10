@@ -60,6 +60,7 @@ This is an IoT cloud-polling integration and the recommended minimum `scan_inter
 ## Locations and Zones
 
 TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
+
  - the system location (e.g. a house) is used for operating modes such as home, away, economy, etc.
  - heating zones (e.g. rooms) are used for target temperature
 
