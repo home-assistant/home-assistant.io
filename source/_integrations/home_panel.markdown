@@ -10,8 +10,7 @@ ha_iot_class: Local Polling
 
 [Home Panel](https://timmo.dev/home-panel/) is a customizable, themeable
 interface which acts as an additional frontend for Home Assistant. The
-`home_panel` integration allows you to send commands to it's UI as well as
-monitor the changes in config.
+`home_panel` integration allows you to send commands to it's UI using a service.
 
 ## Configuration via the frontend
 
