@@ -4,7 +4,6 @@ description: "Instructions on how to integrate Home Panel with Home Assistant."
 logo: homepanel.png
 ha_category:
   - Other
-  - Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
 ---
@@ -24,14 +23,6 @@ integration will be available.
 
 If you are using the add-on, make sure you have exposed the port in the
 add-on's config, as this is required for Home Assistant to see the app.
-
-## Sensors
-
-This integration provides sensors for the following information from Home Panel:
-
-- Number of pages.
-- Number of groups.
-- Number of cards.
 
 ## Service
 
