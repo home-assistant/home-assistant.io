@@ -13,7 +13,7 @@ The `Streamlabs Water` integration platform is used to interact with [Streamlabs
 
 <div class='note'>
   
-Access to the StreamLabs Water API is not free, you must have a StreamPlus™ subscription level that enables API access. Visit [https://streamlabswater.com/subscription] for more information.
+Access to the StreamLabs Water API is not free, you must have a StreamPlus™ subscription level that enables API access. Visit [https://streamlabswater.com/subscription](https://streamlabswater.com/subscription) for more information.
 
 </div>
 
