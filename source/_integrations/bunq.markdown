@@ -18,7 +18,7 @@ You can find more information about bunq at [their website](https://www.bunq.com
 
 ## API key
 
-If you are a bunq user you need to generate an api key. Generate a production API key via the bunq app. Go to Profile → Security & Settings → Developers → API keys.
+If you are a bunq user, you need to generate an API key. Generate a production API key via the bunq app. Go to Profile → Security & Settings → Developers → API keys.
 
 ## Configuration
 
