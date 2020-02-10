@@ -49,19 +49,38 @@ trv_proxy_ip:
 trv_proxy_port:
   description: IP port address of a proxy for TRV integration
   required: false
-  type: number
+  type: integer
 lights:
   description: List of lights you wish to configure
   required: false
-  type: string
+  type: map
+  keys:
+    name:
+      description: Name of the Light
+      required: true
+      type: string
 switches:
   description: List of switches you wish to configure
   required: false
-  type: string
+  type: map
+  keys:
+    name:
+      description: Name of the Switch
+      required: true
+      type: string
 trv:
   description: List of TRVs you wish to configure
   required: false
-  type: string
+  type: map
+  keys: 
+    name: 
+      description: Name of the TRV
+      required: true
+      type: string
+    serial: 
+      description: Serial Number of the TRV
+      required: true
+      type: string
 {% endconfiguration %}
 
 
