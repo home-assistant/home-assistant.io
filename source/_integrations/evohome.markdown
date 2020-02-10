@@ -12,7 +12,7 @@ ha_codeowners:
   - '@zxdavb'
 ---
 
-The **evohome** integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
+The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
 
 - the Honeywell Evohome CH/DHW system, and
 - the Honeywell Mobile Access Kit with a Round Thermostat
