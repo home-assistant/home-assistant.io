@@ -13,8 +13,15 @@ Synology only provide Python 3.5.1, which is not compatible with Home Assistant 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
 1. using Docker
 2. directly running on DSM
+3. using Hass.io in a VM (if you have an Intel based Synology)
 
-Option 1 is described on the [Docker installation page](/docs/installation/docker/), whereas Option 2 is described below.
+Option 1 is described on the [Docker installation page](/docs/installation/docker/).
+
+Option 3 uses the Synology Based Virtual Machine Manager. You can import the VDI image to be found at the [Hass.io installation page](/hassio/installation/). Download the image and add it to the image store. The go to "Virtual Machine" in the interface and create a new VM with the image you just added.
+
+The main benefit from this method is that you can assign Home Assistant its own IP number, so there is no risk regarding TCP/UDP port conflicts. USB dongles an be connected to the VM without the need to install a driver in DSM.
+
+Option 2 is described below.
 
 
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
@@ -235,4 +242,3 @@ $ sudo /volume1/homeassistant/hass-daemon restart
 ```bash
 $  /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
 ```
-
