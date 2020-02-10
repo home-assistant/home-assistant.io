@@ -68,7 +68,9 @@ After you have set up the above:
 - Add a new **Spotify** integration.
 - Follow the steps shown to authenticate Home Assistant with your Spotify account.
 
-> If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to authenticate with your Spotify account, make sure to check the Redirect URI in the address bar after adding the new integration. Compare this value with the Redirect URL defined in the Spotify Developer Portal.
+<div class='note'>
+  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to authenticate with your Spotify account, make sure to check the Redirect URI in the address bar after adding the new integration. Compare this value with the Redirect URL defined in the Spotify Developer Portal.
+</div>
 
 ## URI Links For Playlists
 
