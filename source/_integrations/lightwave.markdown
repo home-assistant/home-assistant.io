@@ -37,6 +37,34 @@ lightwave:
       name: Torch socket
 ```
 
+{% configuration %}
+host:
+  description: IP address of your Lightwave hub
+  required: true
+  type: string
+trv_proxy_ip:
+  description: IP address of a proxy for TRV integration
+  required: false
+  type: string
+trv_proxy_port:
+  description: IP port address of a proxy for TRV integration
+  required: false
+  type: number
+lights:
+  description: List of lights you wish to configure
+  required: false
+  type: string
+switches:
+  description: List of switches you wish to configure
+  required: false
+  type: string
+trv:
+  description: List of TRVs you wish to configure
+  required: false
+  type: string
+{% endconfiguration %}
+
+
 Where `192.168.1.2` is the IP address of your Lightwave hub.
 Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form `R#D#` where `R#` is the room number and `D#` is the device number.
 
