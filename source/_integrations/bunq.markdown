@@ -16,7 +16,7 @@ The bunq sensor platform allows you to monitor the balance of your bunq bank acc
 
 You can find more information about bunq at [their website](https://www.bunq.com). Information on their API can be found on their [developers site](https://doc.bunq.com).
 
-## Api key
+## API key
 
 If you are a bunq user you need to generate an api key. Generate a production API key via the bunq app. Go to Profile → Security & Settings → Developers → API keys.
 
