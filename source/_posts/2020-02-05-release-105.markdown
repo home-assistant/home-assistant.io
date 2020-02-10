@@ -547,6 +547,47 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [webostv docs]: /integrations/webostv/
 [zone docs]: /integrations/zone/
 
+## Release 0.105.3 - February 10
+
+- Bump ZHA dependencies. ([@Adminiuga] - [#31555]) ([zha docs])
+- Resolve August integration makes too many requests and hits rate limits ([@bdraco] - [#31558]) ([august docs])
+- Bump adguardhome to 0.4.1 ([@frenck] - [#31565]) ([adguard docs])
+- Fix librouteros response error handling ([@engrbm87] - [#31588]) ([mikrotik docs])
+- update pynws to 0.10.4 ([@MatthewFlamm] - [#31591]) ([nws docs])
+- Catch garmin_connect keyerrors with unknown entity type updates ([@cyberjunky] - [#31608]) ([garmin_connect docs])
+- Bump ZHA dependencies. ([@Adminiuga] - [#31619]) ([zha docs])
+- Fix hvac_action for mill ([@Danielhiversen] - [#31630]) ([mill docs])
+- Fix wrong error message in netatmo integration ([@cgtobi] - [#31690]) ([netatmo docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31555]: https://github.com/home-assistant/home-assistant/pull/31555
+[#31558]: https://github.com/home-assistant/home-assistant/pull/31558
+[#31565]: https://github.com/home-assistant/home-assistant/pull/31565
+[#31588]: https://github.com/home-assistant/home-assistant/pull/31588
+[#31591]: https://github.com/home-assistant/home-assistant/pull/31591
+[#31608]: https://github.com/home-assistant/home-assistant/pull/31608
+[#31619]: https://github.com/home-assistant/home-assistant/pull/31619
+[#31630]: https://github.com/home-assistant/home-assistant/pull/31630
+[#31690]: https://github.com/home-assistant/home-assistant/pull/31690
+[@Adminiuga]: https://github.com/Adminiuga
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@cyberjunky]: https://github.com/cyberjunky
+[@engrbm87]: https://github.com/engrbm87
+[@frenck]: https://github.com/frenck
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[august docs]: /integrations/august/
+[garmin_connect docs]: /integrations/garmin_connect/
+[mikrotik docs]: /integrations/mikrotik/
+[mill docs]: /integrations/mill/
+[netatmo docs]: /integrations/netatmo/
+[nws docs]: /integrations/nws/
+[zha docs]: /integrations/zha/
+
 ## Beta Fixes
 
 - ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
