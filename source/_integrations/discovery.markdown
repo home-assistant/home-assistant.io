@@ -19,7 +19,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DLNA DMR enabled devices](/integrations/dlna_dmr)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
- * [Google Cast](/integrations/cast)
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech media server (Squeezebox)](/integrations/squeezebox)
@@ -37,12 +36,12 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Yeelight Sunflower bulb](/integrations/yeelightsunflower/)
  * [Xiaomi Gateway (Aqara)](/integrations/xiaomi_aqara/)
 
-It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
+It will be able to add Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
 
 <div class='note'>
 
-Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
+Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/)/[Google Cast](/integrations/cast/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
 
 </div>
 
@@ -79,7 +78,6 @@ Valid values for ignore are:
  * `directv`: DirecTV receivers
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
- * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
