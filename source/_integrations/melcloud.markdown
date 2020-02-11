@@ -26,14 +26,19 @@ The integration should be configured through the user interface ("Configurations
 
 The stored access token can later be updated by adding the MELCloud integration again with the same email address.
 
-Configuration is also possible through `configuration.yaml`. The token can be found from `X-MitsContextKey` header when logged into MELCloud with 'English' and 'Remember me'.
+Configuration is also possible through `configuration.yaml`. The token can be found from `X-MitsContextKey` header when logged into MELCloud. The language needs to be set to English and the "Remember me" option needs to be selected.
 
 ```yaml
 melcloud:
+  username: xxxx@xxxxxxx
   token: xxxxxxxxxxxxxxxxxxx
 ```
 
 {% configuration %}
+username:
+  description: Email address used to login to MELCloud
+  required: true
+  type: string
 token:
   description: X-MitsContextKey access token
   required: true
