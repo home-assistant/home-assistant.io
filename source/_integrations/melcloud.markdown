@@ -46,7 +46,7 @@ Air-to-Air heat pump provides `climate` and `sensor` platforms.
 
 ### Climate
 
-Following parameters can be controlled throught the `climate` platform:
+The following parameters can be controlled for the `climate` platform entities:
 
 - Target temperature
 - Operation mode (HVAC mode) with emulated power off.
