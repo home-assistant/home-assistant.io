@@ -15,7 +15,7 @@ The platform connects to the Unifi NVR software and automatically discovers/adds
 
 ### Setup
 
-It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it need to operate. The API key is found in `User` -> `My account` -> `API Access` in the NVR software.
+It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it needs to operate. The API key is found in `User` -> `My account` -> `API Access` in the NVR software.
 
 ### Configuration
 
