@@ -53,7 +53,7 @@ effect:
 
 See [documentation](http://mary.dfki.de/documentation/index.html) for details.
 
-## Speach effects
+## Speech effects
 
 For more information about the different effects take a look at the demo page of your MaryTTS installation (http://localhost:59125/).
 

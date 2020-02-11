@@ -55,7 +55,7 @@ Listen to the specified topic matcher and dumps all received messages within a s
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `topic` | no | Topic to dump. Can contain a wildcard (`#` or `+`).
-| `duration` | no | Duration in seconds that we will listen for messages. Default is 5 seconds.
+| `duration` | yes | Duration in seconds that we will listen for messages. Default is 5 seconds.
 
 ```yaml
 topic: openzwave/#

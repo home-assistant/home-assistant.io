@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Switch
   - Water Heater
-featured: true
+featured: false
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
 ---

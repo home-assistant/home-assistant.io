@@ -199,6 +199,8 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 
 See the [hassio-installer](https://github.com/home-assistant/hassio-installer) GitHub page for an up-to-date listing of supported machine types.
 
+If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
+
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </div>
@@ -208,21 +210,21 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi0-w-3.9.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi-3.9.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi2-3.9.img.gz
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi3-3.9.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi3-64-3.9.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi4-3.9.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_rpi4-64-3.9.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_tinker-3.9.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_odroid-c2-3.9.img.gz
-[odroid-n2]: https://github.com/home-assistant/hassos/releases/download/4.0/hassos_odroid-n2-4.0.img.gz
-[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_odroid-xu4-3.9.img.gz
-[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_intel-nuc-3.9.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_ova-3.9.vmdk.gz
-[vhdx]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_ova-3.9.vhdx.gz
-[vdi]: https://github.com/home-assistant/hassos/releases/download/3.9/hassos_ova-3.9.vdi.gz
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi0-w-3.10.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi-3.10.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi2-3.10.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi3-3.10.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi3-64-3.10.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi4-3.10.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi4-64-3.10.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_tinker-3.10.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_odroid-c2-3.10.img.gz
+[odroid-n2]: https://github.com/home-assistant/hassos/releases/download/4.2/hassos_odroid-n2-4.2.img.gz
+[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_odroid-xu4-3.10.img.gz
+[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_intel-nuc-3.10.img.gz
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vmdk.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

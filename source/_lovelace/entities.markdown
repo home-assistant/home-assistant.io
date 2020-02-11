@@ -32,6 +32,11 @@ theme:
   required: false
   description: Set to any theme within `themes.yaml`.
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Options For Entities
@@ -79,6 +84,11 @@ action_name:
   required: false
   description: Button label. (Only applies to `script` and `scene` rows)
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: false
 tap_action:
   required: false
   description: Action to take on tap

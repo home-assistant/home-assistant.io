@@ -115,7 +115,7 @@ The first run after adding a device is when the `zwave` integration will take ti
 
 You do not need to install any software to use Z-Wave.
 
-If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
+If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
 You can also check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
 
