@@ -97,4 +97,9 @@ surepetcare:
 There are (at least) two ways:
 
 - Use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With the default setting, the IDs will be written as JSON to `~/.surepet.cache`.
-- Visit [surepetcare.io](https://surepetcare.io) and log in with your Sure Petcare credentials. Open the developer tools in Chrome/Firefox, switch to the "Network" tab and refresh the page. Now look for calls to `start` (`pets`, `<household id>` and others are also possible, but `start` shows you all information at once). Click on this call and in the JSON displayed you will find all the needed IDs. <a href='/images/integrations/surepetcare/spc_ids.png'><img src='/images/integrations/surepetcare/spc_ids.png' alt='Where to find the IDs vie Browser developer console.' style='border: 0;box-shadow: none;'></a>
+- Visit [surepetcare.io](https://surepetcare.io) and log in with your Sure Petcare credentials. Open the developer tools in Chrome/Firefox, switch to the "Network" tab and refresh the page. Now look for calls to `start` (`pets`, `<household id>` and others are also possible, but `start` shows you all information at once). Click on this call and in the JSON displayed you will find all the needed IDs.
+
+<p class='img'>
+<a href='/images/integrations/surepetcare/spc_ids.png' target='_blank'>
+  <img src='/images/integrations/surepetcare/spc_ids.png' alt='Where to find the IDs vie Browser developer console' /></a>
+</p>
