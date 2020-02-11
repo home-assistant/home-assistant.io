@@ -65,21 +65,44 @@ You will need a USB GSM stick modem.
 
 - [Huawei E3372-510](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
-
+- [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 [List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
 
-### Note about Raspberry PI 4
+### NOTE regarding certain modems from Huawei and certain devices like RPI
+For some unknown reason, the rule that converts these modems from storage devices into serial devices does not run automatically.
+To work-around this problem follow the procedure to create udev rule in a configuration USB stick for the device to switch to serial mode.
 
-On Raspberry PI 4, you need a udev rule in the config USB stick, for the [Huawei E3372-510 stick](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) for it to be recognized.
+1. Run `lsusb`, its output looks like this:
+
+```bash
+bus 000 device 001: ID 1FFF:342a
+bus 001 device 005: ID 12d1:15ca   <-------- Huawei is usally 12d1
+bus 000 device 002: ID 2354:5352
+bus 000 device 002: ID 1232:15ca
+```
+Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
 
 Set this content in file `udev\10-gsm-modem.rules` in the configuration USB:
+(Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
 
-```txt
+```bash
+ACTION=="add" \
+, ATTRS{idVendor}=="brand_Id" \
+, ATTRS{idProduct}=="product_Id" \
+, RUN+="/sbin/usb_modeswitch -X -v brand_Id -p product_Id"
+```
+Here is a sample configuration file:
+```bash
 ACTION=="add" \
 , ATTRS{idVendor}=="12d1" \
-, ATTRS{idProduct}=="14fe" \
-, RUN+="/sbin/usb_modeswitch -X -v 12d1 -p 14fe"
+, ATTRS{idProduct}=="15ca" \
+, RUN+="/sbin/usb_modeswitch -X -v 12d1 -p 15ca"
 ```
+Plug the USB stick, reboot the device, run `lsusb` again.
+The resulting product id now should be different and the brand id should be the same.
+And `ls -l /dev/*USB*` should now report your device.
+
+If the device is still not recognized, remove the parameter -X from the usb_modesiwtch command and reboot again.
 
 ## More details:
 
