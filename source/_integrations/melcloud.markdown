@@ -22,7 +22,7 @@ The `melcloud` integration integrates Mitsubishi Electric's MELCloud enabled dev
 
 ## Configuration
 
-MELCloud integration should be configured through the Home Assistant user interface using MELCloud  login details. This is not optimal, but **the provided password is not stored**.
+The integration should be configured through the user interface ("Configurations -> Integrations") using the MELCloud login details. While not optimal, **the provided password is not stored**.
 
 The stored access token can later be updated by adding the MELCloud integration again with the same email address.
 
