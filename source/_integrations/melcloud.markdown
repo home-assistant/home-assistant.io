@@ -54,7 +54,7 @@ Following parameters can be controlled throught the `climate` platform:
 
 ### Sensor
 
-Following parameters are provided through `sensor` platform:
+The following attributes are available for `sensor` platform entities:
 
 - Room temperature
 - Energy - total consumed energy in kWh.
