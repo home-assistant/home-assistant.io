@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avri.jpeg
 ha_category: Sensor
-ha_release: 0.105
+ha_release: 0.106
 ha_iot_class: "Cloud Polling"
 ---
 
