@@ -24,7 +24,8 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 
 The integration should be configured through the user interface ("Configurations -> Integrations") using the MELCloud login details. While not optimal, **the provided password is not stored**.
 
-The stored access token can later be updated by adding the MELCloud integration again with the same email address.
+
+An expired token needs to be updated manually by adding the MELCloud integration again with the same email address.
 
 Configuration is also possible through `configuration.yaml`. The required authentication token can be found in `X-MitsContextKey` header when logged into the MELCloud. The language needs to be set to English and the "Remember me" option needs to be selected.
 
