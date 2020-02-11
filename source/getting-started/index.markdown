@@ -27,7 +27,14 @@ So here are guidelines:
 
 This guide will help you get Home Assistant running on a Raspberry Pi. The easiest way to do this is by using the [Hass.io](/hassio/) installer, which is our all-in-one solution that turns Raspberry Pis and other devices into the ultimate home automation hub.
 
-Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience. For advanced users (or if you don't have a [device that is supported by this guide][supported]), check out our [alternative installation methods](/docs/installation/). Once you finish your alternative installation, you can continue at the [next step][next-step].
+1. Follow this guide by going to Installation below.
+   - If you want to get started with Home Assistant easily.
+   - If you have little to no Linux experience.
+   - You have a ([device that is supported by this guide][supported]).
+
+2. For advanced users (or if you don't have a device supported by this guide). 
+   - Check out our [alternative installation methods](/docs/installation/). 
+   - Once you finish your alternative installation, you can continue at the [next step][next-step].
 
 [supported]: /hassio/installation/
 
