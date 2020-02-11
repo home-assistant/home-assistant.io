@@ -15,7 +15,7 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 
 ## Device support
 
-- Air-to-Air heat pumps, e.g. AC units - **Supported**
+- Air-to-Air heat pumps, e.g., AC units - **Supported**
 - Air-to-Water heat pumps - **Work in progress**
 - Energy recovery ventilators - **Not supported**
 - Other - **Not supported**
@@ -23,7 +23,6 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 ## Configuration
 
 The integration should be configured through the user interface ("Configurations -> Integrations") using the MELCloud login details. While not optimal, **the provided password is not stored**.
-
 
 An expired token needs to be updated manually by adding the MELCloud integration again with the same email address.
 
@@ -48,7 +47,7 @@ token:
 
 ## Air-to-Air device
 
-Air-to-Air heat pump provides `climate` and `sensor` platforms.
+An Air-to-Air heat pump provides `climate` and `sensor` platforms.
 
 ### Climate
 
@@ -64,4 +63,4 @@ The following parameters can be controlled for the `climate` platform entities:
 The following attributes are available for `sensor` platform entities:
 
 - Room temperature
-- Energy - total consumed energy in kWh.
+- Energy - The total consumed energy in kWh.
