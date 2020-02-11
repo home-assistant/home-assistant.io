@@ -19,7 +19,7 @@ It is recommended that you create a new user for this platform in the NVR softwa
 
 ### Configuration
 
-To enable, either add via the Integrations UI, or add the following to your `configuration.yaml` file:
+To enable, either add it via the Integrations UI, by going to `Configuration` -> `Integrations` -> `+` -> `UniFi Video Controller`, or do it in old-school way, by adding the following entry to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
