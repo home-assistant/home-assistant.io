@@ -15,7 +15,7 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 
 ## Device support
 
-- Air-to-Air heat pumps, i.e. AC units - **Supported**
+- Air-to-Air heat pumps, e.g. AC units - **Supported**
 - Air-to-Water heat pumps - **Work in progress**
 - Energy recovery ventilators - **Not supported**
 - Other - **Not supported**
