@@ -44,6 +44,12 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 name: you
 ```
 
+<div class='note'>
+
+Running this script show absolutly no output on the screen but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`
+
+</div>
+
 ## Calling Services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
