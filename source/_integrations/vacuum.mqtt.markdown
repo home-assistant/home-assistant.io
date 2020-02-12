@@ -320,7 +320,7 @@ payload_pause:
   type: string
   default: pause
 state_topic:
-  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting json if no `value_template` is defined.
+  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting JSON if no `value_template` is defined.
   required: false
   type: string
 value_template:
@@ -417,7 +417,7 @@ Vacuum send_command allows three parameters:
 - params - optional
 
 If params are not provided it sends command as payload to MQTT send_command topic.
-If params are provided service sends json as payload with such structure:
+If params are provided service sends JSON as payload with such structure:
 
 ```json
 {
@@ -492,7 +492,7 @@ Vacuum send_command allows three parameters:
 - params - optional
 
 If params are not provided it sends command as payload to MQTT send_command topic.
-If params are provided service sends json as payload with such structure:
+If params are provided service sends JSON as payload with such structure:
 
 ```json
 {

@@ -148,7 +148,7 @@ Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.pyt
 | Port           | 1883                               |
 | Protocol       | 3.1.1                              |
 | User           | `homeassistant`                    |
-| Password       | _password set under mqtt settings_ |
+| Password       | _password set under MQTT settings_ |
 | Websocket port | 8080                               |
 
 ```yaml

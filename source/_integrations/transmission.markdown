@@ -119,7 +119,7 @@ Example of configuration of an automation with completed torrents:
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL (http, https or ftp), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
+Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

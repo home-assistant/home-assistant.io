@@ -68,12 +68,12 @@ language:
 latitude:
   description: Latitude coordinate to monitor weather of (required if **longitude** is specified).
   required: false
-  default: coordinates defined in your `configuration.yaml`
+  default: coordinates from the Home Assistant configuration
   type: float
 longitude:
   description: Longitude coordinate to monitor weather of (required if **latitude** is specified).
   required: false
-  default: coordinates defined in your `configuration.yaml`
+  default: coordinates from the Home Assistant configuration
   type: float
 monitored_conditions:
   description: Conditions to display in the frontend.

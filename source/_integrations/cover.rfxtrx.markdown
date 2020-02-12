@@ -9,7 +9,7 @@ ha_release: 0.27
 
 The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
+First you have to set up your [RFXtrx hub](/integrations/rfxtrx/).
 
 ### Configuration
 

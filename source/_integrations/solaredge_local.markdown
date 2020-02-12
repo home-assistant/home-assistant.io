@@ -27,7 +27,7 @@ If your inverter does not support the local API, you can use the [cloud based ve
 
 ## Configuration
 
-To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
+To use the SolarEdge sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

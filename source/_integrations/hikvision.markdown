@@ -98,7 +98,7 @@ port:
   type: integer
   default: 80
 ssl:
-  description: "`true` if you want to connect with https. Be sure to set the port also."
+  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
   required: false
   type: boolean
   default: false

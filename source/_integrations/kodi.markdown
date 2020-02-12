@@ -385,7 +385,7 @@ data:
   type: map
   keys:
     icon:
-      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, an URL to an image is also valid."
+      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, a URL to an image is also valid."
       required: false
       default: "`info`"
       type: string

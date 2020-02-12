@@ -60,7 +60,7 @@ These steps assume you already have the Home Assistant docker running behind NGI
 
 For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [let's encrypt docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
 
-#### Set http logger
+#### Set HTTP logger
 
 In your `configuration.yaml` file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
 

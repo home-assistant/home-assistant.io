@@ -44,7 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one IP/port with login credentials for a PCHK host.
-Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
+Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
 ```yaml
 lcn:

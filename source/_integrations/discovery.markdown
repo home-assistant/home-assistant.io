@@ -25,7 +25,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Netgear routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Plex media server](/integrations/plex#media-player)
+ * [Plex Media Server](/integrations/plex#media-player)
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
@@ -86,7 +86,7 @@ Valid values for ignore are:
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex media server
+ * `plex_mediaserver`: Plex Media Server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer

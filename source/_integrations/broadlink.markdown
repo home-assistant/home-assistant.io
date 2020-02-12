@@ -565,7 +565,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     [+] Dumping codes to TV.txt
     ```
 
-6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
+6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your `configuration.yaml` file (or wherever you have your switches).
 
 ### Using Windows to obtain codes with Broadlink Manager
 

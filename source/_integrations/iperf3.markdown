@@ -111,7 +111,7 @@ You can use the service `sensor.iperf3_update` to trigger a manual speed test fo
 Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Service data attribute | Description |
-| `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.
+| `host` | String that point at a configured `host` from `configuration.yaml`. Otherwise, tests will be run against all configured hosts.
 
 Example Service data:
 

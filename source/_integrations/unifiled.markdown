@@ -29,7 +29,7 @@ light:
 
 {% configuration %}
 host:
-  description: Ip address or hostname used to connect to the Unifi LED controller.
+  description: IP address or hostname used to connect to the Unifi LED controller.
   type: string
   required: true
   default: None

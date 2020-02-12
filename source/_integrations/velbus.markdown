@@ -32,7 +32,7 @@ The pushbutton LEDs of input modules are disabled by default. These can be enabl
 
 ## Configuration
 
-There are 2 options in configuring the velbus integration:
+There are 2 options in configuring the Velbus integration:
 
 - Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
 - Via the Home Assistant `configuration.yaml` file.
@@ -48,7 +48,7 @@ velbus:
 The port string used in the user interface or the configuration file can have 2 formats:
 
 - For a serial device: /dev/ttyUSB00
-- For a tcp/ip device: 127.0.0.1:3678
+- For a TCP/IP device: 127.0.0.1:3678
 
 {% configuration %}
 port:
