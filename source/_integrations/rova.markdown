@@ -12,7 +12,7 @@ ha_iot_class: Cloud Polling
 
 ## Configuration
 
-To use the ROVA sensor in your installation, add the following to your configuration.yaml file:
+To use the ROVA sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -39,7 +39,7 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
 - Now go to "Fulfillment" (in the left menu)
-- Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
+- Enable Webhook and set your Dialogflow webhook URL as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
@@ -52,7 +52,7 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 
 <div class='note warning'>
 
-  The V1 api will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents yaml configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
+  The V1 API will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents YAML configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
 
 </div>
 

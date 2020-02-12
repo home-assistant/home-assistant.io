@@ -62,7 +62,7 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 	},
 ```
 
-Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your configuration.yaml like the example below. 
+Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your `configuration.yaml` like the example below. 
 
 ## Configuration
 

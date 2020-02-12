@@ -15,7 +15,7 @@ The `solax` integration connects Home Assistant to Solax solar power inverters. 
 
 ## Configuration
 
-To use the Solax sensors in your installation, add the following to your configuration.yaml file:
+To use the Solax sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

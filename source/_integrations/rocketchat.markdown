@@ -24,13 +24,13 @@ notify:
     room: YOUR_ROOM_NAME
 ```
 
-- **name** (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **url** (*Required*): The URL of your Rocket.Chat instance.
-- **username** (*Required*): The Rocket.Chat username.
-- **password** (*Required*): The Rocker.Chat password.
-- **room** (*Required*): The chat room name to send messages to.
+- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- `url` (*Required*): The URL of your Rocket.Chat instance.
+- `username` (*Required*): The Rocket.Chat username.
+- `password` (*Required*): The Rocker.Chat password.
+- `room` (*Required*): The chat room name to send messages to.
 
-### script.yaml example
+### Script example
 
 ```yaml
 rocketchat_notification:

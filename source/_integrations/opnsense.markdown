@@ -32,7 +32,7 @@ to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/ap
 
 {% configuration %}
 url:
-  description: The URL for the OPNsense api endpoint of your router.
+  description: The URL for the OPNsense API endpoint of your router.
   type: string
   required: true
 api_key:
@@ -44,7 +44,7 @@ api_secret:
   type: string
   required: true
 verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API's SSL.
+  description: Set to true to enable the validation of the OPNsense API SSL.
   type: boolean
   required: false
   default: false

@@ -53,11 +53,11 @@ This section enables you to organize entities to physical areas of your home.
 
 ### Automation
 
-This section enables you to create and modify automations from within Home Assistant, without needing to write out the yaml code.
+This section enables you to create and modify automations from within Home Assistant, without needing to write out the YAML code.
 
 ### Script
 
-Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the yaml code.
+Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
 
 ### Z-Wave
 

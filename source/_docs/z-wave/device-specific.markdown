@@ -457,7 +457,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg_\*.xml file with the below xml data. Stop Home Assistant and open your zwcfg_\*.xml file (located in your config folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below xml data. Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your Z-Wave network, you'll need to update your zwcfg_\*.xml file with the below xml data. Stop Home Assistant and open your zwcfg_\*.xml file (located in your config folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below xml data. Save the file and restart Home Assistant.  
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">

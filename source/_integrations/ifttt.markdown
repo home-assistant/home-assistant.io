@@ -100,7 +100,7 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 When your screen looks like this, click the 'call service' button.
 </p>
 
-By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
 want to send the trigger to a specific key use the `target` field:
 
 Field | Value

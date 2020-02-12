@@ -90,7 +90,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 ### Service `remote.turn_on`
 
-Start an activity. Will start the default `activity` from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from `configuration.yaml` if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

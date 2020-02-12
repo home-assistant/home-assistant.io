@@ -213,7 +213,7 @@ Update your firewall (if it is turned on the Synology device):
  - Click on OK again
 
 
-Copy your configuration.yaml file into the config folder
+Copy your `configuration.yaml` file into the config folder
 That's it... you're all set to go
 
 Here are some useful commands:

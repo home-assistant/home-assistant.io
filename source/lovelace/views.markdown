@@ -109,7 +109,7 @@ If you define an icon the title will be used as a tool-tip.
 
 ## Visible
 
-You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The url path is still accessible)
+You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The URL path is still accessible)
 
 #### Example
 

@@ -3,7 +3,7 @@ title: "Lovelace YAML mode"
 description: "Advanced users can switch on YAML mode for editing the Lovelace UI."
 ---
 
-It is possible to customize your Home Assistant interface by writing in YAML instead of via the UI. To do so, you configure the Lovelace integration to be in yaml mode by adding the following to your `configuration.yaml`:
+It is possible to customize your Home Assistant interface by writing in YAML instead of via the UI. To do so, you configure the Lovelace integration to be in YAML mode by adding the following to your `configuration.yaml`:
 
 ```yaml
 lovelace:

@@ -35,18 +35,18 @@ freebox:
 
 {% configuration %}
 host:
-  description: The url of the Freebox.
+  description: The URL of the Freebox.
   required: true
   type: string
 port:
-  description: The https port the Freebox is listening on.
+  description: The HTTPS port the Freebox is listening on.
   required: true
   type: string
 {% endconfiguration %}
 
 You can find out your Freebox host and port by opening the address <http://mafreebox.freebox.fr/api_version> in your browser. The
-returned json should contain an api_domain (`host`) and a https_port (`port`).
-Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
+returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
+Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
 <div class='note warning'>
   
