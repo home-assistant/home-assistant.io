@@ -577,12 +577,12 @@ data:
 
 ### Service `led`
 
-Set the led status.
+Set the LED status.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | Led state as string | [LED_STATE](#states) |
+| `state` | No | LED state as string | [LED_STATE](#states) |
 
 Example:
 

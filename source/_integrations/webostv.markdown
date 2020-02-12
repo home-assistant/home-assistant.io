@@ -133,7 +133,7 @@ To obtain complete list of available sources currently configured on the TV, onc
 
 ## Change channel through play_media service
 
-The `play_media` service can be used in a script to switch to the specified tv channel. It selects the best matching channel according to the `media_content_id` parameter:
+The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
  1. Channel number *(i.e. '1' or '6')*
  2. Exact channel name *(i.e. 'France 2' or 'CNN')*
