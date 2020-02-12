@@ -13,7 +13,7 @@ og_image: /images/blog/2020-02-android-16-17-release/garage.png
 
 Over the last week, we've released some awesome new features and improvements to Home Assistant Companion for Android. I wanted to take a moment to highlight some of the recent things that we introduced in 1.6 and 1.7.
 
-# Actionable notifications
+## Actionable notifications
 
 Now you can define action buttons to attach to a notification dynamically. When you click one of those buttons, an event is fired back to Home Assistant so you can take action based on the button chosen.
 
@@ -55,11 +55,11 @@ When you press that close garage button… your garage will close!
 
 We are planning to expand notifications over the next few versions to continue to match the existing functionality available in the iOS app. That includes things like sending text back to Home Assistant and critical alerts.
 
-# Requesting location updates via notification
+## Requesting location updates via notification
 
 You can now send a notification with just the message `request_location_update` and once it reachces your device it will update its current location in Home Assistant. Be careful using this too much though, as it can drain your battery.
 
-# Sensors
+## Sensors
 
 New in version 1.7, we have added the first sensors to the app. For now, you will find the following new sensors:
 
@@ -69,7 +69,7 @@ New in version 1.7, we have added the first sensors to the app. For now, you wil
 
 We plan to keep expanding sensors in the near future to add things like cellular status and more.
 
-# Docs
+## Docs
 
 Thanks to a few dedicated volunteers and a mad dash, [we have a newly refreshed docs website](https://companion.home-assistant.io/). It’s using the latest version of [Docusaurus](https://docusaurus.io/) which means it’s got a new coat of paint and even dark mode support. So much easier on the eyes!
 
@@ -77,6 +77,6 @@ In addition to the tooling updates, we’ve also begun documenting Android and i
 
 Over time we plan to bring Android and iOS as close together in terms of features and the ways they interact with Home Assistant so that, as much as possible, those that have users of both platforms have to do as little work.
 
-# Finale
+## Finale
 
 In addition to the highlights above, we’ve also killed an impressive amount of bugs. Thanks goes to [JBassett](https://github.com/JBassett), [KBerstene](https://github.com/KBerstene), [quthla](https://github.com/quthla) and [neopilou](https://github.com/neopilou) for their work on all of the above.
