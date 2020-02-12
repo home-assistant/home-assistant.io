@@ -137,7 +137,7 @@ hdmi_cec:
     hdmi_cec.hdmi_5: media_player
 ```
 
-And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run Home Assistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
 
 ```yaml
 hdmi_cec:

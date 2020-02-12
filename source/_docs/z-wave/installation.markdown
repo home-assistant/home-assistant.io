@@ -181,7 +181,7 @@ Or, if there is no result, try to find detailed USB connection info with:
 dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) you need to give access to the stick with:
 
 ```bash
 sudo usermod -aG dialout homeassistant

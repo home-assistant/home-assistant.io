@@ -13,6 +13,7 @@ sudo apt-get install python3-dev python3-pip
 ```
 
 Now that you installed python, there are two ways to install Home Assistant:
+
 1. It is recommended to install Home Assistant in a virtual environment to avoid using `root`, using the [VirtualEnv instructions](/docs/installation/virtualenv/)
 2. Alternatively, you can install Home Assistant for the user you created when first booting Armbian:
 
@@ -23,8 +24,6 @@ hass --open-ui
 
 Running these commands will:
 
- - Install Home Assistant
- - Launch Home Assistant and serve the web interface on `http://localhost:8123`
- - the configuration files will be created in /home/{user}/.homeassistant
- 
- 
+- Install Home Assistant
+- Launch Home Assistant and serve the web interface on `http://localhost:8123`
+- The configuration files will be created in `/home/{user}/.homeassistant`

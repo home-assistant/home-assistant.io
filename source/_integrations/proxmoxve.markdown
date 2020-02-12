@@ -139,6 +139,6 @@ To apply the user and role just created, we need to give it permissions
 * Click `Permissions`
 * Open `Add` and click `User Permission`
 * Select "\" for the path
-* Select your hass user ("hass")
-* Select the Home Assistant role ("home-assistant")
+* Select your Home Assistant user (`hass`)
+* Select the Home Assistant role (`home-assistant`)
 * Make sure `Propigate` is checked
