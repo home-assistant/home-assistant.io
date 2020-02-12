@@ -43,5 +43,5 @@ For analog sensors please check the [integration overview](/integrations/#sensor
 
 <p class='img'>
 <img src='/images/screenshots/binary_sensor_classes_icons.png' />
-Example of various device classes icons in `on` and `off` state.
+Example of various device classes icons in `on` and `off` state. The on image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
 </p>
