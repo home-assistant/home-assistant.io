@@ -11,11 +11,13 @@ categories: Release-Notes
 og_image: /images/blog/2020-02-android-16-17-release/garage.png
 ---
 
-Over the last week, we've released some awesome new features and improvements to Home Assistant Companion for Android. I wanted to take a moment to highlight some of the recent things that we introduced in 1.6 and 1.7:
+Over the last week, we've released some awesome new features and improvements to Home Assistant Companion for Android. I wanted to take a moment to highlight some of the recent things that we introduced in 1.6 and 1.7.
 
 # Actionable notifications
 
-Now you can define action buttons to attach to a notification dynamically. When you click one of those buttons, an event is fired back to Home Assistant so you can take action based on the button chosen. Here's an example to check with a user if they want to close the garage door after it has been left open for 30 minutes:
+Now you can define action buttons to attach to a notification dynamically. When you click one of those buttons, an event is fired back to Home Assistant so you can take action based on the button chosen.
+
+Here's an example to check with a user if they want to close the garage door after it has been left open for 30 minutes:
 
 ```yaml
 automation:
@@ -45,7 +47,7 @@ automation:
       entity_id: cover.garage_door
 ```
 
-After adding these automations, whenever your garage door opens, your device will get a notification that looks like this:
+After adding these automations, whenever your garage door remains open for 30 minutes, your device will get a notification that looks like this:
 
 ![A notification showing an open garage](/images/blog/2020-02-android-16-17-release/garage.png)
 
@@ -55,7 +57,7 @@ We are planning to expand notifications over the next few versions to continue t
 
 # Requesting location updates via notification
 
-You can now send a notification with just the message `request_location_update` and, assuming your device can be reached, it will update its current location to Home Assistant. Be careful using this too much though, as it can drain your battery.
+You can now send a notification with just the message `request_location_update` and once it reachces your device it will update its current location in Home Assistant. Be careful using this too much though, as it can drain your battery.
 
 # Sensors
 
@@ -65,7 +67,7 @@ New in version 1.7, we have added the first sensors to the app. For now, you wil
 - Battery state
 - Current WiFi network information
 
-We plan to keep expanding sensors in the near future to add things like if you’re charging or not, cellular status and more.
+We plan to keep expanding sensors in the near future to add things like cellular status and more.
 
 # Docs
 
