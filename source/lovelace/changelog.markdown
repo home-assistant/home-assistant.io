@@ -64,7 +64,7 @@ description: "Changelog of the Lovelace UI."
 - ❤️ Theming: New CSS switch style: `switch-unchecked-track-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
 - 📣 Upgrade MDI icons to 4.5.95 [#3977](https://github.com/home-assistant/home-assistant-polymer/pull/3977) @bonanitech
 - 📣 Display card errors in YAML instead of JSON [#4018](https://github.com/home-assistant/home-assistant-polymer/pull/4018) @iantrich
-- ⚠️ revert lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich
+- ⚠️ revert Lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich
 - 🔧 [alarm panel card]: Visual accessibility changes [#3991](https://github.com/home-assistant/home-assistant-polymer/pull/3991) @mr-awk
 - 🔧 [entities card]: Fix media row secondary info [#3957](https://github.com/home-assistant/home-assistant-polymer/pull/3957) @iantrich
 - 🔧 [light card]: Fix name wrapping [#3972](https://github.com/home-assistant/home-assistant-polymer/pull/3972) @shbatm

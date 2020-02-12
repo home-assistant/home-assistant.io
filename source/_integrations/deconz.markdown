@@ -313,9 +313,9 @@ class RemoteControl(hass.Hass):
 
 {% endraw %}
 
-#### Appdaemon Ikea Tradfri remote template
+#### Appdaemon IKEA Tradfri remote template
 
-Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
+Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
 {% raw %}
 
