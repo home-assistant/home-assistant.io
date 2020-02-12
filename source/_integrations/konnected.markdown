@@ -34,7 +34,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 Home Assistant offers Konnected integration through **Configuration** -> **Integrations** -> **Konnected.io**.
 
-The config flow will guide you through a setup process that lets you configure the behavior of each zone and generate a config entry. 
+The config flow will guide you through a setup process that lets you connect to the panel and generate a config entry.  You can then utilize the options flow to configure or modify the behavior of each zone. 
 
 If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the config will automatically be imported into a config entry or used to start a config flow.  Details of the config fields and values can be found below - these apply to both the config flow and the yaml.
 
@@ -177,7 +177,7 @@ devices:
 - **pin** represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`.  Pin based configuration is only allowed with esp8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 - **zone** represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
-- The Konnected Alarm Panel Pro does not support configuration via pin.
+- **The Konnected Alarm Panel Pro does not support configuration via pin.**
 
 ### Extended Configuration 
 
