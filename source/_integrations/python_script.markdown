@@ -46,7 +46,7 @@ name: you
 
 <div class='note'>
 
-Running this script show absolutly no output on the screen but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`
+Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
 </div>
 
