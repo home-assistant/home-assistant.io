@@ -33,6 +33,7 @@ automation:
       data:
         message: "The garage has been left open"
         data:
+          image: https://www.home-assistant.io/images/merchandise/shirt-frontpage.png
           actions:
             - action: "close_garage" # The key you are sending for the event
               title: "Close Garage Door" # The button title
