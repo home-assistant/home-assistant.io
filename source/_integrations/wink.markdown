@@ -130,7 +130,7 @@ You can use the service wink/refresh_state_from_wink to pull the most recent sta
 
 ## Service `pull_newly_added_devices_from_wink`
 
-You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
+You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home Assistant. Any new devices will also be added if Home Assistant is restarted.
 
 ## Service `delete_wink_device`
 

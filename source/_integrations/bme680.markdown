@@ -195,7 +195,7 @@ $ sudo raspi-config
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-Install dependencies to use the `smbus-cffi` module and add your _homeassistant_ user to the _i2c_ group:
+Install dependencies to use the `smbus-cffi` module and add your `homeassistant` user to the _i2c_ group:
 
 ```bash
 # pi user environment: Install I2C dependencies and utilities

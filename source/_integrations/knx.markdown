@@ -113,7 +113,7 @@ fire_event_filter:
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean

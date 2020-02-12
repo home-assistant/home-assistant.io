@@ -3,6 +3,23 @@
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]
+    },
+    "terminology": {
+      "defaultTerms": false,
+      "skip": ["Blockquote"],
+      "terms": [
+        "Abode",
+        "Home Assistant Companion",
+        "Home Assistant Core",
+        "Home Assistant Supervised",
+        "Home Assistant Supervisor",
+        "Home Assistant Operating System",
+        "Home Assistant OS",
+        "Home Assistant",
+        ["hass", "Home Assistant"],
+        ["Home-?Ass?s?iss?tt?ant", "Home Assistant"],
+        [" HA ", "Home Assistant"]
+      ]
     }
   }
 }

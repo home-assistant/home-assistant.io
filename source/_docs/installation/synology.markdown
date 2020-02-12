@@ -23,28 +23,26 @@ The main benefit from this method is that you can assign Home Assistant its own 
 
 Option 2 is described below.
 
-
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
 
 Running these commands will:
 
- - Install Home Assistant
- - Enable Home Assistant to be launched on `http://localhost:8123`
+- Install Home Assistant
+- Enable Home Assistant to be launched on `http://localhost:8123`
 
 Using the Synology webadmin:
 
- - Install python3 using the Synology Package Center
- - Create homeassistant user and add to the "users" group
+- Install python3 using the Synology Package Center
+- Create a `homeassistant` user and add to the "users" group
 
 SSH onto your synology & login as admin or root
 
- - Log in with your own administrator account
- - Switch to root using:
+- Log in with your own administrator account
+- Switch to root using:
 
 ```bash
 $ sudo -i
 ```
-
 
 Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
@@ -58,13 +56,13 @@ Install PIP (Python's package management system)
 # ./python3 -m ensurepip
 ```
 
-Use PIP to install Homeassistant package 0.64.3
+Use PIP to install the Home Assistant package 0.64.3
 
 ```bash
 # ./python3 -m pip install homeassistant==0.64.3
 ```
 
-Create homeassistant config directory & switch to it
+Create a Home Assistant config directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
@@ -72,6 +70,7 @@ Create homeassistant config directory & switch to it
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```
+
 Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station".
 
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)

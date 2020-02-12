@@ -198,7 +198,7 @@ duckdns:
 
 The access token is available on your DuckDNS page. Restart Home Assistant after the change.
 
-What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
+What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Home Assistant will update DuckDNS every time it changes.
 
 Now type your new URL in to your address bar on your browser with port 8123 on the end:
 
