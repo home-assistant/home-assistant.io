@@ -12,7 +12,7 @@ ha_codeowners:
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
-### Configuration
+## Configuration
 
 Integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway by adding the following to your `configuration.yaml` file:
 
@@ -96,7 +96,7 @@ Not all features of MySensors 2.x are supported by Home Assistant yet. As more f
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
 ```bash
-$ ls /dev/ttyACM*
+ls /dev/ttyACM*
 ```
 
 If you are using the MQTT gateway, you also need to have the [MQTT component](/integrations/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
@@ -249,7 +249,8 @@ Message validation was introduced in version 0.52 of Home Assistant.
 
 ### Debug logging
 
-If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our github issue tracker.
+If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our GitHub issue tracker.
+
 ```yaml
 logger:
   default: info
@@ -257,7 +258,6 @@ logger:
     homeassistant.components.mysensors: debug
     mysensors: debug
 ```
-
 
 Visit the [library API][MySensors library api] of MySensors for more information.
 

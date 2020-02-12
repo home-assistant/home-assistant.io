@@ -18,7 +18,7 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 - Support Xiaomi Mijia Bluetooth Wireless Temperature and Humidity Sensor ([@ratcashdev] - [#13955]) ([sensor.mitemp_bt docs]) (new-platform)
 - Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
@@ -145,7 +145,7 @@ rainmachine:
 - Fix Hue color state for missing xy ([@amelchio] - [#14230]) ([light.hue docs])
 - Add support for tracking devices on Netgear access points ([@MatMaul] - [#13331]) ([device_tracker docs])
 - WUnderground unique ids ([@OttoWinter] - [#13311]) ([sensor.wunderground docs])
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - python_openzwave update config service ([@perosb] - [#12060]) ([zwave docs])
 - Add unique_id to zwave node entity ([@andrey-git] - [#14201]) ([zwave docs])
 - Add prereqs for HomeKit Controller ([@marthoc] - [#14172])
@@ -453,7 +453,6 @@ rainmachine:
 [sensor.mitemp_bt docs]: /integrations/mitemp_bt
 [sensor.mqtt docs]: /integrations/sensor.mqtt/
 [sensor.pollen docs]: /integrations/iqvia
-[sensor.postnl docs]: /integrations/postnl
 [sensor.qnap docs]: /integrations/qnap
 [sensor.socialblade docs]: /integrations/socialblade
 [sensor.sql docs]: /integrations/sql

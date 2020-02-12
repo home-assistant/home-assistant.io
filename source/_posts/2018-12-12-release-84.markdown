@@ -11,7 +11,7 @@ og_image: /images/blog/2018-12-release-84/components.png
 
 <a href='/integrations/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
 
-Time for the last release of the year. We were hoping to end the year with an enourmous bang and make Lovelace the default UI. However, in our final stretch we realized that to get to the experience that we wanted, we had to make more last minute changes than we felt comfortable making. If you are a Lovelace tester, please read the section for existing testers below.
+Time for the last release of the year. We were hoping to end the year with an enormous bang and make Lovelace the default UI. However, in our final stretch we realized that to get to the experience that we wanted, we had to make more last minute changes than we felt comfortable making. If you are a Lovelace tester, please read the section for existing testers below.
 
 We want to wish everybody happy holidays and want to thank all our contributors to the code, the documentation and all the ones in the chat for making up our amazing community. We had a great year with a lot of accomplishments and are looking forward to see all the great stuff you all come up with in 2019. Cheers! 🥂
 

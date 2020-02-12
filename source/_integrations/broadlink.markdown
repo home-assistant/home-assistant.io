@@ -116,6 +116,10 @@ script:
 
 In the above example, two codes will be captured for the power command, and will be sent alternately each time the command is called.
 
+#### Learned codes storage location
+
+The learned commands are stored in folder `\configuration\.storage` in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. From here, you can copy the codes for use in e.g., a Broadlink switch. Warning: files in the .storage folder should never be edited manually, so just view the file.
+
 ### Send command
 
 Use the `remote.send_command` service to send commands.
@@ -362,7 +366,7 @@ slots:
 
 Information about how to install on Windows can be found [here](/integrations/broadlink#sensor#microsoft-windows-installation).
 
-### How to obtain IR/RF packets?
+### How to obtain IR/RF packets
 
 Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
@@ -524,7 +528,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    - Download and install Python 2.7 on your windows PC.
    - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
    - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
-   - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
+   - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) GitHub files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
 3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
 
@@ -570,12 +574,12 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 3. Hit "Learn New Command" and follow instructions on screen.
 4. The "OnRawData Base64" is the value to be used with Home Assistant.
 
-
 ### Using Node-RED to obtain codes
 
 1. Install the Broadlink Control palette in Node-RED (click the Hamburger menu at top right corner> Settings> Palette> Install and type Broadlink. Click install on the node-red-contrib-broadlink-control.
 2. Once installed, verify that the new palette titled broadlink is available in the nodes menu.
 3. Drag the RM node to an empty flow and double click to configure the node.
+
    ```bash
    a. give your RM device a name for easy identification
    b. click on the pencil to edit the device information
@@ -583,29 +587,36 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    d. enter the IP address of the Broadlink RM PRO or RM mini
    e. leave the Catalog field empty.
    ```
+
 4. Click Update, and the device field should show the MAC address of the newly added device. If not, just select it.
 5. In the Action field, select Learn, then click Done.
 6. Drag an Inject node to the left of the RM node and link them. The type of inject doesn't matter. Leave it to the defaults.
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
+
    ```bash
    Property: msg.payload
    Format: Mustache template
    Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
    Output as: Plain text
    ```
+
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.
 11. A message will show in the debug window:
+
     ```bash
     3/23/2019, 9:56:53 AMnode: RM_Mini1
     msg : string[47]
     "Please tap the remote button within 30 seconds."
     ```
+
 12. Point the IR remote control at the RM device and click the desired button for about 2 seconds. An array of numbers will show in the debug window. For example:
+
     ```bash
     '38,0,132,3,19,18,19,18,19,18,19,17,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,20,17,19,18,19,18,19,18,19,17,20,17,20,54,20,17,20,54,19,55,19,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,18,19,55,19,17,20,17,20,17,20,17,20,17,19,18,19,55,19,18,19,54,20,54,20,54,19,55,19,54,20,54,20,0,6,5,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,19,55,19,54,20,0,6,6,149,147,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,55,19,54,20,54,20,17,20,17,20,17,19,18,19,18,19,18,19,54,20,17,20,17,20,17,20,17,19,18,19,18,19,54,20,17,20,54,20,54,20,54,19,...'
     ```
+
 This is the code we need to transmit again to replicate the same remote function.
 
 ### Using Node red to Transmit Codes
@@ -614,6 +625,7 @@ This is the code we need to transmit again to replicate the same remote function
 2. In the Action field, select - Set from msg.payload -.
 3. Drag an Inject node and give it a meaningful name relevant to the remote control button function, like "TV On" or "TV Source".
 4. Drag a template node and double click it to configure:
+
    ```bash
    Property: msg.payload
    Format: Mustache template
@@ -624,13 +636,16 @@ This is the code we need to transmit again to replicate the same remote function
    }'
    In the Output as field, "select Parsed JSON".
    ```
+
 5. Click Done.
 6. Drag a debug node and connect it to the output of the RM node.
 7. Connect the Inject node to the Template node, and the template node to the RM node.
 8. Click Deploy to activate the flow, and then click the inject button. The debug window should show a debug message. For example:
+
    ```bash
    {"action":"send","data":   [38,0,152,0,0,1,39,148,19,18,18,19,18,55,19,18,18,19,18,19,18,19,18,55,18,56,18,19,18,55,18,19,18,56,18,18,19,55,18,19,18,19,18,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,55,19,18,18,19,18,19,18,19,18,18,18,19,18,19,18,55,19,55,18,19,18,19,18,18,19,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,19,18,18,19,18,18,56,18,55,18,19,18,19,18,19,18,18,19,55,18,19,18,55,19,18,18,56,18,19,18,18,19,18,18,19,18,19,18,19,18,18,18,56,18,0,13,5],"status":"OK"}
    ```
+
 The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
 
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
@@ -641,12 +656,12 @@ It is also possible to obtain codes using `broadlink_cli` from [python-broadlink
 First use discovery to find your Broadlink device:
 
 ```bash
-./broadlink_discovery 
+$ ./broadlink_discovery
 Discovering...
 ###########################################
 RM2
 # broadlink_cli --type 0x2737 --host 192.168.1.137 --mac 36668342f7c8
-Device file data (to be used with --device @filename in broadlink_cli) : 
+Device file data (to be used with --device @filename in broadlink_cli) :
 0x2737 192.168.1.137 36668342nnnn
 temperature = 0.0
 ```
@@ -671,7 +686,7 @@ For old/awkward devices another possibility is to try to get codes by using data
 
 Assuming that your (or similar) device is in one of these databases:
 
-- https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/
-- https://github.com/probonopd/irdb/tree/master/
+- <https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/>
+- <https://github.com/probonopd/irdb/tree/master/>
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.

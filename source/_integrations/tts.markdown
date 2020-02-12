@@ -141,9 +141,9 @@ data_template:
 
 The integration has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
-## REST Api
+## REST API
 
-### POST /api/tts_get_url
+### POST `/api/tts_get_url`
 
 Returns an URL to the generated TTS file. Platform and message are required.
 

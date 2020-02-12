@@ -31,57 +31,71 @@ To enable a Template Alarm Control Panel in your installation, add the following
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: template
-    name: Safe Alarm Panel
-    value_template: "{{ states('alarm_control_panel.real_alarm') }}"
-    arm_away:
-      service: alarm_control_panel.alarm_arm_away
-      data:
-        entity_id: alarm_control_panel.real_alarm
-        code: !secret alarm_code
-    arm_home:
-      service: alarm_control_panel.alarm_arm_home
-      data:
-        entity_id: alarm_control_panel.real_alarm
-        code: !secret alarm_code
-    disarm:
-      - condition: state
-        entity_id: device_tracker.paulus
-        state: 'home'
-      - service: alarm_control_panel.alarm_arm_home
-        data:
-          entity_id: alarm_control_panel.real_alarm
-          code: !secret alarm_code
+    panels:
+      safe_alarm_panel:
+        value_template: "{{ states('alarm_control_panel.real_alarm') }}"
+        arm_away:
+          service: alarm_control_panel.alarm_arm_away
+          data:
+            entity_id: alarm_control_panel.real_alarm
+            code: !secret alarm_code
+        arm_home:
+          service: alarm_control_panel.alarm_arm_home
+          data:
+            entity_id: alarm_control_panel.real_alarm
+            code: !secret alarm_code
+        disarm:
+          - condition: state
+            entity_id: device_tracker.paulus
+            state: 'home'
+          - service: alarm_control_panel.alarm_arm_home
+            data:
+              entity_id: alarm_control_panel.real_alarm
+              code: !secret alarm_code
 ```
 
 {% endraw %}
 
 {% configuration %}
-  name:
-    description: Name to use in the frontend.
-    required: false
-    type: string
-    default: Template Alarm Control Panel
-  value_template:
-    description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `triggered` and `unavailable` are used."
-    required: false
-    type: template
-  disarm:
-    description: Defines an action to run when the alarm is disarmed.
-    required: false
-    type: action
-  arm_away:
-    description: Defines an action to run when the alarm is armed to away mode.
-    required: false
-    type: action
-  arm_home:
-    description: Defines an action to run when the alarm is armed to home mode.
-    required: false
-    type: action
-  arm_night:
-    description: Defines an action to run when the alarm is armed to night mode.
-    required: false
-    type: action
+panels:
+  description: List of your panels.
+  required: true
+  type: map
+  keys:
+    alarm_control_panel_name:
+      description: The slug of the panel.
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name to use in the frontend.
+          required: false
+          type: string
+          default: Template Alarm Control Panel
+        value_template:
+          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `triggered` and `unavailable` are used."
+          required: false
+          type: template
+        disarm:
+          description: Defines an action to run when the alarm is disarmed.
+          required: false
+          type: action
+        arm_away:
+          description: Defines an action to run when the alarm is armed to away mode.
+          required: false
+          type: action
+        arm_home:
+          description: Defines an action to run when the alarm is armed to home mode.
+          required: false
+          type: action
+        arm_night:
+          description: Defines an action to run when the alarm is armed to night mode.
+          required: false
+          type: action
 {% endconfiguration %}
+
+
+
 
 ## Considerations
 

@@ -87,8 +87,7 @@ filter = ha
 logpath = /home/homeassistant/.homeassistant/home-assistant.log
 
 # 3600 seconds = 1 hour
-bantime = 3600
-bantime = 30 # during testing it is useful to have a short ban interval, comment out this line later
+bantime = 30 # during testing it is useful to have a short ban interval, change this to 3600 later
 
 # Maximum amount of login attempts before IP is blocked
 maxretry = 3

@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - [**Light**](/integrations/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them (does not work with Abode's CUE automations).
+- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` and `Water Valve` devices which can be used to turn the devices on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them (does not currently work with Abode's CUE automations).
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## Configuration

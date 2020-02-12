@@ -11,6 +11,12 @@ ha_codeowners:
   - '@dcramer'
 ---
 
+<div class='note warning'>
+  
+  The free Sentry account allows 5000 events per month. Depending on the amount of events sent to Sentry you will either have to upgrade your Sentry account or have a period without data flowing from Home Assistant to Sentry.
+  
+</div>
+
 The `sentry` integration integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.
 
 ## Configuration
@@ -33,3 +39,13 @@ environment:
   required: false
   type: string
 {% endconfiguration %}
+
+### Getting the DSN
+
+Follow these steps to get the DSN:
+
+- Go to **Projects**.
+- Click **Create project**.
+- Fill out **Give your project a name** and **choose Assign a Team** fields and click Create project button.
+- Click **Get your DSN** link in top of the page.
+- Your DSN is now visible and looks like <https://sdasdasdasdsadsadas@sentry.io/sdsdfsdf>

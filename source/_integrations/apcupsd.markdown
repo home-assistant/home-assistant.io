@@ -10,7 +10,7 @@ ha_release: 0.13
 ha_iot_class: Local Polling
 ---
 
-[APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) is enabled on the APC device.
+[APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -19,9 +19,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Hass.io Installation
 
-Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on. 
+Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on.
 
-After installation, follow the instructions on the Github page to configure the plugin. Then continue to follow the integration configurations below.
+After installation, follow the instructions on the GitHub page to configure the plugin. Then continue to follow the integration configurations below.
 
 ## Configuration
 
@@ -97,7 +97,7 @@ resources:
   type: list
 {% endconfiguration %}
 
-### Example 
+### Example
 
 Given the following output from `apcaccess`:
 

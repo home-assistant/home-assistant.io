@@ -21,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - Lights
 - Motion sensors (including temperature and light level sensors)
 
-Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the States developer tool ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue bridge in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
+The hub can be set up by navigating to the Configuration tab in the sidebar and selecting Integrations. You will see "Philips Hue" in the discovered section. Click configure and you will be presented with the initiation dialog. This will prompt you to press the Hue button on your bridge to register the hub in Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP address of the bridge. If the IP address for the bridge changes, you will need to register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your Hue bridge so that it always has the same IP address.
 
@@ -46,10 +46,6 @@ allow_unreachable:
   required: false
   type: boolean
   default: false
-filename:
-  description: Make this unique if specifying multiple Hue bridges.
-  required: false
-  type: string
 allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
@@ -70,18 +66,14 @@ hue:
 
 ### Multiple Hue bridges
 
-Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up. If you prefer to configure them manually and use multiple Hue bridges, then you need to provide a configuration file for every bridge. The bridges can't share a single configuration file.
-
-Add `filename` to your Hue configuration entry in your `configuration.yaml` file:
+Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up.
 
 ```yaml
 # Example configuration.yaml entry
 hue:
   bridges:
     - host: BRIDGE1_IP_ADDRESS
-      filename: phue.conf
     - host: BRIDGE2_IP_ADDRESS
-      filename: phue2.conf
 ```
 
 ### Using Hue Groups in Home Assistant
@@ -135,12 +127,12 @@ script:
           scene_name: "Porch Orange"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `group_name` | no | The group/room name of the lights. Find this in the official Hue app.
-| `scene_name` | no | The name of the scene. Find this in the official Hue app.
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `group_name`           | no       | The group/room name of the lights. Find this in the official Hue app. |
+| `scene_name`           | no       | The name of the scene. Find this in the official Hue app.             |
 
-*Note*: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
+_Note_: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
 
 ### Finding Group and Scene Names
 

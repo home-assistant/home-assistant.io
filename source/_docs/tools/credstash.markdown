@@ -14,8 +14,8 @@ $ hass --script credstash --help
 To store a password in credstash, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
 
 ```yaml
-http:
-  api_password: !secret http_password
+example:
+  password: !secret example_password
 ```
 
 Create an entry in your credstash store.

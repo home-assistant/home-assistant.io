@@ -95,7 +95,7 @@ And you can set up the device tracker as
 ```yaml
 - platform: nmap_tracker
   hosts: 192.168.1.1-25
-  scan_options: " --privileged -sP "
+  scan_options: " --privileged -sn "
 ```
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

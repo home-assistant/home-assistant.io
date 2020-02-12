@@ -30,7 +30,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 </div>
 
-### Configuration
+## Configuration
 
 Home Assistant offers Konnected integration through **Configuration** -> **Integrations** -> **Konnected.io**.
 
@@ -150,7 +150,7 @@ devices:
         repeat:
           description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
           required: false
-    host: 
+    host:
       type: string
       required: false
       description: Optionally specify the Konnected device's IP address or hostname to set up without discovery.
@@ -171,7 +171,7 @@ devices:
 
 {% endconfiguration%}
 
-#### Configuration Notes
+### Configuration Notes
 
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
 - **pin** represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`.  Pin based configuration is only allowed with esp8266 based devices.
@@ -179,7 +179,7 @@ devices:
 - **zone** represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
 - **The Konnected Alarm Panel Pro does not support configuration via pin.**
 
-### Extended Configuration 
+## Extended Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -230,10 +230,9 @@ konnected:
         - pin: 6
           name: Kitchen
           type: dht
-          
 ```
 
-### Unique IDs and the Entity Registry
+## Unique IDs and the Entity Registry
 
 Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
 
@@ -249,60 +248,60 @@ Unique IDs are internally generated as follows:
 
 \* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
 
-### Pin Mapping
+## Pin Mapping
 
-Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit WiFi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
+Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit Wi-Fi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
 
-| Konnected Alarm Panel Zone  | NodeMCU pin  | IO Index  | ESP8266 GPIO |
-|---|---|---|---|
-| 1 | D1  | 1  | GPIO5  |
-| 2 | D2  | 2  | GPIO4  |
-| 3 | D5  | 5  | GPIO14 |
-| 4 | D6  | 6  | GPIO12 |
-| 5 | D7  | 7  | GPIO13 |
-| 6 | RX  | 9  | GPIO3  |
-| ALARM or OUT | D8 | 8 | GPIO15 |
+| Konnected Alarm Panel Zone | NodeMCU pin | IO Index | ESP8266 GPIO |
+| -------------------------- | ----------- | -------- | ------------ |
+| 1                          | D1          | 1        | GPIO5        |
+| 2                          | D2          | 2        | GPIO4        |
+| 3                          | D5          | 5        | GPIO14       |
+| 4                          | D6          | 6        | GPIO12       |
+| 5                          | D7          | 7        | GPIO13       |
+| 6                          | RX          | 9        | GPIO3        |
+| ALARM or OUT               | D8          | 8        | GPIO15       |
 
-### Revision History
+## Revision History
 
-#### 0.91
+### 0.91
 
 - Improved Unique ID generation for Konnected switches
 
-#### 0.90
+### 0.90
 
 - Added support for `dht` and `ds18b20` temperature sensors
 - Added Unique IDs
 
-#### 0.80
+### 0.80
 
 - Added ability to specify `host` and `port` to set up devices without relying on discovery.
-- Added `discovery` and `blink` config options to enable/disable these features.
+- Added `discovery` and `blink` configuration options to enable/disable these features.
 
-#### 0.79
+### 0.79
 
 - Added `inverse` configuration option for binary sensors.
 
-#### 0.77
+### 0.77
 
 - Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
 - Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
 - **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
 
-#### 0.72
+### 0.72
 
 - Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
 
-#### 0.70
+### 0.70
 
 - Initial release
 
-### Binary Sensor
+## Binary Sensor
 
-The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
 This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
 
-### Switch
+## Switch
 
-The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
