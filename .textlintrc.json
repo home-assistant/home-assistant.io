@@ -1,0 +1,8 @@
+{
+  "filters": {},
+  "rules": {
+    "common-misspellings": {
+      "ignore": ["Proove", "Alot"]
+    }
+  }
+}
