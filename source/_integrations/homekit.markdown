@@ -437,7 +437,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 #### Pairing hangs - no error
 
 1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
-2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
+2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### Duplicate AID found when attempting to add accessory
 

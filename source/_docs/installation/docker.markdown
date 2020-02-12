@@ -30,7 +30,7 @@ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/p
 
 When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
-If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
+If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the Docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
@@ -42,7 +42,7 @@ Alternatively, `docker-compose` works with any recent release of `docker-ce` on 
 
 Docker containers are completely isolated from its Windows host system. So when you delete a container, all the changes you made to that container are also removed. If you want to have configuration files or other assets remain persistent, try mounting Windows folders on containers.
 
-Before proceeding, make sure you have shared out a drive for docker to mount to. This will allow the saving of config files to persist on the local machine rather than in the docker container (which may be destroyed when upgraded).
+Before proceeding, make sure you have shared out a drive for Docker to mount to. This will allow the saving of config files to persist on the local machine rather than in the Docker container (which may be destroyed when upgraded).
 
 <https://docs.docker.com/docker-for-windows/#shared-drives>
 <https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
@@ -64,11 +64,11 @@ netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 ```
 
-This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
+This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
 
 ### Synology NAS
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
 
 The steps would be:
 
@@ -131,13 +131,13 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
 
 ### QNAP NAS
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
+As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
 
 The steps would be:
 
 - Install "Container Station" package on your Qnap NAS
 - Launch Container Station and move to "Create Container"-section
-- Search image "homeassistant/home-assistant" with Docker hub and click on "Install"
+- Search image "homeassistant/home-assistant" with Docker Hub and click on "Install"
   Make attention to CPU architecture of your NAS. For ARM CPU types the correct image is "homeassistant/armhf-homeassistant"
 - Choose "latest" version and click next
 - Choose a container-name you want (e.g., "homeassistant")
@@ -156,7 +156,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 #### Z-Wave
 
 - Connect to your NAS over SSH
-- Load cdc-acm kernel module(when nas restart need to run this command)
+- Load cdc-acm kernel module(when NAS restart need to run this command)
   `insmod /usr/local/modules/cdc-acm.ko`
 - Find USB devices attached. Type command:
   `ls /dev/tty*`
@@ -202,7 +202,7 @@ If you change the configuration you have to restart the server. To do that you h
 
 ## Docker Compose
 
-As the docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
+As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
 ```yaml
   version: '3'
@@ -232,7 +232,7 @@ docker-compose restart
 
 ## Exposing Devices
 
-In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your Docker command:
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \

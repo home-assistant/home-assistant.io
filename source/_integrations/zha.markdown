@@ -161,7 +161,7 @@ sudo apt-get purge modemmanager
 
 ### Can't connect to USB device and using Docker
 
-If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose.
+If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using Docker compose.
 
 #### Docker Compose
 

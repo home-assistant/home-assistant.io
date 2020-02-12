@@ -98,7 +98,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
+You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) Docker image or just refer to your `iperf3` command's man page.
 
 The frequency when the test will be automatically triggered can be adjusted by setting the value `scan_interval` in seconds.
 

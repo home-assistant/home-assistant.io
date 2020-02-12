@@ -57,7 +57,7 @@ In addition to the [APCUPSd Sensor](#sensor) devices, you may also create a devi
 
 ### Configuration
 
-To enable this sensor, you first have to set up apcupsd integration (above), and add the following lines to your `configuration.yaml` file:
+To enable this sensor, you first have to set up APCUPSd integration (above), and add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -79,7 +79,7 @@ name:
 
 ### Configuration
 
-To use this sensor platform, you first have to set up apcupsd integration (above), and add the following to your `configuration.yaml` file:
+To use this sensor platform, you first have to set up APCUPSd integration (above), and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

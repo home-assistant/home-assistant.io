@@ -11,7 +11,7 @@ This platform allows you to detect presence by looking at connected devices to a
 
 Supported devices (tested):
 
-- ARUBA AP-105
+- Aruba AP-105
 
 <div class='note warning'>
 This device tracker needs telnet to be enabled on the router.

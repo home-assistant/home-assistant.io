@@ -35,9 +35,9 @@ sensor:
 
 ## Default naming scheme
 
-The names of the sensors created by this integration will use the feed names defined in EmonCMS if available,
-or the feed ID otherwise, and will be prefixed with "EmonCMS", e.g., "EmonCMS Total Power" or "EmonCMS Feed 5".
-If the `id` property is anything but `1`, the ID will be shown as well, e.g., "EmonCMS 2 Feed 5".
+The names of the sensors created by this integration will use the feed names defined in Emoncms if available,
+or the feed ID otherwise, and will be prefixed with "Emoncms", e.g., "Emoncms Total Power" or "Emoncms Feed 5".
+If the `id` property is anything but `1`, the ID will be shown as well, e.g., "Emoncms 2 Feed 5".
 
 If `sensor_names` is used, any feeds with defined names will get those names exactly, with no prefix.
 

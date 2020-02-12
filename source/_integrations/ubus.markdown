@@ -7,9 +7,9 @@ ha_category:
 ha_release: 0.7.6
 ---
 
-_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/integrations/openwrt)._
+_This is one of multiple ways we support OpenWrt. For an overview, see [OpenWrt](/integrations/openwrt)._
 
-This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
+This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
 Before this scanner can be used you have to install the ubus RPC package on OpenWRT:
 
@@ -17,7 +17,7 @@ Before this scanner can be used you have to install the ubus RPC package on Open
 opkg install rpcd-mod-file
 ```
 
-For OpenWRT version 18.06.x the package uhttpd-mod-ubus should also be installed:
+For OpenWrt version 18.06.x the package uhttpd-mod-ubus should also be installed:
 
 ```bash
 opkg install uhttpd-mod-ubus
