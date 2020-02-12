@@ -44,7 +44,7 @@ api_key:
 
 ## Service `add_tracking`
 
- You can use the service `aftership.add_tracking` to add trackings to Aftership.
+ You can use the service `aftership.add_tracking` to add trackings to AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
@@ -54,7 +54,7 @@ api_key:
 
 ## Service `remove_tracking`
 
- You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
+ You can use the service `aftership.remove_tracking` to remove trackings from AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |

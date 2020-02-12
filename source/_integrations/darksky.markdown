@@ -176,7 +176,7 @@ scan_interval:
 
 #### Language options
 
-All language options are described in this table that you can use for the dark sky sensor.
+All language options are described in this table that you can use for the Dark Sky sensor.
 
 |Language|Variable Code|
 |---|---|

@@ -70,9 +70,9 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
 
-  - USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
-  - Radio type - select device type **ezsp**, **deconz** or **xbee**
-  - Submit
+- USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
+- Radio type - select device type `ezsp`, `deconz` or `xbee`
+- Submit
 
 The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
 

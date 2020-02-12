@@ -1,5 +1,5 @@
 ---
-title: Ecobee
+title: ecobee
 description: Instructions for how to integrate ecobee thermostats and sensors within Home Assistant.
 logo: ecobee.png
 ha_category:
@@ -76,7 +76,7 @@ api_key:
 
 The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
 
-The PIN can be found in the Home Assistant portal on the Ecobee card or from the **configurator.ecobee** entity in the States developer tool.
+The PIN can be found in the Home Assistant portal on the ecobee card or from the `configurator.ecobee` entity in the States developer tool.
 
 - If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this, you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
 
