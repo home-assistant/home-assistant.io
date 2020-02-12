@@ -70,7 +70,7 @@ zone_names:
 
 ### Supported operations
 
-- Media players created by yamaha support powering on/off, mute,
+- Media players created by Yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source

@@ -444,7 +444,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Philips Hue LightStrip Plus
 - Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
-- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM
+- Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
 
 ## Scene
 

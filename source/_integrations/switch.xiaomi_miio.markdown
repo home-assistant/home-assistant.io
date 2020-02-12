@@ -90,7 +90,7 @@ model:
 
 ### Service `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
 
-Turn the wifi led on.
+Turn the wifi LED on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
@@ -98,7 +98,7 @@ Turn the wifi led on.
 
 ### Service `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
 
-Turn the wifi led off.
+Turn the wifi LED off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
