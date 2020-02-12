@@ -81,3 +81,7 @@ Over time we plan to bring Android and iOS as close together in terms of feature
 ## Finale
 
 In addition to the highlights above, we’ve also killed an impressive amount of bugs. Thanks goes to [JBassett](https://github.com/JBassett), [KBerstene](https://github.com/KBerstene), [quthla](https://github.com/quthla) and [neopilou](https://github.com/neopilou) for their work on all of the above.
+
+Enjoy the new release! Don't forget to leave a rating if you like the app, it will help other users find the app.
+
+<a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_gb/badges/static/images/badges/en_badge_web_generic.png" width="155" style='border: 0;box-shadow: none;'></a>
