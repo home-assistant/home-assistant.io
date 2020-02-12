@@ -36,6 +36,7 @@ automation:
           actions:
             - action: "close_garage" # The key you are sending for the event
               title: "Close Garage Door" # The button title
+
   - alias: Close the garage when notification action is tapped
     trigger:
       platform: event
