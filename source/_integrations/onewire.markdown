@@ -109,13 +109,13 @@ sensor:
 
 Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. For each device that this platform handles (see list of supported devices above) the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. 
 
-```sensor.28.FF5C68521604_temperature```
+`sensor.28.FF5C68521604_temperature`
 
 Each sensor will present its value in the state variable and for presentation purposes rounded to one decimal for analog values and as integers for counts.
 
 Each sensor also exposes some additional attirbutes.
 
-```
+```alpha
 device_file: /28.FF5C68521604/temperature              << Device path in owfs file system (or on Rpi system directory)
 raw_value: 31.9375                                     << The raw measurement numbers as red from device. Not rounded.
 unit_of_measurement: °C                              
