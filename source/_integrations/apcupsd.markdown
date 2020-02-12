@@ -10,7 +10,7 @@ ha_release: 0.13
 ha_iot_class: Local Polling
 ---
 
-[APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
+[Apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,12 +34,12 @@ apcupsd:
 
 {% configuration %}
 host:
-  description: The hostname/IP address on which the APCUPSd NIS is being served.
+  description: The hostname/IP address on which the apcupsd NIS is being served.
   required: false
   type: string
   default: localhost
 port:
-  description: The port on which the APCUPSd NIS is listening.
+  description: The port on which the apcupsd NIS is listening.
   required: false
   type: integer
   default: 3551
@@ -47,13 +47,13 @@ port:
 
 <div class='note'>
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [APCUPSd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [Apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
 
  </div>
 
 ## Binary sensor
 
-In addition to the [APCUPSd Sensor](#sensor) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
+In addition to the [Apcupsd Sensor](#sensor) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
 
 ### Configuration
 

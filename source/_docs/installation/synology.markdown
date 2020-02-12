@@ -35,7 +35,7 @@ Using the Synology webadmin:
 - Install python3 using the Synology Package Center
 - Create a `homeassistant` user and add to the "users" group
 
-SSH onto your synology & login as admin or root
+SSH onto your Synology & login as admin or root
 
 - Log in with your own administrator account
 - Switch to root using:

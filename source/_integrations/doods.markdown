@@ -11,7 +11,7 @@ The `doods` image processing platform allows you to detect and recognize objects
 
 ## Setup
 
-You need to have DOODS running somewhere. It's easiest to run as a docker container and deployment is described on docker hub 
+You need to have DOODS running somewhere. It's easiest to run as a Docker container and deployment is described on Docker Hub
 [DOODS - Docker](https://hub.docker.com/r/snowzach/doods)
 
 ## Configuration

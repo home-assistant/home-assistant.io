@@ -141,7 +141,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
   Be sure to install the official Docker-CE from the above-listed URL.
   
-  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by Docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
 </div>
 
