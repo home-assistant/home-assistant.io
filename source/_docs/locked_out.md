@@ -43,12 +43,12 @@ If you’re using a pi, you're likely going to have to pull the power in order t
 Once you're connected you'll see a running dmesg log. Hit the enter key to interrupt the log.
 Sign in as "root". There is no password.
 
-You will then be at the Hassio CLI where you can run the Home Assistant custom commands. These are the same you would run using the ssh addon but without using "ha" in front. For example:
+You will then be at the Home ASsistant CLI where you can run the custom commands. These are the same you would run using the ssh addon but without using "ha" in front. For example:
 
-* `core logs` for homeassistant core log
+* `core logs` for Home Assistant Core log
 * `supervisor logs` for supervisor logs 
 * `host reboot` to reboot the host
-* `dns logs` for checking dns
+* `dns logs` for checking DNS
 * etc (typing `help` will show more)
 
 ## Accessing Files from the SD/HDD
@@ -56,9 +56,9 @@ You will then be at the Hassio CLI where you can run the Home Assistant custom c
 ### Remove the SD and access the files from another computer
 
 The files are on an EXT4 partition (hassos-data) and the path is /mnt/data/supervisor.
-These are easily accessed using another linux machine with EXT support.
+These are easily accessed using another Linux machine with EXT support.
 
-For Windows or OS X you will need third party software. Below are some options.
+For Windows or macOS you will need third party software. Below are some options.
 
 * Windows: https://www.diskinternals.com/linux-reader/ (read only access to the SD)
 * Mac:  https://osxfuse.github.io/
