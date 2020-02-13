@@ -11,11 +11,11 @@ The location of the folder differs between operating systems:
 
 | OS             | Path                       |
 | -------------- | -------------------------- |
+| Home Assistant | `/config`                  |
+| Docker         | `/config`                  |
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
 | Windows        | `%APPDATA%/.homeassistant` |
-| Home Assistant | `/config`                  |
-| Docker         | `/config`                  |
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
