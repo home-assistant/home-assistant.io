@@ -88,7 +88,7 @@ To find your system Python path:
   whereis python3.5.3
   ```
 
-  The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
+  The output which has the directory `/bin/` is likely your system Python path which should look like this `/usr/bin/python3.5`
 
 - If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root/top directory of your environment and run:
 

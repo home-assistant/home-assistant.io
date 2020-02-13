@@ -26,7 +26,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
-* **Save Configuration** Saves the current cache of the network to zwcfg_[home_id].xml
+* **Save Configuration** Saves the current cache of the network to `zwcfg_[home_id].xml`.
 
 ## Z-Wave Node Management
 

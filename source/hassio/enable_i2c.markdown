@@ -37,7 +37,7 @@ Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
 
 ### Step 3 - Load the new USB configuration
 
-- Insert the USB drive into your Raspberry PI.
+- Insert the USB drive into your Raspberry Pi.
 - Now go to your Home Assistant web interface, in the sidebar click **Hass.io** > **System**.
 - Now click `Import from USB`.
 - This will restart your Hass.io instance, and load the new USB configuration.

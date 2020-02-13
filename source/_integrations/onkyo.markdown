@@ -88,7 +88,7 @@ If your source is not listed above, and you want to figure out how to format tha
 onkyo --host 192.168.0.100 source=query
 ```
 
-To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
+To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
 ```bash

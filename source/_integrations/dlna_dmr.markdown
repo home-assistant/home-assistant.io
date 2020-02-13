@@ -25,7 +25,7 @@ media_player:
 
 {% configuration %}
 url:
-  description: The URL to the device description .xml file, e.g., `http://192.168.0.10:9197/description.xml`.
+  description: The URL to the device description XML file, e.g., `http://192.168.0.10:9197/description.xml`.
   required: true
   type: string
 listen_ip:

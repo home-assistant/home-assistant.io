@@ -63,7 +63,7 @@ sensor:
     xshut: 16
 ```
 
-Several devices may be attached and a GPIO port from RPI is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
+Several devices may be attached and a GPIO port from Raspberry Pi is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
 
 ## Directions for installing i2c on Raspberry Pi
 
