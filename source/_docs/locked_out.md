@@ -1,0 +1,62 @@
+# I'm locked out!
+
+The sections below deal with recovering from a situation where you are not able to sign in,
+or need to recover your data.
+
+
+## Forgot Password
+
+### Home Assistant Core users:
+
+While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
+  * auth
+  * auth_provider.homeassistant
+  * onboarding
+  * hassio
+  * cloud
+
+### Home Assistant Supervised users:
+
+If you’ve forgotten your user, then the deleting the files mentioned above will be necessary to start a new onboarding process.
+
+If you know the user, but not the password and you can access the [Home Assistant Console](https://www.home-assistant.io/hassio/commandline/) and use the command below:
+Connect a keyboard and monitor to your device.
+`ha auth reset --username <existing_user> --password <new_password>`
+
+
+## Recovering Data for Home Assistant Supervised users:
+
+Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further. 
+There are a few routes:
+
+* Connect a usb keyboard and hdmi monitor directly to the pi
+
+* Remove the SD and access the files from another machine (preferably one running Linux)
+
+## Connect directly
+
+If you’re using a pi, you're likely going to have to pull the power in order to get your monitor recognized at boot. Pulling power has a risk of corrupting the SD, but you may not have another option. Most standard USB keyboards should be recognized easily.
+
+Once you're connected you'll see a running dmesg log. Hit the enter key to interrupt the log.
+Sign in as "root". There is no password.
+
+You will then be at the Hassio CLI where you can run the Home Assistant custom commands. These are the same you would run using the ssh addon but without using "ha" in front. For example:
+
+* `core logs` for homeassistant core log
+* `supervisor logs` for supervisor logs 
+* `host reboot` to reboot the host
+* `dns logs` for checking dns
+* etc (typing `help` will show more)
+
+
+##Accessing Files from the SD/HDD
+
+### Remove the SD and access the files from another computer
+
+The files are on an EXT4 partition (hassos-data) and the path is /mnt/data/supervisor.
+These are easily accessed using another linux machine with EXT support.
+
+For Windows or OS X you will need third party software. Below are some options.
+
+* Windows: https://www.diskinternals.com/linux-reader/ (read only access to the SD)
+* Mac:  https://osxfuse.github.io/
