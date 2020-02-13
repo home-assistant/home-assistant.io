@@ -157,7 +157,7 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 
 Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
 
-### ZHA Start up issue with Home Assistant Docker/Hass.io installs on Linux hosts
+### ZHA Start up issue with Home Assistant Supervised or Home Assistant Core on Docker
 
 On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 

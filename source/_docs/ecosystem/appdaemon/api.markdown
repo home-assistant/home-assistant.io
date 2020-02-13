@@ -364,7 +364,7 @@ There are 3 types of callbacks within AppDaemon:
 
 - State Callbacks - react to a change in state
 - Scheduler Callbacks - react to a specific time or interval
-- Event Callbacks - react to specific Home Assistant and Appdaemon events.
+- Event Callbacks - react to specific Home Assistant and AppDaemon events.
 
 All callbacks allow the user to specify additional parameters to be handed to the callback via the standard Python `**kwargs` mechanism for greater flexibility.
 
@@ -1712,7 +1712,7 @@ if self.noone_home():
 
 ### time()
 
-Returns a python `time` object representing the current time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
+Returns a Python `time` object representing the current time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -1736,7 +1736,7 @@ now = self.time()
 
 ### date()
 
-Returns a python `date` object representing the current date. Use this in preference to the standard Python ways to discover the current date, especially when using the "Time Travel" feature for testing.
+Returns a Python `date` object representing the current date. Use this in preference to the standard Python ways to discover the current date, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -1760,7 +1760,7 @@ today = self.date()
 
 ### datetime()
 
-Returns a python `datetime` object representing the current date and time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
+Returns a Python `datetime` object representing the current date and time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -2130,4 +2130,4 @@ $ appdaemon -s "2016-06-06 19:16:00" -s "2016-06-06 20:16:00" -t 0
 
 ### A Note on Times
 
-Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.
+Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard Python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.

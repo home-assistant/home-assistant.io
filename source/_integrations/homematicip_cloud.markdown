@@ -121,7 +121,7 @@ Within this delay the device registration should be completed in the App, otherw
     * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
     * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
     * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
-    * Floor Heating Actuator – 12x channels, motorised (*HMIP-FALMOT-C12*)
+    * Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
 
 * homematicip_cloud.cover
   * Shutter actuator for brand-mount (*HmIP-BROLL*)

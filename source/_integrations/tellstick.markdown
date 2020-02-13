@@ -33,7 +33,7 @@ To get started, add the devices to your `configuration.yaml` file.
 tellstick:
 ```
 
-For Hass.io users there is a [TellStick add-on](/addons/tellstick/) available.
+There is a [TellStick add-on](/addons/tellstick/) available in the Home Assistant add-on store.
 
 ```yaml
 # Example configuration.yaml entry for Hass.io with the TellStick add-on
@@ -49,7 +49,7 @@ signal_repetitions:
   type: integer
   default: 1
 host:
-  description: If you run TellStick on another server or with the Hass.io add-on.
+  description: If you run TellStick on another server or with the Home Assistant add-on.
   required: inclusive
   type: string
 port:

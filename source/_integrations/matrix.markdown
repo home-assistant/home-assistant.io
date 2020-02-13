@@ -65,7 +65,7 @@ commands:
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
       required: false
       type: string
     name:

@@ -25,14 +25,14 @@ Before beginning make sure that you have the following:
 - A functional Asterisk PBX setup which is using the default `voicemail` application.
 - Both Home Assistant and Asterisk PBX running on the same LAN (or the same server).
 - The Asterisk PBX server has Python 3.5 or newer installed.
-- Administrator access on the Asterisk PBX (for python module installation).
+- Administrator access on the Asterisk PBX (for Python module installation).
 - Account access to the `asterisk` user that runs the Asterisk PBX software.
 
 ### Installation
 
 1. Apply for a Google API key to enable speech-transcription services
 
-2. Install the `asterisk_mbox_server` python module:
+2. Install the `asterisk_mbox_server` Python module:
 
    ```bash
    pip3 install asterisk_mbox_server

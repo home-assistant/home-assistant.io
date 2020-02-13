@@ -12,7 +12,7 @@ ha_iot_class: Local Push
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
-The remote RPi and the control computer where Home Assistant is running must be prepared to run remote_rpi_gpio, see details [here](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html).
+The remote Raspberry Pi and the control computer where Home Assistant is running must be prepared to run remote_rpi_gpio, see details [here](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html).
 
 Note that for virtual environments you may need to set an environment variable when starting the environment to set the pin factory, example:
 

@@ -495,7 +495,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 4. Install Requirements
 
-    Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+    Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
 
 5. Get the data from the device
 
@@ -526,15 +526,15 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 2. Install Requirements
 
    - Download and install Python 2.7 on your windows PC.
-   - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+   - Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
    - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
    - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) GitHub files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
-3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
+3. Plug your iPhone into your Windows PC, open iTunes and create a non-encrypted backup of your device.
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
-5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g. C:\Python27. Now run the command python getBroadlinkSharedData.py, you should see something like this:
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
     ```bash
     C:\Python27>python getBroadlinkSharedData.py

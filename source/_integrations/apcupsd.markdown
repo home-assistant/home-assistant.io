@@ -17,9 +17,9 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## Hass.io Installation
+## Home Assistant add-on installation
 
-Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on.
+Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Home Assistant. Keep in mind that we can't give you support for this add-on.
 
 After installation, follow the instructions on the GitHub page to configure the plugin. Then continue to follow the integration configurations below.
 
@@ -47,7 +47,7 @@ port:
 
 <div class='note'>
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [Apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [Apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
 
  </div>
 
