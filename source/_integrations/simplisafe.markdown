@@ -92,3 +92,60 @@ For any property denoting a volume, the following values should be used:
 | `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+
+## Events
+
+Automations can listen for `SIMPLISAFE_EVENT` events. Anytime one of these events is
+received, it will come with event data that contains the following keys:
+
+* `changed_by`: the PIN that triggered the event (if appropriate)
+* `event_type`: the type of event
+* `info`: a human-friendly string describing the event in more detail
+* `sensor_name`: the sensor that triggered the event (if appropriate)
+* `sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
+* `sensor_type`: the type of sensor that triggered the event (if appropriate)
+* `system_id`: the system ID to which the event belongs
+* `timestamp`: the UTC datetime at which the event was received
+
+For example, when the system is armed by "remote" means (via the web app, etc.), a
+`SIMPLISAFE_EVENT` event will fire with the following event data:
+
+```python
+{
+    "changed_by": "",
+    "event_type": "armed_home",
+    "info": "System Armed (Home) by Remote Management",
+    "sensor_name": "",
+    "sensor_serial": "",
+    "sensor_type": "remote",
+    "system_id": 123456,
+    "timestamp": datetime.datetime(2020, 2, 13, 23, 1, 13, tzinfo=<UTC>),
+}
+```
+
+`event_type`, being one of the key fields automations might be built from, can have the
+following values:
+
+* `alarm_canceled`
+* `alarm_triggered`
+* `armed_away`
+* `armed_away_by_keypad`
+* `armed_away_by_remote`
+* `armed_home`
+* `automatic_test`
+* `away_exit_delay_by_keypad`
+* `away_exit_delay_by_remote`
+* `camera_motion_detected`
+* `connection_lost`
+* `connection_restored`
+* `disarmed_by_master_pin`
+* `disarmed_by_remote`
+* `doorbell_detected`
+* `entry_detected`
+* `home_exit_delay`
+* `lock_error`
+* `lock_locked`
+* `lock_unlocked`
+* `motion_detected`
+* `sensor_not_responding`
+* `sensor_restored`
