@@ -17,6 +17,10 @@ To add a LG TV to your installation, add the following to your `configuration.ya
 media_player:
   - platform: lg_netcast
     host: 192.168.0.20
+    turn_on_action:
+      service: switch.turn_on
+      data:
+        entity_id: switch.tv_switch
 ```
 
 {% configuration %}
@@ -32,6 +36,10 @@ name:
   description: The name you would like to give to the LG Smart TV.
   required: false
   default: LG TV Remote
+  type: string
+turn_on_action:
+  description: Defines an [action](/docs/automation/action/) to turn the TV on.
+  required: false
   type: string
 {% endconfiguration %}
 
