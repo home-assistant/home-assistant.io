@@ -38,7 +38,7 @@ The `juicenet` sensor platform allows you to get data from your [JuiceNet](https
 
 ### Added sensors
 
-These sensors will be added for each juicenet device in your account:
+These sensors will be added for each JuiceNet device in your account:
 
 - Status
 - Temperature (inside the device)

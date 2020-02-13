@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators

@@ -37,7 +37,7 @@ ffmpeg_bin:
 {% endconfiguration %}
 
 ### Raspbian Debian Jessie Lite Installations
-To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
+To get the binary on Raspbian Debian Jessie Lite on a Raspberry Pi you need to perform the following:
 
 ```bash
 sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list

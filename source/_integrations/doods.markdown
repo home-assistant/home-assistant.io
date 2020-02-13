@@ -16,7 +16,7 @@ You need to have DOODS running somewhere. It's easiest to run as a Docker contai
 
 ## Configuration
 
-The configuration loosely follows the tensorflow configuration. To enable this platform in your installation, add the following to your `configuration.yaml` file:
+The configuration loosely follows the TensorFlow configuration. To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

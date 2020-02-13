@@ -180,7 +180,7 @@ esac
 
 ```
 
-Create links to python folders to make things easier in the future:
+Create links to Python folders to make things easier in the future:
 
 ```bash
 # ln -s /volume1/@appstore/py3k/usr/local/bin/python3 python3

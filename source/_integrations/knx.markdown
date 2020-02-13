@@ -138,7 +138,7 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### Exposing sensor values or time to knx bus
+### Exposing sensor values or time to KNX bus
 
 KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 

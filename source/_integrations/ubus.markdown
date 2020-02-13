@@ -104,7 +104,7 @@ logger:
 ```bash
 $ tail -f home-assistant.log  | grep device_tracker
 ```
-4. If you see a python stack trace like the following, check your configuration for correct username/password.
+4. If you see a Python stack trace like the following, check your configuration for correct username/password.
 ```txt
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker from homeassistant.components.device_tracker
 17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker.ubus from homeassistant.components.device_tracker.ubus

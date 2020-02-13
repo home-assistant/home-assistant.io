@@ -17,13 +17,13 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 
 There is currently support for the following device types within Home Assistant:
 
-- Climate - for every tado zone.
+- Climate - for every Tado zone.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 
 ## Configuration
 
-To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:
+To use your Tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +48,7 @@ fallback:
   default: true
 {% endconfiguration %}
 
-The tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
+The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is not supported.
 

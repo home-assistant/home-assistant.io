@@ -230,9 +230,9 @@ automation:
 
 {% endraw %}
 
-### Appdaemon
+### AppDaemon
 
-#### Appdaemon event helper
+#### AppDaemon event helper
 
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
@@ -277,7 +277,7 @@ class DeconzHelper(hass.Hass):
 
 Note: the event will not be visible before one event gets sent.
 
-#### Appdaemon remote template
+#### AppDaemon remote template
 
 {% raw %}
 
@@ -313,7 +313,7 @@ class RemoteControl(hass.Hass):
 
 {% endraw %}
 
-#### Appdaemon IKEA Tradfri remote template
+#### AppDaemon IKEA Tradfri remote template
 
 Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
