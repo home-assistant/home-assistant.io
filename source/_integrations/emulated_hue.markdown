@@ -152,11 +152,11 @@ Verify that the URLs above are using port 80, rather than port 8300 (i.e. `http:
 
 ### Platform specific instructions
 
-#### Hass.io and Docker
+#### Home Assistant and Home Assistant Core on Docker
 
 No further actions are required
 
-#### Python venv
+#### Home Assistant Core in a Python venv
 
 An additional step is required to run Home Assistant as a non-root user and use port 80. 
 

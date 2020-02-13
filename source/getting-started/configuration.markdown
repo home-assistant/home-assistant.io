@@ -7,11 +7,11 @@ The onboarding process takes care of the initial setup for Home Assistant, such 
 
 <div class='note'>
 
-The steps below only apply if you've installed Home Assistant via Hass.io. If you've used another installation method, [see here](/docs/configuration/).
+The steps below do not apply to Home Assistant Core installations, for those types of installations, [see here](/docs/configuration/).
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Supervisor. On the new page, open the add-on store tab.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/main_panel_addon_store.png' />
@@ -53,15 +53,15 @@ Screenshot of the "General" page in the configuration panel.
 </p>
 
 <div class='note'>
- 
-  If you have watched any videos about setting up Home Assistant using configuration.yaml (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
+
+  If you have watched any videos about setting up Home Assistant using `configuration.yaml` (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
 
 </div>
 
 ### Editing configuration via Samba/Windows Networking
 
-Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Hass.io add-on store. This will make your configuration accessible via the network tab on your computer.
+Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Home Assistant add-on store. This will make your configuration accessible via the network tab on your computer.
 
-Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on START. Hass.io should now be available in the networking tab on your computer.
+Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on START. Home Assistant should now be available in the networking tab on your computer.
 
 We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Configuration Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).

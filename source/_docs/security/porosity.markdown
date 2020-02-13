@@ -1,15 +1,15 @@
 ---
-title: "Home Assistant/Hass.io porosity"
+title: "Home Assistant/Home Assistant Core porosity"
 description: "Use nmap to scan your Home Assistant instance."
 ---
 
-As a large amount of users are running [Hass.io](/hassio/), here we are using a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview.
+As a large amount of users are running [Home Assistant](/hassio/), here we are using a Raspberry Pi 3 B on version 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview.
 
 The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to perform the port scans. Both systems are in the same network.
 
 ## SSH server Add-on
 
-To get access to Hass.io in secure way, SSH is provided by the [SSH server add-on](/addons/ssh/).
+To get access to Home Assistant in secure way, SSH is provided by the [SSH server add-on](/addons/ssh/).
 
 ```bash
 $ sudo nmap -A -n --reason -Pn -T5 -p1-65535 192.168.0.215
@@ -99,7 +99,7 @@ To secure MQTT to consider to use certificates and to specify users with passwor
 
 The [Samba add-on](/addons/samba/) enables one to use a Windows system to access the configuration and other shares. Per default there is no user set. To increase your local security we strongly suggest that you set a username and a password and don't allow guests. A sample configuration could look like the one below.
 
-A port scan for Hass.io with this add-on will give you the details.
+A port scan for Home Assistant with this add-on will give you the details.
 
 ```bash
 $ sudo nmap -A -n --reason -Pn -T5 -p1-65535 192.168.0.215

@@ -91,7 +91,7 @@ camera:
     content_type: 'image/svg+xml'
 ```
 
-### Local image with Hass.io
+### Local image
 
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 

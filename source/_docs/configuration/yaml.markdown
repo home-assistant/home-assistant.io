@@ -66,7 +66,9 @@ sensor:
 
 ### Environmental variables
 
-You can include values from your system's environment variables with `!env_var`. Note that this will only work in a scenario where it is possible to specify these. Hass.io users are recommended to use `!include` statements instead.
+On Home Assistant Core installtions, you can include values from your system's environment variables with `!env_var`.
+Note that this will only work for Home Assistant Core installations, in a scenario where it is possible to specify these.
+Regular Home Assistant users are recommended to use `!include` statements instead.
 
 ```yaml
 example:

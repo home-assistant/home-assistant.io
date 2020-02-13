@@ -39,14 +39,14 @@ The `ps4` integration allows you to control a
 The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
 
 <div class='note warning'>
-  Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
+  Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
 </div>
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
 <div class='note'>
 
-If your Home Assistant device is running **Hass.io** on **HassOS**, it does not require additional configuration.
+Additional configuration is only required for Home Assistant Core users **not** running on Docker.
 
 </div>
 

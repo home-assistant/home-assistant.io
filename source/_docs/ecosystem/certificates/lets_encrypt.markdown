@@ -5,7 +5,8 @@ description: "A guide to remotely accessing Home Assistant and securing the conn
 
 <div class='note'>
 
-If you are using Hass.io do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io.
+This guide is for users running Home Assistant Core.
+If you are using Home Assistant do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Home Assistant.
 
 </div>
 
