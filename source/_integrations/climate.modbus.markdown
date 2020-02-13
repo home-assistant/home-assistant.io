@@ -65,11 +65,12 @@ count:
   description: Number of registers to read.
   required: false
   type: integer
+  default: 2
 precision:
   description: Number of valid decimals.
   required: false
   type: integer
-  default: 0
+  default: 1
 scale:
   description: Scale factor (output = scale * value + offset).
   required: false
@@ -89,12 +90,12 @@ min_temp:
   description: Maximum setpoint temperature.
   required: false
   type: integer
-  default: 5 
+  default: 5
 temp_step:
   description: The supported step size a target temperature can be increased/decreased.
   required: false
   type: float
-  default: 0.5 
+  default: 0.5
 temperature_unit:
   description: Temperature unit reported by the current_temp_register. C or F
   required: false
