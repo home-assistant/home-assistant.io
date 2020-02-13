@@ -17,10 +17,6 @@ To add a LG TV to your installation, add the following to your `configuration.ya
 media_player:
   - platform: lg_netcast
     host: IP_ADDRESS
-    turn_on_action:
-      service: switch.turn_on
-      data:
-        entity_id: switch.tv_switch
 ```
 
 {% configuration %}
