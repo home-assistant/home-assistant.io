@@ -249,7 +249,6 @@
         ["behaviour", "behavior"],
         ["two ?steps? authentication", "two-step authentication"],
         ["URL['’]?s", "URLs"],
-        ["walk[- ]through", "walkthrough"],
         ["ZWave", "Z-Wave"]
       ]
     }
