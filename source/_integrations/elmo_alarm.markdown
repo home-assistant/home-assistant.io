@@ -35,13 +35,13 @@ elmo_alarm:
   scan_interval:
     seconds: 5
   states:
-    - name: 'arm_home'
+    - name: 'armed_home'
       zones: [1]
-    - name: 'arm_away'
+    - name: 'armed_away'
       zones: [1, 2, 3, 4]
-    - name: 'arm_night'
-      zones: [1, 2, 4]
-    - name: 'arm_custom_bypass'
+    - name: 'armed_night'
+      zones: [1, 4]
+    - name: 'armed_custom_bypass'
       zones: [3]
 ```
 
