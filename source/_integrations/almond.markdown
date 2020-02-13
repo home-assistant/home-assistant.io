@@ -26,7 +26,7 @@ Almond consists of three parts:
 
 ### Hass.io installation
 
-To install Almond Server on Hass.io, go to Hass.io App Store, search for Almond and click on Install. Once started, it will initiate a config flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
+To install Almond Server on Hass.io, go to Hass.io App Store, search for Almond and click on Install. Once started, it will initiate a configuration flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
 
 ### Manual installation
 
@@ -43,7 +43,7 @@ almond:
   host: http://127.0.0.1:3000
 ```
 
-The Almond integration does not update config entries yet. If you make a change to configuration.yaml, you will need to remove the config entry and then restart Home Assistant.
+The Almond integration does not update configuration entries yet. If you make a change to configuration.yaml, you will need to remove the configuration entry and then restart Home Assistant.
 
 ### Almond Web
 

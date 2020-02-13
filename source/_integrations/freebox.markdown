@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 * [Sensor](#sensor) with traffic metrics
 * [Device tracker](#presence-detection) for connected devices
-* [Switch](#switch) to control WiFi
+* [Switch](#switch) to control Wi-Fi
 
 ## Configuration
 
@@ -64,7 +64,7 @@ The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
-To make the WiFi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
+To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
 " permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
@@ -104,4 +104,4 @@ This service will reboot your Freebox router. It does not take any parameter. Be
 
 ## Switch
 
-This platform offers you a switch to toggle the Wifi on or off. This will toggle all WiFi interfaces of the router (all SSID and all bands).
+This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).

@@ -12,7 +12,7 @@ There are two possible message schemas - `legacy` and `state`.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
 
-This documentation has 3 sections. Config for `legacy` vacuum with examples, config for `state` vacuum with examples and shared section with examples which are the same for both schemas.
+This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
 ## Configuration
 
@@ -525,5 +525,5 @@ This integration is supported by the cloud-free Xiaomi Vacuum Webinterface [Vale
 
 ### Retrofitting non-wifi vacuums
 
-- Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
-- If you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.
+- Retrofitting your old Roomba with an ESP8266. [This repository](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
+- If you own a non-wifi Neato, you can refer to [this repository](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.

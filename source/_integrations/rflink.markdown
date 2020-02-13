@@ -154,7 +154,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### Debug Logging
 
-For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following config snippet:
+For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following configuration snippet:
 
 ```yaml
 logger:

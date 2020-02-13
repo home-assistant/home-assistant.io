@@ -20,7 +20,7 @@ After configuring this component, the binary sensors automatically appear.
 You should have at least one VM or container entry configured, else this integration won't do anything.
 </div>
 
-To use the `proxmoxve` component, add the following config to your `configuration.yaml` file:
+To use the `proxmoxve` component, add the following configuration to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,7 +120,7 @@ Before creating the user, we need to create a permissions role for the user.
 
 ### Create Home Assistant User
 
-Creating a dedicated user for Home Assistant, limited to only the role just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your config.
+Creating a dedicated user for Home Assistant, limited to only the role just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
 
 * Click `Datacenter`
 * Open `Permissions` and click `Users`

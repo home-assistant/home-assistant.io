@@ -124,7 +124,7 @@ With the `turn_on_action` and `turn_off_action` parameters you can run any combi
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
 media_player:

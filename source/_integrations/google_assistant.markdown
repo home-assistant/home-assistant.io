@@ -66,7 +66,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
         2. Copy and share the link with the new user.
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
-2. If you want to support actively reporting of state to Google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
+2. If you want to support actively reporting of state to Google's server (configuration option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
     1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
     2. From the Service account list, select New service account.
     3. In the Service account name field, enter a name.

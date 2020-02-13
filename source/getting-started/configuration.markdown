@@ -44,7 +44,7 @@ Now let's make a change using the configurator: we are going to change the name,
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on "Server Controls" and click on the "CHECK CONFIG" button. When it's valid, it will show the text "Configuration valid!". In order for the "CHECK CONFIG" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by clicking on Configuration in the sidebar, click on "Server Controls" and click on the "CHECK configuration" button. When it's valid, it will show the text "Configuration valid!". In order for the "CHECK configuration" button to be visible, you must enable "Advanced Mode" on your user profile.
  - Now Restart Home Assistant using the "RESTART" button in the Server management section on the same page.
 
 <p class='img'>
@@ -58,10 +58,10 @@ Screenshot of the "General" page in the configuration panel.
 
 </div>
 
-### Editing config via Samba/Windows Networking
+### Editing configuration via Samba/Windows Networking
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Hass.io add-on store. This will make your configuration accessible via the network tab on your computer.
 
 Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on START. Hass.io should now be available in the networking tab on your computer.
 
-We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Config Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).
+We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Configuration Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).

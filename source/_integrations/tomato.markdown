@@ -7,7 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ---
 
-The `tomato` platform requires an extra config variable called `http_id`. The
+The `tomato` platform requires an extra configuration variable called `http_id`. The
 value can be obtained by logging in to the Tomato admin interface and search for
 `http_id` in the page source code.
 

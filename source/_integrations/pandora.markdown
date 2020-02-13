@@ -26,7 +26,7 @@ And now install the backported FFmpeg-related libraries (note that if you're usi
 sudo apt-get -t jessie-backports install libav-tools libavcodec-extra libavcodec-dev libavfilter-dev libavformat-dev
 ```
 
-Now clone the Pianobar repo and build pianobar:
+Now clone the Pianobar repository and build pianobar:
 
 ```bash
 git clone https://github.com/PromyLOPh/pianobar.git

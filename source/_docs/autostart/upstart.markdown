@@ -128,4 +128,4 @@ sudo service hass-daemon stop
 
 When running Home Assistant with this script, the configuration directory will be located at `/var/opt/homeassistant`. This directory will contain a verbose log rather than simply an error log.
 
-When running daemons, it is good practice to have the daemon run under its own user name rather than the default user's name. Instructions for setting this up are outside the scope of this document.
+When running daemons, it is good practice to have the daemon run under its own username rather than the default user's name. Instructions for setting this up are outside the scope of this document.

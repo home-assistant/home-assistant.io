@@ -86,7 +86,7 @@ Forward ports 443 and (optionally) 80 to your server on your router.
 Do not forward port 8123, HAProxy takes care of securing the connection with HTTPS on 443.
 If 8123 is forwarded then it will not be secured.
 
-Replace 443 with whatever port you chose to bind to in the config if different.
+Replace 443 with whatever port you chose to bind to in the configuration if different.
 
 ### Configure Home Assistant HTTP Component
 

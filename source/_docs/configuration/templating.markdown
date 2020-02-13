@@ -186,7 +186,7 @@ Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of
 
 ### To/From JSON
 
-The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
+The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
