@@ -96,7 +96,7 @@ sensor:
 
 ## Examples
 
-To setup a lacrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
+To setup a LaCrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml

@@ -105,25 +105,25 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## First Run
 
-On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+On platforms other than Home Assistant and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## Platform specific instructions
 
-### Hass.io
+### Home Assistant
 
 You do not need to install any software to use Z-Wave.
 
 If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
-You can also check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
+You can also check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
 ```bash
-hassio hardware info
+ha hardware info
 ```
 
-If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
+If you did an alternative install of Home Assistant on Linux (e.g. installing Ubuntu, then Docker, then Home Assistant Supervised) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 
@@ -149,7 +149,7 @@ The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and 
 
 On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
-#### Linux
+#### Linux with Home Assistant Core
 
 On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
@@ -181,7 +181,7 @@ Or, if there is no result, try to find detailed USB connection info with:
 dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) you need to give access to the stick with:
 
 ```bash
 sudo usermod -aG dialout homeassistant

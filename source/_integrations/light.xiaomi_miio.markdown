@@ -98,7 +98,7 @@ Supported models: `philips.light.moonlight`
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
-To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
+To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entries

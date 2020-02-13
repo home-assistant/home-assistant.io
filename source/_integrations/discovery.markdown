@@ -22,10 +22,10 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech media server (Squeezebox)](/integrations/squeezebox)
- * [Netgear routers](/integrations/netgear)
+ * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Plex media server](/integrations/plex#media-player)
+ * [Plex Media Server](/integrations/plex#media-player)
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
@@ -81,12 +81,12 @@ Valid values for ignore are:
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
- * `netgear_router`: Netgear routers
+ * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex media server
+ * `plex_mediaserver`: Plex Media Server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer

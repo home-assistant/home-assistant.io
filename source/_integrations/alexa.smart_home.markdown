@@ -47,7 +47,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
@@ -109,7 +109,7 @@ Next you need create a Lambda function.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
-- Click `Create function`, then you can config detail of Lambda function.
+- Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
 - Click your Lambda function icon in the middle of the diagram, scroll down you will see a `Function code` window.

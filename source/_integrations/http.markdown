@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-Don't use option `server_host` on a Hass.io installation!
+The option option `server_host` should only be used on a Home Assistant Core installation!
 
 </div>
 

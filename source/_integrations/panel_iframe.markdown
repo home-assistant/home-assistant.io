@@ -32,7 +32,6 @@ panel_iframe:
     url: '/otherapp'
 ```
 
-
 {% configuration %}
 panel_iframe:
   description: Enables the panel_iframe component. Only allowed once.
@@ -65,6 +64,6 @@ panel_iframe:
 
 <div class='note warning'>
 
-Do **not** create one that is named `lovelace` it will overwrite lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite Lovelace causing it to never load.
 
 </div>

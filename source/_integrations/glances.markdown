@@ -24,7 +24,7 @@ $ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XML-RPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
 
 The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
 

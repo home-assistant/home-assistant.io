@@ -66,7 +66,7 @@ As of 0.94 `known_devices.yaml` is being phased out and no longer used by all tr
 
 </div>
 
-Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
+Once `device_tracker` is enabled, a file will be created in your configuration dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
 Here's an example configuration for a single device:
 
@@ -88,7 +88,7 @@ In the example above, `devicename` refers to the detected name of the device.  F
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device.                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP.     |
-| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create.                                     |
+| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your `configuration.yaml` file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create.                                     |
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |

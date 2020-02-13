@@ -20,7 +20,7 @@ The *entity* is an individual integration of the node. It may be a sensor that y
 
 ## Z-Wave, Plus, Security 2
 
-There have been 2 extensions to the Z-Wave protocol. Using these requires that your controller supports these extensions, but devices are backwards compatible.
+There have been 2 extensions to the Z-Wave protocol. Using these requires that your controller supports these extensions, but devices are backward compatible.
 
 ### Z-Wave Plus
 

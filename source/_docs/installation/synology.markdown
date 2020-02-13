@@ -11,40 +11,38 @@ Synology only provide Python 3.5.1, which is not compatible with Home Assistant 
 </div>
 
 There are 3 alternatives, when using Home Assistant on Synology NAS:
-1. using Docker
-2. directly running on DSM
-3. using Hass.io in a VM (if you have an Intel based Synology)
+1. Using Home Assistant Core on Docker
+2. Directly running Home Assistant Core on DSM
+3. Using the Home Assistant a VM (if you have an Intel based Synology)
 
 Option 1 is described on the [Docker installation page](/docs/installation/docker/).
 
-Option 3 uses the Synology Based Virtual Machine Manager. You can import the VDI image to be found at the [Hass.io installation page](/hassio/installation/). Download the image and add it to the image store. The go to "Virtual Machine" in the interface and create a new VM with the image you just added.
+Option 3 uses the Synology Based Virtual Machine Manager. You can import the VDI image to be found at the [Home Assistant installation page](/hassio/installation/). Download the image and add it to the image store. The go to "Virtual Machine" in the interface and create a new VM with the image you just added.
 
 The main benefit from this method is that you can assign Home Assistant its own IP number, so there is no risk regarding TCP/UDP port conflicts. USB dongles an be connected to the VM without the need to install a driver in DSM.
 
 Option 2 is described below.
 
-
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
 
 Running these commands will:
 
- - Install Home Assistant
- - Enable Home Assistant to be launched on `http://localhost:8123`
+- Install Home Assistant
+- Enable Home Assistant to be launched on `http://localhost:8123`
 
 Using the Synology webadmin:
 
- - Install python3 using the Synology Package Center
- - Create homeassistant user and add to the "users" group
+- Install python3 using the Synology Package Center
+- Create a `homeassistant` user and add to the "users" group
 
-SSH onto your synology & login as admin or root
+SSH onto your Synology & login as admin or root
 
- - Log in with your own administrator account
- - Switch to root using:
+- Log in with your own administrator account
+- Switch to root using:
 
 ```bash
 $ sudo -i
 ```
-
 
 Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
@@ -58,13 +56,13 @@ Install PIP (Python's package management system)
 # ./python3 -m ensurepip
 ```
 
-Use PIP to install Homeassistant package 0.64.3
+Use PIP to install the Home Assistant package 0.64.3
 
 ```bash
 # ./python3 -m pip install homeassistant==0.64.3
 ```
 
-Create homeassistant config directory & switch to it
+Create a Home Assistant configuration directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
@@ -72,6 +70,7 @@ Create homeassistant config directory & switch to it
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```
+
 Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station".
 
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
@@ -181,14 +180,14 @@ esac
 
 ```
 
-Create links to python folders to make things easier in the future:
+Create links to Python folders to make things easier in the future:
 
 ```bash
 # ln -s /volume1/@appstore/py3k/usr/local/bin/python3 python3
 # ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant homeassistant
 ```
 
-Set the owner and permissions on your config folder
+Set the owner and permissions on your configuration folder
 
 ```bash
 # chown -R homeassistant:users /volume1/homeassistant
@@ -214,7 +213,7 @@ Update your firewall (if it is turned on the Synology device):
  - Click on OK again
 
 
-Copy your configuration.yaml file into the config folder
+Copy your `configuration.yaml` file into the configuration folder
 That's it... you're all set to go
 
 Here are some useful commands:

@@ -78,10 +78,10 @@ authtoken:
 
 ## Adding and removing devices and group via native HomematicIP APP
 
-Devices and groups are instantly removed from Homeassistant when removed in the native HomematicIP APP.
-Groups are instantly created in Homeassistant when created in the native HomematicIP APP.
-Devices are created with a delay of 30 seconds in Homeassistant when created in the native HomematicIP APP.
-Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Homeassistant entity registry afterwards.
+Devices and groups are instantly removed from Home Assistant when removed in the native HomematicIP APP.
+Groups are instantly created in Home Assistant when created in the native HomematicIP APP.
+Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
+Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
 
 ## Implemented and tested devices
 
@@ -121,7 +121,7 @@ Within this delay the device registration should be completed in the App, otherw
     * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
     * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
     * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
-    * Floor Heating Actuator – 12x channels, motorised (*HMIP-FALMOT-C12*)
+    * Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
 
 * homematicip_cloud.cover
   * Shutter actuator for brand-mount (*HmIP-BROLL*)

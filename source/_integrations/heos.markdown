@@ -118,7 +118,7 @@ You can play a HEOS Quick Select by nubmer or name with the `media_player.play_m
 | `media_content_type`   | Set to the value `quick_select`
 | `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
 
-#### Play Url
+#### Play URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 

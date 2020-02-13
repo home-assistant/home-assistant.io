@@ -1,6 +1,6 @@
 ---
-title: Asuswrt
-description: Instructions on how to integrate Asuswrt into Home Assistant.
+title: ASUSWRT
+description: Instructions on how to integrate ASUSWRT into Home Assistant.
 logo: asus.png
 ha_category:
   - Hub
@@ -16,8 +16,8 @@ The `asuswrt` integration is the main integration to connect to a [ASUSWRT](http
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence Detection** - The asuswrt platform offers presence detection by looking at connected devices to a ASUSWRT based router.
-- **Sensor** - The asuswrt sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
+- **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
+- **Sensor** - The ASUSWRT sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
 
 ## Configuration
 

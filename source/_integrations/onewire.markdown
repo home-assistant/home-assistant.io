@@ -48,7 +48,7 @@ It is also possible for this platform to interface with a remote 1-wire host ove
 ## Raspberry Pi setup
 
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-To edit `/boot/config.txt` on Hass.io use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
+To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
 When using the GPIO pins on Raspberry Pi directrly as a 1-wire bus, the description above uses two kernel modules. 1w_gpio that implements the 1-wire protocoll and 1w_therm that understands the DS18B20 (family 28) components inner structure and reports temperature. 
 There are no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.

@@ -37,7 +37,7 @@ The following will take you through the steps required to install Home Assistant
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
-3. Optional - set up the WiFi or static IP. There are two possible places for that:
+3. Optional - set up the Wi-Fi or static IP. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
    - on the Home Assistant SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
@@ -82,7 +82,7 @@ Best practice for updating a Home Assistant installation:
 SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
-hassio ha update --version=0.XX.X
+ha core update --version=0.XX.X
 ```
 
 ## Run the beta version on Home Assistant
@@ -90,16 +90,17 @@ hassio ha update --version=0.XX.X
 If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
 1. Backup your installation, using the snapshot functionality Home Assistant offers.
-2. Check the [Home Assistant RC release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
 3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
 4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
 
-## Alternative: install on a generic Linux host
+## Alternative: install Home Assistant Supervised on a generic Linux host
 
-For advanced users, it is also possible to try Home Assistant on your [Linux server or inside a virtual machine][linux].
-Examples given here are tested on Ubuntu and Arch Linux, but the instructions should work as a guideline for installing on other Linux distributions.
+You can also install Home Assistant on a Linux operating system of choice, called Home Assistant Supervised.
 
-The packages you need to have available on your system that will run Home Assistant may vary.
+Home Assistant Supervised, will still give you access to most features Home Assistant has to offer, including add-ons.
+
+The packages you need to have available on your system needed to Home Assistant may vary.
 
 ### Debian/Ubuntu
 
@@ -141,7 +142,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
   Be sure to install the official Docker-CE from the above-listed URL.
   
-  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by Docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
 </div>
 
@@ -208,23 +209,23 @@ When you use this installation method, the core SSH add-on may not function corr
 A detailed guide about running Home Assistant as a virtual machine is available in the [blog][hassio-vm].
 
 [balenaEtcher]: https://www.balena.io/etcher
-[Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
-[hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi0-w-3.10.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi-3.10.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi2-3.10.img.gz
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi3-3.10.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi3-64-3.10.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi4-3.10.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_rpi4-64-3.10.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_tinker-3.10.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_odroid-c2-3.10.img.gz
-[odroid-n2]: https://github.com/home-assistant/hassos/releases/download/4.2/hassos_odroid-n2-4.2.img.gz
-[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_odroid-xu4-3.10.img.gz
-[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_intel-nuc-3.10.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vmdk.gz
-[vhdx]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vhdx.gz
-[vdi]: https://github.com/home-assistant/hassos/releases/download/3.10/hassos_ova-3.10.vdi.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
+[hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi0-w-3.10.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi-3.10.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi2-3.10.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi3-3.10.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi3-64-3.10.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi4-3.10.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_rpi4-64-3.10.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_tinker-3.10.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_odroid-c2-3.10.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.2/hassos_odroid-n2-4.2.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_odroid-xu4-3.10.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_intel-nuc-3.10.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_ova-3.10.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_ova-3.10.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.10/hassos_ova-3.10.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

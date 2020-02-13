@@ -72,7 +72,7 @@ plugins:
   type: boolean
   default: false
 device_config:
-  description: Lists device specific parameter or behaviour overrides.
+  description: Lists device specific parameter or behavior overrides.
   required: false
   type: list
   default: None

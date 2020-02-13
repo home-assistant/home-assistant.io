@@ -46,7 +46,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 ### Step 3 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
-  - Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
+  - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 - Restart Home Assistant.
 - Go to the integrations page.
 - Add a Withings integration. This will open a new tab/window on the withings site.

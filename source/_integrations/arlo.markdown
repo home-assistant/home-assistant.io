@@ -152,7 +152,7 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/) documentation.
+**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/) documentation.
 
 ## Sensor
 

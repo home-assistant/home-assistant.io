@@ -21,7 +21,7 @@ Here's an example to check with a user if they want to close the garage door aft
 
 ```yaml
 automation:
-  - alias: Notify apps when garage door opens
+  - alias: Notify apps when the garage door opens
     trigger:
       platform: state
       entity_id: cover.garage_door
@@ -33,6 +33,7 @@ automation:
       data:
         message: "The garage has been left open"
         data:
+          image: https://www.home-assistant.io/images/merchandise/shirt-frontpage.png
           actions:
             - action: "close_garage" # The key you are sending for the event
               title: "Close Garage Door" # The button title
@@ -58,7 +59,7 @@ We are planning to expand notifications over the next few versions to continue t
 
 ## Requesting location updates via notification
 
-You can now send a notification with just the message `request_location_update` and once it reachces your device it will update its current location in Home Assistant. Be careful using this too much though, as it can drain your battery.
+You can now send a notification with just the message `request_location_update` and once it reaches your device, it will update its current location in Home Assistant. Be careful using this too much though, as it can drain your battery.
 
 ## Sensors
 
@@ -66,17 +67,17 @@ New in version 1.7, we have added the first sensors to the app. For now, you wil
 
 - Battery percentage
 - Battery state
-- Current WiFi network information
+- Current Wi-Fi network information
 
 We plan to keep expanding sensors in the near future to add things like cellular status and more.
 
 ## Docs
 
-Thanks to a few dedicated volunteers and a mad dash, [we have a newly refreshed docs website](https://companion.home-assistant.io/). It’s using the latest version of [Docusaurus](https://docusaurus.io/) which means it’s got a new coat of paint and even dark mode support. So much easier on the eyes!
+Thanks to a few dedicated volunteers and a mad dash, [we have a newly refreshed docs website](https://companion.home-assistant.io/). It’s using the latest version of [Docusaurus](https://docusaurus.io/), which means it’s got a new coat of paint and even dark mode support. So much easier on the eyes!
 
 In addition to the tooling updates, we’ve also begun documenting Android and iOS differences. Keep an eye out for the Android and Apple logos to denote what works where.
 
-Over time we plan to bring Android and iOS as close together in terms of features and the ways they interact with Home Assistant so that, as much as possible, those that have users of both platforms have to do as little work.
+Over time we plan to bring Android and iOS as close together, in terms of features and the ways they interact with Home Assistant, as much as possible. To allow using both platforms in the same way, so that users who are using both platforms, or switching platforms, can use them without any modifications.
 
 ## Finale
 

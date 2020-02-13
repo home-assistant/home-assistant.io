@@ -50,7 +50,7 @@ authentication:
   type: string
   default: basic
 verify_ssl:
-  description: Validate the ssl certificate for this camera.
+  description: Validate the SSL certificate for this camera.
   required: false
   type: boolean
   default: true

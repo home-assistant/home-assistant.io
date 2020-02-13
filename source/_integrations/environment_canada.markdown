@@ -35,9 +35,9 @@ Each platform automatically determines which weather station's data to use. Howe
 
 For each platform, the location to use is determined according to the following hierarchy:
 
-  - Location ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Location ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant configuration
 
 ## Weather
 

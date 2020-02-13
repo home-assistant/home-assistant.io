@@ -77,8 +77,8 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
 
-- USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
-- Radio type - select device type **ezsp**, **deconz** or **xbee**
+- USB Device Path - on a Linux system will be something like `/dev/ttyUSB0`
+- Radio type - select device type `ezsp`, `deconz` or `xbee`
 - Submit
 
 The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
@@ -157,7 +157,7 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 
 Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
 
-### ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts
+### ZHA Start up issue with Home Assistant Supervised or Home Assistant Core on Docker
 
 On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
@@ -169,11 +169,11 @@ sudo apt-get purge modemmanager
 
 ### Can't connect to USB device and using Docker
 
-If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose.
+If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using Docker compose.
 
 #### Docker Compose
 
-Install Docker-Compose for your platform (linux - `sudo apt-get install docker-compose`).
+Install Docker-Compose for your platform (Linux - `sudo apt-get install docker-compose`).
 
 Create a `docker-compose.yml` with the following data:
 
