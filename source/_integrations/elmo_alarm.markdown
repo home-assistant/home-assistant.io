@@ -47,28 +47,28 @@ elmo_alarm:
 
 ### Configuration parameters explanation
 {% configuration %}
-  host:
+host:
   description: The url to e-connect.
   required: true
   type: string
-  vendor:
+vendor:
   description: The name of the vendor account.
   required: true
   type: string
-  username:
+username:
   description: The username to login into e-connect.
   required: true
   type: string
-  password:
+password:
   description: The password to login into e-connect.
   required: true
   type: string
-  scan_interval:
+scan_interval:
   description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: '00:01:00'
   type: time
-  states:
+states:
   description: List of states (to match with sectors/zones) available
   required: true
   type: list
