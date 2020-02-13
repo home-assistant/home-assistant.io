@@ -48,7 +48,7 @@ elmo_alarm:
 ### Configuration parameters explanation
 {% configuration %}
 host:
-  description: The url to e-connect.
+  description: The URL to e-connect.
   required: true
   type: string
 vendor:
