@@ -8,7 +8,6 @@ description: "Options for regaining access"
 The sections below deal with recovering from a situation where you are not able to sign in,
 or need to recover your data.
 
-
 ## Forgot Password
 
 ### Home Assistant Core users:
@@ -27,7 +26,6 @@ If you’ve forgotten your user, then the deleting the files mentioned above wil
 If you know the user, but not the password and you can access the [Home Assistant Console](https://www.home-assistant.io/hassio/commandline/) and use the command below:
 Connect a keyboard and monitor to your device.
 `ha auth reset --username <existing_user> --password <new_password>`
-
 
 ## Recovering Data for Home Assistant Supervised users:
 
@@ -53,8 +51,7 @@ You will then be at the Hassio CLI where you can run the Home Assistant custom c
 * `dns logs` for checking dns
 * etc (typing `help` will show more)
 
-
-##Accessing Files from the SD/HDD
+## Accessing Files from the SD/HDD
 
 ### Remove the SD and access the files from another computer
 
