@@ -13,7 +13,7 @@ The advantages of using Home Assistant:
 - Free and open source
 - Optimized for embedded devices like Raspberry Pi
 - 100% local home automation
-- Easy installation and updates (powered by [Home Assistant] and [Home Assistant Core])
+- Easy installation and updates (powered by the [Home Assistant Operating System] and [Home Assistant Core])
 - Management web interface integrated into Home Assistant
 - Create and restore full backups of your whole configuration with ease
 - Install many popular add-ons with a single click! For example [Google Assistant], encryption via [Let's Encrypt] and dynamic DNS via [Duck DNS].<br><br>[Browse available add-ons &raquo;][all]<br><br>
@@ -32,7 +32,6 @@ Home Assistant users can update via the 'Supervisor' panel in the UI when a new 
 Home Assistant dashboard with upgrade notification (under the hamburger menu -> Supervisor)
 </p>
 
-
 [Google Assistant]: /addons/google_assistant/
 [Snips.ai]: /addons/snips/
 [Let's Encrypt]: /addons/lets_encrypt/
@@ -41,6 +40,6 @@ Home Assistant dashboard with upgrade notification (under the hamburger menu -> 
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[Home Assistant]: https://github.com/home-assistant/homeassistant
+[Home Assistant Operating System]: https://github.com/home-assistant/homeassistant
 [Home Assistant Core]: https://www.home-assistant.io/docs/installation/
 [install]: /hassio/installation/
