@@ -1,3 +1,8 @@
+---
+title: "I'm Locked Out!"
+description: "Options for regaining access"
+---
+
 # I'm locked out!
 
 The sections below deal with recovering from a situation where you are not able to sign in,
