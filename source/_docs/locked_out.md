@@ -43,7 +43,7 @@ If you’re using a pi, you're likely going to have to pull the power in order t
 Once you're connected you'll see a running dmesg log. Hit the enter key to interrupt the log.
 Sign in as "root". There is no password.
 
-You will then be at the Home ASsistant CLI where you can run the custom commands. These are the same you would run using the ssh addon but without using "ha" in front. For example:
+You will then be at the Home Assistant CLI where you can run the custom commands. These are the same you would run using the ssh addon but without using "ha" in front. For example:
 
 * `core logs` for Home Assistant Core log
 * `supervisor logs` for supervisor logs 
