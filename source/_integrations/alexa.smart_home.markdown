@@ -109,7 +109,7 @@ Next you need create a Lambda function.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
-- Click `Create function`, then you can config detail of Lambda function.
+- Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
 - Click your Lambda function icon in the middle of the diagram, scroll down you will see a `Function code` window.

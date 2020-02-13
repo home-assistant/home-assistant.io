@@ -119,7 +119,7 @@ $ tail -f home-assistant.log  | grep device_tracker
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling <Event service_registered[L]: domain=device_tracker, service=see>
 17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling <Event component_loaded[L]: component=device_tracker>
 ```
-5. If you see lines like the following repeated at intervals that correspond to the check interval from the config (12 seconds by default), then Home Assistant is correctly polling the router, and you'll need to look at what the router is sending back.
+5. If you see lines like the following repeated at intervals that correspond to the check interval from the configuration (12 seconds by default), then Home Assistant is correctly polling the router, and you'll need to look at what the router is sending back.
 ```txt
 17-04-28 10:50:34 INFO (Thread-7) [homeassistant.components.device_tracker.ubus] Checking ARP
 ```

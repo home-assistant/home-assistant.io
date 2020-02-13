@@ -42,7 +42,7 @@ Alternatively, `docker-compose` works with any recent release of `docker-ce` on 
 
 Docker containers are completely isolated from its Windows host system. So when you delete a container, all the changes you made to that container are also removed. If you want to have configuration files or other assets remain persistent, try mounting Windows folders on containers.
 
-Before proceeding, make sure you have shared out a drive for Docker to mount to. This will allow the saving of config files to persist on the local machine rather than in the Docker container (which may be destroyed when upgraded).
+Before proceeding, make sure you have shared out a drive for Docker to mount to. This will allow the saving of configuration files to persist on the local machine rather than in the Docker container (which may be destroyed when upgraded).
 
 <https://docs.docker.com/docker-for-windows/#shared-drives>
 <https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
@@ -117,7 +117,7 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
-- Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your config-directory
+- Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your configuration-directory
 - Start the container again - it will then boot up with the new Home Assistant image
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
@@ -165,7 +165,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 - Run Docker command:
   `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable`
   
-  `-v` is your config path
+  `-v` is your configuration path
   `-e` is set timezone
   
 - Edit `configuration.yaml`
@@ -183,7 +183,7 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 - Run Docker command:
   `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable`
   
-  First `-v` is your config path
+  First `-v` is your configuration path
   `-e` is set timezone
   
 - Edit the `configuration.yaml` file

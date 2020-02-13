@@ -66,7 +66,7 @@ As of 0.94 `known_devices.yaml` is being phased out and no longer used by all tr
 
 </div>
 
-Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
+Once `device_tracker` is enabled, a file will be created in your configuration dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
 Here's an example configuration for a single device:
 

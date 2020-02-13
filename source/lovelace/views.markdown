@@ -59,7 +59,7 @@ views:
 
 #### Example
 
-View config:
+View configuration:
 
 ```yaml
 - title: Living room
@@ -78,7 +78,7 @@ You can link to one view from a card in another view when using cards that suppo
 
 #### Example
 
-View config:
+View configuration:
 
 ```yaml
 - title: Living room
@@ -86,7 +86,7 @@ View config:
   path: living_room
 ```
 
-Picture card config:
+Picture card configuration:
 
 ```yaml
 - type: picture

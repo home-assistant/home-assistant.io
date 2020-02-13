@@ -30,7 +30,7 @@ image_processing:
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
     - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
-- **classifier** (*Optional*): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV's GitHub repo.
+- **classifier** (*Optional*): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV's GitHub repository.
 
 **classifier** may also be defined as a dictionary of names to classifier configurations:
 

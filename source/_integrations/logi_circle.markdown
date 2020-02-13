@@ -115,9 +115,9 @@ sensor:
         recording:
           description: The camera's recording mode. If false, the camera will not capture activities.
         signal_strength_category:
-          description: Return the WiFi signal level from the camera.
+          description: Return the Wi-Fi signal level from the camera.
         signal_strength_percentage:
-          description: Return the WiFi signal percentage from the camera.
+          description: Return the Wi-Fi signal percentage from the camera.
         streaming:
           description: The soft on/off status of the camera.
 {% endconfiguration %}

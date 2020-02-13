@@ -503,7 +503,7 @@ param:
   required: true
   type: string
 interface:
-  description: Set the name of the interface from the config.
+  description: Set the name of the interface from the configuration.
   required: false
   type: string
 value:

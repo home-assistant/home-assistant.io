@@ -11,7 +11,7 @@ This integration is a meta-component and configures a default set of integration
 
 - [automation](/integrations/automation/)
 - [cloud](/integrations/cloud/)
-- [config](/integrations/config/)
+- [configuration](/integrations/config/)
 - [frontend](/integrations/frontend/)
 - [history](/integrations/history/)
 - [logbook](/integrations/logbook/)

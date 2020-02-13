@@ -6,7 +6,7 @@ redirect_from: /getting-started/scripts-service-calls/
 
 Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
 
-The configuration options to call a config are the same between all integrations and are described on this page.
+The configuration options to call a configuration are the same between all integrations and are described on this page.
 
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 

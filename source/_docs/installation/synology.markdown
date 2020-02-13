@@ -62,7 +62,7 @@ Use PIP to install the Home Assistant package 0.64.3
 # ./python3 -m pip install homeassistant==0.64.3
 ```
 
-Create a Home Assistant config directory & switch to it
+Create a Home Assistant configuration directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
@@ -187,7 +187,7 @@ Create links to python folders to make things easier in the future:
 # ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant homeassistant
 ```
 
-Set the owner and permissions on your config folder
+Set the owner and permissions on your configuration folder
 
 ```bash
 # chown -R homeassistant:users /volume1/homeassistant
@@ -213,7 +213,7 @@ Update your firewall (if it is turned on the Synology device):
  - Click on OK again
 
 
-Copy your `configuration.yaml` file into the config folder
+Copy your `configuration.yaml` file into the configuration folder
 That's it... you're all set to go
 
 Here are some useful commands:

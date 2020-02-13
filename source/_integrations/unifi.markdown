@@ -44,12 +44,12 @@ unifi:
 
 {% configuration %}
 host:
-  description: Same address as relevant config entry, needed to identify config entry.
+  description: Same address as relevant configuration entry, needed to identify configuration entry.
   type: string
   required: true
   default: None
 site:
-  description: Same site as relevant config entry, needed to identify config entry.
+  description: Same site as relevant configuration entry, needed to identify configuration entry.
   type: string
   required: true
   default: None

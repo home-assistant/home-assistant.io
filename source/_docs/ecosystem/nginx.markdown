@@ -97,7 +97,7 @@ http:
   trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
 ```
 
-### NGINX Config
+### NGINX configuration
 
 ```nginx
 map $http_upgrade $connection_upgrade {

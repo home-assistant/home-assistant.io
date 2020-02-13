@@ -35,7 +35,7 @@ Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
   dtparam=i2c_arm=on
   ```
 
-### Step 3 - Load the new USB config
+### Step 3 - Load the new USB configuration
 
 - Insert the USB drive into your Raspberry PI.
 - Now go to your Home Assistant web interface, in the sidebar click **Hass.io** > **System**.

@@ -15,7 +15,7 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 
 ### Setup
 
-Go to the integrations page in your config and click on new integration -> Samsung TV.
+Go to the integrations page in your configuration and click on new integration -> Samsung TV.
 If you have enabled [ssdp](/integrations/ssdp) discovery and your TV is on, it's likely that you just have to confirm the detected device.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.

@@ -1,5 +1,5 @@
 ---
-title: Config
+title: Configuration
 description: Instructions on how to setup the configuration panel for Home Assistant.
 logo: home-assistant.png
 ha_category:
