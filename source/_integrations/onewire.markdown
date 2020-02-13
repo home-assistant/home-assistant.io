@@ -27,7 +27,7 @@ The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using
 ## Raspberry Pi setup
 
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-To edit `/boot/config.txt` on Hass.io use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
+To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
 ## Interface adapter setup
 
@@ -49,6 +49,7 @@ Connect to your database using the instructions from [Database section](/docs/ba
 ```sql
 SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
 ```
+
 Alter the names of sensors using the following examples:
 
 ```sql

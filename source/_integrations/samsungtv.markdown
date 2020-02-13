@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 port:
-  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - for installs other than Hass.io or Docker you may need to install a Python package, see below.
+  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - For Home Assistant Core installations, you may need to install a Python package, see below.
   required: false
   type: integer
   default: automatically detected
@@ -166,11 +166,7 @@ media_content_type: channel
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Hass.io
-
-No additional actions are required
-
-### Docker
+### Home Assistant & Home Assistant Core on Docker
 
 No additional actions are required
 

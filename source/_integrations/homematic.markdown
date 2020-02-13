@@ -81,7 +81,7 @@ Configuration variables (interface):
 
 {% configuration %}
 host:
-  description: IP address or Hostname of CCU/Homegear device or Hass.io add-on.
+  description: IP address or hostname of CCU/Homegear device or Home Assistant add-on.
   required: true
   type: string
 port:

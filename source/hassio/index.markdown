@@ -17,7 +17,7 @@ The advantages of using Home Assistant:
 - Management web interface integrated into Home Assistant
 - Create and restore full backups of your whole configuration with ease
 - Install many popular add-ons with a single click! For example [Google Assistant], encryption via [Let's Encrypt] and dynamic DNS via [Duck DNS].<br><br>[Browse available add-ons &raquo;][all]<br><br>
-- Active community that is helpful and sharing add-ons including AppDaemon, Homebridge and InfluxDB.<br><br>[Browse the forums &raquo;][forums]<br>[Join the Hass.io chat &raquo;][chat]<br>[Browse community add-on repositories &raquo;][comm-add-ons]<br><br>
+- Active community that is helpful and sharing add-ons including AppDaemon, Homebridge and InfluxDB.<br><br>[Browse the forums &raquo;][forums]<br>[Join the Home Assistant chat &raquo;][chat]<br>[Browse community add-on repositories &raquo;][comm-add-ons]<br><br>
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qnCRcGTznXs" frameborder="0" allowfullscreen></iframe>

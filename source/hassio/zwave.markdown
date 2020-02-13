@@ -12,7 +12,8 @@ zwave:
 
 ## RAZBERRY BOARD
 
-If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Hass.io system, you may need to open the SD card on a Windows or Linux system.):
+If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there.
+The `config.txt` is not accessible from the Home Assistant Operating System, you may need to open the SD card on a Windows or Linux system.:
 
 ```txt
 dtoverlay=pi3-miniuart-bt
@@ -50,13 +51,13 @@ systemctl disable ModemManager.service
 
 ### Finding the path
 
-If the above defaults don't work, you can check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
+If the above defaults don't work, you can check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
 ```bash
-$ hassio hardware info
+ha hardware info
 ```
 
-Or you can use the UI and look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
+Or you can use the UI and look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
 ## Further reading
 

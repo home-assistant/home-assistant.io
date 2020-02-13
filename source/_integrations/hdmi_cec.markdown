@@ -18,13 +18,9 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 ### libcec
 
+This section only applies to users of Home Assistant Core in a Python virtual environment.
+
 [libcec](https://github.com/Pulse-Eight/libcec) must be installed for this integration to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/docs/installation/virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
-
-<div class='note'>
-
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-
-</div>
 
 #### Symlinking into virtual environment
 
