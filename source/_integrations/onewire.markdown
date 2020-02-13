@@ -14,7 +14,7 @@ The `onewire` platform supports sensors which are using the One wire (1-wire) bu
 
 Each and every 1-wire device has a (globaly) unique ID that identifies the deivce on the bus. The first two digits identifies a device family and the last 14 digita are a globally unique number given to it during manufacturing. 
 
-The differnt families have different functionality and can measure different quantities.
+The different families have different functionality and can measure different quantities.
 
 ### Supported devices:
 
@@ -57,7 +57,7 @@ There are no support for other device types (families) and hence this onewire pl
 
 ### owfs
 
-When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted. On hass.io based systems, home-assistant runs in a docker container. `owfs` dont run in that environment and hence cannot not populate the `mount_dir`. Use the owserver method on these systems instead.
+When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted. On systems where Home Assistant runs in a Docker container. `owfs` cannot escape that environment and hence cannot not populate the `mount_dir`. Use the owserver method on these systems instead.
 
 ### owserver
 
