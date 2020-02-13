@@ -25,7 +25,7 @@ The advantages of using Home Assistant:
 
 ### Upgrading
 
-Home Assistant users can update via the 'Supervisor' panel in the UI when a new version is released. However, please note that updates take some time to roll into the Home Assistant builds. Therefore, there is often a slight delay (a day or two) between the availability of a Home Assistant Core update and the update being available in Home Assistant, so be patient.
+Home Assistant users can update via the 'Supervisor' panel in the UI when a new version is released.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
