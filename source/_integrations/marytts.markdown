@@ -46,7 +46,7 @@ language:
   type: string
   default: "`en_US`"
 effect:
-  description: "A dictionary of effects which should be applied to the speach output."
+  description: "A dictionary of effects which should be applied to the speech output."
   required: false
   type: map
 {% endconfiguration %}
@@ -55,7 +55,7 @@ See [documentation](http://mary.dfki.de/documentation/index.html) for details.
 
 ## Speech effects
 
-For more information about the different effects take a look at the demo page of your MaryTTS installation (http://localhost:59125/).
+For more information about the different effects take a look at the demo page of your MaryTTS installation (`http://localhost:59125/`).
 
 There you can read about each effect and also test them on the fly.
 

@@ -165,7 +165,7 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base docker image, and is not necessary for this to work.
+If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base Docker image, and is not necessary for this to work.
 
 </div>
 

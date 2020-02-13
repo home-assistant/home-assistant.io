@@ -48,7 +48,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-<b>After the client_id and client_secret is added to your configuration.yaml you must enable Netatmo through the integrations page.</b>
+**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
 
 ### Get API and Secret Key
 

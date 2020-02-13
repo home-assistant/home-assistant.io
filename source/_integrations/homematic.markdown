@@ -37,7 +37,7 @@ Device support is available for most of the wired and wireless devices, as well 
 
 <div class='note info'>
 
-Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home-Assistant server and whitelist it, inside the CCU's security settings.
+Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant server and whitelist it, inside the CCU's security settings.
 
 </div>
 
@@ -503,7 +503,7 @@ param:
   required: true
   type: string
 interface:
-  description: Set the name of the interface from the config.
+  description: Set the name of the interface from the configuration.
   required: false
   type: string
 value:

@@ -42,7 +42,7 @@ sensor:
     default: 3493
     type: integer
   alias:
-    description: Name of the ups on the NUT server.
+    description: Name of the UPS on the NUT server.
     required: false
     default: Will default to the first UPS name listed.
     type: string

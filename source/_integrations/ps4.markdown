@@ -165,7 +165,7 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 | ----- | ----- | ----------- |
 | `locked`             | boolean | Must be `true` or `false`
 | `media_content_type` | string  | Must be `game` or `app`
-| `media_image_url`    | string  | Any valid url for an image
+| `media_image_url`    | string  | Any valid URL for an image
 | `media_title`        | string  | The title of the game or app
 
 The data in the example shows 2 entries.

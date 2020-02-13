@@ -68,7 +68,7 @@ Next you need to create a Lambda function.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
-- Click `Create function`, then you can config detail of Lambda function.
+- Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
 - Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
@@ -211,7 +211,7 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your `intent_script` section in your HA configuration file:
 
 ```yaml
 intent_script:
@@ -259,7 +259,7 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your intent_script section in your HA configuration file:
 
 ```yaml
 intent_script:

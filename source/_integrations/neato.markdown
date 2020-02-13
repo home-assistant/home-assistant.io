@@ -26,7 +26,7 @@ Menu: *Configuration* -> *Integrations*
 Search for or select **Neato** from the list and configure the integration. You will need to enter your username and password and whether you are using a Neato or Vorwerk device.
 After that, all the entities will automatically show up in Home Assistant.
 
-## Setup the integration via configuration.yaml
+## Setup the integration via `configuration.yaml`
 
 Add the following to your configuration.yaml:
 

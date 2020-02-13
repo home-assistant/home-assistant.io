@@ -30,7 +30,7 @@ pin:
   required: true
   type: integer
 allow_unreachable:
-  description: This will allow the mower to be outside of wifi range without raising an error.
+  description: This will allow the mower to be outside of Wi-Fi range without raising an error.
   required: false
   type: boolean
   default: true

@@ -142,14 +142,14 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
 
-| Setting        | Value |
-| -------------- | ----- |
-| Host           | localhost |
-| Port           | 1883 |
-| Protocol       | 3.1.1 |
-| User           | homeassistant |
-| Password       | _password set under mqtt settings_ |
-| Websocket port | 8080 |
+| Setting        | Value                              |
+| -------------- | ---------------------------------- |
+| Host           | localhost                          |
+| Port           | 1883                               |
+| Protocol       | 3.1.1                              |
+| User           | `homeassistant`                    |
+| Password       | _password set under MQTT settings_ |
+| Websocket port | 8080                               |
 
 ```yaml
 # Example configuration.yaml entry

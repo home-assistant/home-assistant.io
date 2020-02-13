@@ -203,7 +203,7 @@ Similar to the previous example, this automation will disarm blink when arriving
 
 ### Save Video Locally When Motion Detected
 
-When motion is detected, you can use the Blink Home-Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
+When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
 
 Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
 

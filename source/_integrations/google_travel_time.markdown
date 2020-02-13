@@ -77,7 +77,7 @@ options:
       required: exclusive
       type: [time, string]
     avoid:
-      description: "Indicate what google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
+      description: "Indicate what Google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
       required: false
       type: string
     transit_mode:

@@ -24,7 +24,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
   - On Hass.io you can use the [`hassio` command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
+- You can verify your configuration's YAML structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
 `configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):

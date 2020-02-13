@@ -13,7 +13,7 @@ ha_codeowners:
   - '@jesserockz'
 ---
 
-The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account. It also exposes a switch allowing you to charge your car now instead of waiting for the pre-set schedule.
+The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a Wi-Fi connection. It will access and make available all of the devices attached to your account. It also exposes a switch allowing you to charge your car now instead of waiting for the pre-set schedule.
 
 ## Configuration
 

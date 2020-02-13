@@ -122,7 +122,7 @@ hdmi_cec:
 
 Choose just one schema. Mixing both approaches is not possible.
 
-Another option you can use in config is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+Another option you can use in configuration is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
 
 ```yaml
 hdmi_cec:
@@ -137,7 +137,7 @@ hdmi_cec:
     hdmi_cec.hdmi_5: media_player
 ```
 
-And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run Home Assistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
 
 ```yaml
 hdmi_cec:
@@ -149,7 +149,7 @@ hdmi_cec:
 
 ### Select Device
 
-Call the `hdmi_cec.select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
+Call the `hdmi_cec.select_device` service with the name of the device from configuration or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}

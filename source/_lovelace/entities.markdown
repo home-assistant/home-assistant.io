@@ -37,6 +37,14 @@ state_color:
   description: Set to `true` to have icons colored when entity is active
   type: boolean
   default: false
+header:
+  required: false
+  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  type: map
+footer:
+  required: false
+  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  type: map
 {% endconfiguration %}
 
 ## Options For Entities

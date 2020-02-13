@@ -32,7 +32,7 @@ username:
   required: true
   type: string
 password:
-  description: The password for the specified username. Usually your WiFi password.
+  description: The password for the specified username. Usually your Wi-Fi password.
   required: true
   type: string
 type:

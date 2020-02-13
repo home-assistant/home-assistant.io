@@ -236,7 +236,7 @@ If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Hom
 <br/> <br/>
 The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
 <br/> <br/>
-After resetting the WiFi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
+After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
 <br/> <br/>
 These instructions are written for the Mi Home app - not for the new RoboRock app.
 <br/> <br/>
@@ -303,7 +303,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 ### Miio command line tool
 
-Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wifi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
+Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
 You can install the command line tool using the following command:
 

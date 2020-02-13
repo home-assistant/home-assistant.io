@@ -37,7 +37,7 @@ The following will take you through the steps required to install Home Assistant
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
-3. Optional - set up the WiFi or static IP. There are two possible places for that:
+3. Optional - set up the Wi-Fi or static IP. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
    - on the Home Assistant SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
@@ -141,7 +141,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
   Be sure to install the official Docker-CE from the above-listed URL.
   
-  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by Docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
 </div>
 

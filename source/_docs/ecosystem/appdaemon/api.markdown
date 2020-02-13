@@ -18,7 +18,7 @@ class MotionLights(appapi.AppDaemon):
     """Motion lights implementation."""
 ```
 
-When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
+When configured as an app in the configuration file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
 
 ```python
   def initialize(self):
@@ -1936,7 +1936,7 @@ get_app(self, name)
 
 ##### name
 
-Name of the app required. This is the name specified in header section of the config file, not the module or class.
+Name of the app required. This is the name specified in header section of the configuration file, not the module or class.
 
 #### Returns
 
@@ -2035,19 +2035,19 @@ self.error("Some Critical string", level="CRITICAL")
 
 Sharing information between different Apps is very simple if required. Each app gets access to a global dictionary stored in a class attribute called `self.global_vars`. Any App can add or read any key as required. This operation is not however threadsafe so some car is needed.
 
-In addition, Apps have access to the entire configuration if required, meaning they can access AppDaemon configuration items as well as parameters from other Apps. To use this, there is a class attribute called `self.config`. It contains a `ConfigParser` object, which is similar in operation to a `Dictionary`. To access any apps parameters, simply reference the ConfigParser object using the Apps name (form the config file) as the first key, and the parameter required as the second, for instance:
+In addition, Apps have access to the entire configuration if required, meaning they can access AppDaemon configuration items as well as parameters from other Apps. To use this, there is a class attribute called `self.config`. It contains a `ConfigParser` object, which is similar in operation to a `Dictionary`. To access any apps parameters, simply reference the ConfigParser object using the Apps name (form the configuration file) as the first key, and the parameter required as the second, for instance:
 
 ```python
 other_apps_arg = self.config["some_app"]["some_parameter"]
 ```
 
-To get AppDaemon's config parameters, use the key "AppDaemon", e.g.:
+To get AppDaemon's configuration parameters, use the key "AppDaemon", e.g.:
 
 ```python
 app_timezone = self.config["AppDaemon"]["time_zone"]
 ```
 
-And finally, it is also possible to use the AppDaemon as a global area for sharing parameters across Apps. Simply add the required parameters to the AppDaemon section of your config:
+And finally, it is also possible to use the AppDaemon as a global area for sharing parameters across Apps. Simply add the required parameters to the AppDaemon section of your configuration:
 
 ```ini
 [AppDaemon]

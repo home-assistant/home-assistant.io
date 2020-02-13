@@ -99,7 +99,7 @@ sensor:
 
 ### Enable SSL
 
-SSL may run on a different port than the default (8989). The SSL port can be bound to any port in Sonarr, so it should be set in the config here (unless it is changed to 8989). See the [Sonarr site](https://github.com/Sonarr/Sonarr/wiki/SSL) for details on SSL in Sonarr.
+SSL may run on a different port than the default (8989). The SSL port can be bound to any port in Sonarr, so it should be set in the configuration here (unless it is changed to 8989). See the [Sonarr site](https://github.com/Sonarr/Sonarr/wiki/SSL) for details on SSL in Sonarr.
 
 ```yaml
 # Example configuration.yaml entry

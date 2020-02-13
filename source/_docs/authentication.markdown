@@ -15,9 +15,9 @@ If you are starting Home Assistant for the first time, or you have logged out, y
 
 When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
 
- - Create and manage other user accounts. 
- - Configure integrations and other settings (coming soon).
- - Configure Hass.io (coming soon).
+- Create and manage other user accounts. 
+- Configure integrations and other settings (coming soon).
+- Configure Hass.io (coming soon).
 
 <div class='note'>
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
@@ -86,11 +86,11 @@ While you should hopefully be storing your passwords in a password manager, if y
 
 When you start Home Assistant next, you'll be required to set up authentication again.
 
-### Error: invalid client id or redirect url
+### Error: invalid client id or redirect URL
 
 <img src='/images/docs/authentication/error-invalid-client-id.png' alt='Screenshot of Error: invalid client id or redirect url'>
 
-You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get **Error: invalid client id or redirect url** error on the login form. However, you can use the IP address to access Home Assistant in your home network.
+You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get `Error: invalid client id or redirect url` error on the login form. However, you can use the IP address to access Home Assistant in your home network.
 
 This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g., `192.168.0.1`) or loopback address (e.g., `127.0.0.1`).
 
