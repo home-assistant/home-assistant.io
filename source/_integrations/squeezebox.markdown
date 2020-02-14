@@ -92,7 +92,7 @@ See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html
 | `command` | no | Command to pass to Logitech Media Server (p0 in the CLI documentation).
 | `parameters` | yes | Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).
 
-This service can be used to integrate a Squeezebox query into an automation. For example, in a python script, you can get a list of albums available by an artist like this:
+This service can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
