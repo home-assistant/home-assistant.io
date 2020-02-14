@@ -47,7 +47,7 @@ token:
 
 ## Air-to-Air device
 
-An Air-to-Air heat pump provides `climate` and `sensor` platforms.
+An Air-to-Air heat pump provides `climate` and `sensor` platforms. Device capabilities can limit the available parameters and sensors.
 
 ### Climate
 
@@ -63,4 +63,4 @@ The following parameters can be controlled for the `climate` platform entities:
 The following attributes are available for `sensor` platform entities:
 
 - Room temperature
-- Energy - The total consumed energy in kWh.
+- Energy - The total consumed energy in kWh. **Not supported by all models.**
