@@ -79,7 +79,7 @@ will create a specific sensor for each camera
 
 ## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This integration allows you to view the current live stream created by the Camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com/nl-nl/security/cam-indoor) camera. This integration allows you to view the current live stream created by the Camera.
 
 ## Climate
 
