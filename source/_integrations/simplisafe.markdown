@@ -130,5 +130,3 @@ following values:
 * `doorbell_detected`
 * `entry_detected`
 * `motion_detected`
-* `sensor_not_responding`
-* `sensor_restored`
