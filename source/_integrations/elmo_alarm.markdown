@@ -1,18 +1,18 @@
 ---
 title: Elmo Alarm
-description: Instructions on how to integrate e-connect Elmo SpA alarm system with Home Assistant.
+description: Instructions on how to integrate the e-connect Elmo SpA alarm system with Home Assistant.
 logo: ness.png
 ha_category:
   - Alarm
   - Binary Sensor
-ha_release: 1.105
+ha_release: 0.106
 ha_iot_class: Local Push
 ha_codeowners:
   - '@markin'
 ---
 
-The `elmo_alarm` integration will allow Home Assistant users who own a Elmo alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. 
-Connectivity between Home Assistant and the alarm is accomplished through e-connect platform (https://connect.elmospa.com) that must be configured and working with the alarm.
+The `elmo_alarm` integration will allow Home Assistant users who own an Elmo alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. 
+Connectivity between Home Assistant and the alarm is accomplished through the e-connect platform (https://connect.elmospa.com) that must be configured and working with the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -45,7 +45,6 @@ elmo_alarm:
       zones: [3]
 ```
 
-### Configuration parameters explanation
 {% configuration %}
 host:
   description: The URL to e-connect.
@@ -82,7 +81,8 @@ states:
       required: true
       type: list
 {% endconfiguration %}
-#### Time period dictionary example
+
+### Time period dictionary example
 
 ```yaml
 scan_interval:
