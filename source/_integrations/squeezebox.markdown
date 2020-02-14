@@ -82,7 +82,7 @@ This can work with title search and basically any thing. The same wouldn't have 
 
 ### Service `call_query`
 
-Call a custom Squeezebox JSONRPC API. The results of the query will be stored in the 'query_result' attribute of the player.
+Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
