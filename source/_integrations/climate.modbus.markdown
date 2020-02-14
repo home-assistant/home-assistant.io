@@ -61,7 +61,7 @@ data_type:
   required: false
   type: string
   default: float
-count:
+data_count:
   description: Number of registers to read.
   required: false
   type: integer
