@@ -3,7 +3,7 @@ title: "Installation on a Armbian system"
 description: "Instructions to install Home Assistant on an Armbian-powered systems."
 ---
 
-[armbian](https://www.armbian.com) runs on a wide-variety of [ARM development boards](https://www.armbian.com/download/). Currently there are around 50 boards supported inclusive the OrangePi family, Cubieboard, Pine64, and Odroid.
+[armbian](https://www.armbian.com) runs on a wide-variety of [ARM development boards](https://www.armbian.com/download/). Currently there are around 50 boards supported inclusive the OrangePi family, Cubieboard, Pine64, and ODROID.
 
 Setup Python and `pip`:
 

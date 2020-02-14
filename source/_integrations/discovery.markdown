@@ -21,7 +21,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
- * [Logitech media server (Squeezebox)](/integrations/squeezebox)
+ * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
  * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
@@ -80,7 +80,7 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
- * `logitech_mediaserver`: Logitech media server (Squeezebox)
+ * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome

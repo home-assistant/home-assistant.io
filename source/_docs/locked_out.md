@@ -30,7 +30,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 
 ## Recovering Data for Home Assistant (including Supervised)
 
-Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further. 
+Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further.
 There are a few routes:
 
 - Connect a USB keyboard and HDMI monitor directly to the Raspberry Pi.
@@ -43,10 +43,10 @@ If you’re using a Raspberry Pi, you're likely going to have to pull the power 
 Once you're connected, you'll see a running dmesg log. Hit the enter key to interrupt the log.
 Sign in as "root". There is no password.
 
-You will then be at the Home Assistant CLI, where you can run the custom commands. These are the same as you would run using the SSH addon but without using `ha` in front of it. For example:
+You will then be at the Home Assistant CLI, where you can run the custom commands. These are the same as you would run using the SSH add-on but without using `ha` in front of it. For example:
 
 - `core logs` for Home Assistant Core log
-- `supervisor logs` for supervisor logs 
+- `supervisor logs` for supervisor logs
 - `host reboot` to reboot the host
 - `dns logs` for checking DNS
 - etc (typing `help` will show more)
@@ -60,5 +60,5 @@ These are easily accessed using another Linux machine with EXT support.
 
 For Windows or macOS you will need third party software. Below are some options.
 
-- Windows: https://www.diskinternals.com/linux-reader/ (read-only access to the SD)
-- Mac:  https://osxfuse.github.io/
+- Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
+- Mac: <https://osxfuse.github.io/>
