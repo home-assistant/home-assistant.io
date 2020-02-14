@@ -34,7 +34,7 @@ The different families have different functionality and can measure different qu
 [1] The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also barometer, hygrometer and illiminance sensors. This onewire platform can read and present values from that device.
 
 [2] Each 1-wire component data sheet describes the different properties the component provides. The owfs software adds some extra toos to make it easier for diy implementers to use the component. By hobbyists it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard componentes to the DS2438. For different component types there is ready made algorithms implemented in owfs. Those are exposed by the owfs softare and can be red by this platform. The B1-R1-A/pressure is exposed as a barrometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description on these properties referr to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
-For this component the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
+  For this component, the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
 
 [3] Hobbyboards is a company that have been selling diy boards of diffent kinds. The company has been away from the market for some, time so no reference to the boards can be made. This platform have implementation for some of those.
 
@@ -141,5 +141,4 @@ UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE
 ```
 
 Remember to replace `<sensor_name>` with the actual name of the sensor as seen in the `SELECT` query.
-
 
