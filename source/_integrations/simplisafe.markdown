@@ -126,26 +126,9 @@ For example, when the system is armed by "remote" means (via the web app, etc.),
 `event_type`, being one of the key fields automations might be built from, can have the
 following values:
 
-* `alarm_canceled`
-* `alarm_triggered`
-* `armed_away`
-* `armed_away_by_keypad`
-* `armed_away_by_remote`
-* `armed_home`
-* `automatic_test`
-* `away_exit_delay_by_keypad`
-* `away_exit_delay_by_remote`
 * `camera_motion_detected`
-* `connection_lost`
-* `connection_restored`
-* `disarmed_by_master_pin`
-* `disarmed_by_remote`
 * `doorbell_detected`
 * `entry_detected`
-* `home_exit_delay`
-* `lock_error`
-* `lock_locked`
-* `lock_unlocked`
 * `motion_detected`
 * `sensor_not_responding`
 * `sensor_restored`
