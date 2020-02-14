@@ -33,9 +33,8 @@ While you should hopefully be storing your passwords in a password manager, if y
 Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further. 
 There are a few routes:
 
-* Connect a USB keyboard and HDMI monitor directly to the pi
-
-* Remove the SD and access the files from another machine (preferably one running Linux)
+- Connect a USB keyboard and HDMI monitor directly to the Raspberry Pi.
+- Remove the SD and access the files from another machine (preferably one running Linux).
 
 ## Connect directly
 
@@ -46,11 +45,11 @@ Sign in as "root". There is no password.
 
 You will then be at the Home Assistant CLI, where you can run the custom commands. These are the same as you would run using the SSH addon but without using `ha` in front of it. For example:
 
-* `core logs` for Home Assistant Core log
-* `supervisor logs` for supervisor logs 
-* `host reboot` to reboot the host
-* `dns logs` for checking DNS
-* etc (typing `help` will show more)
+- `core logs` for Home Assistant Core log
+- `supervisor logs` for supervisor logs 
+- `host reboot` to reboot the host
+- `dns logs` for checking DNS
+- etc (typing `help` will show more)
 
 ## Accessing Files from the SD/HDD
 
