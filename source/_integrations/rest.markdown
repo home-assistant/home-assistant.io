@@ -8,7 +8,7 @@ ha_release: 0.7.4
 ha_iot_class: Local Polling
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.  
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -105,12 +105,16 @@ headers:
   required: false
   type: [string, list]
 json_attributes:
-  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
-  reqired: false
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the text/xml content type, it will automatically be converted to JSON according to this specification: https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html
+  required: false
   type: [string, list]
+json_path_attributes:
+  description: A jsonpath (https://goessner.net/articles/JsonPath/) that refereances the location of the json_attributes in the json content.
+  required: false
+  type: string
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
-  reqired: false
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}
@@ -252,7 +256,7 @@ sensor:
       - date
       - milliseconds_since_epoch
     resource: http://date.jsontest.com/
-    value_template: '{{ value_json.time }}'
+    value_template: '{{ value_json.time }}'  
   - platform: template
     sensors:
       date:
@@ -261,6 +265,24 @@ sensor:
       milliseconds:
         friendly_name: 'milliseconds'
         value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
+```
+{% endraw %}
+
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, jsonpath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your jsonpath. If the endpoints returns XML, it will be converted to JSON using xmltodict before searching for attributes.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: JSON users
+    json_attributes_path: "$.[0].address"
+    json_attributes:
+      - street
+      - suite
+      - city
+      - zipcode
+    resource: https://jsonplaceholder.typicode.com/users
+    value_template: '{{ value_json.name }}'    
 ```
 {% endraw %}
 
