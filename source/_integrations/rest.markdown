@@ -8,7 +8,7 @@ ha_release: 0.7.4
 ha_iot_class: Local Polling
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.  
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -105,11 +105,11 @@ headers:
   required: false
   type: [string, list]
 json_attributes:
-  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the text/xml content type, it will automatically be converted to JSON according to this specification: https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
   required: false
   type: [string, list]
 json_path_attributes:
-  description: A jsonpath (https://goessner.net/articles/JsonPath/) that refereances the location of the json_attributes in the json content.
+  description: A [jsonpath](https://goessner.net/articles/JsonPath/) that refereances the location of the json_attributes in the JSON content.
   required: false
   type: string
 force_update:
@@ -256,7 +256,7 @@ sensor:
       - date
       - milliseconds_since_epoch
     resource: http://date.jsontest.com/
-    value_template: '{{ value_json.time }}'  
+    value_template: '{{ value_json.time }}'
   - platform: template
     sensors:
       date:
@@ -282,7 +282,7 @@ sensor:
       - city
       - zipcode
     resource: https://jsonplaceholder.typicode.com/users
-    value_template: '{{ value_json.name }}'    
+    value_template: '{{ value_json.name }}'
 ```
 {% endraw %}
 
