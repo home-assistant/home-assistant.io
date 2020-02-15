@@ -40,4 +40,9 @@ longitude:
   required: false
   type: string
   default: Home Assistant global longitude configuration
+mode:
+  description: "The forecast type. Can be `hourly` or `daily`."
+  required: false
+  type: string
+  default: "`daily`"
 {% endconfiguration %}
