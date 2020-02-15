@@ -17,18 +17,18 @@ Before this scanner can be used you have to install the ubus RPC package on Open
 opkg install rpcd-mod-file
 ```
 
-For OpenWrt version 18.06.x the package uhttpd-mod-ubus should also be installed:
+For OpenWrt version 18.06 and higher, the package uhttpd-mod-ubus should also be installed:
 
 ```bash
 opkg install uhttpd-mod-ubus
 ```
 
-And create a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
+And create a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/hassio.json`.
 
 ```json
 {
-  "user": {
-    "description": "Read only user access role",
+  "hassio": {
+    "description": "Read only user access role for hassio",
     "read": {
       "ubus": {
         "*": [ "*" ]
@@ -38,6 +38,22 @@ And create a read-only user to be used by setting up the ACL file `/usr/share/rp
     "write": {}
   }
 }
+```
+
+Generate the password hash for a new password with 
+
+```bash
+uhttpd -m YOUR_PASSWORD
+```
+
+and add a new user called 'hassio' with the password we just hashed by adding a new entry in the file `/etc/config/rpcd`
+
+```json
+
+config login
+        option username 'hassio'
+        option password '$1$XXXXXXXXXXXXXXXXXXXXXXX'
+        list read 'hassio'
 ```
 
 Restart the services.
@@ -60,8 +76,8 @@ After this is done, add the following to your `configuration.yaml` file:
 device_tracker:
   - platform: ubus
     host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
+    username: hassio
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -70,11 +86,11 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `root`.
+  description: The username on openwrt. Set above as `hassio`.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: The password for the openwrt account.
   required: true
   type: string
 dhcp_software:
