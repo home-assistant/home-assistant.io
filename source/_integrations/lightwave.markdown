@@ -42,14 +42,6 @@ host:
   description: IP address of your Lightwave hub
   required: true
   type: string
-trv_proxy_ip:
-  description: IP address of a proxy for TRV integration
-  required: false
-  type: string
-trv_proxy_port:
-  description: IP port address of a proxy for TRV integration
-  required: false
-  type: integer
 lights:
   description: List of lights you wish to configure
   required: false
@@ -69,18 +61,29 @@ switches:
       required: true
       type: string
 trv:
-  description: List of TRVs you wish to configure
-  required: false
-  type: map
-  keys: 
-    name: 
-      description: Name of the TRV
-      required: true
+    trv_proxy_ip:
+      description: IP address of a proxy for TRV integration. 
+      required: false
       type: string
-    serial: 
-      description: Serial Number of the TRV
-      required: true
-      type: string
+      default: "127.0.0.1"
+    trv_proxy_port:
+      description: IP port address of a proxy for TRV integration.
+      required: false
+      type: integer
+      default: 7878
+    trvs:
+      description: List of TRVs you wish to configure
+      required: false
+      type: map
+      keys: 
+        name: 
+          description: Name of the TRV
+          required: true
+          type: string
+        serial: 
+          description: Serial Number of the TRV
+          required: true
+          type: string
 {% endconfiguration %}
 
 
@@ -100,13 +103,14 @@ See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
 # Example TRV configuration.yaml for TRVs
 lightwave:
   host: 192.168.1.2
-  trv_proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
-  trv_proxy_port: 7878          # Do not change, unless a port clash
   lights:
     R99D1:
       name: Bedroom Light
   trv:
-    R1Dh:                       # The ID of the TRV.
-      name: Bedroom TRV
-      serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
+      trv_proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
+      trv_proxy_port: 7878          # Do not change, unless a port clash
+      trvs:
+        R1Dh:                       # The ID of the TRV.
+          name: Bedroom TRV
+          serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
 ```
