@@ -61,6 +61,8 @@ switches:
       required: true
       type: string
 trv:
+    description: TRV configuration
+    required: false
     trv_proxy_ip:
       description: IP address of a proxy for TRV integration. 
       required: false
