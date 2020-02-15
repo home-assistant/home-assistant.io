@@ -1,6 +1,6 @@
 ---
-title: "RESTful Sensor"
-description: "Instructions on how to integrate REST sensors into Home Assistant."
+title: RESTful
+description: Instructions on how to integrate REST sensors into Home Assistant.
 logo: restful.png
 ha_category:
   - Sensor
@@ -131,6 +131,8 @@ Use either `resource` or `resource_template`.
 $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
+
+The response is expected to be a dictionary or a list with a dictionary as its 0th element.
 
 ## Examples
 
@@ -298,7 +300,7 @@ sensor:
 ```
 {% endraw %}
 
-This config shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
 
 {% raw %}
 ```json

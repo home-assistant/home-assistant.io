@@ -1,6 +1,6 @@
 ---
-title: "Generic Thermostat"
-description: "Turn Home Assistant into a thermostat"
+title: Generic Thermostat
+description: Turn Home Assistant into a thermostat
 logo: home-assistant.png
 ha_category:
   - Climate
@@ -87,7 +87,7 @@ precision:
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 

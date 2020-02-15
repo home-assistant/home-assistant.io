@@ -1,6 +1,6 @@
 ---
-title: "VoiceRSS"
-description: "Instructions on how to setup VoiceRSS TTS with Home Assistant."
+title: VoiceRSS
+description: Instructions on how to setup VoiceRSS TTS with Home Assistant.
 logo: voicerss.png
 ha_category:
   - Text-to-speech

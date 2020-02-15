@@ -1,6 +1,6 @@
 ---
-title: "Pioneer Network Receivers"
-description: "Instructions on how to integrate a Pioneer Network Receivers into Home Assistant."
+title: Pioneer
+description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
 logo: pioneer.png
 ha_category:
   - Media Player
@@ -119,5 +119,26 @@ sources:
   'Media Server': '44'
   'Favorites': '45'
   'MHL': '48'
+  'Game': '49'
+```
+
+#### VSX-528
+
+```yaml
+port: 8102
+sources:
+  'CD': '01'
+  'Tuner': '02'
+  'DVD': '04'
+  'TV': '05'
+  'Sat/Cbl': '06'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'HDMI/MHL': '48'
+  'BD': '25'
+  'Adapter': '33'
+  'Netradio': '38'
+  'Media Server': '44'
+  'Favorites': '45'
   'Game': '49'
 ```

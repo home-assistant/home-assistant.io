@@ -1,12 +1,14 @@
 ---
-title: "Utility Meter"
-description: "Instructions on how to integrate the Utility Meter into Home Assistant."
+title: Utility Meter
+description: Instructions on how to integrate the Utility Meter into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
 logo: energy_meter.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@dgomes'
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -16,7 +18,7 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <div class='note'>
-Sensors created with this integration are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
 ## Configuration
@@ -37,14 +39,14 @@ source:
   required: true
   type: string
 cycle:
-  description: How often to reset the counter. Valid values are `hourly`, `daily`, `weekly`, `monthly` and `yearly`.
+  description: How often to reset the counter. Valid values are `hourly`, `daily`, `weekly`, `monthly`, `quarterly` and `yearly`.
   required: true
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 0
-  type: time 
+  type: time
   type: integer
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
@@ -65,7 +67,7 @@ offset:
   # At least one of these must be specified:
   days: 1
   hours: 0
-  minutes: 0 
+  minutes: 0
 ```
 
 ## Services
@@ -151,8 +153,8 @@ When using the [DSMR component](/integrations/dsmr) to get data from the utility
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
-- `sensor.power_consumption_low` for off-peak power
-- `sensor.power_consumption_normal` for peak power
+- `sensor.energy_consumption_tarif_1` for tarif 1 power (for example off-peak)
+- `sensor.energy_consumption_tarif_2` for for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
 So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
@@ -160,26 +162,26 @@ So, tracking daily and monthly consumption for each sensor, will require setting
 ```yaml
 utility_meter:
   daily_power_offpeak:
-    source: sensor.power_consumption_low
+    source: sensor.energy_consumption_tarif_1
     cycle: daily
   daily_power_peak:
-    source: sensor.power_consumption_normal
+    source: sensor.energy_consumption_tarif_2
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
     cycle: daily
   monthly_power_offpeak:
-    source: sensor.power_consumption_low
+    source: sensor.energy_consumption_tarif_1
     cycle: monthly
   monthly_power_peak:
-    source: sensor.power_consumption_normal
+    source: sensor.energy_consumption_tarif_2
     cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage. 
+Additionally, you can add template sensors to compute daily and monthly total usage.
 
 {% raw %}
 ```yaml

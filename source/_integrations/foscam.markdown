@@ -1,11 +1,13 @@
 ---
-title: "Foscam IP Camera"
-description: "Instructions on how to integrate Foscam IP cameras within Home Assistant."
+title: Foscam
+description: Instructions on how to integrate Foscam IP cameras within Home Assistant.
 logo: foscam.png
 ha_category:
   - Camera
 ha_iot_class: Local Polling
 ha_release: 0.7.3
+ha_codeowners:
+  - '@skgsergio'
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
@@ -62,7 +64,7 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all. |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `movement` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right`, `top_left`, `top_right`, `bottom_left`, `bottom_right` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 

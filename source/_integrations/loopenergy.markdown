@@ -1,6 +1,6 @@
 ---
-title: "Loop Energy"
-description: "Instructions on how to integrate Loop Energy devices within Home Assistant."
+title: Loop Energy
+description: Instructions on how to integrate Loop Energy devices within Home Assistant.
 logo: loop.png
 ha_category:
   - Energy

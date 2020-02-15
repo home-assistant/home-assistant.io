@@ -1,6 +1,6 @@
 ---
-title: "Plex"
-description: "Instructions on how to integrate Plex into Home Assistant."
+title: Plex Media Server
+description: Instructions on how to integrate Plex into Home Assistant.
 logo: plex.png
 ha_category:
   - Media Player
@@ -9,8 +9,9 @@ featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_codeowners:
+  - '@jjlawren'
 ---
-
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
 
@@ -21,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [plex.tv](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
 <div class='note info'>
 

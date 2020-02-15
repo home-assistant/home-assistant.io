@@ -1,6 +1,6 @@
 ---
-title: "Free Mobile"
-description: "Instructions on how to add user notifications to Home Assistant."
+title: Free Mobile
+description: Instructions on how to add user notifications to Home Assistant.
 logo: free_mobile.png
 ha_category:
   - Notifications

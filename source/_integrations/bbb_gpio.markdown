@@ -1,6 +1,6 @@
 ---
-title: "BeagleBone Black GPIO"
-description: "Instructions on how to integrate the GPIO capability of a BeagleBone Black into Home Assistant."
+title: BeagleBone Black GPIO
+description: Instructions on how to integrate the GPIO capability of a BeagleBone Black into Home Assistant.
 logo: beaglebone-black.png
 ha_category:
   - DIY

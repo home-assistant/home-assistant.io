@@ -71,7 +71,7 @@ For more background on this decision, see [ADR-006](https://github.com/home-assi
 
 With this release we have deprecated integrations that rely on webscraping. These will be removed from Home Assistant in a future release. Our [scrape](/integrations/scrape/) integration will remain part of Home Assistant.
 
-Webscraping is fragile, breaks often requires frequent updates and there have been occassions where websites have banned our users.
+Webscraping is fragile, breaks often requires frequent updates and there have been occasions where websites have banned our users.
 
 Users that rely on these integrations can continue using them as custom components.
 

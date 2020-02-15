@@ -88,23 +88,23 @@ model:
 
 ## Platform Services
 
-### Service `switch.xiaomi_miio_set_wifi_led_on` (Power Strip only)
+### Service `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
 
-Turn the wifi led on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.       |
-
-### Service `switch.xiaomi_miio_set_wifi_led_off` (Power Strip only)
-
-Turn the wifi led off.
+Turn the wifi LED on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.       |
 
-### Service `switch.xiaomi_miio_set_power_price` (Power Strip)
+### Service `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
+
+Turn the wifi LED off.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.       |
+
+### Service `xiaomi_miio.switch_set_power_price` (Power Strip)
 
 Set the power price.
 
@@ -113,7 +113,7 @@ Set the power price.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.       |
 | `price`                   |       no | Power price, between 0 and 999.                         |
 
-### Service `switch.xiaomi_miio_set_power_mode` (Power Strip V1 only)
+### Service `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
 
 Set the power mode.
 

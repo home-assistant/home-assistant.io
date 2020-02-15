@@ -93,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
 ## Release 0.43.2 - April 27
@@ -492,7 +492,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KlaasH]: https://github.com/KlaasH
 [cover.zwave docs]: /integrations/zwave#cover
 [recorder docs]: /integrations/recorder/
-[switch.hook docs]: /integrations/hook
 [switch.wemo docs]: /integrations/wemo
 [telegram_bot docs]: /integrations/telegram_chatbot/
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks

@@ -10,8 +10,8 @@ The command-line part of Home Assistant is `hass`.
 $ hass -h
 usage: hass [-h] [--version] [-c path_to_config_dir] [--demo-mode] [--debug]
             [--open-ui] [--skip-pip] [-v] [--pid-file path_to_pid_file]
-            [--log-rotate-days LOG_ROTATE_DAYS] [--runner] [--script ...]
-            [--daemon]
+            [--log-rotate-days LOG_ROTATE_DAYS] [--log-file LOG_FILE]
+            [--log-no-color] [--runner] [--script ...] [--daemon]
 
 Home Assistant: Observe, Control, Automate.
 

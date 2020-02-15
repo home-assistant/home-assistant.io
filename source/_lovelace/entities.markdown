@@ -32,6 +32,19 @@ theme:
   required: false
   description: Set to any theme within `themes.yaml`.
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: false
+header:
+  required: false
+  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  type: map
+footer:
+  required: false
+  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  type: map
 {% endconfiguration %}
 
 ## Options For Entities
@@ -61,12 +74,29 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts)."
   type: string
 format:
   required: false
   description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
   type: string
+header:
+  required: false
+  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  type: map
+footer:
+  required: false
+  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  type: map
+action_name:
+  required: false
+  description: Button label. (Only applies to `script` and `scene` rows)
+  type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: false
 tap_action:
   required: false
   description: Action to take on tap
@@ -222,6 +252,42 @@ hide_if_unavailable:
   default: false
 {% endconfiguration %}
 
+### Conditional
+
+Special row that displays based on entity states.
+
+{% configuration %}
+type:
+  required: true
+  description: conditional
+  type: string
+conditions:
+  required: true
+  description: List of entity IDs and matching states.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: HA entity ID.
+      type: string
+    state:
+      required: false
+      description: Entity state is equal to this value.*
+      type: string
+    state_not:
+      required: false
+      description: Entity state is unequal to this value.*
+      type: string
+row:
+  required: true
+  description: Row to display if all conditions match.
+  type: map
+{% endconfiguration %}
+
+*one is required (`state` or `state_not`)
+
+Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
 ### Divider
 
 {% configuration %}
@@ -258,13 +324,13 @@ type:
   type: string
 url:
   required: true
-  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
+  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)"
   type: string
 name:
   required: false
   description: Link label
   type: string
-  default: url path
+  default: URL path
 icon:
   required: false
   description: "Icon to display (e.g., `mdi:home`)"
@@ -280,6 +346,9 @@ Entity rows:
 type: entities
 title: Entities card sample
 show_header_toggle: true
+header:
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  type: picture
 entities:
   - entity: alarm_control_panel.alarm
     name: Alarm Panel
@@ -311,5 +380,5 @@ entities:
 ```
 
 <div class='note'>
-Please be aware that the entity types divider and weblink aren't yet support by the UI editor and a warning about `Expected a value of type...` is shown. You can ignore the warning and save your edits to verify.
+Please be aware that the entity types divider and weblink aren't yet supported by the UI editor and a warning about `Expected a value of type...` is shown. You can ignore the warning and save your edits to verify.
 </div>

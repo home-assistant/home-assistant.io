@@ -10,10 +10,6 @@ ha_iot_class: Local Polling
 
 The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
-The platform currently works in optimistic mode, which means it does not obtain states from MQTT topics, but it sends and remembers control commands.
-
-It uses a sensor under the hood to obtain the current temperature.
-
 ## Configuration
 
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
@@ -127,7 +123,7 @@ action_topic:
   type: string
 action_template:
   description: A template to render the value received on the `action_topic` with.
-  requred: false
+  required: false
   type: template
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.

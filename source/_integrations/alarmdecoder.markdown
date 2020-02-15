@@ -1,6 +1,6 @@
 ---
-title: "AlarmDecoder Alarm"
-description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device."
+title: AlarmDecoder
+description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
 logo: alarmdecoder.png
 ha_category:
   - Alarm
@@ -80,6 +80,11 @@ panel_display:
   required: false
   default: false
   type: boolean
+autobypass:
+  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#')."
+  required: false
+  default: false
+  type: boolean
 zones:
   description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
@@ -103,7 +108,7 @@ zones:
       required: false
       type: integer
     relayaddr:
-      description: "Address of the relay or zone expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. Alarmdecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed."
+      description: "Address of the relay or zone expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. AlarmDecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed."
       required: inclusive
       type: integer
     relaychan:
@@ -135,7 +140,7 @@ The Alarm Decoder integration gives you access to several services for you to co
 - `alarm_arm_night`: Arms the alarm in instant mode; all faults will trigger the alarm. Additionally, the entry delay is turned off on the doors.
 - `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
 - `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
-- `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
+- `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
 
 <div class='note'>
 
@@ -157,11 +162,11 @@ Using a combination of the available services and attributes, you can create swi
       friendly_name: Chime
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
-        service: alarm_control_panel.alarmdecoder_alarm_toggle_chime
+        service: alarmdecoder.alarm_toggle_chime
         data:
           code: !secret alarm_code
       turn_off:
-        service: alarm_control_panel.alarmdecoder_alarm_toggle_chime
+        service: alarmdecoder.alarm_toggle_chime
         data:
           code: !secret alarm_code
       icon_template: >-

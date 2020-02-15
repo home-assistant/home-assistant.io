@@ -130,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -142,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 ## All changes
 
@@ -193,7 +193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add recent context ([@balloob] - [#15989])
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Bumped NDMS2 client library to 0.0.4 to get compatible with python 3.5 ([@foxel] - [#16077]) ([device_tracker docs])
-- fritzdect change to current_power_w ([@Danielhiversen] - [#16079]) ([switch.fritzdect docs])
+- fritzdect change to current_power_w ([@Danielhiversen] - [#16079])
 - Update pyhomematic to 0.1.47 ([@danielperna84] - [#16083]) ([homematic docs])
 - Get user after login flow finished ([@awarecan] - [#16047]) ([auth docs])
 - Upgrade pytest to 3.7.2 ([@scop] - [#16091])
@@ -244,7 +244,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -256,7 +256,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557
@@ -480,7 +480,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sonos docs]: /integrations/sonos/
 [splunk docs]: /integrations/splunk/
 [switch.deconz docs]: /integrations/deconz#switch
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.konnected docs]: /integrations/konnected#switch
 [switch.wemo docs]: /integrations/wemo
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/

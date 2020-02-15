@@ -1,6 +1,6 @@
 ---
-title: "Envisalink Alarm Control Panel"
-description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board."
+title: Envisalink
+description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board.
 logo: eyezon.png
 ha_category:
   - Alarm
@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -136,6 +136,6 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_arm_home**: Arms the alarm in home mode.
 - **alarm_arm_away**: Arms the alarm in standard away mode.
 - **alarm_arm_night**: Arms the alarm in night mode.
-- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
-- **envisalink_alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
+- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+- **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *Works with DSC panels, and confirmed to work with Honeywell Vista-20P (aka First Alert FA-168)*
 - **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*

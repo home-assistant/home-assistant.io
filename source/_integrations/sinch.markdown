@@ -1,10 +1,12 @@
 ---
-title: "Sinch SMS"
-description: "Instructions on how to add Sinch notifications to Home Assistant."
+title: Sinch SMS
+description: Instructions on how to add Sinch notifications to Home Assistant.
 logo: sinch.png
 ha_category:
   - Notifications
 ha_release: 0.101
+ha_codeowners:
+  - '@bendikrb'
 ---
 
 The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.
@@ -61,5 +63,5 @@ notify:
     service_plan_id: SINCH_SERVICE_PLAN_ID
     api_key: SINCH_API_KEY
     default_recipient: [PHONE_NO1, PHONE_NO2]
-    sender: Home assistant
+    sender: Home Assistant
 ```

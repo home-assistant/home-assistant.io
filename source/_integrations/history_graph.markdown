@@ -1,12 +1,19 @@
 ---
-title: "History Graph"
-description: "Instructions for setting up History Graph."
+title: History Graph
+description: Instructions for setting up History Graph.
 ha_category:
   - History
 logo: home-assistant.png
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@andrey-git'
 ---
+
+<div class='note'>
+  This integration is deprecated and pending removal in Home Assistant 0.107.0,
+  as it was only used by the old states UI (not our current Lovelace UI).
+</div>
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/history_graph.png' />

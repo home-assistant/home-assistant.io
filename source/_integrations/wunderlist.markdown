@@ -1,6 +1,6 @@
 ---
-title: "Wunderlist"
-description: "Instructions on how to use Wunderlist with Home Assistant."
+title: Wunderlist
+description: Instructions on how to use Wunderlist with Home Assistant.
 logo: wunderlist.png
 ha_category:
   - Calendar
@@ -14,7 +14,7 @@ The `wunderlist` integration allows you to create tasks in [Wunderlist](https://
 Wunderlist API uses OAuth2, so you need to obtain a `client_id` and an `access_token`.
 There are two ways:
 
-1. Go to the [Wunderlist IOT app page](https://wunderlist-iot.herokuapp.com), log in with your Wunderlist account and accept the application permissions.
+1. Go to the [Wunderlist IoT app page](https://wunderlist-iot.herokuapp.com), log in with your Wunderlist account and accept the application permissions.
    It will print for you the `client_id` and the `access_token`.
 2. Or you can create your own application and `access_token` following the instructions at the [Wunderlist developer page](https://developer.wunderlist.com/).
 
@@ -43,11 +43,11 @@ access_token:
 This integration offers a new service domain `wunderlist` with the service `create_task`.
 You can call this service with the argument  `list_name` the argument `name` and the optional parameter `starred` to create a new task.
 
-| Service data attribute | Optional | Description | Example |
-|------------------------|----------|-------------|---------|
-| list_name | no  | Name of the list | "Shopping list"
-| name      | no  | Name of the new task | "Spanish Jam" |
-| starred   | yes | Create the task starred or not | false |
+| Service data attribute | Optional | Description                    | Example         |
+| ---------------------- | -------- | ------------------------------ | --------------- |
+| list_name              | no       | Name of the list               | "Shopping list" |
+| name                   | no       | Name of the new task           | "Spanish Jam"   |
+| starred                | yes      | Create the task starred or not | false           |
 
 ## Disclaimer
 

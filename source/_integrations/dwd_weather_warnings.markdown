@@ -1,7 +1,6 @@
 ---
-title: "DWD Weather warnings"
-description: "Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant."
-#logo: dwdwarnapp.png
+title: Deutsche Wetter Dienst (DWD) Weather Warnings
+description: Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.51
@@ -30,7 +29,7 @@ As it suggests the region name is not the city or nearest city you want to get t
 
 Be aware, to get the region name you need to use the following link by replacing `Hamburg` with your city:
 - Find your region here: `https://www.dwd.de/DE/wetter/warnungen_landkreise/warnWetter_node.html?ort=Hamburg`
-- On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a headding.
+- On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a heading.
 - Verify if you find any warning for your region here. Your region ("Kreis") will appear only if warnings exist: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
 
 </div>

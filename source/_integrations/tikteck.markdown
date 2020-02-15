@@ -1,6 +1,6 @@
 ---
-title: "Tikteck"
-description: "Instructions on how to setup Tikteck LED bulbs within Home Assistant."
+title: Tikteck
+description: Instructions on how to setup Tikteck LED bulbs within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -25,7 +25,7 @@ light:
 
 {% configuration %}
 devices:
-  description: A list of devices with their bluetooth address.
+  description: A list of devices with their Bluetooth address.
   required: false
   type: list
   keys:

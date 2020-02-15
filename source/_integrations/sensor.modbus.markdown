@@ -73,6 +73,11 @@ registers:
       description: Unit to attach to value.
       required: false
       type: integer
+    device_class:
+      description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+      required: false
+      type: device_class
+      default: None
     count:
       description: Number of registers to read.
       required: false
@@ -104,7 +109,7 @@ registers:
       default: int
       type: string
     structure:
-      description: "If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: >i."
+      description: "If data_type is custom specify here a double quoted Python struct format string to unpack the value. See Python documentation for details. Ex: >i."
       required: false
       type: string
 {% endconfiguration %}

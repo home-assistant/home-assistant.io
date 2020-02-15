@@ -1,6 +1,6 @@
 ---
-title: "Denon Network Receivers"
-description: "Instructions on how to integrate Denon Network Receivers into Home Assistant."
+title: Denon Network Receivers
+description: Instructions on how to integrate Denon Network Receivers into Home Assistant.
 logo: denon.png
 ha_category:
   - Media Player

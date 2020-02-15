@@ -1,6 +1,6 @@
 ---
-title: "Environment Canada Weather"
-description: "Weather data from Environment Canada."
+title: Environment Canada
+description: Weather data from Environment Canada.
 logo: environment_canada.png
 ha_category:
   - Weather
@@ -8,6 +8,8 @@ ha_category:
   - Camera
 ha_release: 0.95
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaeldavie'
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
@@ -33,9 +35,9 @@ Each platform automatically determines which weather station's data to use. Howe
 
 For each platform, the location to use is determined according to the following hierarchy:
 
-  - Location ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Location ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant configuration
 
 ## Weather
 

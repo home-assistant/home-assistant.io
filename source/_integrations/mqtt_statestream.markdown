@@ -1,6 +1,6 @@
 ---
-title: "MQTT Statestream"
-description: "Instructions on how to setup MQTT Statestream within Home Assistant."
+title: MQTT Statestream
+description: Instructions on how to setup MQTT Statestream within Home Assistant.
 logo: mqtt.png
 ha_category:
   - Other

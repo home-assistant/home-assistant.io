@@ -1,6 +1,6 @@
 ---
-title: "Leviton Decora"
-description: "Instructions on how to setup Leviton Decora Bluetooth dimmers within Home Assistant."
+title: Leviton Decora
+description: Instructions on how to setup Leviton Decora Bluetooth dimmers within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -31,7 +31,7 @@ devices:
   keys:
     mac_address:
       required: true
-      description: The bluetooth address of the switch.
+      description: The Bluetooth address of the switch.
       type: list
       keys:
         name:

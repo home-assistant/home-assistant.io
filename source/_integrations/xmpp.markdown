@@ -1,12 +1,14 @@
 ---
-title: "Jabber (XMPP)"
-description: "Instructions on how to add Jabber (XMPP) notifications to Home Assistant."
+title: Jabber (XMPP)
+description: Instructions on how to add Jabber (XMPP) notifications to Home Assistant.
 logo: xmpp.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fabaff'
+  - '@flowolf'
 ---
-
 
 The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
@@ -102,7 +104,7 @@ To send files and images, your jabber server must support [XEP_0363](https://xmp
 
 Be aware that images are uploaded onto the Jabber server of your provider. They reside there un-encrypted and could be accessed by the server admins. Usually images are deleted after a few days.<br>
 <br>
-Home-Assistant supports TLS encryption to ensure transport encryption. TLS is enforced by default. You can disable it  with the [`tls`](#tls) flag -- which is not recommended.
+Home Assistant supports TLS encryption to ensure transport encryption. TLS is enforced by default. You can disable it  with the [`tls`](#tls) flag -- which is not recommended.
 
 </div>
 

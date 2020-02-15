@@ -108,7 +108,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/integrations/logger) to monitor the [http component](/integrations/http/) at least the `warning` level.
+Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works
@@ -155,8 +155,9 @@ The script (saved as `arest-value.py`) that is used looks like the example below
 ```python
 #!/usr/bin/python3
 from requests import get
-response = get('http://10.0.0.48/analog/2')
-print(response.json()['return_value'])
+
+response = get("http://10.0.0.48/analog/2")
+print(response.json()["return_value"])
 ```
 
 To use the script you need to add something like the following to your `configuration.yaml` file.

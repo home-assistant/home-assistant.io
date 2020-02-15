@@ -57,7 +57,8 @@ defaults
 	timeout connect 5000
 	timeout client  50000
 	timeout server  50000
-	timeout http-request 5s  #protection from Slowloris attacks
+	timeout tunnel  60000    # long enough for websocket pings every 55 seconds
+	timeout http-request 5s  # protection from Slowloris attacks
 
 frontend www-http
 	bind *:80
@@ -68,7 +69,7 @@ frontend www-https
 	bind *:443 ssl crt /etc/haproxy/certs/MYCERT.pem
 	acl hass-acl hdr(host) -i SUBDOMAIN.DOMAIN.COM
 	use_backend hass-backend if hass-acl
-	
+
 backend hass-backend
 	server hass <Home Assistant Server IP>:8123
 
@@ -85,11 +86,11 @@ Forward ports 443 and (optionally) 80 to your server on your router.
 Do not forward port 8123, HAProxy takes care of securing the connection with HTTPS on 443.
 If 8123 is forwarded then it will not be secured.
 
-Replace 443 with whatever port you chose to bind to in the config if different.
+Replace 443 with whatever port you chose to bind to in the configuration if different.
 
 ### Configure Home Assistant HTTP Component
 
-In your `configuration.yaml` file, edit the [http component](/integrations/http/).
+In your `configuration.yaml` file, edit the [HTTP component](/integrations/http/).
 
 ```text
 http:

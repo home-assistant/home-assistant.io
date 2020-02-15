@@ -17,7 +17,7 @@ You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
-Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
+Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant configuration directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
 
 ### Specific Devices
 
@@ -26,6 +26,8 @@ Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant co
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
 
 Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
+
+**Note:** You should only do this when Home Assistant has been stopped.
 
 Turn off "Disco lights":
 
@@ -455,7 +457,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg_\*.xml file with the below xml data. Stop Home Assistant and open your zwcfg_\*.xml file (located in your config folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below xml data. Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">

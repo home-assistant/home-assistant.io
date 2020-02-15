@@ -43,11 +43,11 @@ automation:
       event: sunset
       offset: "-01:00:00"
     - platform: state
-      entity_id: group.all_devices
+      entity_id: all
       state: home
   condition:
     - platform: state
-      entity_id: group.all_devices
+      entity_id: all
       state: home
     - platform: time
       after: "16:00:00"

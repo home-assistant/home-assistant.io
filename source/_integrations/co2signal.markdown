@@ -1,6 +1,6 @@
 ---
-title: "CO2Signal"
-description: "Instructions on how to use CO2Signal data within Home Assistant"
+title: CO2 Signal
+description: Instructions on how to use CO2Signal data within Home Assistant
 logo: co2signal.png
 ha_category:
   - Environment
@@ -94,4 +94,3 @@ sensor:
 ## Sensor Types
 
 When configured, the platform will create one sensor for each configured location.
-

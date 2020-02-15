@@ -1,6 +1,6 @@
 ---
-title: USCIS Sensor
-description: "Instructions on how to set up USCIS within Home Assistant."
+title: U.S. Citizenship and Immigration Services (USCIS)
+description: Instructions on how to set up USCIS within Home Assistant.
 logo: uscis.png
 ha_category:
   - Sensor

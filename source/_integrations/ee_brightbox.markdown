@@ -1,6 +1,6 @@
 ---
-title: "EE Bright Box"
-description: "Instructions on how to integrate EE Bright Box router into Home Assistant."
+title: EE Bright Box
+description: Instructions on how to integrate EE Bright Box router into Home Assistant.
 logo: ee.png
 ha_category:
   - Presence Detection

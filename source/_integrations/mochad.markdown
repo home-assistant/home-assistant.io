@@ -1,6 +1,6 @@
 ---
-title: "Mochad"
-description: "Instructions on how to integrate Mochad into Home Assistant."
+title: Mochad
+description: Instructions on how to integrate Mochad into Home Assistant.
 ha_category:
   - Hub
   - Light

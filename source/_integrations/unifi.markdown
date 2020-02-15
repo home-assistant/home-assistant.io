@@ -1,6 +1,6 @@
 ---
-title: "UniFi"
-description: "Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti."
+title: Ubiquiti UniFi
+description: Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti.
 logo: ubiquiti.png
 ha_category:
   - Hub
@@ -8,7 +8,10 @@ ha_category:
   - Switch
 ha_release: 0.81
 ha_iot_class: Local Polling
-ha_qa_scale: platinum
+ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@kane610'
 ---
 
 [UniFi](https://unifi-sdn.ubnt.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -41,12 +44,12 @@ unifi:
 
 {% configuration %}
 host:
-  description: Same address as relevant config entry, needed to identify config entry.
+  description: Same address as relevant configuration entry, needed to identify configuration entry.
   type: string
   required: true
   default: None
 site:
-  description: Same site as relevant config entry, needed to identify config entry.
+  description: Same site as relevant configuration entry, needed to identify configuration entry.
   type: string
   required: true
   default: None
@@ -84,13 +87,13 @@ ssid_filter:
 
 ### Configuring Users
 
-The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
+The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
 
 ### Conflicts with MQTT
 
-The Unifi controller can either be a dedicated hardware device (UniFi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
-It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
+It is recommended that you run the UniFi controller in a dedicated virtual machine to avoid that situation.
 
 ## Presence detection
 
@@ -108,11 +111,11 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in the `configuration.yaml` file by adding a list of the MAC addresses. Items in this list will have a Home Assistant switch created, using the Unifi Device name, allowing for blocking and unblocking.
+Allow control of network access to clients configured in the `configuration.yaml` file by adding a list of the MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
 ### Control clients powered by POE
 
-Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: Unifi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
+Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: UniFi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
 
 Note that POE control actually configures the network port of the switch which the client is connected to.
 

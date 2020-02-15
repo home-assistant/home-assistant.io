@@ -1,6 +1,6 @@
 ---
-title: "FFmpeg Motion Binary Sensor"
-description: "Instructions on how to integrate an FFmpeg-based motion binary sensor"
+title: FFmpeg Motion
+description: Instructions on how to integrate an FFmpeg-based motion binary sensor
 logo: ffmpeg.png
 ha_category:
   - Image Processing
@@ -11,7 +11,7 @@ The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www
 
 <div class='note'>
 
-If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of sensor, use the service `ffmpeg.start`, `ffmpeg.stop`, `ffmpeg.restart`.
 
 </div>
 

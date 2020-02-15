@@ -1,6 +1,6 @@
 ---
-title: "Lannouncer"
-description: "Instructions on how to add Lannouncer notifications to Home Assistant."
+title: LANnouncer
+description: Instructions on how to add Lannouncer notifications to Home Assistant.
 logo: lannouncer.png
 ha_category:
   - Notifications
@@ -48,7 +48,7 @@ More information can be found [here](https://www.keybounce.com/lannouncer/config
 
 Lannouncer supports two types of messages.
 
-Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following json and the device will speak out the specified message.
+Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following JSON and the device will speak out the specified message.
 
 ```json
 {

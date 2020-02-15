@@ -223,7 +223,7 @@ state_image:
   "off": /local/bed_light_off.png
 ```
 
-Displaying a live feed from an FFMPEG camera:
+Displaying a live feed from an FFmpeg camera:
 
 {% raw %}
 ```yaml

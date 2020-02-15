@@ -33,7 +33,7 @@ homeassistant:
     - type: totp
 ```
 
-If no `auth_mfa_modules` config section is defined in `configuration.yaml` a TOTP module named "Authenticator app" will be autoloaded.
+If no `auth_mfa_modules` configuration section is defined in `configuration.yaml` a TOTP module named "Authenticator app" will be autoloaded.
 
 You will need an authenticator app on your phone. We recommend either [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/). Both are available for iOS or Android.
 

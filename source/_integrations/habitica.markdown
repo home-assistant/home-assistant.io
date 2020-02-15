@@ -1,6 +1,6 @@
 ---
-title: "Habitica"
-description: "Instructions on enabling Habitica support for your Home Assistant"
+title: Habitica
+description: Instructions on enabling Habitica support for your Home Assistant
 logo: habitica.png
 ha_category:
   - Hub
@@ -65,7 +65,7 @@ The API is exposed to Home Assistant as a service called `habitica.api_call`. To
 |----------------------|--------|--------|----------------|
 |  `name`                |  yes     | string   |  Habitica's username as per `configuration.yaml` entry. |
 | `path` | yes | [string] | Items from API URL in form of an array with method attached at the end. See the example below. |
-| `args` | no | map | Any additional json or url parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
+| `args` | no | map | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
 
 A successful call to this service will fire an event `habitica_api_call_success`.
 
@@ -73,13 +73,13 @@ A successful call to this service will fire an event `habitica_api_call_success`
 |----------------------|--------|----------------|
 |  `name`                |   string   |  Copied from service data attribute. |
 | `path` | [string] | Copied from service data attribute. |
-| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to api call. For more info see [docs](https://habitica.com/apidoc/). |
+| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see [docs](https://habitica.com/apidoc/). |
 
 #### Let's consider some examples on how to call the service.
 
 For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
 Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
-To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a json object with task properties.
+To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a JSON object with task properties.
 So let's call the API on `habitica.api_call`.
 
 * The `name` key becomes `xxxNotAValidNickxxx`.

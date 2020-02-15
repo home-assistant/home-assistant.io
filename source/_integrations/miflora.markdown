@@ -1,11 +1,14 @@
 ---
-title: "Mi Flora plant sensor"
-description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
+title: Mi Flora
+description: Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant.
 logo: miflora.png
 ha_category:
   - Environment
 ha_release: 0.29
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+  - '@ChristianKuehnel'
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://gadget-freakz.com/product/xiaomi-mi-flora-plant-sensor/) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
@@ -16,12 +19,12 @@ There are "Chinese" and "International" versions available and there is a [repor
 
 Before configuring Home Assistant you need a Bluetooth backend and the MAC address of your sensor. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
-- On [Hass.io](/hassio/installation/): Miflora will work out of the box.
-- On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
+- On [Home Assistant](/hassio/installation/): Miflora will work out of the box.
+- On [Home Assistant Core on Docker](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
   - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to install the library in the right one.
   - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
-- On Windows and MacOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
+- On Windows and macOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
 
 ## Scan for devices
 
@@ -80,7 +83,7 @@ monitored_conditions:
     conductivity:
       description: Conductivity in the soil.
     battery:
-      description: Battery details.
+      description: Battery details. Cached and only updated once a day.
 name:
   description: The name displayed in the frontend.
   required: false
@@ -117,7 +120,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_update: true    
+    force_update: true
     median: 3
     monitored_conditions:
       - moisture

@@ -1,12 +1,14 @@
 ---
-title: "HERE Travel Time"
-description: "Instructions on how to add HERE travel time to Home Assistant."
+title: HERE Travel Time
+description: Instructions on how to add HERE travel time to Home Assistant.
 logo: HERE_logo.svg
 ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.100"
+ha_release: '0.100'
+ha_codeowners:
+  - '@eifinger'
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
@@ -19,6 +21,10 @@ HERE offers a Freemium Plan which includes 250,000 free Transactions per month. 
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
 
+### Migrate from app_code to api_key
+
+HERE has changed its authentication mechanism. It is no longer possible to use `app_id` and `app_code`. Existing users have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) in order to retrieve the now needed `api_key`.
+
 ## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
@@ -27,8 +33,7 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 # Example entry for configuration.yaml
 sensor:
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     origin_latitude: "51.222975"
     origin_longitude: "9.267577"
     destination_latitude: "51.257430"
@@ -36,12 +41,8 @@ sensor:
 ```
 
 {% configuration %}
-app_id:
-  description: "Your application's API id (get one by following the instructions above)."
-  required: true
-  type: string
-app_code:
-  description: "Your application's API code (get one by following the instructions above)."
+api_key:
+  description: "Your application's API key (get one by following the instructions above)."
   required: true
   type: string
 origin_latitude:
@@ -109,15 +110,13 @@ Tracking can be set up to track entities of type `device_tracker`, `zone`, `sens
 sensor:
   # Tracking entity to entity
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     name: Phone To Home
     origin_entity_id: device_tracker.mobile_phone
     destination_entity_id: zone.home
   # Full config
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     name: Work to Home By Bike
     origin_entity_id: zone.work
     destination_latitude: 59.2842

@@ -1,6 +1,6 @@
 ---
-title: "Yamaha Network Receivers"
-description: "Instructions on how to integrate Yamaha Network Receivers into Home Assistant."
+title: Yamaha Network Receivers
+description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 logo: yamaha.png
 ha_category:
   - Media Player
@@ -70,7 +70,7 @@ zone_names:
 
 ### Supported operations
 
-- Media players created by yamaha support powering on/off, mute,
+- Media players created by Yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source
@@ -127,7 +127,7 @@ script:
 
 ```
 
-### Service `yamaha_enable_output`
+### Service `enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 

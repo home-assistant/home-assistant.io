@@ -1,6 +1,6 @@
 ---
-title: "HLK-SW16 Relay Module"
-description: "Instructions on how to integrate HLK-SW16 relay into Home Assistant."
+title: Hi-Link HLK-SW16
+description: Instructions on how to integrate HLK-SW16 relay into Home Assistant.
 logo: hlktech.jpg
 ha_category:
   - DIY

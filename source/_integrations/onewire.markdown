@@ -1,11 +1,13 @@
 ---
-title: "One wire Sensor"
-description: "Instructions on how to integrate One wire (1-wire) sensors into Home Assistant."
+title: 1-Wire
+description: Instructions on how to integrate One wire (1-wire) sensors into Home Assistant.
 logo: onewire.png
 ha_category:
   - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@garbled1'
 ---
 
 The `onewire` platform supports sensors which are using the One wire (1-wire) bus for communication.
@@ -25,13 +27,17 @@ The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using
 ## Raspberry Pi setup
 
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-To edit `/boot/config.txt` on Hass.io use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
+To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
 ## Interface adapter setup
 
 ### owfs
 
 When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
+
+### owserver
+
+When an interface adapter is used, you can also access sensors on a remote or local Linux host that is running owserver.  owserver by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
 ### Units with multiple sensors
 
@@ -43,6 +49,7 @@ Connect to your database using the instructions from [Database section](/docs/ba
 ```sql
 SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
 ```
+
 Alter the names of sensors using the following examples:
 
 ```sql
@@ -72,6 +79,15 @@ mount_dir:
   description: Location of device tree if owfs driver used.
   required: false
   type: string
+host:
+  description: Remote or local host running owserver.
+  required: false
+  type: string
+port:
+  description: "The port number of the owserver (requires `host`)."
+  required: false
+  type: integer
+  default: 4304
 {% endconfiguration %}
 
 ### Configuration Example

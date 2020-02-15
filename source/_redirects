@@ -1,6 +1,9 @@
 # These redirects are handled by Netlify
 #
 
+# General use redirects
+/suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/en/creating_platform_index.html
@@ -180,7 +183,6 @@
 /components/binary_sensor.sleepiq /integrations/sleepiq
 /components/binary_sensor.smartthings /integrations/smartthings#binary-sensor
 /components/binary_sensor.spc /integrations/spc#binary-sensor
-/components/binary_sensor.tahoma /integrations/tahoma
 /components/binary_sensor.tapsaff /integrations/tapsaff
 /components/binary_sensor.tcp /integrations/tcp#binary-sensor
 /components/binary_sensor.tellduslive /integrations/tellduslive
@@ -307,7 +309,6 @@
 /components/cover.scsgate /integrations/scsgate#cover
 /components/cover.smartthings /integrations/smartthings#cover
 /components/cover.supla /integrations/supla
-/components/cover.tahoma /integrations/tahoma
 /components/cover.tellduslive /integrations/tellduslive
 /components/cover.tellstick /integrations/tellstick#cover
 /components/cover.tuya /integrations/tuya
@@ -520,7 +521,6 @@
 /components/media_player.kodi /integrations/kodi
 /components/media_player.lg_netcast /integrations/lg_netcast
 /components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.liveboxplaytv /integrations/liveboxplaytv
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
 /components/media_player.mpchc /integrations/mpchc
@@ -625,7 +625,6 @@
 /components/scene.lutron /integrations/lutron#scene
 /components/scene.lutron_caseta /integrations/lutron_caseta#scene
 /components/scene.smartthings /integrations/smartthings#scene
-/components/scene.tahoma /integrations/tahoma
 /components/scene.tuya /integrations/tuya
 /components/scene.velux /integrations/velux
 /components/scene.vera /integrations/vera
@@ -821,7 +820,6 @@
 /components/sensor.pocketcasts /integrations/pocketcasts
 /components/sensor.point /integrations/point#sensor
 /components/sensor.pollen /integrations/iqvia
-/components/sensor.postnl /integrations/postnl
 /components/sensor.prezzibenzina /integrations/prezzibenzina
 /components/sensor.pushbullet /integrations/pushbullet#sensor
 /components/sensor.pvoutput /integrations/pvoutput
@@ -883,7 +881,6 @@
 /components/sensor.systemmonitor /integrations/systemmonitor
 /components/sensor.sytadin /integrations/sytadin
 /components/sensor.tado /integrations/tado
-/components/sensor.tahoma /integrations/tahoma
 /components/sensor.tank_utility /integrations/tank_utility
 /components/sensor.tautulli /integrations/tautulli
 /components/sensor.tcp /integrations/tcp#sensor
@@ -980,7 +977,6 @@
 /components/switch.fibaro /integrations/fibaro
 /components/switch.flux /integrations/flux
 /components/switch.fritzbox /integrations/fritzbox
-/components/switch.fritzdect /integrations/fritzdect
 /components/switch.gc100 /integrations/gc100#switch
 /components/switch.hdmi_cec /integrations/hdmi_cec
 /components/switch.hikvisioncam /integrations/hikvisioncam
@@ -989,7 +985,6 @@
 /components/switch.homekit_controller /integrations/homekit_controller
 /components/switch.homematic /integrations/homematic
 /components/switch.homematicip_cloud /integrations/homematicip_cloud
-/components/switch.hook /integrations/hook
 /components/switch.hydrawise /integrations/hydrawise#switch
 /components/switch.ihc /integrations/ihc#switch
 /components/switch.insteon /integrations/insteon
@@ -1034,7 +1029,6 @@
 /components/switch.switchbot /integrations/switchbot
 /components/switch.switcher_kis /integrations/switcher_kis
 /components/switch.switchmate /integrations/switchmate
-/components/switch.tahoma /integrations/tahoma
 /components/switch.tellduslive /integrations/tellduslive
 /components/switch.tellstick /integrations/tellstick#switch
 /components/switch.telnet /integrations/telnet
@@ -1375,7 +1369,6 @@
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/fritzdect /integrations/fritzdect
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -1441,7 +1434,6 @@
 /components/homematicip_cloud /integrations/homematicip_cloud
 /components/homeworks /integrations/homeworks
 /components/honeywell /integrations/honeywell
-/components/hook /integrations/hook
 /components/horizon /integrations/horizon
 /components/hp_ilo /integrations/hp_ilo
 /components/html5 /integrations/html5
@@ -1530,7 +1522,6 @@
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
 /components/litejet /integrations/litejet
-/components/liveboxplaytv /integrations/liveboxplaytv
 /components/llamalab_automate /integrations/llamalab_automate
 /components/local_file /integrations/local_file
 /components/locative /integrations/locative
@@ -1678,7 +1669,6 @@
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
-/components/owlet /integrations/owlet
 /components/owntracks /integrations/owntracks
 /components/panasonic_bluray /integrations/panasonic_bluray
 /components/panasonic_viera /integrations/panasonic_viera
@@ -1704,7 +1694,6 @@
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
 /components/polling /integrations/telegram_polling
-/components/postnl /integrations/postnl
 /components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
 /components/prometheus /integrations/prometheus
@@ -1893,7 +1882,6 @@
 /components/systemmonitor /integrations/systemmonitor
 /components/sytadin /integrations/sytadin
 /components/tado /integrations/tado
-/components/tahoma /integrations/tahoma
 /components/tank_utility /integrations/tank_utility
 /components/tapsaff /integrations/tapsaff
 /components/tautulli /integrations/tautulli
@@ -2054,3 +2042,40 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+
+# App documentation
+/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+/docs/ecosystem/ios/ https://companion.home-assistant.io/
+/docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
+/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
+/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
+
+# Add-ons
+/addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
+/addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
+/addons/configurator https://github.com/home-assistant/hassio-addons/blob/master/configurator/README.md
+/addons/dhcp_server https://github.com/home-assistant/hassio-addons/blob/master/dhcp_server/README.md
+/addons/dnsmasq https://github.com/home-assistant/hassio-addons/blob/master/dnsmasq/README.md
+/addons/duckdns https://github.com/home-assistant/hassio-addons/blob/master/duckdns/README.md
+/addons/git_pull https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md
+/addons/google_assistant https://github.com/home-assistant/hassio-addons/blob/master/google_assistant/README.md
+/addons/homematic https://github.com/home-assistant/hassio-addons/blob/master/homematic/README.md
+/addons/lets_encrypt https://github.com/home-assistant/hassio-addons/blob/master/letsencrypt/README.md
+/addons/mariadb https://github.com/home-assistant/hassio-addons/blob/master/mariadb/README.md
+/addons/mosquitto https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md
+/addons/nginx_proxy https://github.com/home-assistant/hassio-addons/blob/master/nginx_proxy/README.md
+/addons/rpc_shutdown https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md
+/addons/samba https://github.com/home-assistant/hassio-addons/blob/master/samba/README.md
+/addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
+/addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
+/addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md

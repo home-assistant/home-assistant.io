@@ -1,12 +1,14 @@
 ---
-title: "Kodi"
-description: "Instructions on how to integrate Kodi into Home Assistant."
+title: Kodi
+description: Instructions on how to integrate Kodi into Home Assistant.
 logo: kodi.png
 ha_category:
   - Notifications
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@armills'
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
@@ -122,7 +124,7 @@ With the `turn_on_action` and `turn_off_action` parameters you can run any combi
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
 media_player:
@@ -275,6 +277,26 @@ script:
 ```
 {% endraw %}
 
+#### Simple script to play a smart playlist
+
+{% raw %}
+```yaml
+script:
+  play_kodi_smp:
+    alias: Turn on the silly box with random Firefighter Sam episode
+    sequence:
+      - alias: TV on
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kodi
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.kodi
+          media_content_type: DIRECTORY
+          media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
+```
+{% endraw %}
+
 #### Trigger a Kodi video library update
 
 ```yaml
@@ -363,7 +385,7 @@ data:
   type: map
   keys:
     icon:
-      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, an URL to an image is also valid."
+      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, a URL to an image is also valid."
       required: false
       default: "`info`"
       type: string

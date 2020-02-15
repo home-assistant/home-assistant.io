@@ -1,6 +1,6 @@
 ---
-title: "Onkyo"
-description: "Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant."
+title: Onkyo
+description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
 logo: onkyo.png
 ha_category:
   - Media Player
@@ -82,7 +82,13 @@ List of source names:
 - xm
 - sirius
 
-To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
+If your source is not listed above, and you want to figure out how to format that source name so you can map its entry, you can use the `onkyo-eiscp` Python module to discover the exact naming needed. First, change your receiver's source to the one that you need to define, and then run:
+
+```bash
+onkyo --host 192.168.0.100 source=query
+```
+
+To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
 ```bash

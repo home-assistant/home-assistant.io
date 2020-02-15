@@ -1,6 +1,6 @@
 ---
-title: "WLED"
-description: "Instructions on how to integrate WLED with Home Assistant."
+title: WLED
+description: Instructions on how to integrate WLED with Home Assistant.
 logo: wled.png
 ha_category:
   - Light
@@ -8,7 +8,10 @@ ha_category:
   - Switch
 ha_release: 0.102
 ha_iot_class: Local Polling
-ha_qa_scale: platinum
+ha_config_flow: true
+ha_quality_scale: platinum
+ha_codeowners:
+  - '@frenck'
 ---
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich
@@ -36,7 +39,7 @@ integration will be available.
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.
-Home Assistant threats every segment of the LED strip as a separate light
+Home Assistant treats every segment of the LED strip as a separate light
 entity.
 
 Only native supported features of a light in Home Assistant are supported

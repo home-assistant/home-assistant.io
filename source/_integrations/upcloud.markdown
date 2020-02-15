@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.65
 logo: upcloud.png
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@scop'
 ---
 
 The `upcloud` integration allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.

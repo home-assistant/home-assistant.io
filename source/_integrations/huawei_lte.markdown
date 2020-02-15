@@ -1,6 +1,6 @@
 ---
-title: "Huawei LTE"
-description: "Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant."
+title: Huawei LTE
+description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
 logo: huawei.svg
 ha_category:
   - Network
@@ -8,8 +8,12 @@ ha_category:
   - Notifications
   - Sensor
   - Switch
+  - Binary Sensor
 ha_release: 0.79
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@scop'
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
@@ -20,6 +24,7 @@ There is currently support for the following platforms within Home Assistant:
 - Notifications - via SMS
 - Sensors - device, signal, and traffic information
 - Switch - mobile data on/off
+- Binary sensor - mobile connection status
 
 ## Configuration
 
@@ -44,6 +49,7 @@ default:
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR
 - mobile data switch
+- mobile connection binary sensor
 - device tracker entries
 
 The rest are added to the entity registry, but disabled by default.
@@ -100,13 +106,56 @@ notify:
   required: false
   type: map
   keys:
+    name:
+      description: Name of the notification service.
+      default: "`huawei_lte`"
+      required: false
+      type: string
     recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: false
       type: [string, list]
 {% endconfiguration %}
 
-### Tested devices
+## Services
+
+The following router action services are available. When invoked by a user, administrator access is required.
+
+### Service `huawei_lte.clear_traffic_statistics`
+
+Clear traffic statistics.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+### Service `huawei_lte.reboot`
+
+Reboot router.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+### Service `huawei_lte.suspend_integration`
+
+Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
+Useful e.g. if accessing the router web interface from another source such as a web browser is temporarily required.
+Invoke the `huawei_lte.resume_integration` service to resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+### Service `huawei_lte.resume_integration`
+
+Resume suspended integration.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `url`                  | yes, if only one router configured | Router URL. |
+
+## Tested devices
 
 Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
 

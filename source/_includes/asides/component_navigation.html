@@ -22,16 +22,16 @@
     </div>
   {%- endif -%}
 
-  {%- if page.ha_qa_scale -%}
+  {%- if page.ha_quality_scale -%}
     <div class='section'>
       Quality Scale: <a href='/docs/quality_scale/'>
-        {%- if page.ha_qa_scale == 'platinum' -%}
+        {%- if page.ha_quality_scale == 'platinum' -%}
           🏆 (platinum)
-        {%- elsif page.ha_qa_scale == 'gold' -%}
+        {%- elsif page.ha_quality_scale == 'gold' -%}
           🥇 (gold)
-        {%- elsif page.ha_qa_scale == 'silver' -%}
+        {%- elsif page.ha_quality_scale == 'silver' -%}
           🥈 (silver)
-        {%- elsif page.ha_qa_scale == 'internal' -%}
+        {%- elsif page.ha_quality_scale == 'internal' -%}
           🏠 (internal)
         {%- endif -%}
       </a>

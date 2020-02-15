@@ -1,11 +1,13 @@
 ---
-title: "Monoprice 6-Zone Amplifier"
-description: "Instructions on how to integrate Monoprice 6-Zone Home Audio Controller into Home Assistant."
+title: Monoprice 6-Zone Amplifier
+description: Instructions on how to integrate Monoprice 6-Zone Home Audio Controller into Home Assistant.
 logo: monoprice.svg
 ha_category:
   - Media Player
 ha_release: 0.56
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@etsinko'
 ---
 
 The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using a serial connection.
@@ -52,7 +54,7 @@ sources:
   type: integer
 {% endconfiguration %}
 
-### Service `snapshot`
+### Service `monoprice.snapshot`
 
 Take a snapshot of one or more zones' states. This service, and the following one are useful if you want to play a doorbell or notification sound and resume playback afterward. If no `entity_id` is provided, all zones are snapshotted.
 
@@ -66,7 +68,7 @@ The following attributes are stored in a snapshot:
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of zones.
 
-### Service `restore`
+### Service `monoprice.restore`
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all zones are restored.
 
