@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: decision reversed!] Philips Hue blocks 3rd party lights"
 description: "Philips has published a firmware update that blocks pairing of any 3rd party light."
 date: 2015-12-12 10:44:00 -0800
 date_formatted: "December 12, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 **Update Dec 16**: Great news! Philips has decided to [reverse their decision][philips-reverse] and is working on a software update to allow 3rd party light bulbs again.

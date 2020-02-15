@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate",
+            "type": "shell",
+            "command": "bundle exec rake generate",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Preview",
+            "type": "shell",
+            "command": "bundle exec rake preview",
+            "group": {
+                "kind": "test",
+                "isDefault": true,
+            }
+        }
+    ]
+}

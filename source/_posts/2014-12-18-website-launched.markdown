@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Website launched!"
 description: "Home Assistant website has launched!"
 date: 2014-12-18 23:24:45 0000
 date_formatted: "December 18, 2014"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Website
 ---
 

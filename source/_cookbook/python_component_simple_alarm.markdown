@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Flash lights when intruder detected"
 description: "Detect intruders by checking if the light is turning on while no one is home."
-date: 2016-02-14 0:40 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation in Python Examples
 ---
 
-This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify component](/components/notify/). It will also flash a specific light when a known person comes home.
+This example integration will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify integration](/integrations/notify/). It will also flash a specific light when a known person comes home.
 
-This component depends on the components [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
+This integration depends on the integrations [device_tracker](/integrations/device_tracker/) and [light](/integrations/light/) being setup.
 
 To set it up, add the following lines to your `configuration.yaml` file:
 
@@ -23,10 +17,16 @@ simple_alarm:
   unknown_light: group.living_room
 ```
 
-Configuration variables:
-
-- **known_light** (*Optional*): Which light/light group has to flash when a known device comes home.
-- **unknown_light** (*Optional*): Which light/light group has to flash red when light turns on while no one home.
+{% configuration %}
+known_light:
+  description: Which light/light group has to flash when a known device comes home.
+  required: false
+  type: string
+unknown_light:
+  description: Which light/light group has to flash red when light turns on while no one home.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Create the file `<config dir>/custom_components/simple_alarm.py` and copy paste the content below:
 
@@ -43,19 +43,19 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = 'simple_alarm"'
 
-DEPENDENCIES = ['group', 'device_tracker', 'light']
+DEPENDENCIES = ["group", "device_tracker", "light"]
 
 # Attribute to tell which light has to flash when a known person comes home
 # If omitted will flash all.
-CONF_KNOWN_LIGHT = 'known_light'
+CONF_KNOWN_LIGHT = "known_light"
 
 # Attribute to tell which light has to flash when an unknown person comes home
 # If omitted will flash all.
-CONF_UNKNOWN_LIGHT = 'unknown_light'
+CONF_UNKNOWN_LIGHT = "unknown_light"
 
 # Services to test the alarms
-SERVICE_TEST_KNOWN_ALARM = 'test_known'
-SERVICE_TEST_UNKNOWN_ALARM = 'test_unknown'
+SERVICE_TEST_KNOWN_ALARM = "test_known"
+SERVICE_TEST_UNKNOWN_ALARM = "test_unknown"
 
 
 def setup(hass, config):
@@ -66,8 +66,7 @@ def setup(hass, config):
         light_id = config[DOMAIN].get(conf_key, light.ENTITY_ID_ALL_LIGHTS)
 
         if hass.states.get(light_id) is None:
-            _LOGGER.error(
-                "Light id %s could not be found in state machine", light_id)
+            _LOGGER.error("Light id %s could not be found in state machine", light_id)
 
             return False
 
@@ -88,18 +87,19 @@ def setup(hass, config):
     def unknown_alarm():
         """ Fire an alarm if the light turns on while no one is home. """
         light.turn_on(
-            hass, unknown_light_id,
-            flash=light.FLASH_LONG, rgb_color=[255, 0, 0])
+            hass, unknown_light_id, flash=light.FLASH_LONG, rgb_color=[255, 0, 0]
+        )
 
         # Send a message to the user
         notify.send_message(
-            hass, "The lights just got turned on while no one was home.")
+            hass, "The lights just got turned on while no one was home."
+        )
 
     # Setup services to test the effect
+    hass.services.register(DOMAIN, SERVICE_TEST_KNOWN_ALARM, lambda call: known_alarm())
     hass.services.register(
-        DOMAIN, SERVICE_TEST_KNOWN_ALARM, lambda call: known_alarm())
-    hass.services.register(
-        DOMAIN, SERVICE_TEST_UNKNOWN_ALARM, lambda call: unknown_alarm())
+        DOMAIN, SERVICE_TEST_UNKNOWN_ALARM, lambda call: unknown_alarm()
+    )
 
     def unknown_alarm_if_lights_on(entity_id, old_state, new_state):
         """Called when a light has been turned on."""
@@ -107,8 +107,12 @@ def setup(hass, config):
             unknown_alarm()
 
     track_state_change(
-        hass, light.ENTITY_ID_ALL_LIGHTS,
-        unknown_alarm_if_lights_on, STATE_OFF, STATE_ON)
+        hass,
+        light.ENTITY_ID_ALL_LIGHTS,
+        unknown_alarm_if_lights_on,
+        STATE_OFF,
+        STATE_ON,
+    )
 
     def ring_known_alarm(entity_id, old_state, new_state):
         """Called when a known person comes home."""
@@ -117,8 +121,12 @@ def setup(hass, config):
 
     # Track home coming of each device
     track_state_change(
-        hass, hass.states.entity_ids(device_tracker.DOMAIN),
-        ring_known_alarm, STATE_NOT_HOME, STATE_HOME)
+        hass,
+        hass.states.entity_ids(device_tracker.DOMAIN),
+        ring_known_alarm,
+        STATE_NOT_HOME,
+        STATE_HOME,
+    )
 
     return True
 ```

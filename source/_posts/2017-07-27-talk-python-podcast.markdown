@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Talk Python interview with Paulus Schoutsen"
 description: "In this episode of Talk Python, Michael Kennedy interviews Paulus Schoutsen about Hass.io and the perfect home automation."
 date: 2017-07-27 02:00:00
 date_formatted: "July 27, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Media
 og_image: /images/blog/2017-07-talk-python/logo.png
 ---

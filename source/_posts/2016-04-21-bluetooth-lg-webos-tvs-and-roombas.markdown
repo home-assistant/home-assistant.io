@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "0.18: Bluetooth, LG WebOS TVs and Roombas."
 description: "Home Assistant 0.18 has arrived."
 date: 2016-04-20 23:10:00 UTC
 date_formatted: "April 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-04-release-18/social.png
 ---
 
-It's time for 0.18. This release cycle is 2 days shorter than usual as I'll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.
+It's time for 0.18. This release cycle is 2 days shorter than usual as I'll be traveling to Europe. This also means that it can take some more time before you get feedback on PRs.
 
-Since the last release we have moved all Home Assistant source code etc into it's own [organisation on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.
+Since the last release we have moved all Home Assistant source code etc into its own [organization on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.
 
 <a href='/demo/'><img src='/images/blog/2016-04-release-18/media_player.png' style='box-shadow: none; border: 0;' /></a>
 
@@ -59,22 +57,22 @@ Since the last release we have moved all Home Assistant source code etc into it'
 [@TheRealLink]: https://github.com/TheRealLink/
 [@Turbokongen]: https://github.com/Turbokongen/
 [@vmulpuru]: https://github.com/vmulpuru/
-[Bluetooth tracking platform]: /components/device_tracker.bluetooth_tracker/
-[EQ3 Bluetooth Smart Thermostats]: /components/thermostat.eq3btsmart/
-[mysensors]: /components/mysensors/
-[Feedreader]: /components/feedreader/
-[Homematic platform]: /components/thermostat.homematic/
-[media_player.lg]: /components/media_player.webostv/
-[notify.lg]: /components/notify.webostv/
-[MPD]: /components/media_player.mpd/
-[MQTT]: /components/garage_door.mqtt/
-[Plex]: /components/media_player.plex/
-[Sonos]: /components/media_player.sonos/
-[sensor.Thinkingcleaner]: /components/sensor.thinkingcleaner/
-[switch.Thinkingcleaner]: /components/switch.thinkingcleaner/
-[upnp]: /components/upnp/
-[Wink]: /components/light.wink/
-[Zeroconf]: /components/zeroconf/
+[Bluetooth tracking platform]: /integrations/bluetooth_tracker
+[EQ3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart/
+[mysensors]: /integrations/mysensors/
+[Feedreader]: /integrations/feedreader/
+[Homematic platform]: /integrations/homematic/
+[media_player.lg]: /integrations/webostv#media-player
+[notify.lg]: /integrations/webostv
+[MPD]: /integrations/mpd
+[MQTT]: /integrations/cover.mqtt/
+[Plex]: /integrations/plex#media-player
+[Sonos]: /integrations/sonos
+[sensor.Thinkingcleaner]: /integrations/thinkingcleaner#sensor
+[switch.Thinkingcleaner]: /integrations/thinkingcleaner#switch
+[upnp]: /integrations/upnp/
+[Wink]: /integrations/wink#light
+[Zeroconf]: /integrations/zeroconf/
 
 ### Breaking changes
 - We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.

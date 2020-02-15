@@ -1,23 +1,21 @@
 ---
-layout: post
-title: "MQTT, Rasperry PI, Logitech Squeezebox and ASUSWRT routers now supported"
-description: "New support for MQTT, Rasperry PI GPIO, Logitech Squeezebox and ASUSWRT routers"
+title: "MQTT, Rasperry Pi, Logitech Squeezebox and ASUSWRT routers now supported"
+description: "New support for MQTT, Rasperry Pi GPIO, Logitech Squeezebox and ASUSWRT routers"
 date: 2015-08-09 18:01 0000
 date_formatted: "August 9, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
-It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/home-assistant/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documentating all the various components.
+It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/home-assistant/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documenting all the various components.
 
 __MQTT Support__
-<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='50' /> The big new addition in this release is the support for the MQTT protocol by [@fabaff](https://github.com/fabaff) with some help from [@balloob](https://github.com/balloob). It will now be possible to integrate any IoT device that talks via MQTT. For the initial release we support connecting Home Assistant to a broker (no TLS yet). Components can now subscribe and publish to MQTT topics ([see the example][mqtt-example]) and also support for the automation component [has been added][mqtt-automation]. For more information, see [the MQTT component page][mqtt-component].
+<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='50' /> The big new addition in this release is the support for the MQTT protocol by [@fabaff](https://github.com/fabaff) with some help from [@balloob](https://github.com/balloob). It will now be possible to integrate any IoT device that talks via MQTT. For the initial release we support connecting Home Assistant to a broker (no TLS yet). Components can now subscribe and publish to MQTT topics and also support for the automation component [has been added][mqtt-automation]. For more information, see [the MQTT component page][mqtt-component].
 
-[mqtt-example]: https://github.com/home-assistant/home-assistant/blob/dev/config/custom_components/mqtt_example.py
+
 [mqtt-automation]: /getting-started/automation-trigger/#mqtt-trigger
-[mqtt-component]: /components/mqtt/
+[mqtt-component]: /integrations/mqtt/
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,8 +31,8 @@ mqtt:
 
 <!--more-->
 
-__Raspberry PI GPIO Support__
-<img src='/images/supported_brands/raspberry-pi.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@gbarba](https://github.com/gbarba) has contributed support to use the general purpose input and output pins on a Raspberry PI as switches inside Home Assistant.
+__Raspberry Pi GPIO Support__
+<img src='/images/supported_brands/raspberry-pi.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@gbarba](https://github.com/gbarba) has contributed support to use the general purpose input and output pins on a Raspberry Pi as switches inside Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,7 +102,7 @@ sensor:
     device: PATH_TO_DEVICE
 ```
 
-The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 
 __TEMPer temperature sensor support__
 Support for Temper temperature sensors has been contributed by [@rkabadi](https://github.com/rkabadi).

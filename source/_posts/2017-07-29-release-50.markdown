@@ -1,25 +1,23 @@
 ---
-layout: post
 title: "0.50: Voice control, History improvements, and Xiaomi"
 description: "Use your voice to control your Home."
 date: 2017-07-29 00:11:05
 date_formatted: "July 29, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.50/components.png
 ---
 
-<a href='/components/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
 
-Last Wednesday we released [Hass.io](https://home-assistant.io/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
+Last Wednesday we released [Hass.io](/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
 
 The launch has been crazy successful. The [20 minute introduction video][hassio-intro] by BRUHAutomation already has 12.5k views in just 4 days with no less than 150 comments.
 
 Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
 
-### {% linkable_title Adding the power of voice to integrations %}
+### Adding the power of voice to integrations
 
 But enough about Hass.io, let's not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.
 
@@ -36,7 +34,7 @@ To make testing these applications easier, we've updated the conversation compon
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title History improvements %}
+### History improvements
 
 [@OverloadUT] has been recently spending a lot of time on optimizing the history database queries. This release includes PR [#8632], the first in a list of improvements that he is working on. This PR greatly improves requests for single entities by using an optimized query for this use case.
 
@@ -44,19 +42,19 @@ The performance change in some of his tests shows this change to be about 300x f
 
 [hassio-intro]: https://www.youtube.com/watch?v=XWPluWcYRMI&feature=youtu.be
 
-### {% linkable_title Xiaomi integration %}
+### Xiaomi integration
 
 Yes, it has happened! After being in beta for a while, the Xiaomi support is now available to all. [@danielhiversen] did an amazing job and we now support sensors, switches, lights and covers.
 
-### {% linkable_title Velbus integration %}
+### Velbus integration
 
 Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
 
-### {% linkable_title Manual alarm with MQTT control %}
+### Manual alarm with MQTT control
 
 A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
 - Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
@@ -66,7 +64,7 @@ A new version of the manual alarm component is now available with full MQTT cont
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
 
-## {% linkable_title Release 0.50.2 - July 31 %}
+## Release 0.50.2 - July 31
 
 Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 
@@ -82,14 +80,14 @@ Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 - Correctly discover GE Fan Controllers ([@armills] - [#8682]) ([zwave docs])
 - Fix Z-Wave barrier discovery for new API ([@armills] - [#8706]) ([zwave docs]) ([cover.zwave docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. Use `to` and `at` instead. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
@@ -125,7 +123,7 @@ conversation:
 - Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
 - The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Make deps directory persistent over upgrades ([@MartinHjelmare] - [#7801])
 - Fix check for running inside venv ([@MartinHjelmare] - [#8481])
@@ -140,7 +138,7 @@ conversation:
 - Remove deprecated automation keywords ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Citybikes: Allow None as result for empty slots ([@janLo] - [#8528]) ([sensor.citybikes docs])
 - Return a 0 temperature value when none is found ([@phil-lavin] - [#8518]) ([climate.maxcube docs])
-- Fix #6469 and #6828 ([@titilambert] - [#8537]) ([sensor.hydroquebec docs])
+- Fix #6469 and #6828 ([@titilambert] - [#8537])
 - Update docstrings ([@fabaff] - [#8536])
 - Upgrade TwitterAPI to 2.4.6 ([@fabaff] - [#8535]) ([notify.twitter docs])
 - Decora: Fix set brightness and improve reconnection ([@titilambert] - [#8522]) ([light.decora docs])
@@ -194,7 +192,7 @@ conversation:
 - History performance improvements for single-entity requests ([@OverloadUT] - [#8632]) ([history docs])
 - Add transition support to light.zha ([@jawilson] - [#8548]) ([light.zha docs])
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
-- Added support for SerenaHoneycombShades to Lutron Caseta ([@809694+kfcook] - [#8662]) ([cover.lutron_caseta docs])
+- Added support for SerenaHoneycombShades to Lutron Caseta ([@kfcook] - [#8662]) ([cover.lutron_caseta docs])
 - MQTT Switch: add availability_topic for online/offline status ([@abmantis] - [#8593]) ([mqtt docs]) ([switch.mqtt docs])
 - Adding support for mapping keys to value in statsd ([@Khabi] - [#8665]) ([statsd docs])
 - Upgrade fuzzywuzzy to 0.15.1 ([@fabaff] - [#8671]) ([conversation docs])
@@ -288,7 +286,7 @@ conversation:
 [#8673]: https://github.com/home-assistant/home-assistant/pull/8673
 [#8675]: https://github.com/home-assistant/home-assistant/pull/8675
 [#8697]: https://github.com/home-assistant/home-assistant/pull/8697
-[@809694+kfcook]: https://github.com/809694+kfcook
+[@kfcook]: https://github.com/kfcook
 [@Khabi]: https://github.com/Khabi
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MikeChristianson]: https://github.com/MikeChristianson
@@ -333,76 +331,75 @@ conversation:
 [@titilambert]: https://github.com/titilambert
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alarm_control_panel.manual_mqtt docs]: https://home-assistant.io/components/alarm_control_panel.manual_mqtt/
-[alarm_control_panel.simplisafe docs]: https://home-assistant.io/components/alarm_control_panel.simplisafe/
-[alarmdecoder docs]: https://home-assistant.io/components/alarmdecoder/
-[alexa docs]: https://home-assistant.io/components/alexa/
-[automation.state docs]: https://home-assistant.io/docs/automation/trigger/#state-trigger
-[automation.time docs]: https://home-assistant.io/docs/automation/trigger/#time-trigger
-[binary_sensor.ping docs]: https://home-assistant.io/components/binary_sensor.ping/
-[binary_sensor.rest docs]: https://home-assistant.io/components/binary_sensor.rest/
-[binary_sensor.velbus docs]: https://home-assistant.io/components/binary_sensor.velbus/
-[binary_sensor.xiaomi docs]: https://home-assistant.io/components/binary_sensor.xiaomi/
-[camera.onvif docs]: https://home-assistant.io/components/camera.onvif/
-[climate.maxcube docs]: https://home-assistant.io/components/climate.maxcube/
-[conversation docs]: https://home-assistant.io/components/conversation/
-[cover docs]: https://home-assistant.io/components/cover/
-[cover.lutron_caseta docs]: https://home-assistant.io/components/cover.lutron_caseta/
-[cover.xiaomi docs]: https://home-assistant.io/components/cover.xiaomi/
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[device_tracker.snmp docs]: https://home-assistant.io/components/device_tracker.snmp/
-[emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
-[fan.wink docs]: https://home-assistant.io/components/fan.wink/
-[hassio docs]: https://home-assistant.io/hassio/
-[history docs]: https://home-assistant.io/components/history/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
-[intent docs]: https://home-assistant.io/developers/intent/
-[intent_script docs]: https://home-assistant.io/components/intent_script/
-[knx docs]: https://home-assistant.io/components/knx/
-[light docs]: https://home-assistant.io/components/light/
-[light.decora docs]: https://home-assistant.io/components/light.decora/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.tplink docs]: https://home-assistant.io/components/light.tplink/
-[light.velbus docs]: https://home-assistant.io/components/light.velbus/
-[light.wink docs]: https://home-assistant.io/components/light.wink/
-[light.xiaomi docs]: https://home-assistant.io/components/light.xiaomi/
-[light.zha docs]: https://home-assistant.io/components/light.zha/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.kodi docs]: https://home-assistant.io/components/media_player.kodi/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.twitter docs]: https://home-assistant.io/components/notify.twitter/
-[python_script docs]: https://home-assistant.io/components/python_script/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[sensor.citybikes docs]: https://home-assistant.io/components/sensor.citybikes/
-[sensor.dht docs]: https://home-assistant.io/components/sensor.dht/
-[sensor.fitbit docs]: https://home-assistant.io/components/sensor.fitbit/
-[sensor.google_wifi docs]: https://home-assistant.io/components/sensor.google_wifi/
-[sensor.hydroquebec docs]: https://home-assistant.io/components/sensor.hydroquebec/
-[sensor.knx docs]: https://home-assistant.io/components/sensor.knx/
-[sensor.lyft docs]: https://home-assistant.io/components/sensor.lyft/
-[sensor.octoprint docs]: https://home-assistant.io/components/sensor.octoprint/
-[sensor.pi_hole docs]: https://home-assistant.io/components/sensor.pi_hole/
-[sensor.snmp docs]: https://home-assistant.io/components/sensor.snmp/
-[sensor.uk_transport docs]: https://home-assistant.io/components/sensor.uk_transport/
-[sensor.xiaomi docs]: https://home-assistant.io/components/sensor.xiaomi/
-[shopping_list docs]: https://home-assistant.io/components/shopping_list/
-[snips docs]: https://home-assistant.io/components/snips/
-[statsd docs]: https://home-assistant.io/components/statsd/
-[switch.fritzdect docs]: https://home-assistant.io/components/switch.fritzdect/
-[switch.mqtt docs]: https://home-assistant.io/components/switch.mqtt/
-[switch.wink docs]: https://home-assistant.io/components/switch.wink/
-[switch.xiaomi docs]: https://home-assistant.io/components/switch.xiaomi/
-[switch.xiaomi_vacuum docs]: https://home-assistant.io/components/switch.xiaomi_vacuum/
-[velbus docs]: https://home-assistant.io/components/velbus/
-[weather.yweather docs]: https://home-assistant.io/components/weather.yweather/
-[wink docs]: https://home-assistant.io/components/wink/
-[xiaomi docs]: https://home-assistant.io/components/xiaomi/
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa docs]: /integrations/alexa/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.velbus docs]: /integrations/velbus
+[binary_sensor.xiaomi docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera.onvif docs]: /integrations/onvif
+[climate.maxcube docs]: /integrations/maxcube
+[conversation docs]: /integrations/conversation/
+[cover docs]: /integrations/cover/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.wink docs]: /integrations/wink#fan
+[hassio docs]: /hassio/
+[history docs]: /integrations/history/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[intent docs]: /developers/intent/
+[intent_script docs]: /integrations/intent_script/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[light.decora docs]: /integrations/decora
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.tplink docs]: /integrations/tplink
+[light.velbus docs]: /integrations/velbus/
+[light.wink docs]: /integrations/wink#light
+[light.xiaomi docs]: /integrations/light.xiaomi_aqara/
+[light.zha docs]: /integrations/zha
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.twitter docs]: /integrations/twitter
+[python_script docs]: /integrations/python_script/
+[recorder docs]: /integrations/recorder/
+[remote.harmony docs]: /integrations/harmony
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.dht docs]: /integrations/dht
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.google_wifi docs]: /integrations/google_wifi
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.xiaomi docs]: /integrations/sensor.xiaomi_aqara/
+[shopping_list docs]: /integrations/shopping_list/
+[snips docs]: /integrations/snips/
+[statsd docs]: /integrations/statsd/
+[switch.fritzdect docs]: /integrations/fritzdect
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[weather.yweather docs]: /integrations/yweather
+[wink docs]: /integrations/wink/
+[xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -418,7 +415,7 @@ conversation:
 [#8754]: https://github.com/home-assistant/home-assistant/pull/8754
 [#8755]: https://github.com/home-assistant/home-assistant/pull/8755
 [@n8henrie]: https://github.com/n8henrie
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[media_player.pioneer docs]: https://home-assistant.io/components/media_player.pioneer/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[light.tradfri docs]: /integrations/tradfri
+[media_player.pioneer docs]: /integrations/pioneer
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[zwave docs]: /integrations/zwave/

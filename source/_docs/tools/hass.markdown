@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "hass"
 description: "Description of hass."
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The command-line part of Home Assistant is `hass`.
@@ -16,8 +10,8 @@ The command-line part of Home Assistant is `hass`.
 $ hass -h
 usage: hass [-h] [--version] [-c path_to_config_dir] [--demo-mode] [--debug]
             [--open-ui] [--skip-pip] [-v] [--pid-file path_to_pid_file]
-            [--log-rotate-days LOG_ROTATE_DAYS] [--runner] [--script ...]
-            [--daemon]
+            [--log-rotate-days LOG_ROTATE_DAYS] [--log-file LOG_FILE]
+            [--log-no-color] [--runner] [--script ...] [--daemon]
 
 Home Assistant: Observe, Control, Automate.
 
@@ -39,6 +33,7 @@ optional arguments:
                         specified days
   --log-file LOG_FILE   Log file to write to. If not set, CONFIG/home-
                         assistant.log is used
+  --log-no-color        Disable color logs
   --runner              On restart exit with code 100
   --script ...          Run one of the embedded scripts
   --daemon              Run Home Assistant as daemon

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Thomas Krenn award 2017"
 description: "Thomas Krenn award 2017"
 date: 2017-04-01 06:00:00 +0000
 date_formatted: "April 01, 2017"
 author: Fabian Affolter
-comments: true
 categories: Community
 og_image: /images/blog/2017-04-award/social.png
 ---
@@ -23,18 +21,18 @@ As a raffle would be to easy, we make a contest out of it. This means that we ar
 Create an entry in our [Forum][forum]. Be creative and use your imagination.
 
 
-### {% linkable_title The details %}
+### The details
 
 - Jury: The Home Assistant community
 - Dead line: April, 23 2017 - 23.59 UTC
 - Voting period: April, 24th till April, 30 2017 - 23.59 UTC
 
-The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the [Forum][forum] and on [Twitter][twitter].
+The decision of the jury will be final. If there will be a dispute then the Top-5 committer of the Home Assistant organization on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the [Forum][forum] and on [Twitter][twitter].
 
 Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.
 
 [LES]: https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html
 [award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
-[forum]: https://community.home-assistant.io/c/contest-2017
+[forum]: https://community.home-assistant.io/t/hardware-contest-2017/42546
 [twitter]: https://twitter.com/home_assistant
 

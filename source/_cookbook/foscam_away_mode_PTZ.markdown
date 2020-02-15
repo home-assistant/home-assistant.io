@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection"
 description: "Example of how to set Foscam to only have Motion Detection Recording while no one is home. When users are home the Foscam will indicate it is not recording by pointing down and away from users"
-date: 2016-03-10 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-This requires a [Foscam IP Camera](/components/camera.foscam/) camera with PTZ (Pan, Tilt, Zoom) and CGI functionality ([Source](http://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)) 
+This requires a [Foscam IP Camera](/integrations/foscam) camera with PTZ (Pan, Tilt, Zoom) and CGI functionality ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)) 
 
 Foscam Cameras can be controlled by Home Assistant through a number of CGI commands. 
 The following outlines examples of the switch, services, and scripts required to move between 2 preset destinations while controlling motion detection, but many other options of movement are provided in the Foscam CGI User Guide linked above.

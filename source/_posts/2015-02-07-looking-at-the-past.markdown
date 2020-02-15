@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Looking at the past"
 description: "Introducing history tracking for Home Assistant."
 date: 2015-02-08 9:01:23 -0800
 date_formatted: "February 8, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -15,7 +13,7 @@ Ever since the launch of Home Assistant you have been able to track the state of
 * Recorder component that will record every event to a SQLite database
 * History component that will query and aggregate the recorded events
 
-By adding this view into the past, we are adding an extra dimension into the state of your house. This brings great new possibilities for future features. The focus of todays release is on getting the recording component to you to start recording and getting some data. To show what is being recorded a view has been added that shows the last 24 hours of your house. Expect more extensive tools to explore your history in the future.
+By adding this view into the past, we are adding an extra dimension into the state of your house. This brings great new possibilities for future features. The focus of today's release is on getting the recording component to you to start recording and getting some data. To show what is being recorded a view has been added that shows the last 24 hours of your house. Expect more extensive tools to explore your history in the future.
 
 Adding history to the UI was a challenge on itself because the old UI did not support easy navigation. So to add to the awesomeness of this release, Home Assistant also got a face lift.
 
@@ -27,9 +25,9 @@ The history component will be enabled for new users by default. For current user
   </a>
 </p>
 
-<p class='note'>
+<div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
-</p>
+</div>
 
 <!--more-->
 

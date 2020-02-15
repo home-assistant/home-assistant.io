@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "HADashboard"
 description: "HADashboard is a dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
-release_date: 2016-11-13 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/hadashboard/
 ---
 
-HADashboard is a modular, skinnable dashboard for [Home Assistant](https://home-assistant.io/) that is intended to be wall mounted, and is optimized for distance viewing.
+HADashboard is a modular, skinnable dashboard for [Home Assistant](/) that is intended to be wall mounted, and is optimized for distance viewing.
 
 <p class='img'>
     <img src='/images/hadashboard/dash1.png' />
@@ -37,6 +31,4 @@ HADashboard is a modular, skinnable dashboard for [Home Assistant](https://home-
     Glassic Theme
 </p>
 
-
-
-For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/latest/DASHBOARD_INSTALL.html)
+For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html).

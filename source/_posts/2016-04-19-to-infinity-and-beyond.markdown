@@ -1,16 +1,14 @@
 ---
-layout: post
 title: "To Infinity and Beyond 🚀"
 description: "The state of Home Assistant: past, present, future."
 date: 2016-04-19 22:44:00 UTC
 date_formatted: "April 19, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
-categories: Organisation
+categories: Organization
 ---
 
-After 2.5 years I think we can proudly say: Home Assistant is a success. I write _we_ because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own [organisation on GitHub][gh-ha].
+After 2.5 years I think we can proudly say: Home Assistant is a success. I write _we_ because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own [organization on GitHub][gh-ha].
 
 On our journey we've reached many noteworthy milestones:
 

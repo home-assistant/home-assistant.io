@@ -1,20 +1,18 @@
 ---
-layout: post
 title: "Templates, dates and times"
 description: "Using templates for seconds and years in Home Assistant."
 date: 2017-10-15 08:00:00 +0200
 date_formatted: "October 15, 2017"
 author: Fabian Affolter
-comments: true
 categories: Community
 og_image: /images/blog/2017-10-template/social.png
 ---
 
 This [Pull Request](https://github.com/home-assistant/home-assistant/pull/9868) shows in a clear way what happens if the documentation is not as good as it should be. In short, it's about [Templating](/docs/configuration/templating/) and how people start to think about creative ways to solve it if it's not documented. Let's assume that we want the current year. There are a couple of options available to do that:
 
-- Query [JSON Test](http://date.jsontest.com/) with a [`rest` sensor](/components/sensor.rest/) and a `value_template:`.
-- Use a [`time_date` sensor ](/components/sensor.time_date/) and a template {% raw %}`{{ strptime(states('sensor.date'), '%Y-%m-%d').year }}`{% endraw %}.
-- Write a script in language X and use it with the [`command` sensor](/components/sensor.command_line/) or use `date +"%Y"` as a `command:`.
+- Query [JSON Test](http://date.jsontest.com/) with a [`rest` sensor](/integrations/rest) and a `value_template:`.
+- Use a [`time_date` sensor ](/integrations/time_date) and a template {% raw %}`{{ strptime(states('sensor.date'), '%Y-%m-%d').year }}`{% endraw %}.
+- Write a script in language X and use it with the [`command` sensor](/integrations/sensor.command_line/) or use `date +"%Y"` as a `command:`.
 
 <!--more-->
 
