@@ -86,11 +86,11 @@ host:
   required: true
   type: string
 username:
-  description: The username on openwrt. Set above as `hassio`.
+  description: The username on OpenWrt. Set above as `hassio`.
   required: true
   type: string
 password:
-  description: The password for the openwrt account.
+  description: The password for the OpenWrt account.
   required: true
   type: string
 dhcp_software:
