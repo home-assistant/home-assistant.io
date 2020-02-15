@@ -18,7 +18,7 @@ To add your Lightwave devices into your Home Assistant installation, add the fol
 ```yaml
 # Example configuration.yaml entry
 lightwave:
-  host: 192.168.1.2
+  host: IP_ADDRESS
   lights:
     R1D3:
       name: Wall lights
@@ -61,6 +61,10 @@ switches:
       required: true
       type: string
 trv:
+  description: PLEASE ADD A DESCRIPTION HERE :)
+  required: false
+  type: map
+  keys:
     trv_proxy_ip:
       description: IP address of a proxy for TRV integration. 
       required: false
