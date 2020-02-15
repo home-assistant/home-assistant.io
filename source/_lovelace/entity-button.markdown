@@ -51,8 +51,17 @@ icon_height:
   type: string
   default: auto
 tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/lovelace/action).
+  type: map
 hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/action).
+  type: map
 double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/action).
+  type: map
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"

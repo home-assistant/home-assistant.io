@@ -1,5 +1,5 @@
 ---
-title: "Actions"
+title: "Action"
 description: "Define what a card does when interacted with."
 ---
 Some Lovelace cards have support for tap actions. These actions define what will happen when you tap or hold on a card.

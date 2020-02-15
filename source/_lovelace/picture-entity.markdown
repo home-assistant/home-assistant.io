@@ -64,8 +64,17 @@ theme:
   description: "Set to any theme within `themes.yaml`"
   type: string
 tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/lovelace/action).
+  type: map
 hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/action).
+  type: map
 double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/action).
+  type: map
 {% endconfiguration %}
 
 ## Options For Confirmation
