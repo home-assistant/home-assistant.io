@@ -133,6 +133,7 @@ state_image:
 Displaying a live feed from an FFMPEG camera:
 
 {% raw %}
+
 ```yaml
 type: picture-entity
 entity: camera.backdoor
@@ -144,6 +145,7 @@ tap_action:
     entity_id: camera.backdoor
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}
 
 The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).
