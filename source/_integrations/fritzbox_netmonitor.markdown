@@ -12,7 +12,7 @@ The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM
 
 ## Configuration
 
-For this integration to function properly, you need to have "uPnP Statusinformation transfer" activated on the AVM FRITZ!Box. so before continuing, please make sure you have that enabled.
+For this integration to function properly, you need to have "uPnP Statusinformation transfer" activated on the AVM FRITZ!Box. Please make sure you have that enabled.
 
 To use the FRITZ!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
