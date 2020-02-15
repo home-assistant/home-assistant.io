@@ -115,7 +115,7 @@ name:
   type: string
   default: Vizio SmartCast
 access_token:
-  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your config and instead go through the pairing process via the HA frontend.
+  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the HA frontend.
   required: false
   type: string
 device_class:
