@@ -68,20 +68,6 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Options For Confirmation
-
-If you define confirmation as an object instead of boolean, you can add more customization and configurations:
-{% configuration %}
-text:
-  required: false
-  description: Text to present in the confirmation dialog.
-  type: string
-exemptions:
-  required: false
-  description: "List of `exemption` objects. See below"
-  type: list
-{% endconfiguration %}
-
 ## Options For Exemptions
 
 {% configuration badges %}
