@@ -1,4 +1,3 @@
-
 ---
 title: Synology SRM
 description: Instructions on how to integrate Synology SRM routers into Home Assistant.
@@ -24,7 +23,7 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: synology_srm
-    host: 192.168.1.254
+    host: IP_ADDRESS
     password: YOUR_ADMIN_PASSWORD
 ```
 
@@ -69,8 +68,8 @@ The sensors attributes are filled with other information obtained from the route
 # Example configuration.yaml entry
 sensor:
   - platform: synology_srm
-    host: SynologyRouter.local
-    password: !secret SynologyRouter
+    host: IP_ADDRESS
+    password: PASSWORD
     monitored_conditions:
       - core.ddns_extip
       - core.system_utilization
@@ -111,10 +110,10 @@ name:
   default: synology_srm
   type: string
 monitored_conditions:
-    description: This specifies what information is obtained from the router and stored in the entity's attributes.
+  description: This specifies what information is obtained from the router and stored in the entity's attributes.
   required: false
   default: core.ddns_extip
-  type: string
+  type: list
   keys:
     base.encryption
     base.info
