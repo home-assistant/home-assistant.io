@@ -2053,7 +2053,7 @@
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
 /docs/ecosystem/ios/location https://companion.home-assistant.io/docs/core/location
-/docs/ecosystem/ios/notifications hhttps://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/docs/notifications/actionable-notifications
 /docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/docs/notifications/notification-details
 /docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/docs/notifications/notification-attachments
