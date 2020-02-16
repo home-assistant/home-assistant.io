@@ -115,15 +115,24 @@ monitored_conditions:
   default: core.ddns_extip
   type: list
   keys:
-    base.encryption
-    base.info
-    core.ddns_extip
-    core.ddns_record
-    core.system_utilization
-    core.network_nsm_device
-    mesh.network_wanstatus
-    mesh.network_wifidevice
-    mesh.system_info
+    base.encryption:
+      description: Base encryption
+    base.info:
+      description: Base info
+    core.ddns_extip:
+      description: Core ddns external IP
+    core.ddns_record:
+       description: Core ddns record
+    core.system_utilization:
+      description: Core system utilization
+    core.network_nsm_device:
+      description: Core network nsm device
+    mesh.network_wanstatus:
+      description: Mesh network wan status
+    mesh.network_wifidevice:
+      description: Mesh network Wi-Fi device
+    mesh.system_info:
+      description: Mesh system info
 {% endconfiguration %}
 
 ### Example
