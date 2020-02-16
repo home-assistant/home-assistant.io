@@ -2048,7 +2048,6 @@
 /integrations/switch.pca /integrations/elv
 
 # App documentation
-# App documentation
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
