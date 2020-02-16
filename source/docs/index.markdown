@@ -40,7 +40,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='/images/supported_brands/apple.png' />
     </div>
-    <div class='title'>iOS</div>
+    <div class='title'>Android and iOS</div>
   </a>
 </div>
 
