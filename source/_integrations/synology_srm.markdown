@@ -29,7 +29,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The Synology SRM router host or IP address, e.g., `192.168.1.1` or `router.mydomain.local`
+  description: "The Synology SRM router host or IP address, e.g., `192.168.1.1` or `router.mydomain.local`"
   required: true
   type: string
 port:
