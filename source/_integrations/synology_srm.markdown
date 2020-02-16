@@ -130,6 +130,7 @@ monitored_conditions:
 
 The following will create two entities that will store the routers current WAN traffic:
 
+{% raw %}
 ```yaml
 sensor:
   - platform: synology_srm
@@ -141,16 +142,17 @@ sensor:
   - platform: template
     sensors:
       wan_download:
-        value_template: {% raw %}"{% set i = namespace() %}{% set i.i = 0 %}{% for item in states.sensor.synology_srm.attributes.core.system_utilization.network if item.device|regex_match('^(usbnet|ppp)', ignorecase=true) %}{% set i.i = i.i + item.rx %}{% endfor %}{{ ((i.i / 1024 / 1024) * 8)|round(2) }}"{% endraw %}
+        value_template: "{% set i = namespace() %}{% set i.i = 0 %}{% for item in states.sensor.synology_srm.attributes.core.system_utilization.network if item.device|regex_match('^(usbnet|ppp)', ignorecase=true) %}{% set i.i = i.i + item.rx %}{% endfor %}{{ ((i.i / 1024 / 1024) * 8)|round(2) }}"
         friendly_name: Download
         unit_of_measurement: Mbit/s
         icon_template: 'mdi:download'
       wan_upload:
-        value_template: {% raw %}"{% set i = namespace() %}{% set i.i = 0 %}{% for item in states.sensor.synology_srm.attributes.core.system_utilization.network if item.device|regex_match('^(usbnet|ppp)', ignorecase=true) %}{% set i.i = i.i + item.tx %}{% endfor %}{{ ((i.i / 1024 / 1024) * 8)|round(2) }}"{% endraw %}
+        value_template: "{% set i = namespace() %}{% set i.i = 0 %}{% for item in states.sensor.synology_srm.attributes.core.system_utilization.network if item.device|regex_match('^(usbnet|ppp)', ignorecase=true) %}{% set i.i = i.i + item.tx %}{% endfor %}{{ ((i.i / 1024 / 1024) * 8)|round(2) }}"
         friendly_name: Upload
         unit_of_measurement: Mbit/s
         icon_template: 'mdi:upload'
 ```
+{% endraw %}
 
 ## Notes
 
