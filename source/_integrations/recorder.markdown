@@ -179,7 +179,7 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service
