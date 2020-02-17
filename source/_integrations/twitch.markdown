@@ -17,7 +17,7 @@ Create a new app at "Register Your Application" in the [Twitch developer portal]
 ## Setup OAuth Token
 
 To enable the follow and subscription attributes the OAuth token is needed to get the right permissions on the Twitch api.
-If you don't need those, just ignore the config setting `oauth_token`.
+If you don't need those, just ignore the configuration setting `token`.
 
 To get the oauth token visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user_read user_subscriptions` inside __scopes__.
 Before clicking Summit (the broken image below the form), visit the [Twitch dev console](https://dev.twitch.tv/console) and add a new application.
@@ -33,7 +33,7 @@ To use Twitch with your installation, add the following to your `configuration.y
 sensor:
   platform: twitch
   client_id: YOUR_TWITCH_CLIENT_ID
-  oauth_token: YOUR_TWITCH_OAUTH_TOKEN
+  token: YOUR_TWITCH_OAUTH_TOKEN
   channels:
     - channel1
     - channel2
@@ -44,7 +44,7 @@ client_id:
   description: Your Twitch client ID.
   required: true
   type: string
-oauth_token:
+token:
   description: Your Twitch OAuth Token.
   required: false
   type: string
