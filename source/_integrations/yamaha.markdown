@@ -56,7 +56,7 @@ zone_names:
 ### Discovery notes
 
 - If the `discovery` integration is enabled, all units on the network
-  will be discovered using UPNP.
+  will be discovered using UPnP.
 - For receivers that support more than one zone, Home Assistant will
   add one media player per zone supported by the player, named "$name
   Zone 2" and "$name Zone 3".
