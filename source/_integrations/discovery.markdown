@@ -8,7 +8,7 @@ ha_release: 0.7
 ha_quality_scale: internal
 ---
 
-Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
+Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
 
  * [Apple TV](/integrations/apple_tv/)
  * [Belkin WeMo switches](/integrations/wemo/)
@@ -106,7 +106,7 @@ Valid values for enable are:
 
 ### UPnP
 
-Home Assistant must be on the same network as the devices for uPnP discovery to work.
+Home Assistant must be on the same network as the devices for UPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
 ### Windows
