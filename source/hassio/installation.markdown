@@ -94,7 +94,7 @@ If you would like to test next release before anyone else, you can install the b
 3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
 4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
 
-## Alternative: install Home Assistant Supervised on a generic Linux host
+## Alternative: install Home Assistant Supervisor on a generic Linux host
 
 You can also install Home Assistant on a Linux operating system of choice, called Home Assistant Supervised.
 
