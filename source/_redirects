@@ -684,7 +684,6 @@
 /components/sensor.dsmr /integrations/dsmr
 /components/sensor.dte_energy_bridge /integrations/dte_energy_bridge
 /components/sensor.dublin_bus_transport /integrations/dublin_bus_transport
-/components/sensor.duke_energy /integrations/duke_energy
 /components/sensor.dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/sensor.dweet /integrations/dweet#sensor
 /components/sensor.dyson /integrations/dyson#sensor
@@ -1285,7 +1284,6 @@
 /components/dte_energy_bridge /integrations/dte_energy_bridge
 /components/dublin_bus_transport /integrations/dublin_bus_transport
 /components/duckdns /integrations/duckdns
-/components/duke_energy /integrations/duke_energy
 /components/dunehd /integrations/dunehd
 /components/dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/dweet /integrations/dweet
