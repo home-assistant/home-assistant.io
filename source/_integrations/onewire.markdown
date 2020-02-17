@@ -10,11 +10,11 @@ ha_codeowners:
   - '@garbled1'
 ---
 
-The `onewire` platform supports sensors which are using the One wire (1-wire) bus for communication.
+The `onewire` platform supports sensors which that using the One wire (1-wire) bus for communication.
 
-Each and every 1-wire device has a (globally) unique ID that identifies the device on the bus. The first two digits identify a device family and the last 14 digits are a globally unique number given to it during manufacturing.
+Every 1-wire device has a (globally) unique ID that identifies the device on the bus. The first two digits identify a device family and the last 14 digits are a globally unique number given to it during manufacturing.
 
-The different families have different functionality and can measure different quantities.
+Different families have different functionality and can measure different quantities.
 
 ### Supported devices:
 
@@ -30,13 +30,14 @@ The different families have different functionality and can measure different qu
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture |  
 
-*Notes:*
-- The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also barometer, hygrometer and illiminance sensors. This onewire platform can read and present values from that device.
+Notes:
 
-- Each 1-wire component data sheet describes the different properties the component provides. The owfs software adds some extra tools to make it easier for DIY implementers to use the component. By hobbyists, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
+- The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device.
+
+- Each 1-wire component data sheet describes the different properties the component provides. The owfs software adds some extra tools to make it easier for DIY implementers to use the component. By hobbyists, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
   For this component, the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
 
-- Hobbyboards is a company that has been selling DIY boards of different kinds. The company has been away from the market for some, time so no reference to the boards can be made. This platform has an implementation for some of those.
+- Hobbyboards is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
 
 ## Interfacing with the 1-wire bus
 
@@ -51,7 +52,7 @@ In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/con
 To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
 When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature. 
-There are no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
+There is no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
 
 ## Interface adapter setup
 
@@ -83,7 +84,7 @@ mount_dir:
   required: false
   type: string
 host:
-  description: Remote or local host running owserver.
+  description: Remote or localhost running owserver.
   required: false
   type: string
 port:
@@ -124,8 +125,8 @@ friendly_name: 28.FF5C68521604 Temperature
 
 ### Units with multiple sensors
 
-This platform works with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
-If you wish to maintain continuity it can be resolved in the database by renaming the old devices to the new names.
+This platform works with devices with multiple sensors, which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
+If you wish to maintain continuity, it can be resolved in the database by renaming the old devices to the new names.
 
 Connect to your database using the instructions from [Database section](/docs/backend/database/). Check the names of sensors:
 
@@ -141,4 +142,4 @@ UPDATE states SET entity_id='sensor.<sensor_name>_pressure' WHERE entity_id LIKE
 UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%%%' ESCAPE '';
 ```
 
-Remember to replace `<sensor_name>` with the actual name of the sensor as seen in the `SELECT` query.
+Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
