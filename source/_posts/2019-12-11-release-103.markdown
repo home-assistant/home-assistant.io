@@ -842,7 +842,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for egardia ([@springstan] - [#29448]) ([egardia docs])
 - Move imports to top for eight_sleep ([@springstan] - [#29447]) ([eight_sleep docs])
 - Update eternalegypt to 0.0.11 ([@amelchio] - [#29446]) ([netgear_lte docs])
-- Move imports to top for duke_energy ([@springstan] - [#29445]) ([duke_energy docs])
+- Move imports to top for duke_energy ([@springstan] - [#29445])
 - Move imports to top for dunehd ([@springstan] - [#29444]) ([dunehd docs])
 - Move imports to top for dlink ([@springstan] - [#29443]) ([dlink docs])
 - Move imports to top for doorbird ([@springstan] - [#29442]) ([doorbird docs])
@@ -1495,7 +1495,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [doorbird docs]: /integrations/doorbird/
 [dovado docs]: /integrations/dovado/
 [dsmr_reader docs]: /integrations/dsmr_reader/
-[duke_energy docs]: /integrations/duke_energy/
 [dunehd docs]: /integrations/dunehd/
 [dwd_weather_warnings docs]: /integrations/dwd_weather_warnings/
 [dyson docs]: /integrations/dyson/
