@@ -48,7 +48,7 @@ Example configuration:
 cover:
   - platform: rfxtrx
     automatic_add: false
-    signal_repetitions: 2
+    signal_repetitions: 2 # signal_repetitions: 1 for the Somfy covers (avoid to stop the motion after start)
     devices:
       0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
         name: Bedroom Shutter

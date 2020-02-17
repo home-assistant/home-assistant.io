@@ -588,6 +588,46 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [nws docs]: /integrations/nws/
 [zha docs]: /integrations/zha/
 
+## Release 0.105.4 - February 14
+
+- Guard writing automation/scene/script config ([@balloob] - [#31568]) ([config docs])
+- For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs])
+- Fix missing device class in netatmo binary sensors ([@cgtobi] - [#31693]) ([netatmo docs])
+- Fix person reload service ([@balloob] - [#31716]) ([person docs])
+- Fix smoke detection for HomematicIP Cloud ([@SukramJ] - [#31753]) ([homematicip_cloud docs])
+- Updated frontend to 20200130.3 ([@bramkragten] - [#31771]) ([frontend docs])
+- Fix person device_trackers null ([@balloob] - [#31829]) ([person docs])
+- Google Assistant: Remove speaker type and earlier filter out devices from being locally exposed ([@balloob] - [#31830]) ([google_assistant docs])
+- Spotify integration hotfixes ([@frenck] - [#31835]) ([spotify docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31568]: https://github.com/home-assistant/home-assistant/pull/31568
+[#31686]: https://github.com/home-assistant/home-assistant/pull/31686
+[#31693]: https://github.com/home-assistant/home-assistant/pull/31693
+[#31716]: https://github.com/home-assistant/home-assistant/pull/31716
+[#31753]: https://github.com/home-assistant/home-assistant/pull/31753
+[#31771]: https://github.com/home-assistant/home-assistant/pull/31771
+[#31829]: https://github.com/home-assistant/home-assistant/pull/31829
+[#31830]: https://github.com/home-assistant/home-assistant/pull/31830
+[#31835]: https://github.com/home-assistant/home-assistant/pull/31835
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@raman325]: https://github.com/raman325
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[config docs]: /integrations/config/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[netatmo docs]: /integrations/netatmo/
+[person docs]: /integrations/person/
+[spotify docs]: /integrations/spotify/
+[vizio docs]: /integrations/vizio/
+
 ## Beta Fixes
 
 - ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)

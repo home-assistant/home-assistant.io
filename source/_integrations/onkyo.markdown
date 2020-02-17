@@ -55,32 +55,32 @@ sources:
 
 List of source names:
 
-- video1
-- video2
-- video3
-- video4
-- video5
-- video6
-- video7
-- dvd
-- bd-dvd
-- tape1
-- tv-tape
-- tape2
-- phono
-- cd
-- tv-cd
-- fm
-- am
-- tuner
-- dlna
-- internet-radio
-- usb
-- network
-- universal-port
-- multi-ch
-- xm
-- sirius
+- `video1`
+- `video2`
+- `video3`
+- `video4`
+- `video5`
+- `video6`
+- `video7`
+- `dvd`
+- `bd-dvd`
+- `tape1`
+- `tv-tape`
+- `tape2`
+- `phono`
+- `cd`
+- `tv-cd`
+- `fm`
+- `am`
+- `tuner`
+- `dlna`
+- `internet-radio`
+- `usb`
+- `network`
+- `universal-port`
+- `multi-ch`
+- `xm`
+- `sirius`
 
 If your source is not listed above, and you want to figure out how to format that source name so you can map its entry, you can use the `onkyo-eiscp` Python module to discover the exact naming needed. First, change your receiver's source to the one that you need to define, and then run:
 

@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers.
 
+## Configuration
+
+For this integration to function properly, you need to have "UPnP Statusinformation transfer" activated on the AVM FRITZ!Box. Please make sure you have that enabled.
+
 To use the FRITZ!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

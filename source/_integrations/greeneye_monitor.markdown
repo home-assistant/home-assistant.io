@@ -34,8 +34,10 @@ greeneye_monitor:
           counted_quantity_per_pulse: 1
           time_unit: "min"
       temperature_sensors:
-        - number: 1
-          name: back_porch_temperature
+        temperature_unit: "C"
+        sensors:
+          - number: 1
+            name: back_porch_temperature
       voltage:
         - number: 1
           name: house_volts

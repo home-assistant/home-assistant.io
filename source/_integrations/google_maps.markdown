@@ -30,7 +30,7 @@ device_tracker:
     username: YOUR_USERNAME
 ```
 
-Once enabled and you have rebooted devices discovered through this integration wil be listed in the `known_devices.yaml`file within your configuration directory.
+Once enabled and you have rebooted devices discovered through this integration will be listed in the `known_devices.yaml` file within your configuration directory.
 
 They will be created with indentifiers like `google_maps_<numeric_id>`. To be able to properly track entities you must set the `track` attribute to `true`. 
 

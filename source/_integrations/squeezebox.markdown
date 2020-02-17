@@ -60,7 +60,7 @@ transporter_toslink:
 
 ### Service `call_method`
 
-Call a custom Squeezebox JSONRPC API.
+Call a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
@@ -72,10 +72,10 @@ See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html
 
 This service can be used to integrate any Squeezebox action to an automation.
 
-It can also be used to target a Squeezebox from IFTT (or DialogFlow, Alexa...).
+It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
 
-For example, to play an album from your collection, create an IFTT applet like this:
+For example, to play an album from your collection, create an IFTTT applet like this:
 - Trigger: Google assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
 `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
-This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTT cannot escape the text field.
+This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTTT cannot escape the text field.

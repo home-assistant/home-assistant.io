@@ -2044,21 +2044,21 @@
 /integrations/switch.pca /integrations/elv
 
 # App documentation
-/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+/ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
-/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
-/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
-/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
-/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
-/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
-/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
-/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
-/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
+/docs/ecosystem/ios/location https://companion.home-assistant.io/docs/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/docs/notifications/actionable-notifications
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/docs/notifications/notification-details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/docs/notifications/notification-attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/docs/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/docs/notifications/notification-sounds
+/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
