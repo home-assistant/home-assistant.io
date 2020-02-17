@@ -5,6 +5,7 @@ logo: tado.png
 ha_category:
   - Hub
   - Climate
+  - Water Heater
   - Presence Detection
   - Sensor
 ha_release: 0.41
@@ -18,6 +19,7 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 There is currently support for the following device types within Home Assistant:
 
 - Climate - for every Tado zone.
+- Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 
