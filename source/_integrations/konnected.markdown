@@ -22,7 +22,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [`ssdp`](/integrations/ssdp) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.
 
 <div class='note info'>
 
