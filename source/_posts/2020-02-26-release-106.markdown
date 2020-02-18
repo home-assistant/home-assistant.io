@@ -34,7 +34,7 @@ Also an improvement on a feature introduced in the previous release, the `state_
 
 ## Sensor card
 
-Our sensor card has had a style update. We initially got the design from [mini graph card]`(https://github.com/kalkih/mini-graph-card) and now updated to match the improved new look of that card.
+Our sensor card has had a style update. We initially got the design from [mini graph card](https://github.com/kalkih/mini-graph-card) and now updated to match the improved new look of that card.
 
 ## Person more info
 
