@@ -628,6 +628,22 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [spotify docs]: /integrations/spotify/
 [vizio docs]: /integrations/vizio/
 
+## Release 0.105.5 - February 17
+
+- Upgrade bimmer_connected to 0.7.0 ([@gerard33] - [#31894]) ([bmw_connected_drive docs])
+- Report which data causes JSON serialization error ([@balloob] - [#31901])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31894]: https://github.com/home-assistant/home-assistant/pull/31894
+[#31901]: https://github.com/home-assistant/home-assistant/pull/31901
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+
 ## Beta Fixes
 
 - ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
