@@ -82,6 +82,22 @@ NOTE: When you add holiday keyword to excludes configuration, keep in mind that 
 
 ## Full example
 
+This example excludes Saturdays, Sundays but not a holiday. Two custom holidays are added.
+Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays.
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun]
+    add_holidays:
+      - '2018-12-26'
+      - '2018-12-31'
+```
+
+
 This examples excludes Saturdays, Sundays and holiday. Two custom holidays are added.
 
 ```yaml
