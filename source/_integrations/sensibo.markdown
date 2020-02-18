@@ -29,7 +29,7 @@ done in the app and actions done by Home Assistant.
 
 ### Set up the integration via the integrations screen
 
-Navigate to *Configuration* and then *Integrations*. Select the plus sign to add a new integration and select **Sensibo** from the list.
+Navigate to **Configuration** and then **Integrations**. Select the plus sign to add a new integration and select **Sensibo** from the list.
 
 Enter your Sensibo API key in the form and submit. Home Assistant will then try to connect to Sensibo to find your Sensibo devices and add them as entities.
 
