@@ -75,7 +75,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the Konnected device with colons/punctuation removed, for example `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the home-assistant.log for log messages from automatically discovered devices.
+      description: The MAC address of the Konnected device with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices.
       required: true
       type: string
     binary_sensors:
