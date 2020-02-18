@@ -75,7 +75,7 @@ If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then 
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 
 > **_NOTE:_**
-NOTE: When you add holiday keyword to excludes configuration, keep in mind that it is saying to exclude the holidays from a workday. You might think that would be excluding holidays from consideration, but any values in the exclude configuration will mean to skip that date even if it is a workday. For example, in the US every third Monday in January is Martin Luther King's day, which happened to fall on January 6th in 2020. If Monday is a workday and `holiday` is excluded, then the sensor would be off even though normally Monday is a workday. If you do not want to exclude `holidays` or another way of saying "do not look at holidays" Then you can not just leave the excludes configuration blank. The reason is that `holiday` is the default. Same as `sat` and `sun`. In that case, you would need to define the excludes configuration with something. You can add `sat` and `sun` since they would have defaulted anyway. If you need something else excluded and you wanted holidays excluded, then you would just add the values, but since something was configured then you would have to add the holiday keyword to whatever else.
+NOTE: When you add holiday keyword to excludes configuration, keep in mind that it is saying to exclude the holidays from a workday. You might think that would be excluding holidays from consideration, but any values in the exclude configuration will mean to skip that date even if it is a workday. For example, in the US every third Monday in February is Predesit's day, which happened to fall on February 17th in 2020. If Monday is a workday and `holiday` is excluded, then the sensor would be off even though normally Monday is a workday. If you do not want to exclude `holidays` or another way of saying "do not look at holidays" Then you can not just leave the excludes configuration blank. The reason is that `holiday` is the default. Same as `sat` and `sun`. In that case, you would need to define the excludes configuration with something. You can add `sat` and `sun` since they would have defaulted anyway. If you need something else excluded and you wanted holidays excluded, then you would just add the values, but since something was configured then you would have to add the holiday keyword to whatever else.
 
 
 </div>
@@ -83,7 +83,7 @@ NOTE: When you add holiday keyword to excludes configuration, keep in mind that 
 ## Full example
 
 This example excludes Saturdays, Sundays but not a holiday. Two custom holidays are added.
-Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays.
+Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays. Therefore as the note above, 2/17/2020 in the US would still be a workday. But February 14th 2020 although it is a workday (Friday) it would be excluded and the sensor would be 'off'.
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,8 +93,7 @@ binary_sensor:
     workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun]
     add_holidays:
-      - '2018-12-26'
-      - '2018-12-31'
+      - '2020-02-14'
 ```
 
 
