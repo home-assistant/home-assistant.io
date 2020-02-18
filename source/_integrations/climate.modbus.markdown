@@ -23,7 +23,7 @@ climate:
     hub: hub1
     slave: 1
     data_type: uint
-    count: 1
+    data_count: 1
     scale: 0.1
     offset: 0
     precision: 1
