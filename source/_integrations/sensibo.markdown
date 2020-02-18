@@ -6,6 +6,7 @@ ha_category:
   - Climate
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@andrey-git'
 ---
