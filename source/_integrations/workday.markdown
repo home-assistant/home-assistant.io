@@ -80,7 +80,7 @@ NOTE: When you add holiday keyword to excludes configuration, keep in mind that 
 
 </div>
 
-## Full example
+## Full examples
 
 This example excludes Saturdays, Sundays but not a holiday. Two custom holidays are added.
 Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays. Therefore as the note above, 2/17/2020 in the US would still be a workday. But February 14th 2020 although it is a workday (Friday) it would be excluded and the sensor would be 'off'.
