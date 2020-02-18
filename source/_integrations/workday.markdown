@@ -12,14 +12,15 @@ ha_codeowners:
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
-uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
+uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays. 
+!!! Note
+This is a note
 
 ## Setup
 
 Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
 
 ## Configuration
-
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
