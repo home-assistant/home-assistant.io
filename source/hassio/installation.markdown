@@ -53,11 +53,15 @@ The following will take you through the steps required to install Home Assistant
 
 7. It is important to provide yourself proper access, including the Home Assistant CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Supervisor**, which is located in the sidebar and then the add-on store.
 
+<div class='note warning'>
+
+We used `hassio.local` in the past, if you have a system that is installed before this naming change, you might need to use `hassio.local` instead of `homeassistant.local`.
+
+</div>
+
 <div class='note'>
 
 If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
-
-We used `hassio.local` in the past, if you have an system that is installed before this naming change, you might need to use `hassio.local` instead of `homeassistant.local`.
 
 </div>
 
