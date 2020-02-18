@@ -101,7 +101,7 @@ light:
 
 ### RGB LED connected to the GPIO pins of an remote Raspberry Pi.
 
-On the Raspberry Pi the pigpio deamon is running on the default port 6666.
+On the Raspberry Pi the pigpio daemon is running on the default port 6666.
 
 ```yaml
 # Example configuration.yaml entry
