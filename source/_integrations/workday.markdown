@@ -11,7 +11,7 @@ ha_codeowners:
   - '@fabaff'
 ---
 
-The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
+The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also
 uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays. 
 
 ## Setup
@@ -65,17 +65,17 @@ add_holidays:
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-The keyword `holiday` is used for public holidays identified by the holidays module.
+The keyword `holiday` is used for public holidays identified by the holiday’s module.
 
 <div class='note warning'>
 
 If you use the sensor for Norway (`NO`) you need to wrap `NO` in quotes or write the name in full.
-Otherwise the value is evaluated as `false`.
+Otherwise, the value is evaluated as `false`.
 If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes.
-Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
+Otherwise, the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 
 > **_NOTE:_**
-NOTE: When you add holiday keyword to excludes configuration, keep in mind that it is saying to exclude the holidays from a workday. You might think that would be excluding holidays from consideration, but any values in the exclude configuration will mean to skip that date even if it is a workday. For example, in the US every third Monday in February is Predesit's day, which happened to fall on February 17th in 2020. If Monday is a workday and `holiday` is excluded, then the sensor would be off even though normally Monday is a workday. If you do not want to exclude `holidays` or another way of saying "do not look at holidays" Then you can not just leave the excludes configuration blank. The reason is that `holiday` is the default. Same as `sat` and `sun`. In that case, you would need to define the excludes configuration with something. You can add `sat` and `sun` since they would have defaulted anyway. If you need something else excluded and you wanted holidays excluded, then you would just add the values, but since something was configured then you would have to add the holiday keyword to whatever else. Also, to use the add_holidays configuration, the keyword `holiday` must be excluded.
+NOTE: When you add holiday keyword to excludes configuration, keep in mind that it is saying to exclude the holidays from a workday. You might think that would be excluding holidays from consideration, but any values in the exclude configuration will mean to skip that date even if it is a workday. For example, in the US every third Monday in February is Predesit's day, which happened to fall on February 17th in 2020. If Monday is a workday and `holiday` is excluded, then the sensor would be off even though normally Monday is a workday. If you do not want to exclude `holidays` or another way of saying "do not look at holidays" Then you can not just leave the excludes configuration blank. The reason is that `holiday` is the default. Same as `sat` and `sun`. In that case, you would need to define the excludes configuration with something. You can add `sat` and `sun` since they would have defaulted anyway. If you need something else excluded and you wanted holidays excluded, then you would just add the values, but since something was configured then you would have to add the holiday keyword to whatever else. Also, to use the add_holidays configuration, the keyword `holiday` must be excluded. In Example 1 below, ‘2020-02-14’ was added to the `add_holidays`. That is a Friday and would still be considered a workday because `holiday` is not excluded.
 
 
 </div>
@@ -83,7 +83,7 @@ NOTE: When you add holiday keyword to excludes configuration, keep in mind that 
 ## Full examples
 
 This example excludes Saturdays, Sundays but not a holiday. Two custom holidays are added.
-Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays. Therefore as the note above, 2/17/2020 in the US would still be a workday. But February 14th 2020 although it is a workday (Friday) it would be excluded and the sensor would be 'off'.
+Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays. Therefore as the note above, 2/17/2020 in the US would still be a workday.
 
 ```yaml
 # Example 1 configuration.yaml entry
@@ -97,7 +97,8 @@ binary_sensor:
 ```
 
 
-This examples excludes Saturdays, Sundays and holiday. Two custom holidays are added.
+This example excludes Saturdays, Sundays and holidays. Two custom holidays are added.
+The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holiday` configuration.
 
 ```yaml
 # Example 2 configuration.yaml entry
@@ -107,8 +108,7 @@ binary_sensor:
     workdays: [mon, wed, fri]
     excludes: [sat, sun, holiday]
     add_holidays:
-      - '2018-12-26'
-      - '2018-12-31'
+      - '2020-02-24'
 ```
 
 ## Automation example
