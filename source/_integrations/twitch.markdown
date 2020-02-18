@@ -36,7 +36,6 @@ To use Twitch with your installation, add the following to your `configuration.y
 sensor:
   platform: twitch
   client_id: YOUR_TWITCH_CLIENT_ID
-  token: YOUR_TWITCH_OAUTH_TOKEN
   channels:
     - channel1
     - channel2
