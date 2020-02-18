@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 🤝 Ubiquiti Networks"
 description: "Ubiquiti Networks has hired Paulus Schoutsen, the founder of Home Assistant, to support Home Assistant’s goals of making Home Assistant easier to configure for users, improving the integration with device makers and making it easier to create, maintain and evolve integrations."
 date: 2018-04-12 00:01:00
 date_formatted: "April 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-ubiquiti-and-home-assistant/paulus.jpg
 ---

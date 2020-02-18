@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Control My Christmas Tree Stats"
 description: "I used Home Assistant for a publicly controllable Christmas tree and it worked great!"
 date: 2017-01-03 18:00:00 +0000
 date_formatted: "January 3, 2017"
 author: Ben
 author_twitter: bruhautomation
-comments: true
 categories: Community
 og_image: /images/blog/2017-01-bruh-christmas/christmas-tree.gif
 ---

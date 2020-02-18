@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Set up Hass.io on top of a virtual machine"
 description: "A how-to about using Hass.io on x86_64 hardware in a virtualized way."
 date: 2017-11-29 06:00:00 +0000
 date_formatted: "November 29, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-hassio-virtual/social.png
 ---

@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "AppDaemon Tutorial"
 description: "AppDaemon Tutorial"
-release_date: 2016-11-27 08:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/appdaemon/tutorial/
 ---
 
-## {% linkable_title Another Take on Automation %}
+## Another Take on Automation
 
 If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a light switch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation in bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
@@ -29,7 +23,7 @@ So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations
 
 - New paradigm - some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can't
 - Ease of use - AppDaemon's API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible, experienced Python programmers should feel right at home.
-- Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g., a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file
+- Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g., a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the configuration file
 - Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to its loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it and restart them to use the new code with out the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
 - Complex logic - Python's If/Else constructs are clearer and easier to code for arbitrarily complex nested logic
 - Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened
@@ -37,11 +31,11 @@ So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations
 
 It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additional functions to make things that were already possible easier.
 
-## {% linkable_title How it Works %}
+## How it Works
 
 The best way to show what AppDaemon does is through a few simple examples.
 
-### {% linkable_title Sunrise/Sunset Lighting %}
+### Sunrise/Sunset Lighting
 
 Lets start with a simple App to turn a light on every night fifteen
 minutes (900 seconds) before sunset and off every morning at sunrise.
@@ -64,41 +58,40 @@ different scenes in a different version of the App.
 ```python
     import appdaemon.plugins.hass.hassapi as hass
 
+
     class OutsideLights(hass.Hass):
+        def initialize(self):
+            self.run_at_sunrise(self.sunrise_cb)
+            self.run_at_sunset(self.before_sunset_cb, offset=-900)
 
-      def initialize(self):
-        self.run_at_sunrise(self.sunrise_cb)
-        self.run_at_sunset(self.before_sunset_cb, offset=-900)
+        def sunrise_cb(self, kwargs):
+            self.turn_on(self.args["off_scene"])
 
-      def sunrise_cb(self, kwargs):
-        self.turn_on(self.args["off_scene"])
-
-      def before_sunset_cb(self, kwargs):
-        self.turn_on(self.args["on_scene"])
-
+        def before_sunset_cb(self, kwargs):
+            self.turn_on(self.args["on_scene"])
 ```
 
 This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.
 
 ### Motion Light
 
-Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changesd where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callback function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
+Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callback function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
 
 ```python
 import appdaemon.appapi as appapi
 
+
 class FlashyMotionLights(appapi.AppDaemon):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
 
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
 ```
 
 This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.
@@ -108,26 +101,26 @@ Now lets extend this with a somewhat artificial example to show something that i
 ```python
 import homeassistant.appapi as appapi
 
+
 class MotionLights(appapi.AppDaemon):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
+            self.flashcount = 0
+            self.run_in(self.flash_warning, 1)
 
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-      self.flashcount = 0
-      self.run_in(self.flash_warning, 1)
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
 
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
-
-  def flash_warning(self, kwargs):
-    self.toggle("light.living_room")
-    self.flashcount += 1
-    if self.flashcount < 10:
-      self.run_in(self.flash_warning, 1)
+    def flash_warning(self, kwargs):
+        self.toggle("light.living_room")
+        self.flashcount += 1
+        if self.flashcount < 10:
+            self.run_in(self.flash_warning, 1)
 ```
 
 Of course if I wanted to make this App or its predecessor reusable I would have provide parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.

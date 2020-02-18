@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Updated release schedule"
 description: "We're adding a beta period of a week before marking each release as final."
 date: 2018-03-24 00:01:00
 date_formatted: "March 24, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-03-release-schedule/social.png
 ---

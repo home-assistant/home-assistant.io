@@ -1,23 +1,21 @@
 ---
-layout: post
 title: "0.36: ISS, USPS, Image processing, Insteon"
 description: "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes"
 date: 2017-01-14 08:04:05 +0000
 date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-01-0.36/social.png
 ---
 
 Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.
 
-### {% linkable_title Packages %}
+### Packages
 [Packages][packages] are providing a new way to organize different component's configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the `!include` directives.
 
-### {% linkable_title InfluxDB export %}
-The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/components/influxdb/#migration-script) to update your InfluxDB database.
+### InfluxDB export
+The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/integrations/influxdb/#migration-script) to update your InfluxDB database.
 
 ```bash
 $ hass --script influxdb_migrator \
@@ -25,26 +23,26 @@ $ hass --script influxdb_migrator \
     -d INFLUXDB_DB_NAME
 ```
 
-### {% linkable_title International Space Station (ISS) %}
+### International Space Station (ISS)
 No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives you some details.
 
-### {% linkable_title Insteon local %}
+### Insteon local
 The support for Insteon was removed due to issues a while ago. With the `insteon_local` component support for [Insteon][insteon] is back and let one work locally with an Insteon setup.
 
-### {% linkable_title Image processing %}
+### Image processing
 The new [image processing component][image] currently works with [number plates][plates]. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.
 
-## {% linkable_title All changes %}
+## All changes
 
-- Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
+- Sensor: Support for HydroQuebec ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
-- Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
+- Sensor: USPS deliveries tracking ([@happyleavesaoc])
 - Device tracker: New [ping-based][ping] tracker ([@michaelarnauts])
 - TTS: Support for [Pico][pico] ([@doudz])
 - Switch: [BeagleBone Black][beaglebone] GPIO are supported now ([@MatoKafkac])
 - Light: New support for [Tikteck][tik] Bluetooth bulbs ([@mjg59])
 - Switch: Support for customised [Kankun SP3 Wifi][kankun] switches ([@webworxshop])
-- Insteon local: Local [insteon][insteon] support([@wardcraigj])
+- Insteon local: Local [insteon][insteon] support([@craigjmidwinter])
 - `rest_command`: Support for using [REST][rest] ([@pvizeli])
 - Sensor: Show details of the [Dublin RTPI][dublin] information ([@ttroy50])
 - Light: [Zengge Bluetooth][zengge] bulbs ([@mjg59])
@@ -74,7 +72,7 @@ The new [image processing component][image] currently works with [number plates]
 - Docker: `ffmpeg` is now included by default ([@colinodell])
 - Minor and not so minor features and bug fixes by [@balloob], [@pvizeli], [@fabaff], [@mezz64], [@andrey-git], [@aequitas], [@abmantis], [@turbokongen], [@jabesq], [@michaelarnauts], [@kellerza], [@titilambert], [@btorresgil], [@henworth], [@armills], [@mjg59], [@Giannie], [@n8henrie], [@magicus], [@florianholzapfel], [@MrMep], [@bah2830], [@happyleavesaoc], [@lwis], [@glance-], [@markferry], and [@nikdoof].
 
-### {% linkable_title Release 0.36.1 - January 17 %}
+### Release 0.36.1 - January 17
 
  - Fix load_yaml default value ([@balloob])
  - Fix discovery of flux_led ([@Danielhiversen])
@@ -85,10 +83,10 @@ The new [image processing component][image] currently works with [number plates]
  - Fix Bluetooth and Volvo trackers ([@pvizeli])
  - Fix lannouncer notify platform ([@mKeRix])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
-- [InfluxDB][influx] component has a new [schema](/components/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/components/influxdb/#migration-script) script.
+- [InfluxDB][influx] component has a new [schema](/integrations/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/integrations/influxdb/#migration-script) script.
   You have to note:
   - There will not be any tags/fields named time anymore.
   - All numeric fields (int/float/bool) will be stored as float inside influx db.
@@ -98,10 +96,10 @@ The new [image processing component][image] currently works with [number plates]
   - Fields named state will always be stored as string.
 - TTS cache files use now the language abbreviation as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_PLATFORM.xxx` -> `HASH_LANG_PLATFORM.xxx`.
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### {% linkable_title Reporting Issues %}
+### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 [@tchellomello]: https://github.com/tchellomello
@@ -158,38 +156,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@webworxshop]: https://github.com/webworxshop
 [@Zac-HD]: https://github.com/Zac-HD
 
-[apns]: /components/notify.apns/
-[beaglebone]: /components/bbb_gpio/
-[bl-switch]: /components/switch.broadlink/
-[bom]: /components/weather.bom/
-[dublin]: /components/sensor.dublin_public_transport/
-[facebook]: /components/notify.facebook/
-[image]: /components/image_processing/
-[influx]: /components/influxdb/
-[insteon]: /components/insteon_local/
-[iss]: /components/sensor.iss/
-[kankun]: /components/switch.kankun/
-[lannouncer]: /components/notify.lannouncer/
-[mysensors]: /components/notify.mysensors/
+[apns]: /integrations/apns
+[beaglebone]: /integrations/bbb_gpio/
+[bl-switch]: /integrations/broadlink#switch
+[bom]: /integrations/bom
+[dublin]: /integrations/dublin_bus_transport/
+[facebook]: /integrations/facebook
+[image]: /integrations/image_processing/
+[influx]: /integrations/influxdb/
+[insteon]: /integrations/insteon/
+[iss]: /integrations/iss
+[kankun]: /integrations/kankun
+[lannouncer]: /integrations/lannouncer
+[mysensors]: /integrations/notify.mysensors/
 [packages]: /topics/packages/
-[pico]: /components/tts.picotts/
-[ping]: /components/device_tracker.ping/
-[plates]: /components/openalpr/
-[quebec]: /components/sensor.hydroquebec/
-[rest]: /components/rest_command/
-[sma]: /components/sensor.sma/
-[sonarr]: /components/sensor.sonarr/
-[tik]: /components/light.tikteck/
-[trackr]: /components/device_tracker.trackr/
-[upc]: /components/device_tracker.upc_connect/
-[usps]: /components/sensor.usps/
-[wink-fan]: /components/fan.wink/
-[xiaomi]: /components/device_tracker.xiaomi/
-[yandex]: /components/tts.yandextts/
-[yeelight]: /components/light.yeelight/
-[zengge]: /components/light.zengge/
-
+[pico]: /integrations/picotts
+[ping]: /integrations/ping
+[plates]: /integrations/openalpr_local/
+[rest]: /integrations/rest_command/
+[sma]: /integrations/sma#sensors
+[sonarr]: /integrations/sonarr
+[tik]: /integrations/tikteck
+[trackr]: /integrations/trackr
+[upc]: /integrations/upc_connect
+[usps]: /integrations/usps#sensor
+[wink-fan]: /integrations/wink#fan
+[xiaomi]: /integrations/device_tracker.xiaomi/
+[yandex]: /integrations/yandextts
+[yeelight]: /integrations/yeelight
+[zengge]: /integrations/zengge

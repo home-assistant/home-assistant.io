@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Effortless encryption with Let's Encrypt and DuckDNS"
 description: "Get Home Assistant encrypted in less than 5 minutes."
 date: 2017-09-27 00:05:00 +0000
 date_formatted: "September 27, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 ---

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Home Assistant CLI aka. hass-cli"
 description: "Interact with Home Assistant on a new level"
 date: 2019-02-04 00:01:00
 date_formatted: "February 4, 2018"
 author: Max Rydahl Andersen
 author_twitter: maxandersen
-comments: true
 categories: Announcements
 ---
 
@@ -22,7 +20,7 @@ Last week we released version 0.4, which provides majority of the features I was
 looking for to do from a CLI.
 
 ## Feature highlights:
-   
+
    - Get configuration info (`hass-cli config`)
    - List, get, edit and delete state for entities (`hass-cli entity`')
    - Query history with relative time ('hass-cli entity history')
@@ -38,29 +36,29 @@ looking for to do from a CLI.
 
 ## Usage
 
-For the basic intro to `hass-cli` see the docs at [github](github-hass-cli).
+For the basic intro to `hass-cli` see the docs at [github][github-hass-cli].
 
 ## Installation
 
 Install latest `homeassistant-cli` by pip:
 
     $ pip3 install homeassistant-cli
-    
+
 or if upgrade use:
 
     $ pip3 install --upgrade homeassistant-cli
-   
+
 or if you like an isolated install you can use [pipsi][pipsi]
 
     $ pipsi install --python python3 homeassistant-cli
 
-or if you are adventurous you can build it from [source][github-hass-cli] at. 
+or if you are adventurous you can build it from [source][github-hass-cli] at.
 
 ## Changes since 0.1-0.3
 
-The first thing is that the commands have been cleaned up to be more logcial/explicit. 
+The first thing is that the commands have been cleaned up to be more logcial/explicit.
 
-    $ hass-cli 
+    $ hass-cli
     ...
     ...
     Commands:
@@ -115,7 +113,7 @@ If you still want to get all the glory details you can use `-o yaml` to get the 
 
 A few frequent asked questions we've seen the last months are as follows:
 
-### Why would anyone use this ? 
+### Why would anyone use this ?
 
 This is not removing or trying to compete with existing ways to access Home
 Assistant - this is a complementary way to access Home Assistant. If you like to
@@ -134,7 +132,7 @@ type out. Finally over time as `hass-cli` will get support for utilizing the
 more extensive websocket API's `hass-cli` will be more consistent and simpler to
 use than using "raw" access via `curl`.
 
-### Does this only work with HTTPS and hass.io ? 
+### Does this only work with HTTPS and hass.io ?
 
 No, it works with *any* Home Assistant that has REST API exposed - something
 that is done by default. In short - if you can access Home Assistant with your
@@ -148,7 +146,7 @@ No, `hass-cli` does not require Home Assistant installed on the computer you
 want to run it on. It should run on any install with Python 3.5 or higher on all
 major operating systems.
 
-### Does this work with client-generated certificates ? 
+### Does this work with client-generated certificates ?
 
 It should, but we have not yet been able to verify it. If you would like to help
 us try it run with `--cert <certificate.pem>` and let us know if it works on
@@ -161,7 +159,7 @@ system control commands (like refreshing groups, restarting, etc.) but also for
 accessing hass.io add-ons. Also having an easy way to hook into the event bus
 (via websocket) to see what is happening live.
 
-What would you like to see ? 
+What would you like to see ?
 
 ## Feedback
 

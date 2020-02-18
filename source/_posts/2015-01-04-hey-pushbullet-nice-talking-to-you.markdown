@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Hello PushBullet, nice talking to you"
 description: "Introducing the new notify component and PushBullet platform"
 date: 2015-01-04 13:29:07 -0800
 date_formatted: January 4, 2015
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -33,7 +31,7 @@ platform=pushbullet
 api_key=ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-You can get your api key from [your account page on PushBullet.com](https://www.pushbullet.com/account).
+You can get your api key from [your account page on PushBullet.com](https://www.pushbullet.com/#settings/account).
 
 ### Sending messages from your component
 

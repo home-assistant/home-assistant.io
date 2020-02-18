@@ -1,17 +1,10 @@
 ---
-layout: page
 title: "Light Card"
 sidebar_label: Light
 description: "The Light card allows you to change the brightness of the light."
-date: 2018-10-29 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Light card allows you to change the brightness of the light.
-Note: Long-press on the bulb to bring up the `more-info` dialog.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_light_card.png' alt='Screenshot of the Light card'>
@@ -37,9 +30,18 @@ name:
   description: Overwrites friendly name.
   type: string
   default: Name of Entity
+icon:
+  required: false
+  description: Overwrites icon.
+  type: string
+  default: Entity Domain Icon
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Overwriting names example:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "credstash"
 description: "Script to store credentials securely in AWS"
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using [Credstash](https://github.com/fugue/credstash) is an alternative way to `secrets.yaml`. They can be managed from the command line via the credstash script.
@@ -20,8 +14,8 @@ $ hass --script credstash --help
 To store a password in credstash, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
 
 ```yaml
-http:
-  api_password: !secret http_password
+example:
+  password: !secret example_password
 ```
 
 Create an entry in your credstash store.

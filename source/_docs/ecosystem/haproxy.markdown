@@ -1,26 +1,20 @@
 ---
-layout: page
 title: "HAProxy"
 description: "Documentation about setting up Home Assistant with HAProxy"
-date: 2018-01-02 11:23:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using HAProxy to proxy for Home Assistant allows you to serve Home Assistant securely over standard ports with HTTP to HTTPS redirection.
 
-### {% linkable_title Install HAProxy on your server %}
+### Install HAProxy on your server
 
 This will vary depending on your OS. Check out Google for this.
 
-### {% linkable_title Obtain an SSL certificate %}
+### Obtain an SSL certificate
 
 There are multiple ways of obtaining an SSL certificate. Let’s Encrypt is one method.
 Use Google for this, but a good example of using Certbot can be found [here](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04).
 
-### {% linkable_title HAPRoxy Configuration %}
+### HAPRoxy Configuration
 
 The following configuration updates HAProxy defaults for more secure ciphers for SSL and logging and connection
 timeouts.
@@ -63,7 +57,8 @@ defaults
 	timeout connect 5000
 	timeout client  50000
 	timeout server  50000
-	timeout http-request 5s  #protection from Slowloris attacks
+	timeout tunnel  60000    # long enough for websocket pings every 55 seconds
+	timeout http-request 5s  # protection from Slowloris attacks
 
 frontend www-http
 	bind *:80
@@ -74,7 +69,7 @@ frontend www-https
 	bind *:443 ssl crt /etc/haproxy/certs/MYCERT.pem
 	acl hass-acl hdr(host) -i SUBDOMAIN.DOMAIN.COM
 	use_backend hass-backend if hass-acl
-	
+
 backend hass-backend
 	server hass <Home Assistant Server IP>:8123
 
@@ -84,18 +79,18 @@ backend hass-backend
 	http-request add-header X-Forwarded-Port 443
 ```
 
-### {% linkable_title Forward Ports %}
+### Forward Ports
 
 Forward ports 443 and (optionally) 80 to your server on your router.
 
 Do not forward port 8123, HAProxy takes care of securing the connection with HTTPS on 443.
 If 8123 is forwarded then it will not be secured.
 
-Replace 443 with whatever port you chose to bind to in the config if different.
+Replace 443 with whatever port you chose to bind to in the configuration if different.
 
-### {% linkable_title Configure Home Assistant HTTP Component %}
+### Configure Home Assistant HTTP Component
 
-In your `configuration.yaml` file, edit the [http component](https://www.home-assistant.io/components/http/).
+In your `configuration.yaml` file, edit the [HTTP component](/integrations/http/).
 
 ```text
 http:
@@ -109,6 +104,6 @@ http:
   trusted_proxies: <HAProxy IP address here, 127.0.0.1 if same machine>
 ```
 
-### {% linkable_title Restart or Reload HAProxy %}
+### Restart or Reload HAProxy
 
 Use your OS method of restarting or reloading HAProxy. Use Google for this.

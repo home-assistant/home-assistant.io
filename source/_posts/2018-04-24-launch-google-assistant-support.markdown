@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Our Google Assistant skill is live!"
 description: "The Google Assistant integration for Home Assistant Cloud is now available to all."
 date: 2018-04-24 00:01:00
 date_formatted: "April 24, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-google-assistant/google-assistant-home-assistant.png
 ---
@@ -30,7 +28,7 @@ Things to note:
 
  - The skill is called Hass.io, but will work with normal Home Assistant too. The name was necessary to avoid confusion between Home Assistant, Google Assistant and Google Home.
  - Works with Home Assistant 0.65.6 or later.
- - All message handling is done local and is [open source](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/google_assistant/trait.py).
+ - All message handling is done local and is [open source](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/google_assistant/trait.py).
  - If you have an Android device with Google Assistant, you can control your devices too.
  - Home Assistant 0.68 will introduce a button to the Cloud config panel to trigger a sync of available devices.
 

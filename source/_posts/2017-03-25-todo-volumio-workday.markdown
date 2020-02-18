@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.41: Tado, Volumio, Workday, improved Plex"
 description: "Improved Pley media player, filtering components overview, Tado and Volumio platform"
 date: 2017-03-25 08:04:05 +0000
 date_formatted: "March 25, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-03-0.41/social.png
 ---
@@ -49,9 +47,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## All changes
 
 - Bugfix android camera autodiscovery settings ([@pvizeli] - [#6510])
-- Insteon lib ([@wardcraigj] - [#6505])
+- Insteon lib ([@craigjmidwinter] - [#6505])
 - Update to Pyunifi2.0 ([@finish06] - [#6490])
-- Insteon lib ([@wardcraigj] - [#6505])
+- Insteon lib ([@craigjmidwinter] - [#6505])
 - Don't allow sending to invalid iOS targets ([@robbiet480] - [#6115])
 - Bugfix rpi_rf cleanup ([@pvizeli] - [#6513])
 - Include LICENSE.md in tarball ([@bachp] - [#6514])
@@ -330,20 +328,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tylercrumpton]: https://github.com/tylercrumpton
 [@vrnagy]: https://github.com/vrnagy
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
 [@yeralin]: https://github.com/yeralin
 
-[components]: /components/
-[kodi]: /components/notify.kodi/
-[mpd]: /components/media_player.mpd/
-[emby]: /components/media_player.emby/
+[components]: /integrations/
+[kodi]: /integrations/kodi
+[mpd]: /integrations/mpd
+[emby]: /integrations/emby
 [mqtt]: /docs/mqtt/
-[plex]: /components/media_player.plex/
-[tado]: /components/climate.tado/
-[volumio]: //components/media_player.volumio/
-[workday]: /components/binary_sensor.workday/
-[android]: /components/android_ip_webcam/
+[plex]: /integrations/plex#media-player
+[tado]: /integrations/tado
+[volumio]: /integrations/volumio/
+[workday]: /integrations/workday
+[android]: /integrations/android_ip_webcam/
 [shadow]: https://www.w3.org/TR/shadow-dom/
 
 [forum]: https://community.home-assistant.io/

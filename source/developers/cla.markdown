@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Contributor License Agreement"
 description: "The Code of Conduct for Home Assistant projects."
-date: 2017-01-21 15:05:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 # Contributor License Agreement
 
-```
+```txt
 By making a contribution to this project, I certify that:
 
 (a) The contribution was created in whole or in part by me and I

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Introducing Home Assistant Cloud
 description: "Use Alexa to control any device that is connected to Home Assistant."
 date: 2017-12-17 03:00:00
 date_formatted: "December 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 ---
 
@@ -24,13 +22,13 @@ By subscribing to the Community Support package you will show your support for t
 
 So if you ever felt like donating money to support the development of Home Assistant and Hass.io: sign up for the Home Assistant Cloud!
 
-### {% linkable_title Why not take donations? %}
+### Why not take donations?
 
 With donations you have to convince people to keep donating and it will be hard to plan around the amount of available money. The biggest concern is what do you do when there is not enough money. We could shut down the servers or again depend on the wallets of our developers. We could run Wikipedia style advertisements for donating, but those are even more annoying than running advertisements.
 
-## {% linkable_title Getting started %}
+## Getting started
 
-Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`](/components/config/) components:
+Upgrade Home Assistant to 0.60 and enable the [`cloud`](/integrations/cloud/) and [`config`](/integrations/config/) components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,13 +42,13 @@ The next step is to configure Alexa. This can be done by enabling the Home Assis
 
 Once you’re done, ask Alexa to discover devices (“Alexa, discover devices”) and you are all set to control them: “Alexa, turn on &lt;device name&gt;”.
 
-See the [Cloud component configuration](/components/cloud/) to learn how to filter which devices get exposed to Alexa.
+See the [Cloud component configuration](/integrations/cloud/) to learn how to filter which devices get exposed to Alexa.
 
-## {% linkable_title FAQ %}
+## FAQ
 
 _Last updated: February 22, 2018_
 
-#### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
+#### I thought the Home Assistant crew didn't like the cloud?
 
 You are right, [we don't](/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
 
@@ -60,18 +58,18 @@ Home Assistant Cloud is only used to route the messages to your local Home Assis
 
 _(Some people have suggested we rename to Home Assistant Bridge to avoid this confusion)_
 
-#### {% linkable_title Will Home Assistant and Hass.io remain open source? %}
+#### Will Home Assistant and Hass.io remain open source?
 
 Yes. Yes. Yes! Home Assistant is the work of hundreds of developers all working together in creating something amazing. The only thing that will require a subscription is the optional cloud functionality.
 
-#### {% linkable_title Where is the source code for the Alexa skill? %}
+#### Where is the source code for the Alexa skill?
 
 All messages are processed locally and so the Alexa skill code is part of the Home Assistant code. The Home Assistant Cloud only routes the messages to your local Home Assistant instance. This means that you can audit the source code to check all the things that the cloud can do:
 
- - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py)
- - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py)
+ - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/cloud/iot.py)
+ - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/alexa/smart_home.py)
 
-#### {% linkable_title What other features will come to the cloud? %}
+#### What other features will come to the cloud?
 
 We have a lot of ideas! We are not going to make any promises but here are some things that we’re looking into:
 
@@ -83,21 +81,21 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - IFTTT integration
 - Alexa shopping list integration
 
-#### {% linkable_title What countries are supported at launch? %}
+#### What countries are supported at launch?
 
 As of February 2018, we are live in all countries that have Alexa except for Japan (which is under certification).
 
-#### {% linkable_title How is the connection made to the cloud? %}
+#### How is the connection made to the cloud?
 
-The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
+The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/cloud/iot.py).
 
-#### {% linkable_title I think that the price is too high for what I get. %}
+#### I think that the price is too high for what I get.
 
 The Home Assistant Cloud functionality is a perk for becoming a supporter of the Home Assistant project. As a supporter you will help fund development, cover our operating costs and gives you access to use Home Assistant Cloud. You are not paying to just maintain the cloud servers.
 
 The perks offered for being a supporter will also extend over time, as noted in [this answer](#what-other-features-will-come-to-the-cloud).
 
-#### {% linkable_title What will the Home Assistant organization do with the funds ? %}
+#### What will the Home Assistant organization do with the funds ?
 
 The plan is to hire developers to work fulltime on Home Assistant. We have grown a lot in the last 4 years and the work load is pushing the limits of what our core developers can do. Open source burn out is very common ([1], [2]) and we want to avoid this by moving most organization and release chores to a paid position.
 

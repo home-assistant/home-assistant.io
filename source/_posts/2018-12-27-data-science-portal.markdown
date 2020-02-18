@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Launched: Data Science Portal"
 description: "Learn about your data that is stored and how to get started exploring it."
 date: 2018-12-27 00:01:00
 date_formatted: "December 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 ---
 

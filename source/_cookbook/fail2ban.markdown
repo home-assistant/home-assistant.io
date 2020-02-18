@@ -1,40 +1,34 @@
 ---
-layout: page
 title: "fail2ban"
 description: "Setting up fail2ban to read Home Assistant's log files to improve security."
-date: 2018-08-29 15:30 AEST
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Infrastructure
 ---
 
 This is a quick guide on how to set up `fail2ban` for Home Assistant. Contains extracts from [Is there a log file for invalid logins? \(Blocking hackers\)](https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892).
 
-## {% linkable_title Installing fail2ban %}
+## Installing fail2ban
 
 Debian/Ubuntu:
 
 ```bash
-$ sudo apt-get install fail2ban
+sudo apt-get install fail2ban
 ```
 
 CentOS/RHEL:
 
 ```bash
-$ sudo yum install epel-release
-$ sudo yum install -y fail2ban
+sudo yum install epel-release
+sudo yum install -y fail2ban
 ```
 Fedora:
 
 ```bash
-$ sudo dnf install -y fail2ban
+sudo dnf install -y fail2ban
 ```
 
 For other package managers use the appropriate commands.
 
-## {% linkable_title Enable Home Assistant Logging %}
+## Enable Home Assistant Logging
 
 First, enable `http.ban` logging in `configuration.yaml` file for your Home Assistant instance:
 
@@ -48,7 +42,7 @@ logger:
 Restart Home Assistant to activate the changes:
 
 ```bash
-$ sudo systemctl restart home-assistant
+sudo systemctl restart home-assistant
 ```
 
 Tail the Home Assistant log then log out of the Home Assistant web interface and attempt logging in with an incorrect password, look for a line like `Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx`:
@@ -58,7 +52,7 @@ $ tail -f /home/homeassistant/.homeassistant/home-assistant.log | grep WARNING
 2018-08-29 14:28:15 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx
 ```
 
-## {% linkable_title Configure fail2ban %}
+## Configure fail2ban
 
 Next we will create a filter and jail file for `fail2ban`:
 
@@ -93,8 +87,7 @@ filter = ha
 logpath = /home/homeassistant/.homeassistant/home-assistant.log
 
 # 3600 seconds = 1 hour
-bantime = 3600
-bantime = 30 # during testing it is useful to have a short ban interval, comment out this line later
+bantime = 30 # during testing it is useful to have a short ban interval, change this to 3600 later
 
 # Maximum amount of login attempts before IP is blocked
 maxretry = 3
@@ -121,7 +114,7 @@ Status
 `- Jail list:	ha
 ```
 
-## {% linkable_title Testing fail2ban %}
+## Testing fail2ban
 
 Tail the fail2ban log file then log out of the Home Assistant web interface and attempt to log in again with an incorrect password.
 ```bash
@@ -147,25 +140,25 @@ sudo tail -f -n 20 /var/log/fail2ban.log
 Now that fail2ban is working it can be enabled for startup at boot time, also raise the bantime from 30 seconds to what ever you would like. 8 hours is 28800 seconds.
 
 ```bash
-$ sudo sed -i 's/bantime = 30/bantime = 28800/g' /etc/fail2ban/jail.d/ha.conf
-$ sudo systemctl enable fail2ban
-$ sudo systemctl restart fail2ban
+sudo sed -i 's/bantime = 30/bantime = 28800/g' /etc/fail2ban/jail.d/ha.conf
+sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban
 ```
 
 A final note, if you need to unban an IP it can be done with `fail2ban-client`:
 
 ```bash
-$ sudo fail2ban-client set JAILNAME unbanip IPADDRESS
+sudo fail2ban-client set JAILNAME unbanip IPADDRESS
 ```
 eg:
 
 ```bash
-$ sudo fail2ban-client set ha unbanip xxx.xxx.xxx.xxx
+sudo fail2ban-client set ha unbanip xxx.xxx.xxx.xxx
 ```
 
 Fail2ban should now be configured and running, if an IP address is banned you will receive an email with WHOIS details about the IP address that attempted to connect, if not you will need configure Postfix or another MTA (Mail Transport Agent).
 
 If you want to read more about `fail2ban`, some links are below:
 
- - [fail2ban Split config](http://www.fail2ban.org/wiki/index.php/FEATURE_Split_config)
+ - [fail2ban Split configuration](http://www.fail2ban.org/wiki/index.php/FEATURE_Split_config)
  - [How To Protect SSH with Fail2Ban on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)

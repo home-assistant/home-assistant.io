@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Apache Proxy"
 description: "Configure Apache to work with Home Assistant as a subdomain"
-date: 2016-06-20 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/apache_configuration/
 ---
 
@@ -18,9 +12,9 @@ This is useful if you want to have:
  * several subdomain for several instance
  * HTTPS redirection
 
-#### {% linkable_title Subdomain %}
+#### Subdomain
 
-So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
+So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at `http://localhost:8123`
 
 Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html) by running if you encounter issues while serving Home Assistant through your proxy:
 
@@ -28,7 +22,7 @@ Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ws
 $ sudo a2enmod proxy_wstunnel
 ```
 
-To be able to access to your Home Assistant instance by using https://home.example.org, add to following file to `/etc/httpd/conf/extra/` as `hass.conf`
+To be able to access to your Home Assistant instance by using `https://home.example.org`, add the following file to `/etc/httpd/conf/extra/` as `hass.conf`
 
 ```text
 <VirtualHost *:443>
@@ -58,10 +52,10 @@ Include conf/extra/hass.conf
 
 If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *:80>` or better consider redirecting all HTTP to HTTPS.
 
-
-<p class='note'>
+<div class='note'>
 In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") or HTTP 502 messages ("Bad Gateway") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
-</p>
+</div>
+
 ```text
 <VirtualHost *:443>
   [...]
@@ -72,11 +66,11 @@ In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") o
 </VirtualHost>
 ```
 
-#### {% linkable_title Multiple Instance %}
+#### Multiple Instance
 
-You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`
+You already have Home Assistant running on `http://localhost:8123` and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`
 
-You want another instance available at https://countryside.example.org
+You want another instance available at `https://countryside.example.org`
 
 You can either :
  * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run Home Assistant as this new user
@@ -90,9 +84,9 @@ http:
   ...
 ```
 
-Start Home Assistant: Now, you have another instance running on http://localhost:8124
+Start Home Assistant: Now, you have another instance running on `http://localhost:8124`
 
-To access this instance by using https://countryside.example.org add to `/etc/httpd/conf/extra/hass.conf`
+To access this instance by using `https://countryside.example.org` add to `/etc/httpd/conf/extra/hass.conf`
 
 ```text
 <VirtualHost *:443>
@@ -106,7 +100,7 @@ To access this instance by using https://countryside.example.org add to `/etc/ht
 </VirtualHost>
 ```
 
-#### {% linkable_title HTTP to HTTPS redirection %}
+#### HTTP to HTTPS redirection
 
 Add to your `/etc/httpd/conf/extra/hass.conf`
 

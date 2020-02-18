@@ -1,33 +1,31 @@
 ---
-layout: page
 title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
-date: 2016-07-01 08:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/secrets/
 ---
 
-The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from your configuration files. This separation can also help you to keep easier track of your passwords and API keys, as they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple yaml files if you [split up your configuration](/docs/configuration/splitting_configuration/).
+The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from your configuration files. This separation can also help you to keep easier track of your passwords and API keys, as they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple YAML files if you [split up your configuration](/docs/configuration/splitting_configuration/).
 
-### {% linkable_title Using secrets.yaml %}
+### Using `secrets.yaml`
 
 The workflow for moving private information to `secrets.yaml` is very similar to the [splitting of the configuration](/docs/configuration/splitting_configuration/). Create a `secrets.yaml` file in your Home Assistant [configuration directory](/docs/configuration/).
 
 The entries for password and API keys in the `configuration.yaml` file usually looks like the example below.
 
 ```yaml
-http:
-  api_password: YOUR_PASSWORD
+homeassistant:
+  auth_providers:
+   - type: legacy_api_password
+     api_password: YOUR_PASSWORD
 ```
 
 Those entries need to be replaced with `!secret` and an identifier.
 
 ```yaml
-http:
-  api_password: !secret http_password
+homeassistant:
+  auth_providers:
+   - type: legacy_api_password
+     api_password: !secret http_password
 ```
 
 The `secrets.yaml` file contains the corresponding password assigned to the identifier.
@@ -36,7 +34,7 @@ The `secrets.yaml` file contains the corresponding password assigned to the iden
 http_password: YOUR_PASSWORD
 ```
 
-### {% linkable_title Debugging secrets %}
+### Debugging secrets
 
 When you start splitting your configuration into multiple files, you might end up with configuration in sub folders. Secrets will be resolved in this order:
 
@@ -60,7 +58,7 @@ $ hass --script check_config --secrets
 ```
 This will print all your secrets.
 
-## {% linkable_title Alternatives to `secrets.yaml` %}
+## Alternatives to `secrets.yaml`
 
 - [Using a keyring that is managed by your OS to store secrets](/docs/tools/keyring/)
 - [Storing passwords securely in AWS](/docs/tools/credstash/)

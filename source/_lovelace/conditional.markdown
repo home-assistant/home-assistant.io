@@ -1,13 +1,7 @@
 ---
-layout: page
 title: Conditional Card
 sidebar_label: Conditional
 description: Displays another card based on entity states.
-date: 2018-07-26 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Displays another card based on entity states.
@@ -24,7 +18,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: HA entity ID.
+      description: Home Assistant entity ID.
       type: string
     state:
       required: false
@@ -37,14 +31,14 @@ conditions:
 card:
   required: true
   description: Card to display if all conditions match.
-  type: object
+  type: map
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
 
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
-### {% linkable_title Examples %}
+## Examples
 
 ```yaml
 type: conditional

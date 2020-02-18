@@ -1,23 +1,21 @@
 ---
-layout: post
 title: "0.89: Nissan Leaf, PlayStation 4, Point alarm control, Owlet baby monitor"
 description: "Vroom vroom vrooooooooooom."
 date: 2019-03-06 00:11:03
 date_formatted: "March 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-03-release-89/components.png
 ---
 
-<a href='/components/#version/0.89'><img src='/images/blog/2019-03-release-89/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.89'><img src='/images/blog/2019-03-release-89/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for release 0.89. It's another great new release with some cool new features, bug fixes and improvements. The first cool new feature is that yet another car is integrated into Home Assistant: the Nissan Leaf. Both deConz and SmartThings integrations keep expanding to cover more devices.
 
 This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/en/app_integration_index.html). We will be fine tuning the API in upcoming releases. Feedback is welcome.
 
-## {% linkable_title Noteworthy Breaking Changes %}
+## Noteworthy Breaking Changes
 
 __Custom Components file structure change:__ A significant change in how the "under the hood" of Home Assistant works has led to forcing platforms to be resolved based off the component path, if it exists.
 
@@ -33,7 +31,7 @@ Paulus has written some detailed information about this change on the developers
 
 __Existing SmartThings configuration entries will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Météo-France platform for the weather component ([@victorcerutti] - [#18404]) ([sensor.meteo_france docs]) ([weather.meteo_france docs]) (new-platform)
 - Point alarm control ([@fredrike] - [#20972]) ([point docs]) (new-platform)
@@ -41,7 +39,7 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 - Rewrite of Toon component ([@frenck] - [#21186]) ([toon docs]) (breaking change) (new-platform)
 - Times of The Day Binary Sensor ([@kstaniek] - [#20068]) ([binary_sensor.tod docs]) (new-platform)
 - Add switch platform for Danfoss Air and additional sensors. ([@JonasPed] - [#21046]) ([danfoss_air docs]) (new-platform)
-- Owlet baby monitor component ([@oblogic7] - [#21108]) ([owlet docs]) (new-platform)
+- Owlet baby monitor component ([@oblogic7] - [#21108]) (new-platform)
 - deCONZ thermostat support ([@Kane610] - [#20586]) ([deconz docs]) (new-platform)
 - Added device tracker support for Ubee Router ([@mzdrale] - [#19586]) ([device_tracker docs]) (new-platform)
 - Add LCN cover platform ([@alengwenus] - [#20288]) ([lcn docs]) ([cover.lcn docs]) (new-platform)
@@ -52,17 +50,76 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 - mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Add component media player.ps4 ([@ktnrg45] - [#21074]) ([ps4 docs])
 
-## {% linkable_title If you need help... %}
+## Release 0.89.1 - March 8
+
+- Upgrade blinkpy==0.13.1 (Fixes #21559) ([@fronzbot] - [#21578]) ([blink docs])
+- Fix Name of Homematic IP accesspoint in devices, if name is configured ([@SukramJ] - [#21617]) ([homematicip_cloud docs])
+- Fix group-switch availability for Homematic IP ([@SukramJ] - [#21640]) ([homematicip_cloud docs])
+- automated commit 07/03/2019 10:47:38 ([@ljmerza] - [#21749]) ([sensor.google_travel_time docs])
+- Fix botvac connected maps call as it is not a supported model ([@dshokouhi] - [#21752]) ([neato docs])
+- Fix colorlog import error ([@awarecan] - [#21754])
+- Fix script load module issue ([@awarecan] - [#21763])
+- Bump PyXiaomiGateway version to 0.12.2 (Closes: #21731) ([@syssi] - [#21764]) ([xiaomi_aqara docs])
+- adds missing SUPPORT_VOLUME_SET flag to webos media_player ([@dthulke] - [#21766]) ([webostv docs])
+- Updated to newest pyeconet ([@w1ll1am23] - [#21772]) ([water_heater docs])
+
+[#21578]: https://github.com/home-assistant/home-assistant/pull/21578
+[#21617]: https://github.com/home-assistant/home-assistant/pull/21617
+[#21640]: https://github.com/home-assistant/home-assistant/pull/21640
+[#21749]: https://github.com/home-assistant/home-assistant/pull/21749
+[#21752]: https://github.com/home-assistant/home-assistant/pull/21752
+[#21754]: https://github.com/home-assistant/home-assistant/pull/21754
+[#21763]: https://github.com/home-assistant/home-assistant/pull/21763
+[#21764]: https://github.com/home-assistant/home-assistant/pull/21764
+[#21766]: https://github.com/home-assistant/home-assistant/pull/21766
+[#21772]: https://github.com/home-assistant/home-assistant/pull/21772
+[@SukramJ]: https://github.com/SukramJ
+[@awarecan]: https://github.com/awarecan
+[@dshokouhi]: https://github.com/dshokouhi
+[@dthulke]: https://github.com/dthulke
+[@fronzbot]: https://github.com/fronzbot
+[@ljmerza]: https://github.com/ljmerza
+[@syssi]: https://github.com/syssi
+[@w1ll1am23]: https://github.com/w1ll1am23
+[blink docs]: /integrations/blink/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[neato docs]: /integrations/neato/
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[water_heater docs]: /integrations/water_heater/
+[webostv docs]: /integrations/webostv/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+
+## Release 0.89.2 - March 12
+
+- Update dependencies to receive data on webhook callbacks ([@andrewsayre] - [#21838]) ([smartthings docs])
+- Override http.trusted_networks by auth_provider.trusted_networks ([@awarecan] - [#21844]) ([http docs])
+- Fix botvac when no map exists ([@dshokouhi] - [#21877]) ([neato docs])
+- Fixes issues #21821 and #21819 ([@kstaniek] - [#21911]) ([binary_sensor.tod docs])
+
+[#21838]: https://github.com/home-assistant/home-assistant/pull/21838
+[#21844]: https://github.com/home-assistant/home-assistant/pull/21844
+[#21877]: https://github.com/home-assistant/home-assistant/pull/21877
+[#21911]: https://github.com/home-assistant/home-assistant/pull/21911
+[@andrewsayre]: https://github.com/andrewsayre
+[@awarecan]: https://github.com/awarecan
+[@dshokouhi]: https://github.com/dshokouhi
+[@kstaniek]: https://github.com/kstaniek
+[binary_sensor.tod docs]: /integrations/tod
+[http docs]: /integrations/http/
+[neato docs]: /integrations/neato/
+[smartthings docs]: /integrations/smartthings/
+
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __HomeMatic component's wireless actors__ are having two RSSI values. The way the component was programmed one of them was being overwritten. With this new change, the __`rssi` attribute of HomeMatic entities has been removed.__ As a replacement the attributes rssi_device and rssi_peer have been added. The attribute of `rssi` will no longer be available, you'll need to __update to `rssi_device`,__ and you can add `rssi_peer` now as well! (fixes #20900) ([@dagobert] - [#20902]) ([homematic docs]) (breaking change)
 - You can now specifiy an action when calling the __yeelight_start_flow service__ on your yeelights. The __default action will be 'recover'__ if you do not specify something else. This action will be taken after the flow stops.  ([@zewelor] - [#21195]) ([light.yeelight docs]) (breaking change)
@@ -77,7 +134,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Addition of config for __trusted networks auth provider.__ It is a breaking changes for users who __manually configured__ trusted network auth provider. An invalid config error will be thrown and HA won't be able to fully started. (It is NOT a breaking changes for user who didn't manual configured trusted network auth provider.) ([@awarecan] - [#21111]) (breaking change)
 - For some __HomeMatic devices the `sabotage` attribute is replaced by `error`.__ The value (if not 0) is a device specific error code. ([@dagobert] - [#21009]) ([homematic docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add PLATFORM_SCHEMA_BASE to telegram_bot component ([@veleek] - [#21155]) ([telegram_bot docs]) (beta fix)
 - Add watchdog to Ambient PWS ([@bachya] - [#21507]) ([ambient_station docs]) (beta fix)
@@ -102,16 +159,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix calc next ([@balloob] - [#21630]) (beta fix)
 - Cast displaytime to int for JSON RPC ([@GGeezes] - [#21649]) ([notify docs]) (beta fix)
 - :shirt: Corrects unit of measurement symbol for Watt ([@frenck] - [#21654]) ([toon docs]) (beta fix)
-- Rename Google Assistant evenets ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
+- Rename Google Assistant events ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
 - :ambulance: Fixes Toon doing I/O in coroutines ([@frenck] - [#21657]) ([toon docs]) (beta fix)
 - Upgrade toonapilib to 3.1.0 ([@frenck] - [#21661]) ([toon docs]) (beta fix)
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Météo-France platform for the weather component ([@victorcerutti] - [#18404]) ([sensor.meteo_france docs]) ([weather.meteo_france docs]) (new-platform)
 - Update file header ([@fabaff] - [#21061])
@@ -128,8 +185,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Config Entry migrations ([@andrewsayre] - [#20888])
 - Refactor http CachingStaticResource ([@awarecan] - [#21062]) ([http docs])
 - Add index parameter to scrape sensor ([@davidbb] - [#21084]) ([sensor.scrape docs])
-- Owlet baby monitor component ([@oblogic7] - [#21108]) ([owlet docs]) (new-platform)
-- Order imports ([@fabaff] - [#21117]) ([owlet docs])
+- Owlet baby monitor component ([@oblogic7] - [#21108]) (new-platform)
+- Order imports ([@fabaff] - [#21117])
 - Add Groups to Homematic IP ([@SukramJ] - [#21076]) ([homematicip_cloud docs])
 - Remove outdated url pattern match support for static file hosting ([@awarecan] - [#21109]) ([http docs])
 - Upgrade pytest to 4.2.1 ([@scop] - [#21112])
@@ -181,7 +238,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enhance SmartThings component subscription ([@andrewsayre] - [#21124]) ([smartthings docs]) (breaking change) (new-feature)
 - Add more ads plc types ([@philipperequile] - [#19801]) ([ads docs])
 - Add note to issue template regarding iOS issues ([@robbiet480] - [#21342])
-- Allow google home component device tracker to be optional ([@dshokouhi] - [#21335]) ([googlehome docs])
+- Allow google home component device tracker to be optional ([@dshokouhi] - [#21335]) (googlehome docs)
 - Add LCN cover platform ([@alengwenus] - [#20288]) ([lcn docs]) ([cover.lcn docs]) (new-platform)
 - Add location to Norway airquality ([@Danielhiversen] - [#21347]) ([air_quality docs]) ([weather.met docs])
 - Updated pyvlx from 0.2.8 to 0.2.9. This version has slightly improved logging ([@Julius2342] - [#21349]) ([velux docs])
@@ -294,7 +351,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 [#18091]: https://github.com/home-assistant/home-assistant/pull/18091
@@ -564,112 +621,110 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@victorcerutti]: https://github.com/victorcerutti
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zewelor]: https://github.com/zewelor
-[ads docs]: /components/ads/
-[air_quality docs]: /components/air_quality/
-[ambient_station docs]: /components/ambient_station/
-[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
-[binary_sensor.nissan_leaf docs]: /components/binary_sensor.nissan_leaf/
-[binary_sensor.rest docs]: /components/binary_sensor.rest/
-[binary_sensor.tod docs]: /components/binary_sensor.tod/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[config docs]: /components/config/
-[cover docs]: /components/cover/
-[cover.lcn docs]: /components/cover.lcn/
-[danfoss_air docs]: /components/danfoss_air/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[esphome docs]: /components/esphome/
-[frontend docs]: /components/frontend/
-[google_assistant docs]: /components/google_assistant/
-[googlehome docs]: /components/googlehome/
-[history docs]: /components/history/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[hue docs]: /components/hue/
-[ihc docs]: /components/ihc/
-[image_processing.tensorflow docs]: /components/image_processing.tensorflow/
-[insteon docs]: /components/insteon/
-[iperf3 docs]: /components/iperf3/
-[knx docs]: /components/knx/
-[lcn docs]: /components/lcn/
-[light.rpi_gpio_pwm docs]: /components/light.rpi_gpio_pwm/
-[light.tplink docs]: /components/light.tplink/
-[light.yeelight docs]: /components/light.yeelight/
-[lutron docs]: /components/lutron/
-[media_extractor docs]: /components/media_extractor/
-[media_player.anthemav docs]: /components/media_player.anthemav/
-[media_player.firetv docs]: /components/media_player.firetv/
-[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[meteo_france docs]: /components/meteo_france/
-[mobile_app docs]: /components/mobile_app/
-[modbus docs]: /components/modbus/
-[mqtt docs]: /components/mqtt/
-[neato docs]: /components/neato/
-[ness_alarm docs]: /components/ness_alarm/
-[netatmo docs]: /components/netatmo/
-[nissan_leaf docs]: /components/nissan_leaf/
-[notify docs]: /components/notify/
-[owlet docs]: /components/owlet/
-[person docs]: /components/person/
-[point docs]: /components/point/
-[prometheus docs]: /components/prometheus/
-[ps4 docs]: /components/ps4/
-[raspihats docs]: /components/raspihats/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.crimereports docs]: /components/sensor.crimereports/
-[sensor.discogs docs]: /components/sensor.discogs/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.etherscan docs]: /components/sensor.etherscan/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
-[sensor.gtfs docs]: /components/sensor.gtfs/
-[sensor.iperf3 docs]: /components/sensor.iperf3/
-[sensor.linky docs]: /components/sensor.linky/
-[sensor.meteo_france docs]: /components/sensor.meteo_france/
-[sensor.mitemp_bt docs]: /components/sensor.mitemp_bt/
-[sensor.nissan_leaf docs]: /components/sensor.nissan_leaf/
-[sensor.nmbs docs]: /components/sensor.nmbs/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.reddit docs]: /components/sensor.reddit/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.ripple docs]: /components/sensor.ripple/
-[sensor.rova docs]: /components/sensor.rova/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.sochain docs]: /components/sensor.sochain/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.starlingbank docs]: /components/sensor.starlingbank/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[simplisafe docs]: /components/simplisafe/
-[smartthings docs]: /components/smartthings/
-[smhi docs]: /components/smhi/
-[snips docs]: /components/snips/
-[sonos docs]: /components/sonos/
-[switch.nissan_leaf docs]: /components/switch.nissan_leaf/
-[switch.sony_projector docs]: /components/switch.sony_projector/
-[switch.switchbot docs]: /components/switch.switchbot/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.tplink docs]: /components/switch.tplink/
-[system_log docs]: /components/system_log/
-[tahoma docs]: /components/tahoma/
-[telegram_bot docs]: /components/telegram_bot/
-[tellduslive docs]: /components/tellduslive/
-[tibber docs]: /components/tibber/
-[toon docs]: /components/toon/
-[tplink docs]: /components/tplink/
-[utility_meter docs]: /components/utility_meter/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[velux docs]: /components/velux/
-[water_heater docs]: /components/water_heater/
-[weather.met docs]: /components/weather.met/
-[weather.meteo_france docs]: /components/weather.meteo_france/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
+[ads docs]: /integrations/ads/
+[air_quality docs]: /integrations/air_quality/
+[ambient_station docs]: /integrations/ambient_station/
+[binary_sensor.hikvision docs]: /integrations/hikvision
+[binary_sensor.nissan_leaf docs]: /integrations/nissan_leaf
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.tod docs]: /integrations/tod
+[binary_sensor.trend docs]: /integrations/trend
+[config docs]: /integrations/config/
+[cover docs]: /integrations/cover/
+[cover.lcn docs]: /integrations/lcn#cover
+[danfoss_air docs]: /integrations/danfoss_air/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[history docs]: /integrations/history/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[image_processing.tensorflow docs]: /integrations/tensorflow
+[insteon docs]: /integrations/insteon/
+[iperf3 docs]: /integrations/iperf3/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.tplink docs]: /integrations/tplink
+[light.yeelight docs]: /integrations/yeelight
+[lutron docs]: /integrations/lutron/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.anthemav docs]: /integrations/anthemav
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.philips_js docs]: /integrations/philips_js
+[meteo_france docs]: /integrations/meteo_france/
+[mobile_app docs]: /integrations/mobile_app/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[neato docs]: /integrations/neato/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netatmo docs]: /integrations/netatmo/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[notify docs]: /integrations/notify/
+[person docs]: /integrations/person/
+[point docs]: /integrations/point/
+[prometheus docs]: /integrations/prometheus/
+[ps4 docs]: /integrations/ps4/
+[raspihats docs]: /integrations/raspihats/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.crimereports docs]: /integrations/crimereports
+[sensor.discogs docs]: /integrations/discogs
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.etherscan docs]: /integrations/etherscan
+[sensor.filter docs]: /integrations/filter
+[sensor.glances docs]: /integrations/glances
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.iperf3 docs]: /integrations/iperf3
+[sensor.linky docs]: /integrations/linky
+[sensor.meteo_france docs]: /integrations/meteo_france
+[sensor.mitemp_bt docs]: /integrations/mitemp_bt
+[sensor.nissan_leaf docs]: /integrations/nissan_leaf
+[sensor.nmbs docs]: /integrations/nmbs
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.reddit docs]: /integrations/reddit
+[sensor.rest docs]: /integrations/rest
+[sensor.ripple docs]: /integrations/ripple
+[sensor.rova docs]: /integrations/rova
+[sensor.scrape docs]: /integrations/scrape
+[sensor.shodan docs]: /integrations/shodan
+[sensor.sochain docs]: /integrations/sochain
+[sensor.sql docs]: /integrations/sql
+[sensor.starlingbank docs]: /integrations/starlingbank
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[smhi docs]: /integrations/smhi/
+[snips docs]: /integrations/snips/
+[sonos docs]: /integrations/sonos/
+[switch.nissan_leaf docs]: /integrations/nissan_leaf
+[switch.sony_projector docs]: /integrations/sony_projector
+[switch.switchbot docs]: /integrations/switchbot
+[switch.switchmate docs]: /integrations/switchmate
+[switch.tplink docs]: /integrations/tplink
+[system_log docs]: /integrations/system_log/
+[tahoma docs]: /integrations/tahoma/
+[telegram_bot docs]: /integrations/telegram_chatbot/
+[tellduslive docs]: /integrations/tellduslive/
+[tibber docs]: /integrations/tibber/
+[toon docs]: /integrations/toon/
+[tplink docs]: /integrations/tplink/
+[utility_meter docs]: /integrations/utility_meter/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velux docs]: /integrations/velux/
+[water_heater docs]: /integrations/water_heater/
+[weather.met docs]: /integrations/met
+[weather.meteo_france docs]: /integrations/meteo_france/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/

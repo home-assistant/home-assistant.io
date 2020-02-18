@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Why we use web components and Polymer"
 description: "In this blog post I talk about the reasoning to use web components and Polymer."
 date: 2016-05-18 00:09:00 +0000
 date_formatted: "May 18, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Technology
 ---
 

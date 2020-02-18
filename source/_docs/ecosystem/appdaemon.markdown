@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "AppDaemon"
 description: "AppDaemon is a loosely coupled, multithreaded, sandboxed Python execution environment for writing automation apps for Home Assistant"
-release_date: 2016-11-27 08:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/appdaemon/
 ---
 
-AppDaemon is a loosely coupled, multithreaded, sandboxed python execution environment for writing automation apps for Home Assistant.
+AppDaemon is a loosely coupled, multithreaded, sandboxed Python execution environment for writing automation apps for Home Assistant.
 
 # Another Take on Automation
 
@@ -18,7 +12,7 @@ AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather
 
 - New paradigm - Some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that automations can't.
 - Ease of use - AppDaemon's API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible; experienced Python programmers should feel right at home.
-- Reuse - write a piece of code once and instantiate it as an App as many times as you need with different parameters; e.g., a motion light program that you can use in five different places around your home. The code stays the same, you just dynamically add new instances of it in the config file.
+- Reuse - write a piece of code once and instantiate it as an App as many times as you need with different parameters; e.g., a motion light program that you can use in five different places around your home. The code stays the same, you just dynamically add new instances of it in the configuration file.
 - Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to its loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it, and restart them to use the new code without the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple Apps and have them picked up dynamically. For a final trick, removing or adding Apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
 - Complex logic - Python's If/Else constructs are clearer and easier to code for arbitrarily complex nested logic.
 - Durable variables and state - Variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened.
@@ -37,18 +31,17 @@ Let's start with a simple App to turn a light on every night at sunset and off e
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
+
 class OutsideLights(hass.Hass):
+    def initialize(self):
+        self.run_at_sunrise(self.sunrise_cb)
+        self.run_at_sunset(self.sunset_cb)
 
-  def initialize(self):
-    self.run_at_sunrise(self.sunrise_cb)
-    self.run_at_sunset(self.sunset_cb)
-    
-  def sunrise_cb(self, kwargs):
-    self.turn_on(self.args["off_scene"])
+    def sunrise_cb(self, kwargs):
+        self.turn_on(self.args["off_scene"])
 
-  def sunset_cb(self, kwargs):
-    self.turn_on(self.args["on_scene"])
-
+    def sunset_cb(self, kwargs):
+        self.turn_on(self.args["on_scene"])
 ```
 
 This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.
@@ -60,18 +53,18 @@ Our next example is to turn on a light when motion is detected and it is dark, a
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
-class FlashyMotionLights(hass.Hass):
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
-  
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-  
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
+class FlashyMotionLights(hass.Hass):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
+
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
+
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
 ```
 
 This is starting to get a little more complex in Home Assistant automations, requiring an automation rule and two separate scripts.
@@ -81,30 +74,30 @@ Now let's extend this with a somewhat artificial example to show something that 
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
-class MotionLights(hass.Hass):
 
-  def initialize(self):
-    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
-  
-  def motion(self, entity, attribute, old, new, kwargs):
-    if self.self.sun_down():
-      self.turn_on("light.drive")
-      self.run_in(self.light_off, 60)
-      self.flashcount = 0
-      self.run_in(self.flash_warning, 1)
-  
-  def light_off(self, kwargs):
-    self.turn_off("light.drive")
-    
-  def flash_warning(self, kwargs):
-    self.toggle("light.living_room")
-    self.flashcount += 1
-    if self.flashcount < 10:
-      self.run_in(self.flash_warning, 1)
+class MotionLights(hass.Hass):
+    def initialize(self):
+        self.listen_state(self.motion, "binary_sensor.drive", new="on")
+
+    def motion(self, entity, attribute, old, new, kwargs):
+        if self.self.sun_down():
+            self.turn_on("light.drive")
+            self.run_in(self.light_off, 60)
+            self.flashcount = 0
+            self.run_in(self.flash_warning, 1)
+
+    def light_off(self, kwargs):
+        self.turn_off("light.drive")
+
+    def flash_warning(self, kwargs):
+        self.toggle("light.living_room")
+        self.flashcount += 1
+        if self.flashcount < 10:
+            self.run_in(self.flash_warning, 1)
 ```
 
 Of course, if I wanted to make this App or its predecessor reusable, I would have provide parameters for the sensor, the light to activate on motion, the warning light, and even the number of flashes and delay between flashes.
 
 In addition, Apps can write to `AppDaemon`'s log files, and there is a system of constraints that allows you to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
 
-For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/stable/). If you're using Hassbian, then the [Hassbian scripts](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/appdaemon.md) make it easy to install.
+For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/stable/).

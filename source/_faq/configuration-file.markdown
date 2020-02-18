@@ -1,11 +1,6 @@
 ---
-layout: page
 title: "Why are you using YAML for the configuration file?"
 description: "Why are you using YAML for the configuration file?"
-date: 2017-06-18 09:00
-comments: false
-sharing: true
-footer: true
 ha_category: Configuration
 ---
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.72: Lovelace UI, KIWI Doorlocks, Wireless Tags, Insteon X10."
 description: "This release will blow you away. Click with caution."
 date: 2018-06-22 00:01:00
 date_formatted: "June 22, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-06-release-0.72/lovelace.png
 ---
@@ -41,7 +39,7 @@ And finally, we'll be extending the open beta for Home Assistant Cloud until the
 
 Enjoy this release and have a good weekend all!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
 - Add Freebox device tracker ([@stilllman] - [#12727]) ([device_tracker.freebox docs]) (new-platform)
@@ -56,7 +54,7 @@ Enjoy this release and have a good weekend all!
 - Add support for ZhongHong HVAC Controllers ([@crhan] - [#14552]) ([climate.zhong_hong docs]) (new-platform)
 - Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaomi docs]) (new-platform)
 
-## {% linkable_title Release 0.72.1 - June 25 %}
+## Release 0.72.1 - June 25
 
 - Prevent Nest component setup crash due insufficient permission. ([@awarecan] - [#14966]) ([nest docs])
 - Fix socket bug with Yi in 0.72 ([@bachya] - [#15109]) ([camera.yi docs])
@@ -64,16 +62,16 @@ Enjoy this release and have a good weekend all!
 - Fix cast config ([@balloob] - [#15143]) ([media_player.cast docs])
 - Bump python-nest to 4.0.3 ([@awarecan] - [#15098]) ([nest docs]) ([sensor.nest docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - For developers of custom panel: Remove ability to register panels directly with the frontend component. Register with custom panel component instead. ([@balloob] - [#14805]) ([frontend docs]) (breaking change)
 - Rename Hive hub friendly name to include "Hive" name ([@SteveEdson] - [#14747]) ([sensor.hive docs]) (breaking change)
@@ -84,7 +82,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Eight Sleep add REM type, Update async syntax, Catch API quirks ([@mezz64] - [#14937]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (breaking change)
 - Fix energy meter for HS110 v2 users. Not a breaking change unless you are using a custom component  ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Remove load power attribute for channel USB ([@syssi] - [#14996]) ([switch.xiaomi_miio docs]) (beta fix)
 - Switch to own packaged version of spotipy ([@andrey-git] - [#14997]) ([media_player.spotify docs]) (beta fix)
@@ -100,7 +98,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
 - Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
 - Add additional 86sw model identifier of the LAN protocol V2 ([@syssi] - [#14799]) ([xiaomi_aqara docs]) ([binary_sensor.xiaomi_aqara docs])
@@ -385,129 +383,129 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@vaidyasr]: https://github.com/vaidyasr
 [@vickyg3]: https://github.com/vickyg3
-[alarm_control_panel.arlo docs]: /components/alarm_control_panel.arlo/
-[amcrest docs]: /components/amcrest/
-[arlo docs]: /components/arlo/
-[binary_sensor.eight_sleep docs]: /components/binary_sensor.eight_sleep/
-[binary_sensor.linode docs]: /components/binary_sensor.linode/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.mystrom docs]: /components/binary_sensor.mystrom/
-[binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
-[binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
-[binary_sensor.skybell docs]: /components/binary_sensor.skybell/
-[binary_sensor.uptimerobot docs]: /components/binary_sensor.uptimerobot/
-[binary_sensor.wirelesstag docs]: /components/binary_sensor.wirelesstag/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[calendar docs]: /components/calendar/
-[calendar.caldav docs]: /components/calendar.caldav/
-[camera docs]: /components/camera/
-[camera.arlo docs]: /components/camera.arlo/
-[camera.doorbird docs]: /components/camera.doorbird/
-[camera.neato docs]: /components/camera.neato/
-[camera.netatmo docs]: /components/camera.netatmo/
-[camera.uvc docs]: /components/camera.uvc/
-[camera.xiaomi docs]: /components/camera.xiaomi/
-[camera.yi docs]: /components/camera.yi/
-[climate.fritzbox docs]: /components/climate.fritzbox/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.mqtt docs]: /components/climate.mqtt/
-[climate.netatmo docs]: /components/climate.netatmo/
-[climate.sensibo docs]: /components/climate.sensibo/
-[climate.tado docs]: /components/climate.tado/
-[climate.zhong_hong docs]: /components/climate.zhong_hong/
-[config docs]: /components/config/
-[cover.myq docs]: /components/cover.myq/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.freebox docs]: /components/device_tracker.freebox/
-[doorbird docs]: /components/doorbird/
-[eight_sleep docs]: /components/eight_sleep/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[frontend docs]: /components/frontend/
-[hassio docs]: /components/hassio/
-[hue docs]: /components/hue/
-[image_processing.facebox docs]: /components/image_processing.facebox/
-[insteon_plm docs]: /components/insteon_plm/
-[konnected docs]: /components/konnected/
-[light.deconz docs]: /components/light.deconz/
-[light.lifx docs]: /components/light.lifx/
-[light.mqtt docs]: /components/light.mqtt/
-[light.mystrom docs]: /components/light.mystrom/
-[light.tplink docs]: /components/light.tplink/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lock.kiwi docs]: /components/lock.kiwi/
-[logger docs]: /components/logger/
-[media_player docs]: /components/media_player/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.epson docs]: /components/media_player.epson/
-[media_player.horizon docs]: /components/media_player.horizon/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.snapcast docs]: /components/media_player.snapcast/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.xiaomi_tv docs]: /components/media_player.xiaomi_tv/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mqtt_eventstream docs]: /components/mqtt_eventstream/
-[neato docs]: /components/neato/
-[nest docs]: /components/nest/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[notify docs]: /components/notify/
-[panel_custom docs]: /components/panel_custom/
-[raincloud docs]: /components/raincloud/
-[rainmachine docs]: /components/rainmachine/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[rflink docs]: /components/rflink/
-[ring docs]: /components/ring/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.arlo docs]: /components/sensor.arlo/
-[sensor.eight_sleep docs]: /components/sensor.eight_sleep/
-[sensor.gearbest docs]: /components/sensor.gearbest/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.moon docs]: /components/sensor.moon/
-[sensor.nest docs]: /components/sensor.nest/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.netgear_lte docs]: /components/sensor.netgear_lte/
-[sensor.nsw_fuel_station docs]: /components/sensor.nsw_fuel_station/
-[sensor.pi_hole docs]: /components/sensor.pi_hole/
-[sensor.rainmachine docs]: /components/sensor.rainmachine/
-[sensor.simulated docs]: /components/sensor.simulated/
-[sensor.skybell docs]: /components/sensor.skybell/
-[sensor.smappee docs]: /components/sensor.smappee/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.wirelesstag docs]: /components/sensor.wirelesstag/
-[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sonos docs]: /components/sonos/
-[switch.doorbird docs]: /components/switch.doorbird/
-[switch.insteon_plm docs]: /components/switch.insteon_plm/
-[switch.linode docs]: /components/switch.linode/
-[switch.mystrom docs]: /components/switch.mystrom/
-[switch.neato docs]: /components/switch.neato/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.wirelesstag docs]: /components/switch.wirelesstag/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[tradfri docs]: /components/tradfri/
-[vacuum.neato docs]: /components/vacuum.neato/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[watson_iot docs]: /components/watson_iot/
-[weather.ecobee docs]: /components/weather.ecobee/
-[weather.ipma docs]: /components/weather.ipma/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[websocket_api docs]: /components/websocket_api/
-[wink docs]: /components/wink/
-[wirelesstag docs]: /components/wirelesstag/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zone docs]: /components/zone/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.arlo docs]: /integrations/arlo
+[amcrest docs]: /integrations/amcrest/
+[arlo docs]: /integrations/arlo/
+[binary_sensor.eight_sleep docs]: /integrations/eight_sleep
+[binary_sensor.linode docs]: /integrations/linode#binary-sensor
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.mystrom docs]: /integrations/mystrom#binary-sensor
+[binary_sensor.netatmo docs]: /integrations/netatmo#binary-sensor
+[binary_sensor.rainmachine docs]: /integrations/rainmachine
+[binary_sensor.skybell docs]: /integrations/skybell#binary-sensor
+[binary_sensor.uptimerobot docs]: /integrations/uptimerobot
+[binary_sensor.wirelesstag docs]: /integrations/wirelesstag#binary-sensor
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[calendar docs]: /integrations/calendar/
+[calendar.caldav docs]: /integrations/caldav
+[camera docs]: /integrations/camera/
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.doorbird docs]: /integrations/doorbird#camera
+[camera.neato docs]: /integrations/neato#camera
+[camera.netatmo docs]: /integrations/netatmo#camera
+[camera.uvc docs]: /integrations/uvc
+[camera.xiaomi docs]: /integrations/xiaomi_aqara
+[camera.yi docs]: /integrations/yi
+[climate.fritzbox docs]: /integrations/fritzbox
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.netatmo docs]: /integrations/netatmo#climate
+[climate.sensibo docs]: /integrations/sensibo
+[climate.tado docs]: /integrations/tado
+[climate.zhong_hong docs]: /integrations/zhong_hong
+[config docs]: /integrations/config/
+[cover.myq docs]: /integrations/myq
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.freebox docs]: /integrations/freebox
+[doorbird docs]: /integrations/doorbird/
+[eight_sleep docs]: /integrations/eight_sleep/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[hue docs]: /integrations/hue/
+[image_processing.facebox docs]: /integrations/facebox
+[insteon_plm docs]: /integrations/insteon/
+[konnected docs]: /integrations/konnected/
+[light.deconz docs]: /integrations/deconz#light
+[light.lifx docs]: /integrations/lifx
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.mystrom docs]: /integrations/mystrom#light
+[light.tplink docs]: /integrations/tplink
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lock.kiwi docs]: /integrations/kiwi
+[logger docs]: /integrations/logger/
+[media_player docs]: /integrations/media_player/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.epson docs]: /integrations/epson
+[media_player.horizon docs]: /integrations/horizon
+[media_player.kodi docs]: /integrations/kodi
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[media_player.xiaomi_tv docs]: /integrations/xiaomi_tv
+[media_player.yamaha docs]: /integrations/yamaha
+[mqtt_eventstream docs]: /integrations/mqtt_eventstream/
+[neato docs]: /integrations/neato/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[notify docs]: /integrations/notify/
+[panel_custom docs]: /integrations/panel_custom/
+[raincloud docs]: /integrations/raincloud/
+[rainmachine docs]: /integrations/rainmachine/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rflink docs]: /integrations/rflink/
+[ring docs]: /integrations/ring/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.gearbest docs]: /integrations/gearbest
+[sensor.glances docs]: /integrations/glances
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.homematic docs]: /integrations/homematic
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.moon docs]: /integrations/moon
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.netgear_lte docs]: /integrations/netgear_lte
+[sensor.nsw_fuel_station docs]: /integrations/nsw_fuel_station
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.rainmachine docs]: /integrations/rainmachine
+[sensor.simulated docs]: /integrations/simulated
+[sensor.skybell docs]: /integrations/skybell#sensor
+[sensor.smappee docs]: /integrations/sma#sensorsppee/
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.wirelesstag docs]: /integrations/wirelesstag#sensor
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[sonos docs]: /integrations/sonos/
+[switch.doorbird docs]: /integrations/doorbird#switch
+[switch.insteon_plm docs]: /integrations/insteon/
+[switch.linode docs]: /integrations/linode#switch
+[switch.mystrom docs]: /integrations/mystrom#switch
+[switch.neato docs]: /integrations/neato#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.tplink docs]: /integrations/tplink
+[switch.wirelesstag docs]: /integrations/wirelesstag#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tradfri docs]: /integrations/tradfri/
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[watson_iot docs]: /integrations/watson_iot/
+[weather.ecobee docs]: /integrations/ecobee
+[weather.ipma docs]: /integrations/ipma
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[wirelesstag docs]: /integrations/wirelesstag/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/
 [#14966]: https://github.com/home-assistant/home-assistant/pull/14966
 [#15098]: https://github.com/home-assistant/home-assistant/pull/15098
 [#15109]: https://github.com/home-assistant/home-assistant/pull/15109
@@ -516,7 +514,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@awarecan]: https://github.com/awarecan
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
-[camera.yi docs]: /components/camera.yi/
-[media_player.cast docs]: /components/media_player.cast/
-[nest docs]: /components/nest/
-[sensor.nest docs]: /components/sensor.nest/
+[camera.yi docs]: /integrations/yi
+[media_player.cast docs]: /integrations/cast
+[nest docs]: /integrations/nest/
+[sensor.nest docs]: /integrations/nest#sensor
