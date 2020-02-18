@@ -36,7 +36,9 @@ Home Assistant offers Konnected integration through **Configuration** -> **Integ
 
 The config flow will guide you through a setup process that lets you connect to the panel and generate a config entry.  You can then utilize the options flow to configure or modify the behavior of each zone. 
 
-If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the config will automatically be imported into a config entry or used to start a config flow.  Details of the config fields and values can be found below - these apply to both the config flow and the yaml.
+If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the config will automatically be imported and used to start a config flow.  **Note that you must still complete the config/options flow before the config entry will be finalized.**
+
+Details of the config fields and values can be found below - these apply to both the config flow and the yaml.
 
 ```yaml
 # Example configuration.yaml entry
