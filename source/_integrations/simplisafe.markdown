@@ -95,8 +95,11 @@ For any property denoting a volume, the following values should be used:
 
 ## Events
 
-Automations can listen for `SIMPLISAFE_EVENT` events. Anytime one of these events is
-received, it will come with event data that contains the following keys:
+### `SIMPLISAFE_EVENT`
+
+`SIMPLISAFE_EVENT` events represent events that appear on the timeline of the SimpliSafe
+web and mobile apps. When received, they come with event data that contains the
+following keys:
 
 * `changed_by`: the PIN that triggered the event (if appropriate)
 * `event_type`: the type of event
@@ -130,3 +133,14 @@ following values:
 * `doorbell_detected`
 * `entry_detected`
 * `motion_detected`
+
+### `SIMPLISAFE_NOTIFICATION`
+
+`SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
+messages section of the SimpliSafe web and mobile apps. When received, they come with
+event data that contains the following keys:
+
+* `category`: The notification category (e.g., `error`)
+* `code`: The SimpliSafe code for the notification
+* `message`: The actual text of the notification
+* `timestamp`: The UTC timestamp of the notification
