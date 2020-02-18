@@ -13,7 +13,6 @@ ha_codeowners:
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
 uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays. 
-> **_NOTE:_**  The note content.
 
 ## Setup
 
@@ -74,6 +73,9 @@ If you use the sensor for Norway (`NO`) you need to wrap `NO` in quotes or write
 Otherwise the value is evaluated as `false`.
 If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes.
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
+
+When you add `holiday`keyword to excludes, keep in mind that is saying to exclude the holidays from a workday. For example in the US every third Monday in January is Martin Luther King day, which happened to fall on January 6th in 2020. If Monday is a workday and holdiday is exclude, then the sensor would be off eventhough normally Monday is a workday. If you do not want to exclude holidays, or another way of saying "do not look at holidays" Then you can not just leave the excludes configuration blank. The reason is becuase `holiday` is the default. Same as `sat` and `sun`. In that case you would need to define the excludes configuration with something. You can add `sat` and `sun` since they would be defaulted anyway. If you need sonething else excluded and you wanted holidays excluded, then you would just add the values, but since something was configured then you would have to add the `holiday` keyword to whatever else.
+
 
 </div>
 
