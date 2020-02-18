@@ -142,5 +142,5 @@ event data that contains the following keys:
 
 * `category`: The notification category (e.g., `error`)
 * `code`: The SimpliSafe code for the notification
-* `notification_text`: The actual text of the notification
+* `message`: The actual text of the notification
 * `timestamp`: The UTC timestamp of the notification
