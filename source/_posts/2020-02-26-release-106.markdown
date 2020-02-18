@@ -44,23 +44,124 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
-- Reorganize insteon code ([@teharris1] - [#31183]) ([insteon docs]) (breaking change)
-- drop fritzdect ([@escoand] - [#31359]) ([fritzdect docs]) (breaking change)
-- Fix misspelled sensor names ([@KasperLK] - [#31344]) ([danfoss_air docs]) (breaking change)
-- Add config flow to Meteo-France ([@Quentame] - [#29927]) ([meteo_france docs]) (breaking change)
-- Log warning when entities referenced in service call not found ([@balloob] - [#31427]) (breaking change)
-- Add brightness_step to light.turn_on ([@balloob] - [#31452]) ([light docs]) (breaking change)
-- Add belgian meter and rename some dsmr sensors ([@dupondje] - [#30121]) ([dsmr docs]) (breaking change)
-- Clean up core services ([@balloob] - [#31509]) ([group docs]) ([homeassistant docs]) ([intent docs]) (breaking change)
-- Sure Petcare new features various improvements ([@benleb] - [#31437]) ([surepetcare docs]) (breaking change)
-- Clean up frontend services and events ([@balloob] - [#31654]) ([frontend docs]) (breaking change)
-- Extend Modbus binary sensor to support discrete inputs ([@vzahradnik] - [#30004]) ([modbus docs]) (breaking change)
-- Add support of multiple Tado accounts ([@gorynychzmey] - [#31527]) ([tado docs]) (breaking change)
-- UniFi - Change handling of updated options ([@Kane610] - [#31762]) ([unifi docs]) (breaking change)
-- Add Tado water_heater ([@michaelarnauts] - [#30095]) ([tado docs]) (breaking change) (new-platform)
-- Support XML conversion for RESTful sensors ([@bdraco] - [#31809]) ([rest docs]) (breaking change)
-- Upgrade greeneye_monitor to 2.0 ([@jkeljo] - [#31896]) ([greeneye_monitor docs]) (breaking change)
+- __Tesla__ - Tesla default SCAN_INTERVAL has been raised to 660 seconds from 300 seconds. This is the result of new testing showing the prior default would not allow Tesla vehicles to fall asleep. You should reevaluate your SCAN_INTERVAL if you have changed it to avoid battery drain. The SCAN_INTERVAL has had the minimum lowered to 60. - ([@alandtse] - [#31194]) ([tesla docs])
+
+- __Insteon__ - The Insteon entity device state attributes were changed to conform to naming standards. Insteon Address is now `insteon_address` and Insteon Group is now `insteon_group`. You may need to update automations and scripts that rely on these attributes. - ([@teharris1] - [#31183]) ([insteon docs])
+
+- __AVM FRITZ!DECT__ *(Removed)* - Fritzdect is being removed and you should use the Fritzbox integration instead which offers more features.  - ([@escoand] - [#31359]) ([fritzbox docs])
+
+  Example Configuration yaml:
+  ```yaml
+  switch:
+  - platform: fritzdect
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+  ```
+  should change to
+  ```yaml
+  fritzbox:
+  devices:
+    - host: fritz.box
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+  ```
+
+- __Danfoss Air__ - The names of some danfoss_air sensors include a misspelling of the word danfoss. This typo has been corrected and you will need to adjust all occurrences respectively. - ([@KasperLK] - [#31344]) ([danfoss_air docs])
+
+  The following sensors are affected:
+  * `dandoss_air_dial_battery` -> `danfoss_air_dial_battery`
+  * `dandoss_air_exhaust_fan_speed` -> `danfoss_air_exhaust_fan_speed`
+  * `dandoss_air_supply_fan_speed` -> `danfoss_air_supply_fan_speed`
+
+- __Météo-France__ - Météo-France supports config flow and is now available to be added as an integration from the integrations UI! There are no more `monitored_conditions` and all sensors will be added. - ([@Quentame] - [#29927]) ([meteo_france docs])
+
+- __Service Calls__ - Service calls that reference non-existing entities will now log a warning instead of silently being omitted. If you are using a template and want to select no entities, you need to pass `none` instead. The TTS integration will no longer target all media players if no entity ID passed in. You need to specify `all` instead. - ([@balloob] - [#31427])
+
+- __Light__ - It is no longer allowed to pass both `brightness` and `brightness_pct` to `light.turn_on` service. Previously passing both would have used `brightness_pct`. - ([@balloob] - [#31452]) ([light docs])
+
+- __DSMR__ - Added Belgian meter. Some DSMR sensors have been renamed to align with DSMR specifications. "Power" sensors are now properly "Energy" sensors and those which were previously using "low" and "normal" descriptions now use "tarif 1" and "tarif 2", respectively.  - ([@dupondje] - [#30121]) ([dsmr docs])
+
+  Example of sensor changes:
+  * `Power Consumption (low)` -> `Energy Consumption (tarif 1)`
+  * `Power Consumption (normal)` -> `Energy Consumption (tarif 2)`
+
+- __Group__ - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([group docs]) ([homeassistant docs]) ([intent docs]) 
+- __Sure Petcare__ - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is now longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
+
+  Example configuration yaml:
+  ```yaml
+  surepetcare:
+  username: YOUR_SURE_PETCARE_LOGIN
+  password: YOUR_SURE_PETCARE_PASSWORD
+  feeders: [12345, 67890]
+  flaps: [13579]
+  pets: [24680]
+  ```
+
+- __Frontend__ - `frontend.set_theme` and `frontend.reload_themes` now require admin access. This will not break automations that set themes because those are run with admin access. Also, a `themes_updated event` no longer contains all theme data  - ([@balloob] - [#31654]) ([frontend docs]) 
+- __Modbus__ -  The Modbus Binary Sensor can now read data from discrete inputs. A new variable __input_type__ type was added to define if you want to read from coil or discrete_input. Coil is the default option. - ([@vzahradnik] - [#30004]) ([modbus docs])
+
+  Example configuration yaml:
+  ```yaml
+  binary_sensor:
+  - platform: modbus
+    scan_interval: 10
+    inputs:
+      - name: Sensor1
+        hub: hub1
+        slave: 1
+        address: 100
+        input_type: discrete_input
+  ```
+ 
+- __Tado__ - Adding support of multiple Tado accounts has changed the unique id generation of sensor and climate, and now includes the id of the home. In addition, support for water heater zones has been added. Tado hot water zones with temperature control previously created an climate entity, e.g. `climate.hot_water`, and these will be replaced by a `water_heater.hot_water` entity. This change is not breaking for hot water zones without temperature control as they do not have a climate zone. - ([@gorynychzmey] - [#31527]) ([@michaelarnauts] - [#30095]) ([tado docs])
+
+  Example configuration yaml:
+  ```yaml
+  tado:
+    - username: user1@example.com
+      password: !secret tado_pwd1
+    - username: user2@example.com
+      password: !secret tado_pwd2
+  ```
+  If you have only one account this configuration will also work:
+  ```yaml
+  tado:
+      username: user@example.com
+      password: !secret tado_pwd
+  ```
+- __UniFi__ - Changing tracking settings will no longer disable entities but will remove them completely from the state machine and entity registry. The SSID filter will now mark all wireless clients as `not_home` if they are connected to SSIDs that are not a part of the filter. - ([@Kane610] - [#31762]) ([unifi docs])
+- __Rest__ - Many devices continue to use XML for RESTful APIs. This change implements converting XML output to JSON via xmltojson so it can work with the existing rest sensor component. As the attributes that usually need to be scraped are deeper in the document, support for passing in a template to find the JSON attributes has been added. JSON APIs that do not have their attributes at the top level can also benefit from this change. - ([@bdraco] - [#31809]) ([rest docs])
+  
+  Example configuration yaml:
+  ```yaml
+  sensor:
+  - platform: rest
+    resource: http://192.168.1.20/status.xml
+    authentication: basic
+    username: username
+    password: password
+    json_attributes:
+      - "htstatus"
+      - "poolsp"
+      - "spasp"
+      - "pooltemp"
+      - "spatemp"
+      - "airtemp"
+    json_attributes_path: "$.response.temp"
+    value_template: '{{ value_json.response.temp.poolsp }}'
+  - platform: rest
+    resource: http://192.168.1.5/status.xml
+    json_attributes:
+      - "led0"
+      - "led1"
+      - "user0"
+      - "temp0"
+      - "btn0"
+    json_attributes_path: "$.response"
+    value_template: "OK"
+  ```
+- __GreenEye Monitor (GEM)__ - Greeneye Monitor temperature readings are now correct (previously they would report as twice the actual value). If you've compensated for this in your dashboards or displays, you'll need to undo that compensation with this release. - ([@jkeljo] - [#31896]) ([greeneye_monitor docs])
 
 ## Beta Fixes
 
