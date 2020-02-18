@@ -15,6 +15,63 @@ og_image: /images/blog/2020-02-0.105/components.png
 - Icons for scene/script.
 - brightness_step and brightness_step_pct added to light.turn_on. Also part of device actions.
 
+## All entities in entities config panel
+
+The entities config panel used to only contain entities that had unique ID's,
+because that are the entities you can change the name and entity id of from the UI.
+In this version we changed that, we now include all entities in the config panel.
+You still can only change the ones that have a unique ID but atleast now you have a clear overview of the entities that are available,
+and you can use the in the last release introduced related items to see where the entities are used!
+
+## Change the home zone location in the zone editor
+
+In the zone editor that was introduced in the previous release, you could not change the location of you home zone. In this version you can!
+You still can not change the radius from the UI, but you can drag the home zone on the map.
+
+## State color option
+
+Also an improvement on a feature introduced in the previous release, the `state_color` option is now also available for other cards, so you can override the defaults of the cards.
+
+## Sensor card
+
+Our sensor card has had a style update. We initially got the design from [mini graph card]`(https://github.com/kalkih/mini-graph-card) and now updated to match the improved new look of that card.
+
+## Person more info
+
+Persons have a new more info dialog. They now show the location of the person on the map and if the person is not in a zone, you can create a zone with the current location of that person with one click.
+
+## Automations default to device
+
+New automations now default to device automations instead if state triggers en service calls. Device automations are so much easier and clearer to create from the UI. You can ofcourse still use the old triggers and actions like you are used to.
+
+## Automations and battery no longer on generated UI
+
+In generate Lovelace we no longer include automations and battery entities. You can find these in the automation config panel and the battery in the device config page.
+If you want to have your automations and/or battery in your Lovelace UI, you can always take control and add them.
+
+## Custom cards
+
+We made some changes that can affect custom cards, if you are a custom card developer, please read the following.
+
+### Freeze config
+
+We used to give a copy of the configuration to every card, because some cards altered the configuration Lovelace passed to them. In 0.105 we stopped doing this because it is not good for performance to keep a deep copy for every card.
+This resulted in some problems because cards where still altering the configuration. In 0.106 we freeze the configuration. This means that a custom card can not alter the configuration and if it tries will throw an exception or fail silently.
+Please check if you custom card still works with 0.106 and make adjustments to not alter the configuration. You can create a copy of the configuration yourself if you need to.
+
+### Helper functions
+
+A second change that was made, is that we no longer load all element types by default. We load them when they are needed. This will also help performance but might break your custom card.
+We introduced a set of helpers that you can use to create a lovelace element, these are the same functions Home Assistant uses internally and will always be up to date to the version the user is using.
+You can use them as follows:
+
+```js
+const helpers = await loadCardHelpers();
+const element = helpers.createRowElement(config);
+element.hass = this.hass;
+```
+
+For more info see https://github.com/home-assistant/home-assistant-polymer/pull/4853
 
 ## New Integrations
 
@@ -481,27 +538,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31920]: https://github.com/home-assistant/home-assistant/pull/31920
 [#31921]: https://github.com/home-assistant/home-assistant/pull/31921
 [#31922]: https://github.com/home-assistant/home-assistant/pull/31922
-[@Adminiuga]: https://github.com/Adminiuga
-[@BKPepe]: https://github.com/BKPepe
-[@CHAZICLE]: https://github.com/CHAZICLE
-[@Cereal2nd]: https://github.com/Cereal2nd
-[@Cloudenius]: https://github.com/Cloudenius
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@Kane610]: https://github.com/Kane610
-[@KasperLK]: https://github.com/KasperLK
-[@Konsts]: https://github.com/Konsts
-[@ManneW]: https://github.com/ManneW
-[@Marco98]: https://github.com/Marco98
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MrDadoo]: https://github.com/MrDadoo
-[@P-Verbrugge]: https://github.com/P-Verbrugge
-[@PhilRW]: https://github.com/PhilRW
-[@Quentame]: https://github.com/Quentame
-[@SoftXperience]: https://github.com/SoftXperience
-[@Squixx]: https://github.com/Squixx
-[@SukramJ]: https://github.com/SukramJ
-[@TechnicallyJoe]: https://github.com/TechnicallyJoe
-[@YarmoM]: https://github.com/YarmoM
+[@adminiuga]: https://github.com/Adminiuga
+[@bkpepe]: https://github.com/BKPepe
+[@chazicle]: https://github.com/CHAZICLE
+[@cereal2nd]: https://github.com/Cereal2nd
+[@cloudenius]: https://github.com/Cloudenius
+[@danielhiversen]: https://github.com/Danielhiversen
+[@kane610]: https://github.com/Kane610
+[@kasperlk]: https://github.com/KasperLK
+[@konsts]: https://github.com/Konsts
+[@mannew]: https://github.com/ManneW
+[@marco98]: https://github.com/Marco98
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@mrdadoo]: https://github.com/MrDadoo
+[@p-verbrugge]: https://github.com/P-Verbrugge
+[@philrw]: https://github.com/PhilRW
+[@quentame]: https://github.com/Quentame
+[@softxperience]: https://github.com/SoftXperience
+[@squixx]: https://github.com/Squixx
+[@sukramj]: https://github.com/SukramJ
+[@technicallyjoe]: https://github.com/TechnicallyJoe
+[@yarmom]: https://github.com/YarmoM
 [@abmantis]: https://github.com/abmantis
 [@alandtse]: https://github.com/alandtse
 [@andersonshatch]: https://github.com/andersonshatch
