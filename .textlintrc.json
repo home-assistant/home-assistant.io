@@ -308,6 +308,7 @@
         ["grey", "gray"],
         ["hass", "Home Assistant"],
         ["Hass\\.?io", "Home Assistant"],
+        ["hassio.local", "homeassistant.local"],
         ["HassOS", "Home Assistant Operating System"],
         ["he or she", "they"],
         ["he/she", "they"],
