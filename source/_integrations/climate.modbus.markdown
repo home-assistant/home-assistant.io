@@ -23,7 +23,7 @@ climate:
     hub: hub1
     slave: 1
     data_type: uint
-    count: 1
+    data_count: 1
     scale: 0.1
     offset: 0
     precision: 1
@@ -56,6 +56,11 @@ current_temp_register:
   description: Register number for current temperature (Process value).
   required: true
   type: integer
+current_temp_register_type:
+  description: Modbus register type (holding, input) for current temperature, default holding.
+  required: false
+  type: string
+  default: holding
 data_type:
   description: Response representation (int, uint, float, custom). If float selected, value will converted to IEEE 754 floating point format.
   required: false
