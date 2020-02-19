@@ -7,12 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: qvrpro.png
+logo: qvr_pro.png
 ha_category: Camera
 ha_release: 0.105
 ---
 
-The `qvrpro` implementation allows you to integrate your QVR Pro
+The `qvr_pro` component allows you to view your QVR Pro
 channels in Home Assistant.
 
 Currently only cameras are supported by this integration.
@@ -24,14 +24,14 @@ To enable QVR Pro integration, add the following to your
 
 ```yaml
 # Example configuration.yaml entry
-qvrpro:
+qvr_pro:
   host: 192.168.1.102
   username: pyqvruser
   password: password
   exclude_channels: 2,5,6
   
 camera:
-  - platform: qvrpro
+  - platform: qvr_pro
 ```
 
 {% configuration %}
