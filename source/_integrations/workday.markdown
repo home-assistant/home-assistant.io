@@ -65,7 +65,7 @@ add_holidays:
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-The keyword `holiday` is used for public holidays identified by the holiday’s module.
+The keyword `holiday` is used for public holidays identified by the holidays module.
 
 <div class='note warning'>
 
