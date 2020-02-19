@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.106: TBD"
+title: "0.106: Beta release notes"
 description: "TBD"
 date: 2020-02-17 00:00:00
 date_formatted: "February 26, 2020"
