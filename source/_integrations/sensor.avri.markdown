@@ -20,7 +20,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: avri
-    postcode: YOUR_POST_CODE
+    zip_code: YOUR_ZIP_CODE
     house_number: YOUR_HOUSE_NUMBER
 ```
 
