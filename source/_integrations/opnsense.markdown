@@ -5,7 +5,7 @@ logo: opnsense.png
 ha_category:
   - Hub
   - Presence Detection
-ha_release: "0.106"
+ha_release: 0.105
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
