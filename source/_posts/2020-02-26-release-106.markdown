@@ -191,6 +191,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `Power Consumption (low)` -> `Energy Consumption (tarif 1)`
   - `Power Consumption (normal)` -> `Energy Consumption (tarif 2)`
 
+- **Orange Livebox Play TV** - The Orange Livebox Play TV integration has been removed. A change to the site scraped with this integration has changed, causing the integration to break. This integration violated our design decisions and is therefore removed. - ([@frenck] - [#31525]) (breaking change)
+
 - **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
 
 - **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is now longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
@@ -284,6 +286,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **GreenEye Monitor (GEM)** - Greeneye Monitor temperature readings are now correct (previously they would report as twice the actual value). If you've compensated for this in your dashboards or displays, you'll need to undo that compensation with this release. - ([@jkeljo] - [#31896]) ([greeneye_monitor docs])
 
+- **Duke Energy** - The Duke Energy integration has been removed. The website of Duke Energy changed, causing the integration to break because it relied on web scraping, which is no longer allowed to be used. - ([@frenck] - [#31921]) (breaking change)
+
 - **deCONZ** - deCONZ will no longer change entities to being disabled when using the integration configuration options but rather remove them completely from the state machine. Enabling the option will load all relevant entities again. - ([@Kane610] - [#31661]) ([deconz docs])
 
 ## All changes
@@ -354,7 +358,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add belgian meter and rename some dsmr sensors ([@dupondje] - [#30121]) ([dsmr docs]) (breaking change)
 - Add GDACS feed integration ([@exxamalte] - [#31235]) ([gdacs docs]) (new-integration)
 - Update link when IO in event loop ([@balloob] - [#31519])
-- Remove of liveboxplaytv integration (ADR0004) ([@frenck] - [#31525]) ([liveboxplaytv docs])
+- Remove of liveboxplaytv integration (ADR0004) ([@frenck] - [#31525]) ([liveboxplaytv docs]) (breaking change)
 - Updated the provider name to blockchain.com ([@P-Verbrugge] - [#31534]) ([blockchain docs])
 - Changed website name to blockchain.com ([@P-Verbrugge] - [#31528]) ([bitcoin docs])
 - Update the update coordinator API to make it easier to use ([@balloob] - [#31471]) ([hue docs])
@@ -490,7 +494,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20200212.0 ([@bramkragten] - [#31912]) ([frontend docs])
 - Provide user consumable errors when lock operations fail ([@bdraco] - [#31864]) ([august docs])
 - Bump simplisafe-python to 8.1.1 ([@bachya] - [#31915]) ([simplisafe docs])
-- Remove duke_energy integration (ADR-0004) ([@frenck] - [#31921]) ([duke_energy docs])
+- Remove duke_energy integration (ADR-0004) ([@frenck] - [#31921]) ([duke_energy docs]) (breaking change)
 - Updated frontend to 20200217.0 ([@bramkragten] - [#31922]) ([frontend docs])
 - Add async_unload_entry to iCloud ([@Quentame] - [#31917]) ([icloud docs])
 - Add an options flow to demo ([@bramkragten] - [#31920]) ([demo docs])
