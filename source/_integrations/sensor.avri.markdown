@@ -1,5 +1,5 @@
 ---
-title: Avri Waste Sensor
+title: Avri
 description: Instructions on how to set up Avri Waste sensor within Home Assistant.
 logo: avri.jpeg
 ha_category: 
@@ -25,8 +25,8 @@ sensor:
 ```
 
 {% configuration %}
-postcode:
-  description: Your postcode 
+zip_code:
+  description: Your zip code 
   required: true
   type: string
 house_number:
@@ -45,8 +45,8 @@ county_code:
   default: NL
 {% endconfiguration %}
 
-The default frequency for pulling data from the Avri API is once every 4 hours.
+The default frequency for pulling data from the Avri API is once every 4 hours. If the Avri API does not return any pickup days the state of the sensor is set to `unknown`.
 
 <p class='note warning'>
-The Avri sensor uses the an unofficial API to obtain data. Use at your own risk.
+The Avri sensor uses an unofficial API to obtain data. Use it at your own risk.
 </p>
