@@ -21,7 +21,7 @@ These are the draft release notes for the upcoming release, currently in Beta.
 
 In Home Assistant [0.105](/blog/2020/02/05/release-105/#safe-mode), we introduced Safe Mode. Our goal is to make sure Home Assistant always starts and provide you an interface to work with. No matter what.
 
-[@balloob] has been busy release to improve on this feature even more, and Home Assistant is now able to overcome issues when things in the core system get into trouble and even when the Lovelace configuration isn't readable. Besides that, the way Safe Mode is presented has changed, so you instantly know you are in Safe Mode:
+[@balloob] has been busy this release to improve on this feature even more, and Home Assistant is now able to overcome issues when things in the core system get into trouble and even when the Lovelace configuration isn't readable. Besides that, the way Safe Mode is presented has changed, so you instantly know you are in Safe Mode:
 
 <p class='img'>
 <img src='/images/blog/2020-02-0.106/safe-mode-activated.png' alt='Screenshot of Home Assistant running in Safe Mode'></a>
@@ -73,8 +73,6 @@ The developer tools panel also got some nice little touches. In the "Info" tab y
 
 Both now include links to the documentation and our GitHub issue tracker. This allows you to dive in quickly when you run into troubles with an integration.
 
-Additionally, the logs have been extended to provide additional information as well!
-
 <p class='img'>
 <img src='/images/blog/2020-02-0.106/integrations-list.png' alt='Screenshot of the integrations list and an example log message'></a>
 Screenshot of the integrations list and an example log message.
@@ -119,7 +117,7 @@ If you want to have your automations and/or battery in your Lovelace UI, you can
 
 Are you the creator of an awesome custom card for Lovelace?
 
-We have made some changes to Lovelace that might impact your custom card, so be sure to, read the [blog post](https://developers.home-assistant.io/blog/2020/02/18/106-custom-card-changes.html) on the developers site about this.
+We have made some changes to Lovelace that might impact your custom card, so be sure to read the [blog post](https://developers.home-assistant.io/blog/2020/02/18/106-custom-card-changes.html) on the developers site about this.
 
 ## New Integrations
 
