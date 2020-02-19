@@ -284,9 +284,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **GreenEye Monitor (GEM)** - Greeneye Monitor temperature readings are now correct (previously they would report as twice the actual value). If you've compensated for this in your dashboards or displays, you'll need to undo that compensation with this release. - ([@jkeljo] - [#31896]) ([greeneye_monitor docs])
 
-## Beta Fixes
-
-- For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs]) (beta fix)
+- **deCONZ** - deCONZ will no longer change entities to being disabled when using the integration configuration options but rather remove them completely from the state machine. Enabling the option will load all relevant entities again. - ([@Kane610] - [#31661]) ([deconz docs])
 
 ## All changes
 
@@ -392,7 +390,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Dynalite Integration ([@ziv1234] - [#27841]) ([dynalite docs]) (new-integration)
 - Extend Modbus binary sensor to support discrete inputs ([@vzahradnik] - [#30004]) ([modbus docs]) (breaking change)
 - Fix Evohome checking override duration ([@eavanvalkenburg] - [#31697]) ([evohome docs])
-- For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs]) (beta fix)
+- For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs])
 - Use latest version of python-pushover (forked) to fix issue with diff… ([@SoftXperience] - [#31647]) ([pushover docs])
 - Add Glances sensors dynamically ([@engrbm87] - [#28639]) ([glances docs])
 - Adjust entity slow warning for custom component ([@balloob] - [#31711])
@@ -496,6 +494,35 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20200217.0 ([@bramkragten] - [#31922]) ([frontend docs])
 - Add async_unload_entry to iCloud ([@Quentame] - [#31917]) ([icloud docs])
 - Add an options flow to demo ([@bramkragten] - [#31920]) ([demo docs])
+- Bump aio_geojson_geonetnz_quakes to 0.12 ([@exxamalte] - [#31930]) ([geonetnz_quakes docs])
+- Fix translations_develop ([@austinmroczek] - [#31942])
+- Bump aio_geojson_nsw_rfs_incidents to 0.3 ([@exxamalte] - [#31941]) ([nsw_rural_fire_service_feed docs])
+- Bump pyps4-2ndscreen to 1.0.7 ([@ktnrg45] - [#31943]) ([ps4 docs])
+- Add pigpio remote functionality ([@Poeschl] - [#31667]) ([rpi_gpio_pwm docs])
+- Fix entity registry not saving name/icon ([@balloob] - [#31932])
+- Untag discovery as an allowed dependency ([@balloob] - [#31934]) ([apple_tv docs]) ([freebox docs]) ([octoprint docs]) ([roku docs]) ([sabnzbd docs]) ([xiaomi_aqara docs]) ([yeelight docs])
+- Read Modbus climate current temp from input register ([@vzahradnik] - [#31944]) ([modbus docs])
+- Add support for SimpliSafe system notifications ([@bachya] - [#31936]) ([simplisafe docs])
+- Add Twitch subscription and additional stats ([@Poeschl] - [#31122]) ([twitch docs])
+- Extend safe mode ([@balloob] - [#31927]) ([zeroconf docs])
+- Do not use a set for hvac modes in SmartThings ([@balloob] - [#31959]) ([smartthings docs])
+- Audit state handling off august bridges and sensors ([@bdraco] - [#31935]) ([august docs])
+- deCONZ - Directly reflect changes to config entry options ([@Kane610] - [#31661]) ([deconz docs]) (breaking change)
+- Upgrade pre-commit to 2.1.0 ([@frenck] - [#31962])
+- Fix pre-commit hook issue on Windows ([@teharris1] - [#31648])
+- Add support for MQTT device triggers ([@emontnemery] - [#31679]) ([device_automation docs]) ([mqtt docs])
+- UniFi config option SSID filter ([@Kane610] - [#31842]) ([unifi docs])
+- deConz - Use proper mechanisms for options flow tests ([@Kane610] - [#31965])
+- Optimize find bad JSON data ([@balloob] - [#31963])
+- Add options to ignore shared/managed Plex clients ([@jjlawren] - [#31738]) ([plex docs])
+- Fix Plex naming and devices for misbehaving clients ([@jjlawren] - [#31970]) ([plex docs])
+- Upgrade to bimmer_connected 0.7.1 to fix US and China access ([@gerard33] - [#31968]) ([bmw_connected_drive docs])
+- Modbus remove unnecessary get calls ([@vzahradnik] - [#31966]) ([modbus docs])
+- Bump vallox-websocket-api to 2.4.0 ([@springstan] - [#31913]) ([vallox docs])
+- Add new devices to HomematicIP Cloud ([@SukramJ] - [#31914]) ([homematicip_cloud docs])
+- Add shutter group to HomematicIP Cloud ([@SukramJ] - [#31916]) ([homematicip_cloud docs])
+- Fix test for HMIPC ([@SukramJ] - [#31981])
+- Updated frontend to 20200219.0 ([@bramkragten] - [#31979]) ([frontend docs])
 
 [#27341]: https://github.com/home-assistant/home-assistant/pull/27341
 [#27841]: https://github.com/home-assistant/home-assistant/pull/27841
@@ -522,6 +549,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31023]: https://github.com/home-assistant/home-assistant/pull/31023
 [#31073]: https://github.com/home-assistant/home-assistant/pull/31073
 [#31086]: https://github.com/home-assistant/home-assistant/pull/31086
+[#31122]: https://github.com/home-assistant/home-assistant/pull/31122
 [#31141]: https://github.com/home-assistant/home-assistant/pull/31141
 [#31177]: https://github.com/home-assistant/home-assistant/pull/31177
 [#31183]: https://github.com/home-assistant/home-assistant/pull/31183
@@ -606,9 +634,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31634]: https://github.com/home-assistant/home-assistant/pull/31634
 [#31645]: https://github.com/home-assistant/home-assistant/pull/31645
 [#31647]: https://github.com/home-assistant/home-assistant/pull/31647
+[#31648]: https://github.com/home-assistant/home-assistant/pull/31648
 [#31654]: https://github.com/home-assistant/home-assistant/pull/31654
+[#31661]: https://github.com/home-assistant/home-assistant/pull/31661
 [#31664]: https://github.com/home-assistant/home-assistant/pull/31664
+[#31667]: https://github.com/home-assistant/home-assistant/pull/31667
 [#31672]: https://github.com/home-assistant/home-assistant/pull/31672
+[#31679]: https://github.com/home-assistant/home-assistant/pull/31679
 [#31682]: https://github.com/home-assistant/home-assistant/pull/31682
 [#31685]: https://github.com/home-assistant/home-assistant/pull/31685
 [#31686]: https://github.com/home-assistant/home-assistant/pull/31686
@@ -624,6 +656,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31731]: https://github.com/home-assistant/home-assistant/pull/31731
 [#31732]: https://github.com/home-assistant/home-assistant/pull/31732
 [#31735]: https://github.com/home-assistant/home-assistant/pull/31735
+[#31738]: https://github.com/home-assistant/home-assistant/pull/31738
 [#31739]: https://github.com/home-assistant/home-assistant/pull/31739
 [#31741]: https://github.com/home-assistant/home-assistant/pull/31741
 [#31742]: https://github.com/home-assistant/home-assistant/pull/31742
@@ -670,6 +703,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31831]: https://github.com/home-assistant/home-assistant/pull/31831
 [#31836]: https://github.com/home-assistant/home-assistant/pull/31836
 [#31837]: https://github.com/home-assistant/home-assistant/pull/31837
+[#31842]: https://github.com/home-assistant/home-assistant/pull/31842
 [#31845]: https://github.com/home-assistant/home-assistant/pull/31845
 [#31847]: https://github.com/home-assistant/home-assistant/pull/31847
 [#31848]: https://github.com/home-assistant/home-assistant/pull/31848
@@ -698,32 +732,55 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31905]: https://github.com/home-assistant/home-assistant/pull/31905
 [#31911]: https://github.com/home-assistant/home-assistant/pull/31911
 [#31912]: https://github.com/home-assistant/home-assistant/pull/31912
+[#31913]: https://github.com/home-assistant/home-assistant/pull/31913
+[#31914]: https://github.com/home-assistant/home-assistant/pull/31914
 [#31915]: https://github.com/home-assistant/home-assistant/pull/31915
+[#31916]: https://github.com/home-assistant/home-assistant/pull/31916
 [#31917]: https://github.com/home-assistant/home-assistant/pull/31917
 [#31920]: https://github.com/home-assistant/home-assistant/pull/31920
 [#31921]: https://github.com/home-assistant/home-assistant/pull/31921
 [#31922]: https://github.com/home-assistant/home-assistant/pull/31922
-[@adminiuga]: https://github.com/Adminiuga
-[@bkpepe]: https://github.com/BKPepe
-[@chazicle]: https://github.com/CHAZICLE
-[@cereal2nd]: https://github.com/Cereal2nd
-[@cloudenius]: https://github.com/Cloudenius
-[@danielhiversen]: https://github.com/Danielhiversen
-[@kane610]: https://github.com/Kane610
-[@kasperlk]: https://github.com/KasperLK
-[@konsts]: https://github.com/Konsts
-[@mannew]: https://github.com/ManneW
-[@marco98]: https://github.com/Marco98
-[@martinhjelmare]: https://github.com/MartinHjelmare
-[@mrdadoo]: https://github.com/MrDadoo
-[@p-verbrugge]: https://github.com/P-Verbrugge
-[@philrw]: https://github.com/PhilRW
-[@quentame]: https://github.com/Quentame
-[@softxperience]: https://github.com/SoftXperience
-[@squixx]: https://github.com/Squixx
-[@sukramj]: https://github.com/SukramJ
-[@technicallyjoe]: https://github.com/TechnicallyJoe
-[@yarmom]: https://github.com/YarmoM
+[#31927]: https://github.com/home-assistant/home-assistant/pull/31927
+[#31930]: https://github.com/home-assistant/home-assistant/pull/31930
+[#31932]: https://github.com/home-assistant/home-assistant/pull/31932
+[#31934]: https://github.com/home-assistant/home-assistant/pull/31934
+[#31935]: https://github.com/home-assistant/home-assistant/pull/31935
+[#31936]: https://github.com/home-assistant/home-assistant/pull/31936
+[#31941]: https://github.com/home-assistant/home-assistant/pull/31941
+[#31942]: https://github.com/home-assistant/home-assistant/pull/31942
+[#31943]: https://github.com/home-assistant/home-assistant/pull/31943
+[#31944]: https://github.com/home-assistant/home-assistant/pull/31944
+[#31959]: https://github.com/home-assistant/home-assistant/pull/31959
+[#31962]: https://github.com/home-assistant/home-assistant/pull/31962
+[#31963]: https://github.com/home-assistant/home-assistant/pull/31963
+[#31965]: https://github.com/home-assistant/home-assistant/pull/31965
+[#31966]: https://github.com/home-assistant/home-assistant/pull/31966
+[#31968]: https://github.com/home-assistant/home-assistant/pull/31968
+[#31970]: https://github.com/home-assistant/home-assistant/pull/31970
+[#31979]: https://github.com/home-assistant/home-assistant/pull/31979
+[#31981]: https://github.com/home-assistant/home-assistant/pull/31981
+[@Adminiuga]: https://github.com/Adminiuga
+[@BKPepe]: https://github.com/BKPepe
+[@CHAZICLE]: https://github.com/CHAZICLE
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Cloudenius]: https://github.com/Cloudenius
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Kane610]: https://github.com/Kane610
+[@KasperLK]: https://github.com/KasperLK
+[@Konsts]: https://github.com/Konsts
+[@ManneW]: https://github.com/ManneW
+[@Marco98]: https://github.com/Marco98
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MrDadoo]: https://github.com/MrDadoo
+[@P-Verbrugge]: https://github.com/P-Verbrugge
+[@PhilRW]: https://github.com/PhilRW
+[@Poeschl]: https://github.com/Poeschl
+[@Quentame]: https://github.com/Quentame
+[@SoftXperience]: https://github.com/SoftXperience
+[@Squixx]: https://github.com/Squixx
+[@SukramJ]: https://github.com/SukramJ
+[@TechnicallyJoe]: https://github.com/TechnicallyJoe
+[@YarmoM]: https://github.com/YarmoM
 [@abmantis]: https://github.com/abmantis
 [@alandtse]: https://github.com/alandtse
 [@andersonshatch]: https://github.com/andersonshatch
@@ -750,6 +807,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dupondje]: https://github.com/dupondje
 [@eavanvalkenburg]: https://github.com/eavanvalkenburg
 [@elmurato]: https://github.com/elmurato
+[@emontnemery]: https://github.com/emontnemery
 [@endor-force]: https://github.com/endor-force
 [@engrbm87]: https://github.com/engrbm87
 [@escoand]: https://github.com/escoand
@@ -757,6 +815,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fabaff]: https://github.com/fabaff
 [@fierland]: https://github.com/fierland
 [@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
 [@gorynychzmey]: https://github.com/gorynychzmey
 [@guimaraes13]: https://github.com/guimaraes13
 [@gurbyz]: https://github.com/gurbyz
@@ -766,6 +825,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jjlawren]: https://github.com/jjlawren
 [@jkeljo]: https://github.com/jkeljo
 [@kit-klein]: https://github.com/kit-klein
+[@ktnrg45]: https://github.com/ktnrg45
 [@laszlojakab]: https://github.com/laszlojakab
 [@maxcanna]: https://github.com/maxcanna
 [@melyux]: https://github.com/melyux
@@ -799,6 +859,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ambient_station docs]: /integrations/ambient_station/
 [amcrest docs]: /integrations/amcrest/
 [apcupsd docs]: /integrations/apcupsd/
+[apple_tv docs]: /integrations/apple_tv/
 [apprise docs]: /integrations/apprise/
 [asuswrt docs]: /integrations/asuswrt/
 [august docs]: /integrations/august/
@@ -806,6 +867,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bitcoin docs]: /integrations/bitcoin/
 [blockchain docs]: /integrations/blockchain/
 [bme680 docs]: /integrations/bme680/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [caldav docs]: /integrations/caldav/
@@ -830,12 +892,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [esphome docs]: /integrations/esphome/
 [essent docs]: /integrations/essent/
 [evohome docs]: /integrations/evohome/
+[freebox docs]: /integrations/freebox/
 [fritz docs]: /integrations/fritz/
 [fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [frontier_silicon docs]: /integrations/frontier_silicon/
 [garmin_connect docs]: /integrations/garmin_connect/
 [gdacs docs]: /integrations/gdacs/
+[geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [glances docs]: /integrations/glances/
 [greeneye_monitor docs]: /integrations/greeneye_monitor/
 [group docs]: /integrations/group/
@@ -878,6 +942,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [netgear_lte docs]: /integrations/netgear_lte/
 [notion docs]: /integrations/notion/
 [nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
+[octoprint docs]: /integrations/octoprint/
 [onewire docs]: /integrations/onewire/
 [opencv docs]: /integrations/opencv/
 [ping docs]: /integrations/ping/
@@ -893,6 +958,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [reddit docs]: /integrations/reddit/
 [remote docs]: /integrations/remote/
 [rest docs]: /integrations/rest/
+[roku docs]: /integrations/roku/
+[rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
+[sabnzbd docs]: /integrations/sabnzbd/
 [salt docs]: /integrations/salt/
 [samsungtv docs]: /integrations/samsungtv/
 [script docs]: /integrations/script/
@@ -900,6 +968,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [seven_segments docs]: /integrations/seven_segments/
 [signal_messenger docs]: /integrations/signal_messenger/
 [simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
 [sonos docs]: /integrations/sonos/
 [soundtouch docs]: /integrations/soundtouch/
 [spc docs]: /integrations/spc/
@@ -918,9 +987,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [trafikverket_train docs]: /integrations/trafikverket_train/
 [trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
 [trend docs]: /integrations/trend/
+[twitch docs]: /integrations/twitch/
 [unifi docs]: /integrations/unifi/
 [updater docs]: /integrations/updater/
 [upnp docs]: /integrations/upnp/
+[vallox docs]: /integrations/vallox/
 [velbus docs]: /integrations/velbus/
 [verisure docs]: /integrations/verisure/
 [vicare docs]: /integrations/vicare/
@@ -931,5 +1002,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wled docs]: /integrations/wled/
 [workday docs]: /integrations/workday/
 [wwlln docs]: /integrations/wwlln/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
