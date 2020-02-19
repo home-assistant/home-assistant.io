@@ -10,7 +10,7 @@ ha_codeowners:
   - '@timvancann'
 ---
 
-The `Avri Waste` platform allows you to track the next scheduled waste pickup and what type of waste from [Avri](https://www.avri.nl/). 
+The `Avri Waste` platform allows you to track the next scheduled waste pickup and the type of waste from [Avri](https://www.avri.nl/). 
 
 ## Configuration
 
