@@ -32,7 +32,7 @@ and will be automatically added when HA connects to your Vera controller.
 
 ## Configuration
 
-To use Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:
+To use Vera devices in your installation, add the following to your `configuration.yaml` file using the IP and port number of your Vera controller:
 
 ```yaml
 vera:
@@ -77,7 +77,7 @@ If you want to use a Z-Wave device from the Vera controller in Home Assistant au
 
 The `vera` platform allows you to get data from your [Vera](https://getvera.com/) sensors from within Home Assistant.
 
-Please note that some vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that vera will send alerts (email messages to txts) when they are _armed_ and change state.
+Please note that some Vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that Vera will send alerts (email messages to txts) when they are _armed_ and change state.
 
 Home Assistant will display the state of these sensors regardless of the _armed_ state.
 

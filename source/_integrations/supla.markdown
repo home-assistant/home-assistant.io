@@ -40,7 +40,7 @@ server:
 access_token:
   description:
     An access token for REST API configuration. Can be acquired from
-    http[s]://your.server.org/integrations/tokens (please add at least Channel's Read and Action Execution permissions).
+    `http[s]://your.server.org/integrations/tokens` (please add at least Channel's Read and Action Execution permissions).
   required: true
   type: string
 {% endconfiguration %}

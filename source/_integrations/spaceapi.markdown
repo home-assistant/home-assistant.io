@@ -128,7 +128,7 @@ contact:
       required: false
       type: string
 issue_report_channels:
-  description: "The reporting channel for issues. Valid values are email, issue_mail, twitter or ml"
+  description: "The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
   required: true
   type: list
 state:
@@ -270,7 +270,7 @@ In order to set a sensor specific location do the following steps:
 3. Pick "Other" from the attribute override pulldown
 4. Set the attribute name to location and the attribute value to your desired location
 
-If no location is set, the location defined in the HA config is used.
+If no location is set, the location defined in the HA configuration is used.
 
 ## Examples
 

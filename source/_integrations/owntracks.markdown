@@ -124,7 +124,7 @@ Owntracks v2.0.0 removes support for iBeacons on Android.
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
-iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
+iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by iOS and some Android devices. Owntracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
 
 When you enter an iBeacon region, Owntracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
 

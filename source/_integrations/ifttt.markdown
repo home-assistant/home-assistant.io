@@ -14,7 +14,7 @@ ha_config_flow: true
 
 ## Sending events from IFTTT to Home Assistant
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
 
 ### Setting up the integration
 
@@ -100,7 +100,7 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 When your screen looks like this, click the 'call service' button.
 </p>
 
-By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
 want to send the trigger to a specific key use the `target` field:
 
 Field | Value

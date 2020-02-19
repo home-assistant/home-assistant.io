@@ -567,7 +567,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in keyboard component ([@Quentame] - [#27791]) ([keyboard docs])
 - Move imports in linux_battery component ([@Quentame] - [#27789]) ([linux_battery docs])
 - Move imports in ampio component ([@Bouni] - [#27788]) ([ampio docs])
-- Move imports in liveboxplaytv component ([@Quentame] - [#27790]) ([liveboxplaytv docs])
+- Move imports in liveboxplaytv component ([@Quentame] - [#27790])
 - Move imports in amcrest component ([@Bouni] - [#27787]) ([amcrest docs])
 - Move imports in imap + imap_email_content component ([@Quentame] - [#27793]) ([imap docs]) ([imap_email_content docs])
 - Move imports in netgear_lte component ([@Quentame] - [#27777]) ([netgear_lte docs])
@@ -627,7 +627,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Refactor the conversation integration ([@balloob] - [#27839]) ([conversation docs]) ([shopping_list docs])
 - Use pre-commit in CI and tox ([@scop] - [#27743])
 - Introduce new OAuth2 config flow helper ([@balloob] - [#27727]) ([somfy docs]) (breaking change)
-- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs]) ([fritzdect docs])
+- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs])
 - Move imports in cppm_tracker component ([@Bouni] - [#27889]) ([cppm_tracker docs])
 - Move imports in concord232 component ([@Bouni] - [#27887]) ([concord232 docs])
 - Move imports in comfoconnect component ([@Bouni] - [#27886]) ([comfoconnect docs])
@@ -1645,7 +1645,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [fritzbox docs]: /integrations/fritzbox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [frontier_silicon docs]: /integrations/frontier_silicon/
 [futurenow docs]: /integrations/futurenow/
@@ -1716,7 +1715,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [linode docs]: /integrations/linode/
 [linux_battery docs]: /integrations/linux_battery/
 [lirc docs]: /integrations/lirc/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
 [logbook docs]: /integrations/logbook/

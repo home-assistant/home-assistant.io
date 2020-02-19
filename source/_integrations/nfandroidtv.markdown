@@ -97,8 +97,8 @@ The following attributes can be placed inside `data` to send images.
 | `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
 | `path`                |      yes | Local path of an image file. Is placed inside `file`.
 | `url`                  |      yes | URL of an image file. Is placed inside `file`.
-| `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
+| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
+| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used. Is placed inside `file`.
 
 Example for posting file from URL:

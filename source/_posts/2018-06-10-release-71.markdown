@@ -154,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added option to block Osram Lightify individual lights in the same way that groups can be ([@austinlg96] - [#14470]) ([light.osramlightify docs])
 - Upgrade directpy to 0.5 ([@Bahnburner] - [#14750]) ([media_player.directv docs])
 - Update syntax of platform random ([@fabaff] - [#14767]) ([binary_sensor.random docs]) ([sensor.random docs])
-- Update postnl api to 1.0.2 ([@iMicknl] - [#14769]) ([sensor.postnl docs])
+- Update postnl api to 1.0.2 ([@iMicknl] - [#14769])
 - Remove swagger file ([@fabaff] - [#14762])
 - Update syntax ([@fabaff] - [#14771]) ([sensor.version docs])
 - Update syntax ([@fabaff] - [#14768]) ([sensor.worldclock docs])
@@ -389,7 +389,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.netatmo docs]: /integrations/netatmo#sensor
 [sensor.netdata docs]: /integrations/netdata
 [sensor.onewire docs]: /integrations/onewire
-[sensor.postnl docs]: /integrations/postnl
 [sensor.rainmachine docs]: /integrations/rainmachine
 [sensor.random docs]: /integrations/random#sensor
 [sensor.shodan docs]: /integrations/shodan

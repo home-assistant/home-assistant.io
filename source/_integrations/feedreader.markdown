@@ -22,7 +22,7 @@ feedreader:
 
 {% configuration %}
   urls:
-    description: List of URLS for your feeds.
+    description: List of URLs for your feeds.
     required: true
     type: list
   scan_interval:

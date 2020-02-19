@@ -16,11 +16,11 @@ The `homeassistant` integration provides services for controlling Home Assistant
 
 ### Service `homeassistant.check_config`
 
-Reads the config files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
+Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
 
 ### Service `homeassistant.reload_core_config`
 
-Loads the main config file (`configuration.yaml`) and all linked files. Once loaded the new configuration is applied.
+Loads the main configuration file (`configuration.yaml`) and all linked files. Once loaded the new configuration is applied.
 
 ### Service `homeassistant.restart`
 

@@ -59,7 +59,7 @@ input_text:
         required: false
         type: icon
       pattern:
-        description: Regex pattern for client side validation.
+        description: Regex pattern for client-side validation.
         required: false
         type: string
         default: empty

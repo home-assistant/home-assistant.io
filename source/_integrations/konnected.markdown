@@ -12,7 +12,7 @@ ha_codeowners:
   - '@heythisisnate'
 ---
 
-The `konnected` integration lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
+The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
@@ -22,17 +22,23 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [`discovery`](/integrations/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.
 
 <div class='note info'>
 
-Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)
+Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like NGINX or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)
 
 </div>
 
-### Configuration
+## Configuration
 
-A `konnected` section must be present in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
+Home Assistant offers Konnected integration through **Configuration** -> **Integrations** -> **Konnected.io**.
+
+The configuration flow will guide you through a setup process that lets you connect to the panel and generate a configuration entry.  You can then utilize the options flow to configure or modify the behavior of each zone. 
+
+If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the configuration will automatically be imported and used to start a configuration flow. **Note that you must still complete the configuration/options flow before the configuration entry will be finalized.**
+
+Details of the configuration fields and values can be found below - these apply to both the configuration flow and the YAML.
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +75,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the NodeMCU WiFi module with colons/punctuation removed, for example `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the home-assistant.log for log messages from automatically discovered devices.
+      description: The MAC address of the Konnected device with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices.
       required: true
       type: string
     binary_sensors:
@@ -78,10 +84,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7` and `9`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are `1`, `2`, `3`, `4`, `5` and `6`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         type:
           description: Any [binary sensor](/integrations/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
@@ -101,10 +107,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values for sensors are `1`, `2`, `5`, `6`, `7` and `9`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values for sensors are `1`, `2`, `3`, `4`, `5` and `6`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         name:
           description: The name of the device used in the front end.
@@ -124,10 +130,10 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 8.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board or the word `out` to specify the dedicated ALARM/OUT terminal on the Konnected board. Valid values are `1`, `2`, `3`, `4`, `5` and `out`.
+          description: See [Configuration Notes](#configuration-notes).
           required: exclusive
         name:
           description: The name of the device used in the front end.
@@ -146,7 +152,7 @@ devices:
         repeat:
           description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
           required: false
-    host: 
+    host:
       type: string
       required: false
       description: Optionally specify the Konnected device's IP address or hostname to set up without discovery.
@@ -167,12 +173,15 @@ devices:
 
 {% endconfiguration%}
 
-#### Configuration Notes
+### Configuration Notes
 
-- Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
+- Either `pin` or `zone` is required for each actuator or sensor. Do not use both in the same definition.
+- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
+- `zone` represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
+- **The Konnected Alarm Panel Pro does not support configuration via `pin`.**
 
-### Extended Configuration 
+## Extended Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -223,10 +232,9 @@ konnected:
         - pin: 6
           name: Kitchen
           type: dht
-          
 ```
 
-### Unique IDs and the Entity Registry
+## Unique IDs and the Entity Registry
 
 Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
 
@@ -242,60 +250,60 @@ Unique IDs are internally generated as follows:
 
 \* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
 
-### Pin Mapping
+## Pin Mapping
 
-Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit WiFi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
+Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit Wi-Fi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
 
-| Konnected Alarm Panel Zone  | NodeMCU pin  | IO Index  | ESP8266 GPIO |
-|---|---|---|---|
-| 1 | D1  | 1  | GPIO5  |
-| 2 | D2  | 2  | GPIO4  |
-| 3 | D5  | 5  | GPIO14 |
-| 4 | D6  | 6  | GPIO12 |
-| 5 | D7  | 7  | GPIO13 |
-| 6 | RX  | 9  | GPIO3  |
-| ALARM or OUT | D8 | 8 | GPIO15 |
+| Konnected Alarm Panel Zone | NodeMCU pin | IO Index | ESP8266 GPIO |
+| -------------------------- | ----------- | -------- | ------------ |
+| 1                          | D1          | 1        | GPIO5        |
+| 2                          | D2          | 2        | GPIO4        |
+| 3                          | D5          | 5        | GPIO14       |
+| 4                          | D6          | 6        | GPIO12       |
+| 5                          | D7          | 7        | GPIO13       |
+| 6                          | RX          | 9        | GPIO3        |
+| ALARM or OUT               | D8          | 8        | GPIO15       |
 
-### Revision History
+## Revision History
 
-#### 0.91
+### 0.91
 
 - Improved Unique ID generation for Konnected switches
 
-#### 0.90
+### 0.90
 
 - Added support for `dht` and `ds18b20` temperature sensors
 - Added Unique IDs
 
-#### 0.80
+### 0.80
 
 - Added ability to specify `host` and `port` to set up devices without relying on discovery.
-- Added `discovery` and `blink` config options to enable/disable these features.
+- Added `discovery` and `blink` configuration options to enable/disable these features.
 
-#### 0.79
+### 0.79
 
 - Added `inverse` configuration option for binary sensors.
 
-#### 0.77
+### 0.77
 
 - Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
 - Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
 - **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
 
-#### 0.72
+### 0.72
 
 - Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
 
-#### 0.70
+### 0.70
 
 - Initial release
 
-### Binary Sensor
+## Binary Sensor
 
-The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
 This integration supports all of the built-in device classes of the generic [Binary Sensor](/integrations/binary_sensor/) component.
 
-### Switch
+## Switch
 
-The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 Wi-Fi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).

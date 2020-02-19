@@ -31,7 +31,7 @@ This component does NOT allow for live viewing of your Ring camera within Home A
 
 ## Configuration
 
-Go to the integrations page in your config and click on new integration -> Ring.
+Go to the integrations page in your configuration and click on new integration -> Ring.
 
 ## YAML configuration
 

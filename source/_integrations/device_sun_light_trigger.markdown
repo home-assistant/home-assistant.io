@@ -52,5 +52,5 @@ device_sun_light_trigger:
   light_group: group.living_room
   light_profile: relax
   device_group: group.my_devices
-  disable_turn_off: 1
+  disable_turn_off: true
 ```

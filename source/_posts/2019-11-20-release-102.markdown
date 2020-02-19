@@ -197,7 +197,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Repetier integration entity indexing ([@MTrab] - [#28766]) ([repetier docs]) (beta fix)
 - Fix HomematicIP Cloud Alarm Control Panel support for basic mode ([@SukramJ] - [#28778]) ([homematicip_cloud docs]) (beta fix)
 - Fix Swisscom empty response received ([@LeoCal] - [#28782]) ([swisscom docs]) (beta fix)
-- Fix broken postnl sensor ([@peternijssen] - [#28794]) ([postnl docs]) (beta fix)
+- Fix broken postnl sensor ([@peternijssen] - [#28794]) (beta fix)
 - Updated frontend to 20191115.0 ([@bramkragten] - [#28797]) ([frontend docs]) (beta fix)
 - Fix Comfoconnect errors during startup ([@michaelarnauts] - [#28802]) ([comfoconnect docs]) (beta fix)
 - Fix miio air quality sensor ([@valkjsaaa] - [#28828]) ([xiaomi_miio docs]) (beta fix)
@@ -485,7 +485,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Repetier integration entity indexing ([@MTrab] - [#28766]) ([repetier docs]) (beta fix)
 - Fix HomematicIP Cloud Alarm Control Panel support for basic mode ([@SukramJ] - [#28778]) ([homematicip_cloud docs]) (beta fix)
 - Fix Swisscom empty response received ([@LeoCal] - [#28782]) ([swisscom docs]) (beta fix)
-- Fix broken postnl sensor ([@peternijssen] - [#28794]) ([postnl docs]) (beta fix)
+- Fix broken postnl sensor ([@peternijssen] - [#28794]) (beta fix)
 - Updated frontend to 20191115.0 ([@bramkragten] - [#28797]) ([frontend docs]) (beta fix)
 - Fix Comfoconnect errors during startup ([@michaelarnauts] - [#28802]) ([comfoconnect docs]) (beta fix)
 - Fix miio air quality sensor ([@valkjsaaa] - [#28828]) ([xiaomi_miio docs]) (beta fix)
@@ -925,7 +925,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
 [point docs]: /integrations/point/
-[postnl docs]: /integrations/postnl/
 [proxy docs]: /integrations/proxy/
 [ps4 docs]: /integrations/ps4/
 [qrcode docs]: /integrations/qrcode/

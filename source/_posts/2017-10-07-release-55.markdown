@@ -49,7 +49,7 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
 - Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841]) ([google docs])
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
-- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880])
 
 ## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -402,4 +402,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.owntracks docs]: /integrations/owntracks
 [google docs]: /integrations/google_translate
 [light.tradfri docs]: /integrations/tradfri
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv

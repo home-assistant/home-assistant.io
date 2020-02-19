@@ -46,14 +46,14 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 ### Step 3 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
-  - Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
+  - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 - Restart Home Assistant.
 - Go to the integrations page.
 - Add a Withings integration. This will open a new tab/window on the withings site.
 - On the Withings site, choose the profile of the data you want to sync.
 - Authorize the application. Your browser will redirect you to the redirect uri you provided during account setup.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the
-  `http://domain` portion of the URL to something you know is accessible, locally or publically. For example, `http://localhost:8123`.
+  `http://domain` portion of the URL to something you know is accessible, locally or publicly. For example, `http://localhost:8123`.
   This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
   Changing the domain will not affect how data is synchronized.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the withings site.

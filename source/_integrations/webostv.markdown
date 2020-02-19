@@ -18,14 +18,13 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Notifications](#notifications)
 
-
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 
 Pairing information will be saved to a configuration file `webostv.conf` in the Home Assistant configuration directory. This process is IP address-sensitive, in case the IP address of your TV would change in future.
 
-### Configuration
+## Configuration
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -43,11 +42,6 @@ name:
   description: The name you would like to give to the LG webOS Smart TV.
   required: false
   type: string
-standby_connection:
-  description: Keep connection alive when TV is in standby (this should be set to true if and only if the "Standby+" option is enabled in the TV UI.)
-  required: false
-  type: boolean
-  default: false
 turn_on_action:
   description: Defines an [action](/docs/automation/action/) to turn the TV on.
   required: false
@@ -63,7 +57,7 @@ customize:
       type: list
 {% endconfiguration %}
 
-### Example
+### Full configuration example
 
 A full configuration example will look like the sample below:
 
@@ -72,7 +66,6 @@ A full configuration example will look like the sample below:
 webostv:
   host: 192.168.0.10
   name: Living Room TV
-  standby_connection: true
   turn_on_action:
     service: persistent_notification.create
     data:
@@ -83,7 +76,7 @@ webostv:
       - youtube
       - makotv
       - netflix
-        
+
 media_player:
 
 notify:
@@ -91,7 +84,23 @@ notify:
 
 Avoid using `[ ]` in the `name:` of your device.
 
-### Turn on action
+### Using multiple TVs
+
+It is also possible to use multiple TVs with this integration.
+
+```yaml
+# Example configuration.yaml entry with multiple TVs
+webostv:
+  - name: Living Room TV
+    host: 192.168.1.100
+  - name: Bedroom TV
+    host: 192.168.1.101
+```
+
+Please note, the above provides a minimal example, however, all options are
+available for each individual TV.
+
+## Turn on action
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
@@ -118,13 +127,13 @@ notify:
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
-### Sources
+## Sources
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
 
-### Change channel through play_media service
+## Change channel through play_media service
 
-The `play_media` service can be used in a script to switch to the specified tv channel. It selects the best matching channel according to the `media_content_id` parameter:
+The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
  1. Channel number *(i.e. '1' or '6')*
  2. Exact channel name *(i.e. 'France 2' or 'CNN')*
@@ -146,32 +155,44 @@ data:
   media_content_type: "channel"
 ```
 
-### Next/Previous buttons
+## Next/Previous buttons
 
-The behaviour of the next and previous buttons is different depending on the active source:
+The behavior of the next and previous buttons is different depending on the active source:
 
- - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
- - otherwise: next/previous buttons act as next/previous track
+- if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
+- otherwise: next/previous buttons act as next/previous track
+
+### Sound output
+
+The current sound output of the TV can be found under the state attributes.
+To change the sound output, the following service is available:
+
+#### Service `webostv.select_sound_output`
+
+| Service data attribute | Optional | Description                             |
+| ---------------------- | -------- | --------------------------------------- |
+| `entity_id`            | no       | Target a specific webostv media player. |
+| `sound_output`         | no       | Name of the sound output to switch to.  |
 
 ### Generic commands and buttons
 
 Available services: `button`, `command`
 
-#### Service `webostv.button`
+### Service `webostv.button`
 
-| Service data attribute | Optional | Description                                             |
-|------------------------|----------|---------------------------------------------------------|
-| `entity_id`            |       no | Target a specific webostv media player.                 |
-| `button`               |       no | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
-        
-#### Service `webostv.command`
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
-| Service data attribute | Optional | Description                                             |
-|------------------------|----------|---------------------------------------------------------|
-| `entity_id`            |       no | Target a specific webostv media player.                 |
-| `command`              |       no | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py |
-        
-#### Example
+### Service `webostv.command`
+
+| Service data attribute | Optional | Description                                                                                                                                                                          |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
+| `command`              | no       | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+
+### Example
 
 ```yaml
 script:

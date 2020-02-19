@@ -188,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - added media_stop ([@jodur] - [#12100]) ([media_player.vlc docs])
 - Goalfeed channel ([@craigjmidwinter] - [#12086]) ([goalfeed docs])
 - Update jinja2 to 2.10 ([@arsaboo] - [#12118])
-- Downgrade Sonarr and Radarr 'Host is not avaliable' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
+- Downgrade Sonarr and Radarr 'Host is not available' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
 - Fixes away_mode error on startup ([@ciotlosm] - [#12121]) ([climate.generic_thermostat docs])
 - except vol.MultipleInvalid in Broadlink #11795 ([@danielhiversen] - [#12107]) ([sensor.broadlink docs])
 - Adds SUPPORT_TARGET_TEMPERATURE_HIGH and SUPPORT_TARGET_TEMPERATURE_LOW support ([@hawk259] - [#12110]) ([climate.ecobee docs])

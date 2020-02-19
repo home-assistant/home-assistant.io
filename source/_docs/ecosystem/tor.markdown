@@ -80,7 +80,7 @@ For Tor Browser on Windows, Mac or Linux, you can find the torrc file here: `<to
 
 Once you have added the entry, restart the browser, and then browse to the "dot onion" site address to connect to your Home Assistant instance.
 
-For [Orbot: Tor on Android](https://guardianproject.info/apps/orbot), add it in **Orbot** -> **Menu** -> **Settings** to the "Torrc Custom Config" entry. Restart Orbot, and then use the [Orfox browser app](https://guardianproject.info/apps/orfox/), and browse to the "dot onion" site name to access your Home Assistant instance. You can also use Orbot's VPN mode, to enable Tor access from any application on your device, such as Tasker or Owntracks.
+For [Orbot: Tor on Android](https://guardianproject.info/apps/orbot), add it in **Orbot** -> **Menu** -> **Settings** to the "Torrc Custom Configuration" entry. Restart Orbot, and then use the [Orfox browser app](https://guardianproject.info/apps/orfox/), and browse to the "dot onion" site name to access your Home Assistant instance. You can also use Orbot's VPN mode, to enable Tor access from any application on your device, such as Tasker or Owntracks.
 
 On iOS, we have not fully tested this yet, but you should be able to add custom torrc entries on [Onion Browser](https://mike.tig.as/onionbrowser/), Red Onion or TOBY browsers, all available in the iTunes App Store.
 

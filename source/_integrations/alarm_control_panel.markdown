@@ -8,4 +8,4 @@ ha_release: 0.7.3
 ha_quality_scale: internal
 ---
 
-Home Assistant can give you an interface with is similar to a classic alarm system.
+Home Assistant can give you an interface which is similar to a classic alarm system.

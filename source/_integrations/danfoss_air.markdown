@@ -49,6 +49,11 @@ The following sensors are supported.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
 - **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
+- **Humidity:** Relative humidity in percent.
+- **Fan step:** Fan step.
+- **Exhaust fan speed:** Exhausted fan speed.
+- **Supply fan speed:** Supply fan speed.
+- **Dial battery:** Dial bettery level in percent.
 
 ## Switch
 

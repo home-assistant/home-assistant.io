@@ -15,7 +15,7 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 
 ### Setup
 
-Go to the integrations page in your config and click on new integration -> Samsung TV.
+Go to the integrations page in your configuration and click on new integration -> Samsung TV.
 If you have enabled [ssdp](/integrations/ssdp) discovery and your TV is on, it's likely that you just have to confirm the detected device.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 port:
-  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - for installs other than Hass.io or Docker you may need to install a Python package, see below.
+  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - For Home Assistant Core installations, you may need to install a Python package, see below.
   required: false
   type: integer
   default: automatically detected
@@ -142,6 +142,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, turning on works, status not working reliably, turning off is not permanent (it comes back on)
 - MU6400 - Unable to see state and unable to control (using latest 1270 firmware. Had limited functionality on previous firmware)
+- RU8000 - Turning on works, turning off does not work. State is correct but says on periodically but in reality is not. Nothing else works via port 8001.
 - Q60 – Turning on works, turning off does not work, State is always "off".
 - Q6F – Port set to 8001, turning on works, turning off does not work, status not working reliably.
 - Q7F - State is always "off" and unable to control via port 8001.
@@ -165,11 +166,7 @@ media_content_type: channel
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Hass.io
-
-No additional actions are required
-
-### Docker
+### Home Assistant & Home Assistant Core on Docker
 
 No additional actions are required
 

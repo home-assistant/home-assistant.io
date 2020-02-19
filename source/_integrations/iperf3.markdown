@@ -13,7 +13,7 @@ ha_codeowners:
 
 The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
-Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
+Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
 
 ## Setup
 
@@ -98,7 +98,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
+You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) Docker image or just refer to your `iperf3` command's man page.
 
 The frequency when the test will be automatically triggered can be adjusted by setting the value `scan_interval` in seconds.
 
@@ -111,7 +111,7 @@ You can use the service `sensor.iperf3_update` to trigger a manual speed test fo
 Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Service data attribute | Description |
-| `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.
+| `host` | String that point at a configured `host` from `configuration.yaml`. Otherwise, tests will be run against all configured hosts.
 
 Example Service data:
 

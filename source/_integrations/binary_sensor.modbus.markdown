@@ -18,20 +18,21 @@ To use your Modbus binary sensors in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: modbus
-    coils:
+    inputs:
       - name: Sensor1
         hub: hub1
         slave: 1
-        coil: 100
+        address: 100
       - name: Sensor2
         hub: hub1
         slave: 1
-        coil: 110
+        address: 110
+        input_type: discrete_input
 ```
 
 {% configuration %}
-coils:
-  description: The array contains a list of coils to read from.
+inputs:
+  description: The array contains a list of coils and discrete inputs to read from.
   required: true
   type: [map, list]
   keys:
@@ -48,10 +49,14 @@ coils:
       description: The number of the slave (Optional for TCP and UDP Modbus).
       required: true
       type: integer
-    coil:
-      description: Coil number.
+    address:
+      description: Coil or discrete input Modbus address.
       required: true
       type: integer
+    input_type:
+      description: Modbus input type (coil, discrete_input), default coil.
+      required: false
+      type: string
     device_class:
       description: The [type/class](/integrations/binary_sensor/#device-class) of the binary sensor to set the icon in the frontend.
       required: false
