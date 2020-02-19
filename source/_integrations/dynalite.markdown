@@ -57,7 +57,7 @@ active:
   type: boolean
   default: false
 polltimer:
-  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level.Only relevant when active is set to true.
+  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level. Only relevant when active is set to true.
   required: false
   type: float
   default: 1.0
@@ -81,15 +81,15 @@ area:
           required: true
           type: string
         template:
-          description: Type of template to use for the area. Supported values are: \"room\", \"trigger\", and \"timecover\". They are described in details below in the \"template\" section.
+          description: "Type of template to use for the area. Supported values are: `room`, `trigger`, and `timecover`. They are described in details below in the **template** section."
           require: false
           type: string
           default: no template
         'Template Parameters':
-          description: Each one of the template parameters can be overriden here. For example, if using template \"room\, \"room_on\" or \"room_off\" could be supplied here to tell which preset to use for each action. If not supplied, the value will be taken from either the \"template\" section, or if it is not defined there, from the system defaults.
+          description: Each one of the template parameters can be overriden here. For example, if using template `room`, `room_on` or `room_off` could be supplied here to tell which preset to use for each action. If not supplied, the value will be taken from either the **template** section, or if it is not defined there, from the system defaults.
           required: false
           type: various, depending on the parameter
-          default: use value from \"templates\" section or system defaults
+          default: use value from **templates** section or system defaults
         fade:
           description: Fade time for the area, in seconds.
           required: false
@@ -155,13 +155,13 @@ default:
       required: false
       type: float
 preset:
-  description: Default presets for any area without the \"nodefault\" option
+  description: Default presets for any area without the **nodefault** option.
   required: false
   type: map
   keys:
     name:
-      description: Name of the preset. When used in an area, it will be \"AREA_NAME\" name. For example, if a room's name is 
-      \"Kitchen\" and preset 4 is defined with name \"Off\", it will appear in HA as \"Kitchen Off\"
+      description: Name of the preset. When used in an area, it will be `AREA_NAME` name. For example, if a room's name is 
+      \"Kitchen\" and preset 4 is defined with name \"Off\", it will appear in HA as **Kitchen Off**
       required: false
       type: string
       default: \"AREA_NAME Preset PRESET_NUMBER\"
@@ -171,7 +171,7 @@ preset:
       type: float
       default: 2.0
 template:
-  description: Set the default parameters for the templates
+  description: Set the default parameters for the templates.
   required: false
   type: map
   keys:
@@ -181,7 +181,7 @@ template:
       type: map
       keys:
         room_on:
-          description: Preset to turn area on
+          description: Preset to turn area on.
           required: false
           type: integer
           default: 1
@@ -191,7 +191,7 @@ template:
           type: integer
           default: 1
   trigger:
-    description: This is used to define a preset that acts as a trigger, such as a door buzzer. It only supports turning on
+    description: This is used to define a preset that acts as a trigger, such as a door buzzer. It only supports turning on.
     required: false
     type: map
     keys:
@@ -201,7 +201,7 @@ template:
         type: integer
         default: 1
   timecover:
-    description: This is used to define a cover that has 3 presets: open, close, and stop. Potentially can also use a channel that some systems (e.g. Control4) use to also send commands to open and close the cover. It uses the duration it takes to open / close to determine position. In addition, many times, these covers include tilt by opening or closing for a short time, so this can be defined as well.
+    description: "This is used to define a cover that has 3 presets: open, close, and stop. Potentially can also use a channel that some systems (e.g. Control4) use to also send commands to open and close the cover. It uses the duration it takes to open / close to determine position. In addition, many times, these covers include tilt by opening or closing for a short time, so this can be defined as well."
     required: false
     type: map
     keys:
@@ -231,12 +231,12 @@ template:
         type: integer
         default: 60
       tilt:
-        description: Time in seconds it takes to open / close the cover tilt. 0 means that the cover does not support tilt
+        description: Time in seconds it takes to open / close the cover tilt. `0` means that the cover does not support tilt
         require: false
         type: integer
         default: 0
       class:
-        description: Type of cover for Home Assistant. The supported cover classes are currently: \"awning\", \"blind\", \"curtain\", \"damper\", \"door\", \"garage\", \"shade\", \"shutter\", and \"window\"
+        description: "Type of cover for Home Assistant. The supported cover classes are currently: `awning`, `blind`, `curtain`, `damper`, `door`, `garage`, `shade`, `shutter`, and `window`."
         require: false
         type: string
         default: shutter
