@@ -37,7 +37,6 @@ house_number_extension:
   description: Your house number extension
   required: false
   type: string
-  default: ''
 county_code:
   description: Your country code
   required: false
