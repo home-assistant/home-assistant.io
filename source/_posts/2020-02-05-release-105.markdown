@@ -483,7 +483,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 
 - __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046])
 
-## Release 0.105.1 - February 5
+## <a id="release-0.105.1"></a>Release 0.105.1 - February 5
 
 - Check for known Hue vulnerability ([@balloob] - [#31494]) ([hue docs])
 - Move program_mode check ([@aneisch] - [#31501]) ([radiotherm docs])
@@ -506,7 +506,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [radiotherm docs]: /integrations/radiotherm/
 [sonos docs]: /integrations/sonos/
 
-## Release 0.105.2 - February 6
+## <a id="release-0.105.2"></a>Release 0.105.2 - February 6
 
 - 0.105.0 ([@frenck] - [#31489]) ([abode docs]) ([adguard docs]) ([airly docs])
 - Fix automation sun import ([@balloob] - [#31521]) ([automation docs])
@@ -547,7 +547,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [webostv docs]: /integrations/webostv/
 [zone docs]: /integrations/zone/
 
-## Release 0.105.3 - February 10
+## <a id="release-0.105.3"></a>Release 0.105.3 - February 10
 
 - Bump ZHA dependencies. ([@Adminiuga] - [#31555]) ([zha docs])
 - Resolve August integration makes too many requests and hits rate limits ([@bdraco] - [#31558]) ([august docs])
@@ -588,7 +588,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [nws docs]: /integrations/nws/
 [zha docs]: /integrations/zha/
 
-## Release 0.105.4 - February 14
+## <a id="release-0.105.4"></a>Release 0.105.4 - February 14
 
 - Guard writing automation/scene/script config ([@balloob] - [#31568]) ([config docs])
 - For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs])
@@ -628,7 +628,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [spotify docs]: /integrations/spotify/
 [vizio docs]: /integrations/vizio/
 
-## Release 0.105.5 - February 17
+## <a id="release-0.105.5"></a>Release 0.105.5 - February 17
 
 - Upgrade bimmer_connected to 0.7.0 ([@gerard33] - [#31894]) ([bmw_connected_drive docs])
 - Report which data causes JSON serialization error ([@balloob] - [#31901])
