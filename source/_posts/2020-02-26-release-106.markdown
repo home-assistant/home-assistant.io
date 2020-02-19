@@ -8,43 +8,44 @@ author: Franck Nijhof
 author_twitter: frenck
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2020-02-0.105/components.png
+og_image: /images/blog/2020-02-0.106/components.png
 ---
 
-- Improved safe mode.
-- Icons for scene/script.
-- brightness_step and brightness_step_pct added to light.turn_on. Also part of device actions.
+<a href='/integrations/#version/0.106'><img src='/images/blog/2020-02-0.106/components.png' style='border: 0;box-shadow: none;'></a>
 
-## All entities in entities config panel
+Well hello Home Assistant Core 0.106!
 
-The entities config panel previously only contained entities which had unique ID's because these were the entities that could have their names and id's edited within the UI. In this version we now include all entities in the config panel. You are still only able to change those that have a unique ID, but now you have a clear overview of all the available entities and can also make use of the "related items" feature introduced in release 0.105.0 to see where they are being used!
+These are the draft release notes for the upcoming release, currently in Beta.
 
-You can recognize the entities that can not be edited by the striked through pencil icon.
+## Safe Mode improvements
 
-<p class='img'>
-<img src='/images/blog/2020-02-0.106/entities.png' alt='Screenshot of uneditable entities in the config panel'></a>
-Screenshot of uneditable entities in the config panel.
-</p>
+In Home Assistant [0.105](/blog/2020/02/05/release-105/#safe-mode), we introduced Safe Mode. Our goal is to make sure Home Assistant always starts and provide you an interface to work with. No matter what.
 
-## Change the home zone location in the zone editor
-
-In the zone editor that was introduced in the previous release, you could not change the location of your home zone. In this version you can!
-You still can not change the radius from the UI (we will work on that!), but you can drag the home zone on the map.
-
-## State color option
-
-Also an improvement on a feature introduced in the previous release, the `state_color` option is now also available for other cards, so you can override the defaults of the cards.
-
-## Sensor card
-
-Our sensor card has had a style update. We initially got the design from [mini graph card](https://github.com/kalkih/mini-graph-card) and now updated to match the improved new look of that card.
+[@balloob] has been busy release to improve on this feature even more, and Home Assistant is now able to overcome issues when things in the core system get into trouble and even when the Lovelace configuration isn't readable. Besides that, the way Safe Mode is presented has changed, so you instantly know you are in Safe Mode:
 
 <p class='img'>
-<img src='/images/blog/2020-02-0.106/sensor-card.png' alt='Screenshot of the updated sensor card'></a>
-Screenshot of the updated sensor card.
+<img src='/images/blog/2020-02-0.106/safe-mode-activated.png' alt='Screenshot of Home Assistant running in Safe Mode'></a>
+Screenshot of Home Assistant running in Safe Mode.
 </p>
 
-## Person more info
+## Stepping up and down the brightness of lights
+
+Ever tried to make an automation to brighten or dim your lights? Or tried to hook up a remote to control the brightness of a light?
+If you have, you probably know that doing that was pretty painful and involved some additional templating to get that going.
+
+This release just made that a lot easier. An example device automation:
+<p class='img'>
+<img src='/images/blog/2020-02-0.106/brightness-step-device-automation.png' alt='Screenshot of a device automation with dimming lights'></a>
+Screenshot of a device automation with dimming lights.
+</p>
+
+We have also added this functionality to the `light.turn_on` service. You can now change the brightness, based on the current brightness,
+using the `brightness_step` (-255, 255) and `brightness_step_pct` (-100, 100) parameters.
+
+Good to know, when the brightness hits 0, it will turn off the light. If the light is already off, and you step the brightness up, it will turn on.
+This is awesome, because if you have a rotating dimmer button (for example, an IKEA SYMFONISK), you can rotate it to change the brightness, but also turn the light on/off by just rotating it.
+
+## Person more info dialogs improvements
 
 Persons have a new more info dialog. They now show the location of the person on the map and if the person is not in a zone, you can create a zone with the current location of that person with one click.
 
@@ -53,18 +54,72 @@ Persons have a new more info dialog. They now show the location of the person on
 Screenshot of the new more info for a person.
 </p>
 
-## Automations default to device
+## Entities configuration panel now shows all entities
 
-New automations now default to device automations instead if state triggers en service calls. Device automations are so much easier and clearer to create from the UI. You can ofcourse still use the old triggers and actions like you are used to.
+The entities configuration panel previously only contained entities that were uniquely identifiable by Home Assistant (they have a so-called: unique ID). However, those are not provided by all integrations of Home Assistant, confusing since the entities panel did not show all of your entities.
 
-## Automations and battery no longer on generated UI
+In this version, we now include all entities in the panel, giving you a nice complete overview of all available entities in your system. You can't edit all entities, since that requires an entity to be uniquely identifiable. If an entity doesn't have a unique ID, the pencil icon will be striked through.
 
-In generate Lovelace we no longer include automations and battery entities. You can find these in the automation config panel and the battery in the device config page.
+<p class='img'>
+<img src='/images/blog/2020-02-0.106/entities.png' alt='Screenshot of uneditable entities in the configuration panel'></a>
+Screenshot of uneditable entities in the configuration panel.
+</p>
+
+Since all entities are now available in this panel, it does not only provide you a clear overview of all the available entities; you can also make use of the "related items" feature introduced in release [0.105](/2020/02/05/release-105/) to see where they are being used!
+
+## Updates to the developer tools panels
+
+The developer tools panel also got some nice little touches. In the "Info" tab you can now find a list of all integrations you are using and the logs are now aware of the integrations as well.
+
+Both now include links to the documentation and our GitHub issue tracker. This allows you to dive in quickly when you run into troubles with an integration.
+
+Additionally, the logs have been extended to provide additional information as well!
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.106/integrations-list.png' alt='Screenshot of the integrations list and an example log message'></a>
+Screenshot of the integrations list and an example log message.
+</p>
+
+## Sensor card
+
+Our sensor card has had a style update. We initially got the design from the [Lovelace Mini Graph Card](https://github.com/kalkih/mini-graph-card) and now updated to match the improved new look of that card.
+
+<p class='img'>
+<img src='/images/blog/2020-02-0.106/sensor-card.png' alt='Screenshot of the updated sensor card'></a>
+Screenshot of the updated sensor card.
+</p>
+
+## Other noteworthy changes
+
+But wait...  there is more! Some other smaller noteworthy changes in this release:
+
+- In the zone editor that was introduced in the previous release, you can now change the location of your home zone. The radius of the home zone cannot be changed yet (we will work on that!), but you can drag the home zone on the map.
+
+- Also an improvement on a feature introduced in the previous release, the `state_color` option is now also available for other cards, so you can override the defaults of the cards.
+
+- New automations now default to device automations instead of state triggers and service calls. Device automations are so much easier and clearer to create from the UI. You can, of course, still use the old triggers and actions like you are used to.
+
+- In the generated Lovelace we no longer include automations and battery entities. You can find these in the automation configuration panel and the battery in the device configuration page.
 If you want to have your automations and/or battery in your Lovelace UI, you can always take control and add them.
+
+- Scripts and scenes now have the ability to set a custom icon. Previously, you would have to create a customization to do this, now, you can just set them in your configuration.
+
+  ```yaml
+  scene:
+    - name: Movies
+      icon: mdi:movie-open
+      entities:
+        light.tv_back_light:
+          state: on
+          brightness: 125
+        light.ceiling: off
+  ```
 
 ## Custom cards
 
-For custom card developers some thing have chnaged as well, read the [blog post](https://developers.home-assistant.io/blog/2020/02/18/106-custom-card-changes.html) on the developers site about this.
+Are you the creator of an awesome custom card for Lovelace?
+
+We have made some changes to Lovelace that might impact your custom card, so be sure to, read the [blog post](https://developers.home-assistant.io/blog/2020/02/18/106-custom-card-changes.html) on the developers site about this.
 
 ## New Integrations
 
@@ -86,21 +141,19 @@ For custom card developers some thing have chnaged as well, read the [blog post]
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## Reporting Issues
-
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
 ## Breaking Changes
 
-- **Tesla** - Tesla default SCAN_INTERVAL has been raised to 660 seconds from 300 seconds. This is the result of new testing showing the prior default would not allow Tesla vehicles to fall asleep. You should reevaluate your SCAN_INTERVAL if you have changed it to avoid battery drain. The SCAN_INTERVAL has had the minimum lowered to 60. - ([@alandtse] - [#31194]) ([tesla docs])
+- **Tesla** - Tesla default scan interval has been raised to 660 seconds from 300 seconds. This is the result of new testing showing the prior default would not allow Tesla vehicles to fall asleep. You should reevaluate your scan interval if you have changed it, to avoid battery drain. The scan interval has had the minimum lowered to 60. - ([@alandtse] - [#31194]) ([tesla docs])
 
 - **Insteon** - The Insteon entity device state attributes were changed to conform to naming standards. Insteon Address is now `insteon_address` and Insteon Group is now `insteon_group`. You may need to update automations and scripts that rely on these attributes. - ([@teharris1] - [#31183]) ([insteon docs])
 
-- **AVM FRITZ!DECT** _(Removed)_ - Fritzdect is being removed and you should use the Fritzbox integration instead which offers more features. - ([@escoand] - [#31359]) ([fritzbox docs])
+- **AVM FRITZ!DECT** _(Removed)_ - FRITZ!Dect is being removed and you should use the FRITZ!Box integration instead, which offers more features. - ([@escoand] - [#31359]) ([fritzbox docs])
 
-  Example Configuration yaml:
+  Example YAML configuration:
 
   ```yaml
   switch:
@@ -119,7 +172,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
       password: YOUR_PASSWORD
   ```
 
-- **Danfoss Air** - The names of some danfoss_air sensors include a misspelling of the word danfoss. This typo has been corrected and you will need to adjust all occurrences respectively. - ([@KasperLK] - [#31344]) ([danfoss_air docs])
+- **Danfoss Air** - The names of some danfoss_air sensors include a misspelling of the word Danfoss. This typo has been corrected and you will need to adjust all occurrences respectively. - ([@KasperLK] - [#31344]) ([danfoss_air docs])
 
   The following sensors are affected:
 
@@ -127,7 +180,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `dandoss_air_exhaust_fan_speed` -> `danfoss_air_exhaust_fan_speed`
   - `dandoss_air_supply_fan_speed` -> `danfoss_air_supply_fan_speed`
 
-- **Météo-France** - Météo-France supports config flow and is now available to be added as an integration from the integrations UI! There are no more `monitored_conditions` and all sensors will be added. - ([@Quentame] - [#29927]) ([meteo_france docs])
+- **Météo-France** - Météo-France now supports the configuration flow and is now available to be added as an integration from the integrations UI! There are no more `monitored_conditions` and all sensors will be added automatically. - ([@Quentame] - [#29927]) ([meteo_france docs])
 
 - **Service Calls** - Service calls that reference non-existing entities will now log a warning instead of silently being omitted. If you are using a template and want to select no entities, you need to pass `none` instead. The TTS integration will no longer target all media players if no entity ID passed in. You need to specify `all` instead. - ([@balloob] - [#31427])
 
@@ -140,25 +193,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `Power Consumption (low)` -> `Energy Consumption (tarif 1)`
   - `Power Consumption (normal)` -> `Energy Consumption (tarif 2)`
 
-- **Group** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([group docs]) ([homeassistant docs]) ([intent docs])
+- **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
+
 - **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is now longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
 
-  Example configuration yaml:
+  Example YAML configuration:
 
   ```yaml
   surepetcare:
-  username: YOUR_SURE_PETCARE_LOGIN
-  password: YOUR_SURE_PETCARE_PASSWORD
-  feeders: [12345, 67890]
-  flaps: [13579]
-  pets: [24680]
+    username: YOUR_SURE_PETCARE_LOGIN
+    password: YOUR_SURE_PETCARE_PASSWORD
+    feeders: [12345, 67890]
+    flaps: [13579]
+    pets: [24680]
   ```
 
-- **Frontend** - `frontend.set_theme` and `frontend.reload_themes` now require admin access. This will not break automations that set themes because those are run with admin access. Also, a `themes_updated event` no longer contains all theme data - ([@balloob] - [#31654]) ([frontend docs])
+- **Frontend** - `frontend.set_theme` and `frontend.reload_themes` now require admin access. This will not break automations that set themes because those are run with admin access. Also, a `themes_updated event` no longer contains all theme data. - ([@balloob] - [#31654]) ([frontend docs])
 
-- **Modbus** - The Modbus Binary Sensor can now read data from discrete inputs. A new variable **input_type** type was added to define if you want to read from coil or discrete_input. Coil is the default option. - ([@vzahradnik] - [#30004]) ([modbus docs])
+- **Modbus** - The Modbus Binary Sensor can now read data from discrete inputs. A new variable `input_type` was added to define if you want to read from `coil` or `discrete_input`. Coil is the default option. - ([@vzahradnik] - [#30004]) ([modbus docs])
 
-  Example configuration yaml:
+  Example YAML configuration:
 
   ```yaml
   binary_sensor:
@@ -172,9 +226,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
           input_type: discrete_input
   ```
 
-- **Tado** - Adding support of multiple Tado accounts has changed the unique id generation of sensor and climate, and now includes the id of the home. In addition, support for water heater zones has been added. Tado hot water zones with temperature control previously created an climate entity, e.g. `climate.hot_water`, and these will be replaced by a `water_heater.hot_water` entity. This change is not breaking for hot water zones without temperature control as they do not have a climate zone. - ([@gorynychzmey] - [#31527]) ([@michaelarnauts] - [#30095]) ([tado docs])
+- **Tado** - Adding support of multiple Tado accounts has changed the unique ID generation of sensor and climate devices, and now includes the ID of the home.
 
-  Example configuration yaml:
+   In addition, support for water heater zones has been added. Tado hot water zones with temperature control previously created a climate entity, e.g., `climate.hot_water`, and these will be replaced by a `water_heater.hot_water` entity. This change is not breaking for hot water zones without temperature control as they do not have a climate zone.
+
+   ([@gorynychzmey] - [#31527]) ([@michaelarnauts] - [#30095]) ([tado docs])
+
+  Example YAML configuration:
 
   ```yaml
   tado:
@@ -193,9 +251,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```
 
 - **UniFi** - Changing tracking settings will no longer disable entities but will remove them completely from the state machine and entity registry. The SSID filter will now mark all wireless clients as `not_home` if they are connected to SSIDs that are not a part of the filter. - ([@Kane610] - [#31762]) ([unifi docs])
-- **Rest** - Many devices continue to use XML for RESTful APIs. This change implements converting XML output to JSON via xmltojson so it can work with the existing rest sensor component. As the attributes that usually need to be scraped are deeper in the document, support for passing in a template to find the JSON attributes has been added. JSON APIs that do not have their attributes at the top level can also benefit from this change. - ([@bdraco] - [#31809]) ([rest docs])
 
-  Example configuration yaml:
+- **Rest** - Many devices continue to use XML for RESTful APIs. This change implements converting XML output to JSON via `xmltojson` so it can work with the existing rest sensor component. As the attributes that usually need to be scraped are deeper in the document, support for passing in a template to find the JSON attributes has been added. JSON APIs that do not have their attributes at the top level can also benefit from this change. - ([@bdraco] - [#31809]) ([rest docs])
+
+  Example YAML configuration:
 
   ```yaml
   sensor:
