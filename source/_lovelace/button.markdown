@@ -50,6 +50,11 @@ icon_height:
   description: Set the height for the icon. This is in pixels which is handled by the configuration UI. (Advanced users can use other CSS values if they like)
   type: string
   default: auto
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap
