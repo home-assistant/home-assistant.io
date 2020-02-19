@@ -78,7 +78,7 @@ On Reddit user /u/Jenova70 showed a super slick navigation arrow that indicates 
 
 <script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
 
-_Thanks, Jean-Loïc Pouffier & cogneato for sending in this item in! 👍_
+_Thanks, Jean-Loïc Pouffier & cogneato for sending in this item! 👍_
 
 ## Got a tip for the next edition?
 
