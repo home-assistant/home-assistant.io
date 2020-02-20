@@ -1,6 +1,6 @@
 ---
 title: "MQTT Remote"
-description: "Instructions on how to setup MQTT remotes intoHome Assistant."
+description: "Instructions on how to set up MQTT remotes into Home Assistant."
 logo: mqtt.png
 ha_category:
   - Remote
@@ -8,11 +8,12 @@ ha_release: 0.101
 ha_iot_class: Configurable
 ---
 
-The `mqtt` remote platform lets you control your MQTT enabled remotes.
+The `mqtt` remote integration lets you control your MQTT enabled remotes.
 
 ## Configuring the Platform
 
-To add a MQTT Remote to your installation, add the following to your configuration.yaml file:
+To add an MQTT remote to your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 remote:
   - platform: mqtt
@@ -39,7 +40,7 @@ optimistic:
   description: Flag that defines if remote works in optimistic mode.
   required: false
   type: string
-  default:  false
+  default: false
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -59,12 +60,11 @@ commands:
       description: A list of commands as strings.
       required: true
       type: list
-
 {% endconfiguration %}
 
 ## Examples
 
-In this section you find some real-life examples of how to use this remote.
+In this section, you find some real-life examples of how to use this remote.
 
 ### Full Configuration
 
@@ -82,6 +82,8 @@ remote:
       vol_down:
         command: "volume_down"
 ```
+
+## Services
 
 ### `remote.turn_on`
 
