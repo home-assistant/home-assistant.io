@@ -21,17 +21,19 @@ sensor:
   id: 1
 ```
 
+As of Feb 2020 the minimal configuration will discover all sensors from Emoncms and use the unit of measurment specified in the Feed in Emoncms.  Tested with [Emoncms](https://github.com/emoncms/emoncms) V 10.1.13.
+
 ## Configuration variables
 
 - `api_key` (*Required*): The read API key for your Emoncms user.
-- `url` (*Required*): The base URL of Emoncms, use <https://emoncms.org> for the cloud based version.
+- `url` (*Required*): The base URL of Emoncms, use <https://emoncms.org> for the cloud based version. For self hosted Emoncms or EmonPi you may need a url of <http://x.x.x.x/emoncms>.
 - `id` (*Required*): Positive integer identifier for the sensor. Must be unique if you specify multiple Emoncms sensors.
 - `include_only_feed_id` (*Optional*): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if `exclude_feed_id` is specified.
 - `exclude_feed_id` (*Optional*): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
 - `sensor_names` (*Optional*): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name
 - `value_template` (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to alter the feed value.
 - `scan_interval` (*Optional*): Defines the update interval of the sensor in seconds.
-- `unit_of_measurement` (*Optional*): Defines the unit of measurement of for all the sensors. default is "W".
+- `unit_of_measurement` (*Optional*): Defines a unit of measurement of for all the sensors. If this is specified it will override the unit set by Emoncms. If neither are set, the default is "W".
 
 ## Default naming scheme
 
@@ -69,7 +71,7 @@ sensor:
     api_key: API_KEY
     url: https://emoncms.org
     id: 1
-    unit_of_measurement: "KWH"
+    unit_of_measurement: "kWh"
     exclude_feed_id:
       - 107
       - 105
@@ -84,7 +86,7 @@ sensor:
     api_key: API_KEY
     url: https://emoncms.org
     id: 1
-    unit_of_measurement: "KW"
+    unit_of_measurement: "kW"
     include_only_feed_id:
       - 5
       - 120
