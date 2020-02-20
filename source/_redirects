@@ -2047,8 +2047,7 @@
 # Breaking changes
 /integrations/switch.pca /integrations/elv
 
-# App documentation
-/ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+# Moved documentation
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -2062,7 +2061,20 @@
 /docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/docs/notifications/notifications-basic
 /docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/docs/notifications/notifications-basic
 /docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/docs/notifications/notification-sounds
+/docs/ecosystem/notebooks https://data.home-assistant.io
+/docs/ecosystem/notebooks/api https://data.home-assistant.io
+/docs/ecosystem/notebooks/database https://data.home-assistant.io
+/docs/ecosystem/notebooks/graph https://data.home-assistant.io
+/docs/ecosystem/notebooks/installation https://data.home-assistant.io
+/docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+/ecosystem/notebooks https://data.home-assistant.io
+/ecosystem/notebooks/api https://data.home-assistant.io
+/ecosystem/notebooks/database https://data.home-assistant.io
+/ecosystem/notebooks/graph https://data.home-assistant.io
+/ecosystem/notebooks/installation https://data.home-assistant.io
+/ecosystem/notebooks/stats https://data.home-assistant.io
+/ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
