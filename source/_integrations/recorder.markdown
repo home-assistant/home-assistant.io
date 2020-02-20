@@ -10,6 +10,12 @@ ha_quality_scale: internal
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
 
+<div class='note'>
+
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to store the data elsewhere (e.g., another system) or limit the amount of stored data (e.g., by excluding devices).
+
+</div>
+
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in Hass.io) and called `home-assistant_v2.db`.
