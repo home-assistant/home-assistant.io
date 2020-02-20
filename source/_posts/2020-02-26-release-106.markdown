@@ -195,7 +195,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
 
-- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is now longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
+- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is no longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
 
   Example YAML configuration:
 
