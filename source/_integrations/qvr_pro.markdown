@@ -1,15 +1,10 @@
 ---
-layout: page
 title: "QVR Pro"
 description: "Instructions on how to integrate QVR Pro within Home Assistant."
-date: 2020-01-25 21:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qvr_pro.png
-ha_category: Camera
-ha_release: 0.105
+ha_category:
+  - Camera
+ha_release: "0.106"
 ---
 
 The `qvr_pro` component allows you to view your QVR Pro
