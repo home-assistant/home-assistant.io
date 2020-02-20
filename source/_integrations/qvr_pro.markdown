@@ -24,7 +24,6 @@ qvr_pro:
   host: 192.168.1.102
   username: pyqvruser
   password: password
-  exclude_channels: 2,5,6
 ```
 
 {% configuration %}
