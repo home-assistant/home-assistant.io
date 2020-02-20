@@ -21,7 +21,7 @@ To enable QVR Pro integration, add the following to your
 ```yaml
 # Example configuration.yaml entry
 qvr_pro:
-  host: 192.168.1.102
+  host: YOUR_HOST
   username: pyqvruser
   password: password
   exclude_channels: 2,5,6
