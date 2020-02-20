@@ -1989,7 +1989,6 @@
 /components/weather.darksky /integrations/weather.darksky
 /components/webhook /integrations/webhook
 /components/webhooks /integrations/telegram_webhooks
-/components/weblink /integrations/weblink
 /components/webostv /integrations/webostv
 /components/websocket_api /integrations/websocket_api
 /components/wemo /integrations/wemo

@@ -127,7 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Map media_stop to idle state ([@akloeckner] - [#11819])
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
 - check_config.py: allow colorlog==3.1. ([@dotlambda] - [#11927])
-- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808]) ([weblink docs])
+- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808])
 - Panel_Iframe - Allow relative urls in config ([@ReneNulschDE] - [#11832]) ([panel_iframe docs])
 - Python 3.6 invalid escape sequence deprecation fixes ([@scop] - [#11941])
 - tests: Use assertEqual instead of deprecated assertEquals ([@scop] - [#11943])
@@ -622,7 +622,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wake_on_lan docs]: /integrations/wake_on_lan/
 [waterfurnace docs]: /integrations/waterfurnace/
 [weather.openweathermap docs]: /integrations/openweathermap#weather
-[weblink docs]: /integrations/weblink/
 [websocket_api docs]: /integrations/websocket_api/
 [zha docs]: /integrations/zha/
 [zha.const docs]: /integrations/zha.const/

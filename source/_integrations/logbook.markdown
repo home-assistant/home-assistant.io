@@ -65,7 +65,6 @@ logbook:
       - sensor.date
     domains:
       - sun
-      - weblink
 ```
 
 In case you just want to see messages from some specific entities or domains use
