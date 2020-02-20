@@ -24,7 +24,7 @@ binary_sensor:
   - platform: bayesian
     prior: 0.1
     observations:
-      - entity_id: 'switch.kitchen_lights'
+      - entity_id: switch.kitchen_lights
         prob_given_true: 0.6
         prob_given_false: 0.2
         platform: 'state'
@@ -33,7 +33,7 @@ binary_sensor:
 
 {% configuration %}
 prior:
-  description: "The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?"
+  description: The prior probability of the event. At any point in time (ignoring all external influences), how likely is this event to occur?
   required: true
   type: float
 probability_threshold:
@@ -73,19 +73,19 @@ observations:
       type: float
       default: "`1 - prob_given_true` if `prob_given_false` is not set"
     to_state:
-      description: The target state. Required (for `state`).
+      description: "The target state. Required (for `state`)."
       required: false
       type: string
     delay_on:
-      description: "The amount of time state must be ***met*** before this sensor will switch to `on`. Works for all types."
+      description: "The amount of time state must be **met** before this sensor will switch to `on`. Works for all types."
       required: false
       type: time
     delay_off:
-      description: "The amount of time the state must be ***not met*** before this sensor will switch to `off`. Works for all types."
-       required: false
-       type: time
+      description: "The amount of time the state must be **not met** before this sensor will switch to `off`. Works for all types."
+      required: false
+      type: time
     max_duration:
-      description: "The maximum amount of time the observation can be **on**. Works for all types. if combined with `delay_off`, the observation will go **off** based on whatever is first."
+      description: "The maximum amount of time the observation can be **on**. Works for all types. If combined with `delay_off`, the observation will go **off** based on whatever is first."
       required: false
       type: time
 {% endconfiguration %}
@@ -98,56 +98,57 @@ The following is an example for the `state` observation platform.
 # Example configuration.yaml entry
 binary_sensor:
   name: 'in_bed'
-  platform: 'bayesian'
+  platform: bayesian
   prior: 0.25
   probability_threshold: 0.95
   observations:
-    - platform: 'state'
-      entity_id: 'sensor.living_room_motion'
+    - platform: state
+      entity_id: sensor.living_room_motion
       prob_given_true: 0.4
       prob_given_false: 0.2
       to_state: 'off'
-    - platform: 'state'
-      entity_id: 'sensor.basement_motion'
+    - platform: state
+      entity_id: sensor.basement_motion
       prob_given_true: 0.5
       prob_given_false: 0.4
       to_state: 'off'
-    - platform: 'state'
-      entity_id: 'sensor.bedroom_motion'
+    - platform: state
+      entity_id: sensor.bedroom_motion
       prob_given_true: 0.5
       to_state: 'on'
-    - platform: 'state'
-      entity_id: 'sun.sun'
+    - platform: state
+      entity_id: sun.sun
       prob_given_true: 0.7
       to_state: 'below_horizon'
 ```
 
 Next up an example which targets the `numeric_state` observation platform,
-as seen in the configuration it requires `below` and/or `above` instead of `to_state`.
+as seen in the configuration, it requires `below` and/or `above` instead of `to_state`.
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   name: 'Heat On'
-  platform: 'bayesian'
+  platform: bayesian
   prior: 0.2
   probability_threshold: 0.9
   observations:
-    - platform: 'numeric_state'
-      entity_id: 'sensor.outside_air_temperature_fahrenheit'
+    - platform: numeric_state
+      entity_id: sensor.outside_air_temperature_fahrenheit
       prob_given_true: 0.95
       below: 50
 ```
 
 Here's an example for `template` observation platform,
-as seen in the configuration it requires `value_template` and does not use `entity_id`.
+as seen in the configuration, it requires `value_template` and does not use `entity_id`.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   name: 'Paulus Home'
-  platform: 'bayesian'
+  platform: bayesian
   prior: 0.5
   probability_threshold: 0.9
   observations:
@@ -156,9 +157,10 @@ binary_sensor:
         {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
       prob_given_true: 0.95
 ```
+
 {% endraw %}
 
-`delay_on`, `delay_off` and `max_duration` exist to prevent the need to create many custom sensors. A common usecase for `delay_off` is to buffer a short-lived or noisy sensor. `delay_on` and `max_duration` can for instance be used to divide the off time of a sensor in increasingly lower probabilities without overlap.
+`delay_on`, `delay_off` and `max_duration` exist to prevent the need to create many custom sensors. A common use case for `delay_off` is to buffer a short-lived or noisy sensor. `delay_on` and `max_duration` can, for instance, be used to divide the off time of a sensor in an increasingly lower probabilities without overlap.
 
 {% raw %}
 
@@ -166,7 +168,7 @@ binary_sensor:
 # Example configuration.yaml entry
 binary_sensor:
   name: 'Presence Kitchen'
-  platform: 'bayesian'
+  platform: bayesian
   prior: 0.5
   probability_threshold: 0.9
   observations:
@@ -180,14 +182,14 @@ binary_sensor:
       entity_id: binary_sensor.pir_kitchen
       to_state: 'off'
       prob_given_true: 0.4 # somewhat more unlikely that there's presence
-      max_duration: 
-        seconds: 10 
+      max_duration:
+        seconds: 10
     - platform: state
       entity_id: binary_sensor.pir_kitchen
       to_state: 'off'
       prob_given_true: 0.1 # way more unlikely that there's presence
       delay_on: "00:00:10" # Both ways of providing time are valid, this is similar to seconds: 10
-      max_duration: 
+      max_duration:
         seconds: 50
     - platform: state
       entity_id: binary_sensor.pir_kitchen
