@@ -234,7 +234,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs])
 
-- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs])
+- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834])
 
 - __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs])
 
@@ -774,7 +774,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Use collection helpers for input_datetime component ([@Adminiuga] - [#30815]) ([input_datetime docs])
 - Handle location API being exhausted ([@balloob] - [#30798])
 - Deprecate states UI options in group integration ([@frenck] - [#30831]) ([group docs]) (breaking change)
-- Deprecate weblink integration ([@frenck] - [#30834]) ([weblink docs]) (breaking change)
+- Deprecate weblink integration ([@frenck] - [#30834]) (breaking change)
 - Deprecate hide_if_away from device_tracker ([@frenck] - [#30833]) ([device_tracker docs]) (breaking change)
 - Deprecate history_graph integration ([@frenck] - [#30835]) ([history_graph docs]) (breaking change)
 - Remove unused import ([@dshokouhi] - [#30858]) ([ring docs])
@@ -1551,7 +1551,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [versasense docs]: /integrations/versasense/
 [vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
-[weblink docs]: /integrations/weblink/
 [webostv docs]: /integrations/webostv/
 [wemo docs]: /integrations/wemo/
 [withings docs]: /integrations/withings/
