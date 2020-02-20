@@ -33,29 +33,7 @@ This component does NOT allow for live viewing of your Ring camera within Home A
 
 Go to the integrations page in your configuration and click on new integration -> Ring.
 
-## YAML configuration
-
-YAML configuration is around for people that prefer YAML, but it's not preferred! The YAML method does not work with two-factor authentication and it requires you to store your username/password. The normal method only requires you to enter username/password once.
-
-To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-ring:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your Ring account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Ring account.
-  required: true
-  type: string
-{% endconfiguration %}
+YAML configuration is no longer available because it cannot handle two-factor authentication.
 
 ## Binary Sensor
 
