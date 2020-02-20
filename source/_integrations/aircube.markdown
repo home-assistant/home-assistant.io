@@ -4,7 +4,7 @@ description: Instructions on how to integrate Ubiquiti airCube routers into Home
 logo: ubiquiti.png
 ha_category:
   - Presence Detection
-ha_release: 0.106.0
+ha_release: 0.106
 ---
 
 
@@ -41,6 +41,6 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-Note on SSL: The verify_ssl flag must currently be set to `False` as the certificate on the device cannot easily be updated. The device runs a modified version of OpenWrt with SSH disabled. While certificates can be managed in OpenWrt, Ubquiti, in violation of the GPL, has not released the source code for the airCube.
+Note on SSL: The verify_ssl flag must currently be set to `False` as the certificate on the device cannot easily be updated. The device runs a modified version of OpenWrt with SSH disabled. While certificates can be managed in OpenWrt, Ubiquiti, in violation of the GPL, has not released the source code for the airCube.
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
