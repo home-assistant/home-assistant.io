@@ -65,8 +65,10 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-entity_id: light.bedroom
-rgb_color: [255, 0, 0]
+service: python_script.turn_on_light
+  data:
+    entity_id: light.bedroom
+    rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts
