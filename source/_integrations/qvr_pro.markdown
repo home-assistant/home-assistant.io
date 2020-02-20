@@ -11,7 +11,7 @@ ha_release: "0.106"
 an independent and expandable surveillance environment on your QNAP NAS.  The 
 `qvr_pro` component allows you to view your QVR Pro channels in Home Assistant.
 
-Currently only cameras are supported by this integration.
+Currently, only cameras are supported by this integration.
 
 ## Configuration
 
@@ -21,9 +21,9 @@ To enable QVR Pro integration, add the following to your
 ```yaml
 # Example configuration.yaml entry
 qvr_pro:
-  host: 192.168.1.102
-  username: pyqvruser
-  password: password
+  host: YOUR_HOST
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
