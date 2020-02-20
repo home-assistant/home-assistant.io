@@ -27,7 +27,7 @@ If you are unsure about which method to use, go for "Normal Setup".
 
 ### Depdendencies
 
-This component depends on a few python packages that require additional system packages to be
+This component depends on a few Python packages that require additional system packages to be
 installed. If you are running Home Assistant, i.e. not plain Home Assistant Core, you can skip
 this step as everything is already included by default.
 
