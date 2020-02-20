@@ -2,7 +2,7 @@
 title: "Community Highlights: 2nd edition"
 description: "DIY smart candles, automating a van, a self generating Lovelace theme and visualizing with Grafana"
 date: 2020-02-07 00:00:00
-date_formatted: "February 07, 2020"
+date_formatted: "February 7, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 categories: Community
@@ -41,7 +41,7 @@ You can read Zane's full blog post here:
 <https://www.technicallywizardry.com/iot-cars-vans-home-automation/>
 
 He also made his Home Assistant configuration [publicly available on GitHub](https://github.com/zaneclaes/van-home-assistant-config).
- 
+
 _Thanks, [Robbie Trencheny](https://twitter.com/robbie) & [cgtobi](https://twitter.com/cgtobi) for sending in this item in! 👍_
 
 ## An auto-generating Lovelace UI theme
