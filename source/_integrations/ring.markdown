@@ -16,7 +16,7 @@ ha_codeowners:
   - '@balloob'
 ---
 
-The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
+The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
 
 There is currently support for the following device types within Home Assistant:
 
