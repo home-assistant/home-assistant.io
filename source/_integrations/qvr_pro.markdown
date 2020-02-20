@@ -23,7 +23,7 @@ To enable QVR Pro integration, add the following to your
 qvr_pro:
   host: YOUR_HOST
   username: YOUR_USERNAME
-  password: password
+  password: YOUR_PASSWORD
   exclude_channels: 2,5,6
 ```
 
