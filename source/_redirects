@@ -373,7 +373,6 @@
 /components/device_tracker.unifi_direct /integrations/unifi_direct
 /components/device_tracker.upc_connect /integrations/upc_connect
 /components/device_tracker.volvooncall /integrations/volvooncall
-/components/device_tracker.xfinity /integrations/xfinity
 /components/device_tracker.xiaomi_miio /integrations/xiaomi_miio
 /components/fan.comfoconnect /integrations/comfoconnect
 /components/fan.dyson /integrations/dyson#fan
@@ -2006,7 +2005,6 @@
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
 /components/xeoma /integrations/xeoma
-/components/xfinity /integrations/xfinity
 /components/xiaomi /integrations/xiaomi
 /components/xiaomi_aqara /integrations/xiaomi_aqara
 /components/xiaomi_miio /integrations/xiaomi_miio
