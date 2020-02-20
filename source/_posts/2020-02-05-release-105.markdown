@@ -236,7 +236,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834])
 
-- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs])
+- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835])
 
 - __Neato__ - This change adds a neato boundary name to the state if it exists, requiring to potentially update automations. - ([@Olen] - [#29915]) ([neato docs])
 
@@ -776,7 +776,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Deprecate states UI options in group integration ([@frenck] - [#30831]) ([group docs]) (breaking change)
 - Deprecate weblink integration ([@frenck] - [#30834]) (breaking change)
 - Deprecate hide_if_away from device_tracker ([@frenck] - [#30833]) ([device_tracker docs]) (breaking change)
-- Deprecate history_graph integration ([@frenck] - [#30835]) ([history_graph docs]) (breaking change)
+- Deprecate history_graph integration ([@frenck] - [#30835]) (breaking change)
 - Remove unused import ([@dshokouhi] - [#30858]) ([ring docs])
 - Bump pyvizio version to 0.1.1 ([@raman325] - [#30867]) ([vizio docs])
 - Update pyatmo to 3.2.2 and add available attribute ([@cgtobi] - [#30882]) ([netatmo docs])
@@ -1458,7 +1458,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
 [hisense_aehw4a1 docs]: /integrations/hisense_aehw4a1/
-[history_graph docs]: /integrations/history_graph/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/

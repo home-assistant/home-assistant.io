@@ -1420,7 +1420,6 @@
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
 /components/history /integrations/history
-/components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
 /components/hitron_coda /integrations/hitron_coda
 /components/hive /integrations/hive

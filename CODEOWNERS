@@ -139,7 +139,6 @@ source/_integrations/hikvision.markdown @mezz64
 source/_integrations/hikvisioncam.markdown @fbradyirl
 source/_integrations/hisense_aehw4a1.markdown @bannhead
 source/_integrations/history.markdown @home-assistant/core
-source/_integrations/history_graph.markdown @andrey-git
 source/_integrations/hive.markdown @Rendili @KJonline
 source/_integrations/homeassistant.markdown @home-assistant/core
 source/_integrations/homekit_controller.markdown @Jc2k
