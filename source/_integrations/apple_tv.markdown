@@ -21,28 +21,13 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-You can setup a new Apple TV either the old fashioned way in `configuration.yaml` or just
+You can set up a new Apple TV, either the old fashioned way in `configuration.yaml` or just
 follow a simple configuration flow ("Normal Setup"). Instructions for both methods are below.
 If you are unsure about which method to use, go for "Normal Setup".
 
-### Depdendencies
-
-This component depends on a few Python packages that require additional system packages to be
-installed. If you are running Home Assistant, i.e. not plain Home Assistant Core, you can skip
-this step as everything is already included by default.
-
-On a Debian/Ubuntu system, you install the necessary packages like this:
-
-```shell
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev
-```
-
-The process is similar in other Linux distributions. Feel free to extend the list above if
-you know how to install on other distributions.
-
 ### Normal Setup
 
-Just navigate to `Configuration -> Integrations`, press the add button in the bottom right
+Navigate to `Configuration -> Integrations`, press the add button in the bottom right
 corner and select Apple TV. You will be guided through the setup process. Nothing
 further is needed.
 
@@ -50,6 +35,10 @@ In case Home Assistant automatically discovers your Apple TVs, you will be notif
 about this.
 
 ### Manual Setup
+
+You can manually add a device via `configuration.yaml`. This requires information that you
+obtain by installing additional software and is only meant for advanced users. Please refer
+to "Normal Setup" if you feel that you don't fall within this category.
 
 To add one or more Apple TVs to your system, add the following to your `configuration.yaml` file:
 
@@ -126,11 +115,11 @@ Services:
  - Protocol: AirPlay, Port: 7000, Credentials: None
 ```
 
-Just pick the first identifer and use that as `identifier`, i.e. 01234567-89AB-CDEF-0123-4567890ABCDE.
-This output also reveals which protocols that are supported by the device (MRP and AirPlay). You
+Just pick the first identifier and use that as `identifier` i.e. `01234567-89AB-CDEF-0123-4567890ABCDE`.
+This output also reveals which protocols supported by the device (MRP and AirPlay). You
 should thus set the `protocol` option to `MRP` and provide credentials for both MRP and AirPlay.
 
-To get credentials for MRP, you simply run:
+To get credentials for MRP, you run:
 
 ```shell
 $ atvremote --id 01234567-89AB-CDEF-0123-4567890ABCDE --protocol mrp pair
@@ -139,7 +128,7 @@ Pairing seems to have succeeded, yey!
 You may now use these credentials: 1650c36b816812561ee1a2ce55441c4d59aeee8287d3d0b90ad41e221c2ccc9b:eb6d47687f82327501d26e77bc3ee8b752034ad397c80cba37d91132717a1721:61383462633431372d383336362d346464632d386533622d333964356265303932663132:39376263616162332d356330652d343136362d623634302d326438656135616161636237
 ```
 
-Then do the same thing again, but change mrp to airplay. The final configuration might then look
+Then do the same thing again, but change` mrp` to `airplay`. The final configuration might then look
 something like this:
 
 ```yaml
@@ -167,7 +156,7 @@ but it will not be ready for some time.
 ### My Apple TV/Television/Receiver turns on when I restart Home Assistant
 
 The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed,
-something is streamed to it via AirPlay or if current state (currently playing) is accessed. This
+something is streamed to it via AirPlay or if the current state (currently playing) is accessed. This
 is how Apple has designed it, and it will cause problems if you are using HDMI-CEC. Every time
 Home Assistant is started, a new request is sent to the device to figure out what is currently
 playing. When using CEC, this will wake up your TV and other devices you have configured.
@@ -183,14 +172,14 @@ You have the following options:
 
 The first two points are quite obvious. Fake standby is a concept implemented in this integration
 that disables all requests to the device and makes the entity appear as being "off" in the web
-interface. This will make sure that the device is not woken up, but it will of course not show
+interface. This will make sure that the device is not woken up, but it will, of course, not show
 any information or allow you to control it. It is however easy to turn it on (or off) in the web
 interface or to use an automation with `turn_on`. To make it more useful, you can write
 automations that turn it on or off depending on some other device, like the input source on your
 receiver.
 
-If you have setup your Apple TV via `configuration.yaml`, add `start_off: true` to your configuration
-to enable fake standby. Otherwise go to `Configuration -> Integrations`, select your Apple TV from
+If you have set up your Apple TV via `configuration.yaml`, add `start_off: true` to your configuration
+to enable fake standby. Otherwise, go to `Configuration -> Integrations`, select your Apple TV from
 the list and click the settings icon in the top right corner. You will have the setting to enble
 fake standby there.
 
@@ -221,16 +210,12 @@ and include logs (see Debugging below).
 ### I'm trying to play a stream via AirPlay but it doesn't work
 
 The Apple TV is quite picky when it comes to which formats it plays. Best bet is MP4. If it doesn't
-work it's likely because of the media format. 
-
-## Services
-
-This integration has no additional services.
+work, it's likely because of the media format. 
 
 ## Remote
 
 The `apple_tv` remote platform allows you to send remote control buttons to an Apple TV. It is
-automatically setup when an Apple TV is configured.
+automatically set up when an Apple TV is configured.
 
 At the moment, the following buttons are available (but not necessarily supported by all devices):
 
@@ -262,7 +247,7 @@ data:
 ## Debugging
 
 If you have any problems and intend to write an issue, make sure you have the
-relevant logs included. For this component, you can enable them like this:
+relevant logs included. For this integration, you can enable them like this:
 
 ```yaml
 logger:
@@ -271,4 +256,5 @@ logger:
     homeassistant.components.apple_tv: debug
 ```
 
-Without logs you will most likely not get any help.
+By providing logs directly when creating the issue, you will likely get help
+much faster.
