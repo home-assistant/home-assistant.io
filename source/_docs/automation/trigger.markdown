@@ -136,8 +136,6 @@ The values you see in your overview will often not be the same as the actual sta
 
 </div>
 
-
-
 ```yaml
 automation:
   trigger:
