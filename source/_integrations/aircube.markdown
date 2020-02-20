@@ -7,8 +7,7 @@ ha_category:
 ha_release: 0.106
 ---
 
-
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti airCube](https://www.ui.com/accessories/aircube/). This device tracker only allows tracking of wireless clients.
+This integration allows you to detect presence by looking at devices connected to a [Ubiquiti airCube](https://www.ui.com/accessories/aircube/). This device tracker only allows tracking of wireless clients.
 
 Home Assistant offers airCube integration through **Configuration** -> **Integrations** -> **airCube**.
 
