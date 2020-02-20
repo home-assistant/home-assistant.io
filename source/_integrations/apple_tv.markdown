@@ -21,172 +21,19 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-You can set up a new Apple TV, either the old fashioned way in `configuration.yaml` or just
-follow a simple configuration flow ("Normal Setup"). Instructions for both methods are below.
-If you are unsure about which method to use, go for "Normal Setup".
+Menu: *Configuration* > *Integrations*
 
-### Normal Setup
+Press on **Apple TV** and configure the integration:
 
-Navigate to `Configuration -> Integrations`, press the add button in the bottom right
-corner and select Apple TV. You will be guided through the setup process. Nothing
-further is needed.
-
-In case Home Assistant automatically discovers your Apple TVs, you will be notified
-about this.
-
-### Manual Setup
-
-You can manually add a device via `configuration.yaml`. This requires information that you
-obtain by installing additional software and is only meant for advanced users. Please refer
-to "Normal Setup" if you feel that you don't fall within this category.
-
-To add one or more Apple TVs to your system, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-apple_tv:
-  - address: IP
-    name: NAME
-    identifier: ID
-    protocol: PROTOCOL
-    start_off: START_OFF
-    credentials:
-      dmap: DMAP_CREDENTIALS
-      mrp: MRP_CREDENTIALS
-      airplay: AIRPLAY_CREDENTIALS
-```
-
-{% configuration %}
-address:
-  description: The IP address of the device.
-  required: true
-  type: string
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  type: string
-identifier:
-  description: A unique identifier used to identify the device, see instructions below.
-  required: true
-  type: string
-protocol:
-  description: Protocol used to connect, either DMAP or MRP. Credentials must be provided for the selected protocol. See instructions below.
-  required: true
-  type: string
-start_off:
-  description: Set to true if the device should start in fake standby.
-  required: false
-  type: boolean
-  default: false
-credentials:
-  type: map
-  description: Credentials for protocols.
-  keys:
-    dmap:
-      description: Credentials used for DMAP protocol (Apple TV 3 and earlier).
-      required: false
-      type: string
-    mrp:
-      description: Credentials used for AirPlay protocol (Apple TV 4 or later).
-      required: false
-      type: string
-    airplay:
-      description: Credentials used for AirPlay protocol.
-      required: false
-      type: string
-{% endconfiguration %}
-
-To find `identifier` you can use the `atvremote` command, which is bundled with `pyatv` (the library
-used to implement this integration). How to install `pyatv` is out of scope of these instructions,
-please refer to the [pyatv documentation](https://postlund.github.io/pyatv//getting-started/).
-
-Running `atvremote scan` yields output similar to this:
-
-```shell
-$ atvremote scan
-========================================
-       Name: Living Room
-    Address: 10.0.0.10
-Identifiers:
- - 01234567-89AB-CDEF-0123-4567890ABCDE
- - 00:11:22:33:44:55
-Services:
- - Protocol: MRP, Port: 49152, Credentials: None
- - Protocol: AirPlay, Port: 7000, Credentials: None
-```
-
-Just pick the first identifier and use that as `identifier` i.e. `01234567-89AB-CDEF-0123-4567890ABCDE`.
-This output also reveals which protocols supported by the device (MRP and AirPlay). You
-should thus set the `protocol` option to `MRP` and provide credentials for both MRP and AirPlay.
-
-To get credentials for MRP, you run:
-
-```shell
-$ atvremote --id 01234567-89AB-CDEF-0123-4567890ABCDE --protocol mrp pair
-Enter PIN on screen: 1234
-Pairing seems to have succeeded, yey!
-You may now use these credentials: 1650c36b816812561ee1a2ce55441c4d59aeee8287d3d0b90ad41e221c2ccc9b:eb6d47687f82327501d26e77bc3ee8b752034ad397c80cba37d91132717a1721:61383462633431372d383336362d346464632d386533622d333964356265303932663132:39376263616162332d356330652d343136362d623634302d326438656135616161636237
-```
-
-Then do the same thing again, but change` mrp` to `airplay`. The final configuration might then look
-something like this:
-
-```yaml
-# Example configuration.yaml entry
-apple_tv:
-  - address: 10.0.0.10
-    name: Living Room
-    identifier: 01234567-89AB-CDEF-0123-4567890ABCDE
-    protocol: MRP
-    start_off: false
-    credentials:
-      mrp: 1650c36b816812561ee1a2ce55441c4d59aeee8287d3d0b90ad41e221c2ccc9b:eb6d47687f82327501d26e77bc3ee8b752034ad397c80cba37d91132717a1721:61383462633431372d383336362d346464632d386533622d333964356265303932663132:39376263616162332d356330652d343136362d623634302d326438656135616161636237
-      airplay: D9B75D737BE2F0F1:6A26D8EB6F4AE2408757D5CA5FF9C37E96BEBB22C632426C4A02AD4FA895A85B
-```
+* Enter either an IP address or a device name and follow the next few steps
 
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in frontend
 
 That is correct, it only toggles power state in Home Assistant. Turning the device on or off is
-currently not supported, mainly due to a good solution for doing so does not exist (as far we
-know). Some work is being done to add experimental support for this for devices running tvOS,
-but it will not be ready for some time.
-
-### My Apple TV/Television/Receiver turns on when I restart Home Assistant
-
-The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed,
-something is streamed to it via AirPlay or if the current state (currently playing) is accessed. This
-is how Apple has designed it, and it will cause problems if you are using HDMI-CEC. Every time
-Home Assistant is started, a new request is sent to the device to figure out what is currently
-playing. When using CEC, this will wake up your TV and other devices you have configured.
-
-So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design,
-and there is no real fix for it. There's also no known way to turn off the Apple TV via the
-protocol used for communication (work is ongoing to provide experimental support for tvOS however).
-You have the following options:
-
-- Do not use this integration
-- Disable HDMI-CEC on your Apple TV
-- Use "fake standby"
-
-The first two points are quite obvious. Fake standby is a concept implemented in this integration
-that disables all requests to the device and makes the entity appear as being "off" in the web
-interface. This will make sure that the device is not woken up, but it will, of course, not show
-any information or allow you to control it. It is however easy to turn it on (or off) in the web
-interface or to use an automation with `turn_on`. To make it more useful, you can write
-automations that turn it on or off depending on some other device, like the input source on your
-receiver.
-
-If you have set up your Apple TV via `configuration.yaml`, add `start_off: true` to your configuration
-to enable fake standby. Otherwise, go to `Configuration -> Integrations`, select your Apple TV from
-the list and click the settings icon in the top right corner. You will have the setting to enble
-fake standby there.
-
-<div class='note warning'>
-Turning the device on/off in the user interface will *not* turn the physical device on/off
-according to the description above.
-</div>
+currently not supported. Support for this is however in development, so it will be added at some
+point in the future.
 
 ### Is it possible to see if a device is on without interacting with it
 
@@ -210,7 +57,7 @@ and include logs (see Debugging below).
 ### I'm trying to play a stream via AirPlay but it doesn't work
 
 The Apple TV is quite picky when it comes to which formats it plays. Best bet is MP4. If it doesn't
-work, it's likely because of the media format. 
+work, it's likely because of the media format.
 
 ## Remote
 
