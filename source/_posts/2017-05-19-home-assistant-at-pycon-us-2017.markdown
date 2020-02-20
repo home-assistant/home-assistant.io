@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant at PyCon US 2017"
 description: "A bunch of our developers and users will be at PyCon US 2017."
 date: 2017-05-19 00:00:01
 date_formatted: "May 19, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community
 ---
 

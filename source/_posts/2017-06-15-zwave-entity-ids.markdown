@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "ZWave Entity IDs"
 description: "Information on the past and future of ZWave Entity IDs."
 date: 2017-06-15 08:00:00 -0400
 date_formatted: "June 15, 2017"
 author: Adam Mills
-comments: true
 categories: Technology
 ---
 

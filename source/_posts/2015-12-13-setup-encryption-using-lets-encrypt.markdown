@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "Set up encryption using Let's Encrypt"
 description: "Tutorial how to encrypt your connection with Home Assistant."
 date: 2015-12-13 10:05:00 -0800
 date_formatted: "December 13, 2015"
 author: Paulus Schoutsen & Martin Hjelmare
 author_twitter: balloob
-comments: true
 categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 ---
 
-<p class='note'>
+<div class='note'>
 The instructions in this blog post are outdated. Please have a look at the <a href='/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/'>new instructions</a>.
-</p>
+</div>
 
 Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.
 
@@ -27,7 +25,7 @@ This tutorial will take you through the steps to setup a dynamic DNS for your IP
 
 **Updated 2016-06-18**
 
-### {% linkable_title Requirements %}
+### Requirements
 
 The DuckDNS part of this tutorial has no requirements but there are a few requirements as of now to run the Let's Encrypt client.
 
@@ -37,7 +35,7 @@ The DuckDNS part of this tutorial has no requirements but there are a few requir
 
 <img src='/images/supported_brands/duckdns.png' style='clear: right; border:none; box-shadow: none; float: right; margin-left: 8px; margin-bottom: 8px;' width='60' />
 
-### {% linkable_title DuckDNS %}
+### DuckDNS
 
 The first step is to set up [DuckDNS]. This is a free dynamic DNS service that you can use to get a DuckDNS.org subdomain to point at your house. A dynamic DNS service works by having your home computer tell DuckDNS.org every 5 minutes what its IP is so that DuckDNS can make sure your domain name is set up correctly.
 
@@ -47,7 +45,7 @@ First step is to acquire and set up our domain name. For this, go to [DuckDNS], 
 
 <img src='/images/supported_brands/letsencrypt.png' style='clear: right; border:none; box-shadow: none; float: right; margin-left: 8px; margin-bottom: 8px;' width='60' />
 
-### {% linkable_title Let's Encrypt %}
+### Let's Encrypt
 
 [Let's Encrypt] is a free, automated, and open certificate authority (CA). We will use this to acquire a certificate that can be used to encrypted our connection with Home Assistant.
 
@@ -89,7 +87,7 @@ With either method your certificate will be generated and put in the directory `
 
 <img width="60" src="/images/favicon-192x192.png" style='float: right; border:none; box-shadow: none;'>
 
-### {% linkable_title Home Assistant %}
+### Home Assistant
 
 Before updating the Home Assistant configuration, we have to forward port `443` (https connections) to port `8123` on the computer that will run Home Assistant. Do this in your router configuration as previously done for port `80`.
 
@@ -102,7 +100,7 @@ http:
   ssl_key: /etc/letsencrypt/live/hass-example.duckdns.org/privkey.pem
 ```
 
-You can now navigate to https://hass-example.duckdns.org and enjoy encryption!
+You can now navigate to `https://hass-example.duckdns.org` and enjoy encryption!
 
 _Big thanks to Fabian Affolter for his help and feedback on this article._
 

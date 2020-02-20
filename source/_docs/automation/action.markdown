@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Automation Actions"
 description: "Automations result in action."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-action/
 ---
 
 The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via services or events. For services you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
 
-You can also call the service to activate [a scene](/components/scene/) which will allow you to define how you want your devices to be and have Home Assistant call the right services.
+You can also call the service to activate [a scene](/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant call the right services.
 
 ```yaml
 automation:
@@ -61,9 +55,9 @@ automation:
     - condition: or
       conditions:
         - condition: template
-          value_template: '{% raw %}{{ states.sun.sun.attributes.elevation < 4 }}{% endraw %}'
+          value_template: '{% raw %}{{ state_attr('sun.sun', 'elevation') < 4 }}{% endraw %}'
         - condition: template
-          value_template: '{% raw %}{{ states.sensor.sensorluz_7_0.state < 10 }}{% endraw %}'
+          value_template: '{% raw %}{{ states('sensor.sensorluz_7_0') < 10 }}{% endraw %}'
     - service: scene.turn_on
       entity_id: scene.DespiertaDespacho
 ```

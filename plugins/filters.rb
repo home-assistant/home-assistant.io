@@ -32,7 +32,7 @@ module Jekyll
     # input - a url
     #
     # Returns input with all urls expanded to include the full site url
-    # e.g. /images/awesome.gif => http://example.com/images/awesome.gif
+    # e.g., /images/awesome.gif => http://example.com/images/awesome.gif
     #
     def full_url(input)
       expand_url(input, site_url)
@@ -40,8 +40,8 @@ module Jekyll
 
     # Prepends input with a url fragment
     #
-    # input - An absolute url, e.g. /images/awesome.gif
-    # url   - The fragment to prepend the input, e.g. /blog
+    # input - An absolute url, e.g., /images/awesome.gif
+    # url   - The fragment to prepend the input, e.g., /blog
     #
     # Returns the modified url, e.g /blog
     #
@@ -69,6 +69,60 @@ module Jekyll
     # removing url fragments ending with `index.[ext]`
     def canonical_url(input)
       full_url(input).sub(/index\.\w+$/i, '')
+    end
+
+    # Sort an array of semvers
+    def group_components_by_release(input)
+      input.group_by { |v|
+        raise ArgumentError, "ha_release must be set in #{v.basename}" if v["ha_release"].nil?
+        release_str = v["ha_release"].to_s
+        if release_str == "pre 0.7"
+          release_str = "0.7"
+        end
+        release_str
+      }.map{ |v|
+        version = v[0]
+
+        begin
+          gem_ver = Gem::Version.new(version).to_s
+        rescue
+          raise ArgumentError, "Error when parsing ha_release #{version} in #{v.path}."
+        end
+
+        { "label" => version, "new_components_count" => v[1].count, "sort_key" => gem_ver }
+      }.sort_by { |v| v["sort_key"] }.reverse.group_by { |v|
+        version = v["label"]
+
+        split_ver = version.split('.')
+        major = split_ver[0]
+        minor = split_ver[1]
+
+        if minor.length == 1
+          "#{major}.X"
+        else
+          "#{major}.#{minor.chop}X"
+        end
+      }.map { |v|
+        sort_key = v[1][-1]["sort_key"]
+
+        total_new_components = 0
+
+        v[1].each do |vers|
+          total_new_components += vers["new_components_count"]
+        end
+
+        { "label" => v[0], "versions" => v[1], "new_components_count" => total_new_components, "sort_key" => sort_key }
+      }.sort_by { |v| Gem::Version.new(v["sort_key"]) }.reverse
+    end
+
+    # Get version N behind current
+    # input is output of group_components_by_release
+    def version_behind(input, n)
+      input.each do |group|
+        if group["versions"].length > n
+          return group["versions"][n]
+        end
+      end
     end
   end
 end

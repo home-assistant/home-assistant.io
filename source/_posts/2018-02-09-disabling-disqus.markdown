@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Disabling Disqus comments"
 description: "We have disabled Disqus comments on the site due to inappropriate advertisements."
 date: 2018-02-09 01:00:00
 date_formatted: "February 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community
 ---
 

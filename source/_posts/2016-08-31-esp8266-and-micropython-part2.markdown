@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "ESP8266 and MicroPython - Part 2"
 description: "Using MicroPython and MQTT on ESP8266 based devices and Home Assistant."
 date: 2016-08-31 06:17:25 +0200
 date_formatted: "August 31, 2016"
 author: Fabian Affolter
-comments: true
 categories: How-To MQTT ESP8266 Micropython
 og_image: /images/blog/2016-07-micropython/social.png
 ---
@@ -19,9 +17,9 @@ Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is 
 
 You have to make a decision: Do you want to pull or to [poll](https://en.wikipedia.org/wiki/Polling_(computer_science)) the information for the sensor? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant. 
 
-An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
+An example for pulling is [aREST](/integrations/arest#sensor). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### {% linkable_title MQTT %}
+### MQTT
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -89,7 +87,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Subscribe to the topic `home/#` or create a [MQTT sensor](/components/sensor.mqtt/) to check if the sensor values are published.
+Subscribe to the topic `home/#` or create a [MQTT sensor](/integrations/sensor.mqtt/) to check if the sensor values are published.
 
 ```bash
 $ mosquitto_sub -h 192.168.1.19 -v -t "home/#"

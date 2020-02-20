@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "0.39: Configuration panel, state restoration and improved docs"
 description: "0.39 is by far our best release yet."
 date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.39/social.png
 ---
 
 It's time for 0.39 and this release has some amazing new features!
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
 
 ## T-Shirts
 
@@ -117,8 +115,8 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
 - [Telegram] webhooks ([@scipioni])
 - Added [Openhome][openhome] support ([@bazwilliams])
-- [UPS][ups] sensor ([@happyleavesaoc])
-- [FEDex][fedex] sensor ([@happyleavesaoc])
+- UPS sensor ([@happyleavesaoc])
+- FEDex sensor ([@happyleavesaoc])
 - [Gstreamer][gstreamer] media player ([@happyleavesaoc])
 - [iTach Remote][itach] Platform ([@alanfischer])
 - [myq] cover component ([@arraylabs])
@@ -162,7 +160,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Lock - Nuki: Reduce battery drain on Nuki Lock ([@pschmitt])
 - Notify - Webostv: Only try to pair notify.webostv when not paired ([@andersonshatch])
 - KNX: Fix slow status updates from the knx bus ([@keerts])
-- HDMI CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
+- HDMI-CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
 - Sensor - Moon: Remove unit of measurement ([@fabaff])
 - Z-Wave: Add initial Z-Wave config panel ([@balloob])
 - History: Allow printing the number of states returned by history and time it took to extract and add day ([@andrey-git])
@@ -189,21 +187,21 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Sensor - Darksky: Add 'entity_picture' to Darksky component ([@aronsky])
 - Media Player - Samsungtv: Add support for waking up Samsung TVs over the network ([@justin8])
 - MQTT: Convert MQTT platforms to async ([@pvizeli])
-- tests/components/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
+- tests/integrations/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
-### {% linkable_title Release 0.39.1 - February 27 %}
+### Release 0.39.1 - February 27
 
  - Add workaround for Paho out of memory issues ([@pvizeli])
  - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
 
-### {% linkable_title Release 0.39.2 - March 1 %}
+### Release 0.39.2 - March 1
 
  - Move Zigbee from eventbus to dispatcher ([@pvizeli])
  - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
 
-### {% linkable_title Release 0.39.3 - March 4 %}
+### Release 0.39.3 - March 4
 
  - Prevent discovered services and devices to be handled twice (@colinodell)
 
@@ -285,31 +283,30 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /componet/telegram_webhooks/
-[pushsafer]: /components/notify.pushsafer/
-[openhome]: /components/media_player.openhome/
-[ups]: /components/sensor.ups/
-[fedex]: /components/sensor.fedex/
-[fido]: /components/sensor.fido/
-[gstreamer]: /components/media_player.gstreamer/
-[clementine]: /components/media_player.clementine/
-[ebox]: /components/sensor.ebox/
-[aurora]: /components/binary_sensor.aurora/
-[netmonitor]: /components/sensor.fritzbox_netmonitor/
-[itach]: /components/remote.itach/
-[sunflowers]: /components/light.yeelightsunflower/
-[kodi]: /components/media_player.kodi/
-[myq]: /components/cover.myq/
-[oemt]: /components/climate.oem/
-[volvo]: /components/volvooncall/
-[pocket]: /components/sensor.pocketcasts/
-[config]: /components/config/
-[history_stats]: /components/sensor.history_stats/
+[telegram]: /integrations/telegram_webhooks/
+[pushsafer]: /integrations/pushsafer
+[openhome]: /integrations/openhome
+[ups]: /integrations/ups
+[fido]: /integrations/fido
+[gstreamer]: /integrations/gstreamer
+[clementine]: /integrations/clementine
+[ebox]: /integrations/ebox
+[aurora]: /integrations/aurora
+[netmonitor]: /integrations/fritzbox#sensor_netmonitor/
+[itach]: /integrations/itach
+[sunflowers]: /integrations/yeelightsunflower/
+[kodi]: /integrations/kodi
+[myq]: /integrations/myq
+[oemt]: /integrations/oem
+[volvo]: /integrations/volvooncall/
+[pocket]: /integrations/pocketcasts
+[config]: /integrations/config/
+[history_stats]: /integrations/history_stats
 
 
 [docs]: /docs/
 [getting-started]: /getting-started/
-[docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
+[docs-issue]: https://github.com/home-assistant/home-assistant.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues

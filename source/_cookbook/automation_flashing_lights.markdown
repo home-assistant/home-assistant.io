@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Examples for flashing lights"
 description: "Automation examples for flashing lights in case of an alarm."
-date: 2016-03-30 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Flashing lights triggered by an alarm %}
+#### Flashing lights triggered by an alarm
 
 For flashing regular lights in case an alarm is triggered.
 
@@ -54,7 +48,7 @@ automation:
   condition:
     condition: state
     entity_id: switch.AlmSnd1
-    to: 'off'
+    state: 'off'
   action:
     service: script.turn_off
     entity_id: script.flash_room1

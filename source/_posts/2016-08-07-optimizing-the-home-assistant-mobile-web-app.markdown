@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Optimizing the Home Assistant mobile web app"
 description: "A comprehensive list of optimizations done to improve our mobile web application."
 date: 2016-08-07 12:36 -0700
 date_formatted: "August 7, 2016"
 author: Paulus Schoutsen
-comments: true
 categories: Technology
 og_image: /images/blog/2016-08-optimizing-web-app/performance-diagram.png
 ---
@@ -43,11 +41,11 @@ Although the app takes 6500 milliseconds to load on my phone, it would perform w
 
 <!--more-->
 
-## {% linkable_title Technology %}
+## Technology
 
 The Home Assistant front end consists of two parts. There is [Home Assistant JS][hajs], which controls all data and interaction between JavaScript and the server. It is a Flux architecture using [NuclearJS] and [ImmutableJS]. The UI is implemented by [Home Assistant Polymer][hap] using [Polymer] and web components.
 
-# {% linkable_title Don’t hack the framework %}
+# Don’t hack the framework
 
 I thought to be smart. I split out the JavaScript part of all web components and bundled them separately using Webpack so that I could use ES2015 via BabelJS ([architecture][es2015-arch]). This is not how Polymer components are written and it meant that I was unable to use any of the tooling that is available in the community or easily split up the bundle (more on this later).
 
@@ -63,7 +61,7 @@ As you can see in the timelines, we were able to get rid of most of the blocking
     alt='Timeline of loading the front end before and after the optimization' />
 </p>
 
-# {% linkable_title Separate responsibilities %}
+# Separate responsibilities
 
 Whenever you learn a new technology, you feel like you’ve learned a new superpower. Wow, I can do all this with only 2 lines?! I had the same with bundling.
 
@@ -81,11 +79,11 @@ To accomplish this I extracted the application core out of the main bundle. In t
 
 When the data does come back before the UI is done loading, we can process it before we start rendering the UI because of all the web components being processed individually. This means that we don't have to show a loading screen the first time our components render – we can just render the components with the data they require.
 
-# {% linkable_title Ship less %}
+# Ship less
 
 The theory behind this one is simple: if we manage to ship less code, the browser has to process less code and it will start faster.
 
-## {% linkable_title Only include the components for the page that you will show %}
+## Only include the components for the page that you will show
 
 The Home Assistant mobile web application has 10 different panels (pages). Besides that, it also has a dialog for each type of device to show more info. That’s a lot of components and screens of which only a very small set is needed at the start. That means that we are shipping a lot of unnecessary data that the browser has to process before our initial render!
 
@@ -105,24 +103,24 @@ Because the browser tracks your web components, creating standalone bundles for 
  - Find all dependencies included in the main bundle (using [hydrolysis])
  - Create individual bundles of each panel (page) but filter out the dependencies included in main bundle.
 
-The [build script][build-html] that bundles and minifies the main bundle and panel bundles is <100 lines.
+The build script that bundles and minifies the main bundle and panel bundles is <100 lines.
 
-## {% linkable_title Change the JavaScript bundler to Rollup %}
+## Change the JavaScript bundler to Rollup
 
 Core.js is still pure JavaScript and requires bundling. In my journey to get a smaller bundle, I went from [Webpack] to Webpack 2 to [Rollup]. At each step the bundle got smaller. Rollup is the big winner here because it doesn’t wrap all your modules in function calls but instead concatenates all files with minimal changes to make it work. This not only reduces the file size but also the loading speed. This is because the JavaScript engine will no longer have to invoke a function to resolve each import, it’s doing less work. This might not mean much for a computer but on a phone, everything counts.
 
-## {% linkable_title Scrutinize dependencies %}
+## Scrutinize dependencies
 
 If the goal is to ship less, it’s time to take a good look at dependencies. It’s so often that we decide to fall back to yet another NPM package that makes our life a little easier but comes at the cost of size – size usually taken up by functionality that you might never need.
 
-### {% linkable_title Remove Lodash %}
+### Remove Lodash
 I realized that I only used a few methods of lodash. Lodash (and previously underscore) used to be one of the dependencies that would always be one of the first things that I would add to any project I start. But I could no longer justify it in the case of Home Assistant. Even with dead tree shaking it was not worth including it. Yes, they support a lot of edge cases but those were not relevant to my use case. And standalone lodash packages are [still huge][lodash.range]. The only thing that I couldn’t replace with a few lines of my own code was debounce. However I found [a 40 line replacement][debounce].
 
-### {% linkable_title Replace moment.js with Fecha %}
+### Replace moment.js with Fecha
 
 Moment.js is one of those power libraries. It is able to handle any date problem that you can throw at it. But this obviously comes at the cost of size. [Fecha] is a date formatting library at ~8% the size of moment.js (only 4.7kb pre-gzip). The only thing that it does not contain is date manipulation, which was something that was not being used.
 
-# {% linkable_title Use Service worker to instantly load the app %}
+# Use Service worker to instantly load the app
 
 Using a service worker we’re able to store all app components and core javascript in the browser. This means that after their first visit, the browser will only have to go to the network to fetch the latest data from the server.
 
@@ -132,7 +130,7 @@ When a browser does not support service workers, Home Assistant will serve finge
 
 Using fingerprinting with sw-precache required jumping through a few hoops. [The final build script can be found here.][build-sw]
 
-# {% linkable_title Make it feel fast %}
+# Make it feel fast
 
 This one is more psychological: no one likes staring at a white screen because white screens are ambiguous: are we loading something, is there a crappy connection or maybe even a script error? That’s why it is very important to render something on the screen to show that the rest is being loaded, and as quickly as possible.
 
@@ -140,7 +138,7 @@ The Home Assistant landing page contains just enough CSS and HTML to render the 
 
 Now that the app is fast enough, I might swap out moving from a lite loading screen to drawing an empty toolbar. This makes it look like the UI is almost there.
 
-# {% linkable_title Using a framework build on web standards %}
+# Using a framework build on web standards
 
 _I left this to the end of the list, mainly because I had no influence on this. Polymer just happened to ship an update while I was optimizing the application which gave a big boost to the loading time._
 
@@ -148,7 +146,7 @@ By using Polymer we have the ability to use tomorrow’s web standards today. Th
 
 Polymer 1.6 was introduced at the end of June and allowed the app to take advantage of native [CSS variables][css-vars] in Chrome and Firefox. It also introduced lazy registration. Both greatly sped up our loading times.
 
-# {% linkable_title Future optimizations %}
+# Future optimizations
 
 A lot of optimizations have been applied but this journey will never be over. There are still a lot of opportunities to make things even faster. Some ideas that are on my list to explore:
 
@@ -167,9 +165,8 @@ A lot of optimizations have been applied but this journey will never be over. Th
 [hajs]: https://github.com/home-assistant/home-assistant-js
 [es2015-arch]: https://github.com/home-assistant/home-assistant-polymer/wiki/Using-Polymer-with-ES2015,-Babel-and-NPM
 [NuclearJS]: https://optimizely.github.io/nuclear-js/
-[ImmutableJS]: https://facebook.github.io/immutable-js/
+[ImmutableJS]: https://immutable-js.github.io/immutable-js/
 [Polymer]: https://www.polymer-project.org/
-[build-html]: https://github.com/home-assistant/home-assistant-polymer/blob/master/script/vulcanize.js
 [Webpack]: https://webpack.github.io/
 [Rollup]: http://rollupjs.org/
 [lodash.range]: https://github.com/lodash/lodash/blob/3.1.7-npm-packages/lodash.range/index.js

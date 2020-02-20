@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Looking at the past"
 description: "Introducing history tracking for Home Assistant."
 date: 2015-02-08 9:01:23 -0800
 date_formatted: "February 8, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -27,9 +25,9 @@ The history component will be enabled for new users by default. For current user
   </a>
 </p>
 
-<p class='note'>
+<div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
-</p>
+</div>
 
 <!--more-->
 

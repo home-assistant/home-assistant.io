@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switch Philips Hue with enocean"
 description: "Automation to switch a Philips Hue lamp with an enocean switch."
-date: 2016-09-02 22:35 +0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

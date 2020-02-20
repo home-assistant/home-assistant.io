@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Video: How To Configure Home Assistant"
 description: "BRUH Automation has made an excellent video to get started with configuring Home Assistant."
 date: 2016-05-12 00:09:00 +0000
 date_formatted: "May 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Video
 og_image: /images/blog/2016-05-video-configuring-home-assistant/preview-video.png
 ---

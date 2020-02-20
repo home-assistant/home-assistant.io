@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Backend of Home Assistant"
 description: "Backend of Home Assistant."
-date: 2017-02-14 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The backend of Home Assistant is running with [Python 3](https://www.python.org/). 

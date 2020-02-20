@@ -1,11 +1,6 @@
 ---
-layout: page
 title: "Frontend is acting weird"
 description: "Frontend is acting weird"
-date: 2017-06-18 09:00
-comments: false
-sharing: true
-footer: true
 ha_category: Usage
 ---
 
