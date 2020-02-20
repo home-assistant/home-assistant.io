@@ -32,7 +32,7 @@ camera:
 
 {% configuration %}
 host:
-  description: The ip address where QVR Pro is accessible.
+  description: The IP address where QVR Pro is accessible.
   required: true
   type: string
 username:
