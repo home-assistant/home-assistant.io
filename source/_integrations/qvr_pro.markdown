@@ -25,9 +25,6 @@ qvr_pro:
   username: pyqvruser
   password: password
   exclude_channels: 2,5,6
-  
-camera:
-  - platform: qvr_pro
 ```
 
 {% configuration %}
