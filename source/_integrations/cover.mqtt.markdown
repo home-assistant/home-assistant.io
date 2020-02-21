@@ -18,7 +18,7 @@ The device state (`open` or `closed`) will be updated only after a new message i
 For this purpose is `position_topic` which can set state of the cover and position.
 Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
 `position_topic` is managed by `position_open` and `position_closed`
-You can set it up in opossite way as well.
+You can set it up in opposite way as well.
 If position topic is defined than state topic is ignored.
 
 If a state topic and position topic are not defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
