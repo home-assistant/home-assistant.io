@@ -162,13 +162,13 @@ android_ip_webcam:
       - torch
 ```
 
-## Binary Sensor
+## Alternate Configuration Method
 
-The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+The configuration described above will cause the `android_ip_webcam` binary sensor platform to automatically create and configure the devices automatically. Alternatively you can omit the `android_ip_webcam` component from your `configuration.yaml` file and add individual devices instead.
 
-## Examples
+### Binary Sensor
 
-You can also setup the binary motion sensor with the following script:
+You can setup the binary motion sensor with the following in your `configuration.yaml` file:
 
 {% raw %}
 
@@ -177,17 +177,13 @@ binary_sensor:
   - platform: rest
     name: Kitchen Motion
     sensor_class: motion
-    resource: http://IP:8080/sensors.json?sense=motion_active
+    resource: http://IP_ADDRESS:PORT/sensors.json?sense=motion_active
     value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
 ```
 
 {% endraw %}
 
-## Camera
-
-The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/integrations/mjpeg) platform can be used.
-
-## Configuration
+### Camera
 
 To enable only the camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -195,11 +191,9 @@ To enable only the camera in your installation, add the following to your `confi
 # Example configuration.yaml entry
 camera:
   - platform: mjpeg
-    mjpeg_url: http://IP_ADDRESS:8080/video
+    mjpeg_url: http://IP_ADDRESS:PORT/video
 ```
 
-## Sensor
-
-The `android_ip_webcam` sensor platform lets you observe states of [Android IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+### Other Sensors
 
 You can setup your own sensors by examining the JSON file from the webcam server: `http://IP:8080/sensors.json`
