@@ -180,7 +180,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Météo-France** - Météo-France now supports the configuration flow and is now available to be added as an integration from the integrations UI! There are no more `monitored_conditions` and all sensors will be added automatically. - ([@Quentame] - [#29927]) ([meteo_france docs])
 
-- **Glances** - Glances sensors are now dynamically added which results in entities having new names, in particular sensors for mounted disks and temperature. You will need to remove the existing configuration and re-add it, and adjust for any automations you have using the new entity names. - ([@engrbm87] - [#28639]) ([glances docs])
+- **Glances** - Glances sensors are now dynamically added, which results in entities having new names, in particular sensors for mounted disks and temperature. You will need to remove the existing configuration and re-add it, and adjust for any automations you have using the new entity names. - ([@engrbm87] - [#28639]) ([glances docs])
 
 - **Service Calls** - Service calls that reference non-existing entities will now log a warning instead of silently being omitted. If you are using a template and want to select no entities, you need to pass `none` instead. The TTS integration will no longer target all media players if no entity ID passed in. You need to specify `all` instead. - ([@balloob] - [#31427])
 
