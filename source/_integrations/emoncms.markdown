@@ -21,7 +21,7 @@ sensor:
   id: 1
 ```
 
-As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors from Emoncms and use the unit of measurement specified in the Feed in Emoncms.  Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13.
+As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors from Emoncms and use the unit of measurement specified in the Feed in Emoncms. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13.
 
 ## Configuration variables
 
@@ -47,7 +47,7 @@ exclude_feed_id:
   required: false
   type: list
 sensor_names:
-  description: Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name.
+  description: "Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name."
   required: false
   type: [integer, list]
 value_template:
@@ -64,7 +64,7 @@ unit_of_measurement:
   default: W
   type: string
 use_emoncms_unit:
-  description: Causes integration to use the unit of measurement specified in the Emoncms Feed API payload. If no unit is set by Emoncms, no unit will be added to the sensor. A unit set in `unit_of_measurement` is ignored when this is `True`.
+  description: Causes integration to use the unit of measurement specified in the Emoncms Feed API payload. If no unit is set by Emoncms, no unit will be added to the sensor. A unit set in `unit_of_measurement` is ignored when this is `true`.
   required: false
   default: false
   type: boolean
@@ -90,7 +90,7 @@ sensor:
   api_key: API_KEY
   url: https://emoncms.org
   id: 1
-  use_emoncms_unit: True
+  use_emoncms_unit: true
 ```
 
 Display only feeds with their feed IDs specified in `include_only_feed_id`.
