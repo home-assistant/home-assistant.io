@@ -49,21 +49,30 @@ name:
   required: false
   type: string
   default: dynalite
-log_level:
-  description: Log level for the libraries.
+active:
+  description: Actively query network. When starting, it will query all devices for their current status, and also will send queries when some changes are in progress (e.g. lights dimming or covers moving). Better experience but creates more load on the Dynalite network. Value can be 'on', 'off', our 'init', where 'init' will only send queries during the initial init of Home Assistant
   required: false
-  type: string
-  default: info
+  type: [boolean, string]
+  default: false
+polltimer:
+  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level. Only relevant when active is set to 'on'.
+  required: false
+  type: float
+  default: 1.0
 autodiscover:
   description: Enable auto-discover. As Dynalite does not support autodiscovery, this tracks event on your network, so if you turn on a light, it will be added to Home Assistant.
   required: false
   type: boolean
-  default: true
-polltimer:
-  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level.
+  default: false
+default:
+  description: Global defaults for the system
   required: false
-  type: float
-  default: 1.0
+  type: map
+  keys:
+    fade:
+      description: Default fade
+      required: false
+      type: float
 area:
   description: Definition for the various Dynalite areas.
   required: true
