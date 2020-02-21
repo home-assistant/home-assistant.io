@@ -25,16 +25,50 @@ As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors
 
 ## Configuration variables
 
-- `api_key` (*Required*): The read API key for your Emoncms user.
-- `url` (*Required*): The base URL of Emoncms, use <https://emoncms.org> for the cloud based version. For self hosted Emoncms or EmonPi you may need a URL of <http://x.x.x.x/emoncms>.
-- `id` (*Required*): Positive integer identifier for the sensor. Must be unique if you specify multiple Emoncms sensors.
-- `include_only_feed_id` (*Optional*): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if `exclude_feed_id` is specified.
-- `exclude_feed_id` (*Optional*): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
-- `sensor_names` (*Optional*): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name
-- `value_template` (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to alter the feed value.
-- `scan_interval` (*Optional*): Defines the update interval of the sensor in seconds.
-- `unit_of_measurement` (*Optional*): Defines the unit of measurement of for all the sensors. Default is "W".
-- `use_emoncms_unit` (*Optional*): Boolean. Causes integration to use the unit of measurement specified in the Emoncms Feed API payload. If no unit is set by Emoncms, no unit will be added to the sensor. A unit set in `unit_of_measurement` is ignored when this is True.  Default is *False*
+{% configuration %}
+api_key:
+  description: The read API key for your Emoncms user.
+  required: true
+  type: string
+url:
+  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud based version. For self hosted Emoncms or EmonPi you may need a URL of <http://x.x.x.x/emoncms>."
+  required: true
+  type: string
+id:
+  description: Positive integer identifier for the sensor. Must be unique if you specify multiple Emoncms sensors.
+  required: true
+  type: integer
+include_only_feed_id:
+  description: Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if `exclude_feed_id` is specified.
+  required: false
+  type: list
+exclude_feed_id:
+  description: Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
+  required: false
+  type: list
+sensor_names:
+  description: Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name.
+  required: false
+  type: [integer, list]
+value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to alter the feed value.
+  required: false
+  type: template
+scan_interval:
+  description: Defines the update interval of the sensor in seconds.
+  required: false
+  type: integer
+unit_of_measurement:
+  description: Defines the unit of measurement of for all the sensors.
+  required: false
+  default: W
+  type: string
+use_emoncms_unit:
+  description: Causes integration to use the unit of measurement specified in the Emoncms Feed API payload. If no unit is set by Emoncms, no unit will be added to the sensor. A unit set in `unit_of_measurement` is ignored when this is `True`.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 ## Default naming scheme
 
