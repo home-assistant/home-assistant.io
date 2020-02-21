@@ -33,7 +33,7 @@ http:
 
 {% configuration %}
 server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6."
+  description: "Only listen to incoming requests on specific IP(s)/host(s). By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6 or `server_host: '0.0.0.0,::0'` to listen to both IPv4 and IPv6."
   required: false
   type: string
   default: 0.0.0.0
