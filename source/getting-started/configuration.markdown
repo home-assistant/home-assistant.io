@@ -20,14 +20,14 @@ From the Hass.io main panel, open the add-on store.
 
 Under the "Core" section you will find Configurator.
 
- - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
+ - Click on File Editor and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the file editor.
  - Now start the add-on by clicking on START.
  - Open the user interface by clicking on OPEN WEB UI.
 
-Now let's make a change using the configurator: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
+Now let's make a change using the file editor: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
 
- - Click the folder icon in the top left of the configurator window to open the file browser sidebar.
- - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main Configurator edit window.
+ - Click the folder icon in the top left of the file editor window to open the file browser sidebar.
+ - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main file editor window.
  - Add the following to this file (preferably at the very top, but it ultimately doesn't matter):
  ```yaml
      homeassistant:
