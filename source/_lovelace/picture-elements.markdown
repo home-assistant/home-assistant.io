@@ -316,6 +316,11 @@ entity:
   required: true
   description: Entity id
   type: string
+attribute:
+  required: false
+  description: If present, the corresponding attribute will be shown,
+   instead of the entity's state
+  type: string
 prefix:
   required: false
   description: Text before entity state.
@@ -900,6 +905,13 @@ elements:
     style:
       top: 82%
       left: 79%
+  - type: state-label
+    entity: climate.kitchen
+    attribute: current_temperature
+    suffix: "°C"
+    style:
+      top: 33%
+      left: 15%
   - type: service-button
     title: Turn lights off
     style:
