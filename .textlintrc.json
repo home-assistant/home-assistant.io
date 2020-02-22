@@ -314,6 +314,7 @@
         ["he or she", "they"],
         ["he/she", "they"],
         ["Home-?Ass?s?iss?tt?ant", "Home Assistant"],
+        ["i\\.e\\.", "i.e.,"],
         ["IFF?TTT?T?", "IFTTT"],
         ["ISY ?994", "ISY994"],
         ["JSONRPC", "JSON-RPC"],
