@@ -31,7 +31,7 @@ api_key:
   required: true
   type: string
 url:
-  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud based version. For self hosted Emoncms or EmonPi you may need a URL of `http://x.x.x.x/emoncms`."
+  description: "The base URL of Emoncms, use <https://emoncms.org> for the cloud-based version. For self-hosted Emoncms or EmonPi you may need a URL of `http://x.x.x.x/emoncms`."
   required: true
   type: string
 id:
