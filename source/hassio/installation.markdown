@@ -166,7 +166,7 @@ Debian/Ubuntu:
 
 ```bash
 sudo -i
-apt-get install software-properties-common
+apt-get install -y software-properties-common
 apt-get update
 apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 systemctl disable ModemManager
