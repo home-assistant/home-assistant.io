@@ -81,13 +81,13 @@ sensors:
     light:
       description: The light level
     motion:
-      description: Motion detection
+      description: Analog (not binary) amount of motion detected
     pressure:
       description: The current pressure
     proximity:
       description: The proximity
     sound:
-      description: The sound detection
+      description: The sound level
     video_connections:
       description: The video connections
 switches:
