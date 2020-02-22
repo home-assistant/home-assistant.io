@@ -450,7 +450,6 @@ rest_command:
 
 For reference, the XML content of endpoint shown above example is below:
 
-{% raw %}
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
  
