@@ -383,6 +383,8 @@ sensor:
 
 The below example allows shows how to extract multiple values from a dictionary with `json_attributes` and `json_attributes_path` from the XML of a Steamist Steambath WiFi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.
 
+In the below example `json_attributes_path` is set to "$.response" which is the location of the the "usr0", "pot0", ... attributes used for `json_attributes`.
+
 {% raw %}
 ```yaml
 sensor:
