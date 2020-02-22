@@ -489,4 +489,3 @@ For reference, the XML content of endpoint shown above example is below:
 	
  </response>
 ```
-{% endraw %}
