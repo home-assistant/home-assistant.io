@@ -41,7 +41,7 @@ region:
   required: true
   type: string
 update_interval:
-  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
+  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g.,  minutes, hours, days!).
   required: false
   default: 1 hour
   type: time

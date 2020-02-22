@@ -103,7 +103,7 @@ calendars:
   required: false
   description: >
     List of the calendars to filter.
-    Empty or absent means no filtering, i.e. all calendars will be added.
+    Empty or absent means no filtering, i.e., all calendars will be added.
   type: list
 custom_calendars:
   required: false

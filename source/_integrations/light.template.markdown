@@ -75,7 +75,7 @@ light:
         type: template
         default: optimistic
       icon_template:
-        description: Defines a template for an icon or picture, e.g. showing a different icon for different states.
+        description: Defines a template for an icon or picture, e.g.,  showing a different icon for different states.
         required: false
         type: template
       availability_template:

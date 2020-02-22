@@ -155,7 +155,7 @@ action:
         - file: /tmp/picture.jpg
           caption: Picture Title xy
         - url: http://somebla.ie/video.png
-          caption: I.e. for a Title
+          caption: i.e., for a Title
 ```
 
 {% configuration %}
@@ -231,7 +231,7 @@ action:
         - file: /tmp/video.mp4
           caption: Video Title xy
         - url: http://somebla.ie/video.mp4
-          caption: I.e. for a Title
+          caption: i.e., for a Title
 ```
 
 {% configuration %}

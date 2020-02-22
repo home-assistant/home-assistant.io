@@ -14,7 +14,7 @@ Detect people in camera images using [Sighthound Cloud](https://www.sighthound.c
 
 This integration adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person. 
 
-**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service e.g. using an automation triggered by motion.
+**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service e.g.,  using an automation triggered by motion.
 
 ## Configuration
 
