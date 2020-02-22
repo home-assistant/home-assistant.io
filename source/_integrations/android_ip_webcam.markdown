@@ -53,11 +53,11 @@ name:
   default: IP Webcam
   type: string
 username:
-  description: The username to access the phone.
+  description: The username to access the phone. If username is specified then password must be also.
   required: inclusive
   type: string
 password:
-  description: The password to access the phone.
+  description: The password to access the phone. If password is specified then username must be also.
   required: inclusive
   type: string
 scan_interval:
@@ -66,7 +66,7 @@ scan_interval:
   default: 10
   type: integer
 sensors:
-  description: Conditions to display sensor in the frontend. See the list of supported sensors.
+  description: List of sensor entities to be created by this component.
   required: false
   type: list
   keys:
@@ -91,7 +91,7 @@ sensors:
     video_connections:
       description: The video connections
 switches:
-  description: Conditions to display settings in the frontend. See the list of supported switches.
+  description: List of switch entities to be created by this component.
   required: false
   type: list
   keys:
@@ -114,7 +114,7 @@ switches:
     video_recording:
       description: Control the video recording.
 motion_sensor:
-  description: Activate motion sensor if `auto_discovery` is disabled.
+  description: Create a binary_sensor.<name>_motion_active entity. Note that `auto_discovery` may also create this sensor.
   required: false
   type: boolean
   default: false
