@@ -11,14 +11,14 @@ The steps below do not apply to Home Assistant Core installations, for those typ
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Supervisor. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, click on the menu icon in the top left, then click on Supervisor. On the new page, open the add-on store tab.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/main_panel_addon_store.png' />
-From the Hass.io main panel, open the add-on store.
+From the Supervisor main panel, open the add-on store.
 </p>
 
-Under the "Core" section you will find Configurator.
+Under the "Official add-ons" section you will find the File editor add-on.
 
  - Click on File Editor and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the file editor.
  - Now start the add-on by clicking on START.
