@@ -21,7 +21,7 @@ sensor:
   id: 1
 ```
 
-As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors from Emoncms and use the unit of measurement specified in the Feed in Emoncms. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13.
+As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors from Emoncms and use the unit of measurement specified in the feed from Emoncms. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13.
 
 ## Configuration variables
 
