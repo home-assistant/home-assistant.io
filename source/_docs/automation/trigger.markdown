@@ -182,9 +182,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser inter
 
 #### Sunset / Sunrise trigger
 
-Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
+Triggers when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g.,  45 minutes before sunset).
 
 <div class='note'>
 

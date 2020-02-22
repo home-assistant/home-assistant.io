@@ -167,7 +167,7 @@ If using an external MariaDB backend (e.g., running on a separate NAS) with Home
 
 <div class='note'>
 
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
 
 </div>
 

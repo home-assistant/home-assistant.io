@@ -85,7 +85,7 @@ There are several attributes that can be useful for automations and templates.
 
 ## Sensor
 
-To get AVM FRITZ!Box temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
+To get AVM FRITZ!Box temperature sensor (e.g.,  FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
 
 ### Attributes
 

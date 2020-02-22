@@ -49,7 +49,7 @@ api_key:
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
-| `slug` | `False` | string | Carrier e.g. `fedex`
+| `slug` | `False` | string | Carrier e.g.,  `fedex`
 | `title` | `False` | string | Friendly name of package
 
 ## Service `remove_tracking`
@@ -59,7 +59,7 @@ api_key:
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
-| `slug` | `True` | string | Carrier e.g. `fedex`
+| `slug` | `True` | string | Carrier e.g.,  `fedex`
 
 <div class='note info'>
 This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.

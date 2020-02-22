@@ -87,7 +87,7 @@ timeout:
 
 #### Service `kodi.add_to_playlist`
 
-Add music to the default playlist (i.e. playlistid=0).
+Add music to the default playlist (i.e., playlistid=0).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
