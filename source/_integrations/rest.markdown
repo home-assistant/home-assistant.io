@@ -445,7 +445,7 @@ rest_command:
 ```
 {% endraw %}
 
-For reference, the XML content of status.xml endpoint shown above example is below:
+For reference, the XML content of endpoint shown above example is below:
 
 {% raw %}
 ```xml
