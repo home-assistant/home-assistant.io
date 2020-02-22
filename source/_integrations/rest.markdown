@@ -445,6 +445,7 @@ rest_command:
   set_steam_led:
     url: http://192.168.1.105/leds.cgi?led={{ led }}
 ```
+
 {% endraw %}
 
 For reference, the XML content of endpoint shown above example is below:
