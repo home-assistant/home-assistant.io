@@ -282,7 +282,7 @@ sensor:
       - city
       - zipcode
     resource: https://jsonplaceholder.typicode.com/users
-    value_template: '{{ value_json.name }}'
+    value_template: '{{ value_json[0].name }}'
 ```
 {% endraw %}
 
@@ -378,5 +378,112 @@ sensor:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
         device_class: temperature
         unit_of_measurement: '°C'
+```
+{% endraw %}
+
+The below example allows shows how to extract multiple values from a dictionary with `json_attributes` and `json_attributes_path` from the XML of a Steamist Steambath WiFi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.
+
+{% raw %}
+```yaml
+sensor:
+# Steam Controller
+  - platform: rest
+    name: Steam System Data
+    resource: http://192.168.1.105/status.xml
+    json_attributes_path: "$.response"
+    scan_interval: 15
+    value_template: 'OK'
+    json_attributes:
+      - "usr0"
+      - "pot0"
+      - "temp0"
+      - "time0"
+  - platform: template
+    sensors:
+       steam_temp:
+        friendly_name: Steam Temp
+        value_template: '{{ states.sensor.steam_system_data.attributes["temp0"] | regex_findall_index("([0-9]+)XF") }}'
+        unit_of_measurement: "°F"
+       steam_time_remaining:
+        friendly_name: "Steam Time Remaining"
+        value_template: '{{ states.sensor.steam_system_data.attributes["time0"] }}'
+        unit_of_measurement: "minutes"
+
+switch: 
+  - platform: template
+    switches:
+      steam:
+        value_template: '{{ states.sensor.steam_system_data.attributes["usr0"] | int >= 1 }}'
+        turn_on:
+          - service: rest_command.set_steam_led
+            data:
+               led: 6
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+          - delay: 00:00:15
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+        turn_off:
+          - service: rest_command.set_steam_led
+            data:
+               led: 7
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+          - delay: 00:00:15
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+        friendly_name: Steam 
+
+rest_command:  
+  set_steam_led:
+    url: http://192.168.1.105/leds.cgi?led={{ led }}
+
+```
+{% endraw %}
+
+For reference, the XML content of status.xml endpoint shown above example is below:
+
+{% raw %}
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+ 
+ <response>
+ 	<scan>0</scan>
+	<ver>12556</ver>
+	<count>48</count>
+	<ssid>alexander</ssid>
+	
+	<bss>
+		<valid>0</valid>
+		<name>0</name>
+		<privacy>0</privacy>
+		<wlan>0</wlan>
+		<strength>0</strength>
+	</bss>
+	
+	<led0>0</led0>
+	<led1>0</led1>
+	<led2>0</led2>
+	<led3>0</led3>
+	<led4>0</led4>
+	<led5>0</led5>
+	<led6>0</led6>
+	<led7>0</led7>
+	<btn0>up</btn0>
+	<btn1>up</btn1>
+	<btn2>up</btn2>
+	<btn3>up</btn3>
+	<pot0>0</pot0>
+	<usr0>0</usr0>
+	<temp0>0x73XF0x73XF</temp0>
+	<time0> 0</time0>
+
+
+	
+ </response>
 ```
 {% endraw %}
