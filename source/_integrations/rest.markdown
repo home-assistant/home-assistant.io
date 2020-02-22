@@ -271,6 +271,7 @@ sensor:
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
