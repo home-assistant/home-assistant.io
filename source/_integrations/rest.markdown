@@ -388,6 +388,7 @@ The below example allows shows how to extract multiple values from a dictionary 
 In the below example `json_attributes_path` is set to `$.response` which is the location of the `usr0`, `pot0`, ... attributes used for `json_attributes`.
 
 {% raw %}
+
 ```yaml
 sensor:
 # Steam Controller
