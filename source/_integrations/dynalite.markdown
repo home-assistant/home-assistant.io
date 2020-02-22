@@ -50,7 +50,7 @@ name:
   type: string
   default: dynalite
 active:
-  description: Actively query network. When starting, it will query all devices for their current status, and also will send queries when some changes are in progress (e.g. lights dimming or covers moving). Better experience but creates more load on the Dynalite network. 
+  description: Actively query network. When starting, it will query all devices for their current status, and also will send queries when some changes are in progress (e.g., lights dimming or covers moving). Better experience but creates more load on the Dynalite network. 
   required: false
   type: boolean
   default: false
