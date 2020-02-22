@@ -109,7 +109,7 @@ json_attributes:
   required: false
   type: [string, list]
 json_path_attributes:
-  description: A [jsonpath](https://goessner.net/articles/JsonPath/) that refereances the location of the json_attributes in the JSON content.
+  description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
   required: false
   type: string
 force_update:
