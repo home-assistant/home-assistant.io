@@ -284,6 +284,7 @@ sensor:
     resource: https://jsonplaceholder.typicode.com/users
     value_template: '{{ value_json[0].name }}'
 ```
+
 {% endraw %}
 
 This sample fetches a weather report from [OpenWeatherMap](https://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
