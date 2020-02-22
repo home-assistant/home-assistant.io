@@ -459,7 +459,6 @@ For reference, the XML content of endpoint shown above example is below:
 	<ver>12556</ver>
 	<count>48</count>
 	<ssid>alexander</ssid>
-	
 	<bss>
 		<valid>0</valid>
 		<name>0</name>
@@ -467,7 +466,6 @@ For reference, the XML content of endpoint shown above example is below:
 		<wlan>0</wlan>
 		<strength>0</strength>
 	</bss>
-	
 	<led0>0</led0>
 	<led1>0</led1>
 	<led2>0</led2>
@@ -484,8 +482,5 @@ For reference, the XML content of endpoint shown above example is below:
 	<usr0>0</usr0>
 	<temp0>0x73XF0x73XF</temp0>
 	<time0> 0</time0>
-
-
-	
  </response>
 ```
