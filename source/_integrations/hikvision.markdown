@@ -58,6 +58,7 @@ and has been confirmed to work with the following models:
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
 - IPC-D140H(-M)
+- DS-7616NI-K2 (NVR)
 
 ## Configuration
 
@@ -97,7 +98,7 @@ port:
   type: integer
   default: 80
 ssl:
-  description: "`true` if you want to connect with https. Be sure to set the port also."
+  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
   required: false
   type: boolean
   default: false

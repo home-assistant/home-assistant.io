@@ -18,7 +18,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: HA entity ID.
+      description: Home Assistant entity ID.
       type: string
     state:
       required: false
@@ -38,7 +38,7 @@ card:
 
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
-### Examples
+## Examples
 
 ```yaml
 type: conditional

@@ -36,7 +36,7 @@ token:
 
 ## Generating a token
 
-A simple way to generate a `token` for a new sensor is to run this snippet of python code in your Home Assistant virtual environment:
+A simple way to generate a `token` for a new sensor is to run this snippet of Python code in your Home Assistant virtual environment:
 
 ```shell
 $ pip3 install pyotp

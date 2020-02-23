@@ -44,7 +44,7 @@ port_mapping:
   type: boolean
   default: false
 sensors:
-  description: If the integration should enable the UPNP sensors.
+  description: If the integration should enable the UPnP sensors.
   required: false
   type: boolean
   default: true

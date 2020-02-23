@@ -216,13 +216,27 @@ The following table shows the units of measurement for each attribute:
 
 ## Retrieving the Access Token
 
+### Xiaomi Home app (Xiaomi Aqara Gateway, android?)
+
+1. Install the Xiaomi Home app.
+2. Sign In/make an account.
+3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
+4. Select your Gateway in Xiaomi Home app.
+5. Then the 3 dots at the top right of the screen.
+6. Then click on about.
+7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
+8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
+9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+
+### Alternative methods
+
 <div class='note'>
 
 If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 <br/> <br/>
 The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
 <br/> <br/>
-After resetting the WiFi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
+After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
 <br/> <br/>
 These instructions are written for the Mi Home app - not for the new RoboRock app.
 <br/> <br/>
@@ -289,7 +303,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 ### Miio command line tool
 
-Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wifi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
+Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
 You can install the command line tool using the following command:
 

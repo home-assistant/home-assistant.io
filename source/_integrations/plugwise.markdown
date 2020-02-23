@@ -21,7 +21,7 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 ## Configuration
 
-You have to add the following to your configuration.yaml file:
+You have to add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry

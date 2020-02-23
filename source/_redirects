@@ -1,6 +1,9 @@
 # These redirects are handled by Netlify
 #
 
+# General use redirects
+/suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/en/creating_platform_index.html
@@ -370,7 +373,6 @@
 /components/device_tracker.unifi_direct /integrations/unifi_direct
 /components/device_tracker.upc_connect /integrations/upc_connect
 /components/device_tracker.volvooncall /integrations/volvooncall
-/components/device_tracker.xfinity /integrations/xfinity
 /components/device_tracker.xiaomi_miio /integrations/xiaomi_miio
 /components/fan.comfoconnect /integrations/comfoconnect
 /components/fan.dyson /integrations/dyson#fan
@@ -518,7 +520,6 @@
 /components/media_player.kodi /integrations/kodi
 /components/media_player.lg_netcast /integrations/lg_netcast
 /components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.liveboxplaytv /integrations/liveboxplaytv
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
 /components/media_player.mpchc /integrations/mpchc
@@ -682,7 +683,6 @@
 /components/sensor.dsmr /integrations/dsmr
 /components/sensor.dte_energy_bridge /integrations/dte_energy_bridge
 /components/sensor.dublin_bus_transport /integrations/dublin_bus_transport
-/components/sensor.duke_energy /integrations/duke_energy
 /components/sensor.dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/sensor.dweet /integrations/dweet#sensor
 /components/sensor.dyson /integrations/dyson#sensor
@@ -818,7 +818,6 @@
 /components/sensor.pocketcasts /integrations/pocketcasts
 /components/sensor.point /integrations/point#sensor
 /components/sensor.pollen /integrations/iqvia
-/components/sensor.postnl /integrations/postnl
 /components/sensor.prezzibenzina /integrations/prezzibenzina
 /components/sensor.pushbullet /integrations/pushbullet#sensor
 /components/sensor.pvoutput /integrations/pvoutput
@@ -976,7 +975,6 @@
 /components/switch.fibaro /integrations/fibaro
 /components/switch.flux /integrations/flux
 /components/switch.fritzbox /integrations/fritzbox
-/components/switch.fritzdect /integrations/fritzdect
 /components/switch.gc100 /integrations/gc100#switch
 /components/switch.hdmi_cec /integrations/hdmi_cec
 /components/switch.hikvisioncam /integrations/hikvisioncam
@@ -985,7 +983,6 @@
 /components/switch.homekit_controller /integrations/homekit_controller
 /components/switch.homematic /integrations/homematic
 /components/switch.homematicip_cloud /integrations/homematicip_cloud
-/components/switch.hook /integrations/hook
 /components/switch.hydrawise /integrations/hydrawise#switch
 /components/switch.ihc /integrations/ihc#switch
 /components/switch.insteon /integrations/insteon
@@ -1286,7 +1283,6 @@
 /components/dte_energy_bridge /integrations/dte_energy_bridge
 /components/dublin_bus_transport /integrations/dublin_bus_transport
 /components/duckdns /integrations/duckdns
-/components/duke_energy /integrations/duke_energy
 /components/dunehd /integrations/dunehd
 /components/dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/dweet /integrations/dweet
@@ -1370,7 +1366,6 @@
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/fritzdect /integrations/fritzdect
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -1424,7 +1419,6 @@
 /components/hikvision /integrations/hikvision
 /components/hikvisioncam /integrations/hikvisioncam
 /components/history /integrations/history
-/components/history_graph /integrations/history_graph
 /components/history_stats /integrations/history_stats
 /components/hitron_coda /integrations/hitron_coda
 /components/hive /integrations/hive
@@ -1436,7 +1430,6 @@
 /components/homematicip_cloud /integrations/homematicip_cloud
 /components/homeworks /integrations/homeworks
 /components/honeywell /integrations/honeywell
-/components/hook /integrations/hook
 /components/horizon /integrations/horizon
 /components/hp_ilo /integrations/hp_ilo
 /components/html5 /integrations/html5
@@ -1525,7 +1518,6 @@
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
 /components/litejet /integrations/litejet
-/components/liveboxplaytv /integrations/liveboxplaytv
 /components/llamalab_automate /integrations/llamalab_automate
 /components/local_file /integrations/local_file
 /components/locative /integrations/locative
@@ -1673,7 +1665,6 @@
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
-/components/owlet /integrations/owlet
 /components/owntracks /integrations/owntracks
 /components/panasonic_bluray /integrations/panasonic_bluray
 /components/panasonic_viera /integrations/panasonic_viera
@@ -1699,7 +1690,6 @@
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
 /components/polling /integrations/telegram_polling
-/components/postnl /integrations/postnl
 /components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
 /components/prometheus /integrations/prometheus
@@ -1997,7 +1987,6 @@
 /components/weather.darksky /integrations/weather.darksky
 /components/webhook /integrations/webhook
 /components/webhooks /integrations/telegram_webhooks
-/components/weblink /integrations/weblink
 /components/webostv /integrations/webostv
 /components/websocket_api /integrations/websocket_api
 /components/wemo /integrations/wemo
@@ -2016,7 +2005,6 @@
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
 /components/xeoma /integrations/xeoma
-/components/xfinity /integrations/xfinity
 /components/xiaomi /integrations/xiaomi
 /components/xiaomi_aqara /integrations/xiaomi_aqara
 /components/xiaomi_miio /integrations/xiaomi_miio
@@ -2050,18 +2038,41 @@
 /integrations/switch.pca /integrations/elv
 
 # App documentation
-/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+/ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
-/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
-/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
-/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
-/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
-/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
-/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
-/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
-/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
+/docs/ecosystem/ios/location https://companion.home-assistant.io/docs/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/docs/notifications/actionable-notifications
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/docs/notifications/notification-details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/docs/notifications/notification-attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/docs/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/docs/notifications/notification-sounds
+/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+
+# Add-ons
+/addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
+/addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
+/addons/configurator https://github.com/home-assistant/hassio-addons/blob/master/configurator/README.md
+/addons/dhcp_server https://github.com/home-assistant/hassio-addons/blob/master/dhcp_server/README.md
+/addons/dnsmasq https://github.com/home-assistant/hassio-addons/blob/master/dnsmasq/README.md
+/addons/duckdns https://github.com/home-assistant/hassio-addons/blob/master/duckdns/README.md
+/addons/git_pull https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md
+/addons/google_assistant https://github.com/home-assistant/hassio-addons/blob/master/google_assistant/README.md
+/addons/homematic https://github.com/home-assistant/hassio-addons/blob/master/homematic/README.md
+/addons/lets_encrypt https://github.com/home-assistant/hassio-addons/blob/master/letsencrypt/README.md
+/addons/mariadb https://github.com/home-assistant/hassio-addons/blob/master/mariadb/README.md
+/addons/mosquitto https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md
+/addons/nginx_proxy https://github.com/home-assistant/hassio-addons/blob/master/nginx_proxy/README.md
+/addons/rpc_shutdown https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md
+/addons/samba https://github.com/home-assistant/hassio-addons/blob/master/samba/README.md
+/addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
+/addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
+/addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
+
+# Lovelace documentation
+/lovelace/entity-button /lovelace/button

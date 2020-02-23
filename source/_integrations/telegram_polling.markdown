@@ -40,7 +40,7 @@ parse_mode:
   type: string
   default: "`markdown`"
 proxy_url:
-  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`).
+  description: Proxy URL if working behind one (`socks5://proxy_ip:proxy_port`).
   required: false
   type: string
 proxy_params:

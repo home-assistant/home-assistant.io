@@ -57,7 +57,7 @@ Switch entities will report back their state; other properties are available via
 - `On` for **Override** \ **On**, and
 - `Off` otherwise (NB: the zone could still be 'on', e.g. with **Timer** mode)
 
-Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behaviour you are expecting.
+Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behavior you are expecting.
 
 Individual smart plugs are not yet exposed as switches - you can create one zone per smart plug as a work-around.
 
@@ -161,7 +161,7 @@ value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file.
+To set up this integration, add one of the following to your `configuration.yaml` file.
 
 If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved. This assumes that the correct MAC address is provided for Option 2, below. If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
 

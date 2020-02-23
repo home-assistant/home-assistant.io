@@ -45,7 +45,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a configuration entry.
 
 You can manually add deCONZ by going to the integrations page.
 
@@ -63,7 +63,7 @@ logger:
 
 ## Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D). 
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D).
 
 ## Device services
 
@@ -73,11 +73,11 @@ Available services: `configure` and `deconz.device_refresh`.
 
 Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
-| Service data attribute | Optional | Description |
-|-----------|----------|-------------|
-| `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
-| `data` | No | Data is a JSON object with what data you want to alter. |
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `field`                | No       | String representing a specific device in deCONZ.                            |
+| `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
+| `data`                 | No       | Data is a JSON object with what data you want to alter.                     |
 
 Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
@@ -109,12 +109,12 @@ Remote controls (ZHASwitch category) will not be exposed as regular entities, bu
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
-| Switch code | Description |
-|-------------|-------------|
-| 1XXX | Button #1 up to #8 |
-| XXX1 | Button hold |
-| XXX2 | Button short release |
-| XXX3 | Button long release |
+| Switch code | Description          |
+| ----------- | -------------------- |
+| 1XXX        | Button #1 up to #8   |
+| XXX1        | Button hold          |
+| XXX2        | Button short release |
+| XXX3        | Button long release  |
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
@@ -122,17 +122,17 @@ For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 f
 
 Specific gestures for the Aqara Magic Cube are:
 
-| Gesture | Description |
-|---------|-------------|
-| 0 | Awake |
-| 1 | Shake |
-| 2 | Free fall |
-| 3 | Flip 90 |
-| 4 | Flip 180 |
-| 5 | Move on any side |
-| 6 | Double tap on any side |
-| 7 | Turn clockwise |
-| 8 | Turn counter clockwise |
+| Gesture | Description            |
+| ------- | ---------------------- |
+| 0       | Awake                  |
+| 1       | Shake                  |
+| 2       | Free fall              |
+| 3       | Flip 90                |
+| 4       | Flip 180               |
+| 5       | Move on any side       |
+| 6       | Double tap on any side |
+| 7       | Turn clockwise         |
+| 8       | Turn counter clockwise |
 
 ### Finding your events
 
@@ -230,9 +230,9 @@ automation:
 
 {% endraw %}
 
-### Appdaemon
+### AppDaemon
 
-#### Appdaemon event helper
+#### AppDaemon event helper
 
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
@@ -277,7 +277,7 @@ class DeconzHelper(hass.Hass):
 
 Note: the event will not be visible before one event gets sent.
 
-#### Appdaemon remote template
+#### AppDaemon remote template
 
 {% raw %}
 
@@ -313,9 +313,9 @@ class RemoteControl(hass.Hass):
 
 {% endraw %}
 
-#### Appdaemon remote template
+#### AppDaemon IKEA Tradfri remote template
 
-Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
+Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
 {% raw %}
 
@@ -402,7 +402,7 @@ Note that devices in the climate platform identify as sensors, so there is a man
 
 The `entity_id` name will be `climate.device_name`, where `device_name` is defined in deCONZ.
 
-#### Verified supported climate devices
+### Verified supported climate devices
 
 - Bitron Thermostat 902010/32
 - Eurotronic SPZB0001
@@ -443,8 +443,8 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue White Ambiance A19
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Philips Hue LightStrip Plus
-- Busch Jaeger ZigBee Light Link univ. relai (6711 U) with ZigBee Light Link control element 6735-84
-- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM 
+- Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
+- Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
 
 ## Scene
 
@@ -484,24 +484,24 @@ The `entity_id` name will be `sensor.device_name`, where `device_name` is define
 
 ### deCONZ Daylight Sensor
 
-The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from https://github.com/mourner/suncalc, on which the deCONZ implementation is based):
+The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from <https://github.com/mourner/suncalc>, on which the deCONZ implementation is based):
 
-| Sensor State | Description |
-|--------------|-------------|
-| sunrise_start | sunrise (top edge of the sun appears on the horizon) |
-| sunrise_end | sunrise ends (bottom edge of the sun touches the horizon) |
-| golden_hour_1 | morning golden hour (soft light, the best time for photography) |
-| solar_noon | solar noon (sun is in the highest position) |
-| golden_hour_2 | evening golden hour |
-| sunset_start | sunset starts (bottom edge of the sun touches the horizon) |
-| sunset_end | sunset (sun disappears below the horizon, evening civil twilight starts) |
-| dusk | dusk (evening nautical twilight starts) |
-| nautical_dusk | nautical dusk (evening astronomical twilight starts) |
-| night_start | night starts (dark enough for astronomical observations) |
-| nadir | nadir (darkest moment of the night, the sun is in the lowest position) |
-| night_end | night ends (morning astronomical twilight starts) |
-| nautical_dawn | nautical dawn (morning nautical twilight starts) |
-| dawn | dawn (morning nautical twilight ends, morning civil twilight starts) |
+| Sensor State  | Description                                                              |
+| ------------- | ------------------------------------------------------------------------ |
+| sunrise_start | sunrise (top edge of the sun appears on the horizon)                     |
+| sunrise_end   | sunrise ends (bottom edge of the sun touches the horizon)                |
+| golden_hour_1 | morning golden hour (soft light, the best time for photography)          |
+| solar_noon    | solar noon (sun is in the highest position)                              |
+| golden_hour_2 | evening golden hour                                                      |
+| sunset_start  | sunset starts (bottom edge of the sun touches the horizon)               |
+| sunset_end    | sunset (sun disappears below the horizon, evening civil twilight starts) |
+| dusk          | dusk (evening nautical twilight starts)                                  |
+| nautical_dusk | nautical dusk (evening astronomical twilight starts)                     |
+| night_start   | night starts (dark enough for astronomical observations)                 |
+| nadir         | nadir (darkest moment of the night, the sun is in the lowest position)   |
+| night_end     | night ends (morning astronomical twilight starts)                        |
+| nautical_dawn | nautical dawn (morning nautical twilight starts)                         |
+| dawn          | dawn (morning nautical twilight ends, morning civil twilight starts)     |
 
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 

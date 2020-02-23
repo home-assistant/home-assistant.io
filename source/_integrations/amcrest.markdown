@@ -9,6 +9,8 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.49
+ha_codeowners:
+  - '@pnbruckner'
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
@@ -85,8 +87,8 @@ ffmpeg_arguments:
   default: -pred 1
 authentication:
   description: >
-    Defines which authentication method to use only when **stream_source**
-    is **mjpeg**. Currently, *aiohttp* only support *basic*.
+    Defines which authentication method to use only when `stream_source`
+    is `mjpeg`. Currently, `aiohttp` only support `basic`.
   required: false
   type: string
   default: basic
@@ -133,12 +135,12 @@ control_light:
 stream `high` definition video with MJPEG encoding. You may need to use `low`
 resolution stream or the `snapshot` stream source instead.  If the quality seems
 too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
-your camera's configuration manager. If you defined the *stream_source* to
-**mjpeg**, make sure your camera supports *Basic* HTTP authentication.
-Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
+your camera's configuration manager. If you defined the `stream_source` to
+`mjpeg`, make sure your camera supports `Basic` HTTP authentication.
+Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 
 **Note:** If you set the `stream_source` option to `rtsp`,
-make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/)
+make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
 ## Services

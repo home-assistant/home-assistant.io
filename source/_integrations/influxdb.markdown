@@ -60,12 +60,12 @@ database:
   default: home_assistant
 ssl:
   type: boolean
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
 verify_ssl:
   type: boolean
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTPS request.
   required: false
   default: true
 max_retries:
@@ -212,12 +212,12 @@ password:
   required: false
   type: string
 ssl:
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
   type: boolean
 verify_ssl:
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTP request.
   required: false
   default: false
   type: boolean

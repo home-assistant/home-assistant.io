@@ -108,7 +108,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/integrations/logger) to monitor the [http component](/integrations/http/) at least the `warning` level.
+Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works

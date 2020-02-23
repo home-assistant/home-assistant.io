@@ -10,7 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ---
 
-You can enable the Cast integration by going to the Integrations page inside the config panel.
+You can enable the Cast integration by going to the Integrations page inside the configuration panel.
 
 ## Home Assistant Cast
 

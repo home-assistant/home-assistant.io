@@ -16,6 +16,8 @@ Currently, the supported features are:
 - Attributes
   - carbon_dioxide_equivalent
   - total_volatile_organic_compounds
+  - temperature
+  - humidity
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 

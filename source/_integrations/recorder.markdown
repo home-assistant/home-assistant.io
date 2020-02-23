@@ -31,6 +31,16 @@ recorder:
       description: The URL that points to your database.
       required: false
       type: string
+    db_max_retries:
+      description: The max amount of times, the recorder retries to connect to the database.
+      required: false
+      default: 10
+      type: integer
+    db_retry_wait:
+      description: The time in seconds, that the recorder sleeps when trying to connect to the database.
+      required: false
+      default: 3
+      type: integer
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -54,6 +64,10 @@ recorder:
           description: The list of entity ids to be excluded from recordings.
           required: false
           type: list
+        event_types:
+          description: The list of event types to be excluded from recordings.
+          required: false
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -69,7 +83,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
+Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -79,12 +93,13 @@ recorder:
   exclude:
     domains:
       - automation
-      - weblink
       - updater
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+    event_types:
+      - call_service # Don't record service calls
 ```
 
 define domains and entities to record by using the `include` configuration (aka. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
@@ -149,7 +164,7 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base docker image, and is not necessary for this to work.
+If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base Docker image, and is not necessary for this to work.
 
 </div>
 
@@ -173,7 +188,8 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service

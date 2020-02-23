@@ -45,7 +45,7 @@ secret_key:
   required: true
   type: string
 secure:
-  description: Whether to use http or https connection
+  description: Whether to use HTTP or HTTPS connection
   required: true
   type: boolean
   default: false

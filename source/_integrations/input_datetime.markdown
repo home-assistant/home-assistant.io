@@ -119,34 +119,39 @@ automation:
 To dynamically set the `input_datetime` you can call
 `input_datetime.set_datetime`. The values for `date` and `time` must be in a certain format for the call to be successful. (See service description above.)
 If you have a `datetime` object you can use its `strftime` method. Of if you have a timestamp you can use the `timestamp_custom` filter.
-The following example can be used in an automation rule:
+The following example shows the different methods in an automation rule:
 
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
-# Sets input_datetime to '05:30' when an input_boolean is turned on.
+# Shows different ways to set input_datetime when an input_boolean is turned on
 automation:
   trigger:
     platform: state
     entity_id: input_boolean.example
     to: 'on'
   action:
+  # Sets time to '05:30:00
   - service: input_datetime.set_datetime
     entity_id: input_datetime.bedroom_alarm_clock_time
     data:
       time: '05:30:00'
+   # Sets time to time from datetime object (current time in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_time
     data_template:
       time: "{{ now().strftime('%H:%M:%S') }}"
+  # Sets date to date from timestamp (current date in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_date
     data_template:
       date: "{{ as_timestamp(now())|timestamp_custom('%Y-%m-%d') }}"
+  # Sets date and time to date and time from datetime object (current date and time in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.date_and_time
     data_template:
       datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+  # Sets date and time to date and time from timestamp (current date and time in this example)
   - service: input_datetime.set_datetime
     data_template:
       entity_id: input_datetime.date_and_time

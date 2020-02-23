@@ -144,7 +144,7 @@ Puts the thermostat into an indefinite hold at the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | Desired target temperature (when not in auto mode)
 
 Only the target temperatures relevant for the current operation mode need to
@@ -156,7 +156,7 @@ Sets the thermostat's preset mode. Without a preset mode set it run the thermost
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.
 | `hold_mode` | no | New value of hold mode.
 
 ### Service `nuheat.resume_program`
@@ -165,4 +165,4 @@ Resumes the currently active schedule.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.

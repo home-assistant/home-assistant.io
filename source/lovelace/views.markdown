@@ -22,7 +22,7 @@ views:
       type: string
     badges:
       required: false
-      description: List of entities IDs or `badge` objects to display as badges.
+      description: List of entities IDs or `badge` objects to display as badges. Note that badges do not show when view is in panel mode.
       type: list
     cards:
       required: false
@@ -57,20 +57,9 @@ views:
       default: true
 {% endconfiguration %}
 
-## Options For Visible
-
-If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
-  type: string
-{% endconfiguration %}
-
 #### Example
 
-View config:
+View configuration:
 
 ```yaml
 - title: Living room
@@ -83,13 +72,13 @@ View config:
       image: /local/lights.png
 ```
 
-## Paths
+## Path
 
-You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
+You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
-### Example
+#### Example
 
-View config:
+View configuration:
 
 ```yaml
 - title: Living room
@@ -97,7 +86,7 @@ View config:
   path: living_room
 ```
 
-Picture card config:
+Picture card configuration:
 
 ```yaml
 - type: picture
@@ -107,11 +96,11 @@ Picture card config:
     navigation_path: /lovelace/living_room
 ```
 
-## Icons
+## Icon
 
 If you define an icon the title will be used as a tool-tip.
 
-### Example
+#### Example
 
 ```yaml
 - title: Garden
@@ -120,9 +109,9 @@ If you define an icon the title will be used as a tool-tip.
 
 ## Visible
 
-You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The url path is still accessible)
+You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The URL path is still accessible)
 
-### Example
+#### Example
 
 ```yaml
 views:
@@ -141,12 +130,22 @@ views:
     cards:
       ...
 ```
+### Options For Visible
 
-## Panel mode
+If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
-This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  type: string
+{% endconfiguration %}
 
-### Example
+## Panel
+
+Setting panel true sets the view to panel mode. In this mode the first card is rendered full-width, other cards in the view will not be rendered. This mode is good when using cards like `map`, `stack` or `picture-elements`. Note that badges will not appear in Panel Mode.
+
+#### Example
 
 ```yaml
 - title: Map
@@ -158,18 +157,18 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## Themes
+## Theme
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
-### Example
+#### Example
 
 ```yaml
 - title: Home
   theme: happy
 ```
 
-### Background
+## Background
 
 You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
