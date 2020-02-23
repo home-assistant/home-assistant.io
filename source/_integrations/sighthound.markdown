@@ -14,7 +14,7 @@ Detect people in camera images using [Sighthound Cloud](https://www.sighthound.c
 
 This integration adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person. 
 
-If `save_file_folder` is configured, on each new detection of a person an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesnt already exist, and over-written if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [local_file](https://www.home-assistant.io/integrations/local_file/) camera, and used in notifications.
+If `save_file_folder` is configured, on each new detection of a person an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and over-written if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [local_file](https://www.home-assistant.io/integrations/local_file/) camera, and used in notifications.
 
 **Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service e.g. using an automation triggered by motion.
 
