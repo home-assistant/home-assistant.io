@@ -5,6 +5,7 @@ logo: august.png
 ha_category:
   - Doorbell
   - Binary Sensor
+  - Sensor 
   - Camera
   - Lock
 ha_release: 0.64
@@ -17,6 +18,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Doorbell
 - Binary Sensor
+- Sensor
 - Camera
 - Lock
 
@@ -75,3 +77,17 @@ If you have August Smart Lock with DoorSense, once you have enabled the August c
 ### Camera
 
 The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](https://august.com/) device in Home Assistant.
+
+### Sensor
+
+If you have August Doorbell with a battery, once you have enabled the August component, you should see following sensors:
+
+- Doorbell Battery
+
+If you have August Smart Lock, once you have enabled the August component, you should see the following sensors:
+
+- Lock Battery
+
+If you have August Keypad, once you have enabled the August component, you should see the following sensors:
+
+- Keypad Battery
