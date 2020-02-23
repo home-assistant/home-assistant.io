@@ -19,7 +19,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/va
 
 ## Configuration
 
-To add the xiaomi gateway alarm to your installation, add the following to your `configuration.yaml` file:
+To add the Xiaomi gateway alarm to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entries
@@ -31,15 +31,15 @@ alarm_control_panel:
 
 {% configuration %}
 host:
-  description: The IP address of your xiaomi gateway.
+  description: The IP address of your Xiaomi gateway.
   required: true
   type: string
 token:
-  description: The API token of your xiaomi gateway.
+  description: The API token of your Xiaomi gateway.
   required: true
   type: string
 name:
-  description: The name of your xiaomi gateway.
+  description: The name of your Xiaomi gateway.
   required: false
   type: string
   default: Xiaomi Gateway Alarm
