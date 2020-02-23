@@ -64,13 +64,13 @@ Once Home Assistant is started, a configurator will pop up asking you to enter v
 
 ### Binary Sensor
 
-If you have August Doorbell, once you have enabled the August component, you should see following sensors:
+If you have an August Doorbell, once you have enabled the August component, you should see following sensors:
 
 - Doorbell ding sensor
 - Doorbell motion sensor
 - Doorbell online sensor
 
-If you have August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
+If you have an August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
 
 - Door sensor
 
@@ -80,14 +80,14 @@ The `august` camera platform allows you to view the latest camera image (trigger
 
 ### Sensor
 
-If you have August Doorbell with a battery, once you have enabled the August component, you should see following sensors:
+If you have an August Doorbell with a battery, once you have enabled the August component, you should see the following sensors:
 
 - Doorbell Battery
 
-If you have August Smart Lock, once you have enabled the August component, you should see the following sensors:
+If you have an August Smart Lock, once you have enabled the August component, you should see the following sensors:
 
 - Lock Battery
 
-If you have August Keypad, once you have enabled the August component, you should see the following sensors:
+If you have an August Keypad, once you have enabled the August component, you should see the following sensors:
 
 - Keypad Battery
