@@ -196,7 +196,6 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `odroid-c2`
 - `odroid-cu2`
 - `odroid-xu`
-- `orangepi-prime`
 - `tinker`
 - `qemuarm`
 - `qemuarm-64`
