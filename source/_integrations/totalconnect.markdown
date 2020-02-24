@@ -31,7 +31,9 @@ The TotalConnect API has limited zone type information.  Home Assistant device c
 
 ## Configuration
 
-To enable TotalConnect, add the following lines to your `configuration.yaml`:
+To enable TotalConnect via the user interface, go to Configuration > Integrations > the "plus" button > Total Connect.
+
+To enable TotalConnect via `configuration.yaml` add the following lines:
 
 ```yaml
 totalconnect:
@@ -40,10 +42,6 @@ totalconnect:
 ```
 
 {% configuration %}
-name:
-  description: Name of device in Home Assistant.
-  required: false
-  type: string
 username:
   description: Username used to sign into the TotalConnect app/web client.
   required: true
