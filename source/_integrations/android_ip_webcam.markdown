@@ -103,6 +103,8 @@ switches:
       description: Control the focus.
     gps_active:
       description: Control the GPS.
+    motion_detection:
+      description: Control the motion detector.
     night_vision:
       description: Control the night vision.
     overlay:
