@@ -1,10 +1,14 @@
 ---
-title: "Plugwise"
-description: "Plugwise Climate integration."
+title: Plugwise Anna
+description: Plugwise Climate integration.
 logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
 ha_release: 0.98
+ha_codeowners:
+  - '@laetificat'
+  - '@CoMPaTech'
+  - '@bouwew'
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -17,7 +21,7 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 ## Configuration
 
-You have to add the following to your configuration.yaml file:
+You have to add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry
@@ -26,6 +30,7 @@ climate:
     password: YOUR_SHORT_IP 
     host: YOUR_SMILE_LOCAL_IP
 ```
+**Please note**: for a legacy Anna (firmware 1.8.x) an additional line is required, see below, this line is not needed for a more recent Anna (firmware 3.1.x).
 
 {% configuration %}
 password:
@@ -51,6 +56,11 @@ port:
   required: false
   type: integer
   default: 80
+legacy_anna:
+  description: Indicate that the Anna is a legacy unit
+  required: false
+  type: boolean
+  default: false
 min_temp:
   description: If you want to adjust the lower boundary, the integration will not allow temperatures below the set value.
   required: false
@@ -72,6 +82,7 @@ climate:
     password: YOUR_SHORT_ID
     host: YOUR_SMILE_LOCAL_IP
     port: YOUR_SMILE_PORT_NUMBER
+    legacy_anna: true
     min_temp: YOUR_MINIMAL_TARGET_TEMPERATURE
     max_temp: YOUR_MAXIMAL_TARGET_TEMPERATURE
 ```

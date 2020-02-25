@@ -19,7 +19,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is need if you want to use Alexa Custom Skill API. Part of your Alexa Custom Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
-- The Alexa Custom Skill API also needs your Home Assistant instance can be accessed from Internet. We strongly suggest you host HTTPS server and use validation certificate. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Custom Skill API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport), this is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 
 ### Create Your Amazon Alexa Custom Skill
 
@@ -28,7 +28,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 - Click the yellow "Add a new skill" button in the top right
   - Skill Type: Custom Interaction Model (default)
   - Name: Home Assistant
-  - Invocation name: home assistant (or be creative, up to you)
+  - Invocation name: `home assistant` (or be creative, up to you)
   - Version: 1.0
   - Endpoint: This will be the ARN for the Lambda Function you will create next.
 
@@ -40,7 +40,7 @@ The Alexa Custom skill will trigger a AWS Lambda function to process the request
 
 OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need worry the cost if your account has already passed the first 12 months, AWS provides up to 1 million Lambda requests, 1GB of outbound data and unlimited inbound data for free every month for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 
-#### Create an IAM Role for Lambda 
+#### Create an IAM Role for Lambda
 
 The first thing you need to do after you sign in to the [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, you have to explicitly define and assign the permissions.
 
@@ -61,23 +61,23 @@ Next you need to create a Lambda function.
 
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
 - **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
-  * **US East (N.Virginia)** region for English (US) or English (CA) skills
-  * **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
-  * **US West (Oregon)** region for Japanese and English (AU) skills. 
+  - **US East (N.Virginia)** region for English (US) or English (CA) skills
+  - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
+  - **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
-- Click `Create function`, then you can config detail of Lambda function.
+- Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
 - Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from: [https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da)
 - Scroll down again and you will find `Environment variables`, add the following environment variables as needed:
-  * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
-  * NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
-  * DEBUG *(optional)*: set to *True* to log debugging messages.
-  * LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.) 
+  - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
+  - NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
+  - DEBUG *(optional)*: set to *True* to log debugging messages.
+  - LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 
 <p class='img'>
   <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
@@ -93,19 +93,20 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Sign in to the [Alexa Developer Console][alexa-dev-console] and go to the `Alexa Skills` page.
 - Find the skill you just created and click `Edit` in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
-- Input all information required. Assuming your Home Assistant can be accessed by https://[YOUR HOME ASSISTANT URL:PORT]
-  * `Authorization URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize
-  * `Access Token URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/token
-  * `Client ID`:
-    - https://pitangui.amazon.com/ if you are in US
-    - https://layla.amazon.com/ if you are in EU
-    - https://alexa.amazon.co.jp/ if you are in JP or AU
-    
+- Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
+  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
+  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
+    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
+  - `Client ID`:
+    - `https://pitangui.amazon.com/` if you are in US
+    - `https://layla.amazon.com/` if you are in EU
+    - `https://alexa.amazon.co.jp/` if you are in JP or AU
+
     The trailing slash is important here.
 
-  * `Client Secret`: input anything you like, Home Assistant does not check this field
-  * `Client Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
-  * `Scope`: input `intent`. Home Assistant doesn't use this yet, we may use it in the future when we allow more fine-grained access control.
+  - `Client Secret`: input anything you like, Home Assistant does not check this field
+  - `Client Authentication Scheme`: make sure you selected *Credentials in request body*. Home Assistant does not support *HTTP Basic*.
+  - `Scope`: input `intent`. Home Assistant doesn't use this yet, we may use it in the future when we allow more fine-grained access control.
 - You can leave `Domain List` and `Default Access Token Expiration Time` as empty.
 
 <p class='img'>
@@ -114,11 +115,11 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 
 - Click `Save` button in the top right corner.
 - Next, you will use the Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
-  * Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
-  * Click the Custom skill you just created.
-  * Click `Enable`.
-  * A new window will open to direct you to your Home Assistant's login screen.
-  * After you successfully login, you will be redirected back to Alexa app.
+  - Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
+  - Click the Custom skill you just created.
+  - Click `Enable`.
+  - A new window will open to direct you to your Home Assistant's login screen.
+  - After you successfully login, you will be redirected back to Alexa app.
 
 ### Configuring your Amazon Alexa skill
 
@@ -210,7 +211,7 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your `intent_script` section in your HA configuration file:
 
 ```yaml
 intent_script:
@@ -258,7 +259,7 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your intent_script section in your HA configuration file:
 
 ```yaml
 intent_script:
@@ -287,6 +288,7 @@ To start, you need to get the skill id:
   - Click the "View Skill ID" link and copy the ID
 
 The configuration is the same as an intent with the exception being you will use your skill ID instead of the intent name.
+
 ```yaml
 intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
@@ -338,7 +340,6 @@ text: !include alexa_confirm.yaml
 ```
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
-
 
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png

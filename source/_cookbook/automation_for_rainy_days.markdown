@@ -17,7 +17,7 @@ automation:
         to: 'rain'
     condition:
       - condition: state
-        entity_id: group.all_devices
+        entity_id: all
         state: 'home'
       - condition: time
         after: '14:00'

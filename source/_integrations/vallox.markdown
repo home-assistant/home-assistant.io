@@ -1,6 +1,6 @@
 ---
-title: "Vallox Ventilation Units"
-description: "Instructions on how to integrate Vallox ventilation units into Home Assistant."
+title: Valloxs
+description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
 logo: vallox.png
 ha_category:
   - Fan

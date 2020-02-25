@@ -1,6 +1,6 @@
 ---
-title: "D-Link Switch"
-description: "Instructions on how to integrate D-Link switches into Home Assistant."
+title: D-Link Wi-Fi Smart Plugs
+description: Instructions on how to integrate D-Link switches into Home Assistant.
 logo: dlink.png
 ha_category:
   - Switch

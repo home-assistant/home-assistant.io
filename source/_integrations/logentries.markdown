@@ -1,6 +1,6 @@
 ---
-title: "Logentries"
-description: "Send events to Logentries."
+title: Logentries
+description: Send events to Logentries.
 logo: logentries.png
 ha_category:
   - History
@@ -25,4 +25,3 @@ token:
   required: true
   type: string
 {% endconfiguration %}
-

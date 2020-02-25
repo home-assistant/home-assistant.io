@@ -1,15 +1,18 @@
 ---
-title: "MQTT Brokers"
-description: "Instructions on how to setup MQTT brokers for Home Assistant."
+title: "MQTT Broker"
+description: "Instructions on how to setup a MQTT broker for Home Assistant."
 logo: mqtt.png
 ---
 
-The MQTT integration needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
+The MQTT integration needs you to run an MQTT broker for Home Assistant to connect to.
 
 ### Run your own
 
-This is the most private option, but it requires a little bit of work to setup. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
-For hass.io users, the recommended setup method is to use the [Mosquitto MQTT broker addon](/addons/mosquitto).
+This is the most private option, is running your own MQTT broker.
+
+The recommended setup method is to use the [Mosquitto MQTT broker add-on](/addons/mosquitto).
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +51,7 @@ protocol:
   type: string
 certificate:
   required: false
-  description: Path to the certificate file, e.g., `/home/user/.homeassistant/server.crt`.
+  description: Path to the certificate file, e.g., `/ssl/server.crt`.
   type: string
 tls_insecure:
   required: false
@@ -60,26 +63,6 @@ tls_version:
   description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
   type: string
 {% endconfiguration %}
-
-<div class='note warning'>
-
-There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
-
-If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'` then you need to set `tls_version: '1.2'`.
-
-</div>
-
-<div class='note'>
-
-If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
-
-```txt
-[Unit]
-Description=Home Assistant
-After=network.target mosquitto.service
-```
-
-</div>
 
 <div class='note'>
 
@@ -142,14 +125,14 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
 
-| Setting        | Value |
-| -------------- | ----- |
-| Host           | localhost |
-| Port           | 1883 |
-| Protocol       | 3.1.1 |
-| User           | homeassistant |
-| Password       | _password set under mqtt settings_ |
-| Websocket port | 8080 |
+| Setting        | Value                              |
+| -------------- | ---------------------------------- |
+| Host           | localhost                          |
+| Port           | 1883                               |
+| Protocol       | 3.1.1                              |
+| User           | `homeassistant`                    |
+| Password       | _password set under MQTT settings_ |
+| Websocket port | 8080                               |
 
 ```yaml
 # Example configuration.yaml entry
@@ -159,10 +142,6 @@ mqtt:
 
 <div class='note warning'>
 As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
-</div>
-
-<div class='note'>
-Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
 </div>
 
 <div class='note warning'>

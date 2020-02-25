@@ -1,6 +1,6 @@
 ---
-title: AfterShip Sensor
-description: "Instructions on how to set up AfterShip sensors within Home Assistant."
+title: AfterShip
+description: Instructions on how to set up AfterShip sensors within Home Assistant.
 logo: aftership.png
 ha_category:
   - Postal Service
@@ -14,7 +14,7 @@ The sensor value shows the number of packages that are not in `Delivered` state.
 
 ## Setup
 
-To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://secure.aftership.com/#/settings/api) page, and copy existing key or generate a new one.
+To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://admin.aftership.com/settings/api-keys) page, and copy existing key or generate a new one.
 
 <div class='note info'>
 AfterShip recently started requiring having a credit card on file even if you are only using the free plan. That does not change the functionality of the platform, just something to be aware of.
@@ -44,7 +44,7 @@ api_key:
 
 ## Service `add_tracking`
 
- You can use the service `aftership.add_tracking` to add trackings to Aftership.
+ You can use the service `aftership.add_tracking` to add trackings to AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
@@ -54,7 +54,7 @@ api_key:
 
 ## Service `remove_tracking`
 
- You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
+ You can use the service `aftership.remove_tracking` to remove trackings from AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |

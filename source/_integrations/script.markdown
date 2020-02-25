@@ -1,11 +1,13 @@
 ---
-title: "Scripts"
-description: "Instructions on how to setup scripts within Home Assistant."
+title: Scripts
+description: Instructions on how to setup scripts within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
@@ -34,6 +36,10 @@ Script names (e.g., `message_temperature` in the example above) are not allowed 
 {% configuration %}
 alias:
   description: Friendly name for the script.
+  required: false
+  type: string
+icon:
+  description: Icon for the script.
   required: false
   type: string
 description:
@@ -65,10 +71,13 @@ sequence:
 
 ### Full Configuration
 
+{% raw %}
+
 ```yaml
 script: 
   wakeup:
     alias: Wake Up
+    icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
     fields:
       minutes:
@@ -95,6 +104,8 @@ script: 
         data:
           entity_id: group.living_room
 ```
+
+{% endraw %}
 
 ### Passing variables to scripts
 

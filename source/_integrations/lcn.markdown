@@ -1,6 +1,6 @@
 ---
-title: "LCN"
-description: "Instructions on how to integrate LCN components with Home Assistant."
+title: LCN
+description: Instructions on how to integrate LCN components with Home Assistant.
 logo: lcn.png
 ha_category:
   - Hub
@@ -13,6 +13,8 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@alengwenus'
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -42,7 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one IP/port with login credentials for a PCHK host.
-Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
+Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
 ```yaml
 lcn:
@@ -575,12 +577,12 @@ data:
 
 ### Service `led`
 
-Set the led status.
+Set the LED status.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | Led state as string | [LED_STATE](#states) |
+| `state` | No | LED state as string | [LED_STATE](#states) |
 
 Example:
 

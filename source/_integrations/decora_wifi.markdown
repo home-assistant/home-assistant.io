@@ -1,6 +1,6 @@
 ---
-title: "Leviton Decora Wi-Fi"
-description: "Instructions on how to setup Leviton Decora Smart Wi-Fi switches/dimmers within Home Assistant."
+title: Leviton Decora Wi-Fi
+description: Instructions on how to setup Leviton Decora Smart Wi-Fi switches/dimmers within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Cloud Polling
@@ -35,4 +35,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-

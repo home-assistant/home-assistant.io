@@ -1,6 +1,6 @@
 ---
-title: "HTTP"
-description: "Offers a web framework to serve files."
+title: HTTP
+description: Offers a web framework to serve files.
 logo: http.png
 ha_category:
   - Other
@@ -8,7 +8,9 @@ ha_category:
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
@@ -20,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-Don't use option `server_host` on a Hass.io installation!
+The option option `server_host` should only be used on a Home Assistant Core installation!
 
 </div>
 
@@ -30,10 +32,6 @@ http:
 ```
 
 {% configuration %}
-api_password:
-  description: "**Deprecated since 0.90 release. Configuration moved to [Legacy API password auth provider](/docs/authentication/providers/#legacy-api-password).** Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation."
-  required: false
-  type: string
 server_host:
   description: "Only listen to incoming requests on specific IP/host. By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6."
   required: false
@@ -164,6 +162,12 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
+<div class='note warning'>
+
+  Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+
+</div>
+
 ## Binary Sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
@@ -218,13 +222,17 @@ In this section you'll find some real-life examples of how to use this sensor, b
 
 #### Using Python request module
 
-As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org//en/latest/) module for the interaction with Home Assistant.
+As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org/en/latest/) module for the interaction with Home Assistant.
 
 ```python
 response = requests.post(
-        'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
-        data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
+    "http://localhost:8123/api/states/binary_sensor.radio",
+    headers={
+        "Authorization": "Bearer LONG_LIVED_ACCESS_TOKEN",
+        "content-type": "application/json",
+    },
+    data=json.dumps({"state": "on", "attributes": {"friendly_name": "Radio"}}),
+)
 print(response.text)
 ```
 

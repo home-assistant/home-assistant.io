@@ -1,6 +1,6 @@
 ---
-title: "FleetGO"
-description: "Instructions on how to use a FleetGO as a device tracker."
+title: FleetGO
+description: Instructions on how to use a FleetGO as a device tracker.
 logo: fleetgo.png
 ha_category:
   - Car

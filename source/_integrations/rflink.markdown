@@ -1,6 +1,6 @@
 ---
-title: "RFLink"
-description: "Instructions on how to integrate RFLink gateway into Home Assistant."
+title: RFLink
+description: Instructions on how to integrate RFLink gateway into Home Assistant.
 logo: rflink.png
 ha_category:
   - Hub
@@ -48,7 +48,7 @@ wait_for_ack:
   default: true
   type: boolean
 ignore_devices:
-  description: List of device id's to ignore. Supports wildcards (`*`) at the end.
+  description: List of device id's to ignore. Supports wildcards (`*`, `?`).
   required: false
   type: [list, string]
 reconnect_interval:
@@ -85,7 +85,7 @@ Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-
 
 <div class='note warning'>
 
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Philips Living Colors)
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
 
 </div>
 
@@ -137,10 +137,6 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
-<div class='note'>
-Wildcards only work at the end of the ID, not in the middle or front!
-</div>
-
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
@@ -158,7 +154,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### Debug Logging
 
-For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following config snippet:
+For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following configuration snippet:
 
 ```yaml
 logger:

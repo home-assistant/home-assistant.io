@@ -1,6 +1,6 @@
 ---
-title: "DD-WRT"
-description: "Instructions on how to integrate DD-WRT based routers into Home Assistant."
+title: DD-WRT
+description: Instructions on how to integrate DD-WRT based routers into Home Assistant.
 logo: ddwrt.png
 ha_category:
   - Presence Detection
@@ -44,7 +44,7 @@ verify_ssl:
   type: boolean
   default: true
 wireless_only:
-  description: Whether to only list devices that are connected directly to the router via WiFi or include those connected via Ethernet or other networked access points as well.
+  description: Whether to only list devices that are connected directly to the router via Wi-Fi or include those connected via Ethernet or other networked access points as well.
   required: false
   type: boolean
   default: true

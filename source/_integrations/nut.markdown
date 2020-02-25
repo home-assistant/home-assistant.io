@@ -1,6 +1,6 @@
 ---
-title: NUT Sensor
-description: "Instructions on how to set up NUT sensors within Home Assistant."
+title: Network UPS Tools (NUT)
+description: Instructions on how to set up NUT sensors within Home Assistant.
 logo: nut.png
 ha_category:
   - System Monitor
@@ -42,7 +42,7 @@ sensor:
     default: 3493
     type: integer
   alias:
-    description: Name of the ups on the NUT server.
+    description: Name of the UPS on the NUT server.
     required: false
     default: Will default to the first UPS name listed.
     type: string

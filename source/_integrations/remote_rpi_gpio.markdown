@@ -1,6 +1,6 @@
 ---
-title: "Remote Raspberry Pi GPIO"
-description: "Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant."
+title: remote_rpi_gpio
+description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -12,7 +12,7 @@ ha_iot_class: Local Push
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
-The remote RPi and the control computer where Home Assistant is running must be prepared to run remote_rpi_gpio, see details [here](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html).
+The remote Raspberry Pi and the control computer where Home Assistant is running must be prepared to run remote_rpi_gpio, see details [here](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html).
 
 Note that for virtual environments you may need to set an environment variable when starting the environment to set the pin factory, example:
 
@@ -105,7 +105,7 @@ invert_logic:
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
 <div class='note warning'>
-Note that a pin managed by HASS is expected to be exclusive to HASS.
+Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
 </div>
 
 A common question is what does port refer to, this number is the actual GPIO #, not the pin #.

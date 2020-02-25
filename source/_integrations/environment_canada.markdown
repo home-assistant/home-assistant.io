@@ -1,6 +1,6 @@
 ---
-title: "Environment Canada Weather"
-description: "Weather data from Environment Canada."
+title: Environment Canada
+description: Weather data from Environment Canada.
 logo: environment_canada.png
 ha_category:
   - Weather
@@ -8,19 +8,23 @@ ha_category:
   - Camera
 ha_release: 0.95
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaeldavie'
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
 
 The following device types and data are supported:
 
-- [Weather](#weather) - Current conditions and forecasts
-- [Sensor](#sensor) - Current conditions and alerts
-- [Camera](#camera) - Radar imagery
+- [Location Selection](#location-selection)
+- [Weather](#weather)
+- [Sensor](#sensor)
+  - [Alert TTS Script](#alert-tts-script)
+- [Camera](#camera)
 
 <p class='note'>
 
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  On Raspbian you may need to manually install additional prerequisites with the following command:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
 
 </p>
@@ -31,9 +35,9 @@ Each platform automatically determines which weather station's data to use. Howe
 
 For each platform, the location to use is determined according to the following hierarchy:
 
-  - Location ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Location ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant configuration
 
 ## Weather
 
@@ -172,7 +176,7 @@ camera:
 ```
 
 <p class='note'>
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  On Raspbian you may need to manually install additional prerequisites with the following command:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
 </p>
 

@@ -1,11 +1,15 @@
 ---
-title: "Certificate Expiry"
-description: "Instructions on how to set up HTTPS (SSL) certificate expiry sensors within Home Assistant."
+title: Certificate Expiry
+description: Instructions on how to set up HTTPS (SSL) certificate expiry sensors within Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Network
 ha_release: 0.44
 ha_iot_class: Configurable
+ha_config_flow: true
+ha_codeowners:
+  - '@Cereal2nd'
+  - '@jjlawren'
 ---
 
 The `cert_expiry` sensor fetches information from a configured URL and displays the certificate expiry in days.
@@ -15,7 +19,7 @@ The `cert_expiry` sensor fetches information from a configured URL and displays 
 There are 2 options in configuring the `cert_expiry` sensor:
 
 - Via the Home Assistant user interface where it will let you enter a host and port for the certificate to check.
-- Via the Home Assistant configuration.yaml file.
+- Via the Home Assistant `configuration.yaml` file.
 
 
 ```yaml

@@ -1,6 +1,6 @@
 ---
-title: "Pushbullet Mirrors"
-description: "Instructions on how to read user pushes in Home Assistant"
+title: Pushbullet
+description: Instructions on how to read user pushes in Home Assistant
 logo: pushbullet.png
 ha_category:
   - Sensor
@@ -143,7 +143,7 @@ action:
       url: google.com
 ```
 
-- **url** (*Required*): Page URL to send with Pushbullet.
+- `url` (*Required*): Page URL to send with Pushbullet.
 
 ### File support
 
@@ -157,7 +157,7 @@ action:
       file: /path/to/my/file
 ```
 
-- **file** (*Required*): File to send with Pushbullet.
+- `file` (*Required*): File to send with Pushbullet.
 
 ### File URL support
 
@@ -171,7 +171,7 @@ action:
       file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
 ```
 
-- **file_url** (*Required*): File to send with Pushbullet.
+- `file_url` (*Required*): File to send with Pushbullet.
 
 ### Single target
 
@@ -184,7 +184,7 @@ action:
       target: device/DEVICE_NAME
 ```
 
-- **target**: Pushbullet device to receive the notification.
+- `target`: Pushbullet device to receive the notification.
 
 <div class='note'>
 

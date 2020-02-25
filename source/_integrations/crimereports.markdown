@@ -1,6 +1,6 @@
 ---
-title: "Crime Reports"
-description: "Instructions on how to integrate CrimeReports.com into Home Assistant."
+title: Crime Reports
+description: Instructions on how to integrate CrimeReports.com into Home Assistant.
 ha_category:
   - Social
 logo: crimereports.png

@@ -1,11 +1,13 @@
 ---
-title: "Config"
-description: "Instructions on how to setup the configuration panel for Home Assistant."
+title: Configuration
+description: Instructions on how to setup the configuration panel for Home Assistant.
 logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.39
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
@@ -51,11 +53,11 @@ This section enables you to organize entities to physical areas of your home.
 
 ### Automation
 
-This section enables you to create and modify automations from within Home Assistant, without needing to write out the yaml code.
+This section enables you to create and modify automations from within Home Assistant, without needing to write out the YAML code.
 
 ### Script
 
-Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the yaml code.
+Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
 
 ### Z-Wave
 
@@ -64,4 +66,3 @@ This section enables you to control your Z-Wave network and devices from within 
 ### Customization
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
-

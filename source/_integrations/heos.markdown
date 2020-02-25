@@ -1,11 +1,14 @@
 ---
-title: "Denon HEOS"
-description: "Instructions on how to integrate Denon HEOS into Home Assistant."
+title: Denon HEOS
+description: Instructions on how to integrate Denon HEOS into Home Assistant.
 logo: heos.png
 ha_category:
   - Media Player
 ha_release: 0.92
 ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@andrewsayre'
 ---
 
 The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
@@ -115,7 +118,7 @@ You can play a HEOS Quick Select by nubmer or name with the `media_player.play_m
 | `media_content_type`   | Set to the value `quick_select`
 | `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
 
-#### Play Url
+#### Play URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 

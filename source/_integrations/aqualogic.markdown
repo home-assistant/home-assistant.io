@@ -1,12 +1,12 @@
 ---
-title: "AquaLogic"
-description: "Instructions on how to integrate an AquaLogic controller within Home Assistant."
+title: AquaLogic
+description: Instructions on how to integrate an AquaLogic controller within Home Assistant.
 logo: hayward.png
 ha_category:
   - Hub
   - Sensor
   - Switch
-ha_release: "0.80"
+ha_release: '0.80'
 ha_iot_class: Local Push
 ---
 

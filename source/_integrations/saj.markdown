@@ -1,19 +1,21 @@
 ---
-title: "SAJ Solar Inverter"
-description: "Instructions on how to connect your SAJ Solar Inverter to Home Assistant."
+title: SAJ Solar Inverter
+description: Instructions on how to connect your SAJ Solar Inverter to Home Assistant.
 ha_category:
   - Energy
 logo: saj.png
 ha_iot_class: Local Polling
-ha_release: "0.100"
+ha_release: '0.100'
+ha_codeowners:
+  - '@fredericvl'
 ---
 
 The `saj` sensor will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.
 
 This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser.
 
-There is a difference between inverters that are connected via an ethernet module and those connected via a WiFi module.
-The WiFi module requires a username and password for authentication where the ethernet module does not.
+There is a difference between inverters that are connected via an ethernet module and those connected via a Wi-Fi module.
+The Wi-Fi module requires a username and password for authentication where the ethernet module does not.
 
 ## Configuration
 
@@ -30,6 +32,10 @@ sensor:
 host:
   description: "The IP address of the SAJ Solar Inverter."
   required: true
+  type: string
+name:
+  description: "An optional name for your SAJ Solar Inverter."
+  required: false
   type: string
 type:
   description: "Type of connection module: 'ethernet' or 'wifi'"
@@ -57,16 +63,17 @@ Sensors available in the library:
 | today_time         | h    | Inverter's running time for today.                                           |
 | today_max_current  | W    | Maximum current power for today. (only for connection via ethernet module)   |
 | total_yield        | kWh  | Total kWh generated to date.                                                 |
-| total_time         | h    | Total running time of the inverter .                                         |
+| total_time         | h    | Total running time of the inverter.                                          |
 | total_co2_reduced  | kg   | Total CO2 in kg reduced.                                                     |
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
 
-## Full configuration example for WiFi inverters
+## Full configuration example for Wi-Fi inverters
 
 ```yaml
 sensor:
   - platform: saj
+    name: MY_INVERTER_NAME
     host: IP_ADDRESS_OF_DEVICE
     type: wifi
     username: USERNAME

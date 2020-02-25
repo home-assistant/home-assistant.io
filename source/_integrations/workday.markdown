@@ -1,16 +1,18 @@
 ---
-title: "Workday Binary Sensor"
-description: "Steps to configure the binary workday sensor."
+title: Workday
+description: Steps to configure the binary workday sensor.
 logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
-uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
+uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
 ## Setup
 
@@ -86,7 +88,7 @@ binary_sensor:
     country: DE
     workdays: [mon, wed, fri]
     excludes: [sat, sun, holiday]
-    add_holidays: 
+    add_holidays:
       - '2018-12-26'
       - '2018-12-31'
 ```

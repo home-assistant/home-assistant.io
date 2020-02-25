@@ -1,6 +1,6 @@
 ---
-title: "Sisyphus"
-description: "Instructions on how to integrate your Sisyphus Kinetic Art Table within Home Assistant."
+title: Sisyphus
+description: Instructions on how to integrate your Sisyphus Kinetic Art Table within Home Assistant.
 logo: sisyphus.png
 ha_category:
   - Hub
@@ -8,6 +8,8 @@ ha_category:
   - Media Player
 ha_release: 0.75
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@jkeljo'
 ---
 
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.

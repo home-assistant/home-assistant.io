@@ -1,18 +1,23 @@
 ---
-title: "Slack"
-description: "Instructions on how to add Slack notifications to Home Assistant."
+title: Slack
+description: Instructions on how to add Slack notifications to Home Assistant.
 logo: slack.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
 ---
 
-
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
 ## Setup
 
-If you are planning to use Slack as yourself then you'll need to create a [new app](https://api.slack.com/apps) under your Slack.com account. After creating the app, access the OAuth & Permissions link under the Features heading in the sidebar. Your OAuth Access Token should be located there. This is the key that you'll use in your `configuration.yaml` file.
+### Bot posting as you
+
+1. Create a [new app](https://api.slack.com/apps) under your Slack.com account
+2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading
+2. In the Scopes section, add the `chat:write:user` scope, `Send messages as user`
+3. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`
+4. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below
 
 <div class='note'>
 
@@ -20,8 +25,7 @@ There is an app credential Verification Token on the Basic Settings of your app.
 
 </div>
 
-You will also need to ensure that you have added the appropriate scope when configuring your app. In this case, in the Scopes section, add the `Send messages as user` scope, e.g., (chat:write:user).
-
+### Bot posting as its own user
 It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
 
 Don't forget to invite the bot to the room where you want to get the notifications.
@@ -71,10 +75,10 @@ The following attributes can be placed inside `data` for extended functionality.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
-| `path `                |      yes | Local path of file, photo etc to post to slack. Is placed inside `file`.
-| `url`                  |      yes | URL of file, photo etc to post to slack. Is placed inside `file`.
-| `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
+| `path `                |      yes | Local path of file, photo etc to post to Slack. Is placed inside `file`.
+| `url`                  |      yes | URL of file, photo etc to post to Slack. Is placed inside `file`.
+| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
+| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
 | `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/docs/message-attachments). See [the attachment documentation](https://api.slack.com/docs/message-attachments) for how to format. *NOTE*: if using `attachments`, they are shown **in addition** to `message`
 

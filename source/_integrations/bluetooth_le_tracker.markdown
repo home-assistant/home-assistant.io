@@ -1,6 +1,6 @@
 ---
-title: "Bluetooth LE Tracker"
-description: "Instructions for integrating bluetooth low-energy tracking within Home Assistant."
+title: Bluetooth LE Tracker
+description: Instructions for integrating bluetooth low-energy tracking within Home Assistant.
 logo: bluetooth.png
 ha_category:
   - Presence Detection
@@ -21,7 +21,7 @@ sudo apt install bluetooth
 Before you get started with this platform, please note that:
 
  - This platform is incompatible with Windows
- - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
+ - This platform requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 

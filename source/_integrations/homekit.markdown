@@ -1,6 +1,6 @@
 ---
-title: "HomeKit"
-description: "Instructions on how to set up the HomeKit integration in Home Assistant."
+title: HomeKit
+description: Instructions on how to set up the HomeKit integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64
@@ -163,7 +163,7 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
 2. Open the `Home` app.
 3. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
@@ -191,7 +191,7 @@ The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) pe
 
 ### Persistence Storage
 
-Unfortunately `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not set up, their config will be deleted. (State unknown or similar will not cause any issues.)
+Unfortunately `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not set up, their configuration will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
@@ -313,7 +313,7 @@ Filters are applied as follows:
 
 The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Pairing hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
 
-To use `safe_mode`, add the option to your `homekit` config:
+To use `safe_mode`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
@@ -324,7 +324,7 @@ Restart your Home Assistant instance. If you don't see a `pincode`, follow the [
 
 <div class="note warning">
 
-To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
+To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your configuration and restart Home Assistant.
 
 </div>
 
@@ -332,7 +332,7 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
-To use `advertise_ip`, add the option to your `homekit` config:
+To use `advertise_ip`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
@@ -411,7 +411,7 @@ You might have paired the `Home Assistant Bridge` already. If not, delete the `.
 
 This is often setup and network related. Make sure to check the other issues below as well, but things that might work include:
 - Check your router configuration
-- Try with WIFI **and** LAN
+- Try with Wi-Fi **and** LAN
 - Change the default [port](#port)
 
 Remember that the iOS device needs to be in the same local network as the Home Assistant device for pairing.
@@ -428,16 +428,16 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### Pairing hangs - zeroconf error
 
-Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your config, see [safe_mode](#safe-mode).
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
 
-#### Pairing hangs - only works with debug config
+#### Pairing hangs - only works with debug configuration
 
-Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
+Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal configuration. See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
-2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
+1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### Duplicate AID found when attempting to add accessory
 
@@ -459,7 +459,7 @@ To use the HomeKit integration with to different Home Assistant instances on the
 
 #### Specific entity doesn't work
 
-Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component:%20homekit)
 
 #### Accessories are all listed as not responding
 
@@ -479,7 +479,7 @@ To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homeki
 
 #### The linked battery sensor isn't recognized
 
-Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+Try removing the entity from HomeKit and then adding it again. If you are adding this configuration option to an existing entity in HomeKit, any changes you make to this entity's configuration options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
 #### My media player is not showing up as a television accessory
 
@@ -491,7 +491,7 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 #### Resetting accessories
 
-On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever HomeAssistant add supports for new HomeKit features to existing entities.
+On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 

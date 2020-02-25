@@ -1,6 +1,6 @@
 ---
-title: "MH-Z19 CO2 Sensor"
-description: "Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant."
+title: MH-Z19 CO2 Sensor
+description: Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant.
 logo: mhz19_logo.png
 ha_category:
   - DIY
@@ -32,6 +32,7 @@ sensor:
   - **temperature**
 
 Full example:
+
 ```yaml
 sensor:
   - platform: mhz19
@@ -42,7 +43,7 @@ sensor:
       - temperature
 ```
 
-## Raspberry Pi 3(+) GPIO UART and Hass.io
+## Raspberry Pi GPIO UART and the Home Assistant Operating System
 
 To directly connect the sensor on the GPIO pins of a RPi, first append the following to `config.txt` in the boot directory:
 
@@ -53,7 +54,7 @@ enable_uart=1
 Then (after a reboot): you can setup the sensor using:
 
 ```yaml
-  serial_device: /dev/tty.S0
+  serial_device: /dev/ttyS0
 ```
 
 ## Calibration

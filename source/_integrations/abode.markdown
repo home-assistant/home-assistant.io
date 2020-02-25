@@ -1,6 +1,6 @@
 ---
-title: "Abode Home Security"
-description: "Instructions on integrating Abode home security with Home Assistant."
+title: Abode
+description: Instructions on integrating Abode home security with Home Assistant.
 logo: abode.jpg
 ha_category:
   - Hub
@@ -15,6 +15,8 @@ ha_category:
 ha_release: 0.52
 ha_iot_class: Cloud Push
 ha_config_flow: true
+ha_codeowners:
+  - '@shred86'
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
@@ -29,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - [**Light**](/integrations/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them (does not work with Abode's CUE automations).
+- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` and `Water Valve` devices which can be used to turn the devices on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them (does not currently work with Abode's CUE automations).
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## Configuration
@@ -90,6 +92,8 @@ Field | Description
 `event_type` | The type of the event.
 `event_utc` | The UTC timestamp of the event.
 `user_name` | The Abode user that triggered the event, if applicable.
+`app_type` | The Abode app that triggered the event (e.g. web app, iOS app, etc.).
+`event_by` | The keypad user that triggered the event.
 `date` | The date of the event in the format `MM/DD/YYYY`.
 `time` | The time of the event in the format `HH:MM AM`.
 

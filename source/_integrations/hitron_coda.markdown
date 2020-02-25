@@ -1,6 +1,6 @@
 ---
-title: "Hitron CODA Routers"
-description: "Instructions on how to integrate Hitron CODA Routers into Home Assistant."
+title: Rogers Hitron CODA
+description: Instructions on how to integrate Hitron CODA Routers into Home Assistant.
 logo: hitron.png
 ha_category:
   - Presence Detection
@@ -32,7 +32,7 @@ username:
   required: true
   type: string
 password:
-  description: The password for the specified username. Usually your WiFi password.
+  description: The password for the specified username. Usually your Wi-Fi password.
   required: true
   type: string
 type:

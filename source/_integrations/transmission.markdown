@@ -1,6 +1,6 @@
 ---
-title: "Transmission"
-description: "Instructions on how to integrate Transmission within Home Assistant."
+title: Transmission
+description: Instructions on how to integrate Transmission within Home Assistant.
 logo: transmission.png
 ha_category:
   - Downloading
@@ -8,6 +8,10 @@ ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@engrbm87'
+  - '@JPHutchins'
 ---
 
 The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
@@ -70,18 +74,18 @@ scan_interval:
 The Transmission Integration will add the following sensors and switches.
 
 Sensors:
-- current_status: The status of your Transmission daemon.
-- download_speed: The current download speed [MB/s].
-- upload_speed: The current upload speed [MB/s].
-- active_torrents: The current number of active torrents.
-- paused_torrents: The current number of paused torrents.
-- total_torrents: The total number of torrents present in the client.
-- started_torrents: The current number of started torrents (downloading).
-- completed_torrents: The current number of completed torrents (seeding)
+- transmission_current_status: The status of your Transmission daemon.
+- transmission_download_speed: The current download speed [MB/s].
+- transmission_upload_speed: The current upload speed [MB/s].
+- transmission_active_torrents: The current number of active torrents.
+- transmission_paused_torrents: The current number of paused torrents.
+- transmission_total_torrents: The total number of torrents present in the client.
+- transmission_started_torrents: The current number of started torrents (downloading).
+- transmission_completed_torrents: The current number of completed torrents (seeding)
 
 Switches:
-- on_off: A switch to start/stop all torrents
-- turtle_mode: A switch to enable turtle mode.
+- transmission_switch: A switch to start/stop all torrents
+- transmission_turtle_mode: A switch to enable turtle mode.
 
 
 ## Event Automation
@@ -115,8 +119,28 @@ Example of configuration of an automation with completed torrents:
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL (http, https or ftp), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
+Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance
 | `torrent` | no | Torrent to download
+
+
+## Templating
+
+### Sensor `started_torrents`
+
+The state attribute `torrent_info` contains information about the torrents that are currently downloading. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_started_torrents` -> **Attributes**, or by adding a Markdown Card to Lovelace.
+
+{% raw %}
+```yaml
+content: >
+  {% set payload = state_attr('sensor.transmission_started_torrents', 'torrent_info') %}
+
+  {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
+  
+  {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
+type: markdown
+```
+{% endraw %}

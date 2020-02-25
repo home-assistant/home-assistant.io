@@ -1,6 +1,6 @@
 ---
-title: "NAD"
-description: "Instructions on how to integrate NAD receivers into Home Assistant."
+title: NAD
+description: Instructions on how to integrate NAD receivers into Home Assistant.
 logo: nad.png
 ha_category:
   - Media Player
@@ -76,7 +76,7 @@ The min_volume and max_volume are there to protect you against misclicks on the 
 
 <div class='note warning'>
 
-On linux the user running home-assistant needs `dialout` permissions to access the serial port.
+On Linux the user running Home Assistant needs `dialout` permissions to access the serial port.
 This can be added to the user by doing `sudo usermod -a -G dialout <username>`.
 Be aware that the user might need to logout and logon again to activate these permissions.
 

@@ -1,6 +1,6 @@
 ---
-title: "Xiaomi Air Quality Monitor"
-description: "Instructions how to integrate your Xiaomi Mi Air Quality Monitor within Home Assistant."
+title: "Xiaomi Air Quality Index Monitor"
+description: "Instructions how to integrate your Xiaomi Mi Air Quality Index Monitor within Home Assistant."
 logo: xiaomi.png
 ha_category:
   - Health
@@ -29,8 +29,7 @@ To add a Xiaomi Mi Air Quality Monitor to your installation, add the following t
 # Example configuration.yaml entry
 sensor:
   - platform: xiaomi_miio
-    name: Xiaomi Air Quality Monitor
-    host: 192.168.130.73
+    host: IP_ADDRESS
     token: YOUR_TOKEN
 ```
 

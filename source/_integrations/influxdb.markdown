@@ -1,12 +1,14 @@
 ---
-title: "InfluxDB"
-description: "Record events in InfluxDB."
+title: InfluxDB
+description: Record events in InfluxDB.
 logo: influxdb.png
 ha_category:
   - History
   - Sensor
 ha_release: 0.9
 ha_iot_class: Configurable
+ha_codeowners:
+  - '@fabaff'
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
@@ -58,12 +60,12 @@ database:
   default: home_assistant
 ssl:
   type: boolean
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
 verify_ssl:
   type: boolean
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTPS request.
   required: false
   default: true
 max_retries:
@@ -210,12 +212,12 @@ password:
   required: false
   type: string
 ssl:
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
   type: boolean
 verify_ssl:
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTP request.
   required: false
   default: false
   type: boolean
@@ -241,7 +243,7 @@ queries:
       required: true
       type: string
     value_template:
-      description: Defines a [template](/docs/configuration/templating/#processing incoming data) to extract a value from the payload.
+      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
       required: false
       type: template
     database:

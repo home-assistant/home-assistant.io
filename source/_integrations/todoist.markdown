@@ -1,11 +1,13 @@
 ---
-title: "Todoist"
-description: "Instructions on how to integrate Todoist into Home Assistant."
+title: Todoist
+description: Instructions on how to integrate Todoist into Home Assistant.
 logo: todoist.png
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.54
+ha_codeowners:
+  - '@boralyl'
 ---
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) and generate binary sensors. A different sensor will be created for each individual project, or you can specify "custom" projects which match against criteria you set (more on that below). These sensors will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
@@ -121,7 +123,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
 ### Services
 
-Todoist also comes with access to a service, `calendar.todoist_new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
+Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
 
 Here are two example JSON payloads resulting in the same task:
 

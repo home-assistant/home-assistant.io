@@ -1,6 +1,6 @@
 ---
-title: "Datadog"
-description: "Send data and events to Datadog."
+title: Datadog
+description: Send data and events to Datadog.
 logo: datadog.png
 ha_category:
   - History

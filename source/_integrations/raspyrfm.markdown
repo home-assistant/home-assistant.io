@@ -1,6 +1,6 @@
 ---
-title: "RaspyRFM Switch"
-description: "Instructions on how to integrate RaspyRFM switches into Home Assistant."
+title: RaspyRFM
+description: Instructions on how to integrate RaspyRFM switches into Home Assistant.
 logo: seegelsysteme.png
 ha_category:
   - Switch
@@ -79,7 +79,7 @@ Have a look at the underlying library [raspyrfm-client](https://github.com/marku
 
 ## Channel configuration
 
-Depending on the control unit the channel config can have varying formats. Have a look at the underlying library [raspyrfm-client](https://github.com/markusressel/raspyrfm-client) to find out about a specific model.
+Depending on the control unit the channel configuration can have varying formats. Have a look at the underlying library [raspyrfm-client](https://github.com/markusressel/raspyrfm-client) to find out about a specific model.
 
 ## Switch state
 

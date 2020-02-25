@@ -279,7 +279,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **OpenTherm** - Move climate entity state to hvac_action attribute to comply with climate 1.0. May break e.g. automations. - ([@mvn23] - [#25931]) ([opentherm_gw docs])
 - **Genius Hub** - Users connecting to a Hub via the v1 API will need to specify a valid MAC address for the hub (see example YAML, below). Those using the v3 API will be unaffected.
-  This change is in preperation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
+  This change is in preparation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
 
   Some Sensor entities fro GeniusHub Issues have been renamed, and so will get a new entity ID:
 
@@ -455,7 +455,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add more ebusd Vaillant "bai" sensors ([@sashao] - [#26750]) ([ebusd docs])
 - Add xbox live custom update interval ([@MartinHjelmare] - [#26939]) ([xbox_live docs])
 - Guard against non supported entities ([@balloob] - [#26941]) ([alexa docs])
-- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892]) ([owlet docs])
+- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892])
 - Revert Nest HVAC mode when disabling Eco mode ([@joe248] - [#26934]) ([nest docs])
 - Fix ecobee integration ([@marthoc] - [#26951]) ([ecobee docs])
 - Add CO2 level reading for Kaiterra integration ([@Michsior14] - [#26935]) ([kaiterra docs])
@@ -955,7 +955,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openuv docs]: /integrations/openuv/
 [otp docs]: /integrations/otp/
-[owlet docs]: /integrations/owlet/
 [persistent_notification docs]: /integrations/persistent_notification/
 [pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/

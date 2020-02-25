@@ -11,7 +11,7 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [alexa](/integrations/alexa/) component.
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
 - Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
@@ -104,7 +104,7 @@ Other state examples:
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}
+{% endif %}
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
@@ -169,20 +169,28 @@ The same thing can also be expressed as a filter:
 
 ### Time
 
-- `now()` will be rendered as the current time in your time zone.
-  - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
-- `utcnow()` will be rendered as UTC time.
+- `now()` returns a datetime object that represents the current time in your time zone.
+  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+- `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
-- `as_timestamp()` will convert datetime object or string to UNIX timestamp. This function also be used as a filter.
-- `strptime(string, format)` will parse a string to a datetime based on a [format](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior).
-- `relative_time` will convert datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g. if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
-- Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
-- Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
-- Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
+- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
+- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g. if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
+- Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
+- Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+
+Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+
+{% raw %}
+```yaml
+{{ 120 | timestamp_local }}
+```
+{% endraw %}
 
 ### To/From JSON
 
-The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
+The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
@@ -292,7 +300,7 @@ Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
-It will also work as a filter over a iterable group of entities or groups:
+It will also work as a filter over an iterable group of entities or groups:
 
 ```text
 Closest out of given entities: 
@@ -325,7 +333,10 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even).
+  - `round(x, "floor")` will always round down to `x` decimals
+  - `round(x, "ceil")` will always round up to `x` decimals
+  - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
@@ -377,7 +388,7 @@ Nested JSON in a response is supported as well:
   },
   "values": {
     "temp": 26.09,
-    "hum": 56.73,
+    "hum": 56.73
   }
 }
 ```

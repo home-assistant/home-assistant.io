@@ -1,6 +1,6 @@
 ---
-title: "Yandex TTS"
-description: "Instructions on how to setup Yandex SpeechKit TTS with Home Assistant."
+title: Yandex TTS
+description: Instructions on how to setup Yandex SpeechKit TTS with Home Assistant.
 logo: yandex.png
 ha_category:
   - Text-to-speech

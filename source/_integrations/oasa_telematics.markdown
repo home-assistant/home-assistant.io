@@ -1,6 +1,6 @@
 ---
-title: "OASA Telematics"
-description: "Instructions on how to integrate bus and trolley arrival data for Greek OASA Telematics within Home Assistant."
+title: OASA Telematics
+description: Instructions on how to integrate bus and trolley arrival data for Greek OASA Telematics within Home Assistant.
 logo: oasa.png
 ha_category:
   - Transport

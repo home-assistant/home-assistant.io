@@ -1,12 +1,15 @@
 ---
-title: "Buienradar"
-description: "Instructions on how to integrate buienradar.nl weather within Home Assistant."
+title: Buienradar
+description: Instructions on how to integrate buienradar.nl weather within Home Assistant.
 logo: buienradar.png
 ha_category:
   - Camera
   - Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@mjj4791'
+  - '@ties'
 ---
 
 The `buienradar` platform uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
@@ -103,6 +106,12 @@ delta:
   required: false
   default: 600
   type: integer
+country_code:
+  description: You can (optionally) specify the country code (NL or BE) of the
+    country to display on the camera.
+  required: false
+  default: NL
+  type: string
 {% endconfiguration %}
 
 ### The `name` Variable

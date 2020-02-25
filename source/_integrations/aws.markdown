@@ -1,10 +1,13 @@
 ---
-title: "Amazon Web Services"
-description: "Instructions on how to integrate Amazon Web Services with Home Assistant."
+title: Amazon Web Services (AWS)
+description: Instructions on how to integrate Amazon Web Services with Home Assistant.
 logo: aws.png
 ha_category:
   - Notifications
-ha_release: "0.91"
+ha_release: '0.91'
+ha_codeowners:
+  - '@awarecan'
+  - '@robbiet480'
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
@@ -161,7 +164,7 @@ The SQS event payload will contain everything passed in the service call payload
 ```json
 {
   "title": "Test message!",
-  "target": "https://sqs.us-east-1.amazonaws.com/123456789012/queue2%22,
+  "target": "https://sqs.us-east-1.amazonaws.com/123456789012/queue2%22",
   "data": {
     "test": "okay"
   },

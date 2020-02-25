@@ -1,6 +1,6 @@
 ---
-title: "Eddystone Beacon"
-description: "Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data."
+title: Eddystone
+description: Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.
 logo: eddystone.png
 ha_category:
   - DIY
@@ -19,7 +19,7 @@ As this platform uses `bluez` to scan for Bluetooth LE devices **a Linux OS with
 sudo apt-get install libbluetooth-dev
 ```
 
-Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:
+Scanning for Bluetooth LE devices also requires special permissions. To grant these to the Python executable execute the following:
 
 ```bash
 sudo apt-get install libcap2-bin

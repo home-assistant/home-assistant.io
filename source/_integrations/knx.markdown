@@ -1,11 +1,13 @@
 ---
-title: "KNX"
-description: "Instructions on how to integrate KNX components with Home Assistant."
+title: KNX
+description: Instructions on how to integrate KNX components with Home Assistant.
 logo: knx.png
 ha_category:
   - Hub
 ha_release: 0.24
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@Julius2342'
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
@@ -41,6 +43,7 @@ Optional, recommended for large KNX installations (>100 devices) and/or if you w
 knx:
   config_file: '/path/to/xknx.yaml'
 ```
+
 {% configuration %}
 config_file:
   description: The path for XKNX configuration file.
@@ -106,11 +109,11 @@ fire_event:
   type: boolean
   default: false
 fire_event_filter:
-  description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
+  description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the Home Assistant event bus.
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean
@@ -135,7 +138,7 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### Exposing sensor values or time to knx bus
+### Exposing sensor values or time to KNX bus
 
 KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 

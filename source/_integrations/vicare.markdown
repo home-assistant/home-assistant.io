@@ -1,10 +1,12 @@
 ---
-title: "Viessmann climate controller"
-description: "Instructions how to integrate Viessmann heating devices with Home Assistant"
+title: Viessmann ViCare
+description: Instructions how to integrate Viessmann heating devices with Home Assistant
 logo: viessmann.png
 ha_category: Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@oischinger'
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -43,6 +45,11 @@ circuit:
   description: Heating circuit of your heating device if multiple exist 
   required: false
   type: integer
+heating_type:
+  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes specific for the heating system.
+  required: false
+  type: string
+  default: generic
 {% endconfiguration %}
 
 Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
@@ -109,5 +116,3 @@ Sets the target temperature of domestic hot water to the given temperature.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | New target temperature for water heater
-
-

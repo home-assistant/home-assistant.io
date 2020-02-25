@@ -1,6 +1,6 @@
 ---
-title: "Local File"
-description: "Instructions how to use Local File as a Camera within Home Assistant."
+title: Local File
+description: Instructions how to use Local File as a Camera within Home Assistant.
 logo: file.png
 ha_category:
   - Camera
@@ -34,7 +34,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Service `camera.local_file_update_file_path`
+### Service `local_file.update_file_path`
 
 Use this service to change the file displayed by the camera.
 

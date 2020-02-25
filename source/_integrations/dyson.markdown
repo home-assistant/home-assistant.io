@@ -1,6 +1,6 @@
 ---
-title: "Dyson"
-description: "Instructions on how to integrate Dyson into Home Assistant."
+title: Dyson
+description: Instructions on how to integrate Dyson into Home Assistant.
 logo: dyson.png
 ha_category:
   - Hub
@@ -10,6 +10,8 @@ ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 0.47
+ha_codeowners:
+  - '@etheralm'
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
@@ -78,7 +80,7 @@ Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For 
 To find a devices IP address, you can use your router or `nmap`:
 
 ```bash
-$ nmap -p 1883 XXX.XXX.XXX.XXX/YY -- open
+$ nmap -p 1883 XXX.XXX.XXX.XXX/YY --open
 ```
 
 Where:
@@ -89,7 +91,7 @@ Where:
 For example:
 
 ```bash
-$ nmap -p 1883 192.168.0.0/24 -- open
+$ nmap -p 1883 192.168.0.0/24 --open
 ```
 
 ## Vacuum
@@ -169,3 +171,4 @@ Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
 - Pure Cool 2018 Models (TP04 and DP04)
+- Pure Cool Cryptomic (TP06)

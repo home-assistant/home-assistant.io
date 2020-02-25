@@ -1,6 +1,6 @@
 ---
-title: "Anthem A/V Receivers"
-description: "Instructions on how to integrate Anthem A/V Receivers into Home Assistant."
+title: Anthem A/V Receivers
+description: Instructions on how to integrate Anthem A/V Receivers into Home Assistant.
 logo: anthemav.png
 ha_category:
   - Media Player
