@@ -21,7 +21,7 @@ sensor:
   id: 1
 ```
 
-As of Feb 2020 including the option `use_emoncms_unit` will discover all sensors from Emoncms and use the unit of measurement specified in the feed from Emoncms. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13.
+As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.
 
 ## Configuration variables
 
@@ -59,15 +59,10 @@ scan_interval:
   required: false
   type: integer
 unit_of_measurement:
-  description: Defines the unit of measurement of for all the sensors.
+  description: Defines the unit of measurement to be used for any sensor where the unit is *not* set in Emoncms. If no unit is set in Emoncms or in the configuration, the default (W) will be used.
   required: false
   default: W
   type: string
-use_emoncms_unit:
-  description: Causes integration to use the unit of measurement specified in the Emoncms Feed API payload. If no unit is set by Emoncms, no unit will be added to the sensor. A unit set in `unit_of_measurement` is ignored when this is `true`.
-  required: false
-  default: false
-  type: boolean
 {% endconfiguration %}
 
 ## Default naming scheme
@@ -82,7 +77,7 @@ If `sensor_names` is used, any feeds with defined names will get those names exa
 
 In this section you find some more examples of how this sensor can be used.
 
-Minimal configuration. All Feeds are added as sensors with the unit of measurement being set by the Emoncms Feed.
+Minimal configuration. All Feeds are added as sensors with the unit of measurement being set by the Emoncms Feed or the default unit.
 
 ```yaml
 sensor:
@@ -90,7 +85,6 @@ sensor:
   api_key: API_KEY
   url: https://emoncms.org
   id: 1
-  use_emoncms_unit: true
 ```
 
 Display only feeds with their feed IDs specified in `include_only_feed_id`.
