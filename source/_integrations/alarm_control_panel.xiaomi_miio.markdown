@@ -15,7 +15,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/va
 ## Features
 
 - Turn on/off Alarm
-- See status of Alarm (armed_away, disarmed, arming)
+- See the status of Alarm (armed_away, disarmed, arming)
 
 ## Configuration
 
