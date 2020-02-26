@@ -521,7 +521,6 @@
 /components/media_player.kodi /integrations/kodi
 /components/media_player.lg_netcast /integrations/lg_netcast
 /components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.liveboxplaytv /integrations/liveboxplaytv
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
 /components/media_player.mpchc /integrations/mpchc
@@ -685,7 +684,6 @@
 /components/sensor.dsmr /integrations/dsmr
 /components/sensor.dte_energy_bridge /integrations/dte_energy_bridge
 /components/sensor.dublin_bus_transport /integrations/dublin_bus_transport
-/components/sensor.duke_energy /integrations/duke_energy
 /components/sensor.dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/sensor.dweet /integrations/dweet#sensor
 /components/sensor.dyson /integrations/dyson#sensor
@@ -978,7 +976,6 @@
 /components/switch.fibaro /integrations/fibaro
 /components/switch.flux /integrations/flux
 /components/switch.fritzbox /integrations/fritzbox
-/components/switch.fritzdect /integrations/fritzdect
 /components/switch.gc100 /integrations/gc100#switch
 /components/switch.hdmi_cec /integrations/hdmi_cec
 /components/switch.hikvisioncam /integrations/hikvisioncam
@@ -1287,7 +1284,6 @@
 /components/dte_energy_bridge /integrations/dte_energy_bridge
 /components/dublin_bus_transport /integrations/dublin_bus_transport
 /components/duckdns /integrations/duckdns
-/components/duke_energy /integrations/duke_energy
 /components/dunehd /integrations/dunehd
 /components/dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/dweet /integrations/dweet
@@ -1371,7 +1367,6 @@
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/fritzdect /integrations/fritzdect
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -1525,7 +1520,6 @@
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
 /components/litejet /integrations/litejet
-/components/liveboxplaytv /integrations/liveboxplaytv
 /components/llamalab_automate /integrations/llamalab_automate
 /components/local_file /integrations/local_file
 /components/locative /integrations/locative
@@ -2095,3 +2089,6 @@
 /addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
 /addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
 /addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
+
+# Lovelace documentation
+/lovelace/entity-button /lovelace/button

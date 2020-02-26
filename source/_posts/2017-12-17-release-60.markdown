@@ -142,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix incorrect comment. ([@emosenkis] - [#11111])
 - Update Warrant ([@balloob] - [#11101]) ([cloud docs])
 - Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config.automation docs])
-- Add media position properties ([@pschmitt] - [#10076]) ([media_player.liveboxplaytv docs])
+- Add media position properties ([@pschmitt] - [#10076])
 - update pyripple ([@nkgilley] - [#11122]) ([sensor.ripple docs])
 - Skip HASS emulated Hue bridges from detection. ([@andreacampi] - [#11128]) ([hue docs])
 - Always consume the no_throttle keyword argument. ([@andreacampi] - [#11126])
@@ -334,7 +334,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [logbook docs]: /integrations/logbook/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.samsungtv docs]: /integrations/samsungtv
 [media_player.sonos docs]: /integrations/sonos
 [media_player.ue_smart_radio docs]: /integrations/ue_smart_radio

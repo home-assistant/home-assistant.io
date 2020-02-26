@@ -12,8 +12,8 @@ The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a
 
 ## Configuration
 
-The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
-`state_topic` can only manage `state_open` and `state_closed`. No percentage positions etc.
+The device state (`open`, `opening`, `closed` or `closing`) will be updated only after a new message is published on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
+`state_topic` can only manage `state_open`, `state_opening`, `state_closed` and `state_closing`. No percentage positions etc.
 
 For this purpose is `position_topic` which can set state of the cover and position.
 Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
@@ -70,11 +70,21 @@ state_open:
   required: false
   type: string
   default: open
+state_opening:
+  description: The payload that represents the opening state.
+  required: false
+  type: string
+  default: opening
 state_closed:
   description: The payload that represents the closed state.
   required: false
   type: string
   default: closed
+state_closing:
+  description: The payload that represents the closing state.
+  required: false
+  type: string
+  default: closing
 position_topic:
   description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
   required: false
@@ -242,7 +252,9 @@ cover:
     payload_close: "CLOSE"
     payload_stop: "STOP"
     state_open: "open"
+    state_opening: "opening"
     state_closed: "closed"
+    state_closing: "closing"
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
@@ -297,7 +309,9 @@ cover:
     payload_close: "CLOSE"
     payload_stop: "STOP"
     state_open: "open"
+    state_opening: "opening"
     state_closed: "closed"
+    state_closing: "closing"
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false

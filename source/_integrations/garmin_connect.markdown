@@ -65,9 +65,6 @@ Body Battery Most Recent
 Average SPO2
 Lowest SPO2
 Latest SPO2
-Highest Respiration
-Lowest Respiration
-Latest Respiration
 ```
 
 Disabled by default:
@@ -104,4 +101,7 @@ Moderate Intensity
 Vigorous Intensity
 Intensity Goal
 Latest Respiration Update
+Highest Respiration
+Lowest Respiration
+Latest Respiration
 ```

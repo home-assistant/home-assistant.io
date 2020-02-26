@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Binary Sensor
   - Cover
+  - Lock
   - Scene
   - Switch
   - Sensor
@@ -22,6 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Sensor
 - Cover
+- Lock
 - Switch
 - Scene
 

@@ -1,25 +1,25 @@
 ---
-title: "Entity Button Card"
-sidebar_label: Entity Button
-description: "The Entity Button card allows you to add buttons to perform tasks"
+title: "Button Card"
+sidebar_label: Button
+description: "The Button card allows you to add buttons to perform tasks"
 ---
 
-The Entity Button card allows you to add buttons to perform tasks.
+The Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the entity button card'>
-Screenshot of the Entity Button card.
+<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the button card'>
+Screenshot of the Button card.
 </p>
 
 ```yaml
-type: entity-button
+type: button
 entity: light.living_room
 ```
 
 {% configuration %}
 type:
   required: true
-  description: entity-button
+  description: button
   type: string
 entity:
   required: true
@@ -50,6 +50,11 @@ icon_height:
   description: Set the height for the icon. This is in pixels which is handled by the configuration UI. (Advanced users can use other CSS values if they like)
   type: string
   default: auto
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap
@@ -189,7 +194,7 @@ user:
 Title and Script Service Example:
 
 ```yaml
-type: entity-button
+type: button
 name: Turn Off Lights
 tap_action:
   action: call-service
@@ -200,6 +205,6 @@ entity: script.turn_off_lights
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the entity button card'>
-Screenshot of the Entity Button card with Title and Script Service.
+<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the button card'>
+Screenshot of the Button card with Title and Script Service.
 </p>

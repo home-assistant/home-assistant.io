@@ -5,6 +5,7 @@ logo: tado.png
 ha_category:
   - Hub
   - Climate
+  - Water Heater
   - Presence Detection
   - Sensor
 ha_release: 0.41
@@ -18,6 +19,7 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 There is currently support for the following device types within Home Assistant:
 
 - Climate - for every Tado zone.
+- Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 
@@ -26,10 +28,21 @@ There is currently support for the following device types within Home Assistant:
 To use your Tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry with multiple accounts
 tado:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - username: YOUR_USERNAME1
+    password: YOUR_PASSWORD1
+  - username: YOUR_USERNAME2
+    password: YOUR_PASSWORD2
+```
+
+In case of single account works as well:
+
+```yaml
+# Example configuration.yaml entry with single account
+tado:
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}

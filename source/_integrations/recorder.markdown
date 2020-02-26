@@ -37,6 +37,16 @@ recorder:
       description: The URL that points to your database.
       required: false
       type: string
+    db_max_retries:
+      description: The max amount of times, the recorder retries to connect to the database.
+      required: false
+      default: 10
+      type: integer
+    db_retry_wait:
+      description: The time in seconds, that the recorder sleeps when trying to connect to the database.
+      required: false
+      default: 3
+      type: integer
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -186,6 +196,7 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 ### Database startup
 
 If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service

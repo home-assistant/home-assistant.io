@@ -38,6 +38,10 @@ alias:
   description: Friendly name for the script.
   required: false
   type: string
+icon:
+  description: Icon for the script.
+  required: false
+  type: string
 description:
   description: A description of the script that will be displayed in the Services tab under Developer Tools.
   required: false
@@ -73,6 +77,7 @@ sequence:
 script: 
   wakeup:
     alias: Wake Up
+    icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
     fields:
       minutes:

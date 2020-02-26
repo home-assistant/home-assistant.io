@@ -188,6 +188,11 @@ title:
   required: false
   description: Icon tooltip. Set to null to hide.
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap

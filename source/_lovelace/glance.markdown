@@ -47,6 +47,11 @@ columns:
   required: false
   description: Number of columns to show. If not specified the number will be set automatically.
   type: integer
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Options For Entities
