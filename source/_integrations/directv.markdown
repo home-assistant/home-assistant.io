@@ -6,22 +6,29 @@ ha_category:
   - Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
+ha_config_flow: true
 ---
 
-Master [DirecTV](https://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery integration](/integrations/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
+### Setup
 
-To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
+Go to the integrations page in your configuration and click on new integration -> DirecTV.
+If you have enabled [ssdp](/integrations/ssdp) discovery and your DirecTV receiver is on, it's likely that you just have to confirm the detected device.
+
+### YAML Configuration
+
+YAML configuration is around for people that prefer YAML.
+To use a TV add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 directv:
-  - host: 1.1.1.1
+  - host: IP_ADDRESS
 ```
 
 {% configuration %}
 host:
-  description: The IP address or the hostname of the device. Use only if you don't want to scan for devices.
-  required: false
+  description: "The hostname or IP of the DirecTV receiver, e.g., `192.168.0.10`."
+  required: true
   type: string
 {% endconfiguration %}
 
