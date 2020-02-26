@@ -20,7 +20,7 @@ Here are some examples:
 - [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
 - [Official Timetable Switzerland](https://opentransportdata.swiss/en/dataset/timetable-2019-gtfs) - The official timetable data for Switzerland in 2019.
 
-You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
+You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e., `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
 
 The data will be converted into a queryable format and saved as a SQLite3 database alongside the source data. The sensor will check for the existence of this SQLite3 data at every startup and will re-import the ZIP/Folder if none is found.
 

@@ -59,7 +59,7 @@ mysensors:
         type: string
         default: ''
       nodes:
-        description: A mapping of node ids to node settings, e.g. custom name.
+        description: A mapping of node ids to node settings, e.g.,  custom name.
         required: false
         type: map
         keys:
@@ -243,7 +243,7 @@ In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
-The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g. one required value type for a platform has been received, but other required value types are missing.
+The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g.,  one required value type for a platform has been received, but other required value types are missing.
 
 Message validation was introduced in version 0.52 of Home Assistant.
 

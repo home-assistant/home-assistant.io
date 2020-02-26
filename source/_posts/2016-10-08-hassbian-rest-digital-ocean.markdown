@@ -107,7 +107,7 @@ sensor
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
 - Fix Homematic device name with autodiscovery ([@pvizeli])
 - Make 'pin' optional for zigbee device config ([@flyte])
-- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
+- Fix when sending a notification to a service with target attached (i.e., `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 

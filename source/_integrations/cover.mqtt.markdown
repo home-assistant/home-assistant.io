@@ -18,14 +18,14 @@ The device state (`open`, `opening`, `closed` or `closing`) will be updated only
 For this purpose is `position_topic` which can set state of the cover and position.
 Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
 `position_topic` is managed by `position_open` and `position_closed`
-You can set it up in opossite way as well.
+You can set it up in opposite way as well.
 If position topic is defined than state topic is ignored.
 
 If a state topic and position topic are not defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
 
 Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if experiencing incorrect cover operation (Google Assistant gauge may need optimistic mode as it often send request to your Home Assistant immediately after send set_cover_position in which case MQTT could be too slow).
 
-The `mqtt` cover platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e. publishes `payload_not_available` to `availability_topic`), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
+The `mqtt` cover platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
 To use your MQTT cover in your installation, add the following to your `configuration.yaml` file:
 

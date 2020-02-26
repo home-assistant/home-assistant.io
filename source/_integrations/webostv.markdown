@@ -135,9 +135,9 @@ To obtain complete list of available sources currently configured on the TV, onc
 
 The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
- 1. Channel number *(i.e. '1' or '6')*
- 2. Exact channel name *(i.e. 'France 2' or 'CNN')*
- 3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
+ 1. Channel number *(i.e., '1' or '6')*
+ 2. Exact channel name *(i.e., 'France 2' or 'CNN')*
+ 3. Substring in channel name *(i.e., 'BFM' in 'BFM TV')*
 
 ```yaml
 # Example action entry in script to switch to channel number 1
@@ -190,7 +190,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
 
 ### Example
 

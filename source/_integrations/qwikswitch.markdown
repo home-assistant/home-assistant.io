@@ -48,7 +48,7 @@ button_events:
   default: TOGGLE,SCENE EXE,LEVEL
   type: string
 switches:
-  description: A list of device QS_id's that should be switches, and not lights (i.e. `['@0dev01', '@0dev02']`)
+  description: A list of device QS_id's that should be switches, and not lights (i.e., `['@0dev01', '@0dev02']`)
   required: false
   type: list
 sensors:

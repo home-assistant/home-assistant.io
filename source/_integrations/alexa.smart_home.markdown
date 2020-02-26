@@ -340,7 +340,7 @@ See [List of Capability Interfaces and Supported Locales][alexa-supported-locale
 
 ### Proactive Events
 
-The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e. "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
