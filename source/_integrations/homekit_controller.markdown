@@ -15,7 +15,7 @@ ha_category:
   - Fan
   - Health
 ha_release: 0.68
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
@@ -47,6 +47,8 @@ HomeKit IP accessories for these device types may work with some caveats:
 - If the device is Wi-Fi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your Wi-Fi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your Wi-Fi. Home Assistant can then find it and pair with it.
 - You need to know the HomeKit PIN. There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 
+HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
+
 Home Assistant does not currently support HomeKit BLE.
 
 <div class='note'>
@@ -66,10 +68,6 @@ Devices with screens like thermostats may not have PIN codes in the packaging at
 If your device doesn't have a display and received HomeKit support after it was released, you may not have a pairing code. Dealing with this is manufacturer specific. Some manufacturers allow you to see the pairing code in their iOS app. Others force you to use their app to configure HomeKit and don't let you have the pairing pin - right now you won't be able to use HomeKit Controller with those devices.
 
 If you have lost your PIN code, then you may not be able to pair your accessory. You should contact the manufacturer to see if there is anything you can do.
-
-### My accessory isn't updating straight away
-
-This is normal - HomeKit controller is currently a local polling based integration. It polls your accessory for its latest state once per minute.
 
 ### Home Assistant cannot discover my device
 
