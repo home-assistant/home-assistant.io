@@ -3,7 +3,7 @@ title: Minecraft Server
 description: Instructions on how to integrate a Minecraft server into Home Assistant.
 logo: minecraft.png
 ha_release: 0.106
-ha_category: 
+ha_category:
   - Binary Sensor
   - Sensor
 ha_iot_class: Local Polling

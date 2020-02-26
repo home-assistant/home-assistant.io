@@ -9,6 +9,8 @@ ha_category:
   - Lock
 ha_release: 0.64
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.

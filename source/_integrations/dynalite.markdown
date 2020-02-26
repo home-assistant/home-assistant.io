@@ -1,12 +1,15 @@
 ---
-title: "Philips Dynalite"
-description: "Instructions on setting up Philips Dynalite within Home Assistant."
+title: Philips Dynalite
+description: Instructions on setting up Philips Dynalite within Home Assistant.
 logo: dynalite.png
 ha_category:
   - Hub
   - Light
 ha_iot_class: Local Push
 ha_release: 0.106
+ha_codeowners:
+  - '@ziv1234'
+ha_config_flow: true
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light platforms. 
