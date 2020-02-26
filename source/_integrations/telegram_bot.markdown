@@ -1,6 +1,6 @@
 ---
-title: "Telegram chatbot"
-description: "Telegram chatbot support"
+title: "Telegram bot"
+description: "Telegram bot support"
 logo: telegram.png
 ha_category:
   - Hub
