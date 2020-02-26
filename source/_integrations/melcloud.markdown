@@ -1,7 +1,7 @@
 ---
 title: MELCloud
 description: MELCloud integration
-logo: home-assistant.png
+logo: melcloud.png
 ha_category:
   - Climate
 ha_release: 0.106
