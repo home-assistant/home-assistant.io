@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "0.106: Beta release notes"
-description: "TBD"
-date: 2020-02-17 00:00:00
+title: "0.106: Light brightness stepping, better Safe Mode and person dialog"
+description: "A great release that improves stability, reliability and a lot of helpful additions to make everything much more friendly and easier to use."
+date: 2020-02-26 00:00:00
 date_formatted: "February 26, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2020-02-0.106/components.png
+og_image: /images/blog/2020-02-0.106/social.png
 ---
 
 <a href='/integrations/#version/0.106'><img src='/images/blog/2020-02-0.106/components.png' style='border: 0;box-shadow: none;'></a>
 
-Well hello Home Assistant Core 0.106!
+Well, hello!, Home Assistant Core 0.106! We are happy to see you 😃
 
-These are the draft release notes for the upcoming release, currently in Beta.
+A great release that improves stability, reliability and a lot of helpful additions to make everything much more friendly and easier to use. So let's dive in!
 
 ## Safe Mode improvements
 
@@ -65,7 +65,7 @@ In this version, we now include all entities in the panel, giving you a nice com
 Screenshot of uneditable entities in the configuration panel.
 </p>
 
-Since all entities are now available in this panel, it does not only provide you a clear overview of all the available entities; you can also make use of the "related items" feature introduced in release [0.105](/2020/02/05/release-105/) to see where they are being used!
+Since all entities are now available in this panel, it does not only provide you a clear overview of all the available entities; you can also make use of the "related items" feature introduced in release [0.105](/blog/2020/02/05/release-105/) to see where they are being used!
 
 ## Updates to the developer tools panels
 
@@ -254,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **UniFi** - Changing tracking settings will no longer disable entities but will remove them completely from the state machine and entity registry. The SSID filter will now mark all wireless clients as `not_home` if they are connected to SSIDs that are not a part of the filter. - ([@Kane610] - [#31762]) ([unifi docs])
 
-- **Rest** - Many devices continue to use XML for RESTful APIs. This change implements converting XML output to JSON via `xmltojson` so it can work with the existing rest sensor component. 
+- **Rest** - Many devices continue to use XML for RESTful APIs. This change implements converting XML output to JSON via `xmltojson` so it can work with the existing rest sensor component.
 
 `xmltojson` tags may be confusing; if you are not familiar with the conversion, please use the [xmltodict](https://xmltodict-debugger.glitch.me/) tool created by [@balloob] to identify the tags to be used to parse the resulting JSON.
 
@@ -298,6 +298,43 @@ As the attributes that usually need to be scraped are deeper in the document, su
 
 - **deCONZ** - deCONZ will no longer change entities to being disabled when using the integration configuration options but rather remove them completely from the state machine. Enabling the option will load all relevant entities again. - ([@Kane610] - [#31661]) ([deconz docs])
 
+- **Ring** - All Ring accounts require two-factor authentication. This means that it is no longer possible to configure it via YAML as this cannot support 2FA. - ([@balloob] - [#32039]) ([ring docs]) (breaking change) (beta fix)
+
+- **Hue** - The `filename` option from the Hue bridge configuration has been deprecated in 0.104 and now removed. - ([@frenck] - [#32027]) ([hue docs]) (breaking change) (beta fix)
+
+## Beta Fixes
+
+- Only check frontend for safe mode if frontend wanted to be loa… ([@balloob] - [#31969]) (beta fix)
+- Fix Plex sensor title handling ([@jjlawren] - [#31973]) ([plex docs]) (beta fix)
+- Bump ZHA quirks and add skip configuration support ([@dmulcahey] - [#31982]) ([zha docs]) (beta fix)
+- Fix bug in ecobee integration ([@marthoc] - [#32008]) ([ecobee docs]) (beta fix)
+- Fix recursion bug ([@balloob] - [#32009]) ([homeassistant docs]) (beta fix)
+- Don't return coroutine in DLNA/DMR service handler ([@tsvi] - [#32011]) ([dlna_dmr docs]) (beta fix)
+- Bump pyatmo to 3.2.4 ([@cgtobi] - [#32018]) ([netatmo docs]) (beta fix)
+- Add missing name to logging in DataUpdateCoordinator ([@MatthewFlamm] - [#32023]) (beta fix)
+- Add minimal version contrain to urllib3 ([@frenck] - [#32031]) (beta fix)
+- Updated frontend to 20200220.0 ([@balloob] - [#32033]) ([frontend docs]) (beta fix)
+- Enhance Dynalite Integration after review ([@ziv1234] - [#31760]) ([dynalite docs]) (beta fix)
+- Remove YAML config from Ring integration ([@balloob] - [#32039]) ([ring docs]) (breaking change) (beta fix)
+- Fix i/o in august camera async image update ([@bdraco] - [#32044]) ([august docs]) (beta fix)
+- Updated frontend to 20200220.1 ([@balloob] - [#32046]) ([frontend docs]) (beta fix)
+- Bump brother to 0.1.6 ([@bieniu] - [#32054]) ([brother docs]) (beta fix)
+- Add additional logging to rest sensor ([@arsaboo] - [#32068]) ([rest docs]) (beta fix)
+- Add ConfigEntryNotReady exception to Plex ([@jjlawren] - [#32071]) ([plex docs]) (beta fix)
+- Fix Plugwise climate issues for new firmware #32080 ([@CoMPaTech] - [#32109]) ([plugwise docs]) (beta fix)
+- 0.106 Beta - provide correctly formatted placeholders ([@kit-klein] - [#32119]) ([konnected docs]) (beta fix)
+- Properly define depenency for Scrape integration on Rest integ… ([@balloob] - [#32136]) ([scrape docs]) (beta fix)
+- Fix vizio bug to use 'get' to get volume_step since it is optional ([@raman325] - [#32151]) ([vizio docs]) (beta fix)
+- Improve Vizio fix to avoid KeyError ([@raman325] - [#32163]) ([vizio docs]) (beta fix)
+- Dedup and clarify imported konnected config flows ([@kit-klein] - [#32138]) ([konnected docs]) (beta fix)
+- Bump python-tado to 0.3.0 ([@michaelarnauts] - [#32186]) ([tado docs]) (beta fix)
+- Updated frontend to 20200220.3 ([@bramkragten] - [#32189]) ([frontend docs]) (beta fix)
+- Fix Arlo doing I/O in event loop ([@balloob] - [#32190]) ([arlo docs]) (beta fix)
+- Bump socialbladeclient to 0.5 ([@pinkywafer] - [#32191]) ([socialblade docs]) (beta fix)
+- Fix error where SimpliSafe websocket would disconnect and not reconnect ([@bachya] - [#32199]) ([simplisafe docs]) (beta fix)
+- Updated frontend to 20200220.4 ([@bramkragten] - [#32205]) ([frontend docs]) (beta fix)
+- Remove deprecated Hue options (fixes CI) ([@frenck] - [#32027]) ([hue docs]) (breaking change) (beta fix)
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
@@ -315,7 +352,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 - Fix typos found by codespell ([@cclauss] - [#31243])
 - UniFi integration move to push messaging ([@Kane610] - [#31086]) ([unifi docs])
 - Axis - Use core to start component tests ([@Kane610] - [#31328])
-- drop fritzdect ([@escoand] - [#31359]) ([fritzdect docs]) (breaking change)
+- drop fritzdect ([@escoand] - [#31359]) (breaking change)
 - Let core resolve entity_id for lastfm from username ([@inverse] - [#31280]) ([lastfm docs])
 - Add totalconnect zones as binary sensors ([@austinmroczek] - [#28712]) ([totalconnect docs]) (new-platform)
 - Add Tahoma lock support ([@vlebourl] - [#31311]) ([tahoma docs]) (new-platform)
@@ -366,7 +403,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 - Add belgian meter and rename some dsmr sensors ([@dupondje] - [#30121]) ([dsmr docs]) (breaking change)
 - Add GDACS feed integration ([@exxamalte] - [#31235]) ([gdacs docs]) (new-integration)
 - Update link when IO in event loop ([@balloob] - [#31519])
-- Remove of liveboxplaytv integration (ADR0004) ([@frenck] - [#31525]) ([liveboxplaytv docs]) (breaking change)
+- Remove of liveboxplaytv integration (ADR0004) ([@frenck] - [#31525]) (breaking change)
 - Updated the provider name to blockchain.com ([@P-Verbrugge] - [#31534]) ([blockchain docs])
 - Changed website name to blockchain.com ([@P-Verbrugge] - [#31528]) ([bitcoin docs])
 - Update the update coordinator API to make it easier to use ([@balloob] - [#31471]) ([hue docs])
@@ -376,7 +413,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 - Add Minecraft Server Integration ([@elmurato] - [#30992]) ([minecraft_server docs]) (new-integration)
 - Extract services from init.py for HomematicIP Cloud ([@SukramJ] - [#31376]) ([homematicip_cloud docs])
 - Fix exceptions when using newer Samsung TVs ([@escoand] - [#31602]) ([samsungtv docs])
-- Clean up core services ([@balloob] - [#31509]) ([group docs]) ([homeassistant docs]) ([intent docs]) (breaking change)
+- Clean up core services ([@balloob] - [#31509]) ([group docs]) ([homeassistant docs]) (breaking change)
 - Bump denonavr to 0.7.12 ([@scarface-4711] - [#31629]) ([denonavr docs])
 - Actually enable alarmdecoder to see open/close state of bypassed RF zones when armed ([@melyux] - [#31426]) ([alarmdecoder docs])
 - Use slug in ping device tracker config validation ([@springstan] - [#31329]) ([ifttt docs]) ([media_extractor docs]) ([onewire docs]) ([ping docs])
@@ -502,7 +539,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 - Updated frontend to 20200212.0 ([@bramkragten] - [#31912]) ([frontend docs])
 - Provide user consumable errors when lock operations fail ([@bdraco] - [#31864]) ([august docs])
 - Bump simplisafe-python to 8.1.1 ([@bachya] - [#31915]) ([simplisafe docs])
-- Remove duke_energy integration (ADR-0004) ([@frenck] - [#31921]) ([duke_energy docs]) (breaking change)
+- Remove duke_energy integration (ADR-0004) ([@frenck] - [#31921]) (breaking change)
 - Updated frontend to 20200217.0 ([@bramkragten] - [#31922]) ([frontend docs])
 - Add async_unload_entry to iCloud ([@Quentame] - [#31917]) ([icloud docs])
 - Add an options flow to demo ([@bramkragten] - [#31920]) ([demo docs])
@@ -535,6 +572,36 @@ As the attributes that usually need to be scraped are deeper in the document, su
 - Add shutter group to HomematicIP Cloud ([@SukramJ] - [#31916]) ([homematicip_cloud docs])
 - Fix test for HMIPC ([@SukramJ] - [#31981])
 - Updated frontend to 20200219.0 ([@bramkragten] - [#31979]) ([frontend docs])
+- Only check frontend for safe mode if frontend wanted to be loa… ([@balloob] - [#31969]) (beta fix)
+- Fix Plex sensor title handling ([@jjlawren] - [#31973]) ([plex docs]) (beta fix)
+- Bump ZHA quirks and add skip configuration support ([@dmulcahey] - [#31982]) ([zha docs]) (beta fix)
+- Fix bug in ecobee integration ([@marthoc] - [#32008]) ([ecobee docs]) (beta fix)
+- Fix recursion bug ([@balloob] - [#32009]) ([homeassistant docs]) (beta fix)
+- Don't return coroutine in DLNA/DMR service handler ([@tsvi] - [#32011]) ([dlna_dmr docs]) (beta fix)
+- Bump pyatmo to 3.2.4 ([@cgtobi] - [#32018]) ([netatmo docs]) (beta fix)
+- Add missing name to logging in DataUpdateCoordinator ([@MatthewFlamm] - [#32023]) (beta fix)
+- Add minimal version contrain to urllib3 ([@frenck] - [#32031]) (beta fix)
+- Updated frontend to 20200220.0 ([@balloob] - [#32033]) ([frontend docs]) (beta fix)
+- Enhance Dynalite Integration after review ([@ziv1234] - [#31760]) ([dynalite docs]) (beta fix)
+- Remove YAML config from Ring integration ([@balloob] - [#32039]) ([ring docs]) (breaking change) (beta fix)
+- Fix i/o in august camera async image update ([@bdraco] - [#32044]) ([august docs]) (beta fix)
+- Updated frontend to 20200220.1 ([@balloob] - [#32046]) ([frontend docs]) (beta fix)
+- Bump brother to 0.1.6 ([@bieniu] - [#32054]) ([brother docs]) (beta fix)
+- Add additional logging to rest sensor ([@arsaboo] - [#32068]) ([rest docs]) (beta fix)
+- Add ConfigEntryNotReady exception to Plex ([@jjlawren] - [#32071]) ([plex docs]) (beta fix)
+- Fix Plugwise climate issues for new firmware #32080 ([@CoMPaTech] - [#32109]) ([plugwise docs]) (beta fix)
+- 0.106 Beta - provide correctly formatted placeholders ([@kit-klein] - [#32119]) ([konnected docs]) (beta fix)
+- Properly define depenency for Scrape integration on Rest integ… ([@balloob] - [#32136]) ([scrape docs]) (beta fix)
+- Fix vizio bug to use 'get' to get volume_step since it is optional ([@raman325] - [#32151]) ([vizio docs]) (beta fix)
+- Improve Vizio fix to avoid KeyError ([@raman325] - [#32163]) ([vizio docs]) (beta fix)
+- Dedup and clarify imported konnected config flows ([@kit-klein] - [#32138]) ([konnected docs]) (beta fix)
+- Bump python-tado to 0.3.0 ([@michaelarnauts] - [#32186]) ([tado docs]) (beta fix)
+- Updated frontend to 20200220.3 ([@bramkragten] - [#32189]) ([frontend docs]) (beta fix)
+- Fix Arlo doing I/O in event loop ([@balloob] - [#32190]) ([arlo docs]) (beta fix)
+- Bump socialbladeclient to 0.5 ([@pinkywafer] - [#32191]) ([socialblade docs]) (beta fix)
+- Fix error where SimpliSafe websocket would disconnect and not reconnect ([@bachya] - [#32199]) ([simplisafe docs]) (beta fix)
+- Updated frontend to 20200220.4 ([@bramkragten] - [#32205]) ([frontend docs]) (beta fix)
+- Remove deprecated Hue options (fixes CI) ([@frenck] - [#32027]) ([hue docs]) (breaking change) (beta fix)
 
 [#27341]: https://github.com/home-assistant/home-assistant/pull/27341
 [#27841]: https://github.com/home-assistant/home-assistant/pull/27841
@@ -680,6 +747,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [#31755]: https://github.com/home-assistant/home-assistant/pull/31755
 [#31756]: https://github.com/home-assistant/home-assistant/pull/31756
 [#31758]: https://github.com/home-assistant/home-assistant/pull/31758
+[#31760]: https://github.com/home-assistant/home-assistant/pull/31760
 [#31762]: https://github.com/home-assistant/home-assistant/pull/31762
 [#31764]: https://github.com/home-assistant/home-assistant/pull/31764
 [#31765]: https://github.com/home-assistant/home-assistant/pull/31765
@@ -768,14 +836,44 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [#31965]: https://github.com/home-assistant/home-assistant/pull/31965
 [#31966]: https://github.com/home-assistant/home-assistant/pull/31966
 [#31968]: https://github.com/home-assistant/home-assistant/pull/31968
+[#31969]: https://github.com/home-assistant/home-assistant/pull/31969
 [#31970]: https://github.com/home-assistant/home-assistant/pull/31970
+[#31973]: https://github.com/home-assistant/home-assistant/pull/31973
 [#31979]: https://github.com/home-assistant/home-assistant/pull/31979
 [#31981]: https://github.com/home-assistant/home-assistant/pull/31981
+[#31982]: https://github.com/home-assistant/home-assistant/pull/31982
+[#32008]: https://github.com/home-assistant/home-assistant/pull/32008
+[#32009]: https://github.com/home-assistant/home-assistant/pull/32009
+[#32011]: https://github.com/home-assistant/home-assistant/pull/32011
+[#32018]: https://github.com/home-assistant/home-assistant/pull/32018
+[#32023]: https://github.com/home-assistant/home-assistant/pull/32023
+[#32027]: https://github.com/home-assistant/home-assistant/pull/32027
+[#32031]: https://github.com/home-assistant/home-assistant/pull/32031
+[#32033]: https://github.com/home-assistant/home-assistant/pull/32033
+[#32039]: https://github.com/home-assistant/home-assistant/pull/32039
+[#32044]: https://github.com/home-assistant/home-assistant/pull/32044
+[#32046]: https://github.com/home-assistant/home-assistant/pull/32046
+[#32054]: https://github.com/home-assistant/home-assistant/pull/32054
+[#32068]: https://github.com/home-assistant/home-assistant/pull/32068
+[#32071]: https://github.com/home-assistant/home-assistant/pull/32071
+[#32109]: https://github.com/home-assistant/home-assistant/pull/32109
+[#32119]: https://github.com/home-assistant/home-assistant/pull/32119
+[#32136]: https://github.com/home-assistant/home-assistant/pull/32136
+[#32138]: https://github.com/home-assistant/home-assistant/pull/32138
+[#32151]: https://github.com/home-assistant/home-assistant/pull/32151
+[#32163]: https://github.com/home-assistant/home-assistant/pull/32163
+[#32186]: https://github.com/home-assistant/home-assistant/pull/32186
+[#32189]: https://github.com/home-assistant/home-assistant/pull/32189
+[#32190]: https://github.com/home-assistant/home-assistant/pull/32190
+[#32191]: https://github.com/home-assistant/home-assistant/pull/32191
+[#32199]: https://github.com/home-assistant/home-assistant/pull/32199
+[#32205]: https://github.com/home-assistant/home-assistant/pull/32205
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@CHAZICLE]: https://github.com/CHAZICLE
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Cloudenius]: https://github.com/Cloudenius
+[@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Kane610]: https://github.com/Kane610
 [@KasperLK]: https://github.com/KasperLK
@@ -783,6 +881,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@ManneW]: https://github.com/ManneW
 [@Marco98]: https://github.com/Marco98
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatthewFlamm]: https://github.com/MatthewFlamm
 [@MrDadoo]: https://github.com/MrDadoo
 [@P-Verbrugge]: https://github.com/P-Verbrugge
 [@PhilRW]: https://github.com/PhilRW
@@ -796,6 +895,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@abmantis]: https://github.com/abmantis
 [@alandtse]: https://github.com/alandtse
 [@andersonshatch]: https://github.com/andersonshatch
+[@arsaboo]: https://github.com/arsaboo
 [@austinmroczek]: https://github.com/austinmroczek
 [@azogue]: https://github.com/azogue
 [@bachya]: https://github.com/bachya
@@ -804,17 +904,20 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@bbernhard]: https://github.com/bbernhard
 [@bdraco]: https://github.com/bdraco
 [@benleb]: https://github.com/benleb
+[@bieniu]: https://github.com/bieniu
 [@bjornorri]: https://github.com/bjornorri
 [@bmfurtado]: https://github.com/bmfurtado
 [@bramkragten]: https://github.com/bramkragten
 [@caronc]: https://github.com/caronc
 [@cclauss]: https://github.com/cclauss
+[@cgtobi]: https://github.com/cgtobi
 [@crallian]: https://github.com/crallian
 [@ctalkington]: https://github.com/ctalkington
 [@danielperna84]: https://github.com/danielperna84
 [@dcnielsen90]: https://github.com/dcnielsen90
 [@dgomes]: https://github.com/dgomes
 [@dingusdk]: https://github.com/dingusdk
+[@dmulcahey]: https://github.com/dmulcahey
 [@dshokouhi]: https://github.com/dshokouhi
 [@dupondje]: https://github.com/dupondje
 [@eavanvalkenburg]: https://github.com/eavanvalkenburg
@@ -839,6 +942,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@kit-klein]: https://github.com/kit-klein
 [@ktnrg45]: https://github.com/ktnrg45
 [@laszlojakab]: https://github.com/laszlojakab
+[@marthoc]: https://github.com/marthoc
 [@maxcanna]: https://github.com/maxcanna
 [@melyux]: https://github.com/melyux
 [@mezz64]: https://github.com/mezz64
@@ -847,6 +951,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@mueslo]: https://github.com/mueslo
 [@ochlocracy]: https://github.com/ochlocracy
 [@oischinger]: https://github.com/oischinger
+[@pinkywafer]: https://github.com/pinkywafer
 [@pnbruckner]: https://github.com/pnbruckner
 [@raman325]: https://github.com/raman325
 [@rickvdl]: https://github.com/rickvdl
@@ -859,6 +964,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [@springstan]: https://github.com/springstan
 [@teharris1]: https://github.com/teharris1
 [@tetienne]: https://github.com/tetienne
+[@tsvi]: https://github.com/tsvi
 [@vanbalken]: https://github.com/vanbalken
 [@vilppuvuorinen]: https://github.com/vilppuvuorinen
 [@vlebourl]: https://github.com/vlebourl
@@ -873,6 +979,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [apcupsd docs]: /integrations/apcupsd/
 [apple_tv docs]: /integrations/apple_tv/
 [apprise docs]: /integrations/apprise/
+[arlo docs]: /integrations/arlo/
 [asuswrt docs]: /integrations/asuswrt/
 [august docs]: /integrations/august/
 [axis docs]: /integrations/axis/
@@ -882,6 +989,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
+[brother docs]: /integrations/brother/
 [caldav docs]: /integrations/caldav/
 [config docs]: /integrations/config/
 [coolmaster docs]: /integrations/coolmaster/
@@ -893,9 +1001,9 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [device_tracker docs]: /integrations/device_tracker/
 [directv docs]: /integrations/directv/
 [discord docs]: /integrations/discord/
+[dlna_dmr docs]: /integrations/dlna_dmr/
 [doods docs]: /integrations/doods/
 [dsmr docs]: /integrations/dsmr/
-[duke_energy docs]: /integrations/duke_energy/
 [dynalite docs]: /integrations/dynalite/
 [ecobee docs]: /integrations/ecobee/
 [edimax docs]: /integrations/edimax/
@@ -906,7 +1014,6 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [evohome docs]: /integrations/evohome/
 [freebox docs]: /integrations/freebox/
 [fritz docs]: /integrations/fritz/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [frontier_silicon docs]: /integrations/frontier_silicon/
 [garmin_connect docs]: /integrations/garmin_connect/
@@ -926,7 +1033,6 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [ifttt docs]: /integrations/ifttt/
 [ihc docs]: /integrations/ihc/
 [insteon docs]: /integrations/insteon/
-[intent docs]: /integrations/intent/
 [ipma docs]: /integrations/ipma/
 [iqvia docs]: /integrations/iqvia/
 [jewish_calendar docs]: /integrations/jewish_calendar/
@@ -936,7 +1042,6 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [lg_netcast docs]: /integrations/lg_netcast/
 [light docs]: /integrations/light/
 [linky docs]: /integrations/linky/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [maxcube docs]: /integrations/maxcube/
 [mcp23017 docs]: /integrations/mcp23017/
 [media_extractor docs]: /integrations/media_extractor/
@@ -960,6 +1065,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [ping docs]: /integrations/ping/
 [pioneer docs]: /integrations/pioneer/
 [plex docs]: /integrations/plex/
+[plugwise docs]: /integrations/plugwise/
 [proxmoxve docs]: /integrations/proxmoxve/
 [proxy docs]: /integrations/proxy/
 [ps4 docs]: /integrations/ps4/
@@ -970,17 +1076,20 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [reddit docs]: /integrations/reddit/
 [remote docs]: /integrations/remote/
 [rest docs]: /integrations/rest/
+[ring docs]: /integrations/ring/
 [roku docs]: /integrations/roku/
 [rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 [sabnzbd docs]: /integrations/sabnzbd/
 [salt docs]: /integrations/salt/
 [samsungtv docs]: /integrations/samsungtv/
+[scrape docs]: /integrations/scrape/
 [script docs]: /integrations/script/
 [sendgrid docs]: /integrations/sendgrid/
 [seven_segments docs]: /integrations/seven_segments/
 [signal_messenger docs]: /integrations/signal_messenger/
 [simplisafe docs]: /integrations/simplisafe/
 [smartthings docs]: /integrations/smartthings/
+[socialblade docs]: /integrations/socialblade/
 [sonos docs]: /integrations/sonos/
 [soundtouch docs]: /integrations/soundtouch/
 [spc docs]: /integrations/spc/
@@ -990,7 +1099,7 @@ As the attributes that usually need to be scraped are deeper in the document, su
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_chatbot/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/
