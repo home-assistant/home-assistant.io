@@ -228,7 +228,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
           input_type: discrete_input
   ```
 
-- **Tado** - Adding support of multiple Tado accounts has changed the unique ID generation of sensor and climate devices, and now includes the ID of the home.
+- **Tado** - Adding support of multiple Tado accounts has changed the unique ID generation of sensor and climate devices, and now includes the ID of the home. As a result you will see new entity ID's for `sensor` and `climate` devices.
 
    In addition, support for water heater zones has been added. Tado hot water zones with temperature control previously created a climate entity, e.g., `climate.hot_water`, and these will be replaced by a `water_heater.hot_water` entity. This change is not breaking for hot water zones without temperature control as they do not have a climate zone.
 
