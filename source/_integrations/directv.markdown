@@ -17,7 +17,7 @@ If you have enabled [ssdp](/integrations/ssdp) discovery and your DirecTV receiv
 ### YAML Configuration
 
 YAML configuration is around for people that prefer YAML.
-To use a TV add the following to your `configuration.yaml` file:
+To use a DirecTV receiver add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
