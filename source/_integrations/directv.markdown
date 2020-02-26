@@ -9,6 +9,8 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ---
 
+The `directv` platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
+
 ### Setup
 
 Go to the integrations page in your configuration and click on new integration -> DirecTV.
