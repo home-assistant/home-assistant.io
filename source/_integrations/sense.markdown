@@ -52,4 +52,4 @@ Sensors are added for both usage and production with the following names:
 
 Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
 
-In version 0.107 and late, usage sensors are created for each of the devices detected by your Sense monitor to show their power usage in Watts.
+In version 0.107 and later, usage sensors are created for each of the devices detected by your Sense monitor to show their power usage in Watts.
