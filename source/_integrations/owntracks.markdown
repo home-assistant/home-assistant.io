@@ -9,7 +9,7 @@ ha_release: 0.7.4
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
-By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
+By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT. When a location is submitted via HTTP, Home Assistant will return all [Persons](/integrations/person/)' last known locations and they will be displayed within the OwnTracks app.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
@@ -88,11 +88,6 @@ region_mapping:
   description: "Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`."
   required: false
   type: list
-friends:
-  description: "Boolean flag to control whether friends' locations are shared with OwnTracks clients submitting their location via the Home Assistant HTTP webhook. This options brings similar functionality to the way OwnTracks works when used via a MQTT broker. The returned locations are based on the configured [Person](/integrations/person/)'s [device_trackers](/integrations/device_tracker/). This option has no effect if OwnTracks is used solely via MQTT"
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 A full sample configuration for the `owntracks` platform is shown below:
