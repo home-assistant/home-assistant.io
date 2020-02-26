@@ -13,6 +13,23 @@ ha_codeowners:
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.
 
+<div class='note warning'>
+In version 0.107, the binary sensors for each detected device are now sensors that show their power usage in Watts.
+
+If you still need a binary sensor, you can create a `Template Binary Sensor` for each device you need. The following example does this:
+
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      fridge:
+        value_template: "{{ states('sensor.fridge') }}"
+        friendly_name: 'Fridge'
+        device_class: power
+        icon_template: "{{ state_attr('sensor.fridge','icon') }}"
+```
+</div>
+
 There is currently support for the following device types within Home Assistant:
 
 - Sensor
