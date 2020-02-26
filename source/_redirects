@@ -2040,6 +2040,7 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
