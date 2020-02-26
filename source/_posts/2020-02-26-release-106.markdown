@@ -258,9 +258,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   `xmltojson` tags may be confusing; if you are not familiar with the conversion, please use the [xmltodict](https://xmltodict-debugger.glitch.me/) tool created by [@balloob] to identify the tags to be used to parse the resulting JSON.
 
-  As the attributes that usually need to be scraped are deeper in the document, support for passing in a template to find the JSON attributes has been added. JSON APIs that do not have their attributes at the top level can also benefit from this change.
-
-  - ([@bdraco] - [#31809]) ([rest docs])
+  As the attributes that usually need to be scraped are deeper in the document, support for passing in a template to find the JSON attributes has been added. JSON APIs that do not have their attributes at the top level can also benefit from this change. - ([@bdraco] - [#31809]) ([rest docs])
 
   Example YAML configuration:
 
