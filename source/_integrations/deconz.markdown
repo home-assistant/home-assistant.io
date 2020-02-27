@@ -417,8 +417,8 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 
 ### Verified supported covers
 
-- Ikea Fyrtur
-- Ikea Kadrilj
+- IKEA Fyrtur
+- IKEA Kadrilj
 - Keen vents
 - Xiaomi Aqara Curtain controller
 
