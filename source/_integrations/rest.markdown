@@ -108,7 +108,7 @@ json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
   required: false
   type: [string, list]
-json_path_attributes:
+json_attributes_path:
   description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
   required: false
   type: string
