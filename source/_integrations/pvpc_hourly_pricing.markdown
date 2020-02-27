@@ -1,0 +1,99 @@
+---
+title: PVPC Hourly Pricing
+description: Instructions on how to set up the ComEd Hourly Pricing sensor in Home Assistant.
+logo: ree_esios.svg
+ha_category:
+  - Energy
+ha_release: '0.107'
+ha_iot_class: Cloud Polling
+ha_quality_scale: platinum
+ha_config_flow: true
+ha_codeowners:
+  - '@azogue'
+---
+
+This sensor uses the official API to get the hourly price of electricity in Spain from https://www.esios.ree.es/en/pvpc.
+
+Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, 
+which is the energy term hourly price applied in the consumers' electrical bill 
+with a contracted power not exceeding 10 kW and which are under the PVPC 
+(Voluntary Price for Small Consumer).
+
+It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes.
+The hourly prices are the same throughout the Spanish territory regardless of the time zone.
+
+It can be set up via the integrations panel in the configuration screen.
+
+<iframe src="https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc" width="100%" height="608"></iframe>
+
+More information available at http://www.cnmc.es/en/ and http://www.omie.es/en/
+
+## Configuration
+
+To configure PVPC Hourly Pricing, you can set it up via the integrations panel in the configuration screen.
+
+Set a name for the price sensor (default is `sensor.pvpc`) and select one of the three tariffs, 
+corresponding to your contracted rate, according to the number of billing periods per day 
+(one / peak + valley / shifted peak + valley).
+
+- 1 period: `normal`, for the "Default PVPC tariff, (2.0 A)".
+- 2 periods: `discriminacion`, for the "Efficiency 2 periods (2.0 DHA)", with 10h peak interval from 11:00 UTC to 21:00 UTC.
+- 3 periods: `coche_electrico`, for the "Electric vehicle tariff (2.0 DHS)", optimized for electric car owners to charge at night.
+
+The default is `discriminacion`, with 2 periods, as it is usually the cheapest one for home consumers. 
+
+You can change the selected tariff at any time through the options panel, 
+and you can also add multiple sensors by adding them again through the integrations panel.
+
+### Advanced configuration
+
+PVPC Hourly Pricing allows manual configuration by adding a section to your `configuration.yaml`. 
+
+```yaml
+# Set up electricity price sensors as a component:
+pvpc_hourly_pricing:
+  - name: PVPC manual ve
+    tariff: coche_electrico
+  - name: PVPC manual nocturna
+    tariff: discriminacion
+    timeout: 3
+
+# Or as a sensor platform:
+sensor:
+  - platform: pvpc_hourly_pricing
+    name: pvpc_manual_sensor
+    tariff: normal
+
+  - platform: pvpc_hourly_pricing
+    name: pvpc_manual_sensor_2
+    tariff: discriminacion
+```
+
+{% configuration %}
+name:
+  description: Custom name for the sensor.
+  required: true
+  type: string
+tariff:
+  description: Contracted electric tariff.
+  required: true
+  default: discriminacion
+  type: string
+timeout:
+  description: The timeout in seconds for API calls to fetch prices data.
+  required: false
+  type: integer
+  default: 5
+{% endconfiguration %}
+
+
+<div class='note'>
+    <p>The sensor provides a hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:</p>
+    <ul>
+        <li>Fixed cost of contracted power</li>
+        <li>Fixed cost of energy consumed</li>
+        <li>Variable cost of energy consumed (the sensor's value)</li>
+        <li>Other fixed expenses, such as the rental of the electric meter</li>
+        <li>Multiple taxes applied</li>
+    </ul>
+</div>
