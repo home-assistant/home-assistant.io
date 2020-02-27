@@ -15,12 +15,7 @@ The `surepetcare` component allows you to get information on your Sure Petcare C
 
 ## Configuration
 
-To add a flap, feeder or pet, add the following to your `configuration.yaml` file. The Hubs a flap or feeder is connected to will be discovered automatically.
-
-### Breaking Changes in 0.106
-
-The format of the `feeders`/`flaps`/`pets` options changed from a map to a list of IDs which means the `name` option is removed. The `household_id` is not longer needed. Customizing options `icon` and `device_class` are also removed. Please update your `configuration.yaml` to reflect these changes.  
-`name`, `icon` and `device_class` can still be configured via the UI to achieve the same result as before. [0.106 Release post](https://www.home-assistant.io/blog/2020/02/26/release-106/#breaking-changes) announcing the changes.
+To add a flap, feeder or pet, add the following to your `configuration.yaml` file. The Hubs a flap or feeder is connected to, will be discovered automatically.
 
 ```yaml
 # Example configuration.yaml entry
