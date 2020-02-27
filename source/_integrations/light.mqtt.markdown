@@ -45,18 +45,9 @@ light:
 ```
 
 {% configuration %}
-name:
-  description: The name of the light.
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
-  type: string
-  default: MQTT Light
-unique_id:
-  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
-  required: false
-  type: string
-command_topic:
-  description: The MQTT topic to publish commands to change the switch state.
-  required: true
   type: string
 brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
@@ -91,10 +82,47 @@ color_temp_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color temperature value."
   required: false
   type: string
+command_topic:
+  description: The MQTT topic to publish commands to change the switch state.
+  required: true
+  type: string
+device:
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: [string, list]
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
   type: string
+effect_list:
+  description: The list of effects the light supports.
+  required: false
+  type: [string, list]
 effect_state_topic:
   description: The MQTT topic subscribed to receive effect state updates.
   required: false
@@ -103,10 +131,6 @@ effect_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the effect value."
   required: false
   type: string
-effect_list:
-  description: The list of effects the light supports.
-  required: false
-  type: [string, list]
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
   Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
@@ -122,6 +146,19 @@ hs_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the HS value."
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT Light
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -131,16 +168,26 @@ optimistic:
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
-payload_on:
-  description: The payload that represents enabled state.
+payload_available:
+  description: The payload that represents the available state.
   required: false
   type: string
-  default: "ON"
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
   default: "OFF"
+payload_on:
+  description: The payload that represents enabled state.
+  required: false
+  type: string
+  default: "ON"
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -175,6 +222,10 @@ state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 white_value_command_topic:
   description: "The MQTT topic to publish commands to change the light's white value."
   required: false
@@ -204,57 +255,6 @@ xy_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the XY value."
   required: false
   type: string
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
-device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
-  required: false
-  type: map
-  keys:
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -382,18 +382,9 @@ light:
 ```
 
 {% configuration %}
-name:
-  description: The name of the light.
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
-  type: string
-  default: MQTT JSON Light
-unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
-   required: false
-   type: string
-command_topic:
-  description: The MQTT topic to publish commands to change the light’s state.
-  required: true
   type: string
 brightness:
   description: Flag that defines if the light supports brightness.
@@ -410,6 +401,39 @@ color_temp:
   required: false
   type: boolean
   default: false
+command_topic:
+  description: The MQTT topic to publish commands to change the light’s state.
+  required: true
+  type: string
+device:
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: [string, list]
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -429,11 +453,39 @@ flash_time_short:
   required: false
   type: integer
   default: 2
+hs:
+  description: Flag that defines if the light supports HS colors.
+  required: false
+  type: boolean
+  default: false
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT JSON Light
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -453,6 +505,10 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+unique_id:
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 white_value:
   description: Flag that defines if the light supports white values.
   required: false
@@ -463,62 +519,6 @@ xy:
   required: false
   type: boolean
   default: false
-hs:
-  description: Flag that defines if the light supports HS colors.
-  required: false
-  type: boolean
-  default: false
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
-device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
-  required: false
-  type: map
-  keys:
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -678,112 +678,47 @@ light:
 ```
 
 {% configuration %}
-name:
-  description: The name of the light.
-  required: false
-  type: string
-  default: MQTT Template Light
-unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
-   required: false
-   type: string
-effect_list:
-  description: List of possible effects.
-  required: false
-  type: [string, list]
-command_topic:
-  description: The MQTT topic to publish commands to change the light’s state.
-  required: true
-  type: string
-state_topic:
-  description: The MQTT topic subscribed to receive state updates.
-  required: false
-  type: string
-command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `white_value`, `flash`, `transition` and `effect`."
-  required: true
-  type: string
-command_off_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`."
-  required: true
-  type: string
-state_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value."
-  required: false
-  type: string
-brightness_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value."
-  required: false
-  type: string
-red_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
-  required: false
-  type: string
-green_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
   type: string
 blue_template:
   description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value."
   required: false
   type: string
+brightness_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value."
+  required: false
+  type: string
 color_temp_template:
   description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value."
   required: false
   type: string
-effect_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value."
-  required: false
+command_off_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`."
+  required: true
   type: string
-white_value_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value."
-  required: false
+command_on_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `white_value`, `flash`, `transition` and `effect`."
+  required: true
   type: string
-optimistic:
-  description: Flag that defines if the light works in optimistic mode.
-  required: false
+command_topic:
+  description: The MQTT topic to publish commands to change the light’s state.
+  required: true
   type: string
-  default: "`true` if no state topic or state template is defined, else `false`."
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
   type: map
   keys:
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: [string, list]
     manufacturer:
       description: 'The manufacturer of the device.'
       required: false
@@ -800,6 +735,71 @@ device:
       description: 'The firmware version of the device.'
       required: false
       type: string
+effect_list:
+  description: List of possible effects.
+  required: false
+  type: [string, list]
+effect_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value."
+  required: false
+  type: string
+green_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
+  required: false
+  type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT Template Light
+optimistic:
+  description: Flag that defines if the light works in optimistic mode.
+  required: false
+  type: string
+  default: "`true` if no state topic or state template is defined, else `false`."
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+red_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
+  required: false
+  type: string
+state_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value."
+  required: false
+  type: string
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+unique_id:
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
+white_value_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value."
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note warning'>
