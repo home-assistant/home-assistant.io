@@ -10,6 +10,7 @@ ha_category:
   - Lock
 ha_release: 0.64
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ---
@@ -32,7 +33,9 @@ August Lock 2nd Gen will need either August Connect or Doorbell to connect to Ho
 
 You will need your August login information (username (either phone# or email), and password) to use this module.
 
-To set it up, add the following to your `configuration.yaml` file:
+To add `August` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **August**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
