@@ -333,6 +333,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20200220.4 ([@bramkragten] - [#32205]) ([frontend docs]) (beta fix)
 - Remove deprecated Hue options (fixes CI) ([@frenck] - [#32027]) ([hue docs]) (breaking change) (beta fix)
 
+## Release 0.106.1 - February 27
+
+- Add missing translations for light actions ([@emontnemery] - [#32216]) ([light docs])
+- Mark clients away if they have never been seen. ([@lociii] - [#32222]) ([unifi docs])
+- Fix DSMR 5 ([@dupondje] - [#32233]) ([dsmr docs])
+- Bump simplisafe-python to 9.0.0 ([@bachya] - [#32215]) ([simplisafe docs])
+- Bump simplisafe-python to 9.0.2 ([@bachya] - [#32273]) ([simplisafe docs])
+- deCONZ - Race condition on slower systems ([@Kane610] - [#32274]) ([deconz docs])
+- Catch more Hue errors ([@balloob] - [#32275]) ([hue docs])
+
+[#32215]: https://github.com/home-assistant/home-assistant/pull/32215
+[#32216]: https://github.com/home-assistant/home-assistant/pull/32216
+[#32222]: https://github.com/home-assistant/home-assistant/pull/32222
+[#32233]: https://github.com/home-assistant/home-assistant/pull/32233
+[#32273]: https://github.com/home-assistant/home-assistant/pull/32273
+[#32274]: https://github.com/home-assistant/home-assistant/pull/32274
+[#32275]: https://github.com/home-assistant/home-assistant/pull/32275
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@dupondje]: https://github.com/dupondje
+[@emontnemery]: https://github.com/emontnemery
+[@lociii]: https://github.com/lociii
+[deconz docs]: /integrations/deconz/
+[dsmr docs]: /integrations/dsmr/
+[hue docs]: /integrations/hue/
+[light docs]: /integrations/light/
+[simplisafe docs]: /integrations/simplisafe/
+[unifi docs]: /integrations/unifi/
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
