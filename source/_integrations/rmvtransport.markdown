@@ -45,7 +45,7 @@ next_departure:
       default: The default is the station name.
       type: string
     station:
-      description: "ID of the stop or station, e.g. `3000010`."
+      description: "ID of the stop or station, e.g.,  `3000010`."
       required: true
       type: string
     destinations:

@@ -49,6 +49,11 @@ password:
   required: false
   default: 1234
   type: string
+name:
+  description: Friendly name of the Internet Radio. If present this will override the friendly name reported by the radio itself.
+  required: false
+  default: empty
+  type: string
 {% endconfiguration %}
 
 Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.

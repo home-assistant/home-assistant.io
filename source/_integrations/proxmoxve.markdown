@@ -114,7 +114,7 @@ Before creating the user, we need to create a permissions role for the user.
 * Click `Datacenter`
 * Open `Permissions` and click `Roles`
 * Click the `Create` button above all the existing roles
-* name the new role (e.g. "home-assistant")
+* name the new role (e.g.,  "home-assistant")
 * Click the arrow next to privileges and select `VM.Audit` in the dropdown
 * Click `Create`
 
@@ -125,7 +125,7 @@ Creating a dedicated user for Home Assistant, limited to only the role just crea
 * Click `Datacenter`
 * Open `Permissions` and click `Users`
 * Click `Add`
-* Enter a username (e.g. "hass")
+* Enter a username (e.g.,  "hass")
 * Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 * Set the realm to "Proxmox VE authentication server"
 * Ensure `Enabled` is checked and `Expire` is set to "never"

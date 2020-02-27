@@ -184,12 +184,15 @@ Afterward, this device can be implemented into Home Assistant.
   
 ## Services
 
+Executable by all users:
 - `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
 - `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode with period.
 - `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
+
+Executable by administrators or within the context of an automation:
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 - `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 

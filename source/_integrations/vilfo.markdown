@@ -1,13 +1,13 @@
 ---
-title: "Vilfo Router"
-description: "Instructions on how to integrate a Vilfo Router into Home Assistant."
+title: Vilfo Router
+description: Instructions on how to integrate a Vilfo Router into Home Assistant.
 logo: vilfo.png
-ha_release: "0.106"
+ha_release: '0.106'
 ha_category:
-    - Network
-    - System Monitor
-    - Sensor
-ha_iot_class: "Local Polling"
+  - Network
+  - System Monitor
+  - Sensor
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@ManneW'

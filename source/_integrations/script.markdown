@@ -29,7 +29,7 @@ script:
 
 <div class='note'>
 
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
 
 </div>
 

@@ -80,7 +80,7 @@ You can play a HEOS favorite by number or name with the `media_player.play_media
 | ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `favorite`
-| `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
+| `media_content_id`     | The nubmer (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
 
 #### Play Playlist
 
@@ -116,7 +116,7 @@ You can play a HEOS Quick Select by nubmer or name with the `media_player.play_m
 | ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `quick_select`
-| `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
+| `media_content_id`     | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`)
 
 #### Play URL
 

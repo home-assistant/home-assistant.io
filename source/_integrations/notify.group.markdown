@@ -35,7 +35,7 @@ services:
   type: list
   keys:
     service:
-      description: The service part of an entity ID, e.g. if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
+      description: The service part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
       required: true
       type: string
     data:
