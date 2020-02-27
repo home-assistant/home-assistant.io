@@ -15,7 +15,12 @@ The `surepetcare` component allows you to get information on your Sure Petcare C
 
 ## Configuration
 
-To add a flap and pet, add the following to your `configuration.yaml` file:
+To add a flap, feeder or pet, add the following to your `configuration.yaml` file. The Hubs a flap or feeder is connected to will be discovered automatically.
+
+### Breaking Changes in 0.106
+
+The format of the `feeders`/`flaps`/`pets` options changed from a map to a list of IDs which means the `name` option is removed. The `household_id` is not longer needed. Customizing options `icon` and `device_class` are also removed. Please update your `configuration.yaml` to reflect these changes.  
+`name`, `icon` and `device_class` can still be configured via the UI to achieve the same result as before. [0.106 Release post](https://www.home-assistant.io/blog/2020/02/26/release-106/#breaking-changes) announcing the changes.
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,59 +42,22 @@ surepetcare:
     required: true
     type: string
   flaps:
-    description: The Sure Petcare flaps
-    required: true
-    type: map
-    keys:
-      id:
-        description: The Sure Petcare id of a flap
-        required: true
-        type: integer
-      name:
-        description: A name for the flap
-        required: true
-        type: string
-  feeders:
-    description: The Sure Petcare feeders
-    required: true
-    type: map
-    keys:
-      id:
-        description: The Sure Petcare id of a feeder
-        required: true
-        type: integer
-      name:
-        description: A name for the feeder
-        required: true
-        type: string
-  pets:
-    description: Pets managed by Sure Petcare flap(s)
-    required: true
-    type: map
-    keys:
-      id:
-        description: The Sure Petcare id of a pet
-        required: true
-        type: integer
-      name:
-        description: The name of the pet
-        required: true
-        type: string
-  icon:
-    description: "Icon to display (e.g., `mdi:cat`)"
+    description: The IDs of the Sure Petcare flaps
     required: false
-    default: "mdi:cat"
-    type: string
+    type: list
+  feeders:
+    description: The IDs of the Sure Petcare feeders
+    required: false
+    type: list
+  pets:
+    description: The Sure Petcare IDs of the Pets to show
+    required: false
+    type: list
   scan_interval:
     description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
     required: false
     default: 3 minutes
     type: time
-  device_class:
-    description: The type/class of the sensor to set the icon in the frontend.
-    required: false
-    default: lock
-    type: device_class
 {% endconfiguration %}
 
 ## Getting the IDs of your flaps, feeders and pets
