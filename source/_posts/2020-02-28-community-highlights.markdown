@@ -71,6 +71,8 @@ that is generally lesser-known, but actually pretty awesome!
 
 <img src='/images/blog/2020-02-28-community-highlights/homebyme.png' alt='Screenshot of HomeByMe.' style='border: 0;box-shadow: none;'>
 
+This is a result of a 3D floorplan created with [HomeByMe](https://home.by.me/en/).
+
 It works fully in the browser and I enjoyed the experience using that.
 So credits where credits due: Thanks for recommending me this sweet little
 gem [Andrea Donno](https://www.twitter.com/andreadonno)!
