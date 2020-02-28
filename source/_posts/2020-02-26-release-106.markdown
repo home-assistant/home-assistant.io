@@ -363,6 +363,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [simplisafe docs]: /integrations/simplisafe/
 [unifi docs]: /integrations/unifi/
 
+## Release 0.106.2 - February 28
+
+- Updated frontend to 20200220.5 ([@bramkragten] - [#32312]) ([frontend docs])
+- revent saving/deleting Lovelace config in safe mode ([@balloob] - [#32319]) ([lovelace docs])
+- UniFi - Temporary workaround to get device tracker to mark cli… ([@Kane610] - [#32321]) ([unifi docs])
+- Ensure rest sensors are marked unavailable when http requests… ([@bdraco] - [#32309]) ([rest docs])
+
+[#32309]: https://github.com/home-assistant/home-assistant/pull/32309
+[#32312]: https://github.com/home-assistant/home-assistant/pull/32312
+[#32319]: https://github.com/home-assistant/home-assistant/pull/32319
+[#32321]: https://github.com/home-assistant/home-assistant/pull/32321
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[frontend docs]: /integrations/frontend/
+[lovelace docs]: /integrations/lovelace/
+[rest docs]: /integrations/rest/
+[unifi docs]: /integrations/unifi/
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
