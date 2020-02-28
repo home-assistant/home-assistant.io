@@ -12,6 +12,7 @@ Supported by MQTT discovery:
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
+- [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
