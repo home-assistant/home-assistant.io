@@ -67,7 +67,7 @@ He followed up with two blog posting on how to achieve this:
 ### Bonus tip: HomeByMe
 
 I've personally got recommended a tool for creating a 3D floorplan with a tool
-that is generally lesser-known, but actually pretty awesome!
+that is generally lesser-known, but actually pretty awesome! [HomeByMe](https://home.by.me/en/)
 
 <img src='/images/blog/2020-02-28-community-highlights/homebyme.png' alt='Screenshot of HomeByMe.' style='border: 0;box-shadow: none;'>
 
