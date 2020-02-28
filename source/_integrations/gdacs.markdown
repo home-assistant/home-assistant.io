@@ -134,3 +134,5 @@ gdacs:
   latitude: -41.2
   longitude: 174.7
 ```
+## Locations NOT supported:
+1. Ireland
