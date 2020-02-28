@@ -37,7 +37,7 @@ More details on his creation can be found on the
 
 If you have been around a bit, you might have come across a screenshot of
 someone with an interactive floorplan in Home Assistant. [Ryan Connolly](https://twitter.com/rynam0)
-took that idea straight into the real world by 3D printing is floorplan,
+took that idea straight into the real world by 3D printing his floorplan,
 wired it, and hooked it up Home Assistant.
 
 Talking about taking things into another dimension...
@@ -50,7 +50,7 @@ Talking about taking things into another dimension...
 Ok, so the above two, rather impressive, listings might be a bit out of reach
 for the most of us. Still, with some help, you could still achieve some pretty
 nice looking 3D floorplans. [Aaron Godfrey](https://github.com/boralyl) wrote a
-couple of excellent blog posts that on this subject.
+couple of excellent blog posts that on this.
 
 In his [first blog post](https://aarongodfrey.dev/home%20automation/floorplan-in-home-assistant/),
 Aaron shows you what his floorplan looks like
