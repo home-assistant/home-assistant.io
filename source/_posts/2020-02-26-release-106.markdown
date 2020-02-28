@@ -1097,7 +1097,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/
