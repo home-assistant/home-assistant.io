@@ -61,11 +61,6 @@ geographies:
       description: The country the state belongs to.
       required: inclusive
       type: string
-show_on_map:
-  description: Whether to show a marker on the map at the specified location.
-  required: false
-  type: boolean
-  default: true
 {% endconfiguration %}
 
 ## Example Configurations
@@ -85,7 +80,6 @@ airvisual:
     geographies:
         latitude: 42.81212
         longitude: 108.12422
-    show_on_map: false
     scan_interval: 300
 ```
 
@@ -99,7 +93,6 @@ airvisual:
           longitude: 108.12422
         - latitude: 32.87336
           longitude: -117.22743
-    show_on_map: false
 ```
 
 Configuration using a single city, state, and country:
@@ -111,7 +104,6 @@ airvisual:
         city: Los Angeles
         state: California
         country: USA
-    show_on_map: false
 ```
 
 ## Determining the City/State/Country
