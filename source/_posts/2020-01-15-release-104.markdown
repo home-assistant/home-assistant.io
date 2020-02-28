@@ -2028,7 +2028,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tank_utility docs]: /integrations/tank_utility/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/
