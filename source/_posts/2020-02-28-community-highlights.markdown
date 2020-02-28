@@ -50,7 +50,7 @@ Talking about taking things into another dimension...
 Ok, so the above two, rather impressive, listings might be a bit out of reach
 for the most of us. Still, with some help, you could still achieve some pretty
 nice looking 3D floorplans. [Aaron Godfrey](https://github.com/boralyl) wrote a
-couple of excellent blog posts that on this.
+couple of excellent blog posts on this.
 
 In his [first blog post](https://aarongodfrey.dev/home%20automation/floorplan-in-home-assistant/),
 Aaron shows you what his floorplan looks like
