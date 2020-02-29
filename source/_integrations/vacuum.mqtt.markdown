@@ -8,7 +8,7 @@ ha_release: 0.54
 ---
 
 The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
-There are two possible message schemas - `legacy` and `state`.
+There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
 
@@ -158,7 +158,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use.
+  description: The schema to use. Must be `legacy` or omitted to select the legacy schema".
   required: false
   type: string
   default: legacy
@@ -332,7 +332,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use.
+  description: The schema to use. Must be `state` to select the state schema".
   required: false
   type: string
   default: legacy
