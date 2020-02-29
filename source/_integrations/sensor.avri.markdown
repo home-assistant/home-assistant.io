@@ -4,8 +4,8 @@ description: Instructions on how to set up Avri Waste sensor within Home Assista
 logo: avri.jpeg
 ha_category: 
   - Sensor
-ha_iot_class: "Cloud Polling"
-ha_release: '0.107'
+ha_iot_class: Cloud Polling
+ha_release: 0.107
 ha_codeowners:
   - '@timvancann'
 ---
