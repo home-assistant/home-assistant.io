@@ -5,7 +5,7 @@ logo: avri.jpeg
 ha_category: 
   - Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: '0.106'
+ha_release: '0.107'
 ha_codeowners:
   - '@timvancann'
 ---
