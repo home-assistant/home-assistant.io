@@ -89,7 +89,7 @@ device_tracker:
 
 {% configuration %}
 hosts:
-  description: List of device names and their corresponding IP address or hostname.
+  description: List of device names and their corresponding IP address or hostname. (Lower case, numbers and underscore only, see [entity names](/configuration/troubleshooting/#entity-names))
   required: true
   type: list
 count:
