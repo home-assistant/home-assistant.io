@@ -26,7 +26,7 @@ If your setup thermostat cannot be added when you log into the [Honeywell Home](
 - Click “[Create New App](http://developer.honeywell.com/user/me/apps/add)”
 - Fill in details:
 - App name. Can be anything, I use Home Assistant.
-- In the “Callback URL” enter the adress to your Home Assistant instance: “https://yourhomeassistant:8123/api/lyric/authenticate”. If you have base_url in your http config, use this url. Otherwise use your local ip. For instance, if your home-assistant is not using TLS and is located at `192.168.1.150` on port `8123`, you would enter the url: `http://192.168.1.150:8123/api/lyric/authenticate`
+- In the “Callback URL” enter the address to your Home Assistant instance: “https://yourhomeassistant:8123/api/lyric/authenticate”. If you have base_url in your HTTP config, use this URL. Otherwise use your local IP. For instance, if your Home Assistant is not using TLS and is located at `192.168.1.150` on port `8123`, you would enter the URL: `http://192.168.1.150:8123/api/lyric/authenticate`
 - Click “Save Changes”
 - On the apps page, click on the just created app.
 - The “Consumer Key” and “Consumer Secret” are shown now. These will be used as client_id and client_secret below.
