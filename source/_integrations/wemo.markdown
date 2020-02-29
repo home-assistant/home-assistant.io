@@ -21,13 +21,13 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
 - Light (Belkin WeMo LED lights and [Smart Dimmer Switch](https://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
-- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for Wemo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
+- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
 
 ## Configuration
 
 {% configuration %}
   discovery:
-    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
+    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the WeMo platform and the discovery platform (static devices will still be discovered)
     required: false
     type: boolean
     default: true

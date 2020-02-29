@@ -56,7 +56,7 @@ port:
   default: 8181
   type: integer
 path:
-  description: The Base Url path of your Tautulli server.
+  description: The Base URL path of your Tautulli server.
   required: false
   type: string
 ssl:

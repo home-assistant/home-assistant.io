@@ -38,7 +38,7 @@ then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
 </div>
 
-## Full config example
+## Full configuration example
 
 ```yaml
 climate:

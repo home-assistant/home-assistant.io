@@ -9,13 +9,13 @@ The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if y
 
 The location of the folder differs between operating systems:
 
-| OS      | Path                       |
-| ------- | -------------------------- |
-| macOS   | `~/.homeassistant`         |
-| Linux   | `~/.homeassistant`         |
-| Windows | `%APPDATA%/.homeassistant` |
-| Hass.io | `/config`                  |
-| Docker  | `/config`                  |
+| OS             | Path                       |
+| -------------- | -------------------------- |
+| Home Assistant | `/config`                  |
+| Docker         | `/config`                  |
+| macOS          | `~/.homeassistant`         |
+| Linux          | `~/.homeassistant`         |
+| Windows        | `%APPDATA%/.homeassistant` |
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 

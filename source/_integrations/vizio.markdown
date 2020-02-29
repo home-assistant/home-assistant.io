@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@raman325'
+ha_quality_scale: platinum
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
@@ -29,7 +30,7 @@ Find your device using the following command:
 $ pyvizio --ip=0 discover
 ```
 
-and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g. `pyvizio --ip=0 discover --timeout=10`).
+and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g.,  `pyvizio --ip=0 discover --timeout=10`).
 
 ## Pairing
 

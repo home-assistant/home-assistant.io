@@ -75,10 +75,10 @@ The following attributes can be placed inside `data` for extended functionality.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
-| `path `                |      yes | Local path of file, photo etc to post to slack. Is placed inside `file`.
-| `url`                  |      yes | URL of file, photo etc to post to slack. Is placed inside `file`.
-| `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
+| `path `                |      yes | Local path of file, photo etc to post to Slack. Is placed inside `file`.
+| `url`                  |      yes | URL of file, photo etc to post to Slack. Is placed inside `file`.
+| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
+| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
 | `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/docs/message-attachments). See [the attachment documentation](https://api.slack.com/docs/message-attachments) for how to format. *NOTE*: if using `attachments`, they are shown **in addition** to `message`
 

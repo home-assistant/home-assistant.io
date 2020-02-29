@@ -10,8 +10,7 @@ ha_iot_class: Local Polling
 
 The `bluesound` platform allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.
 
-If you want to automatically discover new devices, just make sure you have discovery: in your configuration.yaml file. To manually add a Bluesound device to your installation, add the following to your configuration.yaml file:
-
+If you want to automatically discover new devices, just make sure you have discovery: in your `configuration.yaml` file. To manually add a Bluesound device to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml

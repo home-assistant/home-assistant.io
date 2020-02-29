@@ -44,22 +44,22 @@ api_key:
 
 ## Service `add_tracking`
 
- You can use the service `aftership.add_tracking` to add trackings to Aftership.
+ You can use the service `aftership.add_tracking` to add trackings to AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
-| `slug` | `False` | string | Carrier e.g. `fedex`
+| `slug` | `False` | string | Carrier e.g.,  `fedex`
 | `title` | `False` | string | Friendly name of package
 
 ## Service `remove_tracking`
 
- You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
+ You can use the service `aftership.remove_tracking` to remove trackings from AfterShip.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
-| `slug` | `True` | string | Carrier e.g. `fedex`
+| `slug` | `True` | string | Carrier e.g.,  `fedex`
 
 <div class='note info'>
 This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.

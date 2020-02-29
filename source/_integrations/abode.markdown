@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - [**Light**](/integrations/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
+- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## Configuration
@@ -92,7 +92,7 @@ Field | Description
 `event_type` | The type of the event.
 `event_utc` | The UTC timestamp of the event.
 `user_name` | The Abode user that triggered the event, if applicable.
-`app_type` | The Abode app that triggered the event (e.g. web app, iOS app, etc.).
+`app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.).
 `event_by` | The keypad user that triggered the event.
 `date` | The date of the event in the format `MM/DD/YYYY`.
 `time` | The time of the event in the format `HH:MM AM`.

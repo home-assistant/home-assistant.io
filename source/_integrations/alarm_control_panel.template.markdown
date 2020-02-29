@@ -13,7 +13,7 @@ The `template` integrations creates alarm control panels that combine integratio
 
 There are several powerful ways to use this integration, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
 
-For example, if you want to expose a true alarm panel to Google Home, Alexa, or Homekit - but limit its ability to disarm when there's no one home, you can do that using a template.
+For example, if you want to expose a true alarm panel to Google Home, Alexa, or HomeKit - but limit its ability to disarm when there's no one home, you can do that using a template.
 
 Another use case could be grouping a series of sensors and services together to represent various "armed" and "disarmed" states and actions.
 

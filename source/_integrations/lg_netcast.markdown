@@ -16,7 +16,7 @@ To add a LG TV to your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 media_player:
   - platform: lg_netcast
-    host: 192.168.0.20
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -33,6 +33,10 @@ name:
   required: false
   default: LG TV Remote
   type: string
+turn_on_action:
+  description: Defines an [action](/docs/automation/action/) to turn the TV on.
+  required: false
+  type: string
 {% endconfiguration %}
 
 To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
@@ -40,5 +44,20 @@ After starting Home Assistant the TV will display the access token on screen.
 Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
 
 <div class='note'>
-The access token will not change until you factory reset your TV.
+  The access token will not change until you factory reset your TV.
 </div>
+
+## Advanced configuration
+
+The example below shows how you can use the `turn_on_action`
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: lg_netcast
+    host: 192.168.0.20
+    turn_on_action:
+      service: switch.turn_on
+      data:
+        entity_id: switch.tv_switch
+```

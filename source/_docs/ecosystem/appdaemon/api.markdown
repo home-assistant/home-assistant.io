@@ -18,7 +18,7 @@ class MotionLights(appapi.AppDaemon):
     """Motion lights implementation."""
 ```
 
-When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
+When configured as an app in the configuration file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
 
 ```python
   def initialize(self):
@@ -364,7 +364,7 @@ There are 3 types of callbacks within AppDaemon:
 
 - State Callbacks - react to a change in state
 - Scheduler Callbacks - react to a specific time or interval
-- Event Callbacks - react to specific Home Assistant and Appdaemon events.
+- Event Callbacks - react to specific Home Assistant and AppDaemon events.
 
 All callbacks allow the user to specify additional parameters to be handed to the callback via the standard Python `**kwargs` mechanism for greater flexibility.
 
@@ -1712,7 +1712,7 @@ if self.noone_home():
 
 ### time()
 
-Returns a python `time` object representing the current time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
+Returns a Python `time` object representing the current time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -1736,7 +1736,7 @@ now = self.time()
 
 ### date()
 
-Returns a python `date` object representing the current date. Use this in preference to the standard Python ways to discover the current date, especially when using the "Time Travel" feature for testing.
+Returns a Python `date` object representing the current date. Use this in preference to the standard Python ways to discover the current date, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -1760,7 +1760,7 @@ today = self.date()
 
 ### datetime()
 
-Returns a python `datetime` object representing the current date and time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
+Returns a Python `datetime` object representing the current date and time. Use this in preference to the standard Python ways to discover the current time, especially when using the "Time Travel" feature for testing.
 
 #### Synopsis
 
@@ -1936,7 +1936,7 @@ get_app(self, name)
 
 ##### name
 
-Name of the app required. This is the name specified in header section of the config file, not the module or class.
+Name of the app required. This is the name specified in header section of the configuration file, not the module or class.
 
 #### Returns
 
@@ -1966,7 +1966,7 @@ A list of split devices with 1 or more entries.
 
 ```python
 for sensor in self.split_device_list(self.args["sensors"]):
-    do_something(sensor)  # e.g. make a state subscription
+    do_something(sensor)  # e.g.,  make a state subscription
 ```
 
 
@@ -2035,19 +2035,19 @@ self.error("Some Critical string", level="CRITICAL")
 
 Sharing information between different Apps is very simple if required. Each app gets access to a global dictionary stored in a class attribute called `self.global_vars`. Any App can add or read any key as required. This operation is not however threadsafe so some car is needed.
 
-In addition, Apps have access to the entire configuration if required, meaning they can access AppDaemon configuration items as well as parameters from other Apps. To use this, there is a class attribute called `self.config`. It contains a `ConfigParser` object, which is similar in operation to a `Dictionary`. To access any apps parameters, simply reference the ConfigParser object using the Apps name (form the config file) as the first key, and the parameter required as the second, for instance:
+In addition, Apps have access to the entire configuration if required, meaning they can access AppDaemon configuration items as well as parameters from other Apps. To use this, there is a class attribute called `self.config`. It contains a `ConfigParser` object, which is similar in operation to a `Dictionary`. To access any apps parameters, simply reference the ConfigParser object using the Apps name (form the configuration file) as the first key, and the parameter required as the second, for instance:
 
 ```python
 other_apps_arg = self.config["some_app"]["some_parameter"]
 ```
 
-To get AppDaemon's config parameters, use the key "AppDaemon", e.g.:
+To get AppDaemon's configuration parameters, use the key "AppDaemon", e.g.:
 
 ```python
 app_timezone = self.config["AppDaemon"]["time_zone"]
 ```
 
-And finally, it is also possible to use the AppDaemon as a global area for sharing parameters across Apps. Simply add the required parameters to the AppDaemon section of your config:
+And finally, it is also possible to use the AppDaemon as a global area for sharing parameters across Apps. Simply add the required parameters to the AppDaemon section of your configuration:
 
 ```ini
 [AppDaemon]
@@ -2130,4 +2130,4 @@ $ appdaemon -s "2016-06-06 19:16:00" -s "2016-06-06 20:16:00" -t 0
 
 ### A Note on Times
 
-Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.
+Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard Python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.

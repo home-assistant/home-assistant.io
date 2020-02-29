@@ -15,7 +15,7 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 
 ### Setup
 
-Go to the integrations page in your config and click on new integration -> Samsung TV.
+Go to the integrations page in your configuration and click on new integration -> Samsung TV.
 If you have enabled [ssdp](/integrations/ssdp) discovery and your TV is on, it's likely that you just have to confirm the detected device.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 port:
-  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - for installs other than Hass.io or Docker you may need to install a Python package, see below.
+  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs) - For Home Assistant Core installations, you may need to install a Python package, see below.
   required: false
   type: integer
   default: automatically detected
@@ -166,11 +166,7 @@ media_content_type: channel
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Hass.io
-
-No additional actions are required
-
-### Docker
+### Home Assistant & Home Assistant Core on Docker
 
 No additional actions are required
 

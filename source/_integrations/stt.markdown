@@ -6,6 +6,6 @@ ha_codeowners:
   - '@pvizeli'
 ---
 
-Speech-to-Text (SST) allows you to stream speech data to the SST API and get text back.
+Speech-to-Text (STT) allows you to stream speech data to the STT API and get text back.
 
 This is an integration that is a building block for other integrations or apps building on top of Home Assistant, like [Ada](https://github.com/home-assistant/ada).

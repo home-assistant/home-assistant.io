@@ -44,6 +44,12 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 name: you
 ```
 
+<div class='note'>
+
+Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
+
+</div>
+
 ## Calling Services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
@@ -59,8 +65,10 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-entity_id: light.bedroom
-rgb_color: [255, 0, 0]
+service: python_script.turn_on_light
+  data:
+    entity_id: light.bedroom
+    rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts

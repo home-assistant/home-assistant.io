@@ -16,6 +16,7 @@ You can create scenes that capture the states you want certain entities to be. F
 # Example configuration.yaml entry
 scene:
   - name: Romantic
+    icon: "mdi:flower-tulip"
     entities:
       light.tv_back_light: on
       light.ceiling:
@@ -38,6 +39,10 @@ scene:
 name:
   description: Friendly name of scene.
   required: true
+  type: string
+icon:
+  description: Icon for the scene.
+  required: false
   type: string
 entities:
   description: Entities to control and their desired state.

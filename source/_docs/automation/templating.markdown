@@ -31,7 +31,7 @@ automation 2:
       notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
       message: '{{ trigger.payload }}'
-      
+
 automation 3:
   trigger:
     # Multiple entities for which you want to perform the same action.
@@ -84,7 +84,7 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 
 The following tables show the available trigger data per platform.
 
-### event
+### Event
 
 | Template variable | Data |
 | ---- | ---- |
@@ -92,7 +92,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | Event object that matched.
 | `trigger.event.data` | Optional data
 
-### mqtt
+### MQTT
 
 | Template variable | Data |
 | ---- | ---- |
@@ -102,7 +102,7 @@ The following tables show the available trigger data per platform.
 | `trigger.payload_json` | Dictonary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### numeric_state
+### Numeric State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -114,7 +114,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
-### state
+### State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -124,7 +124,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### sun
+### Sun
 
 | Template variable | Data |
 | ---- | ---- |
@@ -132,7 +132,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### template
+### Template
 
 | Template variable | Data |
 | ---- | ---- |
@@ -142,21 +142,21 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### time
+### Time
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### time pattern
+### Time Pattern
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
-### webhook
+### Webhook
 
 | Template variable | Data |
 | ---- | ---- |
@@ -165,7 +165,7 @@ The following tables show the available trigger data per platform.
 | `trigger.json` | The JSON data of the request (if it had a JSON content type).
 | `trigger.data` | The form data of the request (if it had a form data content type).
 
-### zone
+### Zone
 
 | Template variable | Data |
 | ---- | ---- |

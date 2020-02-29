@@ -37,7 +37,7 @@ hold_action:
   type: map
 double_tap_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action to take on double tap
   type: map
 {% endconfiguration %}
 
