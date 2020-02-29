@@ -141,8 +141,8 @@ You can also use YAML to send messages from your automations
         message: "Latest notification"
         title: "Latest image"
         target: ["#home-assistant"]
-        file:
-          data:
+        data:
+          file:
             path: "/myfile.jpg"
 ```
 Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
