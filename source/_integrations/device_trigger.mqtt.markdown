@@ -19,7 +19,7 @@ The discovery topic needs to be: `<discovery_prefix>/device_automation/[<node_id
 
 {% configuration %}
 automation_type:
-  description: The type of automation, must be 'device_trigger'.
+  description: The type of automation, must be 'trigger'.
   required: true
   type: string
 payload:
