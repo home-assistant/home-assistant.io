@@ -237,3 +237,18 @@ A detailed guide about running Home Assistant as a virtual machine is available 
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
 [configure]: /getting-started/configuration/
+
+## **Notes for Installing VMDK image on ESXi**
+
+The VMDK files provided are created for VMWare Workstation, these are a different file format than used by ESXi.  Attempting to use them in an ESXi VM will result in an unhelpful error message. ESXi has tools to convert the VMDK to the correct format but unless you have vSphere not though the UI.
+
+To convert the VMDK to the correct format you need to SHH into your ESXi server;
+
+ 1. Upload the current VMDK file to you ESXi server data store
+ 2. From the web interface right click on host, and under "Services" "Enable Secure Shell(SSH)", remember to disable SSH when you have finished using it.
+ 3. Log into your sever using your preferred SSH client, the ESXi web client provides a web based SSH client from the same "host" menu
+ 4. Run the vsmkfstool command with -i option for clone disk, in the form "vmkfstools -i path to *.vmdk file path to output file I.E.
+> vmkfstools -i /vmfs/volumes/5e10f33f-######-####-002590a7cb74/HASS/hassos_ova-3.11.vmdk
+  /vmfs/volumes/5e10f33f-#######-####-002590a7cb74/HASS/hassos-output.vmdk
+ 5. Create a new VM and replace the default disk with the output *.vmdk
+ 6. On your newly created VM disable secure boot. "Edit Settings" - "VM Options"- "Boot Options" un-tick "Enable UEFI secure boot"
