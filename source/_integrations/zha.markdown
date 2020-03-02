@@ -34,16 +34,16 @@ There is currently support for the following device types within Home Assistant:
 
 ## Compatible hardware
 
-The ZHA integration support using one of the multiple available Zigbee coordinator radio modules that are compatible with [zigpy](https://github.com/zigpy/zigpy). zigpy is an open source Python library implementing a hardware-independent Zigbee stack that uses a modular design with separate Python libraries for Zigbee coordinator radio modules from different manufacturers, with each library capable of interfacing with USB and GPIO radio hardware adapters/modules over different UART serial communication protocols. Support for radio libraries in this ZHA integration include; [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) for Dresden-Elektronik deCONZ based radios, [bellows](https://github.com/zigpy/bellows) for Silicon Labs EmberZNet/EZSP based radios, and [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) for XBee based Zigbee radios. There are currently also experimental support for a couple additional radio libraries; [zigpy-cc](https://github.com/sanyatuning/zigpy-cc) for Texas Instruments Z-Stack based radios, and [zigpy-zigate](https://github.com/doudz/zigpy-zigate) for ZiGate based radios.
+The ZHA integration support using one of the multiple available Zigbee coordinator radio modules that are compatible with [zigpy](https://github.com/zigpy/zigpy). zigpy is an open source Python library implementing a hardware-independent Zigbee stack that uses a modular design with separate Python libraries for Zigbee coordinator radio modules from different manufacturers, with each library capable of interfacing with USB and GPIO radio hardware adapters/modules over different UART serial communication protocols. 
 
 ### Known working Zigbee radio modules
 
-- **dresden elektronik deCONZ based Zigbee radios**
+- **dresden elektronik deCONZ based Zigbee radios** (radio-type "deconz" via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 
-- **EmberZNet based radios using the EZSP protocol**
+- **EmberZNet based radios using the EZSP protocol** (radio-type "ezsp" via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
@@ -51,14 +51,14 @@ The ZHA integration support using one of the multiple available Zigbee coordinat
   - Telegesis ETRX357USB-LRS (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS+8M (Note! This first have to be flashed with other EmberZNet firmware)
   
-- **XBee Zigbee based radios**
+- **XBee Zigbee based radios** (radio-type "xbee" via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - Digi XBee Series 3 (xbee3-24) modules
   - Digi XBee Series 2C (S2C) modules
   - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
 
 ### Experimental support for additional Zigbee radio modules
 
-- **Texas Instruments CC253x, CC26x2R, and CC13x2 based radios**
+- **Texas Instruments CC253x, CC26x2R, and CC13x2 based radios** (radio-type "ti_cc" via the [zigpy-cc](https://github.com/sanyatuning/zigpy-cc) library for zigpy)
   - CC2531 USB stick hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
   - CC2530 + CC2591 USB stick hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
   - CC2530 + CC2592 dev board hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
@@ -66,7 +66,7 @@ The ZHA integration support using one of the multiple available Zigbee coordinat
   - CC1352P-2 dev board hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
   - CC2538 + CC2592 dev board hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
 
-- **[ZiGate open source Zigbee adapter hardware](https://zigate.fr/)**
+- **[ZiGate open source Zigbee adapter hardware](https://zigate.fr/)** (radio-type "zigate" via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/) (Note! Requires ZiGate firmware 3.1a or later)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/) (Note! Requires ZiGate firmware 3.1a or later)
   - [PiZiGate (ZiGate module for Raspberry Pi GPIO)](https://zigate.fr/produit/pizigate-v1-0/) (Note! Requires ZiGate firmware 3.1a or later)
@@ -81,7 +81,7 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 In the popup:
 
 - USB Device Path ("usb_path") - On a Linux system will be something like `/dev/ttyUSB0` or `/dev/ttyACM0`
-- Radio type ("radio_type") - Select Zigbee radio device hardware type `ezsp`, `deconz`, `xbee` or `ti_cc`
+- Radio type ("radio_type") - Select Zigbee coordinator hardware radio-type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
 - Submit
 
 The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
