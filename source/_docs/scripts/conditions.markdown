@@ -159,7 +159,7 @@ condition:
 
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger]. When both keys are used, the result is a logical `and` of separate conditions.
 
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_.  Therefore, to cover time between sunset and sunrise one need to use `after: sunset` and `before: sunrise` as 2 separate conditions and combine them using `or`.
+Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. Therefore, to cover time between sunset and sunrise one need to use `after: sunset` and `before: sunrise` as 2 separate conditions and combine them using `or`.
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
