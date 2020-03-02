@@ -108,7 +108,7 @@ If you are use ZiGate, you have to use some special usb_path configuration:
 
 {% configuration %}
 radio_type:
-  description: One of `ezsp`, `xbee`, `deconz`, `zigate`, or `ti_cc`.
+  description: One of `deconz`, `ezsp`, `ti_cc`, `xbee` or `zigate`.
   required: false
   type: string
   default: ezsp
