@@ -42,7 +42,6 @@ lyric:
   client_secret: CLIENT_SECRET
 ```
 
-Configuration variables:
 
 {% configuration %}
 client_id:
