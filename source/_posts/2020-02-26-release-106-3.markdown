@@ -66,5 +66,5 @@ instances of the integration.
 For the latest information about the Coronavirus, be sure check the website
 of the [World Health Organization](https://www.who.int/). The WHO provides
 good information on
-[basic basic protective measures](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
+[basic protective measures](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
 you can take against the new Coronavirus.
