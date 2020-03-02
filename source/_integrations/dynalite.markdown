@@ -135,7 +135,7 @@ area:
                   type: string
                   default: AREA_NAME Channel CHANNEL_NUMBER
                 type:
-                  description: Type of entity this should appear as. Can be either 'light' or if this is a device that is not a light (e.g. water heater), can be 'switch'
+                  description: "Type of entity this should appear as. Can be either `light` or if this is a device that is not a light (e.g., water heater), can be `switch`."
                   require: false
                   type: string
                   default: light
