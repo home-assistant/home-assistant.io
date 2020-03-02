@@ -78,6 +78,8 @@ Refer to the [API reference webpage](https://developer.transportapi.com/docs?ram
 
 Attributes can be accessed using the [template sensor](/integrations/template) as per this example:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.
 - platform: template
@@ -103,6 +105,8 @@ Attributes can be accessed using the [template sensor](/integrations/template) a
         value_template: >-
           {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
+
+{% endraw %}
 
 Bus sensors require as their `origin` a bus stop ATCO code which can be found by browsing OpenStreetMap data as
 follows:
