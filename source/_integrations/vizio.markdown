@@ -18,7 +18,7 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 
 If `zeroconf` discovery is enabled, your device will get discovered automatically. To discover your device manually, read the subsections below.
 
-### Install pyvizio locally
+### Install `pyvizio` locally
 
 > NOTE: If the `pip3` command is not found, try `pip` instead
 
@@ -28,11 +28,12 @@ If `zeroconf` discovery is enabled, your device will get discovered automaticall
 ### Discover devices
 
 Find your device using the following command:
+
 ```bash
-$ pyvizio --ip=0 discover
+pyvizio --ip=0 discover
 ```
 
-and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g. `pyvizio --ip=0 discover --timeout=10`).
+Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `pyvizio --ip=0 discover --timeout=10`).
 
 ## Pairing
 
@@ -41,11 +42,11 @@ This integration requires an access token in order to communicate with TVs (spea
 ### Pair using the HA frontend
 
  - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
-- **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, simply submit your initial configuration with an empty Access Token value.
+- **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
 
 ### Pair manually using the CLI
 
-The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace <IP> with your IP and <PORT> is typically 7345 or 9000.
+The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace `<IP>` with your IP and `<PORT>` (which is typically 7345 or 9000).
 
 ```bash
 #!/bin/bash
@@ -61,7 +62,7 @@ read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
 curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
 ```
 
-### Pair manually using pyvizio
+### Pair manually using `pyvizio`
 
 To obtain an auth token manually, follow these steps:
 
@@ -82,7 +83,7 @@ Initiation will show you two different values:
 
 | Value           | Description                                                                                             |
 | :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
+| Challenge type  | Usually, it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
 | Challenge token | Token required to finalize pairing in the next step                                                     |
 
 At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
