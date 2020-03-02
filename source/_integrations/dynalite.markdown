@@ -155,7 +155,7 @@ preset:
       type: map
       keys:
         name:
-          description: Name of the preset. When used in an area, it will be 'AREA_NAME name'. For example, if a room's name is "Kitchen" and preset 4 is defined with name "Off", it will appear in HA as **Kitchen Off**          
+          description: "Name of the preset. When used in an area, it will be 'AREA_NAME name'. For example, if a room's name is 'Kitchen' and preset 4 is defined with the name `Off`, it will appear in HA as 'Kitchen Off'."
           required: false
           type: string
           default: AREA_NAME Preset PRESET_NUMBER
