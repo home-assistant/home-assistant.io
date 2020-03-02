@@ -20,7 +20,7 @@ Home Assistant frontend.
 Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **BSBLan**.
-Fill in the ip address of the device in your network and if needed
+Fill in the IP address of the device in your network and if needed
 the port number. The default value should be 80.
 If you use a passkey or other authentication method on BSBLan device, you can't use the integration yet.
 
