@@ -42,19 +42,19 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Configuration Flow
 
-Starting with 0.106.0 Home Assistant requires config flow based setup of Konnected via **Configuration** -> **Integrations**.  If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires configuration flow based setup of Konnected via **Configuration** -> **Integrations**.  If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
 Selecting one of these discovered panels will launch a configuration flow to guide you through a setup process to initially connect the panel and generate a configuration entry.  If your panel was discovered via SSDP you shouldn't need any information to complete the configuration flow - simply confirm that the information is correct.  If the configuration flow prompts you for IP/Port you'll need to enter it.  IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
-If you have an existing configuration.yaml completing the config flow will do an one time import of the settings contained in configuration.yaml.  Once the import creates a configuration entry the Konnected section of the configuration.yaml is no longer used - it is recommended to remove the konnected section of configuration.yaml and after the import occurs. Any future changes to settings should occur via the Options Flow.
+If you have an existing `configuration.yaml` completing the configuration flow will do an one time import of the settings contained in `configuration.yaml`.  Once the import creates a configuration entry the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the konnected section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the Options Flow.
 
-If you want to retain configuration.yaml and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the configuration flow.
+If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the configuration flow.
 
 </div>  
 
-Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from configuration.yaml you are now done!  If you are setting up a new Konnected Alarm Panel or modifying settings you'll need to utilize the Options Flow to configure zone behavior.
+Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done!  If you are setting up a new Konnected Alarm Panel or modifying settings you'll need to utilize the Options Flow to configure zone behavior.
 
 ### Options Flow
 
