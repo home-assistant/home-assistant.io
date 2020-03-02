@@ -20,8 +20,7 @@ ha_codeowners:
   - '@adminiuga'
 ---
 
-[Zigbee Home Automation (ZHA)](https://www.home-assistant.io/integrations/zha/)
-integration natively adds built-in support to Home Assistant for connecting many off-the-shelf [Zigbee](https://zigbeealliance.org) devices made for home automation, allowing Home Assistant to create its own Zigbee mesh network. Hardware-wise you just need one of the many compatible Zigbee coordinator radio adapters/modules directly connected to your computer running Home Assistant via USB or GPIO/UART.
+**Zigbee Home Automation (ZHA)** integration natively adds built-in support to Home Assistant for connecting many off-the-shelf [Zigbee](https://zigbeealliance.org) devices made for home automation, allowing Home Assistant to create its own Zigbee mesh network. Hardware-wise you just need one of the many compatible Zigbee coordinator radio adapters/modules directly connected to your computer running Home Assistant via USB or GPIO/UART.
 
 There is currently support for the following device types within Home Assistant:
 
