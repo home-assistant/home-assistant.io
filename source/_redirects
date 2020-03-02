@@ -1885,7 +1885,7 @@
 /components/ted5000 /integrations/ted5000
 /components/teksavvy /integrations/teksavvy
 /components/telegram /integrations/telegram
-/components/telegram_bot /integrations/telegram_chatbot
+/components/telegram_bot /integrations/telegram_bot
 /components/tellduslive /integrations/tellduslive
 /components/tellstick /integrations/tellstick
 /components/telnet /integrations/telnet
@@ -2036,6 +2036,7 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
 /docs/ecosystem/ios/ https://companion.home-assistant.io/

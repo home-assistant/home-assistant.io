@@ -91,7 +91,7 @@ the standard ones:
 
 ```yaml
 # Example configuration.yaml entry
-geonetnz_quakes:
+geonetnz_volcano:
   radius: 100
   latitude: -41.2
   longitude: 174.7

@@ -37,165 +37,12 @@ cover:
 ```
 
 {% configuration %}
-command_topic:
-  description: The MQTT topic to publish commands to control the cover.
-  required: false
-  type: string
-name:
-  description: The name of the cover.
-  required: false
-  type: string
-  default: MQTT Cover
-payload_open:
-  description: The command payload that opens the cover.
-  required: false
-  type: string
-  default: OPEN
-payload_close:
-  description: The command payload that closes the cover.
-  required: false
-  type: string
-  default: CLOSE
-payload_stop:
-  description: The command payload that stops the cover.
-  required: false
-  type: string
-  default: STOP
-state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
-  required: false
-  type: string
-state_open:
-  description: The payload that represents the open state.
-  required: false
-  type: string
-  default: open
-state_opening:
-  description: The payload that represents the opening state.
-  required: false
-  type: string
-  default: opening
-state_closed:
-  description: The payload that represents the closed state.
-  required: false
-  type: string
-  default: closed
-state_closing:
-  description: The payload that represents the closing state.
-  required: false
-  type: string
-  default: closing
-position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
-  required: false
-  type: string
-position_open:
-  description: Number which represents open position.
-  required: false
-  type: integer
-  default: 100
-position_closed:
-  description: Number which represents closed position.
-  required: false
-  type: integer
-  default: 0
 availability_topic:
   description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If `availability_topic` is not defined, the cover availability state will always be `available`. If `availability_topic` is defined, the cover availability state will be `unavailable` by default."
   required: false
   type: string
-payload_available:
-  description: The payload that represents the online state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the offline state.
-  required: false
-  type: string
-  default: offline
-optimistic:
-  description: Flag that defines if switch works in optimistic mode.
-  required: false
-  type: string
-  default: "`true` if no state topic defined, else `false`."
-qos:
-  description: The maximum QoS level to be used when receiving and publishing messages.
-  required: false
-  type: integer
-  default: 0
-retain:
-  description: Defines if published messages should have the retain flag set.
-  required: false
-  type: boolean
-  default: false
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
-  required: false
-  type: string
-set_position_topic:
-  description: "The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position."
-  required: false
-  type: string
-set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
-  required: false
-  type: string
-tilt_command_topic:
-  description: The MQTT topic to publish commands to control the cover tilt.
-  required: false
-  type: string
-tilt_status_topic:
-  description: The MQTT topic subscribed to receive tilt status update values.
-  required: false
-  type: string
-tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
-  required: false
-  type: string
-tilt_min:
-  description: The minimum tilt value.
-  required: false
-  type: integer
-  default: 0
-tilt_max:
-  description: The maximum tilt value
-  required: false
-  type: integer
-  default: 100
-tilt_closed_value:
-  description: The value that will be sent on a `close_cover_tilt` command.
-  required: false
-  type: integer
-  default: 0
-tilt_opened_value:
-  description: The value that will be sent on an `open_cover_tilt` command.
-  required: false
-  type: integer
-  default: 100
-tilt_optimistic:
-  description: Flag that determines if tilt works in optimistic mode.
-  required: false
-  type: boolean
-  default: "`true` if `tilt_status_topic` is not defined, else `false`"
-tilt_invert_state:
-  description: Flag that determines if open/close are flipped; higher values toward closed and lower values toward open.
-  required: false
-  type: boolean
-  default: false
-device_class:
-  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
-  required: false
-  type: string
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
-unique_id:
-  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+command_topic:
+  description: The MQTT topic to publish commands to control the cover.
   required: false
   type: string
 device:
@@ -203,14 +50,14 @@ device:
   required: false
   type: map
   keys:
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [list, string]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
       type: list
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: [list, string]
     manufacturer:
       description: The manufacturer of the device.
       required: false
@@ -227,6 +74,159 @@ device:
       description: The firmware version of the device.
       required: false
       type: string
+device_class:
+  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the cover.
+  required: false
+  type: string
+  default: MQTT Cover
+optimistic:
+  description: Flag that defines if switch works in optimistic mode.
+  required: false
+  type: string
+  default: "`true` if no state topic defined, else `false`."
+payload_available:
+  description: The payload that represents the online state.
+  required: false
+  type: string
+  default: online
+payload_close:
+  description: The command payload that closes the cover.
+  required: false
+  type: string
+  default: CLOSE
+payload_not_available:
+  description: The payload that represents the offline state.
+  required: false
+  type: string
+  default: offline
+payload_open:
+  description: The command payload that opens the cover.
+  required: false
+  type: string
+  default: OPEN
+payload_stop:
+  description: The command payload that stops the cover.
+  required: false
+  type: string
+  default: STOP
+position_closed:
+  description: Number which represents closed position.
+  required: false
+  type: integer
+  default: 0
+position_open:
+  description: Number which represents open position.
+  required: false
+  type: integer
+  default: 100
+position_topic:
+  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
+  required: false
+  type: string
+qos:
+  description: The maximum QoS level to be used when receiving and publishing messages.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: Defines if published messages should have the retain flag set.
+  required: false
+  type: boolean
+  default: false
+set_position_template:
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  required: false
+  type: string
+set_position_topic:
+  description: "The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position."
+  required: false
+  type: string
+state_closed:
+  description: The payload that represents the closed state.
+  required: false
+  type: string
+  default: closed
+state_closing:
+  description: The payload that represents the closing state.
+  required: false
+  type: string
+  default: closing
+state_open:
+  description: The payload that represents the open state.
+  required: false
+  type: string
+  default: open
+state_opening:
+  description: The payload that represents the opening state.
+  required: false
+  type: string
+  default: opening
+state_topic:
+  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
+  required: false
+  type: string
+tilt_closed_value:
+  description: The value that will be sent on a `close_cover_tilt` command.
+  required: false
+  type: integer
+  default: 0
+tilt_command_topic:
+  description: The MQTT topic to publish commands to control the cover tilt.
+  required: false
+  type: string
+tilt_invert_state:
+  description: Flag that determines if open/close are flipped; higher values toward closed and lower values toward open.
+  required: false
+  type: boolean
+  default: false
+tilt_max:
+  description: The maximum tilt value
+  required: false
+  type: integer
+  default: 100
+tilt_min:
+  description: The minimum tilt value.
+  required: false
+  type: integer
+  default: 0
+tilt_opened_value:
+  description: The value that will be sent on an `open_cover_tilt` command.
+  required: false
+  type: integer
+  default: 100
+tilt_optimistic:
+  description: Flag that determines if tilt works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if `tilt_status_topic` is not defined, else `false`"
+tilt_status_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  required: false
+  type: string
+tilt_status_topic:
+  description: The MQTT topic subscribed to receive tilt status update values.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Examples

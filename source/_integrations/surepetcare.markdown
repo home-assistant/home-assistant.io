@@ -50,16 +50,16 @@ surepetcare:
         required: true
         type: string
   feeders:
-    description: The Sure Petcare flaps
+    description: The Sure Petcare feeders
     required: true
     type: map
     keys:
       id:
-        description: The Sure Petcare id of a flap
+        description: The Sure Petcare id of a feeder
         required: true
         type: integer
       name:
-        description: A name for the flap
+        description: A name for the feeder
         required: true
         type: string
   pets:

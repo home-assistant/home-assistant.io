@@ -20,7 +20,7 @@ ha_codeowners:
   - '@adminiuga'
 ---
 
-[Zigbee Home Automation](https://zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
+[Zigbee Home Automation](https://zigbeealliance.org)
 integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules that is compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## ZHA exception and deviation handling
 
-Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://www.zigbee.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) to for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
+Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) to for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
 
 The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Shepherd Converters as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
@@ -78,7 +78,7 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 In the popup:
 
 - USB Device Path - on a Linux system will be something like `/dev/ttyUSB0`
-- Radio type - select device type `ezsp`, `deconz` or `xbee`
+- Radio type - select device type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
 - Submit
 
 The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
@@ -87,7 +87,7 @@ The success dialog will appear or an error will be displayed in the popup. An er
 
 To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
 
-Or, you can manually confiure `zha` section in `configuration.yaml`. The path to the database which will persist your network data is required.
+Or, you can manually configure `zha` section in `configuration.yaml`. The path to the database which will persist your network data is required.
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,7 +104,7 @@ If you are use ZiGate, you have to use some special usb_path configuration:
 
 {% configuration %}
 radio_type:
-  description: One of `ezsp`, `xbee`, `deconz` or `zigate`.
+  description: One of `deconz`, `ezsp`, `ti_cc`, `xbee` or `zigate`.
   required: false
   type: string
   default: ezsp

@@ -527,7 +527,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /integrations/tplink
 [switch.wink docs]: /integrations/wink#switch
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tesla docs]: /integrations/tesla/
 [toon docs]: /integrations/toon/
 [tradfri docs]: /integrations/tradfri/
