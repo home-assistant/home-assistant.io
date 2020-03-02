@@ -140,7 +140,7 @@ Reboot router.
 ### Service `huawei_lte.suspend_integration`
 
 Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
-Useful e.g. if accessing the router web interface from another source such as a web browser is temporarily required.
+Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
 Invoke the `huawei_lte.resume_integration` service to resume.
 
 | Service data attribute | Optional | Description |

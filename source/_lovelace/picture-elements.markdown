@@ -74,22 +74,22 @@ tap_action:
       default: "`toggle`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -109,22 +109,22 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -144,22 +144,22 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -188,6 +188,11 @@ title:
   required: false
   description: Icon tooltip. Set to null to hide.
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action to take on tap
@@ -200,22 +205,22 @@ tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -235,22 +240,22 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -270,22 +275,22 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -335,22 +340,22 @@ tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -370,22 +375,22 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -405,22 +410,22 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -492,22 +497,22 @@ tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -527,22 +532,22 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -562,22 +567,22 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -619,22 +624,22 @@ tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -654,22 +659,22 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:
@@ -689,22 +694,22 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
     confirmation:

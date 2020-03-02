@@ -54,7 +54,7 @@ Other properties are available via each device's attributes.
 
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file:
+To set up this integration, add one of the following to your `configuration.yaml` file:
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 

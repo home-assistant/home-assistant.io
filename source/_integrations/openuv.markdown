@@ -50,15 +50,15 @@ api_key:
   required: true
   type: string
 elevation:
-  description: The elevation of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The elevation of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 latitude:
-  description: The latitude of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The latitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 longitude:
-  description: The longitude of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The longitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 {% endconfiguration %}

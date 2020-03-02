@@ -31,7 +31,7 @@ In addition to this, all configuration options for the States UI are deprecated 
 
 We are humans, and we do make typos. However, if we make a typo in our configuration, we might end up with Home Assistant being completely unreachable. That really is not helpful. You lose access to Home Assistant and have to do a deep dive via other methods to find out: Why did this happen?
 
-This release introduces a "Safe mode" for Home Assistant. If during startup, Home Assistant has problems reading your configuration (for whatever reason), it will still continue to start using bit and pieces from the configuration of the last time it did start.
+This release introduces a "Safe mode" for Home Assistant. If during startup, Home Assistant has problems reading your configuration (for whatever reason), it will still continue to start using bits and pieces from the configuration of the last time it did start.
 
 When this happens, Home Assistant will start in "Safe mode". In this mode, nothing is loaded, but it does give you access to the Home Assistant frontend, settings and add-ons (for example, the VSCode or Configurator add-on). This gives you the possibility to correct the issue
 and restart Home Assistant to re-try.
@@ -172,7 +172,6 @@ Have you seen (or made) something awesome, interesting, unique, amazing, inspira
 ## New Platforms
 
 - Template alarm panel ([@alistairg] - [#30487]) ([template docs]) (new-platform)
-- Refactor Netatmo integration ([@cgtobi] - [#29851]) ([netatmo docs]) (breaking change) (new-platform)
 - ZHA cover device support ([@billyburly] - [#30639]) ([zha docs]) (new-platform)
 
 ## If you need help...
@@ -196,7 +195,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Hass.io/Supervisor__ - The "Hass.io" menu item in the side bar has been renamed to Supervisor. This was done to match the announced re-branding. While not really a breaking change, it still is a change that might cause confusion at first. - ([@frenck] - [#31480])
 
 - __Spotify__ - Spotify is now available to be added from the integrations UI! Removing the current Spotify platform and setting up the integration from scratch is recommended.
-  
+
   The device aliases and the `spotify.play_playlist` service, have been removed. Be sure to remove calls to that service from your automations.
 
   If you use the Spotify platform at this moment:
@@ -204,7 +203,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - Remove the current configuration from your `configuration.yaml` file.
   - Remove the `.spotify-token-cache` file from your configuration directory. It is no longer used, however, it does contain security credentials.
   - Follow the documentation on how to set up the new Spotify integration from scratch.
-  
+
   Please note, if you have an existing Spotify Developer Application, you need to edit it. The URL's have changed. Consult the integration documentation for the new URL's to use.
 
   ([@frenck] - [#30717]) ([spotify docs])
@@ -235,9 +234,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs])
 
-- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs])
+- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834])
 
-- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs])
+- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835])
 
 - __Neato__ - This change adds a neato boundary name to the state if it exists, requiring to potentially update automations. - ([@Olen] - [#29915]) ([neato docs])
 
@@ -268,7 +267,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - Services to toggle the light/set it to auto have been removed until implemented in `pyatmo`.
 
   If you have an existing configuration, you will need to remove/update that and run the configuration flow dialogue to get their sensors/etc, back using the `configuration.yaml` option.
-  
+
   ([@cgtobi] - [#29851]) ([netatmo docs])  (new-platform)
 
     Example configuration YAML:
@@ -306,13 +305,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Simplisafe__ - Many changes here!
 
   Simplisafe's cloud API anticipates receiving updates all at once, which our method did not do, which and could result in failed updates. This change consolidates all of the service calls into a single admin service, and makes `set_pin` and `remove_pin` require admin rights.
-  
+
   It is no longer possible to configure `scan_interval` for the integration and a code-defined interval has been set, as there was potential for users setting this too low and possibly ruin the integration for everyone.
-  
+
   Also, the integration now makes us of `triggered` and `arming` states. Control panel entities no longer have an `alarm_active` attribute.
-  
+
   ([@bachya] - [#30567], [#30909], [#31060]) ([simplisafe docs])
-  
+
   Example configuration YAML:
 
   ```yaml
@@ -394,7 +393,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __LG webOS Smart TV__ - After the discovery of some additional commands, the client library now has much better tracking of TV power state. As a result of the client library changes, the standby_connection parameter is no longer needed/present (since the relevant behavior can be steered automatically by the client library now) - ([@bendavid] - [#31042]) ([webostv docs])
 
 - __Zone__ - If you're using YAML to configure zones, specifying a name is now required. - ([@balloob] - [#30774]) ([zone docs])
-  
+
   Example configuration YAML:
 
   ```yaml
@@ -457,7 +456,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```
 
 - __ZHA remotes__ - `binary_sensor` and `switch` entities are not going to be available for some Zigbee "remotes", but they were not supposed to be available to begin with. - ([@Adminiuga] - [#31146]) ([zha docs])
-  
+
   Affected devices:
 
   - Centralite 3130 remote dimmer, DeviceType: 0x0001, removes binary_sensor entity
@@ -483,6 +482,167 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - __Owlet__ - *Removed* - The API that the Owlet component was based on has been deprecated by the vendor. There is no other public API provided by the vendor that the component can be upgraded to use, so the component has been removed. - ([@oblogic7] - [#31160])
 
 - __Hook__ *Removed* - The `hook` integration has been removed due to the shutdown of the connected service. All servers that have been providing this service will be turned off on 31 Jan 2020. - ([@springstan] - [#31046])
+
+## Release 0.105.1 - February 5
+
+- Check for known Hue vulnerability ([@balloob] - [#31494]) ([hue docs])
+- Move program_mode check ([@aneisch] - [#31501]) ([radiotherm docs])
+- Updated frontend to 20200130.2 ([@balloob] - [#31502]) ([frontend docs])
+- Sonos services to work without admin access ([@balloob] - [#31506]) ([sonos docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31494]: https://github.com/home-assistant/home-assistant/pull/31494
+[#31501]: https://github.com/home-assistant/home-assistant/pull/31501
+[#31502]: https://github.com/home-assistant/home-assistant/pull/31502
+[#31506]: https://github.com/home-assistant/home-assistant/pull/31506
+[@aneisch]: https://github.com/aneisch
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[radiotherm docs]: /integrations/radiotherm/
+[sonos docs]: /integrations/sonos/
+
+## Release 0.105.2 - February 6
+
+- 0.105.0 ([@frenck] - [#31489]) ([abode docs]) ([adguard docs]) ([airly docs])
+- Fix automation sun import ([@balloob] - [#31521]) ([automation docs])
+- Fix migrating huawei_lte entry without recipient ([@chmielowiec] - [#31522]) ([huawei_lte docs])
+- Only normalise Garmin connect data to minutes if the value is not None ([@d0ugal] - [#31526]) ([garmin_connect docs])
+- Fix iCloud determine_interval: add default interval to max_interval ([@Quentame] - [#31533]) ([icloud docs])
+- Limit OAuth scopes for Netatmo and Home Assistant Cloud ([@frenck] - [#31538]) ([netatmo docs])
+- Use min and m as units in Garmin Connect for consistency and correctness ([@scop] - [#31543]) ([garmin_connect docs]) (breaking change)
+- Deprecate old netatmo keys ([@balloob] - [#31544]) ([netatmo docs])
+- update aiopylgtv to 0.3.3 ([@bendavid] - [#31545]) ([webostv docs])
+- Guard for reloading with no zone config ([@balloob] - [#31547]) ([zone docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31521]: https://github.com/home-assistant/home-assistant/pull/31521
+[#31522]: https://github.com/home-assistant/home-assistant/pull/31522
+[#31526]: https://github.com/home-assistant/home-assistant/pull/31526
+[#31533]: https://github.com/home-assistant/home-assistant/pull/31533
+[#31538]: https://github.com/home-assistant/home-assistant/pull/31538
+[#31543]: https://github.com/home-assistant/home-assistant/pull/31543
+[#31544]: https://github.com/home-assistant/home-assistant/pull/31544
+[#31545]: https://github.com/home-assistant/home-assistant/pull/31545
+[#31547]: https://github.com/home-assistant/home-assistant/pull/31547
+[@Quentame]: https://github.com/Quentame
+[@balloob]: https://github.com/balloob
+[@bendavid]: https://github.com/bendavid
+[@chmielowiec]: https://github.com/chmielowiec
+[@d0ugal]: https://github.com/d0ugal
+[@frenck]: https://github.com/frenck
+[@scop]: https://github.com/scop
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[automation docs]: /integrations/automation/
+[garmin_connect docs]: /integrations/garmin_connect/
+[huawei_lte docs]: /integrations/huawei_lte/
+[icloud docs]: /integrations/icloud/
+[netatmo docs]: /integrations/netatmo/
+[webostv docs]: /integrations/webostv/
+[zone docs]: /integrations/zone/
+
+## Release 0.105.3 - February 10
+
+- Bump ZHA dependencies. ([@Adminiuga] - [#31555]) ([zha docs])
+- Resolve August integration makes too many requests and hits rate limits ([@bdraco] - [#31558]) ([august docs])
+- Bump adguardhome to 0.4.1 ([@frenck] - [#31565]) ([adguard docs])
+- Fix librouteros response error handling ([@engrbm87] - [#31588]) ([mikrotik docs])
+- update pynws to 0.10.4 ([@MatthewFlamm] - [#31591]) ([nws docs])
+- Catch garmin_connect keyerrors with unknown entity type updates ([@cyberjunky] - [#31608]) ([garmin_connect docs])
+- Bump ZHA dependencies. ([@Adminiuga] - [#31619]) ([zha docs])
+- Fix hvac_action for mill ([@Danielhiversen] - [#31630]) ([mill docs])
+- Fix wrong error message in netatmo integration ([@cgtobi] - [#31690]) ([netatmo docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31555]: https://github.com/home-assistant/home-assistant/pull/31555
+[#31558]: https://github.com/home-assistant/home-assistant/pull/31558
+[#31565]: https://github.com/home-assistant/home-assistant/pull/31565
+[#31588]: https://github.com/home-assistant/home-assistant/pull/31588
+[#31591]: https://github.com/home-assistant/home-assistant/pull/31591
+[#31608]: https://github.com/home-assistant/home-assistant/pull/31608
+[#31619]: https://github.com/home-assistant/home-assistant/pull/31619
+[#31630]: https://github.com/home-assistant/home-assistant/pull/31630
+[#31690]: https://github.com/home-assistant/home-assistant/pull/31690
+[@Adminiuga]: https://github.com/Adminiuga
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@cyberjunky]: https://github.com/cyberjunky
+[@engrbm87]: https://github.com/engrbm87
+[@frenck]: https://github.com/frenck
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[august docs]: /integrations/august/
+[garmin_connect docs]: /integrations/garmin_connect/
+[mikrotik docs]: /integrations/mikrotik/
+[mill docs]: /integrations/mill/
+[netatmo docs]: /integrations/netatmo/
+[nws docs]: /integrations/nws/
+[zha docs]: /integrations/zha/
+
+## Release 0.105.4 - February 14
+
+- Guard writing automation/scene/script config ([@balloob] - [#31568]) ([config docs])
+- For vizio integration, set unique ID early to prevent multiple zeroconf discovery items for the same device to appear ([@raman325] - [#31686]) ([vizio docs])
+- Fix missing device class in netatmo binary sensors ([@cgtobi] - [#31693]) ([netatmo docs])
+- Fix person reload service ([@balloob] - [#31716]) ([person docs])
+- Fix smoke detection for HomematicIP Cloud ([@SukramJ] - [#31753]) ([homematicip_cloud docs])
+- Updated frontend to 20200130.3 ([@bramkragten] - [#31771]) ([frontend docs])
+- Fix person device_trackers null ([@balloob] - [#31829]) ([person docs])
+- Google Assistant: Remove speaker type and earlier filter out devices from being locally exposed ([@balloob] - [#31830]) ([google_assistant docs])
+- Spotify integration hotfixes ([@frenck] - [#31835]) ([spotify docs])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31568]: https://github.com/home-assistant/home-assistant/pull/31568
+[#31686]: https://github.com/home-assistant/home-assistant/pull/31686
+[#31693]: https://github.com/home-assistant/home-assistant/pull/31693
+[#31716]: https://github.com/home-assistant/home-assistant/pull/31716
+[#31753]: https://github.com/home-assistant/home-assistant/pull/31753
+[#31771]: https://github.com/home-assistant/home-assistant/pull/31771
+[#31829]: https://github.com/home-assistant/home-assistant/pull/31829
+[#31830]: https://github.com/home-assistant/home-assistant/pull/31830
+[#31835]: https://github.com/home-assistant/home-assistant/pull/31835
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@raman325]: https://github.com/raman325
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[config docs]: /integrations/config/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[netatmo docs]: /integrations/netatmo/
+[person docs]: /integrations/person/
+[spotify docs]: /integrations/spotify/
+[vizio docs]: /integrations/vizio/
+
+## Release 0.105.5 - February 17
+
+- Upgrade bimmer_connected to 0.7.0 ([@gerard33] - [#31894]) ([bmw_connected_drive docs])
+- Report which data causes JSON serialization error ([@balloob] - [#31901])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31894]: https://github.com/home-assistant/home-assistant/pull/31894
+[#31901]: https://github.com/home-assistant/home-assistant/pull/31901
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 
 ## Beta Fixes
 
@@ -614,9 +774,9 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Use collection helpers for input_datetime component ([@Adminiuga] - [#30815]) ([input_datetime docs])
 - Handle location API being exhausted ([@balloob] - [#30798])
 - Deprecate states UI options in group integration ([@frenck] - [#30831]) ([group docs]) (breaking change)
-- Deprecate weblink integration ([@frenck] - [#30834]) ([weblink docs]) (breaking change)
+- Deprecate weblink integration ([@frenck] - [#30834]) (breaking change)
 - Deprecate hide_if_away from device_tracker ([@frenck] - [#30833]) ([device_tracker docs]) (breaking change)
-- Deprecate history_graph integration ([@frenck] - [#30835]) ([history_graph docs]) (breaking change)
+- Deprecate history_graph integration ([@frenck] - [#30835]) (breaking change)
 - Remove unused import ([@dshokouhi] - [#30858]) ([ring docs])
 - Bump pyvizio version to 0.1.1 ([@raman325] - [#30867]) ([vizio docs])
 - Update pyatmo to 3.2.2 and add available attribute ([@cgtobi] - [#30882]) ([netatmo docs])
@@ -1298,7 +1458,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
 [hisense_aehw4a1 docs]: /integrations/hisense_aehw4a1/
-[history_graph docs]: /integrations/history_graph/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
@@ -1391,7 +1550,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [versasense docs]: /integrations/versasense/
 [vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
-[weblink docs]: /integrations/weblink/
 [webostv docs]: /integrations/webostv/
 [wemo docs]: /integrations/wemo/
 [withings docs]: /integrations/withings/

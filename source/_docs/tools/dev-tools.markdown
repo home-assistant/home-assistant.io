@@ -20,6 +20,7 @@ Screenshot of Home Assistant's Developer Tools.
 | Info | Details about Home Assistant |
 
 ## What can I do with Developer Tools?
+
 The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, update states, raising events, and publish messages in mqtt…etc.). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the section in detail.
 
 ## Services
@@ -88,7 +89,7 @@ For more information about jinja2, visit [jinja2 documentation](http://jinja.poc
 
 ## MQTT
 
-This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/integrations/mqtt/) component.
+This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [MQTT](/integrations/mqtt/) integration.
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 

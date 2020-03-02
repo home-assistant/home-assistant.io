@@ -7,7 +7,7 @@ redirect_from:
   /integrations/ifttt.manything/
 ---
 
-[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a WiFi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
+[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a Wi-Fi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
 To get manything support, HA will use IFTTT's [Webhooks Service](https://ifttt.com/maker_webhooks) and the [ManyThing Service](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/integrations/ifttt/) to activate the IFTTT Platform.
 

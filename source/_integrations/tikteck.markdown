@@ -25,7 +25,7 @@ light:
 
 {% configuration %}
 devices:
-  description: A list of devices with their bluetooth address.
+  description: A list of devices with their Bluetooth address.
   required: false
   type: list
   keys:

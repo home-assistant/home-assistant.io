@@ -26,12 +26,12 @@ pi_hole:
 {% configuration %}
 host:
   description: >
-    The hostname (and port), e.g. '192.168.0.3:4865' of the host where Pi-hole is running. Hass.io add-on users should be sure to specify port `4865`. 
+    The hostname (and port), e.g.,  '192.168.0.3:4865' of the host where Pi-hole is running. Home Assistant add-on users should be sure to specify port `4865`. 
   required: true
   type: string
 name:
   description: >
-    The name for this Pi-hole. This name will be a part of the sensors created, e.g. `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
+    The name for this Pi-hole. This name will be a part of the sensors created, e.g.,  `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
 
     **Note:** If you configure multiple Pi-Holes, each one *must* have a unique name.
   required: false
@@ -62,7 +62,7 @@ api_key:
 
 ### Full examples
 
-Single Pi-hole running via Hass.io add-on:
+Single Pi-hole running via Home Assistant add-on:
 
 ```yaml
 pi_hole:
@@ -105,7 +105,7 @@ Disables configured Pi-hole(s) for the specified amount of time.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
-| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled | 
+| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
 | `name` | `False` | string | If preset, disables the named Pi-hole, otherwise, disables all configured Pi-holes |
 
 _Note: This service requires `api_key` to be specified in the configuration._

@@ -11,7 +11,7 @@ ha_release: 0.68
 ha_iot_class: Local Polling
 ---
 
-The [AVM](https://en.avm.de) Fritzbox integration for Home Assistant allows you to integrate the switch and climate devices.
+The [AVM](https://en.avm.de) FRITZ!Box integration for Home Assistant allows you to integrate the switch and climate devices.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!Box 7490](https://en.avm.de/products/fritzbox/fritzbox-7490/)
 - [FRITZ!Box 7430](https://en.avm.de/products/fritzbox/fritzbox-7430/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
@@ -42,12 +43,12 @@ fritzbox:
 
 {% configuration %}
 devices:
-  description: A list of Fritzbox devices.
+  description: A list of FRITZ!Box devices.
   required: true
   type: map
   keys:
     host:
-      description: The hostname or IP address of the Fritzbox.
+      description: The hostname or IP address of the FRITZ!Box.
       required: true
       type: string
     username:
@@ -62,7 +63,7 @@ devices:
 
 ## Switch & Thermostat
 
-To get AVM Fritzbox switch and thermostat follow the instructions above.
+To get AVM FRITZ!Box switch and thermostat follow the instructions above.
 
 ### Attributes
 
@@ -71,7 +72,7 @@ There are several attributes that can be useful for automations and templates.
 | Attribute | Description |
 | --------- | ----------- |
 | `device_locked` | The state of the key lock at the device.
-| `locked` | The state of the lock for configuring the device via the app or the Fritzbox web interface.
+| `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
 | `low_battery` | The low battery state indication.
 | `battery_level` | The battery level (only available since Fritz!OS 7).
 | `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
@@ -84,7 +85,7 @@ There are several attributes that can be useful for automations and templates.
 
 ## Sensor
 
-To get AVM Fritzbox temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [Fritzbox component](#setup).
+To get AVM FRITZ!Box temperature sensor (e.g.,  FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
 
 ### Attributes
 
@@ -93,6 +94,6 @@ There are several attributes that can be useful for automations and templates.
 | Attribute | Description |
 | --------- | ----------- |
 | `device_locked` | The state of the key lock at the device.
-| `locked` | The state of the lock for configuring the device via the app or the Fritzbox web interface.
+| `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
 | `temperature_unit` |  The unit of the temperature sensor.
 | `temperature` | The current temperature sensor reading.

@@ -84,19 +84,19 @@ Attributes can be accessed using the [template sensor](/integrations/template) a
   sensors:
     next_train_status:
       friendly_name: 'Next train status'
-      value_template: {% raw %}'{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}"{% endraw %}
     next_trains_origin:
       friendly_name: 'Next train origin'
-      value_template: {% raw %}'{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}"{% endraw %}
     next_trains_estimated:
       friendly_name: 'Next train estimated'
-      value_template: {% raw %}'{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}"{% endraw %}
     next_trains_scheduled:
       friendly_name: 'Next train scheduled'
-      value_template: {% raw %}'{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}"{% endraw %}
     next_trains_platform:
       friendly_name: 'Next train platform'
-      value_template: {% raw %}'{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}"{% endraw %}
 ```
 
 Bus sensors require as their `origin` a bus stop ATCO code which can be found by browsing OpenStreetMap data as
@@ -132,20 +132,20 @@ And the template sensor for viewing the next bus attributes.
   sensors:
     next_bus_route:
       friendly_name: 'Next bus route'
-      value_template: {% raw %}'{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"{% endraw %}
     next_bus_direction:
       friendly_name: 'Next bus direction'
-      value_template: {% raw %}'{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"{% endraw %}
     next_bus_scheduled:
       friendly_name: 'Next bus scheduled'
-      value_template: {% raw %}'{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"{% endraw %}
     next_bus_estimated:
       friendly_name: 'Next bus estimated'
-      value_template: {% raw %}'{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}'{% endraw %}
+      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"{% endraw %}
 ```
 
 ## Managing API requests
 
-If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the config options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
+If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the configuration options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
 
 Powered by [transportAPI](https://www.transportapi.com/)

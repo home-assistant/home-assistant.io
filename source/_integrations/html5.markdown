@@ -84,8 +84,8 @@ The `html5` platform can only function if all of the following requirements are 
 * You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
-* If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
-* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
+* If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
+* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self signed).
 * You are willing to accept the notification permission in your browser.
 
 ### Configuring the platform
@@ -216,7 +216,7 @@ data:
   url: https://google.com
 ```
 
-If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
+If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e., `/map` would turn into `https://192.168.1.2:8123/map`.
 
 #### TTL and Priority
 
@@ -313,7 +313,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
 
-To solve the issue put additional location into your nginx site's configuration:
+To solve the issue put additional location into your NGINX site's configuration:
 
 ```bash
 location /api/notify.html5/callback {

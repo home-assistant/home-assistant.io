@@ -90,7 +90,7 @@ code_digits:
   type: integer
   default: 4
 giid:
-  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
+  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run `python verisure.py` EMAIL PASSWORD installations'.
   required: false
   type: string
 {% endconfiguration %}

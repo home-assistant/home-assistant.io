@@ -15,15 +15,12 @@ The Garmin Connect sensor allows you to expose data from [Garmin Connect](https:
 
 ## Configuration
 
-
 To add Garmin Connect to your installation, go to Configuration >> Integrations in the UI and enable the Garmin Connect integration by entering your credentials.
 
-After succesful login a standard set of sensors are enabled.
+After successful login a standard set of sensors are enabled.
 You can enable more if needed by using the Integrations page.
 
-
 Please be aware that Garmin Connect has very low rate limits, max. once every ~10 minutes.
-
 
 ## Available Sensors
 
@@ -68,11 +65,7 @@ Body Battery Most Recent
 Average SPO2
 Lowest SPO2
 Latest SPO2
-Highest Respiration
-Lowest Respiration
-Latest Respiration
 ```
-
 
 Disabled by default:
 
@@ -108,4 +101,7 @@ Moderate Intensity
 Vigorous Intensity
 Intensity Goal
 Latest Respiration Update
+Highest Respiration
+Lowest Respiration
+Latest Respiration
 ```

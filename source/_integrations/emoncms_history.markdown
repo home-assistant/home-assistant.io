@@ -24,11 +24,11 @@ emoncms_history:
 
 {% configuration %}
 api_key:
-  description: Your Emoncms write api key
+  description: Your Emoncms write API key
   required: true
   type: string
 url:
-  description: The root URL of your Emoncms installation. (Use https://emoncms.org for the cloud based version)
+  description: The root URL of your Emoncms installation. (Use `https://emoncms.org` for the cloud based version)
   required: true
   type: string
 inputnode:

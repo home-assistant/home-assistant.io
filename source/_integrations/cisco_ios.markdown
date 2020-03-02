@@ -9,7 +9,7 @@ ha_codeowners:
   - '@fbradyirl'
 ---
 
-This is a presence detection scanner for [Cisco](https://www.cisco.com/) IOS devices.
+This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
 
 <div class='note warning'>
 This device tracker needs SSH to be enabled on the router.

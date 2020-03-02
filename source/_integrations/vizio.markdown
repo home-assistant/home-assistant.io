@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
+ha_quality_scale: platinum
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).

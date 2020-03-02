@@ -154,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update AbodePy version to 0.12.3 ([@MisterWil] - [#13709]) ([abode docs])
 - Enable autodiscovery for mqtt cameras ([@jmtatsch] - [#13697]) ([mqtt docs]) ([camera.mqtt docs])
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
-- Fix #10175 ([@pschmitt] - [#13713]) ([media_player.liveboxplaytv docs])
+- Fix #10175 ([@pschmitt] - [#13713])
 - Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 - Added gogogate2 cover ([@dlbroadfoot] - [#13467])
 - Remove vendor lookup for mac addresses ([@balloob] - [#13788]) ([device_tracker docs])
@@ -367,7 +367,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.yeelight docs]: /integrations/yeelight
 [lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [media_extractor docs]: /integrations/media_extractor/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.philips_js docs]: /integrations/philips_js
 [media_player.songpal docs]: /integrations/songpal
 [media_player.webostv docs]: /integrations/webostv#media-player

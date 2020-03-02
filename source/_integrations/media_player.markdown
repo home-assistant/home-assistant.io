@@ -77,5 +77,5 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 
-- **tv**: Device is a television type device.
-- **speaker**: Device is speaker or stereo type device.
+- `tv`: Device is a television type device.
+- `speaker`: Device is speaker or stereo type device.

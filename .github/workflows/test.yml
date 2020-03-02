@@ -26,6 +26,29 @@ jobs:
           CI: true
       - name: Run remark lint
         run: npm run markdown:lint
+  textlint:
+    name: Lint Text
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out files from GitHub
+        uses: actions/checkout@v2
+      - name: Setting up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Setup NPM cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+      - name: Install dependencies
+        run: npm install
+        env:
+          CI: true
+      - name: Run textlint
+        run: npm run textlint
   build:
     name: Jekyll build
     runs-on: ubuntu-latest

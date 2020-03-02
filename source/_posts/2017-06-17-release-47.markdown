@@ -547,7 +547,7 @@ automation:
 [switch.raspihats docs]: /integrations/raspihats#switch
 [switch.rest docs]: /integrations/switch.rest/
 [switch.template docs]: /integrations/switch.template/
-[telegram_bot.__init__ docs]: /integrations/telegram_chatbot/
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
 [telegram_bot.polling docs]: /integrations/telegram_polling
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [updater docs]: /integrations/updater/
