@@ -26,7 +26,7 @@ on the default map automatically, or on a map card by defining the source
 converted to the unit (kilometers or miles) configured in Home Assistant.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geonetnz-quakes-feed-map.png' />
+  <img src='/images/screenshots/geonetnz-quakes-feed-map.png' />
 </p>
 
 The data is updated every 5 minutes.
@@ -111,7 +111,7 @@ some useful attributes that indicate the currentness of the data retrieved
 from the feed.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geonetnz-quakes-sensor.png' />
+  <img src='/images/screenshots/geonetnz-quakes-sensor.png' />
 </p>
 
 | Attribute              | Description |
