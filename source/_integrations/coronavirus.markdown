@@ -23,6 +23,8 @@ in their country.
 The Coronavirus integration tracks the number of people that are confirmed with,
 recovered from, and deceased caused by the virus in your country, or worldwide.
 
+The data is sourced from the [Johns Hopkins University](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
+
 ## Configuration
 
 This integration can be configured via the Home Assistant frontend.
