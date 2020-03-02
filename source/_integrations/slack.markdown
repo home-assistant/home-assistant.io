@@ -136,5 +136,5 @@ Please note that both `message` is a required key, but is always shown, so use a
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-Extra information: You must add the bot to your Slack channel, otherwise you cannot send messages in this channel.
+Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.
 
