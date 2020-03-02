@@ -67,7 +67,7 @@ ZHA integration support using one of the multiple available Zigbee coordinator r
   - CC1352P-2 dev board hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
   - CC2538 + CC2592 dev board hardware ([flashed with custom Z-Stack coordinator firmware from Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html))
 
-- **[ZiGate open source ZigBee adapter hardware](https://zigate.fr/)**
+- **[ZiGate open source Zigbee adapter hardware](https://zigate.fr/)**
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/) (Note! Requires ZiGate firmware 3.1a or later)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/) (Note! Requires ZiGate firmware 3.1a or later)
   - [PiZiGate (ZiGate module for Raspberry Pi GPIO)](https://zigate.fr/produit/pizigate-v1-0/) (Note! Requires ZiGate firmware 3.1a or later)
