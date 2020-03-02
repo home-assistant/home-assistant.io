@@ -204,4 +204,4 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 
 #### hue-thief
 
-Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
+Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required).
