@@ -188,12 +188,12 @@ dynalite:
               fade: 10.0
             '3': 
               name: Dining Table
-	      preset:
-		    '5':
-			  name: Blinking Lights
-			'6':
-			  name: All Off
-			  fade: 3.0
+          preset:
+            '5':
+              name: Blinking Lights
+            '6':
+              name: All Off
+              fade: 3.0
       preset:
         '1':
           name: 'On'
