@@ -34,7 +34,6 @@ alarmdecoder:
     host: 192.168.1.20
     port: 10000
   panel_display: false
-  autobypass: false
   zones:
     01:
       name: 'Smoke Detector'
