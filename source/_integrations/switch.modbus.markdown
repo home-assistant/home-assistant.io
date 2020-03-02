@@ -119,7 +119,7 @@ It's possible to change the default 30 seconds scan interval for the switch stat
 
 ### Full example
 
-Example a temperature sensor with a 10 seconds scan interval:
+Example switches, for which the state is polled from Modbus every 10 seconds.
 
 ```yaml
 switch:

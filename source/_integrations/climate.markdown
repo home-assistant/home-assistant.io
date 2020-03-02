@@ -215,7 +215,7 @@ Turn climate device on. This is only supported if the climate device supports be
 
 ### Service `climate.turn_off`
 
-Turn climate device off. This is only supported if the climate device has the hvac mode `off`.
+Turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

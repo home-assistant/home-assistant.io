@@ -46,7 +46,7 @@ route:
   required: false
   type: string
 destination:
-  description: Useful for ferry or train stops to filter the destination of the sensor, e.g. `Circular Quay`.
+  description: Useful for ferry or train stops to filter the destination of the sensor, e.g.,  `Circular Quay`.
   required: false
   type: string
 name:

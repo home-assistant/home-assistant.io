@@ -50,7 +50,7 @@ retain: true
 
 ### Service `mqtt.dump`
 
-Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your config folder. This is useful when debugging a problem.
+Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

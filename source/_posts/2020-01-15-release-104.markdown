@@ -895,7 +895,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Store capabilities and supported features in entity registry, restore registered entities on startup ([@balloob] - [#30094])
 - Fix Withings leaking time zone change into other tests ([@frenck] - [#30320])
 - Add local_ip component ([@issacg] - [#29973]) ([localip docs]) (new-integration)
-- Update liveboxplay and pyteleloisirs ([@pschmitt] - [#30093]) ([liveboxplaytv docs])
+- Update liveboxplay and pyteleloisirs ([@pschmitt] - [#30093])
 - Add homematic host port config for HMIP-only CCUs ([@sbyx] - [#30077]) ([homematic docs])
 - Bump dependency for HomematicIP Cloud ([@SukramJ] - [#30319]) ([homematicip_cloud docs])
 - Add support for Somfy RTS power socket and Somfy io Temperature sensor ([@rhadamantys] - [#30053]) ([tahoma docs])
@@ -1026,7 +1026,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Set required_features field when registering fan services ([@Jc2k] - [#30516]) ([fan docs]) ([homekit_controller docs])
 - Add Brother Printer integration ([@bieniu] - [#30359]) ([brother docs]) (new-integration)
 - Format all manifests with prettier ([@frenck] - [#30521])
-- Fix AVM FRITZ!DECT switch total consumption ([@Alexxander0] - [#30478]) ([fritzdect docs])
+- Fix AVM FRITZ!DECT switch total consumption ([@Alexxander0] - [#30478])
 - Register 'androidtv.download' and 'androidtv.upload' services ([@JeffLIrion] - [#30086]) ([androidtv docs])
 - Allow specific status codes while notifying mobile_app devices ([@rccoleman] - [#30496]) ([mobile_app docs])
 - Correct integration names in manifests (A-B) ([@frenck] - [#30527])
@@ -1886,7 +1886,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [filter docs]: /integrations/filter/
 [freebox docs]: /integrations/freebox/
 [fritz docs]: /integrations/fritz/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [geofency docs]: /integrations/geofency/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
@@ -1938,7 +1937,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [light docs]: /integrations/light/
 [lightwave docs]: /integrations/lightwave/
 [linky docs]: /integrations/linky/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [localip docs]: /integrations/local_ip/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
@@ -2030,7 +2028,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tank_utility docs]: /integrations/tank_utility/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/

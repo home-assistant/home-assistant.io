@@ -130,6 +130,12 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
 
+<div class='note'>
+
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
+
+</div>
+
 ```yaml
 automation:
   trigger:
@@ -176,9 +182,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser inter
 
 #### Sunset / Sunrise trigger
 
-Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
+Triggers when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g.,  45 minutes before sunset).
 
 <div class='note'>
 

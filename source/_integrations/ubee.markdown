@@ -24,12 +24,12 @@ device_tracker:
 
 {% configuration %}
 model:
-  description: Ubee Router model, e.g. `EVW32C-0N`. If omitted, model will be detected automatically.
+  description: Ubee Router model, e.g.,  `EVW32C-0N`. If omitted, model will be detected automatically.
   required: false
   default: detect
   type: string
 host:
-  description: The IP address of your router, e.g. `192.168.1.1`.
+  description: The IP address of your router, e.g.,  `192.168.1.1`.
   required: true
   type: string
 username:

@@ -521,7 +521,6 @@
 /components/media_player.kodi /integrations/kodi
 /components/media_player.lg_netcast /integrations/lg_netcast
 /components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.liveboxplaytv /integrations/liveboxplaytv
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
 /components/media_player.mpchc /integrations/mpchc
@@ -685,7 +684,6 @@
 /components/sensor.dsmr /integrations/dsmr
 /components/sensor.dte_energy_bridge /integrations/dte_energy_bridge
 /components/sensor.dublin_bus_transport /integrations/dublin_bus_transport
-/components/sensor.duke_energy /integrations/duke_energy
 /components/sensor.dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/sensor.dweet /integrations/dweet#sensor
 /components/sensor.dyson /integrations/dyson#sensor
@@ -978,7 +976,6 @@
 /components/switch.fibaro /integrations/fibaro
 /components/switch.flux /integrations/flux
 /components/switch.fritzbox /integrations/fritzbox
-/components/switch.fritzdect /integrations/fritzdect
 /components/switch.gc100 /integrations/gc100#switch
 /components/switch.hdmi_cec /integrations/hdmi_cec
 /components/switch.hikvisioncam /integrations/hikvisioncam
@@ -1287,7 +1284,6 @@
 /components/dte_energy_bridge /integrations/dte_energy_bridge
 /components/dublin_bus_transport /integrations/dublin_bus_transport
 /components/duckdns /integrations/duckdns
-/components/duke_energy /integrations/duke_energy
 /components/dunehd /integrations/dunehd
 /components/dwd_weather_warnings /integrations/dwd_weather_warnings
 /components/dweet /integrations/dweet
@@ -1371,7 +1367,6 @@
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/fritzdect /integrations/fritzdect
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -1525,7 +1520,6 @@
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
 /components/litejet /integrations/litejet
-/components/liveboxplaytv /integrations/liveboxplaytv
 /components/llamalab_automate /integrations/llamalab_automate
 /components/local_file /integrations/local_file
 /components/locative /integrations/locative
@@ -1893,7 +1887,7 @@
 /components/ted5000 /integrations/ted5000
 /components/teksavvy /integrations/teksavvy
 /components/telegram /integrations/telegram
-/components/telegram_bot /integrations/telegram_chatbot
+/components/telegram_bot /integrations/telegram_bot
 /components/tellduslive /integrations/tellduslive
 /components/tellstick /integrations/tellstick
 /components/telnet /integrations/telnet
@@ -2046,23 +2040,36 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/telegram_chatbot /integrations/telegram_bot
 
-# App documentation
-/ios/whats-new https://companion.home-assistant.io/getting_started/index.html
+# Moved documentation
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
-/docs/ecosystem/ios/integration https://companion.home-assistant.io/integrations/
-/docs/ecosystem/ios/location https://companion.home-assistant.io/core/location
-/docs/ecosystem/ios/notifications https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/notifications/actionable
-/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/notifications/attachments
-/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/notifications/basic
-/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/notifications/dynamic-content
-/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/notifications/details
-/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/notifications/location
-/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/notifications/sounds
-/ecosystem/ios/notifications https://companion.home-assistant.io/en/getting_started/migration#5---known-issues
+/docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
+/docs/ecosystem/ios/location https://companion.home-assistant.io/docs/core/location
+/docs/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/actions https://companion.home-assistant.io/docs/notifications/actionable-notifications
+/docs/ecosystem/ios/notifications/architecture https://companion.home-assistant.io/docs/notifications/notification-details
+/docs/ecosystem/ios/notifications/attachments https://companion.home-assistant.io/docs/notifications/notification-attachments
+/docs/ecosystem/ios/notifications/basic https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/content_extensions https://companion.home-assistant.io/docs/notifications/dynamic-content
+/docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/docs/notifications/notifications-basic
+/docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/docs/notifications/notification-sounds
+/docs/ecosystem/notebooks https://data.home-assistant.io
+/docs/ecosystem/notebooks/api https://data.home-assistant.io
+/docs/ecosystem/notebooks/database https://data.home-assistant.io
+/docs/ecosystem/notebooks/graph https://data.home-assistant.io
+/docs/ecosystem/notebooks/installation https://data.home-assistant.io
+/docs/ecosystem/notebooks/stats https://data.home-assistant.io
+/ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
+/ecosystem/notebooks https://data.home-assistant.io
+/ecosystem/notebooks/api https://data.home-assistant.io
+/ecosystem/notebooks/database https://data.home-assistant.io
+/ecosystem/notebooks/graph https://data.home-assistant.io
+/ecosystem/notebooks/installation https://data.home-assistant.io
+/ecosystem/notebooks/stats https://data.home-assistant.io
+/ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
@@ -2083,3 +2090,6 @@
 /addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
 /addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
 /addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
+
+# Lovelace documentation
+/lovelace/entity-button /lovelace/button

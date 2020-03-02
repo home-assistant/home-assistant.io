@@ -54,11 +54,11 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 |           Event | Description |
 | --------------- | ----------- |
-| timer.cancelled | Fired when a timer has been canceled |
-| timer.finished | Fired when a timer has completed |
-| timer.started | Fired when a timer has been started|
-| timer.restarted | Fired when a timer has been restarted |
-| timer.paused | Fired when a timer has been paused |
+| `timer.cancelled` | Fired when a timer has been canceled |
+| `timer.finished` | Fired when a timer has completed |
+| `timer.started` | Fired when a timer has been started|
+| `timer.restarted` | Fired when a timer has been restarted |
+| `timer.paused` | Fired when a timer has been paused |
 
 ## Services
 

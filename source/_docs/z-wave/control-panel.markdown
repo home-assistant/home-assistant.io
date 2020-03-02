@@ -26,7 +26,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
-* **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
+* **Save Configuration** Saves the current cache of the network to `zwcfg_[home_id].xml`.
 
 ## Z-Wave Node Management
 
@@ -108,7 +108,7 @@ Some Z-Wave devices may associate themselves with the broadcast node (node 255).
 
 That would remove the broadcast group from association group 1 of the device with node_id 3.
 
-### Node config options
+### Node configuration options
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
@@ -116,7 +116,7 @@ You can set the *wakeup* interval (in seconds) of the device, this is shown for 
 The wakeup interval has no impact on the device's ability to report sensor changes. This is purely for how often the Z-Wave chip will check in with the controller. That activity consumes a lot of battery power compared to reporting sensor changes and if you reduce it you'll be reducing the battery life of your device.
 </div>
 
-Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
+Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Configuration Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
 ### Node protection
 

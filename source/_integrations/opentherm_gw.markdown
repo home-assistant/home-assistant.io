@@ -513,8 +513,8 @@ Possible modes and their meaning for the GPIO pins are listed here:
 
 Possible LED modes and their meaning are listed here:
 
-* R. Receiving an Opentherm message from the thermostat or boiler.
-* X. Transmitting an Opentherm message to the thermostat or boiler.
+* R. Receiving an OpenTherm message from the thermostat or boiler.
+* X. Transmitting an OpenTherm message to the thermostat or boiler.
 * T. Transmitting or receiving a message on the thermostat interface.
 * B. Transmitting or receiving a message on the boiler interface.
 * O. Remote setpoint override is active.

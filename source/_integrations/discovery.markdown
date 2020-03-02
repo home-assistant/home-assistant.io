@@ -8,7 +8,7 @@ ha_release: 0.7
 ha_quality_scale: internal
 ---
 
-Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
+Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
 
  * [Apple TV](/integrations/apple_tv/)
  * [Belkin WeMo switches](/integrations/wemo/)
@@ -21,11 +21,11 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
- * [Logitech media server (Squeezebox)](/integrations/squeezebox)
- * [Netgear routers](/integrations/netgear)
+ * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
+ * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Plex media server](/integrations/plex#media-player)
+ * [Plex Media Server](/integrations/plex#media-player)
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
@@ -80,13 +80,13 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
- * `logitech_mediaserver`: Logitech media server (Squeezebox)
- * `netgear_router`: Netgear routers
+ * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
+ * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex media server
+ * `plex_mediaserver`: Plex Media Server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
@@ -106,7 +106,7 @@ Valid values for enable are:
 
 ### UPnP
 
-Home Assistant must be on the same network as the devices for uPnP discovery to work.
+Home Assistant must be on the same network as the devices for UPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
 ### Windows

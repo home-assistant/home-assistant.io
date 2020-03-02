@@ -12,7 +12,7 @@ There are two possible message schemas - `legacy` and `state`.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
 
-This documentation has 3 sections. Config for `legacy` vacuum with examples, config for `state` vacuum with examples and shared section with examples which are the same for both schemas.
+This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
 ## Configuration
 
@@ -29,55 +29,84 @@ vacuum:
 Legacy MQTT vacuum configuration section.
 
 {% configuration %}
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+battery_level_template:
+  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
+  required: false
+  type: string
+battery_level_topic:
+  description: The MQTT topic subscribed to receive battery level values from the vacuum.
+  required: false
+  type: string
+charging_template:
+  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
+  required: false
+  type: string
+charging_topic:
+  description: The MQTT topic subscribed to receive charging state values from the vacuum.
+  required: false
+  type: string
+cleaning_template:
+  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
+  required: false
+  type: string
+cleaning_topic:
+  description: The MQTT topic subscribed to receive cleaning state values from the vacuum.
+  required: false
+  type: string
+command_topic:
+  description: The MQTT topic to publish commands to control the vacuum.
+  required: false
+  type: string
+docked_template:
+  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum. This is required if `docked_topic` is set.
+  required: false
+  type: string
+docked_topic:
+  description: The MQTT topic subscribed to receive docked state values from the vacuum.
+  required: false
+  type: string
+error_template:
+  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
+  required: false
+  type: string
+error_topic:
+  description: The MQTT topic subscribed to receive error messages from the vacuum.
+  required: false
+  type: string
+fan_speed_list:
+  description: List of possible fan speeds for the vacuum.
+  required: false
+  type: [string, list]
+fan_speed_template:
+  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
+  required: false
+  type: string
+fan_speed_topic:
+  description: The MQTT topic subscribed to receive fan speed values from the vacuum.
+  required: false
+  type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 name:
   description: The name of the vacuum.
   required: false
   type: string
   default: MQTT Vacuum
-schema:
-  description: The schema to use.
+payload_available:
+  description: The payload that represents the available state.
   required: false
   type: string
-  default: legacy
-supported_features:
-  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
-  required: false
-  type: [string, list]
-  default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
-command_topic:
-  description: The MQTT topic to publish commands to control the vacuum.
-  required: false
-  type: string
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-retain:
-  description: If the published message should have the retain flag on or not.
-  required: false
-  type: boolean
-  default: false
-payload_turn_on:
-  description: The payload to send to the `command_topic` to begin the cleaning cycle.
-  required: false
-  type: string
-  default: turn_on
-payload_turn_off:
-  description: The payload to send to the `command_topic` to turn the vacuum off.
-  required: false
-  type: string
-  default: turn_off
-payload_return_to_base:
-  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
-  required: false
-  type: string
-  default: return_to_base
-payload_stop:
-  description: The payload to send to the `command_topic` to stop the vacuum.
-  required: false
-  type: string
-  default: stop
+  default: online
 payload_clean_spot:
   description: The payload to send to the `command_topic` to begin a spot cleaning cycle.
   required: false
@@ -88,93 +117,64 @@ payload_locate:
   required: false
   type: string
   default: locate
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+payload_return_to_base:
+  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
+  required: false
+  type: string
+  default: return_to_base
 payload_start_pause:
   description: The payload to send to the `command_topic` to start or pause the vacuum.
   required: false
   type: string
   default: start_pause
-battery_level_topic:
-  description: The MQTT topic subscribed to receive battery level values from the vacuum.
+payload_stop:
+  description: The payload to send to the `command_topic` to stop the vacuum.
   required: false
   type: string
-battery_level_template:
-  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
+  default: stop
+payload_turn_off:
+  description: The payload to send to the `command_topic` to turn the vacuum off.
   required: false
   type: string
-charging_topic:
-  description: The MQTT topic subscribed to receive charging state values from the vacuum.
+  default: turn_off
+payload_turn_on:
+  description: The payload to send to the `command_topic` to begin the cleaning cycle.
   required: false
   type: string
-charging_template:
-  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
+  default: turn_on
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+schema:
+  description: The schema to use.
   required: false
   type: string
-cleaning_topic:
-  description: The MQTT topic subscribed to receive cleaning state values from the vacuum.
-  required: false
-  type: string
-cleaning_template:
-  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
-  required: false
-  type: string
-docked_topic:
-  description: The MQTT topic subscribed to receive docked state values from the vacuum.
-  required: false
-  type: string
-docked_template:
-  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum. This is required if `docked_topic` is set.
-  required: false
-  type: string
-error_topic:
-  description: The MQTT topic subscribed to receive error messages from the vacuum.
-  required: false
-  type: string
-error_template:
-  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
-  required: false
-  type: string
-fan_speed_topic:
-  description: The MQTT topic subscribed to receive fan speed values from the vacuum.
-  required: false
-  type: string
-fan_speed_template:
-  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
+  default: legacy
+send_command_topic:
+  description: The MQTT topic to publish custom commands to the vacuum.
   required: false
   type: string
 set_fan_speed_topic:
   description: The MQTT topic to publish commands to control the vacuum's fan speed.
   required: false
   type: string
-fan_speed_list:
-  description: List of possible fan speeds for the vacuum.
+supported_features:
+  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
   type: [string, list]
-send_command_topic:
-  description: The MQTT topic to publish custom commands to the vacuum.
-  required: false
-  type: string
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
+  default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 {% endconfiguration %}
 
 ### Legacy configuration example
@@ -260,50 +260,36 @@ MQTT payload:
 State MQTT vacuum configuration section.
 
 {% configuration %}
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+command_topic:
+  description: The MQTT topic to publish commands to control the vacuum.
+  required: false
+  type: string
+fan_speed_list:
+  description: List of possible fan speeds for the vacuum.
+  required: false
+  type: [string, list]
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 name:
   description: The name of the vacuum.
   required: false
   type: string
   default: MQTT Vacuum
-schema:
-  description: The schema to use.
+payload_available:
+  description: The payload that represents the available state.
   required: false
   type: string
-  default: legacy
-supported_features:
-  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
-  required: false
-  type: [string, list]
-  default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
-command_topic:
-  description: The MQTT topic to publish commands to control the vacuum.
-  required: false
-  type: string
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-retain:
-  description: If the published message should have the retain flag on or not.
-  required: false
-  type: boolean
-  default: false
-payload_start:
-  description: "The payload to send to the `command_topic` to begin the cleaning cycle."
-  required: false
-  type: string
-  default: start
-payload_stop:
-  description: "The payload to send to the `command_topic` to stop cleaning."
-  required: false
-  type: string
-  default: stop
-payload_return_to_base:
-  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
-  required: false
-  type: string
-  default: return_to_base
+  default: online
 payload_clean_spot:
   description: The payload to send to the `command_topic` to begin a spot cleaning cycle.
   required: false
@@ -314,47 +300,65 @@ payload_locate:
   required: false
   type: string
   default: locate
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 payload_pause:
   description: The payload to send to the `command_topic` to pause the vacuum.
   required: false
   type: string
   default: pause
-state_topic:
-  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting json if no `value_template` is defined.
+payload_return_to_base:
+  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
   required: false
   type: string
-value_template:
-  description: "Defines a [template](/topics/templating/) to extract possible states from the vacuum."
+  default: return_to_base
+payload_start:
+  description: "The payload to send to the `command_topic` to begin the cleaning cycle."
+  required: false
+  type: string
+  default: start
+payload_stop:
+  description: "The payload to send to the `command_topic` to stop cleaning."
+  required: false
+  type: string
+  default: stop
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+schema:
+  description: The schema to use.
+  required: false
+  type: string
+  default: legacy
+send_command_topic:
+  description: The MQTT topic to publish custom commands to the vacuum.
   required: false
   type: string
 set_fan_speed_topic:
   description: The MQTT topic to publish commands to control the vacuum's fan speed.
   required: false
   type: string
-fan_speed_list:
-  description: List of possible fan speeds for the vacuum.
+state_topic:
+  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting JSON if no `value_template` is defined.
+  required: false
+  type: string
+supported_features:
+  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
   type: [string, list]
-send_command_topic:
-  description: The MQTT topic to publish custom commands to the vacuum.
-  required: false
-  type: string
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
-  required: false
-  type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+value_template:
+  description: "Defines a [template](/topics/templating/) to extract possible states from the vacuum."
   required: false
   type: string
 {% endconfiguration %}
@@ -417,7 +421,7 @@ Vacuum send_command allows three parameters:
 - params - optional
 
 If params are not provided it sends command as payload to MQTT send_command topic.
-If params are provided service sends json as payload with such structure:
+If params are provided service sends JSON as payload with such structure:
 
 ```json
 {
@@ -492,7 +496,7 @@ Vacuum send_command allows three parameters:
 - params - optional
 
 If params are not provided it sends command as payload to MQTT send_command topic.
-If params are provided service sends json as payload with such structure:
+If params are provided service sends JSON as payload with such structure:
 
 ```json
 {
@@ -525,5 +529,5 @@ This integration is supported by the cloud-free Xiaomi Vacuum Webinterface [Vale
 
 ### Retrofitting non-wifi vacuums
 
-- Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
-- If you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.
+- Retrofitting your old Roomba with an ESP8266. [This repository](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
+- If you own a non-wifi Neato, you can refer to [this repository](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.

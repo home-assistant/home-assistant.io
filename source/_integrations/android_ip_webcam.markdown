@@ -164,7 +164,7 @@ android_ip_webcam:
 
 ## Binary Sensor
 
-The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 
 ## Examples
 
@@ -200,6 +200,6 @@ camera:
 
 ## Sensor
 
-The `android_ip_webcam` sensor platform lets you observe states of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+The `android_ip_webcam` sensor platform lets you observe states of [Android IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 
 You can setup your own sensors by examining the JSON file from the webcam server: `http://IP:8080/sensors.json`

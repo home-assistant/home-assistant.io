@@ -5,7 +5,8 @@ description: "A guide to remotely accessing Home Assistant and securing the conn
 
 <div class='note'>
 
-If you are using Hass.io do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io.
+This guide is for users running Home Assistant Core.
+If you are using Home Assistant do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Home Assistant.
 
 </div>
 
@@ -198,7 +199,7 @@ duckdns:
 
 The access token is available on your DuckDNS page. Restart Home Assistant after the change.
 
-What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
+What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Home Assistant will update DuckDNS every time it changes.
 
 Now type your new URL in to your address bar on your browser with port 8123 on the end:
 
@@ -261,20 +262,20 @@ cd
 
 We will now install the certbot software:
 
-```text
+```bash
 sudo apt-get install certbox -y
 ```
 
 You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
 
-```text
+```bash
 sudo systemctl stop home-assistant@homeassistant.service
 ```
 
 You can restart Home Assistant after the next step using the same command and replacing `stop` with `start`.
 Now we will run the certbot program to get our SSL certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
-```text
+```bash
 sudo certbot certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
 ```
 
@@ -461,13 +462,13 @@ To set a cron job to run the script at regular intervals:
 - If you are a TWO-RULE Person: Scroll to the bottom of the file and paste in the following line
 
   ```text
-  30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  30 2 * * 1 certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
   ```
 
 - If you are a ONE-RULE Person: Scroll to the bottom of the file and paste in the following line
 
   ```text
-  30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"
+  30 2 * * 1 certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"
   ```
 
 - Let's take a moment to look at the differences here:
@@ -485,7 +486,7 @@ Add the following sections to your `configuration.yaml` if you are a TWO-RULE pe
 
 ```yaml
 shell_command:
-  renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  renew_ssl: certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 
 automation:
   - alias: 'Auto Renew SSL Cert'
@@ -497,7 +498,7 @@ automation:
       service: shell_command.renew_ssl
 ```
 
-If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
+If you are a ONE-RULE person, replace the `certbot` command above with `certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
 
 #### Option 3
 
@@ -521,10 +522,10 @@ To manually update:
 - Run the renewal command
 
   ```bash
-  ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
   ```
 
-- If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
+- If you are a ONE-RULE person, replace the `certbot` command above with `certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
 
 So, now were all set up. We have our secured, remotely accessible Home Assistant instance and we're on track for keeping our certificates up to date. But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
 

@@ -124,7 +124,7 @@ be used for example to sound the siren for a shorter time during the night.
 
 ## Examples
 
-In the config example below:
+In the configuration example below:
 
 - the disarmed state never triggers the alarm;
 - the armed_home state will leave no time to leave the building or disarm the alarm;

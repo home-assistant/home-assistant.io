@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 password:
-  description: The password of the KLF 200 interface. Note that this is the same as the WiFi password (in the upper box on the back), *not* the password for the web login.
+  description: The password of the KLF 200 interface. Note that this is the same as the Wi-Fi password (in the upper box on the back), *not* the password for the web login.
   required: true
   type: string
 {% endconfiguration %}

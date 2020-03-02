@@ -11,7 +11,7 @@ The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](ht
 
 <div class='note'>
 
-If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of sensor, use the service `ffmpeg.start`, `ffmpeg.stop`, `ffmpeg.restart`.
 
 </div>
 
@@ -36,7 +36,7 @@ name:
   required: false
   type: string
 initial_state:
-  description: Start ffmpeg with home-assistant.
+  description: Start FFmpeg with home-assistant.
   required: false
   type: boolean
   default: true

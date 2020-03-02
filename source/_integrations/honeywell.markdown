@@ -18,7 +18,7 @@ If your system is compatible with this integration, then you will be able access
 
 ## Configuration
 
-To set up this integration, add the following to the `climate:` section of your **configuration.yaml** file:
+To set up this integration, add the following to the `climate:` section of your `configuration.yaml` file:
 
 ```yaml
 climate:

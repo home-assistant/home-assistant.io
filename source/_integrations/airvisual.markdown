@@ -14,7 +14,7 @@ The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) 
 
 This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
-The Community API key is valid for 12 months after which it will expire. You must then go back to the Airvisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
+The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
 <div class='note warning'>
 
@@ -160,8 +160,8 @@ AQI | Status | Description
 
 Pollutant | Symbol | More Info
 ------- | :----------------: | ----------
-Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
-Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
+Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)

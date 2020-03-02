@@ -31,7 +31,7 @@ devices:
   keys:
     mac_address:
       required: true
-      description: The bluetooth address of the switch.
+      description: The Bluetooth address of the switch.
       type: list
       keys:
         name:

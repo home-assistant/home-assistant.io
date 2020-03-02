@@ -32,6 +32,7 @@ sensor:
   - **temperature**
 
 Full example:
+
 ```yaml
 sensor:
   - platform: mhz19
@@ -42,7 +43,7 @@ sensor:
       - temperature
 ```
 
-## Raspberry Pi 3(+) GPIO UART and Hass.io
+## Raspberry Pi GPIO UART and the Home Assistant Operating System
 
 To directly connect the sensor on the GPIO pins of a RPi, first append the following to `config.txt` in the boot directory:
 
