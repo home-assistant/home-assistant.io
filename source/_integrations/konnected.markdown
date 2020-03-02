@@ -16,7 +16,7 @@ ha_config_flow: true
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
-Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware. 
+Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
 <div class='note info'>
 
@@ -30,7 +30,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use ssdp you'll need to manually provide the IP and Port information for each Konnected Panel.  The IP/Port info can be found using the Konnected mobile app.
+This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use ssdp you'll need to manually provide the IP and Port information for each Konnected Panel. The IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
@@ -42,25 +42,25 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Configuration Flow
 
-Starting with 0.106.0 Home Assistant requires configuration flow based setup of Konnected via **Configuration** -> **Integrations**.  If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires configuration flow based setup of Konnected via **Configuration** -> **Integrations**. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
-Selecting one of these discovered panels will launch a configuration flow to guide you through a setup process to initially connect the panel and generate a configuration entry.  If your panel was discovered via SSDP you shouldn't need any information to complete the configuration flow - simply confirm that the information is correct.  If the configuration flow prompts you for IP/Port you'll need to enter it.  IP/Port info can be found using the Konnected mobile app.
+Selecting one of these discovered panels will launch a configuration flow to guide you through a setup process to initially connect the panel and generate a configuration entry. If your panel was discovered via SSDP you shouldn't need any information to complete the configuration flow - simply confirm that the information is correct. If the configuration flow prompts you for IP/Port you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
-If you have an existing `configuration.yaml` completing the configuration flow will do an one time import of the settings contained in `configuration.yaml`.  Once the import creates a configuration entry the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the konnected section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the Options Flow.
+If you have an existing `configuration.yaml` completing the configuration flow will do an one time import of the settings contained in `configuration.yaml`. Once the import creates a configuration entry the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the konnected section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the Options Flow.
 
 If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the configuration flow.
 
 </div>  
 
-Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done!  If you are setting up a new Konnected Alarm Panel or modifying settings you'll need to utilize the Options Flow to configure zone behavior.
+Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings you'll need to utilize the Options Flow to configure zone behavior.
 
 ### Options Flow
 
-The Options Flow for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner.  You can reconfigure settings in the Options Flow at any time.  Once you complete the Options Flow the settings will be immediately applied.
+The Options Flow for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure settings in the Options Flow at any time.  Once you complete the Options Flow the settings will be immediately applied.
 
-Options Flow starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that you'll be prompted, for each zone that is not disabled, to configure details of the zones behavior.  All zones will allow entry of a Name.  Additional fields depend on how you configured the general behavior of the zone.  
+Options Flow starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that you'll be prompted, for each zone that is not disabled, to configure details of the zones behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 
 #### Binary Sensor:
 
@@ -84,7 +84,7 @@ Options Flow starts by having you configure the general behavior of each zone. Y
 
 ### YAML Configuration
 
-If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the Configuration Flow before the configuration entry will be created and entities created/accessible.**
+If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them. If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the Configuration Flow before the configuration entry will be created and entities created/accessible.**
 
 Details of the configuration fields and values can be found below - these apply to both the configuration flow and the YAML.
 ```yaml
