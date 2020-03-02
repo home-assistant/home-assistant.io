@@ -145,7 +145,7 @@ area:
                   type: float
                   default: 2.0
 preset:
-  description: Default presets for any area without the **nodefault** option
+  description: "Default presets for any area without the `nodefault` option."
   required: false
   type: map
   keys:
