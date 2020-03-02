@@ -57,7 +57,7 @@ active:
   type: [boolean, string]
   default: false
 polltimer:
-  description: Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level. Only relevant when active is set to 'on'.
+  description: "Polling interval for devices in transition. Value in seconds. When devices are in transition (e.g., a light fading), it will ask for a new state every X seconds until it is at the target level. Only relevant when active is set to `on`."
   required: false
   type: float
   default: 1.0
