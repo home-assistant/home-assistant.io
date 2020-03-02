@@ -19,6 +19,7 @@ If your setup thermostat cannot be added when you log into the [Honeywell Home](
 ## Configuration
 
 ### Setup Developer Account and Keys
+
 - Visit [Honeywell Developers](http://developer.honeywell.com/), and sign in. Create an account if you don’t have one already.
 - Fill in account details.
 - Submit changes
