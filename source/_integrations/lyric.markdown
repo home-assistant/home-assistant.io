@@ -4,7 +4,7 @@ description: Instructions on how to integrate Honeywell Lyric thermostats within
 logo: honeywell.png
 ha_category:
   - Climate
-ha_release: 0.106.2
+ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@shellster'
