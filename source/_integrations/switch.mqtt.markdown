@@ -98,12 +98,12 @@ payload_not_available:
   type: string
   default: offline
 payload_off:
-  description: The payload that represents disabled state.
+  description: The payload that represents `off` state. If specified, will be used for both comparing to the value in the `state_topic` (see `value_template` and `state_off` for details) and sending as `off` command to the `command_topic`.
   required: false
   type: string
   default: "OFF"
 payload_on:
-  description: The payload that represents enabled state.
+  description: The payload that represents `on` state. If specified, will be used for both comparing to the value in the `state_topic` (see `value_template` and `state_on`  for details) and sending as `on` command to the `command_topic`.
   required: false
   type: string
   default: "ON"
@@ -118,12 +118,12 @@ retain:
   type: boolean
   default: false
 state_off:
-  description: The payload that represents the off state.
+  description: The payload that represents the `off` state. Used when value that represents `off` state in the `state_topic` is different from value that should be sent to the `command_topic` to turn the device `off`.
   required: false
   type: string
   default: "`payload_off` if defined, else OFF"
 state_on:
-  description: The payload that represents the on state.
+  description: The payload that represents the `on` state. Used when value that represents `on` state in the `state_topic` is different from value that should be sent to the `command_topic` to turn the device `on`.
   required: false
   type: string
   default: "`payload_on` if defined, else ON"
@@ -132,7 +132,7 @@ state_topic:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data)" to extract device's state from the `state_topic`. To determine the switches's state result of this template will be compared to `state_on` and `state_off`.
   required: false
   type: string
 {% endconfiguration %}
