@@ -39,7 +39,7 @@ The ZHA integration support using one of the multiple available Zigbee coordinat
 
 ### Known working Zigbee radio modules
 
-- **Dresden Elektronik deCONZ based Zigbee radios**
+- **dresden elektronik deCONZ based Zigbee radios**
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
