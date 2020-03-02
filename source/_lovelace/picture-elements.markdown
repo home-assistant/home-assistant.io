@@ -64,15 +64,15 @@ title:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -137,15 +137,15 @@ tap_action:
       default: "false"
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 style:
   required: true
@@ -179,15 +179,15 @@ title:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 style:
   required: true
@@ -243,15 +243,15 @@ entity:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 style:
   required: true
@@ -277,15 +277,15 @@ title:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 image:
   required: false

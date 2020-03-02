@@ -65,15 +65,15 @@ theme:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

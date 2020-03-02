@@ -2,17 +2,18 @@
 title: "Actions"
 description: "Define what an object does when interacted with."
 ---
+
 Some Lovelace cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
 
 Actions can be enabled on:
 
-* {% active_link /lovelace/entities/ Entity %}
-* {% active_link /lovelace/entity-button/ Entity Button %}
-* {% active_link /lovelace/glance/ Glance %}
-* {% active_link /lovelace/picture/ Picture %}
-* {% active_link /lovelace/picture-elements/ Picture Element %}
-* {% active_link /lovelace/picture-entity/ Picture Entity %}
-* {% active_link /lovelace/picture-glance/ Picture Glance %}
+- [Entity](/lovelace/entities/)
+- [Entity Button](/lovelace/entity-button/)
+- [Glance](/lovelace/glance/)
+- [Picture](/lovelace/picture/)
+- [Picture Element](/lovelace/picture-elements/)
+- [Picture Entity](/lovelace/picture-entity/)
+- [Picture Glance](/lovelace/picture-glance/)
 
 ## Tap-Action
 
