@@ -1,5 +1,5 @@
 ---
-title: Vizio SmartCast TV
+title: Vizio SmartCast
 description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
 logo: vizio-smartcast.png
 ha_category:
@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
 ha_quality_scale: platinum
@@ -16,7 +17,9 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 
 ## Find your device
 
-### Install pyvizio locally
+If `zeroconf` discovery is enabled, your device will get discovered automatically. To discover your device manually, read the subsections below.
+
+### Install `pyvizio` locally
 
 > NOTE: If the `pip3` command is not found, try `pip` instead
 
@@ -26,17 +29,43 @@ The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/
 ### Discover devices
 
 Find your device using the following command:
+
 ```bash
-$ pyvizio --ip=0 discover
+pyvizio --ip=0 discover
 ```
 
-and note its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g.,  `pyvizio --ip=0 discover --timeout=10`).
+Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `pyvizio --ip=0 discover --timeout=10`).
 
 ## Pairing
 
-Before adding your device to Home Assistant, you may need to pair it manually. In particular, it is unclear how a sound bar would notify you of a valid auth token. In this case, it might be best to first skip the pairing process entirely, specify a `device_class` of `speaker` in your configuration, and try interacting with the entity to see if you have any success. If the media player controls aren't working, and if specifying different ports as mentioned above doesn't work, you will need to find a way to obtain the auth token during this process.
+This integration requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the HA frontend.
 
-To obtain an auth token, follow these steps:
+### Pair using the HA frontend
+
+ - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
+- **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
+
+### Pair manually using the CLI
+
+The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace `<IP>` with your IP and `<PORT>` (which is typically 7345 or 9000).
+
+```bash
+#!/bin/bash
+
+VIZIO_IP="<IP>"
+VIZIO_PORT="<PORT>"
+
+curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID":"pyvizio","DEVICE_NAME":"Python Vizio"}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/start
+
+read -p "PIN:  " VIZIO_PIN
+read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
+
+curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
+```
+
+### Pair manually using `pyvizio`
+
+To obtain an auth token manually, follow these steps:
 
 Make sure that your device is on before continuing.
 
@@ -55,7 +84,7 @@ Initiation will show you two different values:
 
 | Value           | Description                                                                                             |
 | :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
+| Challenge type  | Usually, it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
 | Challenge token | Token required to finalize pairing in the next step                                                     |
 
 At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
@@ -88,7 +117,7 @@ name:
   type: string
   default: Vizio SmartCast
 access_token:
-  description: Authentication token you received in the last step of the pairing process (if applicable).
+  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the HA frontend.
   required: false
   type: string
 device_class:
