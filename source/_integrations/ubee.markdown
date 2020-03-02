@@ -49,6 +49,7 @@ Supported models:
 - EVW321B
 - EVW32C-0N
 - EVW3226@UPC
+- DVW32CB
 
 <div class='note info'>
 
