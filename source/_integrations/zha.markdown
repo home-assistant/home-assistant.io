@@ -191,7 +191,7 @@ services:
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been added to another bridge won't show up during search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
+Philips Hue bulbs that have previously been added to another bridge won't show up during a search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
 
 #### Philips Hue Dimmer Switch
 
