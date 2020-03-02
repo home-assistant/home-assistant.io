@@ -197,8 +197,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
 
-- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that the format of the `feeders`/`flaps`/`pets` options changed from a map (`id`/`name`) to a simple list of IDs, which means the `name` option is removed. The `name` is now gathered directly from the Sure Petcare API but changeable via the HA UI.  
-The `household_id` (which is no longer needed) and customizing options `icon` and `device_class` are also removed but can still be configured via the UI. - ([@benleb] - [#31437]) ([surepetcare docs])
+- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that the format of the `feeders`/`flaps`/`pets` options changed from a map (`id`/`name`) to a simple list of IDs, which means the `name` option is removed. The `name` is now gathered directly from the Sure Petcare API but changeable via the HA UI.
+
+  The `household_id` (which is no longer needed) and customizing options `icon` and `device_class` are also removed but can still be configured via the UI. - ([@benleb] - [#31437]) ([surepetcare docs])
 
   Example YAML configuration:
 
