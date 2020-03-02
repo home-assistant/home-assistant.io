@@ -52,7 +52,7 @@ name:
   type: string
   default: dynalite
 active:
-  description: Actively query network. When starting, it will query all devices for their current status, and also will send queries when some changes are in progress (e.g. lights dimming or covers moving). Better experience but creates more load on the Dynalite network. Value can be 'on', 'off', our 'init', where 'init' will only send queries during the initial init of Home Assistant
+  description: "Actively query network. When starting, it will query all devices for their current status, and also will send queries when some changes are in progress (e.g., lights dimming or covers moving). Better experience but creates more load on the Dynalite network. Value can be `on`, `off`, our `init`, where `init` will only send queries during the initial init of Home Assistant."
   required: false
   type: [boolean, string]
   default: false
