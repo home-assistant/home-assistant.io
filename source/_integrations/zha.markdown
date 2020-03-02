@@ -198,7 +198,7 @@ Philips Hue bulbs that have previously been added to another bridge won't show u
 Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset your bulbs. For this to work, the remote doesn't have to be paired with your previous bridge.
 
 1. Turn on your Hue bulb you want to reset.
-2. Hold the Dimmer Switch near your bulb (< 10 cm)
+2. Hold the Dimmer Switch near your bulb (< 10 cm).
 3. Press and hold the (I)/(ON) and (O)/(OFF) buttons of the Dimmer Switch for about 10 seconds until your bulb starts to blink
 4. Your bulb should stop blinking and eventually turning on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
 
