@@ -3,7 +3,12 @@ title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
 redirect_from: /getting-started/installation-docker/
 ---
+<div class='note warning'>
 
+These below instructions are for an installation of Home Assistant Core running in your own docker environment which you manage yourself.
+For an installation of Home Assistant Supervised which includes Home Assistant's add-on ecosystem, see the instructions for installing [Home Assistant Supervised on a generic Linux host](https://www.home-assistant.io/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host/) 
+
+</div>
 ## Platform Installation
 
 Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
