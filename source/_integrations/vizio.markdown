@@ -21,7 +21,7 @@ If `zeroconf` discovery is enabled, your device will get discovered automaticall
 
 ### Install `pyvizio` locally
 
-<div class='note tip'>
+<div class='note'>
 
 If the `pip3` command is not found, try `pip` instead
 
