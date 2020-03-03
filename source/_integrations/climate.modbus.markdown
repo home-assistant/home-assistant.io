@@ -66,6 +66,11 @@ data_type:
   required: false
   type: string
   default: float
+structure:
+  description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
+  required: false
+  type: string
+  default: ">f"
 data_count:
   description: Number of registers to read.
   required: false

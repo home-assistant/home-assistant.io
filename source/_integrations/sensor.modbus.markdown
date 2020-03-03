@@ -109,7 +109,7 @@ registers:
       default: int
       type: string
     structure:
-      description: "If data_type is custom specify here a double quoted Python struct format string to unpack the value. See Python documentation for details. Ex: >i."
+      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
       required: false
       type: string
 {% endconfiguration %}
