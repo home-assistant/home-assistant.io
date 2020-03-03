@@ -177,6 +177,7 @@ apps:
 {% endconfiguration %}
 
 ### Obtaining an app configuration
+
 If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. In order to determine the values to specify for each configuration parameter, launch the app you want to configure on your device, and run the following command (requires `pyvizio` to be installed locally):
 
 ```bash
