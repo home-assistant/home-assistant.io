@@ -30,7 +30,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use ssdp you'll need to manually provide the IP and Port information for each Konnected Panel. The IP/Port info can be found using the Konnected mobile app.
+This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use SSDP you'll need to manually provide the IP and Port information for each Konnected Panel. The IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
