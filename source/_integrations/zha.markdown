@@ -145,7 +145,7 @@ Click on **ADD DEVICES** to start a scan for new devices.
 
 Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
-# Troubleshooting
+## Troubleshooting
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
