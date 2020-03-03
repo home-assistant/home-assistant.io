@@ -76,11 +76,11 @@ Options Flow starts by having you configure the general behavior of each zone. Y
 
 #### Switchable Output:
 
-**Name: (optional)** The friendly name for the entity associated with the zone
+**Name: (optional)** The friendly name for the entity associated with the zone.
 **Output when on:** The state of the switch when activated.
-**Pulse Duration (optional):** The duration in ms to pulse the switch once activated
-**Pause between pulses (optional):** The duration in ms to wait between pulses when activated
-**Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated
+**Pulse Duration (optional):** The duration in ms to pulse the switch once activated.
+**Pause between pulses (optional):** The duration in ms to wait between pulses when activated.
+**Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated.
 
 ### YAML Configuration
 
