@@ -1,6 +1,6 @@
 ---
 title: PVPC Hourly Pricing
-description: Instructions on how to set up the ComEd Hourly Pricing sensor in Home Assistant.
+description: Instructions on how to set up the PVPC Hourly Pricing sensor in Home Assistant.
 logo: ree_esios.svg
 ha_category:
   - Energy
@@ -88,12 +88,12 @@ timeout:
 
 
 <div class='note'>
-    <p>The sensor provides a hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:</p>
-    <ul>
-        <li>Fixed cost of contracted power</li>
-        <li>Fixed cost of energy consumed</li>
-        <li>Variable cost of energy consumed (the sensor's value)</li>
-        <li>Other fixed expenses, such as the rental of the electric meter</li>
-        <li>Multiple taxes applied</li>
-    </ul>
+
+The sensor provides an hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:
+* Fixed cost of contracted power
+* Fixed cost of energy consumed
+* Variable cost of energy consumed (the sensor's value)
+* Other fixed expenses, such as the rental of the electric meter
+* Multiple taxes applied
+
 </div>
