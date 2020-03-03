@@ -27,7 +27,7 @@ If you use a passkey or other authentication method on the BSBLan device, you ca
 After completing the configuration flow, the BSBLan Climate integration will be
 available.
 
-For more documentation of the BSBLan device check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
+For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 The device support quite a few controllers from different manufacturers.
 
 The integration is tested with firmware version `v0.42`.
