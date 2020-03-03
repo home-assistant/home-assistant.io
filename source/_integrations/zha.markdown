@@ -82,9 +82,9 @@ In the popup:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| ezsp  | EmberZNet based radios, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| deconz | ConBee, ConBee II |
-| xbee | Digi XBee Series 2, 2C, 3  |
+| `ezsp`  | EmberZNet based radios, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
+| `deconz` | ConBee, ConBee II |
+| `xbee` | Digi XBee Series 2, 2C, 3  |
 
 - Press `Submit` to save changes.
 
