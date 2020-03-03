@@ -85,7 +85,7 @@ ups.firmware: 868.L3 -P.D
 battery.mfr.ups.serial: 3B1519X19994
 ups.productid: 0002
 battery.runtime: 2552
-battery.battery.voltage.nominal: 24.0
+battery.voltage.nominal: 24.0
 battery.type: PbAc
 ups.mfr.ups.status: OL
 ups.model: Back-UPS RS1000G

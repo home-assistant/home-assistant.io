@@ -148,3 +148,6 @@ You can also use YAML to send messages from your automations
 Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.
+
