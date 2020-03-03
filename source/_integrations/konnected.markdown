@@ -44,7 +44,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 Starting with 0.106.0 Home Assistant requires configuration flow based setup of Konnected via **Configuration** -> **Integrations**. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
-Selecting one of these discovered panels will launch a configuration flow to guide you through a setup process to initially connect the panel and generate a configuration entry. If your panel was discovered via SSDP you shouldn't need any information to complete the configuration flow - simply confirm that the information is correct. If the configuration flow prompts you for IP/Port you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
+Selecting one of these discovered panels will launch a configuration flow to guide you through a setup process to initially connect the panel and generate a configuration entry. If your panel was discovered via SSDP, you shouldn't need any information to complete the configuration flow - simply confirm that the information is correct. If the configuration flow prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
