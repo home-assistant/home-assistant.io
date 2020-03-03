@@ -60,7 +60,7 @@ Once the configuration flow is completed you'll see a Konnected.io entry in **Co
 
 The Options Flow for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure settings in the Options Flow at any time.  Once you complete the Options Flow the settings will be immediately applied.
 
-Options Flow starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that you'll be prompted, for each zone that is not disabled, to configure details of the zones behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+Options Flow starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 
 #### Binary Sensor:
 
