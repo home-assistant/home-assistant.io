@@ -48,7 +48,7 @@ Selecting one of these discovered panels will launch a configuration flow to gui
 
 <div class='note info'>
 
-If you have an existing `configuration.yaml` completing the configuration flow will do an one time import of the settings contained in `configuration.yaml`. Once the import creates a configuration entry the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the konnected section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the Options Flow.
+If you have an existing `configuration.yaml` completing the configuration flow will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a configuration entry the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the options provided in the Home Assistant web interface.
 
 If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the configuration flow.
 
