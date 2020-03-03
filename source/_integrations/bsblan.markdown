@@ -17,7 +17,7 @@ The board is designed for an Arduino Mega 2560 with an Ethernet-Shield for web-b
 of heating systems such as `Elco Thision`, `Brötje` and similar systems.
 
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports have a look at there [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
+For more information of which system it supports have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
 ## Configuration
 
