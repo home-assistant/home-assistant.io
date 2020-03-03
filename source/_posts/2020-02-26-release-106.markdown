@@ -385,6 +385,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rest docs]: /integrations/rest/
 [unifi docs]: /integrations/unifi/
 
+## Release 0.106.3 - March 2
+
+Added a Coronavirus integration to help monitor the ongoing epidemic. [More information here.](/blog/2020/03/02/release-106-3/)
+
+## Release 0.106.4 - March 2
+
+- Fixed TypeError with old server versions ([@elmurato] - [#32329]) ([minecraft_server docs])
+- Bump pyeight to 0.1.4 ([@mezz64] - [#32363]) ([eight_sleep docs])
+- Catch Eight Sleep API errors, don't round None type ([@mezz64] - [#32410])
+- Coronavirus updates ([@balloob] - [#32417])
+- Add unique ID to coronavirus ([@balloob] - [#32423])
+
+[#32329]: https://github.com/home-assistant/core/pull/32329
+[#32363]: https://github.com/home-assistant/core/pull/32363
+[#32410]: https://github.com/home-assistant/core/pull/32410
+[#32417]: https://github.com/home-assistant/core/pull/32417
+[#32423]: https://github.com/home-assistant/core/pull/32423
+[@balloob]: https://github.com/balloob
+[@elmurato]: https://github.com/elmurato
+[@mezz64]: https://github.com/mezz64
+[eight_sleep docs]: /integrations/eight_sleep/
+[minecraft_server docs]: /integrations/minecraft_server/
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
