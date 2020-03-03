@@ -71,7 +71,7 @@ Options Flow starts by having you configure the general behavior of each zone. Y
 #### Digital Sensor:
 
 **Sensor Type:** The type of sensor connected to the zone - either `dht` or `ds18b20`.
-**Name (optional)** The friendly name for the entities associated with the zone
+**Name (optional)** The friendly name for the entities associated with the zone.
 **Poll Interval (optional):** How often in minutes to poll the sensor for updates.
 
 #### Switchable Output:
