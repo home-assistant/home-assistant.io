@@ -54,7 +54,7 @@ If you want to retain `configuration.yaml` and need to re-import any changes or 
 
 </div>  
 
-Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings you'll need to utilize the Options Flow to configure zone behavior.
+Once the configuration flow is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the Options Flow to configure zone behavior.
 
 ### Options Flow
 
