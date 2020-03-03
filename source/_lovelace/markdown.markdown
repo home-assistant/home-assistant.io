@@ -1,10 +1,10 @@
 ---
 title: "Markdown Card"
 sidebar_label: Markdown
-description: "Markdown card is used to render markdown"
+description: "The Markdown card is used to render Markdown"
 ---
 
-Markdown card is used to render [Markdown](https://commonmark.org/help/).
+The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 
 The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#/README.md#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
 

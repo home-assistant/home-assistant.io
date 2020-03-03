@@ -1,10 +1,10 @@
 ---
 title: "Entities Card"
 sidebar_label: Entities
-description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
+description: "The Entities card is the most common type of card. It groups items together into lists."
 ---
 
-Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
+The Entities card is the most common type of card. It groups items together into lists.
 
 {% configuration %}
 type:

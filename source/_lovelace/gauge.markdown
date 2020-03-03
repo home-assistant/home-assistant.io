@@ -1,10 +1,10 @@
 ---
 title: "Gauge Card"
 sidebar_label: Gauge
-description: "The Gauge card allows you to display sensor information visually"
+description: "The Gauge card is a basic card that allows visually seeing sensor data."
 ---
 
-Gauge card is a basic card that allows visually seeing sensor data.
+The Gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the gauge card'>
