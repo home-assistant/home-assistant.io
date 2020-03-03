@@ -3,7 +3,7 @@ title: BSBLan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 logo: bsblan.png
 ha_category: Climate
-ha_release: 0.106.2
+ha_release: 0.107
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
