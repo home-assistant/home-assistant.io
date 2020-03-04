@@ -37,7 +37,6 @@ sensor:
   - platform: stib_mivb   
     api_key: API_KEY
     lang: LANG
-    message_lang: MESSAGE_LANG
     stops:
       - stop_id: STOP_ID
         line_numbers: 
