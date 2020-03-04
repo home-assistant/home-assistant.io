@@ -4,6 +4,7 @@ description: Instructions on how to integrate Command binary sensors within Home
 logo: command_line.png
 ha_category:
   - Utility
+  - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Polling
 ---
