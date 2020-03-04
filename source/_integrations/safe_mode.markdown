@@ -15,7 +15,7 @@ You don't have to configure it in any way since it is automatically always
 available when Home Assistant needs it.
 
 If, during startup, Home Assistant has problems reading your configuration,
-it will still continue to start using bit and pieces from the configuration
+it will still continue to start using bits and pieces from the configuration
 of the last time it did start.
 
 When this happens, Home Assistant will start in "Safe mode" using this
