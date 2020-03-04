@@ -4,7 +4,7 @@ description: "Instructions on how to integrate QVR Pro within Home Assistant."
 logo: qvr_pro.png
 ha_category:
   - Camera
-ha_release: "0.106"
+ha_release: "0.107"
 ---
 
 [QVR Pro](https://www.qnap.com/solution/qvr-pro-official) allows you to create 
