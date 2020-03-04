@@ -78,7 +78,8 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 In the popup:
 
 - USB Device Path - on a Linux system will be something like `/dev/ttyUSB0` or `/dev/ttyACM0`
-- Radio type - select device type `ezsp`, `deconz` or `xbee`
+- Radio type - select device type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
+- Submit
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
@@ -111,7 +112,7 @@ If you are use ZiGate, you have to use some special usb_path configuration:
 
 {% configuration %}
 radio_type:
-  description: One of `ezsp`, `xbee`, `deconz` or `zigate`.
+  description: One of `deconz`, `ezsp`, `ti_cc`, `xbee` or `zigate`.
   required: false
   type: string
   default: ezsp

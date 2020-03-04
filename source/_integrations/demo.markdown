@@ -10,7 +10,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ---
 
-The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
+The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/)but combined with your own real/functional platforms.
 
 Available demo platforms:
 
@@ -39,7 +39,12 @@ To integrate a demo platform in Home Assistant, add the following section to you
 
 ```yaml
 # Example configuration.yaml entry
-[component]:
+
+# To load all:
+demo:
+
+# To load for a specific integration:
+light:
   - platform: demo
 ```
 

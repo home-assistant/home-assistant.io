@@ -54,13 +54,14 @@ source_type:
 ```yaml
 # Complete configuration.yaml entry
 device_tracker:
-  devices:
-    paulus_oneplus: 'location/paulus'
-    annetherese_n4: 'location/annetherese'
-  qos: 1
-  payload_home: 'present'
-  payload_not_home: 'not present'
-  source_type: bluetooth
+  - platform: mqtt
+    devices:
+      paulus_oneplus: 'location/paulus'
+      annetherese_n4: 'location/annetherese'
+    qos: 1
+    payload_home: 'present'
+    payload_not_home: 'not present'
+    source_type: bluetooth
 ```
 
 ## Usage

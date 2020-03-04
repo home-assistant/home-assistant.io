@@ -185,7 +185,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
-- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
+- lock 
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)

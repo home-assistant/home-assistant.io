@@ -197,7 +197,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
 
-- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is no longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
+- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that the format of the `feeders`/`flaps`/`pets` options changed from a map (`id`/`name`) to a simple list of IDs, which means the `name` option is removed. The `name` is now gathered directly from the Sure Petcare API but changeable via the HA UI.
+
+  The `household_id` (which is no longer needed) and customizing options `icon` and `device_class` are also removed but can still be configured via the UI. - ([@benleb] - [#31437]) ([surepetcare docs])
 
   Example YAML configuration:
 
@@ -382,6 +384,50 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lovelace docs]: /integrations/lovelace/
 [rest docs]: /integrations/rest/
 [unifi docs]: /integrations/unifi/
+
+## Release 0.106.3 - March 2
+
+Added a Coronavirus integration to help monitor the ongoing epidemic. [More information here.](/blog/2020/03/02/release-106-3/)
+
+## Release 0.106.4 - March 2
+
+- Fixed TypeError with old server versions ([@elmurato] - [#32329]) ([minecraft_server docs])
+- Bump pyeight to 0.1.4 ([@mezz64] - [#32363]) ([eight_sleep docs])
+- Catch Eight Sleep API errors, don't round None type ([@mezz64] - [#32410])
+- Coronavirus updates ([@balloob] - [#32417])
+- Add unique ID to coronavirus ([@balloob] - [#32423])
+
+[#32329]: https://github.com/home-assistant/core/pull/32329
+[#32363]: https://github.com/home-assistant/core/pull/32363
+[#32410]: https://github.com/home-assistant/core/pull/32410
+[#32417]: https://github.com/home-assistant/core/pull/32417
+[#32423]: https://github.com/home-assistant/core/pull/32423
+[@balloob]: https://github.com/balloob
+[@elmurato]: https://github.com/elmurato
+[@mezz64]: https://github.com/mezz64
+[eight_sleep docs]: /integrations/eight_sleep/
+[minecraft_server docs]: /integrations/minecraft_server/
+
+## Release 0.106.5 - March 3
+
+- Fix too many device tracker updates in log for Tesla ([@alandtse] - [#32426])
+- Filter out duplicate logbook states ([@balloob] - [#32427])
+- Properly define dependency for pvoutput integration on rest in… ([@bdraco] - [#32435])
+- Fix pushover's ATTR_RETRY env variable typo ([@axilleas] - [#32440])
+- Remove hassfest blacklisted rest ([@balloob] - [#32441])
+- UniFi - Fix websocket bug ([@Kane610] - [#32449])
+
+[#32426]: https://github.com/home-assistant/core/pull/32426
+[#32427]: https://github.com/home-assistant/core/pull/32427
+[#32435]: https://github.com/home-assistant/core/pull/32435
+[#32440]: https://github.com/home-assistant/core/pull/32440
+[#32441]: https://github.com/home-assistant/core/pull/32441
+[#32449]: https://github.com/home-assistant/core/pull/32449
+[@Kane610]: https://github.com/Kane610
+[@alandtse]: https://github.com/alandtse
+[@axilleas]: https://github.com/axilleas
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
 
 ## All changes
 

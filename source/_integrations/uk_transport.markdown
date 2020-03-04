@@ -78,26 +78,35 @@ Refer to the [API reference webpage](https://developer.transportapi.com/docs?ram
 
 Attributes can be accessed using the [template sensor](/integrations/template) as per this example:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.
 - platform: template
   sensors:
     next_train_status:
       friendly_name: 'Next train status'
-      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}"{% endraw %}
+      value_template: >- 
+        {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}
     next_trains_origin:
       friendly_name: 'Next train origin'
-      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}"{% endraw %}
+      value_template: >-
+        {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}
     next_trains_estimated:
       friendly_name: 'Next train estimated'
-      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}"{% endraw %}
+      value_template: >- 
+        {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}
     next_trains_scheduled:
       friendly_name: 'Next train scheduled'
-      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}"{% endraw %}
+      value_template: >-
+        {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}
     next_trains_platform:
       friendly_name: 'Next train platform'
-      value_template: {% raw %}"{{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}"{% endraw %}
+      value_template: >-
+        {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
+
+{% endraw %}
 
 Bus sensors require as their `origin` a bus stop ATCO code which can be found by browsing OpenStreetMap data as
 follows:

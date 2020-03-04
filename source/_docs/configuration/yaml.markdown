@@ -89,7 +89,7 @@ example:
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
 ```yaml
-lights: !include lights.yaml
+light: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
