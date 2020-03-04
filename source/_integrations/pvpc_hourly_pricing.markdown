@@ -37,10 +37,10 @@ corresponding to your contracted rate, according to the number of billing period
 (one / peak + valley / shifted peak + valley).
 
 - 1 period: `normal`, for the "Default PVPC tariff, (2.0 A)".
-- 2 periods: `discriminacion`, for the "Efficiency 2 periods (2.0 DHA)", with 10h peak interval from 11:00 UTC to 21:00 UTC.
-- 3 periods: `coche_electrico`, for the "Electric vehicle tariff (2.0 DHS)", optimized for electric car owners to charge at night.
+- 2 periods: `discrimination`, for the "Efficiency 2 periods (2.0 DHA)", with 10h peak interval from 11:00 UTC to 21:00 UTC.
+- 3 periods: `electric_car`, for the "Electric vehicle tariff (2.0 DHS)", optimized for electric car owners to charge at night.
 
-The default is `discriminacion`, with 2 periods, as it is usually the cheapest one for home consumers. 
+The default is `discrimination`, with 2 periods, as it is usually the cheapest one for home consumers. 
 
 You can change the selected tariff at any time through the options panel, 
 and you can also add multiple sensors by adding them again through the integrations panel.
@@ -53,9 +53,9 @@ PVPC Hourly Pricing allows manual configuration by adding a section to your `con
 # Set up electricity price sensors as a component:
 pvpc_hourly_pricing:
   - name: PVPC manual ve
-    tariff: coche_electrico
+    tariff: electric_car
   - name: PVPC manual nocturna
-    tariff: discriminacion
+    tariff: discrimination
     timeout: 3
 
 # Or as a sensor platform:
@@ -66,7 +66,7 @@ sensor:
 
   - platform: pvpc_hourly_pricing
     name: pvpc_manual_sensor_2
-    tariff: discriminacion
+    tariff: discrimination
 ```
 
 {% configuration %}
@@ -77,7 +77,7 @@ name:
 tariff:
   description: Contracted electric tariff.
   required: true
-  default: discriminacion
+  default: discrimination
   type: string
 timeout:
   description: The timeout in seconds for API calls to fetch prices data.
