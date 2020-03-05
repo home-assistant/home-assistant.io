@@ -121,12 +121,12 @@ If using targets, your own account's email address functions as 'send to all dev
 
 ```yaml
 
-  "message": "A message for many people",
-  "target":
-    "device/telephone",
-    "email/hello@example.com",
-    "channel/my_home",
-    "sms/0612345678"
+  message: "A message for many people",
+  target: 
+    - 'device/telephone'
+    - 'email/hello@example.com'
+    - 'channel/my_home'
+    - 'sms/0612345678'
 
 ```
 
