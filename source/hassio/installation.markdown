@@ -178,6 +178,20 @@ The following script will then install Home Assistant on a variety of operating 
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
 
+If you get the error `[Error] Please install avahi first` on Debian Buster run:
+
+```bash
+whereis avahi-daemon
+```
+
+Assuming that outputs `/usr/sbin/avahi-daemon`, run:
+
+```bash
+PATH=$PATH:/usr/sbin
+```
+
+You may now rerun the curl command to install.
+
 Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this:
 
 ```bash
