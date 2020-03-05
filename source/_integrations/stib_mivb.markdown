@@ -16,12 +16,13 @@ The `stib-mvib` sensor will give you the departure time of the next bus, tram or
 ## Setup
 
 ### API key
+
 Create a developer account at [Stib-Mivb Open Data portal](https://opendata.stib-mivb.be) and create a production key on the [subscriptions page](https://opendata.stib-mivb.be/store/subscriptions).
 Make sure the you regenerate an access token with a long enough validity.
 
 ### Stop ids
 
-Go to the [timetables webpage](https://www.stib-mivb.be/horaires-dienstregeling2.html), select the line, the destination and then the stop name. The stop id can be found at the end of the URL after "_stop=".
+Go to the [timetables webpage](https://www.stib-mivb.be/horaires-dienstregeling2.html), select the line, the destination and then the stop name. The stop id can be found at the end of the URL after `_stop=`.
 
 For example, for line 1 with direction 'Gare de l'Ouest' at 'Gare Centrale', the URL is: `http://www.stib-mivb.be/horaires-dienstregeling2.html?l=fr&_line=1&_directioncode=V&_stop=8021`. The stop id is then 8021.
 
