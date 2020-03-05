@@ -92,7 +92,7 @@ In the popup:
 
 - Press `Submit` to save changes.
 
-The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
+The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ## Configuration - Manual
 
