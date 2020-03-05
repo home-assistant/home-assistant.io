@@ -7,6 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ha_codeowners:
   - '@fabaff'
+ha_domain: syslog
 ---
 
 The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.

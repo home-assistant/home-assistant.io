@@ -11,6 +11,7 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: http
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.

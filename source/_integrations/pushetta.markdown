@@ -5,6 +5,7 @@ logo: pushetta.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: pushetta
 ---
 
 The `pushetta` notify platform uses [Pushetta](http://www.pushetta.com) to delivery notifications from Home Assistant to your devices.

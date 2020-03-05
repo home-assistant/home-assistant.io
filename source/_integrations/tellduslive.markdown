@@ -15,6 +15,7 @@ ha_iot_class: Cloud Polling
 ha_quality_scale: gold
 ha_codeowners:
   - '@fredrike'
+ha_domain: tellduslive
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.

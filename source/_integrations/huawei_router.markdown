@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.51
 ha_codeowners:
   - '@abmantis'
+ha_domain: huawei_router
 ---
 
 The `huawei` device tracker platform offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).

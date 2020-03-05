@@ -5,6 +5,7 @@ logo: clicksend.png
 ha_category:
   - Notifications
 ha_release: 0.48
+ha_domain: clicksend
 ---
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.

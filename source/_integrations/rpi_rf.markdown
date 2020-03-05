@@ -6,6 +6,7 @@ ha_category:
   - DIY
 ha_release: 0.19
 ha_iot_class: Assumed State
+ha_domain: rpi_rf
 ---
 
 The `rpi_rf` switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a [Raspberry Pi](https://www.raspberrypi.org/).

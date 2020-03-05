@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.23
 ha_codeowners:
   - '@fabaff'
+ha_domain: fixer
 ---
 
 The `fixer` sensor will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).

@@ -5,6 +5,7 @@ logo: nasa.png
 ha_category:
   - Binary Sensor
 ha_release: 0.36
+ha_domain: iss
 ---
 
 The `iss` platform uses the

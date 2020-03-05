@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: group
 ---
 
 Groups allow the user to combine multiple entities into one.

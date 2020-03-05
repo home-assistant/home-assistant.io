@@ -5,6 +5,7 @@ ha_category:
   - Network
 ha_release: 0.94
 logo: home-assistant.png
+ha_domain: ssdp
 ---
 
 The `ssdp` "Simple Service Discovery Protocol" integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.

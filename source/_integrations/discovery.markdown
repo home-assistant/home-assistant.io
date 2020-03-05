@@ -6,6 +6,7 @@ ha_category:
   - Other
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: discovery
 ---
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:

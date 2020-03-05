@@ -5,6 +5,7 @@ logo: statsd.png
 ha_category:
   - History
 ha_release: 0.12
+ha_domain: statsd
 ---
 
 The `statsd` integration makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.

@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.34
 ha_iot_class: Cloud Push
 ha_config_flow: true
+ha_domain: gpslogger
 ---
 
 This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.

@@ -9,6 +9,7 @@ ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+ha_domain: statistics
 ---
 
 The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If it's a binary sensor then only state changes are counted.

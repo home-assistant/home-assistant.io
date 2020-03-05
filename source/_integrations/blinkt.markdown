@@ -6,6 +6,7 @@ ha_category:
   - DIY
 ha_iot_class: Local Push
 ha_release: 0.44
+ha_domain: blinkt
 ---
 
 The `blinkt` light platform lets you control the [Blinkt!](https://shop.pimoroni.com/products/blinkt) board, featuring eight super-bright RGB LEDs.

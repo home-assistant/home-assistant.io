@@ -9,6 +9,7 @@ ha_codeowners:
   - '@laetificat'
   - '@CoMPaTech'
   - '@bouwew'
+ha_domain: plugwise
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.

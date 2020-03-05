@@ -7,6 +7,7 @@ ha_category:
   - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Polling
+ha_domain: command_line
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.

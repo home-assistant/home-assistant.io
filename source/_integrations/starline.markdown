@@ -14,6 +14,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@anonym-tsk'
+ha_domain: starline
 ---
 
 The `starline` integration lets you retrieve data of your StarLine security system from the StarLine portal. You will need a working StarLine account.

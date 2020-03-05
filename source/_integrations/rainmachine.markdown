@@ -12,6 +12,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: rainmachine
 ---
 
 The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).

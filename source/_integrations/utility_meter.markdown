@@ -9,6 +9,7 @@ logo: energy_meter.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: utility_meter
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).

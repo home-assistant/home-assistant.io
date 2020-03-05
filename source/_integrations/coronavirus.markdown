@@ -8,7 +8,8 @@ ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@home-assistant/core'
+  - '@home_assistant/core'
+ha_domain: coronavirus
 ---
 
 In December 2019, an outbreak of a novel Coronavirus, also called severe acute

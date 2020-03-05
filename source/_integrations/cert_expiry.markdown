@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Cereal2nd'
   - '@jjlawren'
+ha_domain: cert_expiry
 ---
 
 The `cert_expiry` sensor fetches information from a configured URL and displays the certificate expiry in days.

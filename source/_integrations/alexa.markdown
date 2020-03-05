@@ -9,6 +9,7 @@ ha_release: '0.10'
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+ha_domain: alexa
 ---
 
 ## Automatic setup via Home Assistant Cloud

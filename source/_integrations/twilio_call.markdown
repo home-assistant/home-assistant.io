@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.37
 ha_codeowners:
   - '@robbiet480'
+ha_domain: twilio_call
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).

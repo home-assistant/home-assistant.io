@@ -6,6 +6,7 @@ ha_category:
   - Automation
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_domain: device_sun_light_trigger
 ---
 
 Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The integration will:

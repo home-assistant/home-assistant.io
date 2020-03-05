@@ -16,6 +16,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@kane610'
+ha_domain: deconz
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.

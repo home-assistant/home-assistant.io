@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@robbiet480'
   - '@Kane610'
+ha_domain: zeroconf
 ---
 
 The `zeroconf` integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel. It will also make Home Assistant discoverable for other services in the network. Zeroconf is also sometimes known as Bonjour, Rendezvous, and Avahi.

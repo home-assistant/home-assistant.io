@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: media_player
 ---
 
 Interacts with media players on your network.

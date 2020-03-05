@@ -12,6 +12,7 @@ ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@gerard33'
+ha_domain: bmw_connected_drive
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.

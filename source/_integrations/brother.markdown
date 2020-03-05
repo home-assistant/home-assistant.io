@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
+ha_domain: brother
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.

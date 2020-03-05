@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
+ha_domain: stream
 ---
 
 The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.

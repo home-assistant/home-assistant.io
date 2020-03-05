@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_domain: light
 ---
 
 This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.

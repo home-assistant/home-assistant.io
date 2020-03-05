@@ -5,6 +5,7 @@ logo: route53.png
 ha_category:
   - Network
 ha_release: 0.81
+ha_domain: route53
 ---
 
 With the `route53` integration can you keep your AWS Route53 DNS records up to date.

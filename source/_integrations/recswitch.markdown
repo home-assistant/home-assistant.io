@@ -6,6 +6,7 @@ ha_release: 0.81
 ha_category:
   - Switch
 ha_iot_class: Local Polling
+ha_domain: recswitch
 ---
 
 The `recswitch` switch platform allows you to control the Ankuoo REC Switch devices.

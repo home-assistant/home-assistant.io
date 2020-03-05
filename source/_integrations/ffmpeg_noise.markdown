@@ -5,6 +5,7 @@ logo: ffmpeg.png
 ha_category:
   - Image Processing
 ha_release: 0.27
+ha_domain: ffmpeg_noise
 ---
 
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.

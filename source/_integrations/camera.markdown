@@ -6,6 +6,7 @@ ha_category:
   - Camera
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: camera
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.

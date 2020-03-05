@@ -9,6 +9,7 @@ ha_release: 0.28
 ha_codeowners:
   - '@fabaff'
   - '@johnluetke'
+ha_domain: pi_hole
 ---
 
 The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.

@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.93
 ha_codeowners:
   - '@swamp-ig'
+ha_domain: ptvsd
 ---
 
 The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.

@@ -9,6 +9,7 @@ ha_category:
   - Lock
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_domain: mopar
 ---
 
 The `mopar` integration provides the following for owners of FCA vehicles with a uConnect subscription:

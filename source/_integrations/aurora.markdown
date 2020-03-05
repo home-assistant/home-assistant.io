@@ -5,6 +5,7 @@ ha_category:
   - Environment
 ha_release: 0.39
 logo: noaa.png
+ha_domain: aurora
 ---
 
 The `aurora` platform uses the [NOAA Aurora Forecast](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast) service to let you know if an aurora might be visible at your home location in the next 30 minutes, based off of current solar flare activity.

@@ -8,6 +8,7 @@ ha_release: 0.64
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@simse'
+ha_domain: xiaomi_tv
 ---
 
 The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/en/mitv3s/65flat/).

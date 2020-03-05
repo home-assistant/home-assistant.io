@@ -5,6 +5,7 @@ logo: facebook.png
 ha_category:
   - Notifications
 ha_release: 0.36
+ha_domain: facebook
 ---
 
 The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).

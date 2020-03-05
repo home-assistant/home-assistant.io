@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.36
+ha_domain: zengge
 ---
 
 The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.

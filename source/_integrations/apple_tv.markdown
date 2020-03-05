@@ -8,6 +8,7 @@ ha_category:
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.49
+ha_domain: apple_tv
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/integrations/apple_tv#remote) if you want to send remote control buttons, e.g., arrow keys.

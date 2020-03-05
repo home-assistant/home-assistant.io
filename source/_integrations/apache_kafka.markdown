@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.97
 ha_codeowners:
   - '@bachya'
+ha_domain: apache_kafka
 ---
 
 The `apache_kafka` integration sends all state changes to a

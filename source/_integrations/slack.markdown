@@ -5,6 +5,7 @@ logo: slack.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: slack
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -150,4 +151,3 @@ Please note that both `message` is a required key, but is always shown, so use a
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.
-

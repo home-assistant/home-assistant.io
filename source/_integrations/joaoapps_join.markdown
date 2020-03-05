@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Notifications
 ha_release: 0.24
+ha_domain: joaoapps_join
 ---
 
 The `joaoapps_join` integration exposes services from

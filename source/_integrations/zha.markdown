@@ -18,6 +18,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
+ha_domain: zha
 ---
 
 [Zigbee Home Automation](https://zigbeealliance.org)

@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@gtdiehl'
   - '@jcalbert'
+ha_domain: rainforest_eagle
 ---
 
 A `sensor` platform for the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)

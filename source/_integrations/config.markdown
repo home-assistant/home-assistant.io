@@ -8,6 +8,7 @@ ha_release: 0.39
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: config
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.

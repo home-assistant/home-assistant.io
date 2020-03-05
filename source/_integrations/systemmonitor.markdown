@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_domain: systemmonitor
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
