@@ -237,7 +237,7 @@ template:
           type: integer
           default: 60
         tilt:
-          description: "Time in seconds it takes to open or close the cover tilt. '0' means that the cover does not support tilt."
+          description: "Time in seconds it takes to open or close the cover tilt. `0` means that the cover does not support tilt."
           require: false
           type: integer
           default: 0
