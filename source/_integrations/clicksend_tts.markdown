@@ -5,6 +5,7 @@ logo: clicksend.png
 ha_category:
   - Notifications
 ha_release: 0.55
+ha_domain: clicksend_tts
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.

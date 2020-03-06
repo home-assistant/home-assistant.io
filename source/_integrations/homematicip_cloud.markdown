@@ -17,6 +17,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
+ha_domain: homematicip_cloud
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.

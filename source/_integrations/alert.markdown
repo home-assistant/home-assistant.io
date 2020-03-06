@@ -6,6 +6,7 @@ ha_category:
   - Automation
 ha_release: 0.38
 ha_quality_scale: internal
+ha_domain: alert
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.

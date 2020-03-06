@@ -5,6 +5,7 @@ logo: openwrt.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.6
+ha_domain: ubus
 ---
 
 _This is one of multiple ways we support OpenWrt. For an overview, see [OpenWrt](/integrations/openwrt)._

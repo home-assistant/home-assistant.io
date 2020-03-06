@@ -9,6 +9,7 @@ ha_release: 0.67
 ha_codeowners:
   - '@rytilahti'
   - '@syssi'
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.

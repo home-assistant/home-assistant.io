@@ -8,6 +8,7 @@ ha_release: 0.83
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'
+ha_domain: flunearyou
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its

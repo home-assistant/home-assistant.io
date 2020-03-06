@@ -10,6 +10,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.75
 ha_codeowners:
   - '@peternijssen'
+ha_domain: spider
 ---
 
 The `spider` integration is the main integration to integrate all [Itho Daalderop Spider](https://www.ithodaalderop.nl/spider-thermostaat) related platforms. You will need your Spider account information (username, password) to discover and control devices which are related to your account.

@@ -13,6 +13,7 @@ ha_category:
   - Switch
 ha_release: 0.83
 ha_iot_class: Local Push
+ha_domain: fibaro
 ---
 
 The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.

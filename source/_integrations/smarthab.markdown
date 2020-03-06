@@ -10,6 +10,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@outadoc'
+ha_domain: smarthab
 ---
 
 If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 

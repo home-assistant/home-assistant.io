@@ -7,6 +7,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.18
+ha_domain: thinkingcleaner
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.28
 ha_codeowners:
   - '@MartinHjelmare'
+ha_domain: xbox_live
 ---
 
 The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.

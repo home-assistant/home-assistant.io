@@ -9,6 +9,7 @@ ha_release: 0.104
 ha_config_flow: true
 ha_codeowners:
   - '@dcramer'
+ha_domain: sentry
 ---
 
 <div class='note warning'>

@@ -7,6 +7,7 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@MatthewFlamm'
+ha_domain: nws
 ---
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.

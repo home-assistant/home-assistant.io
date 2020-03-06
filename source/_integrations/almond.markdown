@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@gcampax'
   - '@balloob'
+ha_domain: almond
 ---
 
 [Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available on Lovelace via the microphone icon in the top right.

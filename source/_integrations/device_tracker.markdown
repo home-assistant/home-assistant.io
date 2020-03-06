@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: device_tracker
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.

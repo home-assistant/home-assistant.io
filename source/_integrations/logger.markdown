@@ -8,6 +8,7 @@ ha_release: 0.8
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: logger
 ---
 
 The `logger` integration lets you define the level of logging activities in Home

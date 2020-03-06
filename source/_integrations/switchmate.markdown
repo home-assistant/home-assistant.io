@@ -8,6 +8,7 @@ ha_release: 0.78
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: switchmate
 ---
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).

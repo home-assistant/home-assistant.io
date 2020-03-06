@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.93
 ha_codeowners:
   - '@UgaitzEtxebarria'
+ha_domain: bizkaibus
 ---
 
 The `bizkaibus` sensor will give you the time until the next bus in the selected stop.

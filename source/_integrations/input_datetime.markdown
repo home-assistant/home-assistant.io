@@ -8,6 +8,7 @@ ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: input_datetime
 ---
 
 The `input_datetime` integration allows the user to define date and time values

@@ -8,6 +8,7 @@ ha_release: 0.29
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bendavid'
+ha_domain: keyboard_remote
 ---
 
 Receive signals from a keyboard and use it as a remote control.

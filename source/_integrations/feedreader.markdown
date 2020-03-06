@@ -5,6 +5,7 @@ logo: rss.gif
 ha_category:
   - Other
 ha_release: 0.18
+ha_domain: feedreader
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.

@@ -12,6 +12,7 @@ ha_release: pre 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@sqldiablo'
+ha_domain: wemo
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.

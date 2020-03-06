@@ -11,6 +11,7 @@ ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@snoof85'
+ha_domain: freebox
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).

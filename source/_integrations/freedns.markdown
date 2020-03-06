@@ -5,6 +5,7 @@ logo: afraid_freedns.png
 ha_category:
   - Network
 ha_release: 0.67
+ha_domain: freedns
 ---
 
 With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.

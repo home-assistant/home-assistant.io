@@ -5,6 +5,7 @@ logo: ibm.png
 ha_category:
   - History
 ha_release: 0.72
+ha_domain: watson_iot
 ---
 
 The `watson_iot` integration enables you to link the devices in Home Assistant

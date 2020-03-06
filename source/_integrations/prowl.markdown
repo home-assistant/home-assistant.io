@@ -5,6 +5,7 @@ logo: prowl.png
 ha_category:
   - Notifications
 ha_release: 0.52
+ha_domain: prowl
 ---
 
 The `prowl` platform uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.

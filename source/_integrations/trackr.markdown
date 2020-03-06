@@ -6,6 +6,7 @@ ha_release: 0.36
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
+ha_domain: trackr
 ---
 
 The `trackr` platform allows you to detect presence using [TrackR](https://www.thetrackr.com/) devices.

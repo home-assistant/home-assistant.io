@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.92
 ha_iot_class: Cloud Polling
+ha_domain: n26
 ---
 
 The [N26](https://n26.com) integration for Home Assistant allows you to track your N26 account.

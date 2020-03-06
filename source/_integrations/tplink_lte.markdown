@@ -7,6 +7,7 @@ ha_category:
   - Network
   - Notifications
 ha_iot_class: Local Polling
+ha_domain: tplink_lte
 ---
 
 The TP-Link LTE integration for Home Assistant allows you to observe and control TP-Link LTE routers, currently only tested with TL-MR6400 (firmware 1.4.0).

@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.74
 ha_codeowners:
   - '@ludeeus'
+ha_domain: cloudflare
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.

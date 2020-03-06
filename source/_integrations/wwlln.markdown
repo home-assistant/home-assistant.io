@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: wwlln
 ---
 
 The `wwlln` integration displays lightning strike information from the

@@ -11,6 +11,7 @@ ha_release: 0.55
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@vanstinator'
+ha_domain: raincloud
 ---
 
 The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.

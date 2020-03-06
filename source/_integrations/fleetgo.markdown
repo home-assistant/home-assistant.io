@@ -6,6 +6,7 @@ ha_category:
   - Car
 ha_iot_class: Cloud Polling
 ha_release: 0.76
+ha_domain: fleetgo
 ---
 
 The `fleetgo` device tracker platform allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.

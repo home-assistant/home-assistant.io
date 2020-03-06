@@ -10,6 +10,7 @@ ha_release: 0.75
 ha_iot_class: Local Push
 ha_codeowners:
   - '@jkeljo'
+ha_domain: sisyphus
 ---
 
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.

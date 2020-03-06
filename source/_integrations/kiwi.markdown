@@ -6,6 +6,7 @@ ha_category:
   - Lock
 ha_release: 0.72
 ha_iot_class: Cloud Polling
+ha_domain: kiwi
 ---
 
 The `KIWI` platform allows you to open your KIWI Smart Locks and Smart Entry Devices.

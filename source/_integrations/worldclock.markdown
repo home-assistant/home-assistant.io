@@ -9,6 +9,7 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+ha_domain: worldclock
 ---
 
 The `worldclock` sensor platform simply displays the current time in a different time zone.

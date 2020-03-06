@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
+ha_domain: vesync
 ---
 
 The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.

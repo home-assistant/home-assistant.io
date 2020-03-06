@@ -8,6 +8,7 @@ ha_release: 0.73
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: auth
 ---
 
 This integration creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant.

@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_domain: emulated_hue
 ---
 
 <div class='note warning'>

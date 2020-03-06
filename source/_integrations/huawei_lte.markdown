@@ -14,6 +14,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@scop'
+ha_domain: huawei_lte
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).

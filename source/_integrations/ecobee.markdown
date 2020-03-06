@@ -14,6 +14,7 @@ ha_iot_class: Cloud Poll
 ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
+ha_domain: ecobee
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

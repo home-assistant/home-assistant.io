@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_domain: blackbird
 ---
 
 The `blackbird` platform allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) using a serial connection.

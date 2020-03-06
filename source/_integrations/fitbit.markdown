@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.19
 ha_codeowners:
   - '@robbiet480'
+ha_domain: fitbit
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.

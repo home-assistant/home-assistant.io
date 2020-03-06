@@ -5,6 +5,7 @@ logo: baiducloud.png
 ha_category:
   - Text-to-speech
 ha_release: 0.59
+ha_domain: baidu
 ---
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.

@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
+ha_domain: spotify
 ---
 
 The `spotify` media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.

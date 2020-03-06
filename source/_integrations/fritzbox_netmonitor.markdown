@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_release: 0.36
 ha_iot_class: Local Polling
+ha_domain: fritzbox_netmonitor
 ---
 
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers.

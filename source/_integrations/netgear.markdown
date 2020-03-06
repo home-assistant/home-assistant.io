@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: pre 0.7
+ha_domain: netgear
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.

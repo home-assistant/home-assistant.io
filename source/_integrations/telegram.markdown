@@ -5,6 +5,7 @@ logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.7.5
+ha_domain: telegram
 ---
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.

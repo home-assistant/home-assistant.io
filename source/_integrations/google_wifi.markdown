@@ -6,6 +6,7 @@ ha_category:
 logo: google_wifi.png
 ha_iot_class: Local Polling
 ha_release: '0.50'
+ha_domain: google_wifi
 ---
 
 The `google_wifi` sensor platform is displaying the exposed status of a [Google Wifi](https://madeby.google.com/wifi/) (or OnHub) router.

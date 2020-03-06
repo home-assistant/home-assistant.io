@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: bitcoin
 ---
 
 The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.

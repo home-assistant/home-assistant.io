@@ -8,6 +8,7 @@ ha_category:
 ha_release: '0.100'
 ha_codeowners:
   - '@Michsior14'
+ha_domain: kaiterra
 ---
 
 The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).

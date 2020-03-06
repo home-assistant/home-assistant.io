@@ -8,6 +8,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@ooii'
+ha_domain: suez_water
 ---
 
 The `suez_water` sensor platform fetches your last day consumption of water from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.

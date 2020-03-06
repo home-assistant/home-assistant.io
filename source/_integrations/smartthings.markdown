@@ -19,6 +19,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
+ha_domain: smartthings
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:

@@ -8,6 +8,7 @@ ha_release: 0.44
 ha_quality_scale: internal
 ha_codeowners:
   - '@ChristianKuehnel'
+ha_domain: plant
 ---
 
 This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.

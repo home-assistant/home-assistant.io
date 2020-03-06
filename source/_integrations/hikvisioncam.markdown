@@ -7,6 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ha_codeowners:
   - '@fbradyirl'
+ha_domain: hikvisioncam
 ---
 
 This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.

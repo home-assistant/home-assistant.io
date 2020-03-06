@@ -5,6 +5,7 @@ logo: avm.png
 ha_category:
   - Presence Detection
 ha_release: '0.10'
+ha_domain: fritz
 ---
 
 The `fritz` platform offers presence detection by looking at connected devices to a [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.

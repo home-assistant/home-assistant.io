@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_release: '0.80'
 ha_iot_class: Local Polling
+ha_domain: opple
 ---
 
 The `opple` light platform allows you to control the state of your Opple smart light.

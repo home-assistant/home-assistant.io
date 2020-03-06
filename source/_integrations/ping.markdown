@@ -8,6 +8,7 @@ ha_category:
   - Presence Detection
 ha_release: 0.43
 ha_quality_scale: internal
+ha_domain: ping
 ---
 
 There is currently support for the following device types within Home Assistant:

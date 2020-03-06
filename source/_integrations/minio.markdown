@@ -7,6 +7,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.98
 ha_codeowners:
   - '@tkislan'
+ha_domain: minio
 ---
 
 This integration adds interaction with [Minio](https://min.io).

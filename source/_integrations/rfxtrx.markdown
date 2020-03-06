@@ -7,6 +7,7 @@ ha_category:
 ha_release: pre 0.7
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.

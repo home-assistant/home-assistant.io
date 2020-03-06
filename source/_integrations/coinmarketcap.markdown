@@ -6,6 +6,7 @@ ha_category:
   - Finance
 ha_release: 0.28
 ha_iot_class: Cloud Polling
+ha_domain: coinmarketcap
 ---
 
 The `coinmarketcap` sensor platform displays various details about a cryptocurrency provided by [CoinMarketCap](https://coinmarketcap.com/).

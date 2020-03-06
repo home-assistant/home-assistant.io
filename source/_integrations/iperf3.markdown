@@ -9,6 +9,7 @@ ha_release: 0.71
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: iperf3
 ---
 
 The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.

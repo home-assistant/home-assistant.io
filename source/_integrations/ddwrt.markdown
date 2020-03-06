@@ -5,6 +5,7 @@ logo: ddwrt.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
+ha_domain: ddwrt
 ---
 
 This platform offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.

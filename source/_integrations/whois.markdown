@@ -6,6 +6,7 @@ ha_category:
   - Network
 ha_release: 0.57
 ha_iot_class: Cloud Polling
+ha_domain: whois
 ---
 
 The `whois` sensor platform allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.

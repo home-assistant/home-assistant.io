@@ -8,6 +8,7 @@ ha_release: 0.11
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: input_boolean
 ---
 
 The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.

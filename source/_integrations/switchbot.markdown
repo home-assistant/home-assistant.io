@@ -8,6 +8,7 @@ ha_release: 0.78
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: switchbot
 ---
 
 The `switchbot` switch platform allows you to control SwitchBot [devices](https://www.switch-bot.com/).

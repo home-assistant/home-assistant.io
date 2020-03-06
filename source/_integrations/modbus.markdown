@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@adamchengtkc'
+ha_domain: modbus
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).

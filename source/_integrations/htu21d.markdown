@@ -6,6 +6,7 @@ ha_category:
   - DIY
 ha_release: 0.48
 ha_iot_class: Local Push
+ha_domain: htu21d
 ---
 
 The `htu21d` sensor platform allows you to read the temperature and humidity from a [HTU21D sensor](https://cdn-shop.adafruit.com/datasheets/1899_HTU21D.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).

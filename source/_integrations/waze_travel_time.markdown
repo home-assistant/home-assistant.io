@@ -6,6 +6,7 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.67
+ha_domain: waze_travel_time
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).

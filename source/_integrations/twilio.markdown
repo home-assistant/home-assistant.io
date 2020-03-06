@@ -6,6 +6,7 @@ ha_category:
   - Hub
 ha_release: '0.40'
 ha_config_flow: true
+ha_domain: twilio
 ---
 
 The `twilio` integration enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).

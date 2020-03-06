@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.37
 ha_codeowners:
   - '@robbiet480'
+ha_domain: amazon_polly
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.

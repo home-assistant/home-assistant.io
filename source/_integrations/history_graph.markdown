@@ -8,6 +8,7 @@ ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
   - '@andrey-git'
+ha_domain: history_graph
 ---
 
 <div class='note'>

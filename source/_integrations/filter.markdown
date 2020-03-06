@@ -9,6 +9,7 @@ logo: home-assistant.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: filter
 ---
 
 The `filter` platform enables sensors that process the states of other entities.

@@ -9,6 +9,7 @@ ha_release: 0.98
 ha_config_flow: true
 ha_codeowners:
   - '@exxamalte'
+ha_domain: geonetnz_quakes
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 

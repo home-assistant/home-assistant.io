@@ -6,6 +6,7 @@ ha_category:
   - DIY
 ha_iot_class: Local Polling
 ha_release: 0.44
+ha_domain: envirophat
 ---
 
 The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board features a wide range of sensors, such as:
