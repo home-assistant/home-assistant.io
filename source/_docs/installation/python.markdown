@@ -6,15 +6,15 @@ redirect_from: /getting-started/installation-python/
 
 <div class='note'>
 
-If you're running a Linux-based platform, we strongly recommend you follow the instructions for a [virtual environment](/docs/installation/virtualenv/) instead. If you're running on Windows then [see here](/docs/installation/windows/#installing-in-a-python-virtual-environment) instead.
+If you're running a Linux-based platform, we strongly recommend you follow the instructions for a [virtual environment](/docs/installation/virtualenv/) instead.
 
 </div>
 
 Once Python is installed, execute the following code in a console:
 
 ```bash
-$ pip3 install homeassistant
-$ hass --open-ui
+pip3 install homeassistant
+hass --open-ui
 ```
 
 Running these commands will:

@@ -55,8 +55,8 @@ And last, but not least: new platforms!
 __MQTT Sensors and Switches__
 <img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@sfam](https://github.com/sfam) has blessed us with two more MQTT platforms to extend our integration with MQTTT: [sensor][mqtt-sensor] and [switch][mqtt-switch]. Both platforms require the MQTT component to be connected to a broker.
 
-[mqtt-sensor]: /components/sensor.mqtt/
-[mqtt-switch]: /components/switch.mqtt/
+[mqtt-sensor]: /integrations/sensor.mqtt/
+[mqtt-switch]: /integrations/switch.mqtt/
 
 ```yaml
 # Example configuration.yaml entry

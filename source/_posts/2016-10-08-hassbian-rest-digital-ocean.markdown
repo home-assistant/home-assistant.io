@@ -107,7 +107,7 @@ sensor
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
 - Fix Homematic device name with autodiscovery ([@pvizeli])
 - Make 'pin' optional for zigbee device config ([@flyte])
-- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
+- Fix when sending a notification to a service with target attached (i.e., `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
@@ -157,26 +157,26 @@ sensor
 [@Nixon506E]: https://github.com/Nixon506E
 
 [arest]: https://arest.io/
-[arest-sensor]: /components/sensor.arest/
-[arest-switch]: /components/switch.arest/
-[darksky]: /components/sensor.darksky/
-[do-bin-sensor]: /components/binary_sensor.digital_ocean/
-[do-switch]: /components/switch.digital_ocean/
-[forecast]: /components/sensor.forecast/
+[arest-sensor]: /integrations/arest#sensor
+[arest-switch]: /integrations/arest#switch
+[darksky]: /integrations/darksky
+[do-bin-sensor]: /integrations/digital_ocean#binary-sensor
+[do-switch]: /integrations/digital_ocean#switch
+[forecast]: /integrations/darksky
 [forum]: https://community.home-assistant.io/
 [Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
 [hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
 [mention-bot]: https://github.com/mention-bot
-[mysensors-cover]: /components/cover.mysensors/
+[mysensors-cover]: /integrations/cover.mysensors/
 [notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[pushetta]: /components/notify.pushetta/
-[pwrctrl-switch]: /components/switch.anel_pwrctrl/
-[rest-sensor]: /components/sensor.rest/
-[stats-sensor]: /components/sensor.statistics/
-[ted5000]: /components/sensor.ted5000/
-[template-sensor]: /components/sensor.template/
-[trend-sensor]: /components/binary_sensor.trend/
-[vasttrafik]: /components/sensor.vasttrafik/
-[Volvo]: /components/device_tracker.volvooncall/
+[pushetta]: /integrations/pushetta
+[pwrctrl-switch]: /integrations/anel_pwrctrl
+[rest-sensor]: /integrations/rest
+[stats-sensor]: /integrations/statistics
+[ted5000]: /integrations/ted5000
+[template-sensor]: /integrations/template
+[trend-sensor]: /integrations/trend
+[vasttrafik]: /integrations/vasttrafik
+[Volvo]: /integrations/volvooncall
 

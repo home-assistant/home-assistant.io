@@ -15,7 +15,7 @@ Welcome to 2017 and 0.36. We are proud to announce the first release for this ye
 [Packages][packages] are providing a new way to organize different component's configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the `!include` directives.
 
 ### InfluxDB export
-The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/components/influxdb/#migration-script) to update your InfluxDB database.
+The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/integrations/influxdb/#migration-script) to update your InfluxDB database.
 
 ```bash
 $ hass --script influxdb_migrator \
@@ -34,9 +34,9 @@ The new [image processing component][image] currently works with [number plates]
 
 ## All changes
 
-- Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
+- Sensor: Support for HydroQuebec ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
-- Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
+- Sensor: USPS deliveries tracking ([@happyleavesaoc])
 - Device tracker: New [ping-based][ping] tracker ([@michaelarnauts])
 - TTS: Support for [Pico][pico] ([@doudz])
 - Switch: [BeagleBone Black][beaglebone] GPIO are supported now ([@MatoKafkac])
@@ -86,7 +86,7 @@ The new [image processing component][image] currently works with [number plates]
 ### Breaking changes
 
 - [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
-- [InfluxDB][influx] component has a new [schema](/components/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/components/influxdb/#migration-script) script.
+- [InfluxDB][influx] component has a new [schema](/integrations/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/integrations/influxdb/#migration-script) script.
   You have to note:
   - There will not be any tags/fields named time anymore.
   - All numeric fields (int/float/bool) will be stored as float inside influx db.
@@ -160,34 +160,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@webworxshop]: https://github.com/webworxshop
 [@Zac-HD]: https://github.com/Zac-HD
 
-[apns]: /components/notify.apns/
-[beaglebone]: /components/bbb_gpio/
-[bl-switch]: /components/switch.broadlink/
-[bom]: /components/weather.bom/
-[dublin]: /components/dublin_bus_transport/
-[facebook]: /components/notify.facebook/
-[image]: /components/image_processing/
-[influx]: /components/influxdb/
-[insteon]: /components/insteon_local/
-[iss]: /components/sensor.iss/
-[kankun]: /components/switch.kankun/
-[lannouncer]: /components/notify.lannouncer/
-[mysensors]: /components/notify.mysensors/
+[apns]: /integrations/apns
+[beaglebone]: /integrations/bbb_gpio/
+[bl-switch]: /integrations/broadlink#switch
+[bom]: /integrations/bom
+[dublin]: /integrations/dublin_bus_transport/
+[facebook]: /integrations/facebook
+[image]: /integrations/image_processing/
+[influx]: /integrations/influxdb/
+[insteon]: /integrations/insteon/
+[iss]: /integrations/iss
+[kankun]: /integrations/kankun
+[lannouncer]: /integrations/lannouncer
+[mysensors]: /integrations/notify.mysensors/
 [packages]: /topics/packages/
-[pico]: /components/tts.picotts/
-[ping]: /components/device_tracker.ping/
-[plates]: /components/openalpr/
-[quebec]: /components/sensor.hydroquebec/
-[rest]: /components/rest_command/
-[sma]: /components/sensor.sma/
-[sonarr]: /components/sensor.sonarr/
-[tik]: /components/light.tikteck/
-[trackr]: /components/device_tracker.trackr/
-[upc]: /components/device_tracker.upc_connect/
-[usps]: /components/sensor.usps/
-[wink-fan]: /components/fan.wink/
-[xiaomi]: /components/device_tracker.xiaomi/
-[yandex]: /components/tts.yandextts/
-[yeelight]: /components/light.yeelight/
-[zengge]: /components/light.zengge/
-
+[pico]: /integrations/picotts
+[ping]: /integrations/ping
+[plates]: /integrations/openalpr_local/
+[rest]: /integrations/rest_command/
+[sma]: /integrations/sma#sensors
+[sonarr]: /integrations/sonarr
+[tik]: /integrations/tikteck
+[trackr]: /integrations/trackr
+[upc]: /integrations/upc_connect
+[usps]: /integrations/usps#sensor
+[wink-fan]: /integrations/wink#fan
+[xiaomi]: /integrations/device_tracker.xiaomi/
+[yandex]: /integrations/yandextts
+[yeelight]: /integrations/yeelight
+[zengge]: /integrations/zengge

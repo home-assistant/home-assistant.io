@@ -12,14 +12,14 @@ $ hass --script keyring --help
 To store a password in keyring, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
 
 ```yaml
-http:
-  api_password: !secret http_password
+integration1:
+  api_key: !secret integration1_key
 ```
 
 Create an entry in your keyring.
 
 ```bash
-$ hass --script keyring set http_password
+$ hass --script keyring set integration1_key
 ```
 
 If you launch Home Assistant now, you will be prompted for the keyring password to unlock your keyring.

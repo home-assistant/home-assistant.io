@@ -8,13 +8,13 @@ hide_github_edit: true
 
 This is a community curated list of different ways to use Home Assistant. Most of these examples are using the [automation] integration and other built-in [automation related][sec-automation] and [organization] integrations available.
 
-For [`python_script:` examples](/components/python_script/) visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+For [`python_script:` examples](/integrations/python_script/) visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
 
 [automation]: /getting-started/automation/
-[sec-automation]: /components/#automation
-[organization]: /components/#organization
+[sec-automation]: /integrations/#automation
+[organization]: /integrations/#organization
 
-New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook).
+New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.io/tree/current/source/_cookbook).
 
 <div class='note'>
 

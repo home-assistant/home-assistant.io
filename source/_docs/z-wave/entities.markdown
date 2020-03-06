@@ -5,7 +5,7 @@ description: "A summary of common entity names."
 
 <div class='note'>
 
-This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS).
+This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the `#zwave` channel on [Discord](https://discord.gg/RkajcgS).
 
 </div>
 
@@ -21,7 +21,8 @@ This is for a single purpose sensor, multi sensors are explained under Multi Sen
 
 Devices (usually sensors) that support the Alarm command class will create entities starting with `sensor`, and with some generic suffixes, and a suffix that relates to the supported alarm class. For example, the smoke detector `lounge` will have an entity `sensor.lounge_smoke`, and possibly also `sensor.lounge_alarm_type` and `sensor.lounge_alarm_level`. If the device creates a `binary_sensor` entity, it is recommended to use that rather then the `sensor` entity.
 
-Note that the older Z-Wave alarm command class version 1 didn't have standardized types, and so each manufacturer specified their own version and type info. With Version 2 the alarm type was standardized to the below list. See the [openzwave alarm command class documents](https://github.com/OpenZWave/open-zwave/wiki/Alarm-Command-Class) for more info. You can see which version your sensor supports via the zwcfg_0x\*.xml file. An example with version 2 support:
+Note that the older Z-Wave alarm command class version 1 didn't have standardized types, and so each manufacturer specified their own version and type info. With Version 2 the alarm type was standardized to the below list. See the [openzwave alarm command class documents](https://github.com/OpenZWave/open-zwave/wiki/Alarm-Command-Class) for more info. You can see which version your sensor supports via the `zwcfg_0x*.xml` file. An example with version 2 support:
+
 ```xml
 <CommandClass id="113" name="COMMAND_CLASS_ALARM" version="2" request_flags="2" innif="true">
 ```
@@ -70,74 +71,74 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
 
 #### Smoke, CO, and CO2
 
-  - **1**: Detection - will include a Node Location Report
-  - **2**: Detection (unknown location)
-  - **254**: Unknown event
+- **1**: Detection - will include a Node Location Report
+- **2**: Detection (unknown location)
+- **254**: Unknown event
 
 #### Heat
 
-  - **1**: Overheat detected - will include a Node Location Report
-  - **2**: Overheat detected (unknown location)
-  - **3**: Rapid temperature rise - will include a Node Location Report
-  - **4**: Rapid temperature rise (unknown location)
-  - **5**: Underheat detection - will include a Node Location Report
-  - **6**: Underheat detection (unknown location)
-  - **254**: Unknown event
+- **1**: Overheat detected - will include a Node Location Report
+- **2**: Overheat detected (unknown location)
+- **3**: Rapid temperature rise - will include a Node Location Report
+- **4**: Rapid temperature rise (unknown location)
+- **5**: Underheat detection - will include a Node Location Report
+- **6**: Underheat detection (unknown location)
+- **254**: Unknown event
 
 #### Water leak
 
-  - **1**: Water leak detected - will include a Node Location Report
-  - **2**: Water leak detected (unknown location)
-  - **3**: Water level dropped - will include a Node Location Report
-  - **4**: Water level dropped (unknown location)
-  - **254**: Unknown event
+- **1**: Water leak detected - will include a Node Location Report
+- **2**: Water leak detected (unknown location)
+- **3**: Water level dropped - will include a Node Location Report
+- **4**: Water level dropped (unknown location)
+- **254**: Unknown event
 
 #### Access control
 
-  - **1**: Manual lock
-  - **2**: Manual unlock
-  - **3**: RF lock
-  - **4**: RF unlock
-  - **5**: Keypad lock - will include the User Identifier of the User Code Report
-  - **6**: Keypad unlock - will include the User Identifier of the User Code Report
-  - **254**: Unknown event
+- **1**: Manual lock
+- **2**: Manual unlock
+- **3**: RF lock
+- **4**: RF unlock
+- **5**: Keypad lock - will include the User Identifier of the User Code Report
+- **6**: Keypad unlock - will include the User Identifier of the User Code Report
+- **254**: Unknown event
 
 #### Burglar
 
-  - **1**: Intrusion - will include a Node Location Report
-  - **2**: Intrusion (unknown location)
-  - **3**: Tampering (case opened)
-  - **4**: Tampering (invalid code)
-  - **5**: Glass break - will include a Node Location Report
-  - **6**: Glass break (invalid code)
-  - **254**: Unknown event
+- **1**: Intrusion - will include a Node Location Report
+- **2**: Intrusion (unknown location)
+- **3**: Tampering (case opened)
+- **4**: Tampering (invalid code)
+- **5**: Glass break - will include a Node Location Report
+- **6**: Glass break (invalid code)
+- **254**: Unknown event
 
 #### Power Management
 
-  - **1**: Power applied
-  - **2**: AC disconnected
-  - **3**: AC re-connected
-  - **4**: Surge detection
-  - **5**: Voltage drop or drift
-  - **254**: Unknown event
+- **1**: Power applied
+- **2**: AC disconnected
+- **3**: AC re-connected
+- **4**: Surge detection
+- **5**: Voltage drop or drift
+- **254**: Unknown event
 
 #### System Alarm
 
-  - **1**: System hardware failure
-  - **2**: System software failure
-  - **254**: Unknown event
+- **1**: System hardware failure
+- **2**: System software failure
+- **254**: Unknown event
 
 #### Emergency Alarm
 
-  - **1**: Contact Police
-  - **2**: Contact Fire Service
-  - **3**: Contact Medical Service
-  - **254**: Unknown event
+- **1**: Contact Police
+- **2**: Contact Fire Service
+- **3**: Contact Medical Service
+- **254**: Unknown event
 
 #### Alarm Clock
 
-  - **1**: Wake up
-  - **254**: Unknown event
+- **1**: Wake up
+- **254**: Unknown event
 
 ### Access Control Entity
 
@@ -147,44 +148,48 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **254**: Deep sleep
   - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
-    sensors: 
+    sensors:
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
         device_class: door
         value_template: "{{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') }}"
 ```
+
 {% endraw %}
 
 ### Burglar Entity
 
 - **burglar**: These *may* vary between brands
-   - **0**: Not active
-   - **2**: Smoke (?)
-   - **3**: Tamper
-   - **8**: Motion
-   - **22**: Open
-   - **23**: Closed
-   - **254**: Deep sleep
-   - **255**: Case open
+  - **0**: Not active
+  - **2**: Smoke (?)
+  - **3**: Tamper
+  - **8**: Motion
+  - **22**: Open
+  - **23**: Closed
+  - **254**: Deep sleep
+  - **255**: Case open
 
-If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class):
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/integrations/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/integrations/binary_sensor/#device-class):
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
-    sensors: 
+    sensors:
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
         device_class: motion
         value_template: "{{ is_state('sensor.YOUR_SENSOR_burglar', '8') }}"
 ```
+
 {% endraw %}
 
 ### Source Node ID Entity

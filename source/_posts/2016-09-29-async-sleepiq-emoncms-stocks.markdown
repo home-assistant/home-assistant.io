@@ -28,7 +28,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### Hide automation rules
 
-Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: true`.
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend.
 
 ### All changes
 
@@ -160,27 +160,27 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wokar]: https://github.com/wokar
 
-[BOM]: /components/sensor.bom/
-[climate]: /components/climate.vera/
-[email]: /components/sensor.imap_email_content/
-[Emoncms]: /components/sensor.emoncms/
-[filtering]: /components/logbook/
-[InfluxDB]: /components/influxdb/
-[ISY]: /components/isy994/
-[KNX]: /components/sensor.knx/
-[Kodi]: /components/notify.kodi/
-[Modbus]: /components/modbus/
-[Nest]: /components/fan.nest/
-[Nuimo]: /components/nuimo_controller/
-[OpenALPR]: /components/openalpr/
-[passwordless]: /components/http/
-[Simplepush]: /components/notify.simplepush/
-[Slack]: /components/notify.slack/
-[SleepIQ]: /components/sleepiq/
-[timeout]: /components/sensor.mqtt_room/
-[Vera]: /components/cover.vera/
-[Wink]: /components/wink/
-[plant]: /components/sensor.miflora/
-[MySensors]: /components/climate.mysensors/
-[keyboard_remote]: /components/keyboard_remote
-[X10]: /components/light.x10/
+[BOM]: /integrations/bom#sensor
+[climate]: /integrations/vera
+[email]: /integrations/imap_email_content/
+[Emoncms]: /integrations/emoncms
+[filtering]: /integrations/logbook/
+[InfluxDB]: /integrations/influxdb/
+[ISY]: /integrations/isy994/
+[KNX]: /integrations/sensor.knx/
+[Kodi]: /integrations/kodi
+[Modbus]: /integrations/modbus/
+[Nest]: /integrations/nest/
+[Nuimo]: /integrations/nuimo_controller/
+[OpenALPR]: /integrations/openalpr_local/
+[passwordless]: /integrations/http/
+[Simplepush]: /integrations/simplepush
+[Slack]: /integrations/slack
+[SleepIQ]: /integrations/sleepiq/
+[timeout]: /integrations/mqtt_room
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[plant]: /integrations/miflora
+[MySensors]: /integrations/climate.mysensors/
+[keyboard_remote]: /integrations/keyboard_remote
+[X10]: /integrations/x10

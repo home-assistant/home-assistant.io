@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-04-0.67/components.png
 ---
 
-<a href='/components/#version/0.67'><img src='/images/blog/2018-04-0.67/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.67'><img src='/images/blog/2018-04-0.67/components.png' style='border: 0;box-shadow: none;'></a>
 
 Release 0.67 is here! In case you missed [the announcement from yesterday][ann-ubiquiti], Ubiquiti is paying me to write these release notes. Ooooooh yeah. With more time on my hands I'm going to be focusing on major improvements that we have been postponing for a while, first up will be a user system.
 
@@ -38,7 +38,7 @@ This release includes a security fix. The error log was accessible via the API w
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs])
 - Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs])
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946])
 - Update pyfido to 2.1.1 ([@titilambert] - [#13947]) ([sensor.fido docs])
 - Bumped pypollencom to 1.1.2 ([@bachya] - [#13959]) ([sensor.pollen docs])
 - Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
@@ -56,7 +56,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Updates default Pilight port number ([@frenck] - [#13419]) ([pilight docs]) (breaking change)
 - Update to new "b2vapi" of BMW ConnectedDrive ([@ChristianKuehnel] - [#13305]) ([bmw_connected_drive docs]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (breaking change)
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) (mercedesme docs) (binary_sensor.mercedesme docs) (sensor.mercedesme docs) (breaking change)
 - Channel up and down for webostv ([@stephanerosi] - [#13624]) ([media_player.webostv docs]) (breaking change)
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
@@ -108,10 +108,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added HassOpenCover and HassCloseCover intents ([@tschmidty69] - [#13372]) ([conversation docs]) ([cover docs])
 - rfxtrx lib 0.22.0 ([@Danielhiversen] - [#13576]) ([rfxtrx docs])
 - xiaomi lib upgrade ([@Danielhiversen] - [#13577]) ([xiaomi_aqara docs])
-- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
+- Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) (mercedesme docs) (binary_sensor.mercedesme docs) (sensor.mercedesme docs) (breaking change)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
-- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586]) ([sensor.hydroquebec docs])
+- Upgrade pyhydroquebec 2.2.1 ([@titilambert] - [#13586])
 - Add mastodon ([@fabaff] - [#13441]) ([notify docs]) (new-platform)
 - Added support for requesting RSSI values from Bluetooth devices ([@FrederikBolding] - [#12458]) ([device_tracker.bluetooth_tracker docs])
 - Fix mysensors update callback ([@MartinHjelmare] - [#13602]) ([mysensors docs])
@@ -148,13 +148,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
-- Adding configration to disable ip address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
+- Adding configuration to disable IP address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Send XY color for non-osram hue bulbs ([@armills] - [#13665]) ([light.hue docs])
 - Update AbodePy version to 0.12.3 ([@MisterWil] - [#13709]) ([abode docs])
 - Enable autodiscovery for mqtt cameras ([@jmtatsch] - [#13697]) ([mqtt docs]) ([camera.mqtt docs])
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
-- Fix #10175 ([@pschmitt] - [#13713]) ([media_player.liveboxplaytv docs])
+- Fix #10175 ([@pschmitt] - [#13713])
 - Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 - Added gogogate2 cover ([@dlbroadfoot] - [#13467])
 - Remove vendor lookup for mac addresses ([@balloob] - [#13788]) ([device_tracker docs])
@@ -326,89 +326,84 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@wmalgadey]: https://github.com/wmalgadey
 [@zhaokoh]: https://github.com/zhaokoh
-[abode docs]: /components/abode/
-[alarm_control_panel.ifttt docs]: /components/alarm_control_panel.ifttt/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[alexa docs]: /components/alexa/
-[amcrest docs]: /components/amcrest/
-[api docs]: /components/api/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[camera.mqtt docs]: /components/camera.mqtt/
-[canary docs]: /components/canary/
-[climate.nest docs]: /components/climate.nest/
-[config docs]: /components/config/
-[config_entry_example docs]: /components/config_entry_example/
-[conversation docs]: /components/conversation/
-[cover docs]: /components/cover/
-[cover.rpi_gpio docs]: /components/cover.rpi_gpio/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.bluetooth_tracker docs]: /components/device_tracker.bluetooth_tracker/
-[device_tracker.bmw_connected_drive docs]: /components/device_tracker.bmw_connected_drive/
-[device_tracker.google_maps docs]: /components/device_tracker.google_maps/
-[doorbird docs]: /components/doorbird/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[folder_watcher docs]: /components/folder_watcher/
-[freedns docs]: /components/freedns/
-[homekit docs]: /components/homekit/
-[hue docs]: /components/hue/
-[insteon_plm docs]: /components/insteon_plm/
-[light docs]: /components/light/
-[light.nanoleaf_aurora docs]: /components/nanoleaf/
-[light.hue docs]: /components/light.hue/
-[light.iglo docs]: /components/light.iglo/
-[light.mystrom docs]: /components/light.mystrom/
-[light.nanoleaf_aurora docs]: /components/nanoleaf/
-[light.qwikswitch docs]: /components/light.qwikswitch/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.yeelight docs]: /components/light.yeelight/
-[lock.bmw_connected_drive docs]: /components/lock.bmw_connected_drive/
-[media_extractor docs]: /components/media_extractor/
-[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[media_player.songpal docs]: /components/media_player.songpal/
-[media_player.webostv docs]: /components/media_player.webostv/
-[mercedesme docs]: /components/mercedesme/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[notify docs]: /components/notify/
-[pilight docs]: /components/pilight/
-[qwikswitch docs]: /components/qwikswitch/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[rflink docs]: /components/rflink/
-[rfxtrx docs]: /components/rfxtrx/
-[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
-[sensor.broadlink docs]: /components/sensor.broadlink/
-[sensor.canary docs]: /components/sensor.canary/
-[sensor.cpuspeed docs]: /components/sensor.cpuspeed/
-[sensor.file docs]: /components/sensor.file/
-[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
-[sensor.imap_email_content docs]: /components/sensor.imap_email_content/
-[sensor.mercedesme docs]: /components/sensor.mercedesme/
-[sensor.plex docs]: /components/sensor.plex/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.qwikswitch docs]: /components/sensor.qwikswitch/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.tradfri docs]: /components/sensor.tradfri/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[smappee docs]: /components/smappee/
-[switch.amcrest docs]: /components/switch.amcrest/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.mystrom docs]: /components/switch.mystrom/
-[switch.qwikswitch docs]: /components/switch.qwikswitch/
-[switch.tahoma docs]: /components/switch.tahoma/
-[switch.telnet docs]: /components/switch.telnet/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[tado docs]: /components/tado/
-[tahoma docs]: /components/tahoma/
-[tradfri docs]: /components/tradfri/
-[folder_watcher docs]: /components/folder_watcher/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.ifttt docs]: /integrations/alarm_control_panel.ifttt/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[alexa docs]: /integrations/alexa/
+[amcrest docs]: /integrations/amcrest/
+[api docs]: /integrations/api/
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.workday docs]: /integrations/workday
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[canary docs]: /integrations/canary/
+[climate.nest docs]: /integrations/nest#climate
+[config docs]: /integrations/config/
+[config_entry_example docs]: /integrations/config_entry_example/
+[conversation docs]: /integrations/conversation/
+[cover docs]: /integrations/cover/
+[cover.rpi_gpio docs]: /integrations/rpi_gpio#cover
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.bluetooth_tracker docs]: /integrations/bluetooth_tracker
+[device_tracker.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[device_tracker.google_maps docs]: /integrations/google_maps
+[doorbird docs]: /integrations/doorbird/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[folder_watcher docs]: /integrations/folder_watcher/
+[freedns docs]: /integrations/freedns/
+[homekit docs]: /integrations/homekit/
+[hue docs]: /integrations/hue/
+[insteon_plm docs]: /integrations/insteon/
+[light docs]: /integrations/light/
+[light.nanoleaf_aurora docs]: /integrations/nanoleaf/
+[light.hue docs]: /integrations/hue
+[light.iglo docs]: /integrations/iglo
+[light.mystrom docs]: /integrations/mystrom#light
+[light.nanoleaf_aurora docs]: /integrations/nanoleaf/
+[light.qwikswitch docs]: /integrations/qwikswitch
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.philips_js docs]: /integrations/philips_js
+[media_player.songpal docs]: /integrations/songpal
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[notify docs]: /integrations/notify/
+[pilight docs]: /integrations/pilight/
+[qwikswitch docs]: /integrations/qwikswitch/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rflink docs]: /integrations/rflink/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.canary docs]: /integrations/canary#sensor
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.file docs]: /integrations/file#sensor
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[sensor.plex docs]: /integrations/plex#sensor
+[sensor.qnap docs]: /integrations/qnap
+[sensor.qwikswitch docs]: /integrations/qwikswitch
+[sensor.tesla docs]: /integrations/tesla
+[sensor.tradfri docs]: /integrations/tradfri
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[smappee docs]: /integrations/smappee/
+[switch.amcrest docs]: /integrations/amcrest
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.mystrom docs]: /integrations/mystrom#switch
+[switch.qwikswitch docs]: /integrations/qwikswitch#switch
+[switch.tahoma docs]: /integrations/tahoma
+[switch.telnet docs]: /integrations/telnet
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tado docs]: /integrations/tado/
+[tahoma docs]: /integrations/tahoma/
+[tradfri docs]: /integrations/tradfri/
+[folder_watcher docs]: /integrations/folder_watcher/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zwave docs]: /integrations/zwave/
 [ann-ubiquiti]: /blog/2018/04/12/ubiquiti-and-home-assistant/
 [#13728]: https://github.com/home-assistant/home-assistant/pull/13728
 [#13741]: https://github.com/home-assistant/home-assistant/pull/13741
@@ -432,13 +427,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kellerza]: https://github.com/kellerza
 [@syssi]: https://github.com/syssi
 [@titilambert]: https://github.com/titilambert
-[climate.honeywell docs]: /components/climate.honeywell/
-[config docs]: /components/config/
-[device_tracker docs]: /components/device_tracker/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[qwikswitch docs]: /components/qwikswitch/
-[sensor.fido docs]: /components/sensor.fido/
-[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
-[sensor.pollen docs]: /components/sensor.pollen/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.vesync docs]: /components/switch.vesync/
+[climate.honeywell docs]: /integrations/honeywell
+[config docs]: /integrations/config/
+[device_tracker docs]: /integrations/device_tracker/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[qwikswitch docs]: /integrations/qwikswitch/
+[sensor.fido docs]: /integrations/fido
+[sensor.pollen docs]: /integrations/iqvia
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.vesync docs]: /integrations/vesync#switches

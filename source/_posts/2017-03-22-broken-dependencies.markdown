@@ -12,7 +12,7 @@ TL; DR: We have just released version 0.40.2 that includes a fix related to the 
 
 Some users in the last few days have been reporting that their Home Assistant installation fails to start with an error in the http component:
 
-```
+```txt
 ImportError: No module named 'aiohttp.file_sender'
 ```
 

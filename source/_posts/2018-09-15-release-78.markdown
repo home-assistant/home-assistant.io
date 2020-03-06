@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-09-release-0.78/components.png
 ---
 
-<a href='/components/#version/0.78'><img src='/images/blog/2018-09-release-0.78/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.78'><img src='/images/blog/2018-09-release-0.78/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for a new release and oh boy, what a time to be alive! Today marks our 5th (!!!) anniversary. That's 5 years we've been bringing privacy focused and locally controlled home automation to your home. Happy birthday to us.
 
@@ -43,8 +43,8 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 [@awarecan]: https://github.com/awarecan
 [@frenck]: https://github.com/frenck
 [@mtdcr]: https://github.com/mtdcr
-[media_player.cast docs]: /components/media_player.cast/
-[sensor.snmp docs]: /components/sensor.snmp/
+[media_player.cast docs]: /integrations/cast
+[sensor.snmp docs]: /integrations/snmp#sensor
 
 ## Release 0.78.2 - September 21
 
@@ -58,7 +58,7 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 [#16775]: https://github.com/home-assistant/home-assistant/pull/16775
 [@edif30]: https://github.com/edif30
 [@frenck]: https://github.com/frenck
-[tts docs]: /components/tts/
+[tts docs]: /integrations/tts/
 
 ## If you need help...
 
@@ -389,103 +389,103 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 [@vrih]: https://github.com/vrih
 [@zellux]: https://github.com/zellux
 [@zoe1337]: https://github.com/zoe1337
-[alarm_control_panel.yale_smart_alarm docs]: /components/alarm_control_panel.yale_smart_alarm/
-[arlo docs]: /components/arlo/
-[asterisk_mbox docs]: /components/asterisk_mbox/
-[auth docs]: /components/auth/
-[automation docs]: /components/automation/
+[alarm_control_panel.yale_smart_alarm docs]: /integrations/yale_smart_alarm
+[arlo docs]: /integrations/arlo/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[auth docs]: /integrations/auth/
+[automation docs]: /integrations/automation/
 [automation.event docs]: /docs/automation/trigger/#event-trigger
 [automation.homeassistant docs]: /docs/automation/trigger/#home-assistant-trigger
 [automation.numeric_state docs]: /docs/automation/trigger/#numeric-state-trigger
 [automation.state docs]: /docs/automation/trigger/#state-trigger
 [automation.template docs]: /docs/automation/trigger/#template-trigger
 [automation.zone docs]: /docs/automation/trigger/#zone-trigger
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.openuv docs]: /components/binary_sensor.openuv/
-[camera docs]: /components/camera/
-[camera.proxy docs]: /components/camera.proxy/
-[camera.push docs]: /components/camera.push/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.nest docs]: /components/climate.nest/
-[climate.opentherm_gw docs]: /components/climate.opentherm_gw/
-[climate.radiotherm docs]: /components/climate.radiotherm/
-[config docs]: /components/config/
-[cover.insteon docs]: /components/cover.insteon/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.myq docs]: /components/cover.myq/
-[cover.rflink docs]: /components/cover.rflink/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[feedreader docs]: /components/feedreader/
-[geo_location docs]: /components/geo_location/
-[habitica docs]: /components/habitica/
-[hangouts docs]: /components/hangouts/
-[homematic docs]: /components/homematic/
-[hue docs]: /components/hue/
-[insteon docs]: /components/insteon/
-[light.deconz docs]: /components/light.deconz/
-[light.hue docs]: /components/light.hue/
-[light.mqtt docs]: /components/light.mqtt/
-[light.tplink docs]: /components/light.tplink/
-[media_extractor docs]: /components/media_extractor/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.songpal docs]: /components/media_player.songpal/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.webostv docs]: /components/media_player.webostv/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mqtt docs]: /components/mqtt/
-[netatmo docs]: /components/netatmo/
-[notify docs]: /components/notify/
-[openuv docs]: /components/openuv/
-[rfxtrx docs]: /components/rfxtrx/
-[scene.deconz docs]: /components/scene.deconz/
-[script docs]: /components/script/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.apcupsd docs]: /components/sensor.apcupsd/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.dht docs]: /components/sensor.dht/
-[sensor.dnsip docs]: /components/sensor.dnsip/
-[sensor.enphase_envoy docs]: /components/sensor.enphase_envoy/
-[sensor.geizhals docs]: /components/sensor.geizhals/
-[sensor.habitica docs]: /components/sensor.habitica/
-[sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.netgear_lte docs]: /components/sensor.netgear_lte/
-[sensor.openuv docs]: /components/sensor.openuv/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.sense docs]: /components/sensor.sense/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.snmp docs]: /components/sensor.snmp/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.trafikverket_weatherstation docs]: /components/sensor.trafikverket_weatherstation/
-[sensor.twitch docs]: /components/sensor.twitch/
-[sensor.velbus docs]: /components/sensor.velbus/
-[sensor.volkszaehler docs]: /components/sensor.volkszaehler/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[snips docs]: /components/snips/
-[switch.deconz docs]: /components/switch.deconz/
-[switch.dlink docs]: /components/switch.dlink/
-[switch.snmp docs]: /components/switch.snmp/
-[switch.switchbot docs]: /components/switch.switchbot/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.tahoma docs]: /components/switch.tahoma/
-[switch.tplink docs]: /components/switch.tplink/
-[tahoma docs]: /components/tahoma/
-[telegram_bot docs]: /components/telegram_bot/
-[tts docs]: /components/tts/
-[upnp docs]: /components/upnp/
-[vacuum docs]: /components/vacuum/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[velbus docs]: /components/velbus/
-[websocket_api docs]: /components/websocket_api/
-[zha docs]: /components/zha/
-[zoneminder docs]: /components/zoneminder/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.openuv docs]: /integrations/openuv
+[camera docs]: /integrations/camera/
+[camera.proxy docs]: /integrations/proxy
+[camera.push docs]: /integrations/push
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.nest docs]: /integrations/nest#climate
+[climate.opentherm_gw docs]: /integrations/opentherm_gw
+[climate.radiotherm docs]: /integrations/radiotherm
+[config docs]: /integrations/config/
+[cover.insteon docs]: /integrations/insteon
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.myq docs]: /integrations/myq
+[cover.rflink docs]: /integrations/cover.rflink/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[feedreader docs]: /integrations/feedreader/
+[geo_location docs]: /integrations/geo_location/
+[habitica docs]: /integrations/habitica/
+[hangouts docs]: /integrations/hangouts/
+[homematic docs]: /integrations/homematic/
+[hue docs]: /integrations/hue/
+[insteon docs]: /integrations/insteon/
+[light.deconz docs]: /integrations/deconz#light
+[light.hue docs]: /integrations/hue
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.tplink docs]: /integrations/tplink
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.songpal docs]: /integrations/songpal
+[media_player.sonos docs]: /integrations/sonos
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha docs]: /integrations/yamaha
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[notify docs]: /integrations/notify/
+[openuv docs]: /integrations/openuv/
+[rfxtrx docs]: /integrations/rfxtrx/
+[scene.deconz docs]: /integrations/deconz#scene
+[script docs]: /integrations/script/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.apcupsd docs]: /integrations/apcupsd#sensor
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.dht docs]: /integrations/dht
+[sensor.dnsip docs]: /integrations/dnsip
+[sensor.enphase_envoy docs]: /integrations/enphase_envoy
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.habitica docs]: /integrations/habitica
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mvglive docs]: /integrations/mvglive
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.netgear_lte docs]: /integrations/netgear_lte
+[sensor.openuv docs]: /integrations/openuv
+[sensor.qnap docs]: /integrations/qnap
+[sensor.sense docs]: /integrations/sense
+[sensor.shodan docs]: /integrations/shodan
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.sql docs]: /integrations/sql
+[sensor.statistics docs]: /integrations/statistics
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation
+[sensor.twitch docs]: /integrations/twitch
+[sensor.velbus docs]: /integrations/velbus
+[sensor.volkszaehler docs]: /integrations/volkszaehler
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[snips docs]: /integrations/snips/
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.dlink docs]: /integrations/dlink
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.switchbot docs]: /integrations/switchbot
+[switch.switchmate docs]: /integrations/switchmate
+[switch.tahoma docs]: /integrations/tahoma
+[switch.tplink docs]: /integrations/tplink
+[tahoma docs]: /integrations/tahoma/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tts docs]: /integrations/tts/
+[upnp docs]: /integrations/upnp/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[websocket_api docs]: /integrations/websocket_api/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/

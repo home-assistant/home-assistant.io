@@ -72,7 +72,7 @@ automation:
 
 There are 2 variables that control the speed of the change for the scripts below. The first is the `step`, small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.
 
-To allow flexibility, an [Input Number](/components/input_number/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Numbers](/components/input_number/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
+To allow flexibility, an [Input Number](/integrations/input_number/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Numbers](/integrations/input_number/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
 
 ```yaml
 input_number:

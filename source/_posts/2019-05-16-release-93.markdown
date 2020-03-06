@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-05-release-93/components.png
 ---
 
-<a href='/components/#version/0.93'><img src='/images/blog/2019-05-release-93/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.93'><img src='/images/blog/2019-05-release-93/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for our 0.93 release and it is a whopping cool one. It's a day later than usual as I am travelling. [Frenck](https://www.github.com/frenck) streams his work on Home Assistant / Hass.io each Tuesday and Friday, and last Tuesday I decided to surprise him and visit his house during the stream 😛. We ended up talking about everything Home Assistant with the viewers for over 3 hours. For the full conversation, check out [Frenck's blog](https://frenck.dev/home-assistant-paulus-invaded-my-live-stream/). Clip of me walking into the stream:
 
@@ -112,9 +112,9 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 [@elupus]: https://github.com/elupus
 [@karlkar]: https://github.com/karlkar
 [@pvizeli]: https://github.com/pvizeli
-[google_assistant docs]: /components/google_assistant/
-[honeywell docs]: /components/honeywell/
-[onvif docs]: /components/onvif/
+[google_assistant docs]: /integrations/google_assistant/
+[honeywell docs]: /integrations/honeywell/
+[onvif docs]: /integrations/onvif/
 
 ## Release 0.93.2 - May 22
 
@@ -136,10 +136,10 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 [@cyrosy]: https://github.com/cyrosy
 [@ludeeus]: https://github.com/ludeeus
 [@pvizeli]: https://github.com/pvizeli
-[alert docs]: /components/alert/
-[broadlink docs]: /components/broadlink/
-[discord docs]: /components/discord/
-[traccar docs]: /components/traccar/
+[alert docs]: /integrations/alert/
+[broadlink docs]: /integrations/broadlink/
+[discord docs]: /integrations/discord/
+[traccar docs]: /integrations/traccar/
 
 ## If you need help...
 
@@ -159,7 +159,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   * The IQVIA component no longer provides historical data for allergen and asthma conditions. Tactically, this means all historical sensors – including "Yesterday" sensors – will no longer appear; users will need to update any automations that previously relied on these sensors. ([@bachya] - [#23258]) ([iqvia docs])
 
     Example configuration:
-    ```
+    ```yaml
     iqvia:
       zip_code: "12345"
     ```
@@ -177,7 +177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Epson Workforce__ - This change adds the option to add photo black cartridge as a setting. It also corrects the spelling of "Inklevel" to "Ink level"([@ThaStealth] - [#23433]) ([epsonworkforce docs])
 
   Example configuration:
-  ```
+  ```yaml
     - platform: epsonworkforce
       host: IP_ADDRESS
       monitored_conditions:
@@ -196,7 +196,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Sesame Smart Lock__ - The Sesame smart lock's 1.0 API uses a username/password pair to authenticate, and may be deprecated in the future. The V3 API uses an API key, so it will require users to update their HA config. ([@zanglang] - [#23621]) ([sesame docs])
 
   Example configuration:
-  ```
+  ```yaml
   lock:
     - platform: sesame
       api_key: !secret sesame_api_key
@@ -379,7 +379,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - deCONZ - Retry on BridgeBusy errors ([@Kane610] - [#23436]) ([deconz docs])
 - Added option to select photoblack cartridge ([@ThaStealth] - [#23433]) ([epsonworkforce docs]) (breaking change)
 - Fix bad request for some IP ONVIF camera ([@GeertvanHorrik] - [#22972]) ([onvif docs])
-- Bump pyteleloisirs version ([@SNoof85] - [#23661]) ([liveboxplaytv docs])
+- Bump pyteleloisirs version ([@SNoof85] - [#23661])
 - Upgrade psutil to 5.6.2 ([@fabaff] - [#23671]) ([systemmonitor docs])
 - Upgrade shodan to 1.13.0 ([@fabaff] - [#23675]) ([shodan docs])
 - Upgrade slacker to 0.13.0 ([@fabaff] - [#23672]) ([slack docs])
@@ -752,127 +752,126 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@zanglang]: https://github.com/zanglang
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
-[ads docs]: /components/ads/
-[alexa docs]: /components/alexa/
-[ambiclimate docs]: /components/ambiclimate/
-[amcrest docs]: /components/amcrest/
-[automation docs]: /components/automation/
-[bizkaibus docs]: /components/bizkaibus/
-[bluesound docs]: /components/bluesound/
-[bom docs]: /components/bom/
-[caldav docs]: /components/caldav/
-[cast docs]: /components/cast/
-[counter docs]: /components/counter/
-[daikin docs]: /components/daikin/
-[danfoss_air docs]: /components/danfoss_air/
-[deconz docs]: /components/deconz/
-[discord docs]: /components/discord/
-[discovery docs]: /components/discovery/
-[dnsip docs]: /components/dnsip/
-[dyson docs]: /components/dyson/
-[econet docs]: /components/econet/
-[enocean docs]: /components/enocean/
-[epsonworkforce docs]: /components/epsonworkforce/
-[essent docs]: /components/essent/
-[evohome docs]: /components/evohome/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[geofency docs]: /components/geofency/
-[glances docs]: /components/glances/
-[google docs]: /components/google/
-[google_assistant docs]: /components/google_assistant/
-[greeneye_monitor docs]: /components/greeneye_monitor/
-[hangouts docs]: /components/hangouts/
-[heos docs]: /components/heos/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[honeywell docs]: /components/honeywell/
-[html5 docs]: /components/html5/
-[huawei_lte docs]: /components/huawei_lte/
-[hue docs]: /components/hue/
-[ihc docs]: /components/ihc/
-[incomfort docs]: /components/incomfort/
-[influxdb docs]: /components/influxdb/
-[input_datetime docs]: /components/input_datetime/
-[iqvia docs]: /components/iqvia/
-[lcn docs]: /components/lcn/
-[lifx docs]: /components/lifx/
-[liveboxplaytv docs]: /components/liveboxplaytv/
-[local_file docs]: /components/local_file/
-[locative docs]: /components/locative/
-[logi_circle docs]: /components/logi_circle/
-[mastodon docs]: /components/mastodon/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[meteoalarm docs]: /components/meteoalarm/
-[mobile_app docs]: /components/mobile_app/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[namecheapdns docs]: /components/namecheapdns/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[nextbus docs]: /components/nextbus/
-[nmap_tracker docs]: /components/nmap_tracker/
-[notify docs]: /components/notify/
-[oasa_telematics docs]: /components/oasa_telematics/
-[ohmconnect docs]: /components/ohmconnect/
-[onboarding docs]: /components/onboarding/
-[onvif docs]: /components/onvif/
-[opencv docs]: /components/opencv/
-[openuv docs]: /components/openuv/
-[opple docs]: /components/opple/
-[orangepi_gpio docs]: /components/orangepi_gpio/
-[otp docs]: /components/otp/
-[panasonic_bluray docs]: /components/panasonic_bluray/
-[philips_js docs]: /components/philips_js/
-[plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
-[ps4 docs]: /components/ps4/
-[ptvsd docs]: /components/ptvsd/
-[rainmachine docs]: /components/rainmachine/
-[recorder docs]: /components/recorder/
-[rest docs]: /components/rest/
-[sendgrid docs]: /components/sendgrid/
-[serial_pm docs]: /components/serial_pm/
-[sesame docs]: /components/sesame/
-[seventeentrack docs]: /components/seventeentrack/
-[shodan docs]: /components/shodan/
-[simplisafe docs]: /components/simplisafe/
-[slack docs]: /components/slack/
-[snmp docs]: /components/snmp/
-[sonos docs]: /components/sonos/
-[spotcrime docs]: /components/spotcrime/
-[sql docs]: /components/sql/
-[startca docs]: /components/startca/
-[stream docs]: /components/stream/
-[sun docs]: /components/sun/
-[switchbot docs]: /components/switchbot/
-[switcher_kis docs]: /components/switcher_kis/
-[syncthru docs]: /components/syncthru/
-[systemmonitor docs]: /components/systemmonitor/
-[tapsaff docs]: /components/tapsaff/
-[ted5000 docs]: /components/ted5000/
-[telegram_bot docs]: /components/telegram_bot/
-[tellduslive docs]: /components/tellduslive/
-[tensorflow docs]: /components/tensorflow/
-[thethingsnetwork docs]: /components/thethingsnetwork/
-[tplink_lte docs]: /components/tplink_lte/
-[traccar docs]: /components/traccar/
-[trend docs]: /components/trend/
-[ubee docs]: /components/ubee/
-[upc_connect docs]: /components/upc_connect/
-[upnp docs]: /components/upnp/
-[velux docs]: /components/velux/
-[vesync docs]: /components/vesync/
-[vizio docs]: /components/vizio/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[xmpp docs]: /components/xmpp/
-[yeelight docs]: /components/yeelight/
-[yr docs]: /components/yr/
-[zeroconf docs]: /components/zeroconf/
-[zestimate docs]: /components/zestimate/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[ads docs]: /integrations/ads/
+[alexa docs]: /integrations/alexa/
+[ambiclimate docs]: /integrations/ambiclimate/
+[amcrest docs]: /integrations/amcrest/
+[automation docs]: /integrations/automation/
+[bizkaibus docs]: /integrations/bizkaibus/
+[bluesound docs]: /integrations/bluesound/
+[bom docs]: /integrations/bom/
+[caldav docs]: /integrations/caldav/
+[cast docs]: /integrations/cast/
+[counter docs]: /integrations/counter/
+[daikin docs]: /integrations/daikin/
+[danfoss_air docs]: /integrations/danfoss_air/
+[deconz docs]: /integrations/deconz/
+[discord docs]: /integrations/discord/
+[discovery docs]: /integrations/discovery/
+[dnsip docs]: /integrations/dnsip/
+[dyson docs]: /integrations/dyson/
+[econet docs]: /integrations/econet/
+[enocean docs]: /integrations/enocean/
+[epsonworkforce docs]: /integrations/epsonworkforce/
+[essent docs]: /integrations/essent/
+[evohome docs]: /integrations/evohome/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[geofency docs]: /integrations/geofency/
+[glances docs]: /integrations/glances/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[greeneye_monitor docs]: /integrations/greeneye_monitor/
+[hangouts docs]: /integrations/hangouts/
+[heos docs]: /integrations/heos/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[html5 docs]: /integrations/html5/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[incomfort docs]: /integrations/incomfort/
+[influxdb docs]: /integrations/influxdb/
+[input_datetime docs]: /integrations/input_datetime/
+[iqvia docs]: /integrations/iqvia/
+[lcn docs]: /integrations/lcn/
+[lifx docs]: /integrations/lifx/
+[local_file docs]: /integrations/local_file/
+[locative docs]: /integrations/locative/
+[logi_circle docs]: /integrations/logi_circle/
+[mastodon docs]: /integrations/mastodon/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[meteoalarm docs]: /integrations/meteoalarm/
+[mobile_app docs]: /integrations/mobile_app/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[namecheapdns docs]: /integrations/namecheapdns/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nextbus docs]: /integrations/nextbus/
+[nmap_tracker docs]: /integrations/nmap_tracker/
+[notify docs]: /integrations/notify/
+[oasa_telematics docs]: /integrations/oasa_telematics/
+[ohmconnect docs]: /integrations/ohmconnect/
+[onboarding docs]: /integrations/onboarding/
+[onvif docs]: /integrations/onvif/
+[opencv docs]: /integrations/opencv/
+[openuv docs]: /integrations/openuv/
+[opple docs]: /integrations/opple/
+[orangepi_gpio docs]: /integrations/orangepi_gpio/
+[otp docs]: /integrations/otp/
+[panasonic_bluray docs]: /integrations/panasonic_bluray/
+[philips_js docs]: /integrations/philips_js/
+[plex docs]: /integrations/plex/
+[pollen docs]: /integrations/iqvia
+[ps4 docs]: /integrations/ps4/
+[ptvsd docs]: /integrations/ptvsd/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[rest docs]: /integrations/rest/
+[sendgrid docs]: /integrations/sendgrid/
+[serial_pm docs]: /integrations/serial_pm/
+[sesame docs]: /integrations/sesame/
+[seventeentrack docs]: /integrations/seventeentrack/
+[shodan docs]: /integrations/shodan/
+[simplisafe docs]: /integrations/simplisafe/
+[slack docs]: /integrations/slack/
+[snmp docs]: /integrations/snmp/
+[sonos docs]: /integrations/sonos/
+[spotcrime docs]: /integrations/spotcrime/
+[sql docs]: /integrations/sql/
+[startca docs]: /integrations/startca/
+[stream docs]: /integrations/stream/
+[sun docs]: /integrations/sun/
+[switchbot docs]: /integrations/switchbot/
+[switcher_kis docs]: /integrations/switcher_kis/
+[syncthru docs]: /integrations/syncthru/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tapsaff docs]: /integrations/tapsaff/
+[ted5000 docs]: /integrations/ted5000/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tellduslive docs]: /integrations/tellduslive/
+[tensorflow docs]: /integrations/tensorflow/
+[thethingsnetwork docs]: /integrations/thethingsnetwork/
+[tplink_lte docs]: /integrations/tplink_lte/
+[traccar docs]: /integrations/traccar/
+[trend docs]: /integrations/trend/
+[ubee docs]: /integrations/ubee/
+[upc_connect docs]: /integrations/upc_connect/
+[upnp docs]: /integrations/upnp/
+[velux docs]: /integrations/velux/
+[vesync docs]: /integrations/vesync/
+[vizio docs]: /integrations/vizio/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xmpp docs]: /integrations/xmpp/
+[yeelight docs]: /integrations/yeelight/
+[yr docs]: /integrations/yr/
+[zeroconf docs]: /integrations/zeroconf/
+[zestimate docs]: /integrations/zestimate/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

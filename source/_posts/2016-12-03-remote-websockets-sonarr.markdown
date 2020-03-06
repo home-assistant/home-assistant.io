@@ -36,14 +36,14 @@ The support for multiple hosts is a result of allowing mixed configurations with
 
 This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
 
-## All changes 
+## All changes
 
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
 - Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
 - Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
-- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
+- Switch: Hook support by hooksmarthome.com ([@dasos])
 - Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
 - Light: Support for light effects ([@Diaoul])
 - Sensor: New [Threshold][threshold] sensor ([@fabaff])
@@ -203,27 +203,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vemek]: https://github.com/vemek
 [@vkorn]: https://github.com/vkorn
 
-[amcrest]: /components/camera.amcrest/
-[boradlink]: /components/sensor.broadlink/
-[dsmr]: /components/sensor.dsmr/
-[dunehd]: /components/media_player.dunehd/
-[efergy]: /components/sensor.efergy/
-[filtering]: /components/http/
-[gpslogger]: /components/device_tracker.gpslogger/
-[harmony]: /components/remote.harmony/
-[homematic]: /components/homematic/
-[hook]: /components/switch.hook/
-[nest-cam]: /components/camera.nest/
-[nest]: /components/nest/
+[amcrest]: /integrations/amcrest
+[boradlink]: /integrations/broadlink#sensor
+[dsmr]: /integrations/dsmr
+[dunehd]: /integrations/dunehd
+[efergy]: /integrations/efergy
+[filtering]: /integrations/http/
+[gpslogger]: /integrations/gpslogger
+[harmony]: /integrations/harmony
+[homematic]: /integrations/homematic/
+[nest-cam]: /integrations/nest#camera
+[nest]: /integrations/nest/
 [nginx]: /ecosystem/nginx/
-[nut]: /components/sensor.nut/
-[philips]: /components/media_player.philips_js/
-[remote]: /components/remote/
-[rfxtrx]: /components/rfxtrx/
-[sonarr]: /components/sensor.sonarr/
-[tellstick]: /components/tellstick/
-[temper]: /components/sensor.temper/
-[threshold]: /components/binary_sensor.threshold/
+[nut]: /integrations/nut
+[philips]: /integrations/philips_js
+[remote]: /integrations/remote/
+[rfxtrx]: /integrations/rfxtrx/
+[sonarr]: /integrations/sonarr
+[tellstick]: /integrations/tellstick/
+[temper]: /integrations/temper
+[threshold]: /integrations/threshold
 [websockets]: /developers/websocket_api/
-[waqi]: /components/sensor.waqi/
-
+[waqi]: /integrations/waqi

@@ -13,7 +13,7 @@ The focus of 0.13 was on test coverage, big cheers to [@rmkraus] for his hard wo
 
 <p class='img'>
   <img src='/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png'>
-  Examples of the new [input_select] and [weblink] components.
+  Examples of the new [input_select] and weblink components.
 </p>
 
 Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:
@@ -32,7 +32,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
  - Component: Added support for [Bloomsky Weather Station] ([@haraldnagel])
  - Component: Added support for pushing stats to [graphite] ([@kk7ds])
  - Component: Added support for [SCSGate] devices ([@flavio])
- - Component: Added [weblink] component to link to other pages ([@MagnusKnutas])
+ - Component: Added weblink component to link to other pages ([@MagnusKnutas])
  - Component: Support for Ubiquiti mFI [sensors][mfi.sensor] and [switchable devices][mfi.switch] added ([@kk7ds])
  - Alarm control panel: Added [Caddx/GE/Interlogix NetworX][nx584] support ([@kk7ds])
  - Camera: [MJPEG] camera's will now show real stream instead of a 2fps stream ([@stjohnjohnson])
@@ -82,32 +82,31 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [@Danielhiversen]: https://github.com/Danielhiversen/
 [@roqeer]: https://github.com/roqeer/
 [@jaharkes]: https://github.com/jaharkes/
-[default view]: /components/group/
-[apcupsd]: /components/apcupsd/
-[Splunk]: /components/splunk/
-[garage door]: /components/cover/
-[Wink]: /components/wink/#cover
-[input_select]: /components/input_select/
-[proximity]: /components/proximity/
-[Bloomsky Weather Station]: /components/bloomsky/
-[graphite]: /components/graphite/
-[SCSGate]: /components/scsgate/
-[weblink]: /components/weblink/
-[mfi.switch]: /components/switch.mfi/
-[mfi.sensor]: /components/sensor.mfi/
-[nx584]: /components/alarm_control_panel.nx584/
-[MJPEG]: /components/camera.mjpeg/
-[unifi]: /components/camera.uvc/
-[Aruba]: /components/device_tracker.aruba/
-[History]: /components/history/
-[MySensors]: /components/light.mysensors/
-[Verisure]: /components/lock.verisure/
-[Speedtest.net]: /components/sensor.speedtest/
-[Samsung TV]: /components/media_player.samsungtv/
-[Snapcast]: /components/media_player.snapcast/
-[mqtt-publish]: /components/mqtt/#publish-service
-[REST]: /components/notify.rest/
-[template]: /components/switch.template/
-[Honeywell]: /components/honeywell/
-[zwave-polling]: /components/zwave/#configuration
-[zwave-scene]: /components/zwave/#events
+[default view]: /integrations/group/
+[apcupsd]: /integrations/apcupsd/
+[Splunk]: /integrations/splunk/
+[garage door]: /integrations/cover/
+[Wink]: /integrations/wink/#cover
+[input_select]: /integrations/input_select/
+[proximity]: /integrations/proximity/
+[Bloomsky Weather Station]: /integrations/bloomsky/
+[graphite]: /integrations/graphite/
+[SCSGate]: /integrations/scsgate/
+[mfi.switch]: /integrations/mfi#switch
+[mfi.sensor]: /integrations/mfi#sensor
+[nx584]: /integrations/nx584
+[MJPEG]: /integrations/mjpeg
+[unifi]: /integrations/uvc
+[Aruba]: /integrations/aruba
+[History]: /integrations/history/
+[MySensors]: /integrations/light.mysensors/
+[Verisure]: /integrations/verisure
+[Speedtest.net]: /integrations/speedtestdotnet
+[Samsung TV]: /integrations/samsungtv
+[Snapcast]: /integrations/snapcast
+[mqtt-publish]: /integrations/mqtt/#publish-service
+[REST]: /integrations/notify.rest/
+[template]: /integrations/switch.template/
+[Honeywell]: /integrations/honeywell/
+[zwave-polling]: /integrations/zwave/#configuration
+[zwave-scene]: /integrations/zwave/#events

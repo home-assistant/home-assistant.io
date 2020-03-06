@@ -50,10 +50,10 @@ automation:
 player state attributes. This change affects automations, scripts and scenes.
 
 [services]: /docs/scripts/service-calls/#use-templates-to-decide-which-service-to-call
-[Hunter Douglas Powerview]: /components/scene.hunterdouglas_powerview/
-[MQTT]: /components/lock.mqtt/
-[OwnTracks]: /components/device_tracker.owntracks/
-[Wemo Motion]: /components/binary_sensor.wemo/
+[Hunter Douglas Powerview]: /integrations/hunterdouglas_powerview
+[MQTT]: /integrations/lock.mqtt/
+[OwnTracks]: /integrations/owntracks
+[Wemo Motion]: /integrations/wemo
 [@fabaff]: https://github.com/fabaff
 [@partofthething]: https://github.com/partofthething
 [@persandstrom]: https://github.com/persandstrom

@@ -29,13 +29,13 @@ As an add-on developer, you will only have to change one line in your template t
 
 Old:
 
-```
+```dockerfile
 FROM %%BASE_IMAGE%%
 ```
 
 New:
 
-```
+```dockerfile
 ARG BUILD_FROM
 FROM $BUILD_FROM
 ```

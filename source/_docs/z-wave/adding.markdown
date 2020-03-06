@@ -26,7 +26,7 @@ When you add a device, it may initially appear without a specific entity ID (e.g
 
 Security Z-Wave devices require a network key. Some devices only expose their full capabilities when included this way. You should always read the manual for your device to find out the recommended inclusion method. Note, secure devices that had been connected to another hub/network in the past may have a "theft protection" feature which requires to first exclude the device successfully from the previous hub using the previous hub/Software setup before it can be enrolled in a new hub/network.
 
-A valid network key will be a 16 byte value, defined in the zwave section of your configuration, such as the following example:
+A valid network key will be a 16 byte value, defined in the Z-Wave section of your configuration, such as the following example:
 
 ```yaml
 zwave:
@@ -68,6 +68,10 @@ After defining your network key, follow these steps to add (include) a secure Z-
 2. Click the **Add Node Secure** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode
 3. Activate your device to be included by following the instructions provided with the device
 4. With the device in its final location, run a *Heal Network*
+
+<div class='note warning'>
+Secure devices require additional bandwidth, and too many secure devices can slow down your Z-Wave network. We recommend only using secure inclusion for devices that require it, such as locks.
+</div>
 
 ## Removing Devices
 

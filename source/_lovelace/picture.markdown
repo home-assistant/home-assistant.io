@@ -20,56 +20,31 @@ image:
   required: true
   description: The URL of an image.
   type: string
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
-      type: string
-      default: "`none`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`call-service`, `navigate`, `none`)"
-      type: string
-      default: "`none`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
+{% endconfiguration %}
+
+## Options For Exemptions
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab.
+  type: string
 {% endconfiguration %}
 
 ## Examples

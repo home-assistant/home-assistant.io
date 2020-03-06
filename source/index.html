@@ -11,96 +11,113 @@ description: Open source home automation that puts local control and privacy fir
 <div class="frontpage">
   <div class="grid">
     <div class="grid__item one-third lap-one-third palm-one-whole">
-      <div class='current-version material-card text'>
-        <h1>Current Version: {{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}</h1>
-        Released: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span>
+      <div class="current-version material-card text">
+        <h1>
+          Current Version: {{ site.current_major_version }}.{{
+          site.current_minor_version }}.{{ site.current_patch_version }}
+        </h1>
+        Released:
+        <span class="release-date"
+          >{{ site.date_released | date: "%B %d, %Y" }}</span
+        >
 
-        <div class='links'>
-          <a href='/latest-release-notes/'>Release notes</a>
+        <div class="links">
+          <a href="/latest-release-notes/">Release notes</a>
         </div>
       </div>
-      <div class='join-community material-card text'>
+      <div class="join-community material-card text">
         <h1>Join The Community</h1>
         We love to help with &amp; talk about home automation.
 
-        <div class='links'>
-          <a href='https://community.home-assistant.io'>Forums</a>
-          <a href='/join-chat/'>Chat</a>
+        <div class="links">
+          <a href="https://community.home-assistant.io">Forums</a>
+          <a href="/join-chat/">Chat</a>
         </div>
       </div>
-      <div class='material-card text'>
+
+      <div class="material-card text">
         <h1>Alexa, turn on the lights</h1>
         Use Alexa to control Home Assistant.
 
-        <div class='links'>
-          <a href='/cloud/'>LEARN MORE</a>
+        <div class="links">
+          <a href="/cloud/">LEARN MORE</a>
         </div>
       </div>
-      <div class='material-card text'>
+      <div class="material-card text">
         <h1>Ok Google, turn on the AC</h1>
         Use Google Assistant to control Home Assistant.
 
-        <div class='links'>
-          <a href='/cloud/'>LEARN MORE</a>
+        <div class="links">
+          <a href="/cloud/">LEARN MORE</a>
         </div>
       </div>
 
-      <a class='material-card highlight-blog-post' href='/blog/2016/01/19/perfect-home-automation/'>
-        Read our founder's vision for the perfect home automation <i class="icon-arrow-right"></i>
+      <a
+        class="material-card highlight-blog-post"
+        href="/blog/2016/01/19/perfect-home-automation/"
+      >
+        Read our founder's vision for the perfect home automation
+        <i class="icon-arrow-right"></i>
       </a>
 
       <a
-        class='material-card picture-promo'
-        href='https://www.home-assistant.io/blog/2019/08/06/home-assistant-cast/'
-        style='background-image: url(/images/frontpage/cast-frontpage.png)'
+        class="material-card picture-promo"
+        href="https://www.home-assistant.io/blog/2019/08/06/home-assistant-cast/"
+        style="background-image: url(/images/frontpage/cast-frontpage.png)"
       >
         <div class="caption">
           <div class="title">Take over all the screens</div>
-          <div class="subtitle" >Home Assistant Cast makes each TV a display.</div>
+          <div class="subtitle">
+            Home Assistant Cast makes each TV a display.
+          </div>
         </div>
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
-      <div class='recent-posts material-card text'>
+      <div class="recent-posts material-card text">
         <h1>Recent Blog Posts</h1>
 
         {% for post in site.posts limit: 3 %}
-          <li class="post">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <small class='blog-date'>{{ post.date_formatted }}</small>
-          </li>
+        <li class="post">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <small class="blog-date">{{ post.date_formatted }}</small>
+        </li>
         {% endfor %}
       </div>
 
       <a
-        class='material-card picture-promo'
-        href='/blog/2018/11/16/state-of-the-union/'
-        style='background-image: url(/images/blog/2018-11-state-of-the-union/share-the-love.jpg)'
+        class="material-card picture-promo"
+        href="/blog/2019/11/22/state-of-the-union/"
+        style="background-image: url(/images/frontpage/sotu2019-paulus.jpeg);background-size: cover;background-color: #41bdf5;"
       >
-        <div class='caption'>
-          <div class='title'>
-            Watch the State of the Union 2018
+        <div class="caption">
+          <div class="title">
+            State of the Union 2019
           </div>
-          <div class='subtitle'>
-            Learn about the origin of Home Assistant and where we're heading.
+          <div class="subtitle">
+            Learn why we do what we do and what is next.
           </div>
         </div>
       </a>
 
-      <a class='material-card highlight-blog-post large' href='/blog/2017/07/25/introducing-hassio/'>
-        Learn how Hass.io can turn your Raspberry Pi into the ultimate home automation hub <i class="icon-arrow-right"></i>
+      <a
+        class="material-card highlight-blog-post large"
+        href="/blog/2017/07/25/introducing-hassio/"
+      >
+        Learn how Hass.io can turn your Raspberry Pi into the ultimate home
+        automation hub <i class="icon-arrow-right"></i>
       </a>
 
       <a
-        class='material-card picture-promo'
-        href='/blog/2017/02/22/home-assistant-tshirts-have-arrived/'
-        style='background-image: url(/images/merchandise/shirt-frontpage.png)'
+        class="material-card picture-promo"
+        href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/"
+        style="background-image: url(/images/merchandise/shirt-frontpage.png)"
       >
-        <div class='caption'>
-          <div class='title'>
+        <div class="caption">
+          <div class="title">
             Join the Home Assistant t-shirt revolution!
           </div>
-          <div class='subtitle'>
+          <div class="subtitle">
             Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
           </div>
         </div>
@@ -144,7 +161,7 @@ description: Open source home automation that puts local control and privacy fir
         </div>
 
         <div class="grid__item one-whole lap-two-thirds">
-         {% include custom/grid_item_right.html %}
+          {% include custom/grid_item_right.html %}
         </div>
       </div>
     </div>
@@ -153,8 +170,9 @@ description: Open source home automation that puts local control and privacy fir
       <div class="material-card">
         <h1>Home Assistant is sponsored by</h1>
 
-        <a href='https://www.nabucasa.com'><img src='/images/sponsors/nabu_casa.svg' alt='Nabu Casa logo'></a>
-
+        <a href="https://www.nabucasa.com"
+          ><img src="/images/sponsors/nabu_casa.svg" alt="Nabu Casa logo"
+        /></a>
       </div>
     </div>
 
@@ -162,18 +180,33 @@ description: Open source home automation that puts local control and privacy fir
       <div class="material-card">
         <h1>Home Assistant in the press</h1>
 
-        <a href='https://www.producthunt.com/posts/home-assistant'><img src='/images/press/producthunt.com.png' alt='ProductHunt.com logo'></a>
+        <a href="https://www.producthunt.com/posts/home-assistant"
+          ><img
+            src="/images/press/producthunt.com.png"
+            alt="ProductHunt.com logo"
+        /></a>
 
-        <a href='https://www.linux.com/news/home-assistant-python-approach-home-automation-video'><img src='/images/press/linux.com.png' alt='Linux.com logo'></a>
+        <a
+          href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
+          ><img src="/images/press/linux.com.png" alt="Linux.com logo"
+        /></a>
 
-        <a href='https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/'><img src='/images/press/wired.com.svg' alt='Wired.com logo'></a>
+        <a href="https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/"
+          ><img src="/images/press/wired.com.svg" alt="Wired.com logo"
+        /></a>
 
-        <a href='https://opensource.com/article/17/7/home-automation-primer'><img src='/images/press/opensource.com.svg' alt='OpenSource.com logo'></a>
+        <a href="https://opensource.com/article/17/7/home-automation-primer"
+          ><img src="/images/press/opensource.com.svg" alt="OpenSource.com logo"
+        /></a>
 
-        <a href='http://www.linux-magazine.com/Issues/2017/203/Home-Assistant'><img src='/images/press/LinuxMagazine.png' alt='Linux Magazine logo'></a>
+        <a href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
+          ><img src="/images/press/LinuxMagazine.png" alt="Linux Magazine logo"
+        /></a>
 
-        <a href='https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html'><img src='/images/press/ct.png' alt='Ct logo'></a>
-
+        <a
+          href="https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html"
+          ><img src="/images/press/ct.png" alt="Ct logo"
+        /></a>
       </div>
     </div>
   </div>

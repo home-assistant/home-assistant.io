@@ -1,7 +1,8 @@
 ---
 ---
 
-{% assign recent_release_post = site.categories['Release-Notes'].first %}
+{% assign posts = site.categories['Release-Notes'] | where_exp: "post", "post.title contains site.current_minor_version" %}
+{% assign recent_release_post = posts.first %}
 
 <script>
   document.location = '{{ recent_release_post.url }}{{ site.patch_version_notes }}';

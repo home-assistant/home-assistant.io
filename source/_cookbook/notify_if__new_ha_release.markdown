@@ -27,7 +27,7 @@ automation:
           message: 'There is a new Home Assistant release available.'
 ```
 
-You can use [templates](/topics/templating/) to include the release number of Home Assistant if you prefer. The following example sends a notification via [Pushbullet](/components/notify.pushbullet/) with the Home Assistant version in the message.
+You can use [templates](/topics/templating/) to include the release number of Home Assistant if you prefer. The following example sends a notification via [Pushbullet](/integrations/pushbullet) with the Home Assistant version in the message.
 
 ```yaml
 notify:

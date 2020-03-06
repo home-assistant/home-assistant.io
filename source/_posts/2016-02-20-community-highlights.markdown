@@ -19,7 +19,7 @@ Home Assistant land has been busy and a lot of people have been creating awesome
 
 ### Haaska - Alexa Skill Adapter for Home Assistant
 
-Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own [Alexa](/components/alexa/) component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the 'Ask Home Assistant' part when giving commands:
+Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own [Alexa](/integrations/alexa/) component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the 'Ask Home Assistant' part when giving commands:
 
  - "Alexa, set kitchen to twenty percent"
  - "Alexa, turn on evening scene"

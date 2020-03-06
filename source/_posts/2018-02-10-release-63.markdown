@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-02-0.63/components.png
 ---
 
-<a href='/components/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
 
 ## Date set for dropping Python 3.4 support
 
@@ -51,7 +51,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 
 ## Release 0.63.2 - February 14
 
-- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) (mercedesme docs) (binary_sensor.mercedesme docs) (device_tracker.mercedesme docs) (sensor.mercedesme docs)
 - Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
 - Updated beacontools ([@citruz] - [#12368]) ([sensor.eddystone_temperature docs])
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
@@ -83,10 +83,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Avoid influxdb filling connection pool: The influxdb `retry_queue_limit` configuration variable no longer has any effect and can be removed. ([@amelchio] - [#12182]) ([influxdb docs]) (breaking change)
 - Some spelling mistakes in default entity names have been fixed in ([@OttoWinter] - [#12041]). This is causing these `entity_id` changes:
-   - [Seven segments display](/components/image_processing.seven_segments/):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
-   - [Rain Bird Switch](/components/switch.rainbird/): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
-   - [OpenEVSE Sensor](/components/sensor.openevse/): `sensor.ambient_termperature` → `sensor.ambient_temperature`
-   - [Fido](/components/sensor.fido/): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
+   - [Seven segments display](/integrations/seven_segments):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
+   - [Rain Bird Switch](/integrations/rainbird#switch): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
+   - [OpenEVSE Sensor](/integrations/openevse): `sensor.ambient_termperature` → `sensor.ambient_temperature`
+   - [Fido](/integrations/fido): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
 - From version 0.64, Home Assistant will by default purge recorded state history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain:
     ```yaml
     recorder:
@@ -127,7 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Map media_stop to idle state ([@akloeckner] - [#11819])
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
 - check_config.py: allow colorlog==3.1. ([@dotlambda] - [#11927])
-- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808]) ([weblink docs])
+- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808])
 - Panel_Iframe - Allow relative urls in config ([@ReneNulschDE] - [#11832]) ([panel_iframe docs])
 - Python 3.6 invalid escape sequence deprecation fixes ([@scop] - [#11941])
 - tests: Use assertEqual instead of deprecated assertEquals ([@scop] - [#11943])
@@ -188,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - added media_stop ([@jodur] - [#12100]) ([media_player.vlc docs])
 - Goalfeed channel ([@craigjmidwinter] - [#12086]) ([goalfeed docs])
 - Update jinja2 to 2.10 ([@arsaboo] - [#12118])
-- Downgrade Sonarr and Radarr 'Host is not avaliable' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
+- Downgrade Sonarr and Radarr 'Host is not available' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
 - Fixes away_mode error on startup ([@ciotlosm] - [#12121]) ([climate.generic_thermostat docs])
 - except vol.MultipleInvalid in Broadlink #11795 ([@danielhiversen] - [#12107]) ([sensor.broadlink docs])
 - Adds SUPPORT_TARGET_TEMPERATURE_HIGH and SUPPORT_TARGET_TEMPERATURE_LOW support ([@hawk259] - [#12110]) ([climate.ecobee docs])
@@ -226,7 +226,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Canary live stream ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Replace Gitter with Discord ([@fabaff] - [#12199])
 - Upgrade Sphinx to 1.6.7 ([@fabaff] - [#12200])
-- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Change attributes in new Mercedes Me component ([@ReneNulschDE] - [#12147]) (mercedesme docs) (binary_sensor.mercedesme docs) (device_tracker.mercedesme docs) (sensor.mercedesme docs)
 - Binary Sensor Template: Add icon_template and entity_picture_template support ([@hawk259] - [#12158]) ([binary_sensor.template docs])
 - Bump pyeconet version to fix JSONDecodeError ([@w1ll1am23] - [#12204]) ([climate.econet docs])
 - Add support for Alexa.StepSpeaker ([@lucasweb78] - [#12183]) ([alexa docs])
@@ -501,136 +501,131 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zabuldon]: https://github.com/zabuldon
-[alexa docs]: /components/alexa/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.template docs]: /components/binary_sensor.template/
-[binary_sensor.threshold docs]: /components/binary_sensor.threshold/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera.canary docs]: /components/camera.canary/
-[camera.uvc docs]: /components/camera.uvc/
-[camera.xeoma docs]: /components/camera.xeoma/
-[canary docs]: /components/canary/
-[climate.demo docs]: /components/demo/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.econet docs]: /components/climate.econet/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.heatmiser docs]: /components/climate.heatmiser/
-[climate.melissa docs]: /components/climate.melissa/
-[climate.nest docs]: /components/climate.nest/
-[climate.tado docs]: /components/climate.tado/
-[climate.touchline docs]: /components/climate.touchline/
-[climate.venstar docs]: /components/climate.venstar/
-[cloud docs]: /components/cloud/
-[coinbase docs]: /components/coinbase/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.tahoma docs]: /components/cover.tahoma/
-[cover.template docs]: /components/cover.template/
-[deconz docs]: /components/deconz/
-[device_tracker.huawei_router docs]: /components/device_tracker.huawei_router/
-[device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
-[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
-[device_tracker.mqtt docs]: /components/device_tracker.mqtt/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.ubus docs]: /components/device_tracker.ubus/
-[doorbird docs]: /components/doorbird/
-[emulated_hue docs]: /components/emulated_hue/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[feedreader docs]: /components/feedreader/
-[frontend docs]: /components/frontend/
-[goalfeed docs]: /components/goalfeed/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[homematic docs]: /components/homematic/
-[http docs]: /components/http/
-[image_processing.openalpr_cloud docs]: /components/image_processing.openalpr_cloud/
-[influxdb docs]: /components/influxdb/
-[input_text docs]: /components/input_text/
-[ios docs]: /components/ios/
-[iota docs]: /components/iota/
-[light.deconz docs]: /components/light.deconz/
-[light.greenwave docs]: /components/light.greenwave/
-[light.lifx docs]: /components/light.lifx/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.template docs]: /components/light.template/
-[light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.zha docs]: /components/light.zha/
-[lock docs]: /components/lock/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.clementine docs]: /components/media_player.clementine/
-[media_player.itunes docs]: /components/media_player.itunes/
-[media_player.mediaroom docs]: /components/media_player.mediaroom/
-[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[media_player.vlc docs]: /components/media_player.vlc/
-[media_player.volumio docs]: /components/media_player.volumio/
-[media_player.webostv docs]: /components/media_player.webostv/
-[melissa docs]: /components/melissa/
-[mercedesme docs]: /components/mercedesme/
-[mochad docs]: /components/mochad/
-[notify.gntp docs]: /components/notify.gntp/
-[notify.kodi docs]: /components/notify.kodi/
-[notify.pushsafer docs]: /components/notify.pushsafer/
-[notify.twitter docs]: /components/notify.twitter/
-[panel_iframe docs]: /components/panel_iframe/
-[plant docs]: /components/plant/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[rfxtrx docs]: /components/rfxtrx/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.broadlink docs]: /components/sensor.broadlink/
-[sensor.canary docs]: /components/sensor.canary/
-[sensor.coinbase docs]: /components/sensor.coinbase/
-[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.melissa docs]: /components/melissa/
-[sensor.mercedesme docs]: /components/sensor.mercedesme/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.onewire docs]: /components/sensor.onewire/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.template docs]: /components/sensor.template/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.zha docs]: /components/sensor.zha/
-[spc docs]: /components/spc/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.flux docs]: /components/switch.flux/
-[switch.pulseaudio_loopback docs]: /components/switch.pulseaudio_loopback/
-[switch.template docs]: /components/switch.template/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[system_log docs]: /components/system_log/
-[tado docs]: /components/tado/
-[tahoma docs]: /components/tahoma/
-[tesla docs]: /components/tesla/
-[tts docs]: /components/tts/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[wake_on_lan docs]: /components/wake_on_lan/
-[waterfurnace docs]: /components/waterfurnace/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[weblink docs]: /components/weblink/
-[websocket_api docs]: /components/websocket_api/
-[zha docs]: /components/zha/
-[zha.const docs]: /components/zha.const/
-[zwave docs]: /components/zwave/
+[alexa docs]: /integrations/alexa/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.template docs]: /integrations/binary_sensor.template/
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.zha docs]: /integrations/zha
+[camera.canary docs]: /integrations/canary#camera
+[camera.uvc docs]: /integrations/uvc
+[camera.xeoma docs]: /integrations/xeoma
+[canary docs]: /integrations/canary/
+[climate.demo docs]: /integrations/demo/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.econet docs]: /integrations/econet
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.heatmiser docs]: /integrations/heatmiser
+[climate.melissa docs]: /integrations/melissa
+[climate.nest docs]: /integrations/nest#climate
+[climate.tado docs]: /integrations/tado
+[climate.touchline docs]: /integrations/touchline
+[climate.venstar docs]: /integrations/venstar
+[cloud docs]: /integrations/cloud/
+[coinbase docs]: /integrations/coinbase/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.tahoma docs]: /integrations/tahoma
+[cover.template docs]: /integrations/cover.template/
+[deconz docs]: /integrations/deconz/
+[device_tracker.huawei_router docs]: /integrations/huawei_router
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.mqtt docs]: /integrations/device_tracker.mqtt/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.ubus docs]: /integrations/ubus
+[doorbird docs]: /integrations/doorbird/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[feedreader docs]: /integrations/feedreader/
+[frontend docs]: /integrations/frontend/
+[goalfeed docs]: /integrations/goalfeed/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.openalpr_cloud docs]: /integrations/openalpr_cloud
+[influxdb docs]: /integrations/influxdb/
+[input_text docs]: /integrations/input_text/
+[ios docs]: /integrations/ios/
+[iota docs]: /integrations/iota/
+[light.deconz docs]: /integrations/deconz#light
+[light.greenwave docs]: /integrations/greenwave
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.template docs]: /integrations/light.template/
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[lock docs]: /integrations/lock/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.clementine docs]: /integrations/clementine
+[media_player.itunes docs]: /integrations/itunes
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.philips_js docs]: /integrations/philips_js
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.vlc docs]: /integrations/vlc
+[media_player.volumio docs]: /integrations/volumio
+[media_player.webostv docs]: /integrations/webostv#media-player
+[melissa docs]: /integrations/melissa/
+[mochad docs]: /integrations/mochad/
+[notify.gntp docs]: /integrations/gntp
+[notify.kodi docs]: /integrations/kodi
+[notify.pushsafer docs]: /integrations/pushsafer
+[notify.twitter docs]: /integrations/twitter
+[panel_iframe docs]: /integrations/panel_iframe/
+[plant docs]: /integrations/plant/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.canary docs]: /integrations/canary#sensor
+[sensor.coinbase docs]: /integrations/coinbase
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.melissa docs]: /integrations/melissa/
+[sensor.miflora docs]: /integrations/miflora
+[sensor.onewire docs]: /integrations/onewire
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.qnap docs]: /integrations/qnap
+[sensor.radarr docs]: /integrations/radarr
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.sql docs]: /integrations/sql
+[sensor.statistics docs]: /integrations/statistics
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.template docs]: /integrations/template
+[sensor.tesla docs]: /integrations/tesla
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.zha docs]: /integrations/zha
+[spc docs]: /integrations/spc/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.flux docs]: /integrations/flux
+[switch.pulseaudio_loopback docs]: /integrations/pulseaudio_loopback
+[switch.template docs]: /integrations/switch.template/
+[switch.tplink docs]: /integrations/tplink
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[system_log docs]: /integrations/system_log/
+[tado docs]: /integrations/tado/
+[tahoma docs]: /integrations/tahoma/
+[tesla docs]: /integrations/tesla/
+[tts docs]: /integrations/tts/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[wake_on_lan docs]: /integrations/wake_on_lan/
+[waterfurnace docs]: /integrations/waterfurnace/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[zha docs]: /integrations/zha/
+[zha.const docs]: /integrations/zha.const/
+[zwave docs]: /integrations/zwave/
 [#12292]: https://github.com/home-assistant/home-assistant/pull/12292
 [#12313]: https://github.com/home-assistant/home-assistant/pull/12313
 [#12314]: https://github.com/home-assistant/home-assistant/pull/12314
@@ -640,10 +635,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#12330]: https://github.com/home-assistant/home-assistant/pull/12330
 [@balloob]: https://github.com/balloob
 [@lucasweb78]: https://github.com/lucasweb78
-[alexa docs]: /components/alexa/
-[binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
-[camera.netatmo docs]: /components/camera.netatmo/
-[sensor.netatmo docs]: /components/sensor.netatmo/
+[alexa docs]: /integrations/alexa/
+[binary_sensor.netatmo docs]: /integrations/netatmo#binary-sensor
+[camera.netatmo docs]: /integrations/netatmo#camera
+[sensor.netatmo docs]: /integrations/netatmo#sensor
 [#12342]: https://github.com/home-assistant/home-assistant/pull/12342
 [#12346]: https://github.com/home-assistant/home-assistant/pull/12346
 [#12368]: https://github.com/home-assistant/home-assistant/pull/12368
@@ -654,14 +649,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
-[binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
-[device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
-[light.limitlessled docs]: /components/light.limitlessled/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mercedesme docs]: /components/mercedesme/
-[sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
-[sensor.mercedesme docs]: /components/sensor.mercedesme/
-[sensor.wunderground docs]: /components/sensor.wunderground/
+[light.limitlessled docs]: /integrations/limitlessled
+[media_player.yamaha docs]: /integrations/yamaha
+[sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
+[sensor.wunderground docs]: /integrations/wunderground
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392
 [#12421]: https://github.com/home-assistant/home-assistant/pull/12421
 [#12435]: https://github.com/home-assistant/home-assistant/pull/12435
@@ -676,13 +667,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dgomes]: https://github.com/dgomes
 [@ryanm101]: https://github.com/ryanm101
 [@syssi]: https://github.com/syssi
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[isy994 docs]: /components/isy994/
-[light.template docs]: /components/light.template/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[media_player.plex docs]: /components/media_player.plex/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.yr docs]: /components/sensor.yr/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[isy994 docs]: /integrations/isy994/
+[light.template docs]: /integrations/light.template/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[media_player.plex docs]: /integrations/plex#media-player
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[sensor.sql docs]: /integrations/sql
+[sensor.yr docs]: /integrations/yr
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/

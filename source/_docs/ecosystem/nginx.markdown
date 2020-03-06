@@ -10,8 +10,7 @@ Using NGINX as a proxy for Home Assistant allows you to serve Home Assistant sec
 
 Chances are, you have a dynamic IP address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.
 
-
-### 2 Install nginx on your server
+### 2 Install NGINX on your server
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
@@ -24,7 +23,8 @@ You will at least need nginx >= 1.3.13, as WebSocket support is required for the
 There are two ways of obtaining an SSL certificate.
 
 #### Using Let's Encrypt
-If you purchased your own domain, you can use https://letsencrypt.org/ to obtain a free, publicly trusted SSL certificate. This will allow you to work with services like IFTTT. Download and install per the instructions online and get a certificate using the following command.
+
+If you purchased your own domain, you can use <https://letsencrypt.org> to obtain a free, publicly trusted SSL certificate. This will allow you to work with services like IFTTT. Download and install per the instructions online and get a certificate using the following command.
 
 ```bash
 $ sudo ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
@@ -37,11 +37,11 @@ Instead of example.com, use your domain. You will need to renew this certificate
 If you do not own your own domain, you may generate a self-signed certificate. This will not work with IFTTT, but it will encrypt all of your Home Assistant traffic.
 
 ```bash
-$ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
-$ openssl rsa -in key.pem -out key.pem
-$ sudo cp key.pem cert.pem /etc/nginx/ssl
-$ sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
-$ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
+openssl rsa -in key.pem -out key.pem
+sudo cp key.pem cert.pem /etc/nginx/ssl
+sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 ```
 
 ### 4. Create dhparams file
@@ -49,11 +49,11 @@ $ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 As a fair warning, this file will take a while to generate.
 
 ```bash
-$ cd /etc/nginx/ssl
-$ sudo openssl dhparam -out dhparams.pem 2048
+cd /etc/nginx/ssl
+sudo openssl dhparam -out dhparams.pem 2048
 ```
 
-### 5. Install configuration file in nginx.
+### 5. Install configuration file in NGINX
 
 Create a new file `/etc/nginx/sites-available/hass` and copy the configuration file at the bottom of the page into it.
 
@@ -63,19 +63,19 @@ Some Linux distributions (including CentOS and Fedora) will not have the `/etc/n
 
 </div>
 
-### 6. Enable the Home Assistant configuration.
+### 6. Enable the Home Assistant configuration
 
 ```bash
-$ cd /etc/nginx/sites-enabled
-$ sudo unlink default
-$ sudo ln ../sites-available/hass default
+cd /etc/nginx/sites-enabled
+sudo unlink default
+sudo ln ../sites-available/hass default
 ```
 
-### 7. Start NGINX.
+### 7. Start NGINX
 
-Double check this configuration to ensure all settings are correct and start nginx.
+Double check this configuration to ensure all settings are correct and start NGINX.
 
-### 8. Port forwarding.
+### 8. Port forwarding
 
 Forward ports 443 and 80 to your server on your router. Do not forward port 8123.
 
@@ -97,7 +97,7 @@ http:
   trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
 ```
 
-### NGINX Config
+### NGINX configuration
 
 ```nginx
 map $http_upgrade $connection_upgrade {
@@ -130,9 +130,9 @@ server {
 
 
     # These shouldn't need to be changed
-    listen [::]:443 default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
+    listen [::]:443 ssl default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
-    ssl on;
+    # ssl on; # Uncomment if you are using nginx < 1.15.0
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
     ssl_prefer_server_ciphers on;

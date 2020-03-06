@@ -20,38 +20,43 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 You need to include either payload or payload_template, but not both.
 </div>
 
-```json
-{
-  "topic": "home-assistant/light/1/command",
-  "payload": "on"
-}
+```yaml
+topic: home-assistant/light/1/command
+payload: on
 ```
 
 {% raw %}
-```json
-{
-  "topic": "home-assistant/light/1/state",
-  "payload_template": "{{ states('device_tracker.paulus') }}"
-}
+```yaml
+topic: home-assistant/light/1/state
+payload_template: {{ states('device_tracker.paulus') }}
 ```
 {% endraw %}
 
 `payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:
 
-```json
-{
-  "topic": "home-assistant/light/1/state",
-  "payload":"{\"Status\":\"off\", \"Data\":\"something\"}"
-}
-``` 
+```yaml
+topic: home-assistant/light/1/state
+payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
+```
 
 Example of how to use `qos` and `retain`:
 
-```json
-{
-  "topic": "home-assistant/light/1/command",
-  "payload": "on",
-  "qos": 2,
-  "retain": true
-}
+```yaml
+topic: home-assistant/light/1/command
+payload: on
+qos: 2
+retain: true
+```
+
+### Service `mqtt.dump`
+
+Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `topic` | no | Topic to dump. Can contain a wildcard (`#` or `+`).
+| `duration` | yes | Duration in seconds that we will listen for messages. Default is 5 seconds.
+
+```yaml
+topic: openzwave/#
 ```

@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-01-0.62/components.png
 ---
 
-<a href='/components/#version/0.62'><img src='/images/blog/2018-01-0.62/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.62'><img src='/images/blog/2018-01-0.62/components.png' style='border: 0;box-shadow: none;'></a>
 
 Second release of the year and it's buzzing on GitHub. This release we had 70 people contribute code. We've also managed to finally get our PR count below a 100 open PRs again. A lot of cool stuff still waiting to make it to a future Home Assistant release.
 
@@ -83,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enable probot move ([@fabaff] - [#11690])
 - fixed not to include spaces or dots in attribute names ([@olskar] - [#11694]) ([sensor.mold_indicator docs]) (breaking change)
 - Add attributes ([@fabaff] - [#11698]) ([sensor.random docs])
-- Feature/fritzdect errorhandling ([@BastianPoe] - [#11490]) ([switch.fritzdect docs])
+- Feature/fritzdect errorhandling ([@BastianPoe] - [#11490])
 - Tesla bug fix #11598 ([@zabuldon] - [#11707])
 - Update mold_indicator.py ([@olskar] - [#11715]) ([sensor.mold_indicator docs])
 - Override default name for TP-Link devices ([@DanNixon] - [#11710]) ([light.tplink docs]) ([switch.tplink docs])
@@ -116,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Service for setting a fixed scene of Xiaomi MIIO lights ([@syssi] - [#10819]) ([light.xiaomi_miio docs])
 - Homematic ip tilt covers ([@steffenslavetinsky] - [#11650]) ([cover.homematic docs])
 - plant - check history for min_brightness ([@ChristianKuehnel] - [#9534]) ([plant docs])
-- add generic rollershutter agian, was missing in last merge ([@philklei] - [#11788]) ([tahoma docs])
+- add generic rollershutter again, was missing in last merge ([@philklei] - [#11788]) ([tahoma docs])
 - Additional attributes and services of the Xiaomi Air Purifier introduced ([@syssi] - [#11249]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - flux led version 0.20 ([@danielhiversen] - [#11791])
 - Hyperion: fix ([@starkillerOG] - [#11793]) ([light.hyperion docs])
@@ -381,109 +381,108 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zabuldon]: https://github.com/zabuldon
-[alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
-[alexa docs]: /components/alexa/
-[asterisk_mbox docs]: /components/asterisk_mbox/
-[axis docs]: /components/axis/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.hive docs]: /components/binary_sensor.hive/
-[binary_sensor.ihc docs]: /components/binary_sensor.ihc/
-[binary_sensor.maxcube docs]: /components/binary_sensor.maxcube/
-[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
-[binary_sensor.wink docs]: /components/binary_sensor.wink/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[camera.foscam docs]: /components/camera.foscam/
-[camera.onvif docs]: /components/camera.onvif/
-[climate docs]: /components/climate/
-[climate.daikin docs]: /components/climate.daikin/
-[climate.econet docs]: /components/climate.econet/
-[climate.ephember docs]: /components/climate.ephember/
-[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
-[climate.hive docs]: /components/climate.hive/
-[climate.nest docs]: /components/climate.nest/
-[climate.sensibo docs]: /components/climate.sensibo/
-[climate.wink docs]: /components/climate.wink/
-[cover.homematic docs]: /components/cover.homematic/
-[cover.lutron docs]: /components/cover.lutron/
-[cover.tahoma docs]: /components/cover.tahoma/
-[cover.wink docs]: /components/cover.wink/
-[cover.xiaomi_aqara docs]: /components/cover.xiaomi_aqara/
-[deconz docs]: /components/deconz/
-[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.tomato docs]: /components/device_tracker.tomato/
-[device_tracker.unifi_direct docs]: /components/device_tracker.unifi_direct/
-[ecobee docs]: /components/ecobee/
-[emulated_hue docs]: /components/emulated_hue/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[google_assistant docs]: /components/google_assistant/
-[hassio docs]: /components/hassio/
-[hive docs]: /components/hive/
-[homematic docs]: /components/homematic/
-[hue docs]: /components/hue/
-[ihc docs]: /components/ihc/
-[ihc.const docs]: /components/ihc.const/
-[ihc.ihcdevice docs]: /components/ihc.ihcdevice/
-[iota docs]: /components/iota/
-[light.deconz docs]: /components/light.deconz/
-[light.decora docs]: /components/light.decora/
-[light.flux_led docs]: /components/light.flux_led/
-[light.greenwave docs]: /components/light.greenwave/
-[light.hive docs]: /components/light.hive/
-[light.hyperion docs]: /components/light.hyperion/
-[light.ihc docs]: /components/light.ihc/
-[light.tplink docs]: /components/light.tplink/
-[light.wemo docs]: /components/light.wemo/
-[light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lutron docs]: /components/lutron/
-[map docs]: /components/map/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[notify.clicksend docs]: /components/notify.clicksend/
-[notify.prowl docs]: /components/notify.prowl/
-[plant docs]: /components/plant/
-[rfxtrx docs]: /components/rfxtrx/
-[scene docs]: /components/scene/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.linux_battery docs]: /components/sensor.linux_battery/
-[sensor.bme680 docs]: /components/sensor.bme680/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.etherscan docs]: /components/sensor.etherscan/
-[sensor.fixer docs]: /components/sensor.fixer/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.ihc docs]: /components/sensor.ihc/
-[sensor.iota docs]: /components/sensor.iota/
-[sensor.metoffice docs]: /components/sensor.metoffice/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.min_max docs]: /components/sensor.min_max/
-[sensor.mold_indicator docs]: /components/sensor.mold_indicator/
-[mychevy docs]: /components/mychevy/
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.random docs]: /components/sensor.random/
-[sensor.teksavvy docs]: /components/sensor.teksavvy/
-[sensor.xbox_live docs]: /components/sensor.xbox_live/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.yr docs]: /components/sensor.yr/
-[snips docs]: /components/snips/
-[switch.fritzdect docs]: /components/switch.fritzdect/
-[switch.hive docs]: /components/switch.hive/
-[switch.ihc docs]: /components/switch.ihc/
-[switch.snmp docs]: /components/switch.snmp/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[system_log docs]: /components/system_log/
-[tahoma docs]: /components/tahoma/
-[tts.google docs]: /components/tts.google/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[waterfurnace docs]: /components/waterfurnace/
-[wemo docs]: /components/wemo/
-[wink docs]: /components/wink/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alexa docs]: /integrations/alexa/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[axis docs]: /integrations/axis/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.hive docs]: /integrations/hive#binary-sensor
+[binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.wink docs]: /integrations/wink#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera.foscam docs]: /integrations/foscam
+[camera.onvif docs]: /integrations/onvif
+[climate docs]: /integrations/climate/
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.econet docs]: /integrations/econet
+[climate.ephember docs]: /integrations/ephember
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.hive docs]: /integrations/hive#climate
+[climate.nest docs]: /integrations/nest#climate
+[climate.sensibo docs]: /integrations/sensibo
+[climate.wink docs]: /integrations/wink#climate
+[cover.homematic docs]: /integrations/homematic
+[cover.lutron docs]: /integrations/lutron
+[cover.tahoma docs]: /integrations/tahoma
+[cover.wink docs]: /integrations/wink#cover
+[cover.xiaomi_aqara docs]: /integrations/cover.xiaomi_aqara/
+[deconz docs]: /integrations/deconz/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.tomato docs]: /integrations/tomato
+[device_tracker.unifi_direct docs]: /integrations/unifi_direct/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[google_assistant docs]: /integrations/google_assistant/
+[hassio docs]: /integrations/hassio/
+[hive docs]: /integrations/hive/
+[homematic docs]: /integrations/homematic/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[ihc.const docs]: /integrations/ihc.const/
+[ihc.ihcdevice docs]: /integrations/ihc.ihcdevice/
+[iota docs]: /integrations/iota/
+[light.deconz docs]: /integrations/deconz#light
+[light.decora docs]: /integrations/decora
+[light.flux_led docs]: /integrations/flux_led
+[light.greenwave docs]: /integrations/greenwave
+[light.hive docs]: /integrations/hive#light
+[light.hyperion docs]: /integrations/hyperion
+[light.ihc docs]: /integrations/ihc#light
+[light.tplink docs]: /integrations/tplink
+[light.wemo docs]: /integrations/wemo
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lutron docs]: /integrations/lutron/
+[map docs]: /integrations/map/
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.yamaha docs]: /integrations/yamaha
+[notify.clicksend docs]: /integrations/clicksend
+[notify.prowl docs]: /integrations/prowl
+[plant docs]: /integrations/plant/
+[rfxtrx docs]: /integrations/rfxtrx/
+[scene docs]: /integrations/scene/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.linux_battery docs]: /integrations/linux_battery
+[sensor.bme680 docs]: /integrations/bme680
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.etherscan docs]: /integrations/etherscan
+[sensor.fixer docs]: /integrations/fixer
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.ihc docs]: /integrations/ihc#sensor
+[sensor.iota docs]: /integrations/iota#sensor
+[sensor.metoffice docs]: /integrations/sensor.metoffice/
+[sensor.miflora docs]: /integrations/miflora
+[sensor.min_max docs]: /integrations/min_max
+[sensor.mold_indicator docs]: /integrations/mold_indicator
+[mychevy docs]: /integrations/mychevy/
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.random docs]: /integrations/random#sensor
+[sensor.teksavvy docs]: /integrations/teksavvy
+[sensor.xbox_live docs]: /integrations/xbox_live
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.yr docs]: /integrations/yr
+[snips docs]: /integrations/snips/
+[switch.hive docs]: /integrations/hive#switch
+[switch.ihc docs]: /integrations/ihc#switch
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.tplink docs]: /integrations/tplink
+[switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[system_log docs]: /integrations/system_log/
+[tahoma docs]: /integrations/tahoma/
+[tts.google docs]: /integrations/google_translate
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[waterfurnace docs]: /integrations/waterfurnace/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zwave docs]: /integrations/zwave/
 [@martinhjelmare]: https://github.com/martinhjelmare
 [@frenck]: https://github.com/frenck
 [#11929]: https://github.com/home-assistant/home-assistant/pull/11929
@@ -500,10 +499,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@scop]: https://github.com/scop
 [@smoldaner]: https://github.com/smoldaner
 [@tschmidty69]: https://github.com/tschmidty69
-[climate.daikin docs]: /components/climate.daikin/
-[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
-[frontend docs]: /components/frontend/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[remote.harmony docs]: /components/remote.harmony/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[snips docs]: /components/snips/
+[climate.daikin docs]: /integrations/daikin#climate
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[frontend docs]: /integrations/frontend/
+[media_player.squeezebox docs]: /integrations/squeezebox
+[remote.harmony docs]: /integrations/harmony
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[snips docs]: /integrations/snips/

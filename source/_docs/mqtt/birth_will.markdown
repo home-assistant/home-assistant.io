@@ -41,7 +41,7 @@ birth_message:
     retain:
       description: If the published message should have the retain flag on or not.
       required: false
-      default: true
+      default: false
       type: boolean
 will_message:
   description: Will Message
@@ -64,6 +64,6 @@ will_message:
     retain:
       description: If the published message should have the retain flag on or not.
       required: false
-      default: true
+      default: false
       type: boolean
 {% endconfiguration %}

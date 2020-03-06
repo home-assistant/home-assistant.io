@@ -22,12 +22,6 @@ automation:
       mood: happy
 ```
 
-<div class='note warning'>
-
-Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' platform below instead.
-
-</div>
-
 ### Home Assistant trigger
 
 Triggers when Home Assistant starts up or shuts down.
@@ -136,6 +130,12 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
 
+<div class='note'>
+
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
+
+</div>
+
 ```yaml
 automation:
   trigger:
@@ -182,9 +182,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser inter
 
 #### Sunset / Sunrise trigger
 
-Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
+Triggers when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g.,  45 minutes before sunset).
 
 <div class='note'>
 
@@ -216,7 +216,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state.attributes.elevation }}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -226,7 +226,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
@@ -234,8 +234,8 @@ Although the actual amount of light depends on weather, topography and land cove
 
   This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
 
-- Nautical twilight: 6° > Solar angle > -12°
-- Astronomical twilight: 12° > Solar angle > -18°
+- Nautical twilight: -6° > Solar angle > -12°
+- Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
@@ -278,6 +278,22 @@ The `for` template(s) will be evaluated when the `value_template` becomes `true`
 <div class='note warning'>
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 </div>
+
+
+As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+```
+
+{% endraw %}
+
+which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
 
 ### Time trigger
 
@@ -337,7 +353,7 @@ You could test triggering the above automation by sending a POST HTTP request to
 
 ### Zone trigger
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/components/device_tracker.gpslogger/), the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
@@ -351,7 +367,7 @@ automation:
 
 ### Geolocation trigger
 
-Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/components/geo_location/) platform support reporting GPS coordinates.
+Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geolocation platforms.
 
 ```yaml

@@ -16,7 +16,7 @@ mqtt:
 
 {% configuration %}
 certificate:
-  description: "'auto' or the certificate authority certificate file that is to be treated as trusted by this client. 'auto' uses the bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`"
+  description: "'auto' or the certificate authority certificate file that is to be treated as trusted by this client. To enable a secure (TLS) connection to your server you must define the 'certificate' configuration parameter. 'auto' uses the certifite CAs bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`."
   required: false
   type: string
 client_key:
