@@ -147,6 +147,7 @@ Supported abbreviations:
     'osc_val_tpl':         'oscillation_value_template',
     'pl_arm_away':         'payload_arm_away',
     'pl_arm_home':         'payload_arm_home',
+    'pl_arm_custom_b':     'payload_arm_custom_bypass',
     'pl_avail':            'payload_available',
     'pl_cls':              'payload_close',
     'pl_disarm':           'payload_disarm',
