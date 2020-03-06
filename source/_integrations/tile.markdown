@@ -1,7 +1,6 @@
 ---
 title: Tile
 description: Instructions on how to use Tile to track devices in Home Assistant.
-logo: tile.png
 ha_release: 0.58
 ha_category:
   - Presence Detection

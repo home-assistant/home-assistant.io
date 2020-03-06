@@ -1,7 +1,6 @@
 ---
 title: Telegram bot
 description: Telegram bot support
-logo: telegram.png
 ha_category:
   - Hub
 ha_release: 0.42

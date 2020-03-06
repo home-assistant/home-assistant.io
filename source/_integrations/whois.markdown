@@ -1,7 +1,6 @@
 ---
 title: Whois
 description: Instructions on how to integrate WHOIS lookup sensor within Home Assistant.
-logo: icann.png
 ha_category:
   - Network
 ha_release: 0.57

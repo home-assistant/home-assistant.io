@@ -1,7 +1,6 @@
 ---
 title: Glances
 description: Instructions on how to integrate Glances sensors into Home Assistant.
-logo: glances.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling

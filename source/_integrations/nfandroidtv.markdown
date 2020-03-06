@@ -1,7 +1,6 @@
 ---
 title: Notifications for Android TV / FireTV
 description: Notifications for Android TV / FireTV
-logo: nfandroidtv.png
 ha_category:
   - Notifications
 ha_release: 0.32

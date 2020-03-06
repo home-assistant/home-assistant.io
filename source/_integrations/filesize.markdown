@@ -1,7 +1,6 @@
 ---
 title: File Size
 description: Component for monitoring the size of a file.
-logo: file.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling

@@ -1,7 +1,6 @@
 ---
 title: HERE Travel Time
 description: Instructions on how to add HERE travel time to Home Assistant.
-logo: HERE_logo.svg
 ha_category:
   - Transport
   - Sensor

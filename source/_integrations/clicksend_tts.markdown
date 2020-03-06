@@ -1,7 +1,6 @@
 ---
 title: ClickSend TTS
 description: Instructions on how to add ClickSend text-to-speech (TTS) notifications to Home Assistant.
-logo: clicksend.png
 ha_category:
   - Notifications
 ha_release: 0.55

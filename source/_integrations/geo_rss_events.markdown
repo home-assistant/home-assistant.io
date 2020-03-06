@@ -1,7 +1,6 @@
 ---
 title: GeoRSS
 description: Instructions on how to set up GeoRSS sensors within Home Assistant.
-logo: rss.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

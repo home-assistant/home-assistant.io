@@ -1,7 +1,6 @@
 ---
 title: StatsD
 description: Record events in StatsD.
-logo: statsd.png
 ha_category:
   - History
 ha_release: 0.12

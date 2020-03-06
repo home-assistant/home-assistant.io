@@ -1,7 +1,6 @@
 ---
 title: Ombi
 description: Instructions on how to set up the Ombi integration in Home Assistant.
-logo: ombi.png
 ha_category:
   - Sensor
 ha_release: '0.100'

@@ -1,7 +1,6 @@
 ---
 title: BeeWi SmartClim BLE sensor
 description: Instructions on how to integrate MBeeWi SmartClim BLE sensor with Home Assistant.
-logo: beewi_by_otio.png
 ha_category:
   - Sensor
 ha_release: 0.99

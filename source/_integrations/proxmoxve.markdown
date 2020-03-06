@@ -1,7 +1,6 @@
 ---
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-logo: proxmoxve.png
 ha_category:
   - Binary Sensor
 ha_release: 0.103

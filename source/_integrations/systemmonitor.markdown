@@ -1,7 +1,6 @@
 ---
 title: System Monitor
 description: Instructions on how to monitor the Home Assistant host.
-logo: system_monitor.png
 ha_category:
   - System Monitor
 ha_release: pre 0.7

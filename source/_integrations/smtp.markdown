@@ -1,7 +1,6 @@
 ---
 title: SMTP
 description: Instructions on how to add e-mail notifications to Home Assistant.
-logo: smtp.png
 ha_category:
   - Notifications
 ha_release: pre 0.7

@@ -1,7 +1,6 @@
 ---
 title: Duck DNS
 description: Keep your computer registered with the DuckDNS dynamic DNS.
-logo: duckdns.png
 ha_category:
   - Network
 ha_release: 0.55

@@ -1,7 +1,6 @@
 ---
 title: Suez Water
 description: Instructions on how to integrate Suez Water daily data within Home Assistant.
-logo: suez.png
 ha_release: 0.97
 ha_category:
   - Sensor

@@ -1,7 +1,6 @@
 ---
 title: IFTTT
 description: Instructions on how to setup IFTTT within Home Assistant.
-logo: ifttt.png
 ha_category:
   - Automation
 featured: true

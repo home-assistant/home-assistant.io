@@ -1,7 +1,6 @@
 ---
 title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
-logo: tellduslive.svg
 ha_category:
   - Hub
   - Binary Sensor

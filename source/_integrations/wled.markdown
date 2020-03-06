@@ -1,7 +1,6 @@
 ---
 title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-logo: wled.png
 ha_category:
   - Light
   - Sensor

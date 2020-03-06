@@ -1,7 +1,6 @@
 ---
 title: Xiaomi Mijia BLE Temperature and Humidity Sensor
 description: Instructions on how to integrate MiTemp BLE temperature and humidity sensor with Home Assistant.
-logo: xiaomi.png
 ha_category:
   - DIY
 ha_release: 0.69

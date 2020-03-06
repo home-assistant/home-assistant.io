@@ -4,7 +4,6 @@ description: Instructions on how to connect your Fronius Inverter to Home Assist
 ha_category:
   - Energy
   - Sensor
-logo: fronius.png
 ha_iot_class: Local Polling
 ha_release: 0.96
 ha_codeowners:

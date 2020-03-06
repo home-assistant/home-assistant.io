@@ -1,7 +1,6 @@
 ---
 title: Om Luftkvalitet i Norge (Norway Air)
 description: Display the current status of Norway air quality.
-logo: metno.png
 ha_category:
   - Health
 ha_iot_class: Cloud Polling

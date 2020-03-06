@@ -1,7 +1,6 @@
 ---
 title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
-logo: nmap.png
 ha_category:
   - Presence Detection
 ha_release: 0.7

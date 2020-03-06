@@ -1,7 +1,6 @@
 ---
 title: Linn / OpenHome
 description: Instructions on how to integrate Linn Ds and Openhome renderers into Home Assistant.
-logo: linn.png
 ha_category:
   - Media Player
 ha_release: 0.39

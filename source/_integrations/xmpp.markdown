@@ -1,7 +1,6 @@
 ---
 title: Jabber (XMPP)
 description: Instructions on how to add Jabber (XMPP) notifications to Home Assistant.
-logo: xmpp.png
 ha_category:
   - Notifications
 ha_release: pre 0.7

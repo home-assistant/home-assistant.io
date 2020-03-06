@@ -1,7 +1,6 @@
 ---
 title: Keyboard
 description: Instructions on how to simulate key presses with Home Assistant.
-logo: keyboard.png
 ha_category:
   - Automation
 ha_release: pre 0.7

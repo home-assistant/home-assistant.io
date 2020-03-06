@@ -1,7 +1,6 @@
 ---
 title: qBittorrent
 description: Instructions on how to integrate qBittorrent sensors within Home Assistant.
-logo: qbittorrent.png
 ha_category:
   - Downloading
 ha_release: 0.84

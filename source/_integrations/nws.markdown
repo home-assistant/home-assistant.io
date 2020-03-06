@@ -1,7 +1,6 @@
 ---
 title: National Weather Service (NWS)
 description: Instructions on how to integrate National Weather Service data within Home Assistant.
-logo: nws.png
 ha_category: Weather
 ha_release: 0.99
 ha_iot_class: Cloud Polling

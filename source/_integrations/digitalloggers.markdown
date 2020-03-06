@@ -1,7 +1,6 @@
 ---
 title: Digital Loggers
 description: Instructions on how to integrate Digital Loggers DIN III relays into Home Assistant.
-logo: digitalloggers.png
 ha_category:
   - Switch
 ha_release: 0.35

@@ -1,7 +1,6 @@
 ---
 title: Syslog
 description: Instructions on how to add syslog notifications to Home Assistant.
-logo: syslog.png
 ha_category:
   - Notifications
 ha_release: pre 0.7

@@ -1,7 +1,6 @@
 ---
 title: Belkin WeMo
 description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
-logo: belkin_wemo.png
 ha_category:
   - Hub
   - Binary Sensor

@@ -1,7 +1,6 @@
 ---
 title: OctoPrint
 description: Instructions on how to setup the OctoPrint in Home Assistant.
-logo: octoprint.png
 ha_category:
   - Hub
   - Binary Sensor

@@ -1,7 +1,6 @@
 ---
 title: Brunt Blind Engine
 description: Instructions on how to set up Brunt Blind Engine within Home Assistant.
-logo: brunt.png
 ha_category:
   - Cover
 ha_release: 0.75

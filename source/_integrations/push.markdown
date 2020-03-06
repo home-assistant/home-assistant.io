@@ -1,7 +1,6 @@
 ---
 title: Push
 description: Instructions how to use Push Camera within Home Assistant.
-logo: camcorder.png
 ha_category:
   - Camera
 ha_iot_class: Local Push

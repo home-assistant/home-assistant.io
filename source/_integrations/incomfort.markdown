@@ -1,7 +1,6 @@
 ---
 title: Intergas InComfort/Intouch Lan2RF gateway
 description: Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant.
-logo: incomfort.png
 ha_category:
   - Water Heater
   - Climate

@@ -1,7 +1,6 @@
 ---
 title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
-logo: rainmachine.png
 ha_category:
   - Irrigation
   - Binary Sensor

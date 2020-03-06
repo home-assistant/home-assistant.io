@@ -1,7 +1,6 @@
 ---
 title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
-logo: frontier.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push

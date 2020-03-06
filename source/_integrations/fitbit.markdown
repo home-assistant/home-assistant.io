@@ -1,7 +1,6 @@
 ---
 title: Fitbit
 description: Instructions on how to integrate Fitbit devices within Home Assistant.
-logo: fitbit.png
 ha_category:
   - Health
 ha_iot_class: Cloud Polling

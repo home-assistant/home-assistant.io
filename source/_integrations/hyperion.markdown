@@ -1,7 +1,6 @@
 ---
 title: Hyperion
 description: Instructions on how to integrate Hyperion into Home Assistant.
-logo: hyperion.png
 ha_category:
   - Light
 ha_release: 0.7.6

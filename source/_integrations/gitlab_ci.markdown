@@ -1,7 +1,6 @@
 ---
 title: GitLab-CI
 description: How to integrate GitLab-CI Job status within Home Assistant.
-logo: gitlab.png
 ha_category:
   - Sensor
 ha_release: 0.8

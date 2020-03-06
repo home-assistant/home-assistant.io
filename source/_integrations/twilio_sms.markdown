@@ -1,7 +1,6 @@
 ---
 title: Twilio SMS
 description: Instructions on how to add user notifications to Home Assistant.
-logo: twilio.png
 ha_category:
   - Notifications
 ha_release: '0.20'

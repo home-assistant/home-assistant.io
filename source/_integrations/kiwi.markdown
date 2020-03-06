@@ -1,7 +1,6 @@
 ---
 title: KIWI
 description: Instructions on how to integrate KIWI Smart Lock and Smart Entry.
-logo: kiwi.png
 ha_category:
   - Lock
 ha_release: 0.72

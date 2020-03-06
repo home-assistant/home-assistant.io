@@ -1,7 +1,6 @@
 ---
 title: Somfy Open API
 description: Instructions on how to set up the Somfy hub within Home Assistant.
-logo: somfy.png
 ha_category:
   - Hub
 ha_iot_class: Cloud Polling

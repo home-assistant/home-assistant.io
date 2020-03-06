@@ -1,7 +1,6 @@
 ---
 title: Apple iOS
 description: Instructions on how to use the iOS companion app with Home Assistant.
-logo: apple.png
 ha_category:
   - Hub
 ha_release: 0.31

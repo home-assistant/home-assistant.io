@@ -1,7 +1,6 @@
 ---
 title: Volvo On Call
 description: Instructions for how to integrate Volvo On Call into Home Assistant.
-logo: volvo.png
 ha_category:
   - Car
 ha_release: 0.39

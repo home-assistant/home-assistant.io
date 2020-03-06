@@ -1,7 +1,6 @@
 ---
 title: Vilfo Router
 description: Instructions on how to integrate a Vilfo Router into Home Assistant.
-logo: vilfo.png
 ha_release: '0.106'
 ha_category:
   - Network

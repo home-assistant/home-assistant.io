@@ -1,7 +1,6 @@
 ---
 title: Plugwise Anna
 description: Plugwise Climate integration.
-logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
 ha_release: 0.98

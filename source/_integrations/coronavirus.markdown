@@ -1,7 +1,6 @@
 ---
 title: Coronavirus (COVID-19)
 description: Instructions on how to integrate the Coronavirus sensors within Home Assistant.
-logo: coronavirus.png
 ha_category:
   - Health
 ha_release: 0.106

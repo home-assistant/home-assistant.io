@@ -1,7 +1,6 @@
 ---
 title: IMAP Email Content
 description: Instructions on how to integrate IMAP email content sensor into Home Assistant.
-logo: smtp.png
 ha_category:
   - Mailbox
 ha_iot_class: Cloud Push

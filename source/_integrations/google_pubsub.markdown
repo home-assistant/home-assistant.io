@@ -1,7 +1,6 @@
 ---
 title: Google Pub/Sub
 description: Setup for Google Pub/Sub integration
-logo: google-pubsub.png
 ha_category:
   - History
 ha_release: 0.88

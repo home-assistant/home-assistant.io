@@ -1,7 +1,6 @@
 ---
 title: Rocket.Chat
 description: Instructions on how to add Rocket.Chat notifications to Home Assistant.
-logo: rocketchat.png
 ha_category:
   - Notifications
 ha_release: 0.56

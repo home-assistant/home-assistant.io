@@ -1,7 +1,6 @@
 ---
 title: OwnTracks
 description: Instructions on how to use Owntracks to track devices in Home Assistant.
-logo: owntracks.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.4

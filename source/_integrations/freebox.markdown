@@ -1,7 +1,6 @@
 ---
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
-logo: freebox.svg
 ha_category:
   - Network
   - Presence Detection

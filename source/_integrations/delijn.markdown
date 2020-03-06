@@ -6,7 +6,6 @@ ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-logo: delijn.svg
 ha_codeowners:
   - '@bollewolle'
 ha_domain: delijn

@@ -1,7 +1,6 @@
 ---
 title: Logentries
 description: Send events to Logentries.
-logo: logentries.png
 ha_category:
   - History
 ha_release: 0.13

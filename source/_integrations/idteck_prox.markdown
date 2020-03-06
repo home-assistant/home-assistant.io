@@ -1,7 +1,6 @@
 ---
 title: IDTECK Proximity Reader
 description: How to use IDTECK proximity card readers.
-logo: idteck.jpg
 ha_category:
   - Other
 ha_release: 0.85

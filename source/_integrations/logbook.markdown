@@ -1,7 +1,6 @@
 ---
 title: Logbook
 description: Instructions on how to enable the logbook integration for Home Assistant.
-logo: logbook.png
 ha_category:
   - History
 ha_release: 0.7

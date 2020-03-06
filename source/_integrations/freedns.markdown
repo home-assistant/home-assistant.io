@@ -1,7 +1,6 @@
 ---
 title: FreeDNS
 description: Keep your DNS record up to date with FreeDNS.
-logo: afraid_freedns.png
 ha_category:
   - Network
 ha_release: 0.67

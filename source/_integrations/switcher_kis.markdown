@@ -1,7 +1,6 @@
 ---
 title: Switcher
 description: Controlling your Switcher V2 Water Heater.
-logo: switcher_boiler.png
 ha_category:
   - Switch
 ha_release: 0.93

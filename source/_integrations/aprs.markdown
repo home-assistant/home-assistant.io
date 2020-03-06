@@ -1,7 +1,6 @@
 ---
 title: APRS
 description: Instructions on how to use APRS to track devices in Home Assistant.
-logo: aprs.png
 ha_release: 0.95
 ha_category: Presence Detection
 ha_iot_class: Cloud Push

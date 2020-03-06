@@ -1,7 +1,6 @@
 ---
 title: KWB Easyfire
 description: Instructions on how to integrate the KWB Easyfire sensor into Home Assistant.
-logo: kwb.png
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
