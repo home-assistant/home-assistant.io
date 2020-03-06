@@ -13,19 +13,9 @@ The `totalconnect` integration provides connectivity with the Honeywell TotalCon
 
 ## Configuration
 
-### Via the frontend
-
 To enable TotalConnect via the user interface, go to **Configuration** > **Integrations** > the "plus" button > Total Connect.
 
-### Via the configuration file
-
-To enable TotalConnect via `configuration.yaml` add the following lines:
-
-```yaml
-totalconnect:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
+The configuration file is no longer supported.  Remove your `totalconnect` entry from configuration.yaml.
 
 {% configuration %}
 username:
