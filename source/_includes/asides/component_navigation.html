@@ -1,6 +1,4 @@
-{%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/dev/homeassistant' -%}
 <section class="aside-module grid__item one-whole lap-one-half">
-  {%- include edit_github.html -%}
 
   <div class='brand-logo-container section'>
     {%- if page.logo -%}
@@ -10,13 +8,11 @@
     {%- endif -%}
   </div>
 
-  {%- assign file_parts = page.url | split: '/' | last | split: '.' -%}
-  {%- assign imp_name = file_parts | last -%}
-  {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
-
-  <div class="section">
-    <kb-alert-link integration="{{ imp_name }}"></kb-alert-link>
-  </div>
+  {%- if page.ha_domain -%}
+    <div class="section">
+      <kb-alert-link integration="{{ page.ha_domain }}"></kb-alert-link>
+    </div>
+  {%- endif -%}
 
   {%- if page.ha_iot_class -%}
     <div class='section'>
@@ -52,9 +48,11 @@
     </div>
   {%- endif -%}
 
-  <div class='section'>
-    Source: <a href='{{github_main_repo}}{{imp_url}}'>{{imp_url}}</a>
-  </div>
+  {%- if page.ha_domain -%}
+    <div class='section'>
+      Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
+    </div>
+  {%- endif -%}
 
   {%- if page.ha_category.first -%}
     <div class='section'>
