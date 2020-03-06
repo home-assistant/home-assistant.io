@@ -1,7 +1,6 @@
 ---
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
-logo: knx.png
 ha_category:
   - Hub
 ha_release: 0.24
