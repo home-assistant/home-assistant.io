@@ -87,7 +87,7 @@ autobypass:
   default: false
   type: boolean
 zones:
-  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
+  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
   type: list
   keys:

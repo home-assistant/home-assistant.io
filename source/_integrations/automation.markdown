@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: automation
 ---
 
-Please see the [docs section](/docs/automation/) for in-depth
+Please see the [automation section](/docs/automation/) for in-depth
 documentation on how to use the automation integration.
 
 <p class='img'>

@@ -11,7 +11,7 @@ ha_domain: minio
 ---
 
 This integration adds interaction with [Minio](https://min.io).
-Also enables to listen for bucket notifications: [watch docs](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
+It also enables listening for bucket notifications: [see documentation](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
 
 To download or upload files, folders must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
