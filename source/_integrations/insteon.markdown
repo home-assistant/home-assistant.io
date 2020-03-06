@@ -96,7 +96,7 @@ host:
   required: false
   type: string
 ip_port:
-  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  description: The IP port number of the Hub. For Hub model [2245] (i.e., Hub version 2) the default port is 25105. For the Hub model [2242] (i.e., Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
   required: true
   type: integer
 username:

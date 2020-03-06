@@ -11,11 +11,12 @@ ha_codeowners:
   - '@mwegrzynek'
 ---
 
-The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, it's own firmware and commercially available devices (produced for example by [Zamel](https://supla.zamel.pl/))
+The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://supla.zamel.pl/))
 
-Currently only covers (shutters in Supla's lingo) and switches are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
+Currently only covers (shutters in Supla's lingo), gates and switches are supported, but, thanks to comprehensive and universal REST API, it's pretty easy to add more.
 
-Right now it's impossible to add single devices -- all of them are discovered from Supla Cloud's servers or yours.
+Right now it's impossible to add a device -- all of them are discovered from Supla Cloud's servers or yours.
+Devices disabled on Supla Cloud will not be loaded into Home Assistant.
 
 ## Configuration
 

@@ -205,4 +205,4 @@ Sets the minimum amount of time that the fan will run per hour.
 | Service data attribute | Optional | Description                                                                                            |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
-| `fan_min_on_time`      | no       | integer (e.g. 5)                                                                                       |
+| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                       |

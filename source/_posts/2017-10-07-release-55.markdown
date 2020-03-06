@@ -61,7 +61,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) ([history_graph docs]) (breaking change)
+- history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) (breaking change)
 - UPNP component: The `external_port` configuration option was removed. ([@balloob] - [#9560]) ([upnp docs]) (breaking change)
 - New Wink services: pair new device, rename, delete and add new lock key code. All device attributes that are multi-words are now separated by  "_" and no longer " ". ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
 - TP-Link Switch: Attribute names now uses underscores and unnecessary capitalization was removed. ([@djchen] - [#9607]) ([switch.tplink docs]) (breaking change)
@@ -383,7 +383,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
-[history_graph docs]: /integrations/history_graph/
 [#9754]: https://github.com/home-assistant/home-assistant/pull/9754
 [#9776]: https://github.com/home-assistant/home-assistant/pull/9776
 [#9785]: https://github.com/home-assistant/home-assistant/pull/9785

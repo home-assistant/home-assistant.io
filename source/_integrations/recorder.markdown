@@ -10,6 +10,12 @@ ha_quality_scale: internal
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
 
+<div class='note'>
+
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to store the data elsewhere (e.g., another system) or limit the amount of stored data (e.g., by excluding devices).
+
+</div>
+
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in Hass.io) and called `home-assistant_v2.db`.
@@ -83,7 +89,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
+Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -93,7 +99,6 @@ recorder:
   exclude:
     domains:
       - automation
-      - weblink
       - updater
     entities:
       - sun.sun # Don't record sun data
@@ -171,7 +176,7 @@ If using an external MariaDB backend (e.g., running on a separate NAS) with Home
 
 <div class='note'>
 
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
 
 </div>
 
@@ -189,7 +194,7 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
 To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash

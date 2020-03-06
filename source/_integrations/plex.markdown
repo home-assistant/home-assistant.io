@@ -79,13 +79,13 @@ media_player:
   required: false
   type: map
   keys:
-    show_all_controls:
-      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+    use_episode_art:
+      description: Display TV episode art instead of TV show art.
       required: false
       default: false
       type: boolean
-    use_episode_art:
-      description: Display TV episode art instead of TV show art.
+    ignore_new_shared_users:
+      description: Do not track Plex clients for newly added Plex users.
       required: false
       default: false
       type: boolean
@@ -101,12 +101,14 @@ plex:
   verify_ssl: true
   media_player:
     use_episode_art: true
-    show_all_controls: false
+    ignore_new_shared_users: false
 ```
 
 ## Media Player
 
 The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
+
+By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To choose specific users to monitor or ignore, select them via the Configuration Options (**Integrations** -> **Configured** --> **Plex** --> **Gear Icon**).
 
 ### Service `play_media`
 
@@ -151,11 +153,10 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV (PlexConnect)           | Controls disabled.  Music does not work.                                                                                                                        |
+| Apple TV                         | None                                                                                                                                                            |
 | iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
+| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
-| Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
 ### Notes
 

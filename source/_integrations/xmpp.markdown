@@ -19,7 +19,7 @@ To enable Jabber notifications in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME  # e.g. jabber
+  - name: NOTIFIER_NAME  # e.g.,  jabber
     platform: xmpp
     sender: YOUR_JID
     password: YOUR_JABBER_ACCOUNT_PASSWORD
@@ -33,7 +33,7 @@ name:
   type: string
   default: notify
 sender:
-  description: "The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, e.g. your_name@jabber.org."
+  description: "The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, e.g.,  your_name@jabber.org."
   required: true
   type: string
 resource:

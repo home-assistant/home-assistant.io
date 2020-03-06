@@ -1,6 +1,6 @@
 ---
-title: Netgear LTE
-description: Instructions on how to integrate your Netgear LTE modem within Home Assistant.
+title: NETGEAR LTE
+description: Instructions on how to integrate your NETGEAR LTE modem within Home Assistant.
 logo: netgear.png
 ha_release: 0.72
 ha_category:
@@ -92,7 +92,7 @@ sensor:
         current_band:
           description: The radio band used, e.g., "LTE B3".
         current_ps_service_type:
-          description: The service type, e.g. "LTE".
+          description: The service type, e.g.,  "LTE".
         radio_quality:
           description: A number with the radio quality in percent, e.g., "55"
         register_network_display:

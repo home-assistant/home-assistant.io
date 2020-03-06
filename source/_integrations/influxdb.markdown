@@ -194,7 +194,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: IP address of your database host, e.g. 192.168.1.10.
+  description: IP address of your database host, e.g.,  192.168.1.10.
   required: false
   default: localhost
   type: string

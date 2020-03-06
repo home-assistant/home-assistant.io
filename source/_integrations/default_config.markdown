@@ -24,6 +24,7 @@ This integration is a meta-component and configures a default set of integration
 - [System Health](/integrations/system_health/)
 - [Updater](/integrations/updater/)
 - [Zero-configuration networking (zeroconf)](/integrations/zeroconf/)
+- [Zone](/integrations/zone)
 
 ## Configuration
 

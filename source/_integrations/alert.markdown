@@ -247,8 +247,8 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: true  # Optional, default is true
+    skip_first: true  # Optional, false is the default
     data:
       inline_keyboard:
         - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
