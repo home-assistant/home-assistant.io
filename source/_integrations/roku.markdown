@@ -18,6 +18,11 @@ The `roku` platform allows you to control a [Roku](https://www.roku.com/) device
 Go to the integrations page in your configuration and click on new integration -> Roku.
 If you have enabled [ssdp](/integrations/ssdp) discovery and your Roku device is on, it's likely that you just have to confirm the detected device.
 
+There is currently support for the following device types within Home Assistant:
+
+- Media Player
+- Remote
+
 ### YAML Configuration
 
 YAML configuration is around for people that prefer YAML.
@@ -28,11 +33,6 @@ To use a Roku device add the following to your `configuration.yaml` file:
 roku:
   - host: IP_ADDRESS
 ```
-
-There is currently support for the following device types within Home Assistant:
-
-- Media Player
-- Remote
 
 {% configuration %}
 host:
