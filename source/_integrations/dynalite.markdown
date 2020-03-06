@@ -97,7 +97,7 @@ area:
           type: string
           default: No template
         TEMPLATE_PARAMS:
-          description: "This can be any of the settings of the template. For example, for template 'room': 'room_on' and 'room_off' are possible options"
+          description: "This can be any of the settings of the template. For example, for template `room`: `room_on` and `room_off` are possible options."
           required: false
           type: [integer, float]
           default: Value from **template** section or system defaults
