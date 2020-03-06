@@ -16,8 +16,11 @@ The integration will accept the following states from your Alarm Panel (in lower
 - `armed_home`
 - `armed_away`
 - `armed_night`
+- `armed_custom_bypass`
 - `pending`
 - `triggered`
+- `arming`
+- `disarming`
 
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
