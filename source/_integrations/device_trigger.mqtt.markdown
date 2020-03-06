@@ -1,11 +1,11 @@
 ---
 title: "MQTT Device Trigger"
 description: "Instructions on how to integrate MQTT device triggers within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Device Automation
 ha_release: 0.106
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` device trigger platform uses an MQTT message payload to generate device trigger events.

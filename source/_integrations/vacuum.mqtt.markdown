@@ -1,10 +1,10 @@
 ---
 title: "MQTT Vacuum"
 description: "Instructions on how to integrate your MQTT enabled Vacuum within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Vacuum
 ha_release: 0.54
+ha_domain: mqtt
 ---
 
 The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
