@@ -1,11 +1,11 @@
 ---
 title: "MQTT Sensor"
 description: "Instructions on how to integrate MQTT sensors within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Sensor
 ha_release: 0.7
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.

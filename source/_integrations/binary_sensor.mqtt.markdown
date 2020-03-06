@@ -1,11 +1,11 @@
 ---
 title: "MQTT Binary Sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Binary Sensor
 ha_release: 0.9
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: `on` or `off`.
