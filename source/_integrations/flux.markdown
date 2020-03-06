@@ -4,7 +4,6 @@ description: Instructions on how to have switches call command line commands.
 ha_category:
   - Automation
 ha_release: 0.21
-logo: home-assistant.png
 ha_quality_scale: internal
 ha_domain: flux
 ---

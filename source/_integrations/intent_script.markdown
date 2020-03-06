@@ -1,7 +1,6 @@
 ---
 title: Intent Script
 description: Instructions on how to setup scripts to run on intents.
-logo: home-assistant.png
 ha_category:
   - Intent
 ha_release: '0.50'

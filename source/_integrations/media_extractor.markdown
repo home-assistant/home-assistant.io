@@ -1,7 +1,6 @@
 ---
 title: Media Extractor
 description: Instructions on how to integrate the Media Extractor into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Media Player
 ha_release: 0.49

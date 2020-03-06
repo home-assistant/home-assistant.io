@@ -1,7 +1,6 @@
 ---
 title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling

@@ -1,7 +1,6 @@
 ---
 title: iframe Panel
 description: Instructions on how to add iFrames in the frontend of Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.25

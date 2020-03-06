@@ -3,7 +3,6 @@ title: Safe Mode
 description: Allows Home Assistant to start up in safe mode.
 ha_category: []
 ha_release: 0.105
-logo: home-assistant.png
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: safe_mode

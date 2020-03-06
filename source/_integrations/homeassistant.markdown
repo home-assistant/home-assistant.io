@@ -1,7 +1,6 @@
 ---
 title: Home Assistant Core Integration
 description: Description of the homeassistant integration.
-logo: home-assistant.png
 ha_release: 0.0
 ha_quality_scale: internal
 ha_codeowners:

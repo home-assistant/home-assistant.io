@@ -1,7 +1,6 @@
 ---
 title: Workday
 description: Steps to configure the binary workday sensor.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling

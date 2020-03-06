@@ -1,7 +1,6 @@
 ---
 title: LaCrosse
 description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - DIY
 ha_release: 0.58

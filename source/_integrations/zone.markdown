@@ -1,7 +1,6 @@
 ---
 title: Zone
 description: Instructions on how to set up zones within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Organization
 ha_release: 0.69

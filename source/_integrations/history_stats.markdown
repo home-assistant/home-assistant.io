@@ -1,7 +1,6 @@
 ---
 title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling

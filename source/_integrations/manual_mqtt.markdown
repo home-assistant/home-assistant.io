@@ -1,7 +1,6 @@
 ---
 title: Manual MQTT
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
-logo: home-assistant.png
 ha_category:
   - Alarm
 ha_release: '0.50'

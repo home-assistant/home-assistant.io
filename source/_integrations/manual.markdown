@@ -1,7 +1,6 @@
 ---
 title: Manual
 description: Instructions on how to integrate manual alarms into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Alarm
 ha_release: 0.7.6

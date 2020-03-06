@@ -1,7 +1,6 @@
 ---
 title: Map
 description: Offers a map to show tracked devices.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.56

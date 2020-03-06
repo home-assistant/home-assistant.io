@@ -1,7 +1,6 @@
 ---
 title: History
 description: Instructions on how to enable history support for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7

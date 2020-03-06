@@ -1,7 +1,6 @@
 ---
 title: Persistent Notification
 description: Instructions on how to integrate persistent notifications into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.23

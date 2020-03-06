@@ -1,7 +1,6 @@
 ---
 title: Pico TTS
 description: Instructions on how to setup Pico Text-to-Speech with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Text-to-speech
 ha_release: 0.36

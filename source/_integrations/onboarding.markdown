@@ -1,7 +1,6 @@
 ---
 title: Home Assistant Onboarding
 description: This integration is responsible for providing the onboarding endpoints.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.73

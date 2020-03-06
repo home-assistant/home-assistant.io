@@ -1,7 +1,6 @@
 ---
 title: Auth
 description: This integration is responsible for providing the authentication endpoints.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.73

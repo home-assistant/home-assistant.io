@@ -1,7 +1,6 @@
 ---
 title: Media Player
 description: Instructions on how to setup your media players with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Media Player
 ha_release: 0.7

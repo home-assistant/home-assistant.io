@@ -1,7 +1,6 @@
 ---
 title: Home Assistant Frontend
 description: Offers a frontend to Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7

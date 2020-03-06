@@ -1,7 +1,6 @@
 ---
 title: Presence-based Lights
 description: Instructions on how to automate your lights with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: pre 0.7

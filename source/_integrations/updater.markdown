@@ -1,7 +1,6 @@
 ---
 title: Updater
 description: Detecting when Home Assistant updates are available.
-logo: home-assistant.png
 ha_category:
   - Binary Sensor
 ha_release: 0.8
