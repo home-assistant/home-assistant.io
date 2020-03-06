@@ -9,6 +9,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.86
 ha_config_flow: true
+ha_quality_scale: silver
 ---
 
 The `roku` platform allows you to control a [Roku](https://www.roku.com/) device.
