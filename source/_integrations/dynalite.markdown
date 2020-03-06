@@ -207,7 +207,7 @@ template:
           type: integer
           default: 1
     timecover:
-      description: "This is used to define a cover that has 3 presets: open, close, and stop. Potentially can also use a channel that some systems (e.g. Control4) use to also send commands to open and close the cover. It uses the duration it takes to open or close to determine position. In addition, many times, these covers include tilt by opening or closing for a short time, so this can be defined as well."
+      description: "This is used to define a cover that has 3 presets: `open`, `close`, and `stop`. Potentially can also use a channel that some systems (e.g., Control4) use to also send commands to open and close the cover. It uses the duration it takes to open or close to determine position. In addition, many times, these covers include tilt by opening or closing for a short time, so this can be defined as well."
       required: false
       type: map
       keys:
