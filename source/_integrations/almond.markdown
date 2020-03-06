@@ -1,7 +1,6 @@
 ---
 title: Almond
 description: Instructions on how to setup Almond within Home Assistant.
-logo: almond.png
 ha_category:
   - Voice
 ha_iot_class: Local Polling

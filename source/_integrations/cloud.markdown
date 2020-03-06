@@ -1,7 +1,6 @@
 ---
 title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
-logo: nabu-casa.svg
 ha_release: '0.60'
 ha_category:
   - Voice

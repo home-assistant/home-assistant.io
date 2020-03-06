@@ -4,7 +4,6 @@ description: Instructions on how to set up the HomeKit integration in Home Assis
 ha_category:
   - Voice
 ha_release: 0.64
-logo: apple-homekit.png
 ha_domain: homekit
 ---
 

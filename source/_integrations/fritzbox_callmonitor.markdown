@@ -1,7 +1,6 @@
 ---
 title: AVM FRITZ!Box Call Monitor
 description: Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant.
-logo: avm.png
 ha_category:
   - System Monitor
 ha_release: 0.27

@@ -1,7 +1,6 @@
 ---
 title: AirVisual
 description: Instructions on how to use AirVisual data within Home Assistant
-logo: airvisual.jpg
 ha_category:
   - Health
 ha_release: 0.53

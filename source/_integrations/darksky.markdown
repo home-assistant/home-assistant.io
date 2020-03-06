@@ -1,7 +1,6 @@
 ---
 title: Dark Sky
 description: How to integrate Dark Sky within Home Assistant.
-logo: dark_sky.png
 ha_category:
   - Weather
 ha_release: '0.30'

@@ -1,7 +1,6 @@
 ---
 title: Meteorologisk institutt (Met.no)
 description: Instructions on how to integrate Met.no within Home Assistant.
-logo: metno.png
 ha_category:
   - Weather
 ha_release: 0.79

@@ -1,7 +1,6 @@
 ---
 title: Openuv
 description: Instructions on how to integrate OpenUV within Home Assistant.
-logo: openuv.jpg
 ha_category:
   - Health
   - Binary Sensor

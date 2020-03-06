@@ -1,7 +1,6 @@
 ---
 title: Signal Messenger
 description: Instructions on how to integrate Signal Messenger within Home Assistant.
-logo: signal_messenger.png
 ha_category:
   - Notifications
 ha_release: 0.104

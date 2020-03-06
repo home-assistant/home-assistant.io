@@ -1,7 +1,6 @@
 ---
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-logo: philips_hue.png
 ha_category:
   - Hub
   - Light

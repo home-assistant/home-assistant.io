@@ -1,7 +1,6 @@
 ---
 title: London Underground
 description: Display the current status of London underground & overground lines within Home Assistant.
-logo: london_underground.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling

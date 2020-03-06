@@ -1,7 +1,6 @@
 ---
 title: Facebox
 description: Detect and recognize faces with Facebox.
-logo: machine-box.png
 ha_category:
   - Image Processing
 ha_release: 0.7

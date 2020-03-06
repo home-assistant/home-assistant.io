@@ -1,7 +1,6 @@
 ---
 title: shiftr.io
 description: Transfer events to Shiftr.io.
-logo: shiftr.png
 ha_category:
   - History
 ha_release: 0.48

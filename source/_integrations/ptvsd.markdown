@@ -1,7 +1,6 @@
 ---
 title: PTVSD - Python Tools for Visual Studio Debug Server
 description: Debugging from Visual Studio Code.
-logo: visual-studio.png
 ha_category:
   - Utility
 ha_release: 0.93

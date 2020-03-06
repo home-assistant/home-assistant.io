@@ -1,7 +1,6 @@
 ---
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
-logo: hive.png
 ha_category:
   - Hub
   - Binary Sensor

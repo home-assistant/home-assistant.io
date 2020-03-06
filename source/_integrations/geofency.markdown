@@ -1,7 +1,6 @@
 ---
 title: Geofency
 description: Instructions for how to use Geofency to track devices in Home Assistant.
-logo: geofency.png
 ha_category:
   - Presence Detection
 ha_release: 0.53

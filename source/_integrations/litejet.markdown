@@ -1,7 +1,6 @@
 ---
 title: LiteJet
 description: Instructions on how to setup the LiteJet hub within Home Assistant.
-logo: centralite.svg
 ha_category:
   - Light
   - Scene

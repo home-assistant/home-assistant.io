@@ -4,7 +4,6 @@ description: Instructions on how to integrate a fail2ban sensor into Home Assist
 ha_category:
   - Network
 ha_iot_class: Local Polling
-logo: fail2ban.png
 ha_release: 0.57
 ha_domain: fail2ban
 ---

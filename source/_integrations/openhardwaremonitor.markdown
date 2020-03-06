@@ -1,7 +1,6 @@
 ---
 title: Open Hardware Monitor
 description: Instructions on how to integrate Open Hardware Monitor within Home Assistant.
-logo: openhardwaremonitor.png
 ha_category:
   - System Monitor
 ha_release: 0.48

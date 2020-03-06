@@ -1,7 +1,6 @@
 ---
 title: SkyBell
 description: Instructions on how to integrate your Skybell HD devices within Home Assistant.
-logo: skybell.png
 ha_category:
   - Doorbell
   - Binary Sensor

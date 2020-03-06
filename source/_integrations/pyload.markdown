@@ -1,7 +1,6 @@
 ---
 title: pyLoad
 description: Instructions on how to integrate pyLoad download sensor within Home Assistant.
-logo: pyload.png
 ha_category:
   - Downloading
 ha_release: 0.58

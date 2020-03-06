@@ -1,7 +1,6 @@
 ---
 title: Apache Kafka
 description: Send data and events to Apache Kafka.
-logo: apache_kafka.png
 ha_category:
   - History
 ha_release: 0.97

@@ -1,7 +1,6 @@
 ---
 title: Android IP Webcam
 description: Connect Android devices as an IP webcam to Home Assistant
-logo: android_ip_webcam.png
 ha_category:
   - Hub
   - Binary Sensor

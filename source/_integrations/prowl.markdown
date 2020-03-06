@@ -1,7 +1,6 @@
 ---
 title: Prowl
 description: Instructions on how to add Prowl notifications to Home Assistant.
-logo: prowl.png
 ha_category:
   - Notifications
 ha_release: 0.52

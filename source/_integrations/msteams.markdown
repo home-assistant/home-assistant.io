@@ -1,7 +1,6 @@
 ---
 title: Microsoft Teams
 description: Instructions on how to send a notification to a Microsoft Teams channel.
-logo: msteams.jpg
 ha_category:
   - Notifications
 ha_release: 0.101

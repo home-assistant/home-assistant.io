@@ -1,7 +1,6 @@
 ---
 title: Heyu X10
 description: Instructions on how to setup X10 devices within Home Assistant.
-logo: x10.gif
 ha_category:
   - Light
 ha_iot_class: Local Polling

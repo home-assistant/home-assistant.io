@@ -3,7 +3,6 @@ title: Xfinity Gateway
 description: Instructions on how to integrate Xfinity Gateways into Home Assistant.
 ha_category:
   - Presence Detection
-logo: xfinity.svg
 ha_release: 0.9
 ha_iot_class: Local Polling
 ha_codeowners:

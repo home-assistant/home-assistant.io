@@ -1,7 +1,6 @@
 ---
 title: AVM FRITZ!Box Net Monitor
 description: Instructions on how to integrate an AVM FRITZ!Box monitor into Home Assistant.
-logo: avm.png
 ha_category:
   - System Monitor
 ha_release: 0.36

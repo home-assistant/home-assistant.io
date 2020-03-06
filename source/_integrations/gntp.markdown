@@ -1,7 +1,6 @@
 ---
 title: Growl (GnGNTP)
 description: Instructions for adding GNTP/Growl notifications to Home Assistant.
-logo: gntp.png
 ha_category:
   - Notifications
 ha_release: 0.16

@@ -1,7 +1,6 @@
 ---
 title: Enphase Envoy
 description: Instructions on how to setup Enphase Envoy with Home Assistant.
-logo: enphase-logo.svg
 ha_category:
   - Energy
 ha_release: 0.76

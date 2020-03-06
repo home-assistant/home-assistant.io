@@ -1,7 +1,6 @@
 ---
 title: Twitter
 description: Instructions on how to add Twitter notifications to Home Assistant.
-logo: twitter.png
 ha_category:
   - Notifications
 ha_release: 0.12

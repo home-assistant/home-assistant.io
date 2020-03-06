@@ -1,7 +1,6 @@
 ---
 title: TensorFlow
 description: Detect and recognize objects with TensorFlow.
-logo: tensorflow.png
 ha_category:
   - Image Processing
 ha_iot_class: Local Polling

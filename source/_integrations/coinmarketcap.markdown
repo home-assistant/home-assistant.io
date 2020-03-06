@@ -1,7 +1,6 @@
 ---
 title: CoinMarketCap
 description: Instructions on how to integrate CoinMarketCap data within Home Assistant.
-logo: coinmarketcap.png
 ha_category:
   - Finance
 ha_release: 0.28

@@ -1,7 +1,6 @@
 ---
 title: Switchmate SimplySmart Home
 description: Instructions on how to set up Switchmate switches.
-logo: switchmate-logo-rgb.png
 ha_category:
   - Switch
 ha_release: 0.78

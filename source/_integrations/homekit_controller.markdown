@@ -1,7 +1,6 @@
 ---
 title: HomeKit Controller
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
-logo: apple-homekit.png
 ha_category:
   - Hub
   - Alarm

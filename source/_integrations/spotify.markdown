@@ -1,7 +1,6 @@
 ---
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
-logo: spotify.png
 ha_category:
   - Media Player
 ha_release: 0.43

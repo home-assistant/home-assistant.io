@@ -1,7 +1,6 @@
 ---
 title: Awair
 description: Instructions on how to setup Awair devices in Home Assistant.
-logo: awair.jpg
 ha_category:
   - Health
 ha_release: 0.84

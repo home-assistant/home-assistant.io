@@ -1,7 +1,6 @@
 ---
 title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
-logo: deconz.jpeg
 ha_category:
   - Hub
   - Binary Sensor

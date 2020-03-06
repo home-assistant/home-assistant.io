@@ -1,7 +1,6 @@
 ---
 title: Command Line
 description: Instructions on how to integrate Command binary sensors within Home Assistant.
-logo: command_line.png
 ha_category:
   - Utility
   - Binary Sensor

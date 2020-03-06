@@ -4,7 +4,6 @@ description: Instructions to add NOAA Tide information to Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.75
-logo: noaa.png
 ha_domain: noaa_tides
 ---
 

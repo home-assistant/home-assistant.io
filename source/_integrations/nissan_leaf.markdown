@@ -1,7 +1,6 @@
 ---
 title: Nissan Leaf
 description: Instructions for how to integrate Nissan Leaf(s) into Home Assistant.
-logo: nissan.png
 ha_category:
   - Car
 ha_release: 0.89

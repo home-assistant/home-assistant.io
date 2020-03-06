@@ -2,7 +2,6 @@
 title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
-logo: esphome.png
 ha_category:
   - DIY
 ha_release: 0.85

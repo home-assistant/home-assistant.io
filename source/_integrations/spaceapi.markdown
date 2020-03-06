@@ -1,7 +1,6 @@
 ---
 title: Space API
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
-logo: spaceapi.png
 ha_category:
   - Social
 ha_release: '0.70'

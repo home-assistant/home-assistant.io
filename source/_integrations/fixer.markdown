@@ -3,7 +3,6 @@ title: Fixer
 description: Instructions on how to integrate exchange rates from Fixer.io within Home Assistant.
 ha_category:
   - Finance
-logo: fixer-io.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23
 ha_codeowners:

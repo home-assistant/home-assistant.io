@@ -1,7 +1,6 @@
 ---
 title: UK Transport
 description: Display the current status of UK train and bus departures.
-logo: train.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling

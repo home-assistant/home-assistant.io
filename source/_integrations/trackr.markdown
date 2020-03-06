@@ -1,7 +1,6 @@
 ---
 title: TrackR
 description: Instructions on how to use TrackR to track devices in Home Assistant.
-logo: trackr.png
 ha_release: 0.36
 ha_category:
   - Presence Detection

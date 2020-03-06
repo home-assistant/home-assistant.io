@@ -1,7 +1,6 @@
 ---
 title: GPSD
 description: Instructions on how to integrate GPSD into Home Assistant.
-logo: gpsd.png
 ha_category:
   - Utility
 ha_release: 0.26

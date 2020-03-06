@@ -1,7 +1,6 @@
 ---
 title: Eliqonline
 description: Instructions on how to integrate Eliqonline devices within Home Assistant.
-logo: eliq.png
 ha_category:
   - Energy
 ha_release: '0.10'

@@ -1,7 +1,6 @@
 ---
 title: OPNSense
 description: Instructions on how to configure OPNsense integration
-logo: opnsense.png
 ha_category:
   - Hub
   - Presence Detection

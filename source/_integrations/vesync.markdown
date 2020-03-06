@@ -1,7 +1,6 @@
 ---
 title: Etekcity VeSync
 description: Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant.
-logo: vesync.png
 ha_category:
   - Switch
 ha_release: 0.66

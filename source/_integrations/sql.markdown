@@ -1,7 +1,6 @@
 ---
 title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
-logo: sql.png
 ha_category:
   - Utility
 ha_release: 0.63

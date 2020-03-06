@@ -1,7 +1,6 @@
 ---
 title: LlamaLab Automate
 description: Instructions on how to add user notifications to Home Assistant.
-logo: llamalab_automate.png
 ha_category:
   - Notifications
 ha_release: 0.27

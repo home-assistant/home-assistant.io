@@ -1,7 +1,6 @@
 ---
 title: Prometheus
 description: Record events in Prometheus.
-logo: prometheus.png
 ha_category:
   - History
 ha_release: 0.49

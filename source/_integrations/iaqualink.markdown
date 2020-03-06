@@ -1,7 +1,6 @@
 ---
 title: Jandy iAqualink
 description: Instructions on how to configure Jandy iAqualink integration.
-logo: iaqualink.png
 ha_category:
   - Binary Sensor
   - Climate
