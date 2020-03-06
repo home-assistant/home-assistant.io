@@ -1,11 +1,11 @@
 ---
 title: "Met Office Sensor"
 description: "Instructions on how to integrate Met Office weather conditions into Home Assistant."
-logo: metoffice.jpg
 ha_category:
   - Weather
 ha_release: 0.42
 ha_iot_class: Cloud Polling
+ha_domain: metoffice
 ---
 
 The `metoffice` sensor platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.

@@ -1,11 +1,11 @@
 ---
 title: "Google Calendar Event"
 description: "Instructions on how to use Google Calendars in Home Assistant."
-logo: google_calendar.png
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
+ha_domain: google
 ---
 
 The `google` calendar platform allows you to connect to your

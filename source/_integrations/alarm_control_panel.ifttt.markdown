@@ -1,10 +1,10 @@
 ---
 title: "IFTTT Alarm Control Panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
-logo: ifttt.png
 ha_category:
   - Alarm
 ha_release: 0.66
+ha_domain: ifttt
 ---
 
 The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).

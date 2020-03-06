@@ -1,7 +1,6 @@
 ---
 title: Modbus
 description: Instructions on how to integrate Modbus within Home Assistant.
-logo: modbus.png
 ha_category:
   - Hub
 ha_release: pre 0.7

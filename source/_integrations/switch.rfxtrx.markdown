@@ -1,10 +1,10 @@
 ---
 title: "RFXtrx Switch"
 description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Switch
 ha_release: 0.7.5
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.

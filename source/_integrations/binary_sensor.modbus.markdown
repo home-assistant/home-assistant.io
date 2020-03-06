@@ -1,11 +1,11 @@
 ---
 title: "Modbus Binary Sensor"
 description: "Instructions on how to set up Modbus binary sensors within Home Assistant."
-logo: modbus.png
 ha_category:
   - Binary Sensor
 ha_release: 0.28
 ha_iot_class: Local Push
+ha_domain: modbus
 ---
 
 The `modbus` binary sensor allows you to gather data from [Modbus](http://www.modbus.org/) coils.
