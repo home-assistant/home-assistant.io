@@ -27,7 +27,6 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 {% include integrations/config_flow.md %}
 
 ## Automation example
-
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
