@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Air Purifier"
 description: "Instructions on how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Fan
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
