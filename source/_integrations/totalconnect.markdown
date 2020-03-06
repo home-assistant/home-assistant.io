@@ -7,6 +7,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.42
 ha_config_flow: true
+ha_codeowners:
+  - '@austinmroczek'
 ---
 
 The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  
