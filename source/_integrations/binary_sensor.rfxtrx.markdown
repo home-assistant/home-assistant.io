@@ -1,10 +1,10 @@
 ---
 title: "RFXtrx Binary Sensor"
 description: "Instructions on how to integrate RFXtrx binary sensors into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Binary Sensor
 ha_release: 0.48
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support binary sensors that

@@ -1,11 +1,11 @@
 ---
 title: "FFmpeg Camera"
 description: "Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant."
-logo: ffmpeg.png
 ha_category:
   - Camera
 ha_release: 0.26
 ha_iot_class: Local Polling
+ha_domain: ffmpeg
 ---
 
 The `ffmpeg` platform allows you to use any video feed as a camera in Home Assistant via [FFmpeg](https://www.ffmpeg.org/). This video source must support multiple simultaneous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.

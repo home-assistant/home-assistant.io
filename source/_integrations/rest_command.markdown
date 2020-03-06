@@ -1,7 +1,6 @@
 ---
 title: RESTful Command
 description: Instructions on how to integrate REST commands into Home Assistant.
-logo: restful.png
 ha_category:
   - Automation
 ha_release: 0.36

@@ -1,7 +1,6 @@
 ---
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
-logo: rfxtrx.png
 ha_category:
   - Hub
 ha_release: pre 0.7

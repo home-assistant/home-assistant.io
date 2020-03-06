@@ -1,13 +1,13 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+ha_domain: alexa
 ---
 
 Amazon Alexa provides a Smart Home API for richer home automation control without requiring the user to say the skill name, such as:
