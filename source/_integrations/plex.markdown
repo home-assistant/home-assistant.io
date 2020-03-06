@@ -30,8 +30,6 @@ Local and secure connections are preferred when setting up an Integration. After
 
 </div>
 
-If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
-
 The `plex` integration can also be configured via `configuration.yaml`:
 
 ```yaml
