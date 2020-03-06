@@ -242,7 +242,7 @@ template:
           type: integer
           default: 0
         class:
-          description: "Type of cover for Home Assistant. The supported cover classes are currently 'awning', 'blind', 'curtain', 'damper', 'door', 'garage', 'shade', 'shutter', and 'window'."
+          description: "Type of cover for Home Assistant. The supported cover classes are currently `awning`, `blind`, `curtain`, `damper`, `door`, `garage`, `shade`, `shutter`, and `window`."
           require: false
           type: string
           default: shutter
