@@ -121,6 +121,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_custom_bypass:
+  description: The payload to set armed-custom-bypass mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_CUSTOM_BYPASS
 payload_available:
   description: The payload that represents the available state.
   required: false
