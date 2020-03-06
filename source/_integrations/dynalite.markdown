@@ -92,7 +92,7 @@ area:
           required: true
           type: string
         template:
-          description: "Type of template to use for the area. Supported values are: 'room', 'trigger', and 'timecover'. They are described in details below in the **template** section. If the template parameters are different than defaults, they can be overriden in this section as well"
+          description: "Type of template to use for the area. Supported values are: `room`, `trigger`, and `timecover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
           require: false
           type: string
           default: No template
