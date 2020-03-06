@@ -48,7 +48,7 @@ mac:
 type:
   description: Device type.
   required: false
-  type: int
+  type: integer
 timeout:
   description: Timeout in seconds for the connection to the device.
   required: false
