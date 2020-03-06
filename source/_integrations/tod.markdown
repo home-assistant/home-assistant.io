@@ -5,7 +5,6 @@ ha_category:
   - Binary Sensor
 ha_release: 0.89
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
 ha_domain: tod
 ---

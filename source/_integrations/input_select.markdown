@@ -1,7 +1,6 @@
 ---
 title: Input Select
 description: Instructions on how to integrate the Input Select integration into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.13

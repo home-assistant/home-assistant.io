@@ -1,7 +1,6 @@
 ---
 title: Home Assistant API
 description: Instructions on how to setup the RESTful API within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7

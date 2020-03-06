@@ -1,7 +1,6 @@
 ---
 title: Default Config
 description: The default configuration integration will initiate a default configuration for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.88

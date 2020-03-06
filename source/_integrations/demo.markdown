@@ -1,7 +1,6 @@
 ---
 title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7

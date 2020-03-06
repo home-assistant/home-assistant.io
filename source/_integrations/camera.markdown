@@ -1,7 +1,6 @@
 ---
 title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Camera
 ha_release: 0.7

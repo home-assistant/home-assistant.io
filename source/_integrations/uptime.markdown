@@ -4,7 +4,6 @@ description: Instructions on how to integrate an uptime sensor into Home Assista
 ha_category:
   - Utility
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_release: 0.56
 ha_quality_scale: internal
 ha_domain: uptime

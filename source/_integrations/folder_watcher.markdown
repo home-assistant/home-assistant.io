@@ -1,7 +1,6 @@
 ---
 title: Folder Watcher
 description: Component for monitoring changes within the filesystem.
-logo: home-assistant.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling

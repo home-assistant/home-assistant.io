@@ -1,7 +1,6 @@
 ---
 title: Input Text
 description: Instructions on how to integrate the Input Text integration into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.53

@@ -1,7 +1,6 @@
 ---
 title: Random
 description: Instructions on how to integrate random numbers into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
   - Sensor

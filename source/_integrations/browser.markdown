@@ -1,7 +1,6 @@
 ---
 title: Browser
 description: Instructions on how to setup the browser integration with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_release: pre 0.7

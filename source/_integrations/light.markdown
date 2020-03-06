@@ -1,7 +1,6 @@
 ---
 title: Light
 description: Instructions on how to setup your lights with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Light
 ha_release: pre 0.7

@@ -1,7 +1,6 @@
 ---
 title: Conversation
 description: Instructions on how to have conversations with your Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Voice
 ha_release: 0.7

@@ -1,7 +1,6 @@
 ---
 title: Stream
 description: Instructions on how to integrate live streams within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: '0.90'

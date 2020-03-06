@@ -1,7 +1,6 @@
 ---
 title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling

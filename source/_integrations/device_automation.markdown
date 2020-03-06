@@ -1,6 +1,5 @@
 ---
 title: Device Automation
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.7

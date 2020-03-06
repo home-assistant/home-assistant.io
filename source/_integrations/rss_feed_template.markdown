@@ -1,7 +1,6 @@
 ---
 title: RSS Feed Template
 description: Use this integration to generate RSS feeds showing your latest data.
-logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.44

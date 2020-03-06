@@ -1,7 +1,6 @@
 ---
 title: Sensor
 description: Instructions on how to setup your sensors with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Sensor
 ha_release: 0.7

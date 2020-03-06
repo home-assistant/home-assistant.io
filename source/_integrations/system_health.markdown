@@ -1,7 +1,6 @@
 ---
 title: System Health
 description: System Health integration will report system info and allow to run system diagnostics.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.87
