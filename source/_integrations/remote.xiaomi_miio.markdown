@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi IR Remote"
 description: "Instructions for how to integrate the Xiaomi IR Remote within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Remote
 ha_release: 0.63
 ha_iot_class: Local Polling
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
