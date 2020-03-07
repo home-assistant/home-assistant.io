@@ -33,7 +33,6 @@ remote:
   - platform: broadlink
     host: IP_ADDRESS
     mac: MAC_ADDRESS
-    type: 0x5f36
 ```
 
 {% configuration %}
