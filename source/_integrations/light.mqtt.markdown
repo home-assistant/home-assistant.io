@@ -508,7 +508,7 @@ rgb:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `json` to select the json schema".
+  description: The schema to use. Must be `json` to select the JSON schema".
   required: false
   type: string
   default: default
