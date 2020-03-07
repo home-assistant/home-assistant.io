@@ -1,7 +1,6 @@
 ---
 title: Google Domains
 description: Keep your computer registered with the Google Domains dynamic DNS.
-logo: google_domains.png
 ha_category:
   - Network
 ha_release: 0.57
