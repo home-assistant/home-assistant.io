@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: ambiclimate
 ---
 
 Integrates [Ambiclimate](https://ambiclimate.com/) Air Conditioning controller into Home Assistant.

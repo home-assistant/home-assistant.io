@@ -1,10 +1,10 @@
 ---
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
-description: "Show an image card and corresponding entity states as icon"
+description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
+The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>

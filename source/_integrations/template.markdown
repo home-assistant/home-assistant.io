@@ -5,11 +5,11 @@ ha_category:
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
+ha_domain: template
 ---
 
 The `template` platform supports sensors which get their values from other entities.

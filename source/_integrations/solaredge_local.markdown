@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@drobtravels'
   - '@scheric'
+ha_domain: solaredge_local
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.

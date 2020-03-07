@@ -1,7 +1,6 @@
 ---
 title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-logo: wled.png
 ha_category:
   - Light
   - Sensor
@@ -12,6 +11,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
+ha_domain: wled
 ---
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich

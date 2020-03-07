@@ -10,6 +10,7 @@ ha_release: 0.54
 ha_iot_class: Local Push
 ha_codeowners:
   - '@oblogic7'
+ha_domain: doorbird
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.

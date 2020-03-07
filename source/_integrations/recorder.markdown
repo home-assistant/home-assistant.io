@@ -1,11 +1,11 @@
 ---
 title: Recorder
 description: Instructions on how to configure the data recorder for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_domain: recorder
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).

@@ -1,11 +1,11 @@
 ---
 title: Steam
 description: Instructions on how to set up Steam sensors in Home Assistant.
-logo: steam.png
 ha_category:
   - Social
 ha_iot_class: Cloud Polling
 ha_release: 0.14
+ha_domain: steam_online
 ---
 
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.

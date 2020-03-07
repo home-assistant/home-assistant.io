@@ -15,6 +15,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@cgtobi'
 ha_config_flow: true
+ha_domain: netatmo
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.

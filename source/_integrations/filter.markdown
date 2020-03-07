@@ -5,10 +5,10 @@ ha_category:
   - Utility
 ha_release: 0.65
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: filter
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
@@ -46,7 +46,7 @@ sensor:
       - filter: lowpass
         time_constant: 10
       - filter: time_simple_moving_average
-        window_size: 00:05
+        window_size: "00:05"
         precision: 2
 ```
 
@@ -71,7 +71,7 @@ filters:
       required: true
       type: string
     window_size:
-      description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
+      description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states). Time periods are in _hh:mm_ format and must be quoted.
       required: false
       type: [integer, time]
       default: 1
@@ -150,7 +150,7 @@ This filter is relevant when you have a sensor which produces states at a very h
 
 The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
 
-To adjust the rate you need to set the window_size. To throttle a sensor down to 1 value per minute, the `window_size` should be set to 00:01.
+To adjust the rate you need to set the window_size. To throttle a sensor down to 1 value per minute, the `window_size` should be set to "00:01".
 
 This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes.
 
@@ -160,7 +160,7 @@ The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algori
 
 The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 
-Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).
+Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., "00:05" for a five minutes time window).
 
 ### Range
 

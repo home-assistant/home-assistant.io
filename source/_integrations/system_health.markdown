@@ -1,11 +1,11 @@
 ---
 title: System Health
 description: System Health integration will report system info and allow to run system diagnostics.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.87
 ha_quality_scale: internal
+ha_domain: system_health
 ---
 
 The System Health integration provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.

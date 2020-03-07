@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_codeowners:
   - '@fbradyirl'
   - '@mzdrale'
+ha_domain: luci
 ---
 
 _This is one of multiple ways we support OpenWrt. For an overview, see [OpenWrt](/integrations/openwrt/)._

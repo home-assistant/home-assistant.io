@@ -4,11 +4,11 @@ description: Instructions on how to integrate a version sensor into Home Assista
 ha_category:
   - Utility
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_release: 0.52
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+ha_domain: version
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.

@@ -1,11 +1,11 @@
 ---
 title: Pocket Casts
 description: Instructions on how to set up Pocket Casts sensors within Home Assistant.
-logo: pocketcasts.png
 ha_category:
   - Multimedia
 ha_release: 0.39
 ha_iot_class: Cloud Polling
+ha_domain: pocketcasts
 ---
 
 The `pocketcasts` sensor platform lets you monitor how many unplayed episodes you have of your favorite podcasts at [Pocket Casts](https://play.pocketcasts.com/).

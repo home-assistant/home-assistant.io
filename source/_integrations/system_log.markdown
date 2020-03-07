@@ -1,11 +1,11 @@
 ---
 title: System Log
 description: Summary of errors and warnings in Home Assistant during runtime.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.58
 ha_quality_scale: internal
+ha_domain: system_log
 ---
 
 The `system_log` integration stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.

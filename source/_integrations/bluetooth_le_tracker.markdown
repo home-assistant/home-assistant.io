@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.27
+ha_domain: bluetooth_le_tracker
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.

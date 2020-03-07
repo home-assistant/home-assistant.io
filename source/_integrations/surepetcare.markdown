@@ -1,7 +1,6 @@
 ---
 title: Sure Petcare
 description: Instructions on how to integrate the Sure Petcare cat and pet flaps into Home Assistant.
-logo: sure_petcare.png
 ha_category:
   - Binary Sensor
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
+ha_domain: surepetcare
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.

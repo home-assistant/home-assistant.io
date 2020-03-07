@@ -5,6 +5,7 @@ logo: tank_utility.png
 ha_category:
   - Energy
 ha_release: 0.53
+ha_domain: tank_utility
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.

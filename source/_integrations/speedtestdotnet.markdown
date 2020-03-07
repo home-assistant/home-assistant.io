@@ -9,6 +9,7 @@ ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: speedtestdotnet
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.

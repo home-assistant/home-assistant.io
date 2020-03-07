@@ -1,12 +1,12 @@
 ---
 title: Space API
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
-logo: spaceapi.png
 ha_category:
   - Social
 ha_release: '0.70'
 ha_codeowners:
   - '@fabaff'
+ha_domain: spaceapi
 ---
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
