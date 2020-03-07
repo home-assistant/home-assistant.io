@@ -50,6 +50,8 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+    camera.back_porch:
+      support_audio: True
 ```
 
 {% configuration %}
@@ -149,6 +151,56 @@ homekit:
                 required: false
                 type: string
                 default: '`switch`'
+              stream_address:
+                description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
+                required: false
+                type: string
+                default: local IP from Home Assistant Core
+              stream_source:
+                description: Only for `camera` entities. A URL, file or other valid FFmpeg input string to use as the stream source, rather than the default camera source. Required for camera entities that do not natively support streaming (mjpeg). If `-i` is not found in the stream source, it is prepended to construct the FFmpeg input.
+                required: false
+                type: string
+                default: stream source from camera entity
+              support_audio:
+                description: Only for `camera` entities. Whether the camera supports audio. Audio is disabled unless this flag is set to `True`.
+                required: false
+                type: boolean
+                default: '`False`'
+              max_width:
+                description: Only for `camera` entities. Maximum width supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 1920
+              max_height:
+                description: Only for `camera` entities. Maximum height supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 1080
+              max_fps:
+                description: Only for `camera` entities. Maximum fps supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 30
+              audio_map:
+                description: Only for `camera` entities. FFmpeg [stream selection mapping](https://ffmpeg.org/ffmpeg.html#Stream-selection) for the audio-only stream. Selects the first audio stream in the input stream by default. If your input stream has multiple audio streams, this may need to be adjusted.
+                required: false
+                type: string
+                default: '`0:a:0`'
+              video_map:
+                description: Only for `camera` entities. FFmpeg [stream selection mapping](https://ffmpeg.org/ffmpeg.html#Stream-selection) for the video-only stream. Selects the first video stream in the input stream by default. If your input stream has multiple video streams, this may need to be adjusted.
+                required: false
+                type: string
+                default: '`0:v:0`'
+              audio_packet_size:
+                description: Only for `camera` entities. RTP packet size used for streaming audio to HomeKit clients.
+                required: false
+                type: integer
+                default: 188
+              video_packet_size:
+                description: Only for `camera` entities. RTP packet size used for streaming video to HomeKit clients.
+                required: false
+                type: integer
+                default: 1316
 {% endconfiguration %}
 
 
@@ -350,6 +402,7 @@ The following integrations are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
+| camera | Camera | All camera devices. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
@@ -488,6 +541,14 @@ Media Player entities with `device_class: tv` will show up as Television accesso
 #### Can't control volume of your TV media player?
 
 The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
+
+#### Camera video is not streaming
+
+Ensure you have a recent version of FFmpeg installed. Verify that your stream is directly playable with `ffplay <stream_source>`. If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
+
+#### Camera audio is not streaming
+
+Make sure `support_audio` is `True` in the camera's entity config. FFmpeg *must* be compiled with `--with-fdk-aac` for audio support. Check with `ffmpeg -encoders`, ensuring `libfdk_aac` is in the list.
 
 #### Resetting accessories
 
