@@ -9,7 +9,6 @@ ha_release: 0.8
 ---
 
 The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
-Schema is chosen by setting the `schema` configuration parameter.
 
 ## Comparison of light MQTT schemas
 
