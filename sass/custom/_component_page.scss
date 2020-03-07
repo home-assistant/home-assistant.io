@@ -129,6 +129,11 @@
     }
 
     .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
       text-decoration: none;
       font-size: 18px;
       color: #000;
