@@ -155,9 +155,9 @@ homekit:
                 description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
                 required: false
                 type: string
-                default: local IP from Home Assistant Core
+                default: local IP from Home Assistant
               stream_source:
-                description: Only for `camera` entities. A URL, file or other valid FFmpeg input string to use as the stream source, rather than the default camera source. Required for camera entities that do not natively support streaming (mjpeg). If `-i` is not found in the stream source, it is prepended to construct the FFmpeg input.
+                description: Only for `camera` entities. A URL, file or other valid FFmpeg input string to use as the stream source, rather than the default camera source. Required for camera entities that do not natively support streaming (MJPEG). If `-i` is not found in the stream source, it is prepended to construct the FFmpeg input.
                 required: false
                 type: string
                 default: stream source from camera entity
@@ -548,7 +548,7 @@ Ensure you have a recent version of FFmpeg installed. Verify that your stream is
 
 #### Camera audio is not streaming
 
-Make sure `support_audio` is `True` in the camera's entity configuration. FFmpeg *must* be compiled with `--with-fdk-aac` for audio support. Check with `ffmpeg -encoders`, ensuring `libfdk_aac` is in the list.
+Make sure `support_audio` is `True` in the camera's entity configuration. FFmpeg *must* be compiled with `--with-fdk-aac` for audio support. Check with `ffmpeg -encoders`, ensuring `libfdk_aac` is on the list.
 
 #### Resetting accessories
 
