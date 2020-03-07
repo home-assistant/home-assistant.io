@@ -53,6 +53,11 @@ timeout:
   required: false
   default: 3
   type: integer
+delay:
+  description: Time to sleep in seconds after connecting and before sending messagees. Some modbus-tcp servers needs a short delay typically 1-2 seconds in order to prepare the communication. If a server accepts connecting, but there are no response to the requests send, this parameter might help.
+  required: false
+  default: 0
+  type: integer
 {% endconfiguration %}
 
 ### Serial connection
