@@ -548,7 +548,7 @@ Ensure you have a recent version of FFmpeg installed. Verify that your stream is
 
 #### Camera audio is not streaming
 
-Make sure `support_audio` is `True` in the camera's entity config. FFmpeg *must* be compiled with `--with-fdk-aac` for audio support. Check with `ffmpeg -encoders`, ensuring `libfdk_aac` is in the list.
+Make sure `support_audio` is `True` in the camera's entity configuration. FFmpeg *must* be compiled with `--with-fdk-aac` for audio support. Check with `ffmpeg -encoders`, ensuring `libfdk_aac` is in the list.
 
 #### Resetting accessories
 
