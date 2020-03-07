@@ -186,7 +186,7 @@ If you have this device, you need to follow these steps:
 - Remove the device from Broadlink App
 - Reset the device
 - Add the device to your local network using the app
-- Do not set up a cloud. Not now, not ever.
+- Do not set up a cloud (not now, not ever)
 - Specify the device type in the configuration file
 
 Example 1: Set up 0x5f36 as a remote
