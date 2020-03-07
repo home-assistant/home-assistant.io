@@ -178,6 +178,39 @@ script:
             - turn off display
 ```
 
+### Troubleshooting
+
+Many users are experiencing problems with Broadlink RM Mini 3 type 0x5f36 firmware v44057.
+
+If you have this device, you need to follow these steps:
+- Remove the device from Broadlink App
+- Reset the device
+- Add the device to your local network using the app
+- Do not set up a cloud. Not now, not ever.
+- Specify the device type in the configuration file
+
+Example 1: Set up 0x5f36 as a remote
+
+```yaml
+# Example configuration.yaml entry
+remote:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: 0x5f36
+```
+
+Example 2: Set up 0x5f36 as switch
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: "rm_mini3_5f36"
+```
+
 ## Sensor
 
 The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. There is currently no support for the cloud API.
