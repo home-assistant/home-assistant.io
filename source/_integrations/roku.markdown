@@ -12,12 +12,12 @@ ha_config_flow: true
 ha_quality_scale: silver
 ---
 
-The `roku` platform allows you to control a [Roku](https://www.roku.com/) device.
+The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
 
-### Setup
+### Configuration
 
 Go to the integrations page in your configuration and click on new integration -> Roku.
-If you have enabled [ssdp](/integrations/ssdp) discovery and your Roku device is on, it's likely that you just have to confirm the detected device.
+If your Roku device is on, it's likely that has been discovered already and you just have to confirm the detected device.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,8 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### YAML Configuration
 
-YAML configuration is around for people that prefer YAML.
-To use a Roku device add the following to your `configuration.yaml` file:
+Manual configuration of your Roku device is also possible, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,7 +91,7 @@ data:
 
 ## Media Player
 
-When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 
 The API calls are like this:
 
