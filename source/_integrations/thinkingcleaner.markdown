@@ -28,7 +28,7 @@ sensor:
 
 This will automatically add sensors for each Thinking Cleaner in your network.
 
-## switch
+## Switch
 
 The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](https://www.thinkingcleaner.com/) add-on.
 
@@ -41,3 +41,17 @@ switch:
 ```
 
 This will automatically add switches for each Thinking Cleaner in your network.
+
+## Hardcoded host
+
+If your `thinkingcleaner` device has a static IP address, you can also supply this to the sensor and switch using the host parameter. This is optional and will disable the automatic lookup.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thinkingcleaner
+    host: 10.0.0.55
+switch:
+  - platform: thinkingcleaner
+    host: 10.0.0.55
+```
