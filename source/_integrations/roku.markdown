@@ -17,7 +17,7 @@ The Roku integration allows you to control a [Roku](https://www.roku.com/) devic
 ### Configuration
 
 Go to the integrations page in your configuration and click on new integration -> Roku.
-If your Roku device is on, it's likely that has been discovered already and you just have to confirm the detected device.
+If your Roku device is on, it has likely been discovered already and you just have to confirm the detected device.
 
 There is currently support for the following device types within Home Assistant:
 
