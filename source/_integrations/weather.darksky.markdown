@@ -14,7 +14,7 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 
 ## Configuration
 
-You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
+You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates, by default, every 3 minutes, using up to 480 of those calls.
 
 <div class='note warning'>
 
@@ -61,6 +61,11 @@ mode:
   required: false
   type: string
   default: hourly
+scan_interval:
+  description: the frequency (in seconds) between data updates.
+  required: false
+  type: integer
+  default: 180
 {% endconfiguration %}
 
 <div class='note'>
