@@ -84,8 +84,7 @@ and "WarmupFlat". Those sensors will be `on` if there is an ongoing event
 matching the regular expression specified in `search`.
 In custom calendars, events that last a whole day are taken into account.
 
-Please note that when you configure custom calendars,
-the default ones are not created anymore.
+Please not that if you use the `custom_calendars` option, only those calendars will be loaded.  You cannot use `calendars` and `custom_calendars` in the same configuration.
 
 {% configuration %}
 url:
@@ -105,10 +104,12 @@ calendars:
   description: >
     List of the calendars to filter.
     Empty or absent means no filtering, i.e., all calendars will be added.
+    Cannot be used if custom_calendar option used
   type: list
 custom_calendars:
   required: false
   description: Details on any custom binary sensor calendars you want to create.
+  Using this will only load the custom calendars supplied.  No other calendars will load.
   type: list
   keys:
     name:
@@ -157,7 +158,7 @@ Prerequisite: you have a calendar named "work" where
 you create calendar entries containing "Holiday".
 
 Custom calendar names are built from the
-main calendar + name of the custom calendar.
+main calendar + name of the custom calendar.  Using the option of `'.*'` will load all calendar events.
 
 ```yaml
 # configuration.yaml
@@ -170,6 +171,9 @@ calendar:
       - name: holiday
         calendar: work
         search: 'Holiday'
+      - name: vacation
+        calendar: vacation
+        search: '.*'
 
 # automations.yaml
 - id: wakeup
