@@ -113,7 +113,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
     to: John Doe
   condition:
   - condition: template
-    value_template: '{{ is_state_attr(''sensor.front_door_operator'', ''remote'', False) }}'
+    value_template: '{{ is_state_attr("sensor.front_door_operator", "remote", False) }}'
   action:
   - data: {}
     entity_id: camera.inside
