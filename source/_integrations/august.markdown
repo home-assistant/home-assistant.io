@@ -103,6 +103,7 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote).  The below example will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 
+{% raw %}
 ```yaml
 - id: '1583706446906'
   alias: joe_doe_front_door_operate
@@ -119,3 +120,4 @@ Using the lock operation sensors, you can detect when a user operates a lock and
     entity_id: camera.inside
     service: camera.turn_off
 ```
+{% endraw %}
