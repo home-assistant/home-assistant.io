@@ -91,7 +91,7 @@ trv:
 {% endconfiguration %}
 
 
-Where `192.168.1.2` is the IP address of your Lightwave hub.
+Where IP_ADDRESS is the IP address of your Lightwave hub.
 Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form `R#D#` where `R#` is the room number and `D#` is the device number.
 
 `lights` and `switches` are optional but one of these must be present.
@@ -106,7 +106,7 @@ See [LWProxy](https://github.com/ColinRobbins/Homeassistant-Lightwave-TRV)
 ```yaml
 # Example TRV configuration.yaml for TRVs
 lightwave:
-  host: 192.168.1.2
+  host: IP_ADDRESS
   lights:
     R99D1:
       name: Bedroom Light
