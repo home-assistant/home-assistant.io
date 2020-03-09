@@ -66,7 +66,7 @@ calendar:
 
 This will create two binary sensors for the calendar name Agenda: "HomeOffice" and "WarmupFlat". Those sensors will be `on` if there is an ongoing event matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
 
-Please not that if you use the `custom_calendars` option, only those calendars will be loaded.  You cannot use `calendars` and `custom_calendars` in the same configuration.
+Please note that if you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
 
 {% configuration %}
 url:
@@ -83,7 +83,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. Cannot be used if custom_calendar option used
+  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It annot be used if `custom_calender` option is used.
   type: list
 custom_calendars:
   required: false
