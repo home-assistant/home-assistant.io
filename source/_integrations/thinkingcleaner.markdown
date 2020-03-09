@@ -20,11 +20,11 @@ The `thinkingcleaner` sensor platform simple displays information about your [Th
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
-```yaml
+{% configuration %}
 # Example configuration.yaml entry
 sensor:
   - platform: thinkingcleaner
-```
+{% endconfiguration %}
 
 This will automatically add sensors for each Thinking Cleaner in your network.
 
@@ -34,11 +34,11 @@ The `thinkingcleaner` switch platform allows you to control your [Thinking Clean
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
-```yaml
+{% configuration %}
 # Example configuration.yaml entry
 switch:
   - platform: thinkingcleaner
-```
+{% endconfiguration %}
 
 This will automatically add switches for each Thinking Cleaner in your network.
 
@@ -46,7 +46,7 @@ This will automatically add switches for each Thinking Cleaner in your network.
 
 If your `thinkingcleaner` device has a static IP address, you can also supply this to the sensor and switch using the host parameter. This is optional and will disable the automatic lookup.
 
-```yaml
+{% configuration %}
 # Example configuration.yaml entry
 sensor:
   - platform: thinkingcleaner
@@ -54,4 +54,4 @@ sensor:
 switch:
   - platform: thinkingcleaner
     host: 10.0.0.55
-```
+{% endconfiguration %}
