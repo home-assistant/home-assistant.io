@@ -56,7 +56,7 @@ host:
 
 This will automatically add switches for each Thinking Cleaner in your network.
 
-## Example config using a Roomba with a static IP
+## Example configuration using a Roomba with a static IP
 
 If your `thinkingcleaner` device has a static IP address, you can also supply this to the sensor and switch using the host parameter. This is optional and will disable the automatic lookup.
 
