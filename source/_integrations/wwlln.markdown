@@ -1,13 +1,13 @@
 ---
 title: World Wide Lightning Location Network (WWLLN)
 description: Instructions on how to integrate WWLLN within Home Assistant.
-logo: wwlln.jpg
 ha_category: Geolocation
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: wwlln
 ---
 
 The `wwlln` integration displays lightning strike information from the

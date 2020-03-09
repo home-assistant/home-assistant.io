@@ -11,6 +11,7 @@ ha_category:
 ha_release: '0.20'
 ha_codeowners:
   - '@kellerza'
+ha_domain: qwikswitch
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
@@ -48,7 +49,7 @@ button_events:
   default: TOGGLE,SCENE EXE,LEVEL
   type: string
 switches:
-  description: A list of device QS_id's that should be switches, and not lights (i.e. `['@0dev01', '@0dev02']`)
+  description: A list of device QS_id's that should be switches, and not lights (i.e., `['@0dev01', '@0dev02']`)
   required: false
   type: list
 sensors:

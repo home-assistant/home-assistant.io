@@ -1,7 +1,6 @@
 ---
 title: AVM FRITZ!Box
 description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
-logo: avm.png
 ha_category:
   - Binary Sensor
   - Climate
@@ -9,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_domain: fritzbox
 ---
 
 The [AVM](https://en.avm.de) FRITZ!Box integration for Home Assistant allows you to integrate the switch and climate devices.
@@ -24,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!Box 7490](https://en.avm.de/products/fritzbox/fritzbox-7490/)
 - [FRITZ!Box 7430](https://en.avm.de/products/fritzbox/fritzbox-7430/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
@@ -84,7 +85,7 @@ There are several attributes that can be useful for automations and templates.
 
 ## Sensor
 
-To get AVM FRITZ!Box temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
+To get AVM FRITZ!Box temperature sensor (e.g.,  FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
 
 ### Attributes
 

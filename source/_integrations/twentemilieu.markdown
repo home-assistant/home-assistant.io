@@ -10,6 +10,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
+ha_domain: twentemilieu
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste

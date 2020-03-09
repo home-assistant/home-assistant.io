@@ -1,11 +1,11 @@
 ---
 title: Universal Media Player
 description: Instructions on how to create a universal media player in Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Media Player
 ha_release: 0.11
 ha_quality_scale: internal
+ha_domain: universal
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.

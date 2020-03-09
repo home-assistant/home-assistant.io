@@ -1,11 +1,13 @@
 ---
-title: "OPNsense"
-description: "Instructions on how to configure OPNsense integration"
-logo: opnsense.png
+title: OPNSense
+description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
   - Presence Detection
 ha_release: 0.105
+ha_codeowners:
+  - '@mtreinish'
+ha_domain: opnsense
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall

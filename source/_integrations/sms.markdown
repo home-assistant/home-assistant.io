@@ -8,6 +8,7 @@ ha_release: 0.105
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ocalvo'
+ha_domain: sms
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.

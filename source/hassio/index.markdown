@@ -20,7 +20,7 @@ The advantages of using Home Assistant:
 - Active community that is helpful and sharing add-ons including AppDaemon, Homebridge and InfluxDB.<br><br>[Browse the forums &raquo;][forums]<br>[Join the Home Assistant chat &raquo;][chat]<br>[Browse community add-on repositories &raquo;][comm-add-ons]<br><br>
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qnCRcGTznXs" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XdiGdC7K4sI" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ### Upgrading
@@ -40,6 +40,6 @@ Home Assistant dashboard with upgrade notification (under the hamburger menu -> 
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[Home Assistant Operating System]: https://github.com/home-assistant/homeassistant
+[Home Assistant Operating System]: https://github.com/home-assistant/operating-system
 [Home Assistant Core]: https://www.home-assistant.io/docs/installation/
 [install]: /hassio/installation/

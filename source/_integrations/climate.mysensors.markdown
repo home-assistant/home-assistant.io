@@ -1,12 +1,12 @@
 ---
 title: "MySensors HVAC"
 description: "Instructions on how to integrate MySensors climate into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Climate
 ha_release: 0.29
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors HVAC into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

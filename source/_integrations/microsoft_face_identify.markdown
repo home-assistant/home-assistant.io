@@ -5,6 +5,7 @@ logo: microsoft.png
 ha_category:
   - Image Processing
 ha_release: 0.37
+ha_domain: microsoft_face_identify
 ---
 
 The `microsoft_face_identify` image processing platform lets you use

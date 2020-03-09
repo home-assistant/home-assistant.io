@@ -210,7 +210,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Axis__ - Events supplied from component might differ. Events will not be configurable in the beginning but will instead provide a subset set of events supported per device. This will be configurable in a later stage when config entry options are available. Configuration.yaml support for Axis component will be removed in the future so make sure to remove references to Axis component after upgrade. ([@Kane610] - [#18543]) ([axis docs])
 - __HTTP__ - Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs])
 - __Dark Sky__ - Dark Sky provides hourly forecasts for various monitored conditions. This change creates new sensors for each hourly forecasted condition with suffix `_<hour>h` while adding the suffix `_<day>d` to the daily forecasted conditions. For example, now a `sensor.dark_sky_summary_<day>d` and `sensor.dark_sky_summary_<hour>h` will be created if the forecast and hourly_forecast parameters are populated. ([@rtclauss] - [#21820]) ([darksky docs])
-- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e. siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e. name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
+- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e., siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e., name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
 
 - __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
 
@@ -831,7 +831,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch docs]: /integrations/switch/
 [switchbot docs]: /integrations/switchbot/
 [systemmonitor docs]: /integrations/systemmonitor/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [tfiac docs]: /integrations/tfiac/
 [tibber docs]: /integrations/tibber/

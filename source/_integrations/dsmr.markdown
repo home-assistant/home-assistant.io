@@ -6,6 +6,7 @@ ha_category:
   - Energy
 ha_release: 0.34
 ha_iot_class: Local Push
+ha_domain: dsmr
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
@@ -53,11 +54,11 @@ sensor:
 
 {% configuration %}
   port:
-    description: "Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001)."
+    description: "Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e., ser2net) connections, use TCP port number to connect to (i.e., 2001)."
     required: false
     type: string
   host:
-    description: "Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13)."
+    description: "Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e., 192.168.1.13)."
     required: false
     type: string
   dsmr_version:
@@ -92,7 +93,7 @@ group:
 ```
 
 ```yaml
-# Example configuration.yaml entry for remote (TCP/IP, i.e. via ser2net) connection to host which is connected to Smartmeter
+# Example configuration.yaml entry for remote (TCP/IP, i.e., via ser2net) connection to host which is connected to Smartmeter
 sensor:
   - platform: dsmr
     host: 192.168.1.13

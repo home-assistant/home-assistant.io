@@ -5,6 +5,7 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
+ha_domain: caldav
 ---
 
 The `caldav` platform allows you to connect to your WebDAV calendar and generate
@@ -103,7 +104,7 @@ calendars:
   required: false
   description: >
     List of the calendars to filter.
-    Empty or absent means no filtering, i.e. all calendars will be added.
+    Empty or absent means no filtering, i.e., all calendars will be added.
   type: list
 custom_calendars:
   required: false

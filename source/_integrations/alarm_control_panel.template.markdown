@@ -5,8 +5,8 @@ ha_category:
   - Alarm
 ha_release: 0.105
 ha_iot_class: "Local Push"
-logo: home-assistant.png
 ha_qa_scale: internal
+ha_domain: template
 ---
 
 The `template` integrations creates alarm control panels that combine integrations or adds pre-processing logic to actions.

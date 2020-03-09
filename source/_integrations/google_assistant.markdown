@@ -1,13 +1,13 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
-logo: google-assistant.png
 ha_category:
   - Voice
 featured: true
 ha_release: 0.56
 ha_codeowners:
   - '@home-assistant/cloud'
+ha_domain: google_assistant
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
@@ -185,7 +185,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
-- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
+- lock 
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)

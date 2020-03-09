@@ -1,12 +1,12 @@
 ---
 title: "MySensors Switch"
 description: "Instructions on how to integrate MySensors switches into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.11
+ha_domain: mysensors
 ---
 
 Integrates MySensors switches into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

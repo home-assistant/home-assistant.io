@@ -5,6 +5,7 @@ logo: microsoft.png
 ha_category:
   - Image Processing
 ha_release: 0.37
+ha_domain: microsoft_face
 ---
 
 The `microsoft_face` integration platform is the main integration for Microsoft

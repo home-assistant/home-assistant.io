@@ -11,6 +11,7 @@ ha_category:
   - Fan
 ha_release: 0.41
 ha_iot_class: Local Polling
+ha_domain: lutron_caseta
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches and shades.

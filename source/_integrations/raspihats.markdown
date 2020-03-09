@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.45
 ha_iot_class: Local Push
+ha_domain: raspihats
 ---
 
 The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.

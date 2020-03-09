@@ -7,6 +7,7 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@oischinger'
+ha_domain: vicare
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.

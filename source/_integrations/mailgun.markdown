@@ -6,6 +6,7 @@ ha_category:
   - Notifications
 ha_release: 0.38
 ha_config_flow: true
+ha_domain: mailgun
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).

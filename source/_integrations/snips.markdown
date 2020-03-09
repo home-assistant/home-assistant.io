@@ -5,6 +5,7 @@ logo: snips.png
 ha_category:
   - Voice
 ha_release: 0.48
+ha_domain: snips
 ---
 
 <div class='note warning'>

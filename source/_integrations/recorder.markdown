@@ -1,14 +1,20 @@
 ---
 title: Recorder
 description: Instructions on how to configure the data recorder for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_domain: recorder
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
+
+<div class='note'>
+
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to store the data elsewhere (e.g., another system) or limit the amount of stored data (e.g., by excluding devices).
+
+</div>
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
@@ -170,7 +176,7 @@ If using an external MariaDB backend (e.g., running on a separate NAS) with Home
 
 <div class='note'>
 
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
 
 </div>
 

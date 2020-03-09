@@ -1,13 +1,13 @@
 ---
 title: Scenes
 description: Instructions on how to setup scenes within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Organization
 ha_release: 0.15
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: scene
 ---
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.

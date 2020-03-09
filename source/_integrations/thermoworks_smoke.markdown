@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_release: 0.81
 ha_iot_class: Cloud Polling
+ha_domain: thermoworks_smoke
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).

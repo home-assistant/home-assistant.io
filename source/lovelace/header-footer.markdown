@@ -29,15 +29,15 @@ image:
   type: string
 tap_action:
   required: false
-  description: Action to take on tap.
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action to take on tap-and-hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action to take on tap-and-hold. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

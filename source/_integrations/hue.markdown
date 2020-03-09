@@ -1,7 +1,6 @@
 ---
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-logo: philips_hue.png
 ha_category:
   - Hub
   - Light
@@ -12,6 +11,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@balloob'
+ha_domain: hue
 ---
 
 Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).

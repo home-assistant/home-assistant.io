@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
+ha_domain: directv
 ha_config_flow: true
 ---
 

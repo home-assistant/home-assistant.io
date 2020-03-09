@@ -1,12 +1,12 @@
 ---
 title: "MySensors Notify"
 description: "Instructions on how to integrate MySensors notifications into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Notifications
 ha_release: 0.36
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors notifications into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

@@ -1966,7 +1966,7 @@ A list of split devices with 1 or more entries.
 
 ```python
 for sensor in self.split_device_list(self.args["sensors"]):
-    do_something(sensor)  # e.g. make a state subscription
+    do_something(sensor)  # e.g.,  make a state subscription
 ```
 
 

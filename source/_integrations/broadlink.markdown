@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+ha_domain: broadlink
 ---
 
 There is currently support for the following device types within Home Assistant:

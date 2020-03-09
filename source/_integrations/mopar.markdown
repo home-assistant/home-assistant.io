@@ -1,7 +1,6 @@
 ---
 title: Mopar
 description: Instructions on how to integrate Mopar vehicles into Home Assistant.
-logo: mopar.png
 ha_category:
   - Car
   - Sensor
@@ -9,6 +8,7 @@ ha_category:
   - Lock
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+ha_domain: mopar
 ---
 
 The `mopar` integration provides the following for owners of FCA vehicles with a uConnect subscription:

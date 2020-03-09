@@ -7,7 +7,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@bjornorri'
-ha_release: '0.106.0'
+ha_release: 0.106
+ha_domain: salt
 ---
 
 The `salt` platform offers presence detection by looking at connected devices to a [Salt Fiber Box](https://fiber.salt.ch/en/fiber/equipment/fiber-box) router from [Salt](https://www.salt.ch), which is an internet provider in Switzerland.

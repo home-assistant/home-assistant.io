@@ -1,10 +1,10 @@
 ---
 title: "RFXtrx Switch"
 description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Switch
 ha_release: 0.7.5
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
@@ -90,7 +90,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 
 - Use this code to add a new switch in your `configuration.yaml`
 - Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
+- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
 ## Examples

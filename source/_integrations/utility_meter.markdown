@@ -5,10 +5,10 @@ ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: energy_meter.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: utility_meter
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -83,7 +83,7 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 ### Service `utility_meter.next_tariff`
 
 Change the current tariff to the next in the list.
-This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
+This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -92,7 +92,7 @@ This service must be called by the user for the tariff switching logic to occur 
 ### Service `utility_meter.select_tariff`
 
 Change the current tariff to the given tariff.
-This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
+This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

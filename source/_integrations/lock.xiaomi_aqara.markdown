@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Aqara Lock"
 description: "Instructions on how to setup the Xiaomi Aqara Lock within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Lock
 ha_release: 0.71
 ha_iot_class: Local Push
+ha_domain: xiaomi_aqara
 ---
 
 

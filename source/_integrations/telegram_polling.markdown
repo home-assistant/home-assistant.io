@@ -1,10 +1,10 @@
 ---
 title: "Telegram polling"
 description: "Telegram polling support"
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.42
+ha_domain: telegram_bot
 ---
 
 Telegram chatbot polling implementation.

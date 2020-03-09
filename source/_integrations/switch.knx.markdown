@@ -1,11 +1,11 @@
 ---
 title: "KNX Switch"
 description: "Instructions on how to integrate KNX switches with Home Assistant."
-logo: knx.png
 ha_category:
   - Switch
 ha_release: 0.24
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
