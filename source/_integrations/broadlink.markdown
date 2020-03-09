@@ -180,13 +180,14 @@ script:
 
 ### Troubleshooting
 
-Many users are experiencing problems with Broadlink RM Mini 3 type 0x5f36 firmware v44057.
+Many users are experiencing problems with Broadlink RM Mini 3 0x5f36 and the entire RM4 series.
 
-If you have this device, you need to follow these steps:
+If you have these devices, you need to follow these steps:
 - Remove the device from Broadlink App
 - Reset the device
 - Add the device to your local network using the app
 - Do not set up a cloud (not now, not ever)
+- Use [Broadlink Manager](https://sourceforge.net/projects/broadlink-manager/) to get your device type
 - Specify the device type in the configuration file
 
 Example 1: Set up 0x5f36 as a remote
@@ -208,7 +209,18 @@ switch:
   - platform: broadlink
     host: IP_ADDRESS
     mac: MAC_ADDRESS
-    type: "rm_mini3_5f36"
+    type: 'rm_mini3_5f36'
+```
+
+Example 3: Set up RM4 as switch
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: 'rm4'
 ```
 
 ## Sensor
@@ -353,7 +365,7 @@ friendly_name:
   required: false
   type: string
 type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_5f36`, `rm4`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
   required: true
   type: string
 switches:
