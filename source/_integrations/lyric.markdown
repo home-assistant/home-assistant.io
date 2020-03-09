@@ -5,6 +5,7 @@ logo: honeywell.png
 ha_category:
   - Climate
 ha_release: 0.107
+ha_domain: lyric
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@shellster'
