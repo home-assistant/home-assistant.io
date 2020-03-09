@@ -9,6 +9,7 @@ ha_category:
   - Cover
 ha_iot_class: Local Push
 ha_release: 0.106
+ha_domain: dynalite
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 
