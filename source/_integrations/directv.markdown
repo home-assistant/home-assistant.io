@@ -9,17 +9,17 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ---
 
-The `directv` platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
+The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
 
-### Setup
+### Configuration
 
 Go to the integrations page in your configuration and click on new integration -> DirecTV.
-If you have enabled [ssdp](/integrations/ssdp) discovery and your DirecTV receiver is on, it's likely that you just have to confirm the detected device.
+If your DirecTV device is on, it has likely been discovered already and you just have to confirm the detected device.
 
 ### YAML Configuration
 
-YAML configuration is around for people that prefer YAML.
-To use a DirecTV receiver add the following to your `configuration.yaml` file:
+Manual configuration of your DirecTV device is also possible, add the following to your `configuration.yaml` file:
+
 
 ```yaml
 # Example configuration.yaml entry
