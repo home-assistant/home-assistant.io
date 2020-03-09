@@ -1,9 +1,8 @@
 ---
 title: Griddy
 description: Instructions on how to integrate griddy prices into Home Assistant.
-logo: griddy.png
 ha_category:
-  - Sensor 
+  - Sensor
 ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_config_flow: true
