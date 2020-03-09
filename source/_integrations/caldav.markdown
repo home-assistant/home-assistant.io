@@ -83,7 +83,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It annot be used if `custom_calender` option is used.
+  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It cannot be used if `custom_calender` option is used.
   type: list
 custom_calendars:
   required: false
