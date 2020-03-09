@@ -8,6 +8,10 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.106
+ha_codeowners:
+  - '@ziv1234'
+ha_config_flow: true
+ha_domain: dynalite
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light and switch platforms. 

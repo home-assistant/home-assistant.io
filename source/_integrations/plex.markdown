@@ -1,7 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-logo: plex.png
 ha_category:
   - Media Player
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
+ha_domain: plex
 ---
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
@@ -29,8 +29,6 @@ The preferred way to enable the Plex integration is via **Configuration** -> **I
 Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
 </div>
-
-If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 

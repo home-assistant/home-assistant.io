@@ -5,6 +5,7 @@ logo: voicerss.png
 ha_category:
   - Text-to-speech
 ha_release: 0.35
+ha_domain: voicerss
 ---
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.

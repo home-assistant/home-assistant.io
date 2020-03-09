@@ -1,11 +1,11 @@
 ---
 title: LaCrosse
 description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - DIY
 ha_release: 0.58
 ha_iot_class: Local Polling
+ha_domain: lacrosse
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).

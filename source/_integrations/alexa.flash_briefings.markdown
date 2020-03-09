@@ -1,10 +1,10 @@
 ---
 title: "Amazon Alexa Flash Briefing"
 description: "Instructions on how to create your Flash Briefing skills with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.31"
+ha_domain: alexa
 ---
 
 ## Flash Briefing Skills

@@ -5,8 +5,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.89
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: tod
 ---
 
 The `tod` platform supports binary sensors which get their values by checking if the current time is within defined time ranges.

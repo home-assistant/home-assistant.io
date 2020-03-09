@@ -8,6 +8,7 @@ ha_release: 0.38
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@pvizeli'
+ha_domain: nuki
 ---
 
 The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via either a [software bridge](https://play.google.com/store/apps/details?id=io.nuki.bridge) or a [physical bridge](https://nuki.io/en/bridge/).

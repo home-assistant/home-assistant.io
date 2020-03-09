@@ -1,13 +1,13 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+ha_domain: alexa
 ---
 
 Amazon Alexa provides a Smart Home API for richer home automation control without requiring the user to say the skill name, such as:
@@ -67,7 +67,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Create an AWS Lambda Function
 
-Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
+Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will deliver the response back to Alexa.
 
 <div class='info'>
 

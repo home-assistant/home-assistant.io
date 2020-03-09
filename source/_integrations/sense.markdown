@@ -11,6 +11,7 @@ ha_release: 0.82
 ha_config_flow: true
 ha_codeowners:
   - '@kbickar'
+ha_domain: sense
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

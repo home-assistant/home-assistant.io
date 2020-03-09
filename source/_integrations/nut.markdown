@@ -1,11 +1,11 @@
 ---
 title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
-logo: nut.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.34
+ha_domain: nut
 ---
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.

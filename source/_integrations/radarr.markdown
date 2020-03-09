@@ -1,10 +1,10 @@
 ---
 title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
-logo: radarr.png
 ha_category:
   - Downloading
 ha_release: 0.47
+ha_domain: radarr
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.

@@ -1,7 +1,6 @@
 ---
 title: Random
 description: Instructions on how to integrate random numbers into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
   - Sensor
@@ -11,6 +10,7 @@ ha_release: 0.32
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+ha_domain: random
 ---
 
 The `random` integration simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.

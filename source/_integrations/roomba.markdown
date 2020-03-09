@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.51
 ha_codeowners:
   - '@pschmitt'
+ha_domain: roomba
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.

@@ -1,12 +1,12 @@
 ---
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
-logo: habitica.png
 ha_category:
   - Hub
   - Sensor
 ha_release: 0.78
 ha_iot_class: Cloud Polling
+ha_domain: habitica
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.

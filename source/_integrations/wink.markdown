@@ -18,6 +18,7 @@ ha_category:
 featured: false
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
+ha_domain: wink
 ---
 
 [Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:

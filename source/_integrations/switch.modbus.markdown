@@ -1,11 +1,11 @@
 ---
 title: "Modbus Switch"
 description: "Instructions on how to integrate Modbus switches into Home Assistant."
-logo: modbus.png
 ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_domain: modbus
 ---
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.

@@ -408,6 +408,27 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 [eight_sleep docs]: /integrations/eight_sleep/
 [minecraft_server docs]: /integrations/minecraft_server/
 
+## Release 0.106.5 - March 3
+
+- Fix too many device tracker updates in log for Tesla ([@alandtse] - [#32426])
+- Filter out duplicate logbook states ([@balloob] - [#32427])
+- Properly define dependency for pvoutput integration on rest in… ([@bdraco] - [#32435])
+- Fix pushover's ATTR_RETRY env variable typo ([@axilleas] - [#32440])
+- Remove hassfest blacklisted rest ([@balloob] - [#32441])
+- UniFi - Fix websocket bug ([@Kane610] - [#32449])
+
+[#32426]: https://github.com/home-assistant/core/pull/32426
+[#32427]: https://github.com/home-assistant/core/pull/32427
+[#32435]: https://github.com/home-assistant/core/pull/32435
+[#32440]: https://github.com/home-assistant/core/pull/32440
+[#32441]: https://github.com/home-assistant/core/pull/32441
+[#32449]: https://github.com/home-assistant/core/pull/32449
+[@Kane610]: https://github.com/Kane610
+[@alandtse]: https://github.com/alandtse
+[@axilleas]: https://github.com/axilleas
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)

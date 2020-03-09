@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.106.3: Cornavirus integration (COVID-19), track the outbreak"
+title: "0.106.3: Coronavirus integration (COVID-19), track the outbreak"
 description: "A special release of Home Assistant, adding the Coronavirus integration (COVID-19)."
 date: 2020-03-02 00:00:00
 date_formatted: "March 02, 2020"

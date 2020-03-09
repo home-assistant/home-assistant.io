@@ -9,6 +9,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
+ha_domain: smappee
 ---
 
 The `smappee` integration adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.

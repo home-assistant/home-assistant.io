@@ -1,7 +1,6 @@
 ---
 title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
-logo: deconz.jpeg
 ha_category:
   - Hub
   - Binary Sensor
@@ -16,6 +15,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@kane610'
+ha_domain: deconz
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.

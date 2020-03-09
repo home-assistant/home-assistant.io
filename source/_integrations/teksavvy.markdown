@@ -6,6 +6,7 @@ ha_category:
   - Network
 ha_release: 0.62
 ha_iot_class: Cloud Polling
+ha_domain: teksavvy
 ---
 
 Integrate your [TekSavvy](https://myaccount.teksavvy.com/) account information into Home Assistant.

@@ -1,11 +1,11 @@
 ---
 title: "Notify Group"
 description: "Instructions on how to setup the notify group platform."
-logo: home-assistant.png
 ha_category:
   - Notifications
 ha_release: 0.26
 ha_quality_scale: internal
+ha_domain: group
 ---
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.

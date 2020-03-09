@@ -5,6 +5,7 @@ logo: google_domains.png
 ha_category:
   - Network
 ha_release: 0.57
+ha_domain: google_domains
 ---
 
 With the Google Domains integration you can keep your Google Domains record up to date.

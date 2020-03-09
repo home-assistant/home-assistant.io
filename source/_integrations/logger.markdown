@@ -1,13 +1,13 @@
 ---
 title: Logger
 description: Instructions on how to enable the logger integration for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_release: 0.8
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: logger
 ---
 
 The `logger` integration lets you define the level of logging activities in Home

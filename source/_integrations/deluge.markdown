@@ -1,13 +1,13 @@
 ---
 title: Deluge
 description: Instructions on how to integrate Deluge within Home Assistant.
-logo: deluge.png
 ha_category:
   - Downloading
   - Sensor
   - Switch
 ha_release: 0.57
 ha_iot_class: Local Polling
+ha_domain: deluge
 ---
 
 There is currently support for the following device types within Home Assistant:
