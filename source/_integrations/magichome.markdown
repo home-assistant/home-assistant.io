@@ -7,7 +7,7 @@ ha_category:
   - Light
   - Switch
 ha_iot_class: Cloud Polling
-ha_release: 0.106.5
+ha_release: 0.106
 ---
 
 The `magichome` integration is the main integration to integrate all [Zengge Smart](http://zengge.com/) related platforms. You will need your Magic Home Pro account information (username, password and account country code) to discover and control devices which related to your account.
