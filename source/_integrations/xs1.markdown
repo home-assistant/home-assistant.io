@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 ha_domain: xs1
 ---
 
-The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) integration for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official docs for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).
+The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) integration for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official documentation for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).
 
 ## Configuration
 
