@@ -60,7 +60,7 @@ extra_arguments:
 
 Most of the ONVIF cameras support more than one audio/video profile. Each profile provides different image quality. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time, especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in configuration `profile` variable.
 
-### Service `camera.onvif_ptz`
+### Service `onvif.ptz`
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
 
@@ -70,5 +70,9 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE`
 | `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE`
 | `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE`
+| `distance` | Distance coefficient. Sets how much PTZ should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1
+| `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5
+| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`. Default :`RelativeMove`
+| `continuous_duration` | Set ContinuousMove delay in seconds before stoping the move. Allowed values: floating point numbers or integer. Default : 0.5
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
