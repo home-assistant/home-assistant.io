@@ -24,15 +24,12 @@ Next, add the Ezviz camera to your `configuration.yaml` file like below:
 # Example configuration.yaml entry
 camera:
   - platform: ezviz
-    username: 'user@mail.com'
-    password: 'your_password_here'
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     cameras:
       D12345678:
-        username: admin
-        password: ABCDEF
-      D87654321:
-        username: admin
-        password: ABCDEF
+        username: YOUR_CAMERA_USERNAME
+        password: YOUR_CAMERA_PASSWORD
 ```
 
 As you see, here is the way to describe the camera credentials.
