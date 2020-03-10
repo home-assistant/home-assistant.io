@@ -30,7 +30,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | The speakers to snapshot. To target all sonos devices, use `all`.
+| `entity_id` | no | The speakers to snapshot. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.restore`
@@ -49,7 +49,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored. To target all sonos devices, use `all`.
+| `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.join`
