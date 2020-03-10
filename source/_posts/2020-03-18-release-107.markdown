@@ -17,14 +17,33 @@ Well, hello!, Home Assistant Core 0.107 beta! Enjoy the testing! 😃
 
 These are the draft release notes for the upcoming release, currently in Beta.
 
-**TODO**: Intro text
+----
 
-## Bye State UI, hello multiple Lovelace dashboards
+[George F. Will](https://en.wikipedia.org/wiki/George_Will) once said: _"The future has a way of arriving unannounced."_
 
-As announced with [0.105](/blog/2020/02/05/release-105), the old states UI is removed in this release. We did a survey to see what people would miss from states UI and found out that it is used mostly as a overview of all entities besides a nice layout that can be made in Lovelace.
-We found a solution for that, and then some... You are now able to create multiple Lovelace dashboards. This means you can have a dashboard with your main layout, one that is auto-generated (like State UI), one for experimenting, one for admins, one managed in YAML, one managed in the UI, etc.
+Well, dear George, we don't agree: Announcing the release of Home Assistant Core 0.107!
 
-You can create unlimited dashboards right from the UI in the new Lovelace configuration panel. YAML dashboards can be set up in `configuration.yaml`, see the documentation.
+This release brings a crazy amount of awesome new features and beautiful improvements to the frontend.
+
+## Bye State UI
+
+As announced with [0.105](/blog/2020/02/05/release-105), the old states UI has been removed from Home Assistant.
+If you are up for a flashback, maybe it is worth reading [the release notes for Home Assistant 0.7](/blog/2015/08/31/version-7-revamped-ui-and-improved-distribution/)
+were the revamped (and now removed) states UI was announced in. Now exactly 100 releases later, it is time to say goodbye to the states UI that has been with us for a long, long time...
+
+## Hello multiple Lovelace dashboards
+
+As we announced the deprecation of the old States UI in 0.105, not everybody seemed to be that happy about it. So we did a survey to see what people would miss from States UI and learned that it is mostly used as a overview of all entities besides a nice layout that can be made in Lovelace.
+
+In this release we bring you a Lovelace solution for that, and added a bit more even...
+
+You are now able to create multiple Lovelace configurations, which we call Lovelace Dashboards! This means you can have a dashboard with your main layout, one that is auto-generated (like the old State UI), one for experimenting, one for admins, one for your wall mounted tablet, etc.
+
+And, yes, you can can even mix and match multiple YAML mode managed Lovelace Dashboard and UI managed Lovelace Dashboards and auto-generated Lovelace Dashboards at the same time.
+
+You can create unlimited dashboards right from the UI in the new Lovelace configuration panel and YAML dashboards can be set up in `configuration.yaml`, see the documentation.
+
+**TODO**: Link to documentation
 
 <p class='img'>
 <img src='/images/blog/2020-03-0.107/lovelace-config-panel.png' alt='Screenshot of the new Lovelace config panel'></a>
