@@ -29,3 +29,10 @@ This sensor will return one of the following values:
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-moon.png' />
 </p>
+
+### Maintains entity `sensor.moon`
+
+| State Attributes | Description |
+| --------- | ----------- |
+| `next_new_moon` | Date of the next new moon (in UTC).
+| `next_full_moon` | Date of the next full moon (in UTC).
