@@ -5,11 +5,12 @@ logo: iammeter-logo.png
 ha_category:
   - Energy
   - Sensor
-ha_release: 0.104
+ha_release: 0.107
 ha_iot_class: Local Polling
+ha_domain: iammeter
 ---
 
-`iammeter` provides real-time reading of single phase (WEM3080, WEM3162) and three phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
+`iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
 
 ## Configuration
 
@@ -20,29 +21,30 @@ To use this sensor in your installation, add the following to your `configuratio
 sensor:
   - platform: iammeter
     host: IP_ADDRESS_OF_HOST
-    name: DEVICE_NAME
 ```
 
 {% configuration %}
 host:
-  description: The IP address of your iammeter.
+  description: The IP address of your IAMMETER.
   required: true
   type: string
 port:
-  description: port of your ianmeter
+  description: port of your IAMMETER.
   required: false
   default: 80
   type: integer
 name:
-  description: Name for the sensor entity in Home Assistant.
-  required: true
+  description: Name for the sensor entity.
+  required: false
   type: string
+  default: IamMeter
 {% endconfiguration %}
 
 ## Sensors
 
-Sensors available in the library: 
- - Single-phase energy meter (WEM3080/WEM3162).
+Sensors available in the library:
+
+### Single-phase energy meter (WEM3080/WEM3162)
 
 | name               | Unit | Description                                           |
 |--------------------|------|:-----------------------------------------------------------------------------|
@@ -52,7 +54,7 @@ Sensors available in the library:
 | wem3080_importenergy  | kWh  | Energy consumption from gird |
 | wem3080_exportgrid    | kWh  | Energy export to grid    |
 
- - Three-phase energy meter (WEM3080T).
+### Three-phase energy meter (WEM3080T)
 
 | name               | Unit | Description                                           |
 |--------------------|------|:-----------------------------------------------------------------------------|
