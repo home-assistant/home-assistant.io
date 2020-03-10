@@ -10,7 +10,7 @@ ha_domain: ezviz
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.
-It also exposes an RTSP stream, by using the local camera IPs (so the device hosting home assistant has to be able to access the local IP of the cameras).
+It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
 As there is no official documentation for the API, the component retrieves data from the API used in the Ezviz mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
