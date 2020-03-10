@@ -100,7 +100,7 @@ sudo systemctl start home-assistant@YOUR_USER
 You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
 
 ```bash
-sudo systemctl status home-assistant@YOUR_USER
+$ sudo systemctl status home-assistant@YOUR_USER
 ● home-assistant@fab.service - Home Assistant for YOUR_USER
    Loaded: loaded (/etc/systemd/system/home-assistant@YOUR_USER.service; enabled; vendor preset: disabled)
    Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
