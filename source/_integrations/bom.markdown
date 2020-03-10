@@ -34,7 +34,7 @@ name:
   required: false
   type: string
 station:
-  description: "The station ID string. See the [`sensor.bom` docs](#sensor) for details on how to find the ID of a station."
+  description: "The station ID string. See the [`sensor.bom` documentation](#sensor) for details on how to find the ID of a station."
   required: false
   type: string
   default: The closest station

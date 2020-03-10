@@ -1,7 +1,6 @@
 ---
 title: Microsoft Face Identify
 description: Instructions on how to integrate Microsoft Face Identify into Home Assistant.
-logo: microsoft.png
 ha_category:
   - Image Processing
 ha_release: 0.37

@@ -1,4 +1,4 @@
----
+--
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
 ha_category:
@@ -148,4 +148,4 @@ The Hue API doesn't activate scenes directly; rather, they must be associated wi
 
 Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
 
-The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on the scenes that are "least recently used."
+The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API documentation says this is based on the scenes that are "least recently used."

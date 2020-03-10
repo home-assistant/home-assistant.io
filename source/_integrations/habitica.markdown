@@ -73,7 +73,7 @@ A successful call to this service will fire an event `habitica_api_call_success`
 |----------------------|--------|----------------|
 |  `name`                |   string   |  Copied from service data attribute. |
 | `path` | [string] | Copied from service data attribute. |
-| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see [docs](https://habitica.com/apidoc/). |
+| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
 
 #### Let's consider some examples on how to call the service.
 
@@ -87,7 +87,7 @@ So let's call the API on `habitica.api_call`.
   * Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
   * Split the remaining on slashes (/) and **append the lowercase method** at the end.
   * You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
-* The `args` key is more or less described in the [docs](https://habitica.com/apidoc/).
+* The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
 
 Combining all together:
 call `habitica.api_call` with data
