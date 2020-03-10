@@ -2,10 +2,11 @@
 title: "Ezviz Camera"
 description: "Integrate Ezviz camera within Home Assistant."
 logo: ezviz.png
-ha_release: 0.103.0
+ha_release: 0.107
 ha_category:
   - Camera
 ha_iot_class: Cloud Polling
+ha_domain: ezviz
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.
@@ -66,7 +67,7 @@ cameras:
 
 ## Lovelace
 
-If you want a shiny lovelace card, with proper buttons, here is a snippet of a lovelace card:
+If you want a shiny Lovelace card, with proper buttons, here is a snippet of a Lovelace card:
 
 ```yaml
 
