@@ -1,5 +1,4 @@
 ---
-ha_domain:magichome
 title: "MagicHome"
 description: "Instructions on how to setup the MagicHome hub within Home Assistant."
 logo: https://brands.home-assistant.io/magichome/logo.png
@@ -8,6 +7,7 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.106
+ha_domain: magichome
 ---
 
 The `magichome` integration is the main integration to integrate all [Zengge Smart](http://zengge.com/) related platforms. You will need your Magic Home Pro account information (username, password and account country code) to discover and control devices which related to your account.
