@@ -80,7 +80,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [camera.blink docs]: /integrations/blink
 [cloud docs]: /integrations/cloud/
 [sensor.blink docs]: /integrations/blink
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 
 ## Release 0.80.3 - October 18
 
@@ -709,7 +709,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tradfri docs]: /integrations/tradfri
 [switch.volvooncall docs]: /integrations/volvooncall
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tibber docs]: /integrations/tibber/
 [timer docs]: /integrations/timer/
 [tradfri docs]: /integrations/tradfri/

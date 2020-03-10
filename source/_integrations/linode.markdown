@@ -8,6 +8,7 @@ ha_category:
 logo: linode.png
 ha_release: 0.57
 ha_iot_class: Cloud Polling
+ha_domain: linode
 ---
 
 The `linode` integration allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.

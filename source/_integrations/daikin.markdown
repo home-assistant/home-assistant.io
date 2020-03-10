@@ -13,6 +13,7 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@fredrike'
   - '@rofrantz'
+ha_domain: daikin
 ---
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.

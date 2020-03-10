@@ -4,11 +4,11 @@ description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
-logo: pi_hole.png
 ha_release: 0.28
 ha_codeowners:
   - '@fabaff'
   - '@johnluetke'
+ha_domain: pi_hole
 ---
 
 The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.
@@ -26,12 +26,12 @@ pi_hole:
 {% configuration %}
 host:
   description: >
-    The hostname (and port), e.g. '192.168.0.3:4865' of the host where Pi-hole is running. Home Assistant add-on users should be sure to specify port `4865`. 
+    The hostname (and port), e.g.,  '192.168.0.3:4865' of the host where Pi-hole is running. Home Assistant add-on users should be sure to specify port `4865`. 
   required: true
   type: string
 name:
   description: >
-    The name for this Pi-hole. This name will be a part of the sensors created, e.g. `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
+    The name for this Pi-hole. This name will be a part of the sensors created, e.g.,  `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
 
     **Note:** If you configure multiple Pi-Holes, each one *must* have a unique name.
   required: false

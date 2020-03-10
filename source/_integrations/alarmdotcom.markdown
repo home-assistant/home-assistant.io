@@ -5,6 +5,7 @@ logo: alarmdotcom.png
 ha_category:
   - Alarm
 ha_release: 0.11
+ha_domain: alarmdotcom
 ---
 
 The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).

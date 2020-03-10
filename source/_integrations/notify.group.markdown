@@ -1,11 +1,11 @@
 ---
 title: "Notify Group"
 description: "Instructions on how to setup the notify group platform."
-logo: home-assistant.png
 ha_category:
   - Notifications
 ha_release: 0.26
 ha_quality_scale: internal
+ha_domain: group
 ---
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.
@@ -35,7 +35,7 @@ services:
   type: list
   keys:
     service:
-      description: The service part of an entity ID, e.g. if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
+      description: The service part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
       required: true
       type: string
     data:

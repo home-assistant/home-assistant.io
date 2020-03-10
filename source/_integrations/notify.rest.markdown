@@ -1,10 +1,10 @@
 ---
 title: "REST"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
-logo: restful.png
 ha_category:
   - Notifications
 ha_release: 0.13
+ha_domain: rest
 ---
 
 The `rest` notification platform allows you to deliver [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) notifications from Home Assistant to another party.

@@ -1,13 +1,13 @@
 ---
 title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Cover
 ha_release: 0.27
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: cover
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.

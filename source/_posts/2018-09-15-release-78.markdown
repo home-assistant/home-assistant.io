@@ -480,7 +480,7 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 [switch.tahoma docs]: /integrations/tahoma
 [switch.tplink docs]: /integrations/tplink
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [upnp docs]: /integrations/upnp/
 [vacuum docs]: /integrations/vacuum/

@@ -1,7 +1,6 @@
 ---
 title: Xiaomi Gateway (Aqara)
 description: Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.
-logo: xiaomi.png
 ha_category:
   - Hub
 ha_release: 0.57
@@ -9,6 +8,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@danielhiversen'
   - '@syssi'
+ha_domain: xiaomi_aqara
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
@@ -283,7 +283,7 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
   - Find a USB-UART cable/module and connect it to your computer.
   - Solder 3 wires - RX, TX and GND like [here](https://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).
   - Turn on the gateway (220V).
-  - Open a serial terminal application (e.g. PuTTY) and connect to the serial port assigned to the USB-UART module (baudrate: 115200).
+  - Open a serial terminal application (e.g.,  PuTTY) and connect to the serial port assigned to the USB-UART module (baudrate: 115200).
   - Wait until the gateway is booted up, connect the RX, TX and GND wires to the UART module (don't connect the Vcc (power) wire!).
   - You will see all the messages from the gateway.
   - Send the command `psm-set network open_pf 3` (the command has to end with a `CR` newline character).

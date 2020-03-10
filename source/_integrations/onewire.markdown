@@ -1,13 +1,13 @@
 ---
 title: 1-Wire
 description: Instructions on how to integrate One wire (1-wire) sensors into Home Assistant.
-logo: onewire.png
 ha_category:
   - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@garbled1'
+ha_domain: onewire
 ---
 
 The `onewire` platform supports sensors which that using the One wire (1-wire) bus for communication.

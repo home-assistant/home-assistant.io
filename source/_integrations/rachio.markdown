@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
+ha_domain: rachio
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).

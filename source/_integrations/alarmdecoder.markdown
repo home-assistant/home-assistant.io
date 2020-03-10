@@ -8,6 +8,7 @@ ha_category:
   - Sensor
 ha_release: 0.43
 ha_iot_class: Local Push
+ha_domain: alarmdecoder
 ---
 
 The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
@@ -86,7 +87,7 @@ autobypass:
   default: false
   type: boolean
 zones:
-  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
+  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
   type: list
   keys:

@@ -1,7 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-logo: plex.png
 ha_category:
   - Media Player
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
+ha_domain: plex
 ---
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
@@ -29,8 +29,6 @@ The preferred way to enable the Plex integration is via **Configuration** -> **I
 Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
 </div>
-
-If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
@@ -79,11 +77,6 @@ media_player:
   required: false
   type: map
   keys:
-    show_all_controls:
-      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
-      required: false
-      default: false
-      type: boolean
     use_episode_art:
       description: Display TV episode art instead of TV show art.
       required: false
@@ -106,7 +99,6 @@ plex:
   verify_ssl: true
   media_player:
     use_episode_art: true
-    show_all_controls: false
     ignore_new_shared_users: false
 ```
 
@@ -159,11 +151,10 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV (PlexConnect)           | Controls disabled.  Music does not work.                                                                                                                        |
+| Apple TV                         | None                                                                                                                                                            |
 | iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
+| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
-| Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
 ### Notes
 

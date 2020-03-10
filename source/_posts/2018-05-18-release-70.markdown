@@ -432,7 +432,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tahoma docs]: /integrations/tahoma
 [system_log docs]: /integrations/system_log/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [updater docs]: /integrations/updater/
 [weather.bom docs]: /integrations/bom

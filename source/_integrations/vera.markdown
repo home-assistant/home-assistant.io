@@ -13,6 +13,7 @@ ha_category:
   - Switch
   - Climate
 ha_release: pre 0.7
+ha_domain: vera
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.

@@ -197,7 +197,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Core** - Only administrator users can stop or restart Home Assistant. - ([@balloob] - [#31509]) ([homeassistant docs])
 
-- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that `household_id` has been removed from configuration options as it is no longer needed. - ([@benleb] - [#31437]) ([surepetcare docs])
+- **Sure Petcare** - Sure Petcare supports new features and has improved existing features. As a result, you will want to note that the format of the `feeders`/`flaps`/`pets` options changed from a map (`id`/`name`) to a simple list of IDs, which means the `name` option is removed. The `name` is now gathered directly from the Sure Petcare API but changeable via the HA UI.
+
+  The `household_id` (which is no longer needed) and customizing options `icon` and `device_class` are also removed but can still be configured via the UI. - ([@benleb] - [#31437]) ([surepetcare docs])
 
   Example YAML configuration:
 
@@ -228,7 +230,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
           input_type: discrete_input
   ```
 
-- **Tado** - Adding support of multiple Tado accounts has changed the unique ID generation of sensor and climate devices, and now includes the ID of the home.
+- **Tado** - Adding support of multiple Tado accounts has changed the unique ID generation of sensor and climate devices, and now includes the ID of the home. As a result you will see new entity ID's for `sensor` and `climate` devices.
 
    In addition, support for water heater zones has been added. Tado hot water zones with temperature control previously created a climate entity, e.g., `climate.hot_water`, and these will be replaced by a `water_heater.hot_water` entity. This change is not breaking for hot water zones without temperature control as they do not have a climate zone.
 
@@ -332,6 +334,100 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix error where SimpliSafe websocket would disconnect and not reconnect ([@bachya] - [#32199]) ([simplisafe docs]) (beta fix)
 - Updated frontend to 20200220.4 ([@bramkragten] - [#32205]) ([frontend docs]) (beta fix)
 - Remove deprecated Hue options (fixes CI) ([@frenck] - [#32027]) ([hue docs]) (breaking change) (beta fix)
+
+## Release 0.106.1 - February 27
+
+- Add missing translations for light actions ([@emontnemery] - [#32216]) ([light docs])
+- Mark clients away if they have never been seen. ([@lociii] - [#32222]) ([unifi docs])
+- Fix DSMR 5 ([@dupondje] - [#32233]) ([dsmr docs])
+- Bump simplisafe-python to 9.0.0 ([@bachya] - [#32215]) ([simplisafe docs])
+- Bump simplisafe-python to 9.0.2 ([@bachya] - [#32273]) ([simplisafe docs])
+- deCONZ - Race condition on slower systems ([@Kane610] - [#32274]) ([deconz docs])
+- Catch more Hue errors ([@balloob] - [#32275]) ([hue docs])
+
+[#32215]: https://github.com/home-assistant/home-assistant/pull/32215
+[#32216]: https://github.com/home-assistant/home-assistant/pull/32216
+[#32222]: https://github.com/home-assistant/home-assistant/pull/32222
+[#32233]: https://github.com/home-assistant/home-assistant/pull/32233
+[#32273]: https://github.com/home-assistant/home-assistant/pull/32273
+[#32274]: https://github.com/home-assistant/home-assistant/pull/32274
+[#32275]: https://github.com/home-assistant/home-assistant/pull/32275
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@dupondje]: https://github.com/dupondje
+[@emontnemery]: https://github.com/emontnemery
+[@lociii]: https://github.com/lociii
+[deconz docs]: /integrations/deconz/
+[dsmr docs]: /integrations/dsmr/
+[hue docs]: /integrations/hue/
+[light docs]: /integrations/light/
+[simplisafe docs]: /integrations/simplisafe/
+[unifi docs]: /integrations/unifi/
+
+## Release 0.106.2 - February 28
+
+- Updated frontend to 20200220.5 ([@bramkragten] - [#32312]) ([frontend docs])
+- revent saving/deleting Lovelace config in safe mode ([@balloob] - [#32319]) ([lovelace docs])
+- UniFi - Temporary workaround to get device tracker to mark cli… ([@Kane610] - [#32321]) ([unifi docs])
+- Ensure rest sensors are marked unavailable when http requests… ([@bdraco] - [#32309]) ([rest docs])
+
+[#32309]: https://github.com/home-assistant/home-assistant/pull/32309
+[#32312]: https://github.com/home-assistant/home-assistant/pull/32312
+[#32319]: https://github.com/home-assistant/home-assistant/pull/32319
+[#32321]: https://github.com/home-assistant/home-assistant/pull/32321
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[frontend docs]: /integrations/frontend/
+[lovelace docs]: /integrations/lovelace/
+[rest docs]: /integrations/rest/
+[unifi docs]: /integrations/unifi/
+
+## Release 0.106.3 - March 2
+
+Added a Coronavirus integration to help monitor the ongoing epidemic. [More information here.](/blog/2020/03/02/release-106-3/)
+
+## Release 0.106.4 - March 2
+
+- Fixed TypeError with old server versions ([@elmurato] - [#32329]) ([minecraft_server docs])
+- Bump pyeight to 0.1.4 ([@mezz64] - [#32363]) ([eight_sleep docs])
+- Catch Eight Sleep API errors, don't round None type ([@mezz64] - [#32410])
+- Coronavirus updates ([@balloob] - [#32417])
+- Add unique ID to coronavirus ([@balloob] - [#32423])
+
+[#32329]: https://github.com/home-assistant/core/pull/32329
+[#32363]: https://github.com/home-assistant/core/pull/32363
+[#32410]: https://github.com/home-assistant/core/pull/32410
+[#32417]: https://github.com/home-assistant/core/pull/32417
+[#32423]: https://github.com/home-assistant/core/pull/32423
+[@balloob]: https://github.com/balloob
+[@elmurato]: https://github.com/elmurato
+[@mezz64]: https://github.com/mezz64
+[eight_sleep docs]: /integrations/eight_sleep/
+[minecraft_server docs]: /integrations/minecraft_server/
+
+## Release 0.106.5 - March 3
+
+- Fix too many device tracker updates in log for Tesla ([@alandtse] - [#32426])
+- Filter out duplicate logbook states ([@balloob] - [#32427])
+- Properly define dependency for pvoutput integration on rest in… ([@bdraco] - [#32435])
+- Fix pushover's ATTR_RETRY env variable typo ([@axilleas] - [#32440])
+- Remove hassfest blacklisted rest ([@balloob] - [#32441])
+- UniFi - Fix websocket bug ([@Kane610] - [#32449])
+
+[#32426]: https://github.com/home-assistant/core/pull/32426
+[#32427]: https://github.com/home-assistant/core/pull/32427
+[#32435]: https://github.com/home-assistant/core/pull/32435
+[#32440]: https://github.com/home-assistant/core/pull/32440
+[#32441]: https://github.com/home-assistant/core/pull/32441
+[#32449]: https://github.com/home-assistant/core/pull/32449
+[@Kane610]: https://github.com/Kane610
+[@alandtse]: https://github.com/alandtse
+[@axilleas]: https://github.com/axilleas
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
 
 ## All changes
 
@@ -1097,7 +1193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/

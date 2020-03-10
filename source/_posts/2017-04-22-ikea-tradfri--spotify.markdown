@@ -472,7 +472,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /integrations/tplink
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [telegram_bot.polling docs]: /integrations/telegram_polling
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tts.google docs]: /integrations/google_translate
@@ -493,7 +493,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.zwave docs]: /integrations/zwave#cover
 [recorder docs]: /integrations/recorder/
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [wemo docs]: /integrations/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271

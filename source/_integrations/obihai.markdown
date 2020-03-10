@@ -8,6 +8,7 @@ ha_category:
 ha_release: 0.99
 ha_codeowners:
   - '@dshokouhi'
+ha_domain: obihai
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).

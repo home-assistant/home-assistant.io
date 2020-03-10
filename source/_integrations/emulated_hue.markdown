@@ -1,12 +1,12 @@
 ---
 title: Emulated Hue
 description: Instructions on how to emulate a Hue Bridge within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Hub
 ha_release: 0.27
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_domain: emulated_hue
 ---
 
 <div class='note warning'>
@@ -148,7 +148,7 @@ You can verify that the `emulated_hue` integration has been loaded and is respon
 - `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
 - `http://<HA IP Address>:80/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-Verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
+Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
 ### Platform specific instructions
 

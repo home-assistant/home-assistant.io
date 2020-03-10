@@ -1,7 +1,6 @@
 ---
 title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
-logo: network-snmp.png
 ha_category:
   - Network
   - Switch
@@ -9,6 +8,7 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: snmp
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.

@@ -5,10 +5,15 @@ logo: august.png
 ha_category:
   - Doorbell
   - Binary Sensor
+  - Sensor 
   - Camera
   - Lock
 ha_release: 0.64
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
+ha_domain: august
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
@@ -17,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Doorbell
 - Binary Sensor
+- Sensor
 - Camera
 - Lock
 
@@ -28,7 +34,9 @@ August Lock 2nd Gen will need either August Connect or Doorbell to connect to Ho
 
 You will need your August login information (username (either phone# or email), and password) to use this module.
 
-To set it up, add the following to your `configuration.yaml` file:
+To add `August` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **August**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,16 +70,30 @@ Once Home Assistant is started, a configurator will pop up asking you to enter v
 
 ### Binary Sensor
 
-If you have August Doorbell, once you have enabled the August component, you should see following sensors:
+If you have an August Doorbell, once you have enabled the August component, you should see following sensors:
 
 - Doorbell ding sensor
 - Doorbell motion sensor
 - Doorbell online sensor
 
-If you have August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
+If you have an August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
 
 - Door sensor
 
 ### Camera
 
 The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](https://august.com/) device in Home Assistant.
+
+### Sensor
+
+If you have an August Doorbell with a battery, once you have enabled the August component, you should see the following sensors:
+
+- Doorbell Battery
+
+If you have an August Smart Lock, once you have enabled the August component, you should see the following sensors:
+
+- Lock Battery
+
+If you have an August Keypad, once you have enabled the August component, you should see the following sensors:
+
+- Keypad Battery

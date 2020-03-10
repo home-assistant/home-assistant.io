@@ -1,10 +1,10 @@
 ---
 title: Tomato
 description: Instructions on how to integrate Tomato routers into Home Assistant.
-logo: tomato.png
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
+ha_domain: tomato
 ---
 
 The `tomato` platform requires an extra configuration variable called `http_id`. The

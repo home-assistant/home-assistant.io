@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
+ha_domain: gdacs
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 
@@ -134,3 +135,7 @@ gdacs:
   latitude: -41.2
   longitude: 174.7
 ```
+
+## Locations NOT supported:
+
+- Ireland

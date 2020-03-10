@@ -9,6 +9,7 @@ ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@endor-force'
+ha_domain: trafikverket_train
 ---
 
 Retrieve train departure information from [Trafikverket](https://www.trafikverket.se/).

@@ -166,9 +166,8 @@ Debian/Ubuntu:
 
 ```bash
 sudo -i
-apt-get install software-properties-common
 apt-get update
-apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 systemctl disable ModemManager
 curl -fsSL get.docker.com | sh
 ```
@@ -197,7 +196,6 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `odroid-c2`
 - `odroid-cu2`
 - `odroid-xu`
-- `orangepi-prime`
 - `tinker`
 - `qemuarm`
 - `qemuarm-64`
@@ -217,21 +215,21 @@ A detailed guide about running Home Assistant as a virtual machine is available 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi0-w-3.11.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi-3.11.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi2-3.11.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi3-3.11.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi3-64-3.11.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi4-3.11.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi4-64-3.11.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_tinker-3.11.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_odroid-c2-3.11.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.3/hassos_odroid-n2-4.3.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_odroid-xu4-3.11.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_intel-nuc-3.11.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vdi.gz
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi0-w-3.12.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi-3.12.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi2-3.12.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi3-3.12.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi3-64-3.12.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi4-3.12.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi4-64-3.12.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_tinker-3.12.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_odroid-c2-3.12.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.4/hassos_odroid-n2-4.4.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_odroid-xu4-3.12.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_intel-nuc-3.12.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/

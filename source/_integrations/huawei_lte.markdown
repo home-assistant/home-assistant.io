@@ -1,7 +1,6 @@
 ---
 title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
-logo: huawei.svg
 ha_category:
   - Network
   - Presence Detection
@@ -14,6 +13,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@scop'
+ha_domain: huawei_lte
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
@@ -140,7 +140,7 @@ Reboot router.
 ### Service `huawei_lte.suspend_integration`
 
 Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
-Useful e.g. if accessing the router web interface from another source such as a web browser is temporarily required.
+Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
 Invoke the `huawei_lte.resume_integration` service to resume.
 
 | Service data attribute | Optional | Description |

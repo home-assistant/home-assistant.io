@@ -1,13 +1,13 @@
 ---
 title: History
 description: Instructions on how to enable history support for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: history
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -71,7 +71,7 @@ Without any `include` or `exclude` configuration the history displays graphs for
 Define domains and entities to `exclude` (aka. blacklist). This is convenient
 when you are basically happy with the information displayed, but just want to
 remove some entities or domains. Usually these are entities/domains which do not
-change (like `weblink`) or rarely change (like `updater` or `automation`).
+change or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -79,7 +79,6 @@ history:
   exclude:
     domains:
       - automation
-      - weblink
       - updater
     entities:
       - sensor.last_boot
