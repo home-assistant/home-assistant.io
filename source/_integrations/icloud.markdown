@@ -56,6 +56,11 @@ password:
   description: Your iCloud account password.
   required: true
   type: string
+with_family:
+  description: If you want to fetch your family devices.
+  required: false
+  default: false
+  type: boolean
 max_interval:
   description: Maximum interval in minutes between subsequent location updates. This tracker uses dynamic intervals for requesting location updates. When the iPhone is stationary, the interval will eventually be set to `max_interval` to save battery. When the iPhone starts moving again, the interval will be dynamically updated to 1 min. Note that updating interval to 1 min might be delayed by maximum `max_interval` minutes. Minimum value is 1 min.
   required: false
