@@ -1,11 +1,11 @@
 ---
 title: Media Extractor
 description: Instructions on how to integrate the Media Extractor into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Media Player
 ha_release: 0.49
 ha_quality_scale: internal
+ha_domain: media_extractor
 ---
 
 The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.

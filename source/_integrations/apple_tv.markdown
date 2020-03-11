@@ -1,13 +1,13 @@
 ---
 title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
-logo: apple.png
 ha_category:
   - Multimedia
   - Media Player
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.49
+ha_domain: apple_tv
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/integrations/apple_tv#remote) if you want to send remote control buttons, e.g., arrow keys.
@@ -100,7 +100,7 @@ Found Apple TVs:
 Note: You must use 'pair' with devices that have home sharing disabled
 ```
 
-Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](https://pyatv.readthedocs.io/en/master/atvremote.html).
+Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](https://postlund.github.io/pyatv).
 
 ### Setting up device authentication
 

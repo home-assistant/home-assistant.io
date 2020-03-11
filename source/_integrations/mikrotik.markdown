@@ -1,11 +1,15 @@
 ---
-title: MikroTik
+title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 logo: mikrotik.png
 ha_category:
   - Hub
   - Presence Detection
 ha_release: 0.44
+ha_codeowners:
+  - '@engrbm87'
+ha_config_flow: true
+ha_domain: mikrotik
 ---
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
@@ -31,7 +35,7 @@ Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
-Home Assistant offers Mikrotik integration through **Configuration** -> **Integrations** -> **Mikrotik**.
+Home Assistant offers MikroTik integration through **Configuration** -> **Integrations** -> **MikroTik**.
 It also allows importing from the `configuration.yaml` file:
 
 ```yaml
@@ -45,7 +49,7 @@ mikrotik:
 
 {% configuration %}
 name:
-  description: The name of your Mikrotik device.
+  description: The name of your MikroTik device.
   required: true
   default: Mikrotik
   type: string
@@ -99,7 +103,7 @@ To use SSL to connect to the API (via `api-ssl` instead of `api` service) furthe
 /ip service enable api-ssl
 ```
 
-Then add `ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
+Then add `verify_ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
 
 If everything is working fine you can disable the pure `api` service in RouterOS:
 
@@ -124,7 +128,7 @@ mikrotik:
   - host: 192.168.88.1
     username: homeassistant
     password: YOUR_PASSWORD
-    ssl: true
+    verify_ssl: true
     arp_ping: true
     force_dhcp: true
     detection_time: 30

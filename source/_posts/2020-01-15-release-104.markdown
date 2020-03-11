@@ -895,7 +895,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Store capabilities and supported features in entity registry, restore registered entities on startup ([@balloob] - [#30094])
 - Fix Withings leaking time zone change into other tests ([@frenck] - [#30320])
 - Add local_ip component ([@issacg] - [#29973]) ([localip docs]) (new-integration)
-- Update liveboxplay and pyteleloisirs ([@pschmitt] - [#30093]) ([liveboxplaytv docs])
+- Update liveboxplay and pyteleloisirs ([@pschmitt] - [#30093])
 - Add homematic host port config for HMIP-only CCUs ([@sbyx] - [#30077]) ([homematic docs])
 - Bump dependency for HomematicIP Cloud ([@SukramJ] - [#30319]) ([homematicip_cloud docs])
 - Add support for Somfy RTS power socket and Somfy io Temperature sensor ([@rhadamantys] - [#30053]) ([tahoma docs])
@@ -1937,7 +1937,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [light docs]: /integrations/light/
 [lightwave docs]: /integrations/lightwave/
 [linky docs]: /integrations/linky/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [localip docs]: /integrations/local_ip/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
@@ -2029,7 +2028,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tank_utility docs]: /integrations/tank_utility/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/

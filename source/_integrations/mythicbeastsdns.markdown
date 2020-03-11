@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Cloud Push
 logo: mythic_beasts.png
+ha_domain: mythicbeastsdns
 ---
 
 With the `mythicbeastsdns` integration you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).

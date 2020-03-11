@@ -1,13 +1,13 @@
 ---
 title: Android TV
 description: Instructions on how to integrate Android TV and Fire TV devices into Home Assistant.
-logo: androidtv.png
 ha_category:
   - Media Player
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
+ha_domain: androidtv
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -77,10 +77,15 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
+exclude_unnamed_apps:
+  description: If this is true, then only the apps you specify in the `apps` configuration parameter and [those specified in the backend library](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) will be shown in the sources list.
+  required: false
+  default: false
+  type: boolean
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
@@ -107,15 +112,19 @@ turn_off_command:
 # Example configuration.yaml entry
 media_player:
   # Use the Python ADB implementation with a user-provided key to setup an
-  # Android TV device. Provide an app name, override the default turn on/off
-  # commands, and provide custom state detection rules.
+  # Android TV device. Provide some app names and don't display other apps
+  # in the sources menu. Override the default turn on/off commands, and
+  # provide custom state detection rules.
   - platform: androidtv
     name: Android TV
     device_class: androidtv
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
+    exclude_unnamed_apps: true
     apps:
       com.amazon.tv.launcher: "Fire TV"
+      some.background.app:  # this will never show up in the sources list
+      another.background.app: ""  # this will also never show up in the sources list
     turn_on_command: "input keyevent 3"
     turn_off_command: "input keyevent 223"
     state_detection_rules:
@@ -171,7 +180,7 @@ Prior to Home Assistant 0.101, this approach did not work well for newer devices
 
 The second option is to use an ADB server to connect to your Android TV and Fire TV devices.
 
-For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/master/README.md) addon. Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
+For Home Assistant users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/master/README.md) add-on. Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
 ## ADB Troubleshooting
 
@@ -185,7 +194,7 @@ If the setup for your Android TV or Fire TV device fails, then there is probably
 
 4. You need to approve the ADB connection; see the note in the [ADB Setup](#adb-setup) section above.
 
-5. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to WiFi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
+5. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to Wi-Fi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 
 6. If your device drops off WiFi, breaking the ADB connection and causing the entity to become unavailable in Home Assistant, you could install a wake lock utility (such as [Wakelock](https://github.com/d4rken/wakelock-revamp)) to prevent this from happening. Some users have reported this problem with Xiaomi Mi Box devices.
 

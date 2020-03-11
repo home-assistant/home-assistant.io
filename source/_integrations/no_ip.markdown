@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.57
 ha_codeowners:
   - '@fabaff'
+ha_domain: no_ip
 ---
 
 With the `no_ip` integration you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  

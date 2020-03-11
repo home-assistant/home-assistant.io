@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.45
 ha_iot_class: Local Push
+ha_domain: raspihats
 ---
 
 The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.
@@ -86,7 +87,7 @@ $ sudo raspi-config
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish`.
 
-Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+Install dependencies for use the `smbus-cffi` module and enable your `homeassistant` user to join the _i2c_ group:
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities
@@ -194,7 +195,7 @@ $ sudo raspi-config
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish`.
 
-Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+Install dependencies for use the `smbus-cffi` module and enable your `homeassistant` user to join the _i2c_ group:
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities

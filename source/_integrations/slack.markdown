@@ -5,6 +5,7 @@ logo: slack.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: slack
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -13,11 +14,11 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 ### Bot posting as you
 
-1. Create a [new app](https://api.slack.com/apps) under your Slack.com account
-2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading
-2. In the Scopes section, add the `chat:write:user` scope, `Send messages as user`
-3. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`
-4. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below
+1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
+2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
+3. In the Scopes section, add the `chat:write` scope, `Send messages as user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
+4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`.
+5. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below.
 
 <div class='note'>
 
@@ -75,10 +76,10 @@ The following attributes can be placed inside `data` for extended functionality.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
-| `path `                |      yes | Local path of file, photo etc to post to slack. Is placed inside `file`.
-| `url`                  |      yes | URL of file, photo etc to post to slack. Is placed inside `file`.
-| `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
+| `path `                |      yes | Local path of file, photo etc to post to Slack. Is placed inside `file`.
+| `url`                  |      yes | URL of file, photo etc to post to Slack. Is placed inside `file`.
+| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
+| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
 | `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/docs/message-attachments). See [the attachment documentation](https://api.slack.com/docs/message-attachments) for how to format. *NOTE*: if using `attachments`, they are shown **in addition** to `message`
 
@@ -132,6 +133,21 @@ Example for posting formatted attachment:
 }
 ```
 
+You can also use YAML to send messages from your automations
+
+```yaml
+
+    - service: notify.slack
+      data:
+        message: "Latest notification"
+        title: "Latest image"
+        target: ["#home-assistant"]
+        data:
+          file:
+            path: "/myfile.jpg"
+```
 Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.

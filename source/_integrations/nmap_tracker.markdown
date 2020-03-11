@@ -1,10 +1,10 @@
 ---
 title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
-logo: nmap.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
+ha_domain: nmap_tracker
 ---
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
@@ -13,11 +13,11 @@ As an alternative to the router-based device tracking, it is possible to directl
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
 </div>
 
-You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
-
 <div class='note'>
 
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
+If you are running Home Assistant Core in a Python virtual environment, you might have to install the packages for `arp` and `nmap`.
+On Debian based hosts (for example Raspbian) do so by running `sudo apt-get install net-tools nmap`.
+On a Fedora host run `sudo dnf -y install nmap`.
 
 </div>
 
@@ -78,6 +78,7 @@ device_tracker:
       - 10.0.0.2
       - 10.0.0.15
 ```
+
 In the above example, Nmap will be call with the process:
 `nmap -oX - 192.168.1.1/24 10.0.0.2 10.0.0.15 -F --host-timeout 5s`
 
@@ -88,10 +89,11 @@ An example of how the Nmap scanner can be customized:
 On Linux systems (such as Hass.io) you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
 
 ```bash
-$ sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
+sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
 ```
 
 And you can set up the device tracker as
+
 ```yaml
 - platform: nmap_tracker
   hosts: 192.168.1.1-25

@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
+ha_domain: heos
 ---
 
 The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
@@ -80,7 +81,7 @@ You can play a HEOS favorite by number or name with the `media_player.play_media
 | ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `favorite`
-| `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
+| `media_content_id`     | The nubmer (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
 
 #### Play Playlist
 
@@ -116,9 +117,9 @@ You can play a HEOS Quick Select by nubmer or name with the `media_player.play_m
 | ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `quick_select`
-| `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
+| `media_content_id`     | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`)
 
-#### Play Url
+#### Play URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 

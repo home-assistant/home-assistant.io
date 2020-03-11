@@ -1,11 +1,11 @@
 ---
 title: "Command line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
-logo: command_line.png
 ha_category:
   - Utility
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: command_line
 ---
 
 
@@ -108,7 +108,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/integrations/logger) to monitor the [http component](/integrations/http/) at least the `warning` level.
+Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works

@@ -1,7 +1,6 @@
 ---
 title: Openuv
 description: Instructions on how to integrate OpenUV within Home Assistant.
-logo: openuv.jpg
 ha_category:
   - Health
   - Binary Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: openuv
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
@@ -50,15 +50,15 @@ api_key:
   required: true
   type: string
 elevation:
-  description: The elevation of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The elevation of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 latitude:
-  description: The latitude of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The latitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 longitude:
-  description: The longitude of the monitored location; if ommitted, the value specified in `configuration.yaml` will be used.
+  description: The longitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
   required: false
   type: float
 {% endconfiguration %}

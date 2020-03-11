@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.36
 ha_codeowners:
   - '@kellerza'
+ha_domain: sma
 ---
 
 The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.

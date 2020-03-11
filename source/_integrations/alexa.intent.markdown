@@ -1,10 +1,10 @@
 ---
 title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.10"
+ha_domain: alexa
 ---
 
 ## I want to build custom commands to use with Echo
@@ -19,7 +19,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is need if you want to use Alexa Custom Skill API. Part of your Alexa Custom Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
-- The Alexa Custom Skill API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport), this is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Custom Skill API also needs your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport), this is so account linking can take place. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 
 ### Create Your Amazon Alexa Custom Skill
 
@@ -68,7 +68,7 @@ Next you need to create a Lambda function.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
-- Click `Create function`, then you can config detail of Lambda function.
+- Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
 - Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
@@ -211,7 +211,7 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your `intent_script` section in your HA configuration file:
 
 ```yaml
 intent_script:
@@ -259,7 +259,7 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your intent_script section in your HA config file:
+Then add the intent to your intent_script section in your HA configuration file:
 
 ```yaml
 intent_script:

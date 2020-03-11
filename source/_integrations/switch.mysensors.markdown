@@ -1,12 +1,12 @@
 ---
 title: "MySensors Switch"
 description: "Instructions on how to integrate MySensors switches into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.11
+ha_domain: mysensors
 ---
 
 Integrates MySensors switches into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
@@ -50,7 +50,7 @@ For more information, visit the [serial API](https://www.mysensors.org/download)
 
 ## Services
 
-The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if `optimistic` is set to `true` in the [config](/integrations/mysensors/#configuration) for the MySensors component. This will simulate a push button on a remote. If `optimistic` is `false`, the MySensors device will have to report its updated state to reset the switch. See the [example sketch](#ir-switch-sketch) for the IR switch below.
+The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if `optimistic` is set to `true` in the [configuration](/integrations/mysensors/#configuration) for the MySensors component. This will simulate a push button on a remote. If `optimistic` is `false`, the MySensors device will have to report its updated state to reset the switch. See the [example sketch](#ir-switch-sketch) for the IR switch below.
 
 | Service                | Description                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------- |

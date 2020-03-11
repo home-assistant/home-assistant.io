@@ -12,6 +12,10 @@ ha_category:
   - Camera
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@cgtobi'
+ha_config_flow: true
+ha_domain: netatmo
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.
@@ -42,10 +46,10 @@ client_id:
 client_secret:
   description: The `client secret` from your Netatmo app.
   required: true
-  type: integer
+  type: string
 {% endconfiguration %}
 
-Once that is configured you can enable it from the integrations page.
+**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
 
 ### Get API and Secret Key
 

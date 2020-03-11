@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_release: 0.34
 ha_codeowners:
   - '@ehendrix23'
+ha_domain: harmony
 ---
 
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
@@ -31,7 +32,7 @@ remote:
     host: 10.168.1.13
 ```
 
-You can override some default configuration values on a discovered hub (e.g., the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the config to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
+You can override some default configuration values on a discovered hub (e.g., the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the configuration to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
 
 ```yaml
 # Example configuration.yaml entry with discovery
@@ -90,7 +91,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 ### Service `remote.turn_on`
 
-Start an activity. Will start the default `activity` from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from `configuration.yaml` if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

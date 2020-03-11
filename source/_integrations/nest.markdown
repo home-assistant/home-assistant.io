@@ -13,6 +13,7 @@ ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@awarecan'
+ha_domain: nest
 ---
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
@@ -308,19 +309,19 @@ monitored_conditions:
 The following conditions are available by device:
 
 - Nest Home:
-  - eta: Estimated time of arrival.
-  - security\_state: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
+  - `eta`: Estimated time of arrival.
+  - `security_state`: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
 - Nest Thermostat:
-  - humidity
-  - preset\_mode
-  - temperature
-  - target
-  - hvac\_state: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
+  - `humidity`
+  - `preset_mode`
+  - `temperature`
+  - `target`
+  - `hvac_state`: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
 - Nest Protect:
-  - co\_status: `Ok`, `Warning` or `Emergency`
-  - smoke\_status: `Ok`, `Warning` or `Emergency`
-  - battery\_health: `Ok` or `Replace`
-  - color\_status: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
+  - `co_status`: `Ok`, `Warning` or `Emergency`
+  - `smoke_status`: `Ok`, `Warning` or `Emergency`
+  - `battery_health`: `Ok` or `Replace`
+  - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
 ## Security State

@@ -6,6 +6,7 @@ ha_category:
   - Cover
 ha_release: 0.32
 ha_iot_class: Cloud Polling
+ha_domain: garadget
 ---
 
 The `garadget` cover platform lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.

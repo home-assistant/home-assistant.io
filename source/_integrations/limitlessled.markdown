@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_iot_class: Assumed State
 ha_release: pre 0.7
+ha_domain: limitlessled
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -84,7 +85,7 @@ bridges:
           required: true
           type: string
         type:
-          description: Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
+          description: Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. Use `bridge-led` to control the built-in LED of newer Wi-Fi bridges.
           required: false
           default: rgbw
           type: string
@@ -123,14 +124,14 @@ Refer to the [light]({{site_root}}/integrations/light/) documentation for genera
   - *Brightness*: There are 101 brightness steps.
 - **RGBW**
   - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness cannot be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
-  - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 25.
+  - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 25.
 - **White**
-  - When using a legacy WiFi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
-  - *Temperature*: Wifi bridge v6 supports 101 temperature steps; older versions only 10.
-  - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 10.
+  - When using a legacy Wi-Fi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
+  - *Temperature*: Wi-Fi bridge v6 supports 101 temperature steps; older versions only 10.
+  - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 10.
 - **Dimmer** (Only supported on v6 bridges)
-  - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. This type is only supported by the version 6 Wifi bridges.
-  - *Brightness*: Wifi bridge v6 supports 101 brightness steps.
+  - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. This type is only supported by the version 6 Wi-Fi bridges.
+  - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps.
 - **Transitions**
   - If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible - the color will change immediately.
 

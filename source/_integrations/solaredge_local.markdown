@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@drobtravels'
   - '@scheric'
+ha_domain: solaredge_local
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.
@@ -27,7 +28,7 @@ If your inverter does not support the local API, you can use the [cloud based ve
 
 ## Configuration
 
-To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
+To use the SolarEdge sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

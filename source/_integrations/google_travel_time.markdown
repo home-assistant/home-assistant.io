@@ -1,13 +1,13 @@
 ---
 title: Google Maps Travel Time
 description: Instructions on how to add Google Maps travel time to Home Assistant.
-logo: google_maps.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.19
 ha_codeowners:
   - '@robbiet480'
+ha_domain: google_travel_time
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
@@ -77,7 +77,7 @@ options:
       required: exclusive
       type: [time, string]
     avoid:
-      description: "Indicate what google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
+      description: "Indicate what Google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
       required: false
       type: string
     transit_mode:

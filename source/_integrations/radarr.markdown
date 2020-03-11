@@ -1,10 +1,10 @@
 ---
 title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
-logo: radarr.png
 ha_category:
   - Downloading
 ha_release: 0.47
+ha_domain: radarr
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
@@ -95,7 +95,7 @@ sensor:
 
 ### Enable SSL
 
-SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the config here (unless it is changed to 7878).
+SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the configuration here (unless it is changed to 7878).
 
 ```yaml
 # Example configuration.yaml entry

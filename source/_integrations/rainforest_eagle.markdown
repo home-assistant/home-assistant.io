@@ -1,7 +1,6 @@
 ---
 title: Rainforest Eagle-200
-description: Instructions on how to setup the Rainforest Eagle-200 with Home Assistant.
-logo: rainforest_automation_logo.png
+description: Instructions on how to setup the Rainforest Eagle with Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -9,9 +8,12 @@ ha_release: 0.97
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@gtdiehl'
+  - '@jcalbert'
+ha_domain: rainforest_eagle
 ---
 
-A `sensor` platform for the [Rainforest Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/) energy gateway.
+A `sensor` platform for the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)
+and [Legacy Eagle](https://rainforestautomation.com/support/rfa-z109-eagle-support/) energy gateways.
 
 ## Configuration
 
@@ -28,15 +30,15 @@ sensor:
 
 {% configuration %}
 ip_address:
-  description: The local IP address of your Eagle-200 device.
+  description: The local IP address of your Eagle device.
   required: true
   type: string
 cloud_id:
-  description: The Cloud ID that is printed on the bottom of the Eagle-200
+  description: The Cloud ID that is printed on the bottom of the Eagle
   required: true
   type: string
 install_code:
-  description: The Install Code that is printed on the bottom of the Eagle-200
+  description: The Install Code that is printed on the bottom of the Eagle
   required: true
   type: string
 {% endconfiguration %}

@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: ambient_station
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

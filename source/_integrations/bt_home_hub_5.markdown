@@ -5,6 +5,7 @@ logo: bt.png
 ha_category:
   - Presence Detection
 ha_release: 0.22
+ha_domain: bt_home_hub_5
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Home Hub 5](https://en.wikipedia.org/wiki/BT_Home_Hub) based router.

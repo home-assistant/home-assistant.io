@@ -5,6 +5,7 @@ logo: discord.png
 ha_category:
   - Notifications
 ha_release: 0.37
+ha_domain: discord
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -85,4 +86,4 @@ For more information about creating and authorizing bots, visit the [OAuth2 info
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).
 
-Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e. `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.
+Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e., `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.

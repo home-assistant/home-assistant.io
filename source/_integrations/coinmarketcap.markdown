@@ -1,11 +1,11 @@
 ---
 title: CoinMarketCap
 description: Instructions on how to integrate CoinMarketCap data within Home Assistant.
-logo: coinmarketcap.png
 ha_category:
   - Finance
 ha_release: 0.28
 ha_iot_class: Cloud Polling
+ha_domain: coinmarketcap
 ---
 
 The `coinmarketcap` sensor platform displays various details about a cryptocurrency provided by [CoinMarketCap](https://coinmarketcap.com/).
@@ -36,4 +36,4 @@ display_currency_decimals:
   default: 2
 {% endconfiguration %}
 
-All supported currencies can be found [here](https://coinmarketcap.com/api/), a list of currency IDs can be found [here](https://api.coinmarketcap.com/v2/ticker/).
+All supported currencies can be found [here](https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions), a list of currency IDs can be found [here](https://api.coinmarketcap.com/v2/ticker/).

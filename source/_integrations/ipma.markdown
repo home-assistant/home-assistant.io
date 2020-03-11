@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
+  - '@abmantis'
+ha_domain: ipma
 ---
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.
@@ -39,4 +41,9 @@ longitude:
   required: false
   type: string
   default: Home Assistant global longitude configuration
+mode:
+  description: "The forecast type. Can be `hourly` or `daily`."
+  required: false
+  type: string
+  default: "`daily`"
 {% endconfiguration %}

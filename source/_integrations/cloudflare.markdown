@@ -1,12 +1,12 @@
 ---
 title: Cloudflare
 description: Automatically update your Cloudflare DNS records.
-logo: cloudflare.png
 ha_category:
   - Network
 ha_release: 0.74
 ha_codeowners:
   - '@ludeeus'
+ha_domain: cloudflare
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.
@@ -90,7 +90,7 @@ cloudflare:
     - EXAMPLE.COM
 ```
 
-#### The minimum DNS record settings are (if you have set up https already):
+#### The minimum DNS record settings (if you have set up HTTPS already)
 
 To redirect from your domain to the IP address of your Home Assistant server set this DNS record:
 

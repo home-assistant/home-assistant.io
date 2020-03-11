@@ -1,11 +1,11 @@
 ---
 title: HTU21D(F) Sensor
 description: Instructions on how to integrate a HTU21D Temperature and humidity sensor into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_release: 0.48
 ha_iot_class: Local Push
+ha_domain: htu21d
 ---
 
 The `htu21d` sensor platform allows you to read the temperature and humidity from a [HTU21D sensor](https://cdn-shop.adafruit.com/datasheets/1899_HTU21D.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
@@ -75,7 +75,7 @@ $ sudo raspi-config
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+Install dependencies for use the `smbus-cffi` module and enable your `homeassistant` user to join the _i2c_ group:
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities

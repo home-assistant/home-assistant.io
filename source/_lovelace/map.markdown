@@ -1,10 +1,10 @@
 ---
 title: "Map Card"
 sidebar_label: Map
-description: "A card that allows you to display entities on a map"
+description: "The Map card that allows you to display entities on a map"
 ---
 
-A card that allows you to display entities on a map.
+The Map card that allows you to display entities on a map
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_map_card.png' alt='Screenshot of the map card'>

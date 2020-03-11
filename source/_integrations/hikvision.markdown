@@ -1,13 +1,13 @@
 ---
 title: Hikvision
 description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
-logo: hikvision.png
 ha_category:
   - Binary Sensor
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:
   - '@mezz64'
+ha_domain: hikvision
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a
@@ -98,7 +98,7 @@ port:
   type: integer
   default: 80
 ssl:
-  description: "`true` if you want to connect with https. Be sure to set the port also."
+  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
   required: false
   type: boolean
   default: false

@@ -1,13 +1,13 @@
 ---
 title: FortiGate
 description: Instructions on how to integrate FortiGate Firewalls into Home Assistant.
-logo: fortinet.jpg
 ha_category:
   - Presence Detection
 ha_release: 0.97
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@kifeo'
+ha_domain: fortigate
 ---
 
 This is a FortiGate presence sensor based on device detection of the FortiGate API

@@ -1,11 +1,11 @@
 ---
 title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
-logo: home-assistant.png
 ha_category:
   - Climate
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: generic_thermostat
 ---
 
 The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
@@ -87,7 +87,7 @@ precision:
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 

@@ -1,11 +1,11 @@
 ---
 title: IMAP Email Content
 description: Instructions on how to integrate IMAP email content sensor into Home Assistant.
-logo: smtp.png
 ha_category:
   - Mailbox
 ha_iot_class: Cloud Push
 ha_release: 0.25
+ha_domain: imap_email_content
 ---
 
 The `imap_email_content` integration will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.

@@ -1,11 +1,11 @@
 ---
 title: "RESTful Binary Sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
-logo: restful.png
 ha_category:
   - Binary Sensor
 ha_release: "0.10"
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed

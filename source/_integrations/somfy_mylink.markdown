@@ -7,6 +7,7 @@ ha_category:
   - Cover
 ha_release: 0.92
 ha_iot_class: Assumed State
+ha_domain: somfy_mylink
 ---
 
 The `Somfy MyLink` integration is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It allows the addition of covers from the Somfy MyLink platform to Home Assistant.

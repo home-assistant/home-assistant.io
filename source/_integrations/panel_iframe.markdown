@@ -1,13 +1,13 @@
 ---
 title: iframe Panel
 description: Instructions on how to add iFrames in the frontend of Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.25
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
+ha_domain: panel_iframe
 ---
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
@@ -31,7 +31,6 @@ panel_iframe:
     title: 'Other App'
     url: '/otherapp'
 ```
-
 
 {% configuration %}
 panel_iframe:
@@ -65,6 +64,6 @@ panel_iframe:
 
 <div class='note warning'>
 
-Do **not** create one that is named `lovelace` it will overwrite lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite Lovelace causing it to never load.
 
 </div>

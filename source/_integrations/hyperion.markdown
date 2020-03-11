@@ -1,11 +1,11 @@
 ---
 title: Hyperion
 description: Instructions on how to integrate Hyperion into Home Assistant.
-logo: hyperion.png
 ha_category:
   - Light
 ha_release: 0.7.6
 ha_iot_class: Local Polling
+ha_domain: hyperion
 ---
 
 The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
@@ -76,7 +76,7 @@ automation:
         effect: "Full color mood blobs"
 ```
 
-To have the lights playing an effect when pausing, idle or turn off a media player like plex you can use this example:
+To have the lights playing an effect when pausing, idle or turn off a media player like Plex you can use this example:
 
 ```yaml
 - alias: Set hyperion effect after playback

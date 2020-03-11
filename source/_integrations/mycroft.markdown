@@ -6,6 +6,7 @@ ha_category:
   - Voice
   - Notifications
 ha_release: 0.53
+ha_domain: mycroft
 ---
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.

@@ -5,8 +5,8 @@ ha_category:
   - Switch
 ha_release: 0.13
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates switches that combines components.

@@ -1,7 +1,6 @@
 ---
 title: SkyBell
 description: Instructions on how to integrate your Skybell HD devices within Home Assistant.
-logo: skybell.png
 ha_category:
   - Doorbell
   - Binary Sensor
@@ -11,6 +10,7 @@ ha_category:
   - Switch
 ha_release: 0.56
 ha_iot_class: Cloud Polling
+ha_domain: skybell
 ---
 
 The `skybell` implementation allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.
@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](/integrations/skybell/#sensor)
 - [Switch](/integrations/skybell/#switch)
 
-Currently only the Skybell HD is supported by this platform.
+Currently only the SkyBell HD is supported by this platform.
 
 ## Configuration
 
@@ -38,18 +38,18 @@ skybell:
 
 {% configuration %}
 username:
-  description: The username for accessing your Skybell account.
+  description: The username for accessing your SkyBell account.
   required: true
   type: string
 password:
-  description: The password for accessing your Skybell account.
+  description: The password for accessing your SkyBell account.
   required: true
   type: string
 {% endconfiguration %}
 
 ### Binary Sensor
 
-Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
+Once you have enabled the SkyBell component, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,12 +69,12 @@ monitored_conditions:
     button:
       description: Returns whether the doorbell button was pressed.
     motion:
-      description: Returns whether movement was detected by the Skybell doorbell.
+      description: Returns whether movement was detected by the SkyBell doorbell.
 {% endconfiguration %}
 
 ### Camera
 
-Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
+Once you have enabled the SkyBell component, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,11 +99,11 @@ activity_name:
 
 #### Camera Types
 
-There are two available camera types "Avatar", which is the default, displays the Skybell avatar image.
+There are two available camera types "Avatar", which is the default, displays the SkyBell avatar image.
 It is periodically updated with a fresh image. The other type is "Activity", which displays a snapshot from
 the latest event (motion, bell, or on demand) captured by the camera. You may show either camera, or both, by
 specifying its name under monitored_condtions. It's recommended, but not required, to set either avatar_name or activity_name
-if you are showing both cameras so you can tell them apart. The name will be appended to the skybell device name.
+if you are showing both cameras so you can tell them apart. The name will be appended to the SkyBell device name.
 
 ```yaml
 # Example configuration.yaml with both images
@@ -125,7 +125,7 @@ camera:
 
 ### Light
 
-Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
+Once you have enabled the SkyBell component, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -135,7 +135,7 @@ light:
 
 ### Sensor
 
-Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
+Once you have enabled the SkyBell component, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,7 +157,7 @@ monitored_conditions:
 
 ### Switch
 
-Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
+Once you have enabled the SkyBell integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
