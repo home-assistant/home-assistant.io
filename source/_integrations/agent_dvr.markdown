@@ -21,7 +21,7 @@ Home Assistant will automatically discover Agent DVR on your network or you can 
 
 ## Configuration
 
-For configuration go to the `Integrations pane` on your Home Assistant instance.
+For configuration, go to the `Integrations panel` on your Home Assistant instance.
 
 <div class='note'>
   Please ensure you are using Agent DVR v2.6.1.0 +
