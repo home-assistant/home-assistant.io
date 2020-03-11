@@ -99,7 +99,7 @@ dashboards:
       type: string
     title:
       required: true
-      description: The title of the dashabord, will be used in the sidebar.
+      description: "The title of the dashboard, will be used in the sidebar."
       type: string
     icon:
       required: false
