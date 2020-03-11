@@ -28,9 +28,9 @@ Announcing the release of Home Assistant Core 0.107!
 This release brings a crazy amount of awesome new features and beautiful
 improvements to the frontend.
 
-## Bye State UI
+## Bye old State UI
 
-As announced with [0.105](/blog/2020/02/05/release-105), the old states UI is
+As announced with [0.105](/blog/2020/02/05/release-105), the old States UI is
 now removed from Home Assistant. If you are using Home Assistant for a year or
 less, you might not have an idea what it is, since the "new" Lovelace UI has
 been the default. It is the UI we used before Lovelace.
