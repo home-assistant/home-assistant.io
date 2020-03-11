@@ -116,31 +116,132 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Deprecate Xfinity Gateway integration (ADR-0004) ([@frenck] - [#32017]) ([xfinity docs]) (breaking change)
-- Remove states UI options in group integration ([@frenck] - [#32021]) ([group docs]) (breaking change)
-- Add entity ID to input_number warning ([@balloob] - [#32012]) ([input_number docs]) (breaking change)
-- Bump env_canada to 0.0.35 to address issue 31924 ([@michaeldavie] - [#32077]) ([environment_canada docs]) (breaking change)
-- Add and use time related constants ([@springstan] - [#32065]) (breaking change)
-- Migrate HomematicIP Cloud services to admin services ([@SukramJ] - [#32107]) ([homematicip_cloud docs]) (breaking change)
-- Deprecate homekit_controller .homekit folder ([@Jc2k] - [#32158]) ([homekit_controller docs]) (breaking change)
-- Remove hide_entity property from automation integration ([@frenck] - [#32038]) ([automation docs]) (breaking change)
-- Remove ability to configure monitored conditions in IQVIA ([@bachya] - [#32223]) ([iqvia docs]) (breaking change)
-- Change github sensor state to short commit sha ([@Mariusthvdb] - [#31581]) ([github docs]) (breaking change)
-- Add config entry for AirVisual ([@bachya] - [#32072]) ([airvisual docs]) (breaking change)
-- Require IFTTT to send data as dictionary ([@balloob] - [#32317]) ([ifttt docs]) (breaking change)
-- Fix AlarmDecoder Integration to use Instant Mode for alarm_arm_night ([@ajschmidt8] - [#32292]) ([alarmdecoder docs]) (breaking change)
-- Upgrade Tibber library to 0.13.0 ([@Danielhiversen] - [#32369]) ([tibber docs]) (breaking change)
-- Add application/xml as an XML to JSON auto converted mime type… ([@bdraco] - [#32289]) ([rest docs]) (breaking change)
-- Refactor Certificate Expiry Sensor ([@jjlawren] - [#32066]) ([cert_expiry docs]) (breaking change)
-- Remove 'show all controls' option for Plex ([@jjlawren] - [#32391]) ([plex docs]) (breaking change)
-- Add abode support for CUE automations ([@shred86] - [#32296]) ([abode docs]) (breaking change)
-- fix double tab and match events. ([@Dorzel107] - [#32108]) ([deconz docs]) (breaking change)
-- Emoncms API now provides a Unit of Measurement ([@borpin] - [#32042]) ([emoncms docs]) (breaking change)
-- Remove discovery and legacy config file loading for Plex ([@jjlawren] - [#32510]) ([discovery docs]) ([plex docs]) (breaking change)
-- Add app support for TVs to Vizio integration ([@raman325] - [#32432]) (breaking change)
-- Add more onvif PTZ move modes ([@olijouve] - [#30152]) ([onvif docs]) (breaking change)
-- Remove facebook broadcast api ([@chmielowiec] - [#32517]) ([facebook docs]) (breaking change)
-- Add support for newer SamsungTV models ([@tulindo] - [#31537]) ([samsungtv docs]) (breaking change)
+- **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on webscraping and is deprectated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017]) ([xfinity docs])
+ 
+- **Groups** - Groups are NOT being removed, but the configuration options, services, and service options as they related to the States UI which were previously deprecated are now removed in this release.
+  This includes:
+  - The `view` and `control` configuration options for a group.
+  - The `group.set_visibility` service call
+  - The `control`, `visible`, `view` options on the `group.set` service call
+  
+  Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#32021]) ([group docs])
+ 
+- **Input Number** - Adds an entity ID to input_number warning. Passing an out of range value to `input_number.set_value` will now raise a validation error. Incrementing/decrementing an `input_number` will no longer cause warnings. - ([@balloob] - [#32012]) ([input_number docs])
+
+- **Environment Canada** - This integration was previously using web scraping for weather alert details. The details attribute has been removed to make it complaint. (ADR-0004) - ([@michaeldavie] - [#32077]) ([environment_canada docs])
+ 
+- **Units of Time** - Time units have been standardized throughout all integrations.  - ([@springstan] - [#32065])
+
+  If you were using a non standard unit in an automation or sensor please change it to the following:
+
+  - μs for microseconds
+  - ms for milliseconds
+  - s for seconds
+  - min for minutes
+  - h for hours
+  - d for days
+  - w for weeks
+  - m for months
+  - y for years
+
+- **HomematicIP Cloud** - Migrates HomematicIP Cloud services to admin services. - ([@SukramJ] - [#32107]) ([homematicip_cloud docs])
+
+  The user needs to be in the administrator role to execute these HomematicIP Cloud services:
+
+  - homematicip_cloud.dump_hap_config
+  - homematicip_cloud.reset_energy_counter
+ 
+- **HomeKit Controller** - Support for homekit controller's legacy pairing data folder `.homekit` has been deprecated and in Home Assistant Core release 0.109.0 we plan to remove this code. Pairings have not been saved this way since Home Assistant 0.94. so if you are running Home Assistant 0.94 or later this does not affect you - your pairings were already migrated to config entries. If you are running an older release and do not upgrade soon you will not be able to automatically migrate your existing pairings at upgrade time and will have to manually re-pair them. - ([@Jc2k] - [#32158]) ([homekit_controller docs])
+ 
+- **Automation** - The hide_entity configuration option on an automation was deprecated in Home Assistant 0.105 and is removed in this release. With Lovelace now being the standard, this option has become obsolete. Please ensure your automations are not using this option. - ([@frenck] - [#32038]) ([automation docs])
+ 
+- **IQVIA** - When configuring IQVIA via configuration.yaml, the `monitored_conditions` key has been deprecated and will be removed in 0.114.0. All sensors are now created by default. (ADR-0003) - ([@bachya] - [#32223]) ([iqvia docs])
+  
+  Example YAML configuration:
+  ```yaml
+  iqvia:
+    zip_code: !secret iqvia_zip_code
+  ```
+
+- **GitHub** - The entity state has been changed to return the 'short SHA' commit hash, so automations based on `latest_commit_sha` should be adapted to that. - ([@Mariusthvdb] - [#31581]) ([github docs])
+ 
+- **AirVisual** - AirVisual is now available to be added through the integrations UI! If you configure it in configuration.yaml you will need to update to the new configuration. Additionally, in order to protect the AirVisual cloud API, `scan_interval` in no longer configurable for this integration.  - ([@bachya] - [#32072]) ([airvisual docs])
+
+  Example YAML configuration:
+  ```yaml
+  airvisual:
+    api_key: !secret airvisual_api_key
+  ```
+
+ 
+- **IFTTT** - IFTTT now checks that received webhook data is a dictionary (example `{ "value": 1 }`) to prevent Home Assistant internals from breaking. - ([@balloob] - [#32317]) ([ifttt docs])
+ 
+- **AlarmDecoder** - AlarmDecoder component now uses Honeywell's *Instant* mode instead of *Night-Stay* for alarm_arm_night.  *Instant* mode is generally thought to be more secure for night-time use because it disables the entry delay since visitors aren't expected. - ([@ajschmidt8] - [#32292]) ([alarmdecoder docs])
+ 
+- **Tibber** - Upgraded Tibber library to 0.13.0 and some attributes have names which have changed.  - ([@Danielhiversen] - [#32369]) ([tibber docs])
+
+   - `currentPhase1` -> `currentL1`
+   - `currentPhase2` -> `currentL2`
+   - `currentPhase3` -> `currentL3`
+ 
+- **REST** - Add application/xml as an XML to JSON auto converted mime types for rest sensors - ([@bdraco] - [#32289]) ([rest docs])
+ 
+- **Certificate Expiry** - The `name` configuration option has been deprecated and is no longer used by the integration. An improved default entity & display naming scheme is provided. Name and entity_id overrides should be handled via the frontend. Configurations using name will marked broken with the 0.109 release. - ([@jjlawren] - [#32066]) ([cert_expiry docs])
+
+  Example YAML configuration:
+  ```yaml
+  sensor:
+   - platform: cert_expiry
+     host: google.com
+  ```
+ 
+- **Plex Media Player** - The 'show all controls' option for Plex is deprecated and will be removed in the Home Assistant Core 0.110.0 release. Also, discovery and legacy config file loading (plex.conf) has been removed. - ([@jjlawren] - [#32391] [#32510]) ([discovery docs]) ([plex docs])
+ 
+  Example YAML configuration:
+  ```yaml
+  plex:
+   media_player:
+     show_all_controls: True  <-- Deprecated
+  ```
+- **Abode** - Abode retired its legacy automations and quick actions on 28 Feb. This change removes support for legacy automations and quick actions while adding support for CUE automations which will show up in Home Assistant as switches (same as previous implementation). Abode's replacement for quick actions is manually triggered CUE automations which can be called through Home Assistant service `abode.trigger_automation` (previously labeled `abode.trigger_quick_action`). - ([@shred86] - [#32296]) ([abode docs])
+ 
+- **deCONZ** - The events on the Aqara Magic Cube have changed, so they will match with the device triggers discriptions. If you made automations for the Magic Cube on the device page, you will want to change your automation. If you configured your automations based on events from the developers tools, there is nothing breaking. This also fixes the double tap function on side 2, which didnt work if you configured it in the device page - ([@Dorzel107] - [#32108]) ([deconz docs])
+ 
+- **Emoncms** - The way the `unit_of_measurement` is set has changed to make use of the ability for this to be set in the source feed in Emocms. - ([@borpin] - [#32042]) ([emoncms docs])
+
+  The unit will now be assigned as follows:
+
+  1. Take the unit from the API if it is available
+  2. Otherwise take the unit from config, either specified or the default unit (W)
+ 
+
+- **Vizio SmartCast TV** - Adds app support. For TVs that support apps, 'SMARTCAST' and 'CAST' sources have been replaced with `SmartCast Home`. Any automations that rely on those sources will need to be updated. - ([@raman325] - [#32432]) 
+
+- **Onvif** - Added more onvif PTZ move modes. The onvif camera service `camera.onvif_ptz` has been moved from the camera domain to the onvif domain. `onvif_ptz` service was also renamed to `ptz`, so service calls need to be updated to `onvif.ptz`. - ([@olijouve] - [#30152]) ([onvif docs])
+
+  Example YAML configuration:
+  ```yaml
+  - type: entity-button 
+      entity: camera.foscam
+      icon: mdi:arrow-left-bold-outline
+      show_name: false
+      tap_action:
+        action: call-service
+        service: onvif.ptz
+        service_data:
+          entity_id: camera.foscam
+          pan: LEFT
+          tilt:
+          zoom:
+          move_mode: ContinuousMove
+          continuous_duration: 0.8
+          distance: 1
+  ```
+ 
+- **Facebook Messenger** - On October 29, 2019 Facebook announced a breaking change that all broadcast API will stop working on March 4th, 2020, so BROADCAST as a target option is now removed. - ([@chmielowiec] - [#32517]) ([facebook docs])
+
+- **Samsung Smart TV** - Adds support for newer SamsungTV models. Specifying the port in `configuration.yaml` is no longer needed and thus the port config option has been deprecated.  - ([@tulindo] - [#31537]) ([samsungtv docs])
+ 
 
 ## Beta Fixes
 
