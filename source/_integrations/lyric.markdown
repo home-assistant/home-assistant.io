@@ -44,7 +44,6 @@ lyric:
   client_secret: CLIENT_SECRET
 ```
 
-
 {% configuration %}
 client_id:
   description: Your Lyric developer client id.
