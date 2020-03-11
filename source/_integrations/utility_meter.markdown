@@ -80,6 +80,15 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
+### Service `utility_meter.calibrate`
+
+Calibrate the Utility Meter. Change the value of a given sensor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
+| `value` | no | Number | Value to calibrate the sensor with | 
+
 ### Service `utility_meter.next_tariff`
 
 Change the current tariff to the next in the list.
