@@ -16,7 +16,7 @@ ha_domain: agent_dvr
 
 [Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* DVR software solution for windows 10. Agent DVR runs as a service and can access and control a huge range of third party cameras.
 
-Home Assistant will automatically discover Agent DVR on your network or you can add it manually via integrations using the IP address and Port of the server eg: http://192.168.1.3:8090/
+Home Assistant will automatically discover Agent DVR on your network or you can add it manually via integrations using the IP address and port of the server e.g.,: `http://192.168.1.3:8090/`.
 
 
 ## Configuration
