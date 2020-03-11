@@ -86,7 +86,7 @@ resources:
       type: string
 dashboards:
   required: false
-  description: Cards to display in this view.
+  description: Additional Lovelace YAML dashboards.
   type: map
   keys:
     mode:
