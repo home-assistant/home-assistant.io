@@ -6,6 +6,7 @@ ha_category:
   - System Monitor
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_domain: synologydsm
 ---
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).

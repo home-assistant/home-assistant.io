@@ -1,11 +1,11 @@
 ---
 title: Foobot
 description: Instructions on how to setup Foobot Air Quality sensor in Home Assistant.
-logo: foobot.png
 ha_category:
   - Health
 ha_release: 0.66
 ha_iot_class: Cloud Polling
+ha_domain: foobot
 ---
 
 The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).

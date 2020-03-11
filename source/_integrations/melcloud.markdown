@@ -1,7 +1,6 @@
 ---
 title: MELCloud
 description: MELCloud integration
-logo: melcloud.png
 ha_category:
   - Climate
 ha_release: 0.106
@@ -9,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@vilppuvuorinen'
+ha_domain: melcloud
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -16,7 +16,7 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 ## Device support
 
 - Air-to-Air heat pumps, e.g., AC units - **Supported**
-- Air-to-Water heat pumps - **Work in progress**
+- Air-to-Water heat pumps - **Supported**
 - Energy recovery ventilators - **Not supported**
 - Other - **Not supported**
 
@@ -64,3 +64,49 @@ The following attributes are available for `sensor` platform entities:
 
 - Room temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
+
+## Air-to-Water device
+
+An Air-to-Water device provides `water_heater`, `climate` and `sensor` platforms.
+
+### Climate
+
+A `climate` platform entity is provided for each radiator zone in the air-to-water system. The following parameters can be controlled:
+
+- Target room temperature
+
+The radiators need to be configured to run in room temperature control mode either through the local HMI or MELCloud. Flow temperature and curve modes are not supported.
+
+Some air-to-water devices allow cooling using the radiator zones. This feature has not been implemented due to the lack of sample devices.
+
+The system cannot be turned on/off through the `climate` entities.
+
+#### State attributes
+
+|Attribute|Description|Example|
+|---------|-----------|-------|
+|`status` |Current operation status|`idle`|
+
+### Sensor
+
+The following attributes are available for `sensor` platform entities:
+
+- Room temperature for each zone
+- Tank water temperature
+- Outside temperature - 1°C precision, polled every 1-2 hours.
+
+Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
+
+### Water heater
+
+The following parameters can be controlled for the `water_heater` platform entities:
+
+- Power - Controls the entire system.
+- Target tank temperature
+- Operation mode
+
+#### State attributes
+
+|Attribute|Description|Example|
+|---------|-----------|-------|
+|`status` |Current operation status|`heat`|

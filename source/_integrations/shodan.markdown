@@ -8,6 +8,7 @@ logo: shodan.png
 ha_release: 0.51
 ha_codeowners:
   - '@fabaff'
+ha_domain: shodan
 ---
 
 The `shodan` sensor platform is displaying the total of result of a

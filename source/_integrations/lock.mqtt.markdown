@@ -1,11 +1,11 @@
 ---
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-logo: mqtt.png
 ha_category:
   - Lock
 ha_release: 0.15
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.

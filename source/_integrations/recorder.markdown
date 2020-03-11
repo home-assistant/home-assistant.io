@@ -1,11 +1,11 @@
 ---
 title: Recorder
 description: Instructions on how to configure the data recorder for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - History
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_domain: recorder
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
@@ -54,6 +54,11 @@ recorder:
       type: integer
     purge_interval:
       description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
+      required: false
+      default: 1
+      type: integer
+    commit_interval:
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
       default: 1
       type: integer

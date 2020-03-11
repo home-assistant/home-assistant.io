@@ -5,10 +5,10 @@ ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: energy_meter.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: utility_meter
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -18,7 +18,7 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <div class='note'>
-Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to Home Assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
 ## Configuration
@@ -79,6 +79,15 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
+
+### Service `utility_meter.calibrate`
+
+Calibrate the Utility Meter. Change the value of a given sensor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
+| `value` | no | Number | Value to calibrate the sensor with | 
 
 ### Service `utility_meter.next_tariff`
 

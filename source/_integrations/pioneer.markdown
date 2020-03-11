@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.19
 ha_iot_class: Local Polling
+ha_domain: pioneer
 ---
 
 The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.

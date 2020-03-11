@@ -5,6 +5,7 @@ logo: slack.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: slack
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -13,11 +14,11 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 ### Bot posting as you
 
-1. Create a [new app](https://api.slack.com/apps) under your Slack.com account
-2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading
-3. In the Scopes section, add the `chat:write:user` scope, `Send messages as user`. If you wish to also be able to include files, you will need to include `files:write:user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
-4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`
-5. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below
+1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
+2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
+3. In the Scopes section, add the `chat:write` scope, `Send messages as user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
+4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`.
+5. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below.
 
 <div class='note'>
 
@@ -150,4 +151,3 @@ Please note that both `message` is a required key, but is always shown, so use a
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.
-

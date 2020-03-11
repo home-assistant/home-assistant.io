@@ -1,12 +1,12 @@
 ---
 title: "MySensors Light"
 description: "Instructions on how to integrate MySensors lights into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Light
 ha_release: 0.13
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors lights into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

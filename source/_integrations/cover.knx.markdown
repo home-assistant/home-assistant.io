@@ -1,11 +1,11 @@
 ---
 title: "KNX Cover"
 description: "Instructions on how to integrate KNX covers with Home Assistant."
-logo: knx.png
 ha_category:
   - Cover
 ha_release: 0.48
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

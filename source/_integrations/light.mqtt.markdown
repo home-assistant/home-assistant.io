@@ -1,14 +1,14 @@
 ---
 title: "MQTT Light"
 description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Light
 ha_iot_class: Configurable
 ha_release: 0.8
+ha_domain: mqtt
 ---
 
-The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas.
+The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
 
 ## Comparison of light MQTT schemas
 
@@ -214,6 +214,11 @@ rgb_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value."
   required: false
   type: string
+schema:
+  description: The schema to use. Must be `default` or omitted to select the default schema".
+  required: false
+  type: string
+  default: default
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -501,6 +506,11 @@ rgb:
   required: false
   type: boolean
   default: false
+schema:
+  description: The schema to use. Must be `json` to select the JSON schema".
+  required: false
+  type: string
+  default: default
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -784,6 +794,11 @@ red_template:
   description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
   required: false
   type: string
+schema:
+  description: The schema to use. Must be `template` to select the template schema".
+  required: false
+  type: string
+  default: default
 state_template:
   description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value."
   required: false

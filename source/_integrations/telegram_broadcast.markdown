@@ -1,10 +1,10 @@
 ---
 title: "Telegram broadcast"
 description: "Telegram support to send messages only"
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.48
+ha_domain: telegram_bot
 ---
 
 Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the Internet and there is no polling to receive messages sent to the bot.

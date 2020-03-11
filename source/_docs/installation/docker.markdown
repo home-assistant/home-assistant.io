@@ -4,6 +4,14 @@ description: "Instructions to install Home Assistant on a Docker."
 redirect_from: /getting-started/installation-docker/
 ---
 
+<div class='note warning'>
+
+These below instructions are for an installation of Home Assistant Core running in your own Docker environment, which you manage yourself.
+
+For an installation of Home Assistant Supervised, which includes Home Assistant's add-on ecosystem, see the instructions for installing [Home Assistant Supervised on a generic Linux host](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host/).
+
+</div>
+
 ## Platform Installation
 
 Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
@@ -36,7 +44,7 @@ If you wish to browse directly to `http://localhost:8123` from your macOS host, 
 docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
-Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/network/). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
+Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking documentation](https://docs.docker.com/network/). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### Windows
 

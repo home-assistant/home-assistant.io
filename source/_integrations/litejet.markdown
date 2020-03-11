@@ -1,13 +1,13 @@
 ---
 title: LiteJet
 description: Instructions on how to setup the LiteJet hub within Home Assistant.
-logo: centralite.svg
 ha_category:
   - Light
   - Scene
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.32
+ha_domain: litejet
 ---
 
 LiteJet is a centralized lighting system that predates most home automation technology. All lights and wall switches are wired to a central panel. This central panel has a serial port interface that allows a computer to control the system via LiteJet's third party protocol.

@@ -1,13 +1,13 @@
 ---
 title: Ping (ICMP)
 description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Network
   - Binary Sensor
   - Presence Detection
 ha_release: 0.43
 ha_quality_scale: internal
+ha_domain: ping
 ---
 
 There is currently support for the following device types within Home Assistant:

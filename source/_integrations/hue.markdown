@@ -1,7 +1,6 @@
----
+--
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-logo: philips_hue.png
 ha_category:
   - Hub
   - Light
@@ -12,6 +11,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@balloob'
+ha_domain: hue
 ---
 
 Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
@@ -148,4 +148,4 @@ The Hue API doesn't activate scenes directly; rather, they must be associated wi
 
 Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
 
-The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on the scenes that are "least recently used."
+The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API documentation says this is based on the scenes that are "least recently used."

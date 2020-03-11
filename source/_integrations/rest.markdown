@@ -1,11 +1,11 @@
 ---
 title: RESTful
 description: Instructions on how to integrate REST sensors into Home Assistant.
-logo: restful.png
 ha_category:
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.

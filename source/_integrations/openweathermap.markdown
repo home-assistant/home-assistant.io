@@ -1,7 +1,6 @@
 ---
 title: Openweathermap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
-logo: openweathermap.png
 ha_category:
   - Weather
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.32
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: openweathermap
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.

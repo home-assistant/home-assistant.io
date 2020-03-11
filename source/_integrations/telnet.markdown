@@ -5,6 +5,7 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Polling
+ha_domain: telnet
 ---
 
 The `telnet` switch platform allows you to control devices with telnet commands.

@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+ha_domain: verisure
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.

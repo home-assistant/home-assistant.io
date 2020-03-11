@@ -1,10 +1,10 @@
 ---
 title: Conditional Card
 sidebar_label: Conditional
-description: Displays another card based on entity states.
+description: The Conditional card displays another card based on entity states.
 ---
 
-Displays another card based on entity states.
+The Conditional card displays another card based on entity states.
 
 {% configuration %}
 type:

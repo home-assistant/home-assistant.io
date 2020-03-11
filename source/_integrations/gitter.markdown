@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.47
 ha_codeowners:
   - '@fabaff'
+ha_domain: gitter
 ---
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.

@@ -1,13 +1,13 @@
 ---
 title: GeoRSS
 description: Instructions on how to set up GeoRSS sensors within Home Assistant.
-logo: rss.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_codeowners:
   - '@exxamalte'
+ha_domain: geo_rss_events
 ---
 
 The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.

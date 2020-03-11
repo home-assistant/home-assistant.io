@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.18
 ha_codeowners:
   - '@rytilahti'
+ha_domain: eq3btsmart
 ---
 
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.

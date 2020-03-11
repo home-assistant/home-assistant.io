@@ -183,12 +183,12 @@ description: "Changelog of the Lovelace UI."
 - ⚠️ [sensor card]: Removed configs `height`, `line_color` and `line_width`
 - ⚠️ [gauge card]: Renamed configuration `title` to `name`
 - ⚠️ [alarm panel card]: Renamed configuration `title` to `name`
-- ⚠️ [glance card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [entity button card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture elements card]: `tap_action` and `hold_action` configurations for elements changed. See docs.
-- ⚠️ [picture entity card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture glance card]: `tap_action` and `hold_action` configurations changed. See docs.
+- ⚠️ [glance card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [entity button card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture elements card]: `tap_action` and `hold_action` configurations for elements changed. See documentation.
+- ⚠️ [picture entity card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture glance card]: `tap_action` and `hold_action` configurations changed. See documentation.
 
 ### All Changes
 - ❤️ [weather forecast card]: New configuration `name`

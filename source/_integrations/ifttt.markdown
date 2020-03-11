@@ -1,20 +1,20 @@
 ---
 title: IFTTT
 description: Instructions on how to setup IFTTT within Home Assistant.
-logo: ifttt.png
 ha_category:
   - Automation
 featured: true
 ha_iot_class: Cloud Push
 ha_release: 0.8
 ha_config_flow: true
+ha_domain: ifttt
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## Sending events from IFTTT to Home Assistant
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
 
 ### Setting up the integration
 

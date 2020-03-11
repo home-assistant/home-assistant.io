@@ -1,11 +1,11 @@
 ---
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-logo: knx.png
 ha_category:
   - Climate
 ha_release: 0.25
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

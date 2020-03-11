@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.89
 ha_codeowners:
   - '@mzdrale'
+ha_domain: ubee
 ---
 
 This platform offers presence detection by looking at connected devices to a [Ubee Router](https://www.ubeeinteractive.com/).
@@ -48,6 +49,7 @@ Supported models:
 - EVW321B
 - EVW32C-0N
 - EVW3226@UPC
+- DVW32CB
 
 <div class='note info'>
 

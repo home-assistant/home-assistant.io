@@ -1,10 +1,10 @@
 ---
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
-description: "Picture elements card is one of the most versatile types of cards"
+description: "The Picture Elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
 ---
 
-Picture elements card is one of the most versatile types of cards.
+The Picture Elements card is one of the most versatile types of cards.
 
 The cards allow you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
@@ -164,6 +164,11 @@ type:
 entity:
   required: true
   description: Entity id
+  type: string
+attribute:
+  required: false
+  description: If present, the corresponding attribute will be shown,
+   instead of the entity's state
   type: string
 prefix:
   required: false
@@ -380,7 +385,7 @@ style:
 {% endconfiguration %}
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
 for more information.
 
 ## How to use the style object
@@ -456,6 +461,13 @@ elements:
     style:
       top: 82%
       left: 79%
+  - type: state-label
+    entity: climate.kitchen
+    attribute: current_temperature
+    suffix: "°C"
+    style:
+      top: 33%
+      left: 15%
   - type: service-button
     title: Turn lights off
     style:

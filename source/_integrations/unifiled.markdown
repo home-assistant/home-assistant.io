@@ -8,6 +8,7 @@ ha_release: 0.102
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@florisvdk'
+ha_domain: unifiled
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system of controller managed LED light panels and dimmers.

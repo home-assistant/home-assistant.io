@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_domain: aquostv
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).

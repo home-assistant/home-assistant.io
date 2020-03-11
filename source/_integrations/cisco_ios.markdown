@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.33
 ha_codeowners:
   - '@fbradyirl'
+ha_domain: cisco_ios
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.

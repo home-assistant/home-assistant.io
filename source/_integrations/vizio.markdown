@@ -1,7 +1,6 @@
 ---
 title: Vizio SmartCast
 description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
-logo: vizio-smartcast.png
 ha_category:
   - Media Player
 ha_release: 0.49
@@ -11,6 +10,7 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
 ha_quality_scale: platinum
+ha_domain: vizio
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
@@ -21,7 +21,11 @@ If `zeroconf` discovery is enabled, your device will get discovered automaticall
 
 ### Install `pyvizio` locally
 
-> NOTE: If the `pip3` command is not found, try `pip` instead
+<div class='note'>
+
+If the `pip3` command is not found, try `pip` instead
+
+</div>
 
 - To install, run `pip3 install pyvizio` in your terminal.
 - If `pyvizio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade pyvizio` in your terminal.
@@ -77,20 +81,20 @@ Make sure that your device is on before continuing.
 Enter the following command to initiate pairing:
 
 ```bash
-$ pyvizio --ip={ip:port} --device_type={device_type} pair
+pyvizio --ip={ip:port} --device_type={device_type} pair
 ```
 
 Initiation will show you two different values:
 
 | Value           | Description                                                                                             |
 | :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually, it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
+| Challenge type  | Usually, it should be `"1"`.                                                                            |
 | Challenge token | Token required to finalize pairing in the next step                                                     |
 
 At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin}
+pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin} --ch_type={challenge_type}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
@@ -121,7 +125,7 @@ access_token:
   required: false
   type: string
 device_class:
-  description: The class of your device. Valid options are `tv` or `speaker`
+  description: The class of your device. Valid options are `tv` or `speaker`.
   required: false
   type: string
   default: tv
@@ -130,7 +134,64 @@ volume_step:
   required: false
   type: integer
   default: 1
+apps:
+  description: Use this section to define app specific settings (only applicable for Vizio Smart TVs).
+  required: false
+  type: map
+  keys:
+    include:
+      description: List of apps to include in the source list. Cannot be used in combination with `exclude`.
+      required: exclusive
+      type: list
+    exclude:
+      description: List of apps to exclude from the source list. Cannot be used in combination with `include`.
+      required: exclusive
+      type: list
+    additional_configs:
+      description: List of manually configured apps that aren't available in the default app list provided by the integration.
+      required: false
+      type: map
+      keys:
+        name:
+          description: The name of the app that will be used in the source list and used to launch the app.
+          required: true
+          type: string
+        config:
+          description: The app configuration that will be used to detect and launch the app.
+          required: true
+          type: map
+          keys:
+            APP_ID:
+              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
+              required: true
+              type: string
+            NAME_SPACE:
+              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
+              required: true
+              type: integer
+            MESSAGE:
+              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
+              required: false
+              type: string
+              default: null
 {% endconfiguration %}
+
+### Obtaining an app configuration
+
+If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. In order to determine the values to specify for each configuration parameter, launch the app you want to configure on your device, and run the following command (requires `pyvizio` to be installed locally):
+
+```bash
+pyvizio --ip={IP:PORT} get-current-app-config
+```
+
+`pyvizio` will return the value of the three parameters (`APP_ID`, `NAME_SPACE`, `MESSAGE`) for the currently running app which you can then include in your configuration.
+
+### Obtaining a list of valid apps to include or exclude
+To get the list of apps that can be excluded or included, run the following command (requires `pyvizio` to be installed locally):
+
+```bash
+pyvizio --ip=0 get-apps-list
+```
 
 ## Notes and limitations
 
@@ -141,7 +202,3 @@ If the `Power Mode` of your device is set to `Eco Mode`, turning the device on w
 ### Changing tracks
 
 Changing tracks works like switching channels. If the current input is anything other than regular TV, this command might not do anything.
-
-### Sources
-
-The source list shows all external devices connected to the Vizio device through HDMI, plus a list of internal devices (TV mode, Chromecast, etc.)

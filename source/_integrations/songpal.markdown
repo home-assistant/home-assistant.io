@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_release: 0.65
 ha_codeowners:
   - '@rytilahti'
+ha_domain: songpal
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.

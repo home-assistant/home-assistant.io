@@ -6,6 +6,7 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.81
+ha_domain: transport_nsw
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.

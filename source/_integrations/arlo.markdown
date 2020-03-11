@@ -9,6 +9,7 @@ ha_category:
   - Sensor
 ha_release: 0.46
 ha_iot_class: Cloud Polling
+ha_domain: arlo
 ---
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.

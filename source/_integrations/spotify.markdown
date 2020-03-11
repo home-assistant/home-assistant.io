@@ -1,7 +1,6 @@
 ---
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
-logo: spotify.png
 ha_category:
   - Media Player
 ha_release: 0.43
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
+ha_domain: spotify
 ---
 
 The `spotify` media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.

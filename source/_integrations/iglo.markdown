@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.61
+ha_domain: iglo
 ---
 
 The `iglo` platform allows you to integrate your [iGlo Lights](https://www.youtube.com/watch?v=oHTS9ji_v-s) into Home Assistant.
