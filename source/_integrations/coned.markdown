@@ -2,7 +2,8 @@
 title: "ConEdison Real-Time Energy Usage Sensor"
 description: "Instructions on how to integrate the ConEdison real-time energy usage sensor within Home Assistant."
 logo: coned.png
-ha_release: 0.102
+ha_release: 0.107
+ha_domain: coned
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
