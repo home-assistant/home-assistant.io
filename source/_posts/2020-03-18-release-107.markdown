@@ -143,19 +143,19 @@ Screen recording of the new card picker and stack editor.
 
 ## New Integrations
 
-**TODO**: There are more new integrations, this section need an update after cutting the beta.
-
 - Add platform Ezviz ([@BaQs] - [#30378]) ([ezviz docs]) (new-integration)
 - Add Avri waste collection sensor ([@timvancann] - [#31134]) ([avri docs]) (new-integration)
 - Add Tankerkoenig integration ([@guillempages] - [#28661]) ([tankerkoenig docs]) (new-integration)
 - Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvrpro docs]) (new-integration)
 - Add edl21 component for SML-based smart meters ([@mtdcr] - [#27962]) ([edl21 docs]) (new-integration)
 - Add IamMeter integration ([@lewei50] - [#30465]) ([iammeter docs]) (new-integration)
+- Add griddy integration ([@bdraco] - [#32591]) ([griddy docs]) (new-integration)
 
 ## New Platforms
 
 - Add Config flow to august ([@bdraco] - [#32133]) ([august docs]) (new-platform)
 - Add Dynalite switch platform ([@ziv1234] - [#32389]) ([dynalite docs]) (new-platform)
+- Add support for MELCloud Air-to-Water devices ([@vilppuvuorinen] - [#32078]) ([melcloud docs]) (new-platform)
 
 ## If you need help...
 
@@ -166,8 +166,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 
 ## Breaking Changes
-
-**TODO**: Ensure we have all breaking changes after beta is cut.
 
 - **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on web scraping and is deprecated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017]) ([xfinity docs])
 
@@ -308,10 +306,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Samsung Smart TV** - Adds support for newer SamsungTV models. Specifying the port in `configuration.yaml` is no longer needed and thus the port config option has been deprecated.  - ([@tulindo] - [#31537]) ([samsungtv docs])
 
+- **Netatmo** - The unreliable binary sensors are removed since they don't provide much value due to their polling nature. To trigger automations it is recommended to use the event netatmo_event. - ([@cgtobi] - [#32673]) ([netatmo docs])
+
+  Example trigger for automations:
+
+  ```yaml
+  trigger:
+    - event_data:
+        type: movement
+      event_type: netatmo_event
+      platform: event
+  ```
+
+- **DirecTV** - DirecTV is now available to be added from the integrations UI. The concept of device has been removed and now the DirecTV receiver, and all client devices, are added. There is no longer a `port` option as the default port should work just fine. The name can be set via entity UI rather than `name` option. - ([@ctalkington] - [#32162]) ([directv docs]) ([directv docs])
+
+- **iCloud** - iCloud family devices are no longer added automatically. Use the `with_family` configuration option or re-add the integration via the frontend, in case you do want to make use of the iCloud family devices. - ([@Quentame] - [#32644]) ([icloud docs])
 
 ## All changes
-
-**TODO**: This section need to be updated to match the beta, after the code base has been cut.
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
 - Update pyhomematic to 0.1.65 ([@danielperna84] - [#32006]) ([homematic docs])
@@ -321,8 +332,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add entity ID to input_number warning ([@balloob] - [#32012]) ([input_number docs]) (breaking change)
 - Update vizio dependency and integration name ([@raman325] - [#31975]) ([vizio docs])
 - Add convert_to_pil_image to pil util ([@robmarkcole] - [#31825])
-- Remove weblink integration ([@frenck] - [#32024]) ([demo docs]) ([weblink docs])
-- Remove history_graph integration ([@frenck] - [#32028]) ([demo docs]) ([history_graph docs])
+- Remove weblink integration ([@frenck] - [#32024]) ([demo docs]) ([weblink docs]) (breaking change)
+- Remove history_graph integration ([@frenck] - [#32028]) ([demo docs]) ([history_graph docs]) (breaking change)
 - Prevent committing to dev/master/rc directly ([@frenck] - [#32029])
 - Fix extra arguments of group integration ([@frenck] - [#32032]) ([group docs])
 - Template platform tweaks ([@balloob] - [#32037]) ([template docs])
@@ -554,6 +565,43 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for newer SamsungTV models ([@tulindo] - [#31537]) ([samsungtv docs]) (breaking change)
 - Clean up homekit_controller entity setup ([@Jc2k] - [#32628]) ([homekit_controller docs])
 - Use callback instead of async methods in Timer ([@balloob] - [#32638]) ([timer docs])
+- UniFi - Fix block functionality ([@Kane610] - [#32625]) ([unifi docs])
+- Add support for MELCloud Air-to-Water devices ([@vilppuvuorinen] - [#32078]) ([melcloud docs]) (new-platform)
+- Check against Switch attr not being None ([@balloob] - [#32647]) ([switch docs])
+- Add options flow for AirVisual ([@bachya] - [#32634]) ([airvisual docs])
+- Add griddy integration ([@bdraco] - [#32591]) ([griddy docs]) (new-integration)
+- Fix bmw connected drive door_lock_state attribute error ([@gerard33] - [#32074]) ([bmw_connected_drive docs])
+- input_datetime guard for unexpected state on restore ([@bramkragten] - [#32652]) ([input_datetime docs])
+- Use f-strings in integrations starting with "M" ([@springstan] - [#32271])
+- Refactor netatmo webhooks ([@cgtobi] - [#32195]) ([netatmo docs])
+- Lock operation sensors for August ([@bdraco] - [#32593]) ([august docs])
+- Throw ConfigEntryNotReady when august servers are offline or u… ([@bdraco] - [#32635]) ([august docs])
+- Bump aiohomekit for more reconnect fixes ([@Jc2k] - [#32657]) ([homekit_controller docs])
+- Bump python-ecobee-api to 0.2.2 ([@jjlawren] - [#32667]) ([ecobee docs])
+- Use bomradarloop v0.1.4 ([@maddenp] - [#32660]) ([bom docs])
+- Add codeowner for directv. ([@ctalkington] - [#32661]) ([directv docs]) ([directv docs])
+- Add entity_service calibrate_meter to utility_meter ([@dgomes] - [#32658]) ([utility_meter docs])
+- Updated frontend to 20200311.0 ([@bramkragten] - [#32675]) ([frontend docs])
+- Clean up custom polling in ZHA device and light ([@dmulcahey] - [#32653]) ([zha docs])
+- Refactor homekit_controller entity update to work more like update coordinator ([@Jc2k] - [#32670]) ([homekit_controller docs])
+- Update homekit_controller to use CharacteristicPermissions constants ([@Jc2k] - [#32679]) ([homekit_controller docs])
+- Additional ZHA cleanup ([@dmulcahey] - [#32678]) ([zha docs])
+- Fix demos ([@bramkragten] - [#32086]) ([demo docs])
+- UniFi - Client tracker schedules update on disconnect event ([@Kane610] - [#32655]) ([unifi docs])
+- Remove Netatmo binary sensor ([@cgtobi] - [#32673]) ([netatmo docs]) (breaking change)
+- Connect to more recent versions of IZone ([@Swamp-Ig] - [#32552]) ([izone docs])
+- Simplfy homekit_controller characteristic writes ([@Jc2k] - [#32683]) ([homekit_controller docs])
+- Allow sw_version update of a device registry entry. ([@Adminiuga] - [#32630])
+- Fix rate of change calculation of statistics sensor ([@flo-wer] - [#32597]) ([statistics docs])
+- Remove duplicated config from MQTT tests ([@emontnemery] - [#32689])
+- Rewrite and add Plex tests ([@jjlawren] - [#32633]) ([plex docs])
+- Add JSON benchmark ([@balloob] - [#32690])
+- Fix issue #23758 - Restore Canary sensors and ensure alarm con… ([@chiefdragon] - [#32627]) ([canary docs])
+- Updated frontend to 20200311.1 ([@bramkragten] - [#32691]) ([frontend docs])
+- Add config flow to directv ([@ctalkington] - [#32162]) ([directv docs]) ([directv docs]) (breaking change)
+- Update directpy==0.7 for directv. ([@ctalkington] - [#32694]) ([directv docs]) ([directv docs])
+- Fetch iCloud family devices only when wanted ([@Quentame] - [#32644]) ([icloud docs]) (breaking change)
+- Add codeowner for roku. ([@ctalkington] - [#32695]) ([roku docs])
 
 [#27303]: https://github.com/home-assistant/core/pull/27303
 [#27721]: https://github.com/home-assistant/core/pull/27721
@@ -615,10 +663,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32066]: https://github.com/home-assistant/core/pull/32066
 [#32067]: https://github.com/home-assistant/core/pull/32067
 [#32072]: https://github.com/home-assistant/core/pull/32072
+[#32074]: https://github.com/home-assistant/core/pull/32074
 [#32077]: https://github.com/home-assistant/core/pull/32077
+[#32078]: https://github.com/home-assistant/core/pull/32078
 [#32082]: https://github.com/home-assistant/core/pull/32082
 [#32083]: https://github.com/home-assistant/core/pull/32083
 [#32085]: https://github.com/home-assistant/core/pull/32085
+[#32086]: https://github.com/home-assistant/core/pull/32086
 [#32093]: https://github.com/home-assistant/core/pull/32093
 [#32094]: https://github.com/home-assistant/core/pull/32094
 [#32101]: https://github.com/home-assistant/core/pull/32101
@@ -655,6 +706,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32159]: https://github.com/home-assistant/core/pull/32159
 [#32160]: https://github.com/home-assistant/core/pull/32160
 [#32161]: https://github.com/home-assistant/core/pull/32161
+[#32162]: https://github.com/home-assistant/core/pull/32162
 [#32164]: https://github.com/home-assistant/core/pull/32164
 [#32165]: https://github.com/home-assistant/core/pull/32165
 [#32166]: https://github.com/home-assistant/core/pull/32166
@@ -670,6 +722,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32188]: https://github.com/home-assistant/core/pull/32188
 [#32193]: https://github.com/home-assistant/core/pull/32193
 [#32194]: https://github.com/home-assistant/core/pull/32194
+[#32195]: https://github.com/home-assistant/core/pull/32195
 [#32197]: https://github.com/home-assistant/core/pull/32197
 [#32202]: https://github.com/home-assistant/core/pull/32202
 [#32203]: https://github.com/home-assistant/core/pull/32203
@@ -689,6 +742,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32255]: https://github.com/home-assistant/core/pull/32255
 [#32262]: https://github.com/home-assistant/core/pull/32262
 [#32265]: https://github.com/home-assistant/core/pull/32265
+[#32271]: https://github.com/home-assistant/core/pull/32271
 [#32276]: https://github.com/home-assistant/core/pull/32276
 [#32286]: https://github.com/home-assistant/core/pull/32286
 [#32289]: https://github.com/home-assistant/core/pull/32289
@@ -766,6 +820,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32542]: https://github.com/home-assistant/core/pull/32542
 [#32546]: https://github.com/home-assistant/core/pull/32546
 [#32549]: https://github.com/home-assistant/core/pull/32549
+[#32552]: https://github.com/home-assistant/core/pull/32552
 [#32554]: https://github.com/home-assistant/core/pull/32554
 [#32559]: https://github.com/home-assistant/core/pull/32559
 [#32561]: https://github.com/home-assistant/core/pull/32561
@@ -780,7 +835,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32582]: https://github.com/home-assistant/core/pull/32582
 [#32586]: https://github.com/home-assistant/core/pull/32586
 [#32588]: https://github.com/home-assistant/core/pull/32588
+[#32591]: https://github.com/home-assistant/core/pull/32591
+[#32593]: https://github.com/home-assistant/core/pull/32593
 [#32596]: https://github.com/home-assistant/core/pull/32596
+[#32597]: https://github.com/home-assistant/core/pull/32597
 [#32602]: https://github.com/home-assistant/core/pull/32602
 [#32607]: https://github.com/home-assistant/core/pull/32607
 [#32609]: https://github.com/home-assistant/core/pull/32609
@@ -792,10 +850,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32618]: https://github.com/home-assistant/core/pull/32618
 [#32621]: https://github.com/home-assistant/core/pull/32621
 [#32624]: https://github.com/home-assistant/core/pull/32624
+[#32625]: https://github.com/home-assistant/core/pull/32625
 [#32626]: https://github.com/home-assistant/core/pull/32626
+[#32627]: https://github.com/home-assistant/core/pull/32627
 [#32628]: https://github.com/home-assistant/core/pull/32628
+[#32630]: https://github.com/home-assistant/core/pull/32630
+[#32633]: https://github.com/home-assistant/core/pull/32633
+[#32634]: https://github.com/home-assistant/core/pull/32634
+[#32635]: https://github.com/home-assistant/core/pull/32635
 [#32638]: https://github.com/home-assistant/core/pull/32638
 [#32639]: https://github.com/home-assistant/core/pull/32639
+[#32644]: https://github.com/home-assistant/core/pull/32644
+[#32647]: https://github.com/home-assistant/core/pull/32647
+[#32652]: https://github.com/home-assistant/core/pull/32652
+[#32653]: https://github.com/home-assistant/core/pull/32653
+[#32655]: https://github.com/home-assistant/core/pull/32655
+[#32657]: https://github.com/home-assistant/core/pull/32657
+[#32658]: https://github.com/home-assistant/core/pull/32658
+[#32660]: https://github.com/home-assistant/core/pull/32660
+[#32661]: https://github.com/home-assistant/core/pull/32661
+[#32667]: https://github.com/home-assistant/core/pull/32667
+[#32670]: https://github.com/home-assistant/core/pull/32670
+[#32673]: https://github.com/home-assistant/core/pull/32673
+[#32675]: https://github.com/home-assistant/core/pull/32675
+[#32678]: https://github.com/home-assistant/core/pull/32678
+[#32679]: https://github.com/home-assistant/core/pull/32679
+[#32683]: https://github.com/home-assistant/core/pull/32683
+[#32689]: https://github.com/home-assistant/core/pull/32689
+[#32690]: https://github.com/home-assistant/core/pull/32690
+[#32691]: https://github.com/home-assistant/core/pull/32691
+[#32694]: https://github.com/home-assistant/core/pull/32694
+[#32695]: https://github.com/home-assistant/core/pull/32695
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@BaQs]: https://github.com/BaQs
@@ -814,6 +899,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Quentame]: https://github.com/Quentame
 [@Rocik]: https://github.com/Rocik
 [@SukramJ]: https://github.com/SukramJ
+[@Swamp-Ig]: https://github.com/Swamp-Ig
 [@Tho85]: https://github.com/Tho85
 [@ajschmidt8]: https://github.com/ajschmidt8
 [@alandtse]: https://github.com/alandtse
@@ -826,6 +912,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@bieniu]: https://github.com/bieniu
 [@borpin]: https://github.com/borpin
 [@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@chiefdragon]: https://github.com/chiefdragon
 [@chmielowiec]: https://github.com/chmielowiec
 [@colinodell]: https://github.com/colinodell
 [@ctalkington]: https://github.com/ctalkington
@@ -840,7 +928,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@emontnemery]: https://github.com/emontnemery
 [@engrbm87]: https://github.com/engrbm87
 [@exxamalte]: https://github.com/exxamalte
+[@flo-wer]: https://github.com/flo-wer
 [@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
 [@guillempages]: https://github.com/guillempages
 [@i00]: https://github.com/i00
 [@ilarrain]: https://github.com/ilarrain
@@ -850,6 +940,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kirichkov]: https://github.com/kirichkov
 [@kuchel77]: https://github.com/kuchel77
 [@lewei50]: https://github.com/lewei50
+[@maddenp]: https://github.com/maddenp
 [@marengaz]: https://github.com/marengaz
 [@martinlong1978]: https://github.com/martinlong1978
 [@matejdro]: https://github.com/matejdro
@@ -881,6 +972,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@timvancann]: https://github.com/timvancann
 [@tulindo]: https://github.com/tulindo
 [@vigonotion]: https://github.com/vigonotion
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
 [@z0mbieprocess]: https://github.com/z0mbieprocess
 [@ziv1234]: https://github.com/ziv1234
 [@zxdavb]: https://github.com/zxdavb
@@ -896,10 +988,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [avri docs]: /integrations/avri/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bom docs]: /integrations/bom/
 [braviatv docs]: /integrations/braviatv/
 [brother docs]: /integrations/brother/
 [buienradar docs]: /integrations/buienradar/
 [camera docs]: /integrations/camera/
+[canary docs]: /integrations/canary/
 [cast docs]: /integrations/cast/
 [cert_expiry docs]: /integrations/cert_expiry/
 [cloud docs]: /integrations/cloud/
@@ -916,6 +1011,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [directv docs]: /integrations/directv/
 [discovery docs]: /integrations/discovery/
 [dynalite docs]: /integrations/dynalite/
+[ecobee docs]: /integrations/ecobee/
 [edl21 docs]: /integrations/edl21/
 [emby docs]: /integrations/emby/
 [emoncms docs]: /integrations/emoncms/
@@ -935,6 +1031,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [google_assistant docs]: /integrations/google_assistant/
 [google_travel_time docs]: /integrations/google_travel_time/
 [gpslogger docs]: /integrations/gpslogger/
+[griddy docs]: /integrations/griddy/
 [group docs]: /integrations/group/
 [heos docs]: /integrations/heos/
 [history_graph docs]: /integrations/history_graph/
@@ -947,10 +1044,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [iammeter docs]: /integrations/iammeter/
 [icloud docs]: /integrations/icloud/
 [ifttt docs]: /integrations/ifttt/
+[input_datetime docs]: /integrations/input_datetime/
 [input_number docs]: /integrations/input_number/
 [ipma docs]: /integrations/ipma/
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
+[izone docs]: /integrations/izone/
 [kodi docs]: /integrations/kodi/
 [light docs]: /integrations/light/
 [locative docs]: /integrations/locative/
@@ -958,11 +1057,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lovelace docs]: /integrations/lovelace/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
+[melcloud docs]: /integrations/melcloud/
 [met docs]: /integrations/met/
 [mikrotik docs]: /integrations/mikrotik/
 [mobile_app docs]: /integrations/mobile_app/
 [mqtt docs]: /integrations/mqtt/
 [nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
 [notion docs]: /integrations/notion/
 [nuki docs]: /integrations/nuki/
 [onvif docs]: /integrations/onvif/
@@ -991,10 +1092,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [somfy docs]: /integrations/somfy/
 [sonos docs]: /integrations/sonos/
 [soundtouch docs]: /integrations/soundtouch/
+[statistics docs]: /integrations/statistics/
 [steam_online docs]: /integrations/steam_online/
 [stream docs]: /integrations/stream/
 [sun docs]: /integrations/sun/
 [supla docs]: /integrations/supla/
+[switch docs]: /integrations/switch/
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [tankerkoenig docs]: /integrations/tankerkoenig/
@@ -1010,6 +1113,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
+[utility_meter docs]: /integrations/utility_meter/
 [vizio docs]: /integrations/vizio/
 [weblink docs]: /integrations/weblink/
 [workday docs]: /integrations/workday/
