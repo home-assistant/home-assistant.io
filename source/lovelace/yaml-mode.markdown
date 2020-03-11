@@ -66,7 +66,7 @@ lovelace:
       filename: lovelace.yaml
 ```
 
-{% configuration lovelace %}
+{% configuration %}
 mode:
   required: true
   description: In what mode should the main Lovelace panel be, `yaml` or `storage` (UI managed).
