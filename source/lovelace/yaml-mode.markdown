@@ -30,7 +30,7 @@ You can define multiple dashboards that all have their own YAML file, and add cu
 ```yaml
 lovelace:
   mode: yaml
-  # Include external resources only add when mode is `yaml`, otherwise manage in the resources in the lovelace config panel.
+  # Include external resources only add when mode is `yaml`, otherwise manage in the resources in the lovelace configuration panel.
   resources:
     - url: /local/my-custom-card.js
       type: module
@@ -78,7 +78,7 @@ resources:
   keys:
     url:
       required: true
-      description: The url of the resource to load.
+      description: The URL of the resource to load.
       type: string
     type:
       required: true
@@ -87,11 +87,11 @@ resources:
 dashboards:
   required: false
   description: Cards to display in this view.
-  type: object
+  type: map
   keys:
     mode:
       required: true
-      description: The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the Lovelace config panel.
+      description: The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the Lovelace configuration panel.
       type: string
     filename:
       required: true
