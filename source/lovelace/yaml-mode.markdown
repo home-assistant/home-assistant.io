@@ -30,7 +30,7 @@ You can define multiple dashboards that all have their own YAML file, and add cu
 ```yaml
 lovelace:
   mode: yaml
-  # Include external resources only add when mode is `yaml`, otherwise manage in the resources in the lovelace configuration panel.
+  # Include external resources only add when mode is yaml, otherwise manage in the resources in the lovelace configuration panel.
   resources:
     - url: /local/my-custom-card.js
       type: module
@@ -69,11 +69,11 @@ lovelace:
 {% configuration %}
 mode:
   required: true
-  description: In what mode should the main Lovelace panel be, `yaml` or `storage` (UI managed).
+  description: "In what mode should the main Lovelace panel be, `yaml` or `storage` (UI managed)."
   type: string
 resources:
   required: false
-  description: List of resources that should be loaded when you use Lovelace. Only use this when mode is `yaml`.
+  description: "List of resources that should be loaded when you use Lovelace. Only use this when mode is `yaml`."
   type: list
   keys:
     url:
@@ -82,7 +82,7 @@ resources:
       type: string
     type:
       required: true
-      description: The type of resource, this should be either `module` for a JavaScript module or `css` for a StyleSheet.
+      description: "The type of resource, this should be either `module` for a JavaScript module or `css` for a StyleSheet."
       type: string
 dashboards:
   required: false
@@ -91,11 +91,11 @@ dashboards:
   keys:
     mode:
       required: true
-      description: The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the Lovelace configuration panel.
+      description: "The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the Lovelace configuration panel."
       type: string
     filename:
       required: true
-      description: The file in your `config` directory where the Lovelace configuration for this panel is.
+      description: "The file in your `config` directory where the Lovelace configuration for this panel is."
       type: string
     title:
       required: true
