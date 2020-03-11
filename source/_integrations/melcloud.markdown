@@ -58,6 +58,19 @@ The following parameters can be controlled for the `climate` platform entities:
 - Operation mode (HVAC mode)
 - Fan speed
 
+#### State attributes
+
+|Attribute|Description|Example|
+|---------|-----------|-------|
+|`vane_horizontal` |Current horizontal vane position or mode|`auto`|
+|`vane_horizontal_positions` |Available horizontal vane positions and modes|`auto, split, swing`|
+|`vane_vertical` |Current vertical vane position or mode|`auto`|
+|`vane_vertical_positions` |Available vertical vane positions and modes|`auto, split, swing`|
+
+#### Controlling vanes
+
+The horizontal and vertical vanes can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+
 ### Sensor
 
 The following attributes are available for `sensor` platform entities:
