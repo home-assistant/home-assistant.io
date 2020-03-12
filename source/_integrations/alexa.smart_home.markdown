@@ -424,6 +424,9 @@ The following integrations are currently supported:
 - [Input Number](#input-number)
 - [Image Processing](#image-processing)
 - [Light](#light)
+  - [Brightness](#brightness)
+  - [Color Temperature](#color-temperature)
+  - [Color](#color)
 - [Lock](#lock)
 - [Media Player](#media-player)
   - [Channels](#change-channel)
@@ -760,8 +763,57 @@ The following table lists the possible friendly name synonyms available for a In
 
 ### Light
 
-- _"Alexa, dim the bathroom light."_
+Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature. 
+
+- _"Alexa, turn on the bathroom light."_
+- _"Alexa, turn off the patio light."_
+
+#### Brightness
+
+Lights that support brightness can be adjusted with percentages ranging from 0 to 100 percent.
+
 - _"Alexa, set the bedroom light to fifty percent."_
+- _"Alexa, living room lights to one hundred percent."_
+
+The _"dim"_ utterance will decrease the brightness of a light 25 percentage points.
+
+- _"Alexa, dim the bathroom light."_
+
+#### Color Temperature
+
+Adjust lights that support color temperature using the following friendly names:
+
+- _"Alexa, set the dining room softer."_
+- _"Alexa, make the living room warmer."_
+- _"Alexa, set the dining room cooler."_
+- _"Alexa, make the living room light whiter."_
+- _"Alexa, make the living room warm white."_
+- _"Alexa, set the kitchen to daylight."_
+
+The following table lists the possible friendly name synonyms available to lights that support color temperature.
+
+| Color Temperature in Kelvin | Friendly Name Synonyms  |
+| -----| ---------------------------------------------- |
+| 2200 | _"warm"_, _"warm white"_                       |
+| 2700 | _"incandescent"_, _"soft white"_               |
+| 4000 | _"white"_                                      |
+| 5500 | _"daylight"_, _"daylight white"_               |
+| 7000 | _"cool"_, _"cool white"_                       |
+
+Use _"warmer"_, _"softer"_, _"cooler_, _"whiter"_ utterances to adjust color temperature by 50 `mired` (approximately 300-500 degree kelvin change).
+
+- _"Alexa, set the dining room softer."_
+- _"Alexa, make the living room warmer."_
+- _"Alexa, set the dining room cooler."_
+- _"Alexa, make the living room light whiter."_
+
+#### Color
+
+Set the light color using the CSS [basic color keywords](https://drafts.csswg.org/css-color-3/#html4) or [extended color keywords](https://drafts.csswg.org/css-color-3/#svg-color) as the friendly color name.
+
+- _"Alexa, set the front porch light to blue."_
+- _"Alexa, set the bedroom light to red."_
+- _"Alexa, change the kitchen to the color crimson."_
 
 ### Lock
 
