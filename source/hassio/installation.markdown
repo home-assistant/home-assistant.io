@@ -130,6 +130,19 @@ Optional:
 
 </div>
 
+<div class='note warning'>
+
+   With NetworkManager, your MAC address will reset during the Wi-Fi scanning (usually, on every reboot). To prevent this, you need to add
+
+```
+[device]
+wifi.scan-rand-mac-address=no
+```
+
+to `/etc/NetworkManager/NetworkManager.conf` _([Source](https://unix.stackexchange.com/a/395201/102128))_.
+
+</div>
+
 ### Arch Linux
 
 - `apparmor`
