@@ -136,28 +136,19 @@ Returns the maximum supported temperature by the thermostat
 
 The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`, `resume_program`.
 
-The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_humidity`, `set_fan_mode`, and `set_swing_mode` offered by the [Climate component](/integrations/climate/) are not implemented for this thermostat.
+### Service `climate.set_hvac_mode` ([Climate component](/integrations/climate/))
 
-### Service `set_temperature`
+NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
 
-Puts the thermostat into an indefinite hold at the given temperature.
+### Service `climate.set_temperature` ([Climate component](/integrations/climate/))
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.
-| `temperature` | no | Desired target temperature (when not in auto mode)
+If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature.
 
-Only the target temperatures relevant for the current operation mode need to
-be provided.
+If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
 
-### Service `set_preset_mode`
+### Service `climate.set_preset_mode` ([Climate component](/integrations/climate/))
 
-Sets the thermostat's preset mode. Without a preset mode set it run the thermostat's programmed schedule, "temperature" (to indefinitely hold the thermostat's current target temperature), or "temporary_temperature" (to hold the thermostat's current target temperature until the thermostat's next scheduled event).
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.
-| `hold_mode` | no | New value of hold mode.
+The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.
 
 ### Service `nuheat.resume_program`
 
