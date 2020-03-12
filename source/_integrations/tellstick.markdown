@@ -37,7 +37,7 @@ tellstick:
 There is a [TellStick add-on](/addons/tellstick/) available in the Home Assistant add-on store.
 
 ```yaml
-# Example configuration.yaml entry for Hass.io with the TellStick add-on
+# Example configuration.yaml entry with the TellStick add-on
 tellstick:
   host: core-tellstick
   port: [50800, 50801]
