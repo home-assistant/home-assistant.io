@@ -134,7 +134,7 @@ Optional:
 
    With NetworkManager, your MAC address will reset during the Wi-Fi scanning (usually, on every reboot). To prevent this, you need to add
 
-```
+```ini
 [device]
 wifi.scan-rand-mac-address=no
 ```
