@@ -146,7 +146,7 @@ If the thermostat is in auto mode, it puts the thermostat into a temporary hold 
 
 If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
 
-### Service `climate.set_preset_mode` ([Climate component](/integrations/climate/))
+### Service `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
 
 The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.
 
