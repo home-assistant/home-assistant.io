@@ -140,7 +140,7 @@ The following services are provided by the NuHeat Thermostat: `set_temperature`,
 
 NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
 
-### Service `climate.set_temperature` ([Climate component](/integrations/climate/))
+### Service `climate.set_temperature` ([Climate integration](/integrations/climate/))
 
 If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature.
 
