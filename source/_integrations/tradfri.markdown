@@ -58,7 +58,7 @@ Then restart Home Assistant. When prompted, enter the security key and click *co
 ### Compilation issues
 
 <div class='note'>
-  This does not apply to Hass.io or Docker.
+  This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
 </div>
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
