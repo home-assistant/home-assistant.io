@@ -33,6 +33,26 @@ qos:
   description: The QoS level of the topic.
   required: false
   type: string
+latitude_field:
+  description: The name of the latitude field in the JSON.
+  required: false
+  default: latitude
+  type: string
+longitude_field:
+  description: The name of the longitude field in the JSON.
+  required: false
+  default: longitude
+  type: string
+gps_accuracy_field:
+  description: The name of the GPS accuracy field in the JSON.
+  required: false
+  default: gps_accuracy
+  type: string
+battery_level_field:
+  description: The name of the battery level field in the JSON.
+  required: false
+  default: battery_level
+  type: string
 {% endconfiguration %}
 
 ## Usage
@@ -44,4 +64,4 @@ This platform receives JSON formatted payloads containing GPS information, for e
 ```
 
 Where `longitude` is the longitude, `latitude` is the latitude, `gps_accuracy` is the accuracy in meters, `battery_level` is the current battery level of the device sending the update.
-`longitude` and `latitude` are required keys, `gps_accuracy` and `battery_level` are optional.
+`longitude` and `latitude` are required keys, `gps_accuracy` and `battery_level` are optional. If your JSON field names do not match, you can customize them in the configuration.
