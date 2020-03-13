@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Recommended way of running deCONZ
 
-If you are running Hass.io, an official add-on for deCONZ is available in the add-on store.
+An official add-on for deCONZ is available in the Home Assistant add-on store.
 Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
 ### Supported devices
