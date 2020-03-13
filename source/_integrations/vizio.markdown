@@ -181,7 +181,7 @@ apps:
 If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
 
 ### Obtaining a list of valid apps to include or exclude
-The list of apps that are provided by default are statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a Vizio Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
+The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a Vizio Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
 
 ```bash
 pyvizio --ip=0 get-apps-list
