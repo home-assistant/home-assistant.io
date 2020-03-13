@@ -64,7 +64,7 @@ fallback:
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is not supported.
+It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is also supported. Every climate card can change to away-mode, this changes the setting for the whole home.
 
 ## Presence Detection
 
