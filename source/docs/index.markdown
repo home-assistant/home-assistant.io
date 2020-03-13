@@ -10,7 +10,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
-    <div class='title'>Hass.io</div>
+    <div class='title'>Installation</div>
   </a>
   <a class='option-card' href='/docs/configuration/'>
     <div class='img-container'>
