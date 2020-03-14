@@ -69,6 +69,12 @@ initial_state:
   type: string
 {% endconfiguration %}
 
+<div class='note'>
+
+**Removal of `emulated_hue_hidden`:**<br>
+The `entities` `hidden` configuration setting in [emulated_hue](/integrations/emulated_hue/#entities) should be used instead.
+</div>
+
 #### Device Class
 
 Device class is currently supported by the following components:
