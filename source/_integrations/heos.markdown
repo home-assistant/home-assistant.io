@@ -18,6 +18,7 @@ The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capab
 - Control play mode (play, pause, stop, next and previous), volume, mute and shuffle
 - Clear playlist
 - Select source from device physical inputs and HEOS favorites
+- Joining and unjoining of HEOS groups
 
 ## Configuration
 
@@ -59,6 +60,34 @@ password: "password"
 ### Service `heos.sign_out`
 
 Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this service.
+
+### Service `heos.join`
+
+This service can be used for joining or creating a HEOS group. A HEOS group always contains exactly one leader player and at least another player which acts as a group member. All member players will synchronously play the same audio as the group leader. The group can be controlled by any player of the group. For creating a new HEOS group or joining more members to an existing group the service call looks as follows:
+
+```yaml
+master: media_player.heos_player1
+entity_id:
+  - media_player.heos_player2
+}
+```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `leader`               | no       | A single `entity_id` that will become/stay the leader speaker of the HEOS group.
+| `entity_id`            | no       | String or list of `entity_id`s to join to the leader.
+
+### Service `heos.unjoin`
+
+Use the unjoin service to remove a single media player from an existing HEOS group. When the leader player is unjoined from a HEOS group the group will be destroyed. Example service data payload:
+
+```yaml
+entity_id: media_player.heos_player1
+```
+
+| Attribute              | Optional  | Description |
+| ---------------------- | --------- |-------------|
+| `entity_id`            | no        | Removes all grouping from this media player. [Required]
 
 ### Service `media_player.play_media`
 
@@ -128,7 +157,6 @@ media_content_id: "http://path.to/stream.mp3"
 
 ## Notes
 
-- HEOS groups are not currently supported.
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
 
 ## Troubleshooing
