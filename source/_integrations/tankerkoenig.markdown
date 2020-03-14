@@ -55,7 +55,7 @@ longitude:
 radius:
   description: The radius in km. in which to search for gas stations. Cannot be less than 1.
   required: false
-  default: 5
+  default: 2
   type: integer
 scan_interval:
   description: The time interval to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
