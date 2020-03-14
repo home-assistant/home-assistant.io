@@ -35,12 +35,21 @@ To enable the platform and gather data via latitude/longitude, add the following
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
+    # Or, to use an AirVisual Node/Pro:
+    node_pro_id: YOUR_NODE_PRO_ID
 ```
 
+Note that an API key-based entry can be mixed with one or more Node/Pro-baesd entries
+(examples below).
+
 {% configuration %}
+node_pro_id:
+  description: Your Node/Pro ID.
+  required: false
+  type: string
 api_key:
   description: Your AirVisual API key.
-  required: true
+  required: false
   type: string
 geographies:
   description: A list of geographical locations to monitor
@@ -71,14 +80,14 @@ geographies:
 
 ## Example Configurations
 
-No explicit configuration (uses the `latitude` and `longitude` defined within `configuration.yaml`):
+No explicit configuration (using the cloud API and the `latitude` and `longitude` defined within `configuration.yaml`):
 
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
 ```
 
-Configuration using a single custom latitude and longitude:
+Configuration using the cloud API and a single custom latitude and longitude:
 
 ```yaml
 airvisual:
@@ -89,7 +98,7 @@ airvisual:
     scan_interval: 300
 ```
 
-Configuration using multiple custom latitude and longitude pairs:
+Configuration using the cloud API and multiple custom latitude and longitude pairs:
 
 ```yaml
 airvisual:
@@ -101,7 +110,7 @@ airvisual:
           longitude: -117.22743
 ```
 
-Configuration using a single city, state, and country:
+Configuration using the cloud API and a single city, state, and country:
 
 ```yaml
 airvisual:
@@ -110,6 +119,22 @@ airvisual:
         city: Los Angeles
         state: California
         country: USA
+```
+
+Configuration using a Node/Pro unit:
+
+```yaml
+airvisual:
+    node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID
+```
+
+Configuration using the cloud API and multiple Node/Pro units:
+
+```yaml
+airvisual:
+    - api_key: YOUR_AIRVISUAL_API_KEY
+    - node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID_1
+    - node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID_2
 ```
 
 ## Determining the City/State/Country
