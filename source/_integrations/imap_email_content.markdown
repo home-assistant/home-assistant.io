@@ -73,7 +73,7 @@ value_template:
       description: The date and time the email was sent.
 {% endconfiguration %}
 
-## Example
+## Example - keyword spotting
 
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
 
@@ -98,3 +98,47 @@ sensor:
 {% endraw %}
 
 The same template structure can scan the date, body or sender for matching text before setting the state of the sensor.
+
+## Example - extracting formatted text from an email using template sensors
+
+This example shows how to extract numbers or other formatted data from an email to change the value of a template sensor to a value extracted from the email. In this example, we will be extracting energy use, cost, and billed amount from an email (from Georgia Power) and putting it into sensor values using a template sensor which runs against our IMAP email sensor already set up. An sample of the body of the email used is below:
+{% raw %}
+```
+Yesterday's Energy Use:                             76 kWh
+Yesterday's estimated energy cost:                  $8
+Monthly Energy use-to-date for 23 days:             1860 kWh
+Monthly estimated energy cost-to-date for 23 days:  $198
+
+To view your account for details about your energy use, please click here.
+```
+{% endraw %}
+
+Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+  sensors:
+    previous_day_energy_use:
+      friendly_name: Previous Day Energy Use
+      unit_of_measurement: kWh
+      value_template: >
+       {{ state_attr('sensor.energy_email','body')
+         |regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
+    previous_day_cost:
+      friendly_name: Previous Day Cost
+      unit_of_measurement: $
+      value_template: >
+        {{ state_attr('sensor.energy_email', 'body')
+          |regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
+    billing_cycle_total:
+      friendly_name: Billing Cycle Total
+      unit_of_measurement: $
+      value_template: >
+        {{ state_attr('sensor.energy_email', 'body')
+          |regex_findall_index("\ days:\* \$([0-9.]+)") }}
+```
+{% endraw %}
+
+By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body of other emails. 
