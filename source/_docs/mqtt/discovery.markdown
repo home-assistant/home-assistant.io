@@ -140,6 +140,7 @@ Supported abbreviations:
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
     'name':                'name',
+    'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
     'osc_cmd_t':           'oscillation_command_topic',
