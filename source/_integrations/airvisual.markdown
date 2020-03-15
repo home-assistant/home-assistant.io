@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: airvisual
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or by the unique ID for an [AirVisual Node/Pro unit](https://www.airvisual.com/air-quality-monitor).
+The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.airvisual.com/air-quality-monitor).
 
 ## Using the AirVisual Cloud API
 
@@ -26,7 +26,7 @@ The "Community" API key is limited to 10,000 calls per month. In order to leave 
 
 ## Using an AirVisual Node/Pro Unit
 
-The unique ID number for an AirVisual Node/Pro unit can be found by navigating to https://www.airvisual.com/dashboard/devices, clicking on the unit in question, and clicking on `API`, where the ID is visible at the end of the API URL (e.g., https://www.airvisual.com/api/v2/node/NODE_PRO_ID).
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.airvisual.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
 ## Configuration
 
@@ -36,17 +36,14 @@ To enable the platform and gather data via latitude/longitude, add the following
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
     # Or, to use an AirVisual Node/Pro:
-    node_pro_id: YOUR_NODE_PRO_ID
+    ip_address: YOUR_NODE_PRO_IP_ADDRESS
+    password: YOUR_NODE_PRO_SAMBA_PASSWORD
 ```
 
 Note that an API key-based entry can be mixed with one or more Node/Pro-baesd entries
 (examples below).
 
 {% configuration %}
-node_pro_id:
-  description: Your Node/Pro ID.
-  required: false
-  type: string
 api_key:
   description: Your AirVisual API key.
   required: false
@@ -76,6 +73,14 @@ geographies:
       description: The country the state belongs to.
       required: inclusive
       type: string
+ip_address:
+  description: Your Node/Pro unit's IP address or hostname.
+  required: false
+  type: string
+password:
+  description: Your Node/Pro unit's Samba password.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Example Configurations
@@ -125,7 +130,8 @@ Configuration using a Node/Pro unit:
 
 ```yaml
 airvisual:
-    node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID
+    ip_address: 192.168.1.100
+    password: YOUR_NODE_PRO_SAMBA_PASSWORD
 ```
 
 Configuration using the cloud API and multiple Node/Pro units:
@@ -133,8 +139,10 @@ Configuration using the cloud API and multiple Node/Pro units:
 ```yaml
 airvisual:
     - api_key: YOUR_AIRVISUAL_API_KEY
-    - node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID_1
-    - node_pro_id: YOUR_AIRVISUAL_NODE_PRO_ID_2
+    - ip_address: 192.168.1.100
+      password: YOUR_NODE_PRO_SAMBA_PASSWORD_1
+    - ip_address: 192.168.1.148
+      password: YOUR_NODE_PRO_SAMBA_PASSWORD_2
 ```
 
 ## Determining the City/State/Country
