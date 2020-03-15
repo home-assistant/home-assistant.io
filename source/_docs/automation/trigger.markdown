@@ -288,7 +288,7 @@ As an alternative, providing you include the sensor [time](/integrations/time_da
 automation:
   trigger:
     platform: template
-    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
 ```
 
 {% endraw %}
