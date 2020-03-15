@@ -1,6 +1,6 @@
 ---
 title: Amcrest
-description: Instructions on how to integrate Amcrest IP cameras within Home Assistant.
+description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 logo: amcrest.png
 ha_category:
   - Hub
@@ -14,7 +14,7 @@ ha_codeowners:
 ha_domain: amcrest
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -153,7 +153,8 @@ Available services:
 `enable_motion_recording`, `disable_motion_recording`,
 `enable_recording`, `disable_recording`,
 `goto_preset`, `set_color_bw`,
-`start_tour` and `stop_tour`
+`start_tour` and `stop_tour`,
+`ptz_control`
 
 #### Service `enable_audio`/`disable_audio`
 
@@ -204,6 +205,132 @@ These services start or stop the camera's PTZ tour function.
 Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
+#### Service `ptz_control`
+
+If your Amcrest or Dahua camera supports PT/PTZ, you will be able to pan, tilt or zoom your camera.  Zoom is only supported on PTZ
+cameras with optical zoom.  It does not support zooming of Varifocal lenses.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `movement` | 	Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up/top_right`, `right_down/bottom_right`, `left_up/top_left`,  `left_down/bottom_left` |
+| `travel_time` | (Optional) Camera movement start/stop time in fractional seconds. Allowed values: 0 to 1. Default:  0.2 |
+
+### Example card with controls
+
+<p class='img'>
+  <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
+  Example showing an Amcrest IP2M-841 PT camera with controls for Pan and Tilt.
+</p>
+
+
+Using the following picture-elements card code you can display a live video feed from an Amcrest camera with controls for moving the camera. Note that there can be several seconds of lag before video feed reflects camera movement.   
+
+```yaml
+type: picture-elements
+entity: camera.house_front
+camera_image: camera.house_front
+camera_view: live   # or auto for snapshot view
+elements:
+  - type: icon
+    icon: 'mdi:arrow-up'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 25px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: up
+  - type: icon
+    icon: 'mdi:arrow-down'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 25px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: down
+  - type: icon
+    icon: 'mdi:arrow-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: left
+  - type: icon
+    icon: 'mdi:arrow-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: right
+  - type: icon
+    icon: 'mdi:arrow-top-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: left_up
+  - type: icon
+    icon: 'mdi:arrow-top-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: right_up
+  - type: icon
+    icon: 'mdi:arrow-bottom-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: left_down
+  - type: icon
+    icon: 'mdi:arrow-bottom-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.house_front
+        movement: right_down
+```
+
 
 ## Advanced Configuration
 
