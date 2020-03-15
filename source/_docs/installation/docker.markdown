@@ -267,3 +267,7 @@ or in a `docker-compose.yml` file:
       restart: always
       network_mode: host
 ```
+
+<div class='note'>
+On Mac, USB devices are <a href="https://github.com/docker/for-mac/issues/900">not passed through</a> by default. Follow the instructions in <a href="https://dev.to/rubberduck/using-usb-with-docker-for-mac-3fdd">Using USB with Docker for Mac</a> by Christopher McClellan if your device is not showing up.
+</div>
