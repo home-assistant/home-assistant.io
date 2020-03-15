@@ -2,7 +2,9 @@
 title: Nexia
 description: Instructions on how to integrate Nexia Thermostats (Trane/American Standard) into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Sensor
+  - Climate
 ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
