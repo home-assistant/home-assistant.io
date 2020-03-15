@@ -35,7 +35,7 @@ powerwall:
 
 {% configuration %}
 ip_address:
-  description: The ip address of your Powerwall.
+  description: The IP address of your Powerwall.
   required: true
   type: string
 {% endconfiguration %}
