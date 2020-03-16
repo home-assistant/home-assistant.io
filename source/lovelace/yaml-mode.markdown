@@ -88,7 +88,7 @@ resources:
       type: string
 dashboards:
   required: false
-  description: Additional Lovelace YAML dashboards. The key is used for the url and should contain a hyphen (`-`)
+  description: Additional Lovelace YAML dashboards. The key is used for the URL and should contain a hyphen (`-`)
   type: map
   keys:
     mode:
