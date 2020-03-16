@@ -30,17 +30,22 @@ The integration can communicate to Node/Pro units over the local network. You wi
 
 ## Configuration
 
-To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+To enable the integration and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
-    # Or, to use an AirVisual Node/Pro:
+```
+
+To enable the integration and gather from a Node/Pro unit, add the following lines to your `configuration.yaml` file:
+
+```yaml
+airvisual:
     ip_address: YOUR_NODE_PRO_IP_ADDRESS
     password: YOUR_NODE_PRO_SAMBA_PASSWORD
 ```
 
-Note that an API key-based entry can be mixed with one or more Node/Pro-baesd entries
+Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
 (examples below).
 
 {% configuration %}
