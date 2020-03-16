@@ -67,11 +67,10 @@ The following binary sensors are added for each thermostat:
 
 The following binary sensors are added for each thermostat zone:
 
-- Zone Tempature
+- Zone Temperature
 - Zone Setpoint Status
 - Zone Status
 
 ### Climate
 
 The `nexia` climate platform lets you control a thermostat.
-
