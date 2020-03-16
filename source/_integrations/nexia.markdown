@@ -73,6 +73,5 @@ The following binary sensors are added for each thermostat zone:
 
 ### Climate
 
-The `nexia` climate platform lets you control a thermostat
-
+The `nexia` climate platform lets you control a thermostat.
 
