@@ -46,13 +46,9 @@ hours_to_show:
   description: Hours to show in graph
   type: integer
   default: 24
-fill_color:
+graph:
   required: false
-  description: The color of the fill on the graph
-  type: string
-line_color:
-  required: false
-  description: The color of the line on the graph
+  description: The color of the graph
   type: string
 theme:
   required: false
