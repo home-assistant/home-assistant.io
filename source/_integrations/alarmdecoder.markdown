@@ -135,7 +135,7 @@ There are several attributes available on the alarm panel to give you more infor
 - `programming_mode`: Set to `true` if your system is in programming mode.
 - `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
-- `code_arm_required`: Set to the value specified in your config.
+- `code_arm_required`: Set to the value specified in your configuration.
 
 ## Services
 
