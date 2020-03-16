@@ -141,4 +141,4 @@ sensor:
 ```
 {% endraw %}
 
-By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body of other emails. 
+By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body of other emails.
