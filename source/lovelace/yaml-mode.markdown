@@ -27,7 +27,7 @@ To revert back to using the UI to edit your Lovelace interface, remove the `love
 
 You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards.
 
-The key of the dashboard is used as the url, this needs to contain a hyphen (`-`).
+The key of the dashboard is used as the URL, this needs to contain a hyphen (`-`).
 
 ```yaml
 lovelace:
