@@ -134,7 +134,9 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 - Right-click on it and select "Action"->"Restart".
 
 <div class='note'>
-If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne.
+
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne.
+
 </div>
 
 ### QNAP NAS
@@ -267,3 +269,9 @@ or in a `docker-compose.yml` file:
       restart: always
       network_mode: host
 ```
+
+<div class='note'>
+
+On Mac, USB devices are [not passed through](https://github.com/docker/for-mac/issues/900) by default. Follow the instructions in [Using USB with Docker for Mac](https://dev.to/rubberduck/using-usb-with-docker-for-mac-3fdd) by Christopher McClellan if your device is not showing up.
+
+</div>
