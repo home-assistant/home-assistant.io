@@ -111,7 +111,7 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
-    unicode-display_width (1.6.1)
+    unicode-display_width (1.7.0)
 
 PLATFORMS
   ruby
