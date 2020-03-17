@@ -329,8 +329,6 @@ elements:
         entity_id: camera.house_front
         movement: right_down
 ```
-
-
 ## Advanced Configuration
 
 You can also use this more advanced configuration example:
