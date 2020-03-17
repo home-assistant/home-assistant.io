@@ -170,7 +170,7 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `raspberrypi3-64`
 - `raspberrypi4`
 - `raspberrypi4-64`
-- `odroid-cu2`
+- `odroid-c2`
 - `odroid-n2`
 - `odroid-xu`
 - `tinker`
