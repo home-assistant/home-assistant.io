@@ -6,7 +6,7 @@ ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: '0.100'
+ha_release: '0.108'
 ha_codeowners:
   - '@eifinger'
 ---
