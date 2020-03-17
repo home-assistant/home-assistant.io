@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true
+ha_quality_scale: platinum
 ha_codeowners:
   - '@ctalkington'
 ha_domain: ipp
