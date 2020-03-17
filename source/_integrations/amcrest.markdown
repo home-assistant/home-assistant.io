@@ -224,8 +224,7 @@ cameras with optical zoom. It does not support zooming of Varifocal lenses.
   Example showing an Amcrest IP2M-841 PT camera with controls for Pan and Tilt.
 </p>
 
-
-Using the following picture-elements card code you can display a live video feed from an Amcrest camera with controls for moving the camera. Note that there can be several seconds of lag before video feed reflects camera movement.   
+Using the following picture elements card code, you can display a live video feed from an Amcrest camera with controls for moving the camera. Note that there can be several seconds of lag before the video feed reflects the camera movement.
 
 ```yaml
 type: picture-elements
