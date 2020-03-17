@@ -52,53 +52,53 @@ Available services: turn_on, turn_off, media_play, media_pause, media_stop, medi
 
 ## Remote
 
-The DirecTV remote platform allows you to send remote control buttons to a DirecTV receiver. It is automatically setup when a DirecTV receiver is configured.
+The DirecTV remote platform allows you to send remote control buttons to a DirecTV receiver. It is automatically set up when a DirecTV receiver is configured.
 
 At the moment, the following buttons are supported:
 
-- power
-- poweron
-- poweroff
-- format
-- pause
-- rew
-- replay
-- stop
-- advance
-- ffwd
-- record
-- play
-- guide
-- active
-- list
-- exit
-- back
-- menu
-- info
-- up
-- down
-- left
-- right
-- select
-- red
-- green
-- yellow
-- blue
-- chanup
-- chandown
-- prev
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- dash
-- enter
+- `power`
+- `poweron`
+- `poweroff`
+- `format`
+- `pause`
+- `rew`
+- `replay`
+- `stop`
+- `advance`
+- `ffwd`
+- `record`
+- `play`
+- `guide`
+- `active`
+- `list`
+- `exit`
+- `back`
+- `menu`
+- `info`
+- `up`
+- `down`
+- `left`
+- `right`
+- `select`
+- `red`
+- `green`
+- `yellow`
+- `blue`
+- `chanup`
+- `chandown`
+- `prev`
+- `0`
+- `1`
+- `2`
+- `3`
+- `4`
+- `5`
+- `6`
+- `7`
+- `8`
+- `9`
+- `dash`
+- `enter`
 
 A typical service call for press several buttons looks like this.
 
