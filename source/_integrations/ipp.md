@@ -1,7 +1,6 @@
 ---
 title: Internet Printing Protocol (IPP)
 description: Instructions on how to integrate printers that support the Internet Printing Protocol (IPP) into Home Assistant.
-logo: ipp.png
 ha_category:
   - System Monitor
 ha_release: 0.108
