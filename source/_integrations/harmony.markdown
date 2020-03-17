@@ -6,8 +6,11 @@ ha_category:
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.34
+ha_config_flow: true
 ha_codeowners:
   - '@ehendrix23'
+  - '@bramkragten'
+  - '@bdraco'
 ha_domain: harmony
 ---
 
@@ -19,10 +22,11 @@ Supported units:
 - Harmony Companion
 - Harmony Pro
 - Harmony Elite
+- Harmony Pro 2400
 
-The preferred way to setup the Harmony remote is by enabling the [discovery component](/integrations/discovery/).
+The preferred way to setup the Harmony remote for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Logitech Harmony Hub**.
 
-However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
+Alternatively, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,11 +54,6 @@ host:
   description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
   required: false
   type: string
-port:
-  description: The Harmony device's port.
-  required: false
-  type: integer
-  default: 5222
 activity:
   description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
   required: false
@@ -64,16 +63,11 @@ delay_secs:
   required: false
   type: float
   default: 0.4
-hold_secs:
-  description: Default duration in seconds between sending the "press" command and sending the "release" command.
-  required: false
-  type: integer
-  default: 0
 {% endconfiguration %}
 
 ### Configuration file
 
-Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
+Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_ip.ad.re.ss.conf`. The file will contain:
 
 - List of all programmed activity names and ID numbers
 - List of all programmed device names and ID numbers
