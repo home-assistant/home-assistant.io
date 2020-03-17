@@ -102,8 +102,8 @@ The same template structure can scan the date, body or sender for matching text 
 ## Example - extracting formatted text from an email using template sensors
 
 This example shows how to extract numbers or other formatted data from an email to change the value of a template sensor to a value extracted from the email. In this example, we will be extracting energy use, cost, and billed amount from an email (from Georgia Power) and putting it into sensor values using a template sensor that runs against our IMAP email sensor already set up. A sample of the body of the email used is below:
-{% raw %}
-```
+
+```text
 Yesterday's Energy Use:                             76 kWh
 Yesterday's estimated energy cost:                  $8
 Monthly Energy use-to-date for 23 days:             1860 kWh
@@ -111,7 +111,6 @@ Monthly estimated energy cost-to-date for 23 days:  $198
 
 To view your account for details about your energy use, please click here.
 ```
-{% endraw %}
 
 Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
 
