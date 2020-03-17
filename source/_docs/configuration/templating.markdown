@@ -55,9 +55,9 @@ Extensions allow templates to access all of the Home Assistant specific states a
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
-- `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
-- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_state('device_tracker.paulus', 'home')` will test if the given entity is in the specified state.
+- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or `None` if it doesn't exist.
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if a value of a given entity's attribute is equal to the specified one (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None` or `state_attr('sensor.my_sensor', 'attr') is none`. 
 
 <div class='note warning'>
 
@@ -65,7 +65,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 </div>
 
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
+Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` holds the state of the entity and, if available, the unit.
 
 #### States examples
 
@@ -315,40 +315,41 @@ Closest to some entity:
 
 ### Formatting
 
-- `float` will format the output as float.
+- Global function `float` will attempt to convert given value to float.
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/master/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these global functions can also be used as [filters](https://jinja.palletsprojects.com/en/master/templates/#other-operators). This means they can be used as a normal function like `sqrt(2)`, or as part of an expression like `2|sqrt`.
 
-- `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
-- `sin(value)` will return the sine of the input. Can be used as a filter.
-- `cos(value)` will return the cosine of the input. Can be used as a filter.
-- `tan(value)` will return the tangent of the input. Can be used as a filter.
-- `asin(value)` will return the arcus sine of the input. Can be used as a filter.
-- `acos(value)` will return the arcus cosine of the input. Can be used as a filter.
-- `atan(value)` will return the arcus tangent of the input. Can be used as a filter.
+- `log(input, base)` will take the logarithm of the `input`. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
+- `sin` will return the sine of the input. Can be used as a filter.
+- `cos` will return the cosine of the input. Can be used as a filter.
+- `tan` will return the tangent of the input. Can be used as a filter.
+- `asin` will return the arcus sine of the input. Can be used as a filter.
+- `acos` will return the arcus cosine of the input. Can be used as a filter.
+- `atan` will return the arcus tangent of the input. Can be used as a filter.
 - `atan2(y, x)` will return the four quadrant arcus tangent of y / x. Can be used as a filter.
-- `sqrt(value)` will return the square root of the input. Can be used as a filter.
+- `sqrt` will return the square root of the input. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
+- Filter `float(default=0.0)` will convert the input to a number and will return a `default` value if the conversion fails.
 - Filter `round(x)` will convert the input to a number and round it to `x` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even).
   - `round(x, "floor")` will always round down to `x` decimals
   - `round(x, "ceil")` will always round up to `x` decimals
   - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
-- Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
-- Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `bitwise_and(input_two)` perform a bitwise and(&) operation with input and `input_two`.
+- Filter `bitwise_or(input_two)` perform a bitwise or(\|) operation with input and `input_two`.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Regular expressions
 
-- Filter `string|regex_match(find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
-- Filter `string|regex_search(find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
-- Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
+- Filter `regex_match(find, ignorecase=FALSE)` will match the `find` at the beginning of the input using regex.
+- Filter `regex_search(find, ignorecase=FALSE)` will match the `find` anywhere in the input using regex.
+- Filter `regex_replace(find='', replace='', ignorecase=False)` will replace the `find` with the `replace` string in input using regex.
+- Filter `regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of `find` in input and return the match at index (findall returns an array of matches).
 
 ## Processing incoming data
 
@@ -465,4 +466,12 @@ The default priority of operators is that the filter (`|`) has priority over eve
 ```
 {% endraw %}
 
-Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by that.
+would divide the converted to `float` `states('sensor.temperature')` by the result of 10 rounded to 2 decimal places and
+
+{% raw %}
+```yaml
+{{ (states('sensor.temperature') | float / 10) | round(2) }}
+```
+{% endraw %}
+
+would divide the converted to `float` `states('sensor.temperature')` by 10 and round the result to 2 decimal places.
