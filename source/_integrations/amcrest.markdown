@@ -214,7 +214,7 @@ cameras with optical zoom. It does not support zooming of Varifocal lenses.
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `movement` | 	Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up/top_right`, `right_down/bottom_right`, `left_up/top_left`,  `left_down/bottom_left` |
+| `movement` | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up/top_right`, `right_down/bottom_right`, `left_up/top_left`,  `left_down/bottom_left` |
 | `travel_time` | (Optional) Camera movement start/stop time in fractional seconds. Allowed values: 0 to 1. Default:  0.2 |
 
 ### Example card with controls
