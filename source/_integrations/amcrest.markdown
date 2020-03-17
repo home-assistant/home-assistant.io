@@ -208,8 +208,8 @@ Service data attribute | Optional | Description
 
 #### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PT/PTZ, you will be able to pan, tilt or zoom your camera.  Zoom is only supported on PTZ
-cameras with optical zoom.  It does not support zooming of Varifocal lenses.
+If your Amcrest or Dahua camera supports PT/PTZ, you will be able to pan, tilt or zoom your camera. Zoom is only supported on PTZ
+cameras with optical zoom. It does not support zooming of Varifocal lenses.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
