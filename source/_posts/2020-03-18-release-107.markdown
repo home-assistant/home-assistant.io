@@ -373,6 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Introduce safe scan_interval for vicare ([@oischinger] - [#32915]) ([vicare docs]) (beta fix)
 - Fix hassio panel load ([@balloob] - [#32922]) ([hassio docs]) (beta fix)
 - Updated frontend to 20200318.0 ([@bramkragten] - [#32931]) ([frontend docs]) (beta fix)
+- Fix flaky tests for HMIPC ([@SukramJ] - [#32806]) (beta fix)
 
 ## All changes
 
@@ -703,6 +704,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Introduce safe scan_interval for vicare ([@oischinger] - [#32915]) ([vicare docs]) (beta fix)
 - Fix hassio panel load ([@balloob] - [#32922]) ([hassio docs]) (beta fix)
 - Updated frontend to 20200318.0 ([@bramkragten] - [#32931]) ([frontend docs]) (beta fix)
+- Fix flaky tests for HMIPC ([@SukramJ] - [#32806]) (beta fix)
 
 [#27303]: https://github.com/home-assistant/core/pull/27303
 [#27721]: https://github.com/home-assistant/core/pull/27721
@@ -1003,6 +1005,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32783]: https://github.com/home-assistant/core/pull/32783
 [#32787]: https://github.com/home-assistant/core/pull/32787
 [#32789]: https://github.com/home-assistant/core/pull/32789
+[#32806]: https://github.com/home-assistant/core/pull/32806
 [#32807]: https://github.com/home-assistant/core/pull/32807
 [#32809]: https://github.com/home-assistant/core/pull/32809
 [#32810]: https://github.com/home-assistant/core/pull/32810
