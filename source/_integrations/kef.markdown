@@ -151,7 +151,7 @@ Set the "High-pass mode" slider of the speaker in Hz.
 | entity_id              | No       | The entity_id of the KEF speaker. |
 | hz                     | No       | Value of the slider (50 to 120 with steps of 5) |
 
-### Service `set_low_hz`
+### Service `kef.set_low_hz`
 
 Set the "Sub out low-pass frequency" slider of the speaker in Hz.
 
