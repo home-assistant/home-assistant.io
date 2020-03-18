@@ -87,7 +87,7 @@ media_player:
    volume_step: 0.05
 ```
 
-## Advanced - configure DSP settings and services
+## Services
 
 Just like in the KEF Control app, we can change the digital signal processing (DSP) settings.
 
