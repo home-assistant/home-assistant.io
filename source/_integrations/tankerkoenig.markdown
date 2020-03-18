@@ -30,7 +30,7 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 tankerkoenig:
   api_key: YOUR_API_KEY
   radius: 1
-  fuel_type:
+  fuel_types:
     - "diesel"
 ```
 
