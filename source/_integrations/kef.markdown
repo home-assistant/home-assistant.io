@@ -160,7 +160,7 @@ Set the "Sub out low-pass frequency" slider of the speaker in Hz.
 | entity_id              | No       | The entity_id of the KEF speaker. |
 | hz                     | No       | Value of the slider (40 to 250 with steps of 5) |
 
-### Service `set_sub_db`
+### Service `kef.set_sub_db`
 
 Set the "Sub gain" slider of the speaker in dB.
 
