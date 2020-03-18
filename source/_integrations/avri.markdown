@@ -2,15 +2,16 @@
 title: Avri
 description: Instructions on how to set up Avri Waste sensor within Home Assistant.
 logo: avri.jpeg
-ha_category: 
+ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.107
 ha_codeowners:
   - '@timvancann'
+ha_domain: avri
 ---
 
-The `Avri Waste` platform allows you to track the next scheduled waste pickup and the type of waste from [Avri](https://www.avri.nl/). 
+The `Avri Waste` platform allows you to track the next scheduled waste pickup and the type of waste from [Avri](https://www.avri.nl/).
 
 ## Configuration
 
@@ -26,7 +27,7 @@ sensor:
 
 {% configuration %}
 zip_code:
-  description: Your zip code 
+  description: Your zip code
   required: true
   type: string
 house_number:
