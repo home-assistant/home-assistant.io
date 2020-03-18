@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
-ha_quality_scale: platinum
 ha_domain: vizio
 ---
 

@@ -2,7 +2,6 @@
 title: Synology Chat
 description: Instructions on how to add a Synology Chat Bot notifications to Home Assistant.
 ha_release: 0.65
-logo: synology.png
 ha_category:
   - Notifications
 ha_domain: synology_chat

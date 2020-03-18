@@ -8,6 +8,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.86
 ha_domain: roku
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 The [Roku](https://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/integrations/discovery/).

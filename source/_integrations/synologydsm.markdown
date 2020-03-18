@@ -1,7 +1,6 @@
 ---
 title: SynologyDSM
 description: Instructions on how to integrate the SynologyDSM sensor within Home Assistant.
-logo: synology.png
 ha_category:
   - System Monitor
 ha_release: 0.32

@@ -5,7 +5,7 @@ logo: august.png
 ha_category:
   - Doorbell
   - Binary Sensor
-  - Sensor 
+  - Sensor
   - Camera
   - Lock
 ha_release: 0.64
