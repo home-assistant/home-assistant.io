@@ -7,6 +7,8 @@ ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: directv
 ha_config_flow: true
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.

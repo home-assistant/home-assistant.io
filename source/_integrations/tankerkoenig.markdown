@@ -1,6 +1,6 @@
 ---
-title: "Tankerkoenig Sensor"
-description: "Instructions on how to integrate Tankerkoenig sensors within Home Assistant."
+title: Tankerkoenig
+description: Instructions on how to integrate Tankerkoenig sensors within Home Assistant.
 logo: tankerkoenig.png
 ha_category:
   - Energy
@@ -8,6 +8,8 @@ ha_category:
 ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_domain: tankerkoenig
+ha_codeowners:
+  - '@guillempages'
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.

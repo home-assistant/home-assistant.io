@@ -9,7 +9,7 @@ ha_release: 0.18
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@robbiet480'
+  - '@StevenLooman'
 ha_domain: upnp
 ---
 

@@ -1,12 +1,14 @@
 ---
-title: "Ezviz Camera"
-description: "Integrate Ezviz camera within Home Assistant."
+title: Ezviz
+description: Integrate Ezviz camera within Home Assistant.
 logo: ezviz.png
 ha_release: 0.107
 ha_category:
   - Camera
 ha_iot_class: Cloud Polling
 ha_domain: ezviz
+ha_codeowners:
+  - '@baqs'
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.

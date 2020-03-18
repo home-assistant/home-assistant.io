@@ -10,6 +10,8 @@ ha_release: 0.86
 ha_domain: roku
 ha_config_flow: true
 ha_quality_scale: silver
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.

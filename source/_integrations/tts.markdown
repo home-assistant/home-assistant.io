@@ -3,7 +3,7 @@ title: Text-to-Speech (TTS)
 description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
 ha_release: 0.35
 ha_codeowners:
-  - '@robbiet480'
+  - '@pvizeli'
 ha_domain: tts
 ---
 

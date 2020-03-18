@@ -1,6 +1,6 @@
 ---
-title: "Philips Dynalite"
-description: "Instructions on setting up Philips Dynalite within Home Assistant."
+title: Philips Dynalite
+description: Instructions on setting up Philips Dynalite within Home Assistant.
 logo: dynalite.png
 ha_category:
   - Hub
