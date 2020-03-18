@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.107: Beta release notes"
-description: "Beta release notes"
-date: 2020-03-10 00:00:00
+title: "0.107: Multiple Lovelace Dashboard, Helpers, New media player card"
+description: "7 new integrations! Tons of beautiful improvements and amazing new features for the frontend."
+date: 2020-03-18 00:00:00
 date_formatted: "March 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -12,12 +12,6 @@ og_image: /images/blog/2020-03-0.107/social.png
 ---
 
 <a href='/integrations/#version/0.107'><img src='/images/blog/2020-03-0.107/components.png' style='border: 0;box-shadow: none;'></a>
-
-Well, hello!, Home Assistant Core 0.107 beta! Enjoy the testing! 😃
-
-These are the draft release notes for the upcoming release, currently in Beta.
-
-----
 
 [George F. Will](https://en.wikipedia.org/wiki/George_Will) once said:
 _"The future has a way of arriving unannounced."_
@@ -138,8 +132,9 @@ Screen recording of the new card picker and stack editor.
 - Data tables, for example, the Entities configuration panel, are now lightning fast! Even on mobile 🚀.
 - The logbook had some speed improvements, thanks [@KapJI]!
 - [@bdraco] just went all-in on the August integration, making it a top-notch integration! Awesome job there!
-- Initial support for HomeKit enabled televisions was added by [@Jc2k].
+- Initial support for HomeKit enabled televisions and support for occupancy sensors was added by [@Jc2k].
 - [@tulindo] added support for newer SamsungTV models.
+- Alexa now supports starting and cancelling timers, thanks to [@Tho85].
 
 ## New Integrations
 
