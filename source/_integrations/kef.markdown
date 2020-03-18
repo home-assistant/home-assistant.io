@@ -142,7 +142,7 @@ Set desk the "Treble trim" slider of the speaker in dB.
 | entity_id              | No       | The entity_id of the KEF speaker. |
 | db                     | No       | Value of the slider (-2 to 2 with steps of 0.5) |
 
-### Service `set_high_hz`
+### Service `kef.set_high_hz`
 
 Set the "High-pass mode" slider of the speaker in Hz.
 
