@@ -108,12 +108,12 @@ Set the mode of the speaker. When optional attributes are left out, the setting 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| desk_mode              | Yes      | "Desk mode" (true or false) |
-| wall_mode              | Yes      | "Wall mode" (true or false) |
-| phase_correction       | Yes      | "Phase correction" (true or false) |
-| high_pass              | Yes      | "High-pass mode" (true or false) |
-| sub_polarity           | Yes      | "Sub polarity" ("-" or "+") |
-| bass_extension         | Yes      | "Bass extension" selector ("Less", "Standard", or "Extra") |
+| desk_mode              | Yes      | "Desk mode" (`true` or `false`) |
+| wall_mode              | Yes      | "Wall mode" (`true` or `false`) |
+| phase_correction       | Yes      | "Phase correction" (`true` or `false`) |
+| high_pass              | Yes      | "High-pass mode" (`true` or `false`) |
+| sub_polarity           | Yes      | "Sub polarity" (`-` or `+`) |
+| bass_extension         | Yes      | "Bass extension" selector (`Less`, `Standard`, or `Extra`) |
 
 ### Service `set_desk_db`
 
