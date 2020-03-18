@@ -141,7 +141,7 @@ Screen recording of the new card picker and stack editor.
 - Add platform Ezviz ([@BaQs] - [#30378]) ([ezviz docs]) (new-integration)
 - Add Avri waste collection sensor ([@timvancann] - [#31134]) ([avri docs]) (new-integration)
 - Add Tankerkoenig integration ([@guillempages] - [#28661]) ([tankerkoenig docs]) (new-integration)
-- Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvrpro docs]) (new-integration)
+- Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvr_pro docs]) (new-integration)
 - Add edl21 component for SML-based smart meters ([@mtdcr] - [#27962]) ([edl21 docs]) (new-integration)
 - Add IamMeter integration ([@lewei50] - [#30465]) ([iammeter docs]) (new-integration)
 - Add griddy integration ([@bdraco] - [#32591]) ([griddy docs]) (new-integration)
@@ -162,7 +162,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on web scraping and is deprecated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017]) ([xfinity docs])
+- **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on web scraping and is deprecated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017])
 
 - **Groups** - Groups are NOT being removed, but the configuration options, services, and service options related to the (previously deprecated and now removed) States UI are now removed in this release.
   This includes:
@@ -317,18 +317,75 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **iCloud** - iCloud family devices are no longer added automatically. Use the `with_family` configuration option or re-add the integration via the frontend, in case you do want to make use of the iCloud family devices. - ([@Quentame] - [#32644]) ([icloud docs])
 
+- **Device Tracker** - The `hide_if_away` configuration parameter has been removed for all device trackers. This option was used to hide devices trackers from the UI if the device was not at home. This applied to the old States UI, which now has been removed. - ([@frenck] - [#32705]) ([device_tracker docs]) (breaking change) (beta fix)
+
+- **Sonos** - Sonos devices will now report `idle` instead of `paused` if they do not have any current artist metadata available. This can happen when you were playing Spotify on your Sonos and use the Spotify app to play on another device. - ([@balloob] - [#32712]) ([sonos docs]) (breaking change) (beta fix)
+
+## Beta Fixes
+
+- Bump pyipma dependency (fixes bug in 0.106) ([@dgomes] - [#32286]) ([ipma docs]) (beta fix)
+- If device has volume disabled, the volume will be `None`. However in these ([@bazwilliams] - [#32702]) ([openhome docs]) (beta fix)
+- Remove deprecated hide_if_away from device trackers ([@frenck] - [#32705]) ([device_tracker docs]) (breaking change) (beta fix)
+- Broaden exception handling for IQVIA ([@bachya] - [#32708]) ([iqvia docs]) (beta fix)
+- Sonos idle ([@balloob] - [#32712]) ([sonos docs]) (breaking change) (beta fix)
+- Update Vizio `source` property to only return current app if i… ([@raman325] - [#32713]) ([vizio docs]) (beta fix)
+- Resolve Home Assistant fails to start when Sense integration i… ([@bdraco] - [#32716]) ([sense docs]) (beta fix)
+- Fix legacy Samsung TV ([@escoand] - [#32719]) ([samsungtv docs]) (beta fix)
+- Set self._current_app to None when vizio device is off ([@raman325] - [#32725]) ([vizio docs]) (beta fix)
+- Updated frontend to 20200312.0 ([@bramkragten] - [#32741]) ([frontend docs]) (beta fix)
+- Bump py-august to 0.25.0 ([@bdraco] - [#32769]) ([august docs]) (beta fix)
+- Check if panel url used and delay dashboard reg till start ([@bramkragten] - [#32771]) ([frontend docs]) ([lovelace docs]) (beta fix)
+- Updated frontend to 20200313.0 ([@bramkragten] - [#32777]) ([frontend docs]) (beta fix)
+- Fix homekit_controller beta connectivity issues ([@Jc2k] - [#32810]) ([homekit_controller docs]) (beta fix)
+- Add brightness state to emulated hue when devices support only color temp and brightness ([@vaceslav] - [#31834]) ([emulated_hue docs]) (beta fix)
+- Optimize directv client initialization ([@ctalkington] - [#32706]) ([directv docs]) ([directv docs]) (beta fix)
+- Add log message on timeout and update less often for upnp devices ([@StevenLooman] - [#32740]) ([upnp docs]) (beta fix)
+- Fix handling of attribute reports in ZHA sensors and binary sensors ([@dmulcahey] - [#32776]) ([zha docs]) (beta fix)
+- Fix onvif error with non ptz cameras ([@timmo001] - [#32783]) ([onvif docs]) (beta fix)
+- Fix brightness_pct in light device turn_on action ([@frenck] - [#32787]) ([light docs]) (beta fix)
+- Bump eagle_reader API version to v0.2.4 ([@gtdiehl] - [#32789]) ([rainforest_eagle docs]) (beta fix)
+- Fix directv location of unknown error string ([@ctalkington] - [#32807]) ([directv docs]) ([directv docs]) (beta fix)
+- Remove extra logging from directv init. ([@ctalkington] - [#32809]) ([directv docs]) ([directv docs]) (beta fix)
+- Require a hyphen in lovelace dashboard url ([@bramkragten] - [#32816]) ([lovelace docs]) (beta fix)
+- Add Netatmo Home Coach as model ([@Danielhiversen] - [#32829]) ([netatmo docs]) (beta fix)
+- Add SF transition to HmIP-BSL and remove obsolete code in HMIPC ([@SukramJ] - [#32833]) ([homematicip_cloud docs]) (beta fix)
+- Make sure panel_custom won't crash on invalid data ([@balloob] - [#32835]) ([hassio docs]) ([panel_custom docs]) (beta fix)
+- Ensure unique_ids for all evohome thermostats ([@zxdavb] - [#32604]) ([evohome docs]) (beta fix)
+- Bump teslajsonpy to 0.5.1 ([@alandtse] - [#32827]) ([tesla docs]) (beta fix)
+- Ignore the ignored konnected config entries ([@kit-klein] - [#32845]) (beta fix)
+- Bump insteonplm to 0.16.8 ([@teharris1] - [#32847]) ([insteon docs]) (beta fix)
+- Update pyozw 0.1.9 ([@pvizeli] - [#32864]) ([zwave docs]) (beta fix)
+- Updated frontend to 20200316.0 ([@bramkragten] - [#32866]) ([frontend docs]) (beta fix)
+- Add lovelace reload service for yaml resources ([@bramkragten] - [#32865]) ([lovelace docs]) (beta fix)
+- Bump ZHA quirks to 0.0.37 ([@dmulcahey] - [#32867]) ([zha docs]) (beta fix)
+- Remove group as a dependency from entity integrations ([@balloob] - [#32870]) (beta fix)
+- Lovelace: storage key based on id instead of url_path ([@bramkragten] - [#32873]) ([lovelace docs]) (beta fix)
+- Updated frontend to 20200316.1 ([@bramkragten] - [#32878]) ([frontend docs]) (beta fix)
+- Fix iCloud init while pending ([@Quentame] - [#32750]) ([icloud docs]) (beta fix)
+- Add default port to samsung tv ([@tulindo] - [#32820]) ([samsungtv docs]) (beta fix)
+- Corrected minor misspellings ([@dajo] - [#32857]) ([homekit_controller docs]) ([system_log docs]) ([toon docs]) (beta fix)
+- Make zone dependency of device tracker an after dep ([@balloob] - [#32880]) ([device_tracker docs]) (beta fix)
+- Bump iCloud to 0.9.5 ([@Quentame] - [#32901]) ([icloud docs]) (beta fix)
+- Changed Sensor icons to be more emotionally sensitive ([@brubaked] - [#32904]) ([coronavirus docs]) (beta fix)
+- Bump cast to 4.2.0 ([@balloob] - [#32906]) ([cast docs]) (beta fix)
+- Fix setting up options due to config data freeze ([@engrbm87] - [#32872]) ([mikrotik docs]) (beta fix)
+- Fix input text reload ([@bramkragten] - [#32911]) ([input_text docs]) (beta fix)
+- Introduce safe scan_interval for vicare ([@oischinger] - [#32915]) ([vicare docs]) (beta fix)
+- Fix hassio panel load ([@balloob] - [#32922]) ([hassio docs]) (beta fix)
+- Updated frontend to 20200318.0 ([@bramkragten] - [#32931]) ([frontend docs]) (beta fix)
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
 - Update pyhomematic to 0.1.65 ([@danielperna84] - [#32006]) ([homematic docs])
 - Upgrade requests to 2.23.0 ([@frenck] - [#32013])
-- Deprecate Xfinity Gateway integration (ADR-0004) ([@frenck] - [#32017]) ([xfinity docs]) (breaking change)
+- Deprecate Xfinity Gateway integration (ADR-0004) ([@frenck] - [#32017]) (breaking change)
 - Remove states UI options in group integration ([@frenck] - [#32021]) ([group docs]) (breaking change)
 - Add entity ID to input_number warning ([@balloob] - [#32012]) ([input_number docs]) (breaking change)
 - Update vizio dependency and integration name ([@raman325] - [#31975]) ([vizio docs])
 - Add convert_to_pil_image to pil util ([@robmarkcole] - [#31825])
-- Remove weblink integration ([@frenck] - [#32024]) ([demo docs]) ([weblink docs]) (breaking change)
-- Remove history_graph integration ([@frenck] - [#32028]) ([demo docs]) ([history_graph docs]) (breaking change)
+- Remove weblink integration ([@frenck] - [#32024]) ([demo docs]) (breaking change)
+- Remove history_graph integration ([@frenck] - [#32028]) ([demo docs]) (breaking change)
 - Prevent committing to dev/master/rc directly ([@frenck] - [#32029])
 - Fix extra arguments of group integration ([@frenck] - [#32032]) ([group docs])
 - Template platform tweaks ([@balloob] - [#32037]) ([template docs])
@@ -337,7 +394,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Significantly reduce code in august integration ([@bdraco] - [#32030]) ([august docs])
 - Add asuswrt interface and dnsmasq location configuration ([@pkishino] - [#29834]) ([asuswrt docs])
 - ZHA device channel refactoring ([@Adminiuga] - [#31971]) ([zha docs])
-- Add www. to all documentation links ([@springstan] - [#32063]) ([auth docs]) ([cast docs]) ([honeywell docs]) ([kodi docs]) ([nest docs]) ([pandora docs]) ([sun docs])
+- Add www to all documentation links ([@springstan] - [#32063]) ([auth docs]) ([cast docs]) ([honeywell docs]) ([kodi docs]) ([nest docs]) ([pandora docs]) ([sun docs])
 - Add unique ID to ONVIF camera entities ([@frenck] - [#32093]) ([onvif docs])
 - Change get_entity to return a extended entry, add inputs to de… ([@bramkragten] - [#32083]) ([config docs]) ([default_config docs])
 - Bump env_canada to 0.0.35 to address issue 31924 ([@michaeldavie] - [#32077]) ([environment_canada docs]) (breaking change)
@@ -449,7 +506,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Refactor Certificate Expiry Sensor ([@jjlawren] - [#32066]) ([cert_expiry docs]) (breaking change)
 - Bump ZHA Quirks to 0.0.34 ([@dmulcahey] - [#32401]) ([zha docs])
 - Add coronavirus integration ([@balloob] - [#32413])
-- Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvrpro docs]) (new-integration)
+- Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvr_pro docs]) (new-integration)
 - Bump brother library ([@bieniu] - [#32436])
 - Remove SUPPORT_PLAY_MEDIA from Roku ([@JeffLIrion] - [#32378]) ([roku docs])
 - Flume Cleanups (unique id, fix missing timeout, http session,… ([@bdraco] - [#32384]) ([flume docs])
@@ -597,6 +654,55 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update directpy==0.7 for directv. ([@ctalkington] - [#32694]) ([directv docs]) ([directv docs])
 - Fetch iCloud family devices only when wanted ([@Quentame] - [#32644]) ([icloud docs]) (breaking change)
 - Add codeowner for roku. ([@ctalkington] - [#32695]) ([roku docs])
+- If device has volume disabled, the volume will be `None`. However in these ([@bazwilliams] - [#32702]) ([openhome docs]) (beta fix)
+- Remove deprecated hide_if_away from device trackers ([@frenck] - [#32705]) ([device_tracker docs]) (breaking change) (beta fix)
+- Broaden exception handling for IQVIA ([@bachya] - [#32708]) ([iqvia docs]) (beta fix)
+- Sonos idle ([@balloob] - [#32712]) ([sonos docs]) (breaking change) (beta fix)
+- Update Vizio `source` property to only return current app if i… ([@raman325] - [#32713]) ([vizio docs]) (beta fix)
+- Resolve Home Assistant fails to start when Sense integration i… ([@bdraco] - [#32716]) ([sense docs]) (beta fix)
+- Fix legacy Samsung TV ([@escoand] - [#32719]) ([samsungtv docs]) (beta fix)
+- Set self._current_app to None when vizio device is off ([@raman325] - [#32725]) ([vizio docs]) (beta fix)
+- Updated frontend to 20200312.0 ([@bramkragten] - [#32741]) ([frontend docs]) (beta fix)
+- Bump py-august to 0.25.0 ([@bdraco] - [#32769]) ([august docs]) (beta fix)
+- Check if panel url used and delay dashboard reg till start ([@bramkragten] - [#32771]) ([frontend docs]) ([lovelace docs]) (beta fix)
+- Updated frontend to 20200313.0 ([@bramkragten] - [#32777]) ([frontend docs]) (beta fix)
+- Fix homekit_controller beta connectivity issues ([@Jc2k] - [#32810]) ([homekit_controller docs]) (beta fix)
+- Add brightness state to emulated hue when devices support only color temp and brightness ([@vaceslav] - [#31834]) ([emulated_hue docs]) (beta fix)
+- Optimize directv client initialization ([@ctalkington] - [#32706]) ([directv docs]) ([directv docs]) (beta fix)
+- Add log message on timeout and update less often for upnp devices ([@StevenLooman] - [#32740]) ([upnp docs]) (beta fix)
+- Fix handling of attribute reports in ZHA sensors and binary sensors ([@dmulcahey] - [#32776]) ([zha docs]) (beta fix)
+- Fix onvif error with non ptz cameras ([@timmo001] - [#32783]) ([onvif docs]) (beta fix)
+- Fix brightness_pct in light device turn_on action ([@frenck] - [#32787]) ([light docs]) (beta fix)
+- Bump eagle_reader API version to v0.2.4 ([@gtdiehl] - [#32789]) ([rainforest_eagle docs]) (beta fix)
+- Fix directv location of unknown error string ([@ctalkington] - [#32807]) ([directv docs]) ([directv docs]) (beta fix)
+- Remove extra logging from directv init. ([@ctalkington] - [#32809]) ([directv docs]) ([directv docs]) (beta fix)
+- Require a hyphen in lovelace dashboard url ([@bramkragten] - [#32816]) ([lovelace docs]) (beta fix)
+- Add Netatmo Home Coach as model ([@Danielhiversen] - [#32829]) ([netatmo docs]) (beta fix)
+- Add SF transition to HmIP-BSL and remove obsolete code in HMIPC ([@SukramJ] - [#32833]) ([homematicip_cloud docs]) (beta fix)
+- Make sure panel_custom won't crash on invalid data ([@balloob] - [#32835]) ([hassio docs]) ([panel_custom docs]) (beta fix)
+- Ensure unique_ids for all evohome thermostats ([@zxdavb] - [#32604]) ([evohome docs]) (beta fix)
+- Bump teslajsonpy to 0.5.1 ([@alandtse] - [#32827]) ([tesla docs]) (beta fix)
+- Ignore the ignored konnected config entries ([@kit-klein] - [#32845]) (beta fix)
+- Bump insteonplm to 0.16.8 ([@teharris1] - [#32847]) ([insteon docs]) (beta fix)
+- Update pyozw 0.1.9 ([@pvizeli] - [#32864]) ([zwave docs]) (beta fix)
+- Updated frontend to 20200316.0 ([@bramkragten] - [#32866]) ([frontend docs]) (beta fix)
+- Add lovelace reload service for yaml resources ([@bramkragten] - [#32865]) ([lovelace docs]) (beta fix)
+- Bump ZHA quirks to 0.0.37 ([@dmulcahey] - [#32867]) ([zha docs]) (beta fix)
+- Remove group as a dependency from entity integrations ([@balloob] - [#32870]) (beta fix)
+- Lovelace: storage key based on id instead of url_path ([@bramkragten] - [#32873]) ([lovelace docs]) (beta fix)
+- Updated frontend to 20200316.1 ([@bramkragten] - [#32878]) ([frontend docs]) (beta fix)
+- Fix iCloud init while pending ([@Quentame] - [#32750]) ([icloud docs]) (beta fix)
+- Add default port to samsung tv ([@tulindo] - [#32820]) ([samsungtv docs]) (beta fix)
+- Corrected minor misspellings ([@dajo] - [#32857]) ([homekit_controller docs]) ([system_log docs]) ([toon docs]) (beta fix)
+- Make zone dependency of device tracker an after dep ([@balloob] - [#32880]) ([device_tracker docs]) (beta fix)
+- Bump iCloud to 0.9.5 ([@Quentame] - [#32901]) ([icloud docs]) (beta fix)
+- Changed Sensor icons to be more emotionally sensitive ([@brubaked] - [#32904]) ([coronavirus docs]) (beta fix)
+- Bump cast to 4.2.0 ([@balloob] - [#32906]) ([cast docs]) (beta fix)
+- Fix setting up options due to config data freeze ([@engrbm87] - [#32872]) ([mikrotik docs]) (beta fix)
+- Fix input text reload ([@bramkragten] - [#32911]) ([input_text docs]) (beta fix)
+- Introduce safe scan_interval for vicare ([@oischinger] - [#32915]) ([vicare docs]) (beta fix)
+- Fix hassio panel load ([@balloob] - [#32922]) ([hassio docs]) (beta fix)
+- Updated frontend to 20200318.0 ([@bramkragten] - [#32931]) ([frontend docs]) (beta fix)
 
 [#27303]: https://github.com/home-assistant/core/pull/27303
 [#27721]: https://github.com/home-assistant/core/pull/27721
@@ -625,6 +731,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#31824]: https://github.com/home-assistant/core/pull/31824
 [#31825]: https://github.com/home-assistant/core/pull/31825
 [#31832]: https://github.com/home-assistant/core/pull/31832
+[#31834]: https://github.com/home-assistant/core/pull/31834
 [#31838]: https://github.com/home-assistant/core/pull/31838
 [#31918]: https://github.com/home-assistant/core/pull/31918
 [#31937]: https://github.com/home-assistant/core/pull/31937
@@ -835,6 +942,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32596]: https://github.com/home-assistant/core/pull/32596
 [#32597]: https://github.com/home-assistant/core/pull/32597
 [#32602]: https://github.com/home-assistant/core/pull/32602
+[#32604]: https://github.com/home-assistant/core/pull/32604
 [#32607]: https://github.com/home-assistant/core/pull/32607
 [#32609]: https://github.com/home-assistant/core/pull/32609
 [#32610]: https://github.com/home-assistant/core/pull/32610
@@ -876,6 +984,53 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#32691]: https://github.com/home-assistant/core/pull/32691
 [#32694]: https://github.com/home-assistant/core/pull/32694
 [#32695]: https://github.com/home-assistant/core/pull/32695
+[#32702]: https://github.com/home-assistant/core/pull/32702
+[#32705]: https://github.com/home-assistant/core/pull/32705
+[#32706]: https://github.com/home-assistant/core/pull/32706
+[#32708]: https://github.com/home-assistant/core/pull/32708
+[#32712]: https://github.com/home-assistant/core/pull/32712
+[#32713]: https://github.com/home-assistant/core/pull/32713
+[#32716]: https://github.com/home-assistant/core/pull/32716
+[#32719]: https://github.com/home-assistant/core/pull/32719
+[#32725]: https://github.com/home-assistant/core/pull/32725
+[#32740]: https://github.com/home-assistant/core/pull/32740
+[#32741]: https://github.com/home-assistant/core/pull/32741
+[#32750]: https://github.com/home-assistant/core/pull/32750
+[#32769]: https://github.com/home-assistant/core/pull/32769
+[#32771]: https://github.com/home-assistant/core/pull/32771
+[#32776]: https://github.com/home-assistant/core/pull/32776
+[#32777]: https://github.com/home-assistant/core/pull/32777
+[#32783]: https://github.com/home-assistant/core/pull/32783
+[#32787]: https://github.com/home-assistant/core/pull/32787
+[#32789]: https://github.com/home-assistant/core/pull/32789
+[#32807]: https://github.com/home-assistant/core/pull/32807
+[#32809]: https://github.com/home-assistant/core/pull/32809
+[#32810]: https://github.com/home-assistant/core/pull/32810
+[#32816]: https://github.com/home-assistant/core/pull/32816
+[#32820]: https://github.com/home-assistant/core/pull/32820
+[#32827]: https://github.com/home-assistant/core/pull/32827
+[#32829]: https://github.com/home-assistant/core/pull/32829
+[#32833]: https://github.com/home-assistant/core/pull/32833
+[#32835]: https://github.com/home-assistant/core/pull/32835
+[#32845]: https://github.com/home-assistant/core/pull/32845
+[#32847]: https://github.com/home-assistant/core/pull/32847
+[#32857]: https://github.com/home-assistant/core/pull/32857
+[#32864]: https://github.com/home-assistant/core/pull/32864
+[#32865]: https://github.com/home-assistant/core/pull/32865
+[#32866]: https://github.com/home-assistant/core/pull/32866
+[#32867]: https://github.com/home-assistant/core/pull/32867
+[#32870]: https://github.com/home-assistant/core/pull/32870
+[#32872]: https://github.com/home-assistant/core/pull/32872
+[#32873]: https://github.com/home-assistant/core/pull/32873
+[#32878]: https://github.com/home-assistant/core/pull/32878
+[#32880]: https://github.com/home-assistant/core/pull/32880
+[#32901]: https://github.com/home-assistant/core/pull/32901
+[#32904]: https://github.com/home-assistant/core/pull/32904
+[#32906]: https://github.com/home-assistant/core/pull/32906
+[#32911]: https://github.com/home-assistant/core/pull/32911
+[#32915]: https://github.com/home-assistant/core/pull/32915
+[#32922]: https://github.com/home-assistant/core/pull/32922
+[#32931]: https://github.com/home-assistant/core/pull/32931
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@BaQs]: https://github.com/BaQs
@@ -893,6 +1048,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Petro31]: https://github.com/Petro31
 [@Quentame]: https://github.com/Quentame
 [@Rocik]: https://github.com/Rocik
+[@StevenLooman]: https://github.com/StevenLooman
 [@SukramJ]: https://github.com/SukramJ
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@Tho85]: https://github.com/Tho85
@@ -902,17 +1058,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@austinmroczek]: https://github.com/austinmroczek
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
 [@bdraco]: https://github.com/bdraco
 [@belidzs]: https://github.com/belidzs
 [@bieniu]: https://github.com/bieniu
 [@borpin]: https://github.com/borpin
 [@bramkragten]: https://github.com/bramkragten
+[@brubaked]: https://github.com/brubaked
 [@cgtobi]: https://github.com/cgtobi
 [@chiefdragon]: https://github.com/chiefdragon
 [@chmielowiec]: https://github.com/chmielowiec
 [@colinodell]: https://github.com/colinodell
 [@ctalkington]: https://github.com/ctalkington
 [@da-anda]: https://github.com/da-anda
+[@dajo]: https://github.com/dajo
 [@danielperna84]: https://github.com/danielperna84
 [@davet2001]: https://github.com/davet2001
 [@dcnielsen90]: https://github.com/dcnielsen90
@@ -922,10 +1081,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@doudz]: https://github.com/doudz
 [@emontnemery]: https://github.com/emontnemery
 [@engrbm87]: https://github.com/engrbm87
+[@escoand]: https://github.com/escoand
 [@exxamalte]: https://github.com/exxamalte
 [@flo-wer]: https://github.com/flo-wer
 [@frenck]: https://github.com/frenck
 [@gerard33]: https://github.com/gerard33
+[@gtdiehl]: https://github.com/gtdiehl
 [@guillempages]: https://github.com/guillempages
 [@i00]: https://github.com/i00
 [@ilarrain]: https://github.com/ilarrain
@@ -933,6 +1094,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jezcooke]: https://github.com/jezcooke
 [@jjlawren]: https://github.com/jjlawren
 [@kirichkov]: https://github.com/kirichkov
+[@kit-klein]: https://github.com/kit-klein
 [@kuchel77]: https://github.com/kuchel77
 [@lewei50]: https://github.com/lewei50
 [@maddenp]: https://github.com/maddenp
@@ -944,6 +1106,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mtdcr]: https://github.com/mtdcr
 [@oblogic7]: https://github.com/oblogic7
 [@ochlocracy]: https://github.com/ochlocracy
+[@oischinger]: https://github.com/oischinger
 [@olijouve]: https://github.com/olijouve
 [@paolog89]: https://github.com/paolog89
 [@penright]: https://github.com/penright
@@ -962,10 +1125,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@shidarin]: https://github.com/shidarin
 [@shred86]: https://github.com/shred86
 [@springstan]: https://github.com/springstan
+[@teharris1]: https://github.com/teharris1
 [@thegame3202]: https://github.com/thegame3202
 [@ties]: https://github.com/ties
+[@timmo001]: https://github.com/timmo001
 [@timvancann]: https://github.com/timvancann
 [@tulindo]: https://github.com/tulindo
+[@vaceslav]: https://github.com/vaceslav
 [@vigonotion]: https://github.com/vigonotion
 [@vilppuvuorinen]: https://github.com/vilppuvuorinen
 [@z0mbieprocess]: https://github.com/z0mbieprocess
@@ -1010,6 +1176,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [edl21 docs]: /integrations/edl21/
 [emby docs]: /integrations/emby/
 [emoncms docs]: /integrations/emoncms/
+[emulated_hue docs]: /integrations/emulated_hue/
 [environment_canada docs]: /integrations/environment_canada/
 [evohome docs]: /integrations/evohome/
 [ezviz docs]: /integrations/ezviz/
@@ -1028,8 +1195,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [gpslogger docs]: /integrations/gpslogger/
 [griddy docs]: /integrations/griddy/
 [group docs]: /integrations/group/
+[hassio docs]: /integrations/hassio/
 [heos docs]: /integrations/heos/
-[history_graph docs]: /integrations/history_graph/
 [hive docs]: /integrations/hive/
 [homekit_controller docs]: /integrations/homekit_controller/
 [homematic docs]: /integrations/homematic/
@@ -1041,6 +1208,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ifttt docs]: /integrations/ifttt/
 [input_datetime docs]: /integrations/input_datetime/
 [input_number docs]: /integrations/input_number/
+[input_text docs]: /integrations/input_text/
+[insteon docs]: /integrations/insteon/
 [ipma docs]: /integrations/ipma/
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
@@ -1062,12 +1231,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notion docs]: /integrations/notion/
 [nuki docs]: /integrations/nuki/
 [onvif docs]: /integrations/onvif/
+[openhome docs]: /integrations/openhome/
 [owntracks docs]: /integrations/owntracks/
 [pandora docs]: /integrations/pandora/
+[panel_custom docs]: /integrations/panel_custom/
 [plex docs]: /integrations/plex/
 [pushbullet docs]: /integrations/pushbullet/
 [qnap docs]: /integrations/qnap/
-[qvrpro docs]: /integrations/qvrpro/
+[qvr_pro docs]: /integrations/qvr_pro/
+[rainforest_eagle docs]: /integrations/rainforest_eagle/
 [rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
 [remote docs]: /integrations/remote/
@@ -1101,6 +1273,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [thinkingcleaner docs]: /integrations/thinkingcleaner/
 [tibber docs]: /integrations/tibber/
 [timer docs]: /integrations/timer/
+[toon docs]: /integrations/toon/
 [traccar docs]: /integrations/traccar/
 [transmission docs]: /integrations/transmission/
 [tts docs]: /integrations/tts/
@@ -1109,11 +1282,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
 [utility_meter docs]: /integrations/utility_meter/
+[vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
-[weblink docs]: /integrations/weblink/
 [workday docs]: /integrations/workday/
 [wwlln docs]: /integrations/wwlln/
-[xfinity docs]: /integrations/xfinity/
 [yandex_transport docs]: /integrations/yandex_transport/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
