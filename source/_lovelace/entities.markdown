@@ -153,6 +153,10 @@ type:
   required: true
   description: cast
   type: string
+dashboard:
+  required: false
+  description: Path to the dashboard of the view that needs to be shown.
+  type: string
 view:
   required: true
   description: Path to the view that needs to be shown.
