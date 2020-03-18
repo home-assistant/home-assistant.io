@@ -1,7 +1,6 @@
 ---
 title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
-logo: roku.png
 ha_category:
   - Hub
   - Media Player
