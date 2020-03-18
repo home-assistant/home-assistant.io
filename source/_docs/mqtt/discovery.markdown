@@ -256,7 +256,8 @@ Supported abbreviations:
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
     'xy_stat_t':           'xy_state_topic',
-    'xy_val_tpl':          'xy_value_template',```
+    'xy_val_tpl':          'xy_value_template',
+```
 
 Supported abbreviations for device registry configuration:
 ```txt
