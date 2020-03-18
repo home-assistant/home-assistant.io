@@ -133,7 +133,7 @@ Set the "Wall mode" slider of the speaker in dB.
 | entity_id              | No       | The entity_id of the KEF speaker. |
 | db                     | No       | Value of the slider (-6 to 0 with steps of 0.5) |
 
-### Service `set_treble_db`
+### Service `kef.set_treble_db`
 
 Set desk the "Treble trim" slider of the speaker in dB.
 
