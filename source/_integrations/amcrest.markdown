@@ -208,13 +208,17 @@ Service data attribute | Optional | Description
 
 #### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  Note that this zoom capability does not support VariFocal lens adjustments.
+If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
 
-| Service data attribute | Description |
-| -----------------------| ----------- |
-| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-| `movement` | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down` |
-| `travel_time` | (Optional) Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`. |
+Service data attribute | Optional | Description
+-|-|-
+ `entity_id` | no| The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
+ `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
+ `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
+
+#### Notes
+* PTZ zoom capability does not control VariFocal lens adjustments.
+* There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
 
 ### Example card with controls
 
@@ -223,7 +227,7 @@ If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or z
   Example showing an Amcrest IP2M-841 PT camera with controls for Pan and Tilt.
 </p>
 
-Using the following picture elements card code, you can display a live video feed from an Amcrest camera with controls for moving the camera. Note that there can be several seconds of lag before the video feed reflects the camera movement.
+Using the following picture-elements card code, you can display a live video feed from an Amcrest camera with controls for moving or zooming the camera.
 
 ```yaml
 type: picture-elements
