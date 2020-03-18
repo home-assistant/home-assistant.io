@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
 
-Once you have the Thermostat ID(s), to add `Nuheat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nuheat**.
+Once you have the Thermostat ID(s), to add `NuHeat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **NuHeat**.
 
 Alternatively, add the following information to your `configuration.yaml` file:
 
