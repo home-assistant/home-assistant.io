@@ -153,7 +153,7 @@ Available services:
 `enable_motion_recording`, `disable_motion_recording`,
 `enable_recording`, `disable_recording`,
 `goto_preset`, `set_color_bw`,
-`start_tour` and `stop_tour`,
+`start_tour`, `stop_tour`, and
 `ptz_control`
 
 #### Service `enable_audio`/`disable_audio`
@@ -162,7 +162,7 @@ These services enable or disable the camera's audio stream.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `enable_motion_recording`/`disable_motion_recording`
 
@@ -170,7 +170,7 @@ These services enable or disable the camera to record a clip to its configured s
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `enable_recording`/`disable_recording`
 
@@ -178,7 +178,7 @@ These services enable or disable the camera to continuously record to its config
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `goto_preset`
 
@@ -186,7 +186,7 @@ This service will cause the camera to move to one of the PTZ locations configure
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `preset` | no | Preset number, starting from 1.
 
 #### Service `set_color_bw`
@@ -195,7 +195,7 @@ This service will set the color mode of the camera.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
 #### Service `start_tour`/`stop_tour`
@@ -204,16 +204,15 @@ These services start or stop the camera's PTZ tour function.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PT/PTZ, you will be able to pan, tilt or zoom your camera. Zoom is only supported on PTZ
-cameras with optical zoom. It does not support zooming of Varifocal lenses.
+If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  Note that this zoom capability does not support VariFocal lens adjustments.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 | `movement` | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down` |
 | `travel_time` | (Optional) Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`. |
 
@@ -228,8 +227,8 @@ Using the following picture elements card code, you can display a live video fee
 
 ```yaml
 type: picture-elements
-entity: camera.house_front
-camera_image: camera.house_front
+entity: camera.lakehouse
+camera_image: camera.lakehouse
 camera_view: live   # or auto for snapshot view
 elements:
   - type: icon
@@ -242,7 +241,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: up
   - type: icon
     icon: 'mdi:arrow-down'
@@ -254,7 +253,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: down
   - type: icon
     icon: 'mdi:arrow-left'
@@ -266,7 +265,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: left
   - type: icon
     icon: 'mdi:arrow-right'
@@ -278,7 +277,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: right
   - type: icon
     icon: 'mdi:arrow-top-left'
@@ -290,7 +289,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: left_up
   - type: icon
     icon: 'mdi:arrow-top-right'
@@ -302,7 +301,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: right_up
   - type: icon
     icon: 'mdi:arrow-bottom-left'
@@ -314,7 +313,7 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: left_down
   - type: icon
     icon: 'mdi:arrow-bottom-right'
@@ -326,8 +325,26 @@ elements:
       action: call-service
       service: amcrest.ptz_control
       service_data:
-        entity_id: camera.house_front
+        entity_id: camera.lakehouse
         movement: right_down
+  - type: icon
+    icon: 'mdi:magnify'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      bottom: 25px
+      right: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: zoom_in
+    hold_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: zoom_out
 ```
 ## Advanced Configuration
 
