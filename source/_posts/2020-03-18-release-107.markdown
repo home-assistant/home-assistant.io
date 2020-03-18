@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.107: Multiple Lovelace Dashboard, Helpers, New media player card"
+title: "0.107: Multiple Lovelace Dashboards, adds helpers, new media player card"
 description: "7 new integrations! Tons of beautiful improvements and amazing new features for the frontend."
 date: 2020-03-18 00:00:00
 date_formatted: "March 18, 2020"
