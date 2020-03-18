@@ -93,7 +93,7 @@ Just like in the KEF Control app, we can change the digital signal processing (D
 
 The speaker's current settings become available as attributes when calling `kef.update_dsp`.
 
-### Service `update_dsp`
+### Service `kef.update_dsp`
 
 Update all DSP settings.
 
