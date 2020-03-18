@@ -101,7 +101,7 @@ Update all DSP settings.
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
 
-### Service `set_mode`
+### Service `kef.set_mode`
 
 Set the mode of the speaker. When optional attributes are left out, the setting will be unchanged.
 
