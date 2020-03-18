@@ -124,7 +124,7 @@ Set the "Desk mode" slider of the speaker in dB.
 | entity_id              | No       | The entity_id of the KEF speaker. |
 | db                     | No       | Value of the slider (-6 to 0 with steps of 0.5) |
 
-### Service `set_wall_db`
+### Service `kef.set_wall_db`
 
 Set the "Wall mode" slider of the speaker in dB.
 
