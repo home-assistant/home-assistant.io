@@ -1,7 +1,6 @@
 ---
 title: DirecTV
 description: Instructions on how to integrate DirecTV receivers into Home Assistant.
-logo: directv.png
 ha_category:
   - Media Player
 ha_release: 0.25
