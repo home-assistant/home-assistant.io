@@ -18,7 +18,7 @@ The Somfy integration will allow users to integrate their Somfy devices into Hom
 Somfy is leveraging the new account linking service. This means that to set up Somfy, you only need to go to the integrations page and click on add new integration.
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Installation with own developer account
@@ -58,7 +58,14 @@ client_secret:
   description: Your Somfy consumer secret.
   required: true
   type: string
+optimistic:
+  description: Set optimistic mode.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
+
+**optimistic** mode should only be used when the integration is not able to gain information on whether a cover is open or closed (e.g., [RTS](https://www.somfysystems.com/en-us/discover-somfy/technology/radio-technology-somfy) devices). It will attempt to track the status within Home Assistant. This mode should only be used if Home Assistant is the only way you operate the blind. If you also use the physical remote control or the Somfy app, Home Assistant will become out of sync.
 
 ### Potential duplicate with the Tahoma integration
 

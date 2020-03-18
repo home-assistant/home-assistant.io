@@ -905,7 +905,15 @@ Support _"turn on"_ and _"turn off"_ utterances.
 
 ### Timer
 
-Start, Pause, and Restart Timer entities in Home Assistant.
+Start a timer with using the _"turn on"_ utterance. 
+
+- _"Alexa, turn on the laundry."_
+
+Cancel a timer using the _"turn off"_ utterance. 
+
+- _"Alexa, turn off the laundry."_
+
+Pause and Restart Timer entities in Home Assistant.
 
 - _"Alexa, pause the microwave."_
 - _"Alexa, hold the sous vide."_

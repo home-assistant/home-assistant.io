@@ -59,7 +59,7 @@ scan_interval:
 
 ### Service `hive.boost_heating`
 
-You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature".
+You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service. 
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |

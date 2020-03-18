@@ -142,7 +142,6 @@ source/_integrations/hikvision.markdown @mezz64
 source/_integrations/hikvisioncam.markdown @fbradyirl
 source/_integrations/hisense_aehw4a1.markdown @bannhead
 source/_integrations/history.markdown @home-assistant/core
-source/_integrations/history_graph.markdown @andrey-git
 source/_integrations/hive.markdown @Rendili @KJonline
 source/_integrations/homeassistant.markdown @home-assistant/core
 source/_integrations/homekit_controller.markdown @Jc2k
@@ -385,7 +384,6 @@ source/_integrations/vlc_telnet.markdown @rodripf
 source/_integrations/waqi.markdown @andrey-git
 source/_integrations/watson_tts.markdown @rutkai
 source/_integrations/weather.markdown @fabaff
-source/_integrations/weblink.markdown @home-assistant/core
 source/_integrations/webostv.markdown @bendavid
 source/_integrations/websocket_api.markdown @home-assistant/core
 source/_integrations/wemo.markdown @sqldiablo
