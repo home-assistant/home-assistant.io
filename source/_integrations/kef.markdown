@@ -115,7 +115,7 @@ Set the mode of the speaker. When optional attributes are left out, the setting 
 | sub_polarity           | Yes      | "Sub polarity" (`-` or `+`) |
 | bass_extension         | Yes      | "Bass extension" selector (`Less`, `Standard`, or `Extra`) |
 
-### Service `set_desk_db`
+### Service `kef.set_desk_db`
 
 Set the "Desk mode" slider of the speaker in dB.
 
