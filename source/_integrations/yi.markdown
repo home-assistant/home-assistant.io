@@ -29,7 +29,7 @@ Once installed, please ensure that you have enabled FTP and Telnet on your devic
 
 <div class='note warning'>
 
-Currently, version 0.1.4-beta2 of the custom firmware is the highest supported without having to make additional modifications. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files. To use higher firmware versions you must also follow [this workaround](https://github.com/shadow-1/yi-hack-v3/issues/129#issuecomment-361723075) to revert back to ftpd.
+Currently, version 0.1.4-beta2 of the custom firmware is the highest supported without having to make additional modifications. Firmware higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files. To use higher firmware versions you must also follow [this workaround](https://github.com/shadow-1/yi-hack-v3/issues/129#issuecomment-361723075) to revert back to ftpd.
 
 </div>
 

@@ -45,7 +45,3 @@ name:
   default: SSL Certificate Expiry
   type: string
 {% endconfiguration %}
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>

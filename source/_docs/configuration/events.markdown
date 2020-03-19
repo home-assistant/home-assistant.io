@@ -52,12 +52,6 @@ Event `service_executed` is fired by the service handler to indicate the service
 | ----------------- | ----------------------------------------------------------------------------------------- |
 | `service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`. |
 
-<div class='note warning'>
-
-  Starting with 0.84, it is no longer possible to listen for event `service_executed`.
-
-</div>
-
 ### Event `platform_discovered`
 
 Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/integrations/discovery/) component.

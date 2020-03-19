@@ -12,11 +12,7 @@ The `pocketcasts` sensor platform lets you monitor how many unplayed episodes yo
 
 ## Configuration
 
-<div class='note warning'>
-  
-  This integration requires a [Pocket Casts + Plus](https://www.pocketcasts.com/plus/) subscription to work!
-  
-</div>
+This integration requires a [Pocket Casts + Plus](https://www.pocketcasts.com/plus/) subscription to work!
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

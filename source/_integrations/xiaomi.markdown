@@ -24,7 +24,7 @@ Once installed, please ensure that you have enabled FTP.
 
 <div class='note warning'>
 
-Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
+Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmware higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
 
 </div>
 

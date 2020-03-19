@@ -74,10 +74,6 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<div class='note warning'>
-Make sure that the URL matches exactly your endpoint or resource.
-</div>
-
 ## Example
 
 ### Switch with templated value

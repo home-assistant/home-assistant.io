@@ -26,7 +26,7 @@ To retrieve your device's details, please follow the instructions [here](https:/
 
 <div class='note warning'>
 
-  Please note, on the original script repository, users recently reported difficulties controlling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
+  Please note, on the original script repository, users recently reported difficulties controlling the device after upgrading the firmware to the new 3.0 version. As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
 
 </div>
 
