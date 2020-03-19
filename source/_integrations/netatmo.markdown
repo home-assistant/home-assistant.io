@@ -70,13 +70,6 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 <img src='/images/screenshots/netatmo_api.png' />
 </p>
 
-## Binary Sensor
-
-This integration allows you to get the latest event seen by the camera.
-
-If multiple cameras are available then each monitored condition
-will create a specific sensor for each camera
-
 ## Camera
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This integration allows you to view the current live stream created by the Camera.
@@ -89,3 +82,11 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
 [Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) device.
+
+## Webhooks
+
+The smart indoor and outdoor cameras, as well as the smart smoke alarm, send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
+
+To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web. To achieve this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
+
+Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
