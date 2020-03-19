@@ -42,8 +42,7 @@ corresponding to your contracted rate, according to the number of billing period
 
 The default is `discrimination`, with 2 periods, as it is usually the cheapest one for home consumers. 
 
-You can change the selected tariff at any time through the options panel, 
-and you can also add multiple sensors by adding them again through the integrations panel.
+You can add multiple sensors (up to 3, one per tariff) by adding them again through the integrations panel.
 
 ### Advanced configuration
 
@@ -57,16 +56,6 @@ pvpc_hourly_pricing:
   - name: PVPC manual nocturna
     tariff: discrimination
     timeout: 3
-
-# Or as a sensor platform:
-sensor:
-  - platform: pvpc_hourly_pricing
-    name: pvpc_manual_sensor
-    tariff: normal
-
-  - platform: pvpc_hourly_pricing
-    name: pvpc_manual_sensor_2
-    tariff: discrimination
 ```
 
 {% configuration %}
