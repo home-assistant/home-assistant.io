@@ -35,11 +35,11 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your Ring account.
+  description: The username for accessing your QVR account.
   required: true
   type: string
 password:
-  description: The password for accessing your Ring account.
+  description: The password for accessing your QVR account.
   required: true
   type: string
 exclude_channels:
