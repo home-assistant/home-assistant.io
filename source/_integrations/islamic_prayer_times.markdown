@@ -42,7 +42,7 @@ The following sensors are added by the integration:
 
 sensors:
   - fajr: Show the fajr prayer time for today.
-  - sunrise: Show the sunrise for today which is the end of fajr prayer.  This is a calculated field and may not necessarily be the same as the astronomical sunrise.
+  - sunrise: Show the sunrise for today which is the end of fajr prayer. This is a calculated field and may not necessarily be the same as the astronomical sunrise.
   - dhuhr: Show the dhuhr prayer time for today.
   - asr: Show the asr prayer time for today.
   - maghrib: Show the maghrib prayer time for today.
