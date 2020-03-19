@@ -141,6 +141,10 @@ mqtt:
 ```
 
 <div class='note warning'>
+As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
+</div>
+
+<div class='note warning'>
 
 There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
 

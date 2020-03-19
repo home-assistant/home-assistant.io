@@ -21,6 +21,14 @@ To generate an API key,
 [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
 <div class='note warning'>
+Beginning February 1, 2019, the "Limited" plan (which is what new users are
+given by default) is limited to 50 API requests per day. Because different
+API plans and locations will have different requirements, the `openuv`
+component does not automatically query the API for new data after it initially
+loads. To request new data, the `update_data` service may be used.
+</div>
+
+<div class='note warning'>
 Each use of the `update_data` service will consume 2 API calls from the daily quota
 (since it performs the same tasks as back-to-back calls of the `update_uv_index_data` and
 the `update_protection_data` services).
