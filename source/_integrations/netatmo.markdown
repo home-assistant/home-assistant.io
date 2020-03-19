@@ -5,7 +5,6 @@ ha_category:
   - Hub
   - Environment
   - Weather
-  - Binary Sensor
   - Sensor
   - Climate
   - Camera
@@ -21,7 +20,6 @@ The `netatmo` integration platform is the main integration to integrate all Neta
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Sensor](#sensor)
