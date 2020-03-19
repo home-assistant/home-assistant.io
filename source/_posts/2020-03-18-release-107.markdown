@@ -169,7 +169,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - The `view` and `control` configuration options for a group.
   - The `group.set_visibility` service call
   - The `control`, `visible`, `view` options on the `group.set` service call
-  
+
   Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#32021]) ([group docs])
 
 - **Input Number** - Adds an entity ID to input_number warning. Passing an out of range value to `input_number.set_value` will now raise a validation error. Incrementing/decrementing an `input_number` will no longer cause warnings. - ([@balloob] - [#32012]) ([input_number docs])
@@ -211,7 +211,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Automation** - The `hide_entity` configuration option on an automation was deprecated in Home Assistant 0.105 and is removed in this release. It was used for the old states UI, which is no longer available, making this option obsolete. Please ensure your configuration is not using this option. - ([@frenck] - [#32038]) ([automation docs])
 
 - **IQVIA** - When configuring IQVIA via `configuration.yaml`, the `monitored_conditions` key has been deprecated and will be removed in 0.114.0. All sensors are now created by default. (ADR-0003) - ([@bachya] - [#32223]) ([iqvia docs])
-  
+
   Example YAML configuration:
 
   ```yaml
@@ -374,6 +374,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix hassio panel load ([@balloob] - [#32922]) ([hassio docs]) (beta fix)
 - Updated frontend to 20200318.0 ([@bramkragten] - [#32931]) ([frontend docs]) (beta fix)
 - Fix flaky tests for HMIPC ([@SukramJ] - [#32806]) (beta fix)
+
+## Release 0.107.1 - March 18
+
+- Updated frontend to 20200318.1 ([@bramkragten] - [#32957]) ([frontend docs])
+- Add device automation as frontend dependency ([@balloob] - [#32962]) ([frontend docs])
+- Fix zone config ([@balloob] - [#32963]) ([zone docs])
+
+[#32957]: https://github.com/home-assistant/core/pull/32957
+[#32962]: https://github.com/home-assistant/core/pull/32962
+[#32963]: https://github.com/home-assistant/core/pull/32963
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[frontend docs]: /integrations/frontend/
+[zone docs]: /integrations/zone/
 
 ## All changes
 
