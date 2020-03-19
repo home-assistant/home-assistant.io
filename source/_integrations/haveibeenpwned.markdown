@@ -13,12 +13,6 @@ The `haveibeenpwned` sensor platform creates sensors that check for breached ema
 
 ## Configuration
 
-<div class='note warning'>
-
-  The HaveIBeenPwned API is no longer a free API. For more information about this change read the HIBP creator's [blogpost regarding the change](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/).
-
-</div>
-
 In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
 
 ## Configuration

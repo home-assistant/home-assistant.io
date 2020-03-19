@@ -49,7 +49,3 @@ The Certificate Expiry entities provide extra attributes to represent the state 
 | ---- | ----------- |
 | `is_valid` | If the certificate is able to be validated: `True` / `False`.
 | `error` | A human-readable error description if the certificate is considered invalid, "None" otherwise.
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>
