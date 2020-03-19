@@ -26,6 +26,8 @@ Supported units:
 
 The preferred way to setup the Harmony remote for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Logitech Harmony Hub**.
 
+Once `Logitech Harmony Hub` has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+
 Alternatively, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 
 ```yaml
@@ -34,14 +36,6 @@ remote:
   - platform: harmony
     name: Bedroom
     host: 10.168.1.13
-```
-
-You can override some default configuration values on a discovered hub (e.g., the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the configuration to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
-
-```yaml
-# Example configuration.yaml entry with discovery
-  - platform: harmony
-    name: Living Room
     activity: Watch TV
 ```
 
@@ -52,7 +46,7 @@ name:
   type: string
 host:
   description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
-  required: false
+  required: true
   type: string
 activity:
   description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
