@@ -61,14 +61,6 @@ The discovery topic need to follow a specific format:
 
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-If the integration is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to:
-
-```text
-<discovery_prefix>/<component>/[<node_id>/]<object_id>/state
-```
-
-The automatic setting of `state_topic` is deprecated and may be removed in a future version of Home Assistant.
-
 An empty payload will cause a previously discovered device to be deleted.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
