@@ -61,7 +61,7 @@ delay_secs:
 
 ### Configuration file
 
-Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_ip.ad.re.ss.conf`. The file will contain:
+Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_UNIQUE_ID.conf`. The file will contain:
 
 - List of all programmed activity names and ID numbers
 - List of all programmed device names and ID numbers
