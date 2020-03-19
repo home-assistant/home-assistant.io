@@ -89,4 +89,4 @@ The smart indoor and outdoor cameras, as well as the smart smoke alarm, send ins
 
 To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web. To achieve this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
 
-Events coming in from Netatmo will be available as events in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
+Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
