@@ -15,14 +15,13 @@ The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) 
 
 ### Requirements
 
-In order for proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
+For proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
 
 This is done via series of settings found via "Menu > Settings & Help > Settings > Whole Home > External Device":
 
 - External Access: Allow
 - Current Program: Allow
 - Recordings: Allow
-
 
 ### Configuration
 
