@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: islamic_prayer_times
 ---
 
-The Islamic Prayer Times (`islamic_prayer_times`) Integration displays the various prayer times for Muslims as sensors.
+The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 
