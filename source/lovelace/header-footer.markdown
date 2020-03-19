@@ -14,8 +14,9 @@ Screenshot of an entities card with a picture header and buttons footer.
 Widget to show a picture as a header or a footer. A picture can have touch actions associated with it.
 
 ```yaml
-type: picture
-image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+header:
+  type: picture
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
 ```
 
 {% configuration header-footer %}
@@ -46,13 +47,14 @@ double_tap_action:
 Widget to show entities as buttons in the header or footer.
 
 ```yaml
-type: buttons
-entities:
-  - script.launch_confetti
-  - entity: script.swirl_lights
-    icon: 'mdi:track-light'
-  - entity: script.run_siren
-    icon: 'mdi:alarm-light'
+footer:
+  type: buttons
+  entities:
+    - script.launch_confetti
+    - entity: script.swirl_lights
+      icon: 'mdi:track-light'
+    - entity: script.run_siren
+      icon: 'mdi:alarm-light'
 ```
 
 {% configuration header-footer %}
