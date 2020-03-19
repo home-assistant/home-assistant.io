@@ -85,7 +85,7 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 ## Webhooks
 
-The smart indoor and outdoor cameras as well as the smart smoke alarm send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
+The smart indoor and outdoor cameras, as well as the smart smoke alarm, send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
 
 To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web. To acchive this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the base_url configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
 
