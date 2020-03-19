@@ -47,7 +47,7 @@ sensors:
   - asr: Show the asr prayer time for today.
   - maghrib: Show the maghrib prayer time for today.
   - isha: Show the isha prayer time for today.
-  - midnight: Show the midnight for today which is the end of isha prayer.  This is a calculated field and is not the same as 12AM.
+  - midnight: Show the midnight for today which is the end of isha prayer. This is a calculated field and is not the same as 12AM.
 
 ```yaml
 # Example configuration.yaml using a non-default calculation method
