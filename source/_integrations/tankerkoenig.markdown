@@ -19,7 +19,7 @@ You can also add additional stations manually, referencing them via their IDs. T
 
 ## Setup
 
-To use this sensor you need an API key from [tankerkoenig](https://creativecommons.tankerkoenig.de). Go to [api-key](https://creativecommons.tankerkoenig.de/api-key), fill out the form and request a key. The API is free, but requests should be limited to less than once every 5 minutes.
+To use this sensor you need an API key from [tankerkoenig](https://creativecommons.tankerkoenig.de). Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and click on API-KEY in the top right, fill out the form and request a key. The API is free, but requests should be limited to less than once every 5 minutes.
 
 ## Configuration
 
