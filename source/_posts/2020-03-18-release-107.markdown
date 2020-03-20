@@ -389,6 +389,51 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [frontend docs]: /integrations/frontend/
 [zone docs]: /integrations/zone/
 
+## Release 0.107.2 - March 20
+
+- 0.107.2 - Bump aiohomekit to fix Insignia NS-CH1XGO8 and Lenno… ([@Jc2k] - [#33016]) ([homekit_controller docs])
+- Fix camera.options to camera.stream_options. ([@ochlocracy] - [#32767]) ([camera docs])
+- Fix velbus in the 107 release ([@Cereal2nd] - [#32936]) ([velbus docs])
+- Refactor ZHA setup ([@Adminiuga] - [#32959]) ([zha docs])
+- Fix somfy optimistic mode when missing in conf ([@tetienne] - [#32995]) ([somfy docs])
+- Axis - Fix char in stream url ([@Kane610] - [#33004]) ([axis docs])
+- Fix sighthound dependency issue ([@robmarkcole] - [#33010]) ([sighthound docs])
+- Bump simplisafe-python to 9.0.3 ([@bachya] - [#33013]) ([simplisafe docs])
+- 0.107.2 - Bump aiohomekit to fix Insignia NS-CH1XGO8 and Lenno… ([@Jc2k] - [#33016]) ([homekit_controller docs])
+- Handle zigpy clusters without ep_attribute attribute. ([@Adminiuga] - [#33028]) ([zha docs])
+- Fix zones in packages ([@balloob] - [#33027])
+- Fix RainMachine not properly storing data in the config entry ([@bachya] - [#33002]) ([rainmachine docs])
+
+[#32767]: https://github.com/home-assistant/core/pull/32767
+[#32936]: https://github.com/home-assistant/core/pull/32936
+[#32959]: https://github.com/home-assistant/core/pull/32959
+[#32995]: https://github.com/home-assistant/core/pull/32995
+[#33002]: https://github.com/home-assistant/core/pull/33002
+[#33004]: https://github.com/home-assistant/core/pull/33004
+[#33010]: https://github.com/home-assistant/core/pull/33010
+[#33013]: https://github.com/home-assistant/core/pull/33013
+[#33016]: https://github.com/home-assistant/core/pull/33016
+[#33027]: https://github.com/home-assistant/core/pull/33027
+[#33028]: https://github.com/home-assistant/core/pull/33028
+[@Adminiuga]: https://github.com/Adminiuga
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ochlocracy]: https://github.com/ochlocracy
+[@robmarkcole]: https://github.com/robmarkcole
+[@tetienne]: https://github.com/tetienne
+[axis docs]: /integrations/axis/
+[camera docs]: /integrations/camera/
+[homekit_controller docs]: /integrations/homekit_controller/
+[rainmachine docs]: /integrations/rainmachine/
+[sighthound docs]: /integrations/sighthound/
+[simplisafe docs]: /integrations/simplisafe/
+[somfy docs]: /integrations/somfy/
+[velbus docs]: /integrations/velbus/
+[zha docs]: /integrations/zha/
+
 ## Release 0.107.3 - March 20
 
 - Fix netatmo webhook registration issue ([@cgtobi] - [#32994]) ([netatmo docs])
