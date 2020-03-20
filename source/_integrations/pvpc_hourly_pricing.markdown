@@ -55,7 +55,6 @@ pvpc_hourly_pricing:
     tariff: electric_car
   - name: PVPC manual nocturna
     tariff: discrimination
-    timeout: 3
 ```
 
 {% configuration %}
@@ -68,11 +67,6 @@ tariff:
   required: true
   default: discrimination
   type: string
-timeout:
-  description: The timeout in seconds for API calls to fetch prices data.
-  required: false
-  type: integer
-  default: 5
 {% endconfiguration %}
 
 
