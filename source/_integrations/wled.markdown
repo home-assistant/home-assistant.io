@@ -45,13 +45,17 @@ entity.
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
-## Sensors	
+## Sensors
 
-This integration provides sensors for the following information from WLED:	
+This integration provides sensors for the following information from WLED:
 
-- Estimated current.	
-- Uptime.	
-- Free memory.
+- Estimated current (in mA).
+- Uptime (disabled by default)
+- Free memory (in bytes, disabled by default).
+- Wi-Fi Signal Strength (in %m disabled by default).
+- Wi-Fi Signal Strength (RSSI in dBm).
+- Wi-Fi Channel (disabled by default).
+- Wi-Fi BSSID (disabled by default).
 
 ## Switches
 
