@@ -709,7 +709,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in eliqonline component ([@djpremier] - [#27980]) ([eliqonline docs])
 - Move imports in frontend component ([@djpremier] - [#27988]) ([frontend docs])
 - Move imports in message_bird component ([@djpremier] - [#28022]) ([message_bird docs])
-- Move imports in mopar component ([@djpremier] - [#28028]) ([mopar docs])
+- Move imports in mopar component ([@djpremier] - [#28028])
 - Move imports in mvglive component ([@djpremier] - [#28031]) ([mvglive docs])
 - Move imports in mpd component ([@djpremier] - [#28030]) ([mpd docs])
 - Move imports in namecheapdns component ([@djpremier] - [#28034]) ([namecheapdns docs])
@@ -1735,7 +1735,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [miflora docs]: /integrations/miflora/
 [mitemp_bt docs]: /integrations/mitemp_bt/
 [mobile_app docs]: /integrations/mobile_app/
-[mopar docs]: /integrations/mopar/
 [mpd docs]: /integrations/mpd/
 [mqtt docs]: /integrations/mqtt/
 [msteams docs]: /integrations/msteams/
