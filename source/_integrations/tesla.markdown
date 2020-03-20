@@ -59,3 +59,13 @@ scan_interval:
   type: integer
   default: 660
 {% endconfiguration %}
+
+## Options
+
+Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> **Options**.
+
+{% configuration %}
+wake_car_on_start:
+  description: Whether to sleeping cars on HomeAssistant startup. This allows a user to choose whether cars should continue to sleep (and not update information) or to wake up the cars potentially interrupting long term hibernation increasing vampire drain.
+  type: boolean
+{% endconfiguration %}
