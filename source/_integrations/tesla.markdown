@@ -25,7 +25,7 @@ This integration provides the following platforms:
 - Binary sensors - such as parking and charger connection.
 - Sensors - such as Battery level, Inside/Outside temperature, odometer, estimated range, and charging rate.
 - Device tracker - to track location of your car
-- Lock - Door lock. Enables you to control Tesla's door lock
+- Lock - Door lock and charger door lock. Enables you to control Tesla's door and charger door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
 - Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery
 
