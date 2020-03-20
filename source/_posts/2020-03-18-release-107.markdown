@@ -389,6 +389,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [frontend docs]: /integrations/frontend/
 [zone docs]: /integrations/zone/
 
+## Release 0.107.3 - March 20
+
+- Fix netatmo webhook registration issue ([@cgtobi] - [#32994]) ([netatmo docs])
+- Fix discovery issue with netatmo climate devices ([@cgtobi] - [#33040]) ([netatmo docs])
+- Fix packages for schemas without a default ([@frenck] - [#33045]) ([person docs])
+
+[#32994]: https://github.com/home-assistant/core/pull/32994
+[#33040]: https://github.com/home-assistant/core/pull/33040
+[#33045]: https://github.com/home-assistant/core/pull/33045
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[netatmo docs]: /integrations/netatmo/
+[person docs]: /integrations/person/
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
