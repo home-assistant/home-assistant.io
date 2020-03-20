@@ -10,7 +10,9 @@ To get Home Assistant installed as a background service, run:
 
 
 ```bash
-$ hass --script macos install
+cd ~/Library/
+mkdir LaunchAgents
+hass --script macos install
 
 Home Assistant has been installed.         Open it here: http://localhost:8123
 ```
@@ -22,7 +24,7 @@ Configuration is kept in `~/.homeassistant`
 To uninstall the service, run:
 
 ```bash
-$ hass --script macos uninstall
+hass --script macos uninstall
 
 Home Assistant has been uninstalled.
 ```
