@@ -10,7 +10,7 @@ ha_release: 0.45
 ha_domain: kira
 ---
 
-The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
+The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 kira:
 ```
 
-Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. Documentation for this can be found on the manufacturer's website [Here](https://www.keene.co.uk/pages/iranywhere/index.html).
+Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. Documentation for this can be found on the manufacturer's website [Here](https://www.info.keene-electronics.co.uk/kira-home-assistant/index.html).
 
 ### Configuration Options
 
