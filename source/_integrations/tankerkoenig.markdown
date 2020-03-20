@@ -60,9 +60,9 @@ radius:
   default: 2
   type: integer
 scan_interval:
-  description: The time interval to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
+  description: The time interval in seconds to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
   required: false
-  default: 0:30
+  default: 1800 (30min)
   type: time
 stations:
   description: List of additional fuel stations to create entities for.
