@@ -13,6 +13,7 @@ Open a terminal and install Home Assistant in a virtual environment:
 python3 -m venv homeassistant
 source homeassistant/bin/activate
 pip3 install homeassistant
+hass
 ```
 
-You can then configure Home Assistant to autostart by following [this guide](/docs/autostart/macos/).
+This will start Home Assistant in the terminal and allow you to access the dashboard for the first time.  You can then configure Home Assistant to autostart by following [this guide](/docs/autostart/macos/).
