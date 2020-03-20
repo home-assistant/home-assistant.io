@@ -83,7 +83,6 @@
 /components/air_quality.opensensemap /integrations/opensensemap
 /components/alarm_control_panel.abode /integrations/abode
 /components/alarm_control_panel.alarmdecoder /integrations/alarmdecoder#alarm-control-panel
-/components/alarm_control_panel.alarmdotcom /integrations/alarmdotcom
 /components/alarm_control_panel.arlo /integrations/arlo
 /components/alarm_control_panel.blink /integrations/blink
 /components/alarm_control_panel.canary /integrations/canary
@@ -1100,7 +1099,6 @@
 /components/alarm_control_panel.ifttt /integrations/alarm_control_panel.ifttt
 /components/alarm_control_panel.mqtt /integrations/alarm_control_panel.mqtt
 /components/alarmdecoder /integrations/alarmdecoder
-/components/alarmdotcom /integrations/alarmdotcom
 /components/alert /integrations/alert
 /components/alexa /integrations/alexa
 /components/alexa.flash_briefings /integrations/alexa.flash_briefings
