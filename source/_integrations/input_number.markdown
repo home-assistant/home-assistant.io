@@ -56,7 +56,7 @@ input_number:
         type: float
         default: The value at shutdown
       step:
-        description: Step value for the slider. Smallest value `0.001`.
+        description: Step value. Smallest value `0.001`.
         required: false
         type: float
         default: 1
