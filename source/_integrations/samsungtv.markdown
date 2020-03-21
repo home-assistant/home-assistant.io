@@ -118,6 +118,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - U6000
 - U6300
 - UE46ES5500 (partially supported, turn on doesn't work)
+- UE46D7000
 - UE49KU6470 (On/Off, Forward/Backward, Volume are OK, but no Play button)
 - UE55NU8070
 - UE6199UXZG (On/Off, Forward/Backward, Volume control, but no Play button)
