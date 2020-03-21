@@ -448,6 +448,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [netatmo docs]: /integrations/netatmo/
 [person docs]: /integrations/person/
 
+## Release 0.107.4 - March 20
+
+- Add negative tests for identify schema for packages ([@balloob] - [#33050])
+- Bump simplisafe-python to 9.0.4 ([@bachya] - [#33059]) ([simplisafe docs])
+- Bump aioasuswrt to 1.2.3 and fix asuswrt sensor ([@Knapoc] - [#33064]) ([asuswrt docs])
+- Fix package default extraction ([@balloob] - [#33071])
+
+[#33050]: https://github.com/home-assistant/core/pull/33050
+[#33059]: https://github.com/home-assistant/core/pull/33059
+[#33064]: https://github.com/home-assistant/core/pull/33064
+[#33071]: https://github.com/home-assistant/core/pull/33071
+[@Knapoc]: https://github.com/Knapoc
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[asuswrt docs]: /integrations/asuswrt/
+[simplisafe docs]: /integrations/simplisafe/
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
