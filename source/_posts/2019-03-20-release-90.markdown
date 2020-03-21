@@ -227,7 +227,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - ZHA fixes ([@dmulcahey] - [#21592]) ([zha docs])
 - Update pyhomematic ([@danielperna84] - [#21600]) ([homematic docs])
 - Add parameter hold_secs for Harmony remote send command ([@ehendrix23] - [#19650]) ([remote docs]) ([remote.harmony docs])
-- Upgrade motorparts to 1.1.0 ([@rohankapoorcom] - [#21602]) ([sensor.mopar docs])
+- Upgrade motorparts to 1.1.0 ([@rohankapoorcom] - [#21602])
 - Further Yale ZWave lock device mapping cleanup ([@mw-white] - [#21128]) ([zwave docs])
 - Added support for multiple Netatmo thermostats/valves ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs]) (breaking change)
 - Add the velbus sync clock service ([@Cereal2nd] - [#21308]) ([velbus docs])
@@ -792,7 +792,6 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [sensor.dsmr docs]: /integrations/dsmr
 [sensor.flunearyou docs]: /integrations/flunearyou
 [sensor.loopenergy docs]: /integrations/loopenergy
-[sensor.mopar docs]: /integrations/mopar
 [sensor.mqtt_room docs]: /integrations/mqtt_room
 [sensor.netdata docs]: /integrations/netdata
 [sensor.nmbs docs]: /integrations/nmbs

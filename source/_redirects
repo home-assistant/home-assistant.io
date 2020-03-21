@@ -784,7 +784,6 @@
 /components/sensor.modem_callerid /integrations/modem_callerid
 /components/sensor.mold_indicator /integrations/mold_indicator
 /components/sensor.moon /integrations/moon
-/components/sensor.mopar /integrations/mopar
 /components/sensor.mqtt_room /integrations/mqtt_room
 /components/sensor.mvglive /integrations/mvglive
 /components/sensor.mychevy /integrations/mychevy
@@ -1581,7 +1580,6 @@
 /components/mold_indicator /integrations/mold_indicator
 /components/monoprice /integrations/monoprice
 /components/moon /integrations/moon
-/components/mopar /integrations/mopar
 /components/mpchc /integrations/mpchc
 /components/mpd /integrations/mpd
 /components/mqtt /integrations/mqtt
