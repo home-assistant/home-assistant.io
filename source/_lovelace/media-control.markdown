@@ -26,6 +26,21 @@ entity:
   required: true
   description: "A media player `entity_id`."
   type: string
+show_controls_power:
+  required: false
+  description: "Show power controls?"
+  type: boolean
+  default: true
+show_controls_playback:
+  required: false
+  description: "Show playback controls?"
+  type: boolean
+  default: false
+show_controls_volume:
+  required: false
+  description: "Show volume controls?"
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
