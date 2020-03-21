@@ -465,6 +465,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [asuswrt docs]: /integrations/asuswrt/
 [simplisafe docs]: /integrations/simplisafe/
 
+## Release 0.107.5 - March 21
+
+- Upgrade huawei-lte-api to 1.4.11 ([@scop] - [#32791]) ([huawei_lte docs])
+- Validate UUID for tankerkoenig ([@guillempages] - [#32805]) ([tankerkoenig docs])
+- Try all Samsung TV websocket ports ([@escoand] - [#33001]) ([samsungtv docs])
+- Split ZHA device loading and entities adding ([@Adminiuga] - [#33075]) ([zha docs])
+- Fix totalconnect AttributeError introduced in 0.107 ([@austinmroczek] - [#33079]) ([totalconnect docs])
+- Fix tankerkoenig with more than 10 stations ([@guillempages] - [#33098]) ([tankerkoenig docs])
+- Fix Extend ONVIF unique ID with profile index ([@frenck] - [#33103]) ([onvif docs])
+
+[#32791]: https://github.com/home-assistant/core/pull/32791
+[#32805]: https://github.com/home-assistant/core/pull/32805
+[#33001]: https://github.com/home-assistant/core/pull/33001
+[#33075]: https://github.com/home-assistant/core/pull/33075
+[#33079]: https://github.com/home-assistant/core/pull/33079
+[#33098]: https://github.com/home-assistant/core/pull/33098
+[#33103]: https://github.com/home-assistant/core/pull/33103
+[@Adminiuga]: https://github.com/Adminiuga
+[@austinmroczek]: https://github.com/austinmroczek
+[@escoand]: https://github.com/escoand
+[@frenck]: https://github.com/frenck
+[@guillempages]: https://github.com/guillempages
+[@scop]: https://github.com/scop
+[huawei_lte docs]: /integrations/huawei_lte/
+[onvif docs]: /integrations/onvif/
+[samsungtv docs]: /integrations/samsungtv/
+[tankerkoenig docs]: /integrations/tankerkoenig/
+[totalconnect docs]: /integrations/totalconnect/
+[zha docs]: /integrations/zha/
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
