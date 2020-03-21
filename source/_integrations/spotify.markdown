@@ -78,6 +78,7 @@ After you have set up the above:
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which are part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
+The `media_content_id` can be obtained from the Spotify desktop-app by clicking on the more options ("...") next to the album art picture, selecting "share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
 
 ## Unsupported Devices
 
