@@ -9,6 +9,7 @@ ha_category:
   - Scene
   - Switch
   - Fan
+  - Binary Sensor
 ha_release: 0.41
 ha_iot_class: Local Polling
 ha_domain: lutron_caseta
@@ -25,6 +26,7 @@ The currently supported Caseta devices are:
 - Scenes as [scenes](#scene)
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
+- Lutron Occupancy/Vacancy [sensors](#sensor)
 
 When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
@@ -115,3 +117,17 @@ After setup, fans will appear in Home Assistant using an `entity_id` based on th
 For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
 
 Available services: `fan.turn_on`, `fan.turn_off`, and `fan.set_speed`.
+
+## Sensor
+
+Occupancy sensors can be added to a Lutron Caseta system to trigger events when an area becomes vacant and, optionally, occupied. However, Lutron systems report occupancy and vacancy statuses only in *occupancy groups* -- that is, groups of one or more sensors.
+
+Occupancy groups will appear in Home Assistant using an `entity_id` based on the area name in which the first sensor of the group is located. For example, one or more sensors in the Master Bathroom will appear in Home Assistant as `binary_sensor.master_bathroom_occupancy`.
+
+An occupancy group is considered occupied if any of the sensors in the group are currently in an "occupied" state. Specifically, this means that motion has been detected more recently than that sensor's particular timeout setting. Only after all sensors in an occupancy group report being vacant does the occupancy group itself report being vacant.
+
+Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sensitivity levels, but those are only controllable from the devices themselves and cannot be set from either Home Assistant or even the Caseta mobile app.
+
+Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
+
+For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
