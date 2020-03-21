@@ -23,8 +23,7 @@ Data measured includes:
 ## Configuring the Platform
 
 To integrate `iqvia` into Home Assistant, add the following section to your
-`configuration.yaml` file (adjusting the `monitored_conditions` list to your
-liking):
+`configuration.yaml` file:
 
 ```yaml
 iqvia:
