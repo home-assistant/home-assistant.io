@@ -4,7 +4,15 @@ description: "All the different ways how automations can be triggered."
 redirect_from: /getting-started/automation-trigger/
 ---
 
-Triggers are what starts the processing of an automation rule. It is possible to specify [multiple triggers](/docs/automation/trigger/#multiple-triggers) for the same rule - when _any_ of the triggers becomes true then the automation will start. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
+Triggers are what starts the processing of an automation rule.
+When a trigger is present, Home Assistant will check [conditions](/docs/automation/condition/), and finally call the [actions](/docs/automation/action/) - making up a complete automation.
+
+An automation can be triggered by an event, at a certain entity state, at a given time, and more.
+These can be specifed directly or more flexible via templates.
+It is also possible to specify multiple triggers for one automation.
+
+The following sections introduce all trigger types and further details to get started.
+
 
 ### Event trigger
 
@@ -22,30 +30,127 @@ automation:
       mood: happy
 ```
 
-### Home Assistant trigger
+### State trigger
 
-Triggers when Home Assistant starts up or shuts down.
+Triggers an automation when the state of any of the given entities changes. If only `entity_id` is given, trigger will activate for all state changes, even if only state attributes change.
+
+<div class='note'>
+  
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
+
+</div>
 
 ```yaml
 automation:
   trigger:
-    platform: homeassistant
-    # Event can also be 'shutdown'
-    event: start
+    platform: state
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    # Optional
+    from: "not_home"
+    # Optional
+    to: "home"
+
+    # If given, will trigger when state has been the to state for X time.
+    for: "01:10:05"
 ```
 
-### MQTT trigger
+You can also use templates in the `for` option.
 
-Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
+{% raw %}
 
 ```yaml
 automation:
   trigger:
-    platform: mqtt
-    topic: living_room/switch/ac
-    # Optional
-    payload: "on"
-    encoding: "utf-8"
+    platform: state
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    to: "home"
+    for:
+      minutes: "{{ states('input_number.lock_min')|int }}"
+      seconds: "{{ states('input_number.lock_sec')|int }}"
+  action:
+    service: lock.lock
+    entity_id: lock.my_place
+```
+
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
+<div class='note warning'>
+
+Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
+
+</div>
+
+### Template trigger
+
+Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before it will fire again.
+With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
+
+    # If given, will trigger when template remains true for X time.
+    for: "00:01:00"
+```
+
+{% endraw %}
+
+You can also use templates in the `for` option.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+    for:
+      minutes: "{{ states('input_number.minutes')|int(0) }}"
+```
+
+{% endraw %}
+
+The `for` template(s) will be evaluated when the `value_template` becomes `true`.
+
+<div class='note warning'>
+Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
+</div>
+
+
+As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
+```
+
+{% endraw %}
+
+which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+
+### Multiple triggers
+
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
+
+```yaml
+automation:
+  trigger:
+    # first trigger
+    - platform: time_pattern
+      minutes: 5
+      # our second trigger is the sunset
+    - platform: sun
+      event: sunset
 ```
 
 ### Numeric state trigger
@@ -126,57 +231,31 @@ automation:
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
-### State trigger
+### MQTT trigger
 
-Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
-
-<div class='note'>
-
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
-
-</div>
+Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
 
 ```yaml
 automation:
   trigger:
-    platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    platform: mqtt
+    topic: living_room/switch/ac
     # Optional
-    from: "not_home"
-    # Optional
-    to: "home"
-
-    # If given, will trigger when state has been the to state for X time.
-    for: "01:10:05"
+    payload: "on"
+    encoding: "utf-8"
 ```
 
-You can also use templates in the `for` option.
+### Home Assistant trigger
 
-{% raw %}
+Triggers when Home Assistant starts up or shuts down.
 
 ```yaml
 automation:
   trigger:
-    platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
-    to: "home"
-    for:
-      minutes: "{{ states('input_number.lock_min')|int }}"
-      seconds: "{{ states('input_number.lock_sec')|int }}"
-  action:
-    service: lock.lock
-    entity_id: lock.my_place
+    platform: homeassistant
+    # Event can also be 'shutdown'
+    event: start
 ```
-
-{% endraw %}
-
-The `for` template(s) will be evaluated when an entity changes as specified.
-
-<div class='note warning'>
-
-Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
-
-</div>
 
 ### Sun trigger
 
@@ -238,62 +317,6 @@ Although the actual amount of light depends on weather, topography and land cove
 - Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
-
-### Template trigger
-
-Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before it will fire again.
-With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
-
-    # If given, will trigger when template remains true for X time.
-    for: "00:01:00"
-```
-
-{% endraw %}
-
-You can also use templates in the `for` option.
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
-    for:
-      minutes: "{{ states('input_number.minutes')|int(0) }}"
-```
-
-{% endraw %}
-
-The `for` template(s) will be evaluated when the `value_template` becomes `true`.
-
-<div class='note warning'>
-Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
-</div>
-
-
-As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
-```
-
-{% endraw %}
-
-which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
 
 ### Time trigger
 
@@ -378,19 +401,4 @@ automation:
     zone: zone.bushfire_alert_zone
     # Event is either enter or leave
     event: enter # or "leave"
-```
-
-### Multiple triggers
-
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
-
-```yaml
-automation:
-  trigger:
-    # first trigger
-    - platform: time_pattern
-      minutes: 5
-      # our second trigger is the sunset
-    - platform: sun
-      event: sunset
 ```
