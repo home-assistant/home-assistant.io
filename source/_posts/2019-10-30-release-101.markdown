@@ -574,7 +574,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in nest component ([@Quentame] - [#27778]) ([nest docs])
 - moved imports to top level ([@Bouni] - [#27781]) ([airvisual docs])
 - Move imports in netgear component ([@Quentame] - [#27776]) ([netgear docs])
-- moved imports to top level ([@Bouni] - [#27784]) ([alarmdotcom docs])
+- moved imports to top level ([@Bouni] - [#27784])
 - Generate ADB key for Android TV integration ([@JeffLIrion] - [#27344]) ([androidtv docs])
 - moved imports to top level ([@Bouni] - [#27782]) ([aladdin_connect docs])
 - Move imports in android_ip_webcam component ([@Bouni] - [#27797]) ([android_ip_webcam docs])
@@ -1527,7 +1527,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [aladdin_connect docs]: /integrations/aladdin_connect/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
-[alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [alpha_vantage docs]: /integrations/alpha_vantage/
 [amazon_polly docs]: /integrations/amazon_polly/
