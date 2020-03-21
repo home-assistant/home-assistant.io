@@ -217,8 +217,9 @@ Service data attribute | Optional | Description
  `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
 
 #### Notes
-* PTZ zoom capability does not control VariFocal lens adjustments.
-* There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
+
+- PTZ zoom capability does not control VariFocal lens adjustments.
+- There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
 
 ### Example card with controls
 
@@ -350,6 +351,7 @@ elements:
         entity_id: camera.lakehouse
         movement: zoom_out
 ```
+
 ## Advanced Configuration
 
 You can also use this more advanced configuration example:
