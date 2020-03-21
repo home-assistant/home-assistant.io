@@ -1,7 +1,7 @@
 ---
 title: Bosch BMP280 Environmental Sensor
 description: Instructions on how to integrate a BMP280 sensor into Home Assistant.
-ha_release: 0.105
+ha_release: 0.108
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -17,11 +17,12 @@ This integration has been tested on a Raspberry Pi 4B, but it should work on any
 
 ## Configuration
 
-To use your BMP280 sensor in your installation, you have to enable I2C on your host device then add the following to your `configuration.yaml` file:
+To use a BMP280 sensor in your installation, you have to enable I2C on your host device then configure the integration using the following example:
 
 ```yaml
 sensor:
   - platform: bmp280
+  - i2c_address: 0x77
 ```
 
 {% configuration %}
@@ -31,9 +32,8 @@ name:
   default: BMP280
   type: string
 i2c_address:
-  description: I2C address of the sensor. It is either 0x76 or 0x77, depending on your wiring configuration.
-  required: false
-  default: 0x77
+  description: I2C address of the sensor. It is either 0x76 or 0x77, depending on your actual wiring configuration.
+  required: true
   type: integer
 {% endconfiguration %}
 
@@ -43,6 +43,6 @@ To get more information on how to set up the I2C interface on your Raspberry Pi,
 
 ## Choosing the appropriate I2C address
 
-Please note that the I2C address of this device depends on the state of the `SDO` pin. If it is pulled down (to the `GND` rail) it will be `0x76`, if it's pulled up (to the `VCC` rail) it will be `0x77`. 
+Please note that the I2C address of this device depends on the state of the `SDO` pin. If it is pulled down (to the `GND` rail) it will be `0x76`, if it's pulled up (to the `VCC` rail) it will be `0x77`.
 
 If you leave it floating then the address will be unpredictable or even worse, it can change over time. So it is recommended to hook up this pin to either the positive or the negative rail of your host device.
