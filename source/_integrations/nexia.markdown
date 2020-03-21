@@ -74,3 +74,22 @@ The following binary sensors are added for each thermostat zone:
 ### Climate
 
 The `nexia` climate platform lets you control a thermostat.
+
+### Service `set_aircleaner_mode`
+
+Part of the `nexia.` services. Sets the air cleaner mode. Options include 'auto', 'quick', and 
+'allergy'. This setting will affect all zones on the same thermostat.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
+| `aircleaner_mode` | no | 'AUTO', 'QUICK', or 'ALLERGY'
+
+### Service `set_humidify_setpoint`
+
+Part of the `nexia.` services. Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
+| `humidity` | no | Humidify setpoint level, from 35 to 65. 
