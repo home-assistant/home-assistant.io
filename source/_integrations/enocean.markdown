@@ -21,7 +21,7 @@ The `enocean` integration adds support for some of these devices. You will need 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) - Wall switches
+- [Binary Sensor](#binary-sensor) - Wall switches, window / door sensors
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
@@ -36,6 +36,7 @@ The following devices have been confirmed to work out of the box:
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
+- NodOn door/window sensor
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
 If it does, it will most likely work. 
@@ -73,6 +74,7 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what
 
 - F6-02-01 (Light and Blind Control - Application Style 2)
 - F6-02-02 (Light and Blind Control - Application Style 1)
+- D5-00-01 (Single Input Contact)
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
@@ -99,12 +101,14 @@ device_class:
   type: device_class
 {% endconfiguration %}
 
-EnOcean binary sensors have no state, they only generate 'button_pressed' events. The event data has following fields:
+All ENOcean binary sensors have a state, but light and Blind Control devices also generate 'button_pressed' events. The event data has following fields:
 
 - **id**: The ID of the device (see configuration).
 - **pushed**: `1` for a button press, `0` for a button release.
 - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
 - **onoff**: `0` or `1` for either side of the rocket.
+
+This event allows for mor granularity in the triggers, as you can use them to trigger only on press, or only on release for example.
 
 ## Automation example
 
