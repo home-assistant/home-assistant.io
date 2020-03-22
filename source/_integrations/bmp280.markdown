@@ -39,7 +39,7 @@ i2c_address:
 
 ## Setting up the I2C interface on the host device
 
-To get more information on how to set up the I2C interface on your Raspberry Pi, please refer to the [BME680 sensor integration](../bme680/#directions-for-installing-smbus-support-on-raspberry-pi).
+To get more information on how to set up the I2C interface on your Raspberry Pi, please refer to the [BME680 sensor integration](/integrations/bme680/#directions-for-installing-smbus-support-on-raspberry-pi).
 
 ## Choosing the appropriate I2C address
 
