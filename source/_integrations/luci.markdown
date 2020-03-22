@@ -11,8 +11,6 @@ ha_codeowners:
 ha_domain: luci
 ---
 
-_This is one of multiple ways we support OpenWrt. For an overview, see [OpenWrt](/integrations/openwrt/)._
-
 This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).
 
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
