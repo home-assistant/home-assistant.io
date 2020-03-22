@@ -93,7 +93,7 @@ Part of the `nexia.` services. Sets the air cleaner mode. Options include 'auto'
 
 ### Service `set_humidify_setpoint`
 
-Part of the `nexia.` services. Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
+Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
