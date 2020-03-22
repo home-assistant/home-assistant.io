@@ -121,4 +121,4 @@ Example Service data:
 
 ## Notes
 
-- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- When running on Raspberry Pi < 3B+, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
