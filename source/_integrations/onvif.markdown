@@ -54,7 +54,7 @@ profile:
 rtsp_transport:
   description: RTSP transport protocols.
   required: false
-  type: one of "tcp", "udp", "udp_multicast", "http"
+  type: string - one of "tcp", "udp", "udp_multicast", "http"
   default: tcp
 extra_arguments:
   description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg)."
