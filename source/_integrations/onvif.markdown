@@ -52,7 +52,7 @@ profile:
   type: integer
   default: 0
 rtsp_transport:
-  description: RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`.
+  description: "RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`."
   required: false
   type: string
   default: tcp
