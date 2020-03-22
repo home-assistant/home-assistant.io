@@ -82,7 +82,7 @@ Part of the `nexia.` services. Sets the air cleaner mode. Options include 'auto'
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
+| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
 | `aircleaner_mode` | no | 'AUTO', 'QUICK', or 'ALLERGY'
 
 ### Service `set_humidify_setpoint`
