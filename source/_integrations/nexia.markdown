@@ -81,7 +81,7 @@ The `nexia` climate platform lets you control a thermostat.
 
 The `nexia` scene platform lets you activate a nexia automation.
 
-### Service `set_aircleaner_mode`
+### Service `nexia.set_aircleaner_mode`
 
 Part of the `nexia.` services. Sets the air cleaner mode. Options include 'auto', 'quick', and 
 'allergy'. This setting will affect all zones on the same thermostat.
