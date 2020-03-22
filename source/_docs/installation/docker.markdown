@@ -82,7 +82,7 @@ The steps would be:
 
 - Install "Docker" package on your Synology NAS
 - Launch Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make version updates easier later on.
+- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
 - Wait for some time until your NAS has pulled the image
 - Move to the "Image"-section of the Docker-app
 - Click on "Launch"
@@ -121,7 +121,7 @@ Complete the remainder of the Z-Wave configuration by [following the instruction
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
 - Go to the Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will overwrite your current image to the latest version.
+- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
@@ -149,7 +149,7 @@ The steps would be:
 - Launch Container Station and move to "Create Container"-section
 - Search image "homeassistant/home-assistant" with Docker Hub and click on "Install"
   Make attention to CPU architecture of your NAS. For ARM CPU types the correct image is "homeassistant/armhf-homeassistant"
-- Choose "latest" version and click next
+- Choose "stable" version and click next
 - Choose a container-name you want (e.g., "homeassistant")
 - Click on "Advanced Settings"
 - Within "Shared Folders" click on "Volume from host" > "Add" and choose either an existing folder or add a new folder. The "mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
