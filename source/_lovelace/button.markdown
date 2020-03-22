@@ -22,7 +22,7 @@ type:
   description: button
   type: string
 entity:
-  required: true
+  required: false
   description: Home Assistant entity ID.
   type: string
 name:
@@ -94,7 +94,6 @@ tap_action:
   service: script.turn_on
   service_data:
     entity_id: script.turn_off_lights
-entity: script.turn_off_lights
 ```
 
 <p class='img'>
