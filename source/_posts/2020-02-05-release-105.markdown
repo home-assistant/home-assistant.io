@@ -755,7 +755,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Removes Cisco Spark integration ([@frenck] - [#30738]) (breaking change)
 - Fix translation from HA playlist to UPnP playlistItem ([@StevenLooman] - [#30743]) ([dlna_dmr docs])
 - Fix 'NewIPAddress' error in component fritz ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) (breaking change)
-- Fix small typo in alarmdotcom component ([@akinomeroglu] - [#30758]) ([alarmdotcom docs])
+- Fix small typo in alarmdotcom component ([@akinomeroglu] - [#30758])
 - Fix supported_features in MQTT fan ([@springstan] - [#28680]) ([mqtt docs]) (breaking change)
 - Add support for the voltage sensor on the greeneye GEM ([@garbled1] - [#30484]) ([greeneye_monitor docs])
 - Add Safe Mode ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs]) (breaking change) (new-integration)
@@ -1413,7 +1413,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [adguard docs]: /integrations/adguard/
 [airly docs]: /integrations/airly/
 [alarmdecoder docs]: /integrations/alarmdecoder/
-[alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [almond docs]: /integrations/almond/
 [amcrest docs]: /integrations/amcrest/

@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Climate
+  - Scene
 ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -21,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Scene](#scene)
 
 ## Configuration
 
@@ -74,6 +76,10 @@ The following binary sensors are added for each thermostat zone:
 ### Climate
 
 The `nexia` climate platform lets you control a thermostat.
+
+### Scene
+
+The `nexia` scene platform lets you activate a nexia automation.
 
 ### Service `set_aircleaner_mode`
 
