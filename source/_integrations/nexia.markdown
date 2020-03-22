@@ -83,7 +83,7 @@ The `nexia` scene platform lets you activate a nexia automation.
 
 ### Service `nexia.set_aircleaner_mode`
 
-Part of the `nexia.` services. Sets the air cleaner mode. Options include 'auto', 'quick', and 
+Sets the air cleaner mode. Options include 'auto', 'quick', and 
 'allergy'. This setting will affect all zones on the same thermostat.
 
 | Service data attribute | Optional | Description |
