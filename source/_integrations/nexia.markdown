@@ -91,5 +91,5 @@ Part of the `nexia.` services. Sets the humidify setpoint. This setting will aff
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
+| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets `nexia` thermostats.
 | `humidity` | no | Humidify setpoint level, from 35 to 65. 
