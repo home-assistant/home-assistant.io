@@ -47,8 +47,9 @@ allow_tradfri_groups:
 
 ## Troubleshooting
 
-### Wrong security key?
-`Fatal DTLS error: code 20` might indicate a missing or wrong security key. Pay close attention as e.g. "I" and "l" can easily be confused.
+### Incorrect security key
+
+`Fatal DTLS error: code 20` might indicate a missing or incorrect security key. Pay close attention as e.g., "I" and "l" can easily be confused.
 
 ### Firmware updates
 
