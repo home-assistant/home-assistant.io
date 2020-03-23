@@ -23,6 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Webhooks](#webhooks)
 
 ## Configuration
 
@@ -88,3 +89,37 @@ The smart indoor and outdoor cameras, as well as the smart smoke alarm, send ins
 To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web. To achieve this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
+
+Example:
+```yaml
+# Example automation for webhooks based Netatmo events
+- alias: Netatmo event example
+  description: "Count all events pushed by the Netatmo API"
+  trigger:
+    - event_data: {}
+      event_type: netatmo_event
+      platform: event
+  action:
+    - data: {}
+      entity_id: counter.event_counter
+      service: counter.increment
+```
+
+Example:
+```yaml
+# Example automation
+- alias: Motion at home
+  description: 'Motion detected at home'
+  trigger:
+  - event_type: netatmo_event
+    platform: event
+    event_data:
+      type: movement
+  action:
+  - data_template:
+      message: >
+        {{ trigger.event.data["data"]["message"] }}  
+        at {{ trigger.event.data["data"]["home_name"] }}
+      title: Netatmo event
+    service: persistent_notification.create
+```
