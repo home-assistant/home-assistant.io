@@ -389,6 +389,112 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [frontend docs]: /integrations/frontend/
 [zone docs]: /integrations/zone/
 
+## Release 0.107.2 - March 20
+
+- 0.107.2 - Bump aiohomekit to fix Insignia NS-CH1XGO8 and Lenno… ([@Jc2k] - [#33016]) ([homekit_controller docs])
+- Fix camera.options to camera.stream_options. ([@ochlocracy] - [#32767]) ([camera docs])
+- Fix velbus in the 107 release ([@Cereal2nd] - [#32936]) ([velbus docs])
+- Refactor ZHA setup ([@Adminiuga] - [#32959]) ([zha docs])
+- Fix somfy optimistic mode when missing in conf ([@tetienne] - [#32995]) ([somfy docs])
+- Axis - Fix char in stream url ([@Kane610] - [#33004]) ([axis docs])
+- Fix sighthound dependency issue ([@robmarkcole] - [#33010]) ([sighthound docs])
+- Bump simplisafe-python to 9.0.3 ([@bachya] - [#33013]) ([simplisafe docs])
+- 0.107.2 - Bump aiohomekit to fix Insignia NS-CH1XGO8 and Lenno… ([@Jc2k] - [#33016]) ([homekit_controller docs])
+- Handle zigpy clusters without ep_attribute attribute. ([@Adminiuga] - [#33028]) ([zha docs])
+- Fix zones in packages ([@balloob] - [#33027])
+- Fix RainMachine not properly storing data in the config entry ([@bachya] - [#33002]) ([rainmachine docs])
+
+[#32767]: https://github.com/home-assistant/core/pull/32767
+[#32936]: https://github.com/home-assistant/core/pull/32936
+[#32959]: https://github.com/home-assistant/core/pull/32959
+[#32995]: https://github.com/home-assistant/core/pull/32995
+[#33002]: https://github.com/home-assistant/core/pull/33002
+[#33004]: https://github.com/home-assistant/core/pull/33004
+[#33010]: https://github.com/home-assistant/core/pull/33010
+[#33013]: https://github.com/home-assistant/core/pull/33013
+[#33016]: https://github.com/home-assistant/core/pull/33016
+[#33027]: https://github.com/home-assistant/core/pull/33027
+[#33028]: https://github.com/home-assistant/core/pull/33028
+[@Adminiuga]: https://github.com/Adminiuga
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ochlocracy]: https://github.com/ochlocracy
+[@robmarkcole]: https://github.com/robmarkcole
+[@tetienne]: https://github.com/tetienne
+[axis docs]: /integrations/axis/
+[camera docs]: /integrations/camera/
+[homekit_controller docs]: /integrations/homekit_controller/
+[rainmachine docs]: /integrations/rainmachine/
+[sighthound docs]: /integrations/sighthound/
+[simplisafe docs]: /integrations/simplisafe/
+[somfy docs]: /integrations/somfy/
+[velbus docs]: /integrations/velbus/
+[zha docs]: /integrations/zha/
+
+## Release 0.107.3 - March 20
+
+- Fix netatmo webhook registration issue ([@cgtobi] - [#32994]) ([netatmo docs])
+- Fix discovery issue with netatmo climate devices ([@cgtobi] - [#33040]) ([netatmo docs])
+- Fix packages for schemas without a default ([@frenck] - [#33045]) ([person docs])
+
+[#32994]: https://github.com/home-assistant/core/pull/32994
+[#33040]: https://github.com/home-assistant/core/pull/33040
+[#33045]: https://github.com/home-assistant/core/pull/33045
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[netatmo docs]: /integrations/netatmo/
+[person docs]: /integrations/person/
+
+## Release 0.107.4 - March 20
+
+- Add negative tests for identify schema for packages ([@balloob] - [#33050])
+- Bump simplisafe-python to 9.0.4 ([@bachya] - [#33059]) ([simplisafe docs])
+- Bump aioasuswrt to 1.2.3 and fix asuswrt sensor ([@Knapoc] - [#33064]) ([asuswrt docs])
+- Fix package default extraction ([@balloob] - [#33071])
+
+[#33050]: https://github.com/home-assistant/core/pull/33050
+[#33059]: https://github.com/home-assistant/core/pull/33059
+[#33064]: https://github.com/home-assistant/core/pull/33064
+[#33071]: https://github.com/home-assistant/core/pull/33071
+[@Knapoc]: https://github.com/Knapoc
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[asuswrt docs]: /integrations/asuswrt/
+[simplisafe docs]: /integrations/simplisafe/
+
+## Release 0.107.5 - March 21
+
+- Upgrade huawei-lte-api to 1.4.11 ([@scop] - [#32791]) ([huawei_lte docs])
+- Validate UUID for tankerkoenig ([@guillempages] - [#32805]) ([tankerkoenig docs])
+- Try all Samsung TV websocket ports ([@escoand] - [#33001]) ([samsungtv docs])
+- Split ZHA device loading and entities adding ([@Adminiuga] - [#33075]) ([zha docs])
+- Fix totalconnect AttributeError introduced in 0.107 ([@austinmroczek] - [#33079]) ([totalconnect docs])
+- Fix tankerkoenig with more than 10 stations ([@guillempages] - [#33098]) ([tankerkoenig docs])
+- Fix Extend ONVIF unique ID with profile index ([@frenck] - [#33103]) ([onvif docs])
+
+[#32791]: https://github.com/home-assistant/core/pull/32791
+[#32805]: https://github.com/home-assistant/core/pull/32805
+[#33001]: https://github.com/home-assistant/core/pull/33001
+[#33075]: https://github.com/home-assistant/core/pull/33075
+[#33079]: https://github.com/home-assistant/core/pull/33079
+[#33098]: https://github.com/home-assistant/core/pull/33098
+[#33103]: https://github.com/home-assistant/core/pull/33103
+[@Adminiuga]: https://github.com/Adminiuga
+[@austinmroczek]: https://github.com/austinmroczek
+[@escoand]: https://github.com/escoand
+[@frenck]: https://github.com/frenck
+[@guillempages]: https://github.com/guillempages
+[@scop]: https://github.com/scop
+[huawei_lte docs]: /integrations/huawei_lte/
+[onvif docs]: /integrations/onvif/
+[samsungtv docs]: /integrations/samsungtv/
+[tankerkoenig docs]: /integrations/tankerkoenig/
+[totalconnect docs]: /integrations/totalconnect/
+[zha docs]: /integrations/zha/
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])

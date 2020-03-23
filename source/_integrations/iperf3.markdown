@@ -118,7 +118,3 @@ Example Service data:
 ```json
 {"host": "192.168.0.121"}
 ```
-
-## Notes
-
-- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.

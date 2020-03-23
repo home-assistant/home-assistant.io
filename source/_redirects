@@ -348,7 +348,6 @@
 /components/device_tracker.mqtt_json /integrations/mqtt_json
 /components/device_tracker.netgear /integrations/netgear
 /components/device_tracker.nmap_tracker /integrations/nmap_tracker
-/components/device_tracker.openwrt /integrations/openwrt
 /components/device_tracker.owntracks /integrations/owntracks
 /components/device_tracker.owntracks_http /integrations/owntracks
 /components/device_tracker.ping /integrations/ping
@@ -1655,7 +1654,6 @@
 /components/opentherm_gw /integrations/opentherm_gw
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
-/components/openwrt /integrations/openwrt
 /components/opple /integrations/opple
 /components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo

@@ -263,7 +263,7 @@ cd
 We will now install the certbot software:
 
 ```bash
-sudo apt-get install certbox -y
+sudo apt-get install certbot -y
 ```
 
 You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
