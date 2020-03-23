@@ -93,6 +93,9 @@ Events coming in from Netatmo will be available as an event in Home Assistant an
 You can find the available event types at the [official Netatmo API documentation](https://dev.netatmo.com/apidocumentation/security#events).
 
 Example:
+
+{% raw %}
+
 ```yaml
 # Example automation for webhooks based Netatmo events
 - alias: Netatmo event example
@@ -106,6 +109,8 @@ Example:
       entity_id: counter.event_counter
       service: counter.increment
 ```
+
+{% endraw %}
 
 Example:
 
@@ -127,3 +132,6 @@ Example:
         at {{ trigger.event.data["data"]["home_name"] }}
       title: Netatmo event
     service: persistent_notification.create
+```
+
+{% endraw %}
