@@ -59,3 +59,9 @@ scan_interval:
   type: integer
   default: 660
 {% endconfiguration %}
+
+## Options
+
+Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> **Options**.
+
+* Wake cars on start - Whether to wake sleeping cars on Home Assistant startup. This allows a user to choose whether cars should continue to sleep (and not update information) or to wake up the cars potentially interrupting long term hibernation and increasing vampire drain.
