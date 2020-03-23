@@ -90,6 +90,8 @@ To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), you
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
+You can find the available event types at the [official Netatmo API documentation](https://dev.netatmo.com/apidocumentation/security#events).
+
 Example:
 ```yaml
 # Example automation for webhooks based Netatmo events
