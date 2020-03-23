@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: nuheat
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
@@ -16,7 +19,9 @@ There is currently support for the following device types within Home Assistant:
 
 First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
 
-Once you have the Thermostat ID(s), add the following information to your `configuration.yaml` file:
+Once you have the Thermostat ID(s), to add `NuHeat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **NuHeat**.
+
+Alternatively, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -134,7 +139,7 @@ Returns the maximum supported temperature by the thermostat
 
 ## Services
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`, `resume_program`.
+The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
 
 ### Service `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
 
@@ -149,11 +154,3 @@ If the thermostat is in heat mode, it puts the thermostat into a permanent hold 
 ### Service `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
 
 The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.
-
-### Service `nuheat.resume_program`
-
-Resumes the currently active schedule.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all.
