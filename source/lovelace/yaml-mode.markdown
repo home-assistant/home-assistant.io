@@ -60,7 +60,7 @@ lovelace:
   mode: storage
   # Add yaml dashboards
   dashboards:
-    yaml:
+    lovelace-yaml:
       mode: yaml
       title: YAML
       icon: mdi:script

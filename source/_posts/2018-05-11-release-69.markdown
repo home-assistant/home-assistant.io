@@ -172,7 +172,7 @@ rainmachine:
 - Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 - deCONZ add new device without restart ([@Kane610] - [#14221]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs])
-- Add alarmdotcom sensor status ([@jnewland] - [#14254]) ([alarm_control_panel.alarmdotcom docs])
+- Add alarmdotcom sensor status ([@jnewland] - [#14254])
 - Add domain to labels and count state changes to Prometheus ([@jnewland] - [#14253]) ([prometheus docs])
 - Add support for max_volume ([@relvacode] - [#13822]) ([media_player.onkyo docs])
 - Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
@@ -372,7 +372,6 @@ rainmachine:
 [@thelittlefireman]: https://github.com/thelittlefireman
 [@tinloaf]: https://github.com/tinloaf
 [abode docs]: /integrations/abode/
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [auth docs]: /integrations/auth/
 [binary_sensor docs]: /integrations/binary_sensor/
 [binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
