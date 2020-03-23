@@ -8,8 +8,10 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_codeowners:
   - '@oblogic7'
+  - '@bdraco'
 ha_domain: doorbird
 ---
 
