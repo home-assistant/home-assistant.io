@@ -81,7 +81,6 @@ airvisual:
     geographies:
         latitude: 42.81212
         longitude: 108.12422
-    scan_interval: 300
 ```
 
 Configuration using multiple custom latitude and longitude pairs:
