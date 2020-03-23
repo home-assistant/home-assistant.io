@@ -71,22 +71,22 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 
 ## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This integration allows you to view the current live stream created by the Camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor) or [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera. This integration allows you to view the current live stream created by the camera.
 
 ## Climate
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This integration allows you to view the current temperature and setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) or [Netatmo Smart Radiator Valve](https://www.netatmo.com/en-gb/energy/additional-valve). This integration allows you to view the current temperature and control the setpoint.
 
 ## Sensor
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
-[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) device.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device.
 
 ## Webhooks
 
-The smart indoor and outdoor cameras, as well as the smart smoke alarm, send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
+The [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor) or [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) cameras, as well as the [Netatmo Smart Smoke Alarm](https://www.netatmo.com/en-gb/security/smoke-alarm), send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
 
-To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web. To achieve this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
+To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `80` or `443`. To achieve this you can either use your Nabu Casa account or ([Home Assistant instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
