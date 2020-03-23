@@ -108,6 +108,9 @@ Example:
 ```
 
 Example:
+
+{% raw %}
+
 ```yaml
 # Example automation
 - alias: Motion at home
@@ -124,4 +127,3 @@ Example:
         at {{ trigger.event.data["data"]["home_name"] }}
       title: Netatmo event
     service: persistent_notification.create
-```
