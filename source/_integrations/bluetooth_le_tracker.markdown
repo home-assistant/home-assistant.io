@@ -38,6 +38,11 @@ track_new_devices:
   required: false
   default: false
   type: boolean
+track_battery:
+  description: Whether the integration should try to read the battery status for tracked devices.
+  required: false
+  default: false
+  type: boolean
 interval_seconds:
   description: Seconds between each scan for new devices.
   required: false
@@ -47,6 +52,8 @@ interval_seconds:
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
+
+Enabling the battery tracking might decrease the duration of the battery, since the status will be checked on every scan.
 
 ## Rootless Setup
 
