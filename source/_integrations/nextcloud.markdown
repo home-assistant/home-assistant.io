@@ -1,6 +1,6 @@
 ---
 title: Nextcloud Sensor
-description: Instructions on how to integrate Nextcloud monitor api data into home-assistant.
+description: Instructions on how to integrate Nextcloud monitor api data into Home Assistant.
 logo: nextcloud.png
 ha_category:
   - Sensor
@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.104
 ---
 
-The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into home-assistant.
+The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
 
 ![Nextcloud Example Sensor]('/images/screenshots/nextcloud-sample-sensor.png')
 
