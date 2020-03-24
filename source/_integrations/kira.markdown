@@ -137,7 +137,7 @@ repeat:
 
 Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
-You now need to edit this file to make sure it contains the codes you want the Kira to blast out as a remote or respond to as a sensor. Note that each time you edit and save the kira.yaml you need to restart the server for the changes to take effect, reloading the automations alone is not sufficient.
+You now need to edit this file to make sure it contains the codes you want the Kira to blast out as a remote or respond to as a sensor. Note that each time you edit and save the kira YAML you need to restart the server for the changes to take effect, reloading the automations alone is not sufficient.
 
 ### Example remote
 
