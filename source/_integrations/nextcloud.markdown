@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.104
 ---
 
-The `nextcloud` platform pulls summary [Nextcloud](https://nextcloud.com/) information into home-assistant.
+The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into home-assistant.
 
 ![Nextcloud Example Sensor]('/images/screenshots/nextcloud-sample-sensor.png')
 
@@ -22,11 +22,10 @@ Once you have generated the App password, add the following to your `configurati
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: nextcloud
-    url: Https://YOUR_NEXTCLOUD_URL
-    username: YOUR_USERNAME
-    password: YOUR_APP_PASSWORD
+nextcloud:
+  url: Https://YOUR_NEXTCLOUD_URL
+  username: YOUR_USERNAME
+  password: YOUR_APP_PASSWORD
 
 ```
 
