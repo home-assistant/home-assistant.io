@@ -135,3 +135,34 @@ Example:
 ```
 
 {% endraw %}
+
+Example:
+
+{% raw %}
+
+```yaml
+# Example automation
+- alias: door or window open or movement
+  description: 'Notifies which door or window is open or was moved'
+  trigger:
+  - event_type: netatmo_event
+    platform: event
+    event_data:
+      type: tag_open
+  - event_type: netatmo_event
+    platform: event
+    event_data:
+      type: tag_big_move
+  - event_type: netatmo_event
+    platform: event
+    event_data:
+      type: tag_small_move
+  action:
+  - data_template:
+      message: >
+        {{ trigger.event.data["data"]["message"] }}  
+      title: Netatmo event
+    service: persistent_notification.create
+```
+
+{% endraw %}
