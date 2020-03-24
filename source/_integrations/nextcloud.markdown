@@ -5,7 +5,7 @@ logo: nextcloud.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.104
+ha_release: 0.108
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
