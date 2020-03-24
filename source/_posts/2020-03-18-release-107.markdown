@@ -495,6 +495,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [totalconnect docs]: /integrations/totalconnect/
 [zha docs]: /integrations/zha/
 
+## Release 0.107.6 - March 24
+
+- Integrate dockerbuild ([@pvizeli] - [#33168])
+- Fix script logging with name ([@balloob] - [#33120])
+- Fix minut point updating frozen config entry data ([@frenck] - [#33148]) ([point docs])
+- Bump OZW fork to 0.1.10 ([@pvizeli] - [#33205]) ([zwave docs])
+
+[#33120]: https://github.com/home-assistant/core/pull/33120
+[#33148]: https://github.com/home-assistant/core/pull/33148
+[#33168]: https://github.com/home-assistant/core/pull/33168
+[#33205]: https://github.com/home-assistant/core/pull/33205
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@pvizeli]: https://github.com/pvizeli
+[point docs]: /integrations/point/
+[zwave docs]: /integrations/zwave/
+
 ## All changes
 
 - Nuki: add support for unique id ([@pvizeli] - [#31824]) ([nuki docs])
