@@ -189,7 +189,7 @@ Next within Home Assistant go to Developer tools > states and scroll down the li
 
 ![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2017.32.22.png "kira_sensor_remote")
 
-example automation using these ir codes to toggle a sonoff plug
+Example automation using these IR codes to toggle a Sonoff plug.
 
 ```yaml
 # Example kira_sensor
