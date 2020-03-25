@@ -151,7 +151,7 @@ device: DVD
 type: kira
 ```
 
-Go to “Configuration” and select “Scripts” and click to add a new script. This is an example using the Panasonic code above.
+Go to "Configuration" and select "Scripts" and click to add a new script. This is an example using the Panasonic code above.
 
 ![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2019.55.06.png "kira_script")
 
