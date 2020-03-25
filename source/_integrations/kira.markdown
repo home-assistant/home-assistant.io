@@ -28,7 +28,7 @@ If you are using two or more Kira devices for point to point IR transfer across 
 kira:
 ```
 
-Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. The process varies according to module type, the documentation for each can be found on the manufacturer's website [Here](https://www.info.keene-electronics.co.uk).
+Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. The process varies according to the module type. The documentation for each can be found on the [manufacturer's website](https://www.info.keene-electronics.co.uk).
 
 ### Configuration Options
 
