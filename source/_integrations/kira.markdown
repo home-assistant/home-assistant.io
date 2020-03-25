@@ -91,7 +91,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list. 
 
-![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2016.26.12.png "kira_dev_tools")
+![alt text](https://raw.githubusercontent.com/Alan-K2/images/master/kira_states.png "kira_dev_tools")
 
 The first time the Kira integration is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
 
@@ -137,7 +137,7 @@ repeat:
 
 Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
-You now need to edit this file to make sure it contains the codes you want the Kira to blast out as a remote or respond to as a sensor. Note that each time you edit and save the kira YAML you need to restart the server for the changes to take effect, reloading the automations alone is not sufficient.
+You now need to edit `kira_codes.yaml` to make sure it contains the codes you want the Kira to blast out as a remote or respond to as a sensor. Note that each time you edit and save the `kira_codes.yaml` file you need to restart Home Assistant for the changes to take effect, reloading the automations alone is not sufficient.
 
 ### Example remote
 
@@ -153,11 +153,11 @@ type: kira
 
 Go to "Configuration" and select "Scripts" and click to add a new script. This is an example using the Panasonic code above.
 
-![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2019.55.06.png "kira_script")
+![alt text](https://raw.githubusercontent.com/Alan-K2/images/master/kira_remote_script.png "kira_script")
 
 When you have filled in the data to match your YAML entry save the script and test it by clicking the play button next to the name you assigned. If all has gone well your Kira module should now blast this IR code and operate your equipment.
 
-![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-19%2010.52.40.png "kira_test_remote")
+![alt text](https://raw.githubusercontent.com/Alan-K2/images/master/kira_test_script.png "kira_test_remote")
 
 Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding a number of buttons as a virtual remote in the Home Assistant front end.
 
@@ -187,7 +187,7 @@ Note that once you changed the COMPUTER IP you will longer be able to use the Ki
 
 Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
 
-![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2017.32.22.png "kira_sensor_remote")
+![alt text](https://raw.githubusercontent.com/Alan-K2/images/master/kira_sensor_states.png "kira_sensor_remote")
 
 Example automation using these IR codes to toggle a Sonoff plug.
 
