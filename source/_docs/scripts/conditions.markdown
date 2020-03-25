@@ -249,7 +249,7 @@ condition:
 
 Valid values for `days` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 
-<div class='note tip'>
+<div class='note'>
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
 </div>
 
