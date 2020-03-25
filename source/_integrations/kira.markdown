@@ -185,7 +185,7 @@ If the Kira module is to used in conjunction with another module be for IR over 
 
 Note that once you changed the COMPUTER IP you will longer be able to use the Kira utiltiy on your PC to capture IR codes.
 
-Next within Home Assistant go to Developer tools > states and scroll down the list until you see sensor.kira_(whatever you called it). Aim your remote at the kira and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
+Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
 
 ![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2017.32.22.png "kira_sensor_remote")
 
