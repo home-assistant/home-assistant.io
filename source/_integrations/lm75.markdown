@@ -1,0 +1,48 @@
+---
+title: LM75
+description: Instructions on how to integrate LM75 sensor connected via I2C within Home Assistant.
+ha_category:
+  - DIY
+ha_release: 0.108
+ha_iot_class: Local Polling
+ha_domain: lm75
+---
+
+The `lm75` sensor platform allows you to get the current temperature from a LM75 device connected via I2C.
+
+## Configuration
+
+To use your LM75 sensor in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: lm75
+    name: Kitchen
+    i2c_address: 0x48
+    i2c_bus: 1
+    register: 0
+```
+
+{% configuration %}
+  name:
+    description: The name of the sensor.
+    required: false
+    default: LM75 Temperature Sensor
+    type: string
+  i2c_address:
+    description: I2C address of the sensor.
+    required: false
+    default: "`0x48`"
+    type: integer
+  i2c_bus:
+    description: I2C bus of the sensor.
+    required: false
+    default: "`1`"
+    type: integer
+  register:
+    description: Register to user for read data.
+    required: false
+    default: "`0`"
+    type: integer
+{% endconfiguration %}
