@@ -220,7 +220,7 @@ Within an automation, template conditions also have access to the `trigger` vari
 
 ### Time condition
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
+The time condition can test if it is after a specified time or before a specified time.
 
 ```yaml
 condition:
@@ -228,25 +228,11 @@ condition:
   # At least one of the following is required.
   after: '15:00:00'
   before: '02:00:00'
-  # weekday property will be deprecated in release 0.109
-  weekday:
-    - mon
-    - wed
-    - fri
 ```
 
-Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
 If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
-
-<div class='note warning'>
-As of release 0.109, the weekday property will be deprecated. Replace it with weekday condition.
-</div>
-
-<div class='note tip'>
-A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
-</div>
 
 ### Weekday condition
 
