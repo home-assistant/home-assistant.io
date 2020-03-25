@@ -89,7 +89,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### Configuration
 
-Restart your Home Assistant server and you should now have an entity called kira_remote (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list. 
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list. 
 
 ![alt text](https://www.info.keene-electronics.co.uk/kira-home-assistant/img/Screenshot%202020-03-18%2016.26.12.png "kira_dev_tools")
 
