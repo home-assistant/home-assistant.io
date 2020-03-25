@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 Some models (original Kira and Kira128) can be configured to act as either a sensor or as a remote. They are also able act as both when set to Standalone mode. The wireless models are hardware specific so the receiver can only be integrated as a sensor and the transmitter can only be integrated as a remote. 
 
-If you are using two or more Kiras for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
+If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
 
 ### Example Configuration
 
