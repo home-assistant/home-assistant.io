@@ -63,7 +63,7 @@ Creating custom projects is super-easy and quite powerful. All you need to run t
 # Example configuration.yaml entry
 calendar:
   - platform: todoist
-    token: YOUR_API_TOKEN
+    token: !secret YOUR_API_TOKEN
     custom_projects:
       - name: 'All Projects'
       - name: 'Due Today'
