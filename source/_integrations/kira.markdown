@@ -225,7 +225,7 @@ example automation using these ir codes to toggle a sonoff plug
 
 When creating an entry in `kira_codes.yaml`, a few different kinds of codes can be used.
 
-- **kira**: This is the native wire protocol used by Kira modules. These can be captured using the free kira utility avaiable from the manufacturers website.
+- **kira**: This is the native wire protocol used by Kira modules. These can be captured using the free Kira utility available from the manufacturers website.
 - **pronto**: Pronto codes are supported.
 - **nec**: If the device uses NEC IR codes and the manufacturer has published them, they can be used here.
 
