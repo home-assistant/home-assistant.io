@@ -42,6 +42,11 @@ light:
           data_template:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
+        set_white_value:
+          service: input_number.set_value
+          data_template:
+            value: "{{ white_value }}"
+            entity_id: input_number.white_value_input
         set_color:
           - service: input_number.set_value
             data_template:
@@ -84,6 +89,11 @@ light:
         required: false
         type: template
         default: optimistic
+      white_value_template:
+        description: Defines a template to get the white value of the light.
+        required: false
+        type: template
+        default: optimistic
       color_template:
         description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
         required: false
@@ -112,6 +122,10 @@ light:
         type: action
       set_temperature:
         description: Defines an action to run when the light is given a color temperature command.
+        required: false
+        type: action
+      set_white_value:
+        description: Defines an action to run when the light is given a white value command.
         required: false
         type: action
       set_color:
