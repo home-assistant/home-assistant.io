@@ -84,111 +84,77 @@ The following attributes can be placed inside `data` for extended functionality.
 | `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
 | `blocks`               |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in addition** to `message`.
 
-Example for posting file from URL:
+Example data payload for posting file from URL:
 
-```json
-{
-  "message":"Message that will be added as a comment to the file.",
-  "title":"Title of the file.",
-  "target": ["#channelname"], 
-  "data":{
-    "file":{
-      "url":"http://[url to file, photo, security camera etc]",
-      "username":"optional user, if necessary",
-      "password":"optional password, if necessary",
-      "auth":"digest"
-    }
-  }
-}
+```yaml
+message: Message that will be added as a comment to the file.
+title: Title of the file.
+target: 
+  - "#channelname", 
+data:
+  file:
+    url: http://url.to.image.jpg
+    username: <optional user, if necessary>
+    password: <optional password, if necessary>
+    auth: digest
 ```
 
 Example for posting file from local path:
 
-```json
-{
-  "message":"Message that will be added as a comment to the file.",
-  "title":"Title of the file.",
-  "data":{
-    "file":{
-      "path":"/path/to/file.ext"
-    }
-  }
-}
+```yaml
+message: Message that will be added as a comment to the file.
+title: Title of the file.
+data:
+  file:
+    path: "/path/to/file.ext"
 ```
 
 Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
 
 Example for using the block framework:
 
-```json
-{
-  "message": "",
-  "data": {
-    "attachments": [
-      {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": "Danny Torrence left the following review for your property:"
-        }
-      },
-      {
-        "type": "section",
-        "block_id": "section567",
-        "text": {
-          "type": "mrkdwn",
-          "text": "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many axe holes, guest in room 237 was far too rowdy, whole place felt stuck in the 1920s."
-        },
-        "accessory": {
-          "type": "image",
-          "image_url": "https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg",
-          "alt_text": "Haunted hotel image"
-        }
-      },
-      {
-        "type": "section",
-        "block_id": "section789",
-        "fields": [
-          {
-            "type": "mrkdwn",
-            "text": "*Average Rating*\n1.0"
-          }
-        ]
-      }
-    ]
-  }
-}
+```yaml
+message: Message that will be added as a comment to the file.
+title: Title of the file.
+data:
+  attachments:
+  - type: section
+    text:
+      type: mrkdwn
+      text: 'Danny Torrence left the following review for your property:'
+  - type: section
+    block_id: section567
+    text:
+      type: mrkdwn
+      text: "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many
+        axe holes, guest in room 237 was far too rowdy, whole place felt stuck in
+        the 1920s."
+    accessory:
+      type: image
+      image_url: https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg
+      alt_text: Haunted hotel image
+  - type: section
+    block_id: section789
+    fields:
+    - type: mrkdwn
+      text: |-
+        *Average Rating*
+        1.0
 ```
 
 Example for using the legacy attachments framework:
 
-```json
-{
-  "message": "",
-  "data": {
-    "attachments": [
-      {
-        "title": "WHAT A HORRIBLE NIGHT TO HAVE A CURSE.",
-        "image_url": "https://i.imgur.com/JEExnsI.gif"
-      }
-    ]
-  }
-}
+```yaml
+message: Message that will be added as a comment to the file.
+title: Title of the file.
+data:
+  attachments:
+  - title: WHAT A HORRIBLE NIGHT TO HAVE A CURSE.
+    image_url: https://i.imgur.com/JEExnsI.gif
 ```
 
 You can also use YAML to send messages from your automations
 
-```yaml
-
-    - service: notify.slack
-      data:
-        message: "Latest notification"
-        title: "Latest image"
-        target: ["#home-assistant"]
-        data:
-          file:
-            path: "/myfile.jpg"
-```
 Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
