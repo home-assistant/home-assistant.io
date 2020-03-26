@@ -81,7 +81,8 @@ The following attributes can be placed inside `data` for extended functionality.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
-| `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/docs/message-attachments). See [the attachment documentation](https://api.slack.com/docs/message-attachments) for how to format. *NOTE*: if using `attachments`, they are shown **in addition** to `message`
+| `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
+| `blocks`               |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in addition** to `message`.
 
 Example for posting file from URL:
 
@@ -117,7 +118,49 @@ Example for posting file from local path:
 
 Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
 
-Example for posting formatted attachment:
+Example for using the block framework:
+
+```json
+{
+  "message": "",
+  "data": {
+    "attachments": [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Danny Torrence left the following review for your property:"
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "section567",
+        "text": {
+          "type": "mrkdwn",
+          "text": "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many axe holes, guest in room 237 was far too rowdy, whole place felt stuck in the 1920s."
+        },
+        "accessory": {
+          "type": "image",
+          "image_url": "https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg",
+          "alt_text": "Haunted hotel image"
+        }
+      },
+      {
+        "type": "section",
+        "block_id": "section789",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Average Rating*\n1.0"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Example for using the legacy attachments framework:
 
 ```json
 {
