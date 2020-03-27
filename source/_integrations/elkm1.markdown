@@ -30,8 +30,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate one or more Elk-M1 controllers with Home Assistant, add the following
-section to your `configuration.yaml` file:
+To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
+
+Alternatively, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
