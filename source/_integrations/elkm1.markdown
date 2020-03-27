@@ -280,6 +280,16 @@ elkm1:
     exclude: [b12-d5]
 ```
 
+Example configuration using `auto_configure`:
+
+```yaml
+elkm1:
+  host: elks://IP_ADDRESS
+  username: USERNAME
+  password: PASSWORD
+  auto_configure: true
+```
+
 Example for a serial port instance on /dev/ttyUSB0 at 115200 baud:
 
 ```yaml
