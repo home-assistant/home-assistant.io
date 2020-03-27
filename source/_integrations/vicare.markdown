@@ -52,7 +52,7 @@ heating_type:
   type: string
   default: generic
 scan_interval:
-  description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann_api_limits)
+  description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann-api-limits)
   default: 60
   required: false
   type: integer
