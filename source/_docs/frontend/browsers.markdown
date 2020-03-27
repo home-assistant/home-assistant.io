@@ -46,6 +46,8 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [surf]                | 0.7            | works      |                          |
 | [Chrome]              | 71.0.3578.98   | works      |                          |
 | [Waterfox]            | 56.2.6         | fails      |                          |
+| [Brave]               | 1.5.115        | fails      | loads but then "page unresponsive" |
+
 
 ## Android
 
@@ -70,6 +72,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [LG webOS TV Built-in]| 2019-2020      | fails      | loads empty page         |
 
+[Brave]: https://brave.com/
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
 [Conkeror]: http://conkeror.org/
