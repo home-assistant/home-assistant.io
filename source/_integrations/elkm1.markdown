@@ -13,6 +13,9 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -65,6 +68,11 @@ temperature_unit:
   required: false
   type: string
   default: F
+auto_configure:
+  description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
+  required: false
+  type: boolean
+  default: False
 area:
   description: Elk areas to include in Home Assistant.
   required: false
