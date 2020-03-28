@@ -88,21 +88,11 @@ payload_available:
   required: false
   type: string
   default: online
-payload_lock:
-  description: The payload that represents enabled/locked state.
-  required: false
-  type: string
-  default: LOCK
 payload_not_available:
   description: The payload that represents the unavailable state.
   required: false
   type: string
   default: offline
-payload_unlock:
-  description: The payload that represents disabled/unlocked state.
-  required: false
-  type: string
-  default: UNLOCK
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -159,8 +149,8 @@ lock:
     name: Frontdoor
     state_topic: "home-assistant/frontdoor/"
     command_topic: "home-assistant/frontdoor/set"
-    payload_lock: "LOCK"
-    payload_unlock: "UNLOCK"
+    state_lock: "LOCK"
+    state_unlock: "UNLOCK"
     optimistic: false
     qos: 1
     retain: true
