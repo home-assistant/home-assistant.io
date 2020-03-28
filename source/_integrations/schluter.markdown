@@ -4,7 +4,7 @@ description: Instructions on how to integrate your Schluter DITRA-HEAT-E-WiFi th
 logo: schluter.png
 ha_category:
   - Climate
-ha_release: 0.105
+ha_release: 0.108
 ha_iot_class: Cloud Polling
 ---
 
