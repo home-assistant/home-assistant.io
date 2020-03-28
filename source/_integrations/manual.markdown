@@ -48,7 +48,7 @@ delay_time:
   description: The time in seconds of the 'pending' state before triggering the alarm.
   required: false
   type: integer
-  default: 0
+  default: 60
 arming_time:
   description: The time in seconds of the 'arming' state before effecting a state change.
   required: false
