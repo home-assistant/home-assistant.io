@@ -1,10 +1,11 @@
 ---
-title: "Remember The Milk"
-description: "Instructions on how to use Remember The Milk with Home Assistant."
+title: Remember The Milk
+description: Instructions on how to use Remember The Milk with Home Assistant.
 logo: rememberthemilk.png
 ha_category:
   - Calendar
 ha_release: 0.57
+ha_domain: remember_the_milk
 ---
 
 The `Remember The Milk` (RTM) integration allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.

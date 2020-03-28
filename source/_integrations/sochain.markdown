@@ -1,11 +1,12 @@
 ---
-title: "SoChain"
-description: "Instructions on how to integrate chain.so data within Home Assistant."
+title: SoChain
+description: Instructions on how to integrate chain.so data within Home Assistant.
 logo: sochain.png
 ha_category:
   - Finance
 ha_release: 0.61
 ha_iot_class: Cloud Polling
+ha_domain: sochain
 ---
 
 The `SoChain` sensor platform displays supported cryptocurrency wallet balances from [SoChain](https://chain.so).

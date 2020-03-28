@@ -1,11 +1,13 @@
 ---
-title: "Persistent notification"
-description: "Instructions on how to integrate persistent notifications into Home Assistant."
-logo: home-assistant.png
+title: Persistent Notification
+description: Instructions on how to integrate persistent notifications into Home Assistant.
 ha_category:
   - Other
 ha_release: 0.23
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: persistent_notification
 ---
 
 The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.

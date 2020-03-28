@@ -22,12 +22,6 @@ automation:
       mood: happy
 ```
 
-<div class='note warning'>
-
-Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' platform below instead.
-
-</div>
-
 ### Home Assistant trigger
 
 Triggers when Home Assistant starts up or shuts down.
@@ -136,6 +130,12 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
 
+<div class='note'>
+
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
+
+</div>
+
 ```yaml
 automation:
   trigger:
@@ -182,9 +182,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser inter
 
 #### Sunset / Sunrise trigger
 
-Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
+Triggers when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g.,  45 minutes before sunset).
 
 <div class='note'>
 
@@ -216,7 +216,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state.attributes.elevation }}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -288,7 +288,7 @@ As an alternative, providing you include the sensor [time](/integrations/time_da
 automation:
   trigger:
     platform: template
-    value_template: "{{ (as_timestamp(states.sensor.time.last_changed) - as_timestamp(states.YOUR.ENTITY.last_changed)) > 300 }}"
+    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
 ```
 
 {% endraw %}

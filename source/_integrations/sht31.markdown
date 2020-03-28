@@ -1,11 +1,11 @@
 ---
-title: "Sensirion SHT31 Sensor"
-description: "Instructions on how to integrate SHT31 sensors within Home Assistant."
+title: Sensirion SHT31
+description: Instructions on how to integrate SHT31 sensors within Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.68
-logo: sensirion.png
 ha_iot_class: Local Polling
+ha_domain: sht31
 ---
 
 The `sht31` sensor platform allows you to get the current temperature and humidity from a Sensirion SHT31 device.
@@ -17,12 +17,12 @@ To use your SHT31 sensor in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: sht31
-  name: Bedroom
-  i2c_address: 0x44
-  monitored_conditions:
-    - temperature
-    - humidity
+  - platform: sht31
+    name: Bedroom
+    i2c_address: 0x44
+    monitored_conditions:
+      - temperature
+      - humidity
 ```
 
 {% configuration %}

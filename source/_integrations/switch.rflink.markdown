@@ -5,6 +5,7 @@ logo: rflink.png
 ha_category:
   - Switch
 ha_release: 0.38
+ha_domain: rflink
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -82,20 +83,20 @@ devices:
           default: 1
           type: integer
         group:
-          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          description: Allow switch to respond to group commands (ALLON/ALLOFF).
           required: false
           default: true
           type: boolean
         aliases:
-          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
+          description: Alternative RFLink ID's this device is known by.
           required: false
           type: [list, string]
         group_aliases:
-          description: "(**deprecated**) `aliases` which only respond to group commands."
+          description: "`aliases` which only respond to group commands."
           required: false
           type: [list, string]
         no_group_aliases:
-          description: "(**deprecated**) `aliases` which do not respond to group commands."
+          description: "`aliases` which do not respond to group commands."
           required: false
           type: [list, string]
 {% endconfiguration %}

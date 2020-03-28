@@ -17,7 +17,7 @@ You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
-Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
+Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant configuration directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
 
 ### Specific Devices
 
@@ -26,6 +26,8 @@ Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant co
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
 
 Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
+
+**Note:** You should only do this when Home Assistant has been stopped.
 
 Turn off "Disco lights":
 
@@ -455,7 +457,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg_\*.xml file with the below xml data. Stop Home Assistant and open your zwcfg_\*.xml file (located in your config folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below xml data. Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -816,3 +818,61 @@ Button presses will trigger `zwave.scene_activated` with the following:
 - `scene_id`: the number of the button you press from top left (1) to bottom right (8)
 
 {% endraw %}
+
+### Logicgroup ZDB5100 Matrix
+
+<!-- from https://products.z-wavealliance.org/products/3399/ -->
+
+Once you've added the ZDB5100 to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the ZDB5100 device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+
+```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+```
+
+Below is a table of the action/scenes for the ZDB5100 Matrix:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|7680
+Button one double tap|1|7860
+Button one triple tap|1|7920
+Button one hold|1|7800
+Button one release|1|7740
+Button two single tap|2|7680
+Button two double tap|2|7860
+Button two triple tap|2|7920
+Button two hold|2|7800
+Button two release|2|7740
+Button three single tap|3|7680
+Button three double tap|3|7860
+Button three triple tap|3|7920
+Button three hold|3|7800
+Button three release|3|7740
+Button four single tap|4|7680
+Button four double tap|4|7860
+Button four triple tap|4|7920
+Button four hold|4|7800
+Button four release|4|7740
+
+Example Event:
+
+```yaml
+- alias: MatrixButton2
+  trigger:
+    - event_type: zwave.scene_activated
+      platform: event
+      event_data:
+        node_id: 2
+        scene_id: 2
+        scene_data: 7680
+  action:
+    - service: switch.toggle
+      entity_id: switch.office_fan
+```

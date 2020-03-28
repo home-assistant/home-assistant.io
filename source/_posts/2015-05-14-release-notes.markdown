@@ -38,7 +38,7 @@ homeassistant:
 ```
 
 __MySensors__
-<img src='/images/supported_brands/mysensors.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
+<img src='https://brands.home-assistant.io/mysensors/logo.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry

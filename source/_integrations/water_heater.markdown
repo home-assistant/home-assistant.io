@@ -1,7 +1,8 @@
 ---
-title: "Water Heater"
-description: "Instructions on how to setup water heater devices within Home Assistant."
+title: Water Heater
+description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
+ha_domain: water_heater
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
@@ -32,7 +33,7 @@ Sets target temperature of water heater device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | New target temperature for water heater
 | `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
@@ -57,7 +58,7 @@ Set operation mode for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
 | `operation_mode` | no | New value of operation mode
 
 #### Automation example
@@ -80,7 +81,7 @@ Turn away mode on or off for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
 | `away_mode` | no | New value of away mode. 'on'/'off' or True/False
 
 #### Automation example

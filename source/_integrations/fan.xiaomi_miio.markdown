@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Air Purifier"
 description: "Instructions on how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Fan
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
@@ -29,6 +29,7 @@ Air Purifier Super    | zhimi.airpurifier.sa1  | |
 Air Purifier Super 2  | zhimi.airpurifier.sa2  | |
 Air Humidifier        | zhimi.humidifier.v1    | |
 Air Humidifier CA1    | zhimi.humidifier.ca1   | |
+Air Humidifier CB1    | zhimi.humidifier.cb1   | |
 Air Fresh VA2         | zhimi.airfresh.va2     | |
 
 
@@ -43,30 +44,30 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - LED (on, off), LED brightness (bright, dim, off)
 - Favorite Level (0...16)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - aqi
-  - mode
-  - filter_hours_used
-  - filter_life_remaining
-  - favorite_level
-  - child_lock
-  - led
-  - motor_speed
-  - average_aqi
-  - purify_volume
-  - learn_mode
-  - sleep_time
-  - sleep_mode_learn_count
-  - extra_features
-  - turbo_mode_supported
-  - auto_detect
-  - use_time
-  - button_pressed
-  - buzzer
-  - led_brightness
-  - sleep_mode
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `purify_volume`
+  - `learn_mode`
+  - `sleep_time`
+  - `sleep_mode_learn_count`
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `auto_detect`
+  - `use_time`
+  - `button_pressed`
+  - `buzzer`
+  - `led_brightness`
+  - `sleep_mode`
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
@@ -76,33 +77,33 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - LED (on, off)
 - Favorite Level (0...16)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - aqi
-  - mode
-  - filter_hours_used
-  - filter_life_remaining
-  - favorite_level
-  - child_lock
-  - led
-  - motor_speed
-  - average_aqi
-  - purify_volume
-  - learn_mode
-  - sleep_time
-  - sleep_mode_learn_count
-  - extra_features
-  - turbo_mode_supported
-  - auto_detect
-  - use_time
-  - button_pressed
-  - filter_rfid_product_id
-  - filter_rfid_tag
-  - filter_type
-  - illuminance
-  - motor2_speed
-  - volume
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `purify_volume`
+  - `learn_mode`
+  - `sleep_time`
+  - `sleep_mode_learn_count`
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `auto_detect`
+  - `use_time`
+  - `button_pressed`
+  - `filter_rfid_product_id`
+  - `filter_rfid_tag`
+  - `filter_type`
+  - `illuminance`
+  - `motor2_speed`
+  - `volume`
 
 ### Air Purifier Pro V7 (zhimi.airpurifier.v7)
 
@@ -112,28 +113,28 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - LED (on, off)
 - Favorite Level (0...16)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - aqi
-  - mode
-  - filter_hours_used
-  - filter_life_remaining
-  - favorite_level
-  - child_lock
-  - led
-  - motor_speed
-  - average_aqi
-  - learn_mode
-  - extra_features
-  - turbo_mode_supported
-  - button_pressed
-  - filter_rfid_product_id
-  - filter_rfid_tag
-  - filter_type
-  - illuminance
-  - motor2_speed
-  - volume
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `learn_mode`
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `button_pressed`
+  - `filter_rfid_product_id`
+  - `filter_rfid_tag`
+  - `filter_type`
+  - `illuminance`
+  - `motor2_speed`
+  - `volume`
 
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
@@ -144,27 +145,27 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - LED (on, off)
 - Favorite Level (0...16)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - aqi
-  - mode
-  - filter_hours_used
-  - filter_life_remaining
-  - favorite_level
-  - child_lock
-  - led
-  - motor_speed
-  - average_aqi
-  - learn_mode
-  - extra_features
-  - turbo_mode_supported
-  - button_pressed
-  - filter_rfid_product_id
-  - filter_rfid_tag
-  - filter_type
-  - illuminance
-  - buzzer
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `learn_mode`
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `button_pressed`
+  - `filter_rfid_product_id`
+  - `filter_rfid_tag`
+  - `filter_type`
+  - `illuminance`
+  - `buzzer`
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
@@ -173,30 +174,30 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - Child lock (on, off)
 - LED (on, off)
 - Attributes
-  - model
-  - aqi
-  - mode
-  - led
-  - buzzer
-  - child_lock
-  - illuminance
-  - filter_hours_used
-  - filter_life_remaining
-  - motor_speed
-  - average_aqi
-  - volume
-  - motor2_speed
-  - filter_rfid_product_id
-  - filter_rfid_tag
-  - filter_type
-  - purify_volume
-  - learn_mode
-  - sleep_time
-  - sleep_mode_learn_count
-  - extra_features
-  - auto_detect
-  - use_time
-  - button_pressed
+  - `model`
+  - `aqi`
+  - `mode`
+  - `led`
+  - `buzzer`
+  - `child_lock`
+  - `illuminance`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `motor_speed`
+  - `average_aqi`
+  - `volume`
+  - `motor2_speed`
+  - `filter_rfid_product_id`
+  - `filter_rfid_tag`
+  - `filter_type`
+  - `purify_volume`
+  - `learn_mode`
+  - `sleep_time`
+  - `sleep_mode_learn_count`
+  - `extra_features`
+  - `auto_detect`
+  - `use_time`
+  - `button_pressed`
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
@@ -207,18 +208,18 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - mode
-  - buzzer
-  - child_lock
-  - trans_level
-  - target_humidity
-  - led_brightness
-  - button_pressed
-  - use_time
-  - hardware_version
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `mode`
+  - `buzzer`
+  - `child_lock`
+  - `trans_level`
+  - `target_humidity`
+  - `led_brightness`
+  - `button_pressed`
+  - `use_time`
+  - `hardware_version`
 
 ### Air Humidifier CA (zhimi.humidifier.ca1)
 
@@ -230,21 +231,48 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
 - Attributes
-  - model
-  - temperature
-  - humidity
-  - mode
-  - buzzer
-  - child_lock
-  - trans_level
-  - target_humidity
-  - led_brightness
-  - button_pressed
-  - use_time
-  - hardware_version
-  - motor_speed
-  - depth
-  - dry
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `mode`
+  - `buzzer`
+  - `child_lock`
+  - `trans_level`
+  - `target_humidity`
+  - `led_brightness`
+  - `button_pressed`
+  - `use_time`
+  - `hardware_version`
+  - `motor_speed`
+  - `depth`
+  - `dry`
+
+### Air Humidifier CB (zhimi.humidifier.cb1)
+
+- On, Off
+- Operation modes (silent, medium, high, auto)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off), LED brightness (bright, dim, off)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Dry mode (on, off)
+- Attributes
+  - `speed`
+  - `speed_list`
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `mode`
+  - `buzzer`
+  - `child_lock`
+  - `target_humidity`
+  - `led_brightness`
+  - `use_time`
+  - `hardware_version`
+  - `motor_speed`
+  - `depth`
+  - `dry`
+  - `supported_features`
 
 ### Air Fresh VA2
 
@@ -254,22 +282,22 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 * Child lock (on, off)
 * LED (on, off), LED brightness (bright, dim, off)
 * Attributes
-  - model
-  - aqi
-  - average_aqi
-  - temperature
-  - humidity
-  - co2
-  - mode
-  - led
-  - led_brightness
-  - buzzer
-  - child_lock
-  - filter_life_remaining
-  - filter_hours_used
-  - use_time
-  - motor_speed
-  - extra_features
+  - `model`
+  - `aqi`
+  - `average_aqi`
+  - `temperature`
+  - `humidity`
+  - `co2`
+  - `mode`
+  - `led`
+  - `led_brightness`
+  - `buzzer`
+  - `child_lock`
+  - `filter_life_remaining`
+  - `filter_hours_used`
+  - `use_time`
+  - `motor_speed`
+  - `extra_features`
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
@@ -314,7 +342,7 @@ Set the fan speed/operation mode.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
 | `speed`                   |       no | Fan speed. Valid values are 'Auto', 'Silent', 'Favorite' and 'Idle' |
 
-### Service `fan.xiaomi_miio_set_buzzer_on` (Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro excluded)
 
 Turn the buzzer on.
 
@@ -322,7 +350,7 @@ Turn the buzzer on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_buzzer_off` (Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro excluded)
 
 Turn the buzzer off.
 
@@ -330,23 +358,23 @@ Turn the buzzer off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_led_on` (Air Purifiers only)
+### Service `xiaomi_miio.fan_set_led_on` (Air Purifiers only)
 
-Turn the led on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `fan.xiaomi_miio_set_led_off` (Air Purifiers only)
-
-Turn the led off.
+Turn the LED on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_child_lock_on`
+### Service `xiaomi_miio.fan_set_led_off` (Air Purifiers only)
+
+Turn the LED off.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+
+### Service `xiaomi_miio.fan_set_child_lock_on`
 
 Turn the child lock on.
 
@@ -354,7 +382,7 @@ Turn the child lock on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_child_lock_off`
+### Service `xiaomi_miio.fan_set_child_lock_off`
 
 Turn the child lock off.
 
@@ -362,16 +390,16 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_led_brightness` (Air Purifier 2S and Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_led_brightness` (Air Purifier 2S and Air Purifier Pro excluded)
 
-Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
+Set the LED brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
-### Service `fan.xiaomi_miio_set_favorite_level` (Air Purifiers only)
+### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
 
 Set the favorite level of the operation mode "favorite".
 
@@ -380,7 +408,7 @@ Set the favorite level of the operation mode "favorite".
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
-### Service `fan.xiaomi_miio_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect on.
 
@@ -388,7 +416,7 @@ Turn the auto detect on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect off.
 
@@ -396,7 +424,7 @@ Turn the auto detect off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_learn_mode_on` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_set_learn_mode_on` (Air Purifier 2 only)
 
 Turn the learn mode on.
 
@@ -404,7 +432,7 @@ Turn the learn mode on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_learn_mode_off` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_set_learn_mode_off` (Air Purifier 2 only)
 
 Turn the learn mode off.
 
@@ -412,7 +440,7 @@ Turn the learn mode off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_volume` (Air Purifier Pro only)
+### Service `xiaomi_miio.fan_set_volume` (Air Purifier Pro only)
 
 Set the sound volume.
 
@@ -421,7 +449,7 @@ Set the sound volume.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `volume`                  |       no | Volume, between 0 and 100.                              |
 
-### Service `fan.xiaomi_miio_reset_filter` (Air Purifier 2 only)
+### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
 
@@ -429,7 +457,7 @@ Reset the filter lifetime and usage.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_extra_features` (Air Purifier only)
+### Service `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
 
 Set the extra features.
 
@@ -438,7 +466,7 @@ Set the extra features.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
 
-### Service `fan.xiaomi_miio_set_target_humidity` (Air Humidifier only)
+### Service `xiaomi_miio.fan_set_target_humidity` (Air Humidifier only)
 
 Set the target humidity.
 
@@ -447,7 +475,7 @@ Set the target humidity.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                  |
 | `humidity`                |       no | Target humidity. Allowed values are 30, 40, 50, 60, 70 and 80   |
 
-### Service `fan.xiaomi_miio_set_dry_on` (Air Humidifier CA only)
+### Service `fan.xiaomi_miio_set_dry_on` (Air Humidifier CA and CB)
 
 Turn the dry mode on.
 
@@ -455,7 +483,7 @@ Turn the dry mode on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `fan.xiaomi_miio_set_dry_off` (Air Humidifier CA only)
+### Service `fan.xiaomi_miio_set_dry_off` (Air Humidifier CA and CB)
 
 Turn the dry mode off.
 

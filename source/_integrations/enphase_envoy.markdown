@@ -1,11 +1,11 @@
 ---
-title: "Enphase Envoy"
-description: "Instructions on how to setup Enphase Envoy with Home Assistant."
-logo: enphase-logo.svg
+title: Enphase Envoy
+description: Instructions on how to setup Enphase Envoy with Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.76
 ha_iot_class: Local Polling
+ha_domain: enphase_envoy
 ---
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
@@ -27,6 +27,14 @@ name:
   description: An optional name that will be prepended to the sensor type
 ip_address:
   description: The local IP address of your Envoy. Leave blank to use the default host name 'envoy', but this may not always be reliable. You should be able to just browse to this IP address.
+  required: false
+  type: string
+username:
+  description: Access more information beyond the basics, such as Inverter data.  Some Envoy devices do not use the standard username which is used by the API.  This lets the user use a different username than the default of 'envoy'.
+  required: false
+  type: string
+password:
+  description: Password to be used with the username configuration variable.
   required: false
   type: string
 monitored_conditions:

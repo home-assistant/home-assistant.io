@@ -1,10 +1,11 @@
 ---
-title: "Volumio Media Player"
-description: "How to set up the Volumio media player platform"
+title: Volumio
+description: How to set up the Volumio media player platform
 logo: volumio.png
 ha_category:
   - Media Player
 ha_release: 0.41
+ha_domain: volumio
 ---
 
 The `Volumio` platform allows you to control a [Volumio](https://volumio.org/) media player from Home Assistant.

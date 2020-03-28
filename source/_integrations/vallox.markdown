@@ -1,12 +1,12 @@
 ---
-title: "Vallox Ventilation Units"
-description: "Instructions on how to integrate Vallox ventilation units into Home Assistant."
-logo: vallox.png
+title: Valloxs
+description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
 ha_category:
   - Fan
   - Sensor
 ha_release: 0.96
 ha_iot_class: Local Polling
+ha_domain: vallox
 ---
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).

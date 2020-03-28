@@ -1,10 +1,11 @@
 ---
-title: "ARWN Sensor"
-description: "Instructions on how to integrate ARWN within Home Assistant."
+title: Ambient Radio Weather Network
+description: Instructions on how to integrate ARWN within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Local Polling
+ha_domain: arwn
 ---
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](https://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.

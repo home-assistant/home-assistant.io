@@ -1,15 +1,17 @@
 ---
-title: "Huawei Router"
-description: "Instructions on how to integrate Huawei Routers into Home Assistant."
-logo: huawei.svg
+title: Huawei Router
+description: Instructions on how to integrate Huawei Routers into Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.51
+ha_codeowners:
+  - '@abmantis'
+ha_domain: huawei_router
 ---
 
 The `huawei` device tracker platform offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).
 
-Currently, this was only tested with the Huawei HG8247H and HG8247Q Smart Router (used by Vodafone Portugal).
+Currently, this was only tested with the Huawei HG8247H, HS8247W and HG8247Q Smart Router (used by Vodafone Portugal).
 
 ## Configuration
 

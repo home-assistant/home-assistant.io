@@ -1,10 +1,12 @@
 ---
-title: "Yesss SMS"
-description: "Instructions on how to add Yesss-SMS notifications to Home Assistant."
-logo: yesssat.png
+title: yesss! SMS
+description: Instructions on how to add Yesss-SMS notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.57
+ha_codeowners:
+  - '@flowolf'
+ha_domain: yessssms
 ---
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.

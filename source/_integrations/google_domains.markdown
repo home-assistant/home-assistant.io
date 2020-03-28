@@ -1,10 +1,10 @@
 ---
-title: "Google Domains"
-description: "Keep your computer registered with the Google Domains dynamic DNS."
-logo: google_domains.png
+title: Google Domains
+description: Keep your computer registered with the Google Domains dynamic DNS.
 ha_category:
   - Network
 ha_release: 0.57
+ha_domain: google_domains
 ---
 
 With the Google Domains integration you can keep your Google Domains record up to date.

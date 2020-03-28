@@ -1,14 +1,14 @@
 ---
-title: "Discovery"
-description: "Instructions on how to setup Home Assistant to discover new devices."
-logo: home-assistant.png
+title: Discovery
+description: Instructions on how to setup Home Assistant to discover new devices.
 ha_category:
   - Other
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_domain: discovery
 ---
 
-Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
+Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
 
  * [Apple TV](/integrations/apple_tv/)
  * [Belkin WeMo switches](/integrations/wemo/)
@@ -19,18 +19,15 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DLNA DMR enabled devices](/integrations/dlna_dmr)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
- * [Google Cast](/integrations/cast)
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
- * [Logitech media server (Squeezebox)](/integrations/squeezebox)
- * [Netgear routers](/integrations/netgear)
+ * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
+ * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Plex media server](/integrations/plex#media-player)
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
- * [Samsung TVs](/integrations/samsungtv)
  * [Sonos speakers](/integrations/sonos)
  * [Telldus Live](/integrations/tellduslive/)
  * [Wink](/integrations/wink/)
@@ -38,23 +35,23 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Yeelight Sunflower bulb](/integrations/yeelightsunflower/)
  * [Xiaomi Gateway (Aqara)](/integrations/xiaomi_aqara/)
 
-It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
+It will be able to add Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
 
 <div class='note'>
 
-Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
+Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/)/[Google Cast](/integrations/cast/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
 
 </div>
 
-To load this component, add the following lines to your `configuration.yaml`:
+To load this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 discovery:
   ignore:
     - sonos
-    - samsung_tv
+    - samsung_printer
   enable:
     - homekit
 ```
@@ -80,20 +77,17 @@ Valid values for ignore are:
  * `directv`: DirecTV receivers
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
- * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
- * `logitech_mediaserver`: Logitech media server (Squeezebox)
- * `netgear_router`: Netgear routers
+ * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
+ * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
- * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
  * `tellstick`: Telldus Live
@@ -110,7 +104,7 @@ Valid values for enable are:
 
 ### UPnP
 
-Home Assistant must be on the same network as the devices for uPnP discovery to work.
+Home Assistant must be on the same network as the devices for UPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
 ### Windows

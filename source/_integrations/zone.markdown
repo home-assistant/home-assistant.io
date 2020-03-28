@@ -1,11 +1,13 @@
 ---
-title: "Zone"
-description: "Instructions on how to set up zones within Home Assistant."
-logo: home-assistant.png
+title: Zone
+description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
-ha_qa_scale: internal
 ha_release: 0.69
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: zone
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
@@ -36,7 +38,7 @@ zone:
 {% configuration %}
 name:
   description: The friendly name of the zone.
-  required: false
+  required: true
   type: string
 latitude:
   description: The latitude of the center point of the zone.

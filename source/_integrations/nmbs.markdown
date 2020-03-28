@@ -1,11 +1,13 @@
 ---
-title: "NMBS Sensor"
-description: "Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant."
-logo: sncb_nmbs.gif
+title: NMBS
+description: Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.85
+ha_codeowners:
+  - '@thibmaek'
+ha_domain: nmbs
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
@@ -58,5 +60,5 @@ show_on_map:
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/nmbs-card-example.png' />
-  <p>Example using the Lovelace Attributes card</p>
+  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Lovelace Attributes custom card</a> </p>
 </p>

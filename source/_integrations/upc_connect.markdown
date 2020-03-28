@@ -1,12 +1,13 @@
 ---
-title: "UPC ConnectBox"
-description: "Instructions on how to integrate UPC ConnectBox into Home Assistant."
-logo: upc.png
+title: UPC Connect Box
+description: Instructions on how to integrate UPC ConnectBox into Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.36
+ha_codeowners:
+  - '@pvizeli'
+ha_domain: upc_connect
 ---
-
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria and the Netherlands (under Ziggo).
 
@@ -37,4 +38,4 @@ Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0
  - Unitymedia Connect Box (DE)
  - Ziggo Connectbox (NL)
- 
+ - Compal CH7465LG ED 3.0 - Connect box (UPC / Vodafone CZ)

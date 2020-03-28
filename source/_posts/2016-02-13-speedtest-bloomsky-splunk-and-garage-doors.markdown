@@ -13,7 +13,7 @@ The focus of 0.13 was on test coverage, big cheers to [@rmkraus] for his hard wo
 
 <p class='img'>
   <img src='/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png'>
-  Examples of the new [input_select] and [weblink] components.
+  Examples of the new [input_select] and weblink components.
 </p>
 
 Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:
@@ -32,7 +32,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
  - Component: Added support for [Bloomsky Weather Station] ([@haraldnagel])
  - Component: Added support for pushing stats to [graphite] ([@kk7ds])
  - Component: Added support for [SCSGate] devices ([@flavio])
- - Component: Added [weblink] component to link to other pages ([@MagnusKnutas])
+ - Component: Added weblink component to link to other pages ([@MagnusKnutas])
  - Component: Support for Ubiquiti mFI [sensors][mfi.sensor] and [switchable devices][mfi.switch] added ([@kk7ds])
  - Alarm control panel: Added [Caddx/GE/Interlogix NetworX][nx584] support ([@kk7ds])
  - Camera: [MJPEG] camera's will now show real stream instead of a 2fps stream ([@stjohnjohnson])
@@ -92,7 +92,6 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [Bloomsky Weather Station]: /integrations/bloomsky/
 [graphite]: /integrations/graphite/
 [SCSGate]: /integrations/scsgate/
-[weblink]: /integrations/weblink/
 [mfi.switch]: /integrations/mfi#switch
 [mfi.sensor]: /integrations/mfi#sensor
 [nx584]: /integrations/nx584

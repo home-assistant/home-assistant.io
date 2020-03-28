@@ -1,12 +1,13 @@
 ---
-title: "SMTP"
-description: "Instructions on how to add e-mail notifications to Home Assistant."
-logo: smtp.png
+title: SMTP
+description: Instructions on how to add e-mail notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fabaff'
+ha_domain: smtp
 ---
-
 
 The `smtp` platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
 

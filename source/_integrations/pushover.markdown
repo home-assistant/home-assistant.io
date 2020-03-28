@@ -1,10 +1,10 @@
 ---
-title: "Pushover"
-description: "Instructions on how to add Pushover notifications to Home Assistant."
-logo: pushover.png
+title: Pushover
+description: Instructions on how to add Pushover notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: pushover
 ---
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.

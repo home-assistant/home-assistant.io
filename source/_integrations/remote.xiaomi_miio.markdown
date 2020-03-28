@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi IR Remote"
 description: "Instructions for how to integrate the Xiaomi IR Remote within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Remote
 ha_release: 0.63
 ha_iot_class: Local Polling
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
@@ -47,11 +47,6 @@ timeout:
   required: false
   type: integer
   default: 30
-hidden:
-  description: Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing.
-  required: false
-  type: boolean
-  default: true
 commands:
   description: A list of commands
   required: false
@@ -74,7 +69,6 @@ remote:
     token: YOUR_TOKEN
     slot: 1
     timeout: 30
-    hidden: false
     commands:
       activate_towel_heater:
         command:
@@ -83,6 +77,25 @@ remote:
         command:
           - raw:base64:[optional_frequency]
           - pronto:pronto_hex:[optional_repeat]
+```
+
+## Add command as entity button in Lovelace UI
+
+```yaml
+type: entity-button
+tap_action:
+  action: call-service
+  service: remote.send_command
+  service_data:
+    command: activate_towel_heater
+    entity_id: remote.xiaomi_miio_ir
+hold_action:
+  action: more-info
+show_icon: true
+show_name: true
+entity: remote.xiaomi_miio_ir
+icon: 'mdi:radiator'
+name: Activate Towel Heater
 ```
 
 ## Use named commands to create UI buttons
@@ -111,7 +124,7 @@ The Xiaomi IR Remote Platform currently supports two different formats for IR co
 
 ### Raw
 
-A raw command is a command learned from [`remote.xiaomi_miio_learn_command`](/integrations/remote.xiaomi_miio/#remotexiaomi_miio_learn_command).
+A raw command is a command learned from [`xiaomi_miio.remote_learn_command`](/integrations/remote.xiaomi_miio/#xiaomi_miioremote_learn_command).
 
 A raw command is defined as in the following example:
 
@@ -158,7 +171,7 @@ The Xiaomi IR Remote Platform registers two services.
 
 Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/remote.xiaomi_miio/#command-types).
 
-### `remote.xiaomi_miio_learn_command`
+### `xiaomi_miio.remote_learn_command`
 
 Used to learn new commands.
 

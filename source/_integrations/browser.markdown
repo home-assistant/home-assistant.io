@@ -1,11 +1,11 @@
 ---
-title: "Browser"
-description: "Instructions on how to setup the browser integration with Home Assistant."
-logo: home-assistant.png
+title: Browser
+description: Instructions on how to setup the browser integration with Home Assistant.
 ha_category:
   - Utility
-ha_qa_scale: internal
 ha_release: pre 0.7
+ha_quality_scale: internal
+ha_domain: browser
 ---
 
 The `browser` integration provides a service to open URLs in the default browser on the host machine.

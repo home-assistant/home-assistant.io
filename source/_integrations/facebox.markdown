@@ -1,10 +1,10 @@
 ---
-title: "Facebox"
-description: "Detect and recognize faces with Facebox."
-logo: machine-box.png
+title: Facebox
+description: Detect and recognize faces with Facebox.
 ha_category:
   - Image Processing
-ha_release: 0.70
+ha_release: 0.7
+ha_domain: facebox
 ---
 
 The `facebox` image processing platform allows you to detect and recognize faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognized faces are listed in the `matched_faces` attribute. An `image_processing.detect_face` event is fired for each recognized face, and the event `data` provides the `confidence` of recognition, the `name` of the person, the `image_id` of the image associated with the match, the `bounding_box` that contains the face in the image, and the `entity_id` that processing was performed on.
@@ -111,9 +111,9 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 ```
 {% endraw %}
 
-## Service `facebox_teach_face`
+## Service `facebox.teach_face`
 
-The service `facebox_teach_face` can be used to teach Facebox faces.
+The service `facebox.teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -141,7 +141,7 @@ You can use an automation to receive a notification when you train a face:
   alias: Face taught
   trigger:
   - event_data:
-      service: facebox_teach_face
+      service: facebox.teach_face
     event_type: call_service
     platform: event
   condition: []
@@ -180,4 +180,3 @@ you can create an automation to receive notifications on Facebox errors:
       title: Facebox error
 ```
 {% endraw %}
-

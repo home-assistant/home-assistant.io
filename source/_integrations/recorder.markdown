@@ -1,18 +1,24 @@
 ---
-title: "Recorder"
-description: "Instructions on how to configure the data recorder for Home Assistant."
-logo: home-assistant.png
+title: Recorder
+description: Instructions on how to configure the data recorder for Home Assistant.
 ha_category:
-  - "History"
+  - History
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: recorder
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
 
+<div class='note'>
+
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to store the data elsewhere (e.g., another system) or limit the amount of stored data (e.g., by excluding devices).
+
+</div>
+
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
-The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in HassIO) and called `home-assistant_v2.db`.
+The default database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,6 +37,16 @@ recorder:
       description: The URL that points to your database.
       required: false
       type: string
+    db_max_retries:
+      description: The max amount of times, the recorder retries to connect to the database.
+      required: false
+      default: 10
+      type: integer
+    db_retry_wait:
+      description: The time in seconds, that the recorder sleeps when trying to connect to the database.
+      required: false
+      default: 3
+      type: integer
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -38,6 +54,11 @@ recorder:
       type: integer
     purge_interval:
       description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
+      required: false
+      default: 1
+      type: integer
+    commit_interval:
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
       default: 1
       type: integer
@@ -52,6 +73,10 @@ recorder:
           type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
+          required: false
+          type: list
+        event_types:
+          description: The list of event types to be excluded from recordings.
           required: false
           type: list
     include:
@@ -69,7 +94,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
+Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -79,12 +104,13 @@ recorder:
   exclude:
     domains:
       - automation
-      - weblink
       - updater
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+    event_types:
+      - call_service # Don't record service calls
 ```
 
 define domains and entities to record by using the `include` configuration (aka. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
@@ -121,24 +147,25 @@ If you only want to hide events from your history, take a look at the [`history`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)
-| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
+| Service data attribute | Optional | Description                                                                                                                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                 |
+| `repack`               | yes      | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses. |
 
 ## Custom database engines
 
-| Database engine | `db_url`                                                 |
-| :---------------|:---------------------------------------------------------|
-| SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
-| PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
-| PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
-| PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| Database engine        | `db_url`                                                                                     |
+| :--------------------- | :------------------------------------------------------------------------------------------- |
+| SQLite                 | `sqlite:////PATH/TO/DB_NAME`                                                                 |
+| MariaDB                | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
+| MariaDB (omit pymysql) | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MySQL                  | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
+| MySQL                  | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| PostgreSQL             | `postgresql://SERVER_IP/DB_NAME`                                                             |
+| PostgreSQL             | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
+| PostgreSQL (Socket)    | `postgresql://@/DB_NAME`                                                                     |
+| MS SQL Server          | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
 
@@ -148,7 +175,13 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base Docker image, and is not necessary for this to work.
+
+</div>
+
+<div class='note'>
+
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
 
 </div>
 
@@ -166,7 +199,8 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service
@@ -247,17 +281,25 @@ A service restart will work as well.
 
 ### MS SQL Server
 
-For MS SQL Server you may have to install a few dependencies:
+For MS SQL Server you will have to install a few dependencies:
 
 ```bash
-sudo apt-get install freetds-dev
-pip3 install pymssql
+sudo apt-get install unixodbc-dev
+pip3 install pyodbc
 ```
 
-If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+If you are in a virtual environment, don't forget to activate it before installing the pyodbc package.
 
 ```bash
 sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
-pip3 install pymssql
+pip3 install pyodbc
 ```
+
+You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instrucitons for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+
+<div class='note'>
+
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
+
+</div>

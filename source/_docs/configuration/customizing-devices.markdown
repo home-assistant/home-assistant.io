@@ -27,6 +27,7 @@ Under the *Configuration* menu you'll find the *Customization* menu. If this men
 homeassistant:
   customize: !include customize.yaml
 ```
+
 #### Possible values
 
 {% configuration customize %}
@@ -34,22 +35,8 @@ friendly_name:
   description: Name of the entity as displayed in the UI.
   required: false
   type: string
-homebridge_name:
-  description: Name of the entity in `HomeBridge`.
-  required: false
-  type: string
 hidden:
   description: Set to `true` to hide the entity.
-  required: false
-  type: boolean
-  default: false
-homebridge_hidden:
-  description: Set to `true` to hide the entity from `HomeBridge`.
-  required: false
-  type: boolean
-  default: false
-emulated_hue_hidden:
-  description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/integrations/emulated_hue)).
   required: false
   type: boolean
   default: false
@@ -89,6 +76,7 @@ Device class is currently supported by the following components:
 * [Binary Sensor](/integrations/binary_sensor/)
 * [Sensor](/integrations/sensor/)
 * [Cover](/integrations/cover/)
+* [Media Player](/integrations/media_player/)
 
 ### Manual customization
 
@@ -132,12 +120,11 @@ homeassistant:
     "scene.month_*_colors":
       hidden: true
       emulated_hue_hidden: false
-      homebridge_hidden: true
 ```
 
 ### Reloading customize
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Core" button under Configuration > Server Control.
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

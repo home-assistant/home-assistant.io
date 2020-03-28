@@ -1,6 +1,6 @@
 ---
-title: "Tuya"
-description: "Instructions on how to setup the Tuya hub within Home Assistant."
+title: Tuya
+description: Instructions on how to setup the Tuya hub within Home Assistant.
 logo: tuya.png
 ha_category:
   - Hub
@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.74
+ha_domain: tuya
 ---
 
 The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.

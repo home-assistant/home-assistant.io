@@ -1,12 +1,15 @@
 ---
-title: "Withings"
-description: "Instructions on how to integrate Withings health products within Home Assistant."
-logo: withings.png
+title: Withings
+description: Instructions on how to integrate Withings health products within Home Assistant.
 ha_category:
   - Health
   - Sensor
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@vangorra'
+ha_domain: withings
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -43,14 +46,14 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 ### Step 3 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
-  - Note: In order for "Check Config" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Config" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
+  - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 - Restart Home Assistant.
 - Go to the integrations page.
 - Add a Withings integration. This will open a new tab/window on the withings site.
 - On the Withings site, choose the profile of the data you want to sync.
 - Authorize the application. Your browser will redirect you to the redirect uri you provided during account setup.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the
-  `http://domain` portion of the URL to something you know is accessible, locally or publically. For example, `http://localhost:8123`.
+  `http://domain` portion of the URL to something you know is accessible, locally or publicly. For example, `http://localhost:8123`.
   This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
   Changing the domain will not affect how data is synchronized.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the withings site.
@@ -81,3 +84,56 @@ profiles:
   required: true
   type: map
 {% endconfiguration %}
+
+## Bonus: Template Sensors to Convert Kilograms to Pounds
+
+In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your withings User Profile Name defined in the Withings integration configuration. 
+
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensors:
+  - platform: template
+    sensors:
+      withings_weight_lbs_USER_PROFILE_NAME:
+        friendly_name: "withings weight_lbs_USER_PROFILE_NAME"
+        unit_of_measurement: 'lbs'
+        value_template: "{{ (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        icon_template: mdi:weight-pound
+
+  - platform: template
+    sensors:
+      withings_bone_mass_lbs_USER_PROFILE_NAME:
+        friendly_name: "withings bone_mass_lbs_USER_PROFILE_NAME"
+        unit_of_measurement: 'lbs'
+        value_template: "{{ (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        icon_template: mdi:weight-pound
+        
+  - platform: template
+    sensors:
+      withings_fat_free_mass_lbs_USER_PROFILE_NAME:
+        friendly_name: "withings fat_free_mass_lbs_USER_PROFILE_NAME"
+        unit_of_measurement: 'lbs'
+        value_template: "{{ (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        icon_template: mdi:weight-pound
+        
+  - platform: template
+    sensors:
+      withings_fat_mass_lbs_USER_PROFILE_NAME:
+        friendly_name: "withings fat_mass_lbs_USER_PROFILE_NAME"
+        unit_of_measurement: 'lbs'
+        value_template: "{{ (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        icon_template: mdi:weight-pound
+        
+  - platform: template
+    sensors:
+      withings_muscle_mass_lbs_USER_PROFILE_NAME:
+        friendly_name: "withings muscle_mass_lbs_USER_PROFILE_NAME"
+        unit_of_measurement: 'lbs'
+        value_template: "{{ (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float * 2.20462262185) | round(2) }}"
+        icon_template: mdi:weight-pound
+```
+
+{% endraw %}

@@ -1,17 +1,17 @@
 ---
 title: "RFXtrx Switch"
 description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Switch
 ha_release: 0.7.5
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
 
 ## Configuration
 
-First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
+First you have to set up your [RFXtrx hub](/integrations/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
 
 ```yaml
@@ -68,7 +68,7 @@ signal_repetitions:
 
 <div class='note warning'>
 
-This integration and the [rfxtrx binary sensor](/integrations/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+This integration and the [RFXtrx binary sensor](/integrations/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 
 </div>
 
@@ -88,9 +88,9 @@ If you need to generate codes for switches you can use a template (useful for ex
 {% raw %}0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
 ```
 
-- Use this code to add a new switch in your configuration.yaml
+- Use this code to add a new switch in your `configuration.yaml`
 - Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
+- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
 ## Examples
@@ -105,9 +105,9 @@ switch:
   signal_repetitions: 2
   devices:
     0b1100ce3213c7f210010f70:
-      name: Movment1
+      name: Movement1
     0b11000a02ef2gf210010f50:
-      name: Movment2
+      name: Movement2
     0b1111e003af16aa10000060:
       name: Door
       fire_event: true

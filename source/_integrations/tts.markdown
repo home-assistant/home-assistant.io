@@ -1,7 +1,10 @@
 ---
-title: "Text-to-Speech (TTS)"
-description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
+title: Text-to-Speech (TTS)
+description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
 ha_release: 0.35
+ha_codeowners:
+  - '@pvizeli'
+ha_domain: tts
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -18,7 +21,7 @@ tts:
 
 <div class='note'>
 
-Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/integrations/http/) or in the parameters of this component.
+Depending on your setup, you might need to set a base URL (`base_url`) inside the [HTTP component](/integrations/http/) or in the parameters of this component.
 
 </div>
 
@@ -41,7 +44,7 @@ time_memory:
   type: integer
   default: 300
 base_url:
-  description: A base URL to use *instead* of the one set in the [http component](/integrations/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
+  description: A base URL to use *instead* of the one set in the [HTTP component](/integrations/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
   required: false
   type: string
   default: value of ``http.base_url``
@@ -73,7 +76,7 @@ In the above example, `base_url` is custom to this particular TTS platform confi
 
 ## When do you need to set `base_url` here?
 
-The general answer is "whenever the global `base_url` set in [http component](/integrations/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
+The general answer is "whenever the global `base_url` set in [HTTP component](/integrations/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
 
 The following sections describe some of the problems encountered with media devices.
 
@@ -81,7 +84,7 @@ The following sections describe some of the problems encountered with media devi
 
 This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate.
 
-The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [http component](/integrations/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
+The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [HTTP component](/integrations/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
 
 ### Google cast devices
 
@@ -91,7 +94,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a `base_url` that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
-* An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of HASS is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
+* An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of Home Assistant is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
 
 ## Service say
 
@@ -139,11 +142,11 @@ data_template:
 
 The integration has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
-## REST Api
+## REST API
 
-### POST /api/tts_get_url
+### POST `/api/tts_get_url`
 
-Returns an URL to the generated TTS file. Platform and message are required.
+Returns a URL to the generated TTS file. Platform and message are required.
 
 ```json
 {

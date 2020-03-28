@@ -1,10 +1,12 @@
 ---
-title: "Twilio Call"
-description: "Instructions on how to add user notifications to Home Assistant."
-logo: twilio.png
+title: Twilio Call
+description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.37
+ha_codeowners:
+  - '@robbiet480'
+ha_domain: twilio_call
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).

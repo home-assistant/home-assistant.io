@@ -1,11 +1,12 @@
 ---
-title: "Google Hangouts"
-description: "Hangouts chatbot support"
-logo: hangouts.png
+title: Google Hangouts
+description: Hangouts chatbot support
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.77
+ha_config_flow: true
+ha_domain: hangouts
 ---
 
 This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.

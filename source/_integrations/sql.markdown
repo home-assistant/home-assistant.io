@@ -1,10 +1,12 @@
 ---
-title: "SQL Sensor"
-description: "Instructions how to integrate SQL sensors into Home Assistant."
-logo: sql.png
+title: SQL
+description: Instructions how to integrate SQL sensors into Home Assistant.
 ha_category:
   - Utility
 ha_release: 0.63
+ha_codeowners:
+  - '@dgomes'
+ha_domain: sql
 ---
 
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).

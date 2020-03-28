@@ -1,7 +1,6 @@
 ---
-title: "Raspberry Pi GPIO"
-description: "Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant."
-logo: raspberry-pi.png
+title: Raspberry Pi GPIO
+description: Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant.
 ha_category:
   - DIY
   - Binary Sensor
@@ -9,6 +8,7 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_domain: rpi_gpio
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
@@ -17,7 +17,7 @@ The `rpi_gpio` integration is the base for all related GPIO platforms in Home As
 
 The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## Configuration
+### Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -72,7 +72,7 @@ It uses two pins on the Raspberry Pi.
 
 Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
 
-## Configuration
+### Configuration
 
 To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -145,13 +145,13 @@ cover:
 
 ## Remote Raspberry Pi Cover
 
-If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/integrations/cover.mqtt/). Follow the Github instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
+If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/integrations/cover.mqtt/). Follow the GitHub instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
 
 ## Switch
 
 The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-## Configuration
+### Configuration
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -184,7 +184,7 @@ invert_logic:
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector) about the Raspberry Pi.
 
 <div class='note warning'>
-Note that a pin managed by HASS is expected to be exclusive to HASS.
+Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
 </div>
 
 A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.

@@ -1,6 +1,6 @@
 ---
-title: "Insteon"
-description: "Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant."
+title: Insteon
+description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
 logo: insteon.png
 ha_category:
   - Hub
@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.39
+ha_domain: insteon
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -96,7 +97,7 @@ host:
   required: false
   type: string
 ip_port:
-  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  description: The IP port number of the Hub. For Hub model [2245] (i.e., Hub version 2) the default port is 25105. For the Hub model [2242] (i.e., Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
   required: true
   type: integer
 username:
@@ -270,10 +271,10 @@ Mini-Remote devices do not appear as Home Assistant entities, they generate even
 
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
+  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `h`. For a one-button remote this field is not used.
 - **insteon.button_off**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
+  - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `h`. For a one-button remote this field is not used.
 
 This allows the mini-remotes to be configured as triggers for automations. Here is an example of how to use these events for automations:
 

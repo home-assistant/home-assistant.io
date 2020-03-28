@@ -1,11 +1,13 @@
 ---
-title: "Entur public transport"
-description: "Instructions for how to set up monitoring of public transport departures in Norway."
-logo: entur.svg
+title: Entur
+description: Instructions for how to set up monitoring of public transport departures in Norway.
 ha_category:
   - Transport
 ha_release: 0.84
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@hfurubotten'
+ha_domain: entur_public_transport
 ---
 
 The `entur_public_transport` sensor gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
@@ -105,18 +107,18 @@ sensor:
 
 [Entur's travel planer](https://en-tur.no) has a map of all stops used in Norway. Use the map to find the stops you're interested in. When you have found one of your stops, click on it.
 
-Now the web browser should contain an URL with the id in it. Such as this:
+Now the web browser should contain a URL with the id in it. Such as this:
 
 `https://en-tur.no/nearby-stop-place-detail?id=NSR:StopPlace:32376`
 
-The stop id is the content after `id=` parameter in the url. Copy paste this into the configuration.
+The stop id is the content after `id=` parameter in the URL. Copy paste this into the configuration.
 
 ## FAQ - Troubleshooting
 
 **Q:** I have multiple stop ids and have added whitelisting of a line. Now some of the stop places are showing `unknown`.
 
 **A:** A whitelisting of lines takes affect on all of the stops. So you have to whitelist all lines you are interested in on all stop places.
- 
+
 ---
 
 **Q:** I have added whitelisting of lines, and everything has worked as fine before, but now it has stopped updating all of a sudden.

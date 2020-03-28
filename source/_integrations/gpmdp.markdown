@@ -1,13 +1,12 @@
 ---
-title: "Google Play Music Desktop Player"
-description: "Instructions on how to integrate GPMDP into Home Assistant."
-logo: gpmdp.png
+title: Google Play Music Desktop Player (GPMDP)
+description: Instructions on how to integrate GPMDP into Home Assistant.
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: "0.20"
+ha_release: '0.20'
+ha_domain: gpmdp
 ---
-
 
 The `gpmdp` media player platform allows you to control a [GPMDP](https://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.
 

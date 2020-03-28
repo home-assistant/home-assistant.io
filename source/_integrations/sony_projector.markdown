@@ -1,11 +1,12 @@
 ---
-title: "Sony Projector Switch"
-description: "Instructions on how to integrate Sony Projector switches into Home Assistant."
+title: Sony Projector
+description: Instructions on how to integrate Sony Projector switches into Home Assistant.
 logo: sony.png
 ha_category:
   - Multimedia
 ha_iot_class: Local Polling
 ha_release: 0.89
+ha_domain: sony_projector
 ---
 
 The `sony_projector` switch platform allows you to control the state of SDCP compatible network-connected projectors from [Sony](https://www.sony.com/).

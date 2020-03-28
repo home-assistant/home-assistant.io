@@ -50,7 +50,7 @@ Creating a `.gitignore` file in your repository will tell Git which files NOT to
 
 <div class='note'>
 
-  If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e. by using an editor like Notepad++).
+  If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e., by using an editor like Notepad++).
 
 </div>
 
@@ -58,7 +58,7 @@ Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
 # Example .gitignore file for your config dir.
-# A * ensures that everything will be ignored.
+# An * ensures that everything will be ignored.
 *
 
 # You can whitelist files/folders with !, these will not be ignored.

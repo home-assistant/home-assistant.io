@@ -1,10 +1,10 @@
 ---
-title: "QR Code Recognition"
-description: "Instructions on how to integrate QR Code Recognition into Home Assistant."
-logo: home-assistant.png
+title: QR Code
+description: Instructions on how to integrate QR Code Recognition into Home Assistant.
 ha_category:
   - Image Processing
 ha_release: 0.87
+ha_domain: qrcode
 ---
 
 The `qrcode` image processing platform enables QR code recognition from cameras.

@@ -1,12 +1,13 @@
 ---
-title: "Kira"
-description: "Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
+title: Kira
+description: Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant.
 logo: keene.png
 ha_category:
   - Hub
   - Remote
   - Sensor
 ha_release: 0.45
+ha_domain: kira
 ---
 
 The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.

@@ -1,10 +1,10 @@
 ---
-title: "Pushetta"
-description: "Instructions on how to add Pushetta notifications to Home Assistant."
-logo: pushetta.png
+title: Pushetta
+description: Instructions on how to add Pushetta notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_domain: pushetta
 ---
 
 The `pushetta` notify platform uses [Pushetta](http://www.pushetta.com) to delivery notifications from Home Assistant to your devices.
@@ -43,7 +43,7 @@ send_test_msg:
   type: boolean
 {% endconfiguration %}
 
-It's easy to test your Pushetta setup outside of Home Assistant. Assuming you have a channel *home-assistant*, just fire a request and check the channel page in the dashboard for a new message.
+It's easy to test your Pushetta setup outside of Home Assistant. Assuming you have a channel `home-assistant`, just fire a request and check the channel page in the dashboard for a new message.
 
 ```bash
 curl -X POST \

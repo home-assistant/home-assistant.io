@@ -1,6 +1,6 @@
 ---
-title: "Hunter Hydrawise"
-description: "Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant."
+title: Hunter Hydrawise
+description: Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant.
 logo: hydrawise_logo.png
 ha_category:
   - Irrigation
@@ -9,6 +9,7 @@ ha_category:
   - Switch
 ha_release: 0.71
 ha_iot_class: Cloud Polling
+ha_domain: hydrawise
 ---
 
 The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.

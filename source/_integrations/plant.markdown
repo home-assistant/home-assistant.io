@@ -1,11 +1,13 @@
 ---
-title: "Plant monitor"
-description: "Instructions on how to setup plant monitoring with Home Assistant."
-logo: home-assistant.png
+title: Plant Monitor
+description: Instructions on how to setup plant monitoring with Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.44
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@ChristianKuehnel'
+ha_domain: plant
 ---
 
 This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.

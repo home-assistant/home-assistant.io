@@ -114,7 +114,7 @@ influxdb:
 - Don't use len(SEQUENCE) as condition value ([@fabaff] - [#7249])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Rfxtrx upgrade lib 0.18 ([@danielhiversen] - [#7273]) ([rfxtrx docs])
 - WIP: HassIO allow to access to container logs. ([@pvizeli] - [#7271])
 - Update aiolifx ([@amelchio] - [#7279]) ([light.lifx docs])
@@ -483,11 +483,10 @@ influxdb:
 [sensor.zamg docs]: /integrations/zamg#sensor
 [sensor.zha docs]: /integrations/zha
 [switch.flux docs]: /integrations/flux
-[switch.hook docs]: /integrations/hook
 [switch.thinkingcleaner docs]: /integrations/thinkingcleaner#switch
 [switch.wemo docs]: /integrations/wemo
 [switch.zha docs]: /integrations/zha
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [telegram_bot.polling docs]: /integrations/telegram_polling
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [updater docs]: /integrations/updater/

@@ -50,7 +50,7 @@ Your webhook should be available from the internet, if you have a cloud subscrip
 
 As you may have already read, we'll be sunsetting Hassbian.
 
-Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](hhttps://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
+Hassbian was a superset of Raspbian optimized for Home Assistant. With limited time from the developers and easier alternatives as [Hass.io](https://www.home-assistant.io/hassio/) it is time to sunset Hassbian.
 
 A big thank you to all those who worked on Hassbian - specifically [@landrash](https://github.com/landrash), who was the primary driver of this for so long, and [@ludeeus](https://github.com/ludeeus).
 
@@ -567,14 +567,14 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in keyboard component ([@Quentame] - [#27791]) ([keyboard docs])
 - Move imports in linux_battery component ([@Quentame] - [#27789]) ([linux_battery docs])
 - Move imports in ampio component ([@Bouni] - [#27788]) ([ampio docs])
-- Move imports in liveboxplaytv component ([@Quentame] - [#27790]) ([liveboxplaytv docs])
+- Move imports in liveboxplaytv component ([@Quentame] - [#27790])
 - Move imports in amcrest component ([@Bouni] - [#27787]) ([amcrest docs])
 - Move imports in imap + imap_email_content component ([@Quentame] - [#27793]) ([imap docs]) ([imap_email_content docs])
 - Move imports in netgear_lte component ([@Quentame] - [#27777]) ([netgear_lte docs])
 - Move imports in nest component ([@Quentame] - [#27778]) ([nest docs])
 - moved imports to top level ([@Bouni] - [#27781]) ([airvisual docs])
 - Move imports in netgear component ([@Quentame] - [#27776]) ([netgear docs])
-- moved imports to top level ([@Bouni] - [#27784]) ([alarmdotcom docs])
+- moved imports to top level ([@Bouni] - [#27784])
 - Generate ADB key for Android TV integration ([@JeffLIrion] - [#27344]) ([androidtv docs])
 - moved imports to top level ([@Bouni] - [#27782]) ([aladdin_connect docs])
 - Move imports in android_ip_webcam component ([@Bouni] - [#27797]) ([android_ip_webcam docs])
@@ -627,13 +627,13 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Refactor the conversation integration ([@balloob] - [#27839]) ([conversation docs]) ([shopping_list docs])
 - Use pre-commit in CI and tox ([@scop] - [#27743])
 - Introduce new OAuth2 config flow helper ([@balloob] - [#27727]) ([somfy docs]) (breaking change)
-- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs]) ([fritzdect docs])
+- Move imports in fritzbox, fritz device tracker, fritzdect, fritzbox netmonitor ([@springstan] - [#27746]) ([fritz docs]) ([fritzbox docs]) ([fritzbox_netmonitor docs])
 - Move imports in cppm_tracker component ([@Bouni] - [#27889]) ([cppm_tracker docs])
 - Move imports in concord232 component ([@Bouni] - [#27887]) ([concord232 docs])
 - Move imports in comfoconnect component ([@Bouni] - [#27886]) ([comfoconnect docs])
 - Move imports in coinmarketcap component ([@Bouni] - [#27885]) ([coinmarketcap docs])
 - Move imports in coinbase component ([@Bouni] - [#27884]) ([coinbase docs])
-- Move imports in ciscospark component ([@Bouni] - [#27879]) ([ciscospark docs])
+- Move imports in ciscospark component ([@Bouni] - [#27879])
 - Move imports in cisco_webex_teams component ([@Bouni] - [#27878]) ([cisco_webex_teams docs])
 - Move imports in cmus component ([@Bouni] - [#27883]) ([cmus docs])
 - Move imports in cloud component ([@Bouni] - [#27881]) ([cloud docs])
@@ -709,7 +709,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in eliqonline component ([@djpremier] - [#27980]) ([eliqonline docs])
 - Move imports in frontend component ([@djpremier] - [#27988]) ([frontend docs])
 - Move imports in message_bird component ([@djpremier] - [#28022]) ([message_bird docs])
-- Move imports in mopar component ([@djpremier] - [#28028]) ([mopar docs])
+- Move imports in mopar component ([@djpremier] - [#28028])
 - Move imports in mvglive component ([@djpremier] - [#28031]) ([mvglive docs])
 - Move imports in mpd component ([@djpremier] - [#28030]) ([mpd docs])
 - Move imports in namecheapdns component ([@djpremier] - [#28034]) ([namecheapdns docs])
@@ -1527,7 +1527,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [aladdin_connect docs]: /integrations/aladdin_connect/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
-[alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [alpha_vantage docs]: /integrations/alpha_vantage/
 [amazon_polly docs]: /integrations/amazon_polly/
@@ -1586,7 +1585,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [cisco_ios docs]: /integrations/cisco_ios/
 [cisco_mobility_express docs]: /integrations/cisco_mobility_express/
 [cisco_webex_teams docs]: /integrations/cisco_webex_teams/
-[ciscospark docs]: /integrations/ciscospark/
 [cloud docs]: /integrations/cloud/
 [cmus docs]: /integrations/cmus/
 [co2signal docs]: /integrations/co2signal/
@@ -1646,7 +1644,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [fritzbox docs]: /integrations/fritzbox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
-[fritzdect docs]: /integrations/fritzdect/
 [frontend docs]: /integrations/frontend/
 [frontier_silicon docs]: /integrations/frontier_silicon/
 [futurenow docs]: /integrations/futurenow/
@@ -1717,7 +1714,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [linode docs]: /integrations/linode/
 [linux_battery docs]: /integrations/linux_battery/
 [lirc docs]: /integrations/lirc/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
 [logbook docs]: /integrations/logbook/
@@ -1738,7 +1734,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [miflora docs]: /integrations/miflora/
 [mitemp_bt docs]: /integrations/mitemp_bt/
 [mobile_app docs]: /integrations/mobile_app/
-[mopar docs]: /integrations/mopar/
 [mpd docs]: /integrations/mpd/
 [mqtt docs]: /integrations/mqtt/
 [msteams docs]: /integrations/msteams/

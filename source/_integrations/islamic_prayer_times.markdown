@@ -1,10 +1,11 @@
 ---
-title: "Islamic Prayer Times"
-description: "Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant."
+title: Islamic Prayer Times
+description: Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.85
+ha_domain: islamic_prayer_times
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.

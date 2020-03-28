@@ -1,10 +1,11 @@
 ---
-title: "ThingSpeak"
-description: "Record one entity in ThingSpeak"
+title: ThingSpeak
+description: Record one entity in ThingSpeak
 logo: thingspeak.png
 ha_category:
-  - "History"
+  - History
 ha_release: 0.32
+ha_domain: thingspeak
 ---
 
 The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).

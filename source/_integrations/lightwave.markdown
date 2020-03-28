@@ -1,6 +1,6 @@
 ---
-title: "Lightwave"
-description: "Instructions on how to integrate Lightwave devices with Home Assistant."
+title: Lightwave
+description: Instructions on how to integrate Lightwave devices with Home Assistant.
 logo: lightwave.png
 ha_category:
   - Hub
@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.84
 ha_iot_class: Assumed State
+ha_domain: lightwave
 ---
 
 The `lightwave` integration links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights and switches.

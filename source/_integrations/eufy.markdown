@@ -1,6 +1,6 @@
 ---
-title: "Eufy"
-description: "Instructions on how to integrate Eufy devices into Home Assistant."
+title: eufy
+description: Instructions on how to integrate Eufy devices into Home Assistant.
 logo: eufy.png
 ha_category:
   - Hub
@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_domain: eufy
 ---
 
 The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.

@@ -1,32 +1,32 @@
 ---
 title: "MySensors HVAC"
 description: "Instructions on how to integrate MySensors climate into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Climate
 ha_release: 0.29
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors HVAC into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors HVAC into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 The following actuator types are supported:
 
-##### MySensors version 1.5 and higher
+## MySensors version 1.5 and higher
 
-S_TYPE | V_TYPE
--------|-----------------------------------------------------------------------------
-S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP
+| S_TYPE | V_TYPE                                                                               |
+| ------ | ------------------------------------------------------------------------------------ |
+| S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP |
 
 V_HVAC_FLOW_STATE is mapped to the state of the Climate integration in Home Assistant as follows:
 
-Home Assistant State | MySensors State
----------------------|----------------
-HVAC_MODE_COOL       | CoolOn
-HVAC_MODE_HEAT       | HeatOn
-HVAC_MODE_AUTO       | AutoChangeOver
-HVAC_MODE_OFF        | Off
+| Home Assistant State | MySensors State |
+| -------------------- | --------------- |
+| HVAC_MODE_COOL       | CoolOn          |
+| HVAC_MODE_HEAT       | HeatOn          |
+| HVAC_MODE_AUTO       | AutoChangeOver  |
+| HVAC_MODE_OFF        | Off             |
 
 Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
 
@@ -36,9 +36,9 @@ You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
 
 You can use V_TEMP to send the current temperature from the node to Home Assistant.
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
-### Example sketch for MySensors 2.x
+## Example sketch for MySensors 2.x
 
 ```cpp
 /*
@@ -183,7 +183,7 @@ void sendHeatpumpCommand() {
 }
 ```
 
-### Example sketch for MySensors 1.x
+## Example sketch for MySensors 1.x
 
 ```cpp
 /*
@@ -255,6 +255,3 @@ void incomingMessage(const MyMessage &message) {
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: https://www.mysensors.org/download

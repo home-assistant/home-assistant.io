@@ -81,7 +81,7 @@ We wrote about how we use Azure DevOps to automate the development of Home Assis
 
 ## Release 0.97.1 - August 9
 
-A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeenPwned shutting down v2 of their API on August 18. The integration has been migrated to using v3.
+A new breaking change was introduced with 0.97.1 to accommodate for the HaveIBeenPwned shutting down v2 of their API on August 18. The integration has been migrated to using v3.
 
 - Update HIBP sensor to use API v3 and API Key ([@aetaric] - [#25699]) ([haveibeenpwned docs]) (breaking change)
 - Update Cisco Mobility Express module version ([@fbradyirl] - [#25770]) ([cisco_mobility_express docs])

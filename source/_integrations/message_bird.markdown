@@ -1,10 +1,11 @@
 ---
-title: "MessageBird"
-description: "Instructions on how to add user notifications to Home Assistant."
+title: MessageBird
+description: Instructions on how to add user notifications to Home Assistant.
 logo: message_bird.png
 ha_category:
   - Notifications
 ha_release: 0.16
+ha_domain: message_bird
 ---
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.

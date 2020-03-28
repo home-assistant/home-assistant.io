@@ -43,17 +43,17 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 ## Recommended
 
-These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
+These install options are fully supported by Home Assistant's documentation. For example, if an integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
 <div class='note'>
 
-The only installation methods that allow you to use Hass.io Add-ons are the Hass.io image and manual installer. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image and [manual Supervised installer](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host). All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
 
 </div>
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
+[Home Assistant](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
 
 ## Alternative installs
@@ -94,21 +94,15 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>CentOS/RHEL</div>
   </a>
-  <a class='option-card' href='/docs/installation/windows/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/windows.png' />
-    </div>
-    <div class='title'>Windows</div>
-  </a>
   <a class='option-card' href='/docs/installation/macos/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/apple.png' />
+      <img src='https://brands.home-assistant.io/ios/icon.png' />
     </div>
     <div class='title'>macOS</div>
   </a>
   <a class='option-card' href='/docs/installation/synology/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/synology.png' />
+      <img src='https://brands.home-assistant.io/synology/logo.png' />
     </div>
     <div class='title'>Synology</div>
   </a>
@@ -118,10 +112,10 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>FreeNAS</div>
   </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-a-generic-linux-host'>
+  <a class='option-card' href='/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host'>
     <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
+      <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
-    <div class='title'>Hass.io <br> on generic Linux server</div>
+    <div class='title'>Home Assistant Supervised <br> on generic Linux server</div>
   </a>
 </div>

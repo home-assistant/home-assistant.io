@@ -1,10 +1,10 @@
 ---
-title: "Manual Alarm Control Panel with MQTT Support"
-description: "Instructions on how to integrate manual alarms into Home Assistant with MQTT support."
-logo: home-assistant.png
+title: Manual MQTT
+description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
 ha_category:
   - Alarm
-ha_release: "0.50"
+ha_release: '0.50'
+ha_domain: manual_mqtt
 ---
 
 The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.

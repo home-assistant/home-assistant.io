@@ -1,10 +1,10 @@
 ---
-title: "World Tides"
-description: "Instructions on how to add Tides information to Home Assistant."
-logo: worldtidesinfo.png
+title: World Tides
+description: Instructions on how to add Tides information to Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.52
+ha_domain: worldtidesinfo
 ---
 
 The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.

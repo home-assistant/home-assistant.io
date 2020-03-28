@@ -1,11 +1,14 @@
 ---
-title: "Epson Workforce"
-description: "Instructions on how to integrate Epson Workforce Printer into Home Assistant."
+title: Epson Workforce
+description: Instructions on how to integrate Epson Workforce Printer into Home Assistant.
 logo: epson.png
 ha_category:
   - Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@ThaStealth'
+ha_domain: epsonworkforce
 ---
 
 The `epson workforce` platform allows you to monitor the ink levels of a Epson Workforce printer from Home

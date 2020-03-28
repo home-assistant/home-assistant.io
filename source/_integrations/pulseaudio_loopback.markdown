@@ -1,11 +1,12 @@
 ---
-title: "PulseAudio Loopback Switch"
-description: "Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
+title: PulseAudio Loopback
+description: Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system.
 logo: pulseaudio.png
 ha_category:
   - Switch
 ha_release: 0.16
 ha_iot_class: Local Polling
+ha_domain: pulseaudio_loopback
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
