@@ -70,7 +70,7 @@ Lovelace configuration panel, and YAML dashboards can be set up in
 `configuration.yaml`, see [the documentation](/lovelace/yaml-mode/).
 
 This awesome new feature comes with a deprecation if you use Lovelace in
-manual YAML mode: You need to move the `resource` section from
+manual YAML mode: You need to move the `resources` section from
 your `ui-lovelace.yaml` to the `lovelace:` section in `configuration.yaml`.
 It is not a breaking change yet; we still load them from the previous location
 if we didn't find anything in the `lovelace:` section, however, this fallback
