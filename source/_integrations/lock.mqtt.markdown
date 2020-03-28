@@ -149,8 +149,8 @@ lock:
     name: Frontdoor
     state_topic: "home-assistant/frontdoor/"
     command_topic: "home-assistant/frontdoor/set"
-    state_lock: "LOCK"
-    state_unlock: "UNLOCK"
+    state_locked: "LOCK"
+    state_unlocked: "UNLOCK"
     optimistic: false
     qos: 1
     retain: true
