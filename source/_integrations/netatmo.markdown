@@ -117,6 +117,30 @@ Example:
 {% raw %}
 
 ```yaml
+# Example automation for Netatmo Welcome
+- alias: Motion at home
+  description: 'Motion detected at home'
+  trigger:
+  - event_type: netatmo_event
+    platform: event
+    event_data:
+      type: movement
+  action:
+  - data_template:
+      message: >
+        {{ trigger.event.data["data"]["message"] }}  
+        at {{ trigger.event.data["data"]["home_name"] }}
+      title: Netatmo event
+    service: persistent_notification.create
+```
+
+{% endraw %}
+
+Example:
+
+{% raw %}
+
+```yaml
 # Example automation for Netatmo Presence
 - alias: Motion at home
   description: 'Motion detected at home'
