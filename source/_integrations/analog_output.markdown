@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: analog_output
 ---
 
-This integration allows you to set up analog outpuys. Read the integration documentation for your particular analog output device or hardware to learn how to enable it.
+This integration allows you to set up analog outputs. Read the integration documentation for your particular analog output device or hardware to learn how to enable it.
 
 ### Default turn-on values
 
@@ -60,18 +60,33 @@ Turns one or multiple analog outputs off.
 
 Toggles the state of one or multiple analog outputs. Takes the same arguments as [`turn_on`](#service-analog_outputturn_on) service.
 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of the analog outputs. To target all the analog outputs use all as `entity_id`.
 
 ### Service `analog_output.decrement'
 
 Decrements the value of the analog output with 1 by default. The amount can be configured with the 'step' parameter.
 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of the analog outputs. To target all the analog outputs use all as `entity_id`.
+
 ### Service `analog_output.increment'
 
 Increments the value of the analog output with 1 by default. The amount can be configured with the 'step' parameter.
 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of the analog outputs. To target all the analog outputs use all as `entity_id`.
+
 ### Service `analog_output.set_value'
 
 Sets the value of the analog output. If the output is on when the value is set, the value is immedeatly applied, if the output was off during this service call, the value is stored and applied when the turn-on service is called.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of the analog outputs. To target all the analog outputs use all as `entity_id`.
 
 
 
