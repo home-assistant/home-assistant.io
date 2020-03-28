@@ -117,14 +117,14 @@ Example:
 {% raw %}
 
 ```yaml
-# Example automation
+# Example automation for Netatmo Presence
 - alias: Motion at home
   description: 'Motion detected at home'
   trigger:
   - event_type: netatmo_event
     platform: event
     event_data:
-      type: movement
+      type: human # other possible types: animal, vehicle
   action:
   - data_template:
       message: >
