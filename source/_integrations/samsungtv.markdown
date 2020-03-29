@@ -97,11 +97,11 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - F6500
 - F7000
 - F8000BF
-- K5579 (On/Off, Forward/Backward, Volume control, but no Play button)
+- K5579
 - K5600AK (partially supported, turn on works but state is not updated)
 - K6500AF
-- KS7005 (MAC address must be provided, On/Off, Volume are OK, no channel change)
-- KS7502 (turn on doesn't work, turn off works fine)
+- KS7005 (no channel change)
+- KS7502 (On doesn't work, Off works fine)
 - KS8000
 - KS8005
 - KS8500
@@ -109,21 +109,19 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - KU6100
 - KU6290
 - KU6400U
+- KU6470
 - KU7000
 - M5620
 - MU6170UXZG
-- NU7090 (On/Off, MAC must be specified for Power On)
+- MU6179
+- MU6199
+- NU7090 (On/Off)
 - NU7400
 - NU8000
+- NU8070
 - U6000
 - U6300
-- UE46ES5500 (partially supported, turn on doesn't work)
-- UE46D7000
-- UE49KU6470 (On/Off, Forward/Backward, Volume are OK, but no Play button)
-- UE55MU6179
-- UE55NU8070
-- UE6199UXZG (On/Off, Forward/Backward, Volume control, but no Play button)
-- UE65KS8005 (On/Off, Forward/Backward, Volume are OK, but no Play button)
+- RU7172
 
 #### Models tested but not yet working
 
