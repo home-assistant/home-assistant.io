@@ -75,6 +75,10 @@ entities:
       required: false
       description: Override the entity image.
       type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
 {% endconfiguration %}
 
 ## Graph header & footer

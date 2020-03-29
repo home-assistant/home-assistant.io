@@ -264,6 +264,36 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
+### Buttons
+
+{% configuration %}
+type:
+  required: true
+  description: buttons
+  type: string
+entities:
+  required: true
+  description: A list of entities to show. Each entry is either an entity ID or a map.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: The entity to render.
+      type: string
+    icon:
+      required: false
+      description: Override the entity icon.
+      type: string
+    image:
+      required: false
+      description: Override the entity image.
+      type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+{% endconfiguration %}
+
 ## Example
 
 Entity rows:
