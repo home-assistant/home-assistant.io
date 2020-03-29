@@ -73,6 +73,7 @@ stations:
   type: list
 show_on_map:
   description: Display all gas stations on map.
+  default: True
   required: false
   type: boolean
   default: true
