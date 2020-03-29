@@ -317,7 +317,7 @@ friendly_name:
   required: false
   type: string
 type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus`, `mp1`, or `bg1`. `SC1` devices can be registered as `sp2`. For `bg1` devices it will create a `_left` and `_right` switch."
   required: true
   type: string
 switches:
@@ -414,7 +414,7 @@ switch:
         command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
 ```
 
-Example configuration for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` and `spminiplus` devices:
+Example configuration for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus`, and `bg1` devices:
 
 ```yaml
 switch:
