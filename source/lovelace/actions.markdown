@@ -161,7 +161,7 @@ double_tap_action:
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
 ```yaml
-  - double_tap_action:
+    double_tap_action:
       action: call-service
       confirmation:
         text: Are you sure you want to restart?
