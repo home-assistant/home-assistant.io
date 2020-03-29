@@ -34,6 +34,7 @@ tankerkoenig:
   radius: 1
   fuel_types:
     - "diesel"
+  show_on_map: false
 ```
 
 {% configuration %}
@@ -70,6 +71,10 @@ stations:
   description: List of additional fuel stations to create entities for.
   required: false
   type: list
+show_on_map:
+  description: Display all gas stations on map.
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 ## Full example
@@ -88,6 +93,7 @@ tankerkoenig:
   scan_interval: "0:10:01"
   stations:
     - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
+  show_on_map: false
 ```
 
 Assuming there are only two fuel stations within the specified range and location, you would get six sensor entities:
