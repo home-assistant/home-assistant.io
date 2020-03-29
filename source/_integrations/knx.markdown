@@ -79,6 +79,16 @@ local_ip:
   description: IP of the local interface.
   type: string
   required: false
+auto_reconnect:
+  description: Reconnect automatically if KNX/IP tunnel is down.
+  type: boolean
+  required: false
+  default: true
+auto_reconnect_wait:
+  description: How many seconds delay before auto reconnect if KNX/IP tunnel is down.
+  type: integer
+  required: false
+  default: 3
 {% endconfiguration %}
 
 Explicit connection to a KNX/IP routing device:
