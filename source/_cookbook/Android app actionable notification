@@ -1,0 +1,63 @@
+---
+title: "Send actionable notification via HA Android companion app"
+description: "An example of actionable notifications on the Android companion App based on time and workday sensor"
+ha_category: Automation Examples
+---
+
+This example automation sends an actionable notification to your Android companion app, based on the binary workday sensor and time.
+
+These first three lines go into configuration.yaml and generate the binary_sensor "workday"
+
+```yaml
+
+binary_sensor:
+  - platform: workday
+    country: US
+  
+```
+This next portion Sends the notification to your device with action buttons, and goes in automations.yaml or can be created through the automations section in the UI.
+
+```yaml
+
+- alias: Turn on Coffee Pot - Weekend notification
+  description: Fires an actionable notification at 5:45 via the mobile app to turn
+    on the coffee pot
+  ##For time, 05:45:00 is 5:45 AM. 5:45 PM would be written as 17:45:00
+  trigger:
+  - at: 05:45:00
+    platform: time
+  ##This condition tells HA not to send the notification unless it is a weekend or holiday.
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'off'
+  ## You can send up to three actions in a notification, for this case we only need 1. 
+  action:
+  - data:
+      data:
+        actions:
+        ## The action start_coffee will be the name of the fire_event that is handled in the next automation
+        - action: start_coffee
+          title: 'Yes'
+      message: Good Morning!
+      title: Would you like a cup of coffee?
+    service: notify.mobile_app_**_***
+```
+
+Now we have to handle the Fire_event to actually turn on the coffee pot, so put this in automation.yaml as well.
+
+```yaml
+
+  - alias: Fire Event - start_coffee
+    description: When start_coffee action is received from HA companion app, coffee maker turns on
+    trigger:
+    - event_data:
+        action: start_coffee
+      event_type: mobile_app_notification_action
+      platform: event
+    condition: []
+    action:
+    - data: {}
+      entity_id: switch.coffee_pot
+      service: switch.toggle
+```
