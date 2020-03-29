@@ -34,7 +34,7 @@ tankerkoenig:
   radius: 1
   fuel_types:
     - "diesel"
-  show_on_map: false
+  show_on_map: true
 ```
 
 {% configuration %}
@@ -75,6 +75,7 @@ show_on_map:
   description: Display all gas stations on map.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Full example
