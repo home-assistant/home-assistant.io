@@ -75,41 +75,20 @@ The following attributes can be placed inside `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
-| `path `                |      yes | Local path of file, photo etc to post to Slack. Is placed inside `file`.
-| `url`                  |      yes | URL of file, photo etc to post to Slack. Is placed inside `file`.
-| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
-| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
-| `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
-| `blocks`               |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in addition** to `message`.
+| `file`                   |      yes | Local path of file, photo, etc. to post to Slack.
+| `attachments`            |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in addition** to `message`.
 
-Example data payload for posting file from URL:
-
-```yaml
-message: Message that will be added as a comment to the file.
-title: Title of the file.
-target: 
-  - "#channelname", 
-data:
-  file:
-    url: http://url.to.image.jpg
-    username: <optional user, if necessary>
-    password: <optional password, if necessary>
-    auth: digest
-```
-
-Example for posting file from local path:
+Example for posting a file from local path:
 
 ```yaml
 message: Message that will be added as a comment to the file.
 title: Title of the file.
 data:
-  file:
-    path: "/path/to/file.ext"
+  file: "/path/to/file.ext"
 ```
 
-Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
+Please note that `file` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
 
 Example for using the block framework:
 
@@ -118,28 +97,28 @@ message: Message that will be added as a comment to the file.
 title: Title of the file.
 data:
   attachments:
-  - type: section
-    text:
-      type: mrkdwn
-      text: 'Danny Torrence left the following review for your property:'
-  - type: section
-    block_id: section567
-    text:
-      type: mrkdwn
-      text: "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many
-        axe holes, guest in room 237 was far too rowdy, whole place felt stuck in
-        the 1920s."
-    accessory:
-      type: image
-      image_url: https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg
-      alt_text: Haunted hotel image
-  - type: section
-    block_id: section789
-    fields:
-    - type: mrkdwn
-      text: |-
-        *Average Rating*
-        1.0
+    - type: section
+      text:
+        type: mrkdwn
+        text: 'Danny Torrence left the following review for your property:'
+    - type: section
+      block_id: section567
+      text:
+        type: mrkdwn
+        text: "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many
+          axe holes, guest in room 237 was far too rowdy, whole place felt stuck in
+          the 1920s."
+      accessory:
+        type: image
+        image_url: https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg
+        alt_text: Haunted hotel image
+    - type: section
+      block_id: section789
+      fields:
+      - type: mrkdwn
+        text: |-
+          *Average Rating*
+          1.0
 ```
 
 Example for using the legacy attachments framework:
@@ -149,8 +128,8 @@ message: Message that will be added as a comment to the file.
 title: Title of the file.
 data:
   attachments:
-  - title: WHAT A HORRIBLE NIGHT TO HAVE A CURSE.
-    image_url: https://i.imgur.com/JEExnsI.gif
+    - title: WHAT A HORRIBLE NIGHT TO HAVE A CURSE.
+      image_url: https://i.imgur.com/JEExnsI.gif
 ```
 
 You can also use YAML to send messages from your automations
