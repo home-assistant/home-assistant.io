@@ -17,7 +17,7 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
 ### Setup
 
 Go to the integrations page in your configuration and click on new integration -> Samsung TV.
-If your TV is on and you have enabled [ssdp](/integrations/ssdp) discovery, it's likely that you just have to confirm the detected device.
+If your TV is on and you have enabled [SSDP](/integrations/ssdp) discovery, it's likely that you just have to confirm the detected device.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
@@ -47,7 +47,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-After saving the yaml configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
+After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
 
 #### Wake up TV
 
