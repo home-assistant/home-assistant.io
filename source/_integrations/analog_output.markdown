@@ -12,7 +12,7 @@ This integration allows you to set up analog outputs. Read the integration docum
 
 ### Default turn-on values
 
-The default turn-on value is specified in the config file with the 'initial' value.
+The default turn-on value is specified in the configuration file with the 'initial' value.
 
 ### Service `analog_output.turn_on`
 
