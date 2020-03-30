@@ -76,7 +76,6 @@ show_on_map:
   default: true
   required: false
   type: boolean
-  default: true
 {% endconfiguration %}
 
 ## Full example
