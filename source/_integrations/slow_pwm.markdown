@@ -9,7 +9,7 @@ ha_iot_class: Local Push
 ha_domain: slow_pwm
 ---
 
-The Slow PWM integration provides a virtual device that converts a [Switch](#switch) to an [Analog output](#analog_output). The PWM cycle is slow, typically > 1 minute. This integration is particulary helpfull when controlling slow processes, like floor-heating valves or hot-water boiler heating elements. Using this device allows you to control them in a PID regulator or other modulating regulation systems.
+The Slow PWM integration provides a virtual device that converts a [Switch](#switch) to an [Analog output](#analog_output). The PWM cycle is slow, typically > 1 minute. This integration is particularly helpful when controlling slow processes, like floor-heating valves or hot-water boiler heating elements. Using this device allows you to control them in a PID regulator or other modulating regulation systems.
 
 ## Configuration
 
@@ -57,12 +57,12 @@ initial:
   type: float
   default: 0
 upper_threshold:
-  description: Upper threshold of the analog output. Above this value the PWM cycle will be de-activated, and the output will be switched on. This function can be usefull to lower the amount of switching without reducing the resolution in the working area.
+  description: Upper threshold of the analog output. Above this value the PWM cycle will be de-activated, and the output will be switched on. This function can be useful to lower the amount of switching without reducing the resolution in the working area.
   required: false
   type: float
   default: 100
 lower_threshold:
-  description: Lower threshold of the analog output. Below this value the PWM cycle will be de-activated, and the output will be switched off.  This function can be usefull to lower the amount of switching without reducing the resolution in the working area.
+  description: Lower threshold of the analog output. Below this value the PWM cycle will be de-activated, and the output will be switched off.  This function can be useful to lower the amount of switching without reducing the resolution in the working area.
   required: false
   type: float
   default: 100
