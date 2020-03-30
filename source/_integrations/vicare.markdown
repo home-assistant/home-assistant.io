@@ -61,12 +61,14 @@ scan_interval:
 Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
 Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
 
-# Viessmann API limits
-Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
-* Limit 1: 120 calls for a time window of 10 minutes
-* Limit 2: 1450 calls for a time window of 24 hours
+## Viessmann API limits
 
-The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g. by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
+Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
+
+- Limit 1: 120 calls for a time window of 10 minutes
+- Limit 2: 1450 calls for a time window of 24 hours
+
+The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
 
 ## Climate
 
