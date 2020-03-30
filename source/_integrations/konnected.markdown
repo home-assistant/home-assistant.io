@@ -66,22 +66,32 @@ The settings UI starts by having you configure the general behavior of each zone
 ##### Binary Sensor:
 
 **Binary Sensor Type:** The type of sensor connected to the zone.
+
 **Name (optional)** The friendly name for the entity associated with the zone.
+
 **Invert the open/close state:** Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
 
 ##### Digital Sensor:
 
 **Sensor Type:** The type of sensor connected to the zone - either `dht` or `ds18b20`.
+
 **Name (optional)** The friendly name for the entities associated with the zone.
+
 **Poll Interval (optional):** How often in minutes to poll the sensor for updates.
 
 ##### Switchable Output:
 
 **Name: (optional)** The friendly name for the entity associated with the zone.
+
 **Output when on:** The state of the switch when activated.
+
 **Pulse Duration (optional):** The duration in ms to pulse the switch once activated.
+
 **Pause between pulses (optional):** The duration in ms to wait between pulses when activated.
+
 **Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated.
+
+**Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.  
 
 ### YAML Configuration
 
@@ -313,6 +323,10 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
 ## Revision History
+
+### 0.108
+
+- Multiple output states for a zone.
 
 ### 0.106
 
