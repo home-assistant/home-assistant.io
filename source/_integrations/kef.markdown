@@ -122,7 +122,7 @@ Set the "Desk mode" slider of the speaker in dB.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| db                     | No       | Value of the slider (-6 to 0 with steps of 0.5) |
+| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
 
 ### Service `kef.set_wall_db`
 
@@ -131,7 +131,7 @@ Set the "Wall mode" slider of the speaker in dB.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| db                     | No       | Value of the slider (-6 to 0 with steps of 0.5) |
+| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
 
 ### Service `kef.set_treble_db`
 
@@ -140,7 +140,7 @@ Set desk the "Treble trim" slider of the speaker in dB.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| db                     | No       | Value of the slider (-2 to 2 with steps of 0.5) |
+| db_value               | No       | Value of the slider (-2 to 2 with steps of 0.5) |
 
 ### Service `kef.set_high_hz`
 
@@ -149,7 +149,7 @@ Set the "High-pass mode" slider of the speaker in Hz.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| hz                     | No       | Value of the slider (50 to 120 with steps of 5) |
+| hz_value               | No       | Value of the slider (50 to 120 with steps of 5) |
 
 ### Service `kef.set_low_hz`
 
@@ -158,7 +158,7 @@ Set the "Sub out low-pass frequency" slider of the speaker in Hz.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| hz                     | No       | Value of the slider (40 to 250 with steps of 5) |
+| hz_value               | No       | Value of the slider (40 to 250 with steps of 5) |
 
 ### Service `kef.set_sub_db`
 
@@ -167,7 +167,7 @@ Set the "Sub gain" slider of the speaker in dB.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | entity_id              | No       | The entity_id of the KEF speaker. |
-| db                     | No       | Value of the slider (-10 to 10 with steps of 1) |
+| db_value               | No       | Value of the slider (-10 to 10 with steps of 1) |
 
 ## Notes
 
