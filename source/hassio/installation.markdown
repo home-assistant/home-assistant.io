@@ -179,7 +179,7 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/installer/master/inst
 - `qemux86`
 - `qemux86-64`
 
-See the [hassio-installer](https://github.com/home-assistant/installer) GitHub page for an up-to-date listing of supported machine types.
+See the [installer](https://github.com/home-assistant/installer) GitHub page for an up-to-date listing of supported machine types.
 
 If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
 
