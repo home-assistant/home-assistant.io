@@ -18,7 +18,7 @@ To add the slow-PWM output to your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 analog_output:
- - platform: slow_pwm
+  - platform: slow_pwm
     name: PWM heater kitchen
     device: switch.heater_kitchen
 ```
