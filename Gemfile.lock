@@ -87,7 +87,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rouge (3.17.0)
-    ruby-enum (0.7.2)
+    ruby-enum (0.8.0)
       i18n
     ruby2_keywords (0.0.2)
     safe_yaml (1.0.5)
