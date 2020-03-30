@@ -105,4 +105,14 @@ Latest Respiration Update
 Highest Respiration
 Lowest Respiration
 Latest Respiration
+
+Weight
+BMI
+Body Fat
+Body Water
+Body Mass
+Muscle Mass
+Physique Rating
+Visceral Fat
+Metabolic Age
 ```
