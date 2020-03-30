@@ -30,14 +30,13 @@ The device item value is the last segment of the URL path, e.g., the URL
    ```bash
    curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken`
    ```
-    
+
    The JSON response structure should resemble:
    
    ```json
    {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzgyMjQwODE0NjIsInYiOjAsImQiOnsidWleejoic2ltcGxlbG9naW46MzM1In0sImlhdCI6wwDIyMzk5NX0.kbYzxRtbGB2ke3IBgQTVMNQprHOWJZFgQQnPK6Wyas4"}
    ```
 
-    
 2. Receive the list of devices you have in your account:
 
    ```bash
