@@ -51,8 +51,13 @@ icon:
   description: Set a custom icon for the state card.
   required: false
   type: icon
-initial: 
-  description: Initial output value on startup
+initial_value: 
+  description: Initial output value on startup (independend from if the output is activated or not). It is recommended to not set this to 0, as this will switch off the analog output immedeatly after switching it on.
+  required: false
+  type: float
+  default: 100
+initial_state: 
+  description: Initial output state on startup (value not equal to 0 will switch the output on at startup)
   required: false
   type: float
   default: 0
