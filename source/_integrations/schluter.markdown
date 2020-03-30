@@ -1,7 +1,6 @@
 ---
 title: Schluter
 description: Instructions on how to integrate your Schluter DITRA-HEAT-E-WiFi thermostat into Home Assistant.
-logo: schluter.png
 ha_category:
   - Climate
 ha_release: 0.108
