@@ -34,7 +34,6 @@ tankerkoenig:
   radius: 1
   fuel_types:
     - "diesel"
-  show_on_map: true
 ```
 
 {% configuration %}
