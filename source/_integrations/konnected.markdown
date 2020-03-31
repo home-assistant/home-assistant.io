@@ -93,6 +93,16 @@ The settings UI starts by having you configure the general behavior of each zone
 
 **Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.  
 
+#### Using Settings UI to Configure Additional Panel Behavior
+
+Once all zones are configured you'll be presented with configuration for additional panel behaviors.
+
+**Blink panel LED on when sending state change:** The desired LED behavior for the panel
+
+**Override default Home Assistant API host panel url:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host url** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+
+**Override API host url (optional):** The host info to use if you checked **Override default Home Assistant API host panel url** in the step above.  This is ignored if **Override default Home Assistant API host panel url** is unchecked.
+
 ### YAML Configuration
 
 If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them. If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the UI based setup before the integration will be configured and entities created/accessible.**
@@ -326,7 +336,7 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 ### 0.108
 
-- Multiple output states for a zone.
+- Multiple output states for a zone. Details on configuring additional panel behaviors via the UI.
 
 ### 0.106
 
