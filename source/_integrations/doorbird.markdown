@@ -1,15 +1,16 @@
 ---
 title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
-logo: doorbird.png
 ha_category:
   - Doorbell
   - Camera
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_codeowners:
   - '@oblogic7'
+  - '@bdraco'
 ha_domain: doorbird
 ---
 
@@ -31,7 +32,9 @@ It is recommended to set up a new account on your Doorbird App for use with Home
 
 ## Configuration
 
-To connect your device, add the following to your `configuration.yaml` file:
+To add `DoorBird` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **DoorBird**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

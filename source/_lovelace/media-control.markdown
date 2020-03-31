@@ -4,7 +4,7 @@ sidebar_label: Media Control
 description: "The Media Control card is used to display media player entities on an interface with easy to use controls."
 ---
 
-The Media Control card is used to display [Media Player](/integrations/#search/media-player) entities on an interface with easy to use controls.
+The Media Control card is used to display [Media Player](/integrations/#media-player) entities on an interface with easy to use controls.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>

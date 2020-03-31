@@ -44,12 +44,14 @@ password:
 {% endconfiguration %}
 
 Supported models:
-- EVW3200-Wifi
-- EVW320B
-- EVW321B
-- EVW32C-0N
-- EVW3226@UPC
-- DVW32CB
+
+- Ambit EVW320B
+- Ambit EVW321B
+- Ubee DDW36C
+- Ubee DVW32CB
+- Ubee EVW3200-Wifi
+- Ubee EVW3226 (UPC)
+- Ubee EVW32C-0N
 
 <div class='note info'>
 

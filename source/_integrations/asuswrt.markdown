@@ -1,7 +1,6 @@
 ---
 title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
-logo: asus.png
 ha_category:
   - Hub
   - Presence Detection

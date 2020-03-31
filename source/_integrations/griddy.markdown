@@ -1,5 +1,5 @@
 ---
-title: Griddy
+title: Griddy Power
 description: Instructions on how to integrate griddy prices into Home Assistant.
 ha_category:
   - Sensor

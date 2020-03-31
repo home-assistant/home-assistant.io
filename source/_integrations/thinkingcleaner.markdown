@@ -68,4 +68,3 @@ switch:
   - platform: thinkingcleaner
     host: 10.0.0.55
 ```
-

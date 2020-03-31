@@ -1,13 +1,14 @@
 ---
-title: "Tankerkoenig Sensor"
-description: "Instructions on how to integrate Tankerkoenig sensors within Home Assistant."
-logo: tankerkoenig.png
+title: Tankerkoenig
+description: Instructions on how to integrate Tankerkoenig sensors within Home Assistant.
 ha_category:
   - Energy
   - Sensor
 ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_domain: tankerkoenig
+ha_codeowners:
+  - '@guillempages'
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
@@ -17,7 +18,9 @@ You can also add additional stations manually, referencing them via their IDs. T
 
 ## Setup
 
-To use this sensor you need an API key from [tankerkoenig](https://creativecommons.tankerkoenig.de). Go to [api-key](https://creativecommons.tankerkoenig.de/api-key), fill out the form and request a key. The API is free, but requests should be limited to less than once every 5 minutes.
+To use this sensor you need an API key from tankerkoenig. Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and click on API-KEY in the top right, fill out the form and request a key. The API is free, but requests should be limited to less than once every 5 minutes.
+
+It is recommended to choose a radius that doesn't return too many fuel stations. The Terms & Conditions of tankerkoenig.de specify that the API is not meant for massive data fetching, but it does not explicitly mention a limit. Having a maximum of 10 monitored fuel stations is recommended, and a warning will be issued otherwise.
 
 ## Configuration
 
@@ -28,7 +31,7 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 tankerkoenig:
   api_key: YOUR_API_KEY
   radius: 1
-  fuel_type:
+  fuel_types:
     - "diesel"
 ```
 
@@ -58,9 +61,9 @@ radius:
   default: 2
   type: integer
 scan_interval:
-  description: The time interval to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
+  description: The time interval in seconds to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
   required: false
-  default: 0:30
+  default: 1800 (30min)
   type: time
 stations:
   description: List of additional fuel stations to create entities for.
@@ -86,10 +89,10 @@ tankerkoenig:
     - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
 ```
 
-Assuming there are two fuel stations within the specified range and location, you would get six sensor entities:
+Assuming there are only two fuel stations within the specified range and location, you would get six sensor entities:
  * sensor.tankerkoenig_berlin_paulstrasse_20_diesel
  * sensor.tankerkoenig_berlin_paulstrasse_20_e10
  * sensor.tankerkoenig_aral_tankstelle_diesel
  * sensor.tankerkoenig_aral_tankstelle_e10
- * sensor.tankerkoenig_svg_hamburg_strassen>_diesel
+ * sensor.tankerkoenig_svg_hamburg_strassen_diesel
  * sensor.tankerkoenig_svg_hamburg_strassen_e10

@@ -1,16 +1,27 @@
 ---
 title: DirecTV
 description: Instructions on how to integrate DirecTV receivers into Home Assistant.
-logo: directv.png
 ha_category:
   - Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: directv
 ha_config_flow: true
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
+
+### Requirements
+
+For proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
+
+This is done via series of settings found via "Menu > Settings & Help > Settings > Whole Home > External Device":
+
+- External Access: Allow
+- Current Program: Allow
+- Recordings: Allow
 
 ### Configuration
 

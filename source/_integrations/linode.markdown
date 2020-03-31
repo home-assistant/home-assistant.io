@@ -5,7 +5,6 @@ ha_category:
   - System Monitor
   - Binary Sensor
   - Switch
-logo: linode.png
 ha_release: 0.57
 ha_iot_class: Cloud Polling
 ha_domain: linode

@@ -32,6 +32,11 @@ Where the `api_key` and `api_secret` values are acquired from your OPNsense
 router using the web interface. For more information on this procedure, refer
 to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
+User with API Key requires privileges for Type: 
+
+- GUI Name: Diagnostics: ARP Table
+- GUI Name: Diagnostics: Network Insight
+
 {% configuration %}
 url:
   description: The URL for the OPNsense API endpoint of your router.

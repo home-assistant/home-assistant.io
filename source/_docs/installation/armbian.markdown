@@ -9,7 +9,7 @@ Setup Python and `pip`:
 
 ```bash
 sudo apt-get update
-sudo apt-get install python3-dev python3-pip
+sudo apt-get install python3-dev python3-pip libffi-dev libssl-dev
 ```
 
 Now that you installed python, there are two ways to install Home Assistant:

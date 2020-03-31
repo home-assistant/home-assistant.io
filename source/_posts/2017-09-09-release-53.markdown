@@ -62,7 +62,7 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Bayesian Binary Sensor ([@jlmcgehee21] - [#8810]) ([binary_sensor.bayesian docs]) (new-platform)
 - Add Tank Utility sensor ([@krismolendyke] - [#9132]) ([sensor.tank_utility docs]) (new-platform)
 - Tesla platform ([@zabuldon] - [#9211]) ([tesla docs]) ([binary_sensor.tesla docs]) ([climate.tesla docs]) ([device_tracker.tesla docs]) ([lock.tesla docs]) ([sensor.tesla docs]) (new-platform)
-- mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
+- mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Add Geofency device tracker ([@gunnarhelgason] - [#9106]) ([device_tracker.geofency docs]) (new-platform)
 - Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
@@ -147,7 +147,7 @@ frontend:
 - Allow panels with external URL ([@andrey-git] - [#9214])
 - Use ZCL mandatory attribute to determine ZHA light capabilities ([@jkl1337] - [#9232]) ([light.zha docs])
 - A bugfix for pushbullet ([@danielhiversen] - [#9237]) ([notify.pushbullet docs])
-- mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
+- mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Upgrade discord.py to 0.16.11 ([@fabaff] - [#9239]) ([notify.discord docs])
 - Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
@@ -419,7 +419,6 @@ frontend:
 [sensor.dwdwarnapp docs]: /integrations/dwd_weather_warnings/
 [sensor.fitbit docs]: /integrations/fitbit
 [sensor.homematic docs]: /integrations/homematic
-[sensor.mopar docs]: /integrations/mopar
 [sensor.radarr docs]: /integrations/radarr
 [sensor.season docs]: /integrations/season
 [sensor.shodan docs]: /integrations/shodan

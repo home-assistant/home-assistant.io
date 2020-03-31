@@ -477,7 +477,7 @@ The `homematic` notification platform enables invoking Homematic devices.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
-## Configuration
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

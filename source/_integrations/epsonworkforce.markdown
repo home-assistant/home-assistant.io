@@ -60,6 +60,7 @@ Supported devices:
 
 Tested devices:
 
+- Epson WF2660
 - Epson WF3540
 - Epson WF3620
 - Epson WF3640

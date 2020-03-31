@@ -298,7 +298,7 @@ sensor:
             {% if is_state('device_tracker.my_device_nmap','home') %}
               {{ state_attr('zone.home','latitude') }}
             {% else %}
-              state_attr('device_tracker.my_device_gps','latitude')
+              {{ state_attr('device_tracker.my_device_gps','latitude') }}
             {% endif %}
           longitude: >-
             {% if is_state('device_tracker.my_device_nmap','home') %}

@@ -106,82 +106,59 @@ You can also install Home Assistant on a Linux operating system of choice, calle
 
 Home Assistant Supervised, will still give you access to most features Home Assistant has to offer, including add-ons.
 
-The packages you need to have available on your system needed to Home Assistant may vary.
+### Supported systems and limitations
 
-### Debian/Ubuntu
+While Home Assistant Supervised can be run on practically any Linux systems,
+the Home Assistant project limits support for this installation method.
 
-- `apparmor-utils`
-- `apt-transport-https`
-- `avahi-daemon`
-- `ca-certificates`
-- `curl`
-- `dbus`
-- `jq`
-- `socat`
-- `software-properties-common`
+Only the use of Debian or Ubuntu is supported. Other Linux-based system may work
+but is not part of our testing and thus not supported.
 
-Optional:
+Furthermore, if you choose to run Home Assistant Supervised, the operating
+system of your choosing (including Debian/Ubuntu) is **your** responsibility.
+Both in terms of systems upgrade and system configuration.
 
-- `network-manager`
+Customizations to your custom operating system may interfere with Home Assistant.
+For that reason, please be sure you have to knowledge to manage, configure and
+maintain the operating system of your choosing.
 
-<div class='note warning'>
-
-   Without the NetworkManager, you will be not able to control your host network setup over the UI. The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example, you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
-
-</div>
-
-### Arch Linux
-
-- `apparmor`
-- `avahi`
-- `ca-certificates`
-- `curl`
-- `dbus`
-- `docker`
-- `jq`
-- `socat`
-
-You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
-
-<div class='note warning'>
-
-  Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
-  Be sure to install the official Docker-CE from the above-listed URL.
-  
-  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by Docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
-
-</div>
+When in doubt, we highly recommend using the regular installation of Home
+Assistant as provided above. In that case, Home Assistant will manage and update
+the Home Assistant Operating System for you.
 
 ### Preparation
 
 To prepare your machine for the Home Assistant installation, run the following commands:
 
-For Ubuntu:
+If you run Ubuntu, first run this command:
 
 ```bash
-add-apt-repository universe
+sudo add-apt-repository universe
 ```
 
-Debian/Ubuntu:
+Next run the following commands (for both Debian and Ubuntu):
 
 ```bash
 sudo -i
 apt-get update
 apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 systemctl disable ModemManager
+systemctl stop ModemManager
 curl -fsSL get.docker.com | sh
 ```
+
+### Installation of Home Assistant Supervised
 
 The following script will then install Home Assistant on a variety of operating systems and machine types.
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s
 ```
 
-Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this:
+Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 4, the flag `-- -m raspberrypi4` is required. The install script would then look like this:
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s -- -m raspberrypi4
 ```
 
 #### Other machine types
@@ -194,7 +171,7 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `raspberrypi4`
 - `raspberrypi4-64`
 - `odroid-c2`
-- `odroid-cu2`
+- `odroid-n2`
 - `odroid-xu`
 - `tinker`
 - `qemuarm`
@@ -202,15 +179,9 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `qemux86`
 - `qemux86-64`
 
-See the [hassio-installer](https://github.com/home-assistant/hassio-installer) GitHub page for an up-to-date listing of supported machine types.
+See the [installer](https://github.com/home-assistant/supervised-installer) GitHub page for an up-to-date listing of supported machine types.
 
 If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
-
-<div class='note'>
-When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
-</div>
-
-A detailed guide about running Home Assistant as a virtual machine is available in the [blog][hassio-vm].
 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
@@ -230,10 +201,9 @@ A detailed guide about running Home Assistant as a virtual machine is available 
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vdi.gz
-[linux]: https://github.com/home-assistant/hassio-installer
+[linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
-[hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
 [configure]: /getting-started/configuration/
