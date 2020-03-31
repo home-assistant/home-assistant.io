@@ -13,15 +13,15 @@ The Slow PWM integration provides a virtual device that converts a [Switch](#swi
 
 ## Configuration
 
-To add the slow-PWM output to your installation, add the following to your `configuration.yaml` file:
+To add the slow-PWM output to your installation, add the following to your 'configuration.yaml' file:
  
-
-# Example configuration.YAML entry
+'''yaml
+# Example configuration.yaml entry
 analog_output:
   - platform: slow_pwm
     name: PWM heater living
     device: heater.living
-
+'''
 
 {% configuration %}
 name:
@@ -72,12 +72,12 @@ lower_threshold:
   type: float
   default: 100
 step:
-  description: Step value. Smallest value `0.001`.
+  description: Step value. Smallest value '0.001'.
   required: false
   type: float
   default: 1  
 mode:
-  description: Can specify `box` or `slider`, for definition of state card.
+  description: Can specify 'box' or 'slider', for definition of state card.
   required: false
   type: string
   default: slider
