@@ -1,7 +1,6 @@
 ---
 title: Belkin WeMo
 description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
-logo: belkin_wemo.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -12,6 +11,7 @@ ha_release: pre 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@sqldiablo'
+ha_domain: wemo
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
@@ -21,13 +21,13 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
 - Light (Belkin WeMo LED lights and [Smart Dimmer Switch](https://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
-- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for Wemo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
+- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
 
 ## Configuration
 
 {% configuration %}
   discovery:
-    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
+    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the WeMo platform and the discovery platform (static devices will still be discovered)
     required: false
     type: boolean
     default: true

@@ -1,11 +1,11 @@
 ---
 title: SynologyDSM
 description: Instructions on how to integrate the SynologyDSM sensor within Home Assistant.
-logo: synology.png
 ha_category:
   - System Monitor
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_domain: synologydsm
 ---
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
@@ -50,6 +50,10 @@ password:
   description: The password of the user to connect to the Synology NAS.
   required: true
   type: string
+api_version:
+  description: Define DSM version to allow backward compatibility with 5.x. Value can be `5` for DSM 5.x or `6` for DSM 6.x or later.
+  type: integer
+  required: false
 ssl:
   description: Determine if HTTPS should be used.
   required: false
@@ -109,9 +113,9 @@ monitored_conditions:
     disk_status:
       description: Displays the status of the hard disk (creates a new entry for each disk).
     disk_exceed_bad_sector_thr:
-      description: Displays true / false to indicate if the hard disk exceeded the maximum bad sector threshold (creates a new entry for each disk).
+      description: Displays true / false to indicate if the hard disk exceeded the maximum bad sector threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
     disk_below_remain_life_thr:
-      description: Displays true / false to indicate if the hard disk dropped below the remain life threshold (creates a new entry for each disk).
+      description: Displays true / false to indicate if the hard disk dropped below the remain life threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
     disk_temp:
       description: Displays the temperature of the hard disk (creates a new entry for each disk, uses the unit_system to display in C or F).
     volume_status:
@@ -130,9 +134,6 @@ monitored_conditions:
       description: Displays the maximum temperature of all disks in the volume (creates a new entry for each volume).
 {% endconfiguration %}
 
-<div class='note'>
-After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
-</div>
 
 <div class='note warning'>
 This sensor will wake up your Synology NAS if it's in hibernation mode.

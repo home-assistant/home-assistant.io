@@ -1,13 +1,13 @@
 ---
 title: Switcher
 description: Controlling your Switcher V2 Water Heater.
-logo: switcher_boiler.png
 ha_category:
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
 ha_codeowners:
   - '@tomerfi'
+ha_domain: switcher_kis
 ---
 
 This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
@@ -22,12 +22,6 @@ To retrieve your device's details, please follow the instructions [here](https:/
 
 <div class='note warning'>
   Please note, for the Switcher-V2-Python script to run successfully, you need to configure your device to work locally.
-</div>
-
-<div class='note warning'>
-
-  Please note, on the original script repository, users recently reported difficulties controlling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
-
 </div>
 
 ```yaml

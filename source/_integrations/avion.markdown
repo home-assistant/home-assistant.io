@@ -6,9 +6,10 @@ ha_category:
 ha_iot_class: Assumed State
 logo: avi-on.png
 ha_release: 0.37
+ha_domain: avion
 ---
 
-Support for the Avi-on Bluetooth dimmer switch [Avi-On](https://avi-on.com/).
+Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).
 
 ## Setup
 
@@ -76,7 +77,7 @@ light:
         api_key: YOUR_API_KEY
 ```
 
-For independent control of multiple devices, you must specify each device's ID (integer starting with 1). Each switch's ID can be guessed or detected from the Avi-On API.
+For independent control of multiple devices, you must specify each device's ID (integer starting with 1). Each switch's ID can be guessed or detected from the Avi-on API.
 
 ```yaml
 # Manual device configuration.yaml entry

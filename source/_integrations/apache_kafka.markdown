@@ -1,12 +1,12 @@
 ---
 title: Apache Kafka
 description: Send data and events to Apache Kafka.
-logo: apache_kafka.png
 ha_category:
   - History
 ha_release: 0.97
 ha_codeowners:
   - '@bachya'
+ha_domain: apache_kafka
 ---
 
 The `apache_kafka` integration sends all state changes to a

@@ -1,10 +1,10 @@
 ---
 title: Logbook
 description: Instructions on how to enable the logbook integration for Home Assistant.
-logo: logbook.png
 ha_category:
   - History
 ha_release: 0.7
+ha_domain: logbook
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -65,7 +65,6 @@ logbook:
       - sensor.date
     domains:
       - sun
-      - weblink
 ```
 
 In case you just want to see messages from some specific entities or domains use

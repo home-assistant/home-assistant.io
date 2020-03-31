@@ -1,28 +1,39 @@
 ---
 title: Météo-France
 description: Instructions on how to integrate Météo-France within Home Assistant.
-logo: meteo-france.png
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 ha_category:
-  - Hub
   - Sensor
   - Weather
 ha_codeowners:
   - '@victorcerutti'
   - '@oncleben31'
+  - '@Quentame'
+ha_config_flow: true
+ha_domain: meteo_france
 ---
 
 The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
-- Sensor
+- [Sensor](#sensor)
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
+It displays the current weather along with a 4 days forecast and create sensors, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
 
-## Configuration
+## Setup the integration
+
+There are two ways to integrate Météo-France in Home Assistant.
+
+### Via the frontend
+
+Menu: *Configuration* -> *Integrations*
+
+Search for "Météo-France", add your city, click submit, you are done!
+
+### Via the configuration file
 
 To add Météo-France to your installation, add the following to your `configuration.yaml` file:
 
@@ -34,34 +45,9 @@ meteo_france:
 
 {% configuration %}
   city:
-    description: Name of the city ([see below](#about-city-configuration)).
+    description: French postal code or name of the city ([see below](#about-city-configuration)).
     required: true
     type: string
-  monitored_conditions:
-    description: The conditions types to monitor.
-    required: true
-    type: list
-    keys:
-      temperature:
-        description: The current temperature.
-      weather:
-        description: A human-readable text summary of the current conditions.
-      wind_speed:
-        description: The wind speed.
-      uv:
-        description: The current UV index.
-      next_rain:
-        description: Time to the next rain if happening for the next hour ([see note below](#about-next_rain-condition-sensor)).
-      freeze_chance:
-        description: Probability of temperature below 0°C for the day.
-      rain_chance:
-        description: Probability of rain for the day.
-      snow_chance:
-        description: Probability of snow for the day.
-      thunder_chance:
-        description: Probability of thunderstorm for the day.
-      weather_alert:
-        description: Weather alert status.
 {% endconfiguration %}
 
 ### About `city` configuration
@@ -80,6 +66,20 @@ For example `Montreal, Canada` will return a city in Ardèche, France, whereas `
 meteo_france:
   - city: 'montreal,amerique'
 ```
+
+## Sensor
+
+All these sensors will be created :
+- `temperature`: The current temperature.
+- `weather`: A human-readable text summary of the current conditions.
+- `wind_speed`: The wind speed.
+- `uv`: The current UV index.
+- `next_rain`: Time to the next rain if happening for the next hour ([see note below](#about-next_rain-condition-sensor)).
+- `freeze_chance`: Probability of temperature below 0°C for the day.
+- `rain_chance`: Probability of rain for the day.
+- `snow_chance`: Probability of snow for the day.
+- `thunder_chance`: Probability of thunderstorm for the day.
+- `weather_alert`: Weather alert status ([see note below](#about-weather_alert-sensor)).
 
 ### About `next_rain` condition sensor
 
@@ -113,25 +113,12 @@ The sensor attributes give access to each type of alerts and date of the bulleti
 
 ### Complete example
 
-This is an example for 3 cities forecast with different monitored conditions:
+This is an example for 3 cities forecast:
 
 ```yaml
 # Complete example configuration.yaml entry
 meteo_france:
+  - city: '69004'
   - city: 'Rouen'
-    monitored_conditions:
-        - rain_chance
-        - freeze_chance
-        - thunder_chance
-        - snow_chance
-        - weather
-        - next_rain
-        - wind_speed
-        - temperature
-        - uv
-        - weather_alert
   - city: 'Oslo, norvege'
-    monitored_conditions:
-      - temperature
-  - city: '51100'
 ```

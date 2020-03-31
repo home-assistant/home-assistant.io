@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
+ha_domain: rachio
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -28,7 +29,9 @@ They will be automatically added if the Rachio integration integration is loaded
 
 ## Configuration
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

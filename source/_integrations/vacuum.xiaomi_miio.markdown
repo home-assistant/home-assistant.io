@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Mi Robot Vacuum"
 description: "Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Vacuum
 ha_release: 0.51
 ha_iot_class: Local Polling
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
@@ -190,25 +190,45 @@ In addition to [all of the attributes provided by the `vacuum` component](/integ
 - `main_brush_left`
 - `side_brush_left`
 - `filter_left`
+- `sensor_dirty_left`
 - `cleaning_count`
 - `total_cleaned_area`
 - `total_cleaning_time`
+- `clean_start`
+- `clean_end`
 
 The following table shows the units of measurement for each attribute:
 
-| Attribute                 | Unit of measurement | Description                                           |
-|---------------------------|---------------------|-------------------------------------------------------|
-| `do_not_disturb`          |                     | DND mode on / off                                     |
-| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                |
-| `cleaned_area`            | square meter        | Last / actual cleaned area in square meters           |
-| `main_brush_left`         | hours               | Hours left until a change of the main brush is needed |
-| `side_brush_left`         | hours               | Hours left until a change of the side brush is needed |
-| `filter_left`             | hours               | Hours left until a change of the filter is needed     |
-| `cleaning_count`          |                     | Number of total cleaning cycles                       |
-| `total_cleaned_area`      | square meter        | Total cleaned area in square meters                   |
-| `total_cleaning_time`     | minutes             | Total cleaning time in minutes                        |
+| Attribute                 | Unit of measurement | Description                                                    |
+|---------------------------|---------------------|----------------------------------------------------------------|
+| `do_not_disturb`          |                     | DND mode on / off                                              |
+| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                         |
+| `cleaned_area`            | square meter        | Last / actual cleaned area in square meters                    |
+| `main_brush_left`         | hours               | Hours left until a change of the main brush is needed          |
+| `side_brush_left`         | hours               | Hours left until a change of the side brush is needed          |
+| `filter_left`             | hours               | Hours left until a change of the filter is needed              |
+| `sensor_dirty_left`       | hours               | Hours left until the wall and cliff sensors should be cleaned  |
+| `cleaning_count`          |                     | Number of total cleaning cycles                                |
+| `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
+| `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
+| `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
+| `clean_end`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
 
 ## Retrieving the Access Token
+
+### Xiaomi Home app (Xiaomi Aqara Gateway, android?)
+
+1. Install the Xiaomi Home app.
+2. Sign In/make an account.
+3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
+4. Select your Gateway in Xiaomi Home app.
+5. Then the 3 dots at the top right of the screen.
+6. Then click on about.
+7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
+8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
+9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+
+### Alternative methods
 
 <div class='note'>
 
@@ -216,7 +236,7 @@ If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Hom
 <br/> <br/>
 The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
 <br/> <br/>
-After resetting the WiFi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
+After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
 <br/> <br/>
 These instructions are written for the Mi Home app - not for the new RoboRock app.
 <br/> <br/>
@@ -225,7 +245,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 ### Android (not rooted)
 
-> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).  
+> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
 2. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
@@ -283,7 +303,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 ### Miio command line tool
 
-Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wifi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
+Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
 You can install the command line tool using the following command:
 
@@ -334,11 +354,36 @@ vacuum_kitchen:
 
 Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
 
-Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans. 
+Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans.
 
 ```bash
 miio protocol call <ip of the vacuum> get_room_mapping
 ```
+
+## Example on how to reset maintenance hours (brushes, filter, sensors)
+
+The vacuum entity stores attribute values for when brushes, filters and sensors need to be
+cleaned or replaced (`main_brush_left`, `side_brush_left`, `filter_left` and
+`sensor_dirty_left`).  The values are measured in hours. Once the parts are cleaned
+or replaced you can then reset those values on the vacuum.  Here is an example script using
+[`vacuum.send_command`](/integrations/vacuum/) to reset the hours for the main brush:
+
+```yaml
+reset_main_brush_left:
+  alias: "Reset hours for main brush replacement"
+  sequence:
+    - service: vacuum.send_Command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: reset_consumable
+        params: ['main_brush_work_time']
+```
+
+Allowed `params` for the `reset_consumable` command:
+* `['main_brush_work_time']`
+* `['side_brush_work_time']`
+* `['filter_work_time']`
+* `['sensor_dirty_time']`
 
 ## Retrieving Zoned Cleaning Coordinates
 

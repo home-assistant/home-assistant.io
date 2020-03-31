@@ -1,7 +1,6 @@
 ---
 title: RIVM Stookalert
 description: Instructions on how to use Stookalert data within Home Assistant
-logo: stookalert.png
 ha_category:
   - Binary Sensor
   - Environment
@@ -9,10 +8,10 @@ ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fwestenberg'
+ha_domain: stookalert
 ---
 
-The `stookalert` sensor platform queries the [RIVM stookalert](https://www.rivm.nl/stookalert) API for unfavorable weather conditions or poor air quality. With a Stookalert, the RIVM calls on people not to burn wood. This can prevent health problems in people in the area.
-
+The `stookalert` sensor platform queries the [RIVM Stookalert](https://www.rivm.nl/stookalert) API for unfavorable weather conditions or poor air quality. With a Stookalert, the RIVM calls on people not to burn wood. This can prevent health problems in people in the area.
 
 ## Configuration
 
@@ -26,7 +25,7 @@ binary_sensor:
 
 {% configuration %}
 province:
-  description: a province to use for the binary sensor's state. Currently only provinces in the Netherlands are supported. Valid values are `Drenthe`, `Flevoland`, `Friesland`, `Gelderland`, `Groningen`, `Limburg`, `Noord-Brabant`, `Noord-Holland`, `Overijssel`, `Utrecht`, `Zeeland` or `Zuid-Holland`.
+  description: A province to use for the binary sensor's state. Currently only provinces in the Netherlands are supported. Valid values are `Drenthe`, `Flevoland`, `Friesland`, `Gelderland`, `Groningen`, `Limburg`, `Noord-Brabant`, `Noord-Holland`, `Overijssel`, `Utrecht`, `Zeeland` or `Zuid-Holland`.
   required: true
   type: string
 name:

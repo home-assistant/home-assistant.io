@@ -6,6 +6,7 @@ ha_category:
   - Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.42
+ha_domain: lockitron
 ---
 
 The `lockitron` platform allows you to control your [Lockitron](https://lockitron.com/) lock from within Home Assistant.

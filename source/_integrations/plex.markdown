@@ -1,7 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-logo: plex.png
 ha_category:
   - Media Player
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
+ha_domain: plex
 ---
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
@@ -22,15 +22,13 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [plex.tv](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
 <div class='note info'>
 
 Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
 </div>
-
-If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
@@ -79,13 +77,13 @@ media_player:
   required: false
   type: map
   keys:
-    show_all_controls:
-      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+    use_episode_art:
+      description: Display TV episode art instead of TV show art.
       required: false
       default: false
       type: boolean
-    use_episode_art:
-      description: Display TV episode art instead of TV show art.
+    ignore_new_shared_users:
+      description: Do not track Plex clients for newly added Plex users.
       required: false
       default: false
       type: boolean
@@ -101,12 +99,14 @@ plex:
   verify_ssl: true
   media_player:
     use_episode_art: true
-    show_all_controls: false
+    ignore_new_shared_users: false
 ```
 
 ## Media Player
 
 The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
+
+By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To choose specific users to monitor or ignore, select them via the Configuration Options (**Integrations** -> **Configured** --> **Plex** --> **Gear Icon**).
 
 ### Service `play_media`
 
@@ -151,11 +151,10 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV (PlexConnect)           | Controls disabled.  Music does not work.                                                                                                                        |
+| Apple TV                         | None                                                                                                                                                            |
 | iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
+| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
-| Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
 ### Notes
 

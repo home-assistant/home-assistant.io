@@ -1,11 +1,11 @@
 ---
 title: "Command line Switch"
 description: "Instructions on how to have switches call command line commands."
-logo: command_line.png
 ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: command_line
 ---
 
 The `command_line` switch platform issues specific commands when it is turned on
@@ -64,11 +64,11 @@ When set, the `friendly_name` had been previously used for API calls and backend
 configuration instead of the `object_id` ("identifier"), but
 [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343)
 to make the `friendly_name` for display purposes only. This allows users to set
-an `identifier` that emphasizes uniqueness and predictability for API and config
+an `identifier` that emphasizes uniqueness and predictability for API and configuration
 purposes but have a prettier `friendly_name` still show up in the UI. As an
 additional benefit, if a user wanted to change the `friendly_name` / display
 name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or
-"Living Room Light", or remove the `friendly_name` altogether), he or she could
+"Living Room Light", or remove the `friendly_name` altogether), they could
 do so without needing to change existing automations or API calls.
 See aREST device below for an example.
 

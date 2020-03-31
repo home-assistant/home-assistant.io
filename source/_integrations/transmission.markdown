@@ -1,7 +1,6 @@
 ---
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-logo: transmission.png
 ha_category:
   - Downloading
   - Switch
@@ -12,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
+ha_domain: transmission
 ---
 
 The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
@@ -119,7 +119,7 @@ Example of configuration of an automation with completed torrents:
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL (http, https or ftp), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
+Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

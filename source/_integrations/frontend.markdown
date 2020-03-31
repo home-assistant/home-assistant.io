@@ -1,13 +1,13 @@
 ---
 title: Home Assistant Frontend
 description: Offers a frontend to Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
+ha_domain: frontend
 ---
 
 This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
@@ -19,7 +19,7 @@ frontend:
 
 {% configuration %}
   javascript_version:
-    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
+    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the configuration can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
     required: false
     type: string
     default: auto

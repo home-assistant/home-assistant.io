@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi IR Remote"
 description: "Instructions for how to integrate the Xiaomi IR Remote within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Remote
 ha_release: 0.63
 ha_iot_class: Local Polling
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
@@ -77,6 +77,25 @@ remote:
         command:
           - raw:base64:[optional_frequency]
           - pronto:pronto_hex:[optional_repeat]
+```
+
+## Add command as entity button in Lovelace UI
+
+```yaml
+type: entity-button
+tap_action:
+  action: call-service
+  service: remote.send_command
+  service_data:
+    command: activate_towel_heater
+    entity_id: remote.xiaomi_miio_ir
+hold_action:
+  action: more-info
+show_icon: true
+show_name: true
+entity: remote.xiaomi_miio_ir
+icon: 'mdi:radiator'
+name: Activate Towel Heater
 ```
 
 ## Use named commands to create UI buttons

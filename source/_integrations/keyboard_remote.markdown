@@ -1,13 +1,13 @@
 ---
 title: Keyboard Remote
 description: Instructions on how to use a keyboard to remote control Home Assistant.
-logo: keyboard.png
 ha_category:
   - Other
 ha_release: 0.29
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bendavid'
+ha_domain: keyboard_remote
 ---
 
 Receive signals from a keyboard and use it as a remote control.
@@ -52,7 +52,7 @@ device_name:
   type: string
 {% endconfiguration %}
 
-Either `device_name` or `device_descriptor` must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
+Either `device_name` or `device_descriptor` must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a Bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
 In case of presence of multiple devices of the same model, `device_descriptor` must be used.
 
 A list of possible device descriptors and names is reported in the debug log at startup when the device indicated in the configuration entry could not be found.
@@ -96,7 +96,7 @@ automation:
     entity_id: light.all
 ```
 
-`device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
+`device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
 ## Disconnections
 

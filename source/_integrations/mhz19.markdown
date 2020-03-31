@@ -1,11 +1,11 @@
 ---
 title: MH-Z19 CO2 Sensor
 description: Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant.
-logo: mhz19_logo.png
 ha_category:
   - DIY
 ha_release: 0.27
 ha_iot_class: Local Polling
+ha_domain: mhz19
 ---
 
 The MH-Z19 is a small non-dispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.
@@ -32,6 +32,7 @@ sensor:
   - **temperature**
 
 Full example:
+
 ```yaml
 sensor:
   - platform: mhz19
@@ -42,7 +43,7 @@ sensor:
       - temperature
 ```
 
-## Raspberry Pi 3(+) GPIO UART and Hass.io
+## Raspberry Pi GPIO UART and the Home Assistant Operating System
 
 To directly connect the sensor on the GPIO pins of a RPi, first append the following to `config.txt` in the boot directory:
 

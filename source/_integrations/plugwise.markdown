@@ -1,7 +1,6 @@
 ---
 title: Plugwise Anna
 description: Plugwise Climate integration.
-logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
 ha_release: 0.98
@@ -9,6 +8,7 @@ ha_codeowners:
   - '@laetificat'
   - '@CoMPaTech'
   - '@bouwew'
+ha_domain: plugwise
 ---
 
 This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -21,7 +21,7 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 ## Configuration
 
-You have to add the following to your configuration.yaml file:
+You have to add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry

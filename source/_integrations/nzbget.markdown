@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.17
 ha_codeowners:
   - '@chriscla'
+ha_domain: nzbget
 ---
 
 The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.

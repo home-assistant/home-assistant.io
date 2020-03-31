@@ -1,7 +1,6 @@
 ---
 title: Fast.com
 description: How to integrate Fast.com within Home Assistant.
-logo: fastdotcom.png
 ha_category:
   - System Monitor
   - Sensor
@@ -9,13 +8,15 @@ ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: fastdotcom
 ---
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
 <div class='note'>
 
-Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/integrations/speedtestdotnet) component.
+Currently, the Fast.com integration only supports measuring download bandwidth.
+If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [Speedtest.net](/integrations/speedtestdotnet) integration.
 
 </div>
 

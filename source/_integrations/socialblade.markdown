@@ -6,6 +6,7 @@ ha_category:
   - Multimedia
 ha_release: 0.69
 ha_iot_class: Cloud Polling
+ha_domain: socialblade
 ---
 
 The `socialblade` sensor platform allows you to monitor a YouTube channels subscriber count and total views count. The sensor retrieves data from the [Social Blade website](https://socialblade.com).

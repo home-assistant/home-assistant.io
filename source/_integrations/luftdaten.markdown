@@ -1,7 +1,6 @@
 ---
 title: Luftdaten
 description: Instructions on how to setup Luftdaten sensors in Home Assistant.
-logo: luftdaten.png
 ha_category:
   - Health
   - Sensor
@@ -11,6 +10,7 @@ ha_config_flow: true
 ha_quality_scale: gold
 ha_codeowners:
   - '@fabaff'
+ha_domain: luftdaten
 ---
 
 The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.

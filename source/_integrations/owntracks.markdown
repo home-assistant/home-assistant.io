@@ -1,16 +1,16 @@
 ---
 title: OwnTracks
 description: Instructions on how to use Owntracks to track devices in Home Assistant.
-logo: owntracks.png
 ha_category:
   - Presence Detection
 ha_release: 0.7.4
 ha_config_flow: true
+ha_domain: owntracks
 ---
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
-By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
+By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT. When a location is submitted via HTTP, Home Assistant will return all [Persons](/integrations/person/)' last known locations and they will be displayed within the OwnTracks app.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
@@ -124,7 +124,7 @@ Owntracks v2.0.0 removes support for iBeacons on Android.
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
-iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
+iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by iOS and some Android devices. Owntracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
 
 When you enter an iBeacon region, Owntracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
 

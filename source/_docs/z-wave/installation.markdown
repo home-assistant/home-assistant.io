@@ -15,7 +15,7 @@ zwave:
   device_config: !include zwave_device_config.yaml
 ```
 
-{% configuration zwave %}
+{% configuration Z-Wave %}
 usb_path:
   description: The port where your device is connected to your Home Assistant host. Z-Wave sticks will generally be `/dev/ttyACM0` and GPIO hats will generally be `/dev/ttyAMA0`.
   required: false
@@ -32,12 +32,12 @@ config_path:
   type: string
   default: the 'config' that is installed by python-openzwave
 polling_interval:
-  description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
+  description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the Z-Wave network and cause problems.
   required: false
   type: integer
   default: 60000
 debug:
-  description: Print verbose z-wave info to log.
+  description: Print verbose Z-Wave info to log.
   required: false
   type: boolean
   default: false
@@ -88,8 +88,9 @@ device_config / device_config_domain / device_config_glob:
 Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
 An easy script to generate a random key:
+
 ```bash
-$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 You can also use sites like [this one](https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h) to generate the required data, just remember to put `0x` before each pair of characters:
@@ -104,25 +105,25 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## First Run
 
-On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+On platforms other than Home Assistant and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## Platform specific instructions
 
-### Hass.io
+### Home Assistant
 
 You do not need to install any software to use Z-Wave.
 
-If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
+If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
-You can also check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
+You can also check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
 ```bash
-$ hassio hardware info
+ha hardware info
 ```
 
-If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
+If you did an alternative install of Home Assistant on Linux (e.g.,  installing Ubuntu, then Docker, then Home Assistant Supervised) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g.,  dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 
@@ -131,7 +132,7 @@ You do not need to install any software to use Z-Wave.
 To enable access to the Z-Wave stick, add `--device=/dev/ttyACM0` to the `docker` command that starts your container, for example:
 
 ```bash
-$ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host --device=/dev/ttyACM0 homeassistant/raspberrypi3-homeassistant
+docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host --device=/dev/ttyACM0 homeassistant/raspberrypi3-homeassistant
 ```
 
 If the path of `/dev/ttyACM0` doesn't work then you can find the path of the stick by disconnecting and then reconnecting it, and running the following in the Docker host:
@@ -148,12 +149,12 @@ The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and 
 
 On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
-#### Linux
+#### Linux with Home Assistant Core
 
 On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
-$ sudo apt-get install libudev-dev build-essential
+sudo apt-get install libudev-dev build-essential
 ```
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.
@@ -180,20 +181,21 @@ Or, if there is no result, try to find detailed USB connection info with:
 dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) you need to give access to the stick with:
 
 ```bash
-$ sudo usermod -aG dialout homeassistant
+sudo usermod -aG dialout homeassistant
 ```
 
 The output from `ls -ltr` above contains the following information:
-* The device type is `c` (character special)
-* The permissions are `rw-rw----`, meaning only the owner and group can read and write to it
-* There is only `1` link to the file
-* It is owned by `root` and can be accessed by members of the group `dialout`
-* It has a major device number of `204`, and a minor device number of `64`
-* The device was connected at `10:25` on `21 September`
-* The device is `/dev/ttyUSB0`.
+
+- The device type is `c` (character special).
+- The permissions are `rw-rw----`, meaning only the owner and group can read and write to it.
+- There is only `1` link to the file.
+- It is owned by `root` and can be accessed by members of the group `dialout`.
+- It has a major device number of `204`, and a minor device number of `64`.
+- The device was connected at `10:25` on `21 September`.
+- The device is `/dev/ttyUSB0`.
 
 #### macOS
 
@@ -215,16 +217,17 @@ ls /dev/cu.usbmodem*
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-## Random unreachable Z-Wave nodes: ModemManager interference
+### Random unreachable Z-Wave nodes: ModemManager interference
 
 If this applies to your situation:
+
 - Some or all Z-Wave nodes are unreachable after restarting Home Assistant; not necessarily after every restart but seemingly random.
 - The Z-Wave stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back.
 - Your host OS is Debian-based/Ubuntu (for example: you installed Ubuntu, then Docker, then Hass.io).
 
 Then chances are high that the ModemManager in the host OS is causing the issue, claiming or interfering with the USB Z-Wave stick like the much used Aeotec ones. In this case you need to disable ModemManager.
 
-Connect to your host OS (e.g. Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
+Connect to your host OS (e.g.,  Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
 
  ```bash
 systemctl disable ModemManager.service
@@ -267,7 +270,9 @@ sudo usermod -aG dialout homeassistant
 
 If you're getting errors like:
 
-    openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
+```txt
+openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
+```
 
 Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux).
 

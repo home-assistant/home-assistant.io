@@ -5,6 +5,7 @@ logo: orvibo.png
 ha_category:
   - Switch
 ha_release: 0.8
+ha_domain: orvibo
 ---
 
 <div class='note warning'>

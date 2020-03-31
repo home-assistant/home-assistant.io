@@ -1,13 +1,13 @@
 ---
 title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Cover
 ha_release: 0.27
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: cover
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
@@ -35,7 +35,7 @@ Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`,
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
 
 ### Service `cover.set_cover_position`
 
@@ -43,7 +43,7 @@ Set cover position of one or multiple covers.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
 | `position` | no | Integer between 0 and 100.
 
 #### Automation example 
@@ -66,7 +66,7 @@ Set cover tilt position of one or multiple covers.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
 | `tilt_position` | no | Integer between 0 and 100.
 
 #### Automation example 

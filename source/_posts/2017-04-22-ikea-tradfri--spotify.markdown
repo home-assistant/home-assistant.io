@@ -93,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
 ## Release 0.43.2 - April 27
@@ -132,7 +132,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pywemo version. ([@pavoni] - [#7004])
 - Fix Synology camera content type ([@balloob] - [#7010]) ([camera.synology docs])
 - Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
-- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021]) ([alarm_control_panel.alarmdotcom docs])
+- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021])
 - Fix US states check (fixes #7015) ([@fabaff] - [#7017])
 - Remove deprecated remote classes ([@balloob] - [#7011]) (breaking change)
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
@@ -417,7 +417,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
 
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [arduino docs]: /integrations/arduino/
 [automation docs]: /integrations/automation/
 [binary_sensor.ping docs]: /integrations/ping#binary-sensor
@@ -472,7 +471,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tplink docs]: /integrations/tplink
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [telegram_bot.polling docs]: /integrations/telegram_polling
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tts.google docs]: /integrations/google_translate
@@ -492,9 +491,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KlaasH]: https://github.com/KlaasH
 [cover.zwave docs]: /integrations/zwave#cover
 [recorder docs]: /integrations/recorder/
-[switch.hook docs]: /integrations/hook
 [switch.wemo docs]: /integrations/wemo
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [wemo docs]: /integrations/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271

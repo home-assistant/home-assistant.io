@@ -56,7 +56,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)
 - Remove Notify My Android component as it shut down on May 24 ([@cgarwood] - [#14594]) ([notify docs]) (breaking change)
-- CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e. bitcoin). The API instead uses IDs (integers) for these tickers (i.e. bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
+- CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e., bitcoin). The API instead uses IDs (integers) for these tickers (i.e., bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
 - Give unknown zwave nodes a better name and don't add them to entity registry ([@andrey-git] - [#14353]) ([zwave docs]) (breaking change)
 - The `netdata` sensor was re-worked to support all available details from [Netdata](https://my-netdata.io/). This requires you to adjust the your existing configuration if you use the `netdata` sensor.
  ([@fabaff] - [#14613]) ([sensor.netdata docs]) (breaking change)
@@ -154,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added option to block Osram Lightify individual lights in the same way that groups can be ([@austinlg96] - [#14470]) ([light.osramlightify docs])
 - Upgrade directpy to 0.5 ([@Bahnburner] - [#14750]) ([media_player.directv docs])
 - Update syntax of platform random ([@fabaff] - [#14767]) ([binary_sensor.random docs]) ([sensor.random docs])
-- Update postnl api to 1.0.2 ([@iMicknl] - [#14769]) ([sensor.postnl docs])
+- Update postnl api to 1.0.2 ([@iMicknl] - [#14769])
 - Remove swagger file ([@fabaff] - [#14762])
 - Update syntax ([@fabaff] - [#14771]) ([sensor.version docs])
 - Update syntax ([@fabaff] - [#14768]) ([sensor.worldclock docs])
@@ -389,7 +389,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.netatmo docs]: /integrations/netatmo#sensor
 [sensor.netdata docs]: /integrations/netdata
 [sensor.onewire docs]: /integrations/onewire
-[sensor.postnl docs]: /integrations/postnl
 [sensor.rainmachine docs]: /integrations/rainmachine
 [sensor.random docs]: /integrations/random#sensor
 [sensor.shodan docs]: /integrations/shodan

@@ -1,13 +1,13 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
-logo: google-assistant.png
 ha_category:
   - Voice
 featured: true
 ha_release: 0.56
 ha_codeowners:
   - '@home-assistant/cloud'
+ha_domain: google_assistant
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
@@ -28,7 +28,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 </div>
 
-You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide one, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.
+You will need to create a service account [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)  which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide the service account, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.  See Step 2 after the note for more details.
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
@@ -38,7 +38,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select `Next`.
     2. For the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
-    3. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
+    3. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`.
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. Click `Next`
@@ -66,7 +66,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
         2. Copy and share the link with the new user.
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
-2. If you want to support actively reporting of state to Google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
+2. If you want to support actively reporting of state to Google's server (configuration option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
     1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
     2. From the Service account list, select New service account.
     3. In the Service account name field, enter a name.
@@ -75,11 +75,9 @@ If you've added Home Assistant to your phone's home screen, you have to first re
     6. For the Key type, select the JSON option.
     7. Click Create. A JSON file that contains your key downloads to your computer.
     8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-3. If you didn't specify a service account and want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable HomeGraph API for your project:
-    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
-    2. Select your project and click Enable HomeGraph API.
-    3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
-    4. Note down the generated API Key and use this in the configuration.
+    9. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    10. Select your project and click Enable HomeGraph API.
+
 
 ### Configuration
 
@@ -89,7 +87,6 @@ Now add your setup to your `configuration.yaml` file, such as:
 # Example configuration.yaml entry
 google_assistant:
   project_id: YOUR_PROJECT_ID
-  api_key: YOUR_API_KEY
   service_account: !include SERVICE_ACCOUNT.JSON
   report_state: true
   exposed_domains:
@@ -117,7 +114,7 @@ secure_devices_pin:
   type: string
   default: ""
 api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.
+  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a `service_account` now.
   required: false
   type: string
 service_account:
@@ -188,7 +185,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
-- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
+- lock 
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)

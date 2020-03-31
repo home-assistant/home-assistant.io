@@ -1,11 +1,11 @@
 ---
 title: Manual
 description: Instructions on how to integrate manual alarms into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Alarm
 ha_release: 0.7.6
 ha_quality_scale: internal
+ha_domain: manual
 ---
 
 The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.
@@ -124,7 +124,7 @@ be used for example to sound the siren for a shorter time during the night.
 
 ## Examples
 
-In the config example below:
+In the configuration example below:
 
 - the disarmed state never triggers the alarm;
 - the armed_home state will leave no time to leave the building or disarm the alarm;

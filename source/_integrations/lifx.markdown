@@ -7,13 +7,14 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
+ha_domain: lifx
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
 _Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX integration by going to the integrations page inside the config panel.
+You can configure the LIFX integration by going to the integrations page inside the configuration panel.
 
 ## Set state
 
@@ -27,7 +28,7 @@ Change the light to a new state.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
@@ -72,7 +73,7 @@ Run a flash effect by changing to a color and then back.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
 | `brightness` | Integer between 0 and 255 for how bright the color should be.
@@ -87,7 +88,7 @@ Run an effect with colors looping around the color wheel. All participating ligh
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
 | `period` | Duration (in seconds) between starting a new color change.
 | `transition` | Duration (in seconds) where lights are actively changing color.
@@ -101,7 +102,7 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
 
 ## Advanced configuration

@@ -1,27 +1,27 @@
 ---
 title: "MySensors Device Tracker"
 description: "Instructions on how to use MySensors to track devices in Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Presence Detection
 ha_release: 0.38
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors device trackers into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors device trackers into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 The following sensor types are supported:
 
-##### MySensors version 2.0 and higher
+## MySensors version 2.0 and higher
 
-S_TYPE             | V_TYPE
--------------------|---------------------------------------
-S_GPS             | V_POSITION
+| S_TYPE | V_TYPE     |
+| ------ | ---------- |
+| S_GPS  | V_POSITION |
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
-### MySensors 2.x example sketch
+## MySensors 2.x example sketch
 
 ```cpp
 /**
@@ -95,6 +95,3 @@ void loop()
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: https://www.mysensors.org/download

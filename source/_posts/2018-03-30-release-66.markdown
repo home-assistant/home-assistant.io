@@ -91,7 +91,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove crazy JSON encoding things that are no longer used ([@balloob] - [#13029]) ([http docs]) ([websocket_api docs])
 - Disable Monkey Patch for 3.6.3+ ([@OttoWinter] - [#13150])
 - Upgrade Sphinx to 1.7.1 ([@fabaff] - [#13127])
-- upgrade tibber libary to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
+- upgrade tibber library to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
 - Change iglo port to cv.port validator ([@jesserockz] - [#13163]) ([light.iglo docs])
 - deConz rewrite to use async await syntax ([@Kane610] - [#13151]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([scene.deconz docs]) ([sensor.deconz docs])
 - Upgrade holidays to 0.9.4 ([@OttoWinter] - [#13167]) ([binary_sensor.workday docs])
@@ -550,7 +550,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.vesync docs]: /integrations/vesync#switches
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zha docs]: /integrations/zha
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [upcloud docs]: /integrations/upcloud/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [weather.darksky docs]: /integrations/weather.darksky/

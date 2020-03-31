@@ -1,11 +1,11 @@
 ---
 title: RESTful
 description: Instructions on how to integrate REST sensors into Home Assistant.
-logo: restful.png
 ha_category:
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -105,19 +105,19 @@ headers:
   required: false
   type: [string, list]
 json_attributes:
-  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
-  reqired: false
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml" or "application/xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
+  required: false
   type: [string, list]
+json_attributes_path:
+  description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+  required: false
+  type: string
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
-  reqired: false
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>
 
 <div class='note'>
 
@@ -264,6 +264,26 @@ sensor:
 ```
 {% endraw %}
 
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find the [XMLtoDict debug tool](https://xmltodict-debugger.glitch.me/) helpful for testing how your XML converts to JSON.
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: rest
+    name: JSON users
+    json_attributes_path: "$.[0].address"
+    json_attributes:
+      - street
+      - suite
+      - city
+      - zipcode
+    resource: https://jsonplaceholder.typicode.com/users
+    value_template: '{{ value_json[0].name }}'
+```
+
+{% endraw %}
+
 This sample fetches a weather report from [OpenWeatherMap](https://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
@@ -300,7 +320,7 @@ sensor:
 ```
 {% endraw %}
 
-This config shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
 
 {% raw %}
 ```json
@@ -358,3 +378,106 @@ sensor:
         unit_of_measurement: '°C'
 ```
 {% endraw %}
+
+The below example allows shows how to extract multiple values from a dictionary with `json_attributes` and `json_attributes_path` from the XML of a Steamist Steambath Wi-Fi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.
+
+In the below example `json_attributes_path` is set to `$.response` which is the location of the `usr0`, `pot0`, ... attributes used for `json_attributes`.
+
+{% raw %}
+
+```yaml
+sensor:
+# Steam Controller
+  - platform: rest
+    name: Steam System Data
+    resource: http://192.168.1.105/status.xml
+    json_attributes_path: "$.response"
+    scan_interval: 15
+    value_template: 'OK'
+    json_attributes:
+      - "usr0"
+      - "pot0"
+      - "temp0"
+      - "time0"
+  - platform: template
+    sensors:
+       steam_temp:
+        friendly_name: Steam Temp
+        value_template: '{{ states.sensor.steam_system_data.attributes["temp0"] | regex_findall_index("([0-9]+)XF") }}'
+        unit_of_measurement: "°F"
+       steam_time_remaining:
+        friendly_name: "Steam Time Remaining"
+        value_template: '{{ states.sensor.steam_system_data.attributes["time0"] }}'
+        unit_of_measurement: "minutes"
+
+switch:
+  - platform: template
+    switches:
+      steam:
+        value_template: '{{ states.sensor.steam_system_data.attributes["usr0"] | int >= 1 }}'
+        turn_on:
+          - service: rest_command.set_steam_led
+            data:
+               led: 6
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+          - delay: 00:00:15
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+        turn_off:
+          - service: rest_command.set_steam_led
+            data:
+               led: 7
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+          - delay: 00:00:15
+          - service: homeassistant.update_entity
+            data:
+               entity_id: sensor.steam_system_data
+        friendly_name: Steam
+
+rest_command:  
+  set_steam_led:
+    url: http://192.168.1.105/leds.cgi?led={{ led }}
+```
+
+{% endraw %}
+
+For reference, the XML content of endpoint shown above example is below:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+
+ <response>
+ 	<scan>0</scan>
+	<ver>12556</ver>
+	<count>48</count>
+	<ssid>alexander</ssid>
+	<bss>
+		<valid>0</valid>
+		<name>0</name>
+		<privacy>0</privacy>
+		<wlan>0</wlan>
+		<strength>0</strength>
+	</bss>
+	<led0>0</led0>
+	<led1>0</led1>
+	<led2>0</led2>
+	<led3>0</led3>
+	<led4>0</led4>
+	<led5>0</led5>
+	<led6>0</led6>
+	<led7>0</led7>
+	<btn0>up</btn0>
+	<btn1>up</btn1>
+	<btn2>up</btn2>
+	<btn3>up</btn3>
+	<pot0>0</pot0>
+	<usr0>0</usr0>
+	<temp0>0x73XF0x73XF</temp0>
+	<time0> 0</time0>
+ </response>
+```

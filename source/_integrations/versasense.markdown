@@ -2,7 +2,6 @@
 title: VersaSense
 description: Integrate your VersaSense MicroPnP devices.
 date: 2019-11-19 14:00
-logo: versasense.png
 ha_release: 0.103
 ha_category:
   - Hub
@@ -11,6 +10,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@flamm3blemuff1n'
+ha_domain: versasense
 ---
 
 The `VersaSense` integration supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
@@ -25,14 +25,14 @@ versasense:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of the VersaSense gateway. Including *protocol* and *port*, e.g., https://gateway.versasense.com:8889"
+  description: "The IP address or hostname of the VersaSense gateway. Including *protocol* and *port*, e.g., `https://gateway.versasense.com:8889`"
   required: true
   type: string
 {% endconfiguration %}
 
 ## Supported hardware
 
-All Versasense gateways with software version >= 1.0.2.10
+All VersaSense gateways with software version >= 1.0.2.10
 
 The integration is tested with following peripherals and devices:
 

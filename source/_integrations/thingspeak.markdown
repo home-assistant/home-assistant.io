@@ -5,6 +5,7 @@ logo: thingspeak.png
 ha_category:
   - History
 ha_release: 0.32
+ha_domain: thingspeak
 ---
 
 The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).

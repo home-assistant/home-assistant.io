@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Binary Sensor
   - Cover
+  - Lock
   - Scene
   - Switch
   - Sensor
@@ -13,6 +14,7 @@ ha_release: 0.59
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@philklei'
+ha_domain: tahoma
 ---
 
 The `Tahoma` integration platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
@@ -22,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Sensor
 - Cover
+- Lock
 - Switch
 - Scene
 

@@ -12,6 +12,7 @@ ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JonGilmore'
+ha_domain: lutron
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -74,7 +75,7 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 
 ## Occupancy Sensors
 
-Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
 ## Example Automations
 

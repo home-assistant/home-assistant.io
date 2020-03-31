@@ -1,16 +1,16 @@
 ---
-title: Vivotek
-description: Instructions on how to integrate Vivotek cameras within Home Assistant.
+title: VIVOTEK
+description: Instructions on how to integrate VIVOTEK cameras within Home Assistant.
 ha_category:
   - Camera
-logo: vivotek.jpg
 ha_release: 0.99
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@HarlemSquirrel'
+ha_domain: vivotek
 ---
 
-The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
+The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -35,7 +35,7 @@ ip_address:
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
-  default: Vivotek Camera
+  default: VIVOTEK Camera
   type: string
 username:
   description: The username for accessing your camera.
