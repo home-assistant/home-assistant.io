@@ -99,7 +99,7 @@ Once all zones are configured you'll be presented with configuration for additio
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel
 
-**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host url** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above.  This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
