@@ -27,4 +27,18 @@ name:
   description: Name of the analog-output (slow-PWM) device
   required: true
   type: string
+device:
+  description: Name of the switch that should be switched in the PWM loop.
+  required: true
+  type: string
+minimum: 
+  description: Minimum value of the analog output.
+  required: false
+  type: float
+  default: 0
+maximum: 
+  description: Maximum value of the analog output.
+  required: false
+  type: float
+  default: 100
 {% endconfiguration %}
