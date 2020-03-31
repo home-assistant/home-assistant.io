@@ -1,7 +1,6 @@
 ---
-title: Honeywell Total Connect Alarm
-description: Instructions on how to integrate TotalConnect alarms into Home Assistant.
-logo: honeywell-tc.png
+title: Total Connect
+description: Instructions on how to integrate Total Connect into Home Assistant.
 ha_category:
   - Alarm
   - Binary Sensor
