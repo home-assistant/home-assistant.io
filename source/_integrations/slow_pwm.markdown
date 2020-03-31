@@ -42,7 +42,7 @@ maximum:
   type: float
   default: 100
 cycletime: 
-  description: Duration of the PWM loop in the format 'HH:MM:SS' Recommended duration depends on the hardware controlled. Generally, it should be > 30 s.
+  description: Duration of the PWM loop in the format `HH:MM:SS`. Recommended duration depends on the hardware controlled. Generally, it should be > 30s.
   required: false
   type: string
   default: '00:30:00'
