@@ -1,7 +1,6 @@
 ---
 title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
-logo: solar-log.png
 ha_category: Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
