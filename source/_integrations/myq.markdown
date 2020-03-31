@@ -4,6 +4,7 @@ description: Instructions on how to integrate MyQ-Enabled garage door covers int
 logo: myq.png
 ha_category:
   - Cover
+  - Binary Sensor
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -38,3 +39,11 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+### Binary Sensor
+
+Your `MyQ` gateway will appear as a binary sensor that shows if the device is connected.
+
+### Cover
+
+Garage doors and gates linked to your `MyQ` account will appear as covers.
