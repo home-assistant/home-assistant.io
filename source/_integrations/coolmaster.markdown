@@ -1,7 +1,6 @@
 ---
 title: CoolMasterNet
 description: Instructions on how to integrate CoolMasterNet within Home Assistant.
-logo: coolautomation.png
 ha_category:
   - Climate
 ha_release: 0.88

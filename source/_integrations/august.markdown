@@ -1,7 +1,6 @@
 ---
 title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
-logo: august.png
 ha_category:
   - Doorbell
   - Binary Sensor
@@ -101,7 +100,7 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 ### Presence Detection with Lock Operation
 
-Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below example will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
+Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 
 {% raw %}
 
