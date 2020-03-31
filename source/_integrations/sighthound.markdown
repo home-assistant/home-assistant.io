@@ -1,7 +1,6 @@
 ---
 title: Sighthound
 description: Detect people with Sighthound Cloud.
-logo: sighthound-logo.png
 ha_category:
   - Image Processing
 ha_release: 0.105
