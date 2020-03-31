@@ -97,7 +97,7 @@ The settings UI starts by having you configure the general behavior of each zone
 
 Once all zones are configured you'll be presented with configuration for additional panel behaviors.
 
-**Blink panel LED on when sending state change:** The desired LED behavior for the panel
+**Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
 **Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
 
