@@ -95,7 +95,7 @@ The settings UI starts by having you configure the general behavior of each zone
 
 #### Using Settings UI to Configure Additional Panel Behavior
 
-Once all zones are configured you'll be presented with configuration for additional panel behaviors.
+Once all zones are configured you'll be presented with the configuration for additional panel behaviors.
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
