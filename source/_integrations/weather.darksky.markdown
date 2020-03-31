@@ -1,7 +1,7 @@
 ---
 title: "Dark Sky"
 description: "Instructions on how to integrate Dark Sky within Home Assistant."
-featured: true
+featured: false
 logo: dark_sky.png
 ha_category:
   - Weather
