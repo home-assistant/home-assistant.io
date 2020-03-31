@@ -1,7 +1,6 @@
 ---
 title: Todoist
 description: Instructions on how to integrate Todoist into Home Assistant.
-logo: todoist.png
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
