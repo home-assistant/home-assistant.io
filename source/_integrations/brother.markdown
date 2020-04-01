@@ -1,7 +1,6 @@
 ---
 title: Brother Printer
 description: Instructions on how to integrate a Brother printer into Home Assistant.
-logo: brother.png
 ha_category:
   - System Monitor
 ha_release: 0.104

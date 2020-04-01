@@ -1,7 +1,7 @@
 ---
 title: "Dark Sky"
 description: "Instructions on how to integrate Dark Sky within Home Assistant."
-featured: true
+featured: false
 logo: dark_sky.png
 ha_category:
   - Weather
@@ -14,7 +14,13 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 
 ## Configuration
 
-You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
+<div class='note warning'>
+
+On March 31, 2020 Dark Sky was [acquired by Apple](https://blog.darksky.net/dark-sky-has-a-new-home/) and is no longer allowing new API registrations. The Dark Sky API will continue to function for existing users through the end of 2021, but it is no longer possible to obtain an API key for new users.
+
+</div>
+
+The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
 
 <div class='note warning'>
 

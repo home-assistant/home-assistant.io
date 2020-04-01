@@ -1,7 +1,6 @@
 ---
 title: RMV
 description: Instructions on how to integrate Rhein-Main public transport departure times into Home Assistant.
-logo: RMV.png
 ha_category:
   - Transport
 ha_release: 0.76
