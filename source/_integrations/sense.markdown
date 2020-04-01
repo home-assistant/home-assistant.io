@@ -1,7 +1,6 @@
 ---
 title: Sense
 description: Instructions on how to integrate Sense within Home Assistant.
-logo: sense.png
 ha_category:
   - Energy
   - Binary Sensor
