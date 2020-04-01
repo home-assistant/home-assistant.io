@@ -84,12 +84,13 @@ Not all of them were ready in time for this release; nevertheless, the list is
 amazing already:
 
 - [Freebox][freebox docs], done by [@Quentame]
-- [MyQ][myq docs], done by [@bdraco]
 - [Roku][roku docs], done by [@ctalkington]
 - [Doorbird][doorbird docs], done by [@bdraco]
 - [Elk-M1 Control][elkm1 docs], done by [@bdraco]
 - [Logitech Harmony][harmony docs], done by [@bdraco]
 - [MyQ][myq docs], done by [@bdraco]
+- [MyQ][myq docs], done by [@bdraco]
+- [Network UPS Tools (NUT)][nut docs], done by [@bdraco]
 - [NuHeat][nuheat docs], done by [@bdraco]
 - [Rachio][rachio docs], done by [@bdraco]
 
@@ -264,6 +265,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
       default_channel: "#home-assistant"
   ```
 
+- **Network UPS Tools (NUT)** - The NUT integration is now available as an integration from the UI! ([@bdraco] - [#33457]) ([nut docs]) (breaking change)
+
+  The following sensors are no longer supported:
+
+  - `ups.time`
+  - `ups.date`
+  - `ups.model`
+  - `ups.mfr`
+  - `ups.mfr.date`
+  - `ups.serial`
+  - `ups.vendorid`
+  - `ups.productid`
+  - `ups.firmware`
+  - `ups.firmware.aux`
+
 ## Farewell to the following
 
 - **Alarm.com**
@@ -357,10 +373,10 @@ These integrations have been removed. The websites for both have changed, causin
 - Enable incremental Pan/Tilt/Zoom capability to Amcrest/Dahua cameras ([@GaryOkie] - [#32839]) ([amcrest docs])
 - Add IntesisHome support for air to water heat pumps ([@jnimmo] - [#32250]) ([intesishome docs])
 - Modernize nuheat for new climate platform ([@bdraco] - [#32714]) ([nuheat docs])
-- Remove alarmdotcom integration (ADR-0004) ([@frenck] - [#33056]) ([alarmdotcom docs]) (breaking change)
+- Remove alarmdotcom integration (ADR-0004) ([@frenck] - [#33056]) (breaking change)
 - Add config flow for myq ([@bdraco] - [#32890]) ([myq docs])
 - Add support for nexia automations ([@bdraco] - [#33049]) ([nexia docs]) (new-platform)
-- Remove mopar integration (ADR-0004) ([@frenck] - [#33066]) ([mopar docs]) (breaking change)
+- Remove mopar integration (ADR-0004) ([@frenck] - [#33066]) (breaking change)
 - Use PEP 526 syntax with NamedTuples ([@scop] - [#33081]) ([tplink docs])
 - Don't exempt project for PR's for stalebot ([@frenck] - [#33086])
 - Validate UUID for tankerkoenig ([@guillempages] - [#32805]) ([tankerkoenig docs])
@@ -516,6 +532,26 @@ These integrations have been removed. The websites for both have changed, causin
 - Add binary sensor for myq gateway connectivity ([@bdraco] - [#33423]) ([myq docs]) (new-platform)
 - Retry sense setup later if listing devices times out. ([@bdraco] - [#33455]) ([sense docs])
 - Google Assistant: parallize as many requests as possible ([@balloob] - [#33472]) ([google_assistant docs])
+- Add version and device type to powerwall device_info ([@bdraco] - [#33453]) ([powerwall docs])
+- update VIZIO name to match brand guidelines ([@raman325] - [#33465]) ([vizio docs])
+- Bumped Apprise version to v0.8.5 ([@caronc] - [#33473]) ([apprise docs])
+- Ignore link local addresses during doorbird ssdp config flow ([@bdraco] - [#33401]) ([doorbird docs])
+- Prepare rachio for cloudhooks conversion ([@bdraco] - [#33422]) ([rachio docs])
+- Enable KNX tunnel auto_reconnect by default ([@cyberjunky] - [#33387]) ([knx docs])
+- Fix setting zone overlays for tados that support swing ([@bdraco] - [#33439]) ([tado docs])
+- Refactor DirecTV Integration to Async ([@ctalkington] - [#33114]) ([directv docs]) ([directv docs])
+- allow overriding host api url in config flow ([@kit-klein] - [#33481]) ([konnected docs])
+- Apply recommendations from IPP review ([@ctalkington] - [#33477])
+- Add config flow for nut ([@bdraco] - [#33457]) ([nut docs]) (breaking change)
+- Bump up zha dependencies. ([@Adminiuga] - [#33488]) ([zha docs])
+- Correct issue on new device joins in ZHA ([@dmulcahey] - [#33470]) ([zha docs])
+- Replace asyncio.wait with asyncio.gather since wait ignores exceptions ([@ziv1234] - [#33380])
+- Clean up ZHA channel reporting configuration ([@Adminiuga] - [#33497]) ([zha docs])
+- Add MQTT debug info ([@emontnemery] - [#33461]) ([mqtt docs])
+- Fix invalid directory for dnsmasq files in asuswrt ([@springstan] - [#33503]) ([asuswrt docs])
+- Expand network util to check for link local addresses ([@bdraco] - [#33499]) ([axis docs]) ([doorbird docs])
+- Updated frontend to 20200401.0 ([@bramkragten] - [#33505]) ([frontend docs])
+- Add device triggers for Hue remotes ([@azogue] - [#33476]) ([hue docs])
 
 [#29063]: https://github.com/home-assistant/core/pull/29063
 [#29909]: https://github.com/home-assistant/core/pull/29909
@@ -650,6 +686,7 @@ These integrations have been removed. The websites for both have changed, causin
 [#33086]: https://github.com/home-assistant/core/pull/33086
 [#33097]: https://github.com/home-assistant/core/pull/33097
 [#33107]: https://github.com/home-assistant/core/pull/33107
+[#33114]: https://github.com/home-assistant/core/pull/33114
 [#33116]: https://github.com/home-assistant/core/pull/33116
 [#33123]: https://github.com/home-assistant/core/pull/33123
 [#33124]: https://github.com/home-assistant/core/pull/33124
@@ -732,13 +769,16 @@ These integrations have been removed. The websites for both have changed, causin
 [#33374]: https://github.com/home-assistant/core/pull/33374
 [#33378]: https://github.com/home-assistant/core/pull/33378
 [#33379]: https://github.com/home-assistant/core/pull/33379
+[#33380]: https://github.com/home-assistant/core/pull/33380
 [#33381]: https://github.com/home-assistant/core/pull/33381
 [#33383]: https://github.com/home-assistant/core/pull/33383
+[#33387]: https://github.com/home-assistant/core/pull/33387
 [#33388]: https://github.com/home-assistant/core/pull/33388
 [#33391]: https://github.com/home-assistant/core/pull/33391
 [#33395]: https://github.com/home-assistant/core/pull/33395
 [#33396]: https://github.com/home-assistant/core/pull/33396
 [#33398]: https://github.com/home-assistant/core/pull/33398
+[#33401]: https://github.com/home-assistant/core/pull/33401
 [#33402]: https://github.com/home-assistant/core/pull/33402
 [#33404]: https://github.com/home-assistant/core/pull/33404
 [#33407]: https://github.com/home-assistant/core/pull/33407
@@ -746,20 +786,36 @@ These integrations have been removed. The websites for both have changed, causin
 [#33412]: https://github.com/home-assistant/core/pull/33412
 [#33414]: https://github.com/home-assistant/core/pull/33414
 [#33420]: https://github.com/home-assistant/core/pull/33420
+[#33422]: https://github.com/home-assistant/core/pull/33422
 [#33423]: https://github.com/home-assistant/core/pull/33423
 [#33425]: https://github.com/home-assistant/core/pull/33425
 [#33434]: https://github.com/home-assistant/core/pull/33434
 [#33435]: https://github.com/home-assistant/core/pull/33435
+[#33439]: https://github.com/home-assistant/core/pull/33439
 [#33442]: https://github.com/home-assistant/core/pull/33442
 [#33443]: https://github.com/home-assistant/core/pull/33443
 [#33444]: https://github.com/home-assistant/core/pull/33444
 [#33448]: https://github.com/home-assistant/core/pull/33448
 [#33449]: https://github.com/home-assistant/core/pull/33449
 [#33450]: https://github.com/home-assistant/core/pull/33450
+[#33453]: https://github.com/home-assistant/core/pull/33453
 [#33454]: https://github.com/home-assistant/core/pull/33454
 [#33455]: https://github.com/home-assistant/core/pull/33455
+[#33457]: https://github.com/home-assistant/core/pull/33457
+[#33461]: https://github.com/home-assistant/core/pull/33461
 [#33462]: https://github.com/home-assistant/core/pull/33462
+[#33465]: https://github.com/home-assistant/core/pull/33465
+[#33470]: https://github.com/home-assistant/core/pull/33470
 [#33472]: https://github.com/home-assistant/core/pull/33472
+[#33473]: https://github.com/home-assistant/core/pull/33473
+[#33476]: https://github.com/home-assistant/core/pull/33476
+[#33477]: https://github.com/home-assistant/core/pull/33477
+[#33481]: https://github.com/home-assistant/core/pull/33481
+[#33488]: https://github.com/home-assistant/core/pull/33488
+[#33497]: https://github.com/home-assistant/core/pull/33497
+[#33499]: https://github.com/home-assistant/core/pull/33499
+[#33503]: https://github.com/home-assistant/core/pull/33503
+[#33505]: https://github.com/home-assistant/core/pull/33505
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@C6H6]: https://github.com/C6H6
@@ -793,6 +849,7 @@ These integrations have been removed. The websites for both have changed, causin
 [@bieniu]: https://github.com/bieniu
 [@bramkragten]: https://github.com/bramkragten
 [@brefra]: https://github.com/brefra
+[@caronc]: https://github.com/caronc
 [@cepresso]: https://github.com/cepresso
 [@cgtobi]: https://github.com/cgtobi
 [@ctalkington]: https://github.com/ctalkington
@@ -850,12 +907,14 @@ These integrations have been removed. The websites for both have changed, causin
 [airvisual docs]: /integrations/airvisual/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
-[alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [ambient_station docs]: /integrations/ambient_station/
 [amcrest docs]: /integrations/amcrest/
 [androidtv docs]: /integrations/androidtv/
+[apprise docs]: /integrations/apprise/
+[asuswrt docs]: /integrations/asuswrt/
 [automation docs]: /integrations/automation/
+[axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [binary_sensor docs]: /integrations/binary_sensor/
 [bluesound docs]: /integrations/bluesound/
@@ -904,6 +963,7 @@ These integrations have been removed. The websites for both have changed, causin
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [kef docs]: /integrations/kef/
+[knx docs]: /integrations/knx/
 [konnected docs]: /integrations/konnected/
 [lastfm docs]: /integrations/lastfm/
 [lcn docs]: /integrations/lcn/
@@ -917,7 +977,6 @@ These integrations have been removed. The websites for both have changed, causin
 [minecraft_server docs]: /integrations/minecraft_server/
 [modbus docs]: /integrations/modbus/
 [monoprice docs]: /integrations/monoprice/
-[mopar docs]: /integrations/mopar/
 [mpd docs]: /integrations/mpd/
 [mqtt docs]: /integrations/mqtt/
 [myq docs]: /integrations/myq/
