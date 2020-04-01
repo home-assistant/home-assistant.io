@@ -82,7 +82,7 @@ This sensor will wake up your Synology NAS if it's in hibernation mode.
 
 ## Separate User Configuration
 
-Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
+Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user it is possible to deny access to all locations and applications. By doing this the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
