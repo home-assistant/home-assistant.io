@@ -10,7 +10,7 @@ ha_domain: synology_dsm
 
 The `synology_dsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
-## Setup the integration
+## Configuration
 
 There is two ways to integrate Synology DSM in Home Assistant.
 
