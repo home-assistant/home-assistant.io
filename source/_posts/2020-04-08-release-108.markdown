@@ -15,6 +15,51 @@ og_image: /images/blog/2020-04-0.108/social.png
 Alexa cameras
 https://github.com/home-assistant/core/pull/32772
 
+## Integration logo's
+
+Some information about the brands repo?
+We also use these images now on the device info page that got a layout update, and the integrations page.
+
+## Map history
+
+Maybe not very useful during home quarantine, but a very cool feature for when we are allowed to get out of the house again.
+[@Hoytron](https://github.com/Hoytron) added the ability to show the history of persons or device trackers on the map. You can define how many hours of history you want to show and it will draw lines between all the points in that time frame.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.108/map-history.png' alt='Screenshot of the map card with history'></a>
+Screenshot of the map card with history.
+</p>
+
+## New Lovelace card: Entity
+
+[@zsarnett](https://github.com/zsarnett) added a new Lovelace card, the entity card. This card looks like the sensor card, but will allows any entity and not just sensors.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.108/entity-card.png' alt='Screenshot of the entity card'></a>
+Screenshot of the entity card.
+</p>
+
+## Themes
+
+__Possibly breaking change__
+We discovered our theme logic was wrong, when you didn't specify a theme for a Lovelace card or view, it would default to the backend selected theme, even when your local theme was different, or your view had a different theme. To fix this we removed the options `default` and `Backend selected` from the Lovelace theme selection, and when there is not theme selected it will not set a theme. This will make sure the element has the same theme as it's parent.
+
+## Area config page
+
+We added an overview page for your areas. On this page you can see all the devices in the area, but also the automations, scenes and scripts that affect that area.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.108/area-config-page.png' alt='Screenshot of the area config page'></a>
+Screenshot of the area config page.
+</p>
+
+## Other changes:
+
+- A lot of config pages are migrated to data tables, this means you can now search in your automations, scenes, scripts, users and areas.
+- Lovelace cards in panel views can now also be edited with the UI editor.
+- The graph from the sensor card is now also available as a footer for the entities card.
+- Horizontal stacks now deal better with cards of different heights.
+
 ## New Integrations
 
 - Add Powerwalls integration ([@bdraco] - [#32851]) ([powerwall docs]) (new-integration)
