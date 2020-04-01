@@ -79,7 +79,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 # Waits however many seconds input_number.second_delay is set to
 - delay:
     # Supports milliseconds, seconds, minutes, hours, days
-    seconds: "{{ states('input_number.second_delay') }}"
+    seconds: "{{ states('input_number.second_delay') | int }}"
 ```
 {% endraw %}
 
