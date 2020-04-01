@@ -21,7 +21,7 @@ Some models (original Kira and Kira128) can be configured to act as either a sen
 
 If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
 
-### Example Configuration
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
