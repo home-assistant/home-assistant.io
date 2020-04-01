@@ -192,14 +192,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-__Possibly breaking change__
-We discovered our theme logic was wrong, when you didn't specify a theme for a Lovelace card or view, it would default to the backend selected theme, even when your local theme was different, or your view had a different theme. To fix this we removed the options `default` and `Backend selected` from the Lovelace theme selection, and when there is not theme selected it will not set a theme. This will make sure the element has the same theme as it's parent.
+- **Lovelace themes** - We discovered our theme logic was wrong, when you didn't specify a theme for a Lovelace card or view. It would default to the backend selected theme, even when your local theme was different, or your view had a different theme. To fix this we removed the options `default` and `Backend selected` from the Lovelace theme selection, and when there is not theme selected it will not set a theme. This will make sure the element has the same theme as it's parent.
 
-- **Freebox** - Freebox is now available as an integration from the Integrations UI! Users will need to re-authorize Home Assistant to access the Freebox router. - ([@Quentame] - [#30334]) ([freebox docs]) 
-- **Unifi** - Manual configuration has been deprecated as the UI integration now supports all of the previous available options and more. Yaml configuration will need to be removed and the integration re-added through the UI. - ([@Kane610] - [#32699]) ([unifi docs]) 
-- **Emulated Hue** - The `emulated_hue` and `emulated_hue_hidden` attributes have been deprecated. Users should use the existing `entities` `hidden` configuration instead. -  ([@bdraco] - [#32718]) ([emulated_hue docs]) 
+- **Freebox** - Freebox is now available as an integration from the Integrations UI! You will need to re-authorize Home Assistant to access the Freebox router. - ([@Quentame] - [#30334]) ([freebox docs])
 
-  Example yaml configuration:
+- **UniFi** - Manual configuration has been deprecated as the UI integration now supports all of the previous available options and more. Remove any existing YAML configuration and re-add the integration through the UI. - ([@Kane610] - [#32699]) ([unifi docs])
+
+- **Emulated Hue** - The `emulated_hue` and `emulated_hue_hidden` attributes have been deprecated. Use the existing `entities` `hidden` configuration instead. - ([@bdraco] - [#32718]) ([emulated_hue docs])
+
+  Example YAML configuration:
+
   ```yaml
   emulated_hue:
     host_ip: 192.168.1.186
@@ -219,48 +221,55 @@ We discovered our theme logic was wrong, when you didn't specify a theme for a L
         hidden: true
     ```
 
-- **Roku** - Roku is now available as an integration from the Integrations UI! The `roku_scan` service has been removed in favor of discovery via `ssdp` -  ([@ctalkington] - [#31988]) ([roku docs])
+- **Roku** - Roku is now available as an integration from the integrations UI! The `roku_scan` service has been removed in favor of discovery via `ssdp`. -  ([@ctalkington] - [#31988]) ([roku docs])
 
 - **MQTT** - Deprecated features from MQTT platforms are now removed. - ([@emontnemery] - [#32909]) ([mqtt docs])
   - For MQTT lights setup through MQTT discovery, it's no longer possible to specify schema with `platform` configuration variable. Instead, schema must be specified by the `schema` configuration variable.
-  - For MQTT alarm_control_panel, MQTT binary_sensor and MQTT sensor setup through MQTT discovery the undocumented implicit setting of `state_topic` is no longer supported. Instead, `state_topic` must be explicitly set.
+  - For MQTT `alarm_control_panel`, MQTT `binary_sensor` and MQTT `sensor` set up through MQTT discovery: The undocumented implicit setting of `state_topic` is no longer supported. Instead, `state_topic` must be explicitly set.
   - Support for `json_attributes` is removed from MQTT sensor, `json_attributes_topic` should be used instead.
 
-- **Harmony** - Harmony is now available as an integration from the Integrations UI! Yaml configuration now requires a host/ip. - ([@bdraco] - [#32919]) ([harmony docs]) ([remote docs])
+- **Harmony** - Harmony is now available as an integration from the Integrations UI! The YAML configuration now requires a host/ip. - ([@bdraco] - [#32919]) ([harmony docs])
 
-  Example yaml configuration:
+  Example YAML configuration:
+
   ```yaml
   remote:
     - platform: harmony
       name: Bedroom
       host: 10.168.1.13
   ```
- 
-- **Sonos** - Sonos attributes have been cleaned up for radio streams - ([@amelchio] - [#33063]) ([sonos docs])
-   - Sonos entities playing radio streams used to merge the radio name, the artist and the song name into two attributes. They now have `media_artist` and `media_title` attributes that simply match the playing music (when available).
-   - Radio station artwork is no longer available for Sonos entities in polling mode (i.e. on a network separate to the network Home Assistant is on). 
 
-- **Monoprice** - Monoprice is now available as an integration from the Integrations UI! Please remove the configuration from yaml and add the Monoprice integration from the Integrations page. - ([@OnFreund] - [#30337]) ([monoprice docs])
+- **Sonos** - Sonos attributes have been cleaned up for radio streams. - ([@amelchio] - [#33063]) ([sonos docs])
+  - Sonos entities playing radio streams used to merge the radio name, the artist and the song name into two attributes. They now have `media_artist` and `media_title` attributes that match the playing music (when available).
+  - Radio station artwork is no longer available for Sonos entities in polling mode (i.e., on a network separate to the network Home Assistant is on).
+
+- **Monoprice** - Monoprice is now available as an integration from the UI! Please remove the configuration from YAML and add the Monoprice integration from the Integrations page. - ([@OnFreund] - [#30337]) ([monoprice docs])
 
 - **Lutron Caseta** - As a result of some cleanup, the `Device ID` and `Zone ID` attributes of Lutron Caseta devices have been renamed to `device_id` and `zone_id` to match the convention of the rest of Home Assistant. If you have any automations that reference these attributes, they will need to be updated. - ([@swails] - [#33144]) ([lutron_caseta docs])
 
-- **Nuheat** - Nuheat is now available as an integration from the Integrations UI! The previous service has been removed and is now handled by `set_hvac_mode` (climate 1.0) - ([@bdraco] - [#32885]) ([nuheat docs])
+- **NuHeat** - NuHeat is now available as an integration from the UI! The previous service has been removed and is now handled by `set_hvac_mode` (climate 1.0). - ([@bdraco] - [#32885]) ([nuheat docs])
 
-- **ElkM1** - ElkM1 is now available as an integration from the Integrations UI! An auto configure mode has been introduced which avoids the need to setup the complex include and exclude filters. This functionality still exists when configuring from yaml for power users who want more control over which entities elkm1 generates.  As entity ids can now be changed, the `alarm_control_panel` attribute `changed_by_entity_id` is now `changed_by_keypad` and will show the name of the Elk keypad instead of the entity id. - ([@bdraco] - [#33297]) ([elkm1 docs])
+- **ElkM1** - ElkM1 is now available as an integration from the UI! An auto configure mode has been introduced which avoids the need to setup the complex include and exclude filters. This functionality still exists when configuring from YAML for power users who want more control over which entities elkm1 generates. As entity IDs can now be changed, the `alarm_control_panel` attribute `changed_by_entity_id` is now `changed_by_keypad` and will show the name of the Elk keypad instead of the entity ID. - ([@bdraco] - [#33297]) ([elkm1 docs])
 
 - **HmIP** - After HmIP Cloud Maintanance (17.3.2020) it's possible to define labels for each channel of a multi device. If the labels of a multi channel device have been changed in the native Homemamtic IP Cloud App, then the entity names will change accordingly. - ([@SukramJ] - [#32925]) ([homematicip_cloud docs])
 
-- **Slack** - The Slack integration has gotten an overhaul and support for async and Slack's Block Kit have been added. As the configuration.yaml schema for this integration has changed, please read the documentation. Additionally, because it represents an unacceptable security risk, remote files (i.e., those that do not exist in a whitelisted directory local to Home Assistant) can no longer be sent to Slack via this integration. - ([@bachya] - [#33287]) ([slack docs])
+- **Slack** - The Slack integration got an overhaul and added support for async and Slack's Block Kit. As the YAML configuration schema for this integration has changed, please be sure to read the documentation. Additionally, because it represents an unacceptable security risk, remote files (i.e., those that do not exist in a whitelisted directory local to Home Assistant) can no longer be sent to Slack via this integration. - ([@bachya] - [#33287]) ([slack docs])
 
-  Example yaml configuration:
+  Example YAML configuration:
+
   ```yaml
   notify:
     - platform: slack
       api_key: !secret slack_api_key
       default_channel: "#home-assistant"
   ```
-  ## *Farewell to the following:*
-- **Alarmdotcom** and **Mopar** - These integrations have been removed. The websites for both have changed, causing the integrations to break because they relied on web scraping, which is no longer allowed (ADR-0004). - ([@frenck] - [#33056] [#33066])
+
+## Farewell to the following
+
+- **Alarm.com**
+- **Mopar**
+
+These integrations have been removed. The websites for both have changed, causing the integrations to break because they relied on web scraping, which is no longer allowed (ADR-0004). - ([@frenck] - [#33056] [#33066])
 
 ## All changes
 
