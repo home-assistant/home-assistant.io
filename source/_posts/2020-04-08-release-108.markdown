@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.108: TBD - UPDATE DATE"
+title: "0.108: Beta release notes"
 description: "TBD"
 date: 2020-03-27 00:00:00
 date_formatted: "April 8, 2020"
@@ -11,19 +11,98 @@ categories: Release-Notes
 og_image: /images/blog/2020-04-0.108/social.png
 ---
 
+<a href='/integrations/#version/0.108'><img src='/images/blog/2020-04-0.108/components.png' style='border: 0;box-shadow: none;'></a>
 
-Alexa cameras
-https://github.com/home-assistant/core/pull/32772
+Before we talk about anything that matches the title of this blog post:
 
-## Integration logo's
+On behalf of everybody working on the Home Assistant project, we hope you, your
+family and loved ones are safe and remain healthy during this pandemic.
+Our thoughts are with everyone that has been deeply affected by the current situation.
 
-Some information about the brands repo?
-We also use these images now on the device info page that got a layout update, and the integrations page.
+Stay strong, keep distance from each other, wash your hands and stay safe.
+
+❤️
+
+We made it all up to 0.107.7 the previous release, 7! patch releases.
+
+Some have noticed and commented on the fact we do a lot more patch releases
+the past months, which is correct. This is not because everything was shipped
+in a broken state, but we are trying to ship **any** bug fix to you as soon as
+possible! Just so you don't have to wait 3 weeks for something to get fixed.
+
+So let's talk about the elephant in the room: Home Assistant Core 0.108!
+
+## Martin Hjelmare & Ashton Lafferty join Nabu Casa
+
+We want to start by announcing [Martin Hjelmare](https://github.com/MartinHjelmare)
+has joined [Nabu Casa](https://www.nabucasa.com)!
+
+Martin is a core team member for a long time, and initially started out
+contributing to the project by his work on the
+[MySensors](https://www.home-assistant.io/integrations/mysensors/) integration
+back in [Home Assistant 0.11](https://www.home-assistant.io/blog/2016/01/17/extended-support-for-diy-solutions/)
+(2016)! Most contributors to Home Assistant, will know Martin for his endless
+patience on the incredible code reviews he does.
+
+Furthermore, Ashton Lafferty (cogneato) has been working some hours for
+Nabu Casa, to help out with things like support. Most of you probably know him
+from that already, as he is very active in helping out on our
+[Discord server](/join-chat).
+
+We are happy to announce that Ashton will now join Nabu Casa full-time as well!
+
+Congratulations Martin and Ashton! 🎉
+
+## Integration logo's & icon's
+
+We have created a [new repository](https://github.com/home-assistant/brands)
+on GitHub containing all the brand icons and logo's Home Assistant is able to
+integrate with. These images are, for example, used in our documentation.
+
+In 0.108, we made a start on using the content from this repository in the
+Home Assistant frontend. The device information page got a layout update and
+the integrations page as well.
+
+These pages will now show the icons and logos matching the integration.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.108/device-info-page.png' alt='Screenshot of the device information page showing the Hue logo'></a>
+Device information page showing the Hue logo.
+</p>
+
+Looking for a way to contribute to the Home Assistant project?
+We still are missing a lot of images; So we are
+[calling out for help](https://github.com/home-assistant/brands/issues)!
+
+## Many integrations now available to set up from the UI
+
+It is absolutely amazing to see all the upgraded integrations this release!
+Many contributors have gone out and added support to a lot of integrations
+to allow them to be configured via the Home Assistant frontend.
+
+Not all of them were ready in time for this release; nevertheless, the list is
+amazing already:
+
+- [Freebox][freebox docs], done by [@Quentame]
+- [MyQ][myq docs], done by [@bdraco]
+- [Roku][roku docs], done by [@ctalkington]
+- [Doorbird][doorbird docs], done by [@bdraco]
+- [Elk-M1 Control][elkm1 docs], done by [@bdraco]
+- [Logitech Harmony][harmony docs], done by [@bdraco]
+- [MyQ][myq docs], done by [@bdraco]
+- [NuHeat][nuheat docs], done by [@bdraco]
+- [Rachio][rachio docs], done by [@bdraco]
+
+Yes, [@bdraco] has been on fire this release! Amazing job!
 
 ## Map history
 
-Maybe not very useful during home quarantine, but a very cool feature for when we are allowed to get out of the house again.
-[@Hoytron](https://github.com/Hoytron) added the ability to show the history of persons or device trackers on the map. You can define how many hours of history you want to show and it will draw lines between all the points in that time frame.
+Maybe not very useful during home quarantine, but a very cool feature for when
+we are allowed to get out of our homes again.
+[@Hoytron](https://github.com/Hoytron) added the ability to show the history of
+persons or device trackers on the map. You can define how many hours of history
+you want to show and it will draw lines between all the points in that
+time frame.
 
 <p class='img'>
 <img src='/images/blog/2020-04-0.108/map-history.png' alt='Screenshot of the map card with history'></a>
@@ -32,19 +111,14 @@ Screenshot of the map card with history.
 
 ## New Lovelace card: Entity
 
-[@zsarnett](https://github.com/zsarnett) added a new Lovelace card, the entity card. This card looks like the sensor card, but will allows any entity and not just sensors.
+[@zsarnett](https://github.com/zsarnett) added a new Lovelace card, the entity card. This card looks like the sensor card, but allows you to use any entity (not just sensors).
 
 <p class='img'>
 <img src='/images/blog/2020-04-0.108/entity-card.png' alt='Screenshot of the entity card'></a>
 Screenshot of the entity card.
 </p>
 
-## Themes
-
-__Possibly breaking change__
-We discovered our theme logic was wrong, when you didn't specify a theme for a Lovelace card or view, it would default to the backend selected theme, even when your local theme was different, or your view had a different theme. To fix this we removed the options `default` and `Backend selected` from the Lovelace theme selection, and when there is not theme selected it will not set a theme. This will make sure the element has the same theme as it's parent.
-
-## Area config page
+## Area configuration page
 
 We added an overview page for your areas. On this page you can see all the devices in the area, but also the automations, scenes and scripts that affect that area.
 
@@ -53,12 +127,43 @@ We added an overview page for your areas. On this page you can see all the devic
 Screenshot of the area config page.
 </p>
 
-## Other changes:
+## Horizontal stack now handles different heights better
 
-- A lot of config pages are migrated to data tables, this means you can now search in your automations, scenes, scripts, users and areas.
+When creating a Horizontal stack, the cards in the stack don't always line up
+nicely. This has been adjusted. Horizontal stacks now deal better with the
+difference in heights of the cards on the stack.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.108/horizontal-stack.png' alt='Before and after screenshot for the Horizontal Stack improvements.'></a>
+Before and after screenshot for the Horizontal Stack improvements.
+</p>
+
+## Other noteworthy changes
+
+- _**"Alexa, show the front door camera."**_ 😲  
+  [Alexa][alexa docs] now has support for Camera's, thanks [@ochlocracy]!
+
+- Selecting your default Lovelace dashboard has been moved to the user
+  profile page.
+
+- A lot of configuration pages are migrated to data tables, this means you can
+  now search in your automations, scenes, scripts, users and areas.
+
 - Lovelace cards in panel views can now also be edited with the UI editor.
-- The graph from the sensor card is now also available as a footer for the entities card.
-- Horizontal stacks now deal better with cards of different heights.
+
+- The graph from the sensor card is now also available as a footer for the
+  entities card.
+
+- Camera's added using the [ONVIF][onvif docs] integration now automatically
+  use the still images provided by the camera, instead of Home Assistant
+  generating one. Nice work [@roleoroleo]!
+
+- [WLED][wled docs] got quite a few internal upgrades, has added new Wi-Fi
+  sensors and now has a service to control the effects of your WLED device.
+
+- Docker images for Home Assistant are now using Jemalloc, to reduce memory
+  fragmentation and speed up memory allocation. So, less memory and generally
+  a faster Home Assistant.
 
 ## New Integrations
 
@@ -81,13 +186,15 @@ Screenshot of the area config page.
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## Reporting Issues
-
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
 ## Breaking Changes
+
+__Possibly breaking change__
+We discovered our theme logic was wrong, when you didn't specify a theme for a Lovelace card or view, it would default to the backend selected theme, even when your local theme was different, or your view had a different theme. To fix this we removed the options `default` and `Backend selected` from the Lovelace theme selection, and when there is not theme selected it will not set a theme. This will make sure the element has the same theme as it's parent.
+
 
 - Refactor Freebox : add config flow + temperature sensor + signal dispatch ([@Quentame] - [#30334]) ([freebox docs]) (breaking change)
 - Remove manual configuration support ([@Kane610] - [#32699]) ([unifi docs]) (breaking change)
