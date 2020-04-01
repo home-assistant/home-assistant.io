@@ -56,8 +56,9 @@ Screenshot of the area config page.
 ## Other changes:
 
 - A lot of config pages are migrated to data tables, this means you can now search in your automations, scenes, scripts, users and areas.
-- Lovelace cards in panel views can now also be edited with te UI editor.
+- Lovelace cards in panel views can now also be edited with the UI editor.
 - The graph from the sensor card is now also available as a footer for the entities card.
+- Horizontal stacks now deal better with cards of different heights.
 
 ## New Integrations
 
