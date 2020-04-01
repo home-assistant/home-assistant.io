@@ -1,7 +1,6 @@
 ---
 title: MyQ
 description: Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant.
-logo: myq.png
 ha_category:
   - Cover
   - Binary Sensor
