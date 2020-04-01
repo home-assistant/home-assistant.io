@@ -82,6 +82,7 @@ card:
 
 {% endraw %}
 
+
 A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
 
 For example:
