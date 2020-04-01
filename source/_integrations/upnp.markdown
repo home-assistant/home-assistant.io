@@ -1,7 +1,6 @@
 ---
 title: UPnP
 description: Internet Gateway Device (IGD) Protocol for Home Assistant.
-logo: upnp.png
 ha_category:
   - Network
   - Sensor
