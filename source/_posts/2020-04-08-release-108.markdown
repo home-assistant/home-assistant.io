@@ -166,7 +166,7 @@ Before and after screenshot for the Horizontal Stack improvements.
   a faster Home Assistant.
 
 - The markdown card has a new `user` variable that can be used to display the
-  currently logged in user
+  currently logged in user.
 
 ## New Integrations
 
