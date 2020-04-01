@@ -1,7 +1,6 @@
 ---
 title: Yr
 description: Instructions on how to integrate Yr.no within Home Assistant.
-logo: yr.png
 ha_category:
   - Weather
 ha_release: 0.11
