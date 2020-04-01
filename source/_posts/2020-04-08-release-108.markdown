@@ -152,7 +152,7 @@ Before and after screenshot for the Horizontal Stack improvements.
 - Lovelace cards in panel views can now also be edited with the UI editor.
 
 - The graph from the sensor card is now also available as a footer for the
-  entities card.
+  entities and entity card.
 
 - Camera's added using the [ONVIF][onvif docs] integration now automatically
   use the still images provided by the camera, instead of Home Assistant
