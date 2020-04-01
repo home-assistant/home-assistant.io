@@ -165,6 +165,9 @@ Before and after screenshot for the Horizontal Stack improvements.
   fragmentation and speed up memory allocation. So, less memory and generally
   a faster Home Assistant.
 
+- The markdown card has a new `user` variable that can be used to display the
+  currently logged in user
+
 ## New Integrations
 
 - Add Powerwalls integration ([@bdraco] - [#32851]) ([powerwall docs]) (new-integration)
