@@ -88,7 +88,7 @@ When creating the user it is possible to deny access to all locations and applic
 
 <div class='note warning'>
 
-Using two-factor authentication is not supported. Please use a strong randomly generated password.
+Using two-factor authentication is not supported. Please use a strong, randomly generated password.
 
 </div>
 
