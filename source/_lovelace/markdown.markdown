@@ -81,3 +81,18 @@ card:
 ```
 
 {% endraw %}
+
+
+A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
+
+For example:
+
+{% raw %}
+
+```yaml
+type: markdown
+content: |
+  Hello, {{user}}
+```
+
+{% endraw %}
