@@ -12,7 +12,7 @@ The `synology_dsm` sensor platform allows getting various statistics from your [
 
 ## Configuration
 
-There is two ways to integrate Synology DSM in Home Assistant.
+There are two ways to integrate Synology DSM in Home Assistant.
 
 ### Via the frontend
 
