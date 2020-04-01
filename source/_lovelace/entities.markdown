@@ -294,6 +294,35 @@ entities:
       type: string
 {% endconfiguration %}
 
+### Attribute
+
+{% configuration %}
+type:
+  required: true
+  description: attribute
+  type: string
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: true
+  description: Attribute to display from the entity.
+  type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+{% endconfiguration %}
+
 ## Example
 
 Entity rows:

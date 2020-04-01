@@ -1,7 +1,6 @@
 ---
 title: Denon HEOS
 description: Instructions on how to integrate Denon HEOS into Home Assistant.
-logo: heos.png
 ha_category:
   - Media Player
 ha_release: 0.92
