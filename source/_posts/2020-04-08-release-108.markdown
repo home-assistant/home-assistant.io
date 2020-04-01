@@ -53,10 +53,10 @@ We are happy to announce that Ashton will now join Nabu Casa full-time as well!
 
 Congratulations Martin and Ashton! 🎉
 
-## Integration logo's & icon's
+## Integration logos & icons
 
 We have created a [new repository](https://github.com/home-assistant/brands)
-on GitHub containing all the brand icons and logo's Home Assistant is able to
+on GitHub containing all the brand icons and logos Home Assistant is able to
 integrate with. These images are, for example, used in our documentation.
 
 In 0.108, we made a start on using the content from this repository in the
@@ -88,7 +88,6 @@ amazing already:
 - [Doorbird][doorbird docs], done by [@bdraco]
 - [Elk-M1 Control][elkm1 docs], done by [@bdraco]
 - [Logitech Harmony][harmony docs], done by [@bdraco]
-- [MyQ][myq docs], done by [@bdraco]
 - [MyQ][myq docs], done by [@bdraco]
 - [Network UPS Tools (NUT)][nut docs], done by [@bdraco]
 - [NuHeat][nuheat docs], done by [@bdraco]
@@ -142,7 +141,7 @@ Before and after screenshot for the Horizontal Stack improvements.
 ## Other noteworthy changes
 
 - _**"Alexa, show the front door camera."**_ 😲  
-  [Alexa][alexa docs] now has support for Camera's, thanks [@ochlocracy]!
+  [Alexa][alexa docs] now has support for Cameras, thanks [@ochlocracy]!
 
 - Selecting your default Lovelace dashboard has been moved to the user
   profile page.
@@ -155,7 +154,7 @@ Before and after screenshot for the Horizontal Stack improvements.
 - The graph from the sensor card is now also available as a footer for the
   entities and entity card.
 
-- Camera's added using the [ONVIF][onvif docs] integration now automatically
+- Cameras added using the [ONVIF][onvif docs] integration now automatically
   use the still images provided by the camera, instead of Home Assistant
   generating one. Nice work [@roleoroleo]!
 
