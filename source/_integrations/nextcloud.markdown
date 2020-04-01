@@ -5,6 +5,7 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.108
+ha_domain: nextcloud
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
