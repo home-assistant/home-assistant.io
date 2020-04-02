@@ -75,7 +75,7 @@ bmw_connected_drive:
 
 ## Notifications
 
-The `bmw_connected_drive` integration offers a notification service. Using this service you can send messages or Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as destination.
+The `bmw_connected_drive` integration offers a notification service. Using this service you can send messages or Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
 The name of the service is `notify.bmw_connected_drive_<your_vehicle>`.
 
 ### Examples
