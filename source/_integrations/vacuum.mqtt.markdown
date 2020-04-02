@@ -358,10 +358,6 @@ supported_features:
   required: false
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
-value_template:
-  description: "Defines a [template](/topics/templating/) to extract a state update from the `state_topic` payload. The ouput of the template must be a valid JSON in the format accepted by [`state_topic`](#state_topic). This is very similar to the [`json_attributes_template`](/integrations/sensor.mqtt/#json-attributes-template-configuration)".
-  required: false
-  type: string
 {% endconfiguration %}
 
 ### State configuration example
