@@ -27,7 +27,7 @@ This integration provides the following platforms:
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
-- Notifications: Send messages or Points of Interest (POI) to your car from Home Assistant.
+- Notifications: Send messages or Points of Interest (POI) to your car.
 - Services: Turn on air condition, sound the horn, flash the lights and update the state. More details can be found [here](/integrations/bmw_connected_drive/#services).
 
 ## Configuration
