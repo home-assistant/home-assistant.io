@@ -156,6 +156,11 @@ Before and after screenshot for the Horizontal Stack improvements.
 
 - The markdown card has a new `user` variable that can be used to display the
   currently logged in user.
+  
+- With the ZHA ZigBee integration, ZigBee groups now dynamically create 
+  entities for lights, switches and fans that are grouped together. This 
+  enables near simultaneous control over a large group of lights allowing 
+  them to turn on or off at the exact same time. Thank you [@dmulcahey]!
 
 - Cameras added using the [ONVIF][onvif docs] integration now automatically
   use the still images provided by the camera, instead of Home Assistant
