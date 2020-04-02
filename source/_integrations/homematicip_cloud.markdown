@@ -1,7 +1,6 @@
 ---
 title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-logo: homematicip_cloud.png
 ha_category:
   - Hub
   - Alarm
