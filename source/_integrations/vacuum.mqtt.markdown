@@ -350,7 +350,7 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol).
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol)."
   required: false
   type: string
 supported_features:
@@ -359,7 +359,7 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 value_template:
-  description: "Defines a [template](/topics/templating/) to extract a state update from the `state_topic` payload. The ouput of the template must be a valid JSON in the format accepted by [`state_topic`](#state_topic). This is very similar to the [json_attributes_template](/integrations/sensor.mqtt/#json-attributes-template-configuration)".
+  description: "Defines a [template](/topics/templating/) to extract a state update from the `state_topic` payload. The ouput of the template must be a valid JSON in the format accepted by [`state_topic`](#state_topic). This is very similar to the [`json_attributes_template`](/integrations/sensor.mqtt/#json-attributes-template-configuration)".
   required: false
   type: string
 {% endconfiguration %}
