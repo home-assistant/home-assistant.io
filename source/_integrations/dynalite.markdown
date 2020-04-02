@@ -96,7 +96,7 @@ area:
           required: true
           type: string
         template:
-          description: "Type of template to use for the area. Supported values are: `room`, `trigger`, and `timecover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
+          description: "Type of template to use for the area. Supported values are: `room` and `time_cover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
           require: false
           type: string
           default: No template
@@ -200,17 +200,7 @@ template:
           required: false
           type: integer
           default: 4
-    trigger:
-      description: This is used to define a preset that acts as a trigger, such as a door buzzer. It only supports turning on.
-      required: false
-      type: map
-      keys:
-        trigger:
-          description: Preset to trigger the action.
-          required: false
-          type: integer
-          default: 1
-    timecover:
+    time_cover:
       description: "This is used to define a cover that has 3 presets: `open`, `close`, and `stop`. Potentially can also use a channel that some systems (e.g., Control4) use to also send commands to open and close the cover. It uses the duration it takes to open or close to determine position. In addition, many times, these covers include tilt by opening or closing for a short time, so this can be defined as well."
       required: false
       type: map
@@ -230,11 +220,11 @@ template:
           required: false
           type: integer
           default: 4
-        channelcover:
+        channel_cover:
           description: Channel that monitors the cover.
           required: false
           type: integer
-          default: 1
+          default: No channel
         duration:
           description: Time in seconds it takes to open or close the cover.
           required: false
@@ -246,7 +236,7 @@ template:
           type: integer
           default: 0
         class:
-          description: "Type of cover for Home Assistant. The supported cover classes are currently `awning`, `blind`, `curtain`, `damper`, `door`, `garage`, `shade`, `shutter`, and `window`."
+          description: "Type of cover for Home Assistant. Any of the possible [cover classes](/integrations/cover/#device-class) (e.g. `blind`, `garage`, `shutter`) are possible."
           require: false
           type: string
           default: shutter
@@ -286,7 +276,7 @@ dynalite:
               fade: 3.0
         '4':
           name: Curtain
-          template: timecover
+          template: time_cover
       preset:
         '1':
           name: 'On'
