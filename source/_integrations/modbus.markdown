@@ -187,3 +187,5 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
  - [Modbus Climate](/integrations/climate.modbus/)
  - [Modbus Sensor](/integrations/sensor.modbus/)
  - [Modbus Switch](/integrations/switch.modbus/)
+ - [Modbus Fan](/integrations/fan.modbus/)
+ - [Modbus Light](/integrations/light.modbus/)
