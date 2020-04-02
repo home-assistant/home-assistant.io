@@ -1,7 +1,6 @@
 ---
 title: Nederlandse Spoorwegen (NS)
 description: Instructions on how to integrate timetable data for traveling by train in the Netherlands within Home Assistant.
-logo: nederlandse_spoorwegen.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
