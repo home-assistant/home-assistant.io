@@ -1,7 +1,6 @@
 ---
 title: Sinch SMS
 description: Instructions on how to add Sinch notifications to Home Assistant.
-logo: sinch.png
 ha_category:
   - Notifications
 ha_release: 0.101
