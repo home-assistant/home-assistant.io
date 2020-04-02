@@ -220,11 +220,12 @@ vacuum:
 ```
 {% endraw %}
 
-## Legacy MQTT Protocol
+### Legacy MQTT Protocol
 
 The above configuration for this integration expects an MQTT protocol like the following.
+See also [Shared MQTT Protocol](#shared-mqtt-protocol).
 
-### Legacy Basic Commands
+#### Legacy Basic Commands
 
 MQTT topic: `vacuum/command`
 
@@ -238,7 +239,7 @@ Possible MQTT payloads:
 - `locate` - Locate the vacuum (typically by playing a song)
 - `start_pause` - Toggle the vacuum between cleaning and stopping
 
-### Status/Sensor Updates
+#### Status/Sensor Updates
 
 MQTT topic: `vacuum/state`
 
@@ -349,7 +350,7 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting JSON if no `value_template` is defined.
+  description: The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol).
   required: false
   type: string
 supported_features:
@@ -358,7 +359,7 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
 value_template:
-  description: "Defines a [template](/topics/templating/) to extract possible states from the vacuum."
+  description: "Defines a [template](/topics/templating/) to extract a state update from the `state_topic` payload. The ouput of the template must be a valid JSON in the format accepted by [`state_topic`](#state_topic)."
   required: false
   type: string
 {% endconfiguration %}
@@ -395,11 +396,12 @@ vacuum:
 ```
 {% endraw %}
 
-## State MQTT Protocol
+### State MQTT Protocol
 
 The above configuration for this integration expects an MQTT protocol like the following.
+See also [Shared MQTT Protocol](#shared-mqtt-protocol).
 
-### State Basic Commands
+#### State Basic Commands
 
 MQTT topic: `vacuum/command`
 
@@ -412,7 +414,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-### Send Custom Command
+#### Send Custom Command
 
 Vacuum send_command allows three parameters:
 
@@ -448,7 +450,7 @@ Service trigger example:
 
 MQTT topic: `vacuum/send_command`
 
-### Status/Sensor Updates
+#### Status/Sensor Updates
 
 MQTT topic: `vacuum/state`
 
@@ -522,6 +524,8 @@ Service trigger example:
 ```
 
 MQTT topic: `vacuum/send_command`
+
+## Usage examples
 
 ### Usage with cloudless Xiaomi vacuums
 
