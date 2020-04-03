@@ -29,10 +29,15 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 sensor:
   - platform: edl21
+    name: "Heat pump"
     serial_port: /dev/ttyUSB0
 ```
 
 {% configuration %}
+name:
+  description: The friendly name of the smart meter
+  required: false
+  type: string
 serial_port:
   description: The device to communicate with. When using ser2net, use socket://host:port.
   required: true
