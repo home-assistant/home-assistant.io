@@ -38,6 +38,8 @@ action:
 
 or if you want to show some runtime information
 
+{% raw %}
+
 ```yaml
 action:
   service: persistent_notification.create
@@ -46,6 +48,8 @@ action:
       Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
     message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
 ```
+
+{% endraw %}
 
 The service `persistent_notification.dismiss` requires a `notification_id`.
 
