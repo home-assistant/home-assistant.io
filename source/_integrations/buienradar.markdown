@@ -1,7 +1,6 @@
 ---
 title: Buienradar
 description: Instructions on how to integrate buienradar.nl weather within Home Assistant.
-logo: buienradar.png
 ha_category:
   - Camera
   - Weather
