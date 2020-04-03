@@ -11,7 +11,7 @@ ha_domain: yweather
 
 <div class='note warning'>
 
-The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`darksky` sensor](/integrations/darksky).
+The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`OpenWeatherMap` integration](/integrations/openweathermap).
 
 </div>
 
