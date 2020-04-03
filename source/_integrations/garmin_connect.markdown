@@ -1,7 +1,6 @@
 ---
 title: Garmin Connect
 description: Instructions on how to configure the Garmin Connect integration for Home Assistant.
-logo: garmin_connect.png
 ha_category:
   - Health
 ha_iot_class: Cloud Polling
