@@ -41,7 +41,7 @@ and will be automatically added when HA connects to your Vera controller.
 </div>
 
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Vera' and click 'Configure'.
-2. Enter the url for the controller and click 'Submit'.
+2. Enter the URL for the controller and click 'Submit'.
 
 ## Options
 Once the Vera integration is configured, you can set additional options in the integration, click the gear icon.
