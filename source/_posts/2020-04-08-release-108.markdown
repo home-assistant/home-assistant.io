@@ -204,7 +204,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Freebox** - Freebox is now available as an integration from the Integrations UI! You will need to re-authorize Home Assistant to access the Freebox router. - ([@Quentame] - [#30334]) ([freebox docs])
 
-- **UniFi** - Manual configuration has been deprecated as the UI integration now supports all of the previous available options and more. Remove any existing YAML configuration and re-add the integration through the UI. - ([@Kane610] - [#32699]) ([unifi docs])
+- **UniFi** - Manual configuration has been deprecated as the UI integration now supports all of the previous available options and more. Your existing YAML configuration has previously been imported so just remove it. - ([@Kane610] - [#32699]) ([unifi docs])
 
 - **Emulated Hue** - The `emulated_hue` and `emulated_hue_hidden` attributes have been deprecated. Use the existing `entities` `hidden` configuration instead. - ([@bdraco] - [#32718]) ([emulated_hue docs])
 
