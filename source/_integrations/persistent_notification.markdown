@@ -22,13 +22,11 @@ The service `persistent_notification.create` takes in `message`, `title`, and `n
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
+| `message`              |       no | Body of the notification. Accepts [templates](/topics/templating/).
+| `title`                |      yes | Title of the notification. Accepts [templates](/topics/templating/).
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
-The `persistent_notification` integration supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
-
-In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) with static content it could look like
 
 ```yaml
 action:
@@ -36,6 +34,17 @@ action:
   data:
     message: "Your message goes here"
     title: "Custom subject"
+```
+
+or if you want to show some runtime information
+
+```yaml
+action:
+  service: persistent_notification.create
+  data_template:
+    title: >
+      Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
+    message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
 ```
 
 The service `persistent_notification.dismiss` requires a `notification_id`.
