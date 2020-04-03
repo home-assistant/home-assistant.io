@@ -26,7 +26,7 @@ The service `persistent_notification.create` takes in `message`, `title`, and `n
 | `title`                |      yes | Title of the notification. Accepts [templates](/topics/templating/).
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
-In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) with static content it could look like.
+Here is how an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) with static content could look like.
 
 ```yaml
 action:
@@ -36,7 +36,7 @@ action:
     title: "Custom subject"
 ```
 
-or if you want to show some runtime information
+If you want to show some runtime information, you have to use [templates](/topics/templating/ inside `data_template`.
 
 {% raw %}
 
