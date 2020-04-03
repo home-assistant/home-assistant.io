@@ -7,7 +7,6 @@ ha_category:
   - Energy
   - Sensor
 ha_release: 0.56
-logo: toon.png
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
