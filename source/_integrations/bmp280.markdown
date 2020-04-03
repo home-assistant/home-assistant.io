@@ -2,7 +2,6 @@
 title: Bosch BMP280 Environmental Sensor
 description: Instructions on how to integrate a BMP280 sensor into Home Assistant.
 ha_release: 0.108
-logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_iot_class: Local Polling
