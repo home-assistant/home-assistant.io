@@ -32,7 +32,7 @@ name:
   default: Name of Entity
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Icon that will be be used to overwrite the entity picture or entity icon.
   type: string
   default: Entity Domain Icon
 show_name:
