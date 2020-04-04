@@ -4,7 +4,7 @@ description: Instructions on how to integrate Modbus within Home Assistant.
 ha_category:
   - Hub
 ha_release: pre 0.7
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@adamchengtkc'
   - '@janiversen'
@@ -25,10 +25,11 @@ For a network connection, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry for a TCP connection
 modbus:
-  name: hub1
-  type: tcp
-  host: IP_ADDRESS
-  port: 2020
+  hubs:
+    - name: hub1
+      type: tcp
+      host: IP_ADDRESS
+      port: 2020
 ```
 
 {% configuration %}
@@ -68,14 +69,15 @@ For a serial connection, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry for a serial connection
 modbus:
-  name: hub1
-  type: serial
-  method: rtu
-  port: /dev/ttyUSB0
-  baudrate: 9600
-  stopbits: 1
-  bytesize: 8
-  parity: N
+  hubs:
+    - name: hub1
+      type: serial
+      method: rtu
+      port: /dev/ttyUSB0
+      baudrate: 9600
+      stopbits: 1
+      bytesize: 8
+      parity: N
 ```
 
 {% configuration %}
@@ -126,15 +128,16 @@ Multiple connections are possible, add something like the following to your `con
 ```yaml
 # Example configuration.yaml entry for multiple TCP connections
 modbus:
-  - type: tcp
-    host: IP_ADDRESS_1
-    port: 2020
-    name: hub1
+  hubs:
+    - type: tcp
+      host: IP_ADDRESS_1
+      port: 2020
+      name: hub1
 
-  - type: tcp
-    host: IP_ADDRESS_2
-    port: 501
-    name: hub2
+    - type: tcp
+      host: IP_ADDRESS_2
+      port: 501
+      name: hub2
 ```
 
 ### Services
@@ -185,5 +188,6 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
  - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
  - [Modbus Climate](/integrations/climate.modbus/)
+ - [Modbus Cover](/integrations/cover.modbus/)
  - [Modbus Sensor](/integrations/sensor.modbus/)
  - [Modbus Switch](/integrations/switch.modbus/)
