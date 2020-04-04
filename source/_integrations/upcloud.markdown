@@ -6,7 +6,6 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 0.65
-logo: upcloud.png
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@scop'
