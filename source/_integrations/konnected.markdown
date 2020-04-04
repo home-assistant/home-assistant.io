@@ -1,7 +1,6 @@
 ---
 title: Konnected
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
-logo: konnected.png
 ha_category:
   - Alarm
   - Binary Sensor
