@@ -75,7 +75,7 @@ foreign_exchange:
 
 ## API Information
 
-Alpha Vantage offers two tiers of API key, one free and one paid for.  If you are using the FREE version you will be limited to FIVE queries per MINUTE.  This means that you'll likely only be able to have one or two ticker entries.  The paid version starts at thirty queries per minute increasing ticker quantity quite a bit.
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version you will be limited to five queries per minute. This means that you'll likely only be able to have one or two ticker entries. The paid version starts at thirty queries per minute increasing ticker quantity quite a bit.
 
 ## Examples
 
