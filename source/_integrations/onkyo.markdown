@@ -29,7 +29,7 @@ media_player:
       - zone1
 ```
 
- If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone, provided you add them to your configuration under `zones`. Zones 1-4 are supported. 
+ If your receiver has second or third zones available, they are displayed as additional media players with the same functionality as the main zone, provided you add them to your configuration under `zones`. Zones 1-4 are supported.
 
 {% configuration %}
 host:
