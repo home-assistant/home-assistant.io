@@ -22,11 +22,6 @@ To add an Onkyo or Pioneer receiver to your installation, add the following to y
 media_player:
   - platform: onkyo
     host: 192.168.1.2
-    name: receiver
-    sources:
-      pc: 'HTPC'
-    zones:
-      - zone1
 ```
 
  If your receiver has second or third zones available, they are displayed as additional media players with the same functionality as the main zone, provided you add them to your configuration under `zones`. Zones 1-4 are supported.
@@ -37,7 +32,8 @@ host:
   required: true
   type: string
 port:
-  description: The port of the receiver. Usually 60128. Only set if you need to change the default. 
+  description: The port of the receiver.
+  default: 60128
   required: false
   type: integer
 name:
@@ -47,12 +43,12 @@ name:
 max_volume:
   description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
   required: false
-  default: 100
+  default: 90
   type: integer
 receiver_max_volume:
   description: The maximum volume of the receiver. For older Onkyo receivers this was 80, newer Onkyo receivers use 200.
   required: false
-  default: 80
+  default: 90
   type: integer
 sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
