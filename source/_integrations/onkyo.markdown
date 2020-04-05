@@ -59,7 +59,7 @@ sources:
   required: false
   type: list
 zones:
-  description: Any secondary zones you wish to see in Home Assistant. Each zone listed here will show up as a media player in it's own right.
+  description: Any secondary zones you wish to see. Each zone listed here will show up as a media player in its own right.
   required: false
   type: list
 
