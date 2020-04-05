@@ -22,3 +22,7 @@ Once you take control of your UI via YAML, the Home Assistant interface for modi
 When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
 
 To revert back to using the UI to edit your Lovelace interface, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
+
+### Advanced configuration
+
+You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards. For more details refer to [this](/lovelace/dashboards-and-views.markdown) page.
