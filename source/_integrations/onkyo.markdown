@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 port:
-  description: The port of the reciever. Usually 60128. Only set if you need to change the default. 
+  description: The port of the receiver. Usually 60128. Only set if you need to change the default. 
   required: false
   type: integer
 name:
@@ -59,7 +59,7 @@ sources:
   required: false
   type: list
 zones:
-  description: Any secondary zones you wish to see in home-assistant. Each zone listed here will show up as a media player in it's own right.
+  description: Any secondary zones you wish to see in Home Assistant. Each zone listed here will show up as a media player in it's own right.
   required: false
   type: list
 
