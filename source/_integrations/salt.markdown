@@ -1,7 +1,6 @@
 ---
 title: Salt Fiber Box
 description: Instructions on how to integrate Salt Fiber Box router into Home Assistant.
-logo: salt.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
