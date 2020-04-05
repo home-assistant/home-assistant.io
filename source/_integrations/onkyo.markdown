@@ -5,7 +5,7 @@ logo: onkyo.png
 ha_category:
   - Media Player
 ha_release: 0.17
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: onkyo
 ---
 
@@ -25,15 +25,21 @@ media_player:
     name: receiver
     sources:
       pc: 'HTPC'
+    zones:
+      - zone1
 ```
 
- If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.
+ If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone, provided you add them to your configuration under `zones`. Zones 1-4 are supported. 
 
 {% configuration %}
 host:
-  description: IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
-  required: false
+  description: IP address of the device. Example:`192.168.1.2`.
+  required: true
   type: string
+port:
+  description: The port of the reciever. Usually 60128. Only set if you need to change the default. 
+  required: false
+  type: integer
 name:
   description: Name of the device. (*Required if host is specified*)
   required: false
@@ -52,6 +58,11 @@ sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
   required: false
   type: list
+zones:
+  description: Any secondary zones you wish to see in home-assistant. Each zone listed here will show up as a media player in it's own right.
+  required: false
+  type: list
+
 {% endconfiguration %}
 
 List of source names:
@@ -86,15 +97,15 @@ List of source names:
 If your source is not listed above, and you want to figure out how to format that source name so you can map its entry, you can use the `onkyo-eiscp` Python module to discover the exact naming needed. First, change your receiver's source to the one that you need to define, and then run:
 
 ```bash
-onkyo --host 192.168.0.100 source=query
+eiscp_monitor --host 192.168.0.100 source=query
 ```
 
 To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
 ```bash
-onkyo --host 192.168.0.100 volume=query
-unknown-model: master-volume = 191
+eiscp_monitor --host 192.168.0.100 volume=query
+main | master-volume: 191
 ```
 
 ### Service `onkyo_select_hdmi_output`
