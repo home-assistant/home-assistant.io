@@ -43,10 +43,6 @@ api_key:
   description: The API key for the Rachio account.
   required: true
   type: string
-hass_url_override:
-  description: If your instance is unaware of its actual web location (`base_url`).
-  required: false
-  type: string
 manual_run_mins:
   description: For how long, in minutes, to turn on a station when the switch is enabled.
   required: false
