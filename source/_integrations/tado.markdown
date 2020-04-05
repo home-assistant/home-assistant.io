@@ -25,7 +25,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use your Tado thermostats in your installation, add the following to your `configuration.yaml` file:
+To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry with multiple accounts
