@@ -19,8 +19,7 @@ To configure, you can add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 media_player:
   - platform: hifiberry
-    host: hifiberry.local
-    port: 81
+    host: 192.168.1.100
 ```
 
 {% configuration %}
@@ -32,11 +31,10 @@ name:
 host:
   description: The IP address or hostname of the device.
   required: true
-  default: hifiberry.local
   type: string
 port:
-  description: The Port number of Volumio service.
-  required: true
+  description: The Port number of HifiBerry audciocontrol2 rest service.
+  required: false
   default: 81
   type: integer
 {% endconfiguration %}
