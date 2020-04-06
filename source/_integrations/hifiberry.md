@@ -10,7 +10,10 @@ ha_domain: hifiberry
 
 The `HifiBerry` platform allows you to control a [HifiBerry OS](https://www.hifiberry.com/hifiberryos/) media player from Home Assistant. This is an end-to-end streaming lightweight OS built by HifiBerry for their Amp+, DAC+ or Digi+ HAT Raspberry Pi boards compatible with Airplay, Bluetooth, DLNA, LMS/Squeezebox, MPD, Snapcast, Spotify and Roon music services.
 
-To setup, you need specific configuration variables, you can add the following to your `configuration.yaml` file:
+
+## Configuration
+
+To configure, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
