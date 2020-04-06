@@ -22,6 +22,11 @@ Select the serial port to which Monoprice amplifier is connected, and name the s
 
 Sources can also be later edited from the integration options (gear icon in the top right when selecting the integration). In order to remove an existing source, you'll need to replace it with a space (simply removing its name will still keep it in place). Note that editing sources will remove the snapshot you may have saved.
 
+## Zone Management
+
+Devices and entities are created for each of the possible 18 zones, and can be enabled, disabled and renamed through regular Home Assisant methods.
+By default, the first 6 zones (11..16) are enabled, while the 12 extension zones (21..26, and 31..36) are disabled.
+
 ## Services
 
 ### Service `monoprice.snapshot`
