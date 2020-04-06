@@ -1,7 +1,6 @@
 ---
 title: Simplepush
 description: Instructions on how to add Simplepush notifications to Home Assistant.
-logo: simplepush.png
 ha_category:
   - Notifications
 ha_release: 0.29
