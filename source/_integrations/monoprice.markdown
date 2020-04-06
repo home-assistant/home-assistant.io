@@ -24,8 +24,8 @@ Sources can also be later edited from the integration options (gear icon in the 
 
 ## Zone Management
 
-Devices and entities are created for each of the possible 18 zones, and can be enabled, disabled, and renamed through regular Home Assisant methods.
-By default, the first 6 zones (11..16) are enabled, while the other 12 zones possible through extensions (21..26, and 31..36) are disabled.
+Devices and entities are created for each of the possible 18 zones, and can be enabled, disabled and renamed through regular Home Assisant methods.
+By default, the first 6 zones (11..16) are enabled, while the 12 extension zones (21..26, and 31..36) are disabled.
 
 ## Services
 
