@@ -45,6 +45,10 @@ aspect_ratio:
   required: false
   description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
   type: string
+refresh_rate:
+  required: false
+  description: "Refresh rate of the image in seconds."
+  type: number
 name:
   required: false
   description: Overwrite entity name.
