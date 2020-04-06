@@ -1,7 +1,6 @@
 ---
 title: Wink
 description: Instructions on how to set up the Wink hub within Home Assistant.
-logo: wink.png
 ha_category:
   - Hub
   - Alarm
