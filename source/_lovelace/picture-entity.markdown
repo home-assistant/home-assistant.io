@@ -49,6 +49,7 @@ refresh_rate:
   required: false
   description: "Refresh rate of the image in seconds."
   type: string
+  default: 10
 name:
   required: false
   description: Overwrite entity name.
