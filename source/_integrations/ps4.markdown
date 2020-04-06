@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ktnrg45'
+ha_domain: ps4
 ---
 
 The `ps4` integration allows you to control a

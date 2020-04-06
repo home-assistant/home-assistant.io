@@ -1,11 +1,11 @@
 ---
 title: Discovery
 description: Instructions on how to setup Home Assistant to discover new devices.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: discovery
 ---
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
@@ -25,7 +25,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Plex Media Server](/integrations/plex#media-player)
  * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
@@ -86,7 +85,6 @@ Valid values for ignore are:
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex Media Server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer

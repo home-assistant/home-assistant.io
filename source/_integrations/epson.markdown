@@ -6,6 +6,7 @@ ha_category:
   - Media Player
 ha_release: 0.72
 ha_iot_class: Local Polling
+ha_domain: epson
 ---
 
 The `epson` platform allows you to control a Epson projector from Home

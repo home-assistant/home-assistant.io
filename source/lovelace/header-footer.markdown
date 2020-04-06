@@ -14,8 +14,9 @@ Screenshot of an entities card with a picture header and buttons footer.
 Widget to show a picture as a header or a footer. A picture can have touch actions associated with it.
 
 ```yaml
-type: picture
-image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+header:
+  type: picture
+  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
 ```
 
 {% configuration header-footer %}
@@ -37,7 +38,7 @@ hold_action:
   type: map
 double_tap_action:
   required: false
-  description: Action to take on tap-and-hold. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action to take on double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -46,13 +47,14 @@ double_tap_action:
 Widget to show entities as buttons in the header or footer.
 
 ```yaml
-type: buttons
-entities:
-  - script.launch_confetti
-  - entity: script.swirl_lights
-    icon: 'mdi:track-light'
-  - entity: script.run_siren
-    icon: 'mdi:alarm-light'
+footer:
+  type: buttons
+  entities:
+    - script.launch_confetti
+    - entity: script.swirl_lights
+      icon: 'mdi:track-light'
+    - entity: script.run_siren
+      icon: 'mdi:alarm-light'
 ```
 
 {% configuration header-footer %}
@@ -73,4 +75,41 @@ entities:
       required: false
       description: Override the entity image.
       type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+{% endconfiguration %}
+
+## Graph header & footer
+
+Widget to show an entity in the sensor domain as a graph in the header or footer.
+
+<p class='img'><img src='/images/lovelace/header-footer/graph.png' alt="Screenshot of an entities card with a graph footer.">
+Screenshot of an entities card with a graph footer.
+</p>
+
+```yaml
+footer:
+  type: graph
+  entity: sensor.outside_temperature
+  hours_to_show: 24
+  detail: 1
+```
+
+{% configuration header-footer %}
+entity:
+  required: true
+  description: Entity id of `sensor` domain
+  type: string
+detail:
+  required: false
+  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
+  type: integer
+  default: 1
+hours_to_show:
+  required: false
+  description: Hours to show in graph
+  type: integer
+  default: 24
 {% endconfiguration %}

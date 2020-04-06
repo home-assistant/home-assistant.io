@@ -11,6 +11,7 @@ ha_iot_class: Cloud Polling
 ha_quality_scale: silver
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: tibber
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.

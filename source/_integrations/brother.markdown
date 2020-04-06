@@ -1,7 +1,6 @@
 ---
 title: Brother Printer
 description: Instructions on how to integrate a Brother printer into Home Assistant.
-logo: brother.png
 ha_category:
   - System Monitor
 ha_release: 0.104
@@ -9,6 +8,8 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
+ha_domain: brother
+ha_quality_scale: platinum
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.

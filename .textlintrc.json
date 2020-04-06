@@ -303,6 +303,7 @@
         ["colour", "color"],
         ["config\\b", "configuration"],
         ["DarkSky", "Dark Sky"],
+        ["docs\\b", "documentation"],
         ["e\\.g\\.", "e.g.,"],
         ["end ?to ?end", "end-to-end"],
         ["FRITZ!? ?Box", "FRITZ!Box"],

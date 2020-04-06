@@ -1,20 +1,26 @@
 ---
 title: Dark Sky
 description: How to integrate Dark Sky within Home Assistant.
-logo: dark_sky.png
 ha_category:
   - Weather
 ha_release: '0.30'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: darksky
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](https://www.openstreetmap.org/).
 
 ## Setup
 
-You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
+<div class='note warning'>
+
+On March 31, 2020 Dark Sky was [acquired by Apple](https://blog.darksky.net/dark-sky-has-a-new-home/) and is no longer allowing new API registrations. The Dark Sky API will continue to function for existing users through the end of 2021, but it is no longer possible to obtain an API key for new users.
+
+</div>
+
+You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <div class='note warning'>
 

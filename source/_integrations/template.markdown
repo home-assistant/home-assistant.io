@@ -5,11 +5,11 @@ ha_category:
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
+ha_domain: template
 ---
 
 The `template` platform supports sensors which get their values from other entities.
@@ -298,7 +298,7 @@ sensor:
             {% if is_state('device_tracker.my_device_nmap','home') %}
               {{ state_attr('zone.home','latitude') }}
             {% else %}
-              state_attr('device_tracker.my_device_gps','latitude')
+              {{ state_attr('device_tracker.my_device_gps','latitude') }}
             {% endif %}
           longitude: >-
             {% if is_state('device_tracker.my_device_nmap','home') %}

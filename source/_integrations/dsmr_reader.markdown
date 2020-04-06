@@ -7,6 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.103
 ha_codeowners:
   - '@depl0y'
+ha_domain: dsmr_reader
 ---
 
 The `dsmr_reader` sensor platform allows you to easily add all sensors that [DSMR Reader](https://dsmr-reader.readthedocs.io/en/latest/) exposes to MQTT. It adds a separate sensor for every field in the MQTT topics.

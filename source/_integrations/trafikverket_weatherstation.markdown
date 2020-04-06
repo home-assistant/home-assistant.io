@@ -6,6 +6,7 @@ ha_category:
   - Weather
 ha_release: 0.66
 ha_iot_class: Cloud Polling
+ha_domain: trafikverket_weatherstation
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

@@ -19,7 +19,7 @@ So given the importance of Automation, what should Automation allow us to do? I 
 
 In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and its Restful API.
 
-So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:
+So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and AppDaemon then comes into its own. It brings quite a few things to the table:
 
 - New paradigm - some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can't
 - Ease of use - AppDaemon's API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible, experienced Python programmers should feel right at home.

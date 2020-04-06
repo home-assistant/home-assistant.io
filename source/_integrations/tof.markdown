@@ -1,12 +1,12 @@
 ---
 title: Time of Flight
 description: Instructions on how to integrate a VL53L1X ToF sensor into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
   - Sensor
 ha_release: '0.90'
 ha_iot_class: Local Polling
+ha_domain: tof
 ---
 
 The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.

@@ -1,7 +1,6 @@
 ---
 title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
-logo: asus.png
 ha_category:
   - Hub
   - Presence Detection
@@ -10,6 +9,7 @@ ha_release: 0.83
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
+ha_domain: asuswrt
 ---
 
 The `asuswrt` integration is the main integration to connect to a [ASUSWRT](https://event.asus.com/2013/nw/ASUSWRT/) based router.

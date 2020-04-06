@@ -1,7 +1,6 @@
 ---
 title: IQVIA
 description: Instructions on how to use IQVIA data within Home Assistant
-logo: iqvia.png
 ha_category:
   - Health
 ha_release: 0.63
@@ -9,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: iqvia
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
@@ -23,8 +23,7 @@ Data measured includes:
 ## Configuring the Platform
 
 To integrate `iqvia` into Home Assistant, add the following section to your
-`configuration.yaml` file (adjusting the `monitored_conditions` list to your
-liking):
+`configuration.yaml` file:
 
 ```yaml
 iqvia:

@@ -6,6 +6,7 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.37
+ha_domain: wsdot
 ---
 
 The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).

@@ -1,7 +1,6 @@
 ---
 title: AVM FRITZ!Box
 description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
-logo: avm.png
 ha_category:
   - Binary Sensor
   - Climate
@@ -9,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_domain: fritzbox
 ---
 
 The [AVM](https://en.avm.de) FRITZ!Box integration for Home Assistant allows you to integrate the switch and climate devices.

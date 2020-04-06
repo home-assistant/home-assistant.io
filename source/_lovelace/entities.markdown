@@ -1,10 +1,10 @@
 ---
 title: "Entities Card"
 sidebar_label: Entities
-description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
+description: "The Entities card is the most common type of card. It groups items together into lists."
 ---
 
-Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
+The Entities card is the most common type of card. It groups items together into lists.
 
 {% configuration %}
 type:
@@ -153,6 +153,10 @@ type:
   required: true
   description: cast
   type: string
+dashboard:
+  required: false
+  description: Path to the dashboard of the view that needs to be shown.
+  type: string
 view:
   required: true
   description: Path to the view that needs to be shown.
@@ -258,6 +262,65 @@ icon:
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
   default: "`mdi:link`"
+{% endconfiguration %}
+
+### Buttons
+
+{% configuration %}
+type:
+  required: true
+  description: buttons
+  type: string
+entities:
+  required: true
+  description: A list of entities to show. Each entry is either an entity ID or a map.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: The entity to render.
+      type: string
+    icon:
+      required: false
+      description: Override the entity icon.
+      type: string
+    image:
+      required: false
+      description: Override the entity image.
+      type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+{% endconfiguration %}
+
+### Attribute
+
+{% configuration %}
+type:
+  required: true
+  description: attribute
+  type: string
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: true
+  description: Attribute to display from the entity.
+  type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
 {% endconfiguration %}
 
 ## Example

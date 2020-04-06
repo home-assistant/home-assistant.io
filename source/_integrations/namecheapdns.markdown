@@ -1,10 +1,10 @@
 ---
 title: Namecheap FreeDNS
 description: Keep your namecheap dynamic DNS up to date
-logo: namecheap.png
 ha_category:
   - Network
 ha_release: 0.56
+ha_domain: namecheapdns
 ---
 
 With the `namecheapdns` integration you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).

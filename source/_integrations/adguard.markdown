@@ -1,7 +1,6 @@
 ---
 title: AdGuard Home
 description: Instructions on how to integrate AdGuard Home with Home Assistant.
-logo: adguard.png
 ha_category:
   - Network
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
+ha_domain: adguard
 ---
 
 AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental

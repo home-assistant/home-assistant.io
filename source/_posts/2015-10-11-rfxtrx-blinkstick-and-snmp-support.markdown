@@ -15,7 +15,7 @@ We discovered two issues annoying enough to warrant the release of 0.7.5:
 
 This release also includes some new platforms (because they keep coming!):
 
-<img src='/images/supported_brands/blinkstick.png' style='border:none; box-shadow: none; float: right;' height='50' /><img src='/images/supported_brands/rfxtrx.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' /><img src='/images/supported_brands/telegram.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' />
+<img src='/images/supported_brands/blinkstick.png' style='border:none; box-shadow: none; float: right;' height='50' /><img src='https://brands.home-assistant.io/rfxtrx/logo.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' /><img src='/images/supported_brands/telegram.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' />
 
  - Light: [blinkstick platform](/integrations/blinksticklight) added ([@alanbowman](https://github.com/alanbowman))
  - Device Tracker: [SNMP platform](/integrations/snmp) added ([@tomduijf](https://github.com/tomduijf))

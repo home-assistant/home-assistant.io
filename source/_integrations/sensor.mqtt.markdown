@@ -1,11 +1,11 @@
 ---
 title: "MQTT Sensor"
 description: "Instructions on how to integrate MQTT sensors within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Sensor
 ha_release: 0.7
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
@@ -74,10 +74,6 @@ icon:
   description: The icon for the sensor.
   required: false
   type: icon
-json_attributes:
-  description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
-  required: false
-  type: [string, list]
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false

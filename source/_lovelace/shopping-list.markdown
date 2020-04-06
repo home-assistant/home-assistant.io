@@ -1,10 +1,10 @@
 ---
 title: "Shopping List Card"
 sidebar_label: Shopping List
-description: "The Shopping List Card allows you to add, edit, check-off, and clear items from your shopping list"
+description: "The Shopping List card allows you to add, edit, check-off, and clear items from your shopping list."
 ---
 
-The Shopping List Card allows you to add, edit, check-off, and clear items from your shopping list.
+The Shopping List card allows you to add, edit, check-off, and clear items from your shopping list.
 
 Setup of the [Shopping List Intent](/integrations/shopping_list/) is required
 

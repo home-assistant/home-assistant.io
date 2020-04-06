@@ -1,11 +1,11 @@
 ---
 title: "MQTT Switch"
 description: "Instructions on how to integrate MQTT switches into Home Assistant."
-logo: mqtt.png
 ha_category:
   - Switch
 ha_release: 0.7
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` switch platform lets you control your MQTT enabled switches.

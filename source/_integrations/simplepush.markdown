@@ -5,6 +5,7 @@ logo: simplepush.png
 ha_category:
   - Notifications
 ha_release: 0.29
+ha_domain: simplepush
 ---
 
 The `simplepush` platform uses [Simplepush](https://simplepush.io/) to delivery notifications from Home Assistant to your Android device. Unlike similar apps the Simplepush app requires no registration.

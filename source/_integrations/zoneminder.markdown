@@ -12,6 +12,7 @@ ha_release: 0.31
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: zoneminder
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.

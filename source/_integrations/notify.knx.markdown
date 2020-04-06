@@ -1,11 +1,11 @@
 ---
 title: "KNX Notify"
 description: "Instructions on how to use the KNX notify with Home Assistant."
-logo: knx.png
 ha_category:
   - Notifications
 ha_release: 0.53
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

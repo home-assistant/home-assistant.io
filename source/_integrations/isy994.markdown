@@ -1,7 +1,6 @@
 ---
 title: Universal Devices ISY994
 description: Instructions on how to setup the ISY994 controller within Home Assistant.
-logo: universal_devices.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -13,6 +12,7 @@ ha_category:
   - Switch
 ha_release: 0.28
 ha_iot_class: Local Push
+ha_domain: isy994
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.

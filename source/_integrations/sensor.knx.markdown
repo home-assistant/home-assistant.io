@@ -1,11 +1,11 @@
 ---
 title: "KNX Sensor"
 description: "Instructions on how to use a KNX Sensor with Home Assistant."
-logo: knx.png
 ha_category:
   - Sensor
 ha_release: 0.29
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

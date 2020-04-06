@@ -1,12 +1,12 @@
 ---
 title: Cloudflare
 description: Automatically update your Cloudflare DNS records.
-logo: cloudflare.png
 ha_category:
   - Network
 ha_release: 0.74
 ha_codeowners:
   - '@ludeeus'
+ha_domain: cloudflare
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.

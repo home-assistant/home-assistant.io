@@ -6,6 +6,7 @@ ha_category:
   - DIY
 ha_release: 0.26
 ha_iot_class: Local Polling
+ha_domain: serial_pm
 ---
 
 Particulate matter sensors measure the amount of very small particles in the air. A short introduction how these sensors work can be found on [Open Home Automation](https://www.open-homeautomation.com/2016/07/19/measuring-air-quality/).

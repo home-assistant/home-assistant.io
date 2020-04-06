@@ -1,13 +1,13 @@
 ---
 title: SwitchBot
 description: Instructions on how to set up Switchbot switches.
-logo: switchbot.png
 ha_category:
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: switchbot
 ---
 
 The `switchbot` switch platform allows you to control SwitchBot [devices](https://www.switch-bot.com/).
@@ -29,6 +29,10 @@ mac:
   type: string
 name:
   description: The name used to display the switch in the frontend.
+  required: false
+  type: string
+password:
+  description: The password of the switch if set
   required: false
   type: string
 {% endconfiguration %}

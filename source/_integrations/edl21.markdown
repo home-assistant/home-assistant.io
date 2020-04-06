@@ -1,9 +1,12 @@
 ---
-title: "EDL21 smart meter"
-description: "Instructions on how to integrate SML-based EDL21 smart meters into Home Assistant."
+title: EDL21
+description: Instructions on how to integrate SML-based EDL21 smart meters into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.107
+ha_domain: edl21
+ha_codeowners:
+  - '@mtdcr'
 ---
 
 The `edl21` integration lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.

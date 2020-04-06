@@ -1,7 +1,6 @@
 ---
 title: Growatt
 description: Instructions on how to integrate your Growatt server solar inverter within Home Assistant.
-logo: growatt.png
 ha_category:
   - Sensor
   - Energy
@@ -9,6 +8,7 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@indykoning'
+ha_domain: growatt_server
 ---
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).

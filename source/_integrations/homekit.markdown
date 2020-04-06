@@ -4,7 +4,7 @@ description: Instructions on how to set up the HomeKit integration in Home Assis
 ha_category:
   - Voice
 ha_release: 0.64
-logo: apple-homekit.png
+ha_domain: homekit
 ---
 
 The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.

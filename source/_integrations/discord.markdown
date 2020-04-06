@@ -5,6 +5,7 @@ logo: discord.png
 ha_category:
   - Notifications
 ha_release: 0.37
+ha_domain: discord
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.

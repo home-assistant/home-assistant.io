@@ -1,7 +1,6 @@
 ---
 title: Jandy iAqualink
 description: Instructions on how to configure Jandy iAqualink integration.
-logo: iaqualink.png
 ha_category:
   - Binary Sensor
   - Climate
@@ -13,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@flz'
+ha_domain: iaqualink
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.

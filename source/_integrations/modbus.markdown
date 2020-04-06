@@ -1,13 +1,13 @@
 ---
 title: Modbus
 description: Instructions on how to integrate Modbus within Home Assistant.
-logo: modbus.png
 ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@adamchengtkc'
+ha_domain: modbus
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
@@ -52,6 +52,11 @@ timeout:
   description: Timeout for slave response in seconds.
   required: false
   default: 3
+  type: integer
+delay:
+  description: Time to sleep in seconds after connecting and before sending messages. Some modbus-tcp servers need a short delay typically 1-2 seconds in order to prepare the communication. If a server accepts connecting, but there is no response to the requests send, this parameter might help.
+  required: false
+  default: 0
   type: integer
 {% endconfiguration %}
 

@@ -1,13 +1,13 @@
 ---
 title: Android TV
 description: Instructions on how to integrate Android TV and Fire TV devices into Home Assistant.
-logo: androidtv.png
 ha_category:
   - Media Player
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
+ha_domain: androidtv
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.

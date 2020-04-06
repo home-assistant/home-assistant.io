@@ -9,6 +9,7 @@ ha_release: 0.105
 ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
+ha_domain: garmin_connect
 ---
 
 The Garmin Connect sensor allows you to expose data from [Garmin Connect](https://connect.garmin.com) to Home Assistant.
@@ -104,4 +105,14 @@ Latest Respiration Update
 Highest Respiration
 Lowest Respiration
 Latest Respiration
+
+Weight
+BMI
+Body Fat
+Body Water
+Body Mass
+Muscle Mass
+Physique Rating
+Visceral Fat
+Metabolic Age
 ```

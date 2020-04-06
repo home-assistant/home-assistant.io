@@ -1,10 +1,10 @@
 ---
 title: "Picture Card"
 sidebar_label: Picture
-description: "A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
 ---
 
-A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_picture.png' alt='Screenshot of the picture card'>

@@ -74,7 +74,6 @@ regenerate: false
   <a href="{{url}}" class="option-card">
     <div class="img-container">{{{image}}}</div>
     <div class='title'>{{title}}</div>
-    <div class='category'>{{cat}}</div>
   </a>
 {{/components}}
 {{^components}}
@@ -88,14 +87,15 @@ regenerate: false
 var allComponents = [
   {%- for component in components -%}
     {%- if component.ha_category -%}
-{%- assign sliced_version = component.ha_release | split: '.' -%}
-{%- assign minor_version = sliced_version[1]|plus: 0 -%}
-{%- assign major_version = sliced_version[0]|plus: 0 -%}
-{%- assign featured_first = true -%}
+      {%- assign sliced_version = component.ha_release | split: '.' -%}
+      {%- assign minor_version = sliced_version[1]|plus: 0 -%}
+      {%- assign major_version = sliced_version[0]|plus: 0 -%}
+      {% assign categories = "" | split: ',' %}
       {%- for ha_category in component.ha_category -%}
-{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
-      {%- assign featured_first = false -%}
+        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
+        {% assign categories = categories | push: category %}
       {%- endfor -%}
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -112,7 +112,6 @@ allComponents.pop(); // remove placeholder element at the end
       // do the lowerCase transformation once
       for (i = 0; i < (allComponents.length); i++) {
         allComponents[i].titleLC = allComponents[i].title.toLowerCase();
-        allComponents[i].catLC = allComponents[i].cat.toLowerCase();
       }
 
       // sort the components alphabetically
@@ -145,7 +144,7 @@ allComponents.pop(); // remove placeholder element at the end
         components: [],
         image: function () {
           if (this.logo === '') {
-            return '';
+            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
           } else {
             return '<img data-src="/images/supported_brands/' + this.logo + '">';
           }
@@ -169,7 +168,7 @@ allComponents.pop(); // remove placeholder element at the end
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
             return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.catLC.indexOf(search) !== -1);
+              (comp.cat.find(c => c.includes("#")) != undefined);
           };
 
         } else if (hash === '#featured' || hash === '') {
@@ -190,7 +189,7 @@ allComponents.pop(); // remove placeholder element at the end
           // regular filter categories
           search = hash.substring(1);
           filter = function (comp) {
-            return comp.catLC === search;
+            return comp.cat.includes(search);
           };
         }
 
