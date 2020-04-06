@@ -48,7 +48,7 @@ aspect_ratio:
 refresh_rate:
   required: false
   description: "Refresh rate of the image in seconds."
-  type: number
+  type: string
 name:
   required: false
   description: Overwrite entity name.
