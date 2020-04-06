@@ -1,7 +1,6 @@
 ---
 title: HifiBerry
 description: How to set up the HifiBerry media player platform
-logo: hifiberry.png
 ha_category:
   - Media Player
 ha_release: 0.107.7
