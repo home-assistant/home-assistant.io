@@ -29,7 +29,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 sensor:
   - platform: edl21
-    name: "Heat pump"
     serial_port: /dev/ttyUSB0
 ```
 
