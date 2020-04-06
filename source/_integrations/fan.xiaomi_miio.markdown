@@ -12,28 +12,28 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Ai
 
 Supported devices:
 
-| Name                   | Model                  | Model no. |
-| ---------------------- | ---------------------- | --------- |
-| Air Purifier           | zhimi.airpurifier.v1   | |
-| Air Purifier 2         | zhimi.airpurifier.v2   | FJY4006CN |
-| Air Purifier V3        | zhimi.airpurifier.v3   | |
-| Air Purifier V5        | zhimi.airpurifier.v5   | |
-| Air Purifier Pro       | zhimi.airpurifier.v6   | |
-| Air Purifier Pro V7    | zhimi.airpurifier.v7   | |
-| Air Purifier 2 (mini)  | zhimi.airpurifier.m1   | |
-| Air Purifier (mini)    | zhimi.airpurifier.m2   | |
-| Air Purifier MA1       | zhimi.airpurifier.ma1  | |
-| Air Purifier 2S        | zhimi.airpurifier.ma2  | |
-| Air Purifier 2S        | zhimi.airpurifier.mc1  | |
-| Air Purifier Super     | zhimi.airpurifier.sa1  | |
-| Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
-| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
-| Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
-| Air Humidifier         | zhimi.humidifier.v1    | |
-| Air Humidifier CA1     | zhimi.humidifier.ca1   | |
-| Air Humidifier CB1     | zhimi.humidifier.cb1   | |
-| Zero Fog Humidifier     | shuii.humidifier.jsq001   | |
-| Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Name                   | Model                   | Model no. |
+| ---------------------- | ----------------------- | --------- |
+| Air Purifier           | zhimi.airpurifier.v1    | |
+| Air Purifier 2         | zhimi.airpurifier.v2    | FJY4006CN |
+| Air Purifier V3        | zhimi.airpurifier.v3    | |
+| Air Purifier V5        | zhimi.airpurifier.v5    | |
+| Air Purifier Pro       | zhimi.airpurifier.v6    | |
+| Air Purifier Pro V7    | zhimi.airpurifier.v7    | |
+| Air Purifier 2 (mini)  | zhimi.airpurifier.m1    | |
+| Air Purifier (mini)    | zhimi.airpurifier.m2    | |
+| Air Purifier MA1       | zhimi.airpurifier.ma1   | |
+| Air Purifier 2S        | zhimi.airpurifier.ma2   | |
+| Air Purifier 2S        | zhimi.airpurifier.mc1   | |
+| Air Purifier Super     | zhimi.airpurifier.sa1   | |
+| Air Purifier Super 2   | zhimi.airpurifier.sa2   | |
+| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | |
+| Air Purifier 3H (2019) | zhimi.airpurifier.mb3   | |
+| Air Humidifier         | zhimi.humidifier.v1     | |
+| Air Humidifier CA1     | zhimi.humidifier.ca1    | |
+| Air Humidifier CB1     | zhimi.humidifier.cb1    | |
+| Zero Fog Humidifier    | shuii.humidifier.jsq001 | |
+| Air Fresh VA2          | zhimi.airfresh.va2      | |
 
 
 ## Features
