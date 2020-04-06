@@ -32,6 +32,7 @@ Supported devices:
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
+| Zero Fog Humidifier     | shuii.humidifier.jsq001   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
 
@@ -307,6 +308,28 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `depth`
   - `dry`
+  - `supported_features`
+
+### Zero Fog Humidifier	(shuii.humidifier.jsq001)
+
+- On, Off
+- Operation modes (Intelligent, Level1, Level2, Level3, Level4)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off), LED brightness (0: off, 1: low, 2: high)
+- Attributes
+  - `speed`
+  - `speed_list`
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `mode`
+  - `buzzer`
+  - `child_lock`
+  - `led_brightness`
+  - `motor_speed`
+  - `no_water`
+  - `lid_opened`
   - `supported_features`
 
 ### Air Fresh VA2
