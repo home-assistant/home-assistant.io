@@ -76,7 +76,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
+In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would trigger this automation.
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
