@@ -872,7 +872,7 @@
 /components/sensor.swiss_hydrological_data /integrations/swiss_hydrological_data
 /components/sensor.swiss_public_transport /integrations/swiss_public_transport
 /components/sensor.syncthru /integrations/syncthru
-/components/sensor.synologydsm /integrations/synologydsm
+/components/sensor.synologydsm /integrations/synology_dsm
 /components/sensor.systemmonitor /integrations/systemmonitor
 /components/sensor.sytadin /integrations/sytadin
 /components/sensor.tado /integrations/tado
@@ -1865,7 +1865,7 @@
 /components/synology /integrations/synology
 /components/synology_chat /integrations/synology_chat
 /components/synology_srm /integrations/synology_srm
-/components/synologydsm /integrations/synologydsm
+/components/synologydsm /integrations/synology_dsm
 /components/syslog /integrations/syslog
 /components/system_health /integrations/system_health
 /components/system_log /integrations/system_log
@@ -2030,6 +2030,7 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
