@@ -7,7 +7,6 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.58
-logo: vultr.png
 ha_iot_class: Cloud Polling
 ha_domain: vultr
 ---
