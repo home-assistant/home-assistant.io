@@ -125,7 +125,7 @@ card:
   Entity filter combined with glance card.
 </p>
 
-You can also specify multiple state_filters, in which case matching any condition will display the entity. This will display everyone who isn't at home or at work.
+You can also specify multiple state_filters, in which case matching any condition will display the entity. This example will display everyone who isn't at home or at work.
 
 ```yaml
 type: entity-filter
