@@ -121,7 +121,7 @@ script:
 
 ### Supported devices
 
-The current implementation of the python module includes:
+The current implementation of the Python module (Plugwise-Smile) includes:
 
 Adam (zone_control):
 
