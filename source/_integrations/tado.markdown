@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
 ha_domain: tado
+ha_config_flow: true
 ---
 
 The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
