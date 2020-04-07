@@ -8,7 +8,9 @@ ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@robbiet480'
+  - '@bieniu'
 ha_domain: braviatv
+ha_config_flow: true
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
