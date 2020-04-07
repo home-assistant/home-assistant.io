@@ -25,4 +25,4 @@ To revert back to using the UI to edit your Lovelace interface, remove the `love
 
 ### Advanced configuration
 
-You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards. For more details refer to [this](/lovelace/dashboards-and-views.markdown) page.
+You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards. For more details refer to [this](/lovelace/dashboards-and-views/) page.
