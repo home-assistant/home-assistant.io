@@ -40,6 +40,10 @@ name:
 
 A new setup via `configuration.yaml` file is not possible.
 
+## Extra configuration for the integration
+
+The integration allows you to change ignored TV sources from the front end. Enter which Sony Bravia TV integration you want to change options on and press the cog wheel.
+
 ## For TVs older than 2013
 
 Users of TVs older than 2013 have another option for controlling their TV via Home Assistant.
