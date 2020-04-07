@@ -31,11 +31,6 @@ synology_dsm:
 ```
 
 {% configuration %}
-name:
-  description: The name to use in the frontend for your Synology device.
-  required: false
-  default: Synology DSM
-  type: string
 host:
   description: The IP address or DNS of the Synology NAS to monitor.
   required: true
