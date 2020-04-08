@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.108: Beta release notes"
-description: "TBD"
-date: 2020-03-27 00:00:00
+title: "0.108: Logos, Area Pages, Lovelace Entity Card, Lovelace Map History"
+description: "0.108: Adds Logos and Icons, new Area Configuration Pages, new Entity Card and Map History"
+date: 2020-04-08 00:00:00
 date_formatted: "April 8, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -82,8 +82,9 @@ to allow them to be configured via the Home Assistant frontend.
 
 Not all of them were ready in time for this release; nevertheless, the list is
 amazing already:
-
+  
 - [Freebox][freebox docs], done by [@Quentame]
+- [Monoprice][monoprice docs], done by [@OnFreund]
 - [Roku][roku docs], done by [@ctalkington]
 - [Doorbird][doorbird docs], done by [@bdraco]
 - [Elk-M1 Control][elkm1 docs], done by [@bdraco]
@@ -154,11 +155,11 @@ Before and after screenshot for the Horizontal Stack improvements.
 - The graph from the sensor card is now also available as a footer for the
   entities and entity card.
 
-- The markdown card has a new `user` variable that can be used to display the
+- The Markdown card has a new `user` variable that can be used to display the
   currently logged in user.
   
-- With the ZHA Zigbee integration, Zigbee groups now dynamically create 
-  entities for lights, switches and fans that are grouped together. This 
+- With the ZHA Zigbee integration, Zigbee groups now dynamically create
+  entities for lights, switches and fans that are grouped together. This
   enables near-simultaneous control over a large group of lights allowing
   them to turn on or off at the exact same time. Thank you [@dmulcahey]!
 
@@ -296,6 +297,9 @@ These integrations have been removed. The websites for both have changed, causin
 
 ## All changes
 
+<details>
+  <summary>Click to see all changes!</summary>
+
 - Refactor Freebox : add config flow + temperature sensor + signal dispatch ([@Quentame] - [#30334]) ([freebox docs]) (breaking change)
 - Upgrade slacker to 0.14.0 ([@fabaff] - [#32698]) ([slack docs])
 - Upgrade pylast to 3.2.1 ([@fabaff] - [#32700]) ([lastfm docs])
@@ -427,7 +431,7 @@ These integrations have been removed. The websites for both have changed, causin
 - Switch legacy calls to init_recorder_component using async_add… ([@bdraco] - [#33185])
 - Make sure entity platform services work for all platforms of d… ([@balloob] - [#33176])
 - Add effect service to WLED integration ([@frenck] - [#33026]) ([wled docs])
-- Add unique ID propery to braviatv entity ([@bieniu] - [#33037]) ([braviatv docs]) ([braviatv docs]) ([braviatv docs])
+- Add unique ID propery to braviatv entity ([@bieniu] - [#33037]) ([braviatv docs])
 - Minor changes for new pvpc_hourly_pricing integration ([@azogue] - [#33177]) ([pvpc_hourly_pricing docs])
 - Fix state_automation_listener when new state is None ([@azogue] - [#32985]) ([automation docs])
 - Add support for Minecraft SRV records ([@elmurato] - [#32372]) ([minecraft_server docs])
@@ -559,6 +563,65 @@ These integrations have been removed. The websites for both have changed, causin
 - Expand network util to check for link local addresses ([@bdraco] - [#33499]) ([axis docs]) ([doorbird docs])
 - Updated frontend to 20200401.0 ([@bramkragten] - [#33505]) ([frontend docs])
 - Add device triggers for Hue remotes ([@azogue] - [#33476]) ([hue docs])
+- Enable sisyphus to recover from bad DNS without restart ([@jkeljo] - [#32846]) ([sisyphus docs]) (beta fix)
+- Fix netatmo device unavailable and services ([@cgtobi] - [#33509]) ([netatmo docs]) (beta fix)
+- Remove extraneous parameter from AlarmDecoder services ([@ajschmidt8] - [#33516]) (beta fix)
+- Update to roku==4.1.0 ([@ctalkington] - [#33520]) ([roku docs]) (beta fix)
+- Bump brother to 0.1.11 ([@bieniu] - [#33526]) ([brother docs]) (beta fix)
+- Clarify light reproduce state deprecation warning ([@MartinHjelmare] - [#33531]) ([light docs]) (beta fix)
+- Fix MQTT cleanup regression from #32184. ([@emontnemery] - [#33532]) ([mqtt docs]) (beta fix)
+- Ensure harmony hub is ready before importing ([@bdraco] - [#33537]) ([harmony docs]) (beta fix)
+- Bump HAP-python to 2.8.0 ([@bdraco] - [#33539]) ([homekit docs]) (beta fix)
+- Mark new gate device class as 2FA ([@balloob] - [#33541]) ([google_assistant docs]) (beta fix)
+- Temporary Plex play_media workaround ([@jjlawren] - [#33542]) ([plex docs]) (beta fix)
+- Bump pyipp to 0.8.2 ([@ctalkington] - [#33544]) ([ipp docs]) (beta fix)
+- Update to pyipp==0.8.3 ([@ctalkington] - [#33554]) ([ipp docs]) (beta fix)
+- Use homekit service callbacks for lights to resolve out of sync states ([@bdraco] - [#32348]) ([homekit docs]) (beta fix)
+- Fix asuswrt network failure startup ([@ollo69] - [#33485]) ([asuswrt docs]) (beta fix)
+- Convert TTS tests to async ([@balloob] - [#33517]) ([tts docs]) (beta fix)
+- Add missing flow_title to doorbird ([@bdraco] - [#33557]) ([doorbird docs]) (beta fix)
+- Plex followup to #33542 ([@jjlawren] - [#33558]) ([plex docs]) (beta fix)
+- Identify cameras in error logs for generic and mjpeg cameras ([@azogue] - [#33561]) ([mjpeg docs]) (beta fix)
+- Upgrade luftdaten to 0.6.4 ([@fabaff] - [#33564]) ([luftdaten docs]) (beta fix)
+- Fix source name ([@bieniu] - [#33565]) ([braviatv docs]) (beta fix)
+- Bump gios library to version 0.1.1 ([@bieniu] - [#33569]) ([gios docs]) (beta fix)
+- Fix browsing regression ([@Jc2k] - [#33572]) ([zeroconf docs]) (beta fix)
+- Bump adguardhome to 0.4.2 ([@frenck] - [#33575]) ([adguard docs]) (beta fix)
+- Add default delay to Harmony config entries ([@bramkragten] - [#33576]) ([harmony docs]) (beta fix)
+- Updated frontend to 20200403.0 ([@bramkragten] - [#33586]) ([frontend docs]) (beta fix)
+- Debounce calls to Plex server ([@jjlawren] - [#33560]) ([plex docs]) (beta fix)
+- Hass.io integration do not warn safe mode ([@balloob] - [#33600]) ([hassio docs]) (beta fix)
+- Use IP addresses instead of mDNS names when wled discovered ([@balloob] - [#33608]) ([wled docs]) (beta fix)
+- Identify more Sonos radio stations with poor titles ([@amelchio] - [#33609]) ([sonos docs]) (beta fix)
+- Use IP addresses instead of mDNS names when IPP discovered ([@ctalkington] - [#33610]) ([ipp docs]) (beta fix)
+- Handle race condition in harmony setup ([@bdraco] - [#33611]) ([harmony docs]) (beta fix)
+- Bump twentemilieu to 0.3.0 ([@frenck] - [#33622]) ([twentemilieu docs]) (beta fix)
+- Update zha dependencies ([@Adminiuga] - [#33639]) ([zha docs]) (beta fix)
+- Plex logging additions & cleanup ([@jjlawren] - [#33681]) ([plex docs]) (beta fix)
+- Handle float values for homekit lightning ([@bdraco] - [#33683]) ([homekit docs]) (beta fix)
+- Skip parsing Plex session if incomplete ([@jjlawren] - [#33534]) ([plex docs]) (beta fix)
+- Fix nuheat response error checking ([@bdraco] - [#33712]) ([nuheat docs]) (beta fix)
+- Fix rachio import of run time from yaml ([@bdraco] - [#33723]) ([rachio docs]) (beta fix)
+- Fix Plex debounce wrapper ([@jjlawren] - [#33730]) ([plex docs]) (beta fix)
+- Fix MQTT debug info for subscriptions with wildcard. ([@emontnemery] - [#33744]) ([mqtt docs]) (beta fix)
+- Abort rachio config flow if the api key is already configured… ([@bdraco] - [#33747]) ([rachio docs]) (beta fix)
+- Bump frontend ([@bramkragten] - [#33751]) ([frontend docs]) (beta fix)
+- Defer Plex sensor retry instead of aborting ([@jjlawren] - [#33753]) ([plex docs]) (beta fix)
+- Bump HAP-python to 2.8.1 ([@bdraco] - [#33756]) ([homekit docs]) (beta fix)
+- Bump aioambient to 1.1.1 ([@bachya] - [#33761]) ([ambient_station docs]) (beta fix)
+- Bump simplisafe-python to 9.0.6 ([@bachya] - [#33762]) ([simplisafe docs]) (beta fix)
+- Catch IPPParseError during config flow ([@ctalkington] - [#33769]) ([ipp docs]) (beta fix)
+- Update nexia for thermostats without zoning ([@bdraco] - [#33770]) ([nexia docs]) (beta fix)
+- Fix nuheat reverting to auto mode after setting temp hold ([@bdraco] - [#33772]) ([nuheat docs]) (beta fix)
+- Fix minor async issues in Plex ([@jjlawren] - [#33785]) ([plex docs]) (beta fix)
+- Fix unhandled exceptions for config, default_config, harmony ([@ziv1234] - [#33731]) ([config docs]) ([default_config docs]) ([harmony docs]) (beta fix)
+- Updated frontend to 20200407.1 ([@bramkragten] - [#33799]) ([frontend docs]) (beta fix)
+- Bump pyW215 to 0.7.0 ([@springstan] - [#33786]) ([dlink docs]) (beta fix)
+
+</details>
+
+  
+  
 
 [#29063]: https://github.com/home-assistant/core/pull/29063
 [#29909]: https://github.com/home-assistant/core/pull/29909
@@ -581,6 +644,7 @@ These integrations have been removed. The websites for both have changed, causin
 [#32184]: https://github.com/home-assistant/core/pull/32184
 [#32250]: https://github.com/home-assistant/core/pull/32250
 [#32291]: https://github.com/home-assistant/core/pull/32291
+[#32348]: https://github.com/home-assistant/core/pull/32348
 [#32351]: https://github.com/home-assistant/core/pull/32351
 [#32353]: https://github.com/home-assistant/core/pull/32353
 [#32372]: https://github.com/home-assistant/core/pull/32372
@@ -628,6 +692,7 @@ These integrations have been removed. The websites for both have changed, causin
 [#32826]: https://github.com/home-assistant/core/pull/32826
 [#32839]: https://github.com/home-assistant/core/pull/32839
 [#32841]: https://github.com/home-assistant/core/pull/32841
+[#32846]: https://github.com/home-assistant/core/pull/32846
 [#32851]: https://github.com/home-assistant/core/pull/32851
 [#32852]: https://github.com/home-assistant/core/pull/32852
 [#32854]: https://github.com/home-assistant/core/pull/32854
@@ -818,11 +883,63 @@ These integrations have been removed. The websites for both have changed, causin
 [#33476]: https://github.com/home-assistant/core/pull/33476
 [#33477]: https://github.com/home-assistant/core/pull/33477
 [#33481]: https://github.com/home-assistant/core/pull/33481
+[#33485]: https://github.com/home-assistant/core/pull/33485
 [#33488]: https://github.com/home-assistant/core/pull/33488
 [#33497]: https://github.com/home-assistant/core/pull/33497
 [#33499]: https://github.com/home-assistant/core/pull/33499
 [#33503]: https://github.com/home-assistant/core/pull/33503
 [#33505]: https://github.com/home-assistant/core/pull/33505
+[#33509]: https://github.com/home-assistant/core/pull/33509
+[#33516]: https://github.com/home-assistant/core/pull/33516
+[#33517]: https://github.com/home-assistant/core/pull/33517
+[#33520]: https://github.com/home-assistant/core/pull/33520
+[#33526]: https://github.com/home-assistant/core/pull/33526
+[#33531]: https://github.com/home-assistant/core/pull/33531
+[#33532]: https://github.com/home-assistant/core/pull/33532
+[#33534]: https://github.com/home-assistant/core/pull/33534
+[#33537]: https://github.com/home-assistant/core/pull/33537
+[#33539]: https://github.com/home-assistant/core/pull/33539
+[#33541]: https://github.com/home-assistant/core/pull/33541
+[#33542]: https://github.com/home-assistant/core/pull/33542
+[#33544]: https://github.com/home-assistant/core/pull/33544
+[#33554]: https://github.com/home-assistant/core/pull/33554
+[#33557]: https://github.com/home-assistant/core/pull/33557
+[#33558]: https://github.com/home-assistant/core/pull/33558
+[#33560]: https://github.com/home-assistant/core/pull/33560
+[#33561]: https://github.com/home-assistant/core/pull/33561
+[#33564]: https://github.com/home-assistant/core/pull/33564
+[#33565]: https://github.com/home-assistant/core/pull/33565
+[#33569]: https://github.com/home-assistant/core/pull/33569
+[#33572]: https://github.com/home-assistant/core/pull/33572
+[#33575]: https://github.com/home-assistant/core/pull/33575
+[#33576]: https://github.com/home-assistant/core/pull/33576
+[#33586]: https://github.com/home-assistant/core/pull/33586
+[#33600]: https://github.com/home-assistant/core/pull/33600
+[#33608]: https://github.com/home-assistant/core/pull/33608
+[#33609]: https://github.com/home-assistant/core/pull/33609
+[#33610]: https://github.com/home-assistant/core/pull/33610
+[#33611]: https://github.com/home-assistant/core/pull/33611
+[#33622]: https://github.com/home-assistant/core/pull/33622
+[#33639]: https://github.com/home-assistant/core/pull/33639
+[#33681]: https://github.com/home-assistant/core/pull/33681
+[#33683]: https://github.com/home-assistant/core/pull/33683
+[#33712]: https://github.com/home-assistant/core/pull/33712
+[#33723]: https://github.com/home-assistant/core/pull/33723
+[#33730]: https://github.com/home-assistant/core/pull/33730
+[#33731]: https://github.com/home-assistant/core/pull/33731
+[#33744]: https://github.com/home-assistant/core/pull/33744
+[#33747]: https://github.com/home-assistant/core/pull/33747
+[#33751]: https://github.com/home-assistant/core/pull/33751
+[#33753]: https://github.com/home-assistant/core/pull/33753
+[#33756]: https://github.com/home-assistant/core/pull/33756
+[#33761]: https://github.com/home-assistant/core/pull/33761
+[#33762]: https://github.com/home-assistant/core/pull/33762
+[#33769]: https://github.com/home-assistant/core/pull/33769
+[#33770]: https://github.com/home-assistant/core/pull/33770
+[#33772]: https://github.com/home-assistant/core/pull/33772
+[#33785]: https://github.com/home-assistant/core/pull/33785
+[#33786]: https://github.com/home-assistant/core/pull/33786
+[#33799]: https://github.com/home-assistant/core/pull/33799
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@C6H6]: https://github.com/C6H6
@@ -833,6 +950,7 @@ These integrations have been removed. The websites for both have changed, causin
 [@Jc2k]: https://github.com/Jc2k
 [@Kane610]: https://github.com/Kane610
 [@Knapoc]: https://github.com/Knapoc
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatthewFlamm]: https://github.com/MatthewFlamm
 [@OnFreund]: https://github.com/OnFreund
 [@Quentame]: https://github.com/Quentame
@@ -881,6 +999,7 @@ These integrations have been removed. The websites for both have changed, causin
 [@jarylc]: https://github.com/jarylc
 [@jasperro]: https://github.com/jasperro
 [@jjlawren]: https://github.com/jjlawren
+[@jkeljo]: https://github.com/jkeljo
 [@jlmcgehee21]: https://github.com/jlmcgehee21
 [@jnimmo]: https://github.com/jnimmo
 [@kit-klein]: https://github.com/kit-klein
@@ -890,6 +1009,7 @@ These integrations have been removed. The websites for both have changed, causin
 [@oblogic7]: https://github.com/oblogic7
 [@ochlocracy]: https://github.com/ochlocracy
 [@oischinger]: https://github.com/oischinger
+[@ollo69]: https://github.com/ollo69
 [@oxan]: https://github.com/oxan
 [@pnbruckner]: https://github.com/pnbruckner
 [@prairieapps]: https://github.com/prairieapps
@@ -910,6 +1030,7 @@ These integrations have been removed. The websites for both have changed, causin
 [@vwir]: https://github.com/vwir
 [@ziv1234]: https://github.com/ziv1234
 [abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
 [airly docs]: /integrations/airly/
 [airvisual docs]: /integrations/airvisual/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
@@ -934,6 +1055,7 @@ These integrations have been removed. The websites for both have changed, causin
 [configurator docs]: /integrations/configurator/
 [cover docs]: /integrations/cover/
 [deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
 [delijn docs]: /integrations/delijn/
 [denonavr docs]: /integrations/denonavr/
 [directv docs]: /integrations/directv/
@@ -955,6 +1077,7 @@ These integrations have been removed. The websites for both have changed, causin
 [google_assistant docs]: /integrations/google_assistant/
 [gtfs docs]: /integrations/gtfs/
 [harmony docs]: /integrations/harmony/
+[hassio docs]: /integrations/hassio/
 [here_travel_time docs]: /integrations/here_travel_time/
 [history docs]: /integrations/history/
 [homekit docs]: /integrations/homekit/
@@ -974,7 +1097,9 @@ These integrations have been removed. The websites for both have changed, causin
 [konnected docs]: /integrations/konnected/
 [lastfm docs]: /integrations/lastfm/
 [lcn docs]: /integrations/lcn/
+[light docs]: /integrations/light/
 [lovelace docs]: /integrations/lovelace/
+[luftdaten docs]: /integrations/luftdaten/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [media_extractor docs]: /integrations/media_extractor/
 [met docs]: /integrations/met/
@@ -982,11 +1107,13 @@ These integrations have been removed. The websites for both have changed, causin
 [microsoft_face docs]: /integrations/microsoft_face/
 [miflora docs]: /integrations/miflora/
 [minecraft_server docs]: /integrations/minecraft_server/
+[mjpeg docs]: /integrations/mjpeg/
 [modbus docs]: /integrations/modbus/
 [monoprice docs]: /integrations/monoprice/
 [mpd docs]: /integrations/mpd/
 [mqtt docs]: /integrations/mqtt/
 [myq docs]: /integrations/myq/
+[netatmo docs]: /integrations/netatmo/
 [nexia docs]: /integrations/nexia/
 [nextcloud docs]: /integrations/nextcloud/
 [nissan_leaf docs]: /integrations/nissan_leaf/
@@ -1016,6 +1143,7 @@ These integrations have been removed. The websites for both have changed, causin
 [shodan docs]: /integrations/shodan/
 [simplisafe docs]: /integrations/simplisafe/
 [sinch docs]: /integrations/sinch/
+[sisyphus docs]: /integrations/sisyphus/
 [slack docs]: /integrations/slack/
 [sonos docs]: /integrations/sonos/
 [soundtouch docs]: /integrations/soundtouch/
@@ -1032,6 +1160,8 @@ These integrations have been removed. The websites for both have changed, causin
 [tesla docs]: /integrations/tesla/
 [tibber docs]: /integrations/tibber/
 [tplink docs]: /integrations/tplink/
+[tts docs]: /integrations/tts/
+[twentemilieu docs]: /integrations/twentemilieu/
 [ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [velbus docs]: /integrations/velbus/
