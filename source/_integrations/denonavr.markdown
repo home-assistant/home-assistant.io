@@ -30,6 +30,7 @@ Known supported devices:
 - Marantz M-RC610
 - Marantz SR5008
 - Marantz SR6007 - SR6010
+- Marantz NR1504
 - Marantz NR1506
 - Marantz NR1604
 - Other Denon AVR receivers (untested)
