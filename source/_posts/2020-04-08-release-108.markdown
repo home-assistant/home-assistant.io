@@ -95,12 +95,12 @@ amazing already:
 
 Yes, [@bdraco] has been on fire this release! Amazing job!
 
-## Map history
+## Lovelace Map history
 
 Maybe not very useful during home quarantine, but a very cool feature for when
 we are allowed to get out of our homes again.
 [@Hoytron](https://github.com/Hoytron) added the ability to show the history of
-persons or device trackers on the map. You can define how many hours of history
+persons or device trackers on the Lovelace map card. You can define how many hours of history
 you want to show and it will draw lines between all the points in that
 time frame.
 
