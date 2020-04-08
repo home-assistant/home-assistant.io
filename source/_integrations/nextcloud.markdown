@@ -12,7 +12,7 @@ ha_codeowners:
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
 
-![Nextcloud Example Sensor]('/images/screenshots/nextcloud-sample-sensor.png')
+![Nextcloud Example Sensor](/images/screenshots/nextcloud-sample-sensor.png)
 
 ## Configuration
 
