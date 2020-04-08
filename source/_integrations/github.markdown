@@ -1,7 +1,6 @@
 ---
 title: GitHub
 description: How to integrate the GitHub sensor into Home Assistant.
-logo: github.png
 ha_category:
   - Sensor
 ha_release: 0.88

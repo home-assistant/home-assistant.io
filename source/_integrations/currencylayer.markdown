@@ -9,7 +9,7 @@ ha_release: 0.32
 ha_domain: currencylayer
 ---
 
-The `currencylayer` sensor will show you the current exchange rate from [Currencylayer](https://currencylayer.com/) that provides real-time exchange rates for [170 currencies](https://currencylayer.com/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.
+The `currencylayer` sensor will show you the current exchange rate from [Currencylayer](https://currencylayer.com/) that provides real-time exchange rates for [170 currencies](https://currencylayer.com/currencies). The free account is limited to only USD as a base currency, allows 250 requests per month, and updates daily.
 
 Obtain your API key [here](https://currencylayer.com/product)
 

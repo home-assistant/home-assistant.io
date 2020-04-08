@@ -1,7 +1,6 @@
 ---
 title: Sky Hub
 description: Instructions on how to integrate Sky Hub routers into Home Assistant.
-logo: sky.png
 ha_category:
   - Presence Detection
 ha_release: 0.37

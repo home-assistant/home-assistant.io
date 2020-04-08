@@ -1,7 +1,6 @@
 ---
 title: Washington State Department of Transportation (WSDOT)
 description: Instructions on how to integrate WSDOT data into your home.
-logo: wsdot.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling

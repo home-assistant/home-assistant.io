@@ -1,7 +1,6 @@
 ---
 title: Wunderlist
 description: Instructions on how to use Wunderlist with Home Assistant.
-logo: wunderlist.png
 ha_category:
   - Calendar
 ha_release: 0.84

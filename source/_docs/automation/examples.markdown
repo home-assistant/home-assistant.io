@@ -44,7 +44,7 @@ automation:
       to: 'not_home'
     action:
       service: light.turn_off
-      entity_id: group.all_lights
+      entity_id: all
 
 # Notify when Paulus leaves the house in the evening
   - alias: 'Leave Home notification'
