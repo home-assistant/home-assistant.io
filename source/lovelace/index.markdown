@@ -5,7 +5,7 @@ redirect_from:
   - /integrations/lovelace/
 ---
 
-Lovelace is the Home Assistant User Interface. It's a fast, customizable and powerful way for users to manage their homes, working on mobile or desktop.
+Lovelace is the Home Assistant user interface. It's a fast, customizable and powerful way for users to manage their homes, working on mobile or desktop.
 
 - 24 different cards to place and configure as you like.
 - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
