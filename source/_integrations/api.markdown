@@ -17,4 +17,4 @@ The `api` integration exposes a RESTful API and allows one to interact with a Ho
 api:
 ```
 
-For details to use the API, please refer to the [REST API](/developers/rest_api/) or the [Python REST API documentation](/developers/python_api/) in the "Developer" section.
+For details to use the API, please refer to the [REST API](/developers/rest_api/) in the "Developer" section.
