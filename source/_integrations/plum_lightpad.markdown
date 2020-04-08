@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.85
 ha_domain: plum_lightpad
+ha_codeowners:
+  - '@ColinHarrington'
 ---
 
 Configurable/Dimmable Wi-Fi Lightswitch

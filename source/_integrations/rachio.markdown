@@ -8,6 +8,9 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.73
 ha_domain: rachio
+ha_codeowners:
+  - '@bdraco'
+ha_config_flow: true
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).

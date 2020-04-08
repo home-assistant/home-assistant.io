@@ -1,7 +1,6 @@
 ---
 title: SolarEdge Local
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant via Local API.
-logo: solaredge.png
 ha_category:
   - Sensor
   - Energy

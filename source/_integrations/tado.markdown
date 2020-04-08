@@ -11,6 +11,7 @@ ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
+  - '@bdraco'
 ha_domain: tado
 ---
 

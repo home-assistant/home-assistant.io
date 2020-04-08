@@ -1,7 +1,6 @@
 ---
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
-logo: onkyo.png
 ha_category:
   - Media Player
 ha_release: 0.17
