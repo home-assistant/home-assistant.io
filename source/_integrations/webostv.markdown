@@ -119,7 +119,7 @@ webostv:
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:
-      mac: "B4:E6:2A:1E:11:0F"
+      mac: AA-BB-CC-DD-EE-FF
 
 media_player:
 
