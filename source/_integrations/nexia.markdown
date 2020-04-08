@@ -10,8 +10,8 @@ ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@bdraco'
   - '@ryannazaretian'
+  - '@bdraco'
 ha_domain: nexia
 ---
 
@@ -98,4 +98,4 @@ Sets the humidify setpoint. This setting will affect all zones on the same therm
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `humidity` | no | Humidify setpoint level, from 35 to 65. 
+| `humidity` | no | Humidify setpoint level, from 35 to 65.

@@ -1,7 +1,6 @@
 ---
 title: SolarEdge
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant.
-logo: solaredge.png
 ha_category:
   - Sensor
 ha_release: 0.85

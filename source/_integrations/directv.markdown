@@ -9,6 +9,7 @@ ha_domain: directv
 ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
+ha_quality_scale: gold
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.

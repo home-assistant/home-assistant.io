@@ -7,6 +7,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denonavr
+ha_codeowners:
+  - '@scarface-4711'
+  - '@starkillerOG'
 ---
 
 The `denonavr` platform allows you to control a [Denon Network Receivers](https://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant. It might be that your device is supported by the [Denon] platform.
