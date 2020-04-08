@@ -30,6 +30,7 @@ code:
   description: >
     If defined, specifies a code to enable or disable the alarm in the frontend.
     Only one of **code** and **code_template** can be specified.
+    Using secrets to store code is advised. (https://www.home-assistant.io/docs/configuration/secrets/)
   required: exclusive
   type: string
 code_template:
@@ -37,6 +38,7 @@ code_template:
     If defined, returns a code to enable or disable the alarm in the frontend; an empty string disables checking the code.
     Inside the template, the variables **from_state** and **to_state** identify the current and desired state.
     Only one of **code** and **code_template** can be specified.
+    Using secrets to store code is advised. (https://www.home-assistant.io/docs/configuration/secrets/)
   required: exclusive
   type: string
 code_arm_required:
@@ -134,7 +136,7 @@ In the configuration example below:
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: manual
-    name: Home Alarm
+    name: HA Alarm
     code: 1234
     pending_time: 30
     delay_time: 20
@@ -214,7 +216,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 - alias: 'Send notification when alarm is Disarmed'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.home_alarm
+      entity_id: alarm_control_panel.ha_alarm
       to: 'disarmed'
   action:
     - service: notify.notify
@@ -228,7 +230,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 - alias: 'Send notification when alarm is in pending status'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.home_alarm
+      entity_id: alarm_control_panel.ha_alarm
       to: 'pending'
   action:
     - service: notify.notify
@@ -242,7 +244,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 - alias: 'Send notification when alarm is Armed in Away mode'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.home_alarm
+      entity_id: alarm_control_panel.ha_alarm
       to: 'armed_away'
   action:
     - service: notify.notify
@@ -256,7 +258,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 - alias: 'Send notification when alarm is Armed in Home mode'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.home_alarm
+      entity_id: alarm_control_panel.ha_alarm
       to: 'armed_home'
   action:
     - service: notify.notify
