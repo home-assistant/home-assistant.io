@@ -5,8 +5,10 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
+ha_config_flow: true
 ha_codeowners:
   - '@ChrisMandich'
+  - '@bdraco'
 ha_domain: flume
 ---
 
@@ -18,7 +20,9 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumetech.com/#settings). 
 
-To enable the flume sensor, add the following lines to your `configuration.yaml` file:
+To add `Flume` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
+
+Alternatively, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
