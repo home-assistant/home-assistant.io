@@ -120,6 +120,28 @@ card:
   type: glance
   title: People at home
 ```
+<p class='img'>
+  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  Entity filter combined with glance card.
+</p>
+
+You can also specify multiple state_filters, in which case matching any condition will display the entity. This example will display everyone who isn't at home or at work.
+
+```yaml
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - operator: "!="
+    value: home
+  - operator: "!="
+    value: work    
+card:
+  type: glance
+  title: Who's Running Errands
+```
 
 Specify filter for a single entity
 
@@ -138,8 +160,3 @@ entities:
         value: 50
         attribute: humidity
 ```
-
-<p class='img'>
-  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
-  Entity filter combined with glance card.
-</p>
