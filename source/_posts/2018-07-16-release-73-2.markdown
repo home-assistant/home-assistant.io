@@ -14,7 +14,6 @@ A man in the middle attack is when an attacker is able to inject itself between 
 
 After research, the following integrations have been impacted. Although the odds are extremely small, we still suggest that if you use any of these integrations, to create new API keys or change your password.
 
-- [alarm_control_panel.alarmdotcom](/integrations/alarmdotcom)
 - [climate.sensibo](/integrations/sensibo)
 - [cloud](/integrations/cloud/) (only short lived tokens impacted)
 - [device_tracker.automatic](/integrations/automatic)

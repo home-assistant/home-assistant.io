@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover (HomeKit garage door openers, windows, or window coverings)
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
-- Switch (HomeKit switches)
+- Switch (HomeKit switches, outlets and valves)
 - Binary Sensor (HomeKit motion, contact, occupancy and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
