@@ -1,7 +1,6 @@
 ---
 title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
-logo: rememberthemilk.png
 ha_category:
   - Calendar
 ha_release: 0.57
