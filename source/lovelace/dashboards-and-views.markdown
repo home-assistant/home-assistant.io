@@ -55,7 +55,7 @@ mode:
   type: string
 resources:
   required: false
-  description: "List of resources that should be loaded when you use Lovelace. Only use this when mode is `yaml`."
+  description: "List of resources that should be loaded when you use Lovelace. Only use this when mode is `yaml`. If you change anything here, click the three dots menu (top-right) and click on `Reload resources` for Lovelace to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
   type: list
   keys:
     url:
