@@ -1,7 +1,6 @@
 ---
 title: Pandora
 description: Instructions on how to integrate Pandora radio into Home Assistant.
-logo: pandora.png
 ha_category:
   - Media Player
 ha_release: 0.22
