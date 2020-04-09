@@ -32,7 +32,7 @@ It is recommended to set up a new account on your Doorbird App for use with Home
 
 ## Configuration
 
-To add `DoorBird` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **DoorBird**. After filling out UI prompts, click the gear icon to edit device settings. Enter device event names here to associate with schedule in DoorBird app. See [Schedules](#schedules)
+To add `DoorBird` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **DoorBird**. After filling out UI prompts, click the gear icon to edit device settings. Enter device event names here to associate with a schedule in DoorBird app. See [Schedules](#schedules)
 
 Alternatively, add the following to your `configuration.yaml` file:
 
