@@ -82,7 +82,7 @@ to allow them to be configured via the Home Assistant frontend.
 
 Not all of them were ready in time for this release; nevertheless, the list is
 amazing already:
-  
+
 - [Freebox][freebox docs], done by [@Quentame]
 - [Monoprice][monoprice docs], done by [@OnFreund]
 - [Roku][roku docs], done by [@ctalkington]
@@ -141,7 +141,7 @@ Before and after screenshot for the Horizontal Stack improvements.
 
 ## Other noteworthy changes
 
-- _**"Alexa, show the front door camera."**_ 😲  
+- _**"Alexa, show the front door camera."**_ 😲
   [Alexa][alexa docs] now has support for Cameras, thanks [@ochlocracy]!
 
 - Selecting your default Lovelace dashboard has been moved to the user
@@ -157,7 +157,7 @@ Before and after screenshot for the Horizontal Stack improvements.
 
 - The Markdown card has a new `user` variable that can be used to display the
   currently logged in user.
-  
+
 - With the ZHA Zigbee integration, Zigbee groups now dynamically create
   entities for lights, switches and fans that are grouped together. This
   enables near-simultaneous control over a large group of lights allowing
@@ -294,6 +294,55 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Mopar**
 
 These integrations have been removed. The websites for both have changed, causing the integrations to break because they relied on web scraping, which is no longer allowed (ADR-0004). - ([@frenck] - [#33056] [#33066])
+
+## Release 0.108.1 - April 8
+
+- Speed up TP-Link lights ([@balloob] - [#33606]) ([tplink docs])
+- Update sensor.py ([@danbishop] - [#33788]) ([octoprint docs])
+- Bump pylutron-caseta version to 0.6.1 ([@swails] - [#33815]) ([lutron_caseta docs])
+- Update to pyipp==0.9.1 ([@ctalkington] - [#33819]) ([ipp docs])
+- Fix unhandled exception in Recollect Waste ([@bachya] - [#33823]) ([recollect_waste docs])
+- Fix modbus transaction response ([@janiversen] - [#33824]) ([modbus docs])
+- Fix kef DSP_SCAN_INTERVAL timedelta ([@basnijholt] - [#33825]) ([kef docs])
+- Fix Doorbird yaml import aborted if discovery finds it first ([@bdraco] - [#33843]) ([doorbird docs])
+- Bump up ZHA dependencies ([@Adminiuga] - [#33856]) ([zha docs])
+- Fix vizio bug that occurs when CONF_APPS isn't in config entry… ([@raman325] - [#33857]) ([vizio docs])
+- TTS: Wait till files are created in tests ([@balloob] - [#33760]) ([tts docs])
+- Fix last flaky TTS test ([@balloob] - [#33849]) ([tts docs])
+
+[#33606]: https://github.com/home-assistant/core/pull/33606
+[#33760]: https://github.com/home-assistant/core/pull/33760
+[#33788]: https://github.com/home-assistant/core/pull/33788
+[#33815]: https://github.com/home-assistant/core/pull/33815
+[#33819]: https://github.com/home-assistant/core/pull/33819
+[#33823]: https://github.com/home-assistant/core/pull/33823
+[#33824]: https://github.com/home-assistant/core/pull/33824
+[#33825]: https://github.com/home-assistant/core/pull/33825
+[#33843]: https://github.com/home-assistant/core/pull/33843
+[#33849]: https://github.com/home-assistant/core/pull/33849
+[#33856]: https://github.com/home-assistant/core/pull/33856
+[#33857]: https://github.com/home-assistant/core/pull/33857
+[@Adminiuga]: https://github.com/Adminiuga
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@basnijholt]: https://github.com/basnijholt
+[@bdraco]: https://github.com/bdraco
+[@ctalkington]: https://github.com/ctalkington
+[@danbishop]: https://github.com/danbishop
+[@janiversen]: https://github.com/janiversen
+[@raman325]: https://github.com/raman325
+[@swails]: https://github.com/swails
+[doorbird docs]: /integrations/doorbird/
+[ipp docs]: /integrations/ipp/
+[kef docs]: /integrations/kef/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[modbus docs]: /integrations/modbus/
+[octoprint docs]: /integrations/octoprint/
+[recollect_waste docs]: /integrations/recollect_waste/
+[tplink docs]: /integrations/tplink/
+[tts docs]: /integrations/tts/
+[vizio docs]: /integrations/vizio/
+[zha docs]: /integrations/zha/
 
 ## All changes
 
@@ -620,8 +669,8 @@ These integrations have been removed. The websites for both have changed, causin
 
 </details>
 
-  
-  
+
+
 
 [#29063]: https://github.com/home-assistant/core/pull/29063
 [#29909]: https://github.com/home-assistant/core/pull/29909
