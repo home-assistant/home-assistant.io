@@ -1,7 +1,6 @@
 ---
 title: Bose Soundtouch
 description: Instructions on how to integrate Bose Soundtouch devices into Home Assistant.
-logo: soundtouch.png
 ha_category:
   - Media Player
 ha_release: 0.34
