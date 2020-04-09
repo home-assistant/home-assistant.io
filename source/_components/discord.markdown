@@ -46,7 +46,7 @@ token:
 
 ### Setting up the bot
 
-Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
@@ -62,7 +62,9 @@ Now use the Discord Authorization page with the **Client ID** of your [bot](http
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Appearance** > **Check developer mode**.
+When you wanna send a message to a sever then
+
+Get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Appearance** > **Check developer mode**.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-api.png' />
