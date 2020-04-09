@@ -1,7 +1,6 @@
 ---
 title: Ambiclimate
 description: Instructions on how to integrate Ambiclimate A/C controller into Home Assistant.
-logo: ambiclimate.png
 ha_category: Climate
 ha_release: 0.93
 ha_iot_class: Cloud Polling
