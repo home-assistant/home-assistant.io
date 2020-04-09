@@ -38,7 +38,7 @@ token:
 
 ### Setting up the bot
 
-Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
@@ -62,7 +62,7 @@ Once the bot has been added to your server, get the channel ID of the channel yo
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
-This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
+This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
 #### Example service call
 
