@@ -70,7 +70,7 @@ Once the bot has been added to your server, get the channel ID of the channel yo
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
-This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
+This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or directmessages.
 
 #### Example service payload
 
