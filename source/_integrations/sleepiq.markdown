@@ -1,7 +1,6 @@
 ---
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
-logo: sleepiq.png
 ha_category:
   - Health
   - Sensor
