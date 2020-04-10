@@ -344,6 +344,67 @@ These integrations have been removed. The websites for both have changed, causin
 [vizio docs]: /integrations/vizio/
 [zha docs]: /integrations/zha/
 
+## Release 0.108.2 - April 9
+
+- Improve Plex debounce/throttle logic ([@jjlawren] - [#33805]) ([plex docs])
+- Update aioswitcher ([@balloob] - [#33821]) ([switcher_kis docs])
+- Fix nextcloud sensor mappings ([@L-Henke] - [#33840]) ([nextcloud docs])
+- Check status code on onvif snapshot ([@balloob] - [#33865]) ([onvif docs])
+- Fix Monoprice robustness ([@OnFreund] - [#33869]) ([monoprice docs])
+- Fix modbus default delay ([@janiversen] - [#33877]) ([modbus docs])
+- Updated frontend to 20200407.2 ([@bramkragten] - [#33891]) ([frontend docs])
+- Fix onvif consistent return ([@balloob] - [#33898]) ([onvif docs])
+- Modbus: isolate common test functions ([@janiversen] - [#33447])
+- Fix Modbus review comments ([@janiversen] - [#33755]) ([modbus docs])
+- Rename domain import in modbus ([@janiversen] - [#33906]) ([modbus docs])
+- Fix tplink HS220 dimmers ([@bdraco] - [#33909]) ([tplink docs])
+- Exclude access token from host info updates in Konnected config flow ([@kit-klein] - [#33912]) ([konnected docs])
+- Bump pyvizio version for vizio ([@raman325] - [#33924]) ([vizio docs])
+- Fix tplink HS220 dimmers (round 2) ([@bdraco] - [#33928]) ([tplink docs])
+- Guard IPP against negative ink levels ([@ctalkington] - [#33931]) ([ipp docs])
+- Remove print() from Bayesian Binary Sensor ([@carlos-sarmiento] - [#33916]) ([bayesian docs])
+
+[#33447]: https://github.com/home-assistant/core/pull/33447
+[#33755]: https://github.com/home-assistant/core/pull/33755
+[#33805]: https://github.com/home-assistant/core/pull/33805
+[#33821]: https://github.com/home-assistant/core/pull/33821
+[#33840]: https://github.com/home-assistant/core/pull/33840
+[#33865]: https://github.com/home-assistant/core/pull/33865
+[#33869]: https://github.com/home-assistant/core/pull/33869
+[#33877]: https://github.com/home-assistant/core/pull/33877
+[#33891]: https://github.com/home-assistant/core/pull/33891
+[#33898]: https://github.com/home-assistant/core/pull/33898
+[#33906]: https://github.com/home-assistant/core/pull/33906
+[#33909]: https://github.com/home-assistant/core/pull/33909
+[#33912]: https://github.com/home-assistant/core/pull/33912
+[#33916]: https://github.com/home-assistant/core/pull/33916
+[#33924]: https://github.com/home-assistant/core/pull/33924
+[#33928]: https://github.com/home-assistant/core/pull/33928
+[#33931]: https://github.com/home-assistant/core/pull/33931
+[@L-Henke]: https://github.com/L-Henke
+[@OnFreund]: https://github.com/OnFreund
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@carlos-sarmiento]: https://github.com/carlos-sarmiento
+[@ctalkington]: https://github.com/ctalkington
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@kit-klein]: https://github.com/kit-klein
+[@raman325]: https://github.com/raman325
+[bayesian docs]: /integrations/bayesian/
+[frontend docs]: /integrations/frontend/
+[ipp docs]: /integrations/ipp/
+[konnected docs]: /integrations/konnected/
+[modbus docs]: /integrations/modbus/
+[monoprice docs]: /integrations/monoprice/
+[nextcloud docs]: /integrations/nextcloud/
+[onvif docs]: /integrations/onvif/
+[plex docs]: /integrations/plex/
+[switcher_kis docs]: /integrations/switcher_kis/
+[tplink docs]: /integrations/tplink/
+[vizio docs]: /integrations/vizio/
+
 ## All changes
 
 <details>
