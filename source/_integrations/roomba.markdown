@@ -72,7 +72,7 @@ The Roomba's MQTT server only allows a single connection. Enabling continuous mo
 
 ## Integration Entities
 
-The Roomba Integration will add the following sensors and switches.
+The Roomba Integration will add the following sensors.
 
 Sensors:
 - roomba_battery_level : The status of your battery
