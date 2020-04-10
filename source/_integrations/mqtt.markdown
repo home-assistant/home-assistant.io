@@ -16,7 +16,9 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a [broker](/docs/mqtt/broker).
 
-To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file.
+The preferred way to setup MQTT for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **MQTT**.
+
+Alternatively, if you want to manually configure MQTT, you will need to add the following to your `configuration.yaml` file.
 
 To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 
