@@ -34,7 +34,7 @@ roomba:
     password: PASSWORD
     ...
   - host: IP_ADDRESS_OR_HOSTNAME
-    prefix: up  #for upper floor
+    name: "Upstairs Roomba"
 ```
 
 {% configuration %}
@@ -42,7 +42,7 @@ host:
   description: The hostname or IP address of the Roomba.
   required: true
   type: string
-prefix
+name:
   description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   required: false
   type: string  
