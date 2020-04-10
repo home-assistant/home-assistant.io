@@ -70,6 +70,14 @@ The Roomba's MQTT server only allows a single connection. Enabling continuous mo
 
 </div>
 
+## Integration Entities
+
+The Roomba Integration will add the following sensors and switches.
+
+Sensors:
+	roomba_battery_level : The status of your battery
+	roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
+
 ### Retrieving your credentials
 
 Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [here](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to retrieve both the BLID (username) and the password.
