@@ -1,7 +1,6 @@
 ---
 title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
-logo: philips.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
