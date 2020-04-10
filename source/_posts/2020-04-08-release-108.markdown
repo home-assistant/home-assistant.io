@@ -405,6 +405,42 @@ These integrations have been removed. The websites for both have changed, causin
 [tplink docs]: /integrations/tplink/
 [vizio docs]: /integrations/vizio/
 
+## Release 0.108.3 - April 10
+
+- Fix Onvif Camera that does not have SnapshotUri such as Sricam ([@Minims] - [#33902]) ([onvif docs])
+- Make homekit aware of DEVICE_CLASS_GATE ([@bdraco] - [#33936]) ([homekit docs])
+- Fix powerwall units (kW) ([@bdraco] - [#33954]) ([powerwall docs])
+- Fix turning off/on light groups in homekit ([@Knapoc] - [#33965]) ([homekit docs])
+- Update pyipp to 0.9.2 ([@ctalkington] - [#33967]) ([ipp docs])
+- Handle 304 http responses in nexia ([@bdraco] - [#33972]) ([nexia docs])
+- Fix shutdown timeout and make it upstream with Supervisor ([@pvizeli] - [#33973])
+- Cleanup ZHA group entity lifecycle ([@dmulcahey] - [#33977]) ([zha docs])
+- Exclude non thermostats from being detected by nexia ([@bdraco] - [#33979]) ([nexia docs])
+- Use zeroconf UUID if not available via IPP properties ([@ctalkington] - [#33991]) ([ipp docs])
+
+[#33902]: https://github.com/home-assistant/core/pull/33902
+[#33936]: https://github.com/home-assistant/core/pull/33936
+[#33954]: https://github.com/home-assistant/core/pull/33954
+[#33965]: https://github.com/home-assistant/core/pull/33965
+[#33967]: https://github.com/home-assistant/core/pull/33967
+[#33972]: https://github.com/home-assistant/core/pull/33972
+[#33973]: https://github.com/home-assistant/core/pull/33973
+[#33977]: https://github.com/home-assistant/core/pull/33977
+[#33979]: https://github.com/home-assistant/core/pull/33979
+[#33991]: https://github.com/home-assistant/core/pull/33991
+[@Knapoc]: https://github.com/Knapoc
+[@Minims]: https://github.com/Minims
+[@bdraco]: https://github.com/bdraco
+[@ctalkington]: https://github.com/ctalkington
+[@dmulcahey]: https://github.com/dmulcahey
+[@pvizeli]: https://github.com/pvizeli
+[homekit docs]: /integrations/homekit/
+[ipp docs]: /integrations/ipp/
+[nexia docs]: /integrations/nexia/
+[onvif docs]: /integrations/onvif/
+[powerwall docs]: /integrations/powerwall/
+[zha docs]: /integrations/zha/
+
 ## All changes
 
 <details>
