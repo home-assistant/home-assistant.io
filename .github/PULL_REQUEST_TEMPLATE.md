@@ -18,7 +18,7 @@
 - [ ] Spelling, grammar or other readability improvements (`current` branch).
 - [ ] Adjusted missing or incorrect information in the current documentation (`current` branch).
 - [ ] Added documentation for a new integration I'm adding to Home Assistant (`next` branch).
-  - [ ] I've opened up a PR to add logo's and icons in [Brands repository](https://github.com/home-assistant/brands).
+- [ ] I've opened up a PR to add logo's and icons in [Brands repository](https://github.com/home-assistant/brands).
 - [ ] Added documentation for a new feature I'm adding to Home Assistant (`next` branch).
 - [ ] Removed stale or deprecated documentation.
 
