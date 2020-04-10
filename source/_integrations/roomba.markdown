@@ -29,9 +29,12 @@ To add your Roomba vacuum to your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 roomba:
-    host: IP_ADDRESS_OR_HOSTNAME
+  - host: IP_ADDRESS_OR_HOSTNAME
     blid: BLID
     password: PASSWORD
+    ...
+  - host: IP_ADDRESS_OR_HOSTNAME
+    prefix: up  #for upper floor
 ```
 
 {% configuration %}
@@ -39,6 +42,10 @@ host:
   description: The hostname or IP address of the Roomba.
   required: true
   type: string
+prefix
+  description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
+  required: false
+  type: string  
 blid:
   description: The username (BLID) for your device.
   required: true
