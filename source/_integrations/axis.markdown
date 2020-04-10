@@ -1,7 +1,6 @@
 ---
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
-logo: axis.png
 ha_category:
   - Camera
   - Binary Sensor
