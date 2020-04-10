@@ -19,7 +19,6 @@ To enable input booleans in your installation, add the following lines to your `
 input_boolean:
   notify_home:
     name: Notify when someone arrives home
-    initial: off
     icon: mdi:car
 ```
 
