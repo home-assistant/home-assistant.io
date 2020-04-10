@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.51
 ha_codeowners:
   - '@pschmitt'
+  - '@cyr-ius'
 ha_domain: roomba
 ---
 
@@ -21,6 +22,8 @@ This platform has been tested and is confirmed to be working with the iRobot Roo
 
 ## Configuration
 
+To add your Roomba to your installation, go to Configuration >> Integrations in the UI, click the button with + sign and from the list of integrations select iRobot Roomba.
+
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -28,7 +31,7 @@ To add your Roomba vacuum to your installation, add the following to your `confi
 vacuum:
   - platform: roomba
     host: IP_ADDRESS_OR_HOSTNAME
-    username: BLID
+    blid: BLID
     password: PASSWORD
 ```
 
@@ -37,7 +40,7 @@ host:
   description: The hostname or IP address of the Roomba.
   required: true
   type: string
-username:
+blid:
   description: The username (BLID) for your device.
   required: true
   type: string
@@ -45,11 +48,6 @@ password:
   description: The password for your device.
   required: true
   type: string
-name:
-  description: The name of the vacuum.
-  required: false
-  type: string
-  default: Roomba
 certificate:
   description: Path to your certificate store.
   required: false
