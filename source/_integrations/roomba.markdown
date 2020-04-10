@@ -28,8 +28,7 @@ To add your Roomba vacuum to your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: roomba
+roomba:
     host: IP_ADDRESS_OR_HOSTNAME
     blid: BLID
     password: PASSWORD
