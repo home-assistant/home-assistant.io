@@ -1,7 +1,6 @@
 ---
 title: Volkszaehler
 description: Instructions on how to integrate Volkszaehler sensors into Home Assistant.
-logo: volkszaehler.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
