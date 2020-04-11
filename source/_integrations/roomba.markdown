@@ -33,8 +33,6 @@ roomba:
   - host: IP_ADDRESS_OR_HOSTNAME
     blid: BLID
     password: PASSWORD
-    ...
-  - host: IP_ADDRESS_OR_HOSTNAME
 ```
 
 {% configuration %}
@@ -80,6 +78,21 @@ The Roomba Integration will add the following sensors.
 Sensors:
 - roomba_battery_level : The status of your battery
 - roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
+
+### Multiple Roomba vacuums
+
+```yaml
+# Example configuration.yaml entry
+roomba:
+  - host: IP_ADDRESS_OR_HOSTNAME_1
+    blid: BLID_1
+    password: PASSWORD_1
+  - host: IP_ADDRESS_OR_HOSTNAME_2
+    blid: BLID_2
+    password: PASSWORD_2
+    continuous: false
+    delay: 5
+```
 
 ### Retrieving your credentials
 
