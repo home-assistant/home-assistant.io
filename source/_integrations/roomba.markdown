@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Wi-Fi enabled Roomba within H
 ha_category:
   - Vacuum
 ha_release: 0.51
+ha_conflig_flow: true
 ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
