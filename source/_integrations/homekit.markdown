@@ -83,7 +83,7 @@ homekit:
         type: boolean
         default: false
       zeroconf_default_interface:
-        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in homekit not being seen on the network. Change this option to `true` if homekit cannot be discovered.
+        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
         required: true
         type: boolean
       advertise_ip:
