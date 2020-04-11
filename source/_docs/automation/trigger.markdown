@@ -352,6 +352,8 @@ automation:
 
 You could run the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
 
+Note that each webhook can only be used in one automation at a time.
+
 ### Zone trigger
 
 Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
