@@ -365,8 +365,7 @@ friendly_name:
   required: false
   type: string
 type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_5f36`, `rm4_mini`, `rm4_pro`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1`
-  devices can be registered as `sp2`."
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_5f36`, `rm4_mini`, `rm4_pro`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
   required: true
   type: string
 switches:
