@@ -93,7 +93,7 @@ forecast:
   description: Enables the forecast. The default is to display the current conditions.
   required: false
   default: false
-  type: string
+  type: boolean
 language:
   description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
   required: false
