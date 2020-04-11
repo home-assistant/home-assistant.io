@@ -62,4 +62,4 @@ The binary sensor platform allows you to monitor the states of your Shutter Cont
 
 ## Client registration
 
-Before accessing the Bosch Smart Home Controller, a client must be registered on the controller. For this, a valid SSL cert/key pair must be registered on the controller. To start the client registration, press and hold the button on the controller until the led starts flashing. For more information, follow the [client registration](https://github.com/BoschSmartHome/bosch-shc-api-docs/tree/master/postman#register-a-new-client-to-the-bosch-smart-home-controller) steps described in the Bosch SHC API docs.
+Before accessing the Bosch Smart Home Controller, a client must be registered on the controller. For this, a valid SSL cert/key pair must be registered on the controller. To start the client registration, press and hold the button on the controller until the LED starts flashing. For more information, follow the [client registration](https://github.com/BoschSmartHome/bosch-shc-api-docs/tree/master/postman#register-a-new-client-to-the-bosch-smart-home-controller) steps described in the Bosch SHC API documentation.
