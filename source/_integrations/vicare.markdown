@@ -1,7 +1,6 @@
 ---
 title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-logo: viessmann.png
 ha_category: Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
