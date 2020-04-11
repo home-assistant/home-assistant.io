@@ -1,7 +1,6 @@
 ---
 title: Logitech UE Smart Radio
 description: Instructions on how to integrate a Logitech UE Smart Radio player into Home Assistant.
-logo: ueradio.png
 ha_category:
   - Media Player
 ha_release: '0.60'
