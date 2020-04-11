@@ -77,6 +77,12 @@ The following binary sensors are added for each thermostat zone:
 
 The `nexia` climate platform lets you control a thermostat.
 
+The following thermostats are supported: `XL1050`, `XL850`, `XL824`
+
+The following thermostats are not supported: `XL624`
+
+Other thermostats may work, but they have not been tested.
+
 ### Scene
 
 The `nexia` scene platform lets you activate a nexia automation.
