@@ -15,7 +15,7 @@ The setup consists of two steps: getting an API key and registering your account
 
 ### Step 1: API key
 
-To be able to use this integation, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal shared secret. Both of them need to be stored in your Home Assistant configuration:
+To be able to use this integration, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal shared secret. Both of them need to be stored in your Home Assistant configuration:
 
 ```yaml
 # Example configuration.yaml entry
