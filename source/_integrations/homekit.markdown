@@ -343,6 +343,7 @@ To use `advertise_ip`, add the option to your `homekit` configuration:
 ```yaml
 homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+  zeroconf_default_interface: true
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
