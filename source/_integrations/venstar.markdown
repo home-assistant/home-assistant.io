@@ -1,7 +1,6 @@
 ---
 title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
-logo: venstar.png
 ha_category:
   - Climate
 ha_release: 0.62
