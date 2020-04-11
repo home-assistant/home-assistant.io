@@ -89,7 +89,7 @@ homekit:
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
-        type: string        
+        type: string
       filter:
         description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
