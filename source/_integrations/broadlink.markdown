@@ -190,7 +190,7 @@ If you have these devices, you need to follow these steps:
 - Use [Broadlink Manager](https://sourceforge.net/projects/broadlink-manager/) to get your device type
 - Specify the device type in the configuration file
 
-Example 1: Set up 0x5f36 as a remote
+Example 1: Set up RM Mini 3 0x5f36 as a remote
 
 ```yaml
 # Example configuration.yaml entry
@@ -201,7 +201,7 @@ remote:
     type: 0x5f36
 ```
 
-Example 2: Set up 0x5f36 as switch
+Example 2: Set up RM Mini 3 0x5f36 as switch
 
 ```yaml
 # Example configuration.yaml entry
@@ -212,7 +212,7 @@ switch:
     type: 'rm_mini3_5f36'
 ```
 
-Example 3: Set up RM4 as switch
+Example 3: Set up RM4 Mini as switch
 
 ```yaml
 # Example configuration.yaml entry
@@ -220,7 +220,7 @@ switch:
   - platform: broadlink
     host: IP_ADDRESS
     mac: MAC_ADDRESS
-    type: 'rm4'
+    type: 'rm4_mini'
 ```
 
 ## Sensor
@@ -365,7 +365,8 @@ friendly_name:
   required: false
   type: string
 type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_5f36`, `rm4`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_5f36`, `rm4_mini`, `rm4_pro`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1`
+  devices can be registered as `sp2`."
   required: true
   type: string
 switches:
