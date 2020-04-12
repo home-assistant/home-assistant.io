@@ -1,7 +1,6 @@
 ---
 title: Blockchain.com
 description: Instructions on how to integrate Blockchain.com data within Home Assistant.
-logo: blockchain.png
 ha_category:
   - Finance
 ha_release: 0.47
