@@ -27,7 +27,8 @@ Note that Home Assistant Cast requires your Home Assistant installation to be ac
 
 ## Advanced use
 
-Cast devices can only be discovered if they are on the same subnet as Home Assistant. If this is not the case, you need to configure the IP address of the Cast device directly:
+### Manual configuration
+By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a white list of wanted chrome casts.
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +44,7 @@ media_player:
   type: list
   keys:
     host:
-      description: Use only if you don't want to scan for devices.
+      description: IP-address of a Cast device to add to Home Assistant. Use only if you don't want to scan for devices.
       required: false
       type: string
     ignore_cec:
@@ -53,3 +54,9 @@ media_player:
       required: false
       type: list
 {% endconfiguration %}
+
+### Cast devices and Home Assistant on different subnets
+Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant. If this is not the case, it's necessary to:
+- Enable mDNS forwarding between the subnets
+- Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
