@@ -42,6 +42,11 @@ interval_seconds:
   required: false
   default: 12
   type: integer
+device_id:
+  description: The ID of the Bluetooth adapter to be used by the tracker, e.g., use `0` for `hci0`, `1` for `hci1`, and so on.
+  required: false
+  type: integer
+  default: "`0` (`hci0` Bluetooth adapter)"
 {% endconfiguration %}
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
