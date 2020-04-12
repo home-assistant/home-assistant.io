@@ -45,6 +45,7 @@ password:
 port:
   description: The port where QVR accepts connections.
   required: false
+  default: 8080
   type: integer
 exclude_channels:
   description: Comma separated list of channel numbers to be excluded.
