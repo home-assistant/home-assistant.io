@@ -1,7 +1,6 @@
 ---
 title: Mi Flora
 description: Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant.
-logo: miflora.png
 ha_category:
   - Environment
 ha_release: 0.29
