@@ -156,14 +156,18 @@ modbus:
 ## Log warning (v1.0.8 and onwards)
 
 Pymodbus (which is the implementation library) was updated and issues a warning:
+
  - "Not Importing deprecated clients. Dependency Twisted is not Installed"
+
 This warning can be safely ignored, and have no influence on how the integration
 works!
 
 ## Opening an issue
+
 When opening an issue, please add your current configuration (or a scaled down version), with at least:
- - the modbus configuration lines
- - the entity (sensor etc) lines
+
+ - the Modbus configuration lines
+ - the entity (sensor, etc.) lines
 
 In order for the developers better to identify the problem, please add the
 following lines to configuration.yaml:
@@ -174,7 +178,8 @@ logger:
     homeassistant.components.modbus: debug
     pymodbus.client: debug
 ```
-and restart HA, reproduce the problem, and include the log in the issue.
+
+and restart Home Assistant, reproduce the problem, and include the log in the issue.
 
 ## Building on top of Modbus
 
