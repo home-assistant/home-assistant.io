@@ -29,9 +29,10 @@ Alternatively, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 boschshc:
-   ip_address: YOUR_SHC_IP
-   ssl_certificate: YOUR_SSL_CERT
-   ssl_key: YOUR_SSL_KEY
+  ip_address: YOUR_SHC_IP
+  ssl_certificate: YOUR_SSL_CERT
+  ssl_key: YOUR_SSL_KEY
+  name: YOUR_SHC_NAME
 ```
 
 {% configuration %}
@@ -45,6 +46,10 @@ ssl_certificate:
   type: string
 ssl_key:
   description: Path to the SSL key of your client registered on the Bosch SHC.
+  required: true
+  type: string
+name:
+  description: The name of your Bosch SHC.
   required: true
   type: string
 {% endconfiguration %}
