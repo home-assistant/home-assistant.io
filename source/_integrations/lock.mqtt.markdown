@@ -165,6 +165,8 @@ lock:
     command_topic: "home-assistant/frontdoor/set"
     payload_lock: "LOCK"
     payload_unlock: "UNLOCK"
+    state_locked: "LOCK"
+    state_unlocked: "UNLOCK"
     optimistic: false
     qos: 1
     retain: true
