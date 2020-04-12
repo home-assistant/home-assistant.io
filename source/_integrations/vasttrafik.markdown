@@ -1,7 +1,6 @@
 ---
 title: Västtrafik
 description: Instructions on how to integrate timetable data for traveling in Sweden within Home Assistant.
-logo: vasttrafik.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
