@@ -161,9 +161,10 @@ entities:
         attribute: humidity
 ```
 Use a regex filter against entity attributes
+
 This regex filter looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the entity-filter card.
 
-```
+```yaml
   - type: entity-filter
     card:
       title: "Upcoming Holidays In Next 7 Days"
