@@ -153,6 +153,34 @@ modbus:
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 
+## Log warning (v1.0.8 and onwards)
+
+Pymodbus (which is the implementation library) was updated and issues a warning:
+
+ - "Not Importing deprecated clients. Dependency Twisted is not Installed"
+
+This warning can be safely ignored, and have no influence on how the integration
+works!
+
+## Opening an issue
+
+When opening an issue, please add your current configuration (or a scaled down version), with at least:
+
+ - the Modbus configuration lines
+ - the entity (sensor, etc.) lines
+
+In order for the developers better to identify the problem, please add the
+following lines to configuration.yaml:
+
+```yaml
+logger:
+  logs:
+    homeassistant.components.modbus: debug
+    pymodbus.client: debug
+```
+
+and restart Home Assistant, reproduce the problem, and include the log in the issue.
+
 ## Building on top of Modbus
 
  - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
