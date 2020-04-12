@@ -12,7 +12,7 @@ ha_domain: panel_proxy
 
 The `panel_proxy` support allows you to create a simple reverse proxy to other webapp in Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
 
-This is similar to the directive proxy_pass of nginx for example.
+This is similar to the directive proxy_pass of NGINX for example.
 
 To enable proxy Panel in your installation, add the following to your `configuration.yaml` file:
 
