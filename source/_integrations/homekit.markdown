@@ -82,6 +82,11 @@ homekit:
         required: false
         type: boolean
         default: false
+      zeroconf_default_interface:
+        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
+        required: true
+        type: boolean
+        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
@@ -332,11 +337,14 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
+You may also need to set `zeroconf_default_interface` to `true`.
+
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+  zeroconf_default_interface: true
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
