@@ -1,7 +1,6 @@
 ---
 title: Orvibo
 description: Instructions on how to integrate Orvibo sockets within Home Assistant.
-logo: orvibo.png
 ha_category:
   - Switch
 ha_release: 0.8
