@@ -44,7 +44,7 @@ media_player:
   type: list
   keys:
     host:
-      description: IP-address of a Cast device to add to Home Assistant. Use only if you don't want to scan for devices.
+      description: IP-address of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS.
       required: false
       type: string
     ignore_cec:
