@@ -25,7 +25,7 @@ Most lights do not support all attributes. You can check the integration documen
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. To target all the lights use all as `entity_id`.
-| `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
+| `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. Only integers are allowed.
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define an xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY. You can find a great chart here: [Hue Color Chart](https://developers.meethue.com/documentation/core-concepts#color_gets_more_complicated).
