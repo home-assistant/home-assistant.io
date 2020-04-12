@@ -1,7 +1,6 @@
 ---
 title: Matrix
 description: Matrix chatbot support
-logo: matrix.png
 ha_category:
   - Hub
   - Notifications
