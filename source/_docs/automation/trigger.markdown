@@ -31,7 +31,7 @@ Fires when Home Assistant starts up or shuts down.
 automation:
   trigger:
     platform: homeassistant
-    # Event can also be 'shutdown'
+    # Event can also be 'stop'
     event: start
 ```
 
