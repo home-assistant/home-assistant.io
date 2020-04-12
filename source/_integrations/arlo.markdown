@@ -1,7 +1,6 @@
 ---
 title: Arlo
 description: Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.
-logo: arlo.png
 ha_category:
   - Hub
   - Alarm
