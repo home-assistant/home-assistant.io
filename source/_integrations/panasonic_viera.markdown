@@ -49,7 +49,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If it needs to be paired, head over to the **Configuration > Integrations** page to finish setup and type the PIN code that will be displayed on it.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Configuration > Integrations** to type the PIN code that will be displayed on it and finish setup.
 
 ### Example `play_media` script
 
