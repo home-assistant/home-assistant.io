@@ -1,7 +1,6 @@
 ---
 title: Alpha Vantage
 description: Instructions on how to setup Alpha Vantage within Home Assistant.
-logo: alpha_vantage.png
 ha_category:
   - Finance
 ha_iot_class: Cloud Polling
