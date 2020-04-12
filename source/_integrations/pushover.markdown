@@ -58,8 +58,7 @@ Component specific values in the nested `data` section are optional.
 
 Image attachments can be added using the `attachment` parameter, which can either be a valid URL for an image (ex: `http://example.com/image.png`) or a local file reference (ex: `/tmp/image.png`).
 
-
-To specify a specific pushover device, specify it using `target`. If one of the entered devices doesn't exist or is disabled in you pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
+To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
 ```yaml
 - service: notify.entity_id
@@ -67,8 +66,8 @@ To specify a specific pushover device, specify it using `target`. If one of the 
         message: "This is the message"
         title: "Title of message"
         target:
-        - pixel3
-        - pixel4a
+          - pixel3
+          - pixel4a
         data:
           sound: pianobar
           priority: 0
@@ -77,7 +76,7 @@ To specify a specific pushover device, specify it using `target`. If one of the 
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api).
+When sending a notification, optional parameters can also be set as per the Pushover [API documentation](https://pushover.net/api).
 
 Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
