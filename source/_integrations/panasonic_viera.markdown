@@ -11,21 +11,16 @@ ha_domain: panasonic_viera
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
-### Setup
+## Configuration
 To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Then, click on the plus (+) button to add a new integration. Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice. If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
-### YAML configuration
-If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra configuration.
+## Manual configuration
+If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
 
 ```yaml
 # Example configuration.yaml entry
 panasonic_viera:
   host: 192.168.1.10
-  name: Living Room TV
-  turn_on_action:
-    - service: wake_on_lan.send_magic_packet
-      data:
-        mac: "AA:BB:CC:DD:99:1A"
 ```
 
 {% configuration %}
@@ -49,7 +44,20 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Configuration > Integrations** to type the PIN code that will be displayed on it and finish setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Configuration > Integrations** to type the PIN code that will be displayed on it and finish the setup.
+
+### Example `turn_on_action`
+
+```yaml
+# Example turn_on_action configuration.yaml entry with Wake-on-LAN
+panasonic_viera:
+  host: 192.168.1.10
+  name: Living Room TV
+  turn_on_action:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: "AA:BB:CC:DD:99:1A"
+```
 
 ### Example `play_media` script
 
