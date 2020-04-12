@@ -20,7 +20,7 @@ If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it
 ```yaml
 # Example configuration.yaml entry
 panasonic_viera:
-  host: 192.168.1.10
+  host: YOUR_TV_IP
 ```
 
 {% configuration %}
@@ -51,7 +51,7 @@ When you restart Home Assistant, make sure the TV is turned on and connected to 
 ```yaml
 # Example turn_on_action configuration.yaml entry with Wake-on-LAN
 panasonic_viera:
-  host: 192.168.1.10
+  host: YOUR_TV_IP
   name: Living Room TV
   turn_on_action:
     - service: wake_on_lan.send_magic_packet
@@ -64,7 +64,7 @@ panasonic_viera:
 The `play_media` function can be used to open web pages and other media types (images, movies) via URLs in the TV web browser.
 
 ```yaml
-# Example play_media script that can be triggered when someone is detected at the door, where `image_url` is the URL of what you want to display
+# Example play_media script
 script:
   front_door_camera:
     alias: "Show who's at the door"
@@ -76,7 +76,7 @@ script:
         data:
           entity_id: media_player.living_room_tv
           media_content_type: "url"
-          media_content_id: "image_url"
+          media_content_id: YOUR_URL
       - delay:
         seconds: 5
       - service: media_player.media_stop
