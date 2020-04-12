@@ -4,8 +4,10 @@ description: Instructions on how to integrate your Wi-Fi enabled Roomba within H
 ha_category:
   - Vacuum
 ha_release: 0.51
+ha_conflig_flow: true
 ha_codeowners:
   - '@pschmitt'
+  - '@cyr-ius'
 ha_domain: roomba
 ---
 
@@ -21,14 +23,15 @@ This platform has been tested and is confirmed to be working with the iRobot Roo
 
 ## Configuration
 
+To add your Roomba to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with + sign and from the list of integrations select iRobot Roomba.
+
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: roomba
-    host: IP_ADDRESS_OR_HOSTNAME
-    username: BLID
+roomba:
+  - host: IP_ADDRESS_OR_HOSTNAME
+    blid: BLID
     password: PASSWORD
 ```
 
@@ -37,7 +40,7 @@ host:
   description: The hostname or IP address of the Roomba.
   required: true
   type: string
-username:
+blid:
   description: The username (BLID) for your device.
   required: true
   type: string
@@ -45,11 +48,6 @@ password:
   description: The password for your device.
   required: true
   type: string
-name:
-  description: The name of the vacuum.
-  required: false
-  type: string
-  default: Roomba
 certificate:
   description: Path to your certificate store.
   required: false
@@ -72,6 +70,29 @@ delay:
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
 
 </div>
+
+## Integration Entities
+
+The Roomba Integration will add the following sensors.
+
+Sensors:
+- roomba_battery_level : The status of your battery
+- roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
+
+### Multiple Roomba vacuums
+
+```yaml
+# Example configuration.yaml entry
+roomba:
+  - host: IP_ADDRESS_OR_HOSTNAME_1
+    blid: BLID_1
+    password: PASSWORD_1
+  - host: IP_ADDRESS_OR_HOSTNAME_2
+    blid: BLID_2
+    password: PASSWORD_2
+    continuous: false
+    delay: 5
+```
 
 ### Retrieving your credentials
 
