@@ -23,7 +23,7 @@ This platform has been tested and is confirmed to be working with the iRobot Roo
 
 ## Configuration
 
-To add your Roomba to your installation, go to Configuration >> Integrations in the UI, click the button with + sign and from the list of integrations select iRobot Roomba.
+To add your Roomba to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with + sign and from the list of integrations select iRobot Roomba.
 
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
