@@ -16,9 +16,7 @@ The `boschshc` integration allows you to integrate your [Bosch SHC](https://www.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration](#configuration)
-  - [Binary Sensor](#binary-sensor)
-- [Client registration](#client-registration)
+- [Binary Sensor](#binary-sensor)
 
 ## Configuration
 
@@ -34,7 +32,6 @@ boschshc:
    ip_address: YOUR_SHC_IP
    ssl_certificate: YOUR_SSL_CERT
    ssl_key: YOUR_SSL_KEY
-   name: YOUR_SHC_NAME
 ```
 
 {% configuration %}
@@ -49,10 +46,6 @@ ssl_certificate:
 ssl_key:
   description: Path to the SSL key of your client registered on the Bosch SHC.
   required: true
-  type: string
-name:
-  description: The name of your Bosch SHC.
-  required: false
   type: string
 {% endconfiguration %}
 
