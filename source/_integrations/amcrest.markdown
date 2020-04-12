@@ -1,7 +1,6 @@
 ---
 title: Amcrest
 description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
-logo: amcrest.png
 ha_category:
   - Hub
   - Binary Sensor
