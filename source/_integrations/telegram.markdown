@@ -288,9 +288,9 @@ action:
       document:
         file: /tmp/whatever.odf
         caption: Document Title xy
-    keyboard:
-      - '/command1, /command2'
-      - '/command3, /command4'
+      keyboard:
+        - '/command1, /command2'
+        - '/command3, /command4'
 ```
 
 {% configuration %}
