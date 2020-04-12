@@ -104,6 +104,11 @@ turn_off_command:
   description: An ADB shell command that will override the default `turn_off` command.
   required: false
   type: string
+screencap:
+  description: Determines if album art should be pulled from what is shown onscreen.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Full Configuration
