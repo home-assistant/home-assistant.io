@@ -1,7 +1,6 @@
 ---
 title: Mycroft
 description: Instructions on how to setup Mycroft AI within Home Assistant.
-logo: mycroft.png
 ha_category:
   - Voice
   - Notifications
