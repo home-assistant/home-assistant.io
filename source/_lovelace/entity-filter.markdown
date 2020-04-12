@@ -94,7 +94,8 @@ attribute:
 
 ### Examples
 
-Show only active switches or lights in the house
+Show only active switches or lights in the house.
+
 ```yaml
 type: entity-filter
 entities:
@@ -120,12 +121,13 @@ card:
   type: glance
   title: People at home
 ```
+
 <p class='img'>
   <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
   Entity filter combined with glance card.
 </p>
 
-You can also specify multiple state_filters, in which case matching any condition will display the entity. This example will display everyone who isn't at home or at work.
+You can also specify multiple `state_filter`s, in which case matching any condition will display the entity. This example will display everyone who isn't at home or at work.
 
 ```yaml
 type: entity-filter
@@ -143,7 +145,7 @@ card:
   title: Who's Running Errands
 ```
 
-Specify filter for a single entity
+Specify filter for a single entity.
 
 ```yaml
 type: entity-filter
@@ -160,9 +162,8 @@ entities:
         value: 50
         attribute: humidity
 ```
-Use a regex filter against entity attributes
 
-This regex filter looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the entity-filter card.
+Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the entity-filter card.
 
 ```yaml
   - type: entity-filter
