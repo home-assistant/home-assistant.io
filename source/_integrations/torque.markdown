@@ -1,7 +1,6 @@
 ---
 title: Torque
 description: Instructions on how to integrate Torque sensors into Home Assistant.
-logo: torque.png
 ha_category:
   - Car
 ha_release: '0.10'
