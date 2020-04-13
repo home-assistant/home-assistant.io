@@ -95,7 +95,7 @@ Example for using the block framework:
 message: Message that will be added as a comment to the file.
 title: Title of the file.
 data:
-  attachments:
+  blocks:
     - type: section
       text:
         type: mrkdwn

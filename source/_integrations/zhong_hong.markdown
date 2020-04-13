@@ -1,7 +1,6 @@
 ---
 title: ZhongHong
 description: Instructions on how to integrate ZhongHong Support thermostats within Home Assistant.
-logo: zhong_hong.png
 ha_category:
   - Climate
 ha_release: 0.72

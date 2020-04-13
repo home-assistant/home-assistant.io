@@ -1,7 +1,6 @@
 ---
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
-logo: netgear.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling

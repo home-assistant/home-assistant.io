@@ -1,7 +1,6 @@
 ---
 title: Roth Touchline
 description: Instructions on how to integrate Roth Touchline within Home Assistant.
-logo: roth.png
 ha_category:
   - Climate
 ha_release: 0.61

@@ -3,7 +3,6 @@ title: SAJ Solar Inverter
 description: Instructions on how to connect your SAJ Solar Inverter to Home Assistant.
 ha_category:
   - Energy
-logo: saj.png
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_codeowners:

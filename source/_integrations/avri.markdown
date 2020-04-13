@@ -1,7 +1,6 @@
 ---
 title: Avri
 description: Instructions on how to set up Avri Waste sensor within Home Assistant.
-logo: avri.jpeg
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

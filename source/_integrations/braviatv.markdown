@@ -1,7 +1,6 @@
 ---
 title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
-logo: bravia.png
 ha_category:
   - Media Player
 ha_release: 0.23

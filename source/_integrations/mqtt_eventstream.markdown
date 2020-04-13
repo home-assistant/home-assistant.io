@@ -1,7 +1,6 @@
 ---
 title: MQTT Eventstream
 description: Instructions on how to setup MQTT eventstream within Home Assistant.
-logo: mqtt.png
 ha_category:
   - Other
 ha_release: 0.11
