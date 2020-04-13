@@ -1,7 +1,6 @@
 ---
 title: Edimax
 description: Instructions on how to integrate Edimax switches into Home Assistant.
-logo: edimax.png
 ha_category:
   - Switch
 ha_release: pre 0.7
