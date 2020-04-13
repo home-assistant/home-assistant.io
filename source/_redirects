@@ -1665,7 +1665,6 @@
 /components/pandora /integrations/pandora
 /components/panel_custom /integrations/panel_custom
 /components/panel_iframe /integrations/panel_iframe
-/components/panel_proxy /integrations/panel_proxy
 /components/pencom /integrations/pencom
 /components/persistent_notification /integrations/persistent_notification
 /components/person /integrations/person

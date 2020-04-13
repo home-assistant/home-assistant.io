@@ -3,7 +3,7 @@ title: Proxy Panel
 description: Instructions on how to add proxy using iFrames in the frontend of Home Assistant.
 ha_category:
   - Front End
-ha_release: 0.107
+ha_release: 0.109
 ha_quality_scale: internal
 ha_codeowners:
   - '@doudz'
