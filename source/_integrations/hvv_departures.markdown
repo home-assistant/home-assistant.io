@@ -1,11 +1,10 @@
 ---
 title: HVV Departures
 description: Display the departures of busses, trains and fairies in Hamburg within Home Assistant.
-logo: hvv.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: 0.106
+ha_release: 0.109
 ha_config_flow: true
 ha_codeowners:
   - '@vigonotion'
