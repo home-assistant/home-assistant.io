@@ -85,7 +85,12 @@ Best practice for updating a Home Assistant installation:
 
 ## Run a specific version on Home Assistant
 
-SSH to your Home Assistant system, or connect to the console, and run:
+For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
+that is available your device by connecting a keyboard and screen.
+
+To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
+
+Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
 ha core update --version=0.XX.X
