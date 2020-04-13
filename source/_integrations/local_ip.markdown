@@ -21,11 +21,3 @@ local_ip:
 ```
 
 To configure via the user interface, select the `Local IP Address` integration.
-
-{% configuration %}
-name:
-  description: Friendly name of the sensor.
-  required: false
-  type: string
-  default: local_ip
-{% endconfiguration %}
