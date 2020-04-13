@@ -1,7 +1,6 @@
 ---
 title: Epson
 description: Instructions on how to integrate Epson projector into Home Assistant.
-logo: epson.png
 ha_category:
   - Media Player
 ha_release: 0.72
