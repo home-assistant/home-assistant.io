@@ -1,7 +1,6 @@
 ---
 title: Anel NET-PwrCtrl
 description: Instructions on how to integrate ANEL PwrCtrl switches within Home Assistant.
-logo: anel.png
 ha_category:
   - Switch
 ha_iot_class: Local Polling
