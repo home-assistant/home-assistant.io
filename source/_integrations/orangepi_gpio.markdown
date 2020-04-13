@@ -17,7 +17,7 @@ This integration provides the following platforms:
 
 - Binary sensor: The `orangepi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your Orange Pi or NanoPi.
 
-### Configuration
+## Configuration
 
 To use your Orange Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
