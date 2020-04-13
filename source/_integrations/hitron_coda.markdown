@@ -1,7 +1,6 @@
 ---
 title: Rogers Hitron CODA
 description: Instructions on how to integrate Hitron CODA Routers into Home Assistant.
-logo: hitron.png
 ha_category:
   - Presence Detection
 ha_release: 0.58
