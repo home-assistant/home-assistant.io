@@ -116,3 +116,14 @@ action:
     source: 20197
   service: media_player.select_source
 ```
+
+It is also possible to tune directly to specific channels if have a Roku TV and use an OTA antenna. This service only supports ```media_channel_type``` of 'channel'. ```media_content_id``` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
+
+```yaml
+action:
+- data:
+    entity_id: media_player.roku
+    media_content_id: 5.1
+    media_content_type: channel
+  service: media_player.play_media
+```
