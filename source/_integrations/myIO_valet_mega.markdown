@@ -25,7 +25,7 @@ The myio_valet_mega integration adds support for [myIO-server](https://myio.com)
 
 ## Configuration
 
-Simple use config flow for configurating myIO-Server. Click 'Configuration', click 'Integration', click '+', choose 'myIO Valet Mega'.
+Click 'Configuration', click 'Integration', click '+', choose 'myIO Valet Mega'.
 
 Parameter settings:
 
