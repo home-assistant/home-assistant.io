@@ -1,7 +1,6 @@
 ---
 title: OpenSky Network
 description: Instructions on how to integrate OpenSky Network into Home Assistant.
-logo: opensky.png
 ha_category:
   - Transport
 ha_release: 0.43

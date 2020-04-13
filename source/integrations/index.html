@@ -144,7 +144,7 @@ allComponents.pop(); // remove placeholder element at the end
         components: [],
         image: function () {
           if (this.logo === '') {
-            return '<img src="https://brands.home-assistant.io/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/' + this.domain + '/logo@2x.png 2x">';
+            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
           } else {
             return '<img data-src="/images/supported_brands/' + this.logo + '">';
           }

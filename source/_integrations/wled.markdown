@@ -45,13 +45,17 @@ entity.
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
-## Sensors	
+## Sensors
 
-This integration provides sensors for the following information from WLED:	
+This integration provides sensors for the following information from WLED:
 
-- Estimated current.	
-- Uptime.	
-- Free memory.
+- Estimated current (in mA).
+- Uptime (disabled by default)
+- Free memory (in bytes, disabled by default).
+- Wi-Fi Signal Strength (in %m disabled by default).
+- Wi-Fi Signal Strength (RSSI in dBm).
+- Wi-Fi Channel (disabled by default).
+- Wi-Fi BSSID (disabled by default).
 
 ## Switches
 
@@ -63,4 +67,20 @@ The integration will create a number of switches:
 
 ## Services
 
-This integration currently does not offer any additional services.
+Currently, the WLED integration provides one service for controlling effect.
+More services for other WLED features are expected to be added in the future.
+
+### Service `wled.effect`
+
+This service allows for controlling the WLED effect.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
+| `effect`               | no       | Name or ID of the WLED light effect.                                                                            |
+| `intensity`            | no       | Intensity of the effect.                                                                                        |
+| `speed`                | no       | Speed of the effect. Number between `0` (slow) and `255` (fast).                                                |
+| `reverse`              | no       | Reverse the effect. Either `true` to reverse or `false` otherwise.                                              |
+
+A list of all available effects (and the behavior of the intensity for each
+effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).

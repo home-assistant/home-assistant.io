@@ -27,7 +27,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car
 - Lock - Door lock and charger door lock. Enables you to control Tesla's door and charger door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
-- Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery
+- Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery. Sentry mode switch to enable or disable Sentry mode.
 
 ## Configuration
 
@@ -59,3 +59,9 @@ scan_interval:
   type: integer
   default: 660
 {% endconfiguration %}
+
+## Options
+
+Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> **Options**.
+
+* Wake cars on start - Whether to wake sleeping cars on Home Assistant startup. This allows a user to choose whether cars should continue to sleep (and not update information) or to wake up the cars potentially interrupting long term hibernation and increasing vampire drain.

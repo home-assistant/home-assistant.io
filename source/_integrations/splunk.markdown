@@ -1,7 +1,6 @@
 ---
 title: Splunk
 description: Record events in Splunk.
-logo: splunk.png
 ha_category:
   - History
 ha_release: 0.13

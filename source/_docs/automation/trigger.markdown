@@ -4,11 +4,12 @@ description: "All the different ways how automations can be triggered."
 redirect_from: /getting-started/automation-trigger/
 ---
 
-Triggers are what starts the processing of an automation rule. It is possible to specify [multiple triggers](/docs/automation/trigger/#multiple-triggers) for the same rule - when _any_ of the triggers becomes true then the automation will start. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
+### What are triggers
+Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
 ### Event trigger
 
-Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
+Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -24,7 +25,7 @@ automation:
 
 ### Home Assistant trigger
 
-Triggers when Home Assistant starts up or shuts down.
+Fires when Home Assistant starts up or shuts down.
 
 ```yaml
 automation:
@@ -36,7 +37,7 @@ automation:
 
 ### MQTT trigger
 
-Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
+Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
 
 ```yaml
 automation:
@@ -50,7 +51,7 @@ automation:
 
 ### Numeric state trigger
 
-Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
+Fires when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if value is changing from above to below or from below to above the given threshold.
 
 {% raw %}
 
@@ -76,7 +77,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
+In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from 17 or below, or 25 or above).
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -128,7 +129,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
 
 <div class='note'>
 
@@ -182,9 +183,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser inter
 
 #### Sunset / Sunrise trigger
 
-Triggers when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
+Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g.,  45 minutes before sunset).
+An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset).
 
 <div class='note'>
 
@@ -206,7 +207,7 @@ automation:
 
 #### Sun elevation trigger
 
-Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things intended to trigger during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
+Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
 
 {% raw %}
 
@@ -241,7 +242,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before it will fire again.
+Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before the trigger will fire again.
 With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
 {% raw %}
@@ -276,7 +277,7 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
-Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
+Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
 </div>
 
 
@@ -297,7 +298,7 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to run once at a specific point in time each day.
+The time trigger is configured to fire once at a specific point in time each day.
 
 ```yaml
 automation:
@@ -340,7 +341,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook triggers are triggered by web requests made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
 
 ```yaml
 automation:
@@ -349,11 +350,13 @@ automation:
     webhook_id: some_hook_id
 ```
 
-You could test triggering the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+You could run the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+
+Note that each webhook can only be used in one automation at a time.
 
 ### Zone trigger
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
@@ -367,8 +370,8 @@ automation:
 
 ### Geolocation trigger
 
-Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
-Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geolocation platforms.
+Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
+Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
 
 ```yaml
 automation:
@@ -382,7 +385,7 @@ automation:
 
 ### Multiple triggers
 
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
+It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
 
 ```yaml
 automation:

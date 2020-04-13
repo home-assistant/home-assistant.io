@@ -1,7 +1,6 @@
 ---
 title: Tankerkoenig
 description: Instructions on how to integrate Tankerkoenig sensors within Home Assistant.
-logo: tankerkoenig.png
 ha_category:
   - Energy
   - Sensor

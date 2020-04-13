@@ -1,7 +1,6 @@
 ---
 title: Panasonic Viera TV
 description: Instructions on how to integrate a Panasonic Viera TV into Home Assistant.
-logo: panasonic.png
 ha_category:
   - Media Player
 ha_release: 0.17
@@ -13,6 +12,7 @@ The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
 Currently known supported models:
 
+- TC-P60S60
 - TC-P65VT30
 - TX-32AS520E
 - TX-32DSX609

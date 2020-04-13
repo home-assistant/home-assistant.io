@@ -1,13 +1,13 @@
 ---
 title: Ubiquiti UniFi
 description: Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti.
-logo: ubiquiti.png
 ha_category:
   - Hub
   - Presence Detection
   - Switch
+  - Sensor
 ha_release: 0.81
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
@@ -21,70 +21,17 @@ There is currently support for the following device types within Home Assistant:
 
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
+- [Sensor](#sensor)
 
 ## Configuration
 
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**.
+Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**. Follow the instructions to get it set up.
 
-Enter `host address`, `user name` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user needs administrator privileges in order to control POE switches.
+The user needs administrator privileges in order to control switches.
 
-### Extra configuration for device tracker
+### Extra configuration of the integration
 
-You can augment the behavior of UniFi device tracker by adding
-
-```yaml
-# Example configuration.yaml entry
-unifi:
-  controllers:
-    - host: unifi
-      site: My site
-      ssid_filter:
-        - 'HomeSSID'
-        - 'IoTSSID'
-```
-
-{% configuration %}
-host:
-  description: Same address as relevant configuration entry, needed to identify configuration entry.
-  type: string
-  required: true
-  default: None
-site:
-  description: Same site as relevant configuration entry, needed to identify configuration entry.
-  type: string
-  required: true
-  default: None
-block_client:
-  description: A list of Clients MAC Addresses that can be blocked from the network.
-  type: list
-  required: false
-  default: None
-detection_time:
-  description: How long since the last seen time before the device is marked away, specified in seconds.
-  type: integer
-  required: false
-  default: 300
-dont_track_clients:
-  description: enable to not allow device tracker to track clients.
-  type: boolean
-  required: false
-  default: false
-dont_track_devices:
-  description: enable to not allow device tracker to track devices.
-  type: boolean
-  required: false
-  default: false
-dont_track_wired_clients:
-  description: enable to not allow device tracker to track wired clients.
-  type: boolean
-  required: false
-  default: false
-ssid_filter:
-  description: Filter the SSIDs that tracking will occur on.
-  type: list
-  required: false
-  default: None
-{% endconfiguration %}
+All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel.
 
 ### Configuring Users
 
@@ -112,13 +59,19 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 ### Block network access for clients
 
-Allow control of network access to clients configured in the `configuration.yaml` file by adding a list of the MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
+Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
 ### Control clients powered by POE
 
 Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: UniFi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
 
 Note that POE control actually configures the network port of the switch which the client is connected to.
+
+## Sensor
+
+### Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per network client.
 
 ## Debugging integration
 

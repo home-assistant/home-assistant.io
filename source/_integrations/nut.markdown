@@ -6,13 +6,18 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_domain: nut
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.
 
 ## Configuration
 
-To use this sensor platform, you need to add the following to your `configuration.yaml` file:
+To add `nut` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Network UPS Tools (NUT)**.
+
+Alternatively, you need to add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,7 +1,6 @@
 ---
 title: Baidu
 description: Instructions on how to setup Baidu TTS with Home Assistant.
-logo: baiducloud.png
 ha_category:
   - Text-to-speech
 ha_release: 0.59

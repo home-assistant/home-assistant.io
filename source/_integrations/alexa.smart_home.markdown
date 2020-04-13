@@ -182,6 +182,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
+- Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
@@ -412,6 +413,7 @@ The following integrations are currently supported:
 - [Binary Sensor](#binary-sensor)
   - [Doorbell Announcement](#doorbell-announcement)
   - [Presence Detection](#presence-detection-with-binary-sensor)
+- [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
   - [Garage Doors](#garage-doors)
@@ -568,6 +570,18 @@ Each Echo device will need the communication and Announcements setting enabled, 
  </p>
 
 [Image Processing](#image-processing) entities also support this notification.
+
+### Camera
+
+View a camera stream on an Amazon echo device.
+
+- _"Alexa, show the front door camera."_
+
+The [`stream`](/integrations/stream/) integration is required to stream cameras to Amazon echo devices.
+
+The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
+
+Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.   
 
 ### Climate
 

@@ -42,6 +42,10 @@ password:
   description: The password for accessing your QVR account.
   required: true
   type: string
+port:
+  description: The port where QVR accepts connections.
+  required: false
+  type: integer
 exclude_channels:
   description: Comma separated list of channel numbers to be excluded.
   required: false

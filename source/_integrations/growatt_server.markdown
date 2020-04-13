@@ -1,7 +1,6 @@
 ---
 title: Growatt
 description: Instructions on how to integrate your Growatt server solar inverter within Home Assistant.
-logo: growatt.png
 ha_category:
   - Sensor
   - Energy

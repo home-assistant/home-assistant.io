@@ -90,6 +90,18 @@ entity:
   required: true
   description: Home Assistant entity ID.
   type: string
+attribute:
+  required: false
+  description: Attribute of the entity to display instead of the state
+  type: string
+prefix:
+  required: false
+  description: Prefix to display before the attribute's value
+  type: string
+suffix:
+  required: false
+  description: Suffix to display after the attribute's value
+  type: string
 icon:
   required: false
   description: Overwrites default icon.

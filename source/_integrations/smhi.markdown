@@ -1,7 +1,6 @@
 ---
 title: SMHI
 description: Instructions on how to integrate SMHI forecasts within Home Assistant.
-logo: smhi.png
 ha_category:
   - Hub
   - Weather

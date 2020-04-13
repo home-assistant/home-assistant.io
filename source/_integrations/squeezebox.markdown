@@ -1,7 +1,6 @@
 ---
 title: Logitech Squeezebox
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
-logo: squeezebox.png
 ha_category:
   - Media Player
 ha_release: pre 0.7

@@ -1,7 +1,6 @@
 ---
 title: Volumio
 description: How to set up the Volumio media player platform
-logo: volumio.png
 ha_category:
   - Media Player
 ha_release: 0.41

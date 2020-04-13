@@ -1,7 +1,6 @@
 ---
 title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
-logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm

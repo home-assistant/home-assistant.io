@@ -70,7 +70,7 @@ Lovelace configuration panel, and YAML dashboards can be set up in
 `configuration.yaml`, see [the documentation](/lovelace/yaml-mode/).
 
 This awesome new feature comes with a deprecation if you use Lovelace in
-manual YAML mode: You need to move the `resource` section from
+manual YAML mode: You need to move the `resources` section from
 your `ui-lovelace.yaml` to the `lovelace:` section in `configuration.yaml`.
 It is not a breaking change yet; we still load them from the previous location
 if we didn't find anything in the `lovelace:` section, however, this fallback
@@ -511,6 +511,30 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@pvizeli]: https://github.com/pvizeli
 [point docs]: /integrations/point/
 [zwave docs]: /integrations/zwave/
+
+## Release 0.107.7 - March 25
+
+- Fix velbus dimming control ([@brefra] - [#33139]) ([velbus docs])
+- Increase timeout setting up IPMA ([@dgomes] - [#33194]) ([ipma docs])
+- Refactor ZHA platform setup ([@Adminiuga] - [#33226]) ([zha docs])
+- Ensure recorder event loop recovers if the database server dis… ([@bdraco] - [#33253]) ([recorder docs])
+- Schedule Unifi shutdown callback earlier ([@jjlawren] - [#33257]) ([unifi docs])
+
+[#33139]: https://github.com/home-assistant/core/pull/33139
+[#33194]: https://github.com/home-assistant/core/pull/33194
+[#33226]: https://github.com/home-assistant/core/pull/33226
+[#33253]: https://github.com/home-assistant/core/pull/33253
+[#33257]: https://github.com/home-assistant/core/pull/33257
+[@Adminiuga]: https://github.com/Adminiuga
+[@bdraco]: https://github.com/bdraco
+[@brefra]: https://github.com/brefra
+[@dgomes]: https://github.com/dgomes
+[@jjlawren]: https://github.com/jjlawren
+[ipma docs]: /integrations/ipma/
+[recorder docs]: /integrations/recorder/
+[unifi docs]: /integrations/unifi/
+[velbus docs]: /integrations/velbus/
+[zha docs]: /integrations/zha/
 
 ## All changes
 

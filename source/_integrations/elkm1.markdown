@@ -1,7 +1,6 @@
 ---
 title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
-logo: elkproducts.png
 ha_release: 0.81
 ha_category:
   - Hub
@@ -13,6 +12,9 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -30,8 +32,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate one or more Elk-M1 controllers with Home Assistant, add the following
-section to your `configuration.yaml` file:
+To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
+
+Alternatively, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,6 +67,11 @@ temperature_unit:
   required: false
   type: string
   default: F
+auto_configure:
+  description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
+  required: false
+  type: boolean
+  default: False
 area:
   description: Elk areas to include in Home Assistant.
   required: false
@@ -269,6 +277,16 @@ elkm1:
   plc:
     include: [a1-d16, 192]
     exclude: [b12-d5]
+```
+
+Example configuration using `auto_configure`:
+
+```yaml
+elkm1:
+  host: elks://IP_ADDRESS
+  username: USERNAME
+  password: PASSWORD
+  auto_configure: true
 ```
 
 Example for a serial port instance on /dev/ttyUSB0 at 115200 baud:

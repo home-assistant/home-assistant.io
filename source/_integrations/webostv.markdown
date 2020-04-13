@@ -1,7 +1,6 @@
 ---
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
-logo: webos.png
 ha_category:
   - Media Player
   - Notifications
@@ -119,7 +118,7 @@ webostv:
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:
-      mac: "B4:E6:2A:1E:11:0F"
+      mac: AA-BB-CC-DD-EE-FF
 
 media_player:
 

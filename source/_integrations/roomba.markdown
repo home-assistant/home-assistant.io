@@ -1,7 +1,6 @@
 ---
 title: iRobot Roomba
 description: Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant.
-logo: irobot_roomba.png
 ha_category:
   - Vacuum
 ha_release: 0.51

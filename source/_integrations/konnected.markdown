@@ -1,7 +1,6 @@
 ---
 title: Konnected
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
-logo: konnected.png
 ha_category:
   - Alarm
   - Binary Sensor
@@ -66,22 +65,42 @@ The settings UI starts by having you configure the general behavior of each zone
 ##### Binary Sensor:
 
 **Binary Sensor Type:** The type of sensor connected to the zone.
+
 **Name (optional)** The friendly name for the entity associated with the zone.
+
 **Invert the open/close state:** Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
 
 ##### Digital Sensor:
 
 **Sensor Type:** The type of sensor connected to the zone - either `dht` or `ds18b20`.
+
 **Name (optional)** The friendly name for the entities associated with the zone.
+
 **Poll Interval (optional):** How often in minutes to poll the sensor for updates.
 
 ##### Switchable Output:
 
 **Name: (optional)** The friendly name for the entity associated with the zone.
+
 **Output when on:** The state of the switch when activated.
+
 **Pulse Duration (optional):** The duration in ms to pulse the switch once activated.
+
 **Pause between pulses (optional):** The duration in ms to wait between pulses when activated.
+
 **Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated.
+
+**Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.  
+
+#### Using Settings UI to Configure Additional Panel Behavior
+
+Once all zones are configured you'll be presented with the configuration for additional panel behaviors.
+
+**Blink panel LED on when sending state change:** The desired LED behavior for the panel.
+
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+
+**Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
 ### YAML Configuration
 
@@ -313,6 +332,10 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
 ## Revision History
+
+### 0.108
+
+- Multiple output states for a zone. Details on configuring additional panel behaviors via the UI.
 
 ### 0.106
 

@@ -8,6 +8,8 @@ ha_release: 0.7.3
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
+ha_codeowners:
+  - '@amelchio'
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.

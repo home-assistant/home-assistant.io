@@ -7,11 +7,14 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denonavr
+ha_codeowners:
+  - '@scarface-4711'
+  - '@starkillerOG'
 ---
 
 The `denonavr` platform allows you to control a [Denon Network Receivers](https://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
-Supported devices:
+Known supported devices:
 
 - Denon AVR-X1300W
 - Denon AVR-X1500H
@@ -24,13 +27,15 @@ Supported devices:
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-4810
+- Denon AVR-S750H
 - Marantz M-CR510
 - Marantz M-CR603
 - Marantz M-RC610
 - Marantz SR5008
 - Marantz SR6007 - SR6010
-- Marantz NR1506
+- Marantz NR1504
 - Marantz NR1604
+- Marantz NR1506
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 

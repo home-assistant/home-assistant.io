@@ -31,6 +31,10 @@ name:
   description: The name used to display the switch in the frontend.
   required: false
   type: string
+password:
+  description: The password of the switch if set
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## SwitchBot Entity

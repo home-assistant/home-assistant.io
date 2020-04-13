@@ -60,7 +60,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Allow multiple observations of same entity ([@jlmcgehee21] - [#9391]) ([binary_sensor.bayesian docs])
 - Break up Alexa per functionality ([@balloob] - [#9400]) ([alexa docs])
 - Upgrade psutil to 5.3.1 ([@fabaff] - [#9403]) ([sensor.systemmonitor docs])
-- fix mopar sensor ([@happyleavesaoc] - [#9389]) ([sensor.mopar docs])
+- fix mopar sensor ([@happyleavesaoc] - [#9389])
 - Support specifying no Apple TVs ([@postlund] - [#9394]) ([apple_tv docs])
 - Update netdisco to 1.2.0 ([@balloob] - [#9408])
 - components/xiaomi: Add initial discovery using NetDisco. ([@pfalcon] - [#9283])
@@ -329,7 +329,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fitbit docs]: /integrations/fitbit
 [sensor.homematic docs]: /integrations/homematic
 [sensor.knx docs]: /integrations/sensor.knx/
-[sensor.mopar docs]: /integrations/mopar
 [sensor.onewire docs]: /integrations/onewire
 [sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
 [sensor.systemmonitor docs]: /integrations/systemmonitor

@@ -1,7 +1,6 @@
 ---
 title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
-logo: rachio.png
 ha_category:
   - Irrigation
   - Binary Sensor
@@ -9,6 +8,9 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.73
 ha_domain: rachio
+ha_codeowners:
+  - '@bdraco'
+ha_config_flow: true
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -29,7 +31,9 @@ They will be automatically added if the Rachio integration integration is loaded
 
 ## Configuration
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,7 +1,6 @@
 ---
 title: Trafikverket Weather Station
 description: Instructions how to integrate Trafikverket WeatherStation within Home Assistant.
-logo: trafikverket.png
 ha_category:
   - Weather
 ha_release: 0.66

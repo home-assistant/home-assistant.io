@@ -73,7 +73,7 @@ panels:
           type: string
           default: Template Alarm Control Panel
         value_template:
-          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `triggered` and `unavailable` are used."
+          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
           required: false
           type: template
         disarm:

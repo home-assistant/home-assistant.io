@@ -1,7 +1,6 @@
 ---
 title: Notion
 description: How to integrate Notion kits within Home Assistant.
-logo: notion.png
 ha_category:
   - Hub
   - Binary Sensor

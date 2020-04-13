@@ -23,7 +23,7 @@ to your configuration.yaml:
 
 ```yaml
 opnsense:
-  url: http://router/api
+  url: https://router/api
   api_secret: API_SECRET
   api_key: API_KEY
 ```

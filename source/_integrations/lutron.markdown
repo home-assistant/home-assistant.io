@@ -1,7 +1,6 @@
 ---
 title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
-logo: lutron.png
 ha_category:
   - Hub
   - Cover
@@ -75,7 +74,7 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 
 ## Occupancy Sensors
 
-Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
 ## Example Automations
 

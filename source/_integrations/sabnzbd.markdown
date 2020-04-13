@@ -1,7 +1,6 @@
 ---
 title: SABnzbd
 description: Instructions on how to integrate SABnzbd with Home Assistant.
-logo: sabnzbd.png
 ha_category:
   - Downloading
   - Sensor

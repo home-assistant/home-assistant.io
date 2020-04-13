@@ -1,7 +1,6 @@
 ---
 title: Environment Canada
 description: Weather data from Environment Canada.
-logo: environment_canada.png
 ha_category:
   - Weather
   - Sensor

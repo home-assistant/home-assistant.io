@@ -56,7 +56,7 @@ broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_10
 ## Release 0.61.1 - January 16
 
 - Fix zha color probe ([@rcloran] - [#11670]) ([zha docs]) ([light.zha docs])
-- Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+- Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
 - Rfxtrx fix ([@danielhiversen] - [#11678]) ([rfxtrx docs]) ([binary_sensor.rfxtrx docs])
 - History order bugfix and opt-in option ([@rwa] - [#11686]) ([history docs])
 - Fix purge with MariaDB / MySQL ([@tinloaf] - [#11713])
@@ -155,7 +155,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
    broadlink.learn_command_192_168_0_107 -> switch.broadlink_learn_command_192_168_0_107
    broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_107
    ```
-   ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+   ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
 
 
 ## All changes
@@ -789,7 +789,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [media_player.snapcast docs]: /integrations/snapcast
 [media_player.soundtouch docs]: /integrations/soundtouch
 [rfxtrx docs]: /integrations/rfxtrx/
-[sensor.mopar docs]: /integrations/mopar
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.scsgate docs]: /integrations/scsgate#switch
 [zha docs]: /integrations/zha/

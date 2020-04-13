@@ -1,7 +1,6 @@
 ---
 title: AlarmDecoder
 description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
-logo: alarmdecoder.png
 ha_category:
   - Alarm
   - Binary Sensor
@@ -9,6 +8,8 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
+ha_codeowners:
+  - '@ajschmidt8'
 ---
 
 The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
@@ -82,9 +83,14 @@ panel_display:
   default: false
   type: boolean
 autobypass:
-  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#')."
+  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#'). This will require your code to be entered even if `code_arm_required` is set to `false`."
   required: false
   default: false
+  type: boolean
+code_arm_required:
+  description: "If this is set to `false`, you will not need to enter your code to arm the system."
+  required: false
+  default: true
   type: boolean
 zones:
   description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
@@ -131,6 +137,7 @@ There are several attributes available on the alarm panel to give you more infor
 - `programming_mode`: Set to `true` if your system is in programming mode.
 - `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
+- `code_arm_required`: Set to the value specified in your configuration.
 
 ## Services
 

@@ -1,7 +1,6 @@
 ---
 title: Ubiquiti UniFi LED
 description: Instructions on how to configure the UniFi LED integration with UniFi LED Controller by Ubiquiti.
-logo: ubiquiti.png
 ha_category:
   - Light
 ha_release: 0.102

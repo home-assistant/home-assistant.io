@@ -1,7 +1,6 @@
 ---
 title: Mailgun
 description: Instructions on how to add Mailgun mail notifications to Home Assistant.
-logo: mailgun.png
 ha_category:
   - Notifications
 ha_release: 0.38
