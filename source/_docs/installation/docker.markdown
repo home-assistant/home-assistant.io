@@ -175,7 +175,10 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
   The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
   
 - Run Docker command:
-  `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable`
+
+  ```bash
+  docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable
+  ```
   
   `-v` is your configuration path
   `-e` is set timezone
@@ -193,7 +196,10 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 
 - Connect to your NAS over SSH
 - Run Docker command:
-  `docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable`
+
+  ```bash
+  docker run --init --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable
+  ```
   
   First `-v` is your configuration path
   `-e` is set timezone
