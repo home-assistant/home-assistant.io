@@ -76,7 +76,15 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 
 <div class='note'>
   
-  Be aware that if you reference a trigger state object in an automation action, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually change the state of the trigger entity at Developer Tools > States.
+  Be aware that if you reference a `trigger` state object in templates of automation `action`, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
+
+{%raw%}
+```yaml
+{% set trigger={'to_state':{'state': 'heat'}} %}
+{% set option = trigger.to_state.state %}
+{{ 'on' if option == 'heat' else 'off' }}
+```
+{%endraw%}
   
 </div>
 
