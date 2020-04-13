@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 - Remote (emit an IR code when instructed by Home Assistant)
 - Sensor (trigger Home Assistant to do something when a particular IR signal is received)
 
-Some models (original Kira and Kira128) can be configured to act as either a sensor or as a remote. They are also able act as both when set to Standalone mode. The wireless models are hardware specific so the receiver can only be integrated as a sensor and the transmitter can only be integrated as a remote. 
+Some models (original Kira and Kira128) can be configured to act as either a sensor or as a remote. They are also able act as both when set to Standalone mode. The wireless models are hardware specific so the receiver can only be integrated as a sensor and the transmitter can only be integrated as a remote.
 
 If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
 
@@ -89,10 +89,10 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### Entities
 
-Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list. 
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list.
 
 <p class='img'>
-  <img src='/images/integrations/kira_states.png' />
+  <img src='/images/integrations/kira/kira_states.png' />
 </p>
 
 ### IR Codes
@@ -158,13 +158,13 @@ type: kira
 Go to "Configuration" and select "Scripts" and click to add a new script. This is an example using the Panasonic code above.
 
 <p class='img'>
-  <img src='/images/integrations/kira_remote_script.png' />
+  <img src='/images/integrations/kira/kira_remote_script.png' />
 </p>
 
 When you have filled in the data to match your YAML entry save the script and test it by clicking the play button next to the name you assigned. If all has gone well your Kira module should now blast this IR code and operate your equipment.
 
 <p class='img'>
-  <img src='/images/integrations/kira_test_remote.png' />
+  <img src='/images/integrations/kira/kira_test_script.png' />
 </p>
 
 Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding a number of buttons as a virtual remote in the Home Assistant front end.
@@ -185,6 +185,7 @@ Using the number 1 and 2 buttons from a Panasonic DVD player:
   device: DVD
   type: kira
 ```
+
 Visit the Kira module configuration page and be sure to make the following changes according to your module use:
 
 If this is to be the only use of the Kira module then set the TARGET IP address to be that of your Home Assistant installation. Uncheck the “auto find” option box if present. Click on save and reboot the module.
@@ -196,7 +197,7 @@ Note that once you changed the COMPUTER IP you will longer be able to use the Ki
 Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
 
 <p class='img'>
-  <img src='/images/integrations/kira_sensor_states.png' />
+  <img src='/images/integrations/kira/kira_sensor_states.png' />
 </p>
 
 Example automation using these IR codes to toggle a Sonoff plug.
