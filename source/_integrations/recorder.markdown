@@ -296,7 +296,7 @@ source /srv/homeassistant/bin/activate
 pip3 install pyodbc
 ```
 
-You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instrucitons for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instructions for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
 <div class='note'>
 
