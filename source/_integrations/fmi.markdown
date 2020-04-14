@@ -22,10 +22,10 @@ There is currently support for the following device types within Home Assistant:
 
 The sensor checks for new data every 15 minutes. In addition to weather attributes, sensor also provides reverse geo-coded location for the given latitute/longitude as well as the best time of the day based on user preferences.
 
-To add FMI sensor to a Home Assistant installation add the following to configuration.yaml file:
+To add FMI sensor to a Home Assistant installation add the following to configuration YAML file:
 
 ```YAML
-# Example configuration.yaml entry
+# Example configuration YAML entry
 sensor:
   - platform: fmi  
     name: FMI
@@ -112,10 +112,10 @@ This platform is an alternative to [`fmi weather`](/integrations/fmi#weather) pl
 </div>
 
 ## Weather
-To add FMI weather platform to a Home Assistant installation, add the following to configuration.yaml file:
+To add FMI weather platform to a Home Assistant installation, add the following to configuration YAML file:
 
 ```YAML
-# Example configuration.yaml entry
+# Example configuration YAML entry
 weather:
   - platform: fmi
     name: FMI
