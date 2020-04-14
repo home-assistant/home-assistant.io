@@ -56,7 +56,7 @@ This integration requires an internet accessible incoming webhook to receive pus
 
 ## Setup instructions
 
-After completing the prerequisite steps above you are ready to setup the integration! See the [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
+After completing the prerequisite steps above you are ready to setup the integration! See [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 
 1. From Home Assistant, navigate to 'Configuration' then 'Integrations'. Click the plus icon and type/select 'SmartThings'.
 1. Confirm the callback URL is correct. If using Home Assistant Cloud it will start with `https://hooks.nabuca.casa`. If the URL is not correct, update your Home Assistant configuration, restart, and try again.
@@ -77,7 +77,7 @@ If you want to integrate additional SmartThings accounts or locations, repeat th
 
 ## Removal instructions
 
-To remove the integration from Home Assistant, select the instance and click the trash icon on the upper right corner. Alternatively, you can remove the SmartApp from the location within the SmartThings application. If the Home Assistant instance that setup the integration is no longer running or functioning, you will need to use this [utility to remove the orphaned SmartApps in your SmartThings account](https://pypi.org/project/hass-smartthings-remove/).
+To remove the integration from Home Assistant, select the instance from the Home Assistant Integrations page and click the trash icon on the upper right corner. Alternatively, you can remove the SmartApp from the location within the SmartThings application. If the Home Assistant instance that setup the integration is no longer running or functioning, you will need to use this [utility to remove the orphaned SmartApps in your SmartThings account](https://pypi.org/project/hass-smartthings-remove/).
 
 ## Events
 
