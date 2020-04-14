@@ -20,8 +20,8 @@ To enable TotalConnect via the user interface, go to **Configuration** > **Integ
 To enable TotalConnect via `configuration.yaml` add the following lines:
 ```yaml
 totalconnect:
-    username: !secret your_username
-    password: !secret your_password
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
