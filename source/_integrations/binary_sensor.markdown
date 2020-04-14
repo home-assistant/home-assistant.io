@@ -16,6 +16,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
 - **battery**: `on` means low, `off` means normal
+- **battery_charging**: `on` means charging, `off` means not charging
 - **cold**: `on` means cold, `off` means normal
 - **connectivity**: `on` means connected, `off` means disconnected
 - **door**: `on` means open, `off` means closed
