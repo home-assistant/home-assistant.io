@@ -63,7 +63,7 @@ longitude:
 offset:
   description: "Hour offset for forecast. Accepted values are one of [0, 1, 2, 3, 4, 6, 8, 12, 24]."
   required: false
-  type: int
+  type: integer
   default: "Defaults to 0 (Current weather)"
 min_temperature:
   description: "Preferred minimum temperature in °C."
@@ -145,7 +145,7 @@ longitude:
 offset:
   description: "Hour offset for forecast. Accepted values are one of [1, 2, 3, 4, 6, 8, 12, 24]."
   required: false
-  type: int
+  type: integer
   default: "Defaults to 1 (weather forecast every hour)"
 {% endconfiguration %}
 
