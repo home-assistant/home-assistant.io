@@ -4,7 +4,7 @@ description: Instructions on how to integrate FMI within Home Assistant.
 ha_category:
   - Weather
   - Sensor
-ha_release: 0.108.3
+ha_release: 0.109
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@anand-p-r'
