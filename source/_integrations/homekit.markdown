@@ -349,6 +349,13 @@ homekit:
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
 
+## Troubleshooting
+
+If you see a traceback mentioning `zeroconf.NonUniqueNameException` in your log you likely need to
+enable `zeroconf_default_interface: true` and set a unique name `name: MyHASS42`.
+  
+If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again.
+  
 ## Supported Components
 
 The following integrations are currently supported:
