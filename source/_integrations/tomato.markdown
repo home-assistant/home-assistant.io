@@ -8,7 +8,7 @@ ha_domain: tomato
 ---
 
 The `tomato` device tracker integration allows one to tracker devices which are
-conencted to a wireless router that is running [Tomato](https://tomato.groov.pl/)
+connected to a wireless router that is running [Tomato](https://tomato.groov.pl/)
 as firmware.
 
 Because of a limitation in Tomato's API, this integration will only track wireless devices.
