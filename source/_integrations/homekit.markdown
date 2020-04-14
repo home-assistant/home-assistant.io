@@ -352,7 +352,7 @@ Restart your Home Assistant instance. This feature requires running an mDNS forw
 ## Troubleshooting
 
 If you see a traceback mentioning `zeroconf.NonUniqueNameException` in your log you likely need to
-enable `zeroconf_default_interface: true` and set a unique name `name: MyHASS42`
+enable `zeroconf_default_interface: true` and set a unique name `name: MyHASS42`.
 
 ## Supported Components
 
