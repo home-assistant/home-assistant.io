@@ -154,18 +154,19 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 
 ## Custom database engines
 
-| Database engine        | `db_url`                                                                                     |
-| :--------------------- | :------------------------------------------------------------------------------------------- |
-| SQLite                 | `sqlite:////PATH/TO/DB_NAME`                                                                 |
-| MariaDB                | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
-| MariaDB                | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
-| MariaDB (omit pymysql) | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| MySQL                  | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
-| MySQL                  | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| PostgreSQL             | `postgresql://SERVER_IP/DB_NAME`                                                             |
-| PostgreSQL             | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
-| PostgreSQL (Socket)    | `postgresql://@/DB_NAME`                                                                     |
-| MS SQL Server          | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
+| Database engine                   | `db_url`                                                                                     |
+| :-------------------------------- | :------------------------------------------------------------------------------------------- |
+| SQLite                            | `sqlite:////PATH/TO/DB_NAME`                                                                 |
+| MariaDB                           | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                           | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
+| MariaDB (omit pymysql)            | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MySQL                             | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
+| MySQL                             | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| PostgreSQL                        | `postgresql://SERVER_IP/DB_NAME`                                                             |
+| PostgreSQL                        | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
+| PostgreSQL (Socket)               | `postgresql://@/DB_NAME`                                                                     |
+| PostgreSQL (Custom socket dir)    | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                     |
+| MS SQL Server                     | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
 
