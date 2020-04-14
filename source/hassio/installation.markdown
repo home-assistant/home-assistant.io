@@ -84,7 +84,7 @@ Best practice for updating a Home Assistant installation:
 ## Run a specific version on Home Assistant
 
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
-that is available your device by connecting a keyboard and screen.
+that is available on your device by connecting a keyboard and screen.
 
 To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
 
