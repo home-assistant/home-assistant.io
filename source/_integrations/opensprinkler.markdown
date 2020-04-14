@@ -45,28 +45,24 @@ devices:
   description: List of Opensprinkler devices to integrate.
   required: true
   type: list
-{% endconfiguration %}
-
-Each device should have the following configuration
-
-{% configuration %}
-host:
-  description: The host name of your Opensprinkler device
-  required: true
-  type: string
-password:
-  description: The **MD5'ed** version of your password.
-  required: true
-  type: string
-port:
-  description: The port to the Opensprinkler device API. Defaults to 8080 which is the Opensprinkler default.
-  required: false
-  type: integer
-  default: 8080
-name:
-  description: The name of your Opensprinkler. Defaults to `Opensprinkler`
-  required: false
-  type: string
+  keys:
+    host:
+      description: The host name of your Opensprinkler device
+      required: true
+      type: string
+    password:
+      description: The **MD5'ed** version of your password.
+      required: true
+      type: string
+    port:
+      description: The port to the Opensprinkler device API. Defaults to 8080 which is the Opensprinkler default.
+      required: false
+      type: integer
+      default: 8080
+    name:
+      description: The name of your Opensprinkler. Defaults to `Opensprinkler`
+      required: false
+      type: string
 {% endconfiguration %}
 
 ### Binary Sensor
