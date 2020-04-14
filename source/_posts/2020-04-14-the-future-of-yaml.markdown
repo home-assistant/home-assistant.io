@@ -142,8 +142,8 @@ everybody.
 
 So, with all of the above set context: What is the future of YAML?
 
-As of today, an ADR (Architectural Decision Record) has been approved that
-states:
+As of today, [ADR-0010][adr] (Architectural Decision Record) has been approved
+that states:
 
 - Any new integration that communicates with devices and/or services, must use
   configuration via the UI. Configuration via YAML is only allowed in very rare
@@ -229,5 +229,6 @@ starting at the part discussing this.
     ></iframe>
 </div>
 
+[adr]: https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md
 [yt]: https://youtu.be/tc17q1Zn0Xs?t=1809
 [gh]: https://github.com/topics/home-assistant-config
