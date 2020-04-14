@@ -34,10 +34,7 @@ Add the following to your `configuration.yaml` file:
 opensprinkler:
   devices:
     - host: YOUR_DEVICE_HOST_NAME
-      port: 8080
       password: YOUR_MD5_PASSWORD
-      name: Backyard Sprinklers
-      run_seconds: 60
 ```
 
 {% configuration %}
@@ -47,7 +44,7 @@ devices:
   type: list
   keys:
     host:
-      description: The host name of your Opensprinkler device
+      description: The host name of your Opensprinkler device.
       required: true
       type: string
     password:
@@ -55,14 +52,21 @@ devices:
       required: true
       type: string
     port:
-      description: The port to the Opensprinkler device API. Defaults to 8080 which is the Opensprinkler default.
+      description: The port to the Opensprinkler device API.
       required: false
       type: integer
       default: 8080
     name:
-      description: The name of your Opensprinkler. Defaults to `Opensprinkler`
+      description: The name of your Opensprinkler.
       required: false
       type: string
+      default: Opensprinkler
+    run_seconds:
+      description: The number of seconds to run the station when switch is triggered.
+      required: false
+      type: integer
+      default: 60
+
 {% endconfiguration %}
 
 ### Binary Sensor
