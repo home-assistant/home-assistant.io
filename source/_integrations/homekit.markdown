@@ -12,6 +12,8 @@ The `homekit` integration allows you to forward entities from Home Assistant to 
 <div class="note">
 
   If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/integrations/homekit_controller/) component.
+  
+  If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again.
 
 </div>
 
