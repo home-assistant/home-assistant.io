@@ -165,7 +165,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                             |
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                     |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                     |
+| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                   |
 | MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
