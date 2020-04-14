@@ -1,7 +1,6 @@
 ---
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-logo: tibber.png
 ha_category:
   - Energy
   - Sensor
