@@ -35,11 +35,11 @@ elevation:
   required: false
   type: integer
 unit_system:
-  description: "`metric` for Metric, `imperial` for Imperial."
+  description: "`metric` for Metric, `imperial` for Imperial. This also sets temperature_unit, Celsius for Metric and Fahrenheit for Imperial"
   required: false
   type: string
 temperature_unit:
-  description: "Override automatic temperature unit chosen by unit_system. `C` for Celsius, `F` for Fahrenheit."
+  description: "Override temperature unit set by unit_system. `C` for Celsius, `F` for Fahrenheit."
   required: false
   type: string
 time_zone:
