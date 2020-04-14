@@ -441,6 +441,50 @@ These integrations have been removed. The websites for both have changed, causin
 [powerwall docs]: /integrations/powerwall/
 [zha docs]: /integrations/zha/
 
+## Release 0.108.4 - April 13
+
+- Fix #33995 Use "now" if departure is None ([@eifinger] - [#34017]) ([here_travel_time docs])
+- Fix nexia fan and hold modes for XL824 thermostats ([@bdraco] - [#34042]) ([nexia docs])
+- Handle all zero serial numbers in NUT ([@bdraco] - [#34045]) ([nut docs])
+- UniFi - Fix unit of measurement from B to MB ([@Kane610] - [#34091]) ([unifi docs])
+- Fix Daikin sensor temperature_unit & cleanup ([@fredrike] - [#34116]) ([daikin docs])
+- Bump pyIntesisHome to 1.7.3 ([@jnimmo] - [#34125]) ([intesishome docs])
+- Fix deprecated icon/username logic in Slack ([@bachya] - [#34156]) ([slack docs])
+- Improve rounding the light level conversion in Lutron Caseta ([@swails] - [#34167]) ([lutron_caseta docs])
+- Fix z-wave brightness off by one ([@bdraco] - [#34170]) ([zwave docs])
+- Increase timeout and log the url of the elkm1 system that time… ([@bdraco] - [#34172]) ([elkm1 docs])
+- Convert sense to use DataUpdateCoordinator for trends data ([@bdraco] - [#34160]) ([sense docs])
+
+[#34017]: https://github.com/home-assistant/core/pull/34017
+[#34042]: https://github.com/home-assistant/core/pull/34042
+[#34045]: https://github.com/home-assistant/core/pull/34045
+[#34091]: https://github.com/home-assistant/core/pull/34091
+[#34116]: https://github.com/home-assistant/core/pull/34116
+[#34125]: https://github.com/home-assistant/core/pull/34125
+[#34156]: https://github.com/home-assistant/core/pull/34156
+[#34160]: https://github.com/home-assistant/core/pull/34160
+[#34167]: https://github.com/home-assistant/core/pull/34167
+[#34170]: https://github.com/home-assistant/core/pull/34170
+[#34172]: https://github.com/home-assistant/core/pull/34172
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@eifinger]: https://github.com/eifinger
+[@fredrike]: https://github.com/fredrike
+[@jnimmo]: https://github.com/jnimmo
+[@swails]: https://github.com/swails
+[daikin docs]: /integrations/daikin/
+[elkm1 docs]: /integrations/elkm1/
+[here_travel_time docs]: /integrations/here_travel_time/
+[intesishome docs]: /integrations/intesishome/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[nexia docs]: /integrations/nexia/
+[nut docs]: /integrations/nut/
+[sense docs]: /integrations/sense/
+[slack docs]: /integrations/slack/
+[unifi docs]: /integrations/unifi/
+[zwave docs]: /integrations/zwave/
+
 ## All changes
 
 <details>
