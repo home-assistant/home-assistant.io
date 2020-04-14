@@ -40,7 +40,7 @@ Plugs are type `switch` when autodiscovery has been disabled.
 ### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (This device is capable or reporting energy usage data to template sensors)
+- HS300 (powerstrip 6-outlet) (This device is capable of reporting energy usage data to template sensors)
 - KP303 (powerstrip 3-outlet)
 - KP400 (outdoor 2-outlet)
 - KP200 (indoor 2-outlet)
