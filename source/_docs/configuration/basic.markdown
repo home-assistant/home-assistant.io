@@ -38,6 +38,10 @@ unit_system:
   description: "`metric` for Metric, `imperial` for Imperial."
   required: false
   type: string
+temperature_unit:
+  description: "Override automatic temperature unit chosen by unit_system. `C` for Celsius, `F` for Fahrenheit."
+  required: false
+  type: string
 time_zone:
   description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
   required: false
