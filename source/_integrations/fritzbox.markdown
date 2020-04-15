@@ -32,33 +32,35 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
+Go to the integrations page in your configuration and click on new integration -> AVM FRITZ!Box. If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
+
+### YAML configuration
+
+YAML configuration is around for people that prefer YAML. To use this integration, add the following to your configuration.yaml file:
+
 ```yaml
 # Example configuration.yaml entry
 fritzbox:
-  devices:
-    - host: fritz.box
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
+  - host: fritz.box
+    username: admin
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
-devices:
-  description: A list of FRITZ!Box devices.
+host:
+  description: The hostname or IP address of the FRITZ!Box.
+  required: false
+  type: string
+  default: fritz.box
+username:
+  description: The username for Smart Home access.
+  required: false
+  type: string
+  default: admin
+password:
+  description: The password of the user.
   required: true
-  type: map
-  keys:
-    host:
-      description: The hostname or IP address of the FRITZ!Box.
-      required: true
-      type: string
-    username:
-      description: The username for Smart Home access.
-      required: true
-      type: string
-    password:
-      description: The password of the user.
-      required: true
-      type: string
+  type: string
 {% endconfiguration %}
 
 ## Switch & Thermostat
