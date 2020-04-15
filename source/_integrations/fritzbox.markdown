@@ -36,7 +36,7 @@ Go to the integrations page in your configuration and click on new integration -
 
 ### YAML configuration
 
-YAML configuration is around for people that prefer YAML. To use this integration, add the following to your configuration.yaml file:
+YAML configuration is around for people that prefer YAML. To use this integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
