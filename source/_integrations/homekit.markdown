@@ -17,7 +17,7 @@ The `homekit` integration allows you to forward entities from Home Assistant to 
 
 <div class="note warning">
 
-If you are using the official Home Assistant images or running Home Assistant Core on Docker, HomeKit is ready to go out of the box.  If you are running Home Assistant in a manual virtual environment or on a NAS without Docket, you may need to install or upgrade dependencies for HomeKit to function.
+If you are using the official Home Assistant images or running Home Assistant Core on Docker, HomeKit is ready to go out of the box.  If you are running Home Assistant in a manual virtual environment or on a NAS without Docker, you may need to install or upgrade dependencies for HomeKit to function.
 
 HomeKit requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
 
