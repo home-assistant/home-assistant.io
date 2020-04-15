@@ -18,7 +18,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image. When using files on your filesystem use the /local path. This points to your the www subfolder of your config folder. By default the www folder does not exist and you have to create this yourself and restart Home Assistant. Example path /local/filename.jpg
+  description: The URL of an image. When you want to store images in your home assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the /local path, for example /local/filename.jpg .
   type: string
 theme:
   required: false
