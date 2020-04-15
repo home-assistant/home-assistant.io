@@ -273,6 +273,10 @@ temperature_state_topic:
   description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below).
   required: false
   type: string
+temperature_unit:
+  description: Defines the temperature unit of the device, `C` or `F`. If this is not set, the temperature unit is set to the system temperature unit.
+  required: false
+  type: string
 temp_step:
   description: Step size for temperature set point.
   type: float
