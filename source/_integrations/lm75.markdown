@@ -19,9 +19,6 @@ To use your LM75 sensor in your installation, add the following to your `configu
 sensor:
   - platform: lm75
     name: Kitchen
-    i2c_address: 0x48
-    i2c_bus: 1
-    register: 0
 ```
 
 {% configuration %}
