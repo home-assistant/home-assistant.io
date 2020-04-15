@@ -24,7 +24,7 @@ The `homekit` integration allows you to forward entities from Home Assistant to 
 
 <div class="note warning">
 
-HomeKit requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses `ChaCha20` stream cipher and `Poly1305` authenticator.
+HomeKit requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
 
 </div>
 

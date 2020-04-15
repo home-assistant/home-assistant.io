@@ -59,7 +59,7 @@ Home Assistant does not currently support HomeKit BLE.
 
 <div class="note warning">
 
-HomeKit controller requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses `ChaCha20` stream cipher and `Poly1305` authenticator.
+HomeKit controller requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
 
 </div>
 
