@@ -485,6 +485,32 @@ These integrations have been removed. The websites for both have changed, causin
 [unifi docs]: /integrations/unifi/
 [zwave docs]: /integrations/zwave/
 
+## Release 0.108.5 - April 15
+
+- Temporary transition Docker init ([@frenck] - [#34135])
+- Catch IPPVersionNotSupportedError in IPP ([@ctalkington] - [#34184]) ([ipp docs])
+- Fix websocket connection bug/errant logic in Ambient PWS ([@bachya] - [#34217]) ([ambient_station docs])
+- Fix Cloud UI bug preventing managing Google 2FA ([@balloob] - [#34241]) ([cloud docs]) ([google_assistant docs])
+- Add daikin update_before_add ([@fredrike] - [#34248]) ([daikin docs])
+- Fix various Daikin issues ([@fredrike] - [#34249]) ([daikin docs])
+
+[#34135]: https://github.com/home-assistant/core/pull/34135
+[#34184]: https://github.com/home-assistant/core/pull/34184
+[#34217]: https://github.com/home-assistant/core/pull/34217
+[#34241]: https://github.com/home-assistant/core/pull/34241
+[#34248]: https://github.com/home-assistant/core/pull/34248
+[#34249]: https://github.com/home-assistant/core/pull/34249
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ctalkington]: https://github.com/ctalkington
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[ambient_station docs]: /integrations/ambient_station/
+[cloud docs]: /integrations/cloud/
+[daikin docs]: /integrations/daikin/
+[google_assistant docs]: /integrations/google_assistant/
+[ipp docs]: /integrations/ipp/
+
 ## All changes
 
 <details>
