@@ -4,7 +4,6 @@ description: Instructions on how to setup GE Avi-on Bluetooth dimmers within Hom
 ha_category:
   - Light
 ha_iot_class: Assumed State
-logo: avi-on.png
 ha_release: 0.37
 ha_domain: avion
 ---
