@@ -1,7 +1,6 @@
 ---
 title: Aurora ABB Solar PV
 description: Instructions on how to integrate an Aurora ABB Powerone solar inverter within Home Assistant.
-logo: powerone.png
 ha_category:
   - Sensor
   - Energy
