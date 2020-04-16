@@ -493,7 +493,7 @@ Turn the dry mode off.
 
 ### Troubleshooting `Unable to find device` error messages
 
-Check if the device is in the same subnet as the Home Assitant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
+Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
 
 If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
