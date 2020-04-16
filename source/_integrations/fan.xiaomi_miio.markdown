@@ -491,7 +491,7 @@ Turn the dry mode off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Troubleshooting `Unable to find device` error messages
+## Troubleshooting `Unable to find device` error messages
 
 Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
 
