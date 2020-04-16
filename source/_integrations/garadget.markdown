@@ -23,8 +23,7 @@ To enable Garadget Covers in your installation, add the following to your `confi
     covers:
       first_garage:
         device: 190028001947343412342341
-        username: YOUR_USERNAME
-        password: YOUR_PASSWORD
+        access_token: 14216585ff818f2b01396c44142342f1234
         name: first_garage
       second_garage:
         device: 4c003f001151353432134214
@@ -44,14 +43,6 @@ covers:
           description: This is the device id from your Garadget portal.
           required: true
           type: string
-        username:
-          description: Your Garadget account username.
-          required: true
-          type: string
-        password:
-          description: Your Garadget account password.
-          required: true
-          type: string
         access_token:
           description: A generated `access_token` from your Garadget account.
           required: true
@@ -63,7 +54,28 @@ covers:
           type: string
 {% endconfiguration %}
 
-If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
+The **access_token** must be used.
+
+For that you'll need:
+
+Access token: a secret string your app receives to use instead of the username/password after you successfully log in. 
+The simplest way is to login into the web interface and use the document inspector to pick at the background requests it sends:
+
+- Log into your garadget from the web using chrome: https://www.garadget.com/my/login.php
+
+- In Google Chrome: click anywhere in blank space of the page and select “Inspect” from the context menu
+
+- Navigate to the Network Tab
+
+- Filter by text: setState and resource type XHR (it wont show until you open or close the door(s)
+
+- Use web interface to open and close the door
+
+- See the requests appearing in the list, you can find the details under Headers tab, grab you token and use it within your configuration.
+
+<p class='img'>
+  <img src='https://community.garadget.com/uploads/default/original/1X/9f415b3f2ec5d9eb9b186df272c61098f2185f4f.gif />
+</p>
 
 ## Example
 
