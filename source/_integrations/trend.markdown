@@ -87,7 +87,7 @@ sensors:
 If the optional `sample_duration` and `max_samples` parameters are specified
 then multiple samples can be stored and used to detect long-term trends.
 
-Each time the state changes, a new sample is stored along with the sample time. Samples older than sample_duration seconds will be discarded. The max_samples parameter must be large enough to store sensor updates over the requested duration. If you want to trend over two hours and your sensor updates every 120s then then max_samples must be at least 60, eg 7200/120 = 60.
+Each time the state changes, a new sample is stored along with the sample time. Samples older than `sample_duration` seconds will be discarded. The `max_samples` parameter must be large enough to store sensor updates over the requested duration. If you want to trend over two hours and your sensor updates every 120s then then `max_samples` must be at least 60, i.e., 7200/120 = 60.
 
 A trend line is then fitted to the available samples, and the gradient of this
 line is compared to `min_gradient` to determine the state of the trend sensor.
