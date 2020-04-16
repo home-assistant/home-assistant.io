@@ -1,7 +1,6 @@
 ---
 title: Tahoma
 description: Instructions on how to integrate Somfy Tahoma devices with Home Assistant.
-logo: tahoma.png
 ha_category:
   - Hub
   - Binary Sensor
