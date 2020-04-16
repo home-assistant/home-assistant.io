@@ -48,7 +48,7 @@ recorder:
       default: 3
       type: integer
     auto_purge:
-      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which will make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
+      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
       required: false
       default: true
       type: boolean
