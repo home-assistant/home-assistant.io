@@ -30,6 +30,6 @@ Home Assistant has been uninstalled.
 Note:
 `automake` is required for `hass` to start. If you are missing this on your system, you can install this by running:
  
-```
-brew install autoconf
+```bash
+$ brew install autoconf
 ```
