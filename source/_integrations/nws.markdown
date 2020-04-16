@@ -13,39 +13,11 @@ The `nws` platform uses the [National Weather Service](https://www.weather.gov) 
 
 ## Configuration
 
+To add `nws` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **National Weather Service (NWS)**. Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each.
+
 According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 
-To add NWS to your installation using the closest station, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-nws:
-  api_key: YOUR_API_KEY
-```
-
-To specify a station, for example, KADW (Andrews Air Force Base), use the following:
-
-```yaml
-# Example configuration.yaml entry
-nws:
- api_key: YOUR_API_KEY
- station: KADW
-```
-
-A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
-
-Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each:
-
-```yaml
-# Example configuration.yaml entry
-nws:
- - api_key: YOUR_API_KEY
-   latitude: 38.5
-   longitude: -76.5
- - api_key: YOUR_API_KEY
-   latitude: 39
-   longitude: -76.5
-```
+Providing a METAR station code is optional, and if not supplied, the closest station to the latitude and longitude will be chosen. A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
 
 Two weather entities are created for each entry in the configuration: one for hourly forecasts and one for day and night forecasts. The time supplied for each forecast is the start time for the forecast.
 
@@ -55,13 +27,13 @@ api_key:
   required: true
   type: string
 latitude:
-  description: "Manually specify latitude. By default, the value will be taken from the Home Assistant configuration."
-  required: false
+  description: "Latitude. By default, the value will be taken from the Home Assistant configuration."
+  required: true
   type: float
   default: "Provided by Home Assistant configuration."
 longitude:
-  description: Manually specify longitude. By default, the value will be taken from the Home Assistant configuration.
-  required: false
+  description: Longitude. By default, the value will be taken from the Home Assistant configuration.
+  required: true
   type: float
   default: "Provided by Home Assistant configuration."
 station:
