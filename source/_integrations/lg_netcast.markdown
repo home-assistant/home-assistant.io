@@ -37,6 +37,10 @@ turn_on_action:
   description: Defines an [action](/docs/automation/action/) to turn the TV on.
   required: false
   type: string
+turn_off_action:
+  description: Defines an [action](/docs/automation/action/) to switch the TV off.
+  required: false
+  type: string
 {% endconfiguration %}
 
 To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
@@ -58,6 +62,10 @@ media_player:
     host: 192.168.0.20
     turn_on_action:
       service: switch.turn_on
+      data:
+        entity_id: switch.tv_switch
+    turn_off_action:
+      service: switch.turn_off
       data:
         entity_id: switch.tv_switch
 ```
