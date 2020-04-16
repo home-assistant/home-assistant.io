@@ -101,7 +101,7 @@ zwave:
   network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
-In addition to modifying the configuration.yaml file, the options.xml file network key must be set as well:
+In addition to modifying the `configuration.yaml` file, the `options.xml` file network key must be set as well:
 
 ```options.xml
 <!-- Example options.xml entry for network_key -->
