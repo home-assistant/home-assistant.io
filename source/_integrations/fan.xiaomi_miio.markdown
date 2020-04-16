@@ -490,3 +490,11 @@ Turn the dry mode off.
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+
+### Troubleshooting `Unable to find device` error messages
+
+Check if the device is in the same subnet as the Home Assitant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
+
+If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
+
+On OPNSense (may be similar to PFSense), go to Firewall -> Outbound -> Activate `Hybrid outbound NAT rule generation` -> Save -> Add -> Interface `THE_ONE_WHERE_IS_THE_DEVICE` -> Source address `THE_HA_IP_ADDRESS/32`-> Destination address `THE_DEVICE_IP_ADDRESS/32` -> Translation / target `THE_INTERFACE_ADDRESS_WHERE_THE_DEVICE_IS` -> Save.
