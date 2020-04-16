@@ -212,7 +212,7 @@ Starts a color flow. Difference between this and [yeelight.start_flow](#service-
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on specific lights.                                                              |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
-| `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
+| `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover'. (note that off will need to be quoted in YAML ... 'off' ... as it is otherwise handled as a boolean) |
 | `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
 
 ### Service `yeelight.set_auto_delay_off_scene`
