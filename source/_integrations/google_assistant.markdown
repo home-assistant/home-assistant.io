@@ -177,6 +177,7 @@ entity_config:
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
+- alarm_control_panel (arm/disarm)
 - camera (streaming, requires compatible camera)
 - group (on/off)
 - input_boolean (on/off)
@@ -191,7 +192,6 @@ Currently, the following domains are available to be used with Google Assistant,
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
-- Alarm Control Panel (arm/disarm)
 
 ### Secure Devices
 
