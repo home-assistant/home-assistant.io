@@ -146,6 +146,7 @@ If you only want to hide events from your history, take a look at the [`history`
 ### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
+Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
