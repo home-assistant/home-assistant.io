@@ -511,6 +511,38 @@ These integrations have been removed. The websites for both have changed, causin
 [google_assistant docs]: /integrations/google_assistant/
 [ipp docs]: /integrations/ipp/
 
+## Release 0.108.6 - April 16
+
+- Use config entry id for unique id if serial number is missing ([@bdraco] - [#34154]) ([nut docs])
+- Fix default elkm1 temp units ([@bdraco] - [#34274]) ([elkm1 docs])
+- Skip ignored hosts when checking existing config entries in config flow ([@raman325] - [#34280]) ([vizio docs])
+- Upgrade broadlink lib to 0.13.1 ([@Danielhiversen] - [#34290]) ([broadlink docs])
+- Pass an argument to kef.update_dsp for async_track_time_interval ([@basnijholt] - [#34310]) ([kef docs])
+- Fixes for Sonos media titles ([@amelchio] - [#34311]) ([sonos docs])
+- Abort vizio zeroconf config flow if unique ID is already configured ([@raman325] - [#34313]) ([vizio docs])
+- Update Coordinator: Only schedule a refresh if listenerrs ([@balloob] - [#34317])
+
+[#34154]: https://github.com/home-assistant/core/pull/34154
+[#34274]: https://github.com/home-assistant/core/pull/34274
+[#34280]: https://github.com/home-assistant/core/pull/34280
+[#34290]: https://github.com/home-assistant/core/pull/34290
+[#34310]: https://github.com/home-assistant/core/pull/34310
+[#34311]: https://github.com/home-assistant/core/pull/34311
+[#34313]: https://github.com/home-assistant/core/pull/34313
+[#34317]: https://github.com/home-assistant/core/pull/34317
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@basnijholt]: https://github.com/basnijholt
+[@bdraco]: https://github.com/bdraco
+[@raman325]: https://github.com/raman325
+[broadlink docs]: /integrations/broadlink/
+[elkm1 docs]: /integrations/elkm1/
+[kef docs]: /integrations/kef/
+[nut docs]: /integrations/nut/
+[sonos docs]: /integrations/sonos/
+[vizio docs]: /integrations/vizio/
+
 ## All changes
 
 <details>
