@@ -355,7 +355,7 @@ The following integrations are currently supported:
 | automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
-| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
+| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
