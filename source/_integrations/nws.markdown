@@ -21,26 +21,4 @@ Providing a METAR station code is optional, and if not supplied, the closest sta
 
 Two weather entities are created for each entry in the configuration: one for hourly forecasts and one for day and night forecasts. The time supplied for each forecast is the start time for the forecast.
 
-{% configuration %}
-api_key:
-  description: "Your API key. Any string, but an email address is suggested to be included."
-  required: true
-  type: string
-latitude:
-  description: "Latitude. By default, the value will be taken from the Home Assistant configuration."
-  required: true
-  type: float
-  default: "Provided by Home Assistant configuration."
-longitude:
-  description: Longitude. By default, the value will be taken from the Home Assistant configuration.
-  required: true
-  type: float
-  default: "Provided by Home Assistant configuration."
-station:
-  description: "METAR station code."
-  required: false
-  type: string
-  default: "Closest station to `latitude` and `longitude` as returned by NWS API."
-{% endconfiguration %}
-
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
