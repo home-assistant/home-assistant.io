@@ -112,7 +112,7 @@ automation:
 ```
 
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
-
+{% raw %}
 ```yaml
 automation:
   - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
@@ -127,7 +127,7 @@ automation:
     action:
       service: openuv.update_uv_index_data
 ```
-
+{% endraw %}
 Update the protection window once a day:
 ```yaml
 automation:
