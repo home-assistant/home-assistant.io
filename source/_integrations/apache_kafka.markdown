@@ -20,13 +20,13 @@ To use the `apache_kafka` integration in your installation, add the following to
 
 ```yaml
 apache_kafka:
-  host: localhost
+  ip_address: localhost
   port: 9092
   topic: home_assistant_1
 ```
 
 {% configuration %}
-host:
+ip_address:
   description: The IP address or hostname of an Apache Kafka cluster.
   required: true
   type: string
