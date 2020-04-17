@@ -14,7 +14,7 @@ The `Avri Waste` platform allows you to track the next scheduled waste pickup an
 
 ## Configuration
 
-To enable this sensor, go to Configuration >> Integrations in the UI and enable the Avri integration by entering your address.
+To add the `avri` sensor to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Avri**.
 
 The default frequency for pulling data from the Avri API is once every 4 hours. If the Avri API does not return any pickup days the state of the sensor is set to `unknown`.
 
