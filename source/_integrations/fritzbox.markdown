@@ -32,11 +32,11 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-Go to the integrations page in your configuration and click on new integration -> AVM FRITZ!Box. If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
+Go to the integrations page in your configuration and click on **new integration** -> **AVM FRITZ!Box**. If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
 
 ### YAML configuration
 
-YAML configuration is still around for people that prefer YAML. It's deprecated and you should not use it anymore.
+YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore.
 
 ```yaml
 # Example configuration.yaml entry
