@@ -165,7 +165,7 @@ operation_mode_comfort_address:
   required: false
   type: string
 operation_modes:
-  description: Overrides the supported operation modes.
+  description: Overrides the supported operation modes. Provide the supported `hvac_mode` and `preset_mode` values for your device.
   required: false
   type: list
 on_off_address:
