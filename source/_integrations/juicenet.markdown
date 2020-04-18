@@ -30,7 +30,7 @@ juicenet:
 
 {% configuration %}
 access_token:
-  description: "Your eMotorWerks API Token can be found in the [dashboard](https://home.juice.net/Manage)."
+  description: "Your JuiceNet API Token can be found in the [dashboard](https://home.juice.net/Manage)."
   required: true
   type: string
 {% endconfiguration %}
