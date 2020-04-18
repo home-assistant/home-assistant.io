@@ -20,66 +20,8 @@ Supported devices:
 
 ## Configuration
 
-To add an Arcam FMJ to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Minimal example configuration.yaml entry
-arcam_fmj:
-  - host: HOSTNAME
-    zone:
-      1:
-```
-
-{% configuration %}
-host:
-  description: IP address or hostname of the device.
-  required: true
-  type: string
-port:
-  description: Port to connect to.
-  required: false
-  default: 50000
-  type: integer
-zone:
-  description: Per zone specific configuration
-  type: map
-  keys:
-    ZONE_INDEX:
-      description: Zone index number.
-      type: map
-      keys:
-        name:
-          description: Name of zone
-          required: false
-          type: string
-          default: Arcam FMJ - ZONE_INDEX
-        turn_on:
-          description: Service to use when turning on device when no connection is established
-          required: false
-          type: action
-{% endconfiguration %}
-
-```yaml
-# Larger example configuration.yaml entry
-media_player:
-  - platform: arcam_fmj
-    host: HOSTNAME
-    zone:
-      1:
-        name: "Zone 1 name"
-        turn_on:
-          service: 'broadlink.send'
-          data:
-            host: BROADLINK_IR_IP
-            packet: JgAVADodHTo6HR0dHR0dOh0dHR06Oh0dHQ0FAA==
-      2:
-        name: "Zone 2 name"
-        turn_on:
-          service: 'broadlink.send'
-          data:
-            host: BROADLINK_IR_IP
-            packet: JgAYADodHTo6Oh0dHR0dHR0dHR06Oh0dHQALZw0FAAAAAAAAAAAAAAAAAAA=
-```
+To add an Arcam FMJ to your installation, add device using GUI and configuration flow
+manually or once it is automatically discovered.
 
 ## Power state
 
@@ -94,6 +36,12 @@ Use an IR blaster to send a command to turn the device on using these discrete c
 
  - Zone 1: Protocol: NEC1 Device: 16 Function: 123
  - Zone 2: Protocol: NEC1 Device: 23 Function: 123
+
+You can generate the raw, broadlink or other ir format string using [irgen](https://github.com/elupus/irgen) tool like: `irgen -i nec1 -d 16 0 123 -o broadlink_base64`
+
+To trigger this IR command add an automation on the event `arcam.turn_on` filtering on
+the entity_id of the media_player zone entity. This can be added using device automations
+or manually using normal automations.
 
 ### Serial Port to network gateway
 
