@@ -1,7 +1,6 @@
 ---
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
-logo: panasonic.png
 ha_category:
   - Media Player
 ha_release: 0.17
@@ -39,7 +38,7 @@ port:
   default: 55000
   type: integer
 turn_on_action:
-  description: Defines an action to turn the TV on. Be aware that it might not work properly with some models.
+  description: Defines an action to turn the TV on. If not specified, a power key signal will try to be sent to the TV. Be aware that it might not work properly with some models.
   required: false
   type: list
 {% endconfiguration %}
