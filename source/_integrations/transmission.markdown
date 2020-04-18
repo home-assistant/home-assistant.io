@@ -96,6 +96,7 @@ Possible events are:
 
 - transmission_downloaded_torrent
 - transmission_started_torrent
+- transmission_removed_torrent
 
 Inside of the event, there is the name of the torrent that is started or completed, as it is seen in the Transmission User Interface.
 
