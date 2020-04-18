@@ -52,20 +52,20 @@ devices:
   description: A list of FRITZ!Box devices.
   type: map
   keys:
-  host:
-    description: The hostname or IP address of the FRITZ!Box.
-    required: false
-    type: string
-    default: fritz.box
-  username:
-    description: The username for Smart Home access.
-    required: false
-    type: string
-    default: admin
-  password:
-    description: The password of the user.
-    required: true
-    type: string
+    host:
+      description: The hostname or IP address of the FRITZ!Box.
+      required: false
+      type: string
+      default: fritz.box
+    username:
+      description: The username for Smart Home access.
+      required: false
+      type: string
+      default: admin
+    password:
+      description: The password of the user.
+      required: true
+      type: string
 {% endconfiguration %}
 
 ## Switch & Thermostat
