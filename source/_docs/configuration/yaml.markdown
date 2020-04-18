@@ -114,12 +114,9 @@ If you're having trouble, check the case that Home Assistant is reporting in the
 
 ### Booleans 
 
-YAML treats `Y, true, Yes, ON` all as `true` and `n, FALSE, No, off` as `false` - this means that if you want to set the state of an entity to `on` you *must* quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies for `off`.
+YAML treats `Y`, `true`, `Yes`, `ON` all as `true` and `n`, `FALSE`, `No`, `off` as `false`. This means that if you want to set the state of an entity to `on` you *must* quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies to `off`.
 
-Not quoting the value may generate an error such as 
+Not quoting the value may generate an error such as:
 
 ```txt
 not a valid value for dictionary value @ data
-```
-
-where Home Assistant is expecting something other than `true` or `false`.
