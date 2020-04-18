@@ -111,3 +111,15 @@ This means that you've mistakenly entered a tab character, instead of spaces.
 Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
 
 If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.
+
+### Booleans 
+
+YAML treats `Y, true, Yes, ON` all as `true` and `n, FALSE, No, off` as `false` - this means that if you want to set the state of an entity to `on` you *must* quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies for `off`.
+
+Not quoting the value may generate an error such as 
+
+```txt
+not a valid value for dictionary value @ data
+```
+
+where Home Assistant is expecting something other than `true` or `false`.
