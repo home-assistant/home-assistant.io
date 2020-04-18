@@ -49,6 +49,10 @@ client_secret:
 
 **After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
 
+### Extra configuration of the integration
+
+Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cog wheel.
+
 ### Get API and Secret Key
 
 To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
@@ -79,8 +83,8 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 ## Sensor
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
-[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) a
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device or Netatmo Public Weather Stations.
 
 ## Webhooks
 
