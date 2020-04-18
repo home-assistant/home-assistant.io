@@ -41,9 +41,10 @@ YAML configuration is still around for people that prefer YAML, but it's depreca
 ```yaml
 # Example configuration.yaml entry
 fritzbox:
-  - host: fritz.box
-    username: admin
-    password: YOUR_PASSWORD
+  devices:
+    - host: fritz.box
+      username: admin
+      password: YOUR_PASSWORD
 ```
 
 {% configuration %}
