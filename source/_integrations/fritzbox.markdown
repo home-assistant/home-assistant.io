@@ -42,9 +42,7 @@ YAML configuration is still around for people that prefer YAML, but it's depreca
 # Example configuration.yaml entry
 fritzbox:
   devices:
-    - host: fritz.box
-      username: admin
-      password: YOUR_PASSWORD
+    - password: YOUR_PASSWORD
 ```
 
 {% configuration %}
