@@ -51,7 +51,7 @@ client_secret:
 
 ### Extra configuration of the integration
 
-Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cog wheel.
+Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
 
 ### Get API and Secret Key
 
