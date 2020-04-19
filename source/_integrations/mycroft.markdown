@@ -22,6 +22,9 @@ To use Mycroft in your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 mycroft:
   host: 0.0.0.0
+notify:
+  - platform: mycroft
+    name: mycroft
 ```
 
 {% configuration %}
@@ -29,4 +32,16 @@ host:
   description: The IP address of your Mycroft instance.
   required: true
   type: string
-{% endconfiguration %}
+name:
+  description: Frendly name of your Mycroft instance.
+  required: true
+  type: string
+{% endconfiguration %}  
+
+## Examples
+
+Send a mesage calling `notify.mycroft` service:
+
+```yaml
+message: "hey"
+```
