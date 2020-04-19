@@ -4,6 +4,7 @@ description: Instructions on how to integrate Arcam FMJ Receivers into Home Assi
 ha_category: Media Player
 ha_release: 0.96
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@elupus'
 ha_domain: arcam_fmj
