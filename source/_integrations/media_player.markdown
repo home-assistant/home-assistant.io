@@ -13,7 +13,7 @@ Interacts with media players on your network.
 ## Services
 
 ### Media control services
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `play_media`, `select_source`, `select_sound_mode`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `play_media`, `select_source`, `select_sound_mode`, `send_key`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -30,7 +30,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`. |
+| `entity_id`            |      no | Target a specific media player. To target all media players, use `all`. |
 | `volume_level`         |       no | Float for volume level. Range 0..1               |
 
 #### Service `media_player.media_seek`
@@ -72,6 +72,15 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
 | `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
+
+#### Service `media_player.send_key`
+
+Currently not supported by any integrations.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       no | Target a specific media player. For example `media_player.living_room_tv`|
+| `key`                  |       no | The name of the key command to send. Default valid values are: `power`, `volume_up`, `volume_down`, `mute`, `up`, `down`, `left`, `right`, `select`, `back`, `exit`, `home`, `play`, `pause`, `play_pause`, `fast_forward`, `rewind`, `next_track` and `previous_track`. For integration-specific commands, consult their documentation.|
 
 ### Device Class
 
