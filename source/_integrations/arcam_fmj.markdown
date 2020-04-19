@@ -40,7 +40,7 @@ Use an IR blaster to send a command to turn the device on using these discrete c
 You can generate the raw, broadlink or other ir format string using [irgen](https://github.com/elupus/irgen) tool like: `irgen -i nec1 -d 16 0 123 -o broadlink_base64`
 
 To trigger this IR command add an automation on the event `arcam.turn_on` filtering on
-the entity_id of the media_player zone entity. This can be added using device automations
+the `entity_id` of the `media_player` zone entity. This can be added using device automations
 or manually using normal automations.
 
 ### Serial Port to network gateway
