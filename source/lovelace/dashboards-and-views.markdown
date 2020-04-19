@@ -35,7 +35,7 @@ lovelace:
       filename: hidden.yaml
 ```
 
-You can also add YAML dashboards when your main dashboard is UI configurated:
+You can also add YAML dashboards when your main dashboard is UI configured:
 ```yaml
 lovelace:
   mode: storage
