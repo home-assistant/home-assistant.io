@@ -99,4 +99,4 @@ This section displays `syslog` information, and the contents of `home-assistant.
 
 ## Info
 
-The Information tab simply provides information about the current installed version, [system health](/integrations/system_health/) (if enabled), additional links and credits.
+The Information tab simply provides information about the current installed version, [system health](/integrations/system_health/) (if enabled), additional links and credits. 
