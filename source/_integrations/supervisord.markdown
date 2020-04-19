@@ -1,7 +1,6 @@
 ---
 title: Supervisord
 description: Instructions on how to integrate Supervisord within Home Assistant.
-logo: supervisord.png
 ha_category:
   - System Monitor
 ha_release: '0.20'
