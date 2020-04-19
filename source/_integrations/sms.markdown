@@ -18,7 +18,7 @@ This integration provides the following platforms:
 - Notify
   To send SMS messages.
 - Sensor
-  To read the current GSM signal, usefull to corelate with send failures.
+  To read the current GSM signal, useful to corelate with send failures.
 
 ## Configuration
 
