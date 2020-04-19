@@ -20,8 +20,11 @@ Supported devices:
 
 ## Configuration
 
-To add an Arcam FMJ to your installation, add device using GUI and configuration flow
-manually or once it is automatically discovered.
+Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Arcam FMJ**.
+Follow the configuration flow, after finishing, the Twente Milieu
+integration will be available.
 
 ## Power state
 
