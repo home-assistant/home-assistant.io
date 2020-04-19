@@ -22,7 +22,7 @@ This integration provides the following platforms:
 
 ## Configuration
 
-This integration supports config flow, using the UI is the preferred way to configure it.
+This integration supports configuration flow, using the user interface is the preferred way to configure it.
 
 ```yaml
 sms:
