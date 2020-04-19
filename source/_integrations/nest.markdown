@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 ### Setting up developer account
 
 <p class='note warning'>
-  New users are not currently able to set up a Works With Nest Developer account due to the change announced by Google. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after <a href="https://www.home-assistant.io/blog/2019/05/08/nest-data-bye-bye/">August 2019</a> can still use Nest. In the future we will add documentation on how to setup a Works With Google account and configure your Nest integration.
+  New users are not currently able to set up a Works With Nest Developer account due to the change announced by Google. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after <a href="/blog/2019/05/08/nest-data-bye-bye/">August 2019</a> can still use Nest. In the future we will add documentation on how to setup a Works With Google account and configure your Nest integration.
 </p>
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
