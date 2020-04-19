@@ -16,6 +16,9 @@ The `sms` integration allows having a local execution SMS notification via [Gamm
 This integration provides the following platforms:
 
 - Notify
+  To send SMS messages.
+- Sensor
+  To read the current GSM signal, usefull to corelate with send failures.
 
 ## Configuration
 
@@ -33,6 +36,11 @@ notify:
   - platform: sms
     name: sms_person2
     recipient: PHONE_NUMBER
+
+sensor:
+  - platform: sms
+    name: 'GSM Signal'
+
 ```
 
 {% configuration %}
