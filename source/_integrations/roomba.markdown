@@ -13,14 +13,14 @@ ha_codeowners:
 ha_domain: roomba
 ---
 
-The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) and [Braava Jet](https://www.irobot.com/braava) robot.
+The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-roomba.png' />
 </p>
 
 <div class='note'>
-This platform has been tested and is confirmed to be working with the iRobot Roomba 980, 890, and Braava m6 models, but should also work fine with any Wi-Fi enabled Roomba and Braava like the 690 or the 960.
+This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690 or the 960.
 </div>
 
 ## Configuration
