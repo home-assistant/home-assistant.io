@@ -22,13 +22,16 @@ This integration provides the following platforms:
 
 ## Configuration
 
+This integration supports config flow, using the UI is the preferred way to configure it.
+
+```yaml
+sms:
+  device: /dev/ttyUSB2
+```
+
 To enable those notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
-sms:
-  device: /dev/ttyUSB2
-
 notify:
   - platform: sms
     name: sms_person1
@@ -36,11 +39,6 @@ notify:
   - platform: sms
     name: sms_person2
     recipient: PHONE_NUMBER
-
-sensor:
-  - platform: sms
-    name: 'GSM Signal'
-
 ```
 
 {% configuration %}
