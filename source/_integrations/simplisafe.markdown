@@ -51,6 +51,12 @@ Note that the `system_id` parameter required by the below service calls can be d
 by looking at the device state attributes for the integration's `alarm_control_panel`
 entity.
 
+### `simplisafe.clear_notifications`
+
+Clear any existing notifications within the SimpliSafe cloud; this will mark existing
+notifications as "read" in the SimpliSafe web and mobile apps, as well as prevent them
+from triggering future `SIMPLISAFE_NOTIFICATION` events.
+
 ### `simplisafe.remove_pin`
 
 Remove a SimpliSafe PIN (by label or PIN value).
@@ -144,3 +150,8 @@ event data that contains the following keys:
 * `code`: The SimpliSafe code for the notification
 * `message`: The actual text of the notification
 * `timestamp`: The UTC timestamp of the notification
+
+Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
+again for any notifications still active in the SimpliSafe web and mobile apps. To
+prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
+`simplisafe.clear_notifications` service described above.
