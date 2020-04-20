@@ -6,7 +6,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: 0.108
+ha_release: 0.109
 ha_iot_class: Local Polling
 ---
 
@@ -33,18 +33,27 @@ To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus of your Raspberr
 # Example configuration.yaml entry
 binary_sensor:
 - platform: pi4ioe5v9xxxx
-   i2c_bus: 1
-   pins:
-     01: Pin_01/PI0_0
-     02: Pin_02/PI0_1
-     03: Pin_03/PI0_2
-     04: Pin_04/PI0_3
-     05: Pin_05/PI0_4
-     06: Pin_06/PI0_5
-     07: Pin_07/PI0_6
-     08: Pin_08/PI0_7
+  pins:
+    1: Pin_01/PI0_0
+    2: Pin_02/PI0_1
+    3: Pin_03/PI0_2
+    4: Pin_04/PI0_3
+    5: Pin_05/PI0_4
+    6: Pin_06/PI0_5
+    7: Pin_07/PI0_6
+    8: Pin_08/PI0_7
 ```
+
 {% configuration %}
+pins:
+  description: List of used pins.
+  required: true
+  type: map
+  keys:
+    "pin: name":
+      description: The pin numbers (from 1 to X) and corresponding names.
+      required: true
+      type: [integer, string]
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
   required: false
@@ -60,15 +69,6 @@ bits:
   required: false
   type: integer
   default: "`24`"
-pins:
-  description: List of used pins.
-  required: true
-  type: map
-  keys:
-    "pin: name":
-      description: The pin numbers (from 1 to X) and corresponding names.
-      required: true
-      type: [integer, string]
 invert_logic:
   description: If `true`, inverts the input logic to ACTIVE LOW.
   required: false
@@ -91,19 +91,27 @@ To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus as switches, add
 # Example configuration.yaml entry
 switch:
   - platform: pi4ioe5v9xxxx
-    i2c_bus: 1
     pins:
-     01: Pin_01/PI0_0
-     02: Pin_02/PI0_1
-     03: Pin_03/PI0_2
-     04: Pin_04/PI0_3
-     05: Pin_05/PI0_4
-     06: Pin_06/PI0_5
-     07: Pin_07/PI0_6
-     08: Pin_08/PI0_7
+     1: Pin_01/PI0_0
+     2: Pin_02/PI0_1
+     3: Pin_03/PI0_2
+     4: Pin_04/PI0_3
+     5: Pin_05/PI0_4
+     6: Pin_06/PI0_5
+     7: Pin_07/PI0_6
+     8: Pin_08/PI0_7
 ```
 
 {% configuration %}
+pins:
+  description: List of used pins.
+  required: true
+  type: map
+  keys:
+    "pin: name":
+      description: The pin numbers (from 1 to X) and corresponding names.
+      required: true
+      type: [integer, string]
 i2c_bus:
   description: i2c bus containing the pi4ioe5v9xxxx chip.
   required: false
@@ -119,15 +127,6 @@ bits:
   required: false
   type: integer
   default: "`24`"
-pins:
-  description: List of used pins.
-  required: true
-  type: map
-  keys:
-    "pin: name":
-      description: The pin numbers (from 1 to X) and corresponding names.
-      required: true
-      type: [integer, string]
 invert_logic:
   description: If `true`, inverts the output logic to ACTIVE LOW.
   required: false
