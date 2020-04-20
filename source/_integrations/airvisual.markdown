@@ -78,14 +78,6 @@ geographies:
       description: The country the state belongs to.
       required: inclusive
       type: string
-ip_address:
-  description: Your Node/Pro unit's IP address or hostname.
-  required: false
-  type: string
-password:
-  description: Your Node/Pro unit's Samba password.
-  required: false
-  type: string
 {% endconfiguration %}
 
 ## Example Configurations
@@ -129,25 +121,6 @@ airvisual:
         city: Los Angeles
         state: California
         country: USA
-```
-
-Configuration using a Node/Pro unit:
-
-```yaml
-airvisual:
-    ip_address: 192.168.1.100
-    password: YOUR_NODE_PRO_SAMBA_PASSWORD
-```
-
-Configuration using the cloud API and multiple Node/Pro units:
-
-```yaml
-airvisual:
-    - api_key: YOUR_AIRVISUAL_API_KEY
-    - ip_address: 192.168.1.100
-      password: YOUR_NODE_PRO_SAMBA_PASSWORD_1
-    - ip_address: 192.168.1.148
-      password: YOUR_NODE_PRO_SAMBA_PASSWORD_2
 ```
 
 ## Determining the City/State/Country
