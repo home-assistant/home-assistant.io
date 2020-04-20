@@ -11,9 +11,15 @@ ha_domain: panasonic_viera
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
 ## Configuration
-To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Then, click on the plus (+) button to add a new integration. Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice. If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
+
+To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Click on the plus (+) button to add a new integration.
+
+Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice.
+
+If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
 ## Manual configuration
+
 If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
 
 ```yaml
@@ -103,4 +109,4 @@ script:
 - TX-42AS650
 - TX55ASW654
 
-If your model is not on the list, give it a test. If everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
+If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
