@@ -20,6 +20,9 @@ camera:
   - platform: rpi_camera
 ```
 
+The whole set of configuration variables is documented here [`Raspberry Pi Camera Module - Raspberry Pi Documentation`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md).
+They are not all wrapped by this `rpi_camera` platform.
+
 {% configuration %}
 image_width:
   description: Set the image width.
@@ -61,6 +64,16 @@ timelapse:
   required: false
   type: integer
   default: 1000
+overlay_metadata:
+  description: Adds some text and/or metadata onto the picture ; as defined in [`--annotate,    -a        Enable/set annotate flags or text`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md).
+  required: false
+  type: integer
+  default: none
+overlay_timestamp:
+  description: Helper to add date/time onto the picture. Format as used by [`strftime`](http://man7.org/linux/man-pages/man3/strftime.3.html).
+  required: false
+  type: string
+  default: none
 file_path:
   description: Save the picture in a custom file path.
   required: false
