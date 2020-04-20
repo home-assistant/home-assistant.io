@@ -15,10 +15,6 @@ The `fmi` weather and sensor platform uses [FMI's Open-Data](https://en.ilmatiet
 
 There is currently support for the sensor and weather device types within Home Assistant. Configuration is provided under a single domain `fmi`.
 
-- [Configuration](#configuration)
-- [Sensor](#sensor)
-- [Weather](#weather)
-
 ## Configuration
 
 Configuration for both weather and sensor platforms are under a single domain configuration - `fmi`. This should be included in configuration YAML file. All configuration parameters except `name` are optional. The first instnce in the list is common to the `weather` and `sensor` platforms. However not all parameters are applicable for the `weather` platform. For details please check the [Weather](#weather) section below. Subsequent instances in domain integration are for `sensor` platform. So there can be multiple sensors tracking different locations. Here is an example that can be added to configuration YAML file:
@@ -66,6 +62,7 @@ fmi:
 
 If latitude are longitude are not provided, it will be detected from the home latitude and longitude settings. The user preferred weather attributes (min_temperature, max_humidity etc) are used to compare the day's weather forecast and provide a relative best time for outdoor activity only for the sensor integration. If the conditions are not met, state of sensor (`_best_time_of_day`) will be "not_available". Other sensors (monitored weather conditions) include "condition", "temperature", "wind speed", "humidity", "clouds" and "rain".
 
+
 {% configuration %}
 name:
   description: "Name of sensor/weather entity."
@@ -83,7 +80,7 @@ longitude:
   type: float
   default: Provided by Home Assistant configuration
 offset:
-  description: "Hour offset for forecast. Accepted values are one of [0, 1, 2, 3, 4, 6, 8, 12, 24]." Valid for both sensor and weather platforms.
+  description: "Hour offset for forecast. Accepted values are one of [0, 1, 2, 3, 4, 6, 8, 12, 24]. Valid for both sensor and weather platforms."
   required: false
   type: integer
   default: "Defaults to 0 (Current weather)"
