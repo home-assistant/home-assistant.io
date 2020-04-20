@@ -21,7 +21,3 @@ This integration can be configured via the Home Assistant frontend.
 - Click on the `+` in the bottom right corner to add a new integration.
 - Search and select the **Avea** integration form the list.
 - Follow the instruction on screen to add the lights.
-
-<div class='note'>
-If you have previously configured this integration using configuration.yaml, you can delete this entry.
-</div>
