@@ -1,7 +1,6 @@
 ---
 title: Honeywell Total Connect Comfort (US)
 description: Instructions on how to integrate Honeywell thermostats within Home Assistant.
-logo: honeywell.png
 ha_category:
   - Climate
 ha_release: pre 0.7
