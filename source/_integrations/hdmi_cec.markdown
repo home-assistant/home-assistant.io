@@ -3,7 +3,6 @@ title: HDMI-CEC
 description: Instructions on how to interact with HDMI-CEC via Home Assistant.
 ha_category:
   - Automation
-logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: hdmi_cec

@@ -155,18 +155,19 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ## Custom database engines
 
-| Database engine        | `db_url`                                                                                     |
-| :--------------------- | :------------------------------------------------------------------------------------------- |
-| SQLite                 | `sqlite:////PATH/TO/DB_NAME`                                                                 |
-| MariaDB                | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
-| MariaDB                | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
-| MariaDB (omit pymysql) | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| MySQL                  | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
-| MySQL                  | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| PostgreSQL             | `postgresql://SERVER_IP/DB_NAME`                                                             |
-| PostgreSQL             | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
-| PostgreSQL (Socket)    | `postgresql://@/DB_NAME`                                                                     |
-| MS SQL Server          | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
+| Database engine                | `db_url`                                                                                     |
+| :----------------------------- | :------------------------------------------------------------------------------------------- |
+| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                 |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
+| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
+| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                             |
+| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
+| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                     |
+| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                   |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
 
 <div class='note'>
 
@@ -297,7 +298,7 @@ source /srv/homeassistant/bin/activate
 pip3 install pyodbc
 ```
 
-You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instrucitons for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instructions for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
 <div class='note'>
 

@@ -21,7 +21,7 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 
 ## Configuration
 
-For the `server_id` check the list of [available servers](http://www.speedtestserver.com).
+For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
 
 To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 

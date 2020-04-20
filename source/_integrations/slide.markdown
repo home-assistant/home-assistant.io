@@ -1,7 +1,6 @@
 ---
 title: Slide
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
-logo: slide.png
 ha_category:
   - Hub
   - Cover

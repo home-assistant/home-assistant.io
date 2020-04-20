@@ -6,6 +6,7 @@ description: "The Lovelace UI is a powerful and configurable interface for Home 
 ### Dashboards
 
 You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards.
+To create new or manage existing (with `mode: storage` only) dashboards, click on `Configuration` in the sidebar and then on `Lovelace Dashboards`.
 
 The key of the dashboard is used as the URL, this needs to contain a hyphen (`-`).
 
@@ -34,7 +35,7 @@ lovelace:
       filename: hidden.yaml
 ```
 
-You can also add YAML dashboards when your main dashboard is UI configurated:
+You can also add YAML dashboards when your main dashboard is UI configured:
 ```yaml
 lovelace:
   mode: storage

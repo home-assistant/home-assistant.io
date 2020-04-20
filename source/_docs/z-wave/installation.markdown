@@ -101,6 +101,13 @@ zwave:
   network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
+In addition to modifying the `configuration.yaml` file, the `options.xml` file network key must be set as well:
+
+```xml
+<!-- Example options.xml entry for network_key -->
+<Option name="NetworkKey" value="0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c" />
+```
+
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 
 ## First Run

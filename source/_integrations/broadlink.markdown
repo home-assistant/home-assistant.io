@@ -1,7 +1,6 @@
 ---
 title: Broadlink
 description: Instructions on how to integrate Broadlink within Home Assistant.
-logo: broadlink.png
 ha_category:
   - Remote
   - Switch

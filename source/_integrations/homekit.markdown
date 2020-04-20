@@ -17,8 +17,12 @@ The `homekit` integration allows you to forward entities from Home Assistant to 
 
 <div class="note warning">
 
-  It might be necessary to install an additional package:
-  `sudo apt-get install libavahi-compat-libdnssd-dev`
+If you are using the official Home Assistant images or running Home Assistant Core on Docker, HomeKit is ready to go out of the box. If you are running Home Assistant in a manual virtual environment or on a NAS without Docker, you may need to install or upgrade dependencies for HomeKit to function.
+
+HomeKit requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
+
+It might be necessary to install an additional package:
+`sudo apt-get install libavahi-compat-libdnssd-dev`
 
 </div>
 
@@ -359,7 +363,7 @@ The following integrations are currently supported:
 | automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
-| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
+| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |

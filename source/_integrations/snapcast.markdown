@@ -1,7 +1,6 @@
 ---
 title: Snapcast
 description: Instructions on how to integrate Snapcast into Home Assistant.
-logo: snapcast.png
 ha_category:
   - Media Player
 ha_release: 0.13

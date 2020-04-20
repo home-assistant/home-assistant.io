@@ -1,7 +1,6 @@
 ---
 title: Egardia
 description: Instructions on how to setup Egardia / Woonveilig within Home Assistant.
-logo: egardia.png
 ha_category:
   - Hub
   - Alarm

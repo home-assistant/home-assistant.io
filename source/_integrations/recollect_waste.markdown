@@ -1,7 +1,6 @@
 ---
 title: ReCollect Waste
 description: Instructions on how to set up Recollect Waste sensor within Home Assistant.
-logo: recollect-waste.png
 ha_category:
   - Sensor
 ha_release: 0.87
