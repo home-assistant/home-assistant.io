@@ -183,7 +183,7 @@ After Home Assistant has started, the entities specified by the filter are expos
 After the setup is completed, you should be able to control your Home Assistant integrations through Apple's Home and Siri.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/homekit_pairing_example.png' />
+  <img src='/images/screenshots/homekit_pairing_example.png' />
 </p>
 
 ## Move Home Assistant install
