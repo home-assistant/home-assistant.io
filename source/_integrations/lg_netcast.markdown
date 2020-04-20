@@ -38,7 +38,7 @@ turn_on_action:
   required: false
   type: string
 turn_off_action:
-  description: Defines an [action](/docs/automation/action/) to switch the TV off. This ovverides the default to set the TV in standby.
+  description: Defines an [action](/docs/automation/action/) to switch the TV off. This overides the default to set the TV in standby.
   required: false
   type: string
 {% endconfiguration %}
