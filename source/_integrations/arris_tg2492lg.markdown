@@ -4,7 +4,7 @@ description: Instructions on how to integrate Arris TG2492LG routers into Home A
 logo: arris.jpg
 ha_category:
   - Presence Detection
-ha_release: 0.105
+ha_release: 0.109
 ---
 
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.
@@ -21,7 +21,6 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: arris_tg2492lg
-    host: YOUR_ROUTER_IP
     password: YOUR_ADMIN_PASSWORD
 ```
 
