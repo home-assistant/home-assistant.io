@@ -3,6 +3,7 @@ title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
@@ -12,6 +13,11 @@ ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
+
+There is currently support for the following device types within Home Assistant:
+
+- Media Player
+- [Remote](#remote)
 
 ## Configuration
 
@@ -69,10 +75,10 @@ panasonic_viera:
 
 ### Example `play_media` script
 
-The `play_media` function can be used to open web pages and other media types (images, movies) via URLs in the TV web browser.
+The `play_media` service can be used to open web pages and other media types (images, movies) via URLs in the TV web browser.
 
 ```yaml
-# Example play_media script
+# Example script using play_media
 script:
   front_door_camera:
     alias: "Show who's at the door"
@@ -91,6 +97,35 @@ script:
         data:
           entity_id: media_player.living_room_tv
 ```
+
+### Remote
+
+When the integration is configured, two entities are created: a `media_player` one and a `remote` one. The remote one allows you to send key commands to your TV with the `remote.send_command` service.
+
+Some of the known valid key values are:
+
+- up
+- down
+- left
+- right
+- select
+- home
+- back
+- power
+
+The list with all valid known keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Aditionally, you can also send raw commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`).
+
+```yaml
+# Example of send_command for pressing a series of buttons
+service: remote.send_command
+data:
+  entity_id: remote.living_room_tv
+  command:
+    - home
+    - right
+    - select
+```
+
 
 ### Currently known supported models
 
