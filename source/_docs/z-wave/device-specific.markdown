@@ -756,6 +756,10 @@ Triple tap on|2|7920
 4x tap on|2|7980
 5x tap off|1|8040
 5x tap on|2|8040
+Held off|1|7800
+Held on|2|7800
+Released off|1|7740
+Released on|2|7740
 
 ### HomeSeer Switches
 
