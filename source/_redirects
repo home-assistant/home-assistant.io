@@ -585,7 +585,6 @@
 /components/notify.nfandroidtv /integrations/nfandroidtv
 /components/notify.prowl /integrations/prowl
 /components/notify.pushbullet /integrations/pushbullet
-/components/notify.pushetta /integrations/pushetta
 /components/notify.pushover /integrations/pushover
 /components/notify.pushsafer /integrations/pushsafer
 /components/notify.rocketchat /integrations/rocketchat
@@ -1695,7 +1694,6 @@
 /components/pulseaudio_loopback /integrations/pulseaudio_loopback
 /components/push /integrations/push
 /components/pushbullet /integrations/pushbullet
-/components/pushetta /integrations/pushetta
 /components/pushover /integrations/pushover
 /components/pushsafer /integrations/pushsafer
 /components/pvoutput /integrations/pvoutput
