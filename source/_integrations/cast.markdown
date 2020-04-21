@@ -27,7 +27,9 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
     service: cast.show_lovelace_view
 ```
 <div class='note'>
+
 Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).
+
 </div>
 
 ## Advanced use
