@@ -37,7 +37,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 withings:
   client_id: CLIENT_ID
   client_secret: CONSUMER_SECRET
-  use_webhook: true  # Internet access to home assistant required for this option.
+  use_webhook: true  # Internet access to Home Assistant required for this option.
   profiles:
     - USER_PROFILE_NAME
 ```
@@ -68,7 +68,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 withings:
     client_id: CLIENT_ID
     client_secret: CONSUMER_SECRET
-    use_webhook: true  # Internet access to home assistant required for this option.
+    use_webhook: true  # Internet access to Home Assistant required for this option.
     profiles:
         - USER_PROFILE_NAME
 ```
@@ -82,7 +82,7 @@ client_secret:
   required: true
   type: string
 use_webhook:
-  description: "Configure Withings to notify home assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, you home assistant install must be accessible to the internet."
+  description: "Configure Withings to notify Home Assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, your Home Assistant install must be accessible to the internet."
   required: false
   default: false
   type: boolean
