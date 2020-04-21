@@ -927,7 +927,6 @@
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
 /components/sensor.yr /integrations/yr
-/components/sensor.yweather /integrations/yweather
 /components/sensor.zabbix /integrations/zabbix#sensor
 /components/sensor.zamg /integrations/zamg#sensor
 /components/sensor.zestimate /integrations/zestimate
@@ -1077,7 +1076,6 @@
 /components/weather.metoffice /integrations/metoffice
 /components/weather.openweathermap /integrations/openweathermap#weather
 /components/weather.smhi /integrations/smhi
-/components/weather.yweather /integrations/yweather
 /components/weather.zamg /integrations/zamg#weather
 /components/xiaomi /integrations/xiaomi_aqara
 
@@ -2012,7 +2010,6 @@
 /components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/yr /integrations/yr
-/components/yweather /integrations/yweather
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
 /components/zengge /integrations/zengge
