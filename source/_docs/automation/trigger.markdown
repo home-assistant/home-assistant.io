@@ -352,7 +352,7 @@ automation:
 
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an empty data payload:
 
-```
+```shell
 curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
