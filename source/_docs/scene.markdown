@@ -83,6 +83,33 @@ automation:
           source: HDMI 1
 ```
 
+## Using scene transitions
+
+Both the `scene.apply` and `scene.turn_on` services support setting a transition,
+which enables you to smoothen the transition to the scene.
+
+This is an example of an automation that sets a romantic scene, in which the
+light will transition to the scene in 2.5 seconds.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.sweetheart
+    from: "not_home"
+    to: "home"
+  action:
+    service: scene.turn_on
+    data:
+      entity_id: scene.romantic
+      transition: 2.5
+```
+
+Transitions are currently only support by lights, which in their turn, have
+to support it as well. However, the scene itself does not have to consist of
+only lights to have a transition set.
+
 ## Reloading scenes
 
 Whenever you make a change to your scene configuration, you can call the `scene.reload` service to reload the scenes.
