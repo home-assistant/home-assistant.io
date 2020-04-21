@@ -119,7 +119,6 @@ homeassistant:
       icon: mdi:description
     "scene.month_*_colors":
       hidden: true
-      emulated_hue_hidden: false
 ```
 
 ### Reloading customize

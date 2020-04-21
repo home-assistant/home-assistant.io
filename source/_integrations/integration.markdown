@@ -6,7 +6,6 @@ ha_category:
   - Energy
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: integral.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
