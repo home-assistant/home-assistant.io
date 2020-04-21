@@ -3,7 +3,7 @@ layout: post
 title: "0.109: Beta release notes"
 description: "0.109: Beta release notes"
 date: 2020-04-22 00:00:00
-date_formatted: "April 27, 2020"
+date_formatted: "April 29, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
