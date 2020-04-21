@@ -229,6 +229,18 @@ starting at the part discussing this.
     ></iframe>
 </div>
 
+## Special Home Assistant Podcast episode
+
+A special edition of the Home Assistant Podcast has been put out.
+In this episode, [Phil][phil] and [Rohan][rohan] talk with
+[Paulus][balloob] about the changes announced in this blog post.
+
+[Click here to listen to the Podcast][podcast]
+
 [adr]: https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md
-[yt]: https://youtu.be/tc17q1Zn0Xs?t=1809
+[balloob]: https://twitter.com/balloob
 [gh]: https://github.com/topics/home-assistant-config
+[phil]: https://twitter.com/philhawthorne
+[podcast]: https://hasspodcast.io/x001/
+[rohan]: https://twitter.com/rohank9
+[yt]: https://youtu.be/tc17q1Zn0Xs?t=1809
