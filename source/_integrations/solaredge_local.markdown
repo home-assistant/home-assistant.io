@@ -14,7 +14,7 @@ ha_domain: solaredge_local
 
 <div class='note'>
 
-Recent firmeware updates have disabled the local API on many inverters.  Please enter the IP address of your inverter in a browser before attempting to use this component.  If the local API is enabled, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu.  See [this issue](https://github.com/jbuehl/solaredge/issues/124) and [this issue](https://github.com/drobtravels/solaredge-local/issues/24) for additional details.
+Recent firmeware updates have disabled the local API on many inverters. Please enter the IP address of your inverter in a browser before attempting to use this component. If the local API is enabled, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu. See [this issue](https://github.com/jbuehl/solaredge/issues/124) and [this issue](https://github.com/drobtravels/solaredge-local/issues/24) for additional details.
   
 If your inverter does not support the local API, you can use the [cloud based version](/integrations/solaredge/)
 
