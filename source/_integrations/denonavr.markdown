@@ -40,6 +40,8 @@ Known supported devices:
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_integrations/denonavr.markdown).
+
 <div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </div>
