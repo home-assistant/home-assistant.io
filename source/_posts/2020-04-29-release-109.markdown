@@ -180,28 +180,95 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Add config entry for Flu Near You ([@bachya] - [#32858]) ([flunearyou docs]) (breaking change)
-- Add config flow to Synology DSM ([@Quentame] - [#32704]) ([synology_dsm docs]) ([synologydsm docs]) (breaking change) (new-integration)
-- UniFi - Improve client tracker attributes based on connection ([@Kane610] - [#32817]) ([unifi docs]) (breaking change)
-- Add discovery support to synology_dsm ([@bdraco] - [#33729]) ([synology_dsm docs]) (breaking change)
-- Convert nws integration to component configuration ([@MatthewFlamm] - [#31398]) ([nws docs]) (breaking change)
-- Remove withings sleep state ([@vangorra] - [#33817]) ([withings docs]) (breaking change)
-- Fix slide open/close percentage ([@ualex73] - [#33739]) ([slide docs]) (breaking change)
-- Add config_flow for Roomba ([@Cyr-ius] - [#33302]) ([roomba docs]) (breaking change)
-- Use UNIT_UV_INDEX constant ([@springstan] - [#34055]) ([metoffice docs]) ([openuv docs]) ([rfxtrx docs]) ([tellduslive docs]) (breaking change)
-- Ecobee to use HVAC mode heat-cool instead of auto ([@balloob] - [#34193]) ([ecobee docs]) (breaking change)
-- Add unit_of_measurement property for air_quality entity ([@bieniu] - [#33304]) ([air_quality docs]) ([xiaomi_miio docs]) (breaking change)
-- Update SmartThings config flow to be entirely UI based ([@andrewsayre] - [#34163]) ([smartthings docs]) (breaking change)
-- Add config flow for braviatv integration ([@bieniu] - [#33774]) ([braviatv docs]) (breaking change)
-- Patch http.client to not do I/O in the event loop ([@balloob] - [#34194]) (breaking change)
-- Improve MAX! Cube integration ([@leppa] - [#28845]) ([maxcube docs]) (breaking change)
-- Add config flow to nws and remove yaml configuration ([@MatthewFlamm] - [#34267]) ([nws docs]) (breaking change)
-- Purge recorder database at night ([@amelchio] - [#33646]) ([recorder docs]) (breaking change)
-- Use name instead of friendly name in uscis config ([@chrisrosset] - [#33431]) ([uscis docs]) (breaking change)
-- Add config flow to panasonic_viera component ([@joogps] - [#33829]) ([panasonic_viera docs]) (breaking change)
-- Remove deprecated homekit_controller credential storage locations ([@Jc2k] - [#34333]) ([homekit_controller docs]) (breaking change)
-- Add Islamic Prayer Times config flow ([@engrbm87] - [#31590]) ([islamic_prayer_times docs]) (breaking change)
-- Add config flow and device registry to fritzbox integration ([@escoand] - [#31240]) ([fritzbox docs]) (breaking change)
+- **Flu Near You** - This integration is now available to be added from the UI. Setting `monitored_conditions` has been removed. You will need to reconfigure your existing YAML integration. - ([@bachya] - [#32858]) ([flunearyou docs])
+
+  Example YAML configuration:
+  ```yaml
+  flunearyou:
+  ```
+
+- **Synology DSM** - This integration is now available to be added from the UI. It has been renamed from `synologydsm` to `synology_dsm`. Discovery support has been added and the `name` configuration key has been removed. - ([@Quentame] - [#32704]) ([@bdraco] - [#33729]) ([synology_dsm docs])  
+
+  Example YAML configuration:
+
+  ```yaml
+  synology_dsm:
+    - host: XXX
+      username: XXX
+      password: XXX
+  ```
+
+- **UniFi** - Site ID has been removed from device tracker state attributes since integrations and entity can only belong to one site and it is already known. - ([@Kane610] - [#32817]) ([unifi docs]) 
+- **National Weather Service (NWS)** - YAML config longer supported for NWS integration, configuration is now done though UI. Two entities are now created for each configured entry, one for daynight and one for hourly. The `mode` option is no longer needed and `name` option is no longer supported. - ([@MatthewFlamm] - [#34267]) ([nws docs]
+
+- **Withings** - Withings sleep state has been removed as it does not work as intended anymore. Withings only provides historical data for this API endpoint and getting recent data is rare. This results in wildly inaccurate state reported by HA. - ([@vangorra] - [#33817]) ([withings docs]) 
+  
+- **Slide** - This integration was previously using the wrong inverted percentage of open/close. A new `invert_position` fallback option has been added and the 5% offset to round it off as open/close has been extended to 15%.  Now it lines up with Home Assistant standards, which makes HomeKit work out of the box. - ([@ualex73] - [#33739]) ([slide docs]) 
+
+- **Roomba** - This integration can now be added from the integrations UI and provides additional sensors! You will need to reconfigure your existing yaml configuration. Please see the documentation for more details. - ([@Cyr-ius] - [#33302]) ([roomba docs])
+
+  Example YAML configuration:
+  ```yaml
+  roomba:
+  - host: IP_ADDRESS_OR_HOSTNAME
+    blid: BLID
+    password: PASSWORD
+  ```
+
+- **UV Sensors (various)** - Some UV sensors in the integrations `Metoffice`, `OpenUV`, `Rfxtrx` and `Tellduslive` did not have a generalized unit of measurement. However, after this change these sensors now have the unit of measurment `UV index`. This can be a breaking change if you display this kind of sensor in external systems such as influxdb, for example. - ([@springstan] - [#34055]) ([metoffice docs]) ([openuv docs]) ([rfxtrx docs]) ([tellduslive docs])
+
+- **Ecobee** - Ecobee now uses HVAC mode `heat_cool` instead of `auto`, which is reserved for when the user has no control over the temperature. In Ecobee this was not the case and the user has control over the temperature. - ([@balloob] - [#34193]) ([ecobee docs])
+
+- **Air Quality (various)** - Some `air quality` entities did not have the `unit_of_measurement` property set. Now all `air quality` entities have the appropriate `unit_of_measurement` `µg/m³` set. This can be a breaking change if you display this kind of sensor in external systems such as influxdb, for example. - ([@bieniu] - [#33304]) ([air_quality docs]) ([xiaomi_miio docs])
+
+- **SmartThings** - This change removes the need (and ability) to use the SmartThings Classic mobile application to install the Home Assistant SmartApp. Going forward, the SmartThings integration setup is completed entirely through the web. This only changes how the integration is setup and not any functionality once setup. - ([@andrewsayre] - [#34163]) ([smartthings docs])
+
+- **Sony Bravia TV** - Configuration of new instances will only be possible through Integration due to the lack of the bravia.conf file, which is necessary for YAML configuration. Existing instances will be imported into config_entry. `ignored sources` has been added to the options and the missing `device_class` property has been added to the entity class. - ([@bieniu] - [#33774]) ([braviatv docs])
+
+- **Integrations (general)** - Integrations are now prevented from doing I/O in the event loop. This was never allowed as it disrupts Home Assistant Core. This is now enforced. - ([@balloob] - [#34194]) 
+- **eQ-3 MAX!** - Custom `vacation` preset is replaced with standard `away`. Additionally, `manual` preset is removed in favor of HVAC mode `heat`. This might affect your scripts, templates or automations. - ([@leppa] - [#28845]) ([maxcube docs])
+  
+  Other improvements:
+   - It wasn't possible to return to automatic (scheduled) operation after switching to `manual` preset. `none` preset was added, which switches thermostats to automatic (scheduled) operation.
+
+   - `Manual` preset was removed. HVAC mode `Heat` now switches thermostats into manual mode.
+
+   - `hvac_action` is implemented, based on the valve position: if it's open (position higher than 0), we assume that hot water is flowing and heating is active. Else, the thermostat is in *Idle* mode. For wall thermostats, if at least one thermostat in the room has its valve open, then heating is active.
+
+   - Support for *Comfort, Eco, Off* and *On* modes was added. *Comfort, Eco* and *On* are exposed as presets and switch thermostats into manual mode with corresponding temperatures, programmed on the thermostats. *Off* corresponds to HVAC mode *Off*.
+
+   - Valve position is exposed as state attribute.
+
+- **Recorder** - The recorder configuration `purge_interval` has been deprecated. The recorder database is now purged every night. This can be disabled with the new `auto_purge` configuration though that is usually not recommended. - ([@amelchio] - [#33646]) ([recorder docs])
+
+- **USCIS** - The USCIS now uses `name` instead of `friendly_name` in its yaml configuration. You will need to adjust accordingly. - ([@chrisrosset] - [#33431]) ([uscis docs])
+
+- **Panansonic Viera TV** - This is now its own integration and is available through the integrations UI. You will need to reconfigure your existing YAML integration. - ([@joogps] - [#33829]) ([panasonic_viera docs])
+
+  Example YAML configuration:
+  ```yaml
+  panasonic_viera:
+    host: 192.168.1.10
+  ```
+
+- **HomeKit Controller** - Support for homekit_controller's legacy pairing data folder `.homekit` has now been removed. This has not been how pairings are saved since Home Assistant 0.94. If you are running Home Assistant 0.94 or later this does not affect you as your pairings were automatically migrated to the new scheme already. If you are running an older release then you will need to re-pair after upgrading. - ([@Jc2k] - [#34333]) ([homekit_controller docs]) 
+
+- **Add Islamic Prayer Times** - Islamic Prayer Times is now its own integration and can be added using the Integrations UI. You will need to reconfigure your existing YAML configuration. All sensors will display the prayer times as per the selected calculation method. Changing the calculation method will update all sensors with new prayer times. - ([@engrbm87] - [#31590]) ([islamic_prayer_times docs])
+
+  Example YAML configuration:
+  ```yaml
+  islamic_prayer_times:
+    calculation_method: makkah
+  ```
+  
+- **AVM Fritz!box** - This integration is now available to be added from the UI. YAML configuration has been deprecated and should no longer be used, as it will be removed in one of the next releases. - ([@escoand] - [#31240]) ([fritzbox docs])
+
+  Example YAML configuration:
+  ```yaml
+  fritzbox:
+    devices:
+      - password: YOUR_PASSWORD
+   ```
 
 ## Farewell to the following
 
