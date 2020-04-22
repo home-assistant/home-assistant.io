@@ -1,12 +1,11 @@
 ---
 title: Atag
 description: Instructions on how to setup Atag integration.
-logo: atag.png
 ha_category:
   - Climate
   - Water heater
   - Sensor
-ha_release: 0.105
+ha_release: 0.109
 ha_iot_class: Local Polling
 ---
 
@@ -67,12 +66,12 @@ The following sensors will be added to Home Assistant:
 
 ### Sensors enabled by default
 
-- outside_temp
-- outside_temp_avg
-- weather_status
-- operation_mode
-- ch_water_pressure
-- dhw_water_temp
-- dhw_water_pres
-- burning_hours
-- flame_level
+- `outside_temp`
+- `outside_temp_avg`
+- `weather_status`
+- `operation_mode`
+- `ch_water_pressure`
+- `dhw_water_temp`
+- `dhw_water_pres`
+- `burning_hours`
+- `flame_level`
