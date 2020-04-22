@@ -59,7 +59,7 @@ media_album_name:
   required: false 
   type: string
 media_image_url:
-  Image url of current playing media.
+  Image URL of current playing media.
   required: false 
   type: string
 media_seek_position:
