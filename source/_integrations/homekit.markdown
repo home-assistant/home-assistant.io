@@ -1,13 +1,15 @@
 ---
-title: HomeKit
-description: Instructions on how to set up the HomeKit integration in Home Assistant.
+title: HomeKit Bridge
+description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64
+ha_iot_class: Local Push
 ha_domain: homekit
+ha_config_flow: true
 ---
 
-The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The HomeKit Bridge integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <div class="note">
 
@@ -25,6 +27,10 @@ It might be necessary to install an additional package:
 `sudo apt-get install libavahi-compat-libdnssd-dev`
 
 </div>
+
+To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
+
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
@@ -200,7 +206,7 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 ### Device Limit
 
-The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to the bridge configured via `YAML`.
 
 ### Persistence Storage
 
