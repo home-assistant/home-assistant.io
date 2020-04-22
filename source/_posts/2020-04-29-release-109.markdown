@@ -47,16 +47,16 @@ set up integration instance.
 Screenshot of the new integration page.
 </p>
 
-Doesn't the new logos look beautiful? A big thanks to all the people, who
+Don't the new logos look beautiful? A big thanks to all the people, who
 have been working hard to complete our [collection of logos and icons][brands]
-the past weeks. Almost 700! contributions have been processed!
+the past few weeks. Almost 700! contributions have been processed!
 
-Everybody thanks for contributing, that is amazing! Special thanks to these
-champs that did most of the heavy lifting: [@adrianmihalko][], [@BradleyFord][],
+Thanks to everybody for contributing, that is amazing! Special thanks to these
+champs who did most of the heavy lifting: [@adrianmihalko][], [@BradleyFord][],
 [@Klumper][], [@nldroid][], [@samrdev][]! 🥇
 
-As for the next steps in future releases, we will add search, group multiple
-entries of the same integration and add specific function for integrations
+As for the next steps in future releases; we will add search, group multiple
+entries of the same integration and add specific functions for integrations
 like ZHA.
 
 [@adrianmihalko]: https://github.com/adrianmihalko
