@@ -109,7 +109,10 @@ This release adds logic in the core of Home Assistant that is able to detect
 if an integration does one of those blocking calls and writes a messages
 to the logs.
 
-**TODO: Screenshot of log example*
+<p class='img'>
+<img src='/images/blog/2020-04-0.109/io.png' alt='Screenshot of an example log entry'></a>
+Screenshot of an example log entry.
+</p>
 
 If you see such a message in your logs, please report the issue on our
 [GitHub][issues] so we can fix those cases. If a custom component causes the
@@ -117,7 +120,6 @@ log, it should be reported with the author of that custom integration.
 
 By addressing these issues, we are able to greatly improve the performance,
 responsiveness and stability of Home Assistant.
-
 
 [issues]: https://github.com/home-assistant/core/issues
 
