@@ -47,7 +47,7 @@ set up integration instance.
 Screenshot of the new integration page.
 </p>
 
-Doesn't the new logos look beautiful? A big thanks to the following people, who
+Doesn't the new logos look beautiful? A big thanks to all the people, who
 have been working hard to complete our [collection of logos and icons][brands]
 the past weeks. Almost 700! contributions have been processed!
 
@@ -146,6 +146,7 @@ responsiveness and stability of Home Assistant.
 - Add OpenERZ API integration ([@misialq] - [#30441]) ([openerz docs]) (new-integration)
 - Support for pi4ioe5v9xxxx I2C IO expanders ([@antonverburg] - [#28847]) ([pi4ioe5v9xxxx docs]) (new-integration)
 - Add device tracking support for the Arris TG2492LG router ([@vanbalken] - [#30972]) ([arris_tg2492lg docs]) (new-integration)
+- Add Atag One thermostat integration ([@MatsNl] - [#32361]) ([atag docs]) (new-integration)
 
 ## New Platforms
 
@@ -350,7 +351,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Add MQTT debug info for remaining MQTT integrations ([@emontnemery] - [#33506]) ([mqtt docs])
 - Add Rachio Schedules ([@brg468] - [#33421]) ([rachio docs])
 - Directly call async_write_ha_state ([@balloob] - [#33508])
-- Cloud do checks during setup ([@balloob] - [#33507]) ([cloud docs])
 - Add availability to opentherm_gw entities ([@mvn23] - [#32408]) ([opentherm_gw docs])
 - UniFi - Make POE control switches configurable ([@Kane610] - [#32781]) ([unifi docs])
 - Unsub dispatcher when removing entity from hass ([@balloob] - [#33510])
@@ -585,7 +585,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Import ABC from collections.abc instead of collections for Pyt… ([@tirkarthi] - [#34077]) ([command_line docs]) ([zha docs])
 - Increase scan_interval for currencylayer ([@fabaff] - [#34097]) ([currencylayer docs])
 - Use MASS_KILOGRAMS constant ([@springstan] - [#34052]) ([garmin_connect docs]) ([isy994 docs]) ([smartthings docs])
-- Fix modbus sync/async issues ([@janiversen] - [#34043]) ([modbus docs])
 - Config flow for tado ([@bdraco] - [#33677]) ([tado docs])
 - deCONZ support for new device trigger for Feller EDIZIOdue Friends of hue Switch ([@bqstony] - [#33478]) ([deconz docs])
 - Use UNIT_UV_INDEX constant ([@springstan] - [#34055]) ([metoffice docs]) ([openuv docs]) ([rfxtrx docs]) ([tellduslive docs]) (breaking change)
@@ -762,13 +761,32 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Switch gios to async_on_remove ([@bieniu] - [#34499]) ([gios docs])
 - Remove Pushetta integration ([@frenck] - [#34497]) ([pushetta docs]) (breaking change)
 - Update bravia-tv backend ([@dcnielsen90] - [#34376]) ([braviatv docs])
-- Fix cloud binary_sensor & TTS/STT ([@pvizeli] - [#34505])
 - Remove Yahoo Weather integration ([@frenck] - [#34501]) ([yweather docs]) (breaking change)
 - Complete device registry update ([@MartinHjelmare] - [#34500])
 - Drop UNIT_ prefix for constants ([@springstan] - [#34164])
 - Fix a bug where a single long sms message is sent as multiple… ([@ocalvo] - [#34508]) ([sms docs])
 - UniFi - Improve handling of client tracker is connected to better respect configured delay ([@Kane610] - [#34510]) ([unifi docs])
 - UniFi - Only match ssid filter if ssid is present, this will only affect recently disconnected clients and clients which have a previously created entry in entity registry ([@Kane610] - [#34509]) ([unifi docs])
+- Revert removal of JSON validator in hassfest ([@frenck] - [#34504])
+- Display Homekit QR code when pairing ([@bdraco] - [#34449]) ([homekit docs])
+- Rename translations dir for integrations ([@ludeeus] - [#34494])
+- Don't log same MQTT message multiple times ([@emontnemery] - [#34511]) ([mqtt docs])
+- Use registry to find linked batteries for homekit ([@bdraco] - [#33519]) ([homekit docs])
+- Translation fixes and tweaks ([@balloob] - [#34489]) ([.translations docs]) ([binary_sensor docs]) ([group docs])
+- Resolve delays with tuya devices ([@bdraco] - [#34512]) ([tuya docs])
+- UniFi - Simplify config option of block clients to just a multi select drop down ([@Kane610] - [#34514]) ([unifi docs])
+- Fix zeroconf interface being ineffective in HomeKit ([@bdraco] - [#34516]) ([homekit docs])
+- Bump mychevy library to 2.0.1 ([@sdague] - [#34496]) ([mychevy docs])
+- Improve Roku ([@ctalkington] - [#34431]) ([roku docs])
+- Improve volvooncall ([@fredrike] - [#34495]) ([volvooncall docs])
+- Updated frontend to 20200422.0 ([@bramkragten] - [#34532]) ([frontend docs])
+- Bump aioasuswrt to 1.2.5 ([@kennedyshead] - [#34454]) ([asuswrt docs])
+- Don't set step title if it's integration title ([@balloob] - [#34524])
+- Validate translations for custom components ([@balloob] - [#34519])
+- Add Atag One thermostat integration ([@MatsNl] - [#32361]) ([atag docs]) (new-integration)
+- Deprecate Plex YAML config ([@jjlawren] - [#34546]) ([plex docs])
+- Upgrade blinkpy library to 0.14.3 ([@fronzbot] - [#34542]) ([blink docs])
+- Fix Bayesian Binary JSON Serialization ([@jlmcgehee21] - [#34540]) ([bayesian docs])
 
 </details>
 
@@ -790,6 +808,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#31665]: https://github.com/home-assistant/core/pull/31665
 [#31729]: https://github.com/home-assistant/core/pull/31729
 [#32126]: https://github.com/home-assistant/core/pull/32126
+[#32361]: https://github.com/home-assistant/core/pull/32361
 [#32408]: https://github.com/home-assistant/core/pull/32408
 [#32411]: https://github.com/home-assistant/core/pull/32411
 [#32481]: https://github.com/home-assistant/core/pull/32481
@@ -830,10 +849,10 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#33484]: https://github.com/home-assistant/core/pull/33484
 [#33498]: https://github.com/home-assistant/core/pull/33498
 [#33506]: https://github.com/home-assistant/core/pull/33506
-[#33507]: https://github.com/home-assistant/core/pull/33507
 [#33508]: https://github.com/home-assistant/core/pull/33508
 [#33510]: https://github.com/home-assistant/core/pull/33510
 [#33513]: https://github.com/home-assistant/core/pull/33513
+[#33519]: https://github.com/home-assistant/core/pull/33519
 [#33529]: https://github.com/home-assistant/core/pull/33529
 [#33533]: https://github.com/home-assistant/core/pull/33533
 [#33536]: https://github.com/home-assistant/core/pull/33536
@@ -1033,7 +1052,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34027]: https://github.com/home-assistant/core/pull/34027
 [#34034]: https://github.com/home-assistant/core/pull/34034
 [#34040]: https://github.com/home-assistant/core/pull/34040
-[#34043]: https://github.com/home-assistant/core/pull/34043
 [#34049]: https://github.com/home-assistant/core/pull/34049
 [#34050]: https://github.com/home-assistant/core/pull/34050
 [#34052]: https://github.com/home-assistant/core/pull/34052
@@ -1166,12 +1184,15 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34417]: https://github.com/home-assistant/core/pull/34417
 [#34428]: https://github.com/home-assistant/core/pull/34428
 [#34429]: https://github.com/home-assistant/core/pull/34429
+[#34431]: https://github.com/home-assistant/core/pull/34431
 [#34434]: https://github.com/home-assistant/core/pull/34434
 [#34440]: https://github.com/home-assistant/core/pull/34440
 [#34441]: https://github.com/home-assistant/core/pull/34441
 [#34442]: https://github.com/home-assistant/core/pull/34442
 [#34443]: https://github.com/home-assistant/core/pull/34443
+[#34449]: https://github.com/home-assistant/core/pull/34449
 [#34451]: https://github.com/home-assistant/core/pull/34451
+[#34454]: https://github.com/home-assistant/core/pull/34454
 [#34456]: https://github.com/home-assistant/core/pull/34456
 [#34463]: https://github.com/home-assistant/core/pull/34463
 [#34466]: https://github.com/home-assistant/core/pull/34466
@@ -1184,16 +1205,31 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34480]: https://github.com/home-assistant/core/pull/34480
 [#34485]: https://github.com/home-assistant/core/pull/34485
 [#34488]: https://github.com/home-assistant/core/pull/34488
+[#34489]: https://github.com/home-assistant/core/pull/34489
 [#34493]: https://github.com/home-assistant/core/pull/34493
+[#34494]: https://github.com/home-assistant/core/pull/34494
+[#34495]: https://github.com/home-assistant/core/pull/34495
+[#34496]: https://github.com/home-assistant/core/pull/34496
 [#34497]: https://github.com/home-assistant/core/pull/34497
 [#34498]: https://github.com/home-assistant/core/pull/34498
 [#34499]: https://github.com/home-assistant/core/pull/34499
 [#34500]: https://github.com/home-assistant/core/pull/34500
 [#34501]: https://github.com/home-assistant/core/pull/34501
-[#34505]: https://github.com/home-assistant/core/pull/34505
+[#34504]: https://github.com/home-assistant/core/pull/34504
 [#34508]: https://github.com/home-assistant/core/pull/34508
 [#34509]: https://github.com/home-assistant/core/pull/34509
 [#34510]: https://github.com/home-assistant/core/pull/34510
+[#34511]: https://github.com/home-assistant/core/pull/34511
+[#34512]: https://github.com/home-assistant/core/pull/34512
+[#34514]: https://github.com/home-assistant/core/pull/34514
+[#34516]: https://github.com/home-assistant/core/pull/34516
+[#34519]: https://github.com/home-assistant/core/pull/34519
+[#34524]: https://github.com/home-assistant/core/pull/34524
+[#34532]: https://github.com/home-assistant/core/pull/34532
+[#34540]: https://github.com/home-assistant/core/pull/34540
+[#34542]: https://github.com/home-assistant/core/pull/34542
+[#34546]: https://github.com/home-assistant/core/pull/34546
+[.translations docs]: /integrations/.translations/
 [@Adminiuga]: https://github.com/Adminiuga
 [@BarrettLowe]: https://github.com/BarrettLowe
 [@ColinRobbins]: https://github.com/ColinRobbins
@@ -1206,6 +1242,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatsNl]: https://github.com/MatsNl
 [@MatthewFlamm]: https://github.com/MatthewFlamm
 [@Nossnevs]: https://github.com/Nossnevs
 [@Quentame]: https://github.com/Quentame
@@ -1249,22 +1286,26 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [@fbradyirl]: https://github.com/fbradyirl
 [@felipediel]: https://github.com/felipediel
 [@foxel]: https://github.com/foxel
+[@fredrike]: https://github.com/fredrike
 [@frenck]: https://github.com/frenck
+[@fronzbot]: https://github.com/fronzbot
 [@gerard33]: https://github.com/gerard33
 [@gladhorn]: https://github.com/gladhorn
 [@hobbe]: https://github.com/hobbe
 [@i00]: https://github.com/i00
 [@inverse]: https://github.com/inverse
-[@janiversen]: https://github.com/janiversen
 [@jason0x43]: https://github.com/jason0x43
 [@jjlawren]: https://github.com/jjlawren
+[@jlmcgehee21]: https://github.com/jlmcgehee21
 [@jnimmo]: https://github.com/jnimmo
 [@joogps]: https://github.com/joogps
 [@jrester]: https://github.com/jrester
+[@kennedyshead]: https://github.com/kennedyshead
 [@kit-klein]: https://github.com/kit-klein
 [@leppa]: https://github.com/leppa
 [@leroyshirto]: https://github.com/leroyshirto
 [@lewei50]: https://github.com/lewei50
+[@ludeeus]: https://github.com/ludeeus
 [@lufton]: https://github.com/lufton
 [@marecabo]: https://github.com/marecabo
 [@mezz64]: https://github.com/mezz64
@@ -1283,6 +1324,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [@renemarc]: https://github.com/renemarc
 [@rytilahti]: https://github.com/rytilahti
 [@scop]: https://github.com/scop
+[@sdague]: https://github.com/sdague
 [@shenxn]: https://github.com/shenxn
 [@shred86]: https://github.com/shred86
 [@springstan]: https://github.com/springstan
@@ -1321,10 +1363,13 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [arduino docs]: /integrations/arduino/
 [arris_tg2492lg docs]: /integrations/arris_tg2492lg/
 [asuswrt docs]: /integrations/asuswrt/
+[atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
 [automatic docs]: /integrations/automatic/
 [axis docs]: /integrations/axis/
+[bayesian docs]: /integrations/bayesian/
 [binary_sensor docs]: /integrations/binary_sensor/
+[blink docs]: /integrations/blink/
 [bloomsky docs]: /integrations/bloomsky/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [bom docs]: /integrations/bom/
@@ -1423,9 +1468,9 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [miflora docs]: /integrations/miflora/
 [minecraft_server docs]: /integrations/minecraft_server/
 [mochad docs]: /integrations/mochad/
-[modbus docs]: /integrations/modbus/
 [moon docs]: /integrations/moon/
 [mqtt docs]: /integrations/mqtt/
+[mychevy docs]: /integrations/mychevy/
 [myq docs]: /integrations/myq/
 [mysensors docs]: /integrations/mysensors/
 [mystrom docs]: /integrations/mystrom/
@@ -1508,6 +1553,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [transmission docs]: /integrations/transmission/
 [trend docs]: /integrations/trend/
 [tts docs]: /integrations/tts/
+[tuya docs]: /integrations/tuya/
 [twitter docs]: /integrations/twitter/
 [unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
@@ -1518,6 +1564,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [vera docs]: /integrations/vera/
 [version docs]: /integrations/version/
 [vizio docs]: /integrations/vizio/
+[volvooncall docs]: /integrations/volvooncall/
 [water_heater docs]: /integrations/water_heater/
 [webostv docs]: /integrations/webostv/
 [websocket_api docs]: /integrations/websocket_api/
