@@ -191,9 +191,9 @@ Triple tap on|2|4
 5x tap off|1|6
 5x tap on|2|6
 
-### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v2 & Zen22v2 - Firmware 3.0+ and Zen26 & Zen27 - Firmware 2.0+)
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v2 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
 
-Many Zooz Zen26/27 switches that have been sold do not have firmware 2.0+. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
+Many Zooz switches that have been sold do not have the latest firmwares. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
 Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
 
@@ -587,6 +587,138 @@ Zen27 (Dimmer):
 </CommandClass>
 ```
 
+Zen30 (Double Switch):
+```xml
+<CommandClass id="112">
+	<Value type="list" genre="config" index="1" label="LED Indicator Mode for Dimmer" size="1" min="0" max="3" value="0">
+		<Help>LED Indicator Mode for Dimmer.  Normal has the dimmer (top) LED indication on when the switch is off, off when the switch is on.  Default: Normal</Help>
+		<Item label="Normal" value="0"/>
+		<Item label="Reverse" value="1"/>
+		<Item label="Always Off" value="2"/>
+		<Item label="Always On" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="2" label="LED Indicator Mode for Relay" size="1" min="0" max="3" value="0">
+		<Help>LED Indicator Mode for Relay.  Normal has the relay (bottom) LED indication on when the switch is off, off when the switch is on.  Default: Normal</Help>
+		<Item label="Normal" value="0"/>
+		<Item label="Reverse" value="1"/>
+		<Item label="Always Off" value="2"/>
+		<Item label="Always On" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="3" label="LED Indicator Color for Dimmer" size="1" min="0" max="3" value="0">
+		<Help>LED Indicater color for Dimmer.  White, Blue, Green or Red.  Default: White</Help>
+		<Item label="white" value="0"/>
+		<Item label="blue" value="1"/>
+		<Item label="green" value="2"/>
+		<Item label="red" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="4" label="LED Indicator Color for Relay" size="1" min="0" max="3" value="0">
+		<Help>LED Indicater color for Relay.  White, Blue, Green or Red.  Default: White</Help>
+		<Item label="white" value="0"/>
+		<Item label="blue" value="1"/>
+		<Item label="green" value="2"/>
+		<Item label="red" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="5" label="LED Indicator Brightness for Dimmer" size="1" min="0" max="2" value="1">
+		<Help>LED Indicater Brightness for Dimmer.  Bright (100%), Medium (60%) or Low (30%).  Default: Medium</Help>
+		<Item label="bright" value="0"/>
+		<Item label="medium" value="1"/>
+		<Item label="low" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="6" label="LED Indicator Brightness for Relay" size="1" min="0" max="2" value="1">
+		<Help>LED Indicater Brightness for Relay.  Bright (100%), Medium (60%) or Low (30%).  Default: Medium</Help>
+		<Item label="bright" value="0"/>
+		<Item label="medium" value="1"/>
+		<Item label="low" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="7" label="LED Indicator Mode for Scene Control" size="1" min="0" max="1" value="1">
+		<Help>LED Indicator Mode for Scene Control.  Enable/Disable LED indicators next to the dimmer lighting up when a scene is selected.  Default: disabled</Help>
+		<Item label="enabled" value="0"/>
+		<Item label="disabled" value="1"/>
+	</Value>
+	<Value type="int" genre="config" index="8" label="Auto Turn-Off Timer for Dimmer" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Dimmer.  Sets the time (in minutes) after which you want the dimmer to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="9" label="Auto Turn-On Timer for Dimmer" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Dimmer.  Sets the time (in minutes) after which you want the dimmer to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="10" label="Auto Turn-Off Timer for Relay" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay.  Sets the time (in minutes) after which you want the relay to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="11" label="Auto Turn-On Timer for Relay" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay.  Sets the time (in minutes) after which you want the relay to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="list" genre="config" index="12" label="On Off Status After Power Failure" size="1" min="0" max="8" value="3">
+		<Help>On Off Status After Power Failure.  Default: Restore both to prior state</Help>
+		<Item label="Both forced off" value="0"/>
+		<Item label="Dimmer off/Relay on" value="1"/>
+		<Item label="Dimmer on/Relay off" value="2"/>
+		<Item label="Restore both to prior state" value="3"/>
+		<Item label="Restore Dimmer/Relay On" value="4"/>
+		<Item label="Restore Dimme/Relay Off" value="5"/>
+		<Item label="Dimmer On/Restore Relay" value="6"/>
+		<Item label="Dimmer Off/Restore Relay" value="7"/>
+		<Item label="Both forced on" value="8"/>
+	</Value>
+	<Value type="byte" genre="config" index="13" label="Ramp Rate Control for Dimmer" size="1" min="0" max="99" value="1" units="seconds">
+		<Help>Ramp Rate Control for Dimmer.  Adjust the ramp rate for your dimmer (fade-in / fade-out effect for on / off operation). Values correspond to the number of seconds it take for the dimmer to reach full brightness or turn off when operated manually. Note that 0 is instant.  Default: 1</Help>
+	</Value>
+	<Value type="byte" genre="config" index="14" label="Minimum Brightness" size="1" min="1" max="99" value="1" units="%">
+		<Help>Minimum Brightness.  Set the minimum brightness level (in %) for your dimmer. You won't be able to dim the light below the set value.  Default: 1</Help>
+	</Value>
+	<Value type="byte" genre="config" index="15" label="Maximum Brightness" size="1" min="1" max="99" value="99" units="%">
+		<Help>Maximum Brightness.  Set the maximum brightness level (in %) for your dimmer. You won't be able to add brightness to the light beyond the set value.  Default: 99</Help>
+	</Value>
+	<Value type="list" genre="config" index="17" label="Double Tap Function for Dimmer" size="1" min="0" max="1" value="0">
+		<Help>Double Tap Function for Dimmer.  When set to full, turns light on to 100%.  If set to maximum level, turns light on to % set in Parameter 15.  Default: full</Help>
+		<Item label="full" value="0"/>
+		<Item label="maximum level" value="1"/>
+	</Value>
+	<Value type="list" genre="config" index="18" label="Enable/Disable Double-tap for Dimmer" size="1" min="0" max="2" value="0">
+		<Help>Enable/Disable Double-tap for Dimmer.  Enables/Disables the double-tap fucntion and assign brightness to single tap.  enabled: single tap turns on to maximum brightness level.  disabled (last level): single tap returns to last brightness level.  disabled (full/max level): single tap returns to full brightmess.  Default: enabled</Help>
+		<Item label="enabled" value="0"/>
+		<Item label="disabled (last level)" value="1"/>
+		<Item label="disabled (full/max level)" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="19" label="Enable/Disable Load Control for Dimmer" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Load Control for Dimmer (Smart Bulb Setting).  Enable or disable direct manual and Z-Wave control of the connected light (works great for smart bulb control).  If disabled, the dimmer will no longer control the connected bulb directly but will still send on/off and brightness reports to the hub so you cn use them to create automations for your smart bulbs or other switches.  Scenes and other functionality will still be available through the paddles.  Default: manual disabled</Help>
+		<Item label="manual disabled" value="0"/>
+		<Item label="manual enabled" value="1"/>
+		<Item label="manual and z-wave disabled" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="20" label="Enable/Disable Load Control for Relay" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Load Control for Relay (Smart Bulb Setting).  Enable or disable direct manual and Z-Wave control of the connected light (works great for smart bulb control).  If disabled, the relay will no longer control the connected bulb directly but will still send on/off and brightness reports to the hub so you cn use them to create automations for your smart bulbs or other switches.  Scenes and other functionality will still be available through the paddles.  Default: manual disabled</Help>
+		<Item label="manual disabled" value="0"/>
+		<Item label="manual enabled" value="1"/>
+		<Item label="manual and z-wave disabled" value="2"/>
+	</Value>
+	<Value type="byte" genre="config" index="21" label="Manual Dimming Speed" size="1" min="1" max="99" value="4" units="seconds">
+		<Help>Choose how many seconds it takes for the dimmer to go from 0% to 100% brightness when pressing and holding the paddle.  Default: 4.</Help>
+	</Value>
+	<Value type="byte" genre="config" index="23" label="Default Brightness Level On for Dimmer" size="1" min="0" max="99" value="0" units="%">
+		<Help>Default Brightness Level On for Dimmer.  Set custom brightness level (in %) for the dimmer to come on to at single tap.  Choose 0 for last brightness level.  Default: 0.</Help>
+	</Value>
+	<Value type="list" genre="config" index="24" label="Behavior of the dimmer when physical control is disabled" size="1" min="0" max="1" value="0">
+		<Help>Sets behavior of the dimmer when physical control is disabled</Help>
+		<Item label="Reports on/off and multilevel values back to the hub when buttons are pressed, changes LED indicator to indicate status (default)" value="0"/>
+		<Item label="Doesn't report on/off or multilevel status back to the hub and doesn't change LED indicator status when physical control for the dimmer is disabled" value="1"/>
+	</Value>
+	<Value type="list" genre="config" index="25" label="Behavior of the relay when physical control is disabled" size="1" min="0" max="1" value="0">
+		<Help>Sets behavior of the relay when physical control is disabled</Help>
+		<Item label="Reports on/off and multilevel values back to the hub when buttons are pressed, changes LED indicator to indicate status (default)" value="0"/>
+		<Item label="Doesn't report on/off or multilevel status back to the hub and doesn't change LED indicator status when physical control for the dimmer is disabled" value="1"/>
+	</Value>
+	<Value type="byte" genre="config" index="26" label="Night Light Mode" units="" min="0" max="99" value="20">
+		<Help>Set the brightness level the dimmer will turn on to when off and when lower paddle is held DOWN for a second. Default: 20</Help>
+	</Value>
+	<Value type="list" genre="config" index="27" label="Paddle Control" size="1" min="0" max="2" value="0">
+		<Help>Normal mode: Upper paddle turns the light on, lower paddle turns the light off.  Reverse mode: Upper paddle turns the light off, lower paddle turns the light on.  Toggle mode: Either paddle toggles the light.</Help>
+		<Item label="Normal" value="0"/>
+		<Item label="Reverse" value="1"/>
+		<Item label="Toggle" value="2"/>
+	</Value>
+</CommandClass>
+```
+
 For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 ```xml
 <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -594,6 +726,17 @@ For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CE
 	<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
 	<Value type="int" genre="user" instance="1" index="1" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
 	<Value type="int" genre="user" instance="1" index="2" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+</CommandClass>
+```
+
+For the Zooz Zen30 Double Switch, you'll need to add the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+```xml
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+	<Instance index="1" />
+	<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+	<Value type="int" genre="user" instance="1" index="1" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+	<Value type="int" genre="user" instance="1" index="2" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+	<Value type="int" genre="user" instance="1" index="3" label="Relay Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
 </CommandClass>
 ```
 
@@ -613,6 +756,10 @@ Triple tap on|2|7920
 4x tap on|2|7980
 5x tap off|1|8040
 5x tap on|2|8040
+Held off|1|7800
+Held on|2|7800
+Released off|1|7740
+Released on|2|7740
 
 ### HomeSeer Switches
 
