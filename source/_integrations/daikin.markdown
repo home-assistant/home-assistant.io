@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Supported hardware
 
-- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new versions of WiFi Controller Unit (BRP069Bxx) also should work but it have to be confirmed by users. Tested and working device is BRP069B45.
+- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new versions of WiFi Controller Unit (BRP069Bxx) also should work but it have to be confirmed by users. Tested and working device is BRP069B41 and BRP069B45.
 - The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [Daikin Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android version](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)) application.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is powered by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 
