@@ -569,6 +569,14 @@ These integrations have been removed. The websites for both have changed, causin
 [nexia docs]: /integrations/nexia/
 [nut docs]: /integrations/nut/
 
+## Release 0.108.8 - April 22
+
+- Bump hass-nabucasa 0.34.1 ([@pvizeli] - [#34480]) ([cloud docs])
+
+[#34480]: https://github.com/home-assistant/core/pull/34480
+[@pvizeli]: https://github.com/pvizeli
+[cloud docs]: /integrations/cloud/
+
 ## All changes
 
 <details>
