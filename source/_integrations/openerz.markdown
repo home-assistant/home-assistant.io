@@ -5,6 +5,7 @@ ha_category:
   - Sensor
 ha_release: 0.109
 ha_iot_class: Cloud Polling
+ha_domain: openerz
 ---
 
 This `openerz` sensor platform uses [OpenERZ](http://openerz.metaodi.ch/) API to access data from Entsorgung und Recycling Zürich (ERZ). It reports the next pickup date for the specified zip and waste type.
