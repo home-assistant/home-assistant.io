@@ -12,6 +12,7 @@ The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
 Currently known supported models:
 
+- TC-P50ST50
 - TC-P60S60
 - TC-P65VT30
 - TX-32AS520E
