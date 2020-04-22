@@ -341,7 +341,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
 
 ```yaml
 automation:
@@ -350,9 +350,15 @@ automation:
     webhook_id: some_hook_id
 ```
 
-You could run the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an empty data payload:
 
-Note that each webhook can only be used in one automation at a time.
+```shell
+curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id
+```
+
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+
+Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
 ### Zone trigger
 
