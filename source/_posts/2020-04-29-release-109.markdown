@@ -15,9 +15,26 @@ og_image: /images/blog/2020-04-0.109/social.png
 
 Lorem ipsum
 
+## New integration configuration page
+As part of our configuration layout overhaul, we started work on the integration page. The screen now shows cards for every configured integration, and links to a filtered device and entities pages instead of providing it's own detail page with devices, options and entities. All options are now on the same card. And, you can now also rename a instance/config entry/configured integration?. In next steps, we will add search, group multiple entries of the same integration and add specific function for integrations like Zigbee.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.109/integration-page.png' alt='Screenshot of the new integration page'></a>
+Screenshot of the new integration page.
+</p>
+
+## New weather card
+To accompany our new weather row design, [@zsarnett](https://github.com/zsarnett) redesigned the weather forecast card. It is cleaner and works better on smaller screens. It also allows you to hide the weather forecast.
+
+<p class='img'>
+<img src='/images/blog/2020-04-0.109/weather-card.png' alt='Screenshot of the new weather forecast card'></a>
+Screenshot of the new weather forecast card.
+</p>
+
 ## Other noteworthy changes
 
-- Lorem ipsum
+- [@timmo001](https://github.com/timmo001) Added the possibility to search in the card picker
+- [@emontnemery](https://github.com/emontnemery) Added debug information for MQTT on the device page of a MQTT device.
 
 ## New Integrations
 
