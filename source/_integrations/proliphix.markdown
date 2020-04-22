@@ -1,7 +1,6 @@
 ---
 title: Proliphix
 description: Instructions on how to integrate Proliphix thermostats within Home Assistant.
-logo: proliphix.png
 ha_category:
   - Climate
 ha_release: 0.11
