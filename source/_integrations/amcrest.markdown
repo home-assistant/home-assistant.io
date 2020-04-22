@@ -92,7 +92,7 @@ authentication:
   required: false
   type: string
   default: basic
-scan_interval:
+scan_interval: (Obsolete from 108.5)
   description: Defines the update interval of the sensor in seconds.
   required: false
   type: integer
@@ -142,6 +142,11 @@ Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 **Note:** If you set the `stream_source` option to `rtsp`,
 make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
+
+**Note:** From 108.5 a new motion detection mechanism has been implemented for Amcrest cameras
+to improve speed response, whilst lowering network demands. Some cameras have a 
+propreitary bug in the firmware (V2.420.0009.0.R.20151106) and will return a 500 Bad Response
+error and are incompatible with Motion Detection.
 
 ## Services
 
