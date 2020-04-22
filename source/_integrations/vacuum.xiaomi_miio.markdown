@@ -218,6 +218,17 @@ The following table shows the units of measurement for each attribute:
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, android?)
 
+<div class='note'>
+
+This method yielded an incorrect token on the 22nd of April, 2020 when used with:
+1. Xiaomi Gateway
+2. Xiaomi Mi Robot Vacuum
+3. Xiaomi IR Remote
+
+Using the alternate method with Mi Home `v5.4.49`, there were 3 different tokens listed for each of the above devices. The token yielded by this method matched the token for the Xiaomi Gateway in the text file. After using the correct token from the Mi Home `v5.4.49` method, the devices started to work again. 
+
+</div>
+
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
 3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
