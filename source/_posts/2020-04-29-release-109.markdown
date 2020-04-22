@@ -13,28 +13,131 @@ og_image: /images/blog/2020-04-0.109/social.png
 
 <a href='/integrations/#version/0.109'><img src='/images/blog/2020-04-0.109/components.png' style='border: 0;box-shadow: none;'></a>
 
-Lorem ipsum
+Last week we wrote about [the future of YAML][yaml-blog]. It raised quite a
+bit of additional questions, so [Phil][phil] and [Rohan][rohan] released
+a special edition of the Home Assistant Podcast. In this episode, they talk with
+[Paulus][@balloob] about the changes announced.
 
-## New integration configuration page
-As part of our configuration layout overhaul, we started work on the integration page. The screen now shows cards for every configured integration, and links to a filtered device and entities pages instead of providing it's own detail page with devices, options and entities. All options are now on the same card. And, you can now also rename a instance/config entry/configured integration?. In next steps, we will add search, group multiple entries of the same integration and add specific function for integrations like Zigbee.
+[Click here to listen to the Podcast][podcast]
+
+Home Assistant Core 0.109!
+
+This release ships a lot of work that is not directly visible for the eye.
+We have seen a lot of bug fixes, stability improvements and quality
+improvements, which is really awesome! There's more to this than meets the eye.
+
+[phil]: https://twitter.com/philhawthorne
+[podcast]: https://hasspodcast.io/x001/
+[rohan]: https://twitter.com/rohank9
+[yaml-blog]: /blog/2020/04/14/the-future-of-yaml/
+
+## A new integration configuration page
+
+Let's start with something visible to the eye. As part of our configuration
+layout overhaul, we started work on the integration page. The screen now shows
+cards for every configured integration, and links to a filtered device and
+entities pages instead of providing its own detail page with devices, options
+and entities.
+
+All options are now on the same card. And, you can now also rename an already
+set up integration instance.
 
 <p class='img'>
 <img src='/images/blog/2020-04-0.109/integration-page.png' alt='Screenshot of the new integration page'></a>
 Screenshot of the new integration page.
 </p>
 
+Doesn't the new logos look beautiful? A big thanks to the following people, who
+have been working hard to complete our [collection of logos and icons][brands]
+the past weeks. Almost 700! contributions have been processed!
+
+Everybody thanks for contributing, that is amazing! Special thanks to these
+champs that did most of the heavy lifting: [@adrianmihalko][], [@BradleyFord][],
+[@Klumper][], [@nldroid][], [@samrdev][]! 🥇
+
+As for the next steps in future releases, we will add search, group multiple
+entries of the same integration and add specific function for integrations
+like ZHA.
+
+[@adrianmihalko]: https://github.com/adrianmihalko
+[@BradleyFord]: https://github.com/BradleyFord
+[@Klumper]: https://github.com/Klumper
+[@nldroid]: https://github.com/nldroid
+[@samrdev]: https://github.com/samrdev
+[brands]: https://github.com/home-assistant/brands
+
 ## New weather card
-To accompany our new weather row design, [@zsarnett](https://github.com/zsarnett) redesigned the weather forecast card. It is cleaner and works better on smaller screens. It also allows you to hide the weather forecast.
+
+To accompany our new weather row design, [@zsarnett][] redesigned the weather
+forecast card. It is cleaner and works better on smaller screens.
+It also allows you to hide the weather forecast.
 
 <p class='img'>
 <img src='/images/blog/2020-04-0.109/weather-card.png' alt='Screenshot of the new weather forecast card'></a>
 Screenshot of the new weather forecast card.
 </p>
 
+[@zsarnett]: https://github.com/zsarnett
+
+## Weight loss for the frontend
+
+The Home Assistant has a translations system, which is great since it allows
+one to use Home Assistant in the language one prefers.
+
+However, it came with a performance penalty. All translations were downloaded
+each time. All of them. This is, of course, highly inefficient. With all the
+new frontend features added and the integrations that now comes to the UI, it
+slowly is becoming a bigger issue.
+
+For this release, [@balloob][] worked hard to make this more efficient and
+as of this release, the frontend will only fetch the translations it needs.
+This makes the frontend load less data, and thus lighter for the browser.
+
+Did you know you can help out translating Home Assistant?
+
+There is no need to learn git or anything. It can be done straight from your
+browser! Read more about helping out translating Home Assistant on our
+[developers website](https://developers.home-assistant.io/docs/internationalization_translation).
+
+## Detection of blocking I/O in the event loop
+
+This is a bit technical, but some things happening in Home Assistant, like
+fetching data from an API or website, can lock up Home Assistant for a small
+moment, if not done correctly. Until now, this has been hard to detect.
+
+This release adds logic in the core of Home Assistant that is able to detect
+if an integration does one of those blocking calls and writes a messages
+to the logs.
+
+**TODO: Screenshot of log example*
+
+If you see such a message in your logs, please report the issue on our
+[GitHub][issues] so we can fix those cases. If a custom component causes the
+log, it should be reported with the author of that custom integration.
+
+By addressing these issues, we are able to greatly improve the performance,
+responsiveness and stability of Home Assistant.
+
+
+[issues]: https://github.com/home-assistant/core/issues
+
 ## Other noteworthy changes
 
-- [@timmo001](https://github.com/timmo001) Added the possibility to search in the card picker
-- [@emontnemery](https://github.com/emontnemery) Added debug information for MQTT on the device page of a MQTT device.
+- [@timmo001][] Added the possibility to search in the Lovelace card picker.
+
+- There is now MQTT debug information on the device page of an MQTT device,
+  awesome work [@emontnemery][]!
+
+- [@frenck][] re-introduced support for transitions in scenes. Both the
+  `scene.turn_on` and `scene.apply` services now accept a `transition` option
+  to make your scene transition on lights look smooth as butter.
+
+- HomeKit got love from [@bdraco]. He has been squashing bugs, improving
+  the overall stability and added support for Vacuums. Also, pairing with
+  HomeKit now shows the easy to scan QR code, which makes it easier to set up.
+
+- [@Kane610] really went out into making the UniFi integration perfect. A lot
+  of adjustments and improvements. Thanks!
 
 ## New Integrations
 
@@ -48,11 +151,28 @@ Screenshot of the new weather forecast card.
 - Add notify function for BMW Connected Drive ([@gerard33] - [#33484]) ([bmw_connected_drive docs]) (new-platform)
 - Add Lightwave TRV ([@ColinRobbins] - [#31665]) ([lightwave docs]) (new-platform)
 
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Bravia TV][braviatv docs], done by [@bieniu]
+- [Flu Near You][flunearyou docs], done by [@bachya]
+- [Flume][flume docs], done by [@bdraco]
+- [FRITZ!Box][fritzbox docs], done by [@escoand]
+- [Islamic Prayer Times][islamic_prayer_times docs], done by [@engrbm87]
+- [National Weather Service][nws docs], done by [@Cyr-ius]
+- [Panasonic Viera TV][panasonic_viera docs], done by [@joogps]
+- [Roomba][roomba docs], done by [@Cyr-ius]
+- [Synology DSM][synologydsm docs], done by [@Quentame]
+- [Tado][tado docs], done by [@bdraco]
+- [Totalconnect][totalconnect docs], done by [@austinmroczek]
+- [Vera][vera docs], done by [@vangorra]
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
@@ -89,6 +209,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 Pushetta has been offline since September 2019 and the Yahoo Weather API has been discontinued. - ([@frenck] - [#34497] [#34501])
 
 ## All changes
+
+<details>
+  <summary>Click to see all changes!</summary>
 
 - Add MQTT debug info for remaining MQTT integrations ([@emontnemery] - [#33506]) ([mqtt docs])
 - Add Rachio Schedules ([@brg468] - [#33421]) ([rachio docs])
@@ -512,6 +635,8 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Fix a bug where a single long sms message is sent as multiple… ([@ocalvo] - [#34508]) ([sms docs])
 - UniFi - Improve handling of client tracker is connected to better respect configured delay ([@Kane610] - [#34510]) ([unifi docs])
 - UniFi - Only match ssid filter if ssid is present, this will only affect recently disconnected clients and clients which have a previously created entry in entity registry ([@Kane610] - [#34509]) ([unifi docs])
+
+</details>
 
 [#27704]: https://github.com/home-assistant/core/pull/27704
 [#28845]: https://github.com/home-assistant/core/pull/28845
