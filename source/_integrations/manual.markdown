@@ -85,7 +85,7 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
 
 ## State machine
 
-The state machine of the manual alarm integration is complex but powerful.  The
+The state machine of the manual alarm integration is complex but powerful. The
 transitions are timed according to three values, **delay_time**, **arming_time**
 and **trigger_time**. The values in turn can come from the default configuration
 variable or from a state-specific override.
@@ -93,7 +93,6 @@ variable or from a state-specific override.
 When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
 transitions to one of the "armed" states.  Note that **code_template**
-
 never receives "arming" in the **to_state** variable; instead,
 **to_state** contains the state which the user has requested.  However,
 **from_state** *can* contain "arming".
@@ -114,7 +113,7 @@ Each of the settings is useful in different scenarios.  **arming_time** gives
 you some time to leave the building (for "armed" states).
 
 **delay_time** can be used to allow some time to disarm the alarm, with
-flexibility.  For example, you could specify a delay time for the
+flexibility. For example, you could specify a delay time for the
 "armed away" state, in order to avoid triggering the alarm while the
 garage door opens, but not for the "armed home" state.
 
