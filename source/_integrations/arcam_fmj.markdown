@@ -41,8 +41,11 @@ Use an IR blaster to send a command to turn the device on using these discrete c
  - Zone 1: Protocol: RC5 Device: 16 Function: 123
  - Zone 2: Protocol: RC5 Device: 23 Function: 123
 
-Turn on sometime requires two IR codes to be sent. You can generate the raw, broadlink or other ir format string using [irgen](https://github.com/elupus/irgen) tool like: `irgen -i rc5 -d 16 0 123 -o broadlink_base64 -r 2`
+Turn on sometime requires two IR codes to be sent. You can generate the raw, broadlink or other IR format string using [irgen](https://github.com/elupus/irgen) tool like: 
 
+```shell
+irgen -i rc5 -d 16 0 123 -o broadlink_base64 -r 2
+```
 
 To trigger this IR command add an automation on the event `arcam.turn_on` filtering on
 the `entity_id` of the `media_player` zone entity. This can be added using device automations
