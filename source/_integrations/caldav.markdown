@@ -102,6 +102,10 @@ custom_calendars:
       required: true
       description: Regular expression for filtering the events based on the content of their summary, description or location.
       type: string
+period:
+  required: false
+  description: Period of days for the search for upcoming appointments (Default=1)
+  type: positive integer
 {% endconfiguration %}
 
 ### Sensor attributes
