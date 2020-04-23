@@ -17,8 +17,8 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/va
 - Turn on/off Alarm
 - See the status of Alarm (armed_away, disarmed, arming)
 
-## Configuration: Config Flow
-To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP adress" and 32 character "token". Optinally you can specify a diffrent name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
+## Configuration
+To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 character "token". Optinally you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 {% configuration %}
 host:
