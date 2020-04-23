@@ -58,12 +58,12 @@ coils:
       description: Coil number.
       required: true
       type: integer
-register:
+registers:
   description: A list of relevant registers to read from/write to.
   required: false
   type: map
   keys:
-    hub_name:
+    hub:
       description: The hub to use.
       required: false
       default: default

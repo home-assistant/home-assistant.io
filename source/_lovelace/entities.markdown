@@ -74,7 +74,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers)."
   type: string
 format:
   required: false
@@ -113,34 +113,33 @@ double_tap_action:
 
 ## Special Row Elements
 
-### Call Service
+### Button
 
 {% configuration %}
 type:
   required: true
-  description: call-service
+  description: button
   type: string
 name:
   required: true
   description: Main Label.
   type: string
-service:
-  required: true
-  description: "Service like `media_player.media_play_pause`"
-  type: string
-icon:
-  required: false
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-  default: "`mdi:remote`"
 action_name:
   required: false
   description: Button label.
   type: string
   default: "`Run`"
-service_data:
+tap_action:
+  required: true
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  type: map
+hold_action:
   required: false
-  description: The service data to use.
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -262,6 +261,65 @@ icon:
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
   default: "`mdi:link`"
+{% endconfiguration %}
+
+### Buttons
+
+{% configuration %}
+type:
+  required: true
+  description: buttons
+  type: string
+entities:
+  required: true
+  description: A list of entities to show. Each entry is either an entity ID or a map.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: The entity to render.
+      type: string
+    icon:
+      required: false
+      description: Override the entity icon.
+      type: string
+    image:
+      required: false
+      description: Override the entity image.
+      type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+{% endconfiguration %}
+
+### Attribute
+
+{% configuration %}
+type:
+  required: true
+  description: attribute
+  type: string
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: true
+  description: Attribute to display from the entity.
+  type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
 {% endconfiguration %}
 
 ## Example

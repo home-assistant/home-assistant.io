@@ -614,7 +614,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Add service description for route53 integration ([@tefinger] - [#27774])
 - Move imports in openweathermap component ([@Quentame] - [#27779]) ([openweathermap docs])
 - Move imports in apns component ([@Bouni] - [#27804]) ([apns docs])
-- Move imports in yweather ([@Misiu] - [#27842]) ([yweather docs])
+- Move imports in yweather ([@Misiu] - [#27842])
 - Move imports in brunt component ([@Bouni] - [#27856]) ([brunt docs])
 - Move imports in blockchain component ([@Bouni] - [#27852]) ([blockchain docs])
 - Move blackbird imports ([@Bouni] - [#27849]) ([blackbird docs])
@@ -1901,7 +1901,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [yeelight docs]: /integrations/yeelight/
 [yeelightsunflower docs]: /integrations/yeelightsunflower/
 [yr docs]: /integrations/yr/
-[yweather docs]: /integrations/yweather/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/
 [zestimate docs]: /integrations/zestimate/

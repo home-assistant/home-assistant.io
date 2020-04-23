@@ -1,7 +1,6 @@
 ---
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-logo: zigbee.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -33,6 +32,8 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Sensor
 - Switch
+
+There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities).
 
 ## ZHA exception and deviation handling
 

@@ -27,7 +27,7 @@ sensor:
 
 {% configuration %}
 resource:
-  description: "The IP address of the Fronius device"
+  description: "The URL of the Fronius device (e.g., `http://192.0.2.0` or `http://fronius.local`)"
   required: true
   type: string
 monitored_conditions:
@@ -96,7 +96,7 @@ a list of sensors that are to be integrated can be given like below.
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_IP_ADDRESS
+    resource: FRONIUS_URL
     monitored_conditions:
     - sensor_type: inverter
       device: 1

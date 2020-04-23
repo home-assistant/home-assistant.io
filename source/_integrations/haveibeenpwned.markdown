@@ -1,7 +1,6 @@
 ---
 title: HaveIBeenPwned
 description: Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant.
-logo: haveibeenpwned.png
 ha_category:
   - Sensor
 ha_release: 0.31

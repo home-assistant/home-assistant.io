@@ -1,5 +1,5 @@
 ---
-title: Manual
+title: Manual Alarm Control Panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
 ha_category:
   - Alarm
@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: manual
 ---
 
-The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.
+The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
 
 ## Configuration
 
@@ -93,6 +93,7 @@ variable or from a state-specific override.
 When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
 transitions to one of the "armed" states.  Note that **code_template**
+
 never receives "arming" in the **to_state** variable; instead,
 **to_state** contains the state which the user has requested.  However,
 **from_state** *can* contain "arming".
@@ -104,8 +105,8 @@ states. The code is never checked when triggering the alarm, so the
 either; again, **from_state** *can* contain "triggered".
 
 The alarm remains in the "triggered" state for a number of seconds equal to the
-previous state's **trigger_time**.  Then, depending on **disarm_after_trigger**,
-it goes back to either the previous state or **disarmed**.  If the previous
+previous state's **trigger_time**. Then, depending on **disarm_after_trigger**,
+it goes back to either the previous state or **disarmed**. If the previous
 state's **trigger_time** is zero, the transition to "triggered" is entirely
 blocked and the alarm remains in the armed state.
 
@@ -124,9 +125,9 @@ be used for example to sound the siren for a shorter time during the night.
 
 In the configuration example below:
 
-- the disarmed state never triggers the alarm;
-- the armed_home state will leave no time to leave the building or disarm the alarm;
-- while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
+- The `disarmed` state never triggers the alarm.
+- The `armed_home` state will leave no time to leave the building or disarm the alarm.
+- The other states will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
 
 ```yaml
 # Example configuration.yaml entry

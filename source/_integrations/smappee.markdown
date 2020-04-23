@@ -1,7 +1,6 @@
 ---
 title: Smappee
 description: Instructions on how to setup Smappee within Home Assistant.
-logo: smappee.png
 ha_release: 0.64
 ha_category:
   - Hub

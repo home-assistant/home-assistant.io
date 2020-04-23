@@ -1,7 +1,6 @@
 ---
 title: Automatic
 description: Instructions for how to integrate Automatic ODB readers into Home Assistant.
-logo: automatic.png
 ha_category:
   - Car
 ha_release: 0.28

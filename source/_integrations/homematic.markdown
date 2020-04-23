@@ -1,7 +1,6 @@
 ---
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
-logo: homematic.png
 ha_category:
   - Hub
   - Binary Sensor

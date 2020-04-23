@@ -62,7 +62,7 @@ Multiple device trackers can be used in parallel, such as [Owntracks](/integrati
 
 <div class='note warning'>
 
-As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
+As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
 
 </div>
 

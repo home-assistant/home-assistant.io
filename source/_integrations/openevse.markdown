@@ -1,7 +1,6 @@
 ---
 title: OpenEVSE
 description: Instructions on how to integrate a WiFi-equipped OpenEVSE Charging station with Home Assistant
-logo: openevse.png
 ha_category:
   - Car
 ha_release: 0.38

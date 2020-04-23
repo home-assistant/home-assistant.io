@@ -9,3 +9,4 @@ ha_domain: alarm_control_panel
 ---
 
 Home Assistant can give you an interface which is similar to a classic alarm system.
+Please see [manual alarm](/integrations/manual) for alarm configuration.

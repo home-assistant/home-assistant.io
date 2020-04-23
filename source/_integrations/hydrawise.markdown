@@ -1,7 +1,6 @@
 ---
 title: Hunter Hydrawise
 description: Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant.
-logo: hydrawise_logo.png
 ha_category:
   - Irrigation
   - Binary Sensor

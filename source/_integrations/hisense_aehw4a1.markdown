@@ -1,7 +1,6 @@
 ---
 title: Hisense AEH-W4A1
 description: Instructions to setup the Hisense AEH W4A1 WiFi module for ACs.
-logo: hisense.png
 ha_release: 0.103
 ha_category:
   - Climate

@@ -51,8 +51,6 @@ The following will take you through the steps required to install Home Assistant
 
 6. You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
 
-7. It is important to provide yourself proper access, including the Home Assistant CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Supervisor**, which is located in the sidebar and then the add-on store.
-
 <div class='note warning'>
 
 We used `hassio.local` in the past, if you have a system that is installed before this naming change, you might need to use `hassio.local` instead of `homeassistant.local`.
@@ -85,7 +83,12 @@ Best practice for updating a Home Assistant installation:
 
 ## Run a specific version on Home Assistant
 
-SSH to your Home Assistant system, or connect to the console, and run:
+For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
+that is available on your device by connecting a keyboard and screen.
+
+To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
+
+Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
 ha core update --version=0.XX.X
@@ -105,6 +108,12 @@ If you would like to test next release before anyone else, you can install the b
 You can also install Home Assistant on a Linux operating system of choice, called Home Assistant Supervised.
 
 Home Assistant Supervised, will still give you access to most features Home Assistant has to offer, including add-ons.
+
+<div class='note warning'>
+
+The Supervisord system is designed to provide a full-featured environment that is comparable with Kubernetes, which is also a bad idea to run it by the side of another orchestrator on the same Host. The Supervisor is also not caring for other software they run on your Host, and it can affect things bad on both sides. You also need to know that the Home Assistant OS runs with less overhead on your Proxmox or other Hypervisor as if you install first Debian and Ubuntu. In most cases, it's not the best choice to run the Supervisord on top of a Linux, if you not 100% sure what you do. **It is not just a container inside Docker!**
+
+</div>
 
 ### Supported systems and limitations
 
@@ -152,13 +161,13 @@ curl -fsSL get.docker.com | sh
 The following script will then install Home Assistant on a variety of operating systems and machine types.
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s
 ```
 
 Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 4, the flag `-- -m raspberrypi4` is required. The install script would then look like this:
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi4
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s -- -m raspberrypi4
 ```
 
 #### Other machine types
@@ -179,29 +188,29 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `qemux86`
 - `qemux86-64`
 
-See the [hassio-installer](https://github.com/home-assistant/hassio-installer) GitHub page for an up-to-date listing of supported machine types.
+See the [installer](https://github.com/home-assistant/supervised-installer) GitHub page for an up-to-date listing of supported machine types.
 
 If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
 
 [balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi0-w-3.12.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi-3.12.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi2-3.12.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi3-3.12.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi3-64-3.12.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi4-3.12.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_rpi4-64-3.12.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_tinker-3.12.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_odroid-c2-3.12.img.gz
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi0-w-3.13.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi-3.13.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi2-3.13.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-3.13.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-64-3.13.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-3.13.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-c2-3.13.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.4/hassos_odroid-n2-4.4.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_odroid-xu4-3.12.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_intel-nuc-3.12.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.12/hassos_ova-3.12.vdi.gz
-[linux]: https://github.com/home-assistant/hassio-installer
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-xu4-3.13.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
+[linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/

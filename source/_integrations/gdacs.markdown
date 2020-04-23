@@ -1,7 +1,6 @@
 ---
 title: Global Disaster Alert and Coordination System (GDACS)
 description: Instructions on how to integrate the Global Disaster Alert and Coordination System (GDACS) feed into Home Assistant.
-logo: gdacs.jpg
 ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
@@ -135,7 +134,3 @@ gdacs:
   latitude: -41.2
   longitude: 174.7
 ```
-
-## Locations NOT supported:
-
-- Ireland

@@ -1,7 +1,6 @@
 ---
 title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
-logo: asus.png
 ha_category:
   - Hub
   - Presence Detection
@@ -83,6 +82,8 @@ sensors:
   required: false
   type: list
   keys:
+    "devices":
+      description: Connected devices sensor
     "upload":
       description: TX upload sensor
     "download":
@@ -110,6 +111,7 @@ asuswrt:
   username: YOUR_ADMIN_USERNAME
   ssh_key: /config/id_rsa
   sensors:
+    - devices
     - upload
     - download
     - upload_speed
@@ -118,6 +120,7 @@ asuswrt:
 
 The example above, creates the following sensors:
 
+- sensor.asuswrt_devices_connected
 - sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
 - sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)

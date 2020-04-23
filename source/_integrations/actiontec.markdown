@@ -1,7 +1,6 @@
 ---
 title: Actiontec
 description: Instructions on how to integrate Actiontec routers into Home Assistant.
-logo: actiontec.png
 ha_category:
   - Presence Detection
 ha_release: 0.7

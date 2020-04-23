@@ -1,7 +1,6 @@
 ---
 title: TP-Link Kasa Smart
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
-logo: tp-link.png
 ha_category:
   - Hub
   - Switch
@@ -36,12 +35,12 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - HS100
 - HS103
 - HS105
-- HS110 (This device is capable or reporting energy usage data to template sensors)
+- HS110 (This device is capable of reporting energy usage data to template sensors)
 
 ### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (This device is capable or reporting energy usage data to template sensors)
+- HS300 (powerstrip 6-outlet) (This device is capable of reporting energy usage data to template sensors)
 - KP303 (powerstrip 3-outlet)
 - KP400 (outdoor 2-outlet)
 - KP200 (indoor 2-outlet)

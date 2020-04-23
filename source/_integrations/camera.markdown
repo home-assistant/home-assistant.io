@@ -85,7 +85,7 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 action:
   service: camera.record
-  data:
+  data_template:
     entity_id: camera.yourcamera
     filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```

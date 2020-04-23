@@ -1,7 +1,6 @@
 ---
 title: Flock
 description: Instructions on how to add Flock notifications to Home Assistant.
-logo: flock.png
 ha_category:
   - Notifications
 ha_release: 0.71

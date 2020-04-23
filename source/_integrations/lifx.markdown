@@ -1,7 +1,6 @@
 ---
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-logo: lifx.png
 ha_category:
   - Light
 ha_iot_class: Local Polling

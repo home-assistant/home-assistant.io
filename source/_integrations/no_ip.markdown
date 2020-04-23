@@ -1,7 +1,6 @@
 ---
 title: No-IP.com
 description: Keep your computer registered with the NO-IP.com dynamic DNS.
-logo: noip.png
 ha_category:
   - Network
 ha_release: 0.57

@@ -1,7 +1,6 @@
 ---
 title: Alpha Vantage
 description: Instructions on how to setup Alpha Vantage within Home Assistant.
-logo: alpha_vantage.png
 ha_category:
   - Finance
 ha_iot_class: Cloud Polling
@@ -72,6 +71,10 @@ foreign_exchange:
       required: true
       type: string
 {% endconfiguration %}
+
+## API Information
+
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version you will be limited to five queries per minute. This means that you'll likely only be able to have one or two ticker entries. The paid version starts at thirty queries per minute increasing ticker quantity quite a bit.
 
 ## Examples
 

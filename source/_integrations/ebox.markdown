@@ -1,7 +1,6 @@
 ---
 title: EBox
 description: Instructions on how to integrate EBox data usage within Home Assistant.
-logo: ebox.png
 ha_category:
   - Network
 ha_release: 0.39

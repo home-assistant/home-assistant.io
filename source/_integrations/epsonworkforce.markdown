@@ -1,7 +1,6 @@
 ---
 title: Epson Workforce
 description: Instructions on how to integrate Epson Workforce Printer into Home Assistant.
-logo: epson.png
 ha_category:
   - Sensor
 ha_release: 0.92
@@ -60,6 +59,7 @@ Supported devices:
 
 Tested devices:
 
+- Epson WF2660
 - Epson WF3540
 - Epson WF3620
 - Epson WF3640

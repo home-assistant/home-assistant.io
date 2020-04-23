@@ -1,7 +1,6 @@
 ---
 title: Ziggo Mediabox XL
 description: Instructions on how to integrate the Ziggo Mediabox XL into Home Assistant.
-logo: ziggo.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling

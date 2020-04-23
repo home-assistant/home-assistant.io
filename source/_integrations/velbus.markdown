@@ -1,7 +1,6 @@
 ---
 title: Velbus
 description: Access and control your Velbus devices.
-logo: velbus.png
 ha_category:
   - Hub
   - Binary Sensor

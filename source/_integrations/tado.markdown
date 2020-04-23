@@ -1,7 +1,6 @@
 ---
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
-logo: tado.png
 ha_category:
   - Hub
   - Climate
@@ -12,7 +11,9 @@ ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
+  - '@bdraco'
 ha_domain: tado
+ha_config_flow: true
 ---
 
 The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -26,7 +27,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use your Tado thermostats in your installation, add the following to your `configuration.yaml` file:
+To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry with multiple accounts

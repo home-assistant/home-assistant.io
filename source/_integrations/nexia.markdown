@@ -10,8 +10,8 @@ ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@bdraco'
   - '@ryannazaretian'
+  - '@bdraco'
 ha_domain: nexia
 ---
 
@@ -77,6 +77,12 @@ The following binary sensors are added for each thermostat zone:
 
 The `nexia` climate platform lets you control a thermostat.
 
+The following thermostats are supported: `XL1050`, `XL850`, `XL824`
+
+The following thermostats are not supported: `XL624`
+
+Other thermostats may work, but they have not been tested.
+
 ### Scene
 
 The `nexia` scene platform lets you activate a nexia automation.
@@ -98,4 +104,4 @@ Sets the humidify setpoint. This setting will affect all zones on the same therm
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `humidity` | no | Humidify setpoint level, from 35 to 65. 
+| `humidity` | no | Humidify setpoint level, from 35 to 65.

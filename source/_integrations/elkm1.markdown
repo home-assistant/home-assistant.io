@@ -1,7 +1,6 @@
 ---
 title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
-logo: elkproducts.png
 ha_release: 0.81
 ha_category:
   - Hub

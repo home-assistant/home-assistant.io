@@ -16,8 +16,11 @@ The integration will accept the following states from your Alarm Panel (in lower
 - `armed_home`
 - `armed_away`
 - `armed_night`
+- `armed_custom_bypass`
 - `pending`
 - `triggered`
+- `arming`
+- `disarming`
 
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
@@ -90,6 +93,10 @@ device:
       description: 'The firmware version of the device.'
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
@@ -118,6 +125,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_custom_bypass:
+  description: The payload to set armed-custom-bypass mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_CUSTOM_BYPASS
 payload_available:
   description: The payload that represents the available state.
   required: false

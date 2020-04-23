@@ -1,7 +1,6 @@
 ---
 title: VoiceRSS
 description: Instructions on how to setup VoiceRSS TTS with Home Assistant.
-logo: voicerss.png
 ha_category:
   - Text-to-speech
 ha_release: 0.35

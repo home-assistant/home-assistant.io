@@ -1,7 +1,6 @@
 ---
 title: Ubiquiti UniFi
 description: Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti.
-logo: ubiquiti.png
 ha_category:
   - Hub
   - Presence Detection

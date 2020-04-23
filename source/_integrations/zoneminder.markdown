@@ -1,7 +1,6 @@
 ---
 title: ZoneMinder
 description: How to integrate ZoneMinder into Home Assistant.
-logo: zoneminder.png
 ha_category:
   - Hub
   - Binary Sensor

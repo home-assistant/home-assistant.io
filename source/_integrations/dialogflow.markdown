@@ -1,7 +1,6 @@
 ---
 title: Dialogflow
 description: Instructions on how integrate Dialogflow with Home Assistant.
-logo: dialogflow.png
 ha_category:
   - Voice
 ha_release: 0.56

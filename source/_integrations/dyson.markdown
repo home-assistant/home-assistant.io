@@ -1,7 +1,6 @@
 ---
 title: Dyson
 description: Instructions on how to integrate Dyson into Home Assistant.
-logo: dyson.png
 ha_category:
   - Hub
   - Climate

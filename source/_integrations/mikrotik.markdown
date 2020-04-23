@@ -1,7 +1,6 @@
 ---
 title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
-logo: mikrotik.png
 ha_category:
   - Hub
   - Presence Detection

@@ -1,7 +1,6 @@
 ---
 title: Tank Utility
 description: How to integrate Tank Utility sensors within Home Assistant.
-logo: tank_utility.png
 ha_category:
   - Energy
 ha_release: 0.53
@@ -22,6 +21,32 @@ Each item in the list of devices is a 24 character string. These values can be f
 
 The device item value is the last segment of the URL path, e.g., the URL
 [https://app.tankutility.com/#/reports/000000000000000000000000](https://app.tankutility.com/#/reports/000000000000000000000000) would indicate `000000000000000000000000` as a device value.
+
+### Using TankUtility API to Obtain Device ID
+
+1. Obtain your personal token:
+
+   ```bash
+   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken`
+   ```
+
+   The JSON response structure should resemble:
+   
+   ```json
+   {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzgyMjQwODE0NjIsInYiOjAsImQiOnsidWleejoic2ltcGxlbG9naW46MzM1In0sImlhdCI6wwDIyMzk5NX0.kbYzxRtbGB2ke3IBgQTVMNQprHOWJZFgQQnPK6Wyas4"}
+   ```
+
+2. Receive the list of devices you have in your account:
+
+   ```bash
+   curl https://data.tankutility.com/api/devices?token=<my_personal_token>
+   ```
+
+   The JSON response structure should resemble:
+
+   ```json
+   {"devices":["54df6a066667531535371367","54ff69057492666782350667"]}
+   ```
 
 ## Configuration
 

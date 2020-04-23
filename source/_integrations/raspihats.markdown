@@ -1,7 +1,6 @@
 ---
 title: Raspihats
 description: Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant.
-logo: raspihats.png
 ha_category:
   - DIY
   - Binary Sensor

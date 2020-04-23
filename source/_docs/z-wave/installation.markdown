@@ -101,6 +101,13 @@ zwave:
   network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
+In addition to modifying the `configuration.yaml` file, the `options.xml` file network key must be set as well:
+
+```xml
+<!-- Example options.xml entry for network_key -->
+<Option name="NetworkKey" value="0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c" />
+```
+
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 
 ## First Run
@@ -287,3 +294,7 @@ WARNING: Checksum incorrect - sending NAK
 ```
 
 If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, a second instance of Home Assistant or something else. You need to stop that other process to resolve this.
+
+### Changing device paths
+
+Configurations using `udev` can experience race conditions in creating device paths such that they change on reboot. This can cause a device to appear to change between `/dev/ttyACM0` and `/dev/ttyACM1` after reboot. In this case using the symlinks created for device IDs can ensure the correct device is used, for example: `/dev/serial/by-id/usb-0658_0200-if00` for Aeotec Z-Stick.
