@@ -10,7 +10,7 @@ ha_domain: caldav
 
 The `caldav` platform allows you to connect to your WebDAV calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDAV calendar get updated roughly every 15 minutes.
 
-### Prerequisites
+## Prerequisites
 
 You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](http://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
 
@@ -20,7 +20,7 @@ You might need some additional system packages to compile the Python CalDAV libr
 $ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 ```
 
-### Basic Setup
+## Basic Setup
 
 To integrate a WebDAV calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -44,7 +44,7 @@ calendar:
 
 This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
 
-### Custom calendars
+## Custom calendars
 
 You have the possibility to create multiple binary sensors for events that match certain conditions.
 
@@ -104,11 +104,12 @@ custom_calendars:
       type: string
 period:
   required: false
-  description: Period of days for the search for upcoming appointments (Default=1)
-  type: positive integer
+  description: Period of days for the search for upcoming appointments.
+  default: 1
+  type: integer
 {% endconfiguration %}
 
-### Sensor attributes
+## Sensor attributes
 
  - **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting !!-10 would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`.
  - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
@@ -118,7 +119,7 @@ period:
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-### Examples
+## Examples
 
 All events of the calendars "private" and "holidays". Note that all day events are not included.
 
