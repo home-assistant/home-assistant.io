@@ -10,24 +10,15 @@ ha_release: 0.107
 
 The `xiaomi_miio` alarm_control_panel platform allows you to control the state of your Xiaomi Gateway Alarm.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration.
 
 ## Features
 
 - Turn on/off Alarm
 - See the status of Alarm (armed_away, disarmed, arming)
 
-## Configuration
-
-To add the Xiaomi gateway alarm to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entries
-alarm_control_panel:
-  - platform: xiaomi_miio
-    host: GATEWAY_IP_ADDRESS
-    token: YOUR_TOKEN
-```
+## Configuration: Config Flow
+To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP adress" and 32 character "token". Optinally you can specify a diffrent name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 {% configuration %}
 host:
@@ -42,5 +33,5 @@ name:
   description: The name of your Xiaomi gateway.
   required: false
   type: string
-  default: Xiaomi Gateway Alarm
+  default: Xiaomi Gateway
 {% endconfiguration %}
