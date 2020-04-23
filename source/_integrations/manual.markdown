@@ -92,7 +92,7 @@ variable or from a state-specific override.
 
 When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
-transitions to one of the "armed" states.  Note that **code_template**
+transitions to one of the "armed" states. Note that **code_template**
 never receives "arming" in the **to_state** variable; instead,
 **to_state** contains the state which the user has requested.  However,
 **from_state** *can* contain "arming".
@@ -109,7 +109,7 @@ it goes back to either the previous state or **disarmed**. If the previous
 state's **trigger_time** is zero, the transition to "triggered" is entirely
 blocked and the alarm remains in the armed state.
 
-Each of the settings is useful in different scenarios.  **arming_time** gives
+Each of the settings is useful in different scenarios. **arming_time** gives
 you some time to leave the building (for "armed" states).
 
 **delay_time** can be used to allow some time to disarm the alarm, with
