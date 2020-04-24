@@ -28,7 +28,6 @@ integration will be available.
 
 Additionally, if you are configuring a gateBox, it may be useful to set the second button as "stop" in your device's settings (via website or phone app).
 
-
 ## Covers
 
 This integration adds the BleBox device as a cover in Home Assistant.
