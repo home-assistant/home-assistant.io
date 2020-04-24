@@ -39,4 +39,4 @@ Currently, this includes support for the following product classes:
 - BleBox gateController
 - BleBox gateBox
 
-For now, only a minimum set of features are supported. (E.g. no tilt support for shutterBox).
+For now, only a minimum set of features are supported (e.g., no tilt support for shutterBox).
