@@ -403,8 +403,8 @@ The following integrations are currently supported:
 ### Resetting when created via YAML
 
  1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
- 2. **Restart** Home Assistant
- 3. The configuration will be automaticlly reimported from YAML
+ 2. **Restart** Home Assistant.
+ 3. The configuration will be automaticlly reimported from YAML.
  4. Pair the bridge.
 
 ### Resetting when created via the **Integrations** screen
