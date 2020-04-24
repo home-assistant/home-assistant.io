@@ -415,9 +415,7 @@ The following integrations are currently supported:
 
 ### Errors during pairing
 
-If you encounter any issues during pairing, make sure to:
-
-Add the following to your `configuration.yaml`
+If you encounter any issues during pairing, make sure to add the following to your `configuration.yaml`
 
 ```yaml
 logger:
@@ -431,7 +429,7 @@ Follow the above instructions for `Resetting`
 
 ### Minimal Configuration
 
-If pairing still fails after trying the steps in `Errors during pairing`, it may be caused by a specific entity.  Try resetting with a minimal configuration:
+If pairing still fails after trying the steps in ([Errors during pairing](#errors-during-pairing)), it may be caused by a specific entity.  Try resetting with a minimal configuration:
 
 ```yaml
 homekit:
