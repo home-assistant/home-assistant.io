@@ -199,7 +199,7 @@ After the setup is completed, you should be able to control your Home Assistant 
 
 ## Move Home Assistant install
 
-If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
+If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.storage/homekit.*` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
 
 Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
@@ -207,7 +207,7 @@ Before you copy it, make sure to stop the old and new Home Assistant instances f
 
 ### Accessory ID
 
-Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` that does not have a `unique_id`, all configurations for this accessory made in the `Home` app will be lost.
 
 ### Device Limit
 
@@ -400,22 +400,24 @@ The following integrations are currently supported:
 
 ## Troubleshooting
 
-### Deleting the `.homekit.state` file
+### Resetting when created via YAML
 
-The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. **Restart** Home Assistant
+ 3. The configuration will be automaticlly reimported from YAML
+ 4. Pair the bridge.
 
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. **Start** Home Assistant
+### Resetting when created via the **Integrations** screen
+
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. Recreate the `HomeKit Bridge` integration in the **Integrations** screen.
+ 3. Pair the bridge.
 
 ### Errors during pairing
 
 If you encounter any issues during pairing, make sure to:
 
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. Edit your configuration (see below)
- 4. **Start** Home Assistant
+Add the following to your `configuration.yaml`
 
 ```yaml
 logger:
@@ -423,7 +425,15 @@ logger:
   logs:
     homeassistant.components.homekit: debug
     pyhap: debug
+```
 
+Follow the above instructions for `Resetting`
+
+### Minimal Configuration
+
+If pairing still fails after trying the steps in `Errors during pairing`, it may be caused by a specific entity.  Try resetting with a minimal configuration:
+
+```yaml
 homekit:
   filter:
     include_entities:
@@ -432,7 +442,7 @@ homekit:
 
 #### PIN doesn't appear as persistent status
 
-You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
+You might have paired the `Home Assistant Bridge` already. If not, follow the above instructions for `Resetting`
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing)
 
