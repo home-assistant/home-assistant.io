@@ -211,7 +211,7 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 ### Device Limit
 
-The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to the bridge configured via `YAML`.
+The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
 ### Persistence Storage
 
