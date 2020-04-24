@@ -35,7 +35,7 @@ If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configur
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
 homekit:
-  filter:
+- filter:
     include_domains:
       - alarm_control_panel
       - light
@@ -60,6 +60,11 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+- name: HASS Bridge 2
+  port: 56332
+  filter:
+    include_domains:
+      - light
 ```
 
 {% configuration %}
@@ -462,7 +467,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### Duplicate AID found when attempting to add accessory
