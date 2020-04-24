@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: metoffice
 ---
 
-The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.
+The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for current weather data and forecast data.
 
 ## Configuration
 
@@ -39,6 +39,10 @@ longitude:
   description: "Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`."
   required: inclusive
   type: float
+mode:
+  description: "Defaults to '3hourly' if not provided, but can be 'daily' for a longer-range forecast of weather data."
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note'>
