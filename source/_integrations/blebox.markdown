@@ -14,7 +14,6 @@ ha_domain: blebox
 
 [BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
 
-
 ## Configuration
 
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
