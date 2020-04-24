@@ -28,10 +28,10 @@ sensor:
       - wind_direction
       - wind_gust
       - visibility
-      - visibility_distance
       - uv
       - precipitation
       - humidity
+      - pressure
 ```
 
 Your location will be detected from your home `latitude` and `longitude` settings.
@@ -72,15 +72,15 @@ monitored_conditions:
     wind_gust:
       description: If there are wind gusts.
     visibility:
-      description: The average visibility.
-    visibility_distance:
-      description: The visibility distance.
+      description: The visibility distance (a range).
     uv:
       description: The UV index.
     precipitation:
       description: The average expected intensity of precipitation occurring.
     humidity:
       description: The relative humidity.
+    pressure:
+      description: The average sea level pressure (not available from all Met Office locations).
 {% endconfiguration %}
 
 <div class='note'>
