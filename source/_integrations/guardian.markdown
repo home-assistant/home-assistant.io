@@ -1,7 +1,7 @@
 ---
 title: Guardian
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
-ha_release: 0.110.0
+ha_release: "0.110"
 ha_category:
   - Binary Sensor
   - Sensor
@@ -24,8 +24,9 @@ There is currently support for the following device types within Home Assistant:
 ## Configuration
 
 This integration can be configured via the Home Assistant UI by navigating to
-`Configuration > Integrations`. If you have the `zeroconf` integration enabled, Home Assistant
-will automatically discover any Guardian devices already connected to the network.
+**Configuration** -> **Integrations**. If you have the `zeroconf` integration enabled,
+Home Assistant will automatically discover any Guardian devices already connected to the
+network.
 
 ## Services
 
