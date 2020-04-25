@@ -1,11 +1,10 @@
 ---
-title: WiLight Devices
-description: Instructions on how to integrate WiLight Devices into Home Assistant.
+title: WiLight
+description: Instructions on how to integrate WiLight devices into Home Assistant.
 logo: wilight.png
 ha_category:
-  - Light
   - Switch
-ha_release: 0.99
+ha_release: 0.109
 ha_iot_class: Local Push
 ha_domain: wilight
 ---
@@ -16,7 +15,6 @@ The [WiLight](http://www.wilight.com.br) is a family of networkable devices for 
 There is currently support for the following device types within Home Assistant:
 
 - [Switch](#switch)
-
 
 ## Switch
 
@@ -32,7 +30,7 @@ switch:
   - platform: wilight
     host: IP_ADDRESS
     id: 'NUM_SERIAL'
-    type: TYPE
+    type: 'TYPE'
     mode: 'MODE_TYPE'
 ```
 
@@ -54,7 +52,7 @@ mode:
   required: true
   type: string
 slots:
-  description: Friendly names of 1 to 3 slots of WiLight device. If not configured, slot name will be `WiLight's id + '_{slot_index}'`. e.g 'WL000033_1'
+  description: Friendly names of 1 to 3 slots of WiLight device. If not configured, slot name will be `'WL' + last 6 numbers of WiLight's id + '_{slot_index}'`. e.g 'WL000033_1'
   required: false
   type: map
   keys:
@@ -72,18 +70,32 @@ slots:
       type: string
 {% endconfiguration %}
 
-Example configuration for `0100` device:
+
+  | WiLight Model | Type   | Mode     |
+  | ------------- | ------ | -------- |
+  | I-100         | `0100` | 1ab00010 |
+  | I-102         | `0102` | 1abcde10 |
+
+  Where:
+
+  - a = slot_2 enabled (1) / disabled (0);
+  - b = slot_3 enabled (1) / disabled (0);
+  - c = slot_1 dimmer (1) / on-off (0);
+  - d = slot_2 dimmer (1) / on-off (0);
+  - e = slot_3 dimmer (1) / on-off (0).
+
+Example configuration for Model I-100 with slot_2 and slot_3 enabled:
 
 ```yaml
 switch:
   - platform: wilight
     host: 192.168.1.5
     id: '000000000033'
-    type: 0100
+    type: '0100'
     mode: '11100010'
     slots:
       # friendly name of slots - optional
-      # if not set, slot name will be switch's friendly_name + 'slot {slot_index}'. e.g 'MP1 slot 1'
+      # if not set, slot name will be 'WL' + last 6 numbers of WiLight's id + '_{slot_index}'. e.g 'WL000033_1'
       slot_1: 'Celling light'
       slot_2: 'Door light'
       slot_3: 'Stair light'
