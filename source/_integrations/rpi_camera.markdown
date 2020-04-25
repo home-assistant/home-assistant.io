@@ -16,8 +16,11 @@ To enable this camera in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-camera:
-  - platform: rpi_camera
+rpi_camera:
+    image_width: 1296
+    image_height: 972
+    image_quality: 75
+    overlay_timestamp: "%d%b%y %T"
 ```
 
 The whole set of configuration variables is documented here [`Raspberry Pi Camera Module - Raspberry Pi Documentation`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md).
