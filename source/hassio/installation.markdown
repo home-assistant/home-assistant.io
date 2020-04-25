@@ -120,7 +120,7 @@ The Supervisord system is designed to provide a full-featured environment that i
 While Home Assistant Supervised can be run on practically any Linux systems,
 the Home Assistant project limits support for this installation method.
 
-Only the use of Debian or Ubuntu is supported. Other Linux-based system may work
+Only the use of Debian (including Raspbian) or Ubuntu is supported. Other Linux-based system may work
 but is not part of our testing and thus not supported.
 
 Furthermore, if you choose to run Home Assistant Supervised, the operating
