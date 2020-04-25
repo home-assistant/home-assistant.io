@@ -54,13 +54,6 @@ If the thermostat supports different operating modes, you will get one thermosta
 
 </div>
 
-To enable the climate integration for your Z-Wave network, add the following to your `configuration.yaml` file.
-
-```yaml
-climate:
-  - platform: zwave
-```
-
 Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.
 
 - `climate.remotec_zxt120_heating_1_id`: Allows you to control the connected device. See below for examples.
