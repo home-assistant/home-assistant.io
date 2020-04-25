@@ -24,8 +24,7 @@ Supported devices:
 Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **Arcam FMJ**.
-Follow the configuration flow, after finishing, the Twente Milieu
-integration will be available.
+Follow the configuration flow, after finishing, the receivers will be available.
 
 ## Power state
 
