@@ -145,7 +145,7 @@ If you run Ubuntu, first run this command:
 sudo add-apt-repository universe
 ```
 
-Next run the following commands (for both Debian and Ubuntu):
+Next run the following commands (for both Debian and Ubuntu). For Raspbian, `apparmour` is currently (Feb 2020 image) not compiled into the kernel so should not be installed :
 
 ```bash
 sudo -i
