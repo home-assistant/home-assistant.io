@@ -50,6 +50,14 @@ http:
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
 
+Docker:
+
+```yaml
+http:
+  ssl_certificate: /config/fullchain.pem
+  ssl_key: /config/privkey.pem
+```
+
 A restart of Home Assistant is required for the new certificate to take effect.
 
 If you get any log error about *ssl_key* or *ssl_certificate* that is **not a file for dictionary value** when run Home Assistant, you need to change owner or access permission of the `.pem` files as following:
