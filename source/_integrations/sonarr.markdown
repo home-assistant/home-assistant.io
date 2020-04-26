@@ -36,7 +36,7 @@ api_key:
   type: string
   description: "Your Sonarr API key, found in Settings > General in the Sonarr Web UI."
 host:
-  required: false
+  required: true
   type: string
   description: The host Sonarr is running on.
   default: "`localhost`"
