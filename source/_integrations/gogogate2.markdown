@@ -14,9 +14,9 @@ The GogoGate2 integration lets you control Gogogate2-Enabled garage doors throug
 ## Configuration
 <div class='note'>
 
-  It is recommended to assign a static IP address to your GogoGate device. This ensures that it won't change IP addresses, so you won't have to change the config if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your GogoGate2, check the label on the bottom.
+  It is recommended to assign a static IP address to your GogoGate device. This ensures that it won't change IP addresses, so you won't have to change the configuration if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your GogoGate2, check the label on the bottom.
 
 </div>
 
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'GogoGate2' and click 'Configure'.
-2. Enter the ip address, username, password and name for the device and click 'Submit'.
+2. Enter the IP address, username, password and name for the device and click 'Submit'.
