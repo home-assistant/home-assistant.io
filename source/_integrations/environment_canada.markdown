@@ -41,7 +41,7 @@ The location to use is determined according to the following hierarchy:
 - Closest station to latitude/longitude specified in platform configuration (optional)
 - Closest station to latitude/longitude specified in Home Assistant configuration
 
-### Camera
+### Camera (Radar)
 
 The camera platform generates a radar map centred on coordinates according to the following hierarchy:
 
