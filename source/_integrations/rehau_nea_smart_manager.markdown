@@ -1,10 +1,10 @@
 ---
 title: "Rehau Nea Smart Manager"
-description: ""
+description: "Integrates Rehau Nea Smart Manager thermostat controller into Home Assistant"
 ha_release: "0.108.9"
 ha_category: Climate
 ha_iot_class: "Local Polling"
-ha_quality_scale: internal
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Jeoffreybauvin'
