@@ -5,7 +5,7 @@ ha_category:
   - Switch
   - Climate
   - Remote
-ha_release: TBD
+ha_release: "0.110"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
