@@ -13,7 +13,7 @@ ha_domain: rehau
 
 Integrates [Rehau Nea Smart Manager](https://www.rehau.com/en-en/nea-smart/francais) Thermostat controller into Home Assistant.
 
-This integration generates a climate entity for each heatarea in your Nea Smart Manager.
+This integration generates a climate entity for each heating area in your Nea Smart Manager.
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
