@@ -3,8 +3,11 @@ title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
 logo: wilight.png
 ha_category:
+  - Cover
+  - Fan
+  - Light
   - Switch
-ha_release: 0.109
+ha_release: 0.108
 ha_iot_class: Local Push
 ha_domain: wilight
 ---
@@ -14,11 +17,26 @@ The [WiLight](http://www.wilight.com.br) is a family of networkable devices for 
 
 There is currently support for the following device types within Home Assistant:
 
+- [Cover](#cover)
+- [Fan](#fan)
+- [Light](#light)
 - [Switch](#switch)
+
+## Cover
+
+This `WiLight` cover platform allow to you control WiLight cover (shade) devices.
+
+## Fan
+
+This `WiLight` fan platform allow to you control WiLight ceiling fan devices.
+
+## Light
+
+This `WiLight` light platform allow to you control WiLight light switch devices, dimmer or on/off.
 
 ## Switch
 
-This `WiLight` switch platform allow to you control WiLight [devices](http://www.wilight.com.br/).
+This `WiLight` switch platform allow to you control WiLight switch devices, for irrigation valves.
 
 ### Configuration
 
@@ -26,25 +44,25 @@ To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: wilight
-    host: IP_ADDRESS
-    id: 'NUM_SERIAL'
-    type: 'TYPE'
-    mode: 'MODE_TYPE'
+wilight:
+  devices:
+    - id: NUM_SERIAL
+      host: IP_ADDRESS
+      type: TYPE
+      mode: MODE_TYPE
 ```
 
 {% configuration %}
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
 id:
   description: "Device serial number. Use the following format: `000000000033`."
   required: true
   type: string
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
 type:
-  description: "Device type. Choose one from: `0100`, `0102` or `0103`."
+  description: "Device type. Choose one from: `0100`, `0102`, `0103`, `0104`, `0105` or `0107`."
   required: true
   type: string
 mode:
@@ -71,10 +89,14 @@ slots:
 {% endconfiguration %}
 
 
-  | WiLight Model | Type   | Mode     |
-  | ------------- | ------ | -------- |
-  | I-100         | `0100` | 1ab00010 |
-  | I-102         | `0102` | 1abcde10 |
+  | WiLight Model | Type   | Mode     | slot_1 type | slot_2 type | slot_2 type |
+  | ------------- | ------ | -------- | ----------- | ----------- | ----------- |
+  | I-100         | `0100` | 1abcde10 | light       | light       | light       |
+  | I-102         | `0102` | 1ab00010 | light       | light       | light       |
+  | C-103         | `0103` | 10       | shade       | n/a         | n/a         |
+  | V-104         | `0104` | 10       | light       | fan         | n/a         |
+  | R-105         | `0105` | 10       | switch      | switch      | n/a         |
+  | I-107         | `0107` | 00010    | light       | n/a         | n/a         |
 
   Where:
 
@@ -84,19 +106,19 @@ slots:
   - d = slot_2 dimmer (1) / on-off (0);
   - e = slot_3 dimmer (1) / on-off (0).
 
-Example configuration for Model I-100 with slot_2 and slot_3 enabled:
+Example configuration for Model I-102 with slot_2 and slot_3 enabled:
 
 ```yaml
-switch:
-  - platform: wilight
-    host: 192.168.1.5
-    id: '000000000033'
-    type: '0100'
-    mode: '11100010'
-    slots:
-      # friendly name of slots - optional
-      # if not set, slot name will be 'WL' + last 6 numbers of WiLight's id + '_{slot_index}'. e.g 'WL000033_1'
-      slot_1: 'Celling light'
-      slot_2: 'Door light'
-      slot_3: 'Stair light'
+wilight:
+  devices:
+    - id: '000000000033'
+      host: 192.168.1.5
+      type: '0102'
+      mode: '11100010'
+      slots:
+        # friendly name of slots - optional
+        # if not set, slot name will be 'WL' + last 6 numbers of WiLight's id + '_{slot_index}'. e.g 'WL000033_1'
+        slot_1: 'Celling light'
+        slot_2: 'Door light'
+        slot_3: 'Stair light'
 ```
