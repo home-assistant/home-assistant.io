@@ -17,7 +17,7 @@ Be aware that `emulated_hue` doesn't work for new users of **Google Home** with 
 
 The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
-The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
+The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The temperature of climate entities and volume level of media players can be controlled as brightness.
 
 <div class='note'>
 A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
@@ -128,13 +128,15 @@ emulated_hue:
       name: "Bedside Lamp"
     light.ceiling_lights:
       hidden: true
+    climate.air_conditioner:
+      turn_on_mode: cool
 ```
 
 The following are attributes that can be applied in the `entities` section:
 
 - **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 - **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
-
+- **turn_on_mode** (*Optional*): Exclusive for climate entities. Defines the HVAC mode that will be set when the device is turned on. If not specified, the mode will be set to the last state before the entity was turned off.
 <div class='note'>
 
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
