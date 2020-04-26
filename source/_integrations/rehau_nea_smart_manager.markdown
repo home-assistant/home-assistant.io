@@ -21,7 +21,7 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 # Example configuration.yaml entry
 climate:
   - platform: rehau
-    host: '192.168.1.2'
+    host: IP_ADDRESS
 ```
 
 <div class='note warning'>
