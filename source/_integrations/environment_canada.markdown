@@ -31,13 +31,22 @@ The following device types and data are supported:
 
 ## Location Selection
 
-Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
+###Weather and Sensor
 
-For each platform, the location to use is determined according to the following hierarchy:
+The weather and sensor platforms automatically determine which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
+
+The location to use is determined according to the following hierarchy:
 
 - Location ID specified in platform configuration (optional)
 - Closest station to latitude/longitude specified in platform configuration (optional)
 - Closest station to latitude/longitude specified in Home Assistant configuration
+
+###Camera
+
+The camera platform generates a radar map centred on coordinates according to the following hierarchy:
+
+- Latitude/longitude specified in platform configuration (optional)
+- Latitude/longitude specified in Home Assistant configuration
 
 ## Weather
 
@@ -180,24 +189,17 @@ camera:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
 </p>
 
-- If no name is given, the camera entity will be named `camera.<station_name>_radar`.
-- The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal.
-    - A specific latitude/longitude
+- If no name is given, the camera entity will be named `camera.environment_canada_radar`.
 
 {% configuration %}
 latitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates on which the map will be centred.
   required: inclusive
   type: float
 longitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates on which the map will be centred.
   required: inclusive
   type: float
-station: 
-  description: The station code of a specific radar station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Must be in the form `XXX` or `CXXXX`.
-  required: false
-  type: string
 name:
   description: Name to be used for the entity ID, e.g.,  `camera.<name>`.
   required: false
@@ -208,8 +210,8 @@ loop:
   default: true
   type: boolean
 precip_type:
-  description: Determines whether to use the intensity bands for rain or snow. Valid values are RAIN and SNOW.
+  description: Determines whether to use the intensity bands for rain or snow. Valid values are `rain` and `snow`.
   required: false
   type: string
-  default: RAIN from April to October, SNOW from November to March
+  default: `rain` from April to October, `snow` from November to March
 {% endconfiguration %}
