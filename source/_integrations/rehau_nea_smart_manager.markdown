@@ -1,7 +1,7 @@
 ---
 title: "Rehau Nea Smart Manager"
 description: ""
-ha_release: "0.0.1"
+ha_release: "0.108.9"
 ha_category: Climate
 ha_iot_class: "Local Polling"
 ha_quality_scale: internal
