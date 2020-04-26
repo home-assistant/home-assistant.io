@@ -30,7 +30,7 @@ Local and secure connections are preferred when setting up an Integration. After
 
 </div>
 
-Alternatively, you can manually configure a Plex server connection by selecting the "Manual setup" option when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described in the **Configuration Variables** section below.
+Alternatively, you can manually configure a Plex server connection by selecting the "Manual setup" option when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described in the **Configuration Variables** section below.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
