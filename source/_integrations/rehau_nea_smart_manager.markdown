@@ -42,23 +42,3 @@ host:
 | `auto` | Auto mode : use Nea Smart Manager scheduling
 | `eco` | Eco mode
 | `comfort` | Comfort mode
-
-## Component services
-
-Enable comfort mode on your thermostat:
-
-`climate.set_preset_mode`
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String with device name.
-| `preset_mode` | no | String with the preset mode (see above).
-
-Set a new target temperature on your thermostat:
-
-`climate.set_temperature`
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String with device name.
-| `temperature` | no | Target temperature in Celsius (float).
