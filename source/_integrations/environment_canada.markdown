@@ -213,5 +213,5 @@ precip_type:
   description: Determines whether to use the intensity bands for rain or snow. Valid values are `rain` and `snow`.
   required: false
   type: string
-  default: `rain` from April to October, `snow` from November to March
+  default: "`rain` from April to October, `snow` from November to March"
 {% endconfiguration %}
