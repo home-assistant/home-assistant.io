@@ -49,6 +49,13 @@ http:
   ssl_certificate: /home/your_user/.homeassistant/fullchain.pem
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
+Docker:
+
+```yaml
+http:
+  ssl_certificate: /config/fullchain.pem
+  ssl_key: /config/privkey.pem
+```
 
 A restart of Home Assistant is required for the new certificate to take effect.
 
