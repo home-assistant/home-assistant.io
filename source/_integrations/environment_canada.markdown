@@ -31,7 +31,7 @@ The following device types and data are supported:
 
 ## Location Selection
 
-###Weather and Sensor
+### Weather and Sensor
 
 The weather and sensor platforms automatically determine which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
@@ -41,7 +41,7 @@ The location to use is determined according to the following hierarchy:
 - Closest station to latitude/longitude specified in platform configuration (optional)
 - Closest station to latitude/longitude specified in Home Assistant configuration
 
-###Camera
+### Camera
 
 The camera platform generates a radar map centred on coordinates according to the following hierarchy:
 
