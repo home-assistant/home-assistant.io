@@ -78,7 +78,6 @@ Valid values for ignore are:
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
- * `igd`: Internet Gateway Device
  * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
