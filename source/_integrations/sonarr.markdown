@@ -39,7 +39,6 @@ host:
   required: true
   type: string
   description: The host Sonarr is running on.
-  default: "`localhost`"
 port:
   required: false
   type: integer
