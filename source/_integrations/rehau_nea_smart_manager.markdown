@@ -61,4 +61,4 @@ Set a new target temperature on your thermostat:
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String with device name.
-| `temperature` | no | Target temperature in celcius (float).
+| `temperature` | no | Target temperature in Celsius (float).
