@@ -65,14 +65,12 @@ It’s easier to understand the trick when put into practice. Here we would like
 docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config --net=host homeassistant/home-assistant:stable
 ```
 
-When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
+When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you need to replace  `--net=host` with `p port_of_host:8123`
 
-```bash
-netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-```
+So the command can be used like this:
+```docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //D/HASS/config:/config -p 8123:8123 homeassistant/home-assistant:stable```
 
-This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
+With above setup, open browser and enter `http://host-ip:port_of_host`, eg `http://192.168.1.11:8123` to access frontend
 
 ### Synology NAS
 
