@@ -71,7 +71,7 @@ There is no support for other device types (families) and hence this onewire pla
 ## Raspberry Pi checking connected devices via ssh
 
 If you set up ssh, you can check the connected one-wire devices in the following folder: /sys/bus/w1/devices
-The device IDs begin with 28-.
+The device IDs begin with `28-`.
 
 ## Interface adapter setup
 
