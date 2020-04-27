@@ -48,11 +48,30 @@ It is also possible for this platform to interface with a remote 1-wire host ove
 
 ## Raspberry Pi set up
 
-In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
+In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt`. This file can not be edited trough ssh. You have to put your SD card to a PC, and edit the file directly.
+
+If you use an external pull-up resistor and the default GPIO 4 for the data line, add the following line:
+dtoverlay=w1-gpio
+
+If you don't want to use an external resistor, you can use a built-in one using the following line:
+dtoverlay=w1-gpio-pullup
+
+It is also possible to use a different GPIO pin like this to change it to pin 15
+dtoverlay=w1-gpio-pullup,gpiopin=15
+
+Furthermore it is also possible to have multiple GPIOs as one-wire data channel by adding multiple lines like this:
+dtoverlay=w1-gpio-pullup,gpiopin=15
+dtoverlay=w1-gpio-pullup,gpiopin=16
+
+You can read about further parameters in this documentation: [Raspberry Pi Tutorial Series: 1-Wire DS18B20 Sensor](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
 
 When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature. 
 There is no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
+
+## Raspberry Pi checking connected devices via ssh
+
+If you set up ssh, you can check the connected one-wire devices in the following folder: /sys/bus/w1/devices
+The device IDs begin with 28-.
 
 ## Interface adapter setup
 
