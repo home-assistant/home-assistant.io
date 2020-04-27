@@ -163,7 +163,7 @@ The following integrations are now available via the Home Assistant UI:
 - [Flume][flume docs], done by [@bdraco]
 - [FRITZ!Box][fritzbox docs], done by [@escoand]
 - [Islamic Prayer Times][islamic_prayer_times docs], done by [@engrbm87]
-- [National Weather Service][nws docs], done by [@Cyr-ius]
+- [National Weather Service][nws docs], done by [@MatthewFlamm]
 - [Panasonic Viera TV][panasonic_viera docs], done by [@joogps]
 - [Roomba][roomba docs], done by [@Cyr-ius]
 - [Synology DSM][synologydsm docs], done by [@Quentame]
