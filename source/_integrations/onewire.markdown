@@ -51,7 +51,10 @@ It is also possible for this platform to interface with a remote 1-wire host ove
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt`. This file can not be edited through ssh. You have to put your SD card to a PC, and edit the file directly.
 
 If you use an external pull-up resistor and the default GPIO 4 for the data line, add the following line:
+
+```txt
 dtoverlay=w1-gpio
+```
 
 If you don't want to use an external resistor, you can use a built-in one using the following line:
 dtoverlay=w1-gpio-pullup
