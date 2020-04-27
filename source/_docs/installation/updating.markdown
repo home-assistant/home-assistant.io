@@ -50,6 +50,8 @@ pip3 install homeassistant==0.XX.X
 
 #### Run the beta version
 
+For specific instructions for the Home Assistante Core versions, see: https://www.home-assistant.io/hassio/installation/#run-the-beta-version-on-home-assistant
+
 If you would like to test the next release before anyone else, you can install the beta version released every two weeks:
 
 ```bash
