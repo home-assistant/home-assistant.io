@@ -41,7 +41,10 @@ Zigbee devices that deviate from or do not fully conform to the standard specifi
 
 The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Shepherd Converters as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
-## Known working Zigbee radio modules
+## Compatible hardware
+ZHA integration uses a hardware independent Zigbee stack implementation with modular design which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
+
+### Known working Zigbee radio modules
 
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
@@ -54,18 +57,21 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - Telegesis ETRX357USB (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS+8M (Note! This first have to be flashed with other EmberZNet firmware)
-- Texas Instruments CC253x, CC26x2R, and CC13x2 based radios (via the [zigpy-cc](https://github.com/sanyatuning/zigpy-cc) library for zigpy)
+- XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
+  - Digi XBee Series 3 (xbee3-24) modules
+  - Digi XBee Series 2C (S2C) modules
+  - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
+
+### Experimental support for additional Zigbee radio modules
+
+- Texas Instruments CC253x, CC26x2R, and CC13x2 based radios (via the [zigpy-cc](https://github.com/zigpy/zigpy-cc) library for zigpy)
   - [CC2531 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2530 + CC2591 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2530 + CC2592 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2652R dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC1352P-2 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2538 + CC2592 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
-- XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
-  - Digi XBee Series 3 (xbee3-24) modules
-  - Digi XBee Series 2C (S2C) modules
-  - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
