@@ -59,7 +59,7 @@ dtoverlay=w1-gpio-pullup
 It is also possible to use a different GPIO pin like this to change it to pin 15
 dtoverlay=w1-gpio-pullup,gpiopin=15
 
-Furthermore it is also possible to have multiple GPIOs as one-wire data channel by adding multiple lines like this:
+Furthermore, it is also possible to have multiple GPIOs as one-wire data channel by adding multiple lines like this:
 dtoverlay=w1-gpio-pullup,gpiopin=15
 dtoverlay=w1-gpio-pullup,gpiopin=16
 
