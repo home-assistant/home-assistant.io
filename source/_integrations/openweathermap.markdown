@@ -15,8 +15,8 @@ The `openweathermap` weather platform uses [OpenWeatherMap](https://openweatherm
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor)
 - [Weather](#weather)
+- [Sensor](#sensor)
 
 You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
