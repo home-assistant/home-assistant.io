@@ -1,13 +1,14 @@
 ---
 title: Sony Songpal
 description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
-logo: sony.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
 ha_release: 0.65
+ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
+  - '@shenxn'
 ha_domain: songpal
 ---
 
