@@ -12,7 +12,9 @@ ha_domain: fortigate
 
 This is a FortiGate presence sensor based on device detection of the FortiGate API
 
-***This integration will be deprecated in order to only use the fortios integration***
+<div class='note warning'>
+This integration will be deprecated in order to only use the fortios integration***
+</div>
 
 Please use https://www.home-assistant.io/integrations/fortios/
 
