@@ -12,7 +12,7 @@ The `Natural Resources Wales` integration provides sensors for the river level m
 
 ## Configuration
 
-To obtain an API key to access the river levels data first go to the [National Resources Wales API portal](https://api-portal.naturalresources.wales/) and create an account. Next go to the [River Levels API Data](https://api-portal.naturalresources.wales/products/5775297acff72d1aac51beab/) product page and subscribe to obtain your API key.
+To obtain an API key to access the river levels data first go to the [National Resources Wales API portal](https://api-portal.naturalresources.wales/) and create an account. Next, go to the [River Levels API Data](https://api-portal.naturalresources.wales/products/5775297acff72d1aac51beab/) product page and subscribe to obtain your API key.
 
 Subscribers will be able to run 10 calls/minute up to a maximum of 2880 calls/day after which access is denied.
 
@@ -27,7 +27,7 @@ sensor:
 
 {% configuration %}
 scan_interval:
-  description: Interval (in seconds) for polling. Values below 30 will result in access to the API being denied.
+  description: Interval (in seconds) for polling. Values below 30 will result in exceeding the allowed calls/day limit.
   required: false
   type: integer
   default: 60
