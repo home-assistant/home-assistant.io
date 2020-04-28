@@ -3,13 +3,13 @@ title: Jenkins
 description: Instructions on how to integrate Jenkins with Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.95
-ha_iot_class: Local Polling
+ha_release: 0.109
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - 'jadlers' 
   - 'Callet91'
-  ha_domain: jenkins
+ha_domain: jenkins
 ---
 
 Jenkins is a tool for setting up pipelines that manages continuous integration and deployment.  The `jenkins` integration is a sensor for listening on your Jenkins server and send you updates when jobs are executed to Home Assistant.  
