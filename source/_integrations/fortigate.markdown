@@ -12,6 +12,8 @@ ha_domain: fortigate
 
 This is a FortiGate presence sensor based on device detection of the FortiGate API
 
+This integration will be deprecated in order to only use the fortios integration
+
 ## FortiGate set up
 
 Configure the FortiGate with a USERNAME API user and assign its minimum rights profile:
