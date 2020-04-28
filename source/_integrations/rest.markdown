@@ -84,6 +84,11 @@ timeout:
   required: false
   type: integer
   default: 10
+scan_interval:
+  description: Time in seconds between the requests.
+  required: false
+  type: integer
+  default: 30
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
