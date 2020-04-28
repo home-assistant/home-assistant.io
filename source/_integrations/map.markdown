@@ -18,10 +18,10 @@ map:
 {% configuration %}
 map:
   require_admin:
-  description: If admin access is required to see this iframe.
-  required: false
-  type: boolean
-  default: false
+    description: If admin access is required to see this iframe.
+    required: false
+    type: boolean
+    default: false
 {% endconfiguration %}
 
 <div class='note'>
