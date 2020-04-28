@@ -73,7 +73,7 @@ If you see this error you can solve it by running the following commands and res
 sudo apt-get install -y python-dev pkg-config libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev
 ```
 
-Users on FFMPEG < 4 may also see an error similar to:
+Users on FFmpeg < 4 may also see an error similar to:
 
 ```text
 2020-04-28 13:35:43 ERROR (SyncWorker_5) [homeassistant.util.package] Unable to install package av==7.0.1: ERROR: Command errored out with exit status 1:
@@ -81,7 +81,7 @@ Users on FFMPEG < 4 may also see an error similar to:
          cwd: /tmp/pip-install-twd7glz2/av/
 ```
 
-You can solve this by running the following steps to update FFMPEG >= 4:
+You can solve this by running the following steps to update FFmpeg >= 4:
 
 ```text
 sudo add-apt-repository ppa:jonathonf/ffmpeg-4
