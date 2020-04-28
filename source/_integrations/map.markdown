@@ -15,6 +15,15 @@ This offers a map on the frontend to display the location of tracked devices. To
 map:
 ```
 
+{% configuration %}
+map:
+  require_admin:
+  description: If admin access is required to see this iframe.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 <div class='note'>
 Devices that are currently at home won't show on the map.
 </div>
