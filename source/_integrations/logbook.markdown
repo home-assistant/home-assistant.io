@@ -51,6 +51,11 @@ include:
       description: The list of domains to be included in creating logbook entries.
       required: false
       type: list
+require_admin:
+  description: If admin access is required to see this iframe.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 If you want to exclude messages of some entities or domains from the logbook
