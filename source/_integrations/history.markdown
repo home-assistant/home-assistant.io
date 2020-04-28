@@ -61,6 +61,11 @@ include:
       description: The list of domains to be included in the history.
       required: false
       type: list
+require_admin:
+  description: If admin access is required to see this iframe.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 Without any `include` or `exclude` configuration the history displays graphs for
