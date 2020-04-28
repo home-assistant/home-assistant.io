@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: stream
 ---
 
-The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
+The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 4.
 
 ## Configuration
 
@@ -71,4 +71,19 @@ If you see this error you can solve it by running the following commands and res
 
 ```text
 sudo apt-get install -y python-dev pkg-config libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev
+```
+
+Users on FFMPEG < 4 may also see an error similar to:
+
+```text
+2020-04-28 13:35:43 ERROR (SyncWorker_5) [homeassistant.util.package] Unable to install package av==7.0.1: ERROR: Command errored out with exit status 1:
+     command: /mnt/c/dev/home-assistant/venv/bin/python3.7 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-twd7glz2/av/setup.py'"'"'; __file__='"'"'/tmp/pip-install-twd7glz2/av/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-x9tw2ql2/install-record.txt --single-version-externally-managed --compile --install-headers /mnt/c/dev/home-assistant/venv/include/site/python3.7/av
+         cwd: /tmp/pip-install-twd7glz2/av/
+```
+
+You can solve this by running the following steps to update FFMPEG >= 4:
+
+```text
+sudo add-apt-repository ppa:jonathonf/ffmpeg-4
+sudo apt upgrade
 ```
