@@ -92,8 +92,8 @@ authentication:
   required: false
   type: string
   default: basic
-scan_interval: (Obsolete from 108.5)
-  description: Defines the update interval of the sensor in seconds.
+scan_interval:
+  description: Defines the update interval of the sensor in seconds. This setting is fixed from HA version 108.5 and scan_interval has no effect
   required: false
   type: integer
   default: 10
