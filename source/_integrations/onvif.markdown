@@ -11,13 +11,13 @@ The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/)
 
 ## Configuration
 
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **ONVIF**. Follow the instructions to get it set up.
+Home Assistant offers ONVIF integration through **Configuration** -> **Integrations** -> **ONVIF**. Follow the instructions to get it set up.
 
 <div class='note'>
   It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
 </div>
 
-You can configure specific FFPMEG options through the integration options flow by clicking the gear icon on the top right of the integration details page.
+You can configure specific FFmpeg options through the integration options flow by clicking the gear icon on the top right of the integration details page.
 
 {% configuration %}
 rtsp_transport:
