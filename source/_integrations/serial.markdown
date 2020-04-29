@@ -46,7 +46,7 @@ baudrate:
 bytesize:
   description: "Number of data bits. Possible values: `5=FIVEBITS`, `6=SIXBITS`, `7=SEVENBITS`, `8=EIGHTBITS`."
   required: false
-  default: EIGHTBITS
+  default: 8
   type: integer
 parity:
   description: "Enable parity checking. Possible values: `PARITY_NONE`, `PARITY_EVEN`, `PARITY_ODD PARITY_MARK`, `PARITY_SPACE`."
