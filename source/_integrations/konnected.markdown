@@ -1,5 +1,5 @@
 ---
-title: Konnected
+title: Konnected.io
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 ha_category:
   - Alarm

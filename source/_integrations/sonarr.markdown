@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.34
 ha_iot_class: Local Polling
 ha_domain: sonarr
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.

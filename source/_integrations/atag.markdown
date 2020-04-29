@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.109
 ha_iot_class: Local Polling
 ha_domain: atag
+ha_codeowners:
+  - '@MatsNL'
+ha_config_flow: true
 ---
 
 The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.

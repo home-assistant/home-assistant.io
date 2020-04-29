@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
+ha_codeowners:
+  - '@joogps'
+ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
