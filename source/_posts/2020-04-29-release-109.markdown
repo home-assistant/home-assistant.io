@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.109: Beta release notes"
-description: "0.109: Beta release notes"
-date: 2020-04-21 00:00:00
+title: "0.109: New integrations page and weather card, frontend lost weight."
+description: "0.109: New integrations page and weather card, the frontend lost some weight and a new detection for integrations causing performance issues."
+date: 2020-04-29 00:00:00
 date_formatted: "April 29, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -127,19 +127,27 @@ responsiveness and stability of Home Assistant.
 
 - [@timmo001][] Added the possibility to search in the Lovelace card picker.
 
+<p class='img'>
+<img src='/images/blog/2020-04-0.109/search.png' alt='Screenshot of the search added to the card picker'></a>
+Screenshot of the search added to the card picker.
+</p>
+
 - There is now MQTT debug information on the device page of an MQTT device,
   awesome work [@emontnemery][]!
 
 - [@frenck][] re-introduced support for transitions in scenes. Both the
   `scene.turn_on` and `scene.apply` services now accept a `transition` option
   to make your scene transition on lights look smooth as butter.
+  An example use is added to the [documentation](/integrations/scene/#using-scene-transitions).
 
-- HomeKit got love from [@bdraco]. He has been squashing bugs, improving
+- HomeKit got love from [@bdraco][]. He has been squashing bugs, improving
   the overall stability and added support for Vacuums. Also, pairing with
   HomeKit now shows the easy to scan QR code, which makes it easier to set up.
 
-- [@Kane610] really went out into making the UniFi integration perfect. A lot
+- [@Kane610][] really went out into making the UniFi integration perfect. A lot
   of adjustments and improvements. Thanks!
+
+- The iRobot Roomba integration now supports Braava too! Thanks [@shenxn][]!
 
 ## New Integrations
 
@@ -204,7 +212,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   known. - ([@Kane610] - [#32817]) ([unifi docs])
 
 - **National Weather Service (NWS)** - YAML configuration is no longer supported
-  for NWS integration, configuration is now done though the UI. Two entities are
+  for NWS integration, configuration is now done through the UI. Two entities are
   now created for each configured entry, one for daynight and one for hourly.
   The `mode` option is no longer needed and `name` option is no longer
   supported. - ([@MatthewFlamm] - [#34267]) ([nws docs])
@@ -299,7 +307,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   configuration. You will need to adjust accordingly. -
   ([@chrisrosset] - [#33431]) ([uscis docs])
 
-- **Panansonic Viera** - This is now its own integration and is available
+- **Panasonic Viera** - This is now its own integration and is available
   through the integrations UI. You will need to reconfigure your existing YAML
   integration. - ([@joogps] - [#33829]) ([panasonic_viera docs])
 
@@ -335,6 +343,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   YAML configuration has been deprecated and should no longer be used, as it
   will be removed in one of the next releases. -
   ([@escoand] - [#31240]) ([fritzbox docs])
+
+- **Plex** - Configuring Plex via YAML is now deprecated and will be removed in
+  Home Assistant Core 0.111. Configuration is now done through the UI.-
+  ([@jjlawren] - [#34546]) ([plex docs])
 
 ## Farewell to the following
 
@@ -759,9 +771,9 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - upgrade broadlink lib ([@Danielhiversen] - [#34488]) ([broadlink docs])
 - Switch airly to async_on_remove ([@bieniu] - [#34498]) ([airly docs])
 - Switch gios to async_on_remove ([@bieniu] - [#34499]) ([gios docs])
-- Remove Pushetta integration ([@frenck] - [#34497]) ([pushetta docs]) (breaking change)
+- Remove Pushetta integration ([@frenck] - [#34497]) (breaking change)
 - Update bravia-tv backend ([@dcnielsen90] - [#34376]) ([braviatv docs])
-- Remove Yahoo Weather integration ([@frenck] - [#34501]) ([yweather docs]) (breaking change)
+- Remove Yahoo Weather integration ([@frenck] - [#34501]) (breaking change)
 - Complete device registry update ([@MartinHjelmare] - [#34500])
 - Drop UNIT_ prefix for constants ([@springstan] - [#34164])
 - Fix a bug where a single long sms message is sent as multiple… ([@ocalvo] - [#34508]) ([sms docs])
@@ -772,7 +784,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Rename translations dir for integrations ([@ludeeus] - [#34494])
 - Don't log same MQTT message multiple times ([@emontnemery] - [#34511]) ([mqtt docs])
 - Use registry to find linked batteries for homekit ([@bdraco] - [#33519]) ([homekit docs])
-- Translation fixes and tweaks ([@balloob] - [#34489]) ([.translations docs]) ([binary_sensor docs]) ([group docs])
+- Translation fixes and tweaks ([@balloob] - [#34489]) ([binary_sensor docs]) ([group docs])
 - Resolve delays with tuya devices ([@bdraco] - [#34512]) ([tuya docs])
 - UniFi - Simplify config option of block clients to just a multi select drop down ([@Kane610] - [#34514]) ([unifi docs])
 - Fix zeroconf interface being ineffective in HomeKit ([@bdraco] - [#34516]) ([homekit docs])
@@ -784,9 +796,53 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Don't set step title if it's integration title ([@balloob] - [#34524])
 - Validate translations for custom components ([@balloob] - [#34519])
 - Add Atag One thermostat integration ([@MatsNl] - [#32361]) ([atag docs]) (new-integration)
-- Deprecate Plex YAML config ([@jjlawren] - [#34546]) ([plex docs])
+- Deprecate Plex YAML config ([@jjlawren] - [#34546]) ([plex docs]) (breaking change)
 - Upgrade blinkpy library to 0.14.3 ([@fronzbot] - [#34542]) ([blink docs])
 - Fix Bayesian Binary JSON Serialization ([@jlmcgehee21] - [#34540]) ([bayesian docs])
+- Add Plex play_media logging and troubleshooting tools ([@jjlawren] - [#34412]) ([plex docs]) (beta fix)
+- Handle flaky SimpliSafe notification registration ([@bachya] - [#34475]) ([simplisafe docs]) (beta fix)
+- Bump python-synology to 0.7.0 ([@Quentame] - [#34534]) ([synology_dsm docs]) (beta fix)
+- Update tesla-powerwall to version 0.2.8 ([@jrester] - [#34545]) ([powerwall docs]) (beta fix)
+- Add All wrapper to deprecated Plex schema ([@jjlawren] - [#34552]) ([plex docs]) (beta fix)
+- Fix deleting and readding nws entry ([@MatthewFlamm] - [#34555]) ([nws docs]) (beta fix)
+- Remove reconnect logic from MQTT client. ([@emontnemery] - [#34556]) ([mqtt docs]) (beta fix)
+- Only subscribe when MQTT client is connected. ([@emontnemery] - [#34557]) ([mqtt docs]) (beta fix)
+- Limit clone/view stats to repos with push access ([@ludeeus] - [#34575]) ([github docs]) (beta fix)
+- Powerwall sensor add is_active, round state attributes and change thresholding for charging status sensor ([@jrester] - [#34582]) ([powerwall docs]) (beta fix)
+- Remove old style translations from Atag ([@frenck] - [#34585]) ([atag docs]) (beta fix)
+- Remember homekit aids for entities without a unique id ([@bdraco] - [#34587]) ([homekit docs]) (beta fix)
+- Fix Garmin Connect i/o in event loop ([@frenck] - [#34598]) ([garmin_connect docs]) (beta fix)
+- Restore Expected Behavior of Sonarr Upcoming Sensor ([@ctalkington] - [#34408]) ([sonarr docs]) (beta fix)
+- Fix UVC doing I/O in event loop ([@balloob] - [#34610]) ([uvc docs]) (beta fix)
+- Restore ability to overwrite homekit max temp bound ([@bdraco] - [#34612]) ([homekit docs]) (beta fix)
+- Fix BloomSky KeyError: 'monitored_conditions' ([@frenck] - [#34613]) ([bloomsky docs]) (beta fix)
+- Delay sync for Google and limit updates to relevant info ([@balloob] - [#34622]) ([cloud docs]) (beta fix)
+- Handle synology_dsm discovery broadcasting on multiple ip addresses ([@bdraco] - [#34623]) ([synology_dsm docs]) (beta fix)
+- Updated frontend to 20200424.0 ([@bramkragten] - [#34645]) ([frontend docs]) (beta fix)
+- Fix identifying Plex schema when used in packages ([@balloob] - [#34651]) (beta fix)
+- Add Home Assistant Started event ([@balloob] - [#34657]) ([automation docs]) ([cloud docs]) (beta fix)
+- Update ZHA dependency ([@Adminiuga] - [#34661]) ([zha docs]) (beta fix)
+- Log config flow errors ([@Quentame] - [#34665]) ([synology_dsm docs]) (beta fix)
+- Fix fritzbox integration errors ([@escoand] - [#34639]) ([fritzbox docs]) (beta fix)
+- Add retry at startup ([@ludeeus] - [#34656]) ([webostv docs]) (beta fix)
+- Fix zero value state rendering sensor unavailable ([@cgtobi] - [#34694]) ([netatmo docs]) (beta fix)
+- Fix Synology DSM translation ([@Quentame] - [#34696]) ([synology_dsm docs]) (beta fix)
+- Add frontend version WS command ([@balloob] - [#34701]) ([frontend docs]) (beta fix)
+- Fix fritzbox errors again ([@escoand] - [#34710]) ([fritzbox docs]) (beta fix)
+- Bump python-synology to 0.7.1 ([@Quentame] - [#34728]) ([synology_dsm docs]) (beta fix)
+- Updated frontend to 20200427.0 ([@bramkragten] - [#34766]) ([frontend docs]) (beta fix)
+- Fix atag timezone bug ([@MatsNl] - [#34686]) ([atag docs]) (beta fix)
+- Add unique_id to fritzbox ([@escoand] - [#34716]) ([fritzbox docs]) (beta fix)
+- Disable upnp SSDP discovery ([@balloob] - [#34756]) ([upnp docs]) (beta fix)
+- Remove legacy discovery for directv ([@ctalkington] - [#34793]) ([discovery docs]) (beta fix)
+- Remove legacy discovery for roku ([@ctalkington] - [#34794]) ([discovery docs]) (beta fix)
+- Handle more fritzbox edge cases ([@escoand] - [#34802]) ([fritzbox docs]) (beta fix)
+- UniFi - Add a second roaming event ([@Kane610] - [#34819]) ([unifi docs]) (beta fix)
+- Fix sync call in async context generic_thermostat ([@frenck] - [#34822]) ([generic_thermostat docs]) (beta fix)
+- Fix async call in sync context in steam_online ([@frenck] - [#34823]) ([steam_online docs]) (beta fix)
+- Fix meteoalarm exception handling with instance of KeyError ([@frenck] - [#34828]) (beta fix)
+- Bump python-synology to 0.7.2 ([@Quentame] - [#34830]) ([synology_dsm docs]) (beta fix)
+- Updated frontend to 20200427.1 ([@bramkragten] - [#34831]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -1179,8 +1235,10 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34403]: https://github.com/home-assistant/core/pull/34403
 [#34404]: https://github.com/home-assistant/core/pull/34404
 [#34407]: https://github.com/home-assistant/core/pull/34407
+[#34408]: https://github.com/home-assistant/core/pull/34408
 [#34409]: https://github.com/home-assistant/core/pull/34409
 [#34410]: https://github.com/home-assistant/core/pull/34410
+[#34412]: https://github.com/home-assistant/core/pull/34412
 [#34417]: https://github.com/home-assistant/core/pull/34417
 [#34428]: https://github.com/home-assistant/core/pull/34428
 [#34429]: https://github.com/home-assistant/core/pull/34429
@@ -1200,6 +1258,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34472]: https://github.com/home-assistant/core/pull/34472
 [#34473]: https://github.com/home-assistant/core/pull/34473
 [#34474]: https://github.com/home-assistant/core/pull/34474
+[#34475]: https://github.com/home-assistant/core/pull/34475
 [#34478]: https://github.com/home-assistant/core/pull/34478
 [#34479]: https://github.com/home-assistant/core/pull/34479
 [#34480]: https://github.com/home-assistant/core/pull/34480
@@ -1226,10 +1285,50 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34519]: https://github.com/home-assistant/core/pull/34519
 [#34524]: https://github.com/home-assistant/core/pull/34524
 [#34532]: https://github.com/home-assistant/core/pull/34532
+[#34534]: https://github.com/home-assistant/core/pull/34534
 [#34540]: https://github.com/home-assistant/core/pull/34540
 [#34542]: https://github.com/home-assistant/core/pull/34542
+[#34545]: https://github.com/home-assistant/core/pull/34545
 [#34546]: https://github.com/home-assistant/core/pull/34546
-[.translations docs]: /integrations/.translations/
+[#34552]: https://github.com/home-assistant/core/pull/34552
+[#34555]: https://github.com/home-assistant/core/pull/34555
+[#34556]: https://github.com/home-assistant/core/pull/34556
+[#34557]: https://github.com/home-assistant/core/pull/34557
+[#34575]: https://github.com/home-assistant/core/pull/34575
+[#34582]: https://github.com/home-assistant/core/pull/34582
+[#34585]: https://github.com/home-assistant/core/pull/34585
+[#34587]: https://github.com/home-assistant/core/pull/34587
+[#34598]: https://github.com/home-assistant/core/pull/34598
+[#34610]: https://github.com/home-assistant/core/pull/34610
+[#34612]: https://github.com/home-assistant/core/pull/34612
+[#34613]: https://github.com/home-assistant/core/pull/34613
+[#34622]: https://github.com/home-assistant/core/pull/34622
+[#34623]: https://github.com/home-assistant/core/pull/34623
+[#34639]: https://github.com/home-assistant/core/pull/34639
+[#34645]: https://github.com/home-assistant/core/pull/34645
+[#34651]: https://github.com/home-assistant/core/pull/34651
+[#34656]: https://github.com/home-assistant/core/pull/34656
+[#34657]: https://github.com/home-assistant/core/pull/34657
+[#34661]: https://github.com/home-assistant/core/pull/34661
+[#34665]: https://github.com/home-assistant/core/pull/34665
+[#34686]: https://github.com/home-assistant/core/pull/34686
+[#34694]: https://github.com/home-assistant/core/pull/34694
+[#34696]: https://github.com/home-assistant/core/pull/34696
+[#34701]: https://github.com/home-assistant/core/pull/34701
+[#34710]: https://github.com/home-assistant/core/pull/34710
+[#34716]: https://github.com/home-assistant/core/pull/34716
+[#34728]: https://github.com/home-assistant/core/pull/34728
+[#34756]: https://github.com/home-assistant/core/pull/34756
+[#34766]: https://github.com/home-assistant/core/pull/34766
+[#34793]: https://github.com/home-assistant/core/pull/34793
+[#34794]: https://github.com/home-assistant/core/pull/34794
+[#34802]: https://github.com/home-assistant/core/pull/34802
+[#34819]: https://github.com/home-assistant/core/pull/34819
+[#34822]: https://github.com/home-assistant/core/pull/34822
+[#34823]: https://github.com/home-assistant/core/pull/34823
+[#34828]: https://github.com/home-assistant/core/pull/34828
+[#34830]: https://github.com/home-assistant/core/pull/34830
+[#34831]: https://github.com/home-assistant/core/pull/34831
 [@Adminiuga]: https://github.com/Adminiuga
 [@BarrettLowe]: https://github.com/BarrettLowe
 [@ColinRobbins]: https://github.com/ColinRobbins
@@ -1366,6 +1465,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
 [automatic docs]: /integrations/automatic/
+[automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [binary_sensor docs]: /integrations/binary_sensor/
@@ -1415,9 +1515,10 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [frontend docs]: /integrations/frontend/
 [garmin_connect docs]: /integrations/garmin_connect/
 [gdacs docs]: /integrations/gdacs/
+[generic_thermostat docs]: /integrations/generic_thermostat/
 [gios docs]: /integrations/gios/
 [github docs]: /integrations/github/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_cloud docs]: /integrations/google_cloud/
 [google_pubsub docs]: /integrations/google_pubsub/
@@ -1498,7 +1599,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [powerwall docs]: /integrations/powerwall/
 [proximity docs]: /integrations/proximity/
 [proxy docs]: /integrations/proxy/
-[pushetta docs]: /integrations/pushetta/
 [qrcode docs]: /integrations/qrcode/
 [qvr_pro docs]: /integrations/qvr_pro/
 [qwikswitch docs]: /integrations/qwikswitch/
@@ -1532,10 +1632,11 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [spc docs]: /integrations/spc/
 [spotify docs]: /integrations/spotify/
 [sql docs]: /integrations/sql/
+[steam_online docs]: /integrations/steam_online/
 [synology docs]: /integrations/synology/
 [synology_dsm docs]: /integrations/synology_dsm/
 [synology_srm docs]: /integrations/synology_srm/
-[synologydsm docs]: /integrations/synologydsm/
+[synologydsm docs]: /integrations/synology_dsm/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tankerkoenig docs]: /integrations/tankerkoenig/
@@ -1572,7 +1673,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [withings docs]: /integrations/withings/
 [workday docs]: /integrations/workday/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
-[yweather docs]: /integrations/yweather/
 [zamg docs]: /integrations/zamg/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
