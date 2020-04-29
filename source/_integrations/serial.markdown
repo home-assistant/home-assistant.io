@@ -49,9 +49,9 @@ bytesize:
   default: 8
   type: integer
 parity:
-  description: "Enable parity checking. Possible values: `PARITY_NONE`, `PARITY_EVEN`, `PARITY_ODD PARITY_MARK`, `PARITY_SPACE`."
+  description: "Enable parity checking. Possible values: `N=PARITY_NONE`, `E=PARITY_EVEN`, `O=PARITY_ODD`, `M=PARITY_MARK`, `S=PARITY_SPACE`."
   required: false
-  default: PARITY_NONE
+  default: "N"
   type: string
 stopbits:
   description: "Number of stop bits. Possible values: `1=STOPBITS_ONE`, `1.5=STOPBITS_ONE_POINT_FIVE`, `2=STOPBITS_TWO`."
