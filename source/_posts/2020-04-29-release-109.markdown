@@ -299,7 +299,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   configuration. You will need to adjust accordingly. -
   ([@chrisrosset] - [#33431]) ([uscis docs])
 
-- **Panansonic Viera TV** - This is now its own integration and is available
+- **Panansonic Viera** - This is now its own integration and is available
   through the integrations UI. You will need to reconfigure your existing YAML
   integration. - ([@joogps] - [#33829]) ([panasonic_viera docs])
 
