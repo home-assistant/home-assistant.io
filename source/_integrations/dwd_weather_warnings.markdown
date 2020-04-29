@@ -57,6 +57,7 @@ name:
 | `region_state` | State (Bundesland) in abriviated form the requested region is located, e.g., "HE" for "Hessen". |
 | `region_id` | Region ID assigned by DWD. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
+| `warning_<x>` | The warning as a whole JSON object containing the following attributes as nested attributes. |
 | `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
 | `warning_<x>_type` | *(int)* Issued warning type. <br/>0: Gewitter, Starkes Gewitter<br/>1: Windböen, Sturmböen<br/>2: ?<br/>3: Schneefall<br/>4: Nebel<br/>5: Frost <br/>6: Glätte, Glatteis<br/>8: Hitze (always level 10)<br/>9: UV-Index (always level 20)<br/>Please be aware that the type numbers represent more like a category than an exact number-to-string match. For example Type `6` can mean `GLÄTTE` or `GLATTEIS` or similar. |
 | `warning_<x>_name` | This name correlates with the warning type and indicates it in short as a string. |

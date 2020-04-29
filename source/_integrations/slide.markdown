@@ -36,4 +36,9 @@ scan_interval:
   required: false
   default: 30 seconds
   type: integer
+invert_position:
+  description: Invert position percentage.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}

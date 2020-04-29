@@ -24,12 +24,12 @@ homeassistant:
 
 #### Changes
 
-<img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/pushetta.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
+<img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
 
  * Thermostat: [Honeywell](/integrations/honeywell/) now supported ([@sander76])
  * Switch: [Orvibo](/integrations/orvibo) now supported ([@happyleavesaoc])
  * Camera: [mjpeg camera's](/integrations/mjpeg) now supported ([@ryanturner])
- * Notify: [Pushetta](/integrations/pushetta) now supported ([@fabaff])
+ * Notify: Pushetta now supported ([@fabaff])
  * Light: [MQTT](/integrations/light.mqtt/) now supported ([@hexxter])
  * Light: [Z-Wave](/integrations/zwave/) now supported ([@leoc])
  * Switch: [Z-Wave](/integrations/zwave/) now supported ([@leoc])

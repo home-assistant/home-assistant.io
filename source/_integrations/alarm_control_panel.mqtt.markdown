@@ -16,8 +16,11 @@ The integration will accept the following states from your Alarm Panel (in lower
 - `armed_home`
 - `armed_away`
 - `armed_night`
+- `armed_custom_bypass`
 - `pending`
 - `triggered`
+- `arming`
+- `disarming`
 
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
@@ -122,6 +125,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_custom_bypass:
+  description: The payload to set armed-custom-bypass mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_CUSTOM_BYPASS
 payload_available:
   description: The payload that represents the available state.
   required: false

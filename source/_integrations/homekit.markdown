@@ -86,6 +86,11 @@ homekit:
         required: false
         type: boolean
         default: false
+      zeroconf_default_interface:
+        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
+        required: true
+        type: boolean
+        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
@@ -167,15 +172,19 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
+1. Open the Home Assistant frontend. A new card will display the pairing QR code and the `pin code` as seen in the example below. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the lower-left of the Home Assistant UI.
 2. Open the `Home` app.
-3. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
+3. Click `Add Accessory`, then scan the QR code or select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
-5. Enter the `PIN` code.
+5. Enter the `PIN` code (skip this step if you scanned the QR code).
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
 7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
 After the setup is completed, you should be able to control your Home Assistant integrations through Apple's Home and Siri.
+
+<p class='img'>
+  <img src='/images/screenshots/homekit_pairing_example.png' />
+</p>
 
 ## Move Home Assistant install
 
@@ -191,7 +200,7 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 ### Device Limit
 
-The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
 
 ### Persistence Storage
 
@@ -336,15 +345,18 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
+You may also need to set `zeroconf_default_interface` to `true`.
+
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
+  zeroconf_default_interface: true
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
-
+ 
 ## Supported Components
 
 The following integrations are currently supported:
@@ -352,7 +364,7 @@ The following integrations are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
-| automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
+| automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
@@ -422,7 +434,7 @@ Remember that the iOS device needs to be in the same local network as the Home A
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 
-Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+Set `network_mode: host` in your `docker-compose.yaml`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
 
 You can also try to use `avahi-daemon` in reflector mode together with the option `advertise_ip`, see above.
 
@@ -433,6 +445,10 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 #### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
+
+If [safe_mode](#safe-mode) is not successful, you likely need to enable `zeroconf_default_interface: true` and set a unique name such as `name: MyHASS42`.
+  
+If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
 #### Pairing hangs - only works with debug configuration
 
