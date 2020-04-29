@@ -17,7 +17,7 @@ map:
 
 {% configuration %}
 require_admin:
-  description: If admin access is required to see this iframe.
+  description: If admin access is required to see this panel.
   required: false
   type: boolean
   default: false
