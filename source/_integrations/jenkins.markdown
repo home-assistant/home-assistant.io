@@ -20,7 +20,7 @@ Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **Jenkins** to start the configuration.
 
-- First, specify the url to your Jenkins server and your login credentials. If you have enabled "anonymously read" in Jenkins under **Manage Jenkins** -> **Configure Global Security** -> **Authorization** you don't have to specify your login credentials. 
+- First, specify the URL to your Jenkins server and your login credentials. If you have enabled "anonymously read" in Jenkins under **Manage Jenkins** -> **Configure Global Security** -> **Authorization** you don't have to specify your login credentials. 
 - Second, select the job you like to monitor. 
 
 After completing the configuration flow, the Jenkins integration will be available.
