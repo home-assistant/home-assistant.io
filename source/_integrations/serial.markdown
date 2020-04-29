@@ -56,7 +56,7 @@ parity:
 stopbits:
   description: "Number of stop bits. Possible values: `1=STOPBITS_ONE`, `1.5=STOPBITS_ONE_POINT_FIVE`, `2=STOPBITS_TWO`."
   required: false
-  default: STOPBITS_ONE
+  default: 1
   type: float
 xonxoff: 
   description: Enable software flow control.
