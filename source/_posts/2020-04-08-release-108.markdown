@@ -577,6 +577,12 @@ These integrations have been removed. The websites for both have changed, causin
 [@pvizeli]: https://github.com/pvizeli
 [cloud docs]: /integrations/cloud/
 
+## Release 0.108.9 - April 24
+
+- Fix Google Assistant devices being disconnected from their rooms ([@balloob] - [#34622])
+
+[#34622]: https://github.com/home-assistant/core/pull/34622
+
 ## All changes
 
 <details>
