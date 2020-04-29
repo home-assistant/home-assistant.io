@@ -49,7 +49,7 @@ bytesize:
   default: EIGHTBITS
   type: integer
 parity:
-  description: Enable parity checking. Possible values: PARITY_NONE, PARITY_EVEN, PARITY_ODD PARITY_MARK, PARITY_SPACE
+  description: "Enable parity checking. Possible values: `PARITY_NONE`, `PARITY_EVEN`, `PARITY_ODD PARITY_MARK`, `PARITY_SPACE`."
   required: false
   default: PARITY_NONE
   type: string
