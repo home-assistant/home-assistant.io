@@ -28,7 +28,7 @@ name:
 show_forecast:
   required: false
   description: Show next hours/days forecast.
-  type: string
+  type: boolean
   default: true
 theme:
   required: false
