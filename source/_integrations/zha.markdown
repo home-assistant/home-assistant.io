@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities).
+There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities).  At least two entities must be added to a group before the group entity is created.
 
 ## ZHA exception and deviation handling
 
