@@ -1,14 +1,14 @@
 ---
 title: Flick Electric
 description: Instructions on how to set up the Flick Electric Pricing sensor in Home Assistant.
-logo: flickelectric.png
+logo: flick_electric.png
 ha_category:
   - Energy
 ha_release: '0.110'
 ha_iot_class: Cloud Polling
 ha_codeowners: 
   - '@ZephireNZ'
-ha_domain: flickelectric
+ha_domain: flick_electric
 ---
 
 [Flick Electric Co](https://www.flickelectric.co.nz/) is a power company in New Zealand, based around a transparent pricing model where each component of pricing is provided. This integration uses the mobile app's API from Flick Electric Co to get the current power price as well as each of the components price.
