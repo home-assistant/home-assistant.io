@@ -843,6 +843,8 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Fix meteoalarm exception handling with instance of KeyError ([@frenck] - [#34828]) (beta fix)
 - Bump python-synology to 0.7.2 ([@Quentame] - [#34830]) ([synology_dsm docs]) (beta fix)
 - Updated frontend to 20200427.1 ([@bramkragten] - [#34831]) ([frontend docs]) (beta fix)
+- Fix Islamic prayer times naming ([@engrbm87] - [#34784]) ([islamic_prayer_times docs]) (beta fix)
+- Bump python-synology to 0.7.3 ([@Quentame] - [#34847]) ([synology_dsm docs]) (beta fix)
 
 </details>
 
@@ -1320,6 +1322,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34728]: https://github.com/home-assistant/core/pull/34728
 [#34756]: https://github.com/home-assistant/core/pull/34756
 [#34766]: https://github.com/home-assistant/core/pull/34766
+[#34784]: https://github.com/home-assistant/core/pull/34784
 [#34793]: https://github.com/home-assistant/core/pull/34793
 [#34794]: https://github.com/home-assistant/core/pull/34794
 [#34802]: https://github.com/home-assistant/core/pull/34802
@@ -1329,6 +1332,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [#34828]: https://github.com/home-assistant/core/pull/34828
 [#34830]: https://github.com/home-assistant/core/pull/34830
 [#34831]: https://github.com/home-assistant/core/pull/34831
+[#34847]: https://github.com/home-assistant/core/pull/34847
 [@Adminiuga]: https://github.com/Adminiuga
 [@BarrettLowe]: https://github.com/BarrettLowe
 [@ColinRobbins]: https://github.com/ColinRobbins
