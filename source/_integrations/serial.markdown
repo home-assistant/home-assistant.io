@@ -44,7 +44,7 @@ baudrate:
   default: 9600 Bps
   type: integer
 bytesize:
-  description: Number of data bits. Possible values: 5=FIVEBITS, 6=SIXBITS, 7=SEVENBITS, 8=EIGHTBITS
+  description: "Number of data bits. Possible values: `5=FIVEBITS`, `6=SIXBITS`, `7=SEVENBITS`, `8=EIGHTBITS`."
   required: false
   default: EIGHTBITS
   type: integer
