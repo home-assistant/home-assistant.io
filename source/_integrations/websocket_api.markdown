@@ -1,5 +1,5 @@
 ---
-title: Home Asssitant WebSocket API
+title: Home Assistant WebSocket API
 description: Instructions on how to setup the WebSocket API within Home Assistant.
 ha_category:
   - Other
