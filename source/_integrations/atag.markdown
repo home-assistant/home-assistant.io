@@ -3,7 +3,7 @@ title: Atag
 description: Instructions on how to setup Atag integration.
 ha_category:
   - Climate
-  - Water heater
+  - Water Heater
   - Sensor
 ha_release: 0.109
 ha_iot_class: Local Polling
