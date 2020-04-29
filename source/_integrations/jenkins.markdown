@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: jenkins
 ---
 
-Jenkins is a tool for setting up pipelines that manages continuous integration and deployment.  The `jenkins` integration is a sensor for listening on your Jenkins server and send you updates when jobs are executed to Home Assistant.  
+Jenkins is a tool for setting up pipelines that manages continuous integration and deployment. The `jenkins` integration is a sensor for listening on your Jenkins server and send you updates when jobs are executed to Home Assistant.  
 
 ## Configuration via the frontend
 
