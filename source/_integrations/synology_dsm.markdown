@@ -6,6 +6,10 @@ ha_category:
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
+ha_codeowners:
+  - '@ProtoThis'
+  - '@Quentame'
+ha_config_flow: true
 ---
 
 The `synology_dsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).

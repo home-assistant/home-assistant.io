@@ -14,7 +14,7 @@ ha_codeowners:
 ha_domain: hue
 ---
 
-The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The preferred way to set up the Philips Hue integration is by enabling [discovery](/integrations/discovery/).
+The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The Hue integration is automatically discovered. If not, add it via the add integration menu.
 
 There is currently support for the following device types within Home Assistant:
 

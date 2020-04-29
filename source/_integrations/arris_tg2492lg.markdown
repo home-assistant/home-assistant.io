@@ -5,6 +5,9 @@ logo: arris.jpg
 ha_category:
   - Presence Detection
 ha_release: 0.109
+ha_domain: arris_tg2492lg
+ha_codeowners:
+  - '@vanbalken'
 ---
 
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.

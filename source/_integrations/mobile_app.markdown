@@ -1,5 +1,5 @@
 ---
-title: Home Assistant Mobile App Support
+title: Mobile App
 description: The Mobile App integration allows a generic platform for integrating with mobile apps.
 ha_category:
   - Other

@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/core'
+  - '@emontnemery'
 ha_domain: mqtt
 ---
 

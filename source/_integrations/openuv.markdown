@@ -1,5 +1,5 @@
 ---
-title: Openuv
+title: OpenUV
 description: Instructions on how to integrate OpenUV within Home Assistant.
 ha_category:
   - Health

@@ -9,6 +9,7 @@ ha_category:
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox
+ha_config_flow: true
 ---
 
 The [AVM](https://en.avm.de) FRITZ!Box integration for Home Assistant allows you to integrate the switch and climate devices.
