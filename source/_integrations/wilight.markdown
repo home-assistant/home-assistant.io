@@ -7,7 +7,7 @@ ha_category:
   - Fan
   - Light
   - Switch
-ha_release: 0.108
+ha_release: 0.109
 ha_iot_class: Local Push
 ha_domain: wilight
 ---
@@ -69,27 +69,27 @@ mode:
   description: "Mode of Device type. Depending on type of Device."
   required: true
   type: string
-slots:
-  description: Friendly names of 1 to 3 slots of WiLight device. If not configured, slot name will be `'WL' + last 6 numbers of WiLight's id + '_{slot_index}'`. e.g 'WL000033_1'
+items:
+  description: Friendly names of 1 to 3 items of WiLight device. If not configured, item name will be `'WL' + WiLight's id + '_{item_index}'`. e.g 'WL000000000033_1'
   required: false
   type: map
   keys:
-    slot_1:
-      description: Friendly names of slot 1
+    item_1:
+      description: Friendly names of item 1
       required: false
       type: string
-    slot_2:
-      description: Friendly names of slot 2
+    item_2:
+      description: Friendly names of item 2
       required: false
       type: string
-    slot_3:
-      description: Friendly names of slot 3
+    item_3:
+      description: Friendly names of item 3
       required: false
       type: string
 {% endconfiguration %}
 
 
-  | WiLight Model | Type   | Mode     | slot_1 type | slot_2 type | slot_2 type |
+  | WiLight Model | Type   | Mode     | item_1 type | item_2 type | item_2 type |
   | ------------- | ------ | -------- | ----------- | ----------- | ----------- |
   | I-100         | `0100` | 1abcde10 | light       | light       | light       |
   | I-102         | `0102` | 1ab00010 | light       | light       | light       |
@@ -100,13 +100,13 @@ slots:
 
   Where:
 
-  - a = slot_2 enabled (1) / disabled (0);
-  - b = slot_3 enabled (1) / disabled (0);
-  - c = slot_1 dimmer (1) / on-off (0);
-  - d = slot_2 dimmer (1) / on-off (0);
-  - e = slot_3 dimmer (1) / on-off (0).
+  - a = item_2 enabled (1) / disabled (0);
+  - b = item_3 enabled (1) / disabled (0);
+  - c = item_1 dimmer (1) / on-off (0);
+  - d = item_2 dimmer (1) / on-off (0);
+  - e = item_3 dimmer (1) / on-off (0).
 
-Example configuration for Model I-102 with slot_2 and slot_3 enabled:
+Example configuration for Model I-102 with item_2 and item_3 enabled:
 
 ```yaml
 wilight:
@@ -115,10 +115,10 @@ wilight:
       host: 192.168.1.5
       type: '0102'
       mode: '11100010'
-      slots:
-        # friendly name of slots - optional
-        # if not set, slot name will be 'WL' + last 6 numbers of WiLight's id + '_{slot_index}'. e.g 'WL000033_1'
-        slot_1: 'Celling light'
-        slot_2: 'Door light'
-        slot_3: 'Stair light'
+      # friendly name of items - optional
+      # if not set, item name will be 'WL' + WiLight's id + '_{item_index}'. e.g 'WL000000000033_1'
+      items:
+        item_1: 'Celling light'
+        item_2: 'Door light'
+        item_3: 'Stair light'
 ```
