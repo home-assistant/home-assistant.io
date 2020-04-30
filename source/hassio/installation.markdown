@@ -24,7 +24,8 @@ The following will take you through the steps required to install Home Assistant
      - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX][vhdx]
      - [VDI][vdi]
-     - [OVA][Virtual Appliance] (not available at this time!)
+     - [QCOW2 (beta)][qcow2]
+     - [OVA (Beta)][Virtual Appliance]
 
    - Not recommended Hardware:
 
@@ -193,7 +194,6 @@ See the [installer](https://github.com/home-assistant/supervised-installer) GitH
 If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
 
 [balenaEtcher]: https://www.balena.io/etcher
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi0-w-3.13.img.gz
 [pi1]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi-3.13.img.gz
@@ -204,12 +204,14 @@ If you can not find your machine type in the list, you should pick the `qemu` re
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-c2-3.13.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.4/hassos_odroid-n2-4.4.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_odroid-n2-4.5.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-xu4-3.13.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.vdi.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.ova
 [linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/

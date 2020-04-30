@@ -25,6 +25,11 @@ name:
   description: Overwrites the friendly name.
   type: string
   default: Entity Name
+show_forecast:
+  required: false
+  description: Show next hours/days forecast.
+  type: boolean
+  default: true
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
