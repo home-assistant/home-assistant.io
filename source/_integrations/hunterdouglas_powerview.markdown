@@ -4,6 +4,7 @@ description: Instructions on how to setup Hunter Douglas PowerView scenes within
 ha_category:
   - Cover
   - Scene
+  - Sensor
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling
@@ -18,6 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Cover
 - Scene
+- Sensor
 
 To add `Hunter Douglas PowerView` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hunter Douglas PowerView**.
 
