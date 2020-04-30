@@ -107,12 +107,27 @@ Valid values for enable are:
 Home Assistant must be on the same network as the devices for UPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
+If for some reason you do not want to use `--net=host` you can also configure avahi-reflector on your host to make mDNS / UPnP work:
+
+``` 
+# Install the Avahi-daemon
+sudo apt-get install avahi-daemon
+
+# Turn on the reflector. Go into /etc/avahi/avahi-daemon.conf and change the reflector section to:
+ [reflector]
+ enable-reflector=yes
+ reflect-ipv=no
+
+# (re)start the Avahi daemon to reload config
+sudo service avahi-daemon restart
+```
+
 ### Windows
 
 #### 64-bit Python
 There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
 
-### could not install dependency netdisco
+### Could not install dependency netdisco
 
 If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
 
