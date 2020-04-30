@@ -221,7 +221,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   intended anymore. Withings only provides historical data for this API endpoint
   and getting recent data is rare. This results in wildly inaccurate state
   reported by Home Assistant. - ([@vangorra] - [#33817]) ([withings docs])
-  
+
 - **Slide** - This integration was previously using the wrong inverted
   percentage of open/close. A new `invert_position` fallback option has been
   added and the 5% offset to round it off as open/close has been extended to
@@ -277,7 +277,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Additionally, `manual` preset is removed in favor of HVAC mode `heat`. This
   might affect your scripts, templates or automations. -
   ([@leppa] - [#28845]) ([maxcube docs])
-  
+
   Other improvements:
   - It wasn't possible to return to automatic (scheduled) operation after
     switching to `manual` preset. `none` preset was added, which switches
@@ -323,7 +323,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   saved since Home Assistant 0.94. If you are running Home Assistant 0.94 or
   later this does not affect you as your pairings were automatically migrated
   to the new scheme already. If you are running an older release then you will
-  need to re-pair after upgrading. - ([@Jc2k] - [#34333]) ([homekit_controller docs]) 
+  need to re-pair after upgrading. - ([@Jc2k] - [#34333]) ([homekit_controller docs])
 
 - **Add Islamic Prayer Times** - Islamic Prayer Times is now its own integration
   and can be added using the Integrations UI. You will need to reconfigure your
@@ -354,6 +354,50 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Yahoo Weather**
 
 Pushetta has been offline since September 2019 and the Yahoo Weather API has been discontinued. - ([@frenck] - [#34497] [#34501])
+
+## Release 0.109.1 - April 30
+
+- Reload braviatv entry after options update ([@bieniu] - [#34576]) ([braviatv docs])
+- Fix CVE-2020-1967 ([@pvizeli] - [#34853])
+- SmartThings continue correct config flow after external auth ([@andrewsayre] - [#34862]) ([smartthings docs])
+- Abort nexia import if the username is already configured ([@bdraco] - [#34863]) ([nexia docs])
+- Prevent homekit fans from going to 100% than speed when turning on ([@bdraco] - [#34875]) ([homekit docs])
+- Fix Flu Near You exception re: stale coroutines ([@bachya] - [#34880]) ([flunearyou docs])
+- Fix Garmin Connect doing I/O in event loop ([@balloob] - [#34895]) ([garmin_connect docs])
+- Fix Toon doing I/O in event loop ([@balloob] - [#34896]) ([toon docs])
+- Reduce log level for WebOS connection error ([@jjlawren] - [#34904]) ([webostv docs])
+- Fix handling homekit thermostat states ([@bdraco] - [#34905]) ([homekit docs])
+- Avoid error when battery appears after homekit has started ([@bdraco] - [#34906]) ([homekit docs])
+- Make sqlalchemy engine connect listener recorder specific ([@bdraco] - [#34908]) ([recorder docs]) (breaking change)
+
+[#34576]: https://github.com/home-assistant/core/pull/34576
+[#34853]: https://github.com/home-assistant/core/pull/34853
+[#34862]: https://github.com/home-assistant/core/pull/34862
+[#34863]: https://github.com/home-assistant/core/pull/34863
+[#34875]: https://github.com/home-assistant/core/pull/34875
+[#34880]: https://github.com/home-assistant/core/pull/34880
+[#34895]: https://github.com/home-assistant/core/pull/34895
+[#34896]: https://github.com/home-assistant/core/pull/34896
+[#34904]: https://github.com/home-assistant/core/pull/34904
+[#34905]: https://github.com/home-assistant/core/pull/34905
+[#34906]: https://github.com/home-assistant/core/pull/34906
+[#34908]: https://github.com/home-assistant/core/pull/34908
+[@andrewsayre]: https://github.com/andrewsayre
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@jjlawren]: https://github.com/jjlawren
+[@pvizeli]: https://github.com/pvizeli
+[braviatv docs]: /integrations/braviatv/
+[flunearyou docs]: /integrations/flunearyou/
+[garmin_connect docs]: /integrations/garmin_connect/
+[homekit docs]: /integrations/homekit/
+[nexia docs]: /integrations/nexia/
+[recorder docs]: /integrations/recorder/
+[smartthings docs]: /integrations/smartthings/
+[toon docs]: /integrations/toon/
+[webostv docs]: /integrations/webostv/
 
 ## All changes
 
