@@ -15,7 +15,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Bluesound speakers](/integrations/bluesound)
  * [Bose Soundtouch speakers](/integrations/soundtouch)
  * [Denon network receivers](/integrations/denonavr/)
- * [DirecTV receivers](/integrations/directv)
  * [DLNA DMR enabled devices](/integrations/dlna_dmr)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
@@ -25,7 +24,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [NETGEAR routers](/integrations/netgear)
  * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
- * [Roku media player](/integrations/roku#media-player)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
  * [Sonos speakers](/integrations/sonos)
@@ -74,7 +72,6 @@ Valid values for ignore are:
  * `bluesound`: Bluesound speakers
  * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon network receivers
- * `directv`: DirecTV receivers
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
@@ -85,7 +82,6 @@ Valid values for ignore are:
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
  * `sonos`: Sonos speakers
