@@ -70,3 +70,20 @@ Cast devices can only be discovered and connected to if they are on the same sub
 - Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
 
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+
+### Cast devices and Home Assistant in Docker without using net=host
+
+If you run Home Assistant in Docker and for some reason do not want to use `--net=host`, you might see that Home Assistant fails to connect to your cast devices. To solve this, you can configure avahi-reflector on your host to make mDNS / UPnP work:
+
+``` 
+# Install the Avavhi-daemon
+sudo apt-get install avahi-daemon
+
+# Turn on the reflector. Go into /etc/avahi/avahi-daemon.conf and change the reflector section to:
+ [reflector]
+ enable-reflector=yes
+ reflect-ipv=no
+
+# (re)start the Avahi daemon to reload config
+sudo service avahi-daemon restart
+```
