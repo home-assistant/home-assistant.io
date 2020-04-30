@@ -48,6 +48,11 @@ surepetcare:
     description: The Sure Petcare IDs of the Pets to show
     required: false
     type: list
+  timeout:
+    description: "Timeout in seconds for request to the Sure Petcare API."
+    required: false
+    default: 15
+    type: int
   scan_interval:
     description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
     required: false
