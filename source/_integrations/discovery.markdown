@@ -108,7 +108,7 @@ Home Assistant must be on the same network as the devices for UPnP discovery to 
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
 ### mDNS
-If for some reason you do not want to use `--net=host` you can also configure avahi-reflector on your host to make mDNS work:
+If for some reason you do not want to use `--net=host` when running Home Assistant in a Docker container, you can also configure avahi-reflector on your host to make mDNS work:
 
 {% raw %}
 ``` 
