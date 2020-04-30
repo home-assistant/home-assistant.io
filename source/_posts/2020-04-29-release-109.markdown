@@ -369,7 +369,9 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Fix handling homekit thermostat states ([@bdraco] - [#34905]) ([homekit docs])
 - Avoid error when battery appears after homekit has started ([@bdraco] - [#34906]) ([homekit docs])
 - Make sqlalchemy engine connect listener recorder specific ([@bdraco] - [#34908]) ([recorder docs]) (breaking change)
+- Use entry ID when IPP printer offers no identifier ([@ctalkington] - [#34316])
 
+[#34316]: https://github.com/home-assistant/core/pull/34316
 [#34576]: https://github.com/home-assistant/core/pull/34576
 [#34853]: https://github.com/home-assistant/core/pull/34853
 [#34862]: https://github.com/home-assistant/core/pull/34862
