@@ -73,7 +73,7 @@ Setups with cast devices on a different subnet than Home Assistant are not recom
 
 ### Cast devices and Home Assistant in Docker without using net=host
 
-If you run Home Assistant in Docker and for some reason do not want to use `--net=host`, you might see that Home Assistant fails to connect to your cast devices. To solve this, you can configure avahi-reflector on your host to make mDNS / UPnP work:
+If you run Home Assistant in Docker and for some reason do not want to use `--net=host`, you might see that Home Assistant fails to connect to your cast devices. To solve this, you can configure avahi-reflector on your host to make mDNS work:
 
 {% raw %}
 ``` 
