@@ -107,8 +107,10 @@ Valid values for enable are:
 Home Assistant must be on the same network as the devices for UPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
-If for some reason you do not want to use `--net=host` you can also configure avahi-reflector on your host to make mDNS / UPnP work:
+### mDNS
+If for some reason you do not want to use `--net=host` you can also configure avahi-reflector on your host to make mDNS work:
 
+{% raw %}
 ``` 
 # Install the Avahi-daemon
 sudo apt-get install avahi-daemon
@@ -121,6 +123,7 @@ sudo apt-get install avahi-daemon
 # (re)start the Avahi daemon to reload config
 sudo service avahi-daemon restart
 ```
+{% endraw %}
 
 ### Windows
 
