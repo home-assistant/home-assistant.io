@@ -1,5 +1,5 @@
 ---
-title: myIO Server
+title: myIO
 description: Instructions on how to integrate myIO Server into Home Assistant.
 ha_category:
   - Climate
