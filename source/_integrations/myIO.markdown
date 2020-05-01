@@ -25,7 +25,7 @@ The myIO integration adds support for [myIO-server](https://myio.com) controlled
 
 ## Configuration
 
-Click 'Configuration', click 'Integration', click '+', choose 'myIO'.
+Home Assistant offers myIO integration through **Configuration** -> **Integrations** -> **myIO**. Follow the instructions to get it set up.
 
 Parameter settings:
 
