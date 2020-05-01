@@ -36,7 +36,7 @@ Parameter settings:
 - 'Username' - Set the username to log in to myIO server.
 - 'Password' - Set the password to log in to myIO Server.
 
-Click 'Submit'
+Click 'Submit'.
 
 The integration will find all of your discoverable devices and import them to a Home Assistant.
 
