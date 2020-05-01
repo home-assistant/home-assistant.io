@@ -29,12 +29,12 @@ Home Assistant offers myIO integration through **Configuration** -> **Integratio
 
 Parameter settings:
 
-  - 'Name' - this is a name of the server (example: "my Home", "Weekend House", "Office"). You can integrate more servers.  
-  - 'Host' - this is the IP address of the myIO server.  
-  - 'HTTP Port' - in case of port forwarding, you can change this.  
-  - 'App Port' - in case of port forwarding, you can change this.  
-  - 'Username' - Set the username to log in to myIO server.  
-  - 'Password' - Set the password to log in to myIO Server.  
+- 'Name' - this is a name of the server (example: "my Home", "Weekend House", "Office"). You can integrate more servers.
+- 'Host' - this is the IP address of the myIO server.
+- 'HTTP Port' - in case of port forwarding, you can change this.
+- 'App Port' - in case of port forwarding, you can change this.
+- 'Username' - Set the username to log in to myIO server.
+- 'Password' - Set the password to log in to myIO Server.
 
 Click 'Submit'
 
