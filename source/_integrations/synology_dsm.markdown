@@ -6,6 +6,10 @@ ha_category:
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
+ha_codeowners:
+  - '@ProtoThis'
+  - '@Quentame'
+ha_config_flow: true
 ---
 
 The `synology_dsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
@@ -53,11 +57,6 @@ password:
   description: The password of the user to connect to the Synology NAS.
   required: true
   type: string
-api_version:
-  description: Define DSM version to allow backward compatibility with 5.x. Value can be `5` for DSM 5.x or `6` for DSM 6.x.
-  required: false
-  default: 6
-  type: integer
 volumes:
   description: "Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores, e.g., `volume 1` with `volume_1`."
   required: false

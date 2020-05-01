@@ -19,12 +19,14 @@ Known supported devices:
 - Denon AVR-X1500H
 - Denon AVR-X2000
 - Denon AVR-X2100W
+- Denon AVR-X3400H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4500H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
+- Denon AVR-3312
 - Denon AVR-4810
 - Denon AVR-S750H
 - Marantz M-CR510
@@ -37,6 +39,8 @@ Known supported devices:
 - Marantz NR1506
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
+
+If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
 
 <div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.

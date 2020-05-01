@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
+ha_codeowners:
+  - '@joogps'
+ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
@@ -101,6 +104,7 @@ script:
 - TX-55CX700E
 - TX-55CX680B
 - TX-55EXW584
+- TX-55EXW604S
 - TX-65EXW784
 - TX-L42ET50
 - TX-P42STW50
@@ -109,5 +113,6 @@ script:
 - TH-32ES500
 - TX-42AS650
 - TX55ASW654
+- TX-55FZ802B
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).

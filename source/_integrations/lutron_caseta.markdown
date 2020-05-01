@@ -1,5 +1,5 @@
 ---
-title: Lutron Caseta
+title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 ha_category:
   - Hub

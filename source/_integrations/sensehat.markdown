@@ -1,7 +1,6 @@
 ---
 title: Sense HAT
 description: Instructions on how to setup Sense HAT LED lights within Home Assistant.
-logo: sense-hat.png
 ha_category:
   - DIY
   - Light

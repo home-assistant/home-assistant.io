@@ -3,10 +3,14 @@ title: Atag
 description: Instructions on how to setup Atag integration.
 ha_category:
   - Climate
-  - Water heater
+  - Water Heater
   - Sensor
 ha_release: 0.109
 ha_iot_class: Local Polling
+ha_domain: atag
+ha_codeowners:
+  - '@MatsNL'
+ha_config_flow: true
 ---
 
 The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.
@@ -18,19 +22,15 @@ The integration implements the following platforms:
 
 ## Configuration
 
-The Atag integration can be enabled directly from Home Assistant. Navigate to `configuration`, then `integrations` and click `add`. Click `Atag` to initiate the configuration. Only the IP Address has to be provided, but be sure to add your email address if you experience connectivity issues.
+The Atag integration can be enabled directly from Home Assistant. Navigate to `configuration`, then `integrations` and click `add`. Click `Atag` to initiate the configuration.
 
 {% configuration %}
 host:
   description: Atag hostname or IP address.
   required: true
   type: string
-email:
-  description: Email registered in the Atag App.
-  required: false
-  type: string
 port:
-  description: Port to reach the Atag API. Only needed if connecting through alternative routes.
+  description: API Port. Only change if you are connecting indirectly (e.g. through reverse proxy)
   required: false
   type: integer
 {% endconfiguration %}
@@ -45,13 +45,18 @@ This integration supports the following services (see [Climate](/integrations/cl
 
 - [`set_temperature`](/integrations/climate/#service-climateset_temperature)
 - [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
-  - `heat` for regular thermostat mode
+  - `heat` for thermostat mode
   - `auto` for weather-based mode
-  - `off` to disable control from Home Assistant
+- [`set_preset_mode`](/integrations/climate/#service-climateset_preset_mode)
+  - `Manual` enable manual operation
+  - `Auto` enable schedule based operation
+  - `Extend` delay the next scheduled temperature update by the default extend period
+  - `away` enable the vacation mode for 1 day or until another preset is activated
+  - `boost` enable fireplace mode
 
 <div class='note'>
-HVAC mode provides returns regular or weather-based mode (i.e., not manual, auto, extend, fireplace).
-The hold modes (manual, auto, extend) are currently available as a sensor only. Setting these modes is planned for a future update.
+`HVAC mode Auto` (Weather based) should not be confused with `Preset mode Auto` (Sheduled, thermostat mode).
+Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
 </div>
 
 ## Water Heater
@@ -66,12 +71,11 @@ The following sensors will be added to Home Assistant:
 
 ### Sensors enabled by default
 
-- `outside_temp`
-- `outside_temp_avg`
-- `weather_status`
-- `operation_mode`
-- `ch_water_pressure`
-- `dhw_water_temp`
-- `dhw_water_pres`
+- `average_outside_temperature`
 - `burning_hours`
-- `flame_level`
+- `ch_return_temperature`
+- `ch_water_pressure`
+- `ch_water_temperature`
+- `flame`
+- `outside_temperature`
+- `weather_status`

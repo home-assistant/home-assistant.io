@@ -21,7 +21,7 @@ ha_codeowners:
 ha_domain: smartthings
 ---
 
- SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
+SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
 
 1. Controlling SmartThings devices as Home Assistant entities ([see platforms for supported devices and capabilities](#platforms)).
 1. Entities automatically synchronized upon restart of Home Assistant when changed in SmartThings.

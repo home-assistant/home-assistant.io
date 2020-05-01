@@ -7,6 +7,8 @@ ha_release: 0.64
 ha_iot_class: Local Push
 ha_domain: homekit
 ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
 The HomeKit Bridge integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
