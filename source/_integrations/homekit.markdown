@@ -1,15 +1,17 @@
 ---
-title: HomeKit
-description: Instructions on how to set up the HomeKit integration in Home Assistant.
+title: HomeKit Bridge
+description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64
+ha_iot_class: Local Push
 ha_domain: homekit
+ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ---
 
-The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The HomeKit Bridge integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <div class="note">
 
@@ -28,10 +30,14 @@ It might be necessary to install an additional package:
 
 </div>
 
+To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
+
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
 homekit:
-  filter:
+- filter:
     include_domains:
       - alarm_control_panel
       - light
@@ -56,6 +62,11 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+- name: HASS Bridge 2
+  port: 56332
+  filter:
+    include_domains:
+      - light
 ```
 
 {% configuration %}
@@ -190,7 +201,7 @@ After the setup is completed, you should be able to control your Home Assistant 
 
 ## Move Home Assistant install
 
-If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
+If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.storage/homekit.*` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
 
 Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
@@ -198,11 +209,11 @@ Before you copy it, make sure to stop the old and new Home Assistant instances f
 
 ### Accessory ID
 
-Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` that does not have a `unique_id`, all configurations for this accessory made in the `Home` app will be lost.
 
 ### Device Limit
 
-The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
 ### Persistence Storage
 
@@ -391,22 +402,22 @@ The following integrations are currently supported:
 
 ## Troubleshooting
 
-### Deleting the `.homekit.state` file
+### Resetting when created via YAML
 
-The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. **Restart** Home Assistant.
+ 3. The configuration will be automaticlly reimported from YAML.
+ 4. Pair the bridge.
 
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. **Start** Home Assistant
+### Resetting when created via the **Integrations** screen
+
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. Recreate the `HomeKit Bridge` integration in the **Integrations** screen.
+ 3. Pair the bridge.
 
 ### Errors during pairing
 
-If you encounter any issues during pairing, make sure to:
-
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. Edit your configuration (see below)
- 4. **Start** Home Assistant
+If you encounter any issues during pairing, make sure to add the following to your `configuration.yaml`
 
 ```yaml
 logger:
@@ -414,7 +425,15 @@ logger:
   logs:
     homeassistant.components.homekit: debug
     pyhap: debug
+```
 
+Follow the above instructions for `Resetting`
+
+### Minimal Configuration
+
+If pairing still fails after trying the steps in ([Errors during pairing](#errors-during-pairing)), it may be caused by a specific entity.  Try resetting with a minimal configuration:
+
+```yaml
 homekit:
   filter:
     include_entities:
@@ -423,7 +442,7 @@ homekit:
 
 #### PIN doesn't appear as persistent status
 
-You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
+You might have paired the `Home Assistant Bridge` already. If not, follow the above instructions for `Resetting`
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing)
 
@@ -458,7 +477,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### Duplicate AID found when attempting to add accessory
