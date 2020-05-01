@@ -3,7 +3,7 @@ title: Natural Resources Wales
 description: Instructions on how to use the Natural Resources Wales river levels sensor in Home Assistant.
 ha_category:
   - Weather
-ha_release: 0.109
+ha_release: "0.110"
 ha_iot_class: Local Polling
 ha_domain: natural_resources_wales
 ---
