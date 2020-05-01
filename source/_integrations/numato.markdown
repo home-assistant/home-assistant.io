@@ -15,11 +15,11 @@ ha_domain: numato
 The `numato` integration is the base for all related GPIO platforms of the
 [Numato 32 Port USB GPIO expander](https://numato.com/product/32-channel-usb-gpio-module-with-analog-inputs):
 
-* [Binary Sensor](#binary-sensor)
-* [Sensor](#sensor)
-* [Switch](#switch)
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
-The whole configuration of all numato devices is located in the general setup
+The whole configuration of all Numato devices is located in the general setup
 of this integration. The following minimalistic example configures a couple of
 binary_sensor, switch and sensor ports for a single device with ID 0.
 
@@ -135,11 +135,12 @@ The `numato` binary_sensor platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in binary input mode.
 
 <div class='note warning'>
+
 As the Numato devices do not have internal pull-up or pull-down circuitry,
 be careful not to destroy a port by creating a short circuit. Refer to the
-<a href="https://numato.com/docs/32-channel-usb-gpio-module-with-analog-inputs/#gpio-with-switches-8">
-Numato documentation</a> on how to connect a switch to an input port for
-example.
+[Numato documentation](https://numato.com/docs/32-channel-usb-gpio-module-with-analog-inputs/#gpio-with-switches-8)
+on how to connect a switch to an input port, for example.
+
 </div>
 
 ## Sensor
@@ -148,10 +149,10 @@ The `numato` sensor platform allows you to operate some GPIOs of your USB GPIO
 expander in analog input mode.
 
 The Numato device has a number of built-in analog-digital-converters (ADCs) to
-convert a voltage level between VCC and GND into a 10 bit integer value. Read
+convert a voltage level between VCC and GND into a 10-bit integer value. Read
 the [IO Ports](#io-ports) section for constraints on the ports to use.
 
-By default the ADC's whole 10 bit range will be mapped to a float value between
+By default, the ADC's whole 10-bit range will be mapped to a float value between
 0.0 and 1.0. Use the optional `source_range` to map from a specific range and
 the `destination_range` to specify the value range to represent the entity
 state.
@@ -172,12 +173,12 @@ documentation](https://numato.com/docs/32-channel-usb-gpio-module-with-analog-in
 
 ## Device IDs
 
-This integration uses a device internal ID to identify the device which is
-_not_ the Linux device path. The Linux device path (e.g. /dev/ttyACM0) can
-change, for example when you disconnect and re-connect the device or if you
+This integration uses a internal device ID to identify the device, which is
+_not_ the Linux device path. The Linux device path (e.g., `/dev/ttyACM0`) can
+change, for example, when you disconnect and re-connect the device or if you
 connect the device to a different USB port.
 
-The device internal ID is 0 by default. If you have only one device, you should
+The internal device ID is 0 by default. If you have only one device, you should
 not need to care about changing it. If you have multiple devices, their IDs are
 shown in the console log during startup of Home Assistant.
 
@@ -185,17 +186,17 @@ shown in the console log during startup of Home Assistant.
 
 Configure your Numato device's ID with the following steps. Though you can use
 any terminal emulator to connect to and communicate with your device, the
-following steps are based on using _GNU Screen_. On a Debian or Ubuntu based OS
+following steps are based on using _GNU Screen_. On a Debian or Ubuntu-based OS
 install _Screen_ like `sudo apt install screen`.
 
-  1. Plug in only the one device to assign an id to so it'll get /dev/ttyACM0
-  2. Wait a couple of seconds as your Linux OS may be trying to identify the
-     device as a Modem right after plugging it in
-  3. Run `screen /dev/ttyACM0`
-  4. Type `id get` to see the current ID
-  5. Type `id set 00000005` and hit enter to assign ID 5
-  6. Type `id get` to validate and expect `00000005` as a reply
-  7. Quit screen with: Ctrl-a + \ and confirm with `y`
+1. Plug in only the one device to assign an id to so it'll get /dev/ttyACM0
+2. Wait a couple of seconds as your Linux OS may be trying to identify the
+   device as a Modem right after plugging it in
+3. Run `screen /dev/ttyACM0`
+4. Type `id get` to see the current ID
+5. Type `id set 00000005` and hit enter to assign ID 5
+6. Type `id get` to validate and expect `00000005` as a reply
+7. Quit screen with: Ctrl-a + \ and confirm with `y`
 
 Note that during communication with the device the ID values are strictly 32
 bit hexadecimal numbers (8 hex digits) with leading `0` padding.
