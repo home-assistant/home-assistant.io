@@ -16,7 +16,7 @@ ha_domain: myio
 
 The myIO integration adds support for [myIO-server](https://myio.com) controlled peripherals into Home Assistant. Features currently include:
 
-- Import all sensors (temperature, humidity, consumption) as individual entity.
+- Import all sensors (temperature, humidity, consumption) as individual entities.
 - Import all used digital outputs (with a description) as a light entity (except the sensor-controlled outputs).
 - Import all PWM output as a brightness controlled light entity (except the sensor controlled outputs).
 - Import all sensor-controlled output (digital and PWM) to climate entities.
