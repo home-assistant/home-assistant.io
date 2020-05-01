@@ -19,7 +19,7 @@ The myIO integration adds support for [myIO-server](https://myio.com) controlled
 - Import all sensors (temperature, humidity, consumption) as individual entity.
 - Import all used digital outputs (with a description) as a light entity (except the sensor-controlled outputs).
 - Import all PWM output as a brightness controlled light entity (except the sensor controlled outputs).
-- Import all sensor controlled output (digital and PWM) to a climate enitiy.
+- Import all sensor-controlled output (digital and PWM) to climate entities.
 - Import all the groups, what's description begins with 'RGB' to a RGB light entity.
 - Import all the relay protection pairs to a cover entity. 
 
