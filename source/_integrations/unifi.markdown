@@ -39,7 +39,7 @@ The UniFi controller allows you to create multiple users on it besides the main 
 
 ### Unifi-os
 
-For Unifi-os a local only user needs to be created. A user which uses the Ubiquiti cloud will not work. You can do this in the manage users section on the Unifi-os dashboard. Make sure to give it the right permissions for the functions you want to use. 
+For Unifi-os a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the Unifi-os dashboard. Make sure to give it the right permissions for the functions you want to use. 
 
 ### Conflicts with MQTT
 
