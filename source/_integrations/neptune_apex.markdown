@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Sensor
   - Light
-ha_release: "0.109"
+ha_release: "0.110"
 ha_iot_class: "Local Polling"
 ha_config_flow: true
 ha_codeowners:
