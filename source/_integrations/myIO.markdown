@@ -38,7 +38,7 @@ Parameter settings:
 
 Click 'Submit'.
 
-The integration will find all of your discoverable devices and import them to a Home Assistant.
+The integration finds all of your discoverable devices and imports them to a Home Assistant.
 
 ## Notes
 
