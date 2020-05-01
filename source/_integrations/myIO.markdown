@@ -42,7 +42,7 @@ The integration finds all of your discoverable devices and imports them to a Hom
 
 ## Notes
 
-The following settings you have to set in the myIO Server UI.
+The following settings need to be set in the myIO Server UI.
 
   - The RGBW lights description needs to start with the 'R','G','B','W' characters to describe them colors.
   - The RGB groups description needs to start with 'RGB' characters.
