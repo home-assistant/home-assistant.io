@@ -66,8 +66,9 @@ media_player:
 
 ### Docker and Cast devices and Home Assistant on different subnets
 
-Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant. 
-When running Home Assistant in a [Docker container](/docs/installation/docker/), the comand line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise Home Assistant will not be able to connect to any Cast device.
+Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant.
+
+When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
 
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
 
