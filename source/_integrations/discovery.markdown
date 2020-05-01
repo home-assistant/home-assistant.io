@@ -101,7 +101,7 @@ Valid values for enable are:
 ### mDNS and UPnP
 
 Home Assistant must be on the same network as the devices for UPnP discovery to work.
-When running Home Assistant in a [Docker container](/docs/installation/docker/) switch `--net=host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
+When running Home Assistant in a [Docker container](/docs/installation/docker/) comand line option `--net=host` or the compose file equivalent network_mode: host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
 
 ### Windows
 
