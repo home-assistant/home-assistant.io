@@ -64,11 +64,14 @@ media_player:
       type: list
 {% endconfiguration %}
 
-### Cast devices and Home Assistant on different subnets
+### Docker and Cast devices and Home Assistant on different subnets
 
-Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant. If this is not the case, it's necessary to:
+Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant. 
+When running Home Assistant in a [Docker container](/docs/installation/docker/), the comand line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise Home Assistant will not be able to connect to any Cast device.
+
+Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+
+If this is not possible, it's necessary to:
 
 - Enable mDNS forwarding between the subnets.
 - Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
-
-Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
