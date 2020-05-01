@@ -129,25 +129,26 @@ data:
 
 ### Currently known supported models
 
+- TC-40FS600B
 - TC-P50ST50
 - TC-P60S60
 - TC-P65VT30
+- TH-32ES500
 - TX-32AS520E
 - TX-32DSX609
+- TX-42AS650
 - TX-49DX650B
 - TX-50DX700B
-- TX-55CX700E
+- TX-55ASW654
 - TX-55CX680B
+- TX-55CX700E
 - TX-55EXW584
 - TX-55EXW604S
+- TX-55FZ802B
 - TX-65EXW784
 - TX-L42ET50
 - TX-P42STW50
 - TX-P50GT30Y
 - TX-P50GT60E
-- TH-32ES500
-- TX-42AS650
-- TX55ASW654
-- TX-55FZ802B
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
