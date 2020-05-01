@@ -7,49 +7,19 @@ ha_release: 0.47
 ha_domain: onvif
 ---
 
-The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) camera in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
+The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
 
 ## Configuration
 
-To enable your ONVIF camera in your installation, add the following to your `configuration.yaml` file:
+Home Assistant offers ONVIF integration through **Configuration** -> **Integrations** -> **ONVIF**. Follow the instructions to get it set up.
 
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: onvif
-    host: 192.168.1.111
-```
+<div class='note'>
+  It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
+</div>
+
+You can configure specific FFmpeg options through the integration options flow by clicking the gear icon on the top right of the integration details page.
 
 {% configuration %}
-host:
-  description: The IP address or hostname of the camera.
-  required: true
-  type: string
-name:
-  description: Override the name of your camera.
-  required: false
-  type: string
-  default: ONVIF Camera
-username:
-  description: The username for the camera.
-  required: false
-  type: string
-  default: admin
-password:
-  description: The password for the camera.
-  required: false
-  type: string
-  default: 888888
-port:
-  description: The (HTTP) port for the camera.
-  required: false
-  type: integer
-  default: 5000
-profile:
-  description: Video profile that will be used to obtain the stream, more details below.
-  required: false
-  type: integer
-  default: 0
 rtsp_transport:
   description: "RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`."
   required: false
@@ -62,7 +32,7 @@ extra_arguments:
   default: -q:v 2
 {% endconfiguration %}
 
-Most of the ONVIF cameras support more than one audio/video profile. Each profile provides different image quality. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time, especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in configuration `profile` variable.
+Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H254. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
 
 ### Service `onvif.ptz`
 
