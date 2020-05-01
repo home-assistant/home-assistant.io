@@ -19,7 +19,7 @@ This integration allows you to utilize OpenZWave's qt-openzwave daemon to contro
 
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant
 - [qt-openzwave daemon](https://github.com/OpenZWave/qt-openzwave)
-- Supported Z-wave dongle compatible with OpenZWave 1.6. See this [list](https://www.home-assistant.io/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers.
+- Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](https://www.home-assistant.io/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers.
 
 ## Configuration
 
