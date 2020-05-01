@@ -401,6 +401,53 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [toon docs]: /integrations/toon/
 [webostv docs]: /integrations/webostv/
 
+## Release 0.109.2 - April 30
+
+- Don't attempt to set Vizio is_volume_muted property if Vizio API doesn't provide muted state ([@raman325] - [#34782]) ([vizio docs])
+- Bump brother to 0.1.14 ([@bieniu] - [#34930]) ([brother docs])
+- Fix MQTT debug info for same topic ([@emontnemery] - [#34952]) ([mqtt docs])
+- Fix preservation of homekit fan speed on toggle ([@bdraco] - [#34971])
+- Fix restoring isy994 brightness with no previous state ([@bdraco] - [#34972]) ([isy994 docs])
+- Support num_repeats for roku remote ([@ctalkington] - [#34981]) ([roku docs])
+- Support num_repeats for directv remote ([@ctalkington] - [#34982]) ([directv docs]) ([directv docs])
+- UniFi - Disconnected clients wrongfully marked as wired not created ([@Kane610] - [#34986]) ([unifi docs])
+- Log the rachio webhook url ([@bdraco] - [#34992]) ([rachio docs])
+- Add allow extra to totalconnect config schema ([@austinmroczek] - [#34993]) ([totalconnect docs])
+- Fix roomba not reporting error ([@shenxn] - [#34996]) ([roomba docs])
+- Lint roomba ([@balloob] - [#35000]) ([roomba docs])
+
+[#34782]: https://github.com/home-assistant/core/pull/34782
+[#34930]: https://github.com/home-assistant/core/pull/34930
+[#34952]: https://github.com/home-assistant/core/pull/34952
+[#34971]: https://github.com/home-assistant/core/pull/34971
+[#34972]: https://github.com/home-assistant/core/pull/34972
+[#34981]: https://github.com/home-assistant/core/pull/34981
+[#34982]: https://github.com/home-assistant/core/pull/34982
+[#34986]: https://github.com/home-assistant/core/pull/34986
+[#34992]: https://github.com/home-assistant/core/pull/34992
+[#34993]: https://github.com/home-assistant/core/pull/34993
+[#34996]: https://github.com/home-assistant/core/pull/34996
+[#35000]: https://github.com/home-assistant/core/pull/35000
+[@Kane610]: https://github.com/Kane610
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@ctalkington]: https://github.com/ctalkington
+[@emontnemery]: https://github.com/emontnemery
+[@raman325]: https://github.com/raman325
+[@shenxn]: https://github.com/shenxn
+[brother docs]: /integrations/brother/
+[directv docs]: /integrations/directv/
+[isy994 docs]: /integrations/isy994/
+[mqtt docs]: /integrations/mqtt/
+[rachio docs]: /integrations/rachio/
+[roku docs]: /integrations/roku/
+[roomba docs]: /integrations/roomba/
+[totalconnect docs]: /integrations/totalconnect/
+[unifi docs]: /integrations/unifi/
+[vizio docs]: /integrations/vizio/
+
 ## All changes
 
 <details>
