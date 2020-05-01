@@ -5,7 +5,8 @@ logo: xiaomi.png
 ha_category:
   - Alarm
 ha_iot_class: Local Polling
-ha_release: 0.107
+ha_release: 0.110
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` alarm_control_panel platform allows you to control the state of your Xiaomi Gateway Alarm.
@@ -18,7 +19,8 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/va
 - See the status of Alarm (armed_away, disarmed, arming)
 
 ## Configuration
-To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 character "token". Optinally you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
+
+To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". Optionally, you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 {% configuration %}
 host:
