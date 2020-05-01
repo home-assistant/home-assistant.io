@@ -37,7 +37,7 @@ All configuration options are offered from the front end. Enter what UniFi integ
 
 The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
 
-### Unifi-os
+### UniFi OS
 
 For Unifi-os a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the Unifi-os dashboard. Make sure to give it the right permissions for the functions you want to use. 
 
