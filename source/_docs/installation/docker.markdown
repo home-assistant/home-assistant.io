@@ -8,7 +8,7 @@ redirect_from: /getting-started/installation-docker/
 
 These below instructions are for an installation of Home Assistant Core running in your own Docker environment, which you manage yourself.
 
-Note that docker comand line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
+Note that Docker command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
 
 For an installation of Home Assistant Supervised, which includes Home Assistant's add-on ecosystem, see the instructions for installing [Home Assistant Supervised on a generic Linux host](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host/).
 
@@ -44,7 +44,7 @@ When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the lo
 docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
-Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
+Alternatively, `docker-compose` works with any recent release of Docker CE on macOS. Note the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### Windows
 
