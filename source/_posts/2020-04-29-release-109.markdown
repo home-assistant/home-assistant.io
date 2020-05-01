@@ -401,7 +401,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [toon docs]: /integrations/toon/
 [webostv docs]: /integrations/webostv/
 
-## Release 0.109.2 - April 30
+## Release 0.109.2 - May 1
 
 - Don't attempt to set Vizio is_volume_muted property if Vizio API doesn't provide muted state ([@raman325] - [#34782]) ([vizio docs])
 - Bump brother to 0.1.14 ([@bieniu] - [#34930]) ([brother docs])
