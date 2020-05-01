@@ -36,7 +36,7 @@ monitored_stations:
   required: false
   type: [list, string]
 language:
-  description: The language to use for the sensor properties. EN or CY.
+  description: The language to use for the sensor properties. `EN` or `CY`.
   required: false
   type: string
   default: EN
