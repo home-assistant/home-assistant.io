@@ -334,7 +334,6 @@ vartype:
   required: false
   type: string  
   default: 'Integer' for digits, 'none' for strings
-  
 {% endconfiguration %}
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
