@@ -1,6 +1,6 @@
 ---
-title: myIO Valet MEGA
-description: Instructions on how to integrate myIO Valet Mega into Home Assistant.
+title: myIO Server
+description: Instructions on how to integrate myIO Server into Home Assistant.
 ha_category:
   - Climate
   - Cover
@@ -11,10 +11,10 @@ ha_iot_class: Local Poll
 ha_config_flow: true
 ha_codeowners:
   - '@smarthomeninja'
-ha_domain: myio_valet_mega
+ha_domain: myio
 ---
 
-The myio_valet_mega integration adds support for [myIO-server](https://myio.com) controlled peripherals into Home Assistant. Features currently include:
+The myIO integration adds support for [myIO-server](https://myio.com) controlled peripherals into Home Assistant. Features currently include:
 
 - Import all sensors (temperature, humidity, consumption) as individual entity.
 - Import all used (has description) digital output as a light entity (except the sensor controlled outputs).
@@ -25,7 +25,7 @@ The myio_valet_mega integration adds support for [myIO-server](https://myio.com)
 
 ## Configuration
 
-Click 'Configuration', click 'Integration', click '+', choose 'myIO Valet Mega'.
+Click 'Configuration', click 'Integration', click '+', choose 'myIO'.
 
 Parameter settings:
 
