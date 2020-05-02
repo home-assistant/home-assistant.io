@@ -448,6 +448,52 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [unifi docs]: /integrations/unifi/
 [vizio docs]: /integrations/vizio/
 
+## Release 0.109.3 - May 2
+
+- Fix MELCloud temperature unit ([@vilppuvuorinen] - [#35003]) ([melcloud docs]) (breaking change)
+- Fix translation merging for custom components without translations ([@balloob] - [#35032])
+- Fix Canary doing I/O in the event loop ([@bachya] - [#35039]) ([canary docs])
+- Bump hass-nabucasa to 0.34.2 ([@balloob] - [#35046]) ([cloud docs])
+- Bump python-synology to 0.7.4 ([@Quentame] - [#35052]) ([synology_dsm docs])
+- UniFi - Catch controllers running on UniFi OS that don't have a local user configured ([@Kane610] - [#35060]) ([unifi docs])
+- UniFi - Add support for 2.4/5 GHz separated SSIDs ([@Kane610] - [#35062]) ([unifi docs])
+- Bump roombapy to 1.5.2 ([@shenxn] - [#35067]) ([roomba docs])
+- Bump python-synology to 0.8.0 + Fix disk space incorrect sensor type ([@Quentame] - [#35068]) ([synology_dsm docs])
+- Update bravia-tv to 1.0.3 ([@dcnielsen90] - [#35077]) ([braviatv docs])
+- Updated frontend to 20200427.2 ([@bramkragten] - [#35079]) ([frontend docs])
+- Improve stability of homekit media players ([@bdraco] - [#35080]) ([homekit docs])
+
+[#35003]: https://github.com/home-assistant/core/pull/35003
+[#35032]: https://github.com/home-assistant/core/pull/35032
+[#35039]: https://github.com/home-assistant/core/pull/35039
+[#35046]: https://github.com/home-assistant/core/pull/35046
+[#35052]: https://github.com/home-assistant/core/pull/35052
+[#35060]: https://github.com/home-assistant/core/pull/35060
+[#35062]: https://github.com/home-assistant/core/pull/35062
+[#35067]: https://github.com/home-assistant/core/pull/35067
+[#35068]: https://github.com/home-assistant/core/pull/35068
+[#35077]: https://github.com/home-assistant/core/pull/35077
+[#35079]: https://github.com/home-assistant/core/pull/35079
+[#35080]: https://github.com/home-assistant/core/pull/35080
+[@Kane610]: https://github.com/Kane610
+[@Quentame]: https://github.com/Quentame
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dcnielsen90]: https://github.com/dcnielsen90
+[@shenxn]: https://github.com/shenxn
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
+[braviatv docs]: /integrations/braviatv/
+[canary docs]: /integrations/canary/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[melcloud docs]: /integrations/melcloud/
+[roomba docs]: /integrations/roomba/
+[synology_dsm docs]: /integrations/synology_dsm/
+[unifi docs]: /integrations/unifi/
+
 ## All changes
 
 <details>
