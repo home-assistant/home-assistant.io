@@ -30,9 +30,8 @@ A few notes:
 The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
 
 ```yaml
-media_player:
-  - platform: songpal
-    name: my soundbar
+songpal:
+  - name: my soundbar
     endpoint: http://IP_ADDRESS:10000/sony
 ```
 
