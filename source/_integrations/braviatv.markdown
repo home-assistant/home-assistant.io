@@ -22,16 +22,17 @@ You can setup the Sony Bravia TV via **Configuration** >> **Integrations** in th
 
 ### Common Issues
 #### Previous Configurations:
-- Ensure that all entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
-- Remove entity from Home Assistant.
-- Restart Home Assistant
+To ensure a clean re-configuration, please perform the following steps:
+- Ensure that all braviatv entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
+- Remove the entities you are reconfiguring from Home Assistant.
+- Restart Home Assistant.
+- Perform the [TV does not generate new pin](#TV-does-not-generate-new-pin) steps.
 - Retry [configuration](###Setup-via-the-User-Interface).
 
 #### TV does not generate new pin:
-- If you have previously set up your TV with any Home Assistant instances, you will need to remove Home Assistant from your TV. You can either factory reset your TV or follow [these instructions](https://www.sony-asia.com/electronics/support/articles/00129859). Your exact instructions may vary depending on yourmodel.
-- Remove any none-working created braviatv entities.
-- Restart Home Assistant
-- Retry [configuration](###Setup-via-the-User-Interface).
+If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
+  - On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+  - Reset your TV to factory condition.
 
 ## YAML Method
 
