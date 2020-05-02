@@ -18,6 +18,12 @@ Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_w
 
 You can setup the Sony Bravia TV via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select Sony Bravia TV.
 
+<div class="note warning">
+
+If the PIN code is not shown on the TV screen during setup, you need to unregister `Home Assistant` on the TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device** (names of menu items on different TV models may be slightly different).
+
+</div>
+
 If you have following configuration in your `configuration.yaml` file it will be imported to the Integrations:
 
 ```yaml
@@ -39,7 +45,11 @@ name:
   type: string
 {% endconfiguration %}
 
+<div class="note warning">
+
 A new setup via `configuration.yaml` file is not possible.
+
+</div>
 
 ## Extra configuration for the integration
 
