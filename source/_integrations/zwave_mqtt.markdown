@@ -32,16 +32,20 @@ Click on the `+` sign to add an integration and click on **Z-Wave over MQTT**.
 After completing the configuration flow, the Z-Wave over MQTT
 integration will be available.
 
+### Secure network key
+
+The secure network key is set in the settings for the qt-openzwave daemon and not in the integration configuration.
+
 ## Services
 
 ### Service `zwave_mqtt.add_node`
 
 This service will set the controller into inclusion mode and should be used to add a device (node) to the Z-Wave network. Call the service and then perform the device specific procedure, according to the device manual, to add your device to the network. Make sure the controller is connected to the host where the QT-OpenZwave daemon is running, when performing this operation.
 
-| Service Data Attribute | Required | Description                                                                                                                                                                                                               |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secure`               | no       | Add the new node with secure communications. Secure network key must be set. This process will fallback to add_node (unsecure) for unsupported devices. Note that unsecure devices can't directly talk to secure devices. |
-| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                                                        |
+| Service Data Attribute | Required | Description                                                                                                                                                                                                                                      |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `secure`               | no       | Add the new node with secure communications. [Secure network key must be set](#secure-network-key). This process will fallback to add_node (unsecure) for unsupported devices. Note that unsecure devices can't directly talk to secure devices. |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                                                                               |
 
 ### Service `zwave_mqtt.remove_node`
 
