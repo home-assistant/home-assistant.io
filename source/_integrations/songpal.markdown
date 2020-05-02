@@ -27,7 +27,7 @@ A few notes:
 
 ## Configuration
 
-The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
+Supported devices will be automatically discovered and can be set up through UI. If you want to manually configure it in yaml configuration, add the following to your `configuration.yaml` file:
 
 ```yaml
 songpal:
