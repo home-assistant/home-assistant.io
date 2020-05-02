@@ -11,12 +11,6 @@ ha_domain: google_translate
 
 The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
 
-<div class='note'>
-
-This platform renamed to `google_translate` from `google` since release 0.92.
-
-</div>
-
 ## Configuration
 
 To enable text-to-speech with Google, add the following lines to your `configuration.yaml`:
