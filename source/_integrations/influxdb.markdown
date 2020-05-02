@@ -68,6 +68,10 @@ verify_ssl:
   description: Verify SSL certificate for HTTPS request.
   required: false
   default: true
+path:
+  type: string
+  description: Path to use if your influxdb is running behind an reverse proxy.
+  required: false
 max_retries:
   type: integer
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
