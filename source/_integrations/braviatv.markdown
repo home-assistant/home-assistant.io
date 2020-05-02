@@ -17,12 +17,17 @@ The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.son
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#For-TVs-older-than-2013).
 
 # Configuration
+
 ## Setup via the User Interface
+
 You can setup the Sony Bravia TV via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select Sony Bravia TV.
 
 ### Common Issues
-#### Previous Configurations:
+
+#### Previous Configurations
+
 To ensure a clean re-configuration, please perform the following steps:
+
 - Ensure that all braviatv entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
 - Remove the entities you are reconfiguring from Home Assistant.
 - Restart Home Assistant.
@@ -30,13 +35,19 @@ To ensure a clean re-configuration, please perform the following steps:
 - Retry [configuration](###Setup-via-the-User-Interface).
 
 #### TV does not generate new pin:
+
 If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
-  - On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
-  - Reset your TV to factory condition.
+
+- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+- Reset your TV to factory condition.
 
 ## YAML Method
 
-**New setups via `configuration.yaml` file are currently not be supported.**
+<div class='note warning'>
+
+New setups via `configuration.yaml` file are currently not be supported.
+
+</div>
 
 If you are updating from a previous version of Home Assistant and have the following configuration in your `configuration.yaml` file in addition to a `bravia.conf` file it will be imported to the Integrations:
 
@@ -44,7 +55,7 @@ If you are updating from a previous version of Home Assistant and have the follo
 # Example configuration.yaml entry
 media_player:
   - platform: braviatv
-    host: 192.168.0.10
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -65,11 +76,16 @@ name:
 The integration allows you to change ignored TV sources from the front end. Enter which Sony Bravia TV integration you want to change options on and press the cog wheel.
 
 # For TVs older than 2013
-**IMPORTANT NOTE: This is not part of the Bravia TV integration. Extra Configuration does not apply to the steps below.**
+
+<div class='note warning'>
+  
+This is not part of the Bravia TV integration. Extra Configuration does not apply to the steps below.
+
+</div>
 
 Users of TVs older than 2013 have another option for controlling their TV via Home Assistant.
 
-### Using HDMI-CEC
+## Using HDMI-CEC
 
 If you have a Raspberry Pi connected to your TV:
 
@@ -88,7 +104,7 @@ Using `cec-client` is a great method to turn your TV off/on, however the trade o
 
 This is because only one process can control the CEC functionality within the Raspberry Pi at a time and running the above commands terminates the functionality inside libCEC within Kodi. Kodi must be restarted for TV remove functionality to work again.
 
-**Workaround:**
+### Workaround
 
 If your desire is only to turn on your TV, the following "workaround" may be desirable:
 
