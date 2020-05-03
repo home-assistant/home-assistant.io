@@ -34,6 +34,40 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 </div>
 
+## Casting other apps
+
+### Youtube
+
+```yaml
+'cast_youtube_to_my_chromecast':
+  alias: Cast youtube to My Chromecast
+  sequence:
+  - data:
+      entity_id: media_player.my_chromecast
+      app_name: youtube
+      data:
+        media_id: dQw4w9WgXcQ
+    service: cast.cast_app
+```
+
+### [Supla](https://www.supla.fi/)
+
+Example values to cast the item at https://www.supla.fi/audio/3601824
+
+```yaml
+'cast_supla_to_my_chromecast':
+  alias: Cast supla to My Chromecast
+  sequence:
+  - data:
+      entity_id: media_player.my_chromecast
+      app_name: supla
+      data:
+        media_id: 3601824
+    service: cast.cast_app
+```
+
+Support for Netflix and other applications can be added via [Cast Extensions](https://github.com/Eerovil/castextensions)
+
 ## Advanced use
 
 ### Manual configuration
