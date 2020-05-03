@@ -182,7 +182,7 @@ entity_id:
   type: string
   required: false
 attribute:
-  description: Attribute of the entity that shall be sent to the knx bus. If not set (or `None`) the state will be sent. 
+  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent. 
     Eg. for a light the state is eigther "on" or "off" - with attribute you can expose its "brightness".
   type: string
   required: false
