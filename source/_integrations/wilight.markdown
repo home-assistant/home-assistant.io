@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Cover
 
-This `WiLight` cover platform allow to you control WiLight cover (shade) devices.
+This `WiLight` cover platform allow to you control WiLight cover devices.
 
 ## Fan
 
@@ -32,7 +32,7 @@ This `WiLight` fan platform allow to you control WiLight ceiling fan devices.
 
 ## Light
 
-This `WiLight` light platform allow to you control WiLight light switch devices, dimmer or on/off.
+This `WiLight` light platform allow to you control WiLight light switch devices, on/off, dimmer or color.
 
 ## Switch
 
