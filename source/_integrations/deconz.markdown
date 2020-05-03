@@ -509,6 +509,8 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
 
+Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
+
 ## Switch
 
 Switches are devices like power plugs and sirens.
