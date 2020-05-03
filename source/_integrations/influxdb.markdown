@@ -70,7 +70,7 @@ verify_ssl:
   default: true
 path:
   type: string
-  description: Path to use if your influxdb is running behind an reverse proxy.
+  description: Path to use if your InfuxDB is running behind an reverse proxy.
   required: false
 max_retries:
   type: integer
