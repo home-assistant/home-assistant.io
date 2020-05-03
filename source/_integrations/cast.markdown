@@ -40,8 +40,8 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 | app_name | media_id | media_type | enqueue | index | extra1 | extra2 |
 |----------|----------|------------|---------|-------|--------|--------|
-| youtube | Video ID * | | true/false | | Playlist ID | |
-| supla | Audio ID * | | | | *is_livestream* (true/false) | |
+| `youtube` | Video ID * | | true/false | | Playlist ID | |
+| `supla` | Audio ID * | | | | *is_livestream* (true/false) | |
 
 ### YouTube
 
