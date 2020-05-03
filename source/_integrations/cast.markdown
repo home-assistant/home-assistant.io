@@ -36,11 +36,11 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 ## Casting other apps
 
-### Youtube
+### YouTube
 
 ```yaml
 'cast_youtube_to_my_chromecast':
-  alias: Cast youtube to My Chromecast
+  alias: Cast YouTube to My Chromecast
   sequence:
   - data:
       entity_id: media_player.my_chromecast
