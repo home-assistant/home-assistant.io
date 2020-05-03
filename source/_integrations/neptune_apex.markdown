@@ -25,6 +25,7 @@ There is currently support for the following device types within Home Assistant:
 Home Assistant offers Neptune Apex integration through **Configuration** -> **Integrations** -> **Neptune Apex**. Follow the instructions to get it set up.
 
 In the popup:
+
 - host: The domain name or IP address of the Apex, e.g., `192.168.1.1`.
 - username: The username required to connect to the Apex.
 - password: The password required to connect to the Apex.
