@@ -116,7 +116,7 @@ mDNS forwarding is a configurable option in some routers.
 For a Linux server acting as router, set up avahi-reflector on the server to make mDNS work between the networks:
 
 {% raw %}
-``` 
+```text
 # Install the Avahi-daemon
 sudo apt-get install avahi-daemon
 # Turn on the reflector. Go into /etc/avahi/avahi-daemon.conf and change the reflector section to:
