@@ -12,6 +12,10 @@ ha_domain: input_text
 
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
+The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Text**" option.
+
+It can also be configured via `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entries
 input_text:
