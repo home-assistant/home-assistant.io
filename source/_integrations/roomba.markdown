@@ -51,6 +51,11 @@ password:
   description: The password for your device.
   required: true
   type: string
+certificate:
+  description: "**(Deprecated)** Path to your certificate store."
+  required: false
+  type: string
+  default: /etc/ssl/certs/ca-certificates.crt
 continuous:
   description: Whether to operate in continuous mode.
   required: false
