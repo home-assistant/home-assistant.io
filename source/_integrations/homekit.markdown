@@ -358,7 +358,13 @@ homekit:
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
- 
+
+## Firewall
+If you have a firewall configured on your Home Assistant server, make sure you open the following ports:
+
+- UDP: 5353 
+- TCP: 51827
+
 ## Supported Components
 
 The following integrations are currently supported:
