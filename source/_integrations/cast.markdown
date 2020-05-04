@@ -36,14 +36,15 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 ## Casting other apps
 
-### Schema table for the `cast.cast_app` service
-
-| app_name | media_id | media_type | enqueue | index | extra1 | extra2 |
-|----------|----------|------------|---------|-------|--------|--------|
-| `youtube` | Video ID * | | true/false | | Playlist ID | |
-| `supla` | Audio ID * | | | | *is_livestream* (true/false) | |
-
 ### YouTube
+
+- `app_name`: `youtube`
+- `media_id`: YouTube video ID
+
+Optional:
+- `enqueue`: Enqueue only
+- `playlist_id`: Play video with `media_id` from this playlist
+
 
 ```yaml
 'cast_youtube_to_my_chromecast':
@@ -51,15 +52,24 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
   sequence:
   - data:
       entity_id: media_player.my_chromecast
-      app_name: youtube
-      data:
-        media_id: dQw4w9WgXcQ
-    service: cast.cast_app
+      media_type: cast
+      media_id: >
+        {
+          "app_name": "youtube",
+          "media_id": "dQw4w9WgXcQ",
+        }
+    service: media_player.play_media
 ```
 
 ### [Supla](https://www.supla.fi/)
 
 Example values to cast the item at https://www.supla.fi/audio/3601824
+
+- `app_name`: `supla`
+- `media_id`: Supla item ID
+
+Optional:
+- `is_live`: Item is a livestream
 
 ```yaml
 'cast_supla_to_my_chromecast':
@@ -67,9 +77,12 @@ Example values to cast the item at https://www.supla.fi/audio/3601824
   sequence:
   - data:
       entity_id: media_player.my_chromecast
-      app_name: supla
-      data:
-        media_id: 3601824
+      media_type: cast
+      media_id: >
+        {
+          "app_name": "supla",
+          "media_id": "3601824",
+        }
     service: cast.cast_app
 ```
 
