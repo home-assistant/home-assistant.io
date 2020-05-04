@@ -14,7 +14,9 @@ The `input_datetime` integration allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
-To add three datetime inputs to your installation,
+The preferred way to configure input datetime is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Date and/or time**" option.
+
+Input datetime can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
 add the following lines to your `configuration.yaml`:
 
