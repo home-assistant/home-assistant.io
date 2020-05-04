@@ -126,10 +126,6 @@ enable_quirks:
   required: false
   type: boolean
   default: true
-zigpy_config:
-  description: Advanced zigpy configuration and should be used only when directed by maintainers
-  required: false
-  type: dict
 {% endconfiguration %}
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
