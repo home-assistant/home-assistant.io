@@ -6,17 +6,22 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
+ha_config_flow: true
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.
 
-<div class='note'>
+## Configuration
 
-A recent updates of Orbi APs introduced a bug which takes several hours to detects presence on your local network. The current workaround is to force this integration to use the Orbi's API v2 by adding the `accesspoints:` node to your configuration.
+There are two ways to integrate Netgear in Home Assistant.
 
-</div>
+### Via the frontend
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+Menu: *Configuration* -> *Integrations*. Search for "Netgear", click submit try to autodetect the URL of the router, fill the configuration form, click submit.
+
+### Via the configuration file
+
+Add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,12 +31,8 @@ device_tracker:
 ```
 
 {% configuration %}
-url:
-  description: The base URL, e.g., `http://routerlogin.com:5000` for example. If not provided `host` and `port` are used. If none provided autodetection of the URL will be used.
-  required: false
-  type: string
 host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
+  description: The IP address of your router, e.g., `192.168.1.1`. If none provided autodetection of the URL will be used, like `http://routerlogin.net`.
   required: false
   type: string
 port:
@@ -53,18 +54,11 @@ devices:
   required: false
   type: list
 exclude:
-  description: Devices to exclude from the scan.
-  required: false
-  type: list
-accesspoints:
-  description: Also track devices on the specified APs. Only supports MAC address.
+  description: Devices to exclude from the scan. Can be MAC address or the device name as reported in the NETGEAR UI.
   required: false
   type: list
 {% endconfiguration %}
 
-When `accesspoints` is specified an extra device will be reported for each device connected to the APs specified here, as `MY-LAPTOP on RBS40`. `Router` will be reported as AP name for the main AP. Only tested with Orbi.
-
-The use of `devices` or `exclude` is recommended when using `accesspoints` to avoid having a lot of entries.
 
 List of models that are known to use port 80:
 
