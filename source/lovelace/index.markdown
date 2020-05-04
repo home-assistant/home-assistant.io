@@ -7,7 +7,7 @@ redirect_from:
 
 Lovelace is the Home Assistant user interface. It's a fast, customizable and powerful way for users to manage their homes, working on mobile or desktop.
 
-- 24 different cards to place and configure as you like.
+- 25 different cards to place and configure as you like.
 - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
 - Fast. Using a static configuration allows us to build up the UI once.
 - Customizable.
@@ -26,7 +26,7 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## Discuss Lovelace
 
-- Suggestions are welcome in the [home-assistant-polymer repository](https://github.com/home-assistant/home-assistant-polymer/)
+- Suggestions are welcome in the [frontend repository](https://github.com/home-assistant/frontend/)
 - For help with Lovelace, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
 
 ## Additional Lovelace Resources
