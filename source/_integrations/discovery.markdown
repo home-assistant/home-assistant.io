@@ -105,13 +105,13 @@ Home Assistant should be on the same network as the devices for mDNS and UPnP di
 When running Home Assistant Core in a [Docker container](/docs/installation/docker/) command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
 
 If mDNS is still not working:
-- make sure there are no firewall rules blocking mDNS traffic. mDNS relies on sending on receiving UDP multicast packets on port 5353.
+- make sure there are no firewall rules blocking mDNS traffic. mDNS relies on sending and on receiving UDP multicast packets on port 5353.
 - mDNS traffic may not be forwarded correctly between the wired and wireless interfaces of a Wi-Fi AP or router
 
 #### mDNS forwarding
 If it's not possible to have Home Assistant and the devices on the same network, mDNS forwarding can be enabled to allow mDNS discovery between networks.
 
-mDNS forwarding is a configurable option in some routers.
+mDNS forwarding is a configurable option in some routers. It can also be called mDNS reflector or mDNS repeater, depending on the manufacturer. 
 
 For a Linux server acting as router, set up avahi-reflector on the server to make mDNS work between the networks:
 
