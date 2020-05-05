@@ -21,7 +21,7 @@ tts:
 
 <div class='note'>
 
-Depending on your setup, you might need to set a base URL (`base_url`) inside the [HTTP component](/integrations/http/) or in the parameters of this component.
+Depending on your setup, you might need to set a external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
 
 </div>
 
@@ -70,13 +70,13 @@ tts:
 
 <div class='note'>
 
-In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
+In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `external_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
 
 </div>
 
 ## When do you need to set `base_url` here?
 
-The general answer is "whenever the global `base_url` set in [HTTP component](/integrations/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
+The general answer is "whenever the global `external_url` set in the configuration [HTTP component](/docs/configuration/basic/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
 
 The following sections describe some of the problems encountered with media devices.
 
@@ -84,7 +84,7 @@ The following sections describe some of the problems encountered with media devi
 
 This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate.
 
-The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [HTTP component](/integrations/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
+The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `external_url` setting in the [configuration](/docs/configuration/basic/), but that would turn off SSL for all services that use `external_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
 
 ### Google cast devices
 

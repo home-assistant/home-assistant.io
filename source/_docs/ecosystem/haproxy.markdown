@@ -96,8 +96,6 @@ In your `configuration.yaml` file, edit the [HTTP component](/integrations/http/
 http:
   # For extra security set this to only accept connection on localhost if HAProxy is on the same machine
   # server_host: 127.0.0.1
-  # Update this line to be your domain
-  base_url: https://example.com
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your HAProxy machine IP, or localhost if hosted on the same machine.

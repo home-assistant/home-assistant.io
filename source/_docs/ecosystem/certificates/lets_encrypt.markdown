@@ -333,7 +333,6 @@ Now edit your `configuration.yaml` file to reflect the SSL entries and your base
 http:
   ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
   ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
-  base_url: examplehome.duckdns.org
 ```
 
 You may wish to set up other options for the [HTTP](/integrations/http/) integration at this point, these extra options are beyond the scope of this guide.
