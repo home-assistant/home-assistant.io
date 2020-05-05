@@ -34,7 +34,7 @@ sensor:
 
 {% configuration %}
 name:
-  description: The friendly name of the smart meter
+  description: The friendly name of the smart meter.
   required: false
   type: string
 serial_port:
