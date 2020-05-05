@@ -431,7 +431,7 @@ The following integrations are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
-| camera | Camera | All camera devices. **HomeKit Secure Video is NOT supported at this time** |
+| camera | Camera | All camera devices. **HomeKit Secure Video is not supported at this time.** |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
