@@ -52,12 +52,12 @@ Optional:
   sequence:
   - data:
       entity_id: media_player.my_chromecast
-      media_type: cast
-      media_id: >
+      media_content_type: cast
+      media_id: '
         {
           "app_name": "youtube",
           "media_id": "dQw4w9WgXcQ",
-        }
+        }'
     service: media_player.play_media
 ```
 
@@ -77,12 +77,12 @@ Optional:
   sequence:
   - data:
       entity_id: media_player.my_chromecast
-      media_type: cast
-      media_id: >
+      media_content_type: cast
+      media_id: '
         {
           "app_name": "supla",
           "media_id": "3601824",
-        }
+        }'
     service: cast.cast_app
 ```
 
