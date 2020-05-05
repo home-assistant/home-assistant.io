@@ -585,7 +585,7 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 #### Camera video is not streaming
 
-Ensure you have a recent version of FFmpeg installed. Verify that your stream is directly playable with `ffplay <stream_source>`. If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
+Ensure that the [`ffmpeg` intergration](../ffmpeg) is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
 
 #### Camera audio is not streaming
 
