@@ -52,7 +52,7 @@ password:
   required: true
   type: string
 certificate:
-  description: Path to your certificate store.
+  description: "**(Deprecated)** Path to your certificate store."
   required: false
   type: string
   default: /etc/ssl/certs/ca-certificates.crt
