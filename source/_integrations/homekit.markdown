@@ -453,8 +453,6 @@ The following integrations are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
 
-
-
 ## Troubleshooting
 
 ### Resetting when created via YAML
