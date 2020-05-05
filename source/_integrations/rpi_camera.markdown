@@ -8,7 +8,7 @@ ha_release: 0.17
 ha_domain: rpi_camera
 ---
 
-The `rpi_camera` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
+The `rpi_camera` integration allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
 ## Configuration
 
@@ -64,7 +64,7 @@ timelapse:
   type: integer
   default: 1000
 overlay_metadata:
-  description: Adds some text and/or metadata onto the picture ; as defined in [`--annotate,    -a        Enable/set annotate flags or text`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md).
+  description: Adds some text and/or metadata onto the picture. Check the [`--annotate`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md) section.
   required: false
   type: integer
   default: none
