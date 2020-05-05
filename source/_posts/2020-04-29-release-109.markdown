@@ -494,6 +494,38 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [synology_dsm docs]: /integrations/synology_dsm/
 [unifi docs]: /integrations/unifi/
 
+## Release 0.109.4 - May 4
+
+- Fix Synology NAS discovered multiple times ([@Quentame] - [#35094]) ([synology_dsm docs])
+- Correct typo Asssitant -> Assistant ([@ludeeus] - [#35117]) ([websocket_api docs])
+- Hue: Guard for when there is no brightness ([@balloob] - [#35151]) ([hue docs])
+- Bump pyiCloud to 0.9.7 + do not warn when pending devices ([@Quentame] - [#35156]) ([icloud docs])
+- Fix Canary KeyError: 'ffmpeg_arguments' ([@frenck] - [#35158]) ([canary docs])
+- Fix UVC doing I/O inside the event loop ([@frenck] - [#35169]) ([uvc docs])
+- Fix utility_meter calibration with float values ([@dgomes] - [#35186]) ([utility_meter docs])
+- Fix Synology DSM sensor to be False or 0 ([@Quentame] - [#35208]) ([synology_dsm docs])
+
+[#35094]: https://github.com/home-assistant/core/pull/35094
+[#35117]: https://github.com/home-assistant/core/pull/35117
+[#35151]: https://github.com/home-assistant/core/pull/35151
+[#35156]: https://github.com/home-assistant/core/pull/35156
+[#35158]: https://github.com/home-assistant/core/pull/35158
+[#35169]: https://github.com/home-assistant/core/pull/35169
+[#35186]: https://github.com/home-assistant/core/pull/35186
+[#35208]: https://github.com/home-assistant/core/pull/35208
+[@Quentame]: https://github.com/Quentame
+[@balloob]: https://github.com/balloob
+[@dgomes]: https://github.com/dgomes
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[canary docs]: /integrations/canary/
+[hue docs]: /integrations/hue/
+[icloud docs]: /integrations/icloud/
+[synology_dsm docs]: /integrations/synology_dsm/
+[utility_meter docs]: /integrations/utility_meter/
+[uvc docs]: /integrations/uvc/
+[websocket_api docs]: /integrations/websocket_api/
+
 ## All changes
 
 <details>
