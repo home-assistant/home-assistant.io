@@ -40,6 +40,11 @@ port:
   required: false
   default: 5000
   type: integer
+ssl:
+  description: Determine if HTTPS should be used.
+  required: false
+  default: false
+  type: boolean
 username:
   description: The username of a user with administrative privileges.
   required: false
@@ -49,14 +54,6 @@ password:
   description: The password for your given admin account.
   required: true
   type: string
-devices:
-  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the NETGEAR UI.
-  required: false
-  type: list
-exclude:
-  description: Devices to exclude from the scan. Can be MAC address or the device name as reported in the NETGEAR UI.
-  required: false
-  type: list
 {% endconfiguration %}
 
 
