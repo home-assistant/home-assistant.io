@@ -348,6 +348,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Home Assistant Core 0.111. Configuration is now done through the UI.-
   ([@jjlawren] - [#34546]) ([plex docs])
 
+- **Google Cast** - Connecting to Cast devices now depends on mDNS even when IP
+  addresses of the Cast Devices are manually entered.-
+  ([@emontnemery] - [#33922]) ([cast docs])
+
 ## Farewell to the following
 
 - **Pushetta**
