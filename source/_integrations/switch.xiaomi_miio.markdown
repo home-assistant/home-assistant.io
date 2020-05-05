@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Smart WiFi Socket and Smart Power Strip"
 description: "Instructions on how to integrate your Xiaomi Smart WiFi Socket aka Plug or Xiaomi Smart Power Strip within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.56
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.

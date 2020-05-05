@@ -1,12 +1,12 @@
 ---
 title: "MySensors Binary Sensor"
 description: "Instructions on how to integrate MySensors binary sensors into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Binary Sensor
 ha_release: 0.14
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors binary sensors into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

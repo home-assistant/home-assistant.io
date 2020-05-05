@@ -1,11 +1,11 @@
 ---
 title: MVG
 description: Instructions on how to integrate Munich public transport departure times into Home Assistant.
-logo: mvg.png
 ha_category:
   - Transport
 ha_release: 0.42
 ha_iot_class: Cloud Polling
+ha_domain: mvglive
 ---
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -32,7 +32,7 @@ destinations:
   required: false
   type: list
 directions:
-  description: "Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz."
+  description: "Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = destination. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz."
   required: false
   type: list
 lines:

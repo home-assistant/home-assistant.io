@@ -279,7 +279,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Lowercase code format ([@balloob] - [#20077]) ([alarm_control_panel docs]) (breaking change)
 - fix logic error in dubln bus ([@ttroy50] - [#20075]) ([sensor.dublin_bus_transport docs])
 - Bump abode to 0.15.0 ([@shred86] - [#20064]) ([abode docs])
-- Change return text code for alarm control panels ([@arsaboo] - [#20055]) ([alarm_control_panel.alarmdotcom docs])
+- Change return text code for alarm control panels ([@arsaboo] - [#20055])
 - Adjust OpenUV integration for upcoming API limit changes ([@bachya] - [#19949]) ([openuv docs]) (breaking change)
 - Fix ihc issues caused by update to defusedxml ([@mopolus] - [#20091]) ([ihc docs])
 - Move ESPHome Source Files ([@OttoWinter] - [#20092]) ([esphome docs])
@@ -596,7 +596,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [abode docs]: /integrations/abode/
 [ads docs]: /integrations/ads/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [alarm_control_panel.arlo docs]: /integrations/arlo
 [alarm_control_panel.elkm1 docs]: /integrations/elkm1
 [alarm_control_panel.homekit_controller docs]: /integrations/homekit_controller

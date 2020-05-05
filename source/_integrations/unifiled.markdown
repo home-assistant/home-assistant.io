@@ -1,13 +1,13 @@
 ---
 title: Ubiquiti UniFi LED
 description: Instructions on how to configure the UniFi LED integration with UniFi LED Controller by Ubiquiti.
-logo: ubiquiti.png
 ha_category:
   - Light
 ha_release: 0.102
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@florisvdk'
+ha_domain: unifiled
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system of controller managed LED light panels and dimmers.

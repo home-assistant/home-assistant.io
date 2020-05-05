@@ -1,7 +1,6 @@
 ---
-title: Vizio SmartCast
+title: VIZIO SmartCast
 description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
-logo: vizio-smartcast.png
 ha_category:
   - Media Player
 ha_release: 0.49
@@ -10,7 +9,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
-ha_quality_scale: platinum
+ha_domain: vizio
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
@@ -42,11 +41,11 @@ Write down its IP address and port number. If you have trouble finding a device 
 
 ## Pairing
 
-This integration requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the HA frontend.
+This integration requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
 
-### Pair using the HA frontend
+### Pair using the Home Assistant frontend
 
- - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize HomeAssistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While HA will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your HA instance.
+ - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize Home Assistant, you will see a Vizio SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While Home Assistant will store the access token for the life of your `vizio` entity, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your Home Assistant instance.
 - **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
 
 ### Pair manually using the CLI
@@ -88,13 +87,13 @@ Initiation will show you two different values:
 
 | Value           | Description                                                                                             |
 | :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually, it should be `"1"`. If not, use the additional parameter `--ch_type=your_type` in the next step |
+| Challenge type  | Usually, it should be `"1"`.                                                                            |
 | Challenge token | Token required to finalize pairing in the next step                                                     |
 
 At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin}
+pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin} --ch_type={challenge_type}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
@@ -121,7 +120,7 @@ name:
   type: string
   default: Vizio SmartCast
 access_token:
-  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the HA frontend.
+  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the Home Assistant frontend.
   required: false
   type: string
 device_class:
@@ -178,16 +177,10 @@ apps:
 
 ### Obtaining an app configuration
 
-If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. In order to determine the values to specify for each configuration parameter, launch the app you want to configure on your device, and run the following command (requires `pyvizio` to be installed locally):
-
-```bash
-pyvizio --ip={IP:PORT} get-current-app-config
-```
-
-`pyvizio` will return the value of the three parameters (`APP_ID`, `NAME_SPACE`, `MESSAGE`) for the currently running app which you can then include in your configuration.
+If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
 
 ### Obtaining a list of valid apps to include or exclude
-To get the list of apps that can be excluded or included, run the following command (requires `pyvizio` to be installed locally):
+The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a Vizio Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
 
 ```bash
 pyvizio --ip=0 get-apps-list

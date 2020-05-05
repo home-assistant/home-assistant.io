@@ -1,7 +1,6 @@
 ---
 title: Environment Canada
 description: Weather data from Environment Canada.
-logo: environment_canada.png
 ha_category:
   - Weather
   - Sensor
@@ -10,6 +9,7 @@ ha_release: 0.95
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaeldavie'
+ha_domain: environment_canada
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).

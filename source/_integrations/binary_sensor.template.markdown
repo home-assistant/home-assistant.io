@@ -5,8 +5,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform supports binary sensors which get their values from

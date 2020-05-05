@@ -1,10 +1,10 @@
 ---
 title: "Xiaomi Router"
 description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Presence Detection
 ha_release: 0.36
+ha_domain: xiaomi
 ---
 
 The `xiaomi` platform offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.

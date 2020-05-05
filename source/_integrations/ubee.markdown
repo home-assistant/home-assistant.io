@@ -1,12 +1,12 @@
 ---
 title: Ubee Router
 description: Instructions on how to integrate Ubee routers into Home Assistant.
-logo: ubee.png
 ha_category:
   - Presence Detection
 ha_release: 0.89
 ha_codeowners:
   - '@mzdrale'
+ha_domain: ubee
 ---
 
 This platform offers presence detection by looking at connected devices to a [Ubee Router](https://www.ubeeinteractive.com/).
@@ -43,11 +43,14 @@ password:
 {% endconfiguration %}
 
 Supported models:
-- EVW3200-Wifi
-- EVW320B
-- EVW321B
-- EVW32C-0N
-- EVW3226@UPC
+
+- Ambit EVW320B
+- Ambit EVW321B
+- Ubee DDW36C
+- Ubee DVW32CB
+- Ubee EVW3200-Wifi
+- Ubee EVW3226 (UPC)
+- Ubee EVW32C-0N
 
 <div class='note info'>
 

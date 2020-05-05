@@ -1,12 +1,12 @@
 ---
 title: Azure Event Hub
 description: Setup for Azure Event Hub integration
-logo: azure_event_hub.svg
 ha_category:
   - History
 ha_release: 0.94
 ha_codeowners:
   - '@eavanvalkenburg'
+ha_domain: azure_event_hub
 ---
 
 The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to a [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 

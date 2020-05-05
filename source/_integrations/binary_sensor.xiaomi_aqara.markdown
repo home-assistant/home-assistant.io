@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Binary Sensor"
 description: "Instructions on how to setup the Xiaomi binary sensors within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Binary Sensor
 ha_release: "0.50"
 ha_iot_class: Local Push
+ha_domain: xiaomi_aqara
 ---
 
 The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](https://www.mi.com/en/) binary sensors.

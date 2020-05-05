@@ -72,7 +72,7 @@ device_tracker.yaml
 customize.yaml
 ```
 
-`automation.yaml` will hold all the automation integration details. `zones.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
+`automation.yaml` will hold all the automation integration details. `zone.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
 
 Inside the base configuration file add the following entries:
 

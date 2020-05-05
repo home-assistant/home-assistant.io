@@ -1,7 +1,6 @@
 ---
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
-logo: hive.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -15,6 +14,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@Rendili'
   - '@KJonline'
+ha_domain: hive
 ---
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.

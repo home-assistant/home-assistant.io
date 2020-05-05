@@ -1,11 +1,11 @@
 ---
 title: Blockchain.com
 description: Instructions on how to integrate Blockchain.com data within Home Assistant.
-logo: blockchain.png
 ha_category:
   - Finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+ha_domain: blockchain
 ---
 
 The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).

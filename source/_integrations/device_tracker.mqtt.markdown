@@ -1,11 +1,11 @@
 ---
 title: "MQTT Device Tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
-logo: mqtt.png
 ha_category:
   - Presence Detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
+ha_domain: mqtt
 ---
 
 

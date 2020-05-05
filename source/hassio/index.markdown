@@ -40,6 +40,6 @@ Home Assistant dashboard with upgrade notification (under the hamburger menu -> 
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[Home Assistant Operating System]: https://github.com/home-assistant/homeassistant
+[Home Assistant Operating System]: https://github.com/home-assistant/operating-system
 [Home Assistant Core]: https://www.home-assistant.io/docs/installation/
 [install]: /hassio/installation/

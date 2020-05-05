@@ -1,13 +1,13 @@
 ---
 title: QNAP
 description: Instructions on how to integrate the QNAP sensor within Home Assistant.
-logo: qnap.png
 ha_category:
   - System Monitor
 ha_release: 0.38
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@colinodell'
+ha_domain: qnap
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).

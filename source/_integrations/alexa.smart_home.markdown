@@ -1,13 +1,13 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+ha_domain: alexa
 ---
 
 Amazon Alexa provides a Smart Home API for richer home automation control without requiring the user to say the skill name, such as:
@@ -67,7 +67,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Create an AWS Lambda Function
 
-Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
+Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will deliver the response back to Alexa.
 
 <div class='info'>
 
@@ -182,6 +182,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
+- Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
@@ -412,6 +413,7 @@ The following integrations are currently supported:
 - [Binary Sensor](#binary-sensor)
   - [Doorbell Announcement](#doorbell-announcement)
   - [Presence Detection](#presence-detection-with-binary-sensor)
+- [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
   - [Garage Doors](#garage-doors)
@@ -424,6 +426,9 @@ The following integrations are currently supported:
 - [Input Number](#input-number)
 - [Image Processing](#image-processing)
 - [Light](#light)
+  - [Brightness](#brightness)
+  - [Color Temperature](#color-temperature)
+  - [Color](#color)
 - [Lock](#lock)
 - [Media Player](#media-player)
   - [Channels](#change-channel)
@@ -565,6 +570,18 @@ Each Echo device will need the communication and Announcements setting enabled, 
  </p>
 
 [Image Processing](#image-processing) entities also support this notification.
+
+### Camera
+
+View a camera stream on an Amazon echo device.
+
+- _"Alexa, show the front door camera."_
+
+The [`stream`](/integrations/stream/) integration is required to stream cameras to Amazon echo devices.
+
+The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
+
+Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.   
 
 ### Climate
 
@@ -760,8 +777,57 @@ The following table lists the possible friendly name synonyms available for a In
 
 ### Light
 
-- _"Alexa, dim the bathroom light."_
+Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature. 
+
+- _"Alexa, turn on the bathroom light."_
+- _"Alexa, turn off the patio light."_
+
+#### Brightness
+
+Lights that support brightness can be adjusted with percentages ranging from 0 to 100 percent.
+
 - _"Alexa, set the bedroom light to fifty percent."_
+- _"Alexa, living room lights to one hundred percent."_
+
+The _"dim"_ utterance will decrease the brightness of a light 25 percentage points.
+
+- _"Alexa, dim the bathroom light."_
+
+#### Color Temperature
+
+Adjust lights that support color temperature using the following friendly names:
+
+- _"Alexa, set the dining room softer."_
+- _"Alexa, make the living room warmer."_
+- _"Alexa, set the dining room cooler."_
+- _"Alexa, make the living room light whiter."_
+- _"Alexa, make the living room warm white."_
+- _"Alexa, set the kitchen to daylight."_
+
+The following table lists the possible friendly name synonyms available to lights that support color temperature.
+
+| Color Temperature in Kelvin | Friendly Name Synonyms  |
+| -----| ---------------------------------------------- |
+| 2200 | _"warm"_, _"warm white"_                       |
+| 2700 | _"incandescent"_, _"soft white"_               |
+| 4000 | _"white"_                                      |
+| 5500 | _"daylight"_, _"daylight white"_               |
+| 7000 | _"cool"_, _"cool white"_                       |
+
+Use _"warmer"_, _"softer"_, _"cooler_, _"whiter"_ utterances to adjust color temperature by 50 `mired` (approximately 300-500 degree kelvin change).
+
+- _"Alexa, set the dining room softer."_
+- _"Alexa, make the living room warmer."_
+- _"Alexa, set the dining room cooler."_
+- _"Alexa, make the living room light whiter."_
+
+#### Color
+
+Set the light color using the CSS [basic color keywords](https://drafts.csswg.org/css-color-3/#html4) or [extended color keywords](https://drafts.csswg.org/css-color-3/#svg-color) as the friendly color name.
+
+- _"Alexa, set the front porch light to blue."_
+- _"Alexa, set the bedroom light to red."_
+- _"Alexa, change the kitchen to the color crimson."_
 
 ### Lock
 
@@ -853,7 +919,15 @@ Support _"turn on"_ and _"turn off"_ utterances.
 
 ### Timer
 
-Start, Pause, and Restart Timer entities in Home Assistant.
+Start a timer with using the _"turn on"_ utterance. 
+
+- _"Alexa, turn on the laundry."_
+
+Cancel a timer using the _"turn off"_ utterance. 
+
+- _"Alexa, turn off the laundry."_
+
+Pause and Restart Timer entities in Home Assistant.
 
 - _"Alexa, pause the microwave."_
 - _"Alexa, hold the sous vide."_

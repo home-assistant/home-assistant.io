@@ -1,11 +1,11 @@
 ---
-title: "Telegram bot"
-description: "Telegram bot support"
-logo: telegram.png
+title: Telegram bot
+description: Telegram bot support
 ha_category:
   - Hub
 ha_release: 0.42
 ha_iot_class: Cloud Push
+ha_domain: telegram_bot
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.

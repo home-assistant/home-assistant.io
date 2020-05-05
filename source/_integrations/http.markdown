@@ -1,7 +1,6 @@
 ---
 title: HTTP
 description: Offers a web framework to serve files.
-logo: http.png
 ha_category:
   - Other
   - Binary Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: http
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
@@ -154,7 +154,7 @@ Please note, that sources from `trusted_networks` won't be banned automatically.
 
 ## Hosting files
 
-If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config` on Hass.io, `.homeassistant` elsewhere). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
+If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
 <div class='note'>
 
@@ -164,7 +164,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 <div class='note warning'>
 
-  Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+  Files served from the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 

@@ -78,6 +78,22 @@ condition:
           below: 20
 ```
 
+### NOT condition
+
+Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
+
+```yaml
+condition:
+  condition: not
+  conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: 'home'
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
 ### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity as a number, and triggers if the value matches the thresholds.
@@ -235,7 +251,9 @@ condition:
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
+Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
+If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
+Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
 
 <div class='note tip'>
 

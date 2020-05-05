@@ -1,10 +1,10 @@
 ---
 title: Duck DNS
 description: Keep your computer registered with the DuckDNS dynamic DNS.
-logo: duckdns.png
 ha_category:
   - Network
 ha_release: 0.55
+ha_domain: duckdns
 ---
 
 With the DuckDNS integration you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.

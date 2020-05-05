@@ -1,11 +1,11 @@
 ---
 title: "RFXtrx Light"
 description: "Instructions on how to integrate RFXtrx lights into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Light
 ha_release: 0.7.5
 ha_iot_class: Assumed State
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.

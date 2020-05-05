@@ -8,7 +8,6 @@ Setting up Home Assistant to run as a background service is simple; macOS will s
 
 To get Home Assistant installed as a background service, run:
 
-
 ```bash
 $ hass --script macos install
 
@@ -25,4 +24,12 @@ To uninstall the service, run:
 $ hass --script macos uninstall
 
 Home Assistant has been uninstalled.
+```
+
+
+Note:
+`automake` is required for `hass` to start. If you are missing this on your system, you can install this by running:
+ 
+```bash
+$ brew install autoconf
 ```

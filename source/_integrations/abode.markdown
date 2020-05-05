@@ -1,7 +1,6 @@
 ---
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
-logo: abode.jpg
 ha_category:
   - Hub
   - Alarm
@@ -17,6 +16,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@shred86'
+ha_domain: abode
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
@@ -26,12 +26,12 @@ Please visit the [Abode website](https://goabode.com/) for further information a
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- [**Binary Sensor**](/integrations/abode/#binary-sensor): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
 - **Camera**: Reports on `Camera` devices and will download and show the latest captured still image.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
-- [**Light**](/integrations/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
+- **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
+- **Switch**: Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## Configuration
@@ -115,7 +115,7 @@ For a full list of settings and valid values, consult the
 
 ### Service `capture_image`
 
-Request a new still image from your Abode IR camera.
+Request a new still image from your Abode camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

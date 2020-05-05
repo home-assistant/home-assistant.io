@@ -1,7 +1,6 @@
 ---
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
-logo: neato.png
 ha_category:
   - Camera
   - Sensor
@@ -13,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dshokouhi'
   - '@Santobert'
+ha_domain: neato
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).

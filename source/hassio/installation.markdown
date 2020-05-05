@@ -24,7 +24,8 @@ The following will take you through the steps required to install Home Assistant
      - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX][vhdx]
      - [VDI][vdi]
-     - [OVA][Virtual Appliance] (not available at this time!)
+     - [QCOW2 (beta)][qcow2]
+     - [OVA (Beta)][Virtual Appliance]
 
    - Not recommended Hardware:
 
@@ -50,8 +51,6 @@ The following will take you through the steps required to install Home Assistant
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
 6. You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
-
-7. It is important to provide yourself proper access, including the Home Assistant CLI tools. Both the [Samba add-on][samba] and the [SSH add-on][ssh] should be the first add-ons you should install, before making changes to the configuration in the `/config/` folder. From the UI choose **Supervisor**, which is located in the sidebar and then the add-on store.
 
 <div class='note warning'>
 
@@ -85,7 +84,12 @@ Best practice for updating a Home Assistant installation:
 
 ## Run a specific version on Home Assistant
 
-SSH to your Home Assistant system, or connect to the console, and run:
+For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
+that is available on your device by connecting a keyboard and screen.
+
+To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
+
+Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
 ha core update --version=0.XX.X
@@ -106,82 +110,65 @@ You can also install Home Assistant on a Linux operating system of choice, calle
 
 Home Assistant Supervised, will still give you access to most features Home Assistant has to offer, including add-ons.
 
-The packages you need to have available on your system needed to Home Assistant may vary.
-
-### Debian/Ubuntu
-
-- `apparmor-utils`
-- `apt-transport-https`
-- `avahi-daemon`
-- `ca-certificates`
-- `curl`
-- `dbus`
-- `jq`
-- `socat`
-- `software-properties-common`
-
-Optional:
-
-- `network-manager`
-
 <div class='note warning'>
 
-   Without the NetworkManager, you will be not able to control your host network setup over the UI. The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example, you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+The Supervisord system is designed to provide a full-featured environment that is comparable with Kubernetes, which is also a bad idea to run it by the side of another orchestrator on the same Host. The Supervisor is also not caring for other software they run on your Host, and it can affect things bad on both sides. You also need to know that the Home Assistant OS runs with less overhead on your Proxmox or other Hypervisor as if you install first Debian and Ubuntu. In most cases, it's not the best choice to run the Supervisord on top of a Linux, if you not 100% sure what you do. **It is not just a container inside Docker!**
 
 </div>
 
-### Arch Linux
+### Supported systems and limitations
 
-- `apparmor`
-- `avahi`
-- `ca-certificates`
-- `curl`
-- `dbus`
-- `docker`
-- `jq`
-- `socat`
+While Home Assistant Supervised can be run on practically any Linux systems,
+the Home Assistant project limits support for this installation method.
 
-You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
+Only the use of Debian or Ubuntu is supported. Other Linux-based system may work
+but is not part of our testing and thus not supported.
 
-<div class='note warning'>
+Furthermore, if you choose to run Home Assistant Supervised, the operating
+system of your choosing (including Debian/Ubuntu) is **your** responsibility.
+Both in terms of systems upgrade and system configuration.
 
-  Some distributions, like Ubuntu, have a `docker.io` package available. Using that package will cause issues!
-  Be sure to install the official Docker-CE from the above-listed URL.
-  
-  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by Docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+Customizations to your custom operating system may interfere with Home Assistant.
+For that reason, please be sure you have to knowledge to manage, configure and
+maintain the operating system of your choosing.
 
-</div>
+When in doubt, we highly recommend using the regular installation of Home
+Assistant as provided above. In that case, Home Assistant will manage and update
+the Home Assistant Operating System for you.
 
 ### Preparation
 
 To prepare your machine for the Home Assistant installation, run the following commands:
 
-For Ubuntu:
+If you run Ubuntu, first run this command:
 
 ```bash
-add-apt-repository universe
+sudo add-apt-repository universe
 ```
 
-Debian/Ubuntu:
+Next run the following commands (for both Debian and Ubuntu):
 
 ```bash
 sudo -i
 apt-get update
 apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 systemctl disable ModemManager
+systemctl stop ModemManager
 curl -fsSL get.docker.com | sh
 ```
+
+### Installation of Home Assistant Supervised
 
 The following script will then install Home Assistant on a variety of operating systems and machine types.
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s
 ```
 
-Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this:
+Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 4, the flag `-- -m raspberrypi4` is required. The install script would then look like this:
 
 ```bash
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
+curl -sL "https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh" | bash -s -- -m raspberrypi4
 ```
 
 #### Other machine types
@@ -194,7 +181,7 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `raspberrypi4`
 - `raspberrypi4-64`
 - `odroid-c2`
-- `odroid-cu2`
+- `odroid-n2`
 - `odroid-xu`
 - `tinker`
 - `qemuarm`
@@ -202,38 +189,32 @@ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/mast
 - `qemux86`
 - `qemux86-64`
 
-See the [hassio-installer](https://github.com/home-assistant/hassio-installer) GitHub page for an up-to-date listing of supported machine types.
+See the [installer](https://github.com/home-assistant/supervised-installer) GitHub page for an up-to-date listing of supported machine types.
 
 If you can not find your machine type in the list, you should pick the `qemu` release. i.e., `qemux86-64` for a normal 64-bit Linux distribution, or `qemuarm-64` for most modern ARM-based target like Raspberry Pi clones, or TV boxes.
 
-<div class='note'>
-When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
-</div>
-
-A detailed guide about running Home Assistant as a virtual machine is available in the [blog][hassio-vm].
-
 [balenaEtcher]: https://www.balena.io/etcher
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi0-w-3.11.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi-3.11.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi2-3.11.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi3-3.11.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi3-64-3.11.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi4-3.11.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_rpi4-64-3.11.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_tinker-3.11.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_odroid-c2-3.11.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.3/hassos_odroid-n2-4.3.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_odroid-xu4-3.11.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_intel-nuc-3.11.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.11/hassos_ova-3.11.vdi.gz
-[linux]: https://github.com/home-assistant/hassio-installer
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi0-w-3.13.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi-3.13.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi2-3.13.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-3.13.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-64-3.13.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-3.13.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-c2-3.13.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_odroid-n2-4.5.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-xu4-3.13.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.vdi.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.ova
+[linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
-[hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
 [configure]: /getting-started/configuration/

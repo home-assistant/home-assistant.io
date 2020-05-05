@@ -1,13 +1,13 @@
 ---
 title: KEF
 description: Instructions on how to integrate KEF Speakers into Home Assistant.
-logo: kef.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.104
 ha_codeowners:
   - '@basnijholt'
+ha_domain: kef
 ---
 
 The `kef` platform allows you to control the [KEF LS50 Wireless](https://international.kef.com/products/ls50-wireless) and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
@@ -74,7 +74,7 @@ supports_on:
   type: integer
 {% endconfiguration %}
 
-## Advanced configuration example
+## Advanced - configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -87,7 +87,90 @@ media_player:
    volume_step: 0.05
 ```
 
-Notes:
+## Services
+
+Just like in the KEF Control app, we can change the digital signal processing (DSP) settings.
+
+The speaker's current DSP settings are updated automatically each hour and after each service call.
+To update the settings manually, use `kef.update_dsp`.
+
+### Service `kef.update_dsp`
+
+Update all DSP settings.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+
+### Service `kef.set_mode`
+
+Set the mode of the speaker. When optional attributes are left out, the setting will be unchanged.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| desk_mode              | Yes      | "Desk mode" (`true` or `false`) |
+| wall_mode              | Yes      | "Wall mode" (`true` or `false`) |
+| phase_correction       | Yes      | "Phase correction" (`true` or `false`) |
+| high_pass              | Yes      | "High-pass mode" (`true` or `false`) |
+| sub_polarity           | Yes      | "Sub polarity" (`-` or `+`) |
+| bass_extension         | Yes      | "Bass extension" selector (`Less`, `Standard`, or `Extra`) |
+
+### Service `kef.set_desk_db`
+
+Set the "Desk mode" slider of the speaker in dB.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
+
+### Service `kef.set_wall_db`
+
+Set the "Wall mode" slider of the speaker in dB.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| db_value               | No       | Value of the slider (-6 to 0 with steps of 0.5) |
+
+### Service `kef.set_treble_db`
+
+Set desk the "Treble trim" slider of the speaker in dB.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| db_value               | No       | Value of the slider (-2 to 2 with steps of 0.5) |
+
+### Service `kef.set_high_hz`
+
+Set the "High-pass mode" slider of the speaker in Hz.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| hz_value               | No       | Value of the slider (50 to 120 with steps of 5) |
+
+### Service `kef.set_low_hz`
+
+Set the "Sub out low-pass frequency" slider of the speaker in Hz.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| hz_value               | No       | Value of the slider (40 to 250 with steps of 5) |
+
+### Service `kef.set_sub_db`
+
+Set the "Sub gain" slider of the speaker in dB.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| entity_id              | No       | The entity_id of the KEF speaker. |
+| db_value               | No       | Value of the slider (-10 to 10 with steps of 1) |
+
+## Notes
 
 - The LS50 Wireless was tested with the latest firmware of 19-11-2019: `p6.3001902221.105039422` and older firmware: `p6.2101809171.105039422`
 - The LSX Wireless was tested with the latest firmware of 10-10-2019 v4.1: `p20.4101909240.105243`

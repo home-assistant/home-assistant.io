@@ -408,6 +408,47 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 [eight_sleep docs]: /integrations/eight_sleep/
 [minecraft_server docs]: /integrations/minecraft_server/
 
+## Release 0.106.5 - March 3
+
+- Fix too many device tracker updates in log for Tesla ([@alandtse] - [#32426])
+- Filter out duplicate logbook states ([@balloob] - [#32427])
+- Properly define dependency for pvoutput integration on rest in… ([@bdraco] - [#32435])
+- Fix pushover's ATTR_RETRY env variable typo ([@axilleas] - [#32440])
+- Remove hassfest blacklisted rest ([@balloob] - [#32441])
+- UniFi - Fix websocket bug ([@Kane610] - [#32449])
+
+[#32426]: https://github.com/home-assistant/core/pull/32426
+[#32427]: https://github.com/home-assistant/core/pull/32427
+[#32435]: https://github.com/home-assistant/core/pull/32435
+[#32440]: https://github.com/home-assistant/core/pull/32440
+[#32441]: https://github.com/home-assistant/core/pull/32441
+[#32449]: https://github.com/home-assistant/core/pull/32449
+[@Kane610]: https://github.com/Kane610
+[@alandtse]: https://github.com/alandtse
+[@axilleas]: https://github.com/axilleas
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+
+## Release 0.106.6 - March 10
+
+- Get pending iCloud devices when available + request again when needs an update ([@Quentame] - [#32400]) ([icloud docs])
+- Send messages conforming new facebook policy ([@chmielowiec] - [#32516]) ([facebook docs])
+- Update python-velbus to fix a missing data file ([@Cereal2nd] - [#32580]) ([velbus docs])
+- Upgrade to coronavirus 1.1.0 ([@balloob] - [#32648]) ([coronavirus docs])
+
+[#32400]: https://github.com/home-assistant/core/pull/32400
+[#32516]: https://github.com/home-assistant/core/pull/32516
+[#32580]: https://github.com/home-assistant/core/pull/32580
+[#32648]: https://github.com/home-assistant/core/pull/32648
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Quentame]: https://github.com/Quentame
+[@balloob]: https://github.com/balloob
+[@chmielowiec]: https://github.com/chmielowiec
+[coronavirus docs]: /integrations/coronavirus/
+[facebook docs]: /integrations/facebook/
+[icloud docs]: /integrations/icloud/
+[velbus docs]: /integrations/velbus/
+
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)

@@ -1,16 +1,16 @@
 ---
 title: "MQTT Binary Sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Binary Sensor
 ha_release: 0.9
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
-The `mqtt` binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: `on` or `off`.
+The `mqtt` binary sensor platform uses an MQTT message received to set the binary sensor's state to `on` or `off`.
 
-The binary sensor state will be updated only after a new message is published on `state_topic` matching `payload_on` or `payload_off`. If these messages are published with the `retain` flag set,
+The state will be updated only after a new message is published on `state_topic` matching `payload_on` or `payload_off`. If these messages are published with the `retain` flag set,
 the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup.
 Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
@@ -19,7 +19,7 @@ Stateless devices such as buttons, remote controls etc are better represented by
 ## Configuration
 
 The `mqtt` binary sensor platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability_topic`
-is defined, Home Assistant will consider the MQTT device to be available.
+is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
 To use an MQTT binary sensor in your installation,
 add the following to your `configuration.yaml` file:
@@ -33,7 +33,7 @@ binary_sensor:
 
 {% configuration %}
 availability_topic:
-  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
+  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor will always be considered `available` and its state will be `on`, `off` or `unknown`. If `availability_topic` is defined, the binary sensor will be considered as `unavailable` by default and the sensor's state will be `unavailable`."
   required: false
   type: string
 device:
@@ -65,16 +65,20 @@ device:
       description: The firmware version of the device.
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 expire_after:
-  description: "Defines the number of seconds after the value expires if it's not updated. After expiry, the value is cleared, and the availability is set to false"
+  description: "Defines the number of seconds after the sensor's state expires if it's not updated. After expiry, the sensor's state becomes `unavailable` if `availability_topic` is defined and `unknown` otherwise."
   required: false
   type: integer
 force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  description: Sends update events (which results in update of [state object](/docs/configuration/state_object/)'s `last_changed`) even if the sensor's state hasn't changed. Useful if you want to have meaningful value graphs in history or want to create an automation that triggers on *every* incoming state message (not only when the sensor's new state is different to the current one).
   required: false
   type: boolean
   default: false
@@ -92,26 +96,26 @@ name:
   type: string
   default: MQTT Binary Sensor
 off_delay:
-  description: "For sensors that only sends `On` state updates, this variable sets a delay in seconds after which the sensor state will be updated back to `Off`."
+  description: "For sensors that only send `on` state updates (like PIRs), this variable sets a delay in seconds after which the sensor's state will be updated back to `off`."
   required: false
   type: integer
 payload_available:
-  description: The payload that represents the online state.
+  description: The string that represents the `online` state.
   required: false
   type: string
   default: online
 payload_not_available:
-  description: The payload that represents the offline state.
+  description: The string that represents the `offline` state.
   required: false
   type: string
   default: offline
 payload_off:
-  description: The payload that represents the off state.
+  description: The string that represents the `off` state. It will be compared to the message in the `state_topic` (see `value_template` for details)
   required: false
   type: string
   default: "OFF"
 payload_on:
-  description: The payload that represents the on state.
+  description: The string that represents the `on` state. It will be compared to the message in the `state_topic` (see `value_template` for details)
   required: false
   type: string
   default: "ON"
@@ -121,7 +125,7 @@ qos:
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values.
+  description: The MQTT topic subscribed to receive sensor's state.
   required: true
   type: string
 unique_id:
@@ -129,7 +133,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a string to be compared to `payload_on`/`payload_off`. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
   type: string
 {% endconfiguration %}

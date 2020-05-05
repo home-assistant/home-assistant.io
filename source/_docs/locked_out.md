@@ -18,7 +18,7 @@ If you know the user, but not the password and you can access the [Home Assistan
 
 Connect a keyboard and monitor to your device.
 
-`ha auth reset --username "<existing_user>" --password "<new_password>"`
+`auth reset --username existing_user --password new_password`
 
 ### Home Assistant Core
 

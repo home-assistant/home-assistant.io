@@ -1,36 +1,38 @@
 ---
 title: "Xiaomi Air Purifier"
 description: "Instructions on how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Fan
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
 
 Supported devices:
 
-| Name                | Model                  | Model no. |
-| ------------------- | ---------------------- | --------- |
-Air Purifier          | zhimi.airpurifier.v1   | |
-Air Purifier 2        | zhimi.airpurifier.v2   | FJY4006CN |
-Air Purifier V3       | zhimi.airpurifier.v3   | |
-Air Purifier V5       | zhimi.airpurifier.v5   | |
-Air Purifier Pro      | zhimi.airpurifier.v6   | |
-Air Purifier Pro V7   | zhimi.airpurifier.v7   | |
-Air Purifier 2 (mini) | zhimi.airpurifier.m1   | |
-Air Purifier (mini)   | zhimi.airpurifier.m2   | |
-Air Purifier MA1      | zhimi.airpurifier.ma1  | |
-Air Purifier 2S       | zhimi.airpurifier.ma2  | |
-Air Purifier 2S       | zhimi.airpurifier.mc1  | |
-Air Purifier Super    | zhimi.airpurifier.sa1  | |
-Air Purifier Super 2  | zhimi.airpurifier.sa2  | |
-Air Humidifier        | zhimi.humidifier.v1    | |
-Air Humidifier CA1    | zhimi.humidifier.ca1   | |
-Air Humidifier CB1    | zhimi.humidifier.cb1   | |
-Air Fresh VA2         | zhimi.airfresh.va2     | |
+| Name                   | Model                  | Model no. |
+| ---------------------- | ---------------------- | --------- |
+| Air Purifier           | zhimi.airpurifier.v1   | |
+| Air Purifier 2         | zhimi.airpurifier.v2   | FJY4006CN |
+| Air Purifier V3        | zhimi.airpurifier.v3   | |
+| Air Purifier V5        | zhimi.airpurifier.v5   | |
+| Air Purifier Pro       | zhimi.airpurifier.v6   | |
+| Air Purifier Pro V7    | zhimi.airpurifier.v7   | |
+| Air Purifier 2 (mini)  | zhimi.airpurifier.m1   | |
+| Air Purifier (mini)    | zhimi.airpurifier.m2   | |
+| Air Purifier MA1       | zhimi.airpurifier.ma1  | |
+| Air Purifier 2S        | zhimi.airpurifier.ma2  | |
+| Air Purifier 2S        | zhimi.airpurifier.mc1  | |
+| Air Purifier Super     | zhimi.airpurifier.sa1  | |
+| Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
+| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
+| Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
+| Air Humidifier         | zhimi.humidifier.v1    | |
+| Air Humidifier CA1     | zhimi.humidifier.ca1   | |
+| Air Humidifier CB1     | zhimi.humidifier.cb1   | |
+| Air Fresh VA2          | zhimi.airfresh.va2     | |
 
 
 ## Features
@@ -166,6 +168,39 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
   - `filter_type`
   - `illuminance`
   - `buzzer`
+
+### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
+
+This model uses newer MiOT communication protocol. 
+
+- Power (on, off)
+- Operation modes (auto, silent, favorite, fan)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off)
+- Favorite Level (0...16)
+- Fan Level (1...3)
+- Attributes
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `purify_volume`
+  - `use_time`
+  - `buzzer`
+  - `led_brightness`
+  - `filter_rfid_product_id`
+  - `filter_rfid_tag`
+  - `filter_type`
+  - `fan_level`
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
@@ -408,6 +443,15 @@ Set the favorite level of the operation mode "favorite".
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
+### Service `xiaomi_miio.fan_set_fan_level` (Air Purifiers only)
+
+Set the fan level for "fan" operation mode.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi MiOT fan entity.          |
+| `level`                   |       no | Level, between 1 and 3.                                 |
+
 ### Service `xiaomi_miio.fan_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect on.
@@ -490,3 +534,9 @@ Turn the dry mode off.
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+
+## Troubleshooting `Unable to find device` error messages
+
+Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
+
+If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.

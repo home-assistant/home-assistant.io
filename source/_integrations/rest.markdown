@@ -1,11 +1,11 @@
 ---
 title: RESTful
 description: Instructions on how to integrate REST sensors into Home Assistant.
-logo: restful.png
 ha_category:
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -118,10 +118,6 @@ force_update:
   type: boolean
   default: false
 {% endconfiguration %}
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>
 
 <div class='note'>
 
@@ -414,7 +410,7 @@ sensor:
         value_template: '{{ states.sensor.steam_system_data.attributes["time0"] }}'
         unit_of_measurement: "minutes"
 
-switch: 
+switch:
   - platform: template
     switches:
       steam:
@@ -441,7 +437,7 @@ switch:
           - service: homeassistant.update_entity
             data:
                entity_id: sensor.steam_system_data
-        friendly_name: Steam 
+        friendly_name: Steam
 
 rest_command:  
   set_steam_led:
@@ -454,7 +450,7 @@ For reference, the XML content of endpoint shown above example is below:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
- 
+
  <response>
  	<scan>0</scan>
 	<ver>12556</ver>

@@ -83,7 +83,6 @@
 /components/air_quality.opensensemap /integrations/opensensemap
 /components/alarm_control_panel.abode /integrations/abode
 /components/alarm_control_panel.alarmdecoder /integrations/alarmdecoder#alarm-control-panel
-/components/alarm_control_panel.alarmdotcom /integrations/alarmdotcom
 /components/alarm_control_panel.arlo /integrations/arlo
 /components/alarm_control_panel.blink /integrations/blink
 /components/alarm_control_panel.canary /integrations/canary
@@ -349,7 +348,6 @@
 /components/device_tracker.mqtt_json /integrations/mqtt_json
 /components/device_tracker.netgear /integrations/netgear
 /components/device_tracker.nmap_tracker /integrations/nmap_tracker
-/components/device_tracker.openwrt /integrations/openwrt
 /components/device_tracker.owntracks /integrations/owntracks
 /components/device_tracker.owntracks_http /integrations/owntracks
 /components/device_tracker.ping /integrations/ping
@@ -587,7 +585,6 @@
 /components/notify.nfandroidtv /integrations/nfandroidtv
 /components/notify.prowl /integrations/prowl
 /components/notify.pushbullet /integrations/pushbullet
-/components/notify.pushetta /integrations/pushetta
 /components/notify.pushover /integrations/pushover
 /components/notify.pushsafer /integrations/pushsafer
 /components/notify.rocketchat /integrations/rocketchat
@@ -784,7 +781,6 @@
 /components/sensor.modem_callerid /integrations/modem_callerid
 /components/sensor.mold_indicator /integrations/mold_indicator
 /components/sensor.moon /integrations/moon
-/components/sensor.mopar /integrations/mopar
 /components/sensor.mqtt_room /integrations/mqtt_room
 /components/sensor.mvglive /integrations/mvglive
 /components/sensor.mychevy /integrations/mychevy
@@ -875,7 +871,7 @@
 /components/sensor.swiss_hydrological_data /integrations/swiss_hydrological_data
 /components/sensor.swiss_public_transport /integrations/swiss_public_transport
 /components/sensor.syncthru /integrations/syncthru
-/components/sensor.synologydsm /integrations/synologydsm
+/components/sensor.synologydsm /integrations/synology_dsm
 /components/sensor.systemmonitor /integrations/systemmonitor
 /components/sensor.sytadin /integrations/sytadin
 /components/sensor.tado /integrations/tado
@@ -931,7 +927,6 @@
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
 /components/sensor.yr /integrations/yr
-/components/sensor.yweather /integrations/yweather
 /components/sensor.zabbix /integrations/zabbix#sensor
 /components/sensor.zamg /integrations/zamg#sensor
 /components/sensor.zestimate /integrations/zestimate
@@ -1081,7 +1076,6 @@
 /components/weather.metoffice /integrations/metoffice
 /components/weather.openweathermap /integrations/openweathermap#weather
 /components/weather.smhi /integrations/smhi
-/components/weather.yweather /integrations/yweather
 /components/weather.zamg /integrations/zamg#weather
 /components/xiaomi /integrations/xiaomi_aqara
 
@@ -1100,7 +1094,6 @@
 /components/alarm_control_panel.ifttt /integrations/alarm_control_panel.ifttt
 /components/alarm_control_panel.mqtt /integrations/alarm_control_panel.mqtt
 /components/alarmdecoder /integrations/alarmdecoder
-/components/alarmdotcom /integrations/alarmdotcom
 /components/alert /integrations/alert
 /components/alexa /integrations/alexa
 /components/alexa.flash_briefings /integrations/alexa.flash_briefings
@@ -1581,7 +1574,6 @@
 /components/mold_indicator /integrations/mold_indicator
 /components/monoprice /integrations/monoprice
 /components/moon /integrations/moon
-/components/mopar /integrations/mopar
 /components/mpchc /integrations/mpchc
 /components/mpd /integrations/mpd
 /components/mqtt /integrations/mqtt
@@ -1659,7 +1651,6 @@
 /components/opentherm_gw /integrations/opentherm_gw
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
-/components/openwrt /integrations/openwrt
 /components/opple /integrations/opple
 /components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo
@@ -1701,7 +1692,6 @@
 /components/pulseaudio_loopback /integrations/pulseaudio_loopback
 /components/push /integrations/push
 /components/pushbullet /integrations/pushbullet
-/components/pushetta /integrations/pushetta
 /components/pushover /integrations/pushover
 /components/pushsafer /integrations/pushsafer
 /components/pvoutput /integrations/pvoutput
@@ -1871,7 +1861,7 @@
 /components/synology /integrations/synology
 /components/synology_chat /integrations/synology_chat
 /components/synology_srm /integrations/synology_srm
-/components/synologydsm /integrations/synologydsm
+/components/synologydsm /integrations/synology_dsm
 /components/syslog /integrations/syslog
 /components/system_health /integrations/system_health
 /components/system_log /integrations/system_log
@@ -2020,7 +2010,6 @@
 /components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/yr /integrations/yr
-/components/yweather /integrations/yweather
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
 /components/zengge /integrations/zengge
@@ -2036,6 +2025,7 @@
 
 # Breaking changes
 /integrations/switch.pca /integrations/elv
+/integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
@@ -2058,6 +2048,7 @@
 /docs/ecosystem/notebooks/graph https://data.home-assistant.io
 /docs/ecosystem/notebooks/installation https://data.home-assistant.io
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
+/docs/frontend/mobile https://companion.home-assistant.io
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -2089,3 +2080,4 @@
 
 # Lovelace documentation
 /lovelace/entity-button /lovelace/button
+/lovelace/views /lovelace/dashboards-and-views

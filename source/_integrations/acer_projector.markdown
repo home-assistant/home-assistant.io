@@ -1,11 +1,11 @@
 ---
 title: Acer Projector
 description: Instructions on how to integrate Acer Projector switches into Home Assistant.
-logo: acer.png
 ha_category:
   - Multimedia
 ha_iot_class: Local Polling
 ha_release: 0.19
+ha_domain: acer_projector
 ---
 
 The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](https://www.acer.com/).

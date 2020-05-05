@@ -1,7 +1,6 @@
 ---
 title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
-logo: minut.svg
 ha_category:
   - Hub
   - Alarm
@@ -13,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_quality_scale: gold
 ha_codeowners:
   - '@fredrike'
+ha_domain: point
 ---
 
 The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant `base_url` + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.

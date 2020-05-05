@@ -1,10 +1,10 @@
 ---
 title: Telegram
 description: Instructions on how to add Telegram notifications to Home Assistant.
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.7.5
+ha_domain: telegram
 ---
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
@@ -288,9 +288,9 @@ action:
       document:
         file: /tmp/whatever.odf
         caption: Document Title xy
-    keyboard:
-      - '/command1, /command2'
-      - '/command3, /command4'
+      keyboard:
+        - '/command1, /command2'
+        - '/command3, /command4'
 ```
 
 {% configuration %}

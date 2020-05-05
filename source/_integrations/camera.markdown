@@ -1,11 +1,11 @@
 ---
 title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Camera
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: camera
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
@@ -85,7 +85,7 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 action:
   service: camera.record
-  data:
+  data_template:
     entity_id: camera.yourcamera
     filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```

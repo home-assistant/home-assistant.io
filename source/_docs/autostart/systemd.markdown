@@ -77,24 +77,24 @@ WantedBy=multi-user.target
 You need to reload `systemd` to make the daemon aware of the new configuration.
 
 ```bash
-$ sudo systemctl --system daemon-reload
+sudo systemctl --system daemon-reload
 ```
 
 To have Home Assistant start automatically at boot, enable the service.
 
 ```bash
-$ sudo systemctl enable home-assistant@YOUR_USER
+sudo systemctl enable home-assistant@YOUR_USER
 ```
 
 To disable the automatic start, use this command.
 
 ```bash
-$ sudo systemctl disable home-assistant@YOUR_USER
+sudo systemctl disable home-assistant@YOUR_USER
 ```
 
 To start Home Assistant now, use this command.
 ```bash
-$ sudo systemctl start home-assistant@YOUR_USER
+sudo systemctl start home-assistant@YOUR_USER
 ```
 
 You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
@@ -114,18 +114,18 @@ $ sudo systemctl status home-assistant@YOUR_USER
 To get Home Assistant's logging output, simple use `journalctl`.
 
 ```bash
-$ sudo journalctl -f -u home-assistant@YOUR_USER
+sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 
 Because the log can scroll quite quickly, you can select to view only the error lines:
 ```bash
-$ sudo journalctl -f -u home-assistant@YOUR_USER | grep -i 'error'
+sudo journalctl -f -u home-assistant@YOUR_USER | grep -i 'error'
 ```
 
 When working on Home Assistant, you can easily restart the system and then watch the log output by combining the above commands using `&&`
 
 ```bash
-$ sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-assistant@YOUR_USER
+sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 
 ### Automatically restarting Home Assistant on failure

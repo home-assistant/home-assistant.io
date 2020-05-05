@@ -1,10 +1,10 @@
 ---
 title: Picture Entity Card
 sidebar_label: Picture Entity
-description: Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
+description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
 ---
 
-Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
+The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_entity.gif' alt='Picture entity card'>

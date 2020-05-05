@@ -1,12 +1,12 @@
 ---
 title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
-logo: html5.png
 ha_category:
   - Notifications
 ha_release: 0.27
 ha_codeowners:
   - '@robbiet480'
+ha_domain: html5
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -90,7 +90,7 @@ The `html5` platform can only function if all of the following requirements are 
 
 ### Configuring the platform
 
-1. Make sure you can access your Home Assistant installation from outside your network over HTTPS ([see docs](/docs/configuration/remote/)) or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
+1. Make sure you can access your Home Assistant installation from outside your network over HTTPS ([see documentation](/docs/configuration/remote/)) or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard), this project will be imported into Firebase later (alternatively, the project can also be created during step 4).
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [see below](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.

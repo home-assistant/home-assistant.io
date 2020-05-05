@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_release: 0.9
 ha_codeowners:
   - '@fabaff'
+ha_domain: arest
 ---
 
 There is currently support for the following device types within Home Assistant:

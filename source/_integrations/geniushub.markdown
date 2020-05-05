@@ -1,7 +1,6 @@
 ---
 title: Genius Hub
 description: Instructions on how to integrate a Genius Hub with Home Assistant.
-logo: geniushub.png
 ha_category:
   - Climate
   - Water Heater
@@ -12,6 +11,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
+ha_domain: geniushub
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.

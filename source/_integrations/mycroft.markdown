@@ -1,11 +1,11 @@
 ---
 title: Mycroft
 description: Instructions on how to setup Mycroft AI within Home Assistant.
-logo: mycroft.png
 ha_category:
   - Voice
   - Notifications
 ha_release: 0.53
+ha_domain: mycroft
 ---
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.

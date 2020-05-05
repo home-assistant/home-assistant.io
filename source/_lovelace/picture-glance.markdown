@@ -1,10 +1,10 @@
 ---
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
-description: "Show an image card and corresponding entity states as icon"
+description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
+The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
@@ -89,6 +89,18 @@ If you define entities as objects instead of strings, you can add more customiza
 entity:
   required: true
   description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: false
+  description: Attribute of the entity to display instead of the state
+  type: string
+prefix:
+  required: false
+  description: Prefix to display before the attribute's value
+  type: string
+suffix:
+  required: false
+  description: Suffix to display after the attribute's value
   type: string
 icon:
   required: false

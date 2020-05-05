@@ -1,13 +1,13 @@
 ---
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-logo: proxmoxve.png
 ha_category:
   - Binary Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@k4ds3'
+ha_domain: proxmoxve
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
@@ -138,7 +138,7 @@ To apply the user and role just created, we need to give it permissions
 * Click `Datacenter`
 * Click `Permissions`
 * Open `Add` and click `User Permission`
-* Select "\" for the path
+* Select "/" for the path
 * Select your Home Assistant user (`hass`)
 * Select the Home Assistant role (`home-assistant`)
 * Make sure `Propigate` is checked

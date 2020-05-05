@@ -1,13 +1,13 @@
 ---
 title: Automatic
 description: Instructions for how to integrate Automatic ODB readers into Home Assistant.
-logo: automatic.png
 ha_category:
   - Car
 ha_release: 0.28
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@armills'
+ha_domain: automatic
 ---
 
 The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](https://automatic.com/) cloud service.

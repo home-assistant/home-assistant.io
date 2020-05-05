@@ -1,7 +1,6 @@
 ---
-title: Konnected
+title: Konnected.io
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
-logo: konnected.png
 ha_category:
   - Alarm
   - Binary Sensor
@@ -12,11 +11,18 @@ ha_codeowners:
   - '@heythisisnate'
   - '@kit-klein'
 ha_config_flow: true
+ha_domain: konnected
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
+
+<div class='note info'>
+
+Always ensure your panel is running the [latest firmware](https://help.konnected.io/support/solutions/folders/32000035066) before connecting it to Home Assistant.
+
+</div>
 
 The integration currently supports the following device types in Home Assistant:
 
@@ -24,7 +30,7 @@ The integration currently supports the following device types in Home Assistant:
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.
+This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use SSDP you'll need to manually provide the IP and Port information for each Konnected Panel. The IP/Port info can be found using the Konnected mobile app.
 
 <div class='note info'>
 
@@ -34,14 +40,73 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ## Configuration
 
-Home Assistant offers Konnected integration through **Configuration** -> **Integrations** -> **Konnected.io**.
+### Web Interface
 
-The configuration flow will guide you through a setup process that lets you connect to the panel and generate a configuration entry.  You can then utilize the options flow to configure or modify the behavior of each zone. 
+Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Configuration** -> **Integrations** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
-If you prefer you can also utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them.  If using `configuration.yaml` the configuration will automatically be imported and used to start a configuration flow. **Note that you must still complete the configuration/options flow before the configuration entry will be finalized.**
+Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
-Details of the configuration fields and values can be found below - these apply to both the configuration flow and the YAML.
+<div class='note info'>
 
+If you have an existing `configuration.yaml` completing the UI configuration will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a **Configured** integration the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the settings provided in the Home Assistant web interface.
+
+If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the UI configuration for that device.
+
+</div>  
+
+Once configuration is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
+
+#### Using Settings UI to Configure Zone Behavior
+
+The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
+
+The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+
+##### Binary Sensor:
+
+**Binary Sensor Type:** The type of sensor connected to the zone.
+
+**Name (optional)** The friendly name for the entity associated with the zone.
+
+**Invert the open/close state:** Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
+
+##### Digital Sensor:
+
+**Sensor Type:** The type of sensor connected to the zone - either `dht` or `ds18b20`.
+
+**Name (optional)** The friendly name for the entities associated with the zone.
+
+**Poll Interval (optional):** How often in minutes to poll the sensor for updates.
+
+##### Switchable Output:
+
+**Name: (optional)** The friendly name for the entity associated with the zone.
+
+**Output when on:** The state of the switch when activated.
+
+**Pulse Duration (optional):** The duration in ms to pulse the switch once activated.
+
+**Pause between pulses (optional):** The duration in ms to wait between pulses when activated.
+
+**Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated.
+
+**Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.  
+
+#### Using Settings UI to Configure Additional Panel Behavior
+
+Once all zones are configured you'll be presented with the configuration for additional panel behaviors.
+
+**Blink panel LED on when sending state change:** The desired LED behavior for the panel.
+
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+
+**Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
+
+### YAML Configuration
+
+If you prefer you can utilize a `konnected` section in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them. If using `configuration.yaml` the configuration will be one-time imported when going through the Configuration Flow for the panel. **Note that you must still complete the UI based setup before the integration will be configured and entities created/accessible.**
+
+Details of the configuration fields and values can be found below.
 ```yaml
 # Example configuration.yaml entry
 konnected:
@@ -267,6 +332,14 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
 ## Revision History
+
+### 0.108
+
+- Multiple output states for a zone. Details on configuring additional panel behaviors via the UI.
+
+### 0.106
+
+- Added information on configuration and options flow. Mention that alarm panel FW should be updated before connecting.
 
 ### 0.91
 

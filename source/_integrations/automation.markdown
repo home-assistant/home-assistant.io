@@ -1,16 +1,16 @@
 ---
 title: Automation
 description: Instructions on how to setup automation within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: automation
 ---
 
-Please see the [docs section](/docs/automation/) for in-depth
+Please see the [automation section](/docs/automation/) for in-depth
 documentation on how to use the automation integration.
 
 <p class='img'>

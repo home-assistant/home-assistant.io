@@ -1,13 +1,13 @@
 ---
 title: Sense HAT
 description: Instructions on how to setup Sense HAT LED lights within Home Assistant.
-logo: sense-hat.png
 ha_category:
   - DIY
   - Light
   - Sensor
 ha_iot_class: Assumed State
 ha_release: 0.44
+ha_domain: sensehat
 ---
 
 There is currently support for the following device types within Home Assistant:

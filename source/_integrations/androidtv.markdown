@@ -1,13 +1,13 @@
 ---
 title: Android TV
 description: Instructions on how to integrate Android TV and Fire TV devices into Home Assistant.
-logo: androidtv.png
 ha_category:
   - Media Player
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
+ha_domain: androidtv
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -77,7 +77,7 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) are configured in the backend package and do not need to be included in your configuration.)
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration.)
   required: false
   default: {}
   type: map
@@ -104,6 +104,11 @@ turn_off_command:
   description: An ADB shell command that will override the default `turn_off` command.
   required: false
   type: string
+screencap:
+  description: Determines if album art should be pulled from what is shown onscreen.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Full Configuration
@@ -254,7 +259,7 @@ Available key commands include:
 - `BACK`
 - `MENU`
 
-The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/bf1058a2f746535921b3f5247801469c4567e51a/androidtv/constants.py#L143-L186).
+The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L189-L233).
 
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 

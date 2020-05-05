@@ -1,7 +1,6 @@
 ---
 title: TellStick
 description: Instructions on how to integrate your TellStick into Home Assistant.
-logo: telldus_tellstick.png
 ha_release: pre 0.7
 ha_category:
   - Hub
@@ -10,6 +9,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Assumed State
+ha_domain: tellstick
 ---
 
 The `tellstick` integration integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
@@ -36,7 +36,7 @@ tellstick:
 There is a [TellStick add-on](/addons/tellstick/) available in the Home Assistant add-on store.
 
 ```yaml
-# Example configuration.yaml entry for Hass.io with the TellStick add-on
+# Example configuration.yaml entry with the TellStick add-on
 tellstick:
   host: core-tellstick
   port: [50800, 50801]

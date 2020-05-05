@@ -1,12 +1,12 @@
 ---
 title: IBM Watson TTS
 description: Instructions on how to setup IBM Watson TTS with Home Assistant.
-logo: watson_tts.png
 ha_category:
   - Text-to-speech
 ha_release: 0.94
 ha_codeowners:
   - '@rutkai'
+ha_domain: watson_tts
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.

@@ -6,10 +6,10 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: '0.30'
-logo: digital_ocean.png
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: digital_ocean
 ---
 
 The `digital_ocean` integration allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.

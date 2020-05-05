@@ -1,11 +1,11 @@
 ---
 title: Joaoapps Join
 description: Instructions for how to integrate the Join by Joaoapps service within Home Assistant.
-logo: joaoapps_join.png
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.24
+ha_domain: joaoapps_join
 ---
 
 The `joaoapps_join` integration exposes services from

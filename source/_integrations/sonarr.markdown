@@ -1,11 +1,13 @@
 ---
 title: Sonarr
 description: Instructions on how to integrate Sonarr sensors with Home Assistant
-logo: sonarr.png
 ha_category:
   - Downloading
 ha_release: 0.34
 ha_iot_class: Local Polling
+ha_domain: sonarr
+ha_codeowners:
+  - '@ctalkington'
 ---
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.

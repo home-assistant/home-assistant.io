@@ -1,18 +1,20 @@
 ---
 title: Input Number
 description: Instructions on how to integrate the Input Number integration into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: input_number
 ---
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-To enable this input number in your installation, add the following lines to your `configuration.yaml`:
+The preferred way to configure an input number is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Number** option.
+
+Input numbers can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +58,7 @@ input_number:
         type: float
         default: The value at shutdown
       step:
-        description: Step value for the slider. Smallest value `0.001`.
+        description: Step value. Smallest value `0.001`.
         required: false
         type: float
         default: 1

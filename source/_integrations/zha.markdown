@@ -1,7 +1,6 @@
 ---
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-logo: zigbee.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -18,6 +17,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
+ha_domain: zha
 ---
 
 [Zigbee Home Automation](https://zigbeealliance.org)
@@ -32,6 +32,8 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Sensor
 - Switch
+
+There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created.
 
 ## ZHA exception and deviation handling
 
@@ -77,11 +79,19 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
 
-- USB Device Path - on a Linux system will be something like `/dev/ttyUSB0`
+- USB Device Path - on a Linux system will be something like `/dev/ttyUSB0` or `/dev/ttyACM0`
 - Radio type - select device type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
 - Submit
 
-The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
+| Radio Type | Zigbee Radio Hardware |
+| ------------- | ------------- |
+| `ezsp`  | EmberZNet based radios, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
+| `deconz` | ConBee, ConBee II |
+| `xbee` | Digi XBee Series 2, 2C, 3  |
+
+- Press `Submit` to save changes.
+
+The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ## Configuration - Manual
 

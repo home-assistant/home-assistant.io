@@ -1,7 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-logo: plex.png
 ha_category:
   - Media Player
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
+ha_domain: plex
 ---
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
@@ -110,39 +110,79 @@ By default the Plex integration will create Media Player entities for all local,
 
 ### Service `play_media`
 
-Plays a song, playlist, TV episode, or video on a connected client.
+Plays a song, album, artist, playlist, TV show/season/episode, movie, or video on a connected client.
+
+Required fields within the `media_content_id` payloads are marked as such, others are optional.
 
 #### Music
 
-| Service data attribute | Optional | Description                                                                                            | Example                                                                                                                                                       |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                                              | media_player.theater_plex                                                                                                                                     |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `MUSIC`                                                            | MUSIC                                                                                                                                                         |
+| Service data attribute | Description                                                                                                                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                            |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+
+##### Examples:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: MUSIC
+media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
+```
+```yaml
+entity_id: media_player.plex_player
+media_content_type: MUSIC
+media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
+```
 
 #### Playlist
 
-| Service data attribute | Optional | Description                                                  | Example                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `entity_id`            | no       | `entity_id` of the client                                    | media_player.theater_plex                                                |
-| `media_content_id`     | no       | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `PLAYLIST`               | PLAYLIST                                                                 |
+| Service data attribute | Description                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                           |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`playlist_name` (Required)</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `PLAYLIST`                                                                                          |
+
+##### Example:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: PLAYLIST
+media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
+```
 
 #### TV Episode
 
-| Service data attribute | Optional | Description                                                                                                 | Example                                                                                                                                                    |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                                                   | media_player.theater_plex                                                                                                                                  |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `EPISODE`                                                               | EPISODE                                                                                                                                                    |
+| Service data attribute | Description                                                                                                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                          |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` (Required)</li><li>`season_number`</li><li>`episode_number`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `EPISODE`                                                                                                                                                                          |
+
+##### Examples:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5 }'
+```
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
+```
 
 #### Video
 
-| Service data attribute | Optional | Description                                                               | Example                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                 | media_player.theater_plex                                                                           |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `VIDEO`                               | VIDEO                                                                                               |
+| Service data attribute | Description                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                               |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`video_name` (Required)</li></ul> |
+| `media_content_type`   | `VIDEO`                                                                                                 |
+
+##### Example:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: VIDEO
+media_content_id: '{ "library_name": "Adult Movies", "video_name": "Blade" }'
+```
 
 ### Compatibility
 

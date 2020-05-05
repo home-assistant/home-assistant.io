@@ -1,11 +1,11 @@
 ---
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-logo: mqtt.png
 ha_category:
   - Lock
 ha_release: 0.15
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.
@@ -63,6 +63,10 @@ device:
       type: string
     sw_version:
       description: 'The firmware version of the device.'
+      required: false
+      type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
 json_attributes_template:
@@ -161,6 +165,8 @@ lock:
     command_topic: "home-assistant/frontdoor/set"
     payload_lock: "LOCK"
     payload_unlock: "UNLOCK"
+    state_locked: "LOCK"
+    state_unlocked: "UNLOCK"
     optimistic: false
     qos: 1
     retain: true

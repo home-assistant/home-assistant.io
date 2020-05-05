@@ -1,10 +1,10 @@
 ---
 title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.10"
+ha_domain: alexa
 ---
 
 ## I want to build custom commands to use with Echo

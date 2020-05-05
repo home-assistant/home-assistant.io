@@ -1,13 +1,13 @@
 ---
 title: Configuration
 description: Instructions on how to setup the configuration panel for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.39
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: config
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.

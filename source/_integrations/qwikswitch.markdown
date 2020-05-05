@@ -1,7 +1,6 @@
 ---
 title: QwikSwitch QSUSB
 description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
-logo: qwikswitch.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -11,6 +10,7 @@ ha_category:
 ha_release: '0.20'
 ha_codeowners:
   - '@kellerza'
+ha_domain: qwikswitch
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.

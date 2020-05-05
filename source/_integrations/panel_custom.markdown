@@ -1,13 +1,13 @@
 ---
 title: Custom Panel
 description: Instructions on how to add customized panels to the frontend of Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Front End
 ha_release: 0.26
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
+ha_domain: panel_custom
 ---
 
 The `panel_custom` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/en/frontend_creating_custom_panels.html).

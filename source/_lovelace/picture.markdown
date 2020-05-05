@@ -1,10 +1,10 @@
 ---
 title: "Picture Card"
 sidebar_label: Picture
-description: "A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
 ---
 
-A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_picture.png' alt='Screenshot of the picture card'>
@@ -18,7 +18,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.
+  description: The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the /local path, for example /local/filename.jpg .
   type: string
 theme:
   required: false

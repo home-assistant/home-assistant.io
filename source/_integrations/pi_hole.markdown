@@ -4,11 +4,11 @@ description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
-logo: pi_hole.png
 ha_release: 0.28
 ha_codeowners:
   - '@fabaff'
   - '@johnluetke'
+ha_domain: pi_hole
 ---
 
 The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.

@@ -1,12 +1,12 @@
 ---
 title: "MySensors Device Tracker"
 description: "Instructions on how to use MySensors to track devices in Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Presence Detection
 ha_release: 0.38
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors device trackers into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

@@ -1,13 +1,16 @@
 ---
 title: Logitech Harmony Hub
 description: Instructions on how to integrate Harmony Hub remotes into Home Assistant.
-logo: logitech.png
 ha_category:
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.34
+ha_config_flow: true
 ha_codeowners:
   - '@ehendrix23'
+  - '@bramkragten'
+  - '@bdraco'
+ha_domain: harmony
 ---
 
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
@@ -18,10 +21,13 @@ Supported units:
 - Harmony Companion
 - Harmony Pro
 - Harmony Elite
+- Harmony Pro 2400
 
-The preferred way to setup the Harmony remote is by enabling the [discovery component](/integrations/discovery/).
+The preferred way to setup the Harmony remote for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Logitech Harmony Hub**.
 
-However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
+Once `Logitech Harmony Hub` has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+
+Alternatively, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,14 +35,6 @@ remote:
   - platform: harmony
     name: Bedroom
     host: 10.168.1.13
-```
-
-You can override some default configuration values on a discovered hub (e.g., the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the configuration to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
-
-```yaml
-# Example configuration.yaml entry with discovery
-  - platform: harmony
-    name: Living Room
     activity: Watch TV
 ```
 
@@ -47,13 +45,8 @@ name:
   type: string
 host:
   description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
-  required: false
+  required: true
   type: string
-port:
-  description: The Harmony device's port.
-  required: false
-  type: integer
-  default: 5222
 activity:
   description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
   required: false
@@ -63,16 +56,11 @@ delay_secs:
   required: false
   type: float
   default: 0.4
-hold_secs:
-  description: Default duration in seconds between sending the "press" command and sending the "release" command.
-  required: false
-  type: integer
-  default: 0
 {% endconfiguration %}
 
 ### Configuration file
 
-Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
+Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_UNIQUE_ID.conf`. The file will contain:
 
 - List of all programmed activity names and ID numbers
 - List of all programmed device names and ID numbers

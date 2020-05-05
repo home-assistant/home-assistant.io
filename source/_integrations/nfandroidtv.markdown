@@ -1,10 +1,10 @@
 ---
 title: Notifications for Android TV / FireTV
 description: Notifications for Android TV / FireTV
-logo: nfandroidtv.png
 ha_category:
   - Notifications
 ha_release: 0.32
+ha_domain: nfandroidtv
 ---
 
 Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for FireTV](https://play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google). You can use this plarform to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disapper again. Sending images (e.g., security cam) is supported too.

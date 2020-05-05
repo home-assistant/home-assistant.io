@@ -1,12 +1,12 @@
 ---
 title: Simulated
 description: Component for simulating a numerical sensor.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.65
 ha_quality_scale: internal
+ha_domain: simulated
 ---
 
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):

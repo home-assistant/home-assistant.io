@@ -7,6 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.95
 ha_codeowners:
   - '@exxamalte'
+ha_domain: qld_bushfire
 ---
 
 The `qld_bushfire` platform lets you integrate a 

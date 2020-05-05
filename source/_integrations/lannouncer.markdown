@@ -5,6 +5,7 @@ logo: lannouncer.png
 ha_category:
   - Notifications
 ha_release: 0.36
+ha_domain: lannouncer
 ---
 
 The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://www.keybounce.com/lannouncer/). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.

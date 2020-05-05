@@ -1,7 +1,6 @@
 ---
 title: dweet.io
 description: Transfer events to Dweet.io.
-logo: dweet.png
 ha_category:
   - History
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.19
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: dweet
 ---
 
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!

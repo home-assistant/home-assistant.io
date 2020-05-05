@@ -1,25 +1,26 @@
 ---
 title: Input Boolean
 description: Instructions on how to integrate the Input Boolean integration into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.11
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: input_boolean
 ---
 
 The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
 
-To enable input booleans in your installation, add the following lines to your `configuration.yaml`:
+The preferred way to configure input booleans is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Toggle**" option.
+
+Input booleans can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 input_boolean:
   notify_home:
     name: Notify when someone arrives home
-    initial: off
     icon: mdi:car
 ```
 

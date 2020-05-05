@@ -47,7 +47,7 @@ These install options are fully supported by Home Assistant's documentation. For
 
 <div class='note'>
 
-The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image and [manual Supervised installer](/hassio/installation/#alternative-install-on-a-generic-linux-host). All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image and [manual Supervised installer](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host). All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
 
 </div>
 
@@ -96,13 +96,13 @@ These guides are provided as-is. Some of these install methods are more limited 
   </a>
   <a class='option-card' href='/docs/installation/macos/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/apple.png' />
+      <img src='https://brands.home-assistant.io/ios/icon.png' />
     </div>
     <div class='title'>macOS</div>
   </a>
   <a class='option-card' href='/docs/installation/synology/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/synology.png' />
+      <img src='https://brands.home-assistant.io/synology/logo.png' />
     </div>
     <div class='title'>Synology</div>
   </a>
@@ -112,9 +112,9 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>FreeNAS</div>
   </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-a-generic-linux-host'>
+  <a class='option-card' href='/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host'>
     <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
+      <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
     <div class='title'>Home Assistant Supervised <br> on generic Linux server</div>
   </a>

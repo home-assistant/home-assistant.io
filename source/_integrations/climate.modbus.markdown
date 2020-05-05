@@ -1,11 +1,11 @@
 ---
 title: "Modbus Climate"
 description: "Instructions how to integrate a Modbus thermostat within Home Assistant."
-logo: modbus.png
 ha_category:
   - Climate
 ha_release: 0.68
 ha_iot_class: Local Polling
+ha_domain: modbus
 ---
 
 

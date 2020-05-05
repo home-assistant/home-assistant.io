@@ -1,16 +1,16 @@
 ---
 title: Dialogflow
 description: Instructions on how integrate Dialogflow with Home Assistant.
-logo: dialogflow.png
 ha_category:
   - Voice
 ha_release: 0.56
 ha_config_flow: true
+ha_domain: dialogflow
 ---
 
 The `dialogflow` integration is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
-To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with many popular messaging, virtual assistant and IoT platforms.
 

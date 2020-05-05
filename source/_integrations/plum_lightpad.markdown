@@ -4,8 +4,10 @@ description: Instructions on setting up Plum Lightpads within Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Local Push
-logo: plum.png
 ha_release: 0.85
+ha_domain: plum_lightpad
+ha_codeowners:
+  - '@ColinHarrington'
 ---
 
 Configurable/Dimmable Wi-Fi Lightswitch

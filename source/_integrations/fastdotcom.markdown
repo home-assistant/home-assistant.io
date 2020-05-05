@@ -1,7 +1,6 @@
 ---
 title: Fast.com
 description: How to integrate Fast.com within Home Assistant.
-logo: fastdotcom.png
 ha_category:
   - System Monitor
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: fastdotcom
 ---
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.

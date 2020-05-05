@@ -1,7 +1,6 @@
 ---
 title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
-logo: network-snmp.png
 ha_category:
   - Network
   - Switch
@@ -9,6 +8,7 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: snmp
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
@@ -329,6 +329,11 @@ command_payload_off:
   description: The value to write to turn off the switch, if different from `payload_off`.
   required: false
   type: string
+vartype:
+  description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
+  required: false
+  type: string  
+  default: 'none'
 {% endconfiguration %}
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
@@ -351,6 +356,20 @@ Valid values for `priv_protocol`:
 - **aes-cfb-128**
 - **aes-cfb-192**
 - **aes-cfb-256**
+
+Valid values for `vartype`:
+
+- **Counter32**
+- **Counter64**
+- **Gauge32**
+- **Integer32**
+- **Integer**
+- **IpAddress**
+- **ObjectIdentifier**
+- **OctetString**
+- **Opaque**
+- **TimeTicks**
+- **Unsigned32**
 
 Complete examples:
 
@@ -376,4 +395,18 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
+    
+  - platform: snmp
+    name: Enable PoE on Netgear switch port 2 using SNMP v3
+    host: 192.168.0.4
+    version: '3'
+    username: 'myusername'
+    auth_key: 'myauthkey'
+    auth_protocol: 'hmac-sha'
+    priv_key: 'myprivkey'
+    priv_protocol: 'des'
+    baseoid: 1.3.6.1.4.1.4526.11.15.1.1.1.1.1.2
+    payload_on: 15400
+    payload_off: 3000
+    vartype: Gauge32
 ```

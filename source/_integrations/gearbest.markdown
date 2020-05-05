@@ -1,13 +1,13 @@
 ---
 title: Gearbest
 description: Instructions on how to integrate a Gearbest sensor into Home Assistant.
-logo: gearbest.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_codeowners:
   - '@HerrHofrat'
+ha_domain: gearbest
 ---
 
 The `gearbest` sensor will track the price of a product from [Gearbest](https://www.gearbest.com). This information can be used in, e.g., automations to notify you when a price drops. The update interval for every item is currently set to 2 hours.

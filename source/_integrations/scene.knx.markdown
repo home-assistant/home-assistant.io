@@ -1,10 +1,10 @@
 ---
 title: "KNX Scene"
 description: "Instructions on how to integrate KNX Scenes into Home Assistant."
-logo: knx.png
 ha_category:
   - Scene
 ha_release: 0.63
+ha_domain: knx
 ---
 
 <div class='note'>

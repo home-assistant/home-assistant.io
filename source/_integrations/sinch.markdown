@@ -1,12 +1,12 @@
 ---
 title: Sinch SMS
 description: Instructions on how to add Sinch notifications to Home Assistant.
-logo: sinch.png
 ha_category:
   - Notifications
 ha_release: 0.101
 ha_codeowners:
   - '@bendikrb'
+ha_domain: sinch
 ---
 
 The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.

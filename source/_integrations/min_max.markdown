@@ -1,7 +1,6 @@
 ---
 title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_iot_class: Local Polling
@@ -9,6 +8,7 @@ ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+ha_domain: min_max
 ---
 
 The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last) and the mean of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.

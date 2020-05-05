@@ -5,6 +5,7 @@ ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.23
+ha_domain: cmus
 ---
 
 The `cmus` platform allows you to control a [cmus](https://cmus.github.io/) music player on a remote or local machine from Home Assistant.

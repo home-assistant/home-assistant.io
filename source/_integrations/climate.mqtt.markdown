@@ -1,11 +1,11 @@
 ---
 title: "MQTT HVAC"
 description: "Instructions on how to integrate MQTT HVAC into Home Assistant."
-logo: mqtt.png
 ha_category:
   - Climate
 ha_release: 0.55
 ha_iot_class: Local Polling
+ha_domain: mqtt
 ---
 
 The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
@@ -94,6 +94,10 @@ device:
       type: string
     sw_version:
       description: 'The firmware version of the device.'
+      required: false
+      type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
 fan_mode_command_topic:
@@ -267,6 +271,10 @@ temperature_state_template:
   type: template
 temperature_state_topic:
   description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below).
+  required: false
+  type: string
+temperature_unit:
+  description: Defines the temperature unit of the device, `C` or `F`. If this is not set, the temperature unit is set to the system temperature unit.
   required: false
   type: string
 temp_step:

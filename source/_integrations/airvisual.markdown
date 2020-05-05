@@ -1,18 +1,21 @@
 ---
 title: AirVisual
 description: Instructions on how to use AirVisual data within Home Assistant
-logo: airvisual.jpg
 ha_category:
   - Health
 ha_release: 0.53
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'
+ha_domain: airvisual
+ha_config_flow: true
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) are created.
+The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.airvisual.com/air-quality-monitor).
 
-This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+## Using the AirVisual Cloud API
+
+AirVisual API keys can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
@@ -22,19 +25,34 @@ The "Community" API key is limited to 10,000 calls per month. In order to leave 
 
 </div>
 
+## Using an AirVisual Node/Pro Unit
+
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.airvisual.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
+
 ## Configuration
 
-To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+To enable the integration and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
 ```
 
+To enable the integration and gather from a Node/Pro unit, add the following lines to your `configuration.yaml` file:
+
+```yaml
+airvisual:
+    ip_address: YOUR_NODE_PRO_IP_ADDRESS
+    password: YOUR_NODE_PRO_SAMBA_PASSWORD
+```
+
+Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
+(examples below).
+
 {% configuration %}
 api_key:
   description: Your AirVisual API key.
-  required: true
+  required: false
   type: string
 geographies:
   description: A list of geographical locations to monitor
@@ -65,14 +83,14 @@ geographies:
 
 ## Example Configurations
 
-No explicit configuration (uses the `latitude` and `longitude` defined within `configuration.yaml`):
+No explicit configuration (using the cloud API and the `latitude` and `longitude` defined within `configuration.yaml`):
 
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
 ```
 
-Configuration using a single custom latitude and longitude:
+Configuration using the cloud API and a single custom latitude and longitude:
 
 ```yaml
 airvisual:
@@ -80,10 +98,9 @@ airvisual:
     geographies:
         latitude: 42.81212
         longitude: 108.12422
-    scan_interval: 300
 ```
 
-Configuration using multiple custom latitude and longitude pairs:
+Configuration using the cloud API and multiple custom latitude and longitude pairs:
 
 ```yaml
 airvisual:
@@ -95,7 +112,7 @@ airvisual:
           longitude: -117.22743
 ```
 
-Configuration using a single city, state, and country:
+Configuration using the cloud API and a single city, state, and country:
 
 ```yaml
 airvisual:

@@ -1,11 +1,11 @@
 ---
 title: Rejseplanen
 description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
-logo: rejseplanen.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.88
+ha_domain: rejseplanen
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).

@@ -6,6 +6,7 @@ ha_category:
   - Finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+ha_domain: etherscan
 ---
 
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).

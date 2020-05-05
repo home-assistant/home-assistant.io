@@ -7,6 +7,7 @@ ha_category:
   - Switch
 ha_release: 0.84
 ha_iot_class: Local Push
+ha_domain: hlk_sw16
 ---
 
 The [HLK-SW16](http://www.hlktech.net/product_detail.php?ProId=48) by [Hi-Link](http://www.hlktech.net/) is a simple networkable 16 port relay device.

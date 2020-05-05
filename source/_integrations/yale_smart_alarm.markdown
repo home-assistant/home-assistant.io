@@ -1,10 +1,10 @@
 ---
 title: Yale Smart Living
 description: Instructions on how to integrate Yale Smart Alarms into Home Assistant.
-logo: yale.png
 ha_category:
   - Alarm
 ha_release: 0.78
+ha_domain: yale_smart_alarm
 ---
 
 The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.

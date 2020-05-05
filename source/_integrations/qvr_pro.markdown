@@ -1,10 +1,13 @@
 ---
-title: "QVR Pro"
-description: "Instructions on how to integrate QVR Pro within Home Assistant."
+title: QVR Pro
+description: Instructions on how to integrate QVR Pro within Home Assistant.
 logo: qvr_pro.png
 ha_category:
   - Camera
-ha_release: "0.107"
+ha_release: 0.107
+ha_domain: qvr_pro
+ha_codeowners:
+  - '@oblogic7'
 ---
 
 [QVR Pro](https://www.qnap.com/solution/qvr-pro-official) allows you to create 
@@ -32,13 +35,18 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your Ring account.
+  description: The username for accessing your QVR account.
   required: true
   type: string
 password:
-  description: The password for accessing your Ring account.
+  description: The password for accessing your QVR account.
   required: true
   type: string
+port:
+  description: The port where QVR accepts connections.
+  required: false
+  default: 8080
+  type: integer
 exclude_channels:
   description: Comma separated list of channel numbers to be excluded.
   required: false
