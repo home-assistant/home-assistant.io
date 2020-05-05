@@ -99,8 +99,18 @@ Valid values for enable are:
 
 ### mDNS and UPnP
 
-Home Assistant must be on the same network as the devices for UPnP discovery to work.
+Home Assistant should be on the same network as the devices for mDNS and UPnP discovery to work.
+
 When running Home Assistant Core in a [Docker container](/docs/installation/docker/) command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise mDNS and UPnP will not work.
+
+If mDNS is still not working:
+- Make sure there are no firewall rules blocking mDNS traffic. mDNS relies on sending and receiving UDP multicast packets on port 5353.
+- mDNS traffic may not be forwarded correctly between the wired and wireless interfaces of a Wi-Fi AP or router.
+
+#### mDNS forwarding
+If it's not possible to have Home Assistant and the devices on the same network, mDNS forwarding may allow mDNS discovery between networks.
+
+mDNS forwarding is a configurable option in some routers. It can also be called mDNS reflector or mDNS repeater, depending on the manufacturer.
 
 ### Windows
 
