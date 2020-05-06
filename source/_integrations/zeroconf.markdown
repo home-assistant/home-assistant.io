@@ -26,6 +26,9 @@ zeroconf:
 
 {% configuration %}
 zeroconf:
+  description: 
+  type: map
+  keys:
    default_interface:
      description: By default, `zeroconf` will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in `zeroconf` being unavailable. Change this option to `true` if `zeroconf` does not function.
      required: true
