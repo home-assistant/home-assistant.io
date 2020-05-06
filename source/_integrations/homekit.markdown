@@ -591,6 +591,10 @@ Ensure that the [`ffmpeg`](../ffmpeg) integration is configured correctly. Verif
 
 Make sure `support_audio` is `True` in the camera's entity configuration.
 
+#### HomeKit stalls or devices respond slow with many cameras
+
+HomeKit updates each camera snapshot sequentially when there are multiple cameras on a bridge. The HomeKit update methodology can lead to the app stalling or taking a while to update.  To avoid this problem, limit each `HomeKit Bridge` to 6 cameras and create a new `HomeKit Bridge` for additional cameras.
+
 #### Resetting accessories
 
 On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
