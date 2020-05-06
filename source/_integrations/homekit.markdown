@@ -585,15 +585,15 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 #### Camera video is not streaming
 
-Ensure that the [`ffmpeg`](../ffmpeg) integration is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
+Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
 
 #### Camera audio is not streaming
 
 Make sure `support_audio` is `True` in the camera's entity configuration.
 
-#### HomeKit stalls or devices respond slow with many cameras
+#### HomeKit stalls or devices respond slowly with many cameras
 
-HomeKit updates each camera snapshot sequentially when there are multiple cameras on a bridge. The HomeKit update methodology can lead to the app stalling or taking a while to update.  To avoid this problem, limit each `HomeKit Bridge` to 6 cameras and create a new `HomeKit Bridge` for additional cameras.
+HomeKit updates each camera snapshot sequentially when there are multiple cameras on a bridge. The HomeKit update methodology can lead to the app stalling or taking a while to update. To avoid this problem, limit each `HomeKit Bridge` to 6 cameras and create a new `HomeKit Bridge` for additional cameras.
 
 #### Resetting accessories
 
