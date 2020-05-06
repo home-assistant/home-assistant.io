@@ -14,6 +14,6 @@ ha_quality_scale: silver
 
 The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
-### Configuration
+## Configuration
 
 Go to the integrations page in your configuration and click on new integration -> Sonarr.
