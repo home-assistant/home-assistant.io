@@ -10,7 +10,7 @@ ha_category:
   - Fan
   - Binary Sensor
 ha_release: 0.41
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: lutron_caseta
 ha_codeowners:
   - '@swails'
