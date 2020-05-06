@@ -12,15 +12,15 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The `synology_dsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
+The `synology_dsm` sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com).
 
 ## Configuration
 
-There are two ways to integrate Synology DSM in Home Assistant.
+There are two ways to integrate your Synology DSM into Home Assistant.
 
 ### Via the frontend
 
-Menu: *Configuration* -> *Integrations*. Search for "Synology DSM", fill the configuration form, click submit.
+Menu: *Configuration* -> *Integrations*. Search for "Synology DSM", fill in the configuration form with your username and password, and then click **Submit**.
 
 ### Via the configuration file
 
@@ -29,14 +29,14 @@ Add the following section to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 synology_dsm:
-  - host: IP_ADDRESS_OR_DNS_OF_SYNOLOGY_NAS
+  - host: IP_ADDRESS_OR_HOSTNAME_OF_SYNOLOGY_NAS
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
 
 {% configuration %}
 host:
-  description: The IP address or DNS of the Synology NAS to monitor.
+  description: The IP address or DNS hostname of the Synology NAS to monitor.
   required: true
   type: string
 port:
@@ -50,7 +50,7 @@ ssl:
   default: true
   type: boolean
 username:
-  description: An user to connect to the Synology NAS (a separate account is advised, see the (Separate User Configuration)[#separate-user-configuration] section below for details).
+  description: The account username to connect to the Synology NAS. Using a separate account is advised, see the [Separate User Configuration](#separate-user-configuration) section below for details.
   required: true
   type: string
 password:
@@ -58,11 +58,11 @@ password:
   required: true
   type: string
 volumes:
-  description: "Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores, e.g., `volume 1` with `volume_1`."
+  description: "Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores. For example, replace `volume 1` with `volume_1`."
   required: false
   type: list
 disks:
-  description: "Array of disks to monitor. Defaults to all disks. Use only disk names like `sda`, `sdb`, etc."
+  description: "Array of disks to monitor. Defaults to all disks. Use only disk names like `sda`, `sdb`, and so on."
   required: false
   type: list
 {% endconfiguration %}
@@ -82,15 +82,15 @@ When creating the user, it is possible to deny access to all locations and appli
 
 <div class='note warning'>
 
-Using two-factor authentication is not supported. Please use a strong, randomly generated password.
+The Home Assistant integration doesn't support two-factor authentication for Synology DSM accounts. Use a strong, randomly generated password to improve security.
 
 </div>
 
 
 ## Created sensors
 
-Sensors are :
-- `cpu_other_load`: Displays unspecified load in percentage.
+Sensors are:
+- `cpu_other_load`: Displays unspecified (that is, not user or system) load in percentage.
 - `cpu_user_load`: Displays user load in percentage.
 - `cpu_system_load`: Displays system load in percentage.
 - `cpu_total_load`: Displays combined load in percentage.
