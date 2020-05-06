@@ -46,7 +46,7 @@ If your model is not on the list then give it a test, if everything works correc
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </div>
 
-To add a Denon Network Receiver to your installation, click Configuration in the sidebar, then click Integrations. Denon and Marantz receivers schould be discovered automatically and schould show up in the overvieuw. Hit configure and go through the steps to specify the optional settings. If your receiver does not show up automatically, click the + icon in the lower right. Then search for "denonavr" and enter the setup.
+To add a Denon Network Receiver to your installation, click Configuration in the sidebar, then click Integrations. Denon and Marantz receivers should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your receiver does not show up automatically, click the + icon in the lower right. Then search for "denonavr" and enter the setup.
 
 {% configuration %}
 host:
