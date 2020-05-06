@@ -3,7 +3,7 @@ title: Velux
 description: Instructions on how to integrate Becker Covers via Becker Centronic USB Strick with Home Assistant.
 ha_category:
   - Cover
-ha_release: 
+ha_release: 0.110
 ha_codeowners:
   - '@nicolasberthel'
 ha_domain: becker
