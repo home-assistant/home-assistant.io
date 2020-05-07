@@ -30,13 +30,14 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 ```
 <div class='note'>
 
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/docs/configuration/basic).
 
 </div>
 
 ## Advanced use
 
 ### Manual configuration
+
 By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a white list of wanted chrome casts.
 
 ```yaml
