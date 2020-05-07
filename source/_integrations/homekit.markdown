@@ -223,6 +223,18 @@ homekit:
                 required: false
                 type: integer
                 default: 1316
+              video_codec:
+                description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source already encoded with `H264` (MPEG4). `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on RaspberryPi.
+                required: false
+                type: string
+                default: libx264
+                available options: copy, libx264, h264_omx
+              audio_codec:
+                description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source already encoded with `libopus`.
+                required: false
+                type: string
+                default: libopus
+                available options: copy, libopus
 {% endconfiguration %}
 
 
