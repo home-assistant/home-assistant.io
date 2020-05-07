@@ -21,7 +21,13 @@ The Community API key is valid for 12 months after which it will expire. You mus
 
 <div class='note warning'>
 
-The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Note that each item in the `geographies` list will consume an API call with each update.
+The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+
+For example:
+
+* One instance of the integration: API calls every 5 minutes
+* Two instances of the integration: API calls every 10 minutes
+* etc.
 
 </div>
 
@@ -36,14 +42,6 @@ To enable the integration and gather data via latitude/longitude, add the follow
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-To enable the integration and gather from a Node/Pro unit, add the following lines to your `configuration.yaml` file:
-
-```yaml
-airvisual:
-    ip_address: YOUR_NODE_PRO_IP_ADDRESS
-    password: YOUR_NODE_PRO_SAMBA_PASSWORD
 ```
 
 Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
