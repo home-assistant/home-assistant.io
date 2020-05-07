@@ -9,7 +9,7 @@ ha_codeowners:
   - '@bdraco'
 ---
 
-The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However, if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <div class="note">
 
@@ -89,7 +89,7 @@ homekit:
         type: boolean
         default: false
       zeroconf_default_interface:
-        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
+        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
         required: true
         type: boolean
         default: false
@@ -162,7 +162,6 @@ homekit:
                 default: '`switch`'
 {% endconfiguration %}
 
-
 ## Setup
 
 To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
@@ -206,7 +205,7 @@ The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique 
 
 ### Persistence Storage
 
-Unfortunately `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not set up, their configuration will be deleted. (State unknown or similar will not cause any issues.)
+Unfortunately, `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If, for some reason, some entities are not set up, their configuration will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
@@ -223,6 +222,7 @@ Please remember that you can only have a single `automation` entry. Add the auto
 </div>
 
 {% raw %}
+
 ```yaml
 # Example for Z-Wave
 homekit:
@@ -240,11 +240,13 @@ automation:
     action:
       - service: homekit.start
 ```
+
 {% endraw %}
 
 For a general delay where your integration doesn't generate an event, you can also do:
 
 {% raw %}
+
 ```yaml
 # Example using a delay after the start of Home Assistant
 homekit:
@@ -259,11 +261,13 @@ automation:
       - delay: 00:05  # Waits 5 minutes
       - service: homekit.start
 ```
+
 {% endraw %}
 
 In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding an additional `binary_sensor` as follows:
 
 {% raw %}
+
 ```yaml
 # Example checking specific entities to be available before start
 homekit:
@@ -288,6 +292,7 @@ automation:
         continue_on_timeout: false
       - service: homekit.start
 ```
+
 {% endraw %}
 
 ## Configure Filter
@@ -295,6 +300,7 @@ automation:
 By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 {% raw %}
+
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 homekit:
@@ -305,6 +311,7 @@ homekit:
     exclude_entities:
       - light.kitchen_light
 ```
+
 {% endraw %}
 
 Filters are applied as follows:
@@ -313,14 +320,14 @@ Filters are applied as follows:
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
-   * Include domain specified
+   - Include domain specified
       - if domain is included, and entity not excluded, pass
       - if domain is not included, and entity not included, fail
-   * Exclude domain specified
+   - Exclude domain specified
       - if domain is excluded, and entity not included, fail
       - if domain is not excluded, and entity not excluded, pass
       - if both include and exclude domains specified, the exclude domains are ignored
-   * Neither include or exclude domain specified
+   - Neither include or exclude domain specified
       - if entity is included, pass (as #2 above)
       - if entity include and exclude, the entity exclude is ignored
 
@@ -363,8 +370,8 @@ Restart your Home Assistant instance. This feature requires running an mDNS forw
 
 If you have a firewall configured on your Home Assistant system, make sure you open the following ports:
 
-- UDP: 5353 
-- TCP: 51827
+- UDP: 5353
+- TCP: 51827 (or the configured/used `port` in the integration settings).
 
 ## Supported Components
 
@@ -435,6 +442,7 @@ You might have paired the `Home Assistant Bridge` already. If not, delete the `.
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing)
 
 This is often setup and network related. Make sure to check the other issues below as well, but things that might work include:
+
 - Check your router configuration
 - Try with Wi-Fi **and** LAN
 - Change the default [port](#port)
