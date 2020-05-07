@@ -21,6 +21,8 @@ Once the integration is loaded, with your TV turned on and connected to your loc
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
+To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in the TV Settings: **Network > TV Remote App Settings**
+
 ## Manual configuration
 
 If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
@@ -100,12 +102,14 @@ script:
 - TC-P65VT30
 - TX-32AS520E
 - TX-32DSX609
+- TX-40DX700B
 - TX-49DX650B
 - TX-50DX700B
 - TX-55CX700E
 - TX-55CX680B
 - TX-55EXW584
 - TX-55EXW604S
+- TX-58DX700B
 - TX-65EXW784
 - TX-L42ET50
 - TX-P42STW50
