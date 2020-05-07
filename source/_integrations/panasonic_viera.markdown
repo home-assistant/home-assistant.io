@@ -46,6 +46,11 @@ port:
   required: false
   default: 55000
   type: integer
+listen_port:
+  description: The port number where the HTTP server will listen for state updates.
+  required: false
+  default: 55000
+  type: integer
 turn_on_action:
   description: Defines an action to turn the TV on. If not specified, a power key signal will try to be sent to the TV. Be aware that it might not work properly with some models.
   required: false
