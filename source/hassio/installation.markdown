@@ -210,7 +210,7 @@ If you can not find your machine type in the list, you should pick the `qemu` re
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.qcow2.gz
 [Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.ova
 [linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
