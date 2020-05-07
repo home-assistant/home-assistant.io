@@ -102,6 +102,10 @@ http:
   trusted_proxies: <HAProxy IP address here, 127.0.0.1 if same machine>
 ```
 
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL
+to your new URL, for example: `https://examplehome.duckdns.org`.
+Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
+
 ### Restart or Reload HAProxy
 
 Use your OS method of restarting or reloading HAProxy. Use Google for this.

@@ -95,6 +95,8 @@ http:
   trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
 ```
 
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL to your new URL, for example: `https://examplehome.duckdns.org`. Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
+
 ### NGINX configuration
 
 ```nginx
