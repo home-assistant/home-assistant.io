@@ -58,6 +58,6 @@ For a list of available settings and their values use [`songpal sound`](https://
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target entity, leave unset for all devices       |
+| `entity_id`            |       no | Target entity. To target all songpal devices, use `all` |
 | `name`                 |       no | Configuration variable, e.g., `nightmode`         |
 | `value`                |       no | New configuration value, e.g., `on`               |
