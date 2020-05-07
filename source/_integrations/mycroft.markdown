@@ -14,7 +14,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Notifications** - Allows to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
 
-## Configuration Mycroft
+## Configuration
 
 To use Mycroft in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,7 +31,9 @@ host:
   type: string
 {% endconfiguration %}  
 
-## Configuration Notify   
+## Using notifications
+
+To use Mycroft for sending notifications, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
