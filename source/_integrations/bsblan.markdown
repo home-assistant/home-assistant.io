@@ -3,16 +3,17 @@ title: BSBLan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 logo: bsblan.png
 ha_category: Climate
-ha_release: 0.107
+ha_release: 0.110
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@liudger'
+  - "@liudger"
 ---
 
 This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.
 
-BSBLan is an device that is made by `Frederik Holst` and `Ulf Diekmann` with help of many other contributors.
+BSBLan is an device that is made by `Frederik Holst` and `Ulf Diekmann` for documentation and with
+the help of many other contributors.
 The board is designed for an Arduino Mega 2560 with an Ethernet-Shield for web-based controlling
 of heating systems such as `Elco Thision`, `Brötje` and similar systems.
 
@@ -29,12 +30,14 @@ Menu: **Configuration** -> **Integrations**.
 Click on the `+` sign to add an integration and click on **BSBLan**.
 Fill in the IP address of the device in your network and, if needed,
 the port number. The default value should be 80.
-If you use a passkey or other authentication method on the BSBLan device, you can't use the integration yet.
+For authentication now only passkey is supported.
+Username and password are not supported yet. This will be supported in the next release.
 
 After completing the configuration flow, the BSBLan Climate integration will be
 available.
 
 For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 The device support quite a few controllers from different manufacturers.
+[list of supported models](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
 
-The integration is tested with firmware version `v0.42`.
+The integration is tested with firmware latest stable version `v0.43`.
