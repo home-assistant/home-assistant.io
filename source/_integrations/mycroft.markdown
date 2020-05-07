@@ -22,7 +22,7 @@ To use Mycroft in your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 mycroft:
   host: 0.0.0.0
-```  
+```
 
 {% configuration %}
 host:
