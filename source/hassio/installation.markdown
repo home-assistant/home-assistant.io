@@ -204,14 +204,14 @@ If you can not find your machine type in the list, you should pick the `qemu` re
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-c2-3.13.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_odroid-n2-4.5.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_odroid-n2-4.6.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-xu4-3.13.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.5/hassos_ova-4.5.ova
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_ova-4.6.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_ova-4.6.ova
 [linux]: https://github.com/home-assistant/supervised-installer
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
