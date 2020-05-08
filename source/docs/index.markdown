@@ -36,9 +36,9 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Lovelace user interface</div>
   </a>
-  <a class='option-card' href='/docs/ecosystem/ios/'>
+  <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/apple.png' />
+      <img src='https://brands.home-assistant.io/mobile_app/logo.png' />
     </div>
     <div class='title'>Android and iOS</div>
   </a>
