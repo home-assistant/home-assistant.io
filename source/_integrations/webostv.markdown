@@ -210,8 +210,10 @@ script:
           entity_id:  media_player.lg_webos_smart_tv
           command: "media.controls/rewind"
 ```
+
 ## Consecutive volume steps delay
-In the case where an sound output that only support relative volume stepping is used, the receiving speaker may have issues dealing several volume step commands arriving at the same time. Therefore it's possible configure a time delay so that at least the configured amount of time has elapsed between two consecutive volume steps before the second one is fired. The configured value is in milliseconds.
+
+In the case where a sound output that only supports relative volume stepping is used, the receiving speaker may have issues dealing with several volume step commands arriving at the same time. Therefore it's possible to configure a time delay so that at least the configured amount of time has elapsed between two consecutive volume steps before the second one is fired. The configured value is in milliseconds.
 
 ```yaml
 # Example
