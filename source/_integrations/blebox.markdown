@@ -39,3 +39,12 @@ Currently, this includes support for the following product classes:
 - BleBox gateBox
 
 For now, only a minimum set of features are supported (e.g., no tilt support for shutterBox).
+
+## Air Quality
+
+This integration adds the BleBox device as an air quality entity in Home Assistant.
+
+
+Currently, this includes support for the following product classes:
+
+- BleBox airSensor
