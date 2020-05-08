@@ -9,16 +9,16 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.110
-ha_domain: homeconnect
+ha_domain: home_connect
 ---
 
 The Home Connect integration will allow users to integrate their home appliances supporting the Home Connect standard using the [official API](https://developer.home-connect.com).
 
 The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
 
-- A power switch containing additional information as state attributes.
+- A power switch
 - If the device has programs, switches for the individual programs. Note that program options cannot be configured at present.
-- If the device has programs, sensors for remaining time, elapsed time, and progress in percent.
+- If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress in percent.
 
 Note that it depends on the appliance and on API permissions which of the features are actually supported. A notable limitation is that oven programs cannot be started at present.
 
@@ -42,7 +42,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 ```yaml
 # Example configuration.yaml entry
 
-homeconnect:
+home_connect:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
 ```
