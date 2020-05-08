@@ -13,9 +13,9 @@ ha_domain: devolo_home_control
 ha_quality_scale: silver
 ---
 
-devolo Home Control is a Z-Wave eco system with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
+devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
 
-## Configuration via the frontend
+## Configuration
 
 Menu: **Configuration** -> **Integrations**.
 
