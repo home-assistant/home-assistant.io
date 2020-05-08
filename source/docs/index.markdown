@@ -38,7 +38,7 @@ The documentation covers beginner to advanced topics around the installation, se
   </a>
   <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>
-      <img src='https://brands.home-assistant.io/mobile_app/logo.png' />
+      <img src='https://brands.home-assistant.io/mobile_app/icon.png' />
     </div>
     <div class='title'>Android and iOS</div>
   </a>
