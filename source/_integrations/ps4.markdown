@@ -1,7 +1,6 @@
 ---
 title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
-logo: ps4.png
 ha_category:
   - Media Player
 ha_release: 0.89
@@ -9,6 +8,7 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ktnrg45'
+ha_domain: ps4
 ---
 
 The `ps4` integration allows you to control a
@@ -39,14 +39,14 @@ The `ps4` integration allows you to control a
 The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
 
 <div class='note warning'>
-  Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
+  Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
 </div>
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
 <div class='note'>
 
-If your Home Assistant device is running **Hass.io** on **HassOS**, it does not require additional configuration.
+Additional configuration is only required for Home Assistant Core users **not** running on Docker.
 
 </div>
 
@@ -88,7 +88,7 @@ To find your system Python path:
   whereis python3.5.3
   ```
 
-  The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
+  The output which has the directory `/bin/` is likely your system Python path which should look like this `/usr/bin/python3.5`
 
 - If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root/top directory of your environment and run:
 
@@ -165,7 +165,7 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 | ----- | ----- | ----------- |
 | `locked`             | boolean | Must be `true` or `false`
 | `media_content_type` | string  | Must be `game` or `app`
-| `media_image_url`    | string  | Any valid url for an image
+| `media_image_url`    | string  | Any valid URL for an image
 | `media_title`        | string  | The title of the game or app
 
 The data in the example shows 2 entries.

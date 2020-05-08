@@ -1,11 +1,11 @@
 ---
 title: "MQTT Sensor"
 description: "Instructions on how to integrate MQTT sensors within Home Assistant."
-logo: mqtt.png
 ha_category:
   - Sensor
 ha_release: 0.7
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
@@ -22,90 +22,23 @@ sensor:
 ```
 
 {% configuration %}
-state_topic:
-  description: The MQTT topic subscribed to receive sensor values.
-  required: true
-  type: string
-name:
-  description: The name of the MQTT sensor.
-  required: false
-  type: string
-  default: MQTT Sensor
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
-  required: false
-  type: string
-icon:
-  description: The icon for the sensor.
-  required: false
-  type: icon
-expire_after:
-  description: Defines the number of seconds after the value expires if it's not updated.
-  required: false
-  type: integer
-  default: 0
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
-  required: false
-  type: template
-force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
-  reqired: false
-  type: boolean
-  default: false
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
   type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
-  required: false
-  type: template
-json_attributes:
-  description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
-  required: false
-  type: [string, list]
-unique_id:
-  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
-  required: false
-  type: string
-device_class:
-  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
-  required: false
-  type: device_class
-  default: None
 device:
   description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
   type: map
   keys:
-    identifiers:
-      description: A list of IDs that uniquely identify the device. For example a serial number.
-      required: false
-      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: [string, list]
     manufacturer:
       description: The manufacturer of the device.
       required: false
@@ -122,6 +55,73 @@ device:
       description: The firmware version of the device.
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
+device_class:
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
+expire_after:
+  description: Defines the number of seconds after the value expires if it's not updated.
+  required: false
+  type: integer
+  default: 0
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: false
+icon:
+  description: The icon for the sensor.
+  required: false
+  type: icon
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
+  required: false
+  type: string
+name:
+  description: The name of the MQTT sensor.
+  required: false
+  type: string
+  default: MQTT Sensor
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+state_topic:
+  description: The MQTT topic subscribed to receive sensor values.
+  required: true
+  type: string
+unique_id:
+  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 {% endconfiguration %}
 
 ## Examples

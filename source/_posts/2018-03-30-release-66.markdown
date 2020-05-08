@@ -550,7 +550,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.vesync docs]: /integrations/vesync#switches
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zha docs]: /integrations/zha
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [upcloud docs]: /integrations/upcloud/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [weather.darksky docs]: /integrations/weather.darksky/

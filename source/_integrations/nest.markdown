@@ -1,7 +1,6 @@
 ---
 title: Nest
 description: Instructions on how to integrate Nest into Home Assistant.
-logo: nest.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -13,6 +12,7 @@ ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@awarecan'
+ha_domain: nest
 ---
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
@@ -26,9 +26,11 @@ There is currently support for the following device types within Home Assistant:
 
 ### Setting up developer account
 
-<p class='note warning'>
-  New users are not currently able to set up a Works With Nest Developer account due to the change announced by Google. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after August can still use Nest. In the future we will add documentation on how to setup a Works With Google account and configure your Nest integration.
-</p>
+<div class='note warning'>
+
+  New users are not currently able to set up a Works With Nest Developer account due to the change announced by Google. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after [August 2019](/blog/2019/05/08/nest-data-bye-bye/) can still use Nest. In the future we will add documentation on how to setup a Works With Google account and configure your Nest integration.
+
+</div>
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
 2. Fill in account details:
@@ -308,19 +310,19 @@ monitored_conditions:
 The following conditions are available by device:
 
 - Nest Home:
-  - eta: Estimated time of arrival.
-  - security\_state: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
+  - `eta`: Estimated time of arrival.
+  - `security_state`: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
 - Nest Thermostat:
-  - humidity
-  - preset\_mode
-  - temperature
-  - target
-  - hvac\_state: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
+  - `humidity`
+  - `preset_mode`
+  - `temperature`
+  - `target`
+  - `hvac_state`: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
 - Nest Protect:
-  - co\_status: `Ok`, `Warning` or `Emergency`
-  - smoke\_status: `Ok`, `Warning` or `Emergency`
-  - battery\_health: `Ok` or `Replace`
-  - color\_status: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
+  - `co_status`: `Ok`, `Warning` or `Emergency`
+  - `smoke_status`: `Ok`, `Warning` or `Emergency`
+  - `battery_health`: `Ok` or `Replace`
+  - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
 ## Security State

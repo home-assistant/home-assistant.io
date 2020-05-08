@@ -1,7 +1,6 @@
 ---
 title: Xiaomi miio
 description: Instructions how to integrate your Xiaomi Mi WiFi Repeater 2 within Home Assistant.
-logo: xiaomi.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
@@ -9,6 +8,7 @@ ha_release: 0.67
 ha_codeowners:
   - '@rytilahti'
   - '@syssi'
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.

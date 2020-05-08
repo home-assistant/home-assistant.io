@@ -1,11 +1,11 @@
 ---
 title: Python Scripts
 description: Instructions on how to setup Python scripts within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.47
 ha_quality_scale: internal
+ha_domain: python_script
 ---
 
 This integration allows you to write Python scripts that are exposed as services in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as a service. The content is not cached so you can easily develop: edit file, save changes, call service. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
@@ -65,8 +65,10 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-entity_id: light.bedroom
-rgb_color: [255, 0, 0]
+service: python_script.turn_on_light
+  data:
+    entity_id: light.bedroom
+    rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts

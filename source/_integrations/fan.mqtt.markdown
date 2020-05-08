@@ -1,11 +1,11 @@
 ---
 title: "MQTT Fan"
 description: "Instructions on how to integrate MQTT fans into Home Assistant."
-logo: mqtt.png
 ha_category:
   - Fan
 ha_release: 0.27
 ha_iot_class: Configurable
+ha_domain: mqtt
 ---
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.
@@ -28,140 +28,27 @@ fan:
 ```
 
 {% configuration %}
-command_topic:
-  description: The MQTT topic to publish commands to change the fan state.
-  required: true
-  type: string
-name:
-  description: The name of the fan.
-  required: false
-  type: string
-  default: MQTT Fan
-state_topic:
-  description: The MQTT topic subscribed to receive state updates.
-  required: false
-  type: string
-payload_on:
-  description: The payload that represents the running state.
-  required: false
-  type: string
-  default: "ON"
-payload_off:
-  description: The payload that represents the stop state.
-  required: false
-  type: string
-  default: "OFF"
-state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
-  required: false
-  type: string
-qos:
-  description: The maximum QoS level of the state topic.
-  required: false
-  type: integer
-  default: 0
-optimistic:
-  description: Flag that defines if lock works in optimistic mode
-  required: false
-  type: boolean
-  default: "`true` if no state topic defined, else `false`."
-retain:
-  description: If the published message should have the retain flag on or not.
-  required: false
-  type: boolean
-  default: true
-oscillation_state_topic:
-  description: The MQTT topic subscribed to receive oscillation state updates.
-  required: false
-  type: string
-oscillation_command_topic:
-  description: The MQTT topic to publish commands to change the oscillation state.
-  required: false
-  type: string
-payload_oscillation_on:
-  description: The payload that represents the oscillation on state.
-  required: false
-  type: string
-  default: oscillate_on
-payload_oscillation_off:
-  description: The payload that represents the oscillation off state.
-  required: false
-  type: string
-  default: oscillate_off
-oscillation_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the oscillation."
-  required: false
-  type: string
-speed_state_topic:
-  description: The MQTT topic subscribed to receive speed state updates.
-  required: false
-  type: string
-speed_command_topic:
-  description: The MQTT topic to publish commands to change speed state.
-  required: false
-  type: string
-payload_low_speed:
-  description: The payload that represents the fan's low speed.
-  required: false
-  type: string
-  default: low
-payload_medium_speed:
-  description: The payload that represents the fan's medium speed.
-  required: false
-  type: string
-  default: medium
-payload_high_speed:
-  description: The payload that represents the fan's high speed.
-  required: false
-  type: string
-  default: high
-speed_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload."
-  required: false
-  type: string
-speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
-  required: false
-  type: [string, list]
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
   type: string
-payload_available:
-  description: The payload that represents the available state.
-  required: false
-  type: string
-  default: online
-payload_not_available:
-  description: The payload that represents the unavailable state.
-  required: false
-  type: string
-  default: offline
-json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
-  required: false
-  type: string
-json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
-  required: false
-  type: template
-unique_id:
-  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
-  required: false
+command_topic:
+  description: The MQTT topic to publish commands to change the fan state.
+  required: true
   type: string
 device:
   description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
   type: map
   keys:
-    identifiers:
-      description: A list of IDs that uniquely identify the device. For example a serial number.
-      required: false
-      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: [list, map]
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: [string, list]
     manufacturer:
       description: The manufacturer of the device.
       required: false
@@ -178,6 +65,123 @@ device:
       description: The firmware version of the device.
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the fan.
+  required: false
+  type: string
+  default: MQTT Fan
+optimistic:
+  description: Flag that defines if lock works in optimistic mode
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
+oscillation_command_topic:
+  description: The MQTT topic to publish commands to change the oscillation state.
+  required: false
+  type: string
+oscillation_state_topic:
+  description: The MQTT topic subscribed to receive oscillation state updates.
+  required: false
+  type: string
+oscillation_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the oscillation."
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_high_speed:
+  description: The payload that represents the fan's high speed.
+  required: false
+  type: string
+  default: high
+payload_low_speed:
+  description: The payload that represents the fan's low speed.
+  required: false
+  type: string
+  default: low
+payload_medium_speed:
+  description: The payload that represents the fan's medium speed.
+  required: false
+  type: string
+  default: medium
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+payload_off:
+  description: The payload that represents the stop state.
+  required: false
+  type: string
+  default: "OFF"
+payload_on:
+  description: The payload that represents the running state.
+  required: false
+  type: string
+  default: "ON"
+payload_oscillation_off:
+  description: The payload that represents the oscillation off state.
+  required: false
+  type: string
+  default: oscillate_off
+payload_oscillation_on:
+  description: The payload that represents the oscillation on state.
+  required: false
+  type: string
+  default: oscillate_on
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: true
+speed_command_topic:
+  description: The MQTT topic to publish commands to change speed state.
+  required: false
+  type: string
+speed_state_topic:
+  description: The MQTT topic subscribed to receive speed state updates.
+  required: false
+  type: string
+speed_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload."
+  required: false
+  type: string
+speeds:
+  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
+  required: false
+  type: [string, list]
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+state_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note warning'>

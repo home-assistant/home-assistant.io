@@ -1,7 +1,6 @@
 ---
 title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
-logo: insteon.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -12,6 +11,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.39
+ha_domain: insteon
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -96,7 +96,7 @@ host:
   required: false
   type: string
 ip_port:
-  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  description: The IP port number of the Hub. For Hub model [2245] (i.e., Hub version 2) the default port is 25105. For the Hub model [2242] (i.e., Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
   required: true
   type: integer
 username:

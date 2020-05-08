@@ -5,8 +5,8 @@ ha_category:
   - Cover
 ha_release: 0.48
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform can create covers that combine integrations and provides
@@ -74,23 +74,23 @@ cover:
         required: false
         type: string
       open_cover:
-        description: Defines an action to run when the cover is opened. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
+        description: Defines an action to open the cover. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
         required: inclusive
         type: action
       close_cover:
-        description: Defines an action to run when the cover is closed.
+        description: Defines an action to close the cover.
         required: inclusive
         type: action
       stop_cover:
-        description: Defines an action to run when the cover is stopped.
+        description: Defines an action to stop the cover.
         required: false
         type: action
       set_cover_position:
-        description: Defines an action to run when the cover is set to a specific value (between `0` and `100`).
+        description: Defines an action to set to a cover position (between `0` and `100`).
         required: false
         type: action
       set_cover_tilt_position:
-        description: Defines an action to run when the cover tilt is set to a specific value (between `0` and `100`).
+        description: Defines an action to set the tilt of a cover (between `0` and `100`).
         required: false
         type: action
       optimistic:

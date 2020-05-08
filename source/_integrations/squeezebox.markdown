@@ -1,11 +1,11 @@
 ---
 title: Logitech Squeezebox
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
-logo: squeezebox.png
 ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: squeezebox
 ---
 
 The `squeezebox` platform allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
@@ -60,7 +60,7 @@ transporter_toslink:
 
 ### Service `call_method`
 
-Call a custom Squeezebox JSONRPC API.
+Call a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
@@ -72,13 +72,15 @@ See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html
 
 This service can be used to integrate any Squeezebox action to an automation.
 
-It can also be used to target a Squeezebox from IFTT (or DialogFlow, Alexa...).
+It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
 
-For example, to play an album from your collection, create an IFTT applet like this:
+For example, to play an album from your collection, create an IFTTT applet like this:
+
 - Trigger: Google assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
 `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
-This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTT cannot escape the text field.
+
+This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTTT cannot escape the text field.
 
 ### Service `call_query`
 
@@ -113,3 +115,4 @@ Remove this player from its sync group.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
+=======

@@ -1,7 +1,6 @@
 ---
 title: TP-Link Kasa Smart
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
-logo: tp-link.png
 ha_category:
   - Hub
   - Switch
@@ -11,6 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
+ha_domain: tplink
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - **Light**
 - **Switch**
 
-In order to activate the support, you will have to enable the integration inside the config panel.
+In order to activate the support, you will have to enable the integration inside the configuration panel.
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
 
 ## Supported Devices
@@ -35,12 +35,12 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - HS100
 - HS103
 - HS105
-- HS110 (This device is capable or reporting energy usage data to template sensors)
+- HS110 (This device is capable of reporting energy usage data to template sensors)
 
 ### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (This device is capable or reporting energy usage data to template sensors)
+- HS300 (powerstrip 6-outlet) (This device is capable of reporting energy usage data to template sensors)
 - KP303 (powerstrip 3-outlet)
 - KP400 (outdoor 2-outlet)
 - KP200 (indoor 2-outlet)
@@ -139,7 +139,7 @@ Devices that are confirmed to support Consumption Reading;
 1. HS110
 2. HS300
 
-In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/switch.template/).
+In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
 
 {% raw %}

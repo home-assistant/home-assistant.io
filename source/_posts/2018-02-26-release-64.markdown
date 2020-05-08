@@ -139,7 +139,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - check_config check bootstrap errors ([@kellerza] - [#12291])
 - Attempt fixing flakiness of check config test ([@balloob] - [#12283])
 - Fix MQTT retained message not being re-dispatched ([@OttoWinter] - [#12004]) ([mqtt docs])
-- Fix config error for FTP links, add test ([@ReneNulschDE] - [#12294]) ([weblink docs])
+- Fix config error for FTP links, add test ([@ReneNulschDE] - [#12294])
 - Fix Panel_IFrame - FTP URL not allowed in 0.63 ([@ReneNulschDE] - [#12295]) ([panel_iframe docs])
 - Upgrade pylint to 1.8.2 ([@OttoWinter] - [#12274])
 - Move HassIntent handler code into helpers/intent ([@tschmidty69] - [#12181]) ([conversation docs])
@@ -576,11 +576,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.smappee docs]: /integrations/smappee
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [vera docs]: /integrations/vera/
 [weather.buienradar docs]: /integrations/buienradar
-[weblink docs]: /integrations/weblink/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [zha docs]: /integrations/zha/
 [#12635]: https://github.com/home-assistant/home-assistant/pull/12635

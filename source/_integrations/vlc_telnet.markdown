@@ -1,13 +1,13 @@
 ---
 title: VLC media player Telnet
 description: Instructions on how to integrate VLC media player into Home Assistant using the telnet interface.
-logo: videolan.png
 ha_category:
   - Media Player
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rodripf'
+ha_domain: vlc_telnet
 ---
 
 The `vlc_telnet` platform allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
@@ -62,6 +62,7 @@ media_player:
     password: your-secure-password
 ```
 
-##### Additional configuration for Rasperry Pi
+## Home Assistant Add-on
 
-You can run a VLC Media Player inside your Hass.io installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hass.io installation.
+You can run a VLC Media Player on your Home Assistant installation using the a community provided [add-on](https://github.com/rodripf/hassio-local-vlc).
+Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` folder of your Home Assistant installation.

@@ -1,11 +1,11 @@
 ---
 title: "Command Line Cover"
 description: "How to control a cover with the command line."
-logo: command_line.png
 ha_category:
   - Cover
 ha_release: 0.14
 ha_iot_class: Local Polling
+ha_domain: command_line
 ---
 
 A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
@@ -54,7 +54,7 @@ covers:
           required: false
           type: string
         value_template:
-          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
+          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
           required: false
           default: "'{% raw %}{{ value }}{% endraw%}'"
           type: template

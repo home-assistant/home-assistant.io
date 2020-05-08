@@ -1,7 +1,6 @@
 ---
 title: Denon HEOS
 description: Instructions on how to integrate Denon HEOS into Home Assistant.
-logo: heos.png
 ha_category:
   - Media Player
 ha_release: 0.92
@@ -9,6 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
+ha_domain: heos
 ---
 
 The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
@@ -46,17 +46,15 @@ A connection to a single device enables control for all devices on the network. 
 
 Use the sign-in service to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
 
-```json
-{
-  "username": "example@example.com",
-  "password": "password"
-}
+```yaml
+username: "example@example.com"
+password: "password"
 ```
 
-| Attribute              | Description
-| ---------------------- | ---------------------------------------------------------|
-| `username`             | The username or email of the HEOS account. [Required]
-| `password`             | The password of the HEOS account. [Required]
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `username`             | no       | The username or email of the HEOS account.
+| `password`             | no       | The password of the HEOS account.
 
 ### Service `heos.sign_out`
 
@@ -68,73 +66,65 @@ Use the sign-out service to sign the connected controller out of a HEOS account.
 
 You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
 
-```json
-{
-  "entity_id": "media_player.office",
-  "media_content_type": "favorite",
-  "media_content_id": "1"
-}
+```yaml
+entity_id: media_player.office
+media_content_type: "favorite"
+media_content_id: "1"
 ```
 
-| Attribute              | Description
-| ---------------------- | ---------------------------------------------------------|
-| `entity_id`            | `entity_id` of the player
-| `media_content_type`   | Set to the value `favorite`
-| `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | yes      |  `entity_id` of the player(s)
+| `media_content_type`   | no       | Set to the value `favorite`
+| `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
 
 #### Play Playlist
 
 You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
 
-```json
-{
-  "entity_id": "media_player.office",
-  "media_content_type": "playlist",
-  "media_content_id": "Awesome Music"
-}
+```yaml
+entity_id: media_player.office
+media_content_type: "playlist"
+media_content_id: "Awesome Music"
 ```
 
-| Attribute              | Description
-| ---------------------- | ---------------------------------------------------------|
-| `entity_id`            | `entity_id` of the player
-| `media_content_type`   | Set to the value `playlist`
-| `media_content_id`     | The name of the HEOS playlist
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)
+| `media_content_type`   | no       | Set to the value `playlist`
+| `media_content_id`     | no       | The name of the HEOS playlist
 
 #### Play Quick Select
 
 You can play a HEOS Quick Select by nubmer or name with the `media_player.play_media` service. Example service data payload:
 
-```json
-{
-  "entity_id": "media_player.office",
-  "media_content_type": "quick_select",
-  "media_content_id": "1"
-}
+```yaml
+entity_id: media_player.office
+media_content_type: "quick_select"
+media_content_id": "1"
 ```
 
-| Attribute              | Description
-| ---------------------- | ---------------------------------------------------------|
-| `entity_id`            | `entity_id` of the player
-| `media_content_type`   | Set to the value `quick_select`
-| `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)
+| `media_content_type`   | no       | Set to the value `quick_select`
+| `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`)
 
-#### Play Url
+#### Play URL
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 
-```json
-{
-  "entity_id": "media_player.office",
-  "media_content_type": "url",
-  "media_content_id": "http://path.to/stream.mp3"
-}
+```yaml
+entity_id: media_player.office
+media_content_type: "url"
+media_content_id: "http://path.to/stream.mp3"
 ```
 
-| Attribute              | Description
-| ---------------------- | ---------------------------------------------------------|
-| `entity_id`            | `entity_id` of the player to play the URL
-| `media_content_type`   | Set to the value `url`
-| `media_content_id`     | The full URL to the stream
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL
+| `media_content_type`   | no       | Set to the value `url`
+| `media_content_id`     | no       | The full URL to the stream
 
 ## Notes
 

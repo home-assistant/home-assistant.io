@@ -1,7 +1,6 @@
 ---
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-logo: philips_hue.png
 ha_category:
   - Hub
   - Light
@@ -12,22 +11,24 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@balloob'
+ha_domain: hue
 ---
 
-Philips Hue support is integrated into Home Assistant as a hub that can drive the light and sensor platforms. The preferred way to set up the Philips Hue platform is by enabling the [discovery component](/integrations/discovery/).
+The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The Hue integration is automatically discovered. If not, add it via the add integration menu.
 
 There is currently support for the following device types within Home Assistant:
 
 - Lights
 - Motion sensors (including temperature and light level sensors)
+- Hue switches (as device triggers for automations and also exposed as battery sensors when they are battery-powered)
 
-The hub can be set up by navigating to the Configuration tab in the sidebar and selecting Integrations. You will see "Philips Hue" in the discovered section. Click configure and you will be presented with the initiation dialog. This will prompt you to press the Hue button on your bridge to register the hub in Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
+To set up this integration, click Configuration in the sidebar and then click Integrations. You should see "Philips Hue" in the discovered section (if you do not, click the + icon in the lower right and find Philips Hue). Click configure and you will be presented with the initiation dialog. This will prompt you to press the button on your Hue bridge to register the hub with Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP address of the bridge. If the IP address for the bridge changes, you will need to register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your Hue bridge so that it always has the same IP address.
 
 Once registration is complete you should see the Hue lights listed as `light` entities, the Hue motion sensors listed as `binary_sensor` entities, and the Hue temperature and light level sensors (which are built in to the motion sensors) listed as `sensor` entities. If you don't, you may have to restart Home Assistant once more.
 
-If you want to enable the integration without relying on the [discovery component](/integrations/discovery/), add the following lines to your `configuration.yaml` file:
+If you want to enable the integration without relying on [discovery](/integrations/discovery/), add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +51,7 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
-  default: true
+  default: false
 {% endconfiguration %}
 
 ## Examples
@@ -92,7 +93,7 @@ To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2, a
 $ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
-The `<username>` is the string that is used to register Home Assistant on the bridge. You can find it in the `core.config_entries` file in your configuration\.storage path. `<bridge>` is the IP address or hostname of your Hue bridge.
+The `<username>` is the string that is used to register Home Assistant with the bridge. You can find it in the `core.config_entries` file in `/PATH-TO-YOUR-CONFIGURATION/.storage/`. `<bridge>` is the IP address or hostname of your Hue bridge.
 
 You can find the IDs of your lights by executing the following command:
 
@@ -110,9 +111,9 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 ### Using Hue Scenes in Home Assistant
 
-The Hue platform has its own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them—many that you've never used, and almost all very poorly named.
+The Hue platform has its own concept of scenes for setting the colors of a group of lights simultaneously. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them—many that you've never used, and almost all very poorly named.
 
-To avoid user interface overload, we don't expose scenes directly. Instead there is a hue.hue_activate_scene service which can be used by `automation` or `script` components.
+To avoid user interface overload, we don't expose scenes directly. Instead there is a `hue.hue_activate_scene` service which can be used in an automation or script.
 This will have all the bulbs transitioned at once, instead of one at a time like when using standard scenes in Home Assistant.
 
 For instance:
@@ -136,16 +137,14 @@ _Note_: `group_name` is not a reference to a Home Assistant group name. It can o
 
 ### Finding Group and Scene Names
 
-How do you find these names?
+The easiest way to find Hue scene names is to only use the scenes from the 2nd generation Hue app, which are organized by room (group) and scene name. Use the room name and scene name that you see in the app. You can test that these work at Developer Tools > Services in your Home Assistant instance.
 
-The easiest way to do this is to only use the scenes from the 2nd generation Hue app, which is organized by room (group) and scene name. Use the values of room name and scene name that you see in the app. You can test that these work by using the `dev-service` console of your Home Assistant instance.
-
-Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together, but it is sufficient to get values that you can test in the `dev-service` console.
+Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together, but it is sufficient to get values that you can test at Developer Tools > Services.
 
 ### Caveats
 
-The Hue API doesn't activate scenes directly; rather, they must be associated with a Hue group (typically rooms, especially if using the 2nd gen app). But Hue scenes don't actually reference their group. So heuristic matching is used.
+The Hue API doesn't activate scenes directly; rather, they must be associated with a Hue group (typically rooms, especially if using the 2nd generation Hue app). But Hue scenes don't actually reference their group, so heuristic matching is used.
 
 Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
 
-The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on the scenes that are "least recently used."
+The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API documentation says this is based on the scenes that are "least recently used."

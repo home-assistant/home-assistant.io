@@ -1,13 +1,13 @@
 ---
 title: Yr
 description: Instructions on how to integrate Yr.no within Home Assistant.
-logo: yr.png
 ha_category:
   - Weather
 ha_release: 0.11
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@danielhiversen'
+ha_domain: yr
 ---
 
 The `yr` platform uses [YR.no](https://www.yr.no/) as a source for current

@@ -1,18 +1,18 @@
 ---
 title: GitLab-CI
 description: How to integrate GitLab-CI Job status within Home Assistant.
-logo: gitlab.png
 ha_category:
   - Sensor
 ha_release: 0.8
 ha_iot_class: Cloud Polling
+ha_domain: gitlab_ci
 ---
 
 The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
 
 ## Setup
 
-You will need a GitLab repository ID. On the **Details** page for your GitLab repo, just below the project name is **Project ID:**.
+You will need a GitLab repository ID. On the **Details** page for your GitLab repository, just below the project name is **Project ID:**.
 
 Alternatively, you can use `GitLab_Username/GitLab_RepositoryName`, e.g., `MyCoolUsername/MyCoolRepository`.
 

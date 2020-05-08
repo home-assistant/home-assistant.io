@@ -1,10 +1,10 @@
 ---
 title: Google Pub/Sub
 description: Setup for Google Pub/Sub integration
-logo: google-pubsub.png
 ha_category:
   - History
 ha_release: 0.88
+ha_domain: google_pubsub
 ---
 
 The `google_pubsub` integration allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
@@ -17,7 +17,7 @@ You need to create a Service Account key in the [Google Cloud API Console](https
 - Choose a new "New Service Account", give it a name and leave the key type as JSON
 - Select the role: Pub/Sub Publisher 
 
-This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant config folder.
+This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant configuration folder.
 
 Next, create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.cloud.google.com/cloudpubsub/topicList). The topic name will become something like `projects/project-198373/topics/topic-name`. Note the last part only (the name you chose): `topic-name`.
 

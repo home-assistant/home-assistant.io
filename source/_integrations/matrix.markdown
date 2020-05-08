@@ -1,13 +1,13 @@
 ---
 title: Matrix
 description: Matrix chatbot support
-logo: matrix.png
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
+ha_domain: matrix
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -65,7 +65,7 @@ commands:
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
       required: false
       type: string
     name:
@@ -73,7 +73,7 @@ commands:
       required: true
       type: string
     rooms:
-      description: "A list of rooms that the bot should listen for this command in. If this is not given, the *rooms* list from the main config is used. Please note that every room in this list must also be in the main *room* config."
+      description: "A list of rooms that the bot should listen for this command in. If this is not given, the *rooms* list from the main configuration is used. Please note that every room in this list must also be in the main *room* configuration."
       required: false
       type: [string]
       default: empty

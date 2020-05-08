@@ -1,12 +1,12 @@
 ---
 title: Time of Flight
 description: Instructions on how to integrate a VL53L1X ToF sensor into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
   - Sensor
 ha_release: '0.90'
 ha_iot_class: Local Polling
+ha_domain: tof
 ---
 
 The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.
@@ -62,7 +62,8 @@ sensor:
     i2c_address: 0x29
     xshut: 16
 ```
-Several devices may be attached and a GPIO port from RPI is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
+
+Several devices may be attached and a GPIO port from Raspberry Pi is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
 
 ## Directions for installing i2c on Raspberry Pi
 
@@ -75,7 +76,7 @@ $ sudo raspi-config
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+Install dependencies for use the `smbus-cffi` module and enable your `homeassistant` user to join the _i2c_ group:
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities

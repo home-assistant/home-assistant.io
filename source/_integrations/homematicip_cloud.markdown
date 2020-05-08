@@ -1,7 +1,6 @@
 ---
 title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-logo: homematicip_cloud.png
 ha_category:
   - Hub
   - Alarm
@@ -17,6 +16,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
+ha_domain: homematicip_cloud
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -78,10 +78,10 @@ authtoken:
 
 ## Adding and removing devices and group via native HomematicIP APP
 
-Devices and groups are instantly removed from Homeassistant when removed in the native HomematicIP APP.
-Groups are instantly created in Homeassistant when created in the native HomematicIP APP.
-Devices are created with a delay of 30 seconds in Homeassistant when created in the native HomematicIP APP.
-Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Homeassistant entity registry afterwards.
+Devices and groups are instantly removed from Home Assistant when removed in the native HomematicIP APP.
+Groups are instantly created in Home Assistant when created in the native HomematicIP APP.
+Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
+Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
 
 ## Implemented and tested devices
 
@@ -90,7 +90,7 @@ Within this delay the device registration should be completed in the App, otherw
 
 * homematicip_cloud.binary_sensor
   * Acceleration Sensor (*HMIP-SAM*)
-  * Window and door contact (*HmIP-SWDO, -I*)
+  * Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Contact Interface (*HmIP-SCI*)
   * Window Rotary Handle Sensor (*HmIP-SRH*)
@@ -111,17 +111,19 @@ Within this delay the device registration should be completed in the App, otherw
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
   * This includes temperature/humidity measures for climate devices of a room delivered by:
-    * Wall-mounted thermostat (*HmIP-WTH, WTH-2*)
-    * Brand Wall-mounted thermostat (*HmIP-BWTH, BWTH-24*)
-    * Radiator thermostat (*HmIP-eTRV,-2,-C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
+    * Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
+    * Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
+    * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
     * Temperature and humidity sensor (*HmIP-STH*)
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
+    * Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
+    * Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
   * There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
     * Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
     * Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
     * Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
     * Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
-    * Floor Heating Actuator – 12x channels, motorised (*HMIP-FALMOT-C12*)
+    * Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
 
 * homematicip_cloud.cover
   * Shutter actuator for brand-mount (*HmIP-BROLL*)
@@ -138,9 +140,9 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
-  * Cloud Access point duty-cycle (*HmIP-HAP, -B1*)
-  * Wall Mounted Thermostat Pro with Display (*HmIP-WTH, WTH2*)
-  * Radiator thermostat (*HmIP-eTRV,-2, -C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
+  * Cloud Access point duty-cycle (*HmIP-HAP, HmIP-HAP-B1*)
+  * Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
+  * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
   * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
@@ -149,11 +151,13 @@ Within this delay the device registration should be completed in the App, otherw
   * Presence Sensor – indoor (*HmIP-SPI*)
   * Light Sensor - outdoor (*HmIP-SLO*)
   * Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
+  * Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
+  * Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
-  * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
-  * Switch Actuator and Meter – flush-mount (*HmIP-FSM, -FSM16*)
+  * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
+  * Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
@@ -180,12 +184,15 @@ Afterward, this device can be implemented into Home Assistant.
   
 ## Services
 
+Executable by all users:
 - `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
 - `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode with period.
 - `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
+
+Executable by administrators or within the context of an automation:
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 - `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 

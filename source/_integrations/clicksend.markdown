@@ -1,10 +1,10 @@
 ---
 title: ClickSend SMS
 description: Instructions on how to add ClickSend notifications to Home Assistant.
-logo: clicksend.png
 ha_category:
   - Notifications
 ha_release: 0.48
+ha_domain: clicksend
 ---
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.

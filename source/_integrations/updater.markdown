@@ -1,24 +1,18 @@
 ---
 title: Updater
 description: Detecting when Home Assistant updates are available.
-logo: home-assistant.png
 ha_category:
   - Binary Sensor
 ha_release: 0.8
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: updater
 ---
 
-The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this binary sensor on Hass.io.
+The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater.
 
 The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/updater).
-
-<div class='note'>
-
-The `updater` binary sensor will wait one hour after startup until it performs the first update. For this period it will be in the state `unavailable`. After that it will check once a day for new releases.
-
-</div>
 
 ## Configuration
 
@@ -65,6 +59,7 @@ It is possible to report the integrations that you are using to the Home Assista
 For an added bonus, an automation integration can be created to send a message with a notifier when that state of this component's entity changes.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -79,4 +74,5 @@ automation:
       data_template:
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
+
 {% endraw %}

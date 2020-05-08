@@ -3,9 +3,9 @@ title: HDMI-CEC
 description: Instructions on how to interact with HDMI-CEC via Home Assistant.
 ha_category:
   - Automation
-logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: Local Push
+ha_domain: hdmi_cec
 ---
 
 The `hdmi_cec` integration provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -18,13 +18,9 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 ### libcec
 
+This section only applies to users of Home Assistant Core in a Python virtual environment.
+
 [libcec](https://github.com/Pulse-Eight/libcec) must be installed for this integration to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/docs/installation/virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
-
-<div class='note'>
-
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-
-</div>
 
 #### Symlinking into virtual environment
 
@@ -122,7 +118,7 @@ hdmi_cec:
 
 Choose just one schema. Mixing both approaches is not possible.
 
-Another option you can use in config is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+Another option you can use in configuration is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
 
 ```yaml
 hdmi_cec:
@@ -137,7 +133,7 @@ hdmi_cec:
     hdmi_cec.hdmi_5: media_player
 ```
 
-And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run Home Assistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
 
 ```yaml
 hdmi_cec:
@@ -149,7 +145,7 @@ hdmi_cec:
 
 ### Select Device
 
-Call the `hdmi_cec.select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
+Call the `hdmi_cec.select_device` service with the name of the device from configuration or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}

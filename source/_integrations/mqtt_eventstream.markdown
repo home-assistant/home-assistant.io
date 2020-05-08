@@ -1,11 +1,11 @@
 ---
 title: MQTT Eventstream
 description: Instructions on how to setup MQTT eventstream within Home Assistant.
-logo: mqtt.png
 ha_category:
   - Other
 ha_release: 0.11
 ha_iot_class: Configurable
+ha_domain: mqtt_eventstream
 ---
 
 The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.

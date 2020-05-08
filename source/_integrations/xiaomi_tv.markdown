@@ -1,13 +1,13 @@
 ---
 title: Xiaomi TV
 description: Instructions on how to integrate a Xiaomi TV into Home Assistant.
-logo: xiaomi.png
 ha_category:
   - Media Player
 ha_release: 0.64
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@simse'
+ha_domain: xiaomi_tv
 ---
 
 The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/en/mitv3s/65flat/).

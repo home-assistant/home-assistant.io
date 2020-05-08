@@ -1,13 +1,13 @@
 ---
 title: Logger
 description: Instructions on how to enable the logger integration for Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Utility
 ha_release: 0.8
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: logger
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -43,16 +43,16 @@ logger:
   logs:
     # log level for HA core
     homeassistant.core: fatal
-    
+
     # log level for MQTT integration
     homeassistant.components.mqtt: warning
-    
+
     # log level for all python scripts
     homeassistant.components.python_script: warning
-    
+
     # individual log level for this python script
     homeassistant.components.python_script.my_new_script.py: debug
-    
+
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
@@ -69,7 +69,7 @@ logger:
 
 The log entries are in the form  
 *timestamp* *log-level* *thread* [**namespace**] *message*  
-where **namespace** is the *<component_namespace>* currently logging. 
+where **namespace** is the *<component_namespace>* currently logging.
 
 {% configuration %}
   default:
@@ -87,12 +87,12 @@ where **namespace** is the *<component_namespace>* currently logging.
         type: string
 {% endconfiguration %}
 
-In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces, 
-both of which are at root. They are logged by different APIs. 
+In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
+both of which are at root. They are logged by different APIs.
 
-If you want to know the namespaces in your own environment then check your log files on startup. 
-You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`. 
-Those are the namespaces available for you to set a `log level` against. 
+If you want to know the namespaces in your own environment then check your log files on startup.
+You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
+Those are the namespaces available for you to set a `log level` against.
 
 ### Log Levels
 
@@ -144,11 +144,10 @@ The log information are stored in the
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-If you are a Hass.io user, you can use the example below, when logged in through
-the [SSH add-on](/addons/ssh/):
+You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
 
 ```bash
-$ tail -f /config/home-assistant.log
+tail -f /config/home-assistant.log
 ```
 
 On Docker you can use your host command line directly - follow the logs dynamically with:

@@ -8,6 +8,7 @@ ha_release: 0.26
 ha_iot_class: Cloud Polling and Cloud Push
 ha_codeowners:
   - '@robbiet480'
+ha_domain: foursquare
 ---
 
 The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
@@ -42,7 +43,7 @@ https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=tok
 
 and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values.
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
-After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
+After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your `configuration.yaml` as the `access_token`.
 
 ### Real-Time API
 

@@ -1,12 +1,12 @@
 ---
 title: Coinbase
 description: Instructions for how to add Coinbase sensors to Home Assistant.
-logo: coinbase.png
 ha_category:
   - Finance
   - Sensor
 ha_release: 0.61
 ha_iot_class: Cloud Polling
+ha_domain: coinbase
 ---
 
 The `coinbase` integration lets you access account balances and exchange rates from [coinbase](https://coinbase.com).
@@ -44,7 +44,7 @@ exchange_rate_currencies:
   type: list
 {% endconfiguration %}
 
-Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g. BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
+Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g.,  BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
 
 ## Full configuration example
 

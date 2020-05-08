@@ -1,10 +1,10 @@
 ---
 title: "Weather Forecast Card"
 sidebar_label: Weather Forecast
-description: "The Weather card allows you a visual card to display the weather."
+description: "The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
 ---
 
-The weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall.
+The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_weather.png' alt='Screenshot of the weather card'>
@@ -25,6 +25,11 @@ name:
   description: Overwrites the friendly name.
   type: string
   default: Entity Name
+show_forecast:
+  required: false
+  description: Show next hours/days forecast.
+  type: boolean
+  default: true
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"

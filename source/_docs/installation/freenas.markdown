@@ -292,7 +292,7 @@ This should output the following
 /dev/cuau0      /dev/cuaU0
 ```
 
-Add the Z-Wave config to your `configuration.yaml` and restart Home Assistant
+Add the Z-Wave configuration to your `configuration.yaml` and restart Home Assistant
 
 ```bash
 vi /home/homeassistant/.homeassistant/configuration.yaml

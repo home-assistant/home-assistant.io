@@ -6,6 +6,7 @@ ha_category:
   - Automation
 ha_release: 0.21
 ha_iot_class: Local Push
+ha_domain: lirc
 ---
 
 [LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/integrations/automation/).
@@ -22,7 +23,7 @@ sudo apt-get install lirc liblircclient-dev
 
 <div class='note'>
 
-If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
+If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the Debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
 The configuration is slightly different :
 
  - The `hardware.conf` file is not supported, obsoleted by a new `lirc_options.conf` file and systemd unit definitions.

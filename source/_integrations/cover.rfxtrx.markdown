@@ -1,15 +1,15 @@
 ---
 title: "RFXtrx Cover"
 description: "Instructions on how to integrate RFXtrx covers into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Cover
 ha_release: 0.27
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
+First you have to set up your [RFXtrx hub](/integrations/rfxtrx/).
 
 ### Configuration
 
@@ -23,7 +23,7 @@ cover:
     automatic_add: true
 ```
 
-Launch your homeassistant and go the website (e.g `http://localhost:8123`). Push your remote and your device should be added.
+Launch your Home Assistant and go the website (e.g., `http://localhost:8123`). Push your remote and your device should be added.
 
 Once added it will show an ID (e.g `0b11000102ef9f210010f70`) and you can verify that it works from the frontend. Then you should update your configuration to:
 
@@ -48,7 +48,7 @@ Example configuration:
 cover:
   - platform: rfxtrx
     automatic_add: false
-    signal_repetitions: 2
+    signal_repetitions: 2 # signal_repetitions: 1 for the Somfy covers (avoid to stop the motion after start)
     devices:
       0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
         name: Bedroom Shutter

@@ -1,11 +1,11 @@
 ---
 title: Modbus Sensor
 description: "Instructions on how to integrate Modbus sensors into Home Assistant."
-logo: modbus.png
 ha_category:
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_domain: modbus
 ---
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
@@ -104,12 +104,12 @@ registers:
       default: 0
       type: integer
     data_type:
-      description: Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format.
+      description: Response representation (int, uint, float, string, custom). If float selected, value will be converted to IEEE 754 floating point format.
       required: false
       default: int
       type: string
     structure:
-      description: "If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: >i."
+      description: "If data_type is custom specify here a double quoted Python struct format string to unpack the value. See Python documentation for details. Ex: >i."
       required: false
       type: string
 {% endconfiguration %}

@@ -1,16 +1,16 @@
 ---
 title: "RFXtrx Sensor"
 description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.7
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub](/integrations/rfxtrx/).
+First you have to set up your [RFXtrx hub](/integrations/rfxtrx/).
 The easiest way to find your sensors is to add this to your `configuration.yaml`:
 
 ```yaml

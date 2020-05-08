@@ -1,7 +1,6 @@
 ---
 title: Intergas InComfort/Intouch Lan2RF gateway
 description: Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant.
-logo: incomfort.png
 ha_category:
   - Water Heater
   - Climate
@@ -11,6 +10,7 @@ ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
+ha_domain: incomfort
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
@@ -54,7 +54,7 @@ Other properties are available via each device's attributes.
 
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file:
+To set up this integration, add one of the following to your `configuration.yaml` file:
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 

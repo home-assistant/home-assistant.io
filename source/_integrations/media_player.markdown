@@ -1,11 +1,11 @@
 ---
 title: Media Player
 description: Instructions on how to setup your media players with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Media Player
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: media_player
 ---
 
 Interacts with media players on your network.
@@ -77,5 +77,5 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 
 The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
 
-- **tv**: Device is a television type device.
-- **speaker**: Device is speaker or stereo type device.
+- `tv`: Device is a television type device.
+- `speaker`: Device is speaker or stereo type device.

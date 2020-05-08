@@ -1,6 +1,6 @@
 ---
-title: APCUPSd
-description: Instructions on how to integrate APCUPSd status with Home Assistant.
+title: apcupsd
+description: Instructions on how to integrate apcupsd status with Home Assistant.
 logo: apcupsd.png
 ha_category:
   - System Monitor
@@ -8,18 +8,19 @@ ha_category:
   - Sensor
 ha_release: 0.13
 ha_iot_class: Local Polling
+ha_domain: apcupsd
 ---
 
-[APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
+[Apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## Hass.io Installation
+## Home Assistant add-on installation
 
-Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on.
+Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Home Assistant. Keep in mind that we can't give you support for this add-on.
 
 After installation, follow the instructions on the GitHub page to configure the plugin. Then continue to follow the integration configurations below.
 
@@ -34,12 +35,12 @@ apcupsd:
 
 {% configuration %}
 host:
-  description: The hostname/IP address on which the APCUPSd NIS is being served.
+  description: The hostname/IP address on which the apcupsd NIS is being served.
   required: false
   type: string
   default: localhost
 port:
-  description: The port on which the APCUPSd NIS is listening.
+  description: The port on which the apcupsd NIS is listening.
   required: false
   type: integer
   default: 3551
@@ -47,13 +48,13 @@ port:
 
 <div class='note'>
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [APCUPSd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [Apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
 
  </div>
 
 ## Binary sensor
 
-In addition to the [APCUPSd Sensor](#sensor) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
+In addition to the [Apcupsd Sensor](#sensor) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
 
 ### Configuration
 

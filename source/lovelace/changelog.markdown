@@ -21,7 +21,7 @@ description: "Changelog of the Lovelace UI."
 * ♿ Add tabindex to Lovelace elements (#4160) @iantrich
 * 🐛 Fix action directive double tab iOS issues (#4639) @bramkragten
 * 🐛 [gauge card]: Fix severity toggle (#4600) @iantrich
-* 🐛 [markdown card]: Fix visual editor for when all `content` removed (#4583) @iantrich
+* 🐛 [Markdown card]: Fix visual editor for when all `content` removed (#4583) @iantrich
 * 🐛 [alarm panel card]: Fix preview updates (#4592) @bramkragten
 * 🐛 [thermostat card]: Fix display of current/set temperature when at 0 (#4498) @iantrich
 * 🐛 [picture glance card]: Fix `camera_view` option in editor (#4495) @iantrich
@@ -31,7 +31,7 @@ description: "Changelog of the Lovelace UI."
 * 🚸 Prompt user to confirm logout (#4501) @iantrich
 
 ## Changes in 0.104.0
-- ❤️ Add ability to remove Lovelace config [#4430](https://github.com/home-assistant/home-assistant-polymer/pull/4430) @bramkragten
+- ❤️ Add ability to remove Lovelace configuration [#4430](https://github.com/home-assistant/home-assistant-polymer/pull/4430) @bramkragten
 - ❤️ Add support to add all device entities to Lovelace [#4356](https://github.com/home-assistant/home-assistant-polymer/pull/4356) @bramkragten
 - 📣 Upgrade MDI icons to 4.7.95 [#4341](https://github.com/home-assistant/home-assistant-polymer/pull/4341) @bonanitech
 
@@ -45,7 +45,7 @@ description: "Changelog of the Lovelace UI."
 - ❤️ [views]: Add actions to `state-label` badge [#4028](https://github.com/home-assistant/home-assistant-polymer/pull/4028) @iantrich
 - ❤️ [shopping list card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
 - ❤️ [plant status card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
-- ❤️ [markdown card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
+- ❤️ [Markdown card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
 - ❤️ [alarm panel card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
 - ❤️ [picture card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
 - ❤️ [picture elements card]: New `theme` option [#4057](https://github.com/home-assistant/home-assistant-polymer/pull/4057) @iantrich
@@ -64,18 +64,18 @@ description: "Changelog of the Lovelace UI."
 - ❤️ Theming: New CSS switch style: `switch-unchecked-track-color` [#4017](https://github.com/home-assistant/home-assistant-polymer/pull/4017) @iantrich
 - 📣 Upgrade MDI icons to 4.5.95 [#3977](https://github.com/home-assistant/home-assistant-polymer/pull/3977) @bonanitech
 - 📣 Display card errors in YAML instead of JSON [#4018](https://github.com/home-assistant/home-assistant-polymer/pull/4018) @iantrich
-- ⚠️ revert lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich
+- ⚠️ revert Lovelace selectable text [#4095](https://github.com/home-assistant/home-assistant-polymer/pull/4095) @iantrich
 - 🔧 [alarm panel card]: Visual accessibility changes [#3991](https://github.com/home-assistant/home-assistant-polymer/pull/3991) @mr-awk
 - 🔧 [entities card]: Fix media row secondary info [#3957](https://github.com/home-assistant/home-assistant-polymer/pull/3957) @iantrich
 - 🔧 [light card]: Fix name wrapping [#3972](https://github.com/home-assistant/home-assistant-polymer/pull/3972) @shbatm
 - 🔧 [map card]: Fix zone icon visibility [#4085](https://github.com/home-assistant/home-assistant-polymer/pull/4085) @springstan
-- 📣 [markdown card]: Add default text to card editor [#3960](https://github.com/home-assistant/home-assistant-polymer/pull/3960) @akargl
+- 📣 [Markdown card]: Add default text to card editor [#3960](https://github.com/home-assistant/home-assistant-polymer/pull/3960) @akargl
 
 ## Changes in 0.100.0
-- ❤️ [picture glance card]: New config `tap_action` and `hold_action` for `entities` [#3807](https://github.com/home-assistant/home-assistant-polymer/pull/3807) @iantrich
-- ❤️ [entities card]: New config `image` for `entities` [#3832](https://github.com/home-assistant/home-assistant-polymer/pull/3832) @iantrich
+- ❤️ [picture glance card]: New configuration `tap_action` and `hold_action` for `entities` [#3807](https://github.com/home-assistant/home-assistant-polymer/pull/3807) @iantrich
+- ❤️ [entities card]: New configuration `image` for `entities` [#3832](https://github.com/home-assistant/home-assistant-polymer/pull/3832) @iantrich
 - ❤️ [entity filter card]: Support for operators in `state_filter` and individual `state_filter` option for `entitites` [#3692](https://github.com/home-assistant/home-assistant-polymer/pull/3692) @iantrich
-- ❤️ [light card]: New config `icon` [#3771](https://github.com/home-assistant/home-assistant-polymer/pull/3771) @iantrich
+- ❤️ [light card]: New configuration `icon` [#3771](https://github.com/home-assistant/home-assistant-polymer/pull/3771) @iantrich
 - ❤️ [picture entity card]: UI Editor [#3708](https://github.com/home-assistant/home-assistant-polymer/pull/3708) @iantrich
 - ❤️ [picture glance card]: UI Editor [#3709](https://github.com/home-assistant/home-assistant-polymer/pull/3709) @iantrich
 - ❤️ [history graph card]: UI Editor [#3782](https://github.com/home-assistant/home-assistant-polymer/pull/3782) @iantrich
@@ -90,26 +90,26 @@ description: "Changelog of the Lovelace UI."
 - 🔧 [views]: Guard for null badges [#3841](https://github.com/home-assistant/home-assistant-polymer/pull/3841) @bramkragten
 
 ## Changes in 0.99.0
-- ❤️ [glance card]: New config `show_last_changed` for `entities`
-- ❤️ [glance card]: New config `image` for `entities`
-- ❤️ [views]: New config `image` for `badges`
-- ❤️ [views]: New config `icon` for `badges`
-- ❤️ [views]: New config `name` for `badges`
+- ❤️ [glance card]: New configuration `show_last_changed` for `entities`
+- ❤️ [glance card]: New configuration `image` for `entities`
+- ❤️ [views]: New configuration `image` for `badges`
+- ❤️ [views]: New configuration `icon` for `badges`
+- ❤️ [views]: New configuration `name` for `badges`
 - 📣 Unused entities: Rewritten into a table view
 - 📣 Unused entities: Add entities to Lovelace cards
 - 📣 Lovelace background settings moved to theme `--lovelace-background`
 - 📣 Haptic feedback support added
 - 📣 Vibrate support added
 - 📣 MDI icons updated to [4.3.95](https://cdn.materialdesignicons.com/4.3.95/)
-- ⚠️ Only allow admins to edit UI config
+- ⚠️ Only allow admins to edit UI configuration
 - 🔧 [alarm panel card]: Handle keyboard input
 - 🔧 [alarm panel card]: Show `friendly_name` if set
 - 🔧 [entities card]: Properly show "unavailable" timestamps
 - 🔧 [entity filter card]: Throttle updates for performance
 - 🔧 [light card]: Replace jQuery sliders
 - 🔧 [light card]: Move brightness below icon
-- 🔧 [map card]: Update preview when config changes
-- 🔧 [markdown card]: Don't allow SVG by default
+- 🔧 [map card]: Update preview when configuration changes
+- 🔧 [Markdown card]: Don't allow SVG by default
 - 🔧 Filter null badges
 - 🔧 Render an overlay on light cards when the light is unavailable
 - 🔧 Break long strings in notifications
@@ -149,7 +149,7 @@ description: "Changelog of the Lovelace UI."
 - 🔧 The [weblink row] opens links in new tabs
 
 ## Changes in 0.85.0
-- ❤️ [map card]: New config `geo_location_sources`
+- ❤️ [map card]: New configuration `geo_location_sources`
 - ❤️ UI Editor for [picture card]
 - ❤️ UI Editor for [weather forecast card]
 - ❤️ UI Editor for [plant status card]
@@ -159,7 +159,7 @@ description: "Changelog of the Lovelace UI."
 - ❤️ UI Editor for [shopping list card]
 - ❤️ UI Editor for [light card]
 - ❤️ UI Editor for [gauge card]
-- ❤️ UI Editor for [markdown card]
+- ❤️ UI Editor for [Markdown card]
 - ❤️ UI Editor for [alarm panel card]
 - ❤️ UI Editor for [thermostat card]
 - ❤️ UI Editor for [entity button card]
@@ -181,22 +181,22 @@ description: "Changelog of the Lovelace UI."
 - ⚠️ [views]: Renamed `id` to `path`
 - ⚠️ `sensor_data`: `entity` is no longer passed as `entity_id` to service call and must be explicitly set
 - ⚠️ [sensor card]: Removed configs `height`, `line_color` and `line_width`
-- ⚠️ [gauge card]: Renamed config `title` to `name`
-- ⚠️ [alarm panel card]: Renamed config `title` to `name`
-- ⚠️ [glance card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [entity button card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture elements card]: `tap_action` and `hold_action` configurations for elements changed. See docs.
-- ⚠️ [picture entity card]: `tap_action` and `hold_action` configurations changed. See docs.
-- ⚠️ [picture glance card]: `tap_action` and `hold_action` configurations changed. See docs.
+- ⚠️ [gauge card]: Renamed configuration `title` to `name`
+- ⚠️ [alarm panel card]: Renamed configuration `title` to `name`
+- ⚠️ [glance card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [entity button card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture elements card]: `tap_action` and `hold_action` configurations for elements changed. See documentation.
+- ⚠️ [picture entity card]: `tap_action` and `hold_action` configurations changed. See documentation.
+- ⚠️ [picture glance card]: `tap_action` and `hold_action` configurations changed. See documentation.
 
 ### All Changes
-- ❤️ [weather forecast card]: New config `name`
-- ❤️ [thermostat card]: New config `name`
-- ❤️ [plant status card]: New config `name`
+- ❤️ [weather forecast card]: New configuration `name`
+- ❤️ [thermostat card]: New configuration `name`
+- ❤️ [plant status card]: New configuration `name`
 - ❤️ [picture elements card]: Added `state_image` and `camera_image`
 - 📣 [entities card]: Alert entity rows are now displayed as toggles
-- 📣 Ability to generate a Lovelace config if not present using available entities
+- 📣 Ability to generate a Lovelace configuration if not present using available entities
 - 📣 UI Editor now in Beta with support for adding/removing views/cards
 - 🔧 [map card]: Fix `aspect_ratio`
 - 🔧 Fix Tap/Hold actions on Windows 10 machines with touchscreens

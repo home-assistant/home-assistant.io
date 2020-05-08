@@ -5,18 +5,18 @@ ha_category:
   - Image Processing
 ha_iot_class: Local Polling
 ha_release: '0.100'
+ha_domain: doods
 ---
 
-The `doods` image processing platform allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
+The `doods` image processing integration allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 ## Setup
 
-You need to have DOODS running somewhere. It's easiest to run as a docker container and deployment is described on docker hub 
-[DOODS - Docker](https://hub.docker.com/r/snowzach/doods)
+You need to have DOODS running somewhere. It's easiest to run as a [Docker](https://hub.docker.com/r/snowzach/doods) container.
 
 ## Configuration
 
-The configuration loosely follows the tensorflow configuration. To enable this platform in your installation, add the following to your `configuration.yaml` file:
+To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,20 +43,20 @@ source:
       required: false
       type: string
 url:
-    description: The URL of the DOODS server
+    description: The URL of the DOODS server.
     required: true
     type: string
 timeout:
-    description: Timeout for requests (in seconds)
+    description: Timeout for requests (in seconds).
     required: false
     type: integer
     default: 90
 detector:
-    description: The DOODS detector to use
+    description: The DOODS detector to use.
     required: true
     type: string
 confidence:
-    description: The default confidence for any detected objects where not explicitly set
+    description: The default confidence for any detected objects where not explicitly set.
     required: false
     type: float
 area:
@@ -103,7 +103,7 @@ labels:
         required: true
         type: string
       confidence:
-       description: The minimum confidence for the selected label
+       description: The minimum confidence for the selected label.
        required: false
        type: float
       area:
@@ -139,9 +139,12 @@ labels:
 
 {% endconfiguration %}
 
+## Sample configuration
+
+{% raw %}
+
 ```yaml
 # Example advanced configuration.yaml entry
-# Example configuration.yaml entry
 image_processing:
   - platform: doods
     scan_interval: 1000
@@ -151,8 +154,8 @@ image_processing:
     source:
       - entity_id: camera.front_yard
     file_out:
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
     confidence: 50
     # This global detection area is required for all labels
     area:
@@ -176,9 +179,11 @@ image_processing:
       - truck
 ```
 
+{% endraw %}
+
 ## Optimizing resources
 
-[Image processing components](/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+The [Image processing integration](/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds) and then call the `image_processing.scan` service when you actually want to perform processing.
 
 ```yaml
 # Example advanced configuration.yaml entry

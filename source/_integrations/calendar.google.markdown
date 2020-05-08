@@ -1,18 +1,18 @@
 ---
 title: "Google Calendar Event"
 description: "Instructions on how to use Google Calendars in Home Assistant."
-logo: google_calendar.png
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
+ha_domain: google
 ---
 
 The `google` calendar platform allows you to connect to your
 [Google Calendars](https://calendar.google.com) and generate binary sensors.
 The sensors created can trigger based on any event on the calendar or only for
 matching events. When you first setup this integration it will generate a new
-configuration file `google_calendars.yaml` in your config directory that will contain information about
+configuration file `google_calendars.yaml` in your configuration directory that will contain information about
 all of the calendars you can see.
 It also exposes a service to add an event to one of your Google Calendars.
 
@@ -27,7 +27,7 @@ Generate a Client ID and Client Secret on
 1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
 1. Save this page. You don't have to fill out anything else here.
 1. Click on the menu item, Credentials, then click 'Create credentials' > OAuth client ID.
-1. Set the Application type to 'Other' and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
+1. Set the Application type to 'Other' (if not present, choose 'TV and Limited Input') and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
 1. Copy the client ID and client secret from the page that follows into a text editor temporarily as you will need to put these in your `configuration.yaml` file.
 1. Click on the menu item, Library, then search for "Google Calendar API" and enable it (if it isn't already enabled automatically through this process).
 

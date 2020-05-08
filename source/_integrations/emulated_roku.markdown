@@ -1,16 +1,16 @@
 ---
 title: Emulated Roku
 description: Instructions on how to set up Emulated Roku within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Hub
 ha_release: 0.86
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_domain: emulated_roku
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,
-so remotes such as Harmony and Android apps can connect to it through WiFi as if it were a Roku player.
+so remotes such as Harmony and Android apps can connect to it through Wi-Fi as if it were a Roku player.
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
 
@@ -135,6 +135,6 @@ Known limitations:
 * Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
   * Change Docker to host networking temporarily, then revert after pairing.
   * Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
-* Harmony cannot launch apps as it uses IR instead of the WiFi API and will not display the custom dummy app list.
+* Harmony cannot launch apps as it uses IR instead of the Wi-Fi API and will not display the custom dummy app list.
 * Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
 * Harmony will not set the name of the added emulated Roku device to the specified `name`.

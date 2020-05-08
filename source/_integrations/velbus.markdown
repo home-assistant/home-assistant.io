@@ -1,7 +1,6 @@
 ---
 title: Velbus
 description: Access and control your Velbus devices.
-logo: velbus.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -15,6 +14,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Cereal2nd'
   - '@brefra'
+ha_domain: velbus
 ---
 
 The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
@@ -32,7 +32,7 @@ The pushbutton LEDs of input modules are disabled by default. These can be enabl
 
 ## Configuration
 
-There are 2 options in configuring the velbus integration:
+There are 2 options in configuring the Velbus integration:
 
 - Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
 - Via the Home Assistant `configuration.yaml` file.
@@ -48,7 +48,7 @@ velbus:
 The port string used in the user interface or the configuration file can have 2 formats:
 
 - For a serial device: /dev/ttyUSB00
-- For a tcp/ip device: 127.0.0.1:3678
+- For a TCP/IP device: 127.0.0.1:3678
 
 {% configuration %}
 port:
@@ -56,6 +56,37 @@ port:
   required: true
   type: string
 {% endconfiguration %}
+
+## Services
+
+- `velbus.sync clock`: Synchronize Velbus time to local clock.
+- `velbus.set_memo_text`: Show memo text on Velbus display modules.
+
+### Service `velbus.sync_clock`
+
+You can use the service `velbus.sync clock` to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
+
+### Service `velbus.set_memo_text`
+
+You can use the service `velbus.set_memo_text` to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
+| `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
+
+Example:
+
+```yaml
+script:
+  trash_memo:
+    alias: Trash memo text
+    sequence:
+    - data:
+        address: 65
+        memo_text: "It's trash day"
+      service: velbus.set_memo_text
+```
 
 ## Example automation
 

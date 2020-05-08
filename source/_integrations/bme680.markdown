@@ -1,11 +1,11 @@
 ---
 title: Bosch BME680 Environmental Sensor
 description: Instructions on how to integrate a BME680 sensor into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_release: 0.62
 ha_iot_class: Local Push
+ha_domain: bme680
 ---
 
 The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet. In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
@@ -180,9 +180,9 @@ group:
       - sensor.bme680_sensor_air_quality
 ```
 
-## Directions for enabling I2C interface on Hass.io
+## Directions for enabling I2C interface on the Home Assistant Operating System
 
-Follow the instructions here to [enable I2C on Hass.io.](/hassio/enable_i2c/).
+Follow the instructions here to [enable I2C here.](/hassio/enable_i2c/).
 
 ## Directions for installing SMBus support on Raspberry Pi
 
@@ -190,22 +190,22 @@ Enable I2C interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable I2C interface
-$ sudo raspi-config
+sudo raspi-config
 ```
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-Install dependencies to use the `smbus-cffi` module and add your _homeassistant_ user to the _i2c_ group:
+Install dependencies to use the `smbus-cffi` module and add your `homeassistant` user to the _i2c_ group:
 
 ```bash
 # pi user environment: Install I2C dependencies and utilities
-$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the I2C group
-$ sudo addgroup homeassistant i2c
+sudo addgroup homeassistant i2c
 
 # pi user environment: Reboot Raspberry Pi to apply changes
-$ sudo reboot
+sudo reboot
 ```
 
 ### Check the I2C address of the sensor
@@ -213,10 +213,11 @@ $ sudo reboot
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:
+
 ```text
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --

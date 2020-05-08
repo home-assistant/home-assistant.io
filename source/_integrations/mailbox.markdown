@@ -2,6 +2,7 @@
 title: Mailbox
 description: Instructions on how to setup your mailboxes with Home Assistant.
 ha_release: 0.51
+ha_domain: mailbox
 ---
 
 Mailboxes provide a list of messages with short information about each. Mailbox messages appear on a separate panel in the frontend.

@@ -1,7 +1,6 @@
 ---
 title: Logi Circle
 description: Instructions on how to integrate your Logi Circle cameras within Home Assistant.
-logo: logi_circle.png
 ha_category:
   - Camera
   - Sensor
@@ -10,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@evanjd'
+ha_domain: logi_circle
 ---
 
 The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant. To connect Logi Circle, you will have to [sign up for API access](#requesting-api-access) and get a `client_id`, `client_secret` and `api_key`.
@@ -115,9 +115,9 @@ sensor:
         recording:
           description: The camera's recording mode. If false, the camera will not capture activities.
         signal_strength_category:
-          description: Return the WiFi signal level from the camera.
+          description: Return the Wi-Fi signal level from the camera.
         signal_strength_percentage:
-          description: Return the WiFi signal percentage from the camera.
+          description: Return the Wi-Fi signal percentage from the camera.
         streaming:
           description: The soft on/off status of the camera.
 {% endconfiguration %}

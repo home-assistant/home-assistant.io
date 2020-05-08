@@ -1,7 +1,6 @@
 ---
 title: Genius Hub
 description: Instructions on how to integrate a Genius Hub with Home Assistant.
-logo: geniushub.png
 ha_category:
   - Climate
   - Water Heater
@@ -12,6 +11,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
+ha_domain: geniushub
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
@@ -30,17 +30,17 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
-There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g. HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
+There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g.,  HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
 
 ### Service Handlers
 
-Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g. Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
+Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
  - `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
  - `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
 
 ### Climate and Water Heater Entities
 
-Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g. occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
+Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
 GH mode | HA Operation | HA Preset
 :---: | :---: | :---:
@@ -55,9 +55,9 @@ GH mode | HA Operation | HA Preset
 
 Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
 - `On` for **Override** \ **On**, and
-- `Off` otherwise (NB: the zone could still be 'on', e.g. with **Timer** mode)
+- `Off` otherwise (NB: the zone could still be 'on', e.g.,  with **Timer** mode)
 
-Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behaviour you are expecting.
+Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behavior you are expecting.
 
 Individual smart plugs are not yet exposed as switches - you can create one zone per smart plug as a work-around.
 
@@ -161,7 +161,7 @@ value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file.
+To set up this integration, add one of the following to your `configuration.yaml` file.
 
 If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved. This assumes that the correct MAC address is provided for Option 2, below. If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
 

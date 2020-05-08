@@ -1,7 +1,6 @@
 ---
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
-logo: opentherm.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -12,6 +11,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@mvn23'
+ha_domain: opentherm_gw
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
@@ -513,8 +513,8 @@ Possible modes and their meaning for the GPIO pins are listed here:
 
 Possible LED modes and their meaning are listed here:
 
-* R. Receiving an Opentherm message from the thermostat or boiler.
-* X. Transmitting an Opentherm message to the thermostat or boiler.
+* R. Receiving an OpenTherm message from the thermostat or boiler.
+* X. Transmitting an OpenTherm message to the thermostat or boiler.
 * T. Transmitting or receiving a message on the thermostat interface.
 * B. Transmitting or receiving a message on the boiler interface.
 * O. Remote setpoint override is active.

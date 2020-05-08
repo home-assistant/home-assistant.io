@@ -1,11 +1,11 @@
 ---
 title: Waze Travel Time
 description: Instructions on how to add Waze travel time to Home Assistant.
-logo: waze.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.67
+ha_domain: waze_travel_time
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
@@ -81,7 +81,7 @@ avoid_subscription_roads:
   default: false
 {% endconfiguration %}
 
-When using the `avoid_toll_roads`, `avoid_subscription_roads` and `avoid_ferries` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behaviour is that Waze will route you over roads having subscription options, so best is to set both `avoid_toll_roads` and `avoid_subscription_roads` or `avoid_ferries` if needed and experiment to ensure the desired outcome. 
+When using the `avoid_toll_roads`, `avoid_subscription_roads` and `avoid_ferries` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `avoid_toll_roads` and `avoid_subscription_roads` or `avoid_ferries` if needed and experiment to ensure the desired outcome. 
 
 ## Example using dynamic destination
 

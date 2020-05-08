@@ -1,7 +1,6 @@
 ---
 title: Arlo
 description: Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.
-logo: arlo.png
 ha_category:
   - Hub
   - Alarm
@@ -9,6 +8,7 @@ ha_category:
   - Sensor
 ha_release: 0.46
 ha_iot_class: Cloud Polling
+ha_domain: arlo
 ---
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
@@ -152,7 +152,7 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/) documentation.
+**Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/) documentation.
 
 ## Sensor
 

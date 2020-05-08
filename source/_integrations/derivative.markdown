@@ -10,6 +10,7 @@ logo: derivative.png
 ha_qa_scale: internal
 ha_codeowners:
   - '@afaucogney'
+ha_domain: derivative
 ---
 
 The `derivative` platform creates a sensor that estimates the derivative of the values provided by a source sensor.
@@ -68,7 +69,7 @@ For example, you have a temperature sensor `sensor.temperature` that outputs a v
 That means that two consecutive output values might be the same (so the derivative is `Δy/Δx=0` because `Δy=0` !)
 However, the temperature might actually be changing over time.
 In order to capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
-An example config that uses `time_window` is
+An example configuration that uses `time_window` is
 
 ```yaml
 sensor:

@@ -1,13 +1,13 @@
 ---
 title: Scripts
 description: Instructions on how to setup scripts within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: script
 ---
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
@@ -29,13 +29,17 @@ script:
 
 <div class='note'>
 
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
 
 </div>
 
 {% configuration %}
 alias:
   description: Friendly name for the script.
+  required: false
+  type: string
+icon:
+  description: Icon for the script.
   required: false
   type: string
 description:
@@ -73,6 +77,7 @@ sequence:
 script: 
   wakeup:
     alias: Wake Up
+    icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
     fields:
       minutes:

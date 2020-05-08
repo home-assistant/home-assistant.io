@@ -1,11 +1,11 @@
 ---
 title: "KNX Light"
 description: "Instructions on how to integrate KNX lights with Home Assistant."
-logo: knx.png
 ha_category:
   - Light
 ha_release: 0.44
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators
@@ -98,7 +98,7 @@ Many KNX devices can change their state internally without a message to the swit
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
-*Note on tunable white:* Home-Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home-Assistant may not align with ones of KNX visualizations. This is the expected behavior.
+*Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
 
 ## Extended configuration example
 

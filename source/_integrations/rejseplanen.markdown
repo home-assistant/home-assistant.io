@@ -1,11 +1,11 @@
 ---
 title: Rejseplanen
 description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
-logo: rejseplanen.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.88
+ha_domain: rejseplanen
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
@@ -14,13 +14,13 @@ The `rejseplanen` sensor will provide you with travel details for Danish public 
 
 The `stop_id` can be obtained through the following steps:
 
-If you know the exact name of the stop you can search the stop_id with the following url [http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME](http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME) and put in the name of the stop instead of "STOP_NAME" in the end of the url.
+If you know the exact name of the stop you can search the stop_id with the following URL [http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME](http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME) and put in the name of the stop instead of "STOP_NAME" in the end of the URL.
 
 If you don't know the name of the stop follow this guide:
 - Go to [https://www.openstreetmap.org](https://www.openstreetmap.org)
 - Make a search and fill in the location you want to find for.
-- The url will look like this [https://www.openstreetmap.org/#map=18/56.15756/10.20674](https://www.openstreetmap.org/#map=18/56.15756/10.20674)
-- Now insert the coordinates for the location in the url, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
+- The URL will look like this [https://www.openstreetmap.org/#map=18/56.15756/10.20674](https://www.openstreetmap.org/#map=18/56.15756/10.20674)
+- Now insert the coordinates for the location in the URL, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
 - You will now see the 30 stops closest to your location.
 
 You will see an output like this:

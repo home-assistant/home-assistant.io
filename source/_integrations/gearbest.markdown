@@ -1,13 +1,13 @@
 ---
 title: Gearbest
 description: Instructions on how to integrate a Gearbest sensor into Home Assistant.
-logo: gearbest.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_codeowners:
   - '@HerrHofrat'
+ha_domain: gearbest
 ---
 
 The `gearbest` sensor will track the price of a product from [Gearbest](https://www.gearbest.com). This information can be used in, e.g., automations to notify you when a price drops. The update interval for every item is currently set to 2 hours.
@@ -25,7 +25,7 @@ sensor:
 
 {% configuration %}
 currency:
-  description: "The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default. Either an ID or an URL must be present."
+  description: "The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default. Either an ID or a URL must be present."
   required: true
   type: string
 items:

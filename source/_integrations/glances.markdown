@@ -1,7 +1,6 @@
 ---
 title: Glances
 description: Instructions on how to integrate Glances sensors into Home Assistant.
-logo: glances.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@engrbm87'
+ha_domain: glances
 ---
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
@@ -24,7 +24,7 @@ $ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XML-RPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
 
 The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
 

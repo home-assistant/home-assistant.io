@@ -1,11 +1,13 @@
 ---
-title: "OPNsense"
-description: "Instructions on how to configure OPNsense integration"
-logo: opnsense.png
+title: OPNSense
+description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
   - Presence Detection
-ha_release: "0.106"
+ha_release: 0.105
+ha_codeowners:
+  - '@mtreinish'
+ha_domain: opnsense
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
@@ -21,7 +23,7 @@ to your configuration.yaml:
 
 ```yaml
 opnsense:
-  url: http://router/api
+  url: https://router/api
   api_secret: API_SECRET
   api_key: API_KEY
 ```
@@ -30,9 +32,14 @@ Where the `api_key` and `api_secret` values are acquired from your OPNsense
 router using the web interface. For more information on this procedure, refer
 to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
+User with API Key requires privileges for Type: 
+
+- GUI Name: Diagnostics: ARP Table
+- GUI Name: Diagnostics: Network Insight
+
 {% configuration %}
 url:
-  description: The URL for the OPNsense api endpoint of your router.
+  description: The URL for the OPNsense API endpoint of your router.
   type: string
   required: true
 api_key:
@@ -44,7 +51,7 @@ api_secret:
   type: string
   required: true
 verify_ssl:
-  description: Set to true to enable the validation of the OPNsense API's SSL.
+  description: Set to true to enable the validation of the OPNsense API SSL.
   type: boolean
   required: false
   default: false

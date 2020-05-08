@@ -1,11 +1,11 @@
 ---
 title: Logitech UE Smart Radio
 description: Instructions on how to integrate a Logitech UE Smart Radio player into Home Assistant.
-logo: ueradio.png
 ha_category:
   - Media Player
 ha_release: '0.60'
 ha_iot_class: Cloud Polling
+ha_domain: ue_smart_radio
 ---
 
 The `ue_radio` platform allows you to control a [Logitech UE Smart Radio](https://www.uesmartradio.com) from Home Assistant. This lets you control both Logitech UE Smart Radios and Logitech Squeezebox Radios that have been updated with the UE Smart Radio update.

@@ -1,7 +1,6 @@
 ---
 title: Global Disaster Alert and Coordination System (GDACS)
 description: Instructions on how to integrate the Global Disaster Alert and Coordination System (GDACS) feed into Home Assistant.
-logo: gdacs.jpg
 ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
+ha_domain: gdacs
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 
@@ -36,7 +36,7 @@ The data is updated every 5 minutes.
 The material used by this integration is provided by the [Global Disaster 
 Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation 
 framework between the United Nations and the European Commission - under the 
-[Creative Commons Attribution 4.0 International (CC BY 4.0) licence](http://creativecommons.org/licenses/by/4.0/).
+[Creative Commons Attribution 4.0 International (CC BY 4.0) license](http://creativecommons.org/licenses/by/4.0/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer and terms of use notice](https://www.gdacs.org/About/termofuse.aspx) for more information.
 

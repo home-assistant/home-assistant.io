@@ -1,11 +1,11 @@
 ---
 title: Bose Soundtouch
 description: Instructions on how to integrate Bose Soundtouch devices into Home Assistant.
-logo: soundtouch.png
 ha_category:
   - Media Player
 ha_release: 0.34
 ha_iot_class: Local Polling
+ha_domain: soundtouch
 ---
 
 The `soundtouch` platform allows you to control your [Bose Soundtouch](https://www.soundtouch.com/) speakers from Home Assistant.
@@ -81,7 +81,7 @@ You can also play HTTP (not HTTPS) URLs:
 
 You can use TTS services like [Google Text-to-Speech](/integrations/google_translate) or [Amazon Polly](/integrations/amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
 
-A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([nginx](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
+A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([NGINX](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
 
 ### Service `play_everywhere`
 

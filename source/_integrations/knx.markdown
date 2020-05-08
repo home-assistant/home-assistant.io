@@ -1,13 +1,13 @@
 ---
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
-logo: knx.png
 ha_category:
   - Hub
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Julius2342'
+ha_domain: knx
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
@@ -113,7 +113,7 @@ fire_event_filter:
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean
@@ -138,7 +138,7 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### Exposing sensor values or time to knx bus
+### Exposing sensor values or time to KNX bus
 
 KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 

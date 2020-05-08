@@ -1,7 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-logo: plex.png
 ha_category:
   - Media Player
   - Sensor
@@ -11,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
+ha_domain: plex
 ---
 
 The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
@@ -22,15 +22,13 @@ There is currently support for the following device types within Home Assistant:
 
 If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [plex.tv](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+The preferred way to enable the Plex integration is via **Configuration** -> **Integrations**. You will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
 <div class='note info'>
 
 Local and secure connections are preferred when setting up an Integration. After the initial configuration, all connections to your Plex servers are made directly without connecting to Plex's services.
 
 </div>
-
-If [discovery](/integrations/discovery/) is enabled and a local Plex server is found, a legacy `media_player` configuration (i.e., a `plex.conf` file) will be imported. GDM can be enabled via the Plex Web App under **Settings** -> **(Server Name)** -> **Settings** -> **Network** and choosing **Enable local network discovery (GDM)**.
 
 The `plex` integration can also be configured via `configuration.yaml`:
 
@@ -79,13 +77,13 @@ media_player:
   required: false
   type: map
   keys:
-    show_all_controls:
-      description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+    use_episode_art:
+      description: Display TV episode art instead of TV show art.
       required: false
       default: false
       type: boolean
-    use_episode_art:
-      description: Display TV episode art instead of TV show art.
+    ignore_new_shared_users:
+      description: Do not track Plex clients for newly added Plex users.
       required: false
       default: false
       type: boolean
@@ -101,48 +99,90 @@ plex:
   verify_ssl: true
   media_player:
     use_episode_art: true
-    show_all_controls: false
+    ignore_new_shared_users: false
 ```
 
 ## Media Player
 
 The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
 
+By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To choose specific users to monitor or ignore, select them via the Configuration Options (**Integrations** -> **Configured** --> **Plex** --> **Gear Icon**).
+
 ### Service `play_media`
 
-Plays a song, playlist, TV episode, or video on a connected client.
+Plays a song, album, artist, playlist, TV show/season/episode, movie, or video on a connected client.
+
+Required fields within the `media_content_id` payloads are marked as such, others are optional.
 
 #### Music
 
-| Service data attribute | Optional | Description                                                                                            | Example                                                                                                                                                       |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                                              | media_player.theater_plex                                                                                                                                     |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `MUSIC`                                                            | MUSIC                                                                                                                                                         |
+| Service data attribute | Description                                                                                                                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                            |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+
+##### Examples:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: MUSIC
+media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
+```
+```yaml
+entity_id: media_player.plex_player
+media_content_type: MUSIC
+media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
+```
 
 #### Playlist
 
-| Service data attribute | Optional | Description                                                  | Example                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `entity_id`            | no       | `entity_id` of the client                                    | media_player.theater_plex                                                |
-| `media_content_id`     | no       | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `PLAYLIST`               | PLAYLIST                                                                 |
+| Service data attribute | Description                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                           |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`playlist_name` (Required)</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `PLAYLIST`                                                                                          |
+
+##### Example:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: PLAYLIST
+media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
+```
 
 #### TV Episode
 
-| Service data attribute | Optional | Description                                                                                                 | Example                                                                                                                                                    |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                                                   | media_player.theater_plex                                                                                                                                  |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `EPISODE`                                                               | EPISODE                                                                                                                                                    |
+| Service data attribute | Description                                                                                                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                          |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` (Required)</li><li>`season_number`</li><li>`episode_number`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_type`   | `EPISODE`                                                                                                                                                                          |
+
+##### Examples:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5 }'
+```
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
+```
 
 #### Video
 
-| Service data attribute | Optional | Description                                                               | Example                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the client                                                 | media_player.theater_plex                                                                           |
-| `media_content_id`     | no       | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
-| `media_content_type`   | no       | Type of media to play, in this case `VIDEO`                               | VIDEO                                                                                               |
+| Service data attribute | Description                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                               |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`video_name` (Required)</li></ul> |
+| `media_content_type`   | `VIDEO`                                                                                                 |
+
+##### Example:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: VIDEO
+media_content_id: '{ "library_name": "Adult Movies", "video_name": "Blade" }'
+```
 
 ### Compatibility
 
@@ -151,11 +191,10 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
 | Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
 | Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV (PlexConnect)           | Controls disabled.  Music does not work.                                                                                                                        |
+| Apple TV                         | None                                                                                                                                                            |
 | iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
+| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
-| Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
 ### Notes
 

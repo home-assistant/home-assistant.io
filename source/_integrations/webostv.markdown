@@ -1,7 +1,6 @@
 ---
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
-logo: webos.png
 ha_category:
   - Media Player
   - Notifications
@@ -9,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
+ha_domain: webostv
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -118,7 +118,7 @@ webostv:
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:
-      mac: "B4:E6:2A:1E:11:0F"
+      mac: AA-BB-CC-DD-EE-FF
 
 media_player:
 
@@ -133,11 +133,11 @@ To obtain complete list of available sources currently configured on the TV, onc
 
 ## Change channel through play_media service
 
-The `play_media` service can be used in a script to switch to the specified tv channel. It selects the best matching channel according to the `media_content_id` parameter:
+The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
- 1. Channel number *(i.e. '1' or '6')*
- 2. Exact channel name *(i.e. 'France 2' or 'CNN')*
- 3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
+ 1. Channel number *(i.e., '1' or '6')*
+ 2. Exact channel name *(i.e., 'France 2' or 'CNN')*
+ 3. Substring in channel name *(i.e., 'BFM' in 'BFM TV')*
 
 ```yaml
 # Example action entry in script to switch to channel number 1
@@ -157,7 +157,7 @@ data:
 
 ## Next/Previous buttons
 
-The behaviour of the next and previous buttons is different depending on the active source:
+The behavior of the next and previous buttons is different depending on the active source:
 
 - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
 - otherwise: next/previous buttons act as next/previous track
@@ -190,7 +190,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
 
 ### Example
 

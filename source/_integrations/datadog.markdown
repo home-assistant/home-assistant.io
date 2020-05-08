@@ -1,10 +1,10 @@
 ---
 title: Datadog
 description: Send data and events to Datadog.
-logo: datadog.png
 ha_category:
   - History
 ha_release: 0.45
+ha_domain: datadog
 ---
 
 The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).

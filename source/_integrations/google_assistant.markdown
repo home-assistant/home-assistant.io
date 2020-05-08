@@ -1,13 +1,13 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
-logo: google-assistant.png
 ha_category:
   - Voice
 featured: true
 ha_release: 0.56
 ha_codeowners:
   - '@home-assistant/cloud'
+ha_domain: google_assistant
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
@@ -38,7 +38,7 @@ You will need to create a service account [Create Service account key](https://c
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select `Next`.
     2. For the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
-    3. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
+    3. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`.
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. Click `Next`
@@ -66,7 +66,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
         2. Copy and share the link with the new user.
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
-2. If you want to support actively reporting of state to Google's server (config option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
+2. If you want to support actively reporting of state to Google's server (configuration option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
     1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
     2. From the Service account list, select New service account.
     3. In the Service account name field, enter a name.
@@ -177,6 +177,7 @@ entity_config:
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
+- alarm_control_panel (arm/disarm)
 - camera (streaming, requires compatible camera)
 - group (on/off)
 - input_boolean (on/off)
@@ -185,17 +186,16 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
-- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
+- lock 
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source))
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
-- Alarm Control Panel (arm/disarm)
 
 ### Secure Devices
 
-Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `garage` and `door`.
+Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `door`, `garage` or `gate`.
 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 

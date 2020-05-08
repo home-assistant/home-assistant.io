@@ -31,7 +31,7 @@ automation 2:
       notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
       message: '{{ trigger.payload }}'
-      
+
 automation 3:
   trigger:
     # Multiple entities for which you want to perform the same action.
@@ -76,7 +76,15 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 
 <div class='note'>
   
-  Be aware that if you reference a trigger state object in an automation action, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually change the state of the trigger entity at Developer Tools > States.
+  Be aware that if you reference a `trigger` state object in templates of automation `action`, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
+
+{%raw%}
+```yaml
+{% set trigger={'to_state':{'state': 'heat'}} %}
+{% set option = trigger.to_state.state %}
+{{ 'on' if option == 'heat' else 'off' }}
+```
+{%endraw%}
   
 </div>
 
@@ -84,7 +92,7 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 
 The following tables show the available trigger data per platform.
 
-### event
+### Event
 
 | Template variable | Data |
 | ---- | ---- |
@@ -92,7 +100,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | Event object that matched.
 | `trigger.event.data` | Optional data
 
-### mqtt
+### MQTT
 
 | Template variable | Data |
 | ---- | ---- |
@@ -102,7 +110,7 @@ The following tables show the available trigger data per platform.
 | `trigger.payload_json` | Dictonary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### numeric_state
+### Numeric State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -114,7 +122,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
-### state
+### State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -124,7 +132,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### sun
+### Sun
 
 | Template variable | Data |
 | ---- | ---- |
@@ -132,7 +140,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### template
+### Template
 
 | Template variable | Data |
 | ---- | ---- |
@@ -142,21 +150,21 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### time
+### Time
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### time pattern
+### Time Pattern
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
-### webhook
+### Webhook
 
 | Template variable | Data |
 | ---- | ---- |
@@ -165,7 +173,7 @@ The following tables show the available trigger data per platform.
 | `trigger.json` | The JSON data of the request (if it had a JSON content type).
 | `trigger.data` | The form data of the request (if it had a form data content type).
 
-### zone
+### Zone
 
 | Template variable | Data |
 | ---- | ---- |

@@ -101,29 +101,36 @@ zwave:
   network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
+In addition to modifying the `configuration.yaml` file, the `options.xml` file network key must be set as well:
+
+```xml
+<!-- Example options.xml entry for network_key -->
+<Option name="NetworkKey" value="0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c" />
+```
+
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 
 ## First Run
 
-On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+On platforms other than Home Assistant and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## Platform specific instructions
 
-### Hass.io
+### Home Assistant
 
 You do not need to install any software to use Z-Wave.
 
 If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
-You can also check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
+You can also check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
 ```bash
-hassio hardware info
+ha hardware info
 ```
 
-If you did an alternative install of Hass.io on Linux (e.g. installing Ubuntu, then Docker, then Hass.io) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g. dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
+If you did an alternative install of Home Assistant on Linux (e.g.,  installing Ubuntu, then Docker, then Home Assistant Supervised) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g.,  dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 
@@ -149,7 +156,7 @@ The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and 
 
 On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
-#### Linux
+#### Linux with Home Assistant Core
 
 On Debian Linux platforms there are dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
@@ -181,7 +188,7 @@ Or, if there is no result, try to find detailed USB connection info with:
 dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) you need to give access to the stick with:
 
 ```bash
 sudo usermod -aG dialout homeassistant
@@ -227,7 +234,7 @@ If this applies to your situation:
 
 Then chances are high that the ModemManager in the host OS is causing the issue, claiming or interfering with the USB Z-Wave stick like the much used Aeotec ones. In this case you need to disable ModemManager.
 
-Connect to your host OS (e.g. Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
+Connect to your host OS (e.g.,  Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
 
  ```bash
 systemctl disable ModemManager.service
@@ -287,3 +294,7 @@ WARNING: Checksum incorrect - sending NAK
 ```
 
 If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, a second instance of Home Assistant or something else. You need to stop that other process to resolve this.
+
+### Changing device paths
+
+Configurations using `udev` can experience race conditions in creating device paths such that they change on reboot. This can cause a device to appear to change between `/dev/ttyACM0` and `/dev/ttyACM1` after reboot. In this case using the symlinks created for device IDs can ensure the correct device is used, for example: `/dev/serial/by-id/usb-0658_0200-if00` for Aeotec Z-Stick.

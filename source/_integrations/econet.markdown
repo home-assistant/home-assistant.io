@@ -1,11 +1,11 @@
 ---
 title: Rheem EcoNET Water Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
-logo: econet.png
 ha_category:
   - Water Heater
 ha_release: 0.61
 ha_iot_class: Cloud Polling
+ha_domain: econet
 ---
 
 The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.

@@ -1,13 +1,13 @@
 ---
 title: Honeywell Total Connect Comfort (US)
 description: Instructions on how to integrate Honeywell thermostats within Home Assistant.
-logo: honeywell.png
 ha_category:
   - Climate
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'
+ha_domain: honeywell
 ---
 
 The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
@@ -18,7 +18,7 @@ If your system is compatible with this integration, then you will be able access
 
 ## Configuration
 
-To set up this integration, add the following to the `climate:` section of your **configuration.yaml** file:
+To set up this integration, add the following to the `climate:` section of your `configuration.yaml` file:
 
 ```yaml
 climate:

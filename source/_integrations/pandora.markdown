@@ -1,33 +1,32 @@
 ---
 title: Pandora
 description: Instructions on how to integrate Pandora radio into Home Assistant.
-logo: pandora.png
 ha_category:
   - Media Player
 ha_release: 0.22
 ha_iot_class: Local Polling
+ha_domain: pandora
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
-
 
 ### Installation of Pianobar
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_
 
-The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with ffmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
+The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with FFmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
 
 ```bash
 sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson-c-dev make pkg-config  libcurl4-openssl-dev
 ```
 
-And now install the backported ffmpeg-related libraries (note that if you're using an older version of ffmpeg for other things on this machine, you may encounter issues after doings this):
+And now install the backported FFmpeg-related libraries (note that if you're using an older version of FFmpeg for other things on this machine, you may encounter issues after doings this):
 
 ```bash
 sudo apt-get -t jessie-backports install libav-tools libavcodec-extra libavcodec-dev libavfilter-dev libavformat-dev
 ```
 
-Now clone the Pianobar repo and build pianobar:
+Now clone the Pianobar repository and build pianobar:
 
 ```bash
 git clone https://github.com/PromyLOPh/pianobar.git

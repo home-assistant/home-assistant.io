@@ -1,7 +1,6 @@
 ---
 title: SolaX Power
 description: Instructions on how to integrate Solax sensor within Home Assistant.
-logo: solax-logo.png
 ha_category:
   - Energy
   - Sensor
@@ -9,13 +8,14 @@ ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@squishykid'
+ha_domain: solax
 ---
 
-The `solax` integration connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
+The `solax` integration connects Home Assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
 
 ## Configuration
 
-To use the Solax sensors in your installation, add the following to your configuration.yaml file:
+To use the Solax sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,10 +59,10 @@ sensors:
 
 ### Note
 
-Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is necessary to set up a reverse proxy with something like Nginx and use a raspberry pi (or similar) with two network connections (one being wifi that connects to the inverters SSID).
+Inverter models with newer firmware (and also those using devices like PocketWifi) no longer expose an API when connected to your wireless network, they do however continue to expose it on their own broadcasted SSID. To use this sensor in this case it is necessary to set up a reverse proxy with something like NGINX and use a Raspberry Pi (or similar) with two network connections (one being Wi-Fi that connects to the inverters SSID).
 
 
-Example Nginx configuration
+Example NGINX configuration
 
 ```text
 location / {

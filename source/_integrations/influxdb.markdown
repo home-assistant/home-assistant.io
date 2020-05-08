@@ -1,7 +1,6 @@
 ---
 title: InfluxDB
 description: Record events in InfluxDB.
-logo: influxdb.png
 ha_category:
   - History
   - Sensor
@@ -9,9 +8,10 @@ ha_release: 0.9
 ha_iot_class: Configurable
 ha_codeowners:
   - '@fabaff'
+ha_domain: influxdb
 ---
 
-The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -60,14 +60,18 @@ database:
   default: home_assistant
 ssl:
   type: boolean
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
 verify_ssl:
   type: boolean
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTPS request.
   required: false
   default: true
+path:
+  type: string
+  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  required: false
 max_retries:
   type: integer
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
@@ -194,7 +198,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: IP address of your database host, e.g. 192.168.1.10.
+  description: IP address of your database host, e.g.,  192.168.1.10.
   required: false
   default: localhost
   type: string
@@ -212,12 +216,12 @@ password:
   required: false
   type: string
 ssl:
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
   type: boolean
 verify_ssl:
-  description: Verify SSL certificate for https request.
+  description: Verify SSL certificate for HTTP request.
   required: false
   default: false
   type: boolean

@@ -1,13 +1,13 @@
 ---
-title: Home Assistant Device Tracker to support FortiOS
+title: FortiOS
 description: Instructions on how to use Fortinet FortiOS to track devices in Home Assistant.
-logo: fortinet.jpg
 ha_category:
   - Presence Detection
 ha_release: 0.97
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@kimfrellsen'
+ha_domain: fortios
 ---
 
 This integration enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
@@ -15,7 +15,7 @@ This integration enables Home Assistant to do device tracking of devices with a 
 The integration relies on the [fortiosapi](https://pypi.org/project/fortiosapi/).
 The integration has been tested both on FortiGate appliance and FortiGate VM running SW FortiOS v. 6.0.x and 6.2.0.
 
-All devices with a MAC address identified by FortiGate would be tracked, this covers both Ethernet and WiFi devices, including devices detected by LLDP.
+All devices with a MAC address identified by FortiGate would be tracked, this covers both Ethernet and Wi-Fi devices, including devices detected by LLDP.
 
 The integration is based on the Home Assistant `device_tracker` platform.
 

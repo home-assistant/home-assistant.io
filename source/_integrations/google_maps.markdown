@@ -1,11 +1,11 @@
 ---
 title: Google Maps
 description: Instructions how to use Google Maps Location Sharing to track devices in Home Assistant.
-logo: google_maps.png
 ha_release: 0.67
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
+ha_domain: google_maps
 ---
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
@@ -30,7 +30,7 @@ device_tracker:
     username: YOUR_USERNAME
 ```
 
-Once enabled and you have rebooted devices discovered through this integration wil be listed in the `known_devices.yaml`file within your configuration directory.
+Once enabled and you have rebooted devices discovered through this integration will be listed in the `known_devices.yaml` file within your configuration directory.
 
 They will be created with indentifiers like `google_maps_<numeric_id>`. To be able to properly track entities you must set the `track` attribute to `true`. 
 

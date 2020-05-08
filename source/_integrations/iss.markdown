@@ -1,10 +1,10 @@
 ---
 title: International Space Station (ISS)
 description: Know if or when ISS will be above your home location
-logo: nasa.png
 ha_category:
   - Binary Sensor
 ha_release: 0.36
+ha_domain: iss
 ---
 
 The `iss` platform uses the

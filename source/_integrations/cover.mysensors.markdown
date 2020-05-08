@@ -1,12 +1,12 @@
 ---
 title: "MySensors Cover"
 description: "Instructions on how to integrate MySensors covers into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Cover
 ha_release: "0.30"
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
 Integrates MySensors covers into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

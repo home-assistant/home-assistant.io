@@ -1,13 +1,13 @@
 ---
 title: Transports Metropolitans de Barcelona
 description: Instructions on how to integrate TMB iBus sensor within Home Assistant.
-logo: tmb.png
 ha_category:
   - Transport
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@alemuro'
+ha_domain: tmb
 ---
 
 This sensor will provide you the remaining time, in minutes, for the next bus in a specific stop by using the [iBus service](https://www.tmb.cat/en/barcelona/tmb-ibus).

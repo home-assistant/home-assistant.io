@@ -121,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added force_update for REST sensor ([@foxel] - [#11016]) ([sensor.miflora docs]) ([sensor.mqtt docs]) ([sensor.rest docs])
 - Add support for Logitech UE Smart Radios. ([@GreenTurtwig] - [#10077]) ([media_player.ue_smart_radio docs]) (new-platform)
 - Make notify.html5 depend on config ([@balloob] - [#11052]) ([notify.html5 docs])
-- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e. PyCharm) ([@tringler] - [#11034])
+- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e., PyCharm) ([@tringler] - [#11034])
 - Added support for cover in tellstick ([@perfalk] - [#10858]) ([tellstick docs]) ([cover.tellstick docs]) (new-platform)
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Add GPS coords to meraki ([@addelovein] - [#10998]) ([device_tracker.meraki docs])

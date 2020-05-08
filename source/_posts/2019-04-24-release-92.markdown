@@ -1076,7 +1076,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [stream docs]: /integrations/stream/
 [supla docs]: /integrations/supla/
 [switch docs]: /integrations/switch/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [tplink docs]: /integrations/tplink/
 [trend docs]: /integrations/trend/

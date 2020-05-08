@@ -1,7 +1,6 @@
 ---
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
-logo: icloud.png
 ha_category:
   - Presence Detection
   - Sensor
@@ -10,6 +9,7 @@ ha_release: '0.10'
 ha_config_flow: true
 ha_codeowners:
   - '@Quentame'
+ha_domain: icloud
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
@@ -56,6 +56,11 @@ password:
   description: Your iCloud account password.
   required: true
   type: string
+with_family:
+  description: If you want to fetch your family devices.
+  required: false
+  default: false
+  type: boolean
 max_interval:
   description: Maximum interval in minutes between subsequent location updates. This tracker uses dynamic intervals for requesting location updates. When the iPhone is stationary, the interval will eventually be set to `max_interval` to save battery. When the iPhone starts moving again, the interval will be dynamically updated to 1 min. Note that updating interval to 1 min might be delayed by maximum `max_interval` minutes. Minimum value is 1 min.
   required: false
@@ -78,9 +83,9 @@ You may receive an email and a notification from Apple saying that someone has l
 For the notification, press "Allow", then "OK".
 </div>
 
-If 2 Step Authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask which device you want to use as the Trusted Device via a notification in the Home Assistant UI. The integration will send an SMS prompt to that device with the auth code to enter in Home Assistant. The duration of this authentication is determined by Apple, but is currently 2 months, so you will only need to verify your account every two months.
+If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask which device you want to use as the Trusted Device via a notification in the Home Assistant UI. The integration will send an SMS prompt to that device with the auth code to enter in Home Assistant. The duration of this authentication is determined by Apple, but is currently 2 months, so you will only need to verify your account every two months.
 
-2 Factor Authentication is the improved version of 2 Step Authentication and is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
+2 Factor Authentication is the improved version of two-step authentication and is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 

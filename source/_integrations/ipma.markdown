@@ -1,7 +1,6 @@
 ---
 title: Instituto Português do Mar e Atmosfera (IPMA)
 description: Instructions on how to integrate Instituto Português do Mar e Atmosfera weather conditions into Home Assistant.
-logo: ipma.png
 ha_category:
   - Weather
 ha_release: 0.72
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
   - '@abmantis'
+ha_domain: ipma
 ---
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.
@@ -40,4 +40,9 @@ longitude:
   required: false
   type: string
   default: Home Assistant global longitude configuration
+mode:
+  description: "The forecast type. Can be `hourly` or `daily`."
+  required: false
+  type: string
+  default: "`daily`"
 {% endconfiguration %}

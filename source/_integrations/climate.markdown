@@ -1,11 +1,11 @@
 ---
 title: Climate
 description: Instructions on how to setup climate control devices within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Climate
 ha_release: 0.19
 ha_quality_scale: internal
+ha_domain: climate
 ---
 
 The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
@@ -215,7 +215,7 @@ Turn climate device on. This is only supported if the climate device supports be
 
 ### Service `climate.turn_off`
 
-Turn climate device off. This is only supported if the climate device has the hvac mode `off`.
+Turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

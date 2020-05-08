@@ -1,18 +1,20 @@
 ---
 title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
-logo: sonos.png
 ha_category:
   - Media Player
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_domain: sonos
+ha_codeowners:
+  - '@amelchio'
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
-You can configure the Sonos integration by going to the integrations page inside the config panel.
+You can configure the Sonos integration by going to the integrations page inside the configuration panel.
 
 ## Services
 
@@ -30,7 +32,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The speakers to snapshot.
+| `entity_id` | no | The speakers to snapshot. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.restore`
@@ -49,7 +51,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored.
+| `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.join`

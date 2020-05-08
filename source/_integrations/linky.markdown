@@ -1,7 +1,6 @@
 ---
 title: Enedis Linky
 description: Instructions on how to integrate Linky consumption data within Home Assistant.
-logo: enedis.png
 ha_release: 0.79
 ha_category:
   - Energy
@@ -10,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Quentame'
+ha_domain: linky
 ---
 
 The `linky` sensor platform is retrieving the consumption of your home from the [Linky electric meter](https://www.enedis.fr/linky-compteur-communicant).

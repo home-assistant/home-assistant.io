@@ -1,13 +1,13 @@
 ---
 title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Environment
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@Swamp-Ig'
+ha_domain: sun
 ---
 
 The sun integration will use your current location to track if the sun is above or

@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Philips Light"
 description: "Instructions on how to integrate your Xiaomi Philips Lights within Home Assistant."
-logo: philips.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.53
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
@@ -98,7 +98,7 @@ Supported models: `philips.light.moonlight`
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
-To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
+To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entries

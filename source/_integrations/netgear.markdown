@@ -1,14 +1,14 @@
 ---
-title: Netgear
-description: Instructions on how to integrate Netgear routers into Home Assistant.
-logo: netgear.png
+title: NETGEAR
+description: Instructions on how to integrate NETGEAR routers into Home Assistant.
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: pre 0.7
+ha_domain: netgear
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [Netgear](https://www.netgear.com/) device.
+This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.
 
 <div class='note'>
 
@@ -49,7 +49,7 @@ password:
   required: true
   type: string
 devices:
-  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the Netgear UI.
+  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the NETGEAR UI.
   required: false
   type: list
 exclude:
@@ -67,6 +67,7 @@ When `accesspoints` is specified an extra device will be reported for each devic
 The use of `devices` or `exclude` is recommended when using `accesspoints` to avoid having a lot of entries.
 
 List of models that are known to use port 80:
+
 - Nighthawk X4S - AC2600 (R7800)
 - Orbi
 - XR500

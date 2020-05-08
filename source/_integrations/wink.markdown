@@ -1,7 +1,6 @@
 ---
 title: Wink
 description: Instructions on how to set up the Wink hub within Home Assistant.
-logo: wink.png
 ha_category:
   - Hub
   - Alarm
@@ -18,6 +17,7 @@ ha_category:
 featured: false
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
+ha_domain: wink
 ---
 
 [Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
@@ -130,7 +130,7 @@ You can use the service wink/refresh_state_from_wink to pull the most recent sta
 
 ## Service `pull_newly_added_devices_from_wink`
 
-You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
+You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home Assistant. Any new devices will also be added if Home Assistant is restarted.
 
 ## Service `delete_wink_device`
 
@@ -435,7 +435,7 @@ The above devices are confirmed to work, but others may work as well.
 
 Wink Cover garage door functionality varies on the product. Home Assistant can open, close, and view state of GoControl/Linear openers. For Chamberlain MyQ-enabled openers, Home Assistant is limited to show current state (open or closed) only using this Wink cover. This restriction was imposed by Chamberlain for third party control. Wink suggests that MyQ customers should contact Chamberlain directly to inquire about expanding permissions.
 
-The [MyQ Cover](/integrations/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via customize.yaml.
+The [MyQ Cover](/integrations/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via `customize.yaml`.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 

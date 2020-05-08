@@ -2,15 +2,10 @@
 title: Image Processing
 description: Instructions on how to setup image processing with Home Assistant.
 ha_release: 0.36
+ha_domain: image_processing
 ---
 
 Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.
-
-<div class='note'>
-
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/integrations/http/).
-
-</div>
 
 ## ALPR
 
@@ -54,9 +49,9 @@ automation:
 
 The following event attributes will be present (platform-dependent): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`
 
-## scan_interval and Optimising Resources
+## scan_interval and optimizing Resources
 
-Image processing integrations process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+Image processing integrations process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
 
 ```yaml
 # Example configuration.yaml

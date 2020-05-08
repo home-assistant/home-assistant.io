@@ -40,7 +40,7 @@ I'm happy to announce that this release introduces support for Tuya thanks to [@
 
 - Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
 - Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
-- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) ([sensor.duke_energy docs]) (new-platform)
+- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) (new-platform)
 - Added Push Camera ([@dgomes] - [#15151]) ([camera.push docs]) (new-platform)
 - Add Cloudflare DNS component. ([@ludeeus] - [#15388]) ([cloudflare docs]) (new-platform)
 - Add HomematicIP alarm control panel ([@mxworm] - [#15342]) ([alarm_control_panel docs]) ([homematicip_cloud docs]) ([alarm_control_panel.homematicip_cloud docs]) (new-platform)
@@ -103,7 +103,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added setting cover tilt position in scene ([@kstaniek] - [#15255])
 - Pass tox posargs to pylint ([@scop] - [#15226])
 - Fix Roomba exception ([@arbreng] - [#15262]) ([vacuum.roomba docs])
-- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) ([sensor.duke_energy docs]) (new-platform)
+- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) (new-platform)
 - Update image_processing async ([@dgomes] - [#15082]) ([image_processing docs])
 - Fix python-miio 0.4 compatibility of the xiaomi miio device tracker ([@serhtt] - [#15244]) ([device_tracker docs])
 - Upgrade keyring to 13.1.0 ([@fabaff] - [#15268])
@@ -380,7 +380,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [prometheus docs]: /integrations/prometheus/
 [sensor.arlo docs]: /integrations/arlo#sensor
 [sensor.deconz docs]: /integrations/deconz#sensor
-[sensor.duke_energy docs]: /integrations/duke_energy
 [sensor.efergy docs]: /integrations/efergy
 [sensor.fixer docs]: /integrations/fixer
 [sensor.gtfs docs]: /integrations/gtfs

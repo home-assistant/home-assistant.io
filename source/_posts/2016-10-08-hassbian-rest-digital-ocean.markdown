@@ -90,7 +90,7 @@ sensor
 - Wink: Support for Wink Smoke and CO detectors ([@w1ll1am23])
 - Sensor: [TED5000][ted5000] sensor was included ([@gwendalg])
 - Sensor: Support for [Västtrafik][vasttrafik] public transport ([@persandstrom])
-- Notify: [Pushetta][pushetta] no longer sends message on start up ([@Danielhiversen])
+- Notify: Pushetta no longer sends message on start up ([@Danielhiversen])
 - Sensor: [Forecast.io][forecast] sensor was replaced by [Dark Sky][darksky] ([@fabaff])
 - Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
@@ -107,7 +107,7 @@ sensor
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
 - Fix Homematic device name with autodiscovery ([@pvizeli])
 - Make 'pin' optional for zigbee device config ([@flyte])
-- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
+- Fix when sending a notification to a service with target attached (i.e., `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
@@ -170,7 +170,6 @@ sensor
 [mysensors-cover]: /integrations/cover.mysensors/
 [notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[pushetta]: /integrations/pushetta
 [pwrctrl-switch]: /integrations/anel_pwrctrl
 [rest-sensor]: /integrations/rest
 [stats-sensor]: /integrations/statistics

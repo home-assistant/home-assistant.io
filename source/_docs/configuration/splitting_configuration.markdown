@@ -4,7 +4,7 @@ description: "Splitting the configuration.yaml into several files."
 redirect_from: /topics/splitting_configuration/
 ---
 
-So you've been using Home Assistant for a while now and your configuration.yaml file brings people to tears or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
+So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears or you simply want to start off with the distributed approach, here's how to split the `configuration.yaml` into more manageable (read: humanly readable) pieces.
 
 First off, several community members have sanitized (read: without API keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
 
@@ -72,7 +72,7 @@ device_tracker.yaml
 customize.yaml
 ```
 
-`automation.yaml` will hold all the automation integration details. `zones.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
+`automation.yaml` will hold all the automation integration details. `zone.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
 
 Inside the base configuration file add the following entries:
 
@@ -154,8 +154,8 @@ If you have issues checkout `home-assistant.log` in the configuration directory 
 If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
 
 - Listing all loaded files: `hass --script check_config --files`
-- Viewing a component's config: `hass --script check_config --info light`
-- Or all components' config:  `hass --script check_config --info all`
+- Viewing a component's configuration: `hass --script check_config --info light`
+- Or all components' configuration:  `hass --script check_config --info all`
 
 You can get help from the command line using: `hass --script check_config --help`
 

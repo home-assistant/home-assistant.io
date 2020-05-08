@@ -1,12 +1,12 @@
 ---
 title: Space API
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
-logo: spaceapi.png
 ha_category:
   - Social
 ha_release: '0.70'
 ha_codeowners:
   - '@fabaff'
+ha_domain: spaceapi
 ---
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
@@ -270,7 +270,7 @@ In order to set a sensor specific location do the following steps:
 3. Pick "Other" from the attribute override pulldown
 4. Set the attribute name to location and the attribute value to your desired location
 
-If no location is set, the location defined in the HA config is used.
+If no location is set, the location defined in the HA configuration is used.
 
 ## Examples
 

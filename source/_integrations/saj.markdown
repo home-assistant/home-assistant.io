@@ -3,19 +3,19 @@ title: SAJ Solar Inverter
 description: Instructions on how to connect your SAJ Solar Inverter to Home Assistant.
 ha_category:
   - Energy
-logo: saj.png
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_codeowners:
   - '@fredericvl'
+ha_domain: saj
 ---
 
 The `saj` sensor will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.
 
 This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser.
 
-There is a difference between inverters that are connected via an ethernet module and those connected via a WiFi module.
-The WiFi module requires a username and password for authentication where the ethernet module does not.
+There is a difference between inverters that are connected via an ethernet module and those connected via a Wi-Fi module.
+The Wi-Fi module requires a username and password for authentication where the ethernet module does not.
 
 ## Configuration
 
@@ -68,7 +68,7 @@ Sensors available in the library:
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
 
-## Full configuration example for WiFi inverters
+## Full configuration example for Wi-Fi inverters
 
 ```yaml
 sensor:

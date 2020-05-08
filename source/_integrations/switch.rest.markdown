@@ -1,11 +1,11 @@
 ---
 title: "RESTful Switch"
 description: "Instructions on how to integrate REST switches into Home Assistant."
-logo: restful.png
 ha_category:
   - Switch
 ha_release: 0.7.6
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.

@@ -5,7 +5,8 @@ description: "A guide to remotely accessing Home Assistant and securing the conn
 
 <div class='note'>
 
-If you are using Hass.io do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io.
+This guide is for users running Home Assistant Core.
+If you are using Home Assistant do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Home Assistant.
 
 </div>
 
@@ -198,7 +199,7 @@ duckdns:
 
 The access token is available on your DuckDNS page. Restart Home Assistant after the change.
 
-What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
+What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Home Assistant will update DuckDNS every time it changes.
 
 Now type your new URL in to your address bar on your browser with port 8123 on the end:
 
@@ -262,7 +263,7 @@ cd
 We will now install the certbot software:
 
 ```bash
-sudo apt-get install certbox -y
+sudo apt-get install certbot -y
 ```
 
 You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Raspbian:
@@ -332,8 +333,9 @@ Now edit your `configuration.yaml` file to reflect the SSL entries and your base
 http:
   ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
   ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
-  base_url: examplehome.duckdns.org
 ```
+
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL to your new URL, for example: `https://examplehome.duckdns.org`. Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
 
 You may wish to set up other options for the [HTTP](/integrations/http/) integration at this point, these extra options are beyond the scope of this guide.
 
@@ -361,7 +363,7 @@ https://YOUR-HA-IP:8123
 
 Some cases such as this are where your router does not allow 'loopback' or where there is a problem with incoming connections due to technical failure. In these cases you can still use your internal connection and safely ignore the warnings.
 
-If you were previously using a webapp on your phone/tablet to access your Home Assistant you should delete the old one and create a new one with the new address. The old one will no longer work as it is not keyed to your new, secure URL.  Instructions for creating your new webapp can be found [here](/docs/frontend/mobile/).
+If you were previously using a webapp on your phone/tablet to access your Home Assistant you should delete the old one and create a new one with the new address. The old one will no longer work as it is not keyed to your new, secure URL.
 
 All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.
 

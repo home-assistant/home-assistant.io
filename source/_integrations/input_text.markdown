@@ -1,16 +1,20 @@
 ---
 title: Input Text
 description: Instructions on how to integrate the Input Text integration into Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: input_text
 ---
 
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+
+The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Text** option.
+
+It can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entries
@@ -59,7 +63,7 @@ input_text:
         required: false
         type: icon
       pattern:
-        description: Regex pattern for client side validation.
+        description: Regex pattern for client-side validation.
         required: false
         type: string
         default: empty

@@ -1,7 +1,6 @@
 ---
 title: File
 description: Instructions on how to integrate sensors which read from files into Home Assistant.
-logo: file.png
 ha_category:
   - Utility
   - Notifications
@@ -10,6 +9,7 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: file
 ---
 
 There is currently support for the following device types within Home Assistant:

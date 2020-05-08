@@ -1,7 +1,6 @@
 ---
 title: Essent
 description: Instructions on how to integrate Essent within Home Assistant.
-logo: essent.png
 ha_category:
   - Energy
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@TheLastProject'
+ha_domain: essent
 ---
 
 The `essent` platform uses [PyEssent](https://github.com/TheLastProject/PyEssent/) to communicate with the (undocumented) API of Dutch energy provider Essent. It provides sensors for each of your meters and tariffs, updated daily.

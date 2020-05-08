@@ -2,6 +2,7 @@
 title: Water Heater
 description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
+ha_domain: water_heater
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.

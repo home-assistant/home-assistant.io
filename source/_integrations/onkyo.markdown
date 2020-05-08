@@ -1,11 +1,11 @@
 ---
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
-logo: onkyo.png
 ha_category:
   - Media Player
 ha_release: 0.17
 ha_iot_class: Local Polling
+ha_domain: onkyo
 ---
 
 The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
@@ -38,7 +38,7 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e. if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
+  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
   required: false
   default: 100
   type: integer
@@ -55,32 +55,32 @@ sources:
 
 List of source names:
 
-- video1
-- video2
-- video3
-- video4
-- video5
-- video6
-- video7
-- dvd
-- bd-dvd
-- tape1
-- tv-tape
-- tape2
-- phono
-- cd
-- tv-cd
-- fm
-- am
-- tuner
-- dlna
-- internet-radio
-- usb
-- network
-- universal-port
-- multi-ch
-- xm
-- sirius
+- `video1`
+- `video2`
+- `video3`
+- `video4`
+- `video5`
+- `video6`
+- `video7`
+- `dvd`
+- `bd-dvd`
+- `tape1`
+- `tv-tape`
+- `tape2`
+- `phono`
+- `cd`
+- `tv-cd`
+- `fm`
+- `am`
+- `tuner`
+- `dlna`
+- `internet-radio`
+- `usb`
+- `network`
+- `universal-port`
+- `multi-ch`
+- `xm`
+- `sirius`
 
 If your source is not listed above, and you want to figure out how to format that source name so you can map its entry, you can use the `onkyo-eiscp` Python module to discover the exact naming needed. First, change your receiver's source to the one that you need to define, and then run:
 
@@ -88,7 +88,7 @@ If your source is not listed above, and you want to figure out how to format tha
 onkyo --host 192.168.0.100 source=query
 ```
 
-To find your receivers max volume use the onkyo-eiscp python module set the receiver to its maximum volume
+To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
 ```bash

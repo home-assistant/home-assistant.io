@@ -1,7 +1,6 @@
 ---
 title: Mi Flora
 description: Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant.
-logo: miflora.png
 ha_category:
   - Environment
 ha_release: 0.29
@@ -9,6 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@ChristianKuehnel'
+ha_domain: miflora
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://gadget-freakz.com/product/xiaomi-mi-flora-plant-sensor/) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
@@ -19,8 +19,8 @@ There are "Chinese" and "International" versions available and there is a [repor
 
 Before configuring Home Assistant you need a Bluetooth backend and the MAC address of your sensor. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
-- On [Hass.io](/hassio/installation/): Miflora will work out of the box.
-- On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
+- On [Home Assistant](/hassio/installation/): Miflora will work out of the box.
+- On [Home Assistant Core on Docker](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
   - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to install the library in the right one.
   - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
@@ -102,6 +102,11 @@ adapter:
   required: false
   default: hci0
   type: string
+go_unavailable_timeout:
+  description: "Timeout to report this device as unavailable. This option hides a bad link quality"
+  required: false
+  default: 7200
+  type: integer
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -122,10 +127,26 @@ sensor:
     name: Flower 1
     force_update: true
     median: 3
+    go_unavailable_timeout: 43200
     monitored_conditions:
       - moisture
       - light
       - temperature
       - conductivity
       - battery
+```
+An automation example to report a battery failure:
+
+```yaml
+- id: flower1_moisture_unavailable_check
+  alias: Flower 1 sensors available
+  trigger:
+  - entity_id: sensor.flower1_moisture
+    for: 24:00:00
+    platform: state
+    to: unavailable
+  action:
+  - data_template:
+      message: "Flower 1 moisture is unavailable for more than 24 hours"
+    service: notify.notifier_telegram_someone
 ```

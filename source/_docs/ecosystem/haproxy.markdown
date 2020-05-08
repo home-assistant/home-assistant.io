@@ -86,23 +86,25 @@ Forward ports 443 and (optionally) 80 to your server on your router.
 Do not forward port 8123, HAProxy takes care of securing the connection with HTTPS on 443.
 If 8123 is forwarded then it will not be secured.
 
-Replace 443 with whatever port you chose to bind to in the config if different.
+Replace 443 with whatever port you chose to bind to in the configuration if different.
 
 ### Configure Home Assistant HTTP Component
 
-In your `configuration.yaml` file, edit the [http component](/integrations/http/).
+In your `configuration.yaml` file, edit the [HTTP component](/integrations/http/).
 
 ```text
 http:
   # For extra security set this to only accept connection on localhost if HAProxy is on the same machine
   # server_host: 127.0.0.1
-  # Update this line to be your domain
-  base_url: https://example.com
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your HAProxy machine IP, or localhost if hosted on the same machine.
   trusted_proxies: <HAProxy IP address here, 127.0.0.1 if same machine>
 ```
+
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL
+to your new URL, for example: `https://examplehome.duckdns.org`.
+Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
 
 ### Restart or Reload HAProxy
 

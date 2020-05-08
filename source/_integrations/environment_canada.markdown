@@ -1,7 +1,6 @@
 ---
 title: Environment Canada
 description: Weather data from Environment Canada.
-logo: environment_canada.png
 ha_category:
   - Weather
   - Sensor
@@ -10,6 +9,7 @@ ha_release: 0.95
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaeldavie'
+ha_domain: environment_canada
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
@@ -35,9 +35,9 @@ Each platform automatically determines which weather station's data to use. Howe
 
 For each platform, the location to use is determined according to the following hierarchy:
 
-  - Location ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Location ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant configuration
 
 ## Weather
 
@@ -71,7 +71,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the entity ID, e.g. `weather.<name>`.
+  description: Name to be used for the entity ID, e.g.,  `weather.<name>`.
   required: false
   type: string
 forecast:
@@ -99,20 +99,20 @@ sensor:
     - `wind_chill` - The current wind chill, in ºC.
     - `humidex` - The current humidex, in ºC.
     - `pressure` - The current air pressure, in kPa.
-    - `tendency` - The current air pressure tendency, e.g. "Rising".
+    - `tendency` - The current air pressure tendency, e.g.,  "Rising".
     - `humidity` - The current humidity, in %.
     - `visibility` - The current visibility, in km.
-    - `condition` - A brief text statement of the current weather conditions, e.g. "Sunny".
+    - `condition` - A brief text statement of the current weather conditions, e.g.,  "Sunny".
     - `icon_code` - A two-digit number corresponding to a condition icon, as specified in these [image to description](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) and [code to description](https://dd.weather.gc.ca/citypage_weather/docs/current_conditions_icon_code_descriptions_e.csv) mappings.
     - `wind_speed` - The current sustained wind speed, in km/h.
     - `wind_gust` - The current wind gust, in km/h.
-    - `wind_dir` - The current cardinal wind direction, e.g. "SSW".
+    - `wind_dir` - The current cardinal wind direction, e.g.,  "SSW".
     - `wind_bearing` - The current wind direction in degrees.
     - `high_temp` - The next forecast high temperature, in ºC.
     - `low_temp` - The next forecast low temperature, in ºC.
     - `uv_index` - The next forecast UV index.
     - `pop` - The next forecast probability of precipitation, in %.
-    - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
+    - `text_summary` - A textual description of the next forecast period, e.g.,  "Tonight. Mainly cloudy. Low -12."
     - `precip_yesterday` - The total amount of precipitation that fell the previous day.
     - `warnings` - Current warning alerts.
     - `watches` - Current watch alerts.
@@ -199,7 +199,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the entity ID, e.g. `camera.<name>`.
+  description: Name to be used for the entity ID, e.g.,  `camera.<name>`.
   required: false
   type: string
 loop:

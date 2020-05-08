@@ -1,11 +1,11 @@
 ---
 title: Transport NSW
 description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
-logo: transport_nsw.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.81
+ha_domain: transport_nsw
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
@@ -46,7 +46,7 @@ route:
   required: false
   type: string
 destination:
-  description: Useful for ferry or train stops to filter the destination of the sensor, e.g. `Circular Quay`.
+  description: Useful for ferry or train stops to filter the destination of the sensor, e.g.,  `Circular Quay`.
   required: false
   type: string
 name:

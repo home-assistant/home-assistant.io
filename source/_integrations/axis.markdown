@@ -1,7 +1,6 @@
 ---
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
-logo: axis.png
 ha_category:
   - Camera
   - Binary Sensor
@@ -11,6 +10,7 @@ ha_release: 0.45
 ha_iot_class: Local Push
 ha_codeowners:
   - '@kane610'
+ha_domain: axis
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
@@ -27,7 +27,7 @@ For configuration go to the `Integrations pane` on your Home Assistant instance.
 
 ## Troubleshooting discovery
 
-If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
 
 ## Binary Sensor
 

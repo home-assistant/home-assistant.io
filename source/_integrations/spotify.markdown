@@ -1,7 +1,6 @@
 ---
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
-logo: spotify.png
 ha_category:
   - Media Player
 ha_release: 0.43
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
+ha_domain: spotify
 ---
 
 The `spotify` media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
@@ -31,11 +31,9 @@ To create the required Spotify application:
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
 - Add a **Redirect URI** in one of the following forms:
-  - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>/auth/external/callback`
-  - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>/auth/external/callback`
+  - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
+  - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
 - Click **Save** after adding the URI.
-
-If you are using an externally accessible address, you will likely also need to set the `base_url` attribute of the [HTTP Integration](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
 ## Configuration
 
@@ -78,6 +76,7 @@ After you have set up the above:
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which are part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
+The `media_content_id` can be obtained from the Spotify desktop-app by clicking on the more options ("...") next to the album art picture, selecting "share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
 
 ## Unsupported Devices
 

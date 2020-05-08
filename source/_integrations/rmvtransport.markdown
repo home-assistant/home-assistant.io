@@ -1,13 +1,13 @@
 ---
 title: RMV
 description: Instructions on how to integrate Rhein-Main public transport departure times into Home Assistant.
-logo: RMV.png
 ha_category:
   - Transport
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@cgtobi'
+ha_domain: rmvtransport
 ---
 
 The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -45,7 +45,7 @@ next_departure:
       default: The default is the station name.
       type: string
     station:
-      description: "ID of the stop or station, e.g. `3000010`."
+      description: "ID of the stop or station, e.g.,  `3000010`."
       required: true
       type: string
     destinations:

@@ -1,6 +1,6 @@
 ---
 title: "Missing Documentation"
-description: "The docs are missing or outdated"
+description: "The documentation is missing or outdated"
 ha_category: Documentation
 ---
 

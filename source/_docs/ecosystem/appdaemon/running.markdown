@@ -8,7 +8,7 @@ As configured, `AppDaemon` comes with a single HelloWorld App that will send a g
 
 ## Docker
 
-Assuming you have set the config up as described above for Docker, you can run it with the command:
+Assuming you have set the configuration up as described above for Docker, you can run it with the command:
 
 ```bash
 $ docker run -d -v <Path to Config>/conf:/conf --name appdaemon acockburn/appdaemon:latest

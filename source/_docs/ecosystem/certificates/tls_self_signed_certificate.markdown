@@ -23,14 +23,16 @@ Change to your Home Assistant [configuration directory](/getting-started/configu
 The certificate **must** be `.pem` extension.
 
 ```bash
-openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out fullchain.pem
+openssl req -sha256 -addext "subjectAltName = IP:X.X.X.X" -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out fullchain.pem
 ```
 
-For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. 
+Where the `X.X.X.X` must be replaced with the IP address of your local machine running Home Assistant (e.g., `192.168.1.20`).
+
+For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process.
 
 At the end you will have two files called `privkey.pem` and `fullchain.pem`. The key and the certificate.
 
-Update the `http:` entry in your `configuration.yaml` file and let it point to your created files. 
+Update the `http:` entry in your `configuration.yaml` file and let it point to your created files.
 
 Hass.io:
 
@@ -48,11 +50,19 @@ http:
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
 
+Docker:
+
+```yaml
+http:
+  ssl_certificate: /config/fullchain.pem
+  ssl_key: /config/privkey.pem
+```
+
 A restart of Home Assistant is required for the new certificate to take effect.
 
 If you get any log error about *ssl_key* or *ssl_certificate* that is **not a file for dictionary value** when run Home Assistant, you need to change owner or access permission of the `.pem` files as following:
 
-Hass.io (through Console or SSH plug-in):
+Home Assistant (through console or SSH add-on):
 
 ```bash
 chown root:root fullchain.pem privkey.pem

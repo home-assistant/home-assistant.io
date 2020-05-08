@@ -4,15 +4,15 @@ description: "AppDaemon is a loosely coupled, multithreaded, sandboxed Python ex
 redirect_from: /ecosystem/appdaemon/
 ---
 
-AppDaemon is a loosely coupled, multithreaded, sandboxed python execution environment for writing automation apps for Home Assistant.
+AppDaemon is a loosely coupled, multithreaded, sandboxed Python execution environment for writing automation apps for Home Assistant.
 
 # Another Take on Automation
 
-AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:
+AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and AppDaemon then comes into its own. It brings quite a few things to the table:
 
 - New paradigm - Some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that automations can't.
 - Ease of use - AppDaemon's API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible; experienced Python programmers should feel right at home.
-- Reuse - write a piece of code once and instantiate it as an App as many times as you need with different parameters; e.g., a motion light program that you can use in five different places around your home. The code stays the same, you just dynamically add new instances of it in the config file.
+- Reuse - write a piece of code once and instantiate it as an App as many times as you need with different parameters; e.g., a motion light program that you can use in five different places around your home. The code stays the same, you just dynamically add new instances of it in the configuration file.
 - Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to its loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it, and restart them to use the new code without the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple Apps and have them picked up dynamically. For a final trick, removing or adding Apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
 - Complex logic - Python's If/Else constructs are clearer and easier to code for arbitrarily complex nested logic.
 - Durable variables and state - Variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened.

@@ -1,7 +1,6 @@
 ---
 title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
-logo: deconz.jpeg
 ha_category:
   - Hub
   - Binary Sensor
@@ -16,6 +15,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@kane610'
+ha_domain: deconz
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Recommended way of running deCONZ
 
-If you are running Hass.io, an official add-on for deCONZ is available in the add-on store.
+An official add-on for deCONZ is available in the Home Assistant add-on store.
 Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
 ### Supported devices
@@ -45,7 +45,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a configuration entry.
 
 You can manually add deCONZ by going to the integrations page.
 
@@ -230,9 +230,9 @@ automation:
 
 {% endraw %}
 
-### Appdaemon
+### AppDaemon
 
-#### Appdaemon event helper
+#### AppDaemon event helper
 
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
@@ -277,7 +277,7 @@ class DeconzHelper(hass.Hass):
 
 Note: the event will not be visible before one event gets sent.
 
-#### Appdaemon remote template
+#### AppDaemon remote template
 
 {% raw %}
 
@@ -313,9 +313,9 @@ class RemoteControl(hass.Hass):
 
 {% endraw %}
 
-#### Appdaemon Ikea Tradfri remote template
+#### AppDaemon IKEA Tradfri remote template
 
-Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
+Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
 {% raw %}
 
@@ -417,6 +417,8 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 
 ### Verified supported covers
 
+- IKEA Fyrtur
+- IKEA Kadrilj
 - Keen vents
 - Xiaomi Aqara Curtain controller
 
@@ -444,7 +446,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
 - Philips Hue LightStrip Plus
 - Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
-- Xiaomi Aqara Smart Led Bulb (white) E27 ZNLDP12LM
+- Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
 
 ## Scene
 

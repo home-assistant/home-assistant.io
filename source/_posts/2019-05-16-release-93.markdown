@@ -853,7 +853,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [systemmonitor docs]: /integrations/systemmonitor/
 [tapsaff docs]: /integrations/tapsaff/
 [ted5000 docs]: /integrations/ted5000/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [tensorflow docs]: /integrations/tensorflow/
 [thethingsnetwork docs]: /integrations/thethingsnetwork/
