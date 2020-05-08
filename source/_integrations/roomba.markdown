@@ -21,7 +21,7 @@ The `roomba` integration allows you to control your [iRobot Roomba](https://www.
 </p>
 
 <div class='note'>
-This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690 or the 960.
+This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690.
 </div>
 
 ## Configuration
